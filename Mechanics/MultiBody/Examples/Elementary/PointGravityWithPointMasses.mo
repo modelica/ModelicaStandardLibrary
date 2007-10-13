@@ -6,40 +6,42 @@ model PointGravityWithPointMasses
   inner Modelica.Mechanics.MultiBody.World world(
     gravityType=2,
     mue=1,
-    gravitySphereDiameter=0.1) annotation (extent=[-20, -20; 0, 0]);
+    gravitySphereDiameter=0.1) annotation (Placement(transformation(extent={{
+            -20,-20},{0,0}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.PointMass body1(
     m=1,
     v_0_start={1,0,0},
     r_0_start={0,0.6,0},
     sphereDiameter=0.1,
     initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity) 
-    annotation (extent=[-20, 20; 0, 40]);
+    annotation (Placement(transformation(extent={{-20,20},{0,40}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.PointMass body2(
     m=1,
     r_0_start={0.6,0.6,0},
     v_0_start={0.6,0,0},
     sphereDiameter=0.1,
     initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity) 
-    annotation (extent=[20, 20; 40, 40]);
+    annotation (Placement(transformation(extent={{20,20},{40,40}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.PointMass body3(
     m=1,
     v_0_start={0.6,0,0},
     sphereDiameter=0.1,
     initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
     r_0_start={0,0.8,0}) 
-    annotation (extent=[-20,60; 0,80]);
+    annotation (Placement(transformation(extent={{-20,60},{0,80}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.PointMass body4(
     m=1,
     v_0_start={0.6,0,0},
     sphereDiameter=0.1,
     initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
     r_0_start={0.3,0.8,0}) 
-    annotation (extent=[20,60; 40,80]);
-  Forces.Spring spring(showMass=false, c=10) annotation (extent=[0,60; 20,80]);
+    annotation (Placement(transformation(extent={{20,60},{40,80}}, rotation=0)));
+  Forces.Spring spring(showMass=false, c=10) annotation (Placement(
+        transformation(extent={{0,60},{20,80}}, rotation=0)));
 equation 
   
   annotation (
-    Diagram,
+    Diagram(graphics),
     experiment(StopTime=2),
     Documentation(info="<HTML>
 <p>
@@ -60,14 +62,12 @@ a default value, when the physical system does not provide the equations.
 </p>
 </HTML>"),
     experimentSetupOutput);
-  connect(spring.frame_a, body3.frame_a) annotation (points=[0,70; -10,70],
-      style(
-      color=10,
-      rgbcolor={95,95,95},
+  connect(spring.frame_a, body3.frame_a) annotation (Line(
+      points={{0,70},{-10,70}}, 
+      color={95,95,95}, 
       thickness=2));
-  connect(spring.frame_b, body4.frame_a) annotation (points=[20,70; 30,70],
-      style(
-      color=10,
-      rgbcolor={95,95,95},
+  connect(spring.frame_b, body4.frame_a) annotation (Line(
+      points={{20,70},{30,70}}, 
+      color={95,95,95}, 
       thickness=2));
 end PointGravityWithPointMasses;

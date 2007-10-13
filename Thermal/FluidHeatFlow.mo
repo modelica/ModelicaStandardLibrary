@@ -113,26 +113,25 @@ and the accompanying <b>disclaimer</b>
        fixed unit bug in SimpleFriction</li>
   </ul>
 </HTML>
-"), Icon(
-      Polygon(points=[-80,10; -60,-10; -80,-30; -20,-30; 0,-10; -20,10; -80,10],
-          style(
-          color=69,
-          rgbcolor={0,128,255},
-          fillColor=69,
-          rgbfillColor={0,128,255})),
-      Polygon(points=[-40,-90; -20,-70; 0,-90; 0,-50; -20,-30; -40,-50; -40,-90],
-          style(
-          color=1,
-          rgbcolor={255,0,0},
-          fillColor=1,
-          rgbfillColor={255,0,0},
-          fillPattern=1)),
-      Polygon(points=[-20,10; 0,-10; -20,-30; 40,-30; 60,-10; 40,10; -20,10],
-                                                                          style(
-          color=45,
-          rgbcolor={255,128,0},
-          fillColor=45,
-          rgbfillColor={255,128,0}))));
+"), Icon(graphics={
+        Polygon(
+          points={{-80,10},{-60,-10},{-80,-30},{-20,-30},{0,-10},{-20,10},{-80,
+              10}}, 
+          lineColor={0,128,255}, 
+          fillColor={0,128,255}, 
+          fillPattern=FillPattern.Solid), 
+        Polygon(
+          points={{-40,-90},{-20,-70},{0,-90},{0,-50},{-20,-30},{-40,-50},{-40,
+              -90}}, 
+          lineColor={255,0,0}, 
+          fillColor={255,0,0}, 
+          fillPattern=FillPattern.Solid), 
+        Polygon(
+          points={{-20,10},{0,-10},{-20,-30},{40,-30},{60,-10},{40,10},{-20,10}}, 
+            
+          lineColor={255,128,0}, 
+          fillColor={255,128,0}, 
+          fillPattern=FillPattern.Solid)}));
   
   package Examples 
     "Examples that demonstrate the usage of the FluidHeatFlow components" 
@@ -191,13 +190,12 @@ and the accompanying <b>disclaimer</b>
        <i>new test example: TwoMass</i></li>
   </ul>
 </HTML>
-"), Icon(Ellipse(extent=[-60,10; 40,-90], style(color=10, rgbcolor={135,135,135})),
-          Polygon(points=[-30,-12; -30,-68; 28,-40; -30,-12], style(
-            color=10,
-            rgbcolor={135,135,135},
-            fillColor=10,
-            rgbfillColor={135,135,135},
-            fillPattern=1))));
+"), Icon(graphics={Ellipse(extent={{-60,10},{40,-90}}, lineColor={135,135,135}), 
+            Polygon(
+            points={{-30,-12},{-30,-68},{28,-40},{-30,-12}}, 
+            lineColor={135,135,135}, 
+            fillColor={135,135,135}, 
+            fillPattern=FillPattern.Solid)}));
     
     model SimpleCooling "Example: simple cooling circuit" 
       extends Modelica.Icons.Example;
@@ -233,7 +231,7 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
 <td valign=\"top\">10 K</td>
 </tr>
 </table>
-</HTML>"), Diagram,
+</HTML>"), Diagram(graphics),
         experiment(StopTime=1.0),
         experimentSetupOutput);
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
@@ -250,54 +248,67 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
         "Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
-        annotation (extent=[-60,-10; -80,10]);
+        annotation (Placement(transformation(extent={{-60,-10},{-80,10}}, 
+              rotation=0)));
       FluidHeatFlow.Sources.PrescribedVolumeFlow Pump1(
         medium=medium,
         m=0,
         T0=Modelica.SIunits.Conversions.from_degC(TAmb)) 
-        annotation (extent=[-40,-10; -20,10]);
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}}, 
+              rotation=0)));
       FluidHeatFlow.Components.HeatedPipe Pipe1(
         medium=medium,
         m=0.1,
         T0=Modelica.SIunits.Conversions.from_degC(TAmb)) 
-        annotation (extent=[0,-10; 20,10]);
+        annotation (Placement(transformation(extent={{0,-10},{20,10}}, rotation
+              =0)));
       FluidHeatFlow.Sources.Ambient Ambient2(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
-        annotation (extent=[40,-10; 60,10]);
+        annotation (Placement(transformation(extent={{40,-10},{60,10}}, 
+              rotation=0)));
       Modelica.Thermal.HeatTransfer.HeatCapacitor HeatCapacitor1(
         T(start=Modelica.SIunits.Conversions.from_degC(TAmb)), C=0.1) 
-        annotation (extent=[50,-60; 30,-40],  rotation=90);
+        annotation (Placement(transformation(
+            origin={40,-50}, 
+            extent={{-10,10},{10,-10}}, 
+            rotation=90)));
       Modelica.Thermal.HeatTransfer.PrescribedHeatFlow PrescribedHeatFlow1 
-        annotation (extent=[-30,-40; -10,-60],
-                                            rotation=0);
+        annotation (Placement(transformation(extent={{-30,-40},{-10,-60}}, 
+              rotation=0)));
       Modelica.Blocks.Sources.Constant VolumeFlow(k=1) 
-        annotation (extent=[-60,10; -40,30]);
+        annotation (Placement(transformation(extent={{-60,10},{-40,30}}, 
+              rotation=0)));
       Modelica.Blocks.Sources.Constant HeatFlow(k=10) 
-        annotation (extent=[-60,-60; -40,-40]);
+        annotation (Placement(transformation(extent={{-60,-60},{-40,-40}}, 
+              rotation=0)));
       Modelica.Thermal.HeatTransfer.Convection Convection1 
-        annotation (extent=[0,-40; 20,-20], rotation=90);
+        annotation (Placement(transformation(
+            origin={10,-30}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=90)));
       Modelica.Blocks.Sources.Constant G(k=1) 
-        annotation (extent=[-30,-40; -10,-20]);
+        annotation (Placement(transformation(extent={{-30,-40},{-10,-20}}, 
+              rotation=0)));
     equation 
       connect(Ambient1.flowPort, Pump1.flowPort_a) 
-        annotation (points=[-60,0; -40,0],   style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{-60,0},{-40,0}}, color={255,0,0}));
       connect(Pump1.flowPort_b, Pipe1.flowPort_a) 
-        annotation (points=[-20,0; 0,0],   style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{-20,0},{0,0}}, color={255,0,0}));
       connect(Pipe1.flowPort_b, Ambient2.flowPort) 
-        annotation (points=[20,0; 40,0],   style(color=1, rgbcolor={255,0,0}));
-      connect(HeatFlow.y, PrescribedHeatFlow1.Q_flow) annotation (points=[-39,
-            -50; -30,-50],   style(color=3, rgbcolor={0,0,255}));
+        annotation (Line(points={{20,0},{40,0}}, color={255,0,0}));
+      connect(HeatFlow.y, PrescribedHeatFlow1.Q_flow) annotation (Line(points={
+              {-39,-50},{-30,-50}}, color={0,0,255}));
       connect(VolumeFlow.y, Pump1.VolumeFlow) 
-                                             annotation (points=[-39,20; -30,20;
-            -30,10], style(color=74, rgbcolor={0,0,127}));
-      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (points=[10,-40;
-            10,-50; -10,-50],         style(color=42, rgbcolor={191,0,0}));
-      connect(Convection1.solid, HeatCapacitor1.port) annotation (points=[10,-40;
-            10,-50; 30,-50],      style(color=42, rgbcolor={191,0,0}));
-      connect(Pipe1.heatPort, Convection1.fluid) annotation (points=[10,-10; 10,
-            -20], style(color=42, rgbcolor={191,0,0}));
-      connect(G.y, Convection1.Gc) annotation (points=[-9,-30; 0,-30], style(
-            color=74, rgbcolor={0,0,127}));
+                                             annotation (Line(points={{-39,20},
+              {-30,20},{-30,10}}, color={0,0,127}));
+      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (Line(
+            points={{10,-40},{10,-50},{-10,-50}}, color={191,0,0}));
+      connect(Convection1.solid, HeatCapacitor1.port) annotation (Line(points={
+              {10,-40},{10,-50},{30,-50}}, color={191,0,0}));
+      connect(Pipe1.heatPort, Convection1.fluid) annotation (Line(points={{10,
+              -10},{10,-20}}, color={191,0,0}));
+      connect(G.y, Convection1.Gc) annotation (Line(points={{-9,-30},{0,-30}}, 
+            color={0,0,127}));
     end SimpleCooling;
     
     model ParallelCooling "Example: coolig circuit with parallel branches" 
@@ -358,7 +369,7 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
 <td valign=\"top\">15 K</td>
 </tr>
 </table>
-</HTML>"), Diagram,
+</HTML>"), Diagram(graphics),
         experiment(StopTime=1.0),
         experimentSetupOutput);
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
@@ -384,88 +395,117 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
         "mixed Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
-        annotation (extent=[-60,-10; -80,10]);
+        annotation (Placement(transformation(extent={{-60,-10},{-80,10}}, 
+              rotation=0)));
       FluidHeatFlow.Sources.PrescribedVolumeFlow Pump1(medium=medium, m=0,
         T0=Modelica.SIunits.Conversions.from_degC(TAmb)) 
-        annotation (extent=[-40,-10; -20,10]);
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}}, 
+              rotation=0)));
       FluidHeatFlow.Components.HeatedPipe Pipe1(
         medium=medium,
         m=0.1,
         T0=Modelica.SIunits.Conversions.from_degC(TAmb)) 
-        annotation (extent=[0,-20; 20,0]);
+        annotation (Placement(transformation(extent={{0,-20},{20,0}}, rotation=
+                0)));
       FluidHeatFlow.Components.HeatedPipe Pipe2(
         medium=medium,
         m=0.1,
         T0=Modelica.SIunits.Conversions.from_degC(TAmb)) 
-        annotation (extent=[0,20; 20,0]);
+        annotation (Placement(transformation(extent={{0,20},{20,0}}, rotation=0)));
       FluidHeatFlow.Components.IsolatedPipe Pipe3(
         medium=medium,
         m=0.1,
         T0=Modelica.SIunits.Conversions.from_degC(TAmb)) 
-        annotation (extent=[40,-10; 60,10]);
+        annotation (Placement(transformation(extent={{40,-10},{60,10}}, 
+              rotation=0)));
       FluidHeatFlow.Sources.Ambient Ambient2(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
-        annotation (extent=[80,-10; 100,10]);
+        annotation (Placement(transformation(extent={{80,-10},{100,10}}, 
+              rotation=0)));
       Modelica.Thermal.HeatTransfer.HeatCapacitor HeatCapacitor1(
         T(start=Modelica.SIunits.Conversions.from_degC(TAmb)), C=0.1) 
-        annotation (extent=[50,-70; 30,-50],  rotation=90);
+        annotation (Placement(transformation(
+            origin={40,-60}, 
+            extent={{-10,10},{10,-10}}, 
+            rotation=90)));
       Modelica.Thermal.HeatTransfer.PrescribedHeatFlow PrescribedHeatFlow1 
-        annotation (extent=[-10,-70; -30,-50], rotation=180);
+        annotation (Placement(transformation(
+            origin={-20,-60}, 
+            extent={{10,-10},{-10,10}}, 
+            rotation=180)));
       Modelica.Thermal.HeatTransfer.Convection Convection1 
-        annotation (extent=[20,-30; 0,-50], rotation=-90);
+        annotation (Placement(transformation(
+            origin={10,-40}, 
+            extent={{10,-10},{-10,10}}, 
+            rotation=270)));
       Modelica.Thermal.HeatTransfer.HeatCapacitor HeatCapacitor2(
         T(start=Modelica.SIunits.Conversions.from_degC(TAmb)), C=0.1) 
-        annotation (extent=[48,70; 28,50],   rotation=90);
+        annotation (Placement(transformation(
+            origin={38,60}, 
+            extent={{10,-10},{-10,10}}, 
+            rotation=90)));
       Modelica.Thermal.HeatTransfer.PrescribedHeatFlow PrescribedHeatFlow2 
-        annotation (extent=[-10,70; -30,50],rotation=180);
+        annotation (Placement(transformation(
+            origin={-20,60}, 
+            extent={{10,10},{-10,-10}}, 
+            rotation=180)));
       Modelica.Thermal.HeatTransfer.Convection Convection2 
-        annotation (extent=[0,50; 20,30], rotation=90);
+        annotation (Placement(transformation(
+            origin={10,40}, 
+            extent={{10,-10},{-10,10}}, 
+            rotation=90)));
       Modelica.Blocks.Sources.Constant VolumeFlow(k=1) 
-        annotation (extent=[-60,10; -40,30]);
+        annotation (Placement(transformation(extent={{-60,10},{-40,30}}, 
+              rotation=0)));
       Modelica.Blocks.Sources.Constant HeatFlow1(k=5) 
-        annotation (extent=[-60,-70; -40,-50]);
+        annotation (Placement(transformation(extent={{-60,-70},{-40,-50}}, 
+              rotation=0)));
       Modelica.Blocks.Sources.Constant HeatFlow2(k=10) 
-        annotation (extent=[-60,50; -40,70]);
+        annotation (Placement(transformation(extent={{-60,50},{-40,70}}, 
+              rotation=0)));
       Modelica.Blocks.Sources.Constant G1(k=1) 
-        annotation (extent=[-30,-50; -10,-30]);
+        annotation (Placement(transformation(extent={{-30,-50},{-10,-30}}, 
+              rotation=0)));
       Modelica.Blocks.Sources.Constant G2(k=1) 
-        annotation (extent=[-30,30; -10,50]);
+        annotation (Placement(transformation(extent={{-30,30},{-10,50}}, 
+              rotation=0)));
     equation 
       connect(Ambient1.flowPort, Pump1.flowPort_a) 
-        annotation (points=[-60,0; -40,0], style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{-60,0},{-40,0}}, color={255,0,0}));
       connect(Pump1.flowPort_b, Pipe1.flowPort_a) 
-        annotation (points=[-20,0; -10,0; -10,-10; 0,-10],
-        style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{-20,0},{-10,0},{-10,-10},{0,-10}}, color={255,
+              0,0}));
       connect(Pump1.flowPort_b, Pipe2.flowPort_a) 
-        annotation (points=[-20,0; -10,0; -10,10; 0,10], style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{-20,0},{-10,0},{-10,10},{0,10}}, color={255,0,
+              0}));
       connect(HeatFlow2.y, PrescribedHeatFlow2.Q_flow) 
-        annotation (points=[-39,60; -30,60], style(color=3, rgbcolor={0,0,255}));
+        annotation (Line(points={{-39,60},{-30,60}}, color={0,0,255}));
       connect(HeatFlow1.y, PrescribedHeatFlow1.Q_flow) 
-        annotation (points=[-39,-60; -30,-60], style(color=3, rgbcolor={0,0,255}));
+        annotation (Line(points={{-39,-60},{-30,-60}}, color={0,0,255}));
       connect(VolumeFlow.y, Pump1.VolumeFlow) 
-        annotation (points=[-39,20; -30,20; -30,10], style(color=74, rgbcolor={0,0,127}));
+        annotation (Line(points={{-39,20},{-30,20},{-30,10}}, color={0,0,127}));
       connect(G2.y, Convection2.Gc) 
-        annotation (points=[-9,40; 0,40], style(color=74, rgbcolor={0,0,127}));
-      connect(G1.y, Convection1.Gc) annotation (points=[-9,-40; 0,-40], style(
-            color=74, rgbcolor={0,0,127}));
-      connect(Pipe1.heatPort, Convection1.fluid) annotation (points=[10,-20; 10,
-            -30], style(color=42, rgbcolor={191,0,0}));
-      connect(Convection2.fluid, Pipe2.heatPort) annotation (points=[10,30; 10,
-            20], style(color=42, rgbcolor={191,0,0}));
-      connect(Convection2.solid, PrescribedHeatFlow2.port) annotation (points=[10,50;
-            10,60; -10,60],        style(color=42, rgbcolor={191,0,0}));
-      connect(Convection2.solid, HeatCapacitor2.port) annotation (points=[10,50;
-            10,60; 28,60], style(color=42, rgbcolor={191,0,0}));
-      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (points=[10,-50;
-            10,-60; -10,-60],         style(color=42, rgbcolor={191,0,0}));
-      connect(Convection1.solid, HeatCapacitor1.port) annotation (points=[10,-50;
-            10,-60; 30,-60],      style(color=42, rgbcolor={191,0,0}));
-      connect(Pipe2.flowPort_b, Pipe3.flowPort_a) annotation (points=[20,10; 30,10;
-            30,0; 40,0], style(color=1, rgbcolor={255,0,0}));
-      connect(Pipe1.flowPort_b, Pipe3.flowPort_a) annotation (points=[20,-10; 30,
-            -10; 30,0; 40,0], style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{-9,40},{0,40}}, color={0,0,127}));
+      connect(G1.y, Convection1.Gc) annotation (Line(points={{-9,-40},{0,-40}}, 
+            color={0,0,127}));
+      connect(Pipe1.heatPort, Convection1.fluid) annotation (Line(points={{10,
+              -20},{10,-30}}, color={191,0,0}));
+      connect(Convection2.fluid, Pipe2.heatPort) annotation (Line(points={{10,
+              30},{10,20}}, color={191,0,0}));
+      connect(Convection2.solid, PrescribedHeatFlow2.port) annotation (Line(
+            points={{10,50},{10,60},{-10,60}}, color={191,0,0}));
+      connect(Convection2.solid, HeatCapacitor2.port) annotation (Line(points={
+              {10,50},{10,60},{28,60}}, color={191,0,0}));
+      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (Line(
+            points={{10,-50},{10,-60},{-10,-60}}, color={191,0,0}));
+      connect(Convection1.solid, HeatCapacitor1.port) annotation (Line(points={
+              {10,-50},{10,-60},{30,-60}}, color={191,0,0}));
+      connect(Pipe2.flowPort_b, Pipe3.flowPort_a) annotation (Line(points={{20,
+              10},{30,10},{30,0},{40,0}}, color={255,0,0}));
+      connect(Pipe1.flowPort_b, Pipe3.flowPort_a) annotation (Line(points={{20,
+              -10},{30,-10},{30,0},{40,0}}, color={255,0,0}));
       connect(Pipe3.flowPort_b, Ambient2.flowPort) 
-        annotation (points=[60,0; 80,0], style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{60,0},{80,0}}, color={255,0,0}));
     end ParallelCooling;
     
     model IndirectCooling "Example: indirect cooling circuit" 
@@ -515,7 +555,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
 <td valign=\"top\">10 K</td>
 </tr>
 </table>
-</HTML>"), Diagram,
+</HTML>"), Diagram(graphics),
         experiment(StopTime=1.5),
         experimentSetupOutput);
       parameter FluidHeatFlow.Media.Medium outerMedium=FluidHeatFlow.Media.Medium() 
@@ -538,21 +578,33 @@ Inner coolant's temperature rise near the source is the same as temperature drop
       output Modelica.SIunits.TemperatureDifference dTouterCoolant=outerPipe.dT 
         "outer Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
-        medium=outerMedium) annotation (extent=[-60,60; -80,80]);
+        medium=outerMedium) annotation (Placement(transformation(extent={{-60,
+                60},{-80,80}}, rotation=0)));
       FluidHeatFlow.Sources.PrescribedVolumeFlow outerPump(
         medium=outerMedium,
         m=0,
         T0=Modelica.SIunits.Conversions.from_degC(TAmb)) 
-        annotation (extent=[-40,60; -20,80]);
+        annotation (Placement(transformation(extent={{-40,60},{-20,80}}, 
+              rotation=0)));
       FluidHeatFlow.Sources.Ambient Ambient2(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
-        medium=outerMedium) annotation (extent=[40,60; 60,80]);
+        medium=outerMedium) annotation (Placement(transformation(extent={{40,60},
+                {60,80}}, rotation=0)));
       Modelica.Thermal.HeatTransfer.ThermalConductor ThermalConductor1(G=1) 
-        annotation (extent=[0,-80; 20,-60], rotation=90);
+        annotation (Placement(transformation(
+            origin={10,-70}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=90)));
       Modelica.Thermal.HeatTransfer.HeatCapacitor HeatCapacitor1(
         T(start=Modelica.SIunits.Conversions.from_degC(TAmb)), C=0.05) 
-        annotation (extent=[50,-100; 30,-80],  rotation=90);
+        annotation (Placement(transformation(
+            origin={40,-90}, 
+            extent={{-10,10},{10,-10}}, 
+            rotation=90)));
       Modelica.Thermal.HeatTransfer.PrescribedHeatFlow PrescribedHeatFlow1 
-        annotation (extent=[-10,-100; -30,-80],rotation=180);
+        annotation (Placement(transformation(
+            origin={-20,-90}, 
+            extent={{10,-10},{-10,10}}, 
+            rotation=180)));
       FluidHeatFlow.Components.HeatedPipe Pipe1(
         medium=innerMedium,
         m=0.1,
@@ -561,79 +613,93 @@ Inner coolant's temperature rise near the source is the same as temperature drop
         dpLaminar=1000,
         V_flowNominal=2,
         dpNominal=2000) 
-        annotation (extent=[20,-50; 0,-30]);
+        annotation (Placement(transformation(extent={{20,-50},{0,-30}}, 
+              rotation=0)));
       FluidHeatFlow.Sources.AbsolutePressure AbsolutePressure1(p=10000,
-        medium=innerMedium) annotation (extent=[40,-40; 60,-20]);
+        medium=innerMedium) annotation (Placement(transformation(extent={{40,
+                -40},{60,-20}}, rotation=0)));
       FluidHeatFlow.Sources.PrescribedVolumeFlow innerPump(
         medium=innerMedium,
         m=0,
         T0=Modelica.SIunits.Conversions.from_degC(TAmb)) 
-        annotation (extent=[-30,-40; -10,-20],
-                                             rotation=90);
+        annotation (Placement(transformation(
+            origin={-20,-30}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=90)));
       Modelica.Blocks.Sources.Constant HeatFlow(k=10) 
-        annotation (extent=[-60,-100; -40,-80]);
+        annotation (Placement(transformation(extent={{-60,-100},{-40,-80}}, 
+              rotation=0)));
       Modelica.Blocks.Sources.Constant outerVolumeFlow(k=1) 
-        annotation (extent=[-60,80; -40,100]);
+        annotation (Placement(transformation(extent={{-60,80},{-40,100}}, 
+              rotation=0)));
       Modelica.Blocks.Sources.Constant innerVolumeFlow(k=1) 
-        annotation (extent=[-60,-40; -40,-20],
-                                             rotation=0);
+        annotation (Placement(transformation(extent={{-60,-40},{-40,-20}}, 
+              rotation=0)));
       Modelica.Blocks.Sources.Constant outerGc(k=2) 
-        annotation (extent=[-40,30; -20,50]);
+        annotation (Placement(transformation(extent={{-40,30},{-20,50}}, 
+              rotation=0)));
       Modelica.Blocks.Sources.Constant innerGc(k=2) 
-        annotation (extent=[-40,20; -20,0]);
+        annotation (Placement(transformation(extent={{-40,20},{-20,0}}, 
+              rotation=0)));
       FluidHeatFlow.Components.HeatedPipe outerPipe(
         medium=outerMedium,
         m=0.1,
         T0=Modelica.SIunits.Conversions.from_degC(TAmb)) 
-        annotation (extent=[0,60; 20,80]);
+        annotation (Placement(transformation(extent={{0,60},{20,80}}, rotation=
+                0)));
       FluidHeatFlow.Components.HeatedPipe innerPipe(
         medium=innerMedium,
         m=0.1,
         T0=Modelica.SIunits.Conversions.from_degC(TAmb)) 
-        annotation (extent=[0,-10; 20,-30]);
+        annotation (Placement(transformation(extent={{0,-10},{20,-30}}, 
+              rotation=0)));
       Modelica.Thermal.HeatTransfer.Convection innerConvection 
-        annotation (extent=[20,0; 0,20], rotation=-90);
+        annotation (Placement(transformation(
+            origin={10,10}, 
+            extent={{-10,10},{10,-10}}, 
+            rotation=270)));
       Modelica.Thermal.HeatTransfer.Convection outerConvection 
-        annotation (extent=[20,50; 0,30], rotation=-90);
+        annotation (Placement(transformation(
+            origin={10,40}, 
+            extent={{10,-10},{-10,10}}, 
+            rotation=270)));
     equation 
       connect(Ambient1.flowPort, outerPump.flowPort_a) 
-        annotation (points=[-60,70; -40,70], style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{-60,70},{-40,70}}, color={255,0,0}));
       connect(PrescribedHeatFlow1.port, ThermalConductor1.port_a) 
-        annotation (points=[-10,-90; 10,-90; 10,-80],
-        style(color=42, rgbcolor={191,0,0}));
+        annotation (Line(points={{-10,-90},{10,-90},{10,-80}}, color={191,0,0}));
       connect(HeatCapacitor1.port, ThermalConductor1.port_a) 
-        annotation (points=[30,-90; 10,-90; 10,-80], style(color=42, rgbcolor={191,0,0}));
+        annotation (Line(points={{30,-90},{10,-90},{10,-80}}, color={191,0,0}));
       connect(Pipe1.heatPort, ThermalConductor1.port_b) 
-        annotation (points=[10,-50; 10,-60], style(color=42, rgbcolor={191,0,0}));
+        annotation (Line(points={{10,-50},{10,-60}}, color={191,0,0}));
       connect(Pipe1.flowPort_b, innerPump.flowPort_a) 
-        annotation (points=[0,-40; -20,-40],          style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{0,-40},{-20,-40}}, color={255,0,0}));
       connect(AbsolutePressure1.flowPort, Pipe1.flowPort_a) 
-        annotation (points=[40,-30; 40,-40; 20,-40], style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{40,-30},{40,-40},{20,-40}}, color={255,0,0}));
       connect(HeatFlow.y, PrescribedHeatFlow1.Q_flow) 
-        annotation (points=[-39,-90; -30,-90], style(color=3, rgbcolor={0,0,255}));
-      connect(outerVolumeFlow.y, outerPump.VolumeFlow)        annotation (
-          points=[-39,90; -30,90; -30,80], style(color=74, rgbcolor={0,0,127}));
-      connect(innerVolumeFlow.y, innerPump.VolumeFlow)        annotation (
-          points=[-39,-30; -30,-30],                                     style(
-            color=74, rgbcolor={0,0,127}));
+        annotation (Line(points={{-39,-90},{-30,-90}}, color={0,0,255}));
+      connect(outerVolumeFlow.y, outerPump.VolumeFlow)        annotation (Line(
+            points={{-39,90},{-30,90},{-30,80}}, color={0,0,127}));
+      connect(innerVolumeFlow.y, innerPump.VolumeFlow)        annotation (Line(
+            points={{-39,-30},{-30,-30}}, color={0,0,127}));
       connect(innerPump.flowPort_b, innerPipe.flowPort_a) 
-        annotation (points=[-20,-20; 0,-20], style(color=1, rgbcolor={255,0,0}));
-      connect(innerPipe.flowPort_b, AbsolutePressure1.flowPort) annotation (points=
-            [20,-20; 40,-20; 40,-30], style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{-20,-20},{0,-20}}, color={255,0,0}));
+      connect(innerPipe.flowPort_b, AbsolutePressure1.flowPort) annotation (Line(
+            points={{20,-20},{40,-20},{40,-30}}, color={255,0,0}));
       connect(outerPump.flowPort_b, outerPipe.flowPort_a) 
-        annotation (points=[-20,70; 0,70], style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{-20,70},{0,70}}, color={255,0,0}));
       connect(outerPipe.flowPort_b, Ambient2.flowPort) 
-        annotation (points=[20,70; 40,70], style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{20,70},{40,70}}, color={255,0,0}));
       connect(outerPipe.heatPort, outerConvection.fluid) 
-        annotation (points=[10,60; 10,50], style(color=42, rgbcolor={191,0,0}));
+        annotation (Line(points={{10,60},{10,50}}, color={191,0,0}));
       connect(outerConvection.solid, innerConvection.solid) 
-        annotation (points=[10,30; 10,20], style(color=42, rgbcolor={191,0,0}));
+        annotation (Line(points={{10,30},{10,20}}, color={191,0,0}));
       connect(innerConvection.fluid, innerPipe.heatPort) 
-        annotation (points=[10,0; 10,-10],  style(color=42, rgbcolor={191,0,0}));
+        annotation (Line(points={{10,0},{10,-10}}, color={191,0,0}));
       connect(innerGc.y, innerConvection.Gc) 
-        annotation (points=[-19,10; 0,10], style(color=74, rgbcolor={0,0,127}));
+        annotation (Line(points={{-19,10},{0,10}}, color={0,0,127}));
       connect(outerGc.y, outerConvection.Gc) 
-        annotation (points=[-19,40; 0,40], style(color=74, rgbcolor={0,0,127}));
+        annotation (Line(points={{-19,40},{0,40}}, color={0,0,127}));
     end IndirectCooling;
     
     model PumpAndValve "Example: cooling circuit with pump and valve" 
@@ -652,7 +718,7 @@ You may try to:
 <li>drive the pump with constant speed and throttle the valve 
     to regulate the volume flow rate of coolant</li>
 </ul>
-</HTML>"), Diagram,
+</HTML>"), Diagram(graphics),
         experiment(StopTime=2),
         experimentSetupOutput);
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
@@ -669,77 +735,95 @@ You may try to:
         "Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
-        annotation (extent=[-70,-10; -90,10]);
+        annotation (Placement(transformation(extent={{-70,-10},{-90,10}}, 
+              rotation=0)));
       FluidHeatFlow.Sources.IdealPump IdealPump1(
         medium=medium,
         m=0,
         T0=Modelica.SIunits.Conversions.from_degC(TAmb)) 
-        annotation (extent=[-60,10; -40,-10]);
+        annotation (Placement(transformation(extent={{-60,10},{-40,-10}}, 
+              rotation=0)));
       FluidHeatFlow.Components.Valve Valve1(
         medium=medium,
         m=0,
         T0=Modelica.SIunits.Conversions.from_degC(TAmb),
         LinearCharacteristic=false) 
-        annotation (extent=[-30,-10; -10,10]);
+        annotation (Placement(transformation(extent={{-30,-10},{-10,10}}, 
+              rotation=0)));
       FluidHeatFlow.Components.HeatedPipe Pipe1(
         medium=medium,
         T0=Modelica.SIunits.Conversions.from_degC(TAmb),
         m=0.1) 
-        annotation (extent=[0,-10; 20,10]);
+        annotation (Placement(transformation(extent={{0,-10},{20,10}}, rotation
+              =0)));
       FluidHeatFlow.Sources.Ambient Ambient2(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
-        annotation (extent=[40,-10; 60,10]);
+        annotation (Placement(transformation(extent={{40,-10},{60,10}}, 
+              rotation=0)));
       Modelica.Thermal.HeatTransfer.HeatCapacitor HeatCapacitor1(
         T(start=Modelica.SIunits.Conversions.from_degC(TAmb)), C=0.1) 
-        annotation (extent=[50,-60; 30,-40],  rotation=90);
+        annotation (Placement(transformation(
+            origin={40,-50}, 
+            extent={{-10,10},{10,-10}}, 
+            rotation=90)));
       Modelica.Thermal.HeatTransfer.PrescribedHeatFlow PrescribedHeatFlow1 
-        annotation (extent=[-30,-40; -10,-60],rotation=0);
+        annotation (Placement(transformation(extent={{-30,-40},{-10,-60}}, 
+              rotation=0)));
       Modelica.Blocks.Sources.Constant HeatFlow(k=10) 
-        annotation (extent=[-60,-60; -40,-40]);
+        annotation (Placement(transformation(extent={{-60,-60},{-40,-40}}, 
+              rotation=0)));
       Modelica.Thermal.HeatTransfer.Convection Convection1 
-        annotation (extent=[0,-40; 20,-20], rotation=90);
+        annotation (Placement(transformation(
+            origin={10,-30}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=90)));
       Modelica.Blocks.Sources.Constant G(k=1) 
-        annotation (extent=[-30,-40; -10,-20]);
+        annotation (Placement(transformation(extent={{-30,-40},{-10,-20}}, 
+              rotation=0)));
       Modelica.Mechanics.Rotational.Speed Speed1(exact=true) 
-        annotation (extent=[-60,20; -40,40], rotation=-90);
+        annotation (Placement(transformation(
+            origin={-50,30}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=270)));
       Modelica.Blocks.Sources.Ramp speedRamp(
         height=0.5,
         offset=0.5,
         duration=0.1,
-        startTime=0.4) annotation (extent=[-80,40; -60,60]);
+        startTime=0.4) annotation (Placement(transformation(extent={{-80,40},{
+                -60,60}}, rotation=0)));
       Modelica.Blocks.Sources.Ramp valveRamp(
         height=0.5,
         offset=0.5,
         duration=0.1,
-        startTime=0.9) annotation (extent=[12,40; -8,60]);
+        startTime=0.9) annotation (Placement(transformation(extent={{12,40},{-8,
+                60}}, rotation=0)));
     equation 
       connect(Pipe1.flowPort_b, Ambient2.flowPort) 
-        annotation (points=[20,0; 40,0],   style(color=1, rgbcolor={255,0,0}));
-      connect(HeatFlow.y, PrescribedHeatFlow1.Q_flow) annotation (points=[-39,
-            -50; -30,-50],   style(color=3, rgbcolor={0,0,255}));
-      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (points=[10,-40;
-            10,-50; -10,-50],         style(color=42, rgbcolor={191,0,0}));
-      connect(Convection1.solid, HeatCapacitor1.port) annotation (points=[10,-40;
-            10,-50; 30,-50],      style(color=42, rgbcolor={191,0,0}));
-      connect(Pipe1.heatPort, Convection1.fluid) annotation (points=[10,-10; 10,
-            -20], style(color=42, rgbcolor={191,0,0}));
-      connect(G.y, Convection1.Gc) annotation (points=[-9,-30; 0,-30], style(
-            color=74, rgbcolor={0,0,127}));
+        annotation (Line(points={{20,0},{40,0}}, color={255,0,0}));
+      connect(HeatFlow.y, PrescribedHeatFlow1.Q_flow) annotation (Line(points={
+              {-39,-50},{-30,-50}}, color={0,0,255}));
+      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (Line(
+            points={{10,-40},{10,-50},{-10,-50}}, color={191,0,0}));
+      connect(Convection1.solid, HeatCapacitor1.port) annotation (Line(points={
+              {10,-40},{10,-50},{30,-50}}, color={191,0,0}));
+      connect(Pipe1.heatPort, Convection1.fluid) annotation (Line(points={{10,
+              -10},{10,-20}}, color={191,0,0}));
+      connect(G.y, Convection1.Gc) annotation (Line(points={{-9,-30},{0,-30}}, 
+            color={0,0,127}));
       connect(Ambient1.flowPort, IdealPump1.flowPort_a) 
-        annotation (points=[-70,0; -60,0], style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{-70,0},{-60,0}}, color={255,0,0}));
       connect(IdealPump1.flowPort_b, Valve1.flowPort_a) 
-        annotation (points=[-40,0; -30,0], style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{-40,0},{-30,0}}, color={255,0,0}));
       connect(Valve1.flowPort_b, Pipe1.flowPort_a) 
-        annotation (points=[-10,0; 0,0],style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{-10,0},{0,0}}, color={255,0,0}));
       connect(Speed1.flange_b, IdealPump1.flange_a) 
-        annotation (points=[-50,20; -50,10], style(color=0, rgbcolor={0,0,0}));
+        annotation (Line(points={{-50,20},{-50,10}}, color={0,0,0}));
       connect(speedRamp.y, Speed1.w_ref) 
-                                     annotation (points=[-59,50; -50,50; -50,42],
-          style(color=74, rgbcolor={0,0,127}));
+                                     annotation (Line(points={{-59,50},{-50,50},
+              {-50,42}}, color={0,0,127}));
       connect(valveRamp.y, Valve1.y) 
-                                 annotation (points=[-9,50; -20,50; -20,9],
-                                                                        style(
-            color=74, rgbcolor={0,0,127}));
+                                 annotation (Line(points={{-9,50},{-20,50},{-20,
+              9}}, color={0,0,127}));
     end PumpAndValve;
     
     model PumpDropOut "Example: cooling circuit with drop out of pump" 
@@ -751,7 +835,7 @@ You may try to:
 Same as 1st test example, but with a drop out of the pump:<br>
 The pump is running for 0.2 s, then shut down (using a ramp of 0.2 s) for 0.2 s, 
 then started again (using a ramp of 0.2 s).
-</HTML>"), Diagram,
+</HTML>"), Diagram(graphics),
         experiment(StopTime=2),
         experimentSetupOutput);
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
@@ -768,57 +852,69 @@ then started again (using a ramp of 0.2 s).
         "Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
-        annotation (extent=[-60,-10; -80,10]);
+        annotation (Placement(transformation(extent={{-60,-10},{-80,10}}, 
+              rotation=0)));
       FluidHeatFlow.Sources.PrescribedVolumeFlow Pump1(
         medium=medium,
         m=0,
         T0=Modelica.SIunits.Conversions.from_degC(TAmb)) 
-        annotation (extent=[-40,-10; -20,10]);
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}}, 
+              rotation=0)));
       FluidHeatFlow.Components.HeatedPipe Pipe1(
         medium=medium,
         T0=Modelica.SIunits.Conversions.from_degC(TAmb),
         m=0.1) 
-        annotation (extent=[0,-10; 20,10]);
+        annotation (Placement(transformation(extent={{0,-10},{20,10}}, rotation
+              =0)));
       FluidHeatFlow.Sources.Ambient Ambient2(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
-        annotation (extent=[40,-10; 60,10]);
+        annotation (Placement(transformation(extent={{40,-10},{60,10}}, 
+              rotation=0)));
       Modelica.Thermal.HeatTransfer.HeatCapacitor HeatCapacitor1(
         T(start=Modelica.SIunits.Conversions.from_degC(TAmb)), C=0.1) 
-        annotation (extent=[50,-60; 30,-40],  rotation=90);
+        annotation (Placement(transformation(
+            origin={40,-50}, 
+            extent={{-10,10},{10,-10}}, 
+            rotation=90)));
       Modelica.Thermal.HeatTransfer.PrescribedHeatFlow PrescribedHeatFlow1 
-        annotation (extent=[-30,-40; -10,-60], rotation=0);
+        annotation (Placement(transformation(extent={{-30,-40},{-10,-60}}, 
+              rotation=0)));
       Utilities.DoubleRamp VolumeFlow 
-        annotation (extent=[-60,10; -40,30]);
+        annotation (Placement(transformation(extent={{-60,10},{-40,30}}, 
+              rotation=0)));
       Modelica.Blocks.Sources.Constant HeatFlow(k=10) 
-        annotation (extent=[-60,-60; -40,-40]);
+        annotation (Placement(transformation(extent={{-60,-60},{-40,-40}}, 
+              rotation=0)));
       Modelica.Thermal.HeatTransfer.Convection Convection1 
-        annotation (extent=[0,-40; 20,-20], rotation=90);
+        annotation (Placement(transformation(
+            origin={10,-30}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=90)));
       Modelica.Blocks.Sources.Constant G(k=1) 
-        annotation (extent=[-30,-40; -10,-20]);
+        annotation (Placement(transformation(extent={{-30,-40},{-10,-20}}, 
+              rotation=0)));
     equation 
       connect(Ambient1.flowPort, Pump1.flowPort_a) 
-        annotation (points=[-60,0; -40,0],   style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{-60,0},{-40,0}}, color={255,0,0}));
       connect(Pump1.flowPort_b, Pipe1.flowPort_a) 
-        annotation (points=[-20,0; 0,0],   style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{-20,0},{0,0}}, color={255,0,0}));
       connect(Pipe1.flowPort_b, Ambient2.flowPort) 
-        annotation (points=[20,0; 40,0],   style(color=1, rgbcolor={255,0,0}));
-      connect(HeatFlow.y, PrescribedHeatFlow1.Q_flow) annotation (points=[-39,
-            -50; -30,-50],   style(color=3, rgbcolor={0,0,255}));
-      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (points=[10,-40;
-            10,-50; -10,-50],         style(color=42, rgbcolor={191,0,0}));
-      connect(Convection1.solid, HeatCapacitor1.port) annotation (points=[10,-40;
-            10,-50; 30,-50],      style(color=42, rgbcolor={191,0,0}));
-      connect(Pipe1.heatPort, Convection1.fluid) annotation (points=[10,-10; 10,
-            -20], style(color=42, rgbcolor={191,0,0}));
-      connect(G.y, Convection1.Gc) annotation (points=[-9,-30; 0,-30], style(
-            color=74, rgbcolor={0,0,127}));
-      connect(VolumeFlow.y, Pump1.VolumeFlow) annotation (points=[-39,20; -30,
-            20; -30,10], style(
-          color=74,
-          rgbcolor={0,0,127},
-          fillColor=0,
-          rgbfillColor={0,0,0},
-          fillPattern=1));
+        annotation (Line(points={{20,0},{40,0}}, color={255,0,0}));
+      connect(HeatFlow.y, PrescribedHeatFlow1.Q_flow) annotation (Line(points={
+              {-39,-50},{-30,-50}}, color={0,0,255}));
+      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (Line(
+            points={{10,-40},{10,-50},{-10,-50}}, color={191,0,0}));
+      connect(Convection1.solid, HeatCapacitor1.port) annotation (Line(points={
+              {10,-40},{10,-50},{30,-50}}, color={191,0,0}));
+      connect(Pipe1.heatPort, Convection1.fluid) annotation (Line(points={{10,
+              -10},{10,-20}}, color={191,0,0}));
+      connect(G.y, Convection1.Gc) annotation (Line(points={{-9,-30},{0,-30}}, 
+            color={0,0,127}));
+      connect(VolumeFlow.y, Pump1.VolumeFlow) annotation (Line(
+          points={{-39,20},{-30,20},{-30,10}}, 
+          color={0,0,127}, 
+          fillColor={0,0,0}, 
+          fillPattern=FillPattern.Solid));
     end PumpDropOut;
     
     model ParallelPumpDropOut 
@@ -831,7 +927,7 @@ then started again (using a ramp of 0.2 s).
 Same as 2nd test example, but with a drop out of the pump:<br>
 The pump is running for 0.2 s, then shut down (using a ramp of 0.2 s) for 0.2 s, 
 then started again (using a ramp of 0.2 s).
-</HTML>"), Diagram,
+</HTML>"), Diagram(graphics),
         experiment(StopTime=2, Algorithm="Lsodar"),
         experimentSetupOutput);
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
@@ -857,88 +953,117 @@ then started again (using a ramp of 0.2 s).
         "mixed Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
-        annotation (extent=[-60,-10; -80,10]);
+        annotation (Placement(transformation(extent={{-60,-10},{-80,10}}, 
+              rotation=0)));
       FluidHeatFlow.Sources.PrescribedVolumeFlow Pump1(medium=medium, m=0,
         T0=Modelica.SIunits.Conversions.from_degC(TAmb)) 
-        annotation (extent=[-40,-10; -20,10]);
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}}, 
+              rotation=0)));
       FluidHeatFlow.Components.HeatedPipe Pipe1(
         medium=medium,
         m=0.1,
         T0=Modelica.SIunits.Conversions.from_degC(TAmb)) 
-        annotation (extent=[0,-20; 20,0]);
+        annotation (Placement(transformation(extent={{0,-20},{20,0}}, rotation=
+                0)));
       FluidHeatFlow.Components.HeatedPipe Pipe2(
         medium=medium,
         m=0.1,
         T0=Modelica.SIunits.Conversions.from_degC(TAmb)) 
-        annotation (extent=[0,20; 20,0]);
+        annotation (Placement(transformation(extent={{0,20},{20,0}}, rotation=0)));
       FluidHeatFlow.Components.IsolatedPipe Pipe3(
         medium=medium,
         T0=Modelica.SIunits.Conversions.from_degC(TAmb),
         m=0.1) 
-        annotation (extent=[40,-10; 60,10]);
+        annotation (Placement(transformation(extent={{40,-10},{60,10}}, 
+              rotation=0)));
       FluidHeatFlow.Sources.Ambient Ambient2(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
-        annotation (extent=[80,-10; 100,10]);
+        annotation (Placement(transformation(extent={{80,-10},{100,10}}, 
+              rotation=0)));
       Modelica.Thermal.HeatTransfer.HeatCapacitor HeatCapacitor1(
         T(start=Modelica.SIunits.Conversions.from_degC(TAmb)), C=0.1) 
-        annotation (extent=[50,-70; 30,-50],  rotation=90);
+        annotation (Placement(transformation(
+            origin={40,-60}, 
+            extent={{-10,10},{10,-10}}, 
+            rotation=90)));
       Modelica.Thermal.HeatTransfer.PrescribedHeatFlow PrescribedHeatFlow1 
-        annotation (extent=[-10,-70; -30,-50], rotation=180);
+        annotation (Placement(transformation(
+            origin={-20,-60}, 
+            extent={{10,-10},{-10,10}}, 
+            rotation=180)));
       Modelica.Thermal.HeatTransfer.Convection Convection1 
-        annotation (extent=[20,-30; 0,-50], rotation=-90);
+        annotation (Placement(transformation(
+            origin={10,-40}, 
+            extent={{10,-10},{-10,10}}, 
+            rotation=270)));
       Modelica.Thermal.HeatTransfer.HeatCapacitor HeatCapacitor2(
         T(start=Modelica.SIunits.Conversions.from_degC(TAmb)), C=0.1) 
-        annotation (extent=[48,70; 28,50],   rotation=90);
+        annotation (Placement(transformation(
+            origin={38,60}, 
+            extent={{10,-10},{-10,10}}, 
+            rotation=90)));
       Modelica.Thermal.HeatTransfer.PrescribedHeatFlow PrescribedHeatFlow2 
-        annotation (extent=[-10,70; -30,50],rotation=180);
+        annotation (Placement(transformation(
+            origin={-20,60}, 
+            extent={{10,10},{-10,-10}}, 
+            rotation=180)));
       Modelica.Thermal.HeatTransfer.Convection Convection2 
-        annotation (extent=[0,50; 20,30], rotation=90);
+        annotation (Placement(transformation(
+            origin={10,40}, 
+            extent={{10,-10},{-10,10}}, 
+            rotation=90)));
       Utilities.DoubleRamp VolumeFlow 
-        annotation (extent=[-60,10; -40,30]);
+        annotation (Placement(transformation(extent={{-60,10},{-40,30}}, 
+              rotation=0)));
       Modelica.Blocks.Sources.Constant HeatFlow1(k=5) 
-        annotation (extent=[-60,-70; -40,-50]);
+        annotation (Placement(transformation(extent={{-60,-70},{-40,-50}}, 
+              rotation=0)));
       Modelica.Blocks.Sources.Constant HeatFlow2(k=10) 
-        annotation (extent=[-60,50; -40,70]);
+        annotation (Placement(transformation(extent={{-60,50},{-40,70}}, 
+              rotation=0)));
       Modelica.Blocks.Sources.Constant G1(k=1) 
-        annotation (extent=[-30,-50; -10,-30]);
+        annotation (Placement(transformation(extent={{-30,-50},{-10,-30}}, 
+              rotation=0)));
       Modelica.Blocks.Sources.Constant G2(k=1) 
-        annotation (extent=[-30,30; -10,50]);
+        annotation (Placement(transformation(extent={{-30,30},{-10,50}}, 
+              rotation=0)));
     equation 
       connect(Ambient1.flowPort, Pump1.flowPort_a) 
-        annotation (points=[-60,0; -40,0], style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{-60,0},{-40,0}}, color={255,0,0}));
       connect(Pump1.flowPort_b, Pipe1.flowPort_a) 
-        annotation (points=[-20,0; -10,0; -10,-10; 0,-10],
-        style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{-20,0},{-10,0},{-10,-10},{0,-10}}, color={255,
+              0,0}));
       connect(Pump1.flowPort_b, Pipe2.flowPort_a) 
-        annotation (points=[-20,0; -10,0; -10,10; 0,10], style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{-20,0},{-10,0},{-10,10},{0,10}}, color={255,0,
+              0}));
       connect(HeatFlow2.y, PrescribedHeatFlow2.Q_flow) 
-        annotation (points=[-39,60; -30,60], style(color=3, rgbcolor={0,0,255}));
+        annotation (Line(points={{-39,60},{-30,60}}, color={0,0,255}));
       connect(HeatFlow1.y, PrescribedHeatFlow1.Q_flow) 
-        annotation (points=[-39,-60; -30,-60], style(color=3, rgbcolor={0,0,255}));
+        annotation (Line(points={{-39,-60},{-30,-60}}, color={0,0,255}));
       connect(G2.y, Convection2.Gc) 
-        annotation (points=[-9,40; 0,40], style(color=74, rgbcolor={0,0,127}));
-      connect(G1.y, Convection1.Gc) annotation (points=[-9,-40; 0,-40], style(
-            color=74, rgbcolor={0,0,127}));
-      connect(Pipe1.heatPort, Convection1.fluid) annotation (points=[10,-20; 10,
-            -30], style(color=42, rgbcolor={191,0,0}));
-      connect(Convection2.fluid, Pipe2.heatPort) annotation (points=[10,30; 10,
-            20], style(color=42, rgbcolor={191,0,0}));
-      connect(Convection2.solid, PrescribedHeatFlow2.port) annotation (points=[10,50;
-            10,60; -10,60],        style(color=42, rgbcolor={191,0,0}));
-      connect(Convection2.solid, HeatCapacitor2.port) annotation (points=[10,50;
-            10,60; 28,60], style(color=42, rgbcolor={191,0,0}));
-      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (points=[10,-50;
-            10,-60; -10,-60],         style(color=42, rgbcolor={191,0,0}));
-      connect(Convection1.solid, HeatCapacitor1.port) annotation (points=[10,-50;
-            10,-60; 30,-60],      style(color=42, rgbcolor={191,0,0}));
-      connect(Pipe2.flowPort_b, Pipe3.flowPort_a) annotation (points=[20,10; 30,10;
-            30,0; 40,0], style(color=1, rgbcolor={255,0,0}));
-      connect(Pipe1.flowPort_b, Pipe3.flowPort_a) annotation (points=[20,-10; 30,
-            -10; 30,0; 40,0], style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{-9,40},{0,40}}, color={0,0,127}));
+      connect(G1.y, Convection1.Gc) annotation (Line(points={{-9,-40},{0,-40}}, 
+            color={0,0,127}));
+      connect(Pipe1.heatPort, Convection1.fluid) annotation (Line(points={{10,
+              -20},{10,-30}}, color={191,0,0}));
+      connect(Convection2.fluid, Pipe2.heatPort) annotation (Line(points={{10,
+              30},{10,20}}, color={191,0,0}));
+      connect(Convection2.solid, PrescribedHeatFlow2.port) annotation (Line(
+            points={{10,50},{10,60},{-10,60}}, color={191,0,0}));
+      connect(Convection2.solid, HeatCapacitor2.port) annotation (Line(points={
+              {10,50},{10,60},{28,60}}, color={191,0,0}));
+      connect(Convection1.solid, PrescribedHeatFlow1.port) annotation (Line(
+            points={{10,-50},{10,-60},{-10,-60}}, color={191,0,0}));
+      connect(Convection1.solid, HeatCapacitor1.port) annotation (Line(points={
+              {10,-50},{10,-60},{30,-60}}, color={191,0,0}));
+      connect(Pipe2.flowPort_b, Pipe3.flowPort_a) annotation (Line(points={{20,
+              10},{30,10},{30,0},{40,0}}, color={255,0,0}));
+      connect(Pipe1.flowPort_b, Pipe3.flowPort_a) annotation (Line(points={{20,
+              -10},{30,-10},{30,0},{40,0}}, color={255,0,0}));
       connect(Pipe3.flowPort_b, Ambient2.flowPort) 
-        annotation (points=[60,0; 80,0], style(color=1, rgbcolor={255,0,0}));
-      connect(VolumeFlow.y, Pump1.VolumeFlow) annotation (points=[-39,20; -30,20;
-            -30,10], style(color=74, rgbcolor={0,0,127}));
+        annotation (Line(points={{60,0},{80,0}}, color={255,0,0}));
+      connect(VolumeFlow.y, Pump1.VolumeFlow) annotation (Line(points={{-39,20},
+              {-30,20},{-30,10}}, color={0,0,127}));
     end ParallelPumpDropOut;
     
     model OneMass "Example: ccoling of one hot mass" 
@@ -950,7 +1075,7 @@ then started again (using a ramp of 0.2 s).
 A thermal capacity is coupled with a coolant flow. 
 Different inital temperatures of thermal capacity and pipe's coolant get ambient's temperature, 
 the time behaviour depending on coolant flow.
-</HTML>"), Diagram,
+</HTML>"), Diagram(graphics),
         experiment(StopTime=1.0),
         experimentSetupOutput);
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
@@ -969,42 +1094,53 @@ the time behaviour depending on coolant flow.
         "Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
-        annotation (extent=[-60,-10; -80,10]);
+        annotation (Placement(transformation(extent={{-60,-10},{-80,10}}, 
+              rotation=0)));
       FluidHeatFlow.Sources.PrescribedVolumeFlow Pump1(
         medium=medium,
         m=0,
         T0=Modelica.SIunits.Conversions.from_degC(TAmb)) 
-        annotation (extent=[-40,-10; -20,10]);
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}}, 
+              rotation=0)));
       FluidHeatFlow.Components.HeatedPipe Pipe1(
         medium=medium,
         m=0.1,
         T0=Modelica.SIunits.Conversions.from_degC(TAmb)) 
-        annotation (extent=[0,-10; 20,10]);
+        annotation (Placement(transformation(extent={{0,-10},{20,10}}, rotation
+              =0)));
       FluidHeatFlow.Sources.Ambient Ambient2(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
-        annotation (extent=[40,-10; 60,10]);
+        annotation (Placement(transformation(extent={{40,-10},{60,10}}, 
+              rotation=0)));
       Modelica.Thermal.HeatTransfer.HeatCapacitor HeatCapacitor1(
         C=0.1, T(start=Modelica.SIunits.Conversions.from_degC(TMass))) 
-        annotation (extent=[20,-70; 0,-50],   rotation=180);
+        annotation (Placement(transformation(
+            origin={10,-60}, 
+            extent={{10,-10},{-10,10}}, 
+            rotation=180)));
       Modelica.Thermal.HeatTransfer.ThermalConductor ThermalConductor1(G=1) 
-        annotation (extent=[0,-40; 20,-20], rotation=90);
+        annotation (Placement(transformation(
+            origin={10,-30}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=90)));
       Utilities.DoubleRamp DoubleRamp1(
         offset=0,
         height_1=1,
-        height_2=-2) annotation (extent=[-60,10; -40,30]);
+        height_2=-2) annotation (Placement(transformation(extent={{-60,10},{-40,
+                30}}, rotation=0)));
     equation 
       connect(Ambient1.flowPort, Pump1.flowPort_a) 
-        annotation (points=[-60,0; -40,0],   style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{-60,0},{-40,0}}, color={255,0,0}));
       connect(Pump1.flowPort_b, Pipe1.flowPort_a) 
-        annotation (points=[-20,0; 0,0],   style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{-20,0},{0,0}}, color={255,0,0}));
       connect(Pipe1.flowPort_b, Ambient2.flowPort) 
-        annotation (points=[20,0; 40,0],   style(color=1, rgbcolor={255,0,0}));
-      connect(ThermalConductor1.port_a, HeatCapacitor1.port) annotation (points=[10,-40;
-            10,-40; 10,-50; 10,-50],        style(color=42, rgbcolor={191,0,0}));
+        annotation (Line(points={{20,0},{40,0}}, color={255,0,0}));
+      connect(ThermalConductor1.port_a, HeatCapacitor1.port) annotation (Line(
+            points={{10,-40},{10,-40},{10,-50},{10,-50}}, color={191,0,0}));
       connect(Pipe1.heatPort, ThermalConductor1.port_b) 
-        annotation (points=[10,-10; 10,-20], style(color=42, rgbcolor={191,0,0}));
-      connect(DoubleRamp1.y, Pump1.VolumeFlow) annotation (points=[-39,20; -30,20;
-            -30,10], style(color=74, rgbcolor={0,0,127}));
+        annotation (Line(points={{10,-10},{10,-20}}, color={191,0,0}));
+      connect(DoubleRamp1.y, Pump1.VolumeFlow) annotation (Line(points={{-39,20},
+              {-30,20},{-30,10}}, color={0,0,127}));
     end OneMass;
     
     model TwoMass "Example: cooling of two hot masses" 
@@ -1016,7 +1152,7 @@ the time behaviour depending on coolant flow.
 Two thermal capacities are coupled with two parallel coolant flow. 
 Different inital temperatures of thermal capacities and pipe's coolants get ambient's temperature, 
 the time behaviour depending on coolant flow.
-</HTML>"), Diagram,
+</HTML>"), Diagram(graphics),
         experiment(StopTime=1.0),
         experimentSetupOutput);
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
@@ -1046,69 +1182,87 @@ the time behaviour depending on coolant flow.
         "mixed Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient Ambient1(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
-        annotation (extent=[-60,-10; -80,10]);
+        annotation (Placement(transformation(extent={{-60,-10},{-80,10}}, 
+              rotation=0)));
       FluidHeatFlow.Sources.PrescribedVolumeFlow Pump1(medium=medium, m=0,
         T0=Modelica.SIunits.Conversions.from_degC(TAmb)) 
-        annotation (extent=[-40,-10; -20,10]);
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}}, 
+              rotation=0)));
       FluidHeatFlow.Components.HeatedPipe Pipe1(
         medium=medium,
         m=0.1,
         T0=Modelica.SIunits.Conversions.from_degC(TAmb)) 
-        annotation (extent=[0,-20; 20,0]);
+        annotation (Placement(transformation(extent={{0,-20},{20,0}}, rotation=
+                0)));
       FluidHeatFlow.Components.HeatedPipe Pipe2(
         medium=medium,
         m=0.1,
         T0=Modelica.SIunits.Conversions.from_degC(TAmb)) 
-        annotation (extent=[0,20; 20,0]);
+        annotation (Placement(transformation(extent={{0,20},{20,0}}, rotation=0)));
       FluidHeatFlow.Components.IsolatedPipe Pipe3(
         medium=medium,
         m=0.1,
         T0=Modelica.SIunits.Conversions.from_degC(TAmb)) 
-        annotation (extent=[40,-10; 60,10]);
+        annotation (Placement(transformation(extent={{40,-10},{60,10}}, 
+              rotation=0)));
       FluidHeatFlow.Sources.Ambient Ambient2(T_Ambient=Modelica.SIunits.Conversions.from_degC(TAmb),
         medium=medium) 
-        annotation (extent=[80,-10; 100,10]);
+        annotation (Placement(transformation(extent={{80,-10},{100,10}}, 
+              rotation=0)));
       Modelica.Thermal.HeatTransfer.HeatCapacitor HeatCapacitor1(
                                                                C=0.1, T(start=
               Modelica.SIunits.Conversions.from_degC(TMass1))) 
-        annotation (extent=[20,-80; 0,-60],   rotation=180);
+        annotation (Placement(transformation(
+            origin={10,-70}, 
+            extent={{10,-10},{-10,10}}, 
+            rotation=180)));
       Modelica.Thermal.HeatTransfer.ThermalConductor ThermalConductor1(G=1) 
-        annotation (extent=[0,-50; 20,-30], rotation=90);
+        annotation (Placement(transformation(
+            origin={10,-40}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=90)));
       Modelica.Thermal.HeatTransfer.HeatCapacitor HeatCapacitor2(
                                                                C=0.1, T(start=
               Modelica.SIunits.Conversions.from_degC(TMass2))) 
-        annotation (extent=[20,80; 0,60],    rotation=180);
+        annotation (Placement(transformation(
+            origin={10,70}, 
+            extent={{10,10},{-10,-10}}, 
+            rotation=180)));
       Modelica.Thermal.HeatTransfer.ThermalConductor ThermalConductor2(G=1) 
-        annotation (extent=[0,50; 20,30],   rotation=90);
+        annotation (Placement(transformation(
+            origin={10,40}, 
+            extent={{10,-10},{-10,10}}, 
+            rotation=90)));
       Utilities.DoubleRamp DoubleRamp1(
         offset=0,
         height_1=1,
-        height_2=-2) annotation (extent=[-60,10; -40,30]);
+        height_2=-2) annotation (Placement(transformation(extent={{-60,10},{-40,
+                30}}, rotation=0)));
     equation 
       connect(Ambient1.flowPort, Pump1.flowPort_a) 
-        annotation (points=[-60,0; -40,0], style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{-60,0},{-40,0}}, color={255,0,0}));
       connect(Pump1.flowPort_b, Pipe1.flowPort_a) 
-        annotation (points=[-20,0; -10,0; -10,-10; 0,-10],
-        style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{-20,0},{-10,0},{-10,-10},{0,-10}}, color={255,
+              0,0}));
       connect(Pump1.flowPort_b, Pipe2.flowPort_a) 
-        annotation (points=[-20,0; -10,0; -10,10; 0,10], style(color=1, rgbcolor={255,0,0}));
-      connect(Pipe2.flowPort_b, Pipe3.flowPort_a) annotation (points=[20,10; 30,10;
-            30,0; 40,0], style(color=1, rgbcolor={255,0,0}));
-      connect(Pipe1.flowPort_b, Pipe3.flowPort_a) annotation (points=[20,-10; 30,
-            -10; 30,0; 40,0], style(color=1, rgbcolor={255,0,0}));
+        annotation (Line(points={{-20,0},{-10,0},{-10,10},{0,10}}, color={255,0,
+              0}));
+      connect(Pipe2.flowPort_b, Pipe3.flowPort_a) annotation (Line(points={{20,
+              10},{30,10},{30,0},{40,0}}, color={255,0,0}));
+      connect(Pipe1.flowPort_b, Pipe3.flowPort_a) annotation (Line(points={{20,
+              -10},{30,-10},{30,0},{40,0}}, color={255,0,0}));
       connect(Pipe3.flowPort_b, Ambient2.flowPort) 
-        annotation (points=[60,0; 80,0], style(color=1, rgbcolor={255,0,0}));
-      connect(HeatCapacitor2.port, ThermalConductor2.port_a) annotation (points=[10,60;
-            10,55.5; 10,50; 10,50],   style(color=42, rgbcolor={191,0,0}));
+        annotation (Line(points={{60,0},{80,0}}, color={255,0,0}));
+      connect(HeatCapacitor2.port, ThermalConductor2.port_a) annotation (Line(
+            points={{10,60},{10,55.5},{10,50},{10,50}}, color={191,0,0}));
       connect(ThermalConductor2.port_b, Pipe2.heatPort) 
-        annotation (points=[10,30; 10,20], style(color=42, rgbcolor={191,0,0}));
-      connect(Pipe1.heatPort, ThermalConductor1.port_b) annotation (points=[10,-20;
-            10,-30],         style(color=42, rgbcolor={191,0,0}));
-      connect(ThermalConductor1.port_a, HeatCapacitor1.port) annotation (points=[10,-50;
-            10,-50; 10,-60; 10,-60],
-                                  style(color=42, rgbcolor={191,0,0}));
-      connect(DoubleRamp1.y, Pump1.VolumeFlow) annotation (points=[-39,20; -30,
-            20; -30,10], style(color=74, rgbcolor={0,0,127}));
+        annotation (Line(points={{10,30},{10,20}}, color={191,0,0}));
+      connect(Pipe1.heatPort, ThermalConductor1.port_b) annotation (Line(points
+            ={{10,-20},{10,-30}}, color={191,0,0}));
+      connect(ThermalConductor1.port_a, HeatCapacitor1.port) annotation (Line(
+            points={{10,-50},{10,-50},{10,-60},{10,-60}}, color={191,0,0}));
+      connect(DoubleRamp1.y, Pump1.VolumeFlow) annotation (Line(points={{-39,20},
+              {-30,20},{-30,10}}, color={0,0,127}));
     end TwoMass;
     
     package Utilities "Utility models for examples" 
@@ -1168,42 +1322,49 @@ and the accompanying <b>disclaimer</b>
         annotation (
           Documentation(info="<HTML>
 Block generating the sum of two ramps.
-</HTML>"),Diagram,
-          Icon(
-            Line(points=[-80,68; -80,-80],   style(color=8)),
-            Polygon(points=[-80,90; -88,68; -72,68; -80,90],     style(color=8,
-                   fillColor=8)),
-            Line(points=[-90,-70; 82,-70],   style(color=8)),
-            Polygon(points=[90,-70; 68,-62; 68,-78; 90,-70],     style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-               Line(points=[-80,-60; -50,-60; -30,60; 10,60; 30,-20; 70,-20],
-                style(
-                color=0,
-                rgbcolor={0,0,0},
-                fillColor=0,
-                rgbfillColor={0,0,0}))));
-        Modelica.Blocks.Math.Add Add1 annotation (extent=[10,-10; 30,10]);
+</HTML>"),Diagram(graphics),
+          Icon(graphics={
+              Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+              Polygon(
+                points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
+                lineColor={192,192,192}, 
+                fillColor={192,192,192}, 
+                fillPattern=FillPattern.Solid), 
+              Line(points={{-90,-70},{82,-70}}, color={192,192,192}), 
+              Polygon(
+                points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
+                lineColor={192,192,192}, 
+                fillColor={192,192,192}, 
+                fillPattern=FillPattern.Solid), 
+              Line(
+                points={{-80,-60},{-50,-60},{-30,60},{10,60},{30,-20},{70,-20}}, 
+                  
+                color={0,0,0}, 
+                fillColor={0,0,0}, 
+                fillPattern=FillPattern.Solid)}));
+        Modelica.Blocks.Math.Add Add1 annotation (Placement(transformation(
+                extent={{10,-10},{30,10}}, rotation=0)));
         Modelica.Blocks.Sources.Ramp Ramp1(
           final height=height_1,
           final duration=duration_1,
           final startTime=startTime,
           final offset=offset) 
-                         annotation (extent=[-30,10; -10,30]);
+                         annotation (Placement(transformation(extent={{-30,10},
+                  {-10,30}}, rotation=0)));
         Modelica.Blocks.Sources.Ramp Ramp2(
           final height=height_2,
           final duration=duration_2,
           final startTime=startTime + duration_1 + interval,
           final offset=0) 
-          annotation (extent=[-30,-30; -10,-10]);
+          annotation (Placement(transformation(extent={{-30,-30},{-10,-10}}, 
+                rotation=0)));
       equation 
-        connect(Ramp1.y,Add1. u1) annotation (points=[-9,20; 0,20; 0,6; 8,6],
-                   style(color=74, rgbcolor={0,0,127}));
-        connect(Ramp2.y,Add1. u2) annotation (points=[-9,-20; 0,-20; 0,-6; 8,-6],
-                   style(color=74, rgbcolor={0,0,127}));
-        connect(Add1.y, y) annotation (points=[31,0; 110,0], style(color=74,
-              rgbcolor={0,0,127}));
+        connect(Ramp1.y,Add1. u1) annotation (Line(points={{-9,20},{0,20},{0,6},
+                {8,6}}, color={0,0,127}));
+        connect(Ramp2.y,Add1. u2) annotation (Line(points={{-9,-20},{0,-20},{0,
+                -6},{8,-6}}, color={0,0,127}));
+        connect(Add1.y, y) annotation (Line(points={{31,0},{110,0}}, color={0,0,
+                127}));
       end DoubleRamp;
     end Utilities;
   end Examples;
@@ -1257,25 +1418,22 @@ and the accompanying <b>disclaimer</b>
        friction losses are fed to medium</li>
   </ul>
 </HTML>
-"), Icon(
-        Polygon(points=[-56,10; -56,-90; -6,-40; 44,10; 44,-90; -56,10], style(
-            color=3,
-            rgbcolor={0,0,255},
-            fillColor=69,
-            rgbfillColor={0,128,255},
-            fillPattern=1)),
-        Polygon(points=[-16,10; 4,10; -6,-10; -16,10], style(
-            color=74,
-            rgbcolor={0,0,127},
-            fillColor=74,
-            rgbfillColor={0,0,127},
-            fillPattern=1)),
-        Line(points=[-6,-10; -6,-40; -6,-38], style(
-            color=74,
-            rgbcolor={0,0,127},
-            fillColor=3,
-            rgbfillColor={0,0,255},
-            fillPattern=1))));
+"), Icon(graphics={
+          Polygon(
+            points={{-56,10},{-56,-90},{-6,-40},{44,10},{44,-90},{-56,10}}, 
+            lineColor={0,0,255}, 
+            fillColor={0,128,255}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-16,10},{4,10},{-6,-10},{-16,10}}, 
+            lineColor={0,0,127}, 
+            fillColor={0,0,127}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-6,-10},{-6,-40},{-6,-38}}, 
+            color={0,0,127}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid)}));
     
     model IsolatedPipe "Pipe without heat exchange" 
       
@@ -1285,12 +1443,12 @@ Thermodynamic equations are defined by Partials.TwoPortMass(Q_flow = 0).<br>
 <b>Note:</b> Setting parameter m (mass of medium within pipe) to zero
 leads to neglection of temperature transient cv*m*der(T).
 </HTML>"),
-      Icon(Rectangle(extent=[-90, 20; 90, -20], style(
-              color=1,
-              rgbcolor={255,0,0},
-              fillColor=3,
-              rgbfillColor={0,0,255})),
-              Text(extent=[-150,100; 150,40], string="%name")), Diagram);
+      Icon(graphics={Rectangle(
+              extent={{-90,20},{90,-20}}, 
+              lineColor={255,0,0}, 
+              fillColor={0,0,255}, 
+              fillPattern=FillPattern.Solid), Text(extent={{-150,100},{150,40}}, 
+                textString =                         "%name")}),Diagram(graphics));
       extends Interfaces.Partials.TwoPort(final tapT=1);
       extends Interfaces.Partials.SimpleFriction;
       parameter Modelica.SIunits.Length h_g=0 
@@ -1314,25 +1472,28 @@ leads to neglection of temperature transient cv*m*der(T).<br>
 <b>Note:</b> Injecting heat into a pipe with zero massflow causes 
 temperature rise defined by storing heat in medium's mass.
 </HTML>"),
-      Icon(Rectangle(extent=[-90, 20; 90, -20], style(
-              color=1,
-              rgbcolor={255,0,0},
-              fillColor=3,
-              rgbfillColor={0,0,255})),
-              Text(extent=[-150,100; 150,40], string="%name"),
-              Polygon(points=[-10,-90; -10,-40; 0,-20; 10,
-                -40; 10,-90; -10,-90], style(
-              color=1,
-              rgbcolor={255,0,0},
-              fillColor=1,
-              rgbfillColor={255,0,0},
-              fillPattern=1))), Diagram);
+      Icon(graphics={
+            Rectangle(
+              extent={{-90,20},{90,-20}}, 
+              lineColor={255,0,0}, 
+              fillColor={0,0,255}, 
+              fillPattern=FillPattern.Solid), 
+            Text(extent={{-150,100},{150,40}}, textString=
+                                                     "%name"), 
+            Polygon(
+              points={{-10,-90},{-10,-40},{0,-20},{10,-40},{10,-90},{-10,-90}}, 
+                
+              lineColor={255,0,0}, 
+              fillColor={255,0,0}, 
+              fillPattern=FillPattern.Solid)}),
+                                Diagram(graphics));
       extends Interfaces.Partials.TwoPort;
       extends Interfaces.Partials.SimpleFriction;
       parameter Modelica.SIunits.Length h_g=0 
         "Geodetic height (heigth difference from flowPort_a to flowPort_b)";
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort 
-        annotation (extent=[-10,-110; 10,-90]);
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}}, 
+              rotation=0)));
     equation 
       // coupling with FrictionModel
       VolumeFlow = V_flow;
@@ -1363,19 +1524,22 @@ where:
 Flow resistance under real conditions is calculated by<br>
 <tt>V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0</tt>
 </HTML>"),
-      Icon(   Text(extent=[-150,-60; 150,-120], string="%name"),
-          Polygon(points=[-90,10; -60,10; -60,60; 0,0; 60,60; 60,10; 90,10; 90,-10;
-                60,-10; 60,-60; 0,0; -60,-60; -60,-10; -90,-10; -90,10], style(
-              color=1,
-              rgbcolor={255,0,0},
-              fillColor=3,
-              rgbfillColor={0,0,255})),
-          Line(points=[0,80; 0,0], style(
-              color=74,
-              rgbcolor={0,0,127},
-              fillColor=3,
-              rgbfillColor={0,0,255},
-              fillPattern=1))), Diagram);
+      Icon(graphics={
+            Text(extent={{-150,-60},{150,-120}}, textString=
+                                                       "%name"), 
+            Polygon(
+              points={{-90,10},{-60,10},{-60,60},{0,0},{60,60},{60,10},{90,10},
+                  {90,-10},{60,-10},{60,-60},{0,0},{-60,-60},{-60,-10},{-90,-10},
+                  {-90,10}}, 
+              lineColor={255,0,0}, 
+              fillColor={0,0,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{0,80},{0,0}}, 
+              color={0,0,127}, 
+              fillColor={0,0,255}, 
+              fillPattern=FillPattern.Solid)}),
+                                Diagram(graphics));
       extends Interfaces.Partials.TwoPort(m=0, final tapT=1);
       parameter Boolean LinearCharacteristic=true "Type of characteristic" 
         annotation(Dialog(group="Standard characteristic"), choices(choice=true "Linear", choice=false 
@@ -1403,7 +1567,10 @@ Flow resistance under real conditions is calculated by<br>
       Modelica.SIunits.VolumeFlowRate Kv "Standard flow rate";
     public 
       Modelica.Blocks.Interfaces.RealInput y 
-        annotation (extent=[-10,80; 10,100], rotation=-90);
+        annotation (Placement(transformation(
+            origin={0,90}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=270)));
     initial algorithm 
       assert(y1>small, "Valve characteristic: y1 has to be > 0 !");
       assert(Kv1>smallVolumeFlowRate, "Valve characteristic: Kv1 has to be > 0 !");
@@ -1473,13 +1640,12 @@ and the accompanying <b>disclaimer</b>
        semiLinear works fine</li>
   </ul>
 </HTML>
-"), Icon(Rectangle(extent=[-60,10; 40,-90], style(color=1, rgbcolor={255,0,0})),
-          Ellipse(extent=[-58,8; 38,-88],  style(
-            color=3,
-            rgbcolor={0,0,255},
-            fillColor=3,
-            rgbfillColor={0,0,255},
-            fillPattern=1))));
+"), Icon(graphics={Rectangle(extent={{-60,10},{40,-90}}, lineColor={255,0,0}), 
+            Ellipse(
+            extent={{-58,8},{38,-88}}, 
+            lineColor={0,0,255}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid)}));
     
     connector FlowPort "conector flow port" 
       
@@ -1506,30 +1672,31 @@ If ports with different media are connected, the simulation is asserted due to t
     annotation (Documentation(info="<HTML>
 Same as FlowPort, but icon allows to differentiate direction of flow.
 </HTML>"),
-      Icon(Rectangle(extent=[-100, 100; 100, -100], style(
-              color=1,
-              rgbcolor={255,0,0},
-              fillColor=7,
-              rgbfillColor={255,255,255})), Ellipse(extent=[-98,98; 98,-98],
-              style(
-              color=3,
-              rgbcolor={0,0,255},
-              fillColor=3,
-              rgbfillColor={0,0,255}))),     Diagram(Rectangle(extent=[-50,50;
-                50,-50],         style(
-              color=1,
-              rgbcolor={255,0,0},
-              fillColor=7,
-              rgbfillColor={255,255,255})), Ellipse(extent=[-48,48; 48,-48],
-              style(
-              color=3,
-              rgbcolor={0,0,255},
-              fillColor=3,
-              rgbfillColor={0,0,255})),
-                                Text(
-            extent=[-100,110; 100,50],
-            string="%name",
-            style(color=3, rgbcolor={0,0,255}))));
+      Icon(graphics={Rectangle(
+              extent={{-100,100},{100,-100}}, 
+              lineColor={255,0,0}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), Ellipse(
+              extent={{-98,98},{98,-98}}, 
+              lineColor={0,0,255}, 
+              fillColor={0,0,255}, 
+              fillPattern=FillPattern.Solid)}),
+                                             Diagram(graphics={
+            Rectangle(
+              extent={{-50,50},{50,-50}}, 
+              lineColor={255,0,0}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{-48,48},{48,-48}}, 
+              lineColor={0,0,255}, 
+              fillColor={0,0,255}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-100,110},{100,50}}, 
+              lineColor={0,0,255}, 
+              textString=
+                   "%name")}));
       extends FlowPort;
     end FlowPort_a;
     
@@ -1538,23 +1705,23 @@ Same as FlowPort, but icon allows to differentiate direction of flow.
     annotation (Documentation(info="<HTML>
 Same as FlowPort, but icon allows to differentiate direction of flow.
 </HTML>"),
-      Icon(Rectangle(extent=[-100,100; 100,-100],   style(
-              color=1,
-              rgbcolor={255,0,0},
-              fillColor=7,
-              rgbfillColor={255,255,255})), Ellipse(extent=[-98,98; 98,-98],
-              style(color=3, rgbcolor={0,0,255}))),
-                                             Diagram(Rectangle(extent=[-50,50;
-                50,-50],         style(
-              color=1,
-              rgbcolor={255,0,0},
-              fillColor=7,
-              rgbfillColor={255,255,255})), Ellipse(extent=[-48,48; 48,-48],
-              style(color=3, rgbcolor={0,0,255})),
-                                Text(
-            extent=[-100,110; 100,50],
-            string="%name",
-            style(color=3, rgbcolor={0,0,255}))));
+      Icon(graphics={Rectangle(
+              extent={{-100,100},{100,-100}}, 
+              lineColor={255,0,0}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), Ellipse(extent={{-98,98},{98,-98}}, 
+                lineColor={0,0,255})}),      Diagram(graphics={
+            Rectangle(
+              extent={{-50,50},{50,-50}}, 
+              lineColor={255,0,0}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(extent={{-48,48},{48,-48}}, lineColor={0,0,255}), 
+            Text(
+              extent={{-100,110},{100,50}}, 
+              lineColor={0,0,255}, 
+              textString=
+                   "%name")}));
       extends FlowPort;
     end FlowPort_b;
     
@@ -1624,42 +1791,47 @@ Linear and quadratic dependency are coupled smoothly at V_flowLaminar / dpLamina
 Quadratic dependency is defined by nominal volume flow and pressure drop (V_flowNominal / dpNominal).<br>
 See also sketch at diagram layer.
 </HTML>"),
-        Diagram(
-            Line(points=[-80,0; 80,0],   style(color=3, rgbcolor={0,0,255})),
-            Line(points=[0,80; 0,-80],   style(color=3, rgbcolor={0,0,255})),
-            Line(points=[-40,-20; 40,20], style(color=3, rgbcolor={0,0,255})),
-            Line(points=[40,20; 60,40; 70,60; 74,80], style(color=3, rgbcolor={0,
-                    0,255})),
-            Line(points=[-40,-20; -60,-40; -70,-60; -74,-80], style(color=3,
-                  rgbcolor={0,0,255})),
-            Line(points=[40,20; 40,0], style(color=3, rgbcolor={0,0,255})),
-            Line(points=[60,40; 60,0], style(color=3, rgbcolor={0,0,255})),
-            Line(points=[40,20; 0,20], style(color=3, rgbcolor={0,0,255})),
-            Line(points=[60,40; 0,40], style(color=3, rgbcolor={0,0,255})),
-            Text(
-              extent=[18,0; 48,-20],
-              style(color=3, rgbcolor={0,0,255}),
-              string="V_flowLaminar"),
-            Text(
-              extent=[50,0; 80,-20],
-              style(color=3, rgbcolor={0,0,255}),
-              string="V_flowNominal"),
-            Text(
-              extent=[-30,30; -4,10],
-              style(color=3, rgbcolor={0,0,255}),
-              string="dpLaminar"),
-            Text(
-              extent=[-30,50; -4,30],
-              style(color=3, rgbcolor={0,0,255}),
-              string="dpNominal"),
-            Text(
-              extent=[0,20; 30,0],
-              style(color=3, rgbcolor={0,0,255}),
-              string="dp ~ V_flow"),
-            Text(
-              extent=[30,60; 60,40],
-              style(color=3, rgbcolor={0,0,255}),
-              string="dp ~ V_flow²")));
+        Diagram(graphics={
+              Line(points={{-80,0},{80,0}}, color={0,0,255}), 
+              Line(points={{0,80},{0,-80}}, color={0,0,255}), 
+              Line(points={{-40,-20},{40,20}}, color={0,0,255}), 
+              Line(points={{40,20},{60,40},{70,60},{74,80}}, color={0,0,255}), 
+              Line(points={{-40,-20},{-60,-40},{-70,-60},{-74,-80}}, color={0,0,
+                    255}), 
+              Line(points={{40,20},{40,0}}, color={0,0,255}), 
+              Line(points={{60,40},{60,0}}, color={0,0,255}), 
+              Line(points={{40,20},{0,20}}, color={0,0,255}), 
+              Line(points={{60,40},{0,40}}, color={0,0,255}), 
+              Text(
+                extent={{18,0},{48,-20}}, 
+                lineColor={0,0,255}, 
+                textString=
+                     "V_flowLaminar"), 
+              Text(
+                extent={{50,0},{80,-20}}, 
+                lineColor={0,0,255}, 
+                textString=
+                     "V_flowNominal"), 
+              Text(
+                extent={{-30,30},{-4,10}}, 
+                lineColor={0,0,255}, 
+                textString=
+                     "dpLaminar"), 
+              Text(
+                extent={{-30,50},{-4,30}}, 
+                lineColor={0,0,255}, 
+                textString=
+                     "dpNominal"), 
+              Text(
+                extent={{0,20},{30,0}}, 
+                lineColor={0,0,255}, 
+                textString=
+                     "dp ~ V_flow"), 
+              Text(
+                extent={{30,60},{60,40}}, 
+                lineColor={0,0,255}, 
+                textString=
+                     "dp ~ V_flow²")}));
         parameter Modelica.SIunits.VolumeFlowRate V_flowLaminar(min=Modelica.Constants.small)=0.1 
           "Laminar volume flow" 
           annotation(Dialog(group="Simple Friction"));
@@ -1735,9 +1907,11 @@ Parameter 0 &lt; tapT &lt; 1 defines temperature of heatPort between medium's in
           "Temperature relevant for heat exchange with ambient";
       public 
         Interfaces.FlowPort_a flowPort_a(final medium=medium) 
-          annotation (extent=[-110, -10; -90, 10]);
+          annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, 
+                rotation=0)));
         Interfaces.FlowPort_b flowPort_b(final medium=medium) 
-          annotation (extent=[90, -10; 110, 10]);
+          annotation (Placement(transformation(extent={{90,-10},{110,10}}, 
+                rotation=0)));
       equation 
         // mass balance
         flowPort_a.m_flow + flowPort_b.m_flow = 0;
@@ -1759,16 +1933,15 @@ Parameter 0 &lt; tapT &lt; 1 defines temperature of heatPort between medium's in
 <p>
 Partial model of (Infinite) ambient, defines pressure and temperature.
 </p>
-</HTML>"),   Icon(
-                 Ellipse(extent=[-90,90; 90,-90], style(
-                color=1,
-                rgbcolor={255,0,0},
-                fillColor=3,
-                rgbfillColor={0,0,255})),
-            Text(
-              extent=[-150,150; 150,90],
-              style(color=3, rgbcolor={0,0,255}),
-              string="%name")));
+</HTML>"),   Icon(graphics={Ellipse(
+                extent={{-90,90},{90,-90}}, 
+                lineColor={255,0,0}, 
+                fillColor={0,0,255}, 
+                fillPattern=FillPattern.Solid), Text(
+                extent={{-150,150},{150,90}}, 
+                lineColor={0,0,255}, 
+                textString=
+                     "%name")}));
         parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
           "Ambient's medium" 
           annotation(choicesAllMatching=true);
@@ -1779,7 +1952,8 @@ Partial model of (Infinite) ambient, defines pressure and temperature.
         Modelica.SIunits.SpecificEnthalpy h = medium.cp*T;
       public 
         Interfaces.FlowPort_a flowPort(final medium=medium) 
-          annotation (extent=[-110,-10; -90,10]);
+          annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, 
+                rotation=0)));
       equation 
         // massflow -> ambient: mixing rule
         // massflow <- ambient: energy flow defined by ambient's temperature
@@ -1796,32 +1970,40 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
           "Sensor's medium" 
           annotation(choicesAllMatching=true);
         Interfaces.FlowPort_a flowPort(final medium=medium) 
-          annotation (extent=[-110,-10; -90,10]);
+          annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, 
+                rotation=0)));
         Modelica.Blocks.Interfaces.RealOutput y 
-          annotation (extent=[100, -10; 120, 10]);
-        annotation (Icon(
-            Ellipse(extent=[-70, 70; 70, -70], style(color=0, fillColor=7)),
-            Line(points=[0, 70; 0, 40], style(color=0)),
-            Line(points=[22.9, 32.8; 40.2, 57.3], style(color=0)),
-            Line(points=[-22.9, 32.8; -40.2, 57.3], style(color=0)),
-            Line(points=[37.6, 13.7; 65.8, 23.9], style(color=0)),
-            Line(points=[-37.6, 13.7; -65.8, 23.9], style(color=0)),
-            Line(points=[0, 0; 9.02, 28.6], style(color=0)),
-            Polygon(points=[-0.48, 31.6; 18, 26; 18, 57.2; -0.48, 31.6], style(
-                color=0,
-                fillColor=0,
-                fillPattern=1)),
-            Ellipse(extent=[-5, 5; 5, -5], style(
-                color=0,
-                gradient=0,
-                fillColor=0,
-                fillPattern=1)),
-            Line(points=[-70, 0; -90, 0], style(color=0)),
-            Line(points=[70, 0; 100, 0]),
-            Text(
-              extent=[-150,130; 150,70],
-              style(color=3, rgbcolor={0,0,255}),
-              string="%name")), Diagram);
+          annotation (Placement(transformation(extent={{100,-10},{120,10}}, 
+                rotation=0)));
+        annotation (Icon(graphics={
+              Ellipse(
+                extent={{-70,70},{70,-70}}, 
+                lineColor={0,0,0}, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid), 
+              Line(points={{0,70},{0,40}}, color={0,0,0}), 
+              Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}), 
+              Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}), 
+              Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}), 
+              Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}), 
+              Line(points={{0,0},{9.02,28.6}}, color={0,0,0}), 
+              Polygon(
+                points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}}, 
+                lineColor={0,0,0}, 
+                fillColor={0,0,0}, 
+                fillPattern=FillPattern.Solid), 
+              Ellipse(
+                extent={{-5,5},{5,-5}}, 
+                lineColor={0,0,0}, 
+                fillColor={0,0,0}, 
+                fillPattern=FillPattern.Solid), 
+              Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
+              Line(points={{70,0},{100,0}}), 
+              Text(
+                extent={{-150,130},{150,70}}, 
+                lineColor={0,0,255}, 
+                textString=
+                     "%name")}),Diagram(graphics));
       equation 
         // no mass exchange
         flowPort.m_flow = 0;
@@ -1839,35 +2021,46 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
           "Sensor's medium" 
           annotation(choicesAllMatching=true);
         Interfaces.FlowPort_a flowPort_a(final medium=medium) 
-          annotation (extent=[-110,-10; -90,10]);
+          annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, 
+                rotation=0)));
         Interfaces.FlowPort_b flowPort_b(final medium=medium) 
-          annotation (extent=[90,-10; 110,10]);
+          annotation (Placement(transformation(extent={{90,-10},{110,10}}, 
+                rotation=0)));
         Modelica.Blocks.Interfaces.RealOutput y 
-          annotation (extent=[-10,-100; 10,-120],  rotation=90);
-        annotation (Icon(
-            Ellipse(extent=[-70, 70; 70, -70], style(color=0, fillColor=7)),
-            Line(points=[0, 70; 0, 40], style(color=0)),
-            Line(points=[22.9, 32.8; 40.2, 57.3], style(color=0)),
-            Line(points=[-22.9, 32.8; -40.2, 57.3], style(color=0)),
-            Line(points=[37.6, 13.7; 65.8, 23.9], style(color=0)),
-            Line(points=[-37.6, 13.7; -65.8, 23.9], style(color=0)),
-            Line(points=[0, 0; 9.02, 28.6], style(color=0)),
-            Polygon(points=[-0.48, 31.6; 18, 26; 18, 57.2; -0.48, 31.6], style(
-                color=0,
-                fillColor=0,
-                fillPattern=1)),
-            Ellipse(extent=[-5, 5; 5, -5], style(
-                color=0,
-                gradient=0,
-                fillColor=0,
-                fillPattern=1)),
-            Line(points=[-70, 0; -90, 0], style(color=0)),
-            Line(points=[70, 0; 90, 0], style(color=0)),
-            Line(points=[0,-100; 0,-70]),
-            Text(
-              extent=[-150,130; 150,70],
-              style(color=3, rgbcolor={0,0,255}),
-              string="%name")), Diagram);
+          annotation (Placement(transformation(
+              origin={0,-110}, 
+              extent={{10,-10},{-10,10}}, 
+              rotation=90)));
+        annotation (Icon(graphics={
+              Ellipse(
+                extent={{-70,70},{70,-70}}, 
+                lineColor={0,0,0}, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid), 
+              Line(points={{0,70},{0,40}}, color={0,0,0}), 
+              Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}), 
+              Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}), 
+              Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}), 
+              Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}), 
+              Line(points={{0,0},{9.02,28.6}}, color={0,0,0}), 
+              Polygon(
+                points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}}, 
+                lineColor={0,0,0}, 
+                fillColor={0,0,0}, 
+                fillPattern=FillPattern.Solid), 
+              Ellipse(
+                extent={{-5,5},{5,-5}}, 
+                lineColor={0,0,0}, 
+                fillColor={0,0,0}, 
+                fillPattern=FillPattern.Solid), 
+              Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
+              Line(points={{70,0},{90,0}}, color={0,0,0}), 
+              Line(points={{0,-100},{0,-70}}), 
+              Text(
+                extent={{-150,130},{150,70}}, 
+                lineColor={0,0,255}, 
+                textString=
+                     "%name")}),Diagram(graphics));
       equation 
         // no mass exchange
         flowPort_a.m_flow = 0;
@@ -1885,31 +2078,40 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected, b
 </HTML>"));
         extends TwoPort(final m=0, final T0=0, final tapT=1);
         Modelica.Blocks.Interfaces.RealOutput y 
-          annotation (extent=[-10,-100; 10,-120],  rotation=90);
-        annotation (Icon(
-            Ellipse(extent=[-70, 70; 70, -70], style(color=0, fillColor=7)),
-            Line(points=[0, 70; 0, 40], style(color=0)),
-            Line(points=[22.9, 32.8; 40.2, 57.3], style(color=0)),
-            Line(points=[-22.9, 32.8; -40.2, 57.3], style(color=0)),
-            Line(points=[37.6, 13.7; 65.8, 23.9], style(color=0)),
-            Line(points=[-37.6, 13.7; -65.8, 23.9], style(color=0)),
-            Line(points=[0, 0; 9.02, 28.6], style(color=0)),
-            Polygon(points=[-0.48, 31.6; 18, 26; 18, 57.2; -0.48, 31.6], style(
-                color=0,
-                fillColor=0,
-                fillPattern=1)),
-            Ellipse(extent=[-5, 5; 5, -5], style(
-                color=0,
-                gradient=0,
-                fillColor=0,
-                fillPattern=1)),
-            Line(points=[-70, 0; -90, 0], style(color=0)),
-            Line(points=[70, 0; 90, 0], style(color=0)),
-            Line(points=[0,-100; 0,-70]),
-            Text(
-              extent=[-150,130; 150,70],
-              style(color=3, rgbcolor={0,0,255}),
-              string="%name")), Diagram);
+          annotation (Placement(transformation(
+              origin={0,-110}, 
+              extent={{10,-10},{-10,10}}, 
+              rotation=90)));
+        annotation (Icon(graphics={
+              Ellipse(
+                extent={{-70,70},{70,-70}}, 
+                lineColor={0,0,0}, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid), 
+              Line(points={{0,70},{0,40}}, color={0,0,0}), 
+              Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}), 
+              Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}), 
+              Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}), 
+              Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}), 
+              Line(points={{0,0},{9.02,28.6}}, color={0,0,0}), 
+              Polygon(
+                points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}}, 
+                lineColor={0,0,0}, 
+                fillColor={0,0,0}, 
+                fillPattern=FillPattern.Solid), 
+              Ellipse(
+                extent={{-5,5},{5,-5}}, 
+                lineColor={0,0,0}, 
+                fillColor={0,0,0}, 
+                fillPattern=FillPattern.Solid), 
+              Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
+              Line(points={{70,0},{90,0}}, color={0,0,0}), 
+              Line(points={{0,-100},{0,-70}}), 
+              Text(
+                extent={{-150,130},{150,70}}, 
+                lineColor={0,0,255}, 
+                textString=
+                     "%name")}),Diagram(graphics));
       equation 
         // no pressure drop
         dp = 0;
@@ -1958,24 +2160,24 @@ and the accompanying <b>disclaimer</b>
        corrected usage of cv and cp</li>
   </ul>
 </HTML>
-"), Icon(
-        Rectangle(extent=[-80,8; 60,-88],  style(
-            color=74,
-            rgbcolor={0,0,127},
-            fillColor=71,
-            rgbfillColor={85,170,255})),
-        Line(points=[-10,8; -10,-88; -10,-88],  style(
-            color=74,
-            rgbcolor={0,0,127},
-            fillPattern=1)),
-        Line(points=[-80,-24; 60,-24], style(
-            color=74,
-            rgbcolor={0,0,127},
-            fillPattern=1)),
-        Line(points=[-80,-56; 60,-56], style(
-            color=74,
-            rgbcolor={0,0,127},
-            fillPattern=1))));
+"), Icon(graphics={
+          Rectangle(
+            extent={{-80,8},{60,-88}}, 
+            lineColor={0,0,127}, 
+            fillColor={85,170,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-10,8},{-10,-88},{-10,-88}}, 
+            color={0,0,127}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-80,-24},{60,-24}}, 
+            color={0,0,127}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-80,-56},{60,-56}}, 
+            color={0,0,127}, 
+            fillPattern=FillPattern.Solid)}));
     
     record Medium "Record containing media properties" 
       extends Modelica.Icons.Record;
@@ -2080,60 +2282,58 @@ and the accompanying <b>disclaimer</b>
        first stable official release</li>
   </ul>
 </HTML>
-"), Icon(
-        Ellipse(extent=[-60,10; 40,-90], style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=7,
-            rgbfillColor={255,255,255})),
-        Line(points=[-10,7; -10,-10],
-                                  style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillPattern=1)),
-        Line(points=[-50,-16; -36,-25],
-                                      style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillPattern=1)),
-        Line(points=[30,-15; 16,-25],
-                                    style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillPattern=1)),
-        Line(points=[-35,0; -25,-14], style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillPattern=1)),
-        Line(points=[15,0; 5,-14],  style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillPattern=1)),
-        Ellipse(extent=[-15,-35; -5,-45],
-                                       style(
-            color=0,
-            gradient=0,
-            fillColor=0,
-            fillPattern=1)),
-        Line(points=[-10,-40; -6,-26],  style(color=0)),
-        Polygon(points=[-12,-24; -0.5,-27; 2,1.5; -12,-24],          style(
-            color=0,
-            fillColor=0,
-            fillPattern=1))));
+"), Icon(graphics={
+          Ellipse(
+            extent={{-60,10},{40,-90}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-10,7},{-10,-10}}, 
+            color={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-50,-16},{-36,-25}}, 
+            color={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{30,-15},{16,-25}}, 
+            color={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-35,0},{-25,-14}}, 
+            color={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{15,0},{5,-14}}, 
+            color={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(
+            extent={{-15,-35},{-5,-45}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-10,-40},{-6,-26}}, color={0,0,0}), 
+          Polygon(
+            points={{-12,-24},{-0.5,-27},{2,1.5},{-12,-24}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid)}));
     
     model pSensor "Absolute pressure sensor" 
       
     annotation (Documentation(info="<HTML>
 pSensor measures the absolute pressure.<br>
 Thermodynamic equations are defined by Partials.AbsoluteSensor.
-</HTML>"), Diagram);
+</HTML>"), Diagram(graphics));
       extends Interfaces.Partials.AbsoluteSensor;
     equation 
       y = flowPort.p;
-      annotation(Icon(Text(
-            extent=[-22,-20; 20,-60],
-            style(color=3, rgbcolor={0,0,255}),
-            string="p")), Diagram);
+      annotation(Icon(graphics={Text(
+              extent={{-22,-20},{20,-60}}, 
+              lineColor={0,0,255}, 
+              textString=
+                   "p")}),Diagram);
     end pSensor;
     
     model TSensor "Absolute temperature sensor" 
@@ -2141,14 +2341,15 @@ Thermodynamic equations are defined by Partials.AbsoluteSensor.
     annotation (Documentation(info="<HTML>
 TSensor measures the absolute temperature (Kelvin).<br>
 Thermodynamic equations are defined by Partials.AbsoluteSensor.
-</HTML>"), Diagram);
+</HTML>"), Diagram(graphics));
       extends Interfaces.Partials.AbsoluteSensor;
     equation 
       medium.cp*y = flowPort.h;
-      annotation(Icon(Text(
-            extent=[-22,-20; 20,-60],
-            style(color=3, rgbcolor={0,0,255}),
-            string="T")));
+      annotation(Icon(graphics={Text(
+              extent={{-22,-20},{20,-60}}, 
+              lineColor={0,0,255}, 
+              textString=
+                   "T")}));
     end TSensor;
     
     model dpSensor "Pressure difference sensor" 
@@ -2156,14 +2357,15 @@ Thermodynamic equations are defined by Partials.AbsoluteSensor.
     annotation (Documentation(info="<HTML>
 dpSensor measures the pressure drop between flowPort_a and flowPort_b.<br>
 Thermodynamic equations are defined by Partials.RelativeSensor.
-</HTML>"), Diagram);
+</HTML>"), Diagram(graphics));
       extends Interfaces.Partials.RelativeSensor;
     equation 
       y = flowPort_a.p - flowPort_b.p;
-      annotation(Icon(Text(
-            extent=[-22,-20; 20,-60],
-            style(color=3, rgbcolor={0,0,255}),
-            string="dp")));
+      annotation(Icon(graphics={Text(
+              extent={{-22,-20},{20,-60}}, 
+              lineColor={0,0,255}, 
+              textString=
+                   "dp")}));
     end dpSensor;
     
     model dTSensor "Temperature difference sensor" 
@@ -2174,14 +2376,15 @@ Thermodynamic equations are defined by Partials.RelativeSensor.<br>
 <b>Note:</b> Connected flowPorts have the same temperature (mixing temperature)!<br>
 Since mixing my occur, the outlet temperature of a component may be different from the connector's temperature.<br> 
 Outlet temperature is defined by variable T of the corresponding component.
-</HTML>"), Diagram);
+</HTML>"), Diagram(graphics));
       extends Interfaces.Partials.RelativeSensor;
     equation 
       medium.cp*y = flowPort_a.h - flowPort_b.h;
-      annotation(Icon(Text(
-            extent=[-22,-20; 20,-60],
-            style(color=3, rgbcolor={0,0,255}),
-            string="dT")));
+      annotation(Icon(graphics={Text(
+              extent={{-22,-20},{20,-60}}, 
+              lineColor={0,0,255}, 
+              textString=
+                   "dT")}));
     end dTSensor;
     
     model m_flowSensor "Mass flow sensor" 
@@ -2189,14 +2392,15 @@ Outlet temperature is defined by variable T of the corresponding component.
     annotation (Documentation(info="<HTML>
 m_flowSensor measures the mass flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
-</HTML>"), Diagram);
+</HTML>"), Diagram(graphics));
       extends Interfaces.Partials.FlowSensor;
     equation 
       y = V_flow*medium.rho;
-      annotation(Icon(Text(
-            extent=[-22,-20; 20,-60],
-            style(color=3, rgbcolor={0,0,255}),
-            string="m")));
+      annotation(Icon(graphics={Text(
+              extent={{-22,-20},{20,-60}}, 
+              lineColor={0,0,255}, 
+              textString=
+                   "m")}));
     end m_flowSensor;
     
     model V_flowSensor "Volume flow sensor" 
@@ -2204,14 +2408,15 @@ Thermodynamic equations are defined by Partials.FlowSensor.
     annotation (Documentation(info="<HTML>
 V_flowSensor measures the volume flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
-</HTML>"), Diagram);
+</HTML>"), Diagram(graphics));
       extends Interfaces.Partials.FlowSensor;
     equation 
       y = V_flow;
-      annotation(Icon(Text(
-            extent=[-22,-20; 20,-60],
-            style(color=3, rgbcolor={0,0,255}),
-            string="V")));
+      annotation(Icon(graphics={Text(
+              extent={{-22,-20},{20,-60}}, 
+              lineColor={0,0,255}, 
+              textString=
+                   "V")}));
     end V_flowSensor;
     
     model H_flowSensor "Enthapy flow sensor" 
@@ -2219,14 +2424,15 @@ Thermodynamic equations are defined by Partials.FlowSensor.
     annotation (Documentation(info="<HTML>
 H_flowSensor measures the enthalpy flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
-</HTML>"),     Diagram);
+</HTML>"),     Diagram(graphics));
       extends Interfaces.Partials.FlowSensor;
     equation 
       y = flowPort_a.H_flow;
-      annotation(Icon(Text(
-            extent=[-22,-20; 20,-60],
-            style(color=3, rgbcolor={0,0,255}),
-            string="H")));
+      annotation(Icon(graphics={Text(
+              extent={{-22,-20},{20,-60}}, 
+              lineColor={0,0,255}, 
+              textString=
+                   "H")}));
     end H_flowSensor;
   end Sensors;
   
@@ -2279,11 +2485,11 @@ and the accompanying <b>disclaimer</b>
        <i>new model: IdealPump</i></li>
   </ul>
 </HTML>
-"), Icon(Ellipse(extent=[-60,10; 40,-90], style(color=1, rgbcolor={255,0,0})),
-          Polygon(points=[-40,0; -40,-80; 38,-50; 38,-30; -40,0], style(
-            color=3,
-            rgbcolor={0,0,255},
-            fillPattern=1))));
+"), Icon(graphics={Ellipse(extent={{-60,10},{40,-90}}, lineColor={255,0,0}), 
+            Polygon(
+            points={{-40,0},{-40,-80},{38,-50},{38,-30},{-40,0}}, 
+            lineColor={0,0,255}, 
+            fillPattern=FillPattern.Solid)}));
     
     model Ambient "Ambient with constant properties" 
       
@@ -2308,9 +2514,11 @@ Thermodynamic equations are defined by Partials.Ambient.
 </HTML>"));
       extends Interfaces.Partials.Ambient;
       Modelica.Blocks.Interfaces.RealInput p_Ambient 
-        annotation (extent=[110, 60; 90, 80], rotation=0);
+        annotation (Placement(transformation(extent={{110,60},{90,80}}, 
+              rotation=0)));
       Modelica.Blocks.Interfaces.RealInput T_Ambient 
-        annotation (extent=[110, -60; 90, -80], rotation=0);
+        annotation (Placement(transformation(extent={{110,-60},{90,-80}}, 
+              rotation=0)));
     equation 
       flowPort.p = p_Ambient;
       T = T_Ambient;
@@ -2321,17 +2529,16 @@ Thermodynamic equations are defined by Partials.Ambient.
     annotation (Documentation(info="<HTML>
 AbsolutePressure to define pressure level of a closed cooling cycle. 
 Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
-</HTML>"),     Diagram,
-        Icon(
-          Text(
-            extent=[-150,150; 150,90],
-            style(color=3, rgbcolor={0,0,255}),
-            string="%name"),
-               Ellipse(extent=[-90,90; 90,-90], style(
-              color=1,
-              rgbcolor={255,0,0},
-              fillColor=7,
-              rgbfillColor={255,255,255}))));
+</HTML>"),     Diagram(graphics),
+        Icon(graphics={Text(
+              extent={{-150,150},{150,90}}, 
+              lineColor={0,0,255}, 
+              textString=
+                   "%name"), Ellipse(
+              extent={{-90,90},{90,-90}}, 
+              lineColor={255,0,0}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid)}));
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
         "Medium" 
         annotation(choicesAllMatching=true);
@@ -2342,7 +2549,8 @@ Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
               fillColor=7,
               rgbfillColor={255,255,255}))));
       Interfaces.FlowPort_a flowPort(final medium=medium) 
-        annotation (extent=[-110,-10; -90,10]);
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, 
+              rotation=0)));
     equation 
       // defining pressure
       flowPort.p = p;
@@ -2358,26 +2566,27 @@ Coolant's temperature and enthalpy flow are not affected.<br>
 Setting parameter m (mass of medium within fan/pump) to zero
 leads to neglection of temperature transient cv*m*der(T).<br>
 Thermodynamic equations are defined by Partials.TwoPort.
-</HTML>"), Icon(
-           Ellipse(extent=[-90,90; 90,-90],   style(
-              color=1,
-              rgbcolor={255,0,0},
-              fillColor=7,
-              rgbfillColor={255,255,255})),
-          Text(
-            extent=[-150,-90; 150,-150],
-            style(color=3, rgbcolor={0,0,255}),
-            string="%name"),
-          Polygon(points=[-60,68; 90,10; 90,-10; -60,-68; -60,68], style(
-              color=1,
-              rgbcolor={255,0,0},
-              fillColor=3,
-              rgbfillColor={0,0,255},
-              fillPattern=1)),
-                Text(
-            extent=[-40,20; 0,-20],
-            style(color=0, rgbcolor={0,0,0}),
-            string="V")));
+</HTML>"), Icon(graphics={
+            Ellipse(
+              extent={{-90,90},{90,-90}}, 
+              lineColor={255,0,0}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-150,-90},{150,-150}}, 
+              lineColor={0,0,255}, 
+              textString=
+                   "%name"), 
+            Polygon(
+              points={{-60,68},{90,10},{90,-10},{-60,-68},{-60,68}}, 
+              lineColor={255,0,0}, 
+              fillColor={0,0,255}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-40,20},{0,-20}}, 
+              lineColor={0,0,0}, 
+              textString=
+                   "V")}));
       extends Interfaces.Partials.TwoPort(final tapT=1);
       parameter Modelica.SIunits.VolumeFlowRate VolumeFlow=1 "Volume flow rate";
     equation 
@@ -2394,29 +2603,34 @@ Setting parameter m (mass of medium within fan/pump) to zero
 leads to neglection of temperature transient cv*m*der(T).<br>
 Thermodynamic equations are defined by Partials.TwoPort.
 </HTML>"),
-      Icon(Ellipse(extent=[-90,90; 90,-90],   style(
-              color=1,
-              rgbcolor={255,0,0},
-              fillColor=7,
-              rgbfillColor={255,255,255})),
-          Text(
-            extent=[-150,-90; 150,-150],
-            style(color=3, rgbcolor={0,0,255}),
-            string="%name"),
-          Polygon(points=[-60,68; 90,10; 90,-10; -60,-68; -60,68], style(
-              color=1,
-              rgbcolor={255,0,0},
-              fillColor=3,
-              rgbfillColor={0,0,255},
-              fillPattern=1)),
-                Text(
-            extent=[-40,20; 0,-20],
-            style(color=0, rgbcolor={0,0,0}),
-            string="V")),
-        Diagram);
+      Icon(graphics={
+            Ellipse(
+              extent={{-90,90},{90,-90}}, 
+              lineColor={255,0,0}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-150,-90},{150,-150}}, 
+              lineColor={0,0,255}, 
+              textString=
+                   "%name"), 
+            Polygon(
+              points={{-60,68},{90,10},{90,-10},{-60,-68},{-60,68}}, 
+              lineColor={255,0,0}, 
+              fillColor={0,0,255}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-40,20},{0,-20}}, 
+              lineColor={0,0,0}, 
+              textString=
+                   "V")}),
+        Diagram(graphics));
       extends Interfaces.Partials.TwoPort(final tapT=1);
       Modelica.Blocks.Interfaces.RealInput VolumeFlow 
-        annotation (extent=[-10,90; 10,110], rotation=-90);
+        annotation (Placement(transformation(
+            origin={0,100}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=270)));
     equation 
       Q_flow = 0;
       V_flow = VolumeFlow;
@@ -2431,25 +2645,27 @@ Setting parameter m (mass of medium within fan/pump) to zero
 leads to neglection of temperature transient cv*m*der(T).<br>
 Thermodynamic equations are defined by Partials.TwoPort.
 </HTML>"),
-      Icon(Ellipse(extent=[-90,90; 90,-90],   style(
-              color=1,
-              rgbcolor={255,0,0},
-              fillColor=7,
-              rgbfillColor={255,255,255})),
-          Text(
-            extent=[-150,-90; 150,-150],
-            style(color=3, rgbcolor={0,0,255}),
-            string="%name"),
-          Polygon(points=[-60,68; 90,10; 90,-10; -60,-68; -60,68], style(
-              color=3,
-              rgbcolor={0,0,255},
-              fillColor=1,
-              rgbfillColor={255,0,0},
-              fillPattern=1)),
-                Text(
-            extent=[-40,20; 0,-20],
-            string="dp",
-            style(color=0, rgbcolor={0,0,0}))));
+      Icon(graphics={
+            Ellipse(
+              extent={{-90,90},{90,-90}}, 
+              lineColor={255,0,0}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-150,-90},{150,-150}}, 
+              lineColor={0,0,255}, 
+              textString=
+                   "%name"), 
+            Polygon(
+              points={{-60,68},{90,10},{90,-10},{-60,-68},{-60,68}}, 
+              lineColor={0,0,255}, 
+              fillColor={255,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-40,20},{0,-20}}, 
+              lineColor={0,0,0}, 
+              textString=
+                   "dp")}));
       extends Interfaces.Partials.TwoPort(final tapT=1);
       parameter Modelica.SIunits.Pressure PressureIncrease=1 
         "Pressure increase";
@@ -2466,29 +2682,34 @@ Coolant's temperature and enthalpy flow are not affected.<br>
 Setting parameter m (mass of medium within fan/pump) to zero
 leads to neglection of temperature transient cv*m*der(T).<br>
 Thermodynamic equations are defined by Partials.TwoPort.
-</HTML>"),     Diagram,
-        Icon(
-           Ellipse(extent=[-90,90; 90,-90],   style(
-              color=1,
-              rgbcolor={255,0,0},
-              fillColor=7,
-              rgbfillColor={255,255,255})),
-          Text(
-            extent=[-150,-90; 150,-150],
-            style(color=3, rgbcolor={0,0,255}),
-            string="%name"),
-          Polygon(points=[-60,68; 90,10; 90,-10; -60,-68; -60,68], style(
-              color=3,
-              rgbcolor={0,0,255},
-              fillColor=1,
-              rgbfillColor={255,0,0})),
-                Text(
-            extent=[-40,20; 0,-20],
-            string="dp",
-            style(color=0, rgbcolor={0,0,0}))));
+</HTML>"),     Diagram(graphics),
+        Icon(graphics={
+            Ellipse(
+              extent={{-90,90},{90,-90}}, 
+              lineColor={255,0,0}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-150,-90},{150,-150}}, 
+              lineColor={0,0,255}, 
+              textString=
+                   "%name"), 
+            Polygon(
+              points={{-60,68},{90,10},{90,-10},{-60,-68},{-60,68}}, 
+              lineColor={0,0,255}, 
+              fillColor={255,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-40,20},{0,-20}}, 
+              lineColor={0,0,0}, 
+              textString=
+                   "dp")}));
       extends Interfaces.Partials.TwoPort(final tapT=1);
       Modelica.Blocks.Interfaces.RealInput PressureIncrease 
-        annotation (extent=[-10,90; 10,110],    rotation=-90);
+        annotation (Placement(transformation(
+            origin={0,100}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=270)));
     equation 
       Q_flow = 0;
       dp = -PressureIncrease;
@@ -2510,29 +2731,28 @@ Coolant's temperature and enthalpy flow are not affected.<br>
 Setting parameter m (mass of medium within fan/pump) to zero
 leads to neglection of temperature transient cv*m*der(T).<br>
 Thermodynamic equations are defined by Partials.TwoPort.
-</HTML>"), Icon(
-           Ellipse(extent=[-90,90; 90,-90],   style(
-              color=1,
-              rgbcolor={255,0,0},
-              fillColor=7,
-              rgbfillColor={255,255,255})),
-          Text(
-            extent=[-150,150; 150,90],
-            style(color=3, rgbcolor={0,0,255}),
-            string="%name"),
-          Rectangle(extent=[-10,-40; 10,-100], style(
-              color=10,
-              rgbcolor={135,135,135},
-              gradient=1,
-              fillColor=9,
-              rgbfillColor={175,175,175})),
-          Polygon(points=[-60,68; 90,10; 90,-10; -60,-68; -60,68], style(
-              color=1,
-              rgbcolor={255,0,0},
-              gradient=2,
-              fillColor=3,
-              rgbfillColor={0,0,255}))),
-        Diagram);
+</HTML>"), Icon(graphics={
+            Ellipse(
+              extent={{-90,90},{90,-90}}, 
+              lineColor={255,0,0}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-150,150},{150,90}}, 
+              lineColor={0,0,255}, 
+              textString=
+                   "%name"), 
+            Rectangle(
+              extent={{-10,-40},{10,-100}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.VerticalCylinder, 
+              fillColor={175,175,175}), 
+            Polygon(
+              points={{-60,68},{90,10},{90,-10},{-60,-68},{-60,68}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={0,0,255})}),
+        Diagram(graphics));
       extends Interfaces.Partials.TwoPort(final tapT=1);
       parameter Modelica.SIunits.AngularVelocity w_Nominal=1 "Nominal speed" 
           annotation(Dialog(group="Pump characteristic"));
@@ -2548,7 +2768,8 @@ Thermodynamic equations are defined by Partials.TwoPort.
       Modelica.SIunits.VolumeFlowRate V_flow1;
     public 
       Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a 
-        annotation (extent=[-10,-110; 10,-90]);
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}}, 
+              rotation=0)));
     equation 
       // pump characteristic
       dp1 = dp0*sign(w/w_Nominal)*(w/w_Nominal)^2;

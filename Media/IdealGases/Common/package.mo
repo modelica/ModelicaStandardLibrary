@@ -143,8 +143,8 @@ This model has been copied from the ThermoFluid library
 and adapted to the Modelica.Media package.
 </p>
 </HTML>"),
-    Icon,
-    Diagram);
+    Icon(graphics),
+    Diagram(graphics));
   
   extends Interfaces.PartialPureSubstance(
      mediumName=data.name,
@@ -773,7 +773,7 @@ this never caused problems so far.
 This model has been copied from the ThermoFluid library.
 It has been developed by Hubertus Tummescheit.
 </p>
-</HTML>"), Icon);
+</HTML>"), Icon(graphics));
   
   import Modelica.Math;
   import Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy;

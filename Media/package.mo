@@ -2742,26 +2742,66 @@ Modelica.Media.Examples.Tests.MediaTestModels.
       
       connector FluidPort_a "Fluid connector with filled icon" 
         extends FluidPort;
-        annotation (Diagram(Ellipse(extent=[-100, 100; 100, -100], style(color=69,
-                   fillColor=69)), Ellipse(extent=[-100, 100; 100, -100], style(color=16,
-                   fillColor=69)), Text(extent=[-88, 206; 112, 112], string="%name")),
-             Icon(Ellipse(extent=[-100, 100; 100, -100], style(color=69,
-                  fillColor=69)), Ellipse(extent=[-100, 100; 100, -100], style(color=16,
-                  fillColor=69))),
+        annotation (Diagram(graphics={
+              Ellipse(
+                extent={{-100,100},{100,-100}}, 
+                lineColor={0,127,255}, 
+                fillColor={0,127,255}, 
+                fillPattern=FillPattern.Solid), 
+              Ellipse(
+                extent={{-100,100},{100,-100}}, 
+                lineColor={0,0,0}, 
+                fillColor={0,127,255}, 
+                fillPattern=FillPattern.Solid), 
+              Text(extent={{-88,206},{112,112}}, textString =               "%name")}),
+             Icon(graphics={Ellipse(
+                extent={{-100,100},{100,-100}}, 
+                lineColor={0,127,255}, 
+                fillColor={0,127,255}, 
+                fillPattern=FillPattern.Solid), Ellipse(
+                extent={{-100,100},{100,-100}}, 
+                lineColor={0,0,0}, 
+                fillColor={0,127,255}, 
+                fillPattern=FillPattern.Solid)}),
           Documentation(info="<html>Modelica.Media.Examples.Tests.Components.FluidPort_a
 </html>"));
       end FluidPort_a;
       
       connector FluidPort_b "Fluid connector with outlined icon" 
         extends FluidPort;
-        annotation (Diagram(Ellipse(extent=[-100, 100; 100, -100], style(color=69,
-                   fillColor=69)), Ellipse(extent=[-100, 100; 100, -100], style(color=16,
-                   fillColor=69)), Ellipse(extent=[-80, 80; 80, -80], style(color=69,
-                   fillColor=7)), Text(extent=[-88, 192; 112, 98], string="%name")),
-             Icon(Ellipse(extent=[-100, 100; 100, -100], style(color=69,
-                  fillColor=69)), Ellipse(extent=[-100, 100; 100, -100], style(color=16,
-                  fillColor=69)), Ellipse(extent=[-80, 80; 80, -80], style(color=69,
-                   fillColor=7))),
+        annotation (Diagram(graphics={
+              Ellipse(
+                extent={{-100,100},{100,-100}}, 
+                lineColor={0,127,255}, 
+                fillColor={0,127,255}, 
+                fillPattern=FillPattern.Solid), 
+              Ellipse(
+                extent={{-100,100},{100,-100}}, 
+                lineColor={0,0,0}, 
+                fillColor={0,127,255}, 
+                fillPattern=FillPattern.Solid), 
+              Ellipse(
+                extent={{-80,80},{80,-80}}, 
+                lineColor={0,127,255}, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid), 
+              Text(extent={{-88,192},{112,98}}, textString =              "%name")}),
+             Icon(graphics={
+              Ellipse(
+                extent={{-100,100},{100,-100}}, 
+                lineColor={0,127,255}, 
+                fillColor={0,127,255}, 
+                fillPattern=FillPattern.Solid), 
+              Ellipse(
+                extent={{-100,100},{100,-100}}, 
+                lineColor={0,0,0}, 
+                fillColor={0,127,255}, 
+                fillPattern=FillPattern.Solid), 
+              Ellipse(
+                extent={{-80,80},{80,-80}}, 
+                lineColor={0,127,255}, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid)}),
           Documentation(info="<html> 
   
 </html>"));
@@ -2795,7 +2835,8 @@ Modelica.Media.Examples.Tests.MediaTestModels.
           "Initial mass fractions m_i/m" 
           annotation (Dialog(group="Only for multi-substance flow", enable=Medium.nX > 0));
         
-        FluidPort_a port(redeclare package Medium = Medium) annotation (extent=[-10, -10; 10, 10], rotation=0);
+        FluidPort_a port(redeclare package Medium = Medium) annotation (Placement(
+              transformation(extent={{-10,-10},{10,10}}, rotation=0)));
         Medium.BaseProperties medium(p=port.p, h=port.h, Xi=port.Xi,
                                      preferredMediumStates=true);
         SI.Energy U "Internal energy of port volume";
@@ -2804,18 +2845,19 @@ Modelica.Media.Examples.Tests.MediaTestModels.
           "Independent substance masses of junction volume";
         
         annotation (
-         Icon(
-            Ellipse(extent=[-100, 100; 100, -100], style(
-                color=0,
-                rgbcolor={0,0,0},
-                gradient=3,
-                fillColor=68,
-                rgbfillColor={170,213,255})),
-            Text(extent=[-144, 178; 146, 116], string="%name"),
-            Text(
-              extent=[-130, -108; 144, -150],
-              style(color=0),
-              string="V=%V")), Documentation(info="<html>
+         Icon(graphics={
+              Ellipse(
+                extent={{-100,100},{100,-100}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.Sphere, 
+                fillColor={170,213,255}), 
+              Text(extent={{-144,178},{146,116}}, textString=
+                                                      "%name"), 
+              Text(
+                extent={{-130,-108},{144,-150}}, 
+                lineColor={0,0,0}, 
+                textString=
+                     "V=%V")}),Documentation(info="<html>
 <p>
 This component models the <b>volume</b> of <b>fixed size</b> that is
 associated with the <b>fluid port</b> to which it is connected.
@@ -2829,7 +2871,7 @@ transport elements that just transport energy, mass and momentum
 between the internal ports without storing these quantities during the
 transport.
 </p>
-</html>"),Diagram);
+</html>"),Diagram(graphics));
         
       initial equation 
         if not Medium.singleState then
@@ -2888,40 +2930,60 @@ transport.
         Medium.BaseProperties medium(p=port.p, Xi=X_ambient[1:Medium.nXi]) 
           "Medium in the source";
         FluidPort_b port(redeclare package Medium = Medium) 
-          annotation (extent=[100, -10; 120, 10], rotation=0);
+          annotation (Placement(transformation(extent={{100,-10},{120,10}}, 
+                rotation=0)));
         annotation (
-          Coordsys(
-            extent=[-100, -100; 100, 100],
-            grid=[2, 2],
-            component=[20, 20]),
-          Icon(
-            Rectangle(extent=[20, 60; 100, -60], style(
-                color=0,
-                gradient=2,
-                fillColor=8)),
-            Rectangle(extent=[38, 40; 100, -40], style(
-                color=69,
-                gradient=2,
-                fillColor=69)),
-            Ellipse(extent=[-100, 80; 60, -80], style(fillColor=7)),
-            Polygon(points=[-60, 70; 60, 0; -60, -68; -60, 70], style(color=73,
-                  fillColor=73)),
-            Text(
-              extent=[-54, 32; 16, -30],
-              style(color=41, fillColor=41),
-              string="m"),
-            Text(extent=[-142, 142; 156, 88], string="%name"),
-            Text(
-              extent=[-154,-88; 150,-132],
-              style(color=0),
-              string="%m_flow"),
-            Ellipse(extent=[-26, 30; -18, 22], style(color=1, fillColor=1))),
+          Icon(coordinateSystem(
+              preserveAspectRatio=true, 
+              extent={{-100,-100},{100,100}}, 
+              grid={2,2}), graphics={
+              Rectangle(
+                extent={{20,60},{100,-60}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                fillColor={192,192,192}), 
+              Rectangle(
+                extent={{38,40},{100,-40}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                fillColor={0,127,255}), 
+              Ellipse(
+                extent={{-100,80},{60,-80}}, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid), 
+              Polygon(
+                points={{-60,70},{60,0},{-60,-68},{-60,70}}, 
+                lineColor={0,0,255}, 
+                fillColor={0,0,255}, 
+                fillPattern=FillPattern.Solid), 
+              Text(
+                extent={{-54,32},{16,-30}}, 
+                lineColor={255,0,0}, 
+                fillColor={255,0,0}, 
+                fillPattern=FillPattern.Solid, 
+                textString=
+                     "m"), 
+              Text(extent={{-142,142},{156,88}}, textString=
+                                                     "%name"), 
+              Text(
+                extent={{-154,-88},{150,-132}}, 
+                lineColor={0,0,0}, 
+                textString=
+                     "%m_flow"), 
+              Ellipse(
+                extent={{-26,30},{-18,22}}, 
+                lineColor={255,0,0}, 
+                fillColor={255,0,0}, 
+                fillPattern=FillPattern.Solid)}),
           Window(
             x=0.45,
             y=0.01,
             width=0.44,
             height=0.65),
-          Diagram,
+          Diagram(coordinateSystem(
+              preserveAspectRatio=true, 
+              extent={{-100,-100},{100,100}}, 
+              grid={2,2}), graphics),
           Documentation(info="<html>
     
 </html>"));
@@ -2970,16 +3032,18 @@ transport.
         
         Medium.BaseProperties medium "Medium in the source";
         FluidPort_b port(redeclare package Medium = Medium) 
-          annotation (extent=[100, -10; 120, 10], rotation=0);
+          annotation (Placement(transformation(extent={{100,-10},{120,10}}, 
+                rotation=0)));
         annotation (
-          Coordsys(
-            extent=[-100, -100; 100, 100],
-            grid=[2, 2],
-            component=[20, 20]),
-          Icon(Ellipse(extent=[-100, 80; 100, -80], style(
-                color=69,
-                gradient=3,
-                fillColor=69)), Text(extent=[-136, 144; 132, 82], string="%name")),
+          Icon(coordinateSystem(
+              preserveAspectRatio=true, 
+              extent={{-100,-100},{100,100}}, 
+              grid={2,2}), graphics={Ellipse(
+                extent={{-100,80},{100,-80}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.Sphere, 
+                fillColor={0,127,255}), Text(extent={{-136,144},{132,82}}, 
+                  textString =                                           "%name")}),
           Documentation(info="<html>
 <p>
 Model <b>FixedAmbient_pt</b> defines constant values for ambient conditions:
@@ -3029,9 +3093,11 @@ with exception of ambient pressure, do not have an effect.
           "Nominal mass flow rate at nominal pressure drop";
         
         FluidPort_a port_a(redeclare package Medium = Medium) 
-          annotation (extent=[-120, -10; -100, 10]);
+          annotation (Placement(transformation(extent={{-120,-10},{-100,10}}, 
+                rotation=0)));
         FluidPort_b port_b(redeclare package Medium = Medium) 
-          annotation (extent=[120, -10; 100, 10]);
+          annotation (Placement(transformation(extent={{120,-10},{100,10}}, 
+                rotation=0)));
         // Medium.BaseProperties medium_a(p=port_a.p, h=port_a.h, Xi=port_a.Xi) 
         //   "Medium properties in port_a";
         // Medium.BaseProperties medium_b(p=port_b.p, h=port_b.h, Xi=port_b.Xi) 
@@ -3039,23 +3105,30 @@ with exception of ambient pressure, do not have an effect.
         Medium.MassFlowRate m_flow 
           "Mass flow rate from port_a to port_b (m_flow > 0 is design flow direction)";
         Modelica.SIunits.Pressure dp "Pressure drop from port_a to port_b";
-                                                                                         annotation (Icon(
-            Rectangle(extent=[-100,60; 100,-60],   style(
-                color=0,
-                gradient=2,
-                fillColor=8)),
-            Rectangle(extent=[-100,34; 100,-36],   style(
-                color=69,
-                gradient=2,
-                fillColor=69)),
-            Text(
-              extent=[-150,140; 150,80],
-              string="%name",
-              style(gradient=2, fillColor=69)),
-            Text(
-              extent=[-136,-62; 122,-108],
-              style(color=0, rgbcolor={0,0,0}),
-              string="k=%m_flow_nominal/%dp_nominal")),
+                                                                                         annotation (Icon(graphics
+              ={
+              Rectangle(
+                extent={{-100,60},{100,-60}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                fillColor={192,192,192}), 
+              Rectangle(
+                extent={{-100,34},{100,-36}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                fillColor={0,127,255}), 
+              Text(
+                extent={{-150,140},{150,80}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                fillColor={0,127,255}, 
+                textString=
+                     "%name"), 
+              Text(
+                extent={{-136,-62},{122,-108}}, 
+                lineColor={0,0,0}, 
+                textString=
+                     "k=%m_flow_nominal/%dp_nominal")}),
                                                  Documentation(info="<html>
 <p>
 Model <b>ShortPipe</b> defines a simple pipe model 
@@ -3111,14 +3184,17 @@ The details of the pipe friction model are described
                           h_start=h_start,
                           X_start = X_start,
                           V=0.1) 
-                 annotation (extent=[-40,0; -20,20]);
+                 annotation (Placement(transformation(extent={{-40,0},{-20,20}}, 
+                rotation=0)));
         FixedMassFlowRate fixedMassFlowRate(redeclare package Medium = Medium,
           T_ambient=1.2*T_start,
           h_ambient=1.2*h_start,
           m_flow=1,
           X_ambient=0.5*X_start) 
-                                annotation (extent=[-80,0; -60,20]);
-        annotation (Diagram, Documentation(info="<html>
+                                annotation (Placement(transformation(extent={{
+                  -80,0},{-60,20}}, rotation=0)));
+        annotation (Diagram(graphics),
+                             Documentation(info="<html>
   
 </html>"));
         FixedAmbient ambient(
@@ -3126,18 +3202,20 @@ The details of the pipe friction model are described
           T_ambient=T_start,
           h_ambient=h_start,
           X_ambient=X_start,
-          p_ambient=p_start) annotation (extent=[60,0; 40,20]);
+          p_ambient=p_start) annotation (Placement(transformation(extent={{60,0},
+                  {40,20}}, rotation=0)));
         ShortPipe shortPipe(redeclare package Medium = Medium,
           m_flow_nominal=1,
           dp_nominal=0.1e5) 
-          annotation (extent=[0,0; 20,20]);
+          annotation (Placement(transformation(extent={{0,0},{20,20}}, rotation
+                =0)));
       equation 
-        connect(fixedMassFlowRate.port, volume.port) annotation (points=[-59,10; -30,
-              10],     style(color=69, rgbcolor={0,127,255}));
+        connect(fixedMassFlowRate.port, volume.port) annotation (Line(points={{
+                -59,10},{-30,10}}, color={0,127,255}));
         connect(volume.port, shortPipe.port_a) 
-          annotation (points=[-30,10; -1,10], style(color=69, rgbcolor={0,127,255}));
+          annotation (Line(points={{-30,10},{-1,10}}, color={0,127,255}));
         connect(shortPipe.port_b, ambient.port) 
-          annotation (points=[21,10; 39,10], style(color=69, rgbcolor={0,127,255}));
+          annotation (Line(points={{21,10},{39,10}}, color={0,127,255}));
       end PartialTestModel;
       
       partial model PartialTestModel2 
@@ -3160,14 +3238,17 @@ The details of the pipe friction model are described
                           h_start=h_start,
                           X_start = X_start,
                           V=0.1) 
-                 annotation (extent=[-60,0; -40,20]);
+                 annotation (Placement(transformation(extent={{-60,0},{-40,20}}, 
+                rotation=0)));
         FixedMassFlowRate fixedMassFlowRate(redeclare package Medium = Medium,
           T_ambient=1.2*T_start,
           h_ambient=1.2*h_start,
           m_flow=1,
           X_ambient=0.5*X_start) 
-                                annotation (extent=[-100,0; -80,20]);
-        annotation (Diagram, Documentation(info="<html>
+                                annotation (Placement(transformation(extent={{
+                  -100,0},{-80,20}}, rotation=0)));
+        annotation (Diagram(graphics),
+                             Documentation(info="<html>
   
 </html>"));
         FixedAmbient ambient(
@@ -3175,11 +3256,13 @@ The details of the pipe friction model are described
           T_ambient=T_start,
           h_ambient=h_start,
           X_ambient=X_start,
-          p_ambient=p_start) annotation (extent=[92,0; 72,20]);
+          p_ambient=p_start) annotation (Placement(transformation(extent={{92,0},
+                  {72,20}}, rotation=0)));
         ShortPipe shortPipe(redeclare package Medium = Medium,
           m_flow_nominal=1,
           dp_nominal=0.1e5) 
-          annotation (extent=[-30,0; -10,20]);
+          annotation (Placement(transformation(extent={{-30,0},{-10,20}}, 
+                rotation=0)));
         PortVolume volume1(
                           redeclare package Medium = Medium,
                           p_start=p_start,
@@ -3187,23 +3270,25 @@ The details of the pipe friction model are described
                           h_start=h_start,
                           X_start = X_start,
                           V=0.1) 
-                 annotation (extent=[0,0; 20,20]);
+                 annotation (Placement(transformation(extent={{0,0},{20,20}}, 
+                rotation=0)));
         ShortPipe shortPipe1(
                             redeclare package Medium = Medium,
           m_flow_nominal=1,
           dp_nominal=0.1e5) 
-          annotation (extent=[36,0; 56,20]);
+          annotation (Placement(transformation(extent={{36,0},{56,20}}, 
+                rotation=0)));
       equation 
-        connect(fixedMassFlowRate.port, volume.port) annotation (points=[-79,10; -50,
-              10],     style(color=69, rgbcolor={0,127,255}));
+        connect(fixedMassFlowRate.port, volume.port) annotation (Line(points={{
+                -79,10},{-50,10}}, color={0,127,255}));
         connect(volume.port, shortPipe.port_a) 
-          annotation (points=[-50,10; -31,10],style(color=69, rgbcolor={0,127,255}));
+          annotation (Line(points={{-50,10},{-31,10}}, color={0,127,255}));
         connect(volume1.port, shortPipe1.port_a) 
-          annotation (points=[10,10; 35,10],  style(color=69, rgbcolor={0,127,255}));
+          annotation (Line(points={{10,10},{35,10}}, color={0,127,255}));
         connect(shortPipe.port_b, volume1.port) 
-          annotation (points=[-9,10; 10,10], style(color=69, rgbcolor={0,127,255}));
+          annotation (Line(points={{-9,10},{10,10}}, color={0,127,255}));
         connect(shortPipe1.port_b, ambient.port) 
-          annotation (points=[57,10; 71,10], style(color=69, rgbcolor={0,127,255}));
+          annotation (Line(points={{57,10},{71,10}}, color={0,127,255}));
       end PartialTestModel2;
       annotation (Documentation(info="<html>
   
@@ -3504,7 +3589,7 @@ output window.
       extends Modelica.Icons.Example;
       
       replaceable package Medium = Modelica.Media.Air.DryAirNasa 
-            extends Modelica.Media.IdealGases.Common.SingleGasNasa 
+            constrainedby Modelica.Media.IdealGases.Common.SingleGasNasa 
         "Medium model"     annotation (choicesAllMatching=true);
       
      parameter SI.Temperature T_min = 300;
@@ -3601,7 +3686,7 @@ output window.
       
       replaceable package Medium = 
           Modelica.Media.IdealGases.MixtureGases.FlueGasLambdaOnePlus 
-            extends Modelica.Media.IdealGases.Common.MixtureGasNasa 
+            constrainedby Modelica.Media.IdealGases.Common.MixtureGasNasa 
         "Medium model"     annotation (choicesAllMatching=true);
       
      parameter SI.Temperature T_min = 300;
@@ -3911,8 +3996,11 @@ Modelica source.
       SI.Conversions.NonSIunits.Pressure_bar p_bar=
        Modelica.SIunits.Conversions.to_bar(p) 
         "Absolute pressure of medium in [bar]";
-      annotation (Icon(Rectangle(extent=[-100,100; 100,-100], style(fillColor=7)), Text(extent=
-               [-152,164; 152,102], string="%name")));
+      annotation (Icon(graphics={Rectangle(
+              extent={{-100,100},{100,-100}}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), Text(extent={{-152,164},{152,102}}, 
+                textString =               "%name")}));
       
       // Local connector definition, used for equation balancing check
       connector InputAbsolutePressure = input SI.AbsolutePressure;

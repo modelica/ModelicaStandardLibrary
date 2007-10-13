@@ -41,18 +41,34 @@ as the components of packages <b>Modelica.Blocks.Math</b>,
     extends Interfaces.DiscreteSISO;
     
     annotation (
-      Icon(
-        Ellipse(extent=[-25, -10; -45, 10], style(color=3, fillColor=7)),
-        Ellipse(extent=[45, -10; 25, 10], style(color=73, fillColor=7)),
-        Line(points=[-100, 0; -45, 0], style(color=3)),
-        Line(points=[45, 0; 100, 0], style(color=73)),
-        Line(points=[-35, 0; 30, 35], style(color=3))),
-      Diagram(
-        Ellipse(extent=[-25, -10; -45, 10], style(color=3, fillColor=7)),
-        Ellipse(extent=[45, -10; 25, 10], style(color=73, fillColor=7)),
-        Line(points=[-100, 0; -45, 0], style(color=3)),
-        Line(points=[45, 0; 100, 0], style(color=73)),
-        Line(points=[-35, 0; 30, 35], style(color=3))),
+      Icon(graphics={
+          Ellipse(
+            extent={{-25,-10},{-45,10}}, 
+            lineColor={0,0,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(
+            extent={{45,-10},{25,10}}, 
+            lineColor={0,0,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-100,0},{-45,0}}, color={0,0,255}), 
+          Line(points={{45,0},{100,0}}, color={0,0,255}), 
+          Line(points={{-35,0},{30,35}}, color={0,0,255})}),
+      Diagram(graphics={
+          Ellipse(
+            extent={{-25,-10},{-45,10}}, 
+            lineColor={0,0,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(
+            extent={{45,-10},{25,10}}, 
+            lineColor={0,0,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-100,0},{-45,0}}, color={0,0,255}), 
+          Line(points={{45,0},{100,0}}, color={0,0,255}), 
+          Line(points={{-35,0},{30,35}}, color={0,0,255})}),
       Documentation(info="<HTML>
 <p>
 Samples the continues input signal with a sampling rate defined
@@ -70,17 +86,17 @@ via parameter <b>samplePeriod</b>.
     extends Interfaces.DiscreteSISO;
     output Real ySample(start=0, fixed=true);
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[2, 2],
-        component=[20, 20]),
       Window(
         x=0.3,
         y=0.07,
         width=0.63,
         height=0.68),
-      Icon(Line(points=[-78, -42; -52, -42; -52, 0; -26, 0; -26, 24; -6, 24; -6,
-                64; 18, 64; 18, 20; 38, 20; 38, 0; 44, 0; 44, 0; 62, 0])),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={Line(points={{-78,-42},{-52,-42},{-52,0},{-26,
+                0},{-26,24},{-6,24},{-6,64},{18,64},{18,20},{38,20},{38,0},{44,
+                0},{44,0},{62,0}})}),
       Documentation(info="<HTML>
 <p>
 The output is identical to the sampled input signal at sample
@@ -107,17 +123,17 @@ sample instant during the sample points.
     Modelica.SIunits.Time tSample;
     Real c;
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
       Window(
         x=0.21,
         y=0.08,
         width=0.75,
         height=0.76),
-      Icon(Line(points=[-79, -41; -59, -33; -40, 1; -20, 9; 0, 63; 21, 20; 41,
-              10; 60, 20]), Line(points=[60, 19; 81, 10])),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={Line(points={{-79,-41},{-59,-33},{-40,1},{-20,
+                9},{0,63},{21,20},{41,10},{60,20}}), Line(points={{60,19},{81,
+                10}})}),
       Documentation(info="<HTML>
 <p>
 The output signal is the extrapolation through the
@@ -143,10 +159,6 @@ values of the last two sampled input signals.
     extends Interfaces.DiscreteSISO;
     
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[2, 2],
-        component=[20, 20]),
       Window(
         x=0.24,
         y=0.09,
@@ -168,25 +180,37 @@ the output y is identical to parameter yStart.
 </p>
 
 </HTML>
-"),   Icon(
-        Line(points=[-30, 0; 30, 0]),
-        Text(extent=[-90, 10; 90, 90], string="1"),
-        Text(extent=[-90, -10; 90, -90], string="z")),
-      Diagram(
-        Rectangle(extent=[-60, 60; 60, -60], style(color=73)),
-        Text(extent=[-160, 10; -140, -10], string="u"),
-        Text(extent=[115, 10; 135, -10], string="y"),
-        Line(points=[-100, 0; -60, 0], style(color=73)),
-        Line(points=[60, 0; 100, 0], style(color=73)),
-        Line(points=[40, 0; -40, 0], style(color=0)),
-        Text(
-          extent=[-55, 55; 55, 5],
-          string="1",
-          style(color=0)),
-        Text(
-          extent=[-55, -5; 55, -55],
-          string="z",
-          style(color=0))));
+"),   Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Line(points={{-30,0},{30,0}}), 
+          Text(extent={{-90,10},{90,90}}, textString=
+                                              "1"), 
+          Text(extent={{-90,-10},{90,-90}}, textString=
+                                                "z")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
+          Text(extent={{-160,10},{-140,-10}}, textString=
+                                                  "u"), 
+          Text(extent={{115,10},{135,-10}}, textString=
+                                                "y"), 
+          Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
+          Line(points={{60,0},{100,0}}, color={0,0,255}), 
+          Line(points={{40,0},{-40,0}}, color={0,0,0}), 
+          Text(
+            extent={{-55,55},{55,5}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "1"), 
+          Text(
+            extent={{-55,-5},{55,-55}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "z")}));
   equation 
     when sampleTrigger then
       y = pre(u);
@@ -208,10 +232,6 @@ the output y is identical to parameter yStart.
     Real x1;
     Real xext[size(a, 1)];
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[2, 2],
-        component=[20, 20]),
       Window(
         x=0.25,
         y=0.08,
@@ -252,29 +272,42 @@ states can be set as start values of <b>x</b>.<p>
     and Hilding Elmqvist.</li>
 </ul>
 </html>"),
-      Icon(
-        Line(points=[82, 0; -84, 0], style(color=73)),
-        Text(
-          extent=[-92, 92; 86, 12],
-          string="b(z)",
-          style(color=73)),
-        Text(
-          extent=[-90, -12; 90, -90],
-          string="a(z)",
-          style(color=73))),
-      Diagram(
-        Rectangle(extent=[-60, 60; 60, -60], style(fillPattern=0)),
-        Line(points=[40, 0; -44, 0], style(color=0, thickness=2)),
-        Text(
-          extent=[-54, 54; 54, 4],
-          string="b(z)",
-          style(color=0)),
-        Text(
-          extent=[-54, -6; 56, -56],
-          string="a(z)",
-          style(color=0)),
-        Line(points=[-100, 0; -60, 0]),
-        Line(points=[60, 0; 100, 0])));
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Line(points={{82,0},{-84,0}}, color={0,0,255}), 
+          Text(
+            extent={{-92,92},{86,12}}, 
+            lineColor={0,0,255}, 
+            textString=
+                 "b(z)"), 
+          Text(
+            extent={{-90,-12},{90,-90}}, 
+            lineColor={0,0,255}, 
+            textString=
+                 "a(z)")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Rectangle(extent={{-60,60},{60,-60}}, fillPattern=FillPattern.None), 
+          Line(
+            points={{40,0},{-44,0}}, 
+            color={0,0,0}, 
+            thickness=2), 
+          Text(
+            extent={{-54,54},{54,4}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "b(z)"), 
+          Text(
+            extent={{-54,-6},{56,-56}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "a(z)"), 
+          Line(points={{-100,0},{-60,0}}), 
+          Line(points={{60,0},{100,0}})}));
   equation 
     when sampleTrigger then
       /* State variables x are defined according to
@@ -311,10 +344,6 @@ states can be set as start values of <b>x</b>.<p>
     output Real x[size(A, 1)] "State vector";
     
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[2, 2],
-        component=[20, 20]),
       Window(
         x=0.25,
         y=0.18,
@@ -360,31 +389,41 @@ results in the following equations:
                              [pre(x[2])]            [u[2]]
 </pre>
 </HTML>
-"),   Icon(
-        Text(extent=[-90, 15; -15, 90], string="A"),
-        Text(extent=[15, 15; 90, 90], string="B"),
-        Text(extent=[-52, 28; 54, -20], string="z"),
-        Text(extent=[-90, -15; -15, -90], string="C"),
-        Text(extent=[15, -15; 90, -90], string="D")),
-      Diagram(
-        Rectangle(extent=[-60, 60; 60, -60], style(fillPattern=0)),
-        Text(
-          extent=[-54, 50; 52, -10],
-          string="zx=Ax+Bu",
-          style(
-            color=0,
-            gradient=0,
-            fillColor=10,
-            fillPattern=0)),
-        Text(
-          extent=[-56, 14; 54, -50],
-          string="  y=Cx+Du",
-          style(
-            color=0,
-            fillColor=8,
-            fillPattern=1)),
-        Line(points=[-102, 0; -60, 0]),
-        Line(points=[60, 0; 100, 0])));
+"),   Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Text(extent={{-90,15},{-15,90}}, textString=
+                                               "A"), 
+          Text(extent={{15,15},{90,90}}, textString=
+                                             "B"), 
+          Text(extent={{-52,28},{54,-20}}, textString=
+                                               "z"), 
+          Text(extent={{-90,-15},{-15,-90}}, textString=
+                                                 "C"), 
+          Text(extent={{15,-15},{90,-90}}, textString=
+                                               "D")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Rectangle(extent={{-60,60},{60,-60}}, fillPattern=FillPattern.None), 
+          Text(
+            extent={{-54,50},{52,-10}}, 
+            lineColor={0,0,0}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.None, 
+            textString=
+                 "zx=Ax+Bu"), 
+          Text(
+            extent={{-56,14},{54,-50}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "  y=Cx+Du"), 
+          Line(points={{-102,0},{-60,0}}), 
+          Line(points={{60,0},{100,0}})}));
   equation 
     when sampleTrigger then
       x = A*pre(x) + B*u;
@@ -397,20 +436,36 @@ results in the following equations:
     parameter Real y_start=0 "initial value of output signal";
     
     annotation (
-      Icon(
-        Ellipse(extent=[-25, -10; -45, 10], style(color=3, fillColor=7)),
-        Ellipse(extent=[45, -10; 25, 10], style(color=73, fillColor=7)),
-        Line(points=[-100, 0; -45, 0], style(color=3)),
-        Line(points=[45, 0; 100, 0], style(color=73)),
-        Line(points=[0, -100; 0, -26], style(color=5)),
-        Line(points=[-35, 0; 28, -48], style(color=3))),
-      Diagram(
-        Ellipse(extent=[-25, -10; -45, 10], style(color=3, fillColor=7)),
-        Ellipse(extent=[45, -10; 25, 10], style(color=73, fillColor=7)),
-        Line(points=[-100, 0; -45, 0], style(color=3)),
-        Line(points=[45, 0; 100, 0], style(color=73)),
-        Line(points=[-35, 0; 28, -48], style(color=3)),
-        Line(points=[0, -100; 0, -26], style(color=5))),
+      Icon(graphics={
+          Ellipse(
+            extent={{-25,-10},{-45,10}}, 
+            lineColor={0,0,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(
+            extent={{45,-10},{25,10}}, 
+            lineColor={0,0,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-100,0},{-45,0}}, color={0,0,255}), 
+          Line(points={{45,0},{100,0}}, color={0,0,255}), 
+          Line(points={{0,-100},{0,-26}}, color={255,0,255}), 
+          Line(points={{-35,0},{28,-48}}, color={0,0,255})}),
+      Diagram(graphics={
+          Ellipse(
+            extent={{-25,-10},{-45,10}}, 
+            lineColor={0,0,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(
+            extent={{45,-10},{25,10}}, 
+            lineColor={0,0,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-100,0},{-45,0}}, color={0,0,255}), 
+          Line(points={{45,0},{100,0}}, color={0,0,255}), 
+          Line(points={{-35,0},{28,-48}}, color={0,0,255}), 
+          Line(points={{0,-100},{0,-26}}, color={255,0,255})}),
       Documentation(info="<HTML>
 <p>
 Samples the continuous input signal whenever the trigger input
@@ -422,13 +477,16 @@ the initial value defined via parameter <b>y0</b>.
 </HTML>
 "));
     Modelica.Blocks.Interfaces.RealInput u "Connector with a Real input signal"
-                                                          annotation (extent=[-
-          140, -20; -100, 20]);
+                                                          annotation (Placement(
+          transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput y 
-      "Connector with a Real output signal"                annotation (extent=[
-          100, -10; 120, 10]);
-    Modelica.Blocks.Interfaces.BooleanInput trigger annotation (
-        extent=[-20, -138; 20, -98], rotation=90);
+      "Connector with a Real output signal"                annotation (Placement(
+          transformation(extent={{100,-10},{120,10}}, rotation=0)));
+    Modelica.Blocks.Interfaces.BooleanInput trigger annotation (Placement(
+          transformation(
+          origin={0,-118}, 
+          extent={{-20,-20},{20,20}}, 
+          rotation=90)));
   equation 
     when trigger then
       y = u;
@@ -442,24 +500,41 @@ the initial value defined via parameter <b>y0</b>.
     
     extends Interfaces.DiscreteBlockIcon;
     annotation (
-      Icon(
-        Ellipse(extent=[-25, -10; -45, 10], style(color=3, fillColor=7)),
-        Ellipse(extent=[45, -10; 25, 10], style(color=73, fillColor=7)),
-        Line(points=[-100, 0; -45, 0], style(color=3)),
-        Line(points=[45, 0; 100, 0], style(color=73)),
-        Line(points=[0, -100; 0, -26], style(color=5)),
-        Line(points=[-35, 0; 28, -48], style(color=3)),
-        Text(
-          extent=[-86, 82; 82, 24],
-          string="max",
-          style(color=0))),
-      Diagram(
-        Ellipse(extent=[-25, -10; -45, 10], style(color=3, fillColor=7)),
-        Ellipse(extent=[45, -10; 25, 10], style(color=73, fillColor=7)),
-        Line(points=[-100, 0; -45, 0], style(color=3)),
-        Line(points=[45, 0; 100, 0], style(color=73)),
-        Line(points=[-35, 0; 28, -48], style(color=3)),
-        Line(points=[0, -100; 0, -26], style(color=5))),
+      Icon(graphics={
+          Ellipse(
+            extent={{-25,-10},{-45,10}}, 
+            lineColor={0,0,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(
+            extent={{45,-10},{25,10}}, 
+            lineColor={0,0,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-100,0},{-45,0}}, color={0,0,255}), 
+          Line(points={{45,0},{100,0}}, color={0,0,255}), 
+          Line(points={{0,-100},{0,-26}}, color={255,0,255}), 
+          Line(points={{-35,0},{28,-48}}, color={0,0,255}), 
+          Text(
+            extent={{-86,82},{82,24}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "max")}),
+      Diagram(graphics={
+          Ellipse(
+            extent={{-25,-10},{-45,10}}, 
+            lineColor={0,0,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(
+            extent={{45,-10},{25,10}}, 
+            lineColor={0,0,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-100,0},{-45,0}}, color={0,0,255}), 
+          Line(points={{45,0},{100,0}}, color={0,0,255}), 
+          Line(points={{-35,0},{28,-48}}, color={0,0,255}), 
+          Line(points={{0,-100},{0,-26}}, color={255,0,255})}),
       Documentation(info="<HTML>
 <p>
 Samples the continuous input signal whenever the trigger input
@@ -470,13 +545,16 @@ at the sampling point is provided as output signal.
 </HTML>
 "));
     Modelica.Blocks.Interfaces.RealInput u "Connector with a Real input signal"
-                                           annotation (extent=[-
-          140, -20; -100, 20]);
+                                           annotation (Placement(transformation(
+            extent={{-140,-20},{-100,20}}, rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput y 
-      "Connector with a Real output signal" annotation (extent=[
-          100, -10; 120, 10]);
-    Modelica.Blocks.Interfaces.BooleanInput trigger annotation (
-        extent=[-20, -138; 20, -98], rotation=90);
+      "Connector with a Real output signal" annotation (Placement(
+          transformation(extent={{100,-10},{120,10}}, rotation=0)));
+    Modelica.Blocks.Interfaces.BooleanInput trigger annotation (Placement(
+          transformation(
+          origin={0,-118}, 
+          extent={{-20,-20},{20,20}}, 
+          rotation=90)));
   equation 
     when trigger then
        y = max(pre(y), abs(u));

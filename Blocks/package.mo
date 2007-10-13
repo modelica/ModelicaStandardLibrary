@@ -14,19 +14,23 @@ annotation(preferedView="info",
     height=0.48,
     library=1,
     autolayout=1),
-  Icon(
-    Rectangle(extent=[-32, -6; 16, -35], style(color=0)),
-    Rectangle(extent=[-32, -56; 16, -85], style(color=0)),
-    Line(points=[16, -20; 49, -20; 49, -71; 16, -71], style(color=0)),
-    Line(points=[-32, -72; -64, -72; -64, -21; -32, -21], style(color=0)),
-    Polygon(points=[16, -71; 29, -67; 29, -74; 16, -71], style(
-        color=0,
-        fillColor=0,
-        fillPattern=1)),
-    Polygon(points=[-32, -21; -46, -17; -46, -25; -32, -21], style(
-        color=0,
-        fillColor=0,
-        fillPattern=1))), Documentation(info="<html>
+  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
+      graphics={
+      Rectangle(extent={{-32,-6},{16,-35}}, lineColor={0,0,0}), 
+      Rectangle(extent={{-32,-56},{16,-85}}, lineColor={0,0,0}), 
+      Line(points={{16,-20},{49,-20},{49,-71},{16,-71}}, color={0,0,0}), 
+      Line(points={{-32,-72},{-64,-72},{-64,-21},{-32,-21}}, color={0,0,0}), 
+      Polygon(
+        points={{16,-71},{29,-67},{29,-74},{16,-71}}, 
+        lineColor={0,0,0}, 
+        fillColor={0,0,0}, 
+        fillPattern=FillPattern.Solid), 
+      Polygon(
+        points={{-32,-21},{-46,-17},{-46,-25},{-32,-21}}, 
+        lineColor={0,0,0}, 
+        fillColor={0,0,0}, 
+        fillPattern=FillPattern.Solid)}),
+                          Documentation(info="<html>
 <p>
 This library contains input/output blocks to build up block diagrams.
 </p>
@@ -110,34 +114,38 @@ package Examples
       initType=Modelica.Blocks.Types.Init.SteadyState,
       limitsAtInit=false,
       controllerType=Modelica.Blocks.Types.SimpleController.PI) 
-      annotation (extent=[-56,-20; -36,0]);
+      annotation (Placement(transformation(extent={{-56,-20},{-36,0}}, rotation
+            =0)));
     Modelica.Mechanics.Rotational.Inertia inertia1(initType=Modelica.Mechanics.
           Rotational.Types.Init.InitialAngleAcceleration) 
-                                              annotation (extent=[2,-20; 22,0]);
+                                              annotation (Placement(
+          transformation(extent={{2,-20},{22,0}}, rotation=0)));
     annotation (
-      Diagram(
-        Rectangle(extent=[-99,48; -32,8], style(color=1, rgbcolor={255,0,0})),
-        Text(
-          extent=[-98,59; -31,51],
-          style(color=1, rgbcolor={255,0,0}),
-          string="reference speed generation"),
-        Text(
-          extent=[-98,-46; -60,-52],
-          style(color=1, rgbcolor={255,0,0}),
-          string="PI controller"),
-        Line(points=[-76,-44; -57,-23], style(
-            color=1,
-            rgbcolor={255,0,0},
-            arrow=1)),
-        Rectangle(extent=[-25,6; 99,-50], style(color=1, rgbcolor={255,0,0})),
-        Text(
-          extent=[4,14; 71,7],
-          style(color=1, rgbcolor={255,0,0}),
-          string="plant (simple drive train)")),
-      Coordsys(
-        extent=[-100,-100; 100,100],
-        grid=[1,1],
-        scale=0),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(extent={{-99,48},{-32,8}}, lineColor={255,0,0}), 
+          Text(
+            extent={{-98,59},{-31,51}}, 
+            lineColor={255,0,0}, 
+            textString=
+                 "reference speed generation"), 
+          Text(
+            extent={{-98,-46},{-60,-52}}, 
+            lineColor={255,0,0}, 
+            textString=
+                 "PI controller"), 
+          Line(
+            points={{-76,-44},{-57,-23}}, 
+            color={255,0,0}, 
+            arrow={Arrow.None,Arrow.Filled}), 
+          Rectangle(extent={{-25,6},{99,-50}}, lineColor={255,0,0}), 
+          Text(
+            extent={{4,14},{71,7}}, 
+            lineColor={255,0,0}, 
+            textString=
+                 "plant (simple drive train)")}),
       experiment(StopTime=4),
       experimentSetupOutput,
       Documentation(info="<html>
@@ -205,51 +213,60 @@ is forced back to its limit after a transient phase.
 
 </html>"));
     Modelica.Mechanics.Rotational.Torque torque 
-      annotation (extent=[-25,-20; -5,0]);
+      annotation (Placement(transformation(extent={{-25,-20},{-5,0}}, rotation=
+              0)));
     Modelica.Mechanics.Rotational.SpringDamper spring(c=1e4, d=100,
       initType=Modelica.Mechanics.Rotational.Types.Init.SteadyState,
       stateSelection=Modelica.Blocks.Types.StateSelection.Prefer) 
-      annotation (extent=[32,-20; 52,0]);
+      annotation (Placement(transformation(extent={{32,-20},{52,0}}, rotation=0)));
     Modelica.Mechanics.Rotational.Inertia inertia2(J=2) 
-      annotation (extent=[60,-20; 80,0]);
+      annotation (Placement(transformation(extent={{60,-20},{80,0}}, rotation=0)));
     Modelica.Blocks.Sources.KinematicPTP kinematicPTP(startTime=0.5, deltaq={
-          driveAngle}) annotation (extent=[-92,20; -72,40]);
+          driveAngle}) annotation (Placement(transformation(extent={{-92,20},{
+              -72,40}}, rotation=0)));
     Modelica.Blocks.Continuous.Integrator integrator(initType=Modelica.Blocks.
-          Types.Init.InitialState) annotation (extent=[-63,20; -43,40]);
+          Types.Init.InitialState) annotation (Placement(transformation(extent=
+              {{-63,20},{-43,40}}, rotation=0)));
     Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor 
-      annotation (extent=[22,-50; 2,-30]);
+      annotation (Placement(transformation(extent={{22,-50},{2,-30}}, rotation=
+              0)));
     Modelica.Mechanics.Rotational.ConstantTorque loadTorque(tau_constant=10) 
-      annotation (extent=[98,-15; 88,-5]);
+      annotation (Placement(transformation(extent={{98,-15},{88,-5}}, rotation=
+              0)));
   equation 
     connect(spring.flange_b,inertia2. flange_a) 
-      annotation (points=[52,-10; 60,-10], style(color=0, rgbcolor={0,0,0}));
+      annotation (Line(points={{52,-10},{60,-10}}, color={0,0,0}));
     connect(inertia1.flange_b, spring.flange_a) 
-      annotation (points=[22,-10; 32,-10], style(color=0, rgbcolor={0,0,0}));
+      annotation (Line(points={{22,-10},{32,-10}}, color={0,0,0}));
     connect(torque.flange_b, inertia1.flange_a) 
-      annotation (points=[-5,-10; 2,-10], style(color=0, rgbcolor={0,0,0}));
-    connect(kinematicPTP.y[1], integrator.u) annotation (points=[-71,30; -65,30],
-        style(color=74, rgbcolor={0,0,127}));
+      annotation (Line(points={{-5,-10},{2,-10}}, color={0,0,0}));
+    connect(kinematicPTP.y[1], integrator.u) annotation (Line(points={{-71,30},
+            {-65,30}}, color={0,0,127}));
     connect(speedSensor.flange_a, inertia1.flange_b) 
-      annotation (points=[22,-40; 22,-10], style(color=0, rgbcolor={0,0,0}));
+      annotation (Line(points={{22,-40},{22,-10}}, color={0,0,0}));
     connect(loadTorque.flange, inertia2.flange_b) 
-      annotation (points=[88,-10; 80,-10], style(color=0, rgbcolor={0,0,0}));
-    connect(PI.y, torque.tau)  annotation (points=[-35,-10; -27,-10], style(
-          color=74, rgbcolor={0,0,127}));
-    connect(speedSensor.w, PI.u_m)  annotation (points=[1,-40; -46,-40; -46,-22],
-        style(color=74, rgbcolor={0,0,127}));
-    connect(integrator.y, PI.u_s)  annotation (points=[-42,30; -37,30; -37,11;
-          -67,11; -67,-10; -58,-10], style(color=74, rgbcolor={0,0,127}));
+      annotation (Line(points={{88,-10},{80,-10}}, color={0,0,0}));
+    connect(PI.y, torque.tau)  annotation (Line(points={{-35,-10},{-27,-10}}, 
+          color={0,0,127}));
+    connect(speedSensor.w, PI.u_m)  annotation (Line(points={{1,-40},{-46,-40},
+            {-46,-22}}, color={0,0,127}));
+    connect(integrator.y, PI.u_s)  annotation (Line(points={{-42,30},{-37,30},{
+            -37,11},{-67,11},{-67,-10},{-58,-10}}, color={0,0,127}));
   end PID_Controller;
   
      model ShowLogicalSources 
     "Show logical sources and demonstrate their diagram animation" 
        extends Modelica.Icons.Example;
        Sources.BooleanTable table(table={2,4,6,8}) 
-                                       annotation(extent=[-60,-100; -40,-80]);
-       Sources.BooleanConstant const    annotation(extent=[-60,60; -40,80]);
-       Sources.BooleanStep step(startTime=4) annotation(extent=[-60,20; -40,40]);
-       Sources.BooleanPulse pulse(period=1.5) annotation(extent=[-60,-20; -40,0]);
-       annotation(Diagram,
+                                       annotation (Placement(transformation(
+            extent={{-60,-100},{-40,-80}}, rotation=0)));
+       Sources.BooleanConstant const    annotation (Placement(transformation(
+            extent={{-60,60},{-40,80}}, rotation=0)));
+       Sources.BooleanStep step(startTime=4) annotation (Placement(
+          transformation(extent={{-60,20},{-40,40}}, rotation=0)));
+       Sources.BooleanPulse pulse(period=1.5) annotation (Placement(
+          transformation(extent={{-60,-20},{-40,0}}, rotation=0)));
+       annotation(Diagram(graphics),
       experiment(StopTime=10),
       experimentSetupOutput,
       Documentation(info="<html>
@@ -264,20 +281,24 @@ model.
 
 </html>"));
       Sources.SampleTrigger sample(
-                          period=0.5) annotation(extent=[-60,-60; -40,-40]);
+                          period=0.5) annotation (Placement(transformation(
+            extent={{-60,-60},{-40,-40}}, rotation=0)));
       Sources.BooleanExpression booleanExpression(
                                                 y=pulse.y and step.y) 
-      annotation(extent=[20,20; 80,40]);
+      annotation (Placement(transformation(extent={{20,20},{80,40}}, rotation=0)));
      end ShowLogicalSources;
   
     model LogicalNetwork1 "Example for a network of logical blocks" 
     
     extends Modelica.Icons.Example;
-    Sources.BooleanTable table2(table={1,3,5,7}) annotation(extent=[-80,-20; -60,0]);
-    Sources.BooleanTable table1(table={2,4,6,8}) annotation(extent=[-80,20; -60,40]);
-    Logical.Not Not1 annotation(extent=[-40,-20; -20,0]);
+    Sources.BooleanTable table2(table={1,3,5,7}) annotation (Placement(
+          transformation(extent={{-80,-20},{-60,0}}, rotation=0)));
+    Sources.BooleanTable table1(table={2,4,6,8}) annotation (Placement(
+          transformation(extent={{-80,20},{-60,40}}, rotation=0)));
+    Logical.Not Not1 annotation (Placement(transformation(extent={{-40,-20},{
+              -20,0}}, rotation=0)));
     
-    annotation(Diagram,
+    annotation(Diagram(graphics),
         experiment(StopTime=10),
         experimentSetupOutput,
       Documentation(info="<html>
@@ -289,23 +310,26 @@ If a \"circle\" is \"white\", the signal is <b>false</b>. It a
 \"circle\" is \"green\", the signal is <b>true</b>.
 </p>
 </html>"));
-    Logical.And And1 annotation(extent=[0,-20; 20,0]);
-    Logical.Or Or1 annotation(extent=[40,20; 60,40]);
-    Logical.Pre Pre1 annotation(extent=[-40,-60; -20,-40]);
+    Logical.And And1 annotation (Placement(transformation(extent={{0,-20},{20,0}}, 
+            rotation=0)));
+    Logical.Or Or1 annotation (Placement(transformation(extent={{40,20},{60,40}}, 
+            rotation=0)));
+    Logical.Pre Pre1 annotation (Placement(transformation(extent={{-40,-60},{
+              -20,-40}}, rotation=0)));
     equation 
     
-    connect(table2.y, Not1.u) annotation(points=[-59,-10; -42,-10], style(
-          color=5, rgbcolor={255,0,255}));
-    connect(And1.y, Or1.u2) annotation(points=[21,-10; 28,-10; 28,22; 38,22],
-        style(color=5, rgbcolor={255,0,255}));
-    connect(table1.y, Or1.u1) annotation(points=[-59,30; 38,30], style(color=
-            5, rgbcolor={255,0,255}));
-    connect(Not1.y, And1.u1) annotation(points=[-19,-10; -2,-10], style(color=
-           5, rgbcolor={255,0,255}));
-    connect(Pre1.y, And1.u2) annotation(points=[-19,-50; -10,-50; -10,-18; -2,
-          -18], style(color=5, rgbcolor={255,0,255}));
-    connect(Or1.y, Pre1.u) annotation(points=[61,30; 68,30; 68,-70; -60,-70;
-          -60,-50; -42,-50], style(color=5, rgbcolor={255,0,255}));
+    connect(table2.y, Not1.u) annotation (Line(points={{-59,-10},{-42,-10}}, 
+          color={255,0,255}));
+    connect(And1.y, Or1.u2) annotation (Line(points={{21,-10},{28,-10},{28,22},
+            {38,22}}, color={255,0,255}));
+    connect(table1.y, Or1.u1) annotation (Line(points={{-59,30},{38,30}}, color
+          ={255,0,255}));
+    connect(Not1.y, And1.u1) annotation (Line(points={{-19,-10},{-2,-10}}, 
+          color={255,0,255}));
+    connect(Pre1.y, And1.u2) annotation (Line(points={{-19,-50},{-10,-50},{-10,
+            -18},{-2,-18}}, color={255,0,255}));
+    connect(Or1.y, Pre1.u) annotation (Line(points={{61,30},{68,30},{68,-70},{
+            -60,-70},{-60,-50},{-42,-50}}, color={255,0,255}));
     
     end LogicalNetwork1;
   
@@ -434,74 +458,73 @@ Note, even if the signals from \"Internal.StandardControlBus\" are listed, these
 just potential signals. The user might still add different signal names.
 </p>
 
-</html>"), Diagram,
+</html>"), Diagram(graphics),
       experiment(StopTime=2),
       experimentSetupOutput);
   public 
     Modelica.Blocks.Sources.IntegerStep integerStep(
       height=1,
       offset=2,
-      startTime=0.5)   annotation (extent=[-60,-40; -40,-20],
-                                                            rotation=0);
+      startTime=0.5)   annotation (Placement(transformation(extent={{-60,-40},{
+              -40,-20}}, rotation=0)));
     Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=0.5) 
-                                                               annotation (
-        extent=[-58,0; -38,20],  rotation=0);
+                                                               annotation (Placement(
+          transformation(extent={{-58,0},{-38,20}}, rotation=0)));
     Modelica.Blocks.Sources.Sine sine 
-                                     annotation (extent=[-60,40; -40,60],
-        rotation=0);
+                                     annotation (Placement(transformation(
+            extent={{-60,40},{-40,60}}, rotation=0)));
     
     Modelica.Blocks.Examples.BusUsage_Utilities.Part part 
-              annotation (extent=[-60,-80; -40,-60]);
+              annotation (Placement(transformation(extent={{-60,-80},{-40,-60}}, 
+            rotation=0)));
     Modelica.Blocks.Math.Gain gain 
-      annotation(extent=[-40,70; -60,90],   rotation=0);
+      annotation (Placement(transformation(extent={{-40,70},{-60,90}}, rotation
+            =0)));
   protected 
     BusUsage_Utilities.Interfaces.ControlBus controlBus 
-      annotation (extent=[50,-10; 10,30], rotation=90);
+      annotation (Placement(transformation(
+          origin={30,10}, 
+          extent={{-20,20},{20,-20}}, 
+          rotation=90)));
   equation 
     
     connect(sine.y, controlBus.realSignal1) annotation (
-      points=[-39,50; 0,50; 0,14; 30,14; 30,10],
-      style(color=74, rgbcolor={0,0,127}),
       Text(
         string="%second",
         index=1,
         extent=[6,3; 6,3],
-        style(color=0, rgbcolor={0,0,0})));
+        style(color=0, rgbcolor={0,0,0})), Line(points={{-39,50},{0,50},{0,14},
+            {30,14},{30,10}}, color={0,0,127}));
     connect(booleanStep.y, controlBus.booleanSignal) annotation (
-      points=[-37,10; 30,10],
-      style(color=5, rgbcolor={255,0,255}),
       Text(
         string="%second",
         index=1,
         extent=[6,3; 6,3],
-        style(color=0, rgbcolor={0,0,0})));
+        style(color=0, rgbcolor={0,0,0})), Line(points={{-37,10},{30,10}}, 
+          color={255,0,255}));
     connect(integerStep.y, controlBus.integerSignal) annotation (
-      points=[-39,-30; 0,-30; 0,4; 30,4; 30,10],
-      style(color=45, rgbcolor={255,127,0}),
       Text(
         string="%second",
         index=1,
         extent=[6,3; 6,3],
-        style(color=0, rgbcolor={0,0,0})));
+        style(color=0, rgbcolor={0,0,0})), Line(points={{-39,-30},{0,-30},{0,4},
+            {30,4},{30,10}}, color={255,127,0}));
     connect(gain.u, controlBus.realSignal1) annotation (
-      points=[-38,80; 20,80; 20,16; 26,16; 26,10; 30,10],
-      style(color=74, rgbcolor={0,0,127}),
       Text(
         string="%second",
         index=1,
         extent=[6,3; 6,3],
-        style(color=0, rgbcolor={0,0,0})));
+        style(color=0, rgbcolor={0,0,0})), Line(points={{-38,80},{20,80},{20,16},
+            {26,16},{26,10},{30,10}}, color={0,0,127}));
     connect(part.subControlBus, controlBus.subControlBus) annotation (
-      points=[-40,-70; 30,-70; 30,2],
-      style(
-        color=6,
-        rgbcolor={255,204,51},
-        thickness=2),
       Text(
         string="%second",
         index=1,
         extent=[6,3; 6,3],
-        style(color=0, rgbcolor={0,0,0})));
+        style(color=0, rgbcolor={0,0,0})), Line(
+        points={{-40,-70},{30,-70},{30,2}}, 
+        color={255,204,51}, 
+        thickness=2));
   end BusUsage;
   
   package BusUsage_Utilities 
@@ -511,7 +534,7 @@ just potential signals. The user might still add different signal names.
 This package contains utility models and bus definitions needed for the
 <a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
 </p>
-</html>"), Diagram);
+</html>"), Diagram(graphics));
   package Interfaces "Interfaces specialised for this example" 
       
       expandable connector ControlBus 
@@ -519,8 +542,11 @@ This package contains utility models and bus definitions needed for the
         extends Modelica.Icons.SignalBus;
         
         annotation (
-          Icon(Rectangle(extent=[-20, 2; 22, -2], style(rgbcolor={255,204,51}, thickness=2))),
-          Diagram,
+          Icon(graphics={Rectangle(
+                extent={{-20,2},{22,-2}}, 
+                lineColor={255,204,51}, 
+                lineThickness=2)}),
+          Diagram(graphics),
           Documentation(info="<html>
 <p>
 This connector defines the \"expandable connector\" ControlBus that
@@ -538,7 +564,10 @@ constructed by the signals connected to this bus.
         extends Modelica.Icons.SignalSubBus;
         
         annotation (defaultComponentPrefixes="protected",
-                    Icon(Rectangle(extent=[-20, 2; 22, -2], style(rgbcolor={255,204,51}, thickness=2))),
+                    Icon(graphics={Rectangle(
+                extent={{-20,2},{22,-2}}, 
+                lineColor={255,204,51}, 
+                lineThickness=2)}),
           Documentation(info="<html>
 <p>
 This connector defines the \"expandable connector\" SubControlBus that
@@ -566,8 +595,11 @@ constructed by the signals connected to this bus.
           StandardSubControlBus subControlBus "Combined signal";
           
           annotation (
-            Icon(Rectangle(extent=[-20, 2; 22, -2], style(rgbcolor={255,204,51}, thickness=2))),
-            Diagram,
+            Icon(graphics={Rectangle(
+                  extent={{-20,2},{22,-2}}, 
+                  lineColor={255,204,51}, 
+                  lineThickness=2)}),
+            Diagram(graphics),
             Documentation(info="<html>
 <p>
 This connector is used to show default signals that might be added
@@ -587,7 +619,10 @@ to the
           Boolean myBooleanSignal;
           
           annotation (defaultComponentPrefixes="protected",
-                      Icon(Rectangle(extent=[-20, 2; 22, -2], style(rgbcolor={255,204,51}, thickness=2))),
+                      Icon(graphics={Rectangle(
+                  extent={{-20,2},{22,-2}}, 
+                  lineColor={255,204,51}, 
+                  lineThickness=2)}),
             Documentation(info="<html>
 <p>
 This connector is used to show default signals that might be added
@@ -617,11 +652,15 @@ This package contains the bus definitions needed for the
     
    model Part "Component with sub-control bus" 
       
-      annotation (Icon(Rectangle(extent=[-100, 60; 100, -60], style(fillColor=
-                  76, fillPattern=1)), Text(
-            extent=[-106, 124; 114, 68],
-            style(fillColor=76, fillPattern=1),
-            string="%name")), Diagram,
+      annotation (Icon(graphics={Rectangle(
+              extent={{-100,60},{100,-60}}, 
+              fillColor={159,159,223}, 
+              fillPattern=FillPattern.Solid), Text(
+              extent={{-106,124},{114,68}}, 
+              fillColor={159,159,223}, 
+              fillPattern=FillPattern.Solid, 
+              textString=
+                   "%name")}),Diagram(graphics),
         Documentation(info="<html>
 <p>
 <p>
@@ -631,28 +670,30 @@ This model is used to demonstrate the bus usage in example
 </p>
 </html>"));
      Interfaces.SubControlBus subControlBus 
-       annotation (extent=[80,-20; 120,20], rotation=-90);
+       annotation (Placement(transformation(
+            origin={100,0}, 
+            extent={{-20,-20},{20,20}}, 
+            rotation=270)));
      Sources.RealExpression realExpression(y=time) 
-       annotation (extent=[-6,0; 20,20]);
+       annotation (Placement(transformation(extent={{-6,0},{20,20}}, rotation=0)));
      Sources.BooleanExpression booleanExpression(y=time > 0.5) 
-       annotation (extent=[-6,-30; 20,-10]);
+       annotation (Placement(transformation(extent={{-6,-30},{20,-10}}, 
+              rotation=0)));
    equation 
      connect(realExpression.y, subControlBus.myRealSignal) annotation (
-       points=[21.3,10; 86,10; 86,0; 100,0],
-       style(color=74, rgbcolor={0,0,127}),
        Text(
          string="%second",
          index=1,
          extent=[6,3; 6,3],
-         style(color=0, rgbcolor={0,0,0})));
+         style(color=0, rgbcolor={0,0,0})), Line(points={{21.3,10},{86,10},{86,
+              0},{100,0}}, color={0,0,127}));
      connect(booleanExpression.y, subControlBus.myBooleanSignal) annotation (
-       points=[21.3,-20; 58,-20; 58,-2; 100,-2; 100,0],
-       style(color=5, rgbcolor={255,0,255}),
        Text(
          string="%second",
          index=1,
          extent=[6,3; 6,3],
-         style(color=0, rgbcolor={0,0,0})));
+         style(color=0, rgbcolor={0,0,0})), Line(points={{21.3,-20},{58,-20},{
+              58,-2},{100,-2},{100,0}}, color={255,0,255}));
    end Part;
     
   end BusUsage_Utilities;

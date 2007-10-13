@@ -1271,7 +1271,8 @@ model World
   
     Interfaces.Frame_b frame_b 
     "Coordinate system fixed in the origin of the world frame" 
-                               annotation (extent=[84,-16; 116,16]);
+                               annotation (Placement(transformation(extent={{84,
+            -16},{116,16}}, rotation=0)));
   
   annotation (
     preferedView="info",
@@ -1281,45 +1282,69 @@ model World
 component with the default gravity field will be used
 (g=9.81 in negative y-axis). If this is not desired,
 drag Modelica.Mechanics.MultiBody.World into the top level of your model.",
-    Coordsys(
-      extent=[-100, -100; 100, 100],
-      grid=[2, 2],
-      component=[20, 20]),
     Window(
       x=0.13,
       y=0.1,
       width=0.81,
       height=0.83),
-    Icon(
-      Rectangle(extent=[-100, 100; 100, -100], style(color=0, fillColor=7)),
-      Line(points=[-100, -118; -100, 61], style(color=0, thickness=2)),
-      Polygon(points=[-100, 100; -120, 60; -80, 60; -100, 100; -100, 100],
-          style(
-          color=0,
-          fillColor=0,
-          fillPattern=1)),
-      Line(points=[-119, -100; 59, -100], style(color=0, thickness=2)),
-      Polygon(points=[99, -100; 59, -80; 59, -120; 99, -100], style(
-          color=0,
-          fillColor=0,
-          fillPattern=1)),
-      Text(extent=[-140, 165; 140, 103], string="%name"),
-      Text(
-        extent=[95, -113; 144, -162],
-        string="%label1",
-        style(color=0)),
-      Text(
-        extent=[-170, 127; -119, 77],
-        string="%label2",
-        style(color=0)),
-      Line(points=[-56, 78; -56, -26]),
-      Polygon(points=[-68, -26; -56, -66; -44, -26; -68, -26], style(fillColor=
-              3)),
-      Line(points=[2, 78; 2, -26]),
-      Polygon(points=[-10, -26; 2, -66; 14, -26; -10, -26], style(fillColor=3)),
-      Line(points=[66, 80; 66, -26]),
-      Polygon(points=[54, -26; 66, -66; 78, -26; 54, -26], style(fillColor=3))),
-    Diagram,
+    Icon(coordinateSystem(
+        preserveAspectRatio=true, 
+        extent={{-100,-100},{100,100}}, 
+        grid={2,2}), graphics={
+        Rectangle(
+          extent={{-100,100},{100,-100}}, 
+          lineColor={0,0,0}, 
+          fillColor={255,255,255}, 
+          fillPattern=FillPattern.Solid), 
+        Line(
+          points={{-100,-118},{-100,61}}, 
+          color={0,0,0}, 
+          thickness=2), 
+        Polygon(
+          points={{-100,100},{-120,60},{-80,60},{-100,100},{-100,100}}, 
+          lineColor={0,0,0}, 
+          fillColor={0,0,0}, 
+          fillPattern=FillPattern.Solid), 
+        Line(
+          points={{-119,-100},{59,-100}}, 
+          color={0,0,0}, 
+          thickness=2), 
+        Polygon(
+          points={{99,-100},{59,-80},{59,-120},{99,-100}}, 
+          lineColor={0,0,0}, 
+          fillColor={0,0,0}, 
+          fillPattern=FillPattern.Solid), 
+        Text(extent={{-140,165},{140,103}}, textString=
+                                                "%name"), 
+        Text(
+          extent={{95,-113},{144,-162}}, 
+          lineColor={0,0,0}, 
+          textString=
+               "%label1"), 
+        Text(
+          extent={{-170,127},{-119,77}}, 
+          lineColor={0,0,0}, 
+          textString=
+               "%label2"), 
+        Line(points={{-56,78},{-56,-26}}), 
+        Polygon(
+          points={{-68,-26},{-56,-66},{-44,-26},{-68,-26}}, 
+          fillColor={0,0,255}, 
+          fillPattern=FillPattern.Solid), 
+        Line(points={{2,78},{2,-26}}), 
+        Polygon(
+          points={{-10,-26},{2,-66},{14,-26},{-10,-26}}, 
+          fillColor={0,0,255}, 
+          fillPattern=FillPattern.Solid), 
+        Line(points={{66,80},{66,-26}}), 
+        Polygon(
+          points={{54,-26},{66,-66},{78,-26},{54,-26}}, 
+          fillColor={0,0,255}, 
+          fillPattern=FillPattern.Solid)}),
+    Diagram(coordinateSystem(
+        preserveAspectRatio=true, 
+        extent={{-100,-100},{100,100}}, 
+        grid={2,2}), graphics),
     Documentation(info="<HTML>
 <p>
 Model <b>World</b> represents a global coordinate system fixed in

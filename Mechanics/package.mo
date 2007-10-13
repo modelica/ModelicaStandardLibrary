@@ -2,6 +2,7 @@ within Modelica;
 package Mechanics "Library of 1-dim. and 3-dim. mechanical components (multi-body, rotational, translational)"
 extends Modelica.Icons.Library2;
 
+
 annotation(preferedView="info",
   Window(
     x=0.03,
@@ -10,20 +11,29 @@ annotation(preferedView="info",
     height=0.26,
     library=1,
     autolayout=1),
-  Icon(
-    Rectangle(extent=[-5, -40; 45, -70], style(
-        gradient=2,
-        fillColor=8,
-        fillPattern=1)),
-    Ellipse(extent=[-90, -50; -80, -60], style(color=0)),
-    Line(points=[-85, -55; -60, -21], style(color=0, thickness=2)),
-    Ellipse(extent=[-65, -16; -55, -26], style(color=0)),
-    Line(points=[-60, -21; 9, -55], style(color=0, thickness=2)),
-    Ellipse(extent=[4, -50; 14, -60], style(
-        color=0,
-        fillColor=0,
-        fillPattern=1)),
-    Line(points=[-10, -34; 72, -34; 72, -76; -10, -76], style(color=0))),
+  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
+      graphics={
+      Rectangle(
+        extent={{-5,-40},{45,-70}}, 
+        lineColor={0,0,0}, 
+        fillPattern=FillPattern.HorizontalCylinder, 
+        fillColor={192,192,192}), 
+      Ellipse(extent={{-90,-50},{-80,-60}}, lineColor={0,0,0}), 
+      Line(
+        points={{-85,-55},{-60,-21}}, 
+        color={0,0,0}, 
+        thickness=2), 
+      Ellipse(extent={{-65,-16},{-55,-26}}, lineColor={0,0,0}), 
+      Line(
+        points={{-60,-21},{9,-55}}, 
+        color={0,0,0}, 
+        thickness=2), 
+      Ellipse(
+        extent={{4,-50},{14,-60}}, 
+        lineColor={0,0,0}, 
+        fillColor={0,0,0}, 
+        fillPattern=FillPattern.Solid), 
+      Line(points={{-10,-34},{72,-34},{72,-76},{-10,-76}}, color={0,0,0})}),
   Documentation(info="<HTML>
 <p>
 This package contains components to model the movement

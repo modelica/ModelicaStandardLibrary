@@ -5,7 +5,8 @@ model PointGravity "Two point masses in a point gravity field"
   inner Modelica.Mechanics.MultiBody.World world(
     gravityType=2,
     mue=1,
-    gravitySphereDiameter=0.1) annotation (extent=[-20, -20; 0, 0]);
+    gravitySphereDiameter=0.1) annotation (Placement(transformation(extent={{
+            -20,-20},{0,0}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.Body body1(
     m=1,
     v_0_start={1,0,0},
@@ -15,7 +16,7 @@ model PointGravity "Two point masses in a point gravity field"
     I_22=0.1,
     I_33=0.1,
     initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity) 
-    annotation (extent=[-20, 20; 0, 40]);
+    annotation (Placement(transformation(extent={{-20,20},{0,40}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.Body body2(
     m=1,
     r_0_start={0.6,0.6,0},
@@ -25,11 +26,11 @@ model PointGravity "Two point masses in a point gravity field"
     I_22=0.1,
     I_33=0.1,
     initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity) 
-    annotation (extent=[20, 20; 40, 40]);
+    annotation (Placement(transformation(extent={{20,20},{40,40}}, rotation=0)));
 equation 
   
   annotation (
-    Diagram,
+    Diagram(graphics),
     experiment(StopTime=5),
     Documentation(info="<HTML>
 <p>

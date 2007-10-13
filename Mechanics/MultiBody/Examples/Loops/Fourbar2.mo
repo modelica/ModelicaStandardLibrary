@@ -51,75 +51,83 @@ for rodLength:
    rodLength*rodLength = f(angle of revolute joint, distance of prismatic joint)
 </pre>
 </html>"),
-    Diagram);
+    Diagram(graphics));
   
-  inner Modelica.Mechanics.MultiBody.World world annotation (extent=[-80, -80; -60, -60]);
+  inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
+        transformation(extent={{-80,-80},{-60,-60}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute j1(
     n={1,0,0},
     initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
     enforceStates=true,
-    w_start=300) annotation (extent=[-54, -40; -34, -20]);
+    w_start=300) annotation (Placement(transformation(extent={{-54,-40},{-34,
+            -20}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Joints.Prismatic j2(
     n={1,0,0},
     s_offset=-0.2,
     boxWidth=0.05,
     initType=Modelica.Mechanics.MultiBody.Types.Init.Position) 
-    annotation (extent=[12, -80; 32, -60]);
+    annotation (Placement(transformation(extent={{12,-80},{32,-60}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1}, diameter=0.05) 
-    annotation (extent=[-40, -10; -20, 10], rotation=90);
+    annotation (Placement(transformation(
+        origin={-30,0}, 
+        extent={{-10,-10},{10,10}}, 
+        rotation=90)));
   Modelica.Mechanics.MultiBody.Parts.BodyCylinder b2(r={0,0.2,0}, diameter=0.05) 
-    annotation (extent=[40, -60; 60, -40], rotation=90);
+    annotation (Placement(transformation(
+        origin={50,-50}, 
+        extent={{-10,-10},{10,10}}, 
+        rotation=90)));
   Modelica.Mechanics.MultiBody.Joints.UniversalSpherical universalSpherical(
     n1_a={0,1,0},
     computeRodLength=true,
-    rRod_ia={-1,0.3,0.1}) annotation (extent=[0, 18; -20, 38]);
+    rRod_ia={-1,0.3,0.1}) annotation (Placement(transformation(extent={{0,18},{
+            -20,38}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(r={1.2,0,0}, animation=false) 
-    annotation (extent=[-32, -80; -12, -60]);
+    annotation (Placement(transformation(extent={{-32,-80},{-12,-60}}, rotation
+          =0)));
   Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame(color_x={0,0,255}) 
-    annotation (extent=[-16,60; 4,80],   rotation=90);
+    annotation (Placement(transformation(
+        origin={-6,70}, 
+        extent={{-10,-10},{10,10}}, 
+        rotation=90)));
 equation 
   j1_phi = j1.phi;
   j2_s = j2.s;
   j1_w = j1.w;
   j2_v = j2.v;
-  connect(j2.frame_b, b2.frame_a) annotation (points=[32,-70; 50,-70; 50,-60],
-      style(
-      color=10,
-      rgbcolor={95,95,95},
+  connect(j2.frame_b, b2.frame_a) annotation (Line(
+      points={{32,-70},{50,-70},{50,-60}}, 
+      color={95,95,95}, 
       thickness=2));
-  connect(j1.frame_b, b1.frame_a) annotation (points=[-34,-30; -30,-30; -30,-10],
-      style(
-      color=10,
-      rgbcolor={95,95,95},
+  connect(j1.frame_b, b1.frame_a) annotation (Line(
+      points={{-34,-30},{-30,-30},{-30,-10}}, 
+      color={95,95,95}, 
       thickness=2));
-  connect(j1.frame_a, world.frame_b) annotation (points=[-54,-30; -60,-30; -60,
-        -70], style(
-      color=10,
-      rgbcolor={95,95,95},
+  connect(j1.frame_a, world.frame_b) annotation (Line(
+      points={{-54,-30},{-60,-30},{-60,-70}}, 
+      color={95,95,95}, 
       thickness=2));
-  connect(b1.frame_b, universalSpherical.frame_b) annotation (points=[-30,10;
-        -30,28; -20,28], style(
-      color=10,
-      rgbcolor={95,95,95},
+  connect(b1.frame_b, universalSpherical.frame_b) annotation (Line(
+      points={{-30,10},{-30,28},{-20,28}}, 
+      color={95,95,95}, 
       thickness=2));
   connect(universalSpherical.frame_a, b2.frame_b) 
-    annotation (points=[0,28; 50,28; 50,-40], style(
-      color=10,
-      rgbcolor={95,95,95},
+    annotation (Line(
+      points={{0,28},{50,28},{50,-40}}, 
+      color={95,95,95}, 
       thickness=2));
   connect(b3.frame_a, world.frame_b) 
-    annotation (points=[-32,-70; -60,-70], style(
-      color=10,
-      rgbcolor={95,95,95},
+    annotation (Line(
+      points={{-32,-70},{-60,-70}}, 
+      color={95,95,95}, 
       thickness=2));
   connect(b3.frame_b, j2.frame_a) 
-    annotation (points=[-12,-70; 12,-70], style(
-      color=10,
-      rgbcolor={95,95,95},
+    annotation (Line(
+      points={{-12,-70},{12,-70}}, 
+      color={95,95,95}, 
       thickness=2));
-  connect(fixedFrame.frame_a, universalSpherical.frame_ia) annotation (points=[-6,60;
-        -6,38], style(
-      color=10,
-      rgbcolor={95,95,95},
+  connect(fixedFrame.frame_a, universalSpherical.frame_ia) annotation (Line(
+      points={{-6,60},{-6,38}}, 
+      color={95,95,95}, 
       thickness=2));
 end Fourbar2;

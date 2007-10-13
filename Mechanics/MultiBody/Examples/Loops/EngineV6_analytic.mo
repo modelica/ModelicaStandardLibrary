@@ -16,33 +16,35 @@ model EngineV6_analytic
   
   inner Modelica.Mechanics.MultiBody.World world(animateWorld=false,
       animateGravity =                                                              false) 
-    annotation (extent=[-80,-20; -60,0]);
+    annotation (Placement(transformation(extent={{-80,-20},{-60,0}}, rotation=0)));
   Utilities.EngineV6_analytic engine(redeclare model Cylinder = 
         Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CAD)
-    annotation (extent=[-40,0; 0,40]);
+    annotation (Placement(transformation(extent={{-40,0},{0,40}}, rotation=0)));
   Modelica.Mechanics.Rotational.Inertia load(phi(
       start=0,
       fixed=true,
       stateSelect=StateSelect.always), w(
       start=10,
       fixed=true,
-      stateSelect=StateSelect.always)) annotation (extent=[40, 10; 60, 30]);
+      stateSelect=StateSelect.always)) annotation (Placement(transformation(
+          extent={{40,10},{60,30}}, rotation=0)));
   Rotational.QuadraticSpeedDependentTorque load2(tau_nominal=-100, w_nominal=
-        200) annotation (extent=[90,10; 70,30]);
+        200) annotation (Placement(transformation(extent={{90,10},{70,30}}, 
+          rotation=0)));
   Rotational.Sensors.TorqueSensor torqueSensor 
-    annotation (extent=[12,10; 32,30]);
+    annotation (Placement(transformation(extent={{12,10},{32,30}}, rotation=0)));
   Blocks.Continuous.CriticalDamping filter(
     n=2,
     initType=Modelica.Blocks.Types.Init.SteadyState,
-    f=5) annotation (extent=[30,-20; 50,0]);
+    f=5) annotation (Placement(transformation(extent={{30,-20},{50,0}}, 
+          rotation=0)));
 equation 
   
   annotation (
-    Diagram,
-    Coordsys(
-      extent=[-100, -100; 100, 100],
-      grid=[2, 2],
-      component=[20, 20]),
+    Diagram(coordinateSystem(
+        preserveAspectRatio=true, 
+        extent={{-100,-100},{100,100}}, 
+        grid={2,2}), graphics),
     Documentation(info="<HTML>
 <p>
 This is a similar model as the example \"EngineV6\". However, the cylinders
@@ -71,17 +73,16 @@ a size of about 50 Mbyte (for 5000 output intervalls).
 "), experiment(StopTime=5, NumberOfIntervals=5000),
     experimentSetupOutput);
   connect(world.frame_b, engine.frame_a) 
-    annotation (points=[-60,-10; -20,-10; -20,-0.2],
-                                                 style(
-      color=10,
-      rgbcolor={95,95,95},
+    annotation (Line(
+      points={{-60,-10},{-20,-10},{-20,-0.2}}, 
+      color={95,95,95}, 
       thickness=2));
   connect(load2.flange, load.flange_b) 
-    annotation (points=[70,20; 60,20], style(color=0, rgbcolor={0,0,0}));
+    annotation (Line(points={{70,20},{60,20}}, color={0,0,0}));
   connect(torqueSensor.flange_a, engine.flange_b) 
-    annotation (points=[12,20; 2,20], style(color=0, rgbcolor={0,0,0}));
+    annotation (Line(points={{12,20},{2,20}}, color={0,0,0}));
   connect(torqueSensor.flange_b, load.flange_a) 
-    annotation (points=[32,20; 40,20], style(color=0, rgbcolor={0,0,0}));
-  connect(torqueSensor.tau, filter.u) annotation (points=[14,9; 14,-10; 28,-10],
-      style(color=74, rgbcolor={0,0,127}));
+    annotation (Line(points={{32,20},{40,20}}, color={0,0,0}));
+  connect(torqueSensor.tau, filter.u) annotation (Line(points={{14,9},{14,-10},
+          {28,-10}}, color={0,0,127}));
 end EngineV6_analytic;

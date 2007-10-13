@@ -87,10 +87,6 @@ respectively.
       annotation (Dialog(group="if animation = true", enable=animation));
     annotation (
       preferedView="info",
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
       Window(
         x=0.02,
         y=0,
@@ -168,27 +164,38 @@ definition of the colors used in the MultiBody library
 (this will be replaced by a color editor).
 </p>
 </HTML>
-"),   Icon(
-        Polygon(points=[-100, 33; -100, -61; -10, -41; 50, -61; 50, 33; -10, 11;
-               -100, 33], style(
-            color=69,
-            fillColor=69,
-            fillPattern=1)),
-        Polygon(points=[-98, 34; -64, 46; 0, 30; 74, 56; 50, 32; -10, 12; -98,
-              34], style(
-            color=7,
-            fillColor=9,
-            fillPattern=1)),
-        Polygon(points=[72, 54; 50, 32; 50, -60; 72, -32; 72, 54], style(
-            color=7,
-            fillColor=9,
-            fillPattern=1)),
-        Text(
-          extent=[-131, -65; 134, -104],
-          style(color=0),
-          string="%shapeType"),
-        Text(extent=[-131, 118; 129, 58], string="%name")),
-      Diagram);
+"),   Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Polygon(
+            points={{-100,33},{-100,-61},{-10,-41},{50,-61},{50,33},{-10,11},{
+                -100,33}}, 
+            lineColor={0,127,255}, 
+            fillColor={0,127,255}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-98,34},{-64,46},{0,30},{74,56},{50,32},{-10,12},{-98,34}}, 
+              
+            lineColor={255,255,255}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{72,54},{50,32},{50,-60},{72,-32},{72,54}}, 
+            lineColor={255,255,255}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-131,-65},{134,-104}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "%shapeType"), 
+          Text(extent={{-131,118},{129,58}}, textString=
+                                                 "%name")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics));
     
   protected 
     Advanced.Shape vis(
@@ -219,9 +226,11 @@ definition of the colors used in the MultiBody library
     
     Interfaces.Frame_a frame_a 
       "Coordinate system a (all shape definition vectors are resolved in this frame)"
-       annotation (extent=[-116,-16; -84,16]);
+       annotation (Placement(transformation(extent={{-116,-16},{-84,16}}, 
+            rotation=0)));
     Interfaces.Frame_b frame_b "Coordinate system b" 
-       annotation (extent=[84,-16; 116,16]);
+       annotation (Placement(transformation(extent={{84,-16},{116,16}}, 
+            rotation=0)));
     
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Types.ShapeType shapeType="box" "Type of shape" 
@@ -254,44 +263,53 @@ definition of the colors used in the MultiBody library
     
     annotation (
       preferedView="info",
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
       Window(
         x=0.25,
         y=0.04,
         width=0.67,
         height=0.69),
-      Icon(
-        Text(extent=[-123, 128; 137, 68], string="%name"),
-        Text(
-          extent=[129, -106; -131, -56],
-          string="%=r",
-          style(color=0)),
-        Polygon(points=[-100, 50; -100, -44; -10, -24; 79, -43; 80, 49; -10, 28;
-               -100, 50], style(
-            color=69,
-            fillColor=69,
-            fillPattern=1)),
-        Polygon(points=[-101, 50; -65, 62; -1, 46; 100, 70; 79, 49; -11, 28; -101,
-               50], style(
-            color=7,
-            fillColor=9,
-            fillPattern=1)),
-        Text(
-          extent=[-86,15; -50,-10],
-          string="a",
-          style(color=0)),
-        Text(
-          extent=[37,15; 73,-10],
-          string="b",
-          style(color=0)),
-        Polygon(points=[100, 70; 78, 48; 78, -44; 100, -16; 100, 70], style(
-            color=7,
-            fillColor=9,
-            fillPattern=1))),
-      Diagram,
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Text(extent={{-123,128},{137,68}}, textString=
+                                                 "%name"), 
+          Text(
+            extent={{129,-106},{-131,-56}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "%=r"), 
+          Polygon(
+            points={{-100,50},{-100,-44},{-10,-24},{79,-43},{80,49},{-10,28},{
+                -100,50}}, 
+            lineColor={0,127,255}, 
+            fillColor={0,127,255}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-101,50},{-65,62},{-1,46},{100,70},{79,49},{-11,28},{-101,
+                50}}, 
+            lineColor={255,255,255}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-86,15},{-50,-10}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "a"), 
+          Text(
+            extent={{37,15},{73,-10}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "b"), 
+          Polygon(
+            points={{100,70},{78,48},{78,-44},{100,-16},{100,70}}, 
+            lineColor={255,255,255}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid)}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics),
       Documentation(info="<HTML>
 <p>
 Model <b>FixedShape2</b> defines a visual shape that is
@@ -547,37 +565,58 @@ MultiBody.Visualizers.FixedShape2 object is connected");
     frame_a.t = zeros(3);
     annotation (
       preferedView="info",
-      Icon(
-        Rectangle(extent=[-100, 100; 100, -100], style(color=69, fillColor=7)),
-        Polygon(points=[-2, 92; -14, 52; 12, 52; -2, 92; -2, 92], style(
-            color=58,
-            fillColor=58,
-            fillPattern=1)),
-        Line(points=[-2, -18; -2, 52], style(
-            color=58,
-            thickness=2,
-            fillColor=58)),
-        Text(
-          extent=[16, 93; 67, 43],
-          string="y",
-          style(color=58, fillColor=58)),
-        Text(
-          extent=[43, 11; 92, -38],
-          style(color=0),
-          string="x"),
-        Polygon(points=[98, -70; 74, -44; 64, -60; 98, -70], style(
-            color=0,
-            fillColor=0,
-            fillPattern=1)),
-        Line(points=[-2, -18; 72, -54], style(color=0, thickness=2)),
-        Line(points=[-72, -54; -2, -18], style(thickness=2)),
-        Polygon(points=[-98, -68; -66, -60; -78, -46; -98, -68], style(
-              fillPattern=1)),
-        Text(extent=[-87, 13; -38, -36], string="z"),
-        Text(
-          extent=[-138, 164; 146, 102],
-          string="%name",
-          style(fillColor=7))),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(
+            extent={{-100,100},{100,-100}}, 
+            lineColor={0,127,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-2,92},{-14,52},{12,52},{-2,92},{-2,92}}, 
+            lineColor={0,191,0}, 
+            fillColor={0,191,0}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-2,-18},{-2,52}}, 
+            color={0,191,0}, 
+            thickness=2, 
+            fillColor={0,191,0}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{16,93},{67,43}}, 
+            lineColor={0,191,0}, 
+            fillColor={0,191,0}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "y"), 
+          Text(
+            extent={{43,11},{92,-38}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "x"), 
+          Polygon(
+            points={{98,-70},{74,-44},{64,-60},{98,-70}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-2,-18},{72,-54}}, 
+            color={0,0,0}, 
+            thickness=2), 
+          Line(points={{-72,-54},{-2,-18}}, thickness=2), 
+          Polygon(points={{-98,-68},{-66,-60},{-78,-46},{-98,-68}}, fillPattern
+              =FillPattern.Solid), 
+          Text(extent={{-87,13},{-38,-36}}, textString=
+                                                "z"), 
+          Text(
+            extent={{-138,164},{146,102}}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "%name")}),
       Documentation(info="<HTML>
 <p>
 Model <b>FixedFrame</b> visualizes the three axes of
@@ -594,8 +633,10 @@ providing appropriate expressions in the input fields of the
 parameter menu.
 </p>
 </HTML>"),
-      Diagram,
-      Coordsys(grid=[1, 1], component=[20, 20]));
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics));
     
   end FixedFrame;
   
@@ -656,16 +697,25 @@ parameter menu.
     frame_a.t = zeros(3);
     annotation (
       preferedView="info",
-      Icon(
-        Rectangle(extent=[-100, 28; 20, -30], style(color=10, fillColor=10)),
-        Polygon(points=[20, 60; 100, 0; 20, -60; 20, 60], style(color=10,
-              fillColor=10)),
-        Text(extent=[-146, 124; 142, 62], string="%name"),
-        Text(
-          extent=[-118, -74; 120, -112],
-          string="%length",
-          style(color=0))),
-      Diagram,
+      Icon(graphics={
+          Rectangle(
+            extent={{-100,28},{20,-30}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{20,60},{100,0},{20,-60},{20,60}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
+          Text(extent={{-146,124},{142,62}}, textString=
+                                                 "%name"), 
+          Text(
+            extent={{-118,-74},{120,-112}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "%length")}),
+      Diagram(graphics),
       Documentation(info="<html>
 <p>
 Model <b>FixedArrow</b> defines an arrow that is
@@ -708,7 +758,10 @@ parameter menu.
     
     Modelica.Blocks.Interfaces.RealInput r_head[3] 
       "Position vector from origin of frame_a to head of arrow, resolved in frame_a"
-      annotation (extent=[-20, -140; 20, -100], rotation=90);
+      annotation (Placement(transformation(
+          origin={0,-120}, 
+          extent={{-20,-20},{20,20}}, 
+          rotation=90)));
   protected 
     Visualizers.Advanced.Arrow arrow(
       R=frame_a.R,
@@ -723,13 +776,21 @@ parameter menu.
     frame_a.t = zeros(3);
     annotation (
       preferedView="info",
-      Icon(
-        Rectangle(extent=[-100, 28; 20, -30], style(color=10, fillColor=10)),
-        Polygon(points=[20, 60; 100, 0; 20, -60; 20, 60], style(color=10,
-              fillColor=10)),
-        Text(extent=[-146, 124; 142, 62], string="%name"),
-        Line(points=[0, -102; 0, -30])),
-      Diagram,
+      Icon(graphics={
+          Rectangle(
+            extent={{-100,28},{20,-30}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{20,60},{100,0},{20,-60},{20,60}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
+          Text(extent={{-146,124},{142,62}}, textString=
+                                                 "%name"), 
+          Line(points={{0,-102},{0,-30}})}),
+      Diagram(graphics),
       Documentation(info="<HTML>
 <p>
 Model <b>SignalArrow</b> defines an arrow that is dynamically visualized
@@ -868,12 +929,20 @@ a menu definition of the colors used in the MultiBody
 library (will be replaced by a color editor).
 </p>
 </HTML>"),
-        Icon(
-          Rectangle(extent=[-100, 28; 20, -30], style(color=10, fillColor=10)),
-          Polygon(points=[20, 60; 100, 0; 20, -60; 20, 60], style(color=10,
-                fillColor=10)),
-          Text(extent=[-146, 124; 142, 62], string="%name")),
-        Diagram);
+        Icon(graphics={
+            Rectangle(
+              extent={{-100,28},{20,-30}}, 
+              lineColor={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{20,60},{100,0},{20,-60},{20,60}}, 
+              lineColor={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Text(extent={{-146,124},{142,62}}, textString=
+                                                   "%name")}),
+        Diagram(graphics));
       
     end Arrow;
     
@@ -946,14 +1015,25 @@ library (will be replaced by a color editor).
         R=R) if world.enableAnimation;
       annotation (
         preferedView="info",
-        Icon(
-          Rectangle(extent=[-100, 28; 0, -28], style(color=10, fillColor=10)),
-          Polygon(points=[40, 60; 100, 0; 40, -60; 40, 60], style(color=10,
-                fillColor=10)),
-          Text(extent=[-146, 124; 142, 62], string="%name"),
-          Polygon(points=[0, 60; 60, 0; 0, -60; 0, 60], style(color=10,
-                fillColor=10))),
-        Diagram,
+        Icon(graphics={
+            Rectangle(
+              extent={{-100,28},{0,-28}}, 
+              lineColor={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{40,60},{100,0},{40,-60},{40,60}}, 
+              lineColor={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Text(extent={{-146,124},{142,62}}, textString=
+                                                   "%name"), 
+            Polygon(
+              points={{0,60},{60,0},{0,-60},{0,60}}, 
+              lineColor={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid)}),
+        Diagram(graphics),
         Documentation(info="<HTML>
 <p>
 Model <b>DoubleArrow</b> defines a double arrow that is dynamically
@@ -1040,21 +1120,32 @@ library (will be replaced by a color editor).
       output Real Extra annotation (Hide=false);
       annotation (
         preferedView="info",
-        Coordsys(
-          extent=[-100, -100; 100, 100],
-          grid=[2, 2],
-          component=[20, 20]),
-        Icon(
-          Rectangle(extent=[-100, -100; 80, 60], style(color=3, fillColor=7)),
-          Polygon(points=[-100, 60; -80, 100; 100, 100; 80, 60; -100, 60],
-              style(color=3, fillColor=8)),
-          Polygon(points=[100, 100; 100, -60; 80, -100; 80, 60; 100, 100],
-              style(color=3, fillColor=9)),
-          Text(
-            extent=[-100, -100; 80, 60],
-            style(color=0),
-            string="%shapeType"),
-          Text(extent=[-132, 160; 128, 100], string="%name")),
+        Icon(coordinateSystem(
+            preserveAspectRatio=true, 
+            extent={{-100,-100},{100,100}}, 
+            grid={2,2}), graphics={
+            Rectangle(
+              extent={{-100,-100},{80,60}}, 
+              lineColor={0,0,255}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{-100,60},{-80,100},{100,100},{80,60},{-100,60}}, 
+              lineColor={0,0,255}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{100,100},{100,-60},{80,-100},{80,60},{100,100}}, 
+              lineColor={0,0,255}, 
+              fillColor={160,160,164}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-100,-100},{80,60}}, 
+              lineColor={0,0,0}, 
+              textString=
+                   "%shapeType"), 
+            Text(extent={{-132,160},{128,100}}, textString=
+                                                    "%name")}),
         Window(
           x=0.28,
           y=0.06,
@@ -1211,18 +1302,35 @@ model where a <b>Shape</b> instance is used, e.g., in the form
       
       annotation (
         preferedView="info",
-        Icon(
-          Rectangle(extent=[-100, 100; 100, -100], style(color=10, fillColor=7)),
-          Text(extent=[-140, 164; 148, 102], string="%name"),
-          Polygon(points=[-82, -24; -20, 46; -10, 38; -72, -32; -82, -24],
-              style(color=69, fillColor=69)),
-          Polygon(points=[-24, -34; -82, 40; -72, 46; -14, -26; -24, -34],
-              style(color=69, fillColor=69)),
-          Polygon(points=[42, -18; 10, 40; 20, 48; 50, -6; 42, -18], style(
-                color=69, fillColor=69)),
-          Polygon(points=[10, -68; 84, 48; 96, 42; 24, -72; 10, -68], style(
-                color=69, fillColor=69))),
-        Diagram,
+        Icon(graphics={
+            Rectangle(
+              extent={{-100,100},{100,-100}}, 
+              lineColor={128,128,128}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Text(extent={{-140,164},{148,102}}, textString=
+                                                    "%name"), 
+            Polygon(
+              points={{-82,-24},{-20,46},{-10,38},{-72,-32},{-82,-24}}, 
+              lineColor={0,127,255}, 
+              fillColor={0,127,255}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{-24,-34},{-82,40},{-72,46},{-14,-26},{-24,-34}}, 
+              lineColor={0,127,255}, 
+              fillColor={0,127,255}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{42,-18},{10,40},{20,48},{50,-6},{42,-18}}, 
+              lineColor={0,127,255}, 
+              fillColor={0,127,255}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{10,-68},{84,48},{96,42},{24,-72},{10,-68}}, 
+              lineColor={0,127,255}, 
+              fillColor={0,127,255}, 
+              fillPattern=FillPattern.Solid)}),
+        Diagram(graphics),
         Documentation(info="<HTML>
 <p>
 With model <b>FixedLines</b> a set of lines is defined
@@ -1319,18 +1427,35 @@ The diameter and color of all line cylinders are identical.
         each specularCoefficient=specularCoefficient);
       annotation (
         preferedView="info",
-        Icon(
-          Rectangle(extent=[-100, 100; 100, -100], style(color=10, fillColor=7)),
-          Polygon(points=[-24, -34; -82, 40; -72, 46; -14, -26; -24, -34],
-              style(color=69, fillColor=69)),
-          Polygon(points=[-82, -24; -20, 46; -10, 38; -72, -32; -82, -24],
-              style(color=69, fillColor=69)),
-          Polygon(points=[42, -18; 10, 40; 20, 48; 50, -6; 42, -18], style(
-                color=69, fillColor=69)),
-          Polygon(points=[10, -68; 84, 48; 96, 42; 24, -72; 10, -68], style(
-                color=69, fillColor=69)),
-          Text(extent=[-140, 164; 148, 102], string="%name")),
-        Diagram,
+        Icon(graphics={
+            Rectangle(
+              extent={{-100,100},{100,-100}}, 
+              lineColor={128,128,128}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{-24,-34},{-82,40},{-72,46},{-14,-26},{-24,-34}}, 
+              lineColor={0,127,255}, 
+              fillColor={0,127,255}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{-82,-24},{-20,46},{-10,38},{-72,-32},{-82,-24}}, 
+              lineColor={0,127,255}, 
+              fillColor={0,127,255}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{42,-18},{10,40},{20,48},{50,-6},{42,-18}}, 
+              lineColor={0,127,255}, 
+              fillColor={0,127,255}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{10,-68},{84,48},{96,42},{24,-72},{10,-68}}, 
+              lineColor={0,127,255}, 
+              fillColor={0,127,255}, 
+              fillPattern=FillPattern.Solid), 
+            Text(extent={{-140,164},{148,102}}, textString=
+                                                    "%name")}),
+        Diagram(graphics),
         Documentation(info="<HTML>
 <p>
 With model <b>Lines</b> a set of dynamic lines is defined

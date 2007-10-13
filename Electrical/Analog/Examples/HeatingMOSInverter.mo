@@ -2,12 +2,15 @@ within Modelica.Electrical.Analog.Examples;
 model HeatingMOSInverter "Heating MOS Inverter" 
   extends Modelica.Icons.Example;
   Modelica.Electrical.Analog.Basic.Ground G 
-  annotation (extent=[-80, -40; -60, -20]);
+  annotation (Placement(transformation(extent={{-80,-40},{-60,-20}}, rotation=0)));
   Modelica.Electrical.Analog.Sources.SineVoltage Sin(V=5) 
-  annotation (extent=[-80, -10; -60, 10], rotation=270);
+  annotation (Placement(transformation(
+        origin={-70,0}, 
+        extent={{-10,-10},{10,10}}, 
+        rotation=270)));
   
-annotation (Diagram(Text(extent=[-100, 100; -6, 72], string=
-          "Heating MOS Inverter")), Documentation(info="<HTML>
+annotation (Diagram(graphics={Text(extent={{-100,100},{-6,72}}, textString=
+          "Heating MOS Inverter")}),Documentation(info="<HTML>
 <P>
 The heating MOS inverter shows a heat flow always if a transistor is leading.
 </P>
@@ -31,29 +34,41 @@ H_PMOS.heatPort.Q_flow and H_NMOS.heatPort.Q_flow<br>
 </ul>
 </html>"));
   Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=0.00001) 
-  annotation (extent=[20, 0; 40, 20], rotation=270);
+  annotation (Placement(transformation(
+        origin={30,10}, 
+        extent={{-10,-10},{10,10}}, 
+        rotation=270)));
   Modelica.Thermal.HeatTransfer.HeatCapacitor HeatCapacitor1(C=0.01) 
-  annotation (extent=[60, -70; 80, -50], rotation=270);
+  annotation (Placement(transformation(
+        origin={70,-60}, 
+        extent={{-10,-10},{10,10}}, 
+        rotation=270)));
   Modelica.Thermal.HeatTransfer.ThermalConductor TC1(G=0.01) 
-  annotation (extent=[0, -50; 20, -30], rotation=0);
+  annotation (Placement(transformation(extent={{0,-50},{20,-30}}, rotation=0)));
   Semiconductors.HeatingPMOS H_PMOS 
-  annotation (extent=[-40, 40; -20, 60]);
+  annotation (Placement(transformation(extent={{-40,40},{-20,60}}, rotation=0)));
   Semiconductors.HeatingNMOS H_NMOS 
-  annotation (extent=[-40, 0; -20, 20]);
+  annotation (Placement(transformation(extent={{-40,0},{-20,20}}, rotation=0)));
   Modelica.Electrical.Analog.Sources.RampVoltage V(V=5, duration=1.e-2) 
-  annotation (extent=[40, 40; 60, 60], rotation=270);
+  annotation (Placement(transformation(
+        origin={50,50}, 
+        extent={{-10,-10},{10,10}}, 
+        rotation=270)));
   Modelica.Thermal.HeatTransfer.ThermalConductor TC2(G=0.01) 
-  annotation (extent=[0, -90; 20, -70], rotation=0);
+  annotation (Placement(transformation(extent={{0,-90},{20,-70}}, rotation=0)));
   Modelica.Thermal.HeatTransfer.FixedTemperature FixedTemperature1(T=
         300) 
-           annotation(extent=[78,-38; 98,-18], rotation=180);
+           annotation (Placement(transformation(
+        origin={88,-28}, 
+        extent={{-10,-10},{10,10}}, 
+        rotation=180)));
   Modelica.Thermal.HeatTransfer.ThermalConductor TC3(G=0.01) 
-  annotation (extent=[46,-40; 66,-20],  rotation=0);
+  annotation (Placement(transformation(extent={{46,-40},{66,-20}}, rotation=0)));
 equation 
   connect(Sin.n, G.p) 
-  annotation (points=[-70, -10; -70, -20], style(color=3));
+  annotation (Line(points={{-70,-10},{-70,-20}}, color={0,0,255}));
   connect(Capacitor1.n, G.p) 
-  annotation (points=[30,0; 30,-20; -70,-20],    style(color=3));
+  annotation (Line(points={{30,0},{30,-20},{-70,-20}}, color={0,0,255}));
   
 annotation (Documentation(info="<HTML>
 <P>
@@ -79,38 +94,38 @@ H_PMOS.heatPort.Q_flow and H_NMOS.heatPort.Q_flow<br>
   experiment(
      StopTime=5));
   connect(H_NMOS.G, H_PMOS.G) 
-  annotation (points=[-40, 5; -40, 45], style(color=3));
+  annotation (Line(points={{-40,5},{-40,45}}, color={0,0,255}));
   connect(H_NMOS.G, Sin.p) 
-  annotation (points=[-40, 5; -40, 10; -70, 10], style(color=3));
+  annotation (Line(points={{-40,5},{-40,10},{-70,10}}, color={0,0,255}));
   connect(H_PMOS.S, H_NMOS.D) 
-  annotation (points=[-20, 45; -20, 15], style(color=3));
+  annotation (Line(points={{-20,45},{-20,15}}, color={0,0,255}));
   connect(H_NMOS.D, Capacitor1.p) 
-  annotation (points=[-20,15; -20,20; 30,20],    style(color=3));
+  annotation (Line(points={{-20,15},{-20,20},{30,20}}, color={0,0,255}));
   connect(H_NMOS.B, H_NMOS.S) 
-  annotation (points=[-20, 10; -20, 5], style(color=3));
+  annotation (Line(points={{-20,10},{-20,5}}, color={0,0,255}));
   connect(H_NMOS.S, G.p) 
-  annotation (points=[-20, 5; -20, -20; -70, -20], style(color=3));
+  annotation (Line(points={{-20,5},{-20,-20},{-70,-20}}, color={0,0,255}));
   connect(H_PMOS.B, H_PMOS.D) 
-  annotation (points=[-20, 50; -20, 55], style(color=3));
+  annotation (Line(points={{-20,50},{-20,55}}, color={0,0,255}));
   connect(V.p, H_PMOS.D) 
-  annotation (points=[50, 60; -20, 60; -20, 55], style(color=3));
+  annotation (Line(points={{50,60},{-20,60},{-20,55}}, color={0,0,255}));
   connect(V.n, G.p) 
-  annotation (points=[50, 40; 50, -20; -70, -20], style(color=3));
+  annotation (Line(points={{50,40},{50,-20},{-70,-20}}, color={0,0,255}));
   connect(TC1.port_b, HeatCapacitor1.port) 
-                                         annotation (points=[20,-40; 40,-40; 40,
-        -60; 60,-60],              style(color=42));
+                                         annotation (Line(points={{20,-40},{40,
+          -40},{40,-60},{60,-60}}, color={191,0,0}));
   connect(TC2.port_b, HeatCapacitor1.port) 
-                                         annotation (points=[20,-80; 40,-80; 40,
-        -60; 60,-60],              style(color=42));
+                                         annotation (Line(points={{20,-80},{40,
+          -80},{40,-60},{60,-60}}, color={191,0,0}));
   connect(TC1.port_a, H_PMOS.heatPort) 
-                                     annotation (points=[0,-40; -10,-40; -10,40;
-        -30,40],               style(color=42));
+                                     annotation (Line(points={{0,-40},{-10,-40},
+          {-10,40},{-30,40}}, color={191,0,0}));
   connect(TC2.port_a, H_NMOS.heatPort) 
-  annotation (points=[0,-80; -30,-80; -30,0],     style(color=42));
+  annotation (Line(points={{0,-80},{-30,-80},{-30,0}}, color={191,0,0}));
   connect(TC3.port_b, FixedTemperature1.port) 
-                                            annotation(points=[66,-30; 70,-30;
-        70,-28; 78,-28],    style(color=42, rgbcolor={191,0,0}));
+                                            annotation (Line(points={{66,-30},{
+          70,-30},{70,-28},{78,-28}}, color={191,0,0}));
   connect(TC3.port_a, HeatCapacitor1.port) 
-                                         annotation(points=[46,-30; 52,-30; 52,
-        -60; 60,-60],          style(color=42, rgbcolor={191,0,0}));
+                                         annotation (Line(points={{46,-30},{52,
+          -30},{52,-60},{60,-60}}, color={191,0,0}));
 end HeatingMOSInverter;

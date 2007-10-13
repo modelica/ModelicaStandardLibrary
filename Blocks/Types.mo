@@ -80,7 +80,6 @@ initialization definition.
  
 </html>"));
   
-  
   type StateSelection = enumeration(
       Never "Never (never use as state)", 
       Avoid "Avoid (avoid to use as state)", 

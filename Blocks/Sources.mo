@@ -4,32 +4,38 @@ package Sources
   block RealExpression "Set output signal to a time varying Real expression" 
     
     Blocks.Interfaces.RealOutput y=0.0 "Value of Real output" 
-      annotation (extent=[100, -10; 120, 10], Dialog(group=
-            "Time varying output signal"));
+      annotation (                            Dialog(group=
+            "Time varying output signal"), Placement(transformation(extent={{
+              100,-10},{120,10}}, rotation=0)));
     
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[2, 2],
-        component=[20, 20]),
       Window(
         x=0.29,
         y=0.23,
         width=0.6,
         height=0.6),
-      Icon(
-        Rectangle(extent=[-100,40; 100,-40],   style(
-            color=0,
-            fillColor=30,
-            fillPattern=11)),
-        Text(
-          extent=[-96,15; 96,-15],
-          string="%y",
-          style(
-            color=0,
-            fillColor=2,
-            fillPattern=1)), Text(extent=[-150,90; 140,50],     string="%name")),
-      Diagram,
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Rectangle(
+            extent={{-100,40},{100,-40}}, 
+            lineColor={0,0,0}, 
+            fillColor={235,235,235}, 
+            fillPattern=FillPattern.Solid, 
+            borderPattern=BorderPattern.Raised), 
+          Text(
+            extent={{-96,15},{96,-15}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,255,0}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "%y"), 
+          Text(extent={{-150,90},{140,50}}, textString =               "%name")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics),
       Documentation(info="<html>
 <p>
 The (time varying) Real output signal of this block can be defined in its
@@ -49,32 +55,38 @@ Variable <b>y</b> is both a variable and a connector.
     "Set output signal to a time varying Integer expression" 
     
     Blocks.Interfaces.IntegerOutput y=0 "Value of Integer output" 
-      annotation (extent=[100, -10; 120, 10], Dialog(group=
-            "Time varying output signal"));
+      annotation (                            Dialog(group=
+            "Time varying output signal"), Placement(transformation(extent={{
+              100,-10},{120,10}}, rotation=0)));
     
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[2, 2],
-        component=[20, 20]),
       Window(
         x=0.29,
         y=0.23,
         width=0.6,
         height=0.6),
-      Icon(
-        Rectangle(extent=[-100,40; 100,-40],   style(
-            color=0,
-            fillColor=30,
-            fillPattern=11)),
-        Text(
-          extent=[-96,15; 96,-15],
-          string="%y",
-          style(
-            color=0,
-            fillColor=2,
-            fillPattern=1)), Text(extent=[-150,90; 140,50],     string="%name")),
-      Diagram,
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Rectangle(
+            extent={{-100,40},{100,-40}}, 
+            lineColor={0,0,0}, 
+            fillColor={235,235,235}, 
+            fillPattern=FillPattern.Solid, 
+            borderPattern=BorderPattern.Raised), 
+          Text(
+            extent={{-96,15},{96,-15}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,255,0}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "%y"), 
+          Text(extent={{-150,90},{140,50}}, textString =               "%name")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics),
       Documentation(info="<html>
 <p>
 The (time varying) Integer output signal of this block can be defined in its
@@ -94,35 +106,47 @@ Variable <b>y</b> is both a variable and a connector.
     "Set output signal to a time varying Boolean expression" 
     
     Blocks.Interfaces.BooleanOutput y=false "Value of Boolean output" 
-      annotation (extent=[100, -10; 120, 10], Dialog(group=
-            "Time varying output signal"));
+      annotation (                            Dialog(group=
+            "Time varying output signal"), Placement(transformation(extent={{
+              100,-10},{120,10}}, rotation=0)));
     
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[2, 2],
-        component=[20, 20]),
       Window(
         x=0.29,
         y=0.23,
         width=0.6,
         height=0.6),
-      Icon(
-        Rectangle(extent=[-100,40; 100,-40],   style(
-            color=0,
-            fillColor=30,
-            fillPattern=11)),
-        Text(
-          extent=[-96,15; 96,-15],
-          string="%y",
-          style(
-            color=0,
-            fillColor=2,
-            fillPattern=1)), Text(extent=[-150,90; 140,50],     string="%name"),
-  Polygon(points=[100,10; 120,0; 100,-10; 100,10],
-             style(color=DynamicSelect(5, if y > 0.5 then 2 else 5),
-              fillColor=DynamicSelect(7, if y > 0.5 then 2 else 7)))),
-      Diagram,
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Rectangle(
+            extent={{-100,40},{100,-40}}, 
+            lineColor={0,0,0}, 
+            fillColor={235,235,235}, 
+            fillPattern=FillPattern.Solid, 
+            borderPattern=BorderPattern.Raised), 
+          Text(
+            extent={{-96,15},{96,-15}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,255,0}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "%y"), 
+          Text(extent={{-150,90},{140,50}}, textString =               "%name"), 
+          Polygon(
+            points={{100,10},{120,0},{100,-10},{100,10}}, 
+            lineColor=DynamicSelect({255,0,255}, if 
+                                             y > 0.5 then {0,255,0} else {255,0,
+                255}), 
+            fillColor=DynamicSelect({255,255,255}, if 
+                                            y > 0.5 then {0,255,0} else {255,
+                255,255}), 
+            fillPattern=FillPattern.Solid)}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics),
       Documentation(info="<html>
 <p>
 The (time varying) Boolean output signal of this block can be defined in its
@@ -143,10 +167,6 @@ Variable <b>y</b> is both a variable and a connector.
       extends Modelica.Icons.Library;
   
       annotation(preferedView="info",
-        Coordsys(
-          extent=[0, 0; 430, 442],
-          grid=[1, 1],
-          component=[20, 20]),
         Window(
           x=0.06,
           y=0.1,
@@ -216,138 +236,141 @@ usually requires a trimming calculation.
         extends Interfaces.SO;
     
         annotation (
-          Coordsys(
-            extent=[-100, -100; 100, 100],
-            grid=[1, 1],
-            component=[20, 20]),
           Window(
             x=0.26,
             y=0,
             width=0.36,
             height=0.52),
-          Icon(
-            Ellipse(extent=[-80, 80; 80, -80], style(color=9)),
-            Line(points=[0, 80; 0, 60], style(color=9)),
-            Line(points=[80, 0; 60, 0], style(color=9)),
-            Line(points=[0, -80; 0, -60], style(color=9)),
-            Line(points=[-80, 0; -60, 0], style(color=9)),
-            Line(points=[37, 70; 26, 50], style(color=9)),
-            Line(points=[70, 38; 49, 26], style(color=9)),
-            Line(points=[71, -37; 52, -27], style(color=9)),
-            Line(points=[39, -70; 29, -51], style(color=9)),
-            Line(points=[-39, -70; -29, -52], style(color=9)),
-            Line(points=[-71, -37; -50, -26], style(color=9)),
-            Line(points=[-71, 37; -54, 28], style(color=9)),
-            Line(points=[-38, 70; -28, 51], style(color=9)),
-            Line(points=[0, 0; -50, 50], style(color=0, thickness=2)),
-            Line(points=[0, 0; 40, 0], style(color=0, thickness=2)),
-            Text(
-              extent=[-150, -150; 150, -110],
-              string="startTime=%startTime",
-              style(color=0))),
-          Diagram(
-            Polygon(points=[-80,90; -85,68; -75,68; -80,90], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-80, 68; -80, -80], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-80, 0; -10, 0; 60, 70], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2)),
-            Line(points=[-90, -70; 82, -70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[90,-70; 68,-64; 68,-76; 90,-70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-34, 0; -37, -13; -30, -13; -34, 0], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-34, -13; -34, -70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-34, -69; -37, -56; -31, -56; -34, -69; -34, -69], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-77,-28; -35,-40],
-              string="offset",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-30,-73; 18,-86],
-              string="startTime",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-81,91; -40,71],
-              string="y",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[63,-79; 94,-89],
-              string="time",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-10, 0; -10, -70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-10, 0; 50, 0], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[50, 0; 50, 60], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[35, 33; 50, 23],
-              string="1",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[14, 13; 32, 1],
-              string="1",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95}))),
+          Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Ellipse(extent={{-80,80},{80,-80}}, lineColor={160,160,164}), 
+          Line(points={{0,80},{0,60}}, color={160,160,164}), 
+          Line(points={{80,0},{60,0}}, color={160,160,164}), 
+          Line(points={{0,-80},{0,-60}}, color={160,160,164}), 
+          Line(points={{-80,0},{-60,0}}, color={160,160,164}), 
+          Line(points={{37,70},{26,50}}, color={160,160,164}), 
+          Line(points={{70,38},{49,26}}, color={160,160,164}), 
+          Line(points={{71,-37},{52,-27}}, color={160,160,164}), 
+          Line(points={{39,-70},{29,-51}}, color={160,160,164}), 
+          Line(points={{-39,-70},{-29,-52}}, color={160,160,164}), 
+          Line(points={{-71,-37},{-50,-26}}, color={160,160,164}), 
+          Line(points={{-71,37},{-54,28}}, color={160,160,164}), 
+          Line(points={{-38,70},{-28,51}}, color={160,160,164}), 
+          Line(
+            points={{0,0},{-50,50}}, 
+            color={0,0,0}, 
+            thickness=2), 
+          Line(
+            points={{0,0},{40,0}}, 
+            color={0,0,0}, 
+            thickness=2), 
+          Text(
+            extent={{-150,-150},{150,-110}}, 
+            lineColor={0,0,0}, 
+            textString=
+                     "startTime=%startTime")}),
+          Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Polygon(
+            points={{-80,90},{-85,68},{-75,68},{-80,90}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-80,68},{-80,-80}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-80,0},{-10,0},{60,70}}, 
+            color={0,0,255}, 
+            thickness=2), 
+          Line(
+            points={{-90,-70},{82,-70}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{90,-70},{68,-64},{68,-76},{90,-70}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-34,0},{-37,-13},{-30,-13},{-34,0}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-34,-13},{-34,-70}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-34,-69},{-37,-56},{-31,-56},{-34,-69},{-34,-69}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-77,-28},{-35,-40}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "offset"), 
+          Text(
+            extent={{-30,-73},{18,-86}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "startTime"), 
+          Text(
+            extent={{-81,91},{-40,71}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "y"), 
+          Text(
+            extent={{63,-79},{94,-89}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "time"), 
+          Line(
+            points={{-10,0},{-10,-70}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-10,0},{50,0}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{50,0},{50,60}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{35,33},{50,23}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "1"), 
+          Text(
+            extent={{14,13},{32,1}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "1")}),
       Documentation(info="<html>
 <p>
 The Real output y is a clock signal:
@@ -367,76 +390,82 @@ The Real output y is a clock signal:
         extends Interfaces.SO;
     
         annotation (defaultComponentName="const",
-          Coordsys(
-            extent=[-100, -100; 100, 100],
-            grid=[2, 2],
-            component=[20, 20]),
           Window(
             x=0.29,
             y=0.19,
             width=0.6,
             height=0.6),
-          Icon(
-            Line(points=[-80, 68; -80, -80], style(color=8)),
-            Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-                   fillColor=8)),
-            Line(points=[-90, -70; 82, -70], style(color=8)),
-            Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(color=8,
-                   fillColor=8)),
-            Line(points=[-80, 0; 80, 0], style(color=0)),
-            Text(
-              extent=[-150, -150; 150, -110],
-              string="k=%k",
-              style(color=0))),
-          Diagram(
-            Polygon(points=[-80,90; -86,68; -74,68; -80,90], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-80, 68; -80, -80], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-80, 0; 80, 0], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2)),
-            Line(points=[-90, -70; 82, -70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[90,-70; 68,-64; 68,-76; 90,-70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-83,92; -30,74],
-              string="y",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[70, -80; 94, -100],
-              string="time",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-101, 8; -81, -12],
-              string="k",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95}))),
+          Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-90,-70},{82,-70}}, color={192,192,192}), 
+          Polygon(
+            points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-80,0},{80,0}}, color={0,0,0}), 
+          Text(
+            extent={{-150,-150},{150,-110}}, 
+            lineColor={0,0,0}, 
+            textString=
+                     "k=%k")}),
+          Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Polygon(
+            points={{-80,90},{-86,68},{-74,68},{-80,90}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-80,68},{-80,-80}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-80,0},{80,0}}, 
+            color={0,0,255}, 
+            thickness=2), 
+          Line(
+            points={{-90,-70},{82,-70}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{90,-70},{68,-64},{68,-76},{90,-70}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-83,92},{-30,74}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "y"), 
+          Text(
+            extent={{70,-80},{94,-100}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "time"), 
+          Text(
+            extent={{-101,8},{-81,-12}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "k")}),
       Documentation(info="<html>
 <p>
 The Real output y is a constant signal:
@@ -454,132 +483,136 @@ The Real output y is a constant signal:
         parameter Real height=1 "Height of step";
         extends Interfaces.SignalSource;
         annotation (
-          Coordsys(
-            extent=[-100, -100; 100, 100],
-            grid=[1, 1],
-            component=[20, 20]),
           Window(
             x=0.38,
             y=0.11,
             width=0.6,
             height=0.6),
-          Icon(
-            Line(points=[-80, 68; -80, -80], style(color=8)),
-            Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-                   fillColor=8)),
-            Line(points=[-90, -70; 82, -70], style(color=8)),
-            Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(color=8,
-                   fillColor=8)),
-            Line(points=[-80, -70; 0, -70; 0, 50; 80, 50], style(color=0)),
-            Text(
-              extent=[-150, -150; 150, -110],
-              string="startTime=%startTime",
-              style(color=0))),
-          Diagram(
-            Polygon(points=[-80,90; -86,68; -74,68; -80,90], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-80, 68; -80, -80], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-80, -18; 0, -18; 0, 50; 80, 50], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2)),
-            Line(points=[-90, -70; 82, -70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[90,-70; 68,-64; 68,-76; 90,-70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[70, -80; 94, -100],
-              string="time",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-21, -72; 25, -90],
-              string="startTime",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[0, -17; 0, -71], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-68, -36; -22, -54],
-              string="offset",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-13, 50; -13, -17], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[2, 50; -19, 50; 2, 50], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-13, -17; -16, -4; -10, -4; -13, -17; -13, -17], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-13, 50; -16, 37; -9, 37; -13, 50], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-68, 26; -22, 8],
-              string="height",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-13, -69; -16, -56; -10, -56; -13, -69; -13, -69], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-13, -18; -13, -70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-13, -18; -16, -31; -9, -31; -13, -18], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-72, 100; -31, 80],
-              string="y",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95}))),
+          Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-90,-70},{82,-70}}, color={192,192,192}), 
+          Polygon(
+            points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-80,-70},{0,-70},{0,50},{80,50}}, color={0,0,0}), 
+          Text(
+            extent={{-150,-150},{150,-110}}, 
+            lineColor={0,0,0}, 
+            textString=
+                     "startTime=%startTime")}),
+          Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Polygon(
+            points={{-80,90},{-86,68},{-74,68},{-80,90}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-80,68},{-80,-80}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-80,-18},{0,-18},{0,50},{80,50}}, 
+            color={0,0,255}, 
+            thickness=2), 
+          Line(
+            points={{-90,-70},{82,-70}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{90,-70},{68,-64},{68,-76},{90,-70}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{70,-80},{94,-100}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "time"), 
+          Text(
+            extent={{-21,-72},{25,-90}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "startTime"), 
+          Line(
+            points={{0,-17},{0,-71}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-68,-36},{-22,-54}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "offset"), 
+          Line(
+            points={{-13,50},{-13,-17}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{2,50},{-19,50},{2,50}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-13,-17},{-16,-4},{-10,-4},{-13,-17},{-13,-17}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-13,50},{-16,37},{-9,37},{-13,50}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-68,26},{-22,8}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "height"), 
+          Polygon(
+            points={{-13,-69},{-16,-56},{-10,-56},{-13,-69},{-13,-69}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-13,-18},{-13,-70}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-13,-18},{-16,-31},{-9,-31},{-13,-18}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-72,100},{-31,80}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "y")}),
       Documentation(info="<html>
 <p>
 The Real output y is a step signal:
@@ -605,170 +638,164 @@ The Real output y is a step signal:
         extends Interfaces.SO;
     
         annotation (
-          Coordsys(
-            extent=[-100, -100; 100, 100],
-            grid=[1, 1],
-            component=[20, 20]),
           Window(
             x=0.19,
             y=0.02,
             width=0.59,
             height=0.77),
-          Icon(
-            Line(points=[-80, 68; -80, -80], style(color=8)),
-            Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-                   fillColor=8)),
-            Line(points=[-90, -70; 82, -70], style(color=8)),
-            Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Line(points=[-80, -70; -40, -70; 31, 38], style(color=0)),
-            Text(
-              extent=[-150, -150; 150, -110],
-              string="duration=%duration",
-              style(color=0)),
-            Line(points=[31, 38; 86, 38], style(color=0))),
-          Diagram(
-            Polygon(points=[-80,90; -86,68; -74,68; -80,90], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-80, 68; -80, -80], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-80, -20; -20, -20; 50, 50], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2)),
-            Line(points=[-90, -70; 82, -70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[90,-70; 68,-64; 68,-76; 90,-70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95},
-            fillPattern=1)),
-            Polygon(points=[-40, -20; -42, -30; -37, -30; -40, -20], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95},
-            fillPattern=1)),
-            Line(points=[-40, -20; -40, -70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            thickness=1,
-            arrow=0,
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-40, -70; -43, -60; -38, -60; -40, -70; -40, -70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95},
-            fillPattern=1)),
-            Text(
-              extent=[-72,-39; -34,-50],
-              string="offset",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-38,-72; 6,-83],
-              string="startTime",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-78,92; -37,72],
-              string="y",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[70,-80; 94,-91],
-              string="time",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-20, -20; -20, -70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-19, -20; 50, -20], style(
-            color=10,
-            rgbcolor={95,95,95},
-            thickness=1,
-            arrow=0,
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[50, 50; 101, 50], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2)),
-            Line(points=[50, 50; 50, -20], style(
-            color=10,
-            rgbcolor={95,95,95},
-            thickness=1,
-            arrow=0,
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[50, -20; 42, -18; 42, -22; 50, -20], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95},
-            fillPattern=1)),
-            Polygon(points=[-20, -20; -11, -18; -11, -22; -20, -20], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95},
-            fillPattern=1)),
-            Polygon(points=[50, 50; 48, 40; 53, 40; 50, 50], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95},
-            fillPattern=1)),
-            Polygon(points=[50, -20; 47, -10; 52, -10; 50, -20; 50, -20], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95},
-            fillPattern=1)),
-            Text(
-              extent=[53,23; 82,10],
-              string="height",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-2,-21; 37,-33],
-              string="duration",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95}))),
+          Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-90,-70},{82,-70}}, color={192,192,192}), 
+          Polygon(
+            points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-80,-70},{-40,-70},{31,38}}, color={0,0,0}), 
+          Text(
+            extent={{-150,-150},{150,-110}}, 
+            lineColor={0,0,0}, 
+            textString=
+                     "duration=%duration"), 
+          Line(points={{31,38},{86,38}}, color={0,0,0})}),
+          Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Polygon(
+            points={{-80,90},{-86,68},{-74,68},{-80,90}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-80,68},{-80,-80}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-80,-20},{-20,-20},{50,50}}, 
+            color={0,0,255}, 
+            thickness=2), 
+          Line(
+            points={{-90,-70},{82,-70}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{90,-70},{68,-64},{68,-76},{90,-70}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-40,-20},{-42,-30},{-37,-30},{-40,-20}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-40,-20},{-40,-70}}, 
+            color={95,95,95}, 
+            thickness=1, 
+            arrow={Arrow.None,Arrow.None}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-40,-70},{-43,-60},{-38,-60},{-40,-70},{-40,-70}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-72,-39},{-34,-50}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "offset"), 
+          Text(
+            extent={{-38,-72},{6,-83}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "startTime"), 
+          Text(
+            extent={{-78,92},{-37,72}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "y"), 
+          Text(
+            extent={{70,-80},{94,-91}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "time"), 
+          Line(
+            points={{-20,-20},{-20,-70}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-19,-20},{50,-20}}, 
+            color={95,95,95}, 
+            thickness=1, 
+            arrow={Arrow.None,Arrow.None}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{50,50},{101,50}}, 
+            color={0,0,255}, 
+            thickness=2), 
+          Line(
+            points={{50,50},{50,-20}}, 
+            color={95,95,95}, 
+            thickness=1, 
+            arrow={Arrow.None,Arrow.None}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{50,-20},{42,-18},{42,-22},{50,-20}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-20,-20},{-11,-18},{-11,-22},{-20,-20}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{50,50},{48,40},{53,40},{50,50}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{50,-20},{47,-10},{52,-10},{50,-20},{50,-20}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{53,23},{82,10}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "height"), 
+          Text(
+            extent={{-2,-21},{37,-33}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "duration")}),
       Documentation(info="<html>
 <p>
 The Real output y is a ramp signal:
@@ -794,135 +821,139 @@ The Real output y is a ramp signal:
   protected 
         constant Real pi=Modelica.Constants.pi;
         annotation (
-          Coordsys(
-            extent=[-100, -100; 100, 100],
-            grid=[1, 1],
-            component=[20, 20]),
           Window(
             x=0.23,
             y=0.08,
             width=0.66,
             height=0.68),
-          Icon(
-            Line(points=[-80, 68; -80, -80], style(color=8)),
-            Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-                   fillColor=8)),
-            Line(points=[-90, 0; 68, 0], style(color=8)),
-            Polygon(points=[90, 0; 68, 8; 68, -8; 90, 0], style(color=8,
-                  fillColor=8)),
-            Line(points=[-80, 0; -68.7, 34.2; -61.5, 53.1; -55.1, 66.4; -49.4,
-                  74.6; -43.8, 79.1; -38.2, 79.8; -32.6, 76.6; -26.9, 69.7; -21.3,
-                   59.4; -14.9, 44.1; -6.83, 21.2; 10.1, -30.8; 17.3, -50.2;
-                  23.7, -64.2; 29.3, -73.1; 35, -78.4; 40.6, -80; 46.2, -77.6;
-                  51.9, -71.5; 57.5, -61.9; 63.9, -47.2; 72, -24.8; 80, 0],
-                style(color=0)),
-            Text(
-              extent=[-147, -152; 153, -112],
-              string="freqHz=%freqHz",
-              style(color=0))),
-          Diagram(
-            Line(points=[-80, -90; -80, 84], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-80,97; -84,81; -76,81; -80,97], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-99, -40; 85, -40], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[97,-40; 81,-36; 81,-45; 97,-40], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-41,-2; -31.6,34.2; -26.1,53.1; -21.3,66.4; -17.1,74.6;
-              -12.9,79.1; -8.64,79.8; -4.42,76.6; -0.201,69.7; 4.02,59.4; 8.84,
-              44.1; 14.9,21.2; 27.5,-30.8; 33,-50.2; 37.8,-64.2; 42,-73.1; 46.2,
-              -78.4; 50.5,-80; 54.7,-77.6; 58.9,-71.5; 63.1,-61.9; 67.9,-47.2;
-              74,-24.8; 80,0], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2)),
-            Line(points=[-41, -2; -80, -2], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2)),
-            Text(
-              extent=[-87,12; -40,0],
-              string="offset",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-41, -2; -41, -40], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-60,-43; -14,-54],
-              string="startTime",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[75,-47; 100,-60],
-              string="time",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-80,99; -40,82],
-              string="y",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-9, 79; 43, 79], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-41,-2; 50,-2], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[33,79; 30,66; 37,66; 33,79], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[37, 57; 83, 39],
-              string="amplitude",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[33,-2; 30,11; 36,11; 33,-2; 33,-2], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[33,77; 33,-2], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95}))),
+          Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-90,0},{68,0}}, color={192,192,192}), 
+          Polygon(
+            points={{90,0},{68,8},{68,-8},{90,0}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-80,0},{-68.7,34.2},{-61.5,53.1},{-55.1,66.4},{-49.4,
+                74.6},{-43.8,79.1},{-38.2,79.8},{-32.6,76.6},{-26.9,69.7},{
+                -21.3,59.4},{-14.9,44.1},{-6.83,21.2},{10.1,-30.8},{17.3,-50.2},
+                {23.7,-64.2},{29.3,-73.1},{35,-78.4},{40.6,-80},{46.2,-77.6},{
+                51.9,-71.5},{57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, color
+              ={0,0,0}), 
+          Text(
+            extent={{-147,-152},{153,-112}}, 
+            lineColor={0,0,0}, 
+            textString=
+                     "freqHz=%freqHz")}),
+          Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(
+            points={{-80,-90},{-80,84}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-80,97},{-84,81},{-76,81},{-80,97}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-99,-40},{85,-40}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{97,-40},{81,-36},{81,-45},{97,-40}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-41,-2},{-31.6,34.2},{-26.1,53.1},{-21.3,66.4},{-17.1,74.6},
+                {-12.9,79.1},{-8.64,79.8},{-4.42,76.6},{-0.201,69.7},{4.02,59.4},
+                {8.84,44.1},{14.9,21.2},{27.5,-30.8},{33,-50.2},{37.8,-64.2},{
+                42,-73.1},{46.2,-78.4},{50.5,-80},{54.7,-77.6},{58.9,-71.5},{
+                63.1,-61.9},{67.9,-47.2},{74,-24.8},{80,0}}, 
+            color={0,0,255}, 
+            thickness=2), 
+          Line(
+            points={{-41,-2},{-80,-2}}, 
+            color={0,0,255}, 
+            thickness=2), 
+          Text(
+            extent={{-87,12},{-40,0}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "offset"), 
+          Line(
+            points={{-41,-2},{-41,-40}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-60,-43},{-14,-54}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "startTime"), 
+          Text(
+            extent={{75,-47},{100,-60}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "time"), 
+          Text(
+            extent={{-80,99},{-40,82}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "y"), 
+          Line(
+            points={{-9,79},{43,79}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-41,-2},{50,-2}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{33,79},{30,66},{37,66},{33,79}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{37,57},{83,39}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "amplitude"), 
+          Polygon(
+            points={{33,-2},{30,11},{36,11},{33,-2},{33,-2}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{33,77},{33,-2}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
 The Real output y is a sine signal:
@@ -949,179 +980,181 @@ The Real output y is a sine signal:
   protected 
         constant Real pi=Modelica.Constants.pi;
         annotation (
-          Coordsys(
-            extent=[-100, -100; 100, 100],
-            grid=[1, 1],
-            component=[20, 20]),
           Window(
             x=0.18,
             y=0.05,
             width=0.6,
             height=0.63),
-          Icon(
-            Line(points=[-80, 68; -80, -80], style(color=8)),
-            Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-                   fillColor=8)),
-            Line(points=[-90, 0; 68, 0], style(color=8)),
-            Polygon(points=[90, 0; 68, 8; 68, -8; 90, 0], style(color=8,
-                  fillColor=8)),
-            Line(points=[-80, 0; -75.2, 32.3; -72, 50.3; -68.7, 64.5; -65.5,
-                  74.2; -62.3, 79.3; -59.1, 79.6; -55.9, 75.3; -52.7, 67.1; -48.6,
-                   52.2; -43, 25.8; -35, -13.9; -30.2, -33.7; -26.1, -45.9; -22.1,
-                   -53.2; -18.1, -55.3; -14.1, -52.5; -10.1, -45.3; -5.23, -32.1;
-                   8.44, 13.7; 13.3, 26.4; 18.1, 34.8; 22.1, 38; 26.9, 37.2;
-                  31.8, 31.8; 38.2, 19.4; 51.1, -10.5; 57.5, -21.2; 63.1, -25.9;
-                   68.7, -25.9; 75.2, -20.5; 80, -13.8], style(color=0)),
-            Text(
-              extent=[-147, -152; 153, -112],
-              string="freqHz=%freqHz",
-              style(color=0))),
-          Diagram(
-            Line(points=[-86,-90; -86,84], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-86,98; -90,82; -82,82; -86,98], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-99, -40; 85, -40], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[97,-40; 81,-35; 81,-44; 97,-40], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-50, 0; -46.1, 28.2; -43.5, 44; -40.9, 56.4; -38.2,
-                  64.9; -35.6, 69.4; -33, 69.6; -30.4, 65.9; -27.8, 58.7; -24.5,
-                   45.7; -19.9, 22.5; -13.4, -12.2; -9.5, -29.5; -6.23, -40.1;
-                  -2.96, -46.5; 0.302, -48.4; 3.57, -45.9; 6.83, -39.6; 10.8, -28.1;
-                   21.9, 12; 25.8, 23.1; 29.7, 30.5; 33, 33.3; 36.9, 32.5; 40.8,
-                   27.8; 46, 16.9; 56.5, -9.2; 61.7, -18.6; 66.3, -22.7; 70.9,
-                  -22.6; 76.1, -18; 80, -12.1], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2)),
-            Text(
-              extent=[-80,17; -57,-3],
-              string="offset",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-72,-43; -25,-53],
-              string="startTime",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[77,-53; 101,-64],
-              string="time",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-89,99; -49,82],
-              string="y",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-50, 0; 18, 0], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-50,0; -86,0], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2)),
-            Line(points=[-50, 77; -50, 0], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[18, -1; 18, 76], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[18, 73; -50, 73], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-42,83; 9,74],
-              string="1/freqHz",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-49, 73; -40, 75; -40, 71; -49, 73], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[18, 73; 10, 75; 10, 71; 18, 73], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-50, -61; -19, -61], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-18, -61; -26, -59; -26, -63; -18, -61], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-51, -63; -27, -75],
-              string="t",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-83,-69; 100,-96],
-              string="amplitude*exp(-damping*t)*sin(2*pi*freqHz*t+phase)",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-50, 0; -50, -40], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-50, -54; -50, -72], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-15, -77; -1, -48], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95}))),
+          Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-90,0},{68,0}}, color={192,192,192}), 
+          Polygon(
+            points={{90,0},{68,8},{68,-8},{90,0}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-80,0},{-75.2,32.3},{-72,50.3},{-68.7,64.5},{-65.5,74.2},
+                {-62.3,79.3},{-59.1,79.6},{-55.9,75.3},{-52.7,67.1},{-48.6,52.2},
+                {-43,25.8},{-35,-13.9},{-30.2,-33.7},{-26.1,-45.9},{-22.1,-53.2},
+                {-18.1,-55.3},{-14.1,-52.5},{-10.1,-45.3},{-5.23,-32.1},{8.44,
+                13.7},{13.3,26.4},{18.1,34.8},{22.1,38},{26.9,37.2},{31.8,31.8},
+                {38.2,19.4},{51.1,-10.5},{57.5,-21.2},{63.1,-25.9},{68.7,-25.9},
+                {75.2,-20.5},{80,-13.8}}, color={0,0,0}), 
+          Text(
+            extent={{-147,-152},{153,-112}}, 
+            lineColor={0,0,0}, 
+            textString=
+                     "freqHz=%freqHz")}),
+          Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(
+            points={{-86,-90},{-86,84}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-86,98},{-90,82},{-82,82},{-86,98}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-99,-40},{85,-40}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{97,-40},{81,-35},{81,-44},{97,-40}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-50,0},{-46.1,28.2},{-43.5,44},{-40.9,56.4},{-38.2,64.9},{
+                -35.6,69.4},{-33,69.6},{-30.4,65.9},{-27.8,58.7},{-24.5,45.7},{
+                -19.9,22.5},{-13.4,-12.2},{-9.5,-29.5},{-6.23,-40.1},{-2.96,
+                -46.5},{0.302,-48.4},{3.57,-45.9},{6.83,-39.6},{10.8,-28.1},{
+                21.9,12},{25.8,23.1},{29.7,30.5},{33,33.3},{36.9,32.5},{40.8,
+                27.8},{46,16.9},{56.5,-9.2},{61.7,-18.6},{66.3,-22.7},{70.9,
+                -22.6},{76.1,-18},{80,-12.1}}, 
+            color={0,0,255}, 
+            thickness=2), 
+          Text(
+            extent={{-80,17},{-57,-3}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "offset"), 
+          Text(
+            extent={{-72,-43},{-25,-53}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "startTime"), 
+          Text(
+            extent={{77,-53},{101,-64}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "time"), 
+          Text(
+            extent={{-89,99},{-49,82}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "y"), 
+          Line(
+            points={{-50,0},{18,0}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-50,0},{-86,0}}, 
+            color={0,0,255}, 
+            thickness=2), 
+          Line(
+            points={{-50,77},{-50,0}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{18,-1},{18,76}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{18,73},{-50,73}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-42,83},{9,74}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "1/freqHz"), 
+          Polygon(
+            points={{-49,73},{-40,75},{-40,71},{-49,73}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{18,73},{10,75},{10,71},{18,73}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-50,-61},{-19,-61}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-18,-61},{-26,-59},{-26,-63},{-18,-61}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-51,-63},{-27,-75}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "t"), 
+          Text(
+            extent={{-83,-69},{100,-96}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "amplitude*exp(-damping*t)*sin(2*pi*freqHz*t+phase)"), 
+          Line(
+            points={{-50,0},{-50,-40}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-50,-54},{-50,-72}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-15,-77},{-1,-48}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
 The Real output y is a sine signal with exponentially changing amplitude:
@@ -1152,142 +1185,146 @@ The Real output y is a sine signal with exponentially changing amplitude:
   protected 
         Real y_riseTime;
         annotation (
-          Coordsys(
-            extent=[-100, -100; 100, 100],
-            grid=[1, 1],
-            component=[20, 20]),
           Window(
             x=0.03,
             y=0.05,
             width=0.85,
             height=0.74),
-          Icon(
-            Line(points=[-90, -70; 68, -70], style(color=8)),
-            Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(color=8,
-                   fillColor=8)),
-            Line(points=[-80, -70; -77.2, -55.3; -74.3, -42.1; -70.8, -27.6; -67.3,
-                   -15; -63.7, -4.08; -59.5, 7.18; -55.3, 16.7; -50.3, 26; -44.6,
-                   34.5; -38.3, 42.1; -31.2, 48.6; -22.7, 54.3; -12.1, 59.2; -10,
-                   60; -7.88, 47.5; -5.05, 32.7; -2.22, 19.8; 0.606, 8.45; 4.14,
-                   -3.7; 7.68, -14; 11.9, -24.2; 16.2, -32.6; 21.1, -40.5; 26.8,
-                   -47.4; 33.1, -53.3; 40.9, -58.5; 50.8, -62.8; 60, -65.4],
-                style(color=0)),
-            Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-                   fillColor=8)),
-            Line(points=[-80, 68; -80, -80], style(color=8)),
-            Text(
-              extent=[-150, -150; 150, -110],
-              string="riseTime=%riseTime",
-              style(color=0))),
-          Diagram(
-            Line(points=[-90,-74; 84,-74], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[97,-74; 81,-70; 81,-78; 97,-74], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-40,-34; -37.2,-19.3; -34.3,-6.1; -30.8,8.4; -27.3,21;
-              -23.7,31.92; -19.5,43.18; -15.3,52.7; -10.3,62; -4.6,70.5; 1.7,
-              78.1; 8.8,84.6; 17.3,90.3; 27.9,95.2; 30,96; 32.12,83.5; 34.95,
-              68.7; 37.78,55.8; 40.606,44.45; 44.14,32.3; 47.68,22; 51.9,11.8;
-              56.2,3.4; 61.1,-4.5; 66.8,-11.4; 73.1,-17.3; 80.9,-22.5; 90.8,
-              -26.8; 100,-29.4], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2)),
-            Polygon(points=[-80,86; -86,64; -74,64; -80,86], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-80,64; -80,-84], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-81,87; -40,67],
-              string="y",
-          style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-71,-46; -38,-55],
-              string="offset",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-40,-74; -43,-64; -38,-64; -40,-74; -40,-74], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-40,-33; -40,-64], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-40,-34; -42,-44; -37,-44; -40,-34], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-39,-34; -80,-34], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2)),
-            Text(
-              extent=[-62,-76; -17,-85],
-              string="startTime",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-41,-34; -32,-32; -32,-36; -41,-34], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-40,-34; 29,-34], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[29,-34; 21,-32; 21,-36; 29,-34], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-26,-22; 19,-32],
-              string="riseTime",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[75,-79; 98,-90],
-              string="time",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[30,96; 30,-38], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95}))),
+          Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-90,-70},{68,-70}}, color={192,192,192}), 
+          Polygon(
+            points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-80,-70},{-77.2,-55.3},{-74.3,-42.1},{-70.8,-27.6},{
+                -67.3,-15},{-63.7,-4.08},{-59.5,7.18},{-55.3,16.7},{-50.3,26},{
+                -44.6,34.5},{-38.3,42.1},{-31.2,48.6},{-22.7,54.3},{-12.1,59.2},
+                {-10,60},{-7.88,47.5},{-5.05,32.7},{-2.22,19.8},{0.606,8.45},{
+                4.14,-3.7},{7.68,-14},{11.9,-24.2},{16.2,-32.6},{21.1,-40.5},{
+                26.8,-47.4},{33.1,-53.3},{40.9,-58.5},{50.8,-62.8},{60,-65.4}}, 
+              color={0,0,0}), 
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+          Text(
+            extent={{-150,-150},{150,-110}}, 
+            lineColor={0,0,0}, 
+            textString=
+                     "riseTime=%riseTime")}),
+          Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(
+            points={{-90,-74},{84,-74}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{97,-74},{81,-70},{81,-78},{97,-74}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-40,-34},{-37.2,-19.3},{-34.3,-6.1},{-30.8,8.4},{-27.3,21},
+                {-23.7,31.92},{-19.5,43.18},{-15.3,52.7},{-10.3,62},{-4.6,70.5},
+                {1.7,78.1},{8.8,84.6},{17.3,90.3},{27.9,95.2},{30,96},{32.12,
+                83.5},{34.95,68.7},{37.78,55.8},{40.606,44.45},{44.14,32.3},{
+                47.68,22},{51.9,11.8},{56.2,3.4},{61.1,-4.5},{66.8,-11.4},{73.1,
+                -17.3},{80.9,-22.5},{90.8,-26.8},{100,-29.4}}, 
+            color={0,0,255}, 
+            thickness=2), 
+          Polygon(
+            points={{-80,86},{-86,64},{-74,64},{-80,86}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-80,64},{-80,-84}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-81,87},{-40,67}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "y"), 
+          Text(
+            extent={{-71,-46},{-38,-55}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "offset"), 
+          Polygon(
+            points={{-40,-74},{-43,-64},{-38,-64},{-40,-74},{-40,-74}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-40,-33},{-40,-64}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-40,-34},{-42,-44},{-37,-44},{-40,-34}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-39,-34},{-80,-34}}, 
+            color={0,0,255}, 
+            thickness=2), 
+          Text(
+            extent={{-62,-76},{-17,-85}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "startTime"), 
+          Polygon(
+            points={{-41,-34},{-32,-32},{-32,-36},{-41,-34}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-40,-34},{29,-34}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{29,-34},{21,-32},{21,-36},{29,-34}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-26,-22},{19,-32}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "riseTime"), 
+          Text(
+            extent={{75,-79},{98,-90}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "time"), 
+          Line(
+            points={{30,96},{30,-38}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
 The Real output y is a rising exponential followed
@@ -1319,205 +1356,205 @@ by a falling exponential signal:
       "Output = offset for time < startTime";
         extends Modelica.Blocks.Interfaces.SO;
         annotation (
-          Coordsys(
-            extent=[-100, -100; 100, 100],
-            grid=[1, 1],
-            component=[20, 20]),
           Window(
             x=0.29,
             y=0.05,
             width=0.59,
             height=0.72),
-          Icon(
-            Line(points=[-80, 68; -80, -80], style(color=8)),
-            Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-                   fillColor=8)),
-            Line(points=[-90, -70; 82, -70], style(color=8)),
-            Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Line(points=[-80, -70; -40, -70; -40, 44; 0, 44; 0, -70; 40, -70;
-                  40, 44; 79, 44], style(color=0)),
-            Text(
-              extent=[-147, -152; 153, -112],
-              string="period=%period",
-              style(color=0))),
-          Diagram(
-            Polygon(points=[-80,90; -85,68; -74,68; -80,90], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-80, 68; -80, -80], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-90, -70; 82, -70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[90,-70; 68,-65; 68,-76; 90,-70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-34, 1; -37, -12; -30, -12; -34, 1], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-34, -1; -34, -70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-34,-70; -37,-57; -31,-57; -34,-70; -34,-70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-78, -24; -35, -36],
-              string="offset",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-30,-72; 16,-81],
-              string="startTime",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-82,96; -49,79],
-              string="y",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[66,-79; 87,-89],
-              string="time",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-10, 0; -10, -70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-80, 0; -10, 0; -10, 50; 30, 50; 30, 0; 50, 0; 50, 50;
-                   90, 50], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2,
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-10, 88; -10, 49], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[30, 74; 30, 50], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[50, 88; 50, 50], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-10, 83; 51, 83], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-10, 69; 30, 69], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-3,93; 39,84],
-              string="period",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-7,78; 30,69],
-              string="width",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-43, 50; -10, 50], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-34, 50; -34, 1], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-77,30; -37,21],
-              string="amplitude",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-34, 49; -37, 36; -30, 36; -34, 49], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-34, 1; -37, 14; -31, 14; -34, 1; -34, 1], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[90, 50; 90, 0; 100, 0], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2,
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-10, 69; -1, 71; -1, 67; -10, 69], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[30, 69; 22, 71; 22, 67; 30, 69], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-10, 83; -1, 85; -1, 81; -10, 83], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[50, 83; 42, 85; 42, 81; 50, 83], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95}))),
+          Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-90,-70},{82,-70}}, color={192,192,192}), 
+          Polygon(
+            points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-80,-70},{-40,-70},{-40,44},{0,44},{0,-70},{40,-70},{40,
+                44},{79,44}}, color={0,0,0}), 
+          Text(
+            extent={{-147,-152},{153,-112}}, 
+            lineColor={0,0,0}, 
+            textString=
+                     "period=%period")}),
+          Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Polygon(
+            points={{-80,90},{-85,68},{-74,68},{-80,90}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-80,68},{-80,-80}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-90,-70},{82,-70}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{90,-70},{68,-65},{68,-76},{90,-70}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-34,1},{-37,-12},{-30,-12},{-34,1}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-34,-1},{-34,-70}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-34,-70},{-37,-57},{-31,-57},{-34,-70},{-34,-70}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-78,-24},{-35,-36}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "offset"), 
+          Text(
+            extent={{-30,-72},{16,-81}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "startTime"), 
+          Text(
+            extent={{-82,96},{-49,79}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "y"), 
+          Text(
+            extent={{66,-79},{87,-89}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "time"), 
+          Line(
+            points={{-10,0},{-10,-70}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-80,0},{-10,0},{-10,50},{30,50},{30,0},{50,0},{50,50},{90,
+                50}}, 
+            color={0,0,255}, 
+            thickness=2, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-10,88},{-10,49}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{30,74},{30,50}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{50,88},{50,50}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-10,83},{51,83}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-10,69},{30,69}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-3,93},{39,84}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "period"), 
+          Text(
+            extent={{-7,78},{30,69}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "width"), 
+          Line(
+            points={{-43,50},{-10,50}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-34,50},{-34,1}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-77,30},{-37,21}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "amplitude"), 
+          Polygon(
+            points={{-34,49},{-37,36},{-30,36},{-34,49}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-34,1},{-37,14},{-31,14},{-34,1},{-34,1}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{90,50},{90,0},{100,0}}, 
+            color={0,0,255}, 
+            thickness=2, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-10,69},{-1,71},{-1,67},{-10,69}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{30,69},{22,71},{22,67},{30,69}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-10,83},{-1,85},{-1,81},{-10,83}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{50,83},{42,85},{42,81},{50,83}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
 The Real output y is a pulse signal:
@@ -1550,168 +1587,169 @@ The Real output y is a pulse signal:
   protected 
         SIunits.Time T0(final start=startTime) "Start time of current period";
         annotation (
-          Coordsys(
-            extent=[-100, -100; 100, 100],
-            grid=[1, 1],
-            component=[20, 20]),
           Window(
             x=0.21,
             y=0.11,
             width=0.55,
             height=0.71),
-          Icon(
-            Line(points=[-80, 68; -80, -80], style(color=8)),
-            Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-                   fillColor=8)),
-            Line(points=[-90, -70; 82, -70], style(color=8)),
-            Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Line(points=[-80, -70; -60, -70; 0, 40; 0, -70; 60, 41; 60, -70],
-                style(color=0)),
-            Text(
-              extent=[-147, -152; 153, -112],
-              string="period=%period",
-              style(color=0))),
-          Diagram(
-            Polygon(points=[-80,90; -86,68; -74,68; -80,90], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-80, 68; -80, -80], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-90, -70; 82, -70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[90,-70; 68,-65; 68,-75; 90,-70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-34, -19; -37, -32; -30, -32; -34, -19], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-34, -20; -34, -70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-34, -70; -37, -57; -31, -57; -34, -70; -34, -70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-65,-39; -29,-47],
-              string="offset",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-29,-72; 13,-80],
-              string="startTime",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-82,92; -43,76],
-              string="y",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[67,-78; 88,-87],
-              string="time",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-10, -20; -10, -70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-10, 88; -10, -20], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[30, 88; 30, 59], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-10, 83; 30, 83], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-12,94; 34,85],
-              string="period",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-44, 60; 30, 60], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-34, 47; -34, -7], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-73,25; -36,16],
-              string="amplitude",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-34, 60; -37, 47; -30, 47; -34, 60], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-34, -20; -37, -7; -31, -7; -34, -20; -34, -20], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-10, 83; -1, 85; -1, 81; -10, 83], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[30, 83; 22, 85; 22, 81; 30, 83], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-80, -20; -10, -20; 30, 60; 30, -20; 72, 60; 72, -20], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2))),
+          Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-90,-70},{82,-70}}, color={192,192,192}), 
+          Polygon(
+            points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-80,-70},{-60,-70},{0,40},{0,-70},{60,41},{60,-70}}, 
+              color={0,0,0}), 
+          Text(
+            extent={{-147,-152},{153,-112}}, 
+            lineColor={0,0,0}, 
+            textString=
+                     "period=%period")}),
+          Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Polygon(
+            points={{-80,90},{-86,68},{-74,68},{-80,90}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-80,68},{-80,-80}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-90,-70},{82,-70}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{90,-70},{68,-65},{68,-75},{90,-70}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-34,-19},{-37,-32},{-30,-32},{-34,-19}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-34,-20},{-34,-70}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-34,-70},{-37,-57},{-31,-57},{-34,-70},{-34,-70}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-65,-39},{-29,-47}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "offset"), 
+          Text(
+            extent={{-29,-72},{13,-80}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "startTime"), 
+          Text(
+            extent={{-82,92},{-43,76}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "y"), 
+          Text(
+            extent={{67,-78},{88,-87}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "time"), 
+          Line(
+            points={{-10,-20},{-10,-70}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-10,88},{-10,-20}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{30,88},{30,59}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-10,83},{30,83}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-12,94},{34,85}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "period"), 
+          Line(
+            points={{-44,60},{30,60}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-34,47},{-34,-7}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-73,25},{-36,16}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "amplitude"), 
+          Polygon(
+            points={{-34,60},{-37,47},{-30,47},{-34,60}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-34,-20},{-37,-7},{-31,-7},{-34,-20},{-34,-20}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-10,83},{-1,85},{-1,81},{-10,83}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{30,83},{22,85},{22,81},{30,83}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-80,-20},{-10,-20},{30,60},{30,-20},{72,60},{72,-20}}, 
+            color={0,0,255}, 
+            thickness=2)}),
       Documentation(info="<html>
 <p>
 The Real output y is a saw tooth signal:
@@ -1756,248 +1794,246 @@ The Real output y is a saw tooth signal:
         Integer counter(start=nperiod) "Period counter";
         Integer counter2(start=nperiod);
         annotation (
-          Coordsys(
-            extent=[-100, -100; 100, 100],
-            grid=[1, 1],
-            component=[20, 20]),
           Window(
             x=0.35,
             y=0,
             width=0.49,
             height=0.58),
-          Icon(
-            Line(points=[-80, 68; -80, -80], style(color=8)),
-            Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-                   fillColor=8)),
-            Line(points=[-90, -70; 82, -70], style(color=8)),
-            Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Text(
-              extent=[-147, -152; 153, -112],
-              string="period=%period",
-              style(color=0)),
-            Line(points=[-81, -70; -60, -70; -30, 40; 9, 40; 39, -70; 61, -70;
-                  90, 40], style(color=0))),
-          Diagram(
-            Polygon(points=[-81,90; -87,68; -75,68; -81,90], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-81,68; -81,-80], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-91,-70; 81,-70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[89,-70; 67,-65; 67,-76; 89,-70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-46,-30; -48,-41; -44,-41; -46,-30], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-46,-31; -46,-70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            pattern=1,
-            arrow=0,
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-46,-70; -48,-60; -44,-60; -46,-70; -46,-70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-80,-46; -42,-55],
-              string="offset",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-49,-71; -6,-81],
-              string="startTime",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-80,95; -47,80],
-              string="y",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[66,-78; 89,-89],
-              string="time",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-30,82; -31,-70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            pattern=2,
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-11,59; -11,40], style(
-            color=10,
-            rgbcolor={95,95,95},
-            pattern=2,
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[19,59; 19,39], style(
-            color=10,
-            rgbcolor={95,95,95},
-            pattern=2,
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[39,59; 39,-30], style(
-            color=10,
-            rgbcolor={95,95,95},
-            pattern=2,
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-21,76; 60,76], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-30,56; 39,56], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-3,86; 24,77],
-              string="period",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-11,68; 18,59],
-              string="width",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-43,40; -11,40], style(
-            color=10,
-            rgbcolor={95,95,95},
-            pattern=2,
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-40,40; -40,-19], style(
-            color=10,
-            rgbcolor={95,95,95},
-            pattern=1,
-            arrow=0,
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-77,11; -44,1],
-              string="amplitude",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-30,56; -23,58; -23,54; -30,56], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-11,56; -18,58; -18,54; -11,56], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-30,76; -21,78; -21,74; -30,76], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[60,76; 52,78; 52,74; 60,76], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-81,-30; -31,-30; -11,40; 19,40; 39,-30; 59,-30; 79,40;
-              99,40], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2)),
-            Polygon(points=[-40,40; -42,29; -38,29; -40,40], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-40,-29; -42,-19; -38,-19; -40,-29; -40,-29], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[60,84; 59,-30], style(
-            color=10,
-            rgbcolor={95,95,95},
-            pattern=2,
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[38,56; 31,58; 31,54; 38,56], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[19,56; 26,58; 26,54; 19,56], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[19,56; 12,58; 12,54; 19,56], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-13,56; -6,58; -6,54; -13,56], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-35,68; -6,60],
-              string="rising",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[16,68; 44,60],
-              string="falling",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95}))),
+          Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-90,-70},{82,-70}}, color={192,192,192}), 
+          Polygon(
+            points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-147,-152},{153,-112}}, 
+            lineColor={0,0,0}, 
+            textString=
+                     "period=%period"), 
+          Line(points={{-81,-70},{-60,-70},{-30,40},{9,40},{39,-70},{61,-70},{
+                90,40}}, color={0,0,0})}),
+          Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Polygon(
+            points={{-81,90},{-87,68},{-75,68},{-81,90}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-81,68},{-81,-80}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-91,-70},{81,-70}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{89,-70},{67,-65},{67,-76},{89,-70}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-46,-30},{-48,-41},{-44,-41},{-46,-30}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-46,-31},{-46,-70}}, 
+            color={95,95,95}, 
+            pattern=LinePattern.Solid, 
+            arrow={Arrow.None,Arrow.None}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-46,-70},{-48,-60},{-44,-60},{-46,-70},{-46,-70}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-80,-46},{-42,-55}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "offset"), 
+          Text(
+            extent={{-49,-71},{-6,-81}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "startTime"), 
+          Text(
+            extent={{-80,95},{-47,80}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "y"), 
+          Text(
+            extent={{66,-78},{89,-89}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "time"), 
+          Line(
+            points={{-30,82},{-31,-70}}, 
+            color={95,95,95}, 
+            pattern=LinePattern.Dash, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-11,59},{-11,40}}, 
+            color={95,95,95}, 
+            pattern=LinePattern.Dash, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{19,59},{19,39}}, 
+            color={95,95,95}, 
+            pattern=LinePattern.Dash, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{39,59},{39,-30}}, 
+            color={95,95,95}, 
+            pattern=LinePattern.Dash, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-21,76},{60,76}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-30,56},{39,56}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-3,86},{24,77}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "period"), 
+          Text(
+            extent={{-11,68},{18,59}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "width"), 
+          Line(
+            points={{-43,40},{-11,40}}, 
+            color={95,95,95}, 
+            pattern=LinePattern.Dash, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-40,40},{-40,-19}}, 
+            color={95,95,95}, 
+            pattern=LinePattern.Solid, 
+            arrow={Arrow.None,Arrow.None}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-77,11},{-44,1}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "amplitude"), 
+          Polygon(
+            points={{-30,56},{-23,58},{-23,54},{-30,56}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-11,56},{-18,58},{-18,54},{-11,56}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-30,76},{-21,78},{-21,74},{-30,76}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{60,76},{52,78},{52,74},{60,76}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-81,-30},{-31,-30},{-11,40},{19,40},{39,-30},{59,-30},{79,
+                40},{99,40}}, 
+            color={0,0,255}, 
+            thickness=2), 
+          Polygon(
+            points={{-40,40},{-42,29},{-38,29},{-40,40}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-40,-29},{-42,-19},{-38,-19},{-40,-29},{-40,-29}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{60,84},{59,-30}}, 
+            color={95,95,95}, 
+            pattern=LinePattern.Dash, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{38,56},{31,58},{31,54},{38,56}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{19,56},{26,58},{26,54},{19,56}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{19,56},{12,58},{12,54},{19,56}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-13,56},{-6,58},{-6,54},{-13,56}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-35,68},{-6,60}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "rising"), 
+          Text(
+            extent={{16,68},{44,60}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "falling")}),
       Documentation(info="<html>
 <p>
 The Real output y is a trapezoid signal:
@@ -2051,78 +2087,85 @@ The Real output y is a trapezoid signal:
         SIunits.Time Te;
         Boolean noWphase;
         annotation (
-          Coordsys(
-            extent=[-100, -100; 100, 100],
-            grid=[1, 1],
-            component=[20, 20]),
           Window(
             x=0.17,
             y=0.05,
             width=0.69,
             height=0.72),
-          Icon(
-            Line(points=[-80, 78; -80, -82], style(color=8)),
-            Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 88; -80, 90], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Line(points=[-90, 0; 82, 0], style(color=8)),
-            Polygon(points=[90, 0; 68, 8; 68, -8; 90, 0], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Line(points=[-80, 0; -70, 0; -70, 70; -30, 70; -30, 0; 20, 0; 20, -70;
-                   60, -70; 60, 0; 68, 0], style(color=0, thickness=1)),
-            Text(
-              extent=[2, 80; 80, 20],
-              string="acc",
-              style(color=8)),
-            Text(
-              extent=[-150, -150; 150, -110],
-              string="deltaq=%deltaq",
-              style(color=0))),
-          Diagram(
-            Line(points=[-80,78; -80,-72], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-80,91; -86,71; -75,71; -80,91; -80,91], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-90, 0; 82, 0], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[89,0; 68,5; 68,-5; 89,0], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-80, 0; -70, 0; -70, 70; -30, 70; -30, 0; 20, 0; 20, -70;
-                   60, -70; 60, 0; 68, 0], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2)),
-            Text(
-              extent=[-73,95; -16,80],
-              string="acceleration",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[66,20; 88,8],
-              string="time",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95}))),
+          Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-80,78},{-80,-82}}, color={192,192,192}), 
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,88},{-80,90}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-90,0},{82,0}}, color={192,192,192}), 
+          Polygon(
+            points={{90,0},{68,8},{68,-8},{90,0}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-80,0},{-70,0},{-70,70},{-30,70},{-30,0},{20,0},{20,-70},{
+                60,-70},{60,0},{68,0}}, 
+            color={0,0,0}, 
+            thickness=1), 
+          Text(
+            extent={{2,80},{80,20}}, 
+            lineColor={192,192,192}, 
+            textString=
+                     "acc"), 
+          Text(
+            extent={{-150,-150},{150,-110}}, 
+            lineColor={0,0,0}, 
+            textString=
+                     "deltaq=%deltaq")}),
+          Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(
+            points={{-80,78},{-80,-72}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-80,91},{-86,71},{-75,71},{-80,91},{-80,91}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-90,0},{82,0}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{89,0},{68,5},{68,-5},{89,0}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-80,0},{-70,0},{-70,70},{-30,70},{-30,0},{20,0},{20,-70},{
+                60,-70},{60,0},{68,0}}, 
+            color={0,0,255}, 
+            thickness=2), 
+          Text(
+            extent={{-73,95},{-16,80}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "acceleration"), 
+          Text(
+            extent={{66,20},{88,8}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "time")}),
           Documentation(info="<HTML>
 <p>
 The goal is to move as <b>fast</b> as possible along a distance
@@ -2217,106 +2260,114 @@ a flange according to a given acceleration.
     
     Modelica.Blocks.Interfaces.RealOutput q[nout] 
       "Reference position of path planning" 
-      annotation (extent=[100,70; 120,90]);
+      annotation (Placement(transformation(extent={{100,70},{120,90}}, rotation
+            =0)));
     Modelica.Blocks.Interfaces.RealOutput qd[nout] 
       "Reference speed of path planning" 
-      annotation (extent=[100,20; 120,40]);
+      annotation (Placement(transformation(extent={{100,20},{120,40}}, rotation
+            =0)));
     Modelica.Blocks.Interfaces.RealOutput qdd[nout] 
       "Reference acceleration of path planning" 
-      annotation (extent=[100,-40; 120,-20]);
+      annotation (Placement(transformation(extent={{100,-40},{120,-20}}, 
+            rotation=0)));
     Modelica.Blocks.Interfaces.BooleanOutput moving[nout] 
       "= true, if end position not yet reached; = false, if end position reached or axis is completely at rest"
-      annotation (extent=[100,-90; 120,-70]);
+      annotation (Placement(transformation(extent={{100,-90},{120,-70}}, 
+            rotation=0)));
     
     annotation (defaultComponentName="kinematicPTP",
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[2,2],
-        component=[20, 20]),
       Window(
         x=0.17,
         y=0.05,
         width=0.69,
         height=0.72),
-      Icon(
-        Line(points=[-80, 78; -80, -82], style(color=8)),
-        Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 88; -80, 90], style(
-            color=8,
-            fillColor=8,
-            fillPattern=1)),
-        Line(points=[-90, 0; 17, 0], style(color=8)),
-        Line(points=[-80, 0; -70, 0; -70, 70; -50, 70; -50, 0; -15, 0; -15, -70;
-               5, -70; 5, 0; 18, 0], style(color=0, thickness=1)),
-        Text(
-          extent=[34,96; 94,66],
-          string="q",
-          style(
-            color=0,
-            fillColor=0,
-            fillPattern=1)),
-        Text(
-          extent=[40,44; 96,14],
-          style(
-            color=0,
-            fillColor=0,
-            fillPattern=1),
-          string="qd"),
-        Text(
-          extent=[32,-18; 99,-44],
-          style(
-            color=0,
-            fillColor=0,
-            fillPattern=1),
-          string="qdd"),
-        Text(
-          extent=[-32,-74; 97,-96],
-          style(
-            color=0,
-            fillColor=0,
-            fillPattern=1),
-          string="moving")),
-      Diagram(
-        Line(points=[-80,78; -80,-70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Polygon(points=[-80,94; -86,74; -74,74; -80,94; -80,94], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Line(points=[-90, 0; 82, 0], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Polygon(points=[90,0; 68,6; 68,-6; 90,0], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Line(points=[-80, 0; -70, 0; -70, 70; -30, 70; -30, 0; 20, 0; 20, -70;
-               60, -70; 60, 0; 68, 0], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2)),
-        Text(
-          extent=[-72,96; -15,81],
-          string="acceleration",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Text(
-          extent=[69,18; 91,6],
-          string="time",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95}))),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Line(points={{-80,78},{-80,-82}}, color={192,192,192}), 
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,88},{-80,90}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-90,0},{17,0}}, color={192,192,192}), 
+          Line(
+            points={{-80,0},{-70,0},{-70,70},{-50,70},{-50,0},{-15,0},{-15,-70},
+                {5,-70},{5,0},{18,0}}, 
+            color={0,0,0}, 
+            thickness=1), 
+          Text(
+            extent={{34,96},{94,66}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "q"), 
+          Text(
+            extent={{40,44},{96,14}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "qd"), 
+          Text(
+            extent={{32,-18},{99,-44}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "qdd"), 
+          Text(
+            extent={{-32,-74},{97,-96}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "moving")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Line(
+            points={{-80,78},{-80,-70}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-80,94},{-86,74},{-74,74},{-80,94},{-80,94}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-90,0},{82,0}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{90,0},{68,6},{68,-6},{90,0}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-80,0},{-70,0},{-70,70},{-30,70},{-30,0},{20,0},{20,-70},{
+                60,-70},{60,0},{68,0}}, 
+            color={0,0,255}, 
+            thickness=2), 
+          Text(
+            extent={{-72,96},{-15,81}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "acceleration"), 
+          Text(
+            extent={{69,18},{91,6}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "time")}),
       Documentation(info="<html>
 <p>
 The goal is to move as <b>fast</b> as possible from start position <b>q_begin</b>
@@ -2559,128 +2610,135 @@ a flange according to a given acceleration.
         Integer last(start=1) "Last used lower grid index";
         SIunits.Time nextEvent(start=0) "Next event instant";
         annotation (
-          Coordsys(
-            extent=[-100, -100; 100, 100],
-            grid=[1, 1],
-            component=[20, 20]),
           Window(
             x=0.26,
             y=0.01,
             width=0.7,
             height=0.82),
-          Icon(
-            Line(points=[-80, 68; -80, -80], style(color=8)),
-            Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-                   fillColor=8)),
-            Line(points=[-90, -70; 82, -70], style(color=8)),
-            Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(
-                color=8,
-                fillColor=8,
-                fillPattern=1)),
-            Rectangle(extent=[-48, 70; 2, -50], style(
-                color=7,
-                fillColor=8,
-                fillPattern=1)),
-            Line(points=[-48, -50; -48, 70; 52, 70; 52, -50; -48, -50; -48, -20;
-                   52, -20; 52, 10; -48, 10; -48, 40; 52, 40; 52, 70; 2, 70; 2,
-                   -51], style(color=0)),
-            Text(
-              extent=[-150, -150; 150, -110],
-              string="offset=%offset",
-              style(color=0))),
-          Diagram(
-            Polygon(points=[-80,90; -85,68; -74,68; -80,90], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-80, 68; -80, -80], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-90, -70; 82, -70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[88,-70; 68,-65; 68,-74; 88,-70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Rectangle(extent=[-20, 90; 30, -30], style(
-                color=7,
-                fillColor=8,
-                fillPattern=1)),
-            Line(points=[-20, -30; -20, 90; 80, 90; 80, -30; -20, -30; -20, 0;
-                  80, 0; 80, 30; -20, 30; -20, 60; 80, 60; 80, 90; 30, 90; 30,
-                  -31], style(color=0)),
-            Text(
-              extent=[-70,-42; -32,-54],
-              string="offset",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-31, -30; -33, -40; -28, -40; -31, -30], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Polygon(points=[-31,-70; -34,-60; -29,-60; -31,-70; -31,-70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-31,-32; -31,-70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-20,-30; -20,-70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-38,-73; 8,-83],
-              string="startTime",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Line(points=[-20, -30; -80, -30], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-76,93; -44,75],
-              string="y",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[66,-78; 90,-88],
-              string="time",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-            Text(
-              extent=[-15, 83; 24, 68],
-              string="time",
-              style(color=0)),
-            Text(
-              extent=[33, 83; 76, 67],
-              string="y",
-              style(color=0))),
+          Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-90,-70},{82,-70}}, color={192,192,192}), 
+          Polygon(
+            points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-48,70},{2,-50}}, 
+            lineColor={255,255,255}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-48,-50},{-48,70},{52,70},{52,-50},{-48,-50},{-48,-20},
+                {52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,
+                -51}}, color={0,0,0}), 
+          Text(
+            extent={{-150,-150},{150,-110}}, 
+            lineColor={0,0,0}, 
+            textString=
+                     "offset=%offset")}),
+          Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Polygon(
+            points={{-80,90},{-85,68},{-74,68},{-80,90}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-80,68},{-80,-80}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-90,-70},{82,-70}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{88,-70},{68,-65},{68,-74},{88,-70}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-20,90},{30,-30}}, 
+            lineColor={255,255,255}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-20,-30},{-20,90},{80,90},{80,-30},{-20,-30},{-20,0},{
+                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{30,90},{30,-31}}, 
+              color={0,0,0}), 
+          Text(
+            extent={{-70,-42},{-32,-54}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "offset"), 
+          Polygon(
+            points={{-31,-30},{-33,-40},{-28,-40},{-31,-30}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-31,-70},{-34,-60},{-29,-60},{-31,-70},{-31,-70}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-31,-32},{-31,-70}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-20,-30},{-20,-70}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-38,-73},{8,-83}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "startTime"), 
+          Line(
+            points={{-20,-30},{-80,-30}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-76,93},{-44,75}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "y"), 
+          Text(
+            extent={{66,-78},{90,-88}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                     "time"), 
+          Text(
+            extent={{-15,83},{24,68}}, 
+            lineColor={0,0,0}, 
+            textString=
+                     "time"), 
+          Text(
+            extent={{33,83},{76,67}}, 
+            lineColor={0,0,0}, 
+            textString=
+                     "y")}),
           Documentation(info="<HTML>
 <p>
 This block generates an output signal by <b>linear interpolation</b> in
@@ -3042,118 +3100,124 @@ Several matrices may be defined one after another.
        This allows periodic function definitions. </li>
 </ul>
 </html>"),
-      Icon(
-        Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-              fillColor=8)),
-        Line(points=[-80, 68; -80, -80], style(color=8)),
-        Line(points=[-90, -70; 82, -70], style(color=8)),
-        Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(
-            color=8,
-            fillColor=8,
-            fillPattern=1)),
-        Rectangle(extent=[-48, 70; 2, -50], style(
-            color=7,
-            fillColor=49,
-            fillPattern=1)),
-        Line(points=[-48, -50; -48, 70; 52, 70; 52, -50; -48, -50; -48, -20; 52,
-                -20; 52, 10; -48, 10; -48, 40; 52, 40; 52, 70; 2, 70; 2, -51],
-            style(color=0))),
-      Diagram(
-        Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Line(points=[-80, 68; -80, -80], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Line(points=[-90, -70; 82, -70], style(color=10, rgbcolor={95,95,95})),
-        Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Rectangle(extent=[-20, 90; 20, -30], style(
-            color=7,
-            fillColor=8,
-            fillPattern=1)),
-        Line(points=[-20, -30; -20, 90; 80, 90; 80, -30; -20, -30; -20, 0; 80,
-              0; 80, 30; -20, 30; -20, 60; 80, 60; 80, 90; 20, 90; 20, -30],
-            style(color=0)),
-        Text(
-          extent=[-71,-42; -32,-54],
-          string="offset",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Polygon(points=[-31, -30; -33, -40; -28, -40; -31, -30], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Polygon(points=[-31,-70; -34,-60; -29,-60; -31,-70; -31,-70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Line(points=[-31, -31; -31, -70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Line(points=[-20, -30; -20, -70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Text(
-          extent=[-42,-74; 6,-84],
-          string="startTime",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Line(points=[-20, -30; -80, -30], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Text(
-          extent=[-73,93; -44,74],
-          string="y",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Text(
-          extent=[66,-81; 92,-92],
-          string="time",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Text(
-          extent=[-19, 83; 20, 68],
-          string="time",
-          style(color=0)),
-        Text(
-          extent=[21,82; 50,68],
-          style(color=0),
-          string="y[1]"),
-        Line(points=[50, 90; 50, -30], style(color=0)),
-        Line(points=[80, 0; 100, 0]),
-        Text(extent=[34, -30; 71, -42], string="columns"),
-        Text(
-          extent=[51,82; 80,68],
-          style(color=0),
-          string="y[2]")));
+      Icon(graphics={
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+          Line(points={{-90,-70},{82,-70}}, color={192,192,192}), 
+          Polygon(
+            points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-48,70},{2,-50}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,0}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-48,-50},{-48,70},{52,70},{52,-50},{-48,-50},{-48,-20},
+                {52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,
+                -51}}, color={0,0,0})}),
+      Diagram(graphics={
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-80,68},{-80,-80}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-90,-70},{82,-70}}, color={95,95,95}), 
+          Polygon(
+            points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-20,90},{20,-30}}, 
+            lineColor={255,255,255}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-20,-30},{-20,90},{80,90},{80,-30},{-20,-30},{-20,0},{
+                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{20,90},{20,-30}}, 
+              color={0,0,0}), 
+          Text(
+            extent={{-71,-42},{-32,-54}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "offset"), 
+          Polygon(
+            points={{-31,-30},{-33,-40},{-28,-40},{-31,-30}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-31,-70},{-34,-60},{-29,-60},{-31,-70},{-31,-70}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-31,-31},{-31,-70}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-20,-30},{-20,-70}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-42,-74},{6,-84}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "startTime"), 
+          Line(
+            points={{-20,-30},{-80,-30}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-73,93},{-44,74}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "y"), 
+          Text(
+            extent={{66,-81},{92,-92}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "time"), 
+          Text(
+            extent={{-19,83},{20,68}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "time"), 
+          Text(
+            extent={{21,82},{50,68}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "y[1]"), 
+          Line(points={{50,90},{50,-30}}, color={0,0,0}), 
+          Line(points={{80,0},{100,0}}), 
+          Text(extent={{34,-30},{71,-42}}, textString=
+                                               "columns"), 
+          Text(
+            extent={{51,82},{80,68}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "y[2]")}));
   equation 
     if tableOnFile then
       assert(tableName<>"NoName", "tableOnFile = true and no table name given");
@@ -3178,48 +3242,49 @@ Several matrices may be defined one after another.
       parameter Boolean k=true "Constant output value";
       extends Interfaces.partialBooleanSource;
       annotation (
-        Coordsys(
-          extent=[-100, -100; 100, 100],
-          grid=[2, 2],
-          component=[20, 20]),
         Window(
           x=0.29,
           y=0.23,
           width=0.6,
           height=0.6),
-        Icon(Line(points=[-80, 0; 80, 0], style(color=0)), Text(
-            extent=[-150, -140; 150, -110],
-            style(color=0),
-            string="%k")),
-        Diagram(
-          Line(points=[-70,0; 80,0], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2)),
+        Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={Line(points={{-80,0},{80,0}}, color={0,0,0}), 
+            Text(
+            extent={{-150,-140},{150,-110}}, 
+            lineColor={0,0,0}, 
+            textString=
+                   "%k")}),
+        Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Line(
+            points={{-70,0},{80,0}}, 
+            color={0,0,255}, 
+            thickness=2), 
           Text(
-            extent=[-69,20; -49,0],
-            string="k",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
+            extent={{-69,20},{-49,0}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                   "k"), 
           Text(
-            extent=[-96,6; -76,-4],
-            string="true",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
+            extent={{-96,6},{-76,-4}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                   "true"), 
           Text(
-            extent=[-98,-58; -72,-68],
-            string="false",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95}))),
+            extent={{-98,-58},{-72,-68}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                   "false")}),
         Documentation(info="<html>
 <p>
 The Boolean output y is a constant signal:
@@ -3238,45 +3303,43 @@ The Boolean output y is a constant signal:
       parameter Boolean startValue = false "Output before startTime";
     
       extends Interfaces.partialBooleanSource;
-      annotation (Icon(Line(points=[-80, -70; 0, -70; 0, 50; 80, 50], style(color=
-                 0)), Text(
-            extent=[-150, -140; 150, -110],
-            style(color=0),
-            string="%startTime")),
-                              Diagram(
-          Line(points=[-80, -70; 0, -70; 0, 50; 80, 50], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2)),
+      annotation (Icon(graphics={Line(points={{-80,-70},{0,-70},{0,50},{80,50}}, 
+              color={0,0,0}), Text(
+            extent={{-150,-140},{150,-110}}, 
+            lineColor={0,0,0}, 
+            textString=
+                   "%startTime")}),
+                              Diagram(graphics={
+          Line(
+            points={{-80,-70},{0,-70},{0,50},{80,50}}, 
+            color={0,0,255}, 
+            thickness=2), 
           Text(
-            extent=[-15,-74; 20,-82],
-            string="startTime",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-          Polygon(points=[2, 50; -80, 50; 2, 50], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
+            extent={{-15,-74},{20,-82}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                   "startTime"), 
+          Polygon(
+            points={{2,50},{-80,50},{2,50}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
           Text(
-            extent=[-66,62; -22,48],
-            string="not startValue",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
+            extent={{-66,62},{-22,48}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                   "not startValue"), 
           Text(
-            extent=[-68,-58; -36,-72],
-            string="startValue",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95}))),
+            extent={{-68,-58},{-36,-72}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                   "startValue")}),
         Documentation(info="<html>
 <p>
 The Boolean output y is a step signal:
@@ -3300,117 +3363,114 @@ The Boolean output y is a step signal:
       parameter Modelica.SIunits.Time startTime=0 "Time instant of first pulse";
       extends Modelica.Blocks.Interfaces.partialBooleanSource;
       annotation (
-        Coordsys(
-          extent=[-100, -100; 100, 100],
-          grid=[1, 1],
-          component=[20, 20]),
         Window(
           x=0.32,
           y=0.08,
           width=0.6,
           height=0.6),
-        Icon(Text(
-            extent=[-150, -140; 150, -110],
-            style(color=0),
-            string="%period"),
-                             Line(points=[-80, -70; -40, -70; -40, 44; 0, 44; 0,
-                -70; 40, -70; 40, 44; 79, 44], style(color=0))),
-        Diagram(
+        Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={Text(
+            extent={{-150,-140},{150,-110}}, 
+            lineColor={0,0,0}, 
+            textString=
+                   "%period"), Line(points={{-80,-70},{-40,-70},{-40,44},{0,44},
+                {0,-70},{40,-70},{40,44},{79,44}}, color={0,0,0})}),
+        Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
           Text(
-            extent=[-60,-74; -19,-82],
-            string="startTime",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-          Line(points=[-78, -70; -40, -70; -40, 20; 20, 20; 20, -70; 50, -70; 50,
-                  20; 100, 20], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2)),
-          Line(points=[-40, 61; -40, 21], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-          Line(points=[20, 44; 20, 20], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-          Line(points=[50, 58; 50, 20], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-          Line(points=[-40, 53; 50, 53], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-          Line(points=[-40, 35; 20, 35], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
+            extent={{-60,-74},{-19,-82}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                   "startTime"), 
+          Line(
+            points={{-78,-70},{-40,-70},{-40,20},{20,20},{20,-70},{50,-70},{50,
+                20},{100,20}}, 
+            color={0,0,255}, 
+            thickness=2), 
+          Line(
+            points={{-40,61},{-40,21}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{20,44},{20,20}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{50,58},{50,20}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-40,53},{50,53}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-40,35},{20,35}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
           Text(
-            extent=[-30,65; 16,55],
-            string="period",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
+            extent={{-30,65},{16,55}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                   "period"), 
           Text(
-            extent=[-33,47; 14,37],
-            string="width",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-          Line(points=[-70,20; -41,20], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-          Polygon(points=[-40, 35; -31, 37; -31, 33; -40, 35], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-          Polygon(points=[20, 35; 12, 37; 12, 33; 20, 35], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-          Polygon(points=[-40, 53; -31, 55; -31, 51; -40, 53], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-          Polygon(points=[50, 53; 42, 55; 42, 51; 50, 53], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
+            extent={{-33,47},{14,37}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                   "width"), 
+          Line(
+            points={{-70,20},{-41,20}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-40,35},{-31,37},{-31,33},{-40,35}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{20,35},{12,37},{12,33},{20,35}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-40,53},{-31,55},{-31,51},{-40,53}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{50,53},{42,55},{42,51},{50,53}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
           Text(
-            extent=[-95,26; -66,17],
-            string="true",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
+            extent={{-95,26},{-66,17}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                   "true"), 
           Text(
-            extent=[-96,-60; -75,-69],
-            string="false",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95}))),
+            extent={{-96,-60},{-75,-69}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                   "false")}),
         Documentation(info="<html>
 <p>
 The Boolean output y is a pulse signal:
@@ -3442,103 +3502,102 @@ The Boolean output y is a pulse signal:
       extends Interfaces.partialBooleanSource;
     
       annotation (
-        Coordsys(
-          extent=[-100, -100; 100, 100],
-          grid=[1, 1],
-          component=[20, 20]),
         Window(
           x=0.22,
           y=0.02,
           width=0.58,
           height=0.8),
-        Icon(
-          Line(points=[-60, -70; -60, 70], style(color=0)),
-          Line(points=[-20, -70; -20, 70], style(color=0)),
-          Line(points=[20, -70; 20, 70], style(color=0)),
-          Line(points=[60, -70; 60, 70], style(color=0)),
+        Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-60,-70},{-60,70}}, color={0,0,0}), 
+          Line(points={{-20,-70},{-20,70}}, color={0,0,0}), 
+          Line(points={{20,-70},{20,70}}, color={0,0,0}), 
+          Line(points={{60,-70},{60,70}}, color={0,0,0}), 
           Text(
-            extent=[-150, -140; 150, -110],
-            style(color=0),
-            string="%period")),
-        Diagram(
+            extent={{-150,-140},{150,-110}}, 
+            lineColor={0,0,0}, 
+            textString=
+                   "%period")}),
+        Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
           Text(
-            extent=[-51,-72; -11,-81],
-            string="startTime",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-          Line(points=[-30, 47; -30, 19], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-          Line(points=[0, 47; 0, 18], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-          Line(points=[-30, 41; 0, 41], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
+            extent={{-51,-72},{-11,-81}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                   "startTime"), 
+          Line(
+            points={{-30,47},{-30,19}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{0,47},{0,18}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-30,41},{0,41}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
           Text(
-            extent=[-37, 61; 9, 49],
-            string="period",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-          Line(points=[-73,19; -30,19], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-          Polygon(points=[-30, 41; -21, 43; -21, 39; -30, 41], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-          Polygon(points=[0, 41; -8, 43; -8, 39; 0, 41], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
+            extent={{-37,61},{9,49}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                   "period"), 
+          Line(
+            points={{-73,19},{-30,19}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-30,41},{-21,43},{-21,39},{-30,41}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{0,41},{-8,43},{-8,39},{0,41}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
           Text(
-            extent=[-91,23; -71,13],
-            string="true",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
+            extent={{-91,23},{-71,13}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                   "true"), 
           Text(
-            extent=[-90,-59; -70,-68],
-            string="false",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-          Line(points=[0, -70; 0, 19], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2)),
-          Line(points=[-30, -70; -30, 19], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2)),
-          Line(points=[30, -70; 30, 19], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2)),
-          Line(points=[60, -70; 60, 19], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2))),
+            extent={{-90,-59},{-70,-68}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                   "false"), 
+          Line(
+            points={{0,-70},{0,19}}, 
+            color={0,0,255}, 
+            thickness=2), 
+          Line(
+            points={{-30,-70},{-30,19}}, 
+            color={0,0,255}, 
+            thickness=2), 
+          Line(
+            points={{30,-70},{30,19}}, 
+            color={0,0,255}, 
+            thickness=2), 
+          Line(
+            points={{60,-70},{60,19}}, 
+            color={0,0,255}, 
+            thickness=2)}),
         Documentation(info="<html>
 <p>
 The Boolean output y is a trigger signal where the output y is only <b>true</b>
@@ -3563,26 +3622,27 @@ at sample times (defined by parameter <b>period</b>) and is otherwise
       "Vector of time points. At every time point, the output y gets its opposite value";
       extends Interfaces.partialBooleanSource;
       annotation (
-        Icon(
-          Rectangle(extent=[-18,70; 32,-50],  style(
-              color=7,
-              fillColor=8,
-              fillPattern=1)),
-          Line(points=[-18,-50; -18,70; 32,70; 32,-50; -18,-50; -18,-20; 32,-20; 32,
-                10; -18,10; -18,40; 32,40; 32,70; 32,70; 32,-51],
-              style(color=0))),
-        Diagram(
-          Rectangle(extent=[-34,66; 16,-54],   style(
-              color=7,
-              fillColor=8,
-              fillPattern=1)),
-          Line(points=[-34,-54; -34,66; 16,66; 16,-54; -34,-54; -34,-24; 16,
-              -24; 16,6; -34,6; -34,36; 16,36; 16,66; 16,66; 16,-55],
-              style(color=0)),
+        Icon(graphics={Rectangle(
+            extent={{-18,70},{32,-50}}, 
+            lineColor={255,255,255}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), Line(points={{-18,-50},{-18,70},{32,
+                70},{32,-50},{-18,-50},{-18,-20},{32,-20},{32,10},{-18,10},{-18,
+                40},{32,40},{32,70},{32,70},{32,-51}}, color={0,0,0})}),
+        Diagram(graphics={
+          Rectangle(
+            extent={{-34,66},{16,-54}}, 
+            lineColor={255,255,255}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-34,-54},{-34,66},{16,66},{16,-54},{-34,-54},{-34,-24},
+                {16,-24},{16,6},{-34,6},{-34,36},{16,36},{16,66},{16,66},{16,
+                -55}}, color={0,0,0}), 
           Text(
-            extent=[-29,59; 10,44],
-            string="time",
-            style(color=0))),
+            extent={{-29,59},{10,44}}, 
+            lineColor={0,0,0}, 
+            textString=
+                   "time")}),
         Documentation(info="<html>
 <p>
 The Boolean output y is a signal defined by parameter vector <b>table</b>.
@@ -3676,66 +3736,70 @@ changes its value to the negated value of the previous one.
     parameter Integer k=1 "Constant output value";
     extends Interfaces.IntegerSO;
     
-    annotation (Icon(
-        Line(points=[-80, 68; -80, -80], style(color=8)),
-        Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-              fillColor=8)),
-        Line(points=[-90, -70; 82, -70], style(color=8)),
-        Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(color=8,
-              fillColor=8)),
-        Line(points=[-80, 0; 80, 0], style(color=0)),
-        Text(
-          extent=[-150, -150; 150, -110],
-          string="k=%k",
-          style(color=0))), Diagram(
-        Polygon(points=[-80,90; -86,68; -74,68; -80,90], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Line(points=[-80, 68; -80, -80], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Line(points=[-80, 0; 80, 0], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2)),
-        Line(points=[-90, -70; 82, -70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Text(
-          extent=[-81,92; -38,74],
-          string="y",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Text(
-          extent=[66,-82; 94,-94],
-          string="time",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Text(
-          extent=[-101, 8; -81, -12],
-          string="k",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95}))),
+    annotation (Icon(graphics={
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-90,-70},{82,-70}}, color={192,192,192}), 
+          Polygon(
+            points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-80,0},{80,0}}, color={0,0,0}), 
+          Text(
+            extent={{-150,-150},{150,-110}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "k=%k")}), Diagram(graphics={
+          Polygon(
+            points={{-80,90},{-86,68},{-74,68},{-80,90}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-80,68},{-80,-80}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-80,0},{80,0}}, 
+            color={0,0,255}, 
+            thickness=2), 
+          Line(
+            points={{-90,-70},{82,-70}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-81,92},{-38,74}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "y"), 
+          Text(
+            extent={{66,-82},{94,-94}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "time"), 
+          Text(
+            extent={{-101,8},{-81,-12}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "k")}),
       Documentation(info="<html>
 <p>
 The Integer output y is a constant signal:
@@ -3752,122 +3816,125 @@ The Integer output y is a constant signal:
   block IntegerStep "Generate step signal of type Integer" 
     parameter Integer height=1 "Height of step";
     extends Interfaces.IntegerSignalSource;
-    annotation (Icon(
-        Line(points=[-80, 68; -80, -80], style(color=8)),
-        Polygon(points=[-80, 90; -88, 68; -72, 68; -80, 90], style(color=8,
-              fillColor=8)),
-        Line(points=[-90, -70; 82, -70], style(color=8)),
-        Polygon(points=[90, -70; 68, -62; 68, -78; 90, -70], style(color=8,
-              fillColor=8)),
-        Line(points=[-80, -70; 0, -70; 0, 50; 80, 50], style(color=0)),
-        Text(
-          extent=[-150, -150; 150, -110],
-          string="startTime=%startTime",
-          style(color=0))), Diagram(
-        Polygon(points=[-80,88; -86,68; -74,68; -80,88], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Line(points=[-80, 68; -80, -80], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Line(points=[-80, -18; 0, -18; 0, 50; 80, 50], style(
-            color=3,
-            rgbcolor={0,0,255},
-            thickness=2)),
-        Line(points=[-90, -70; 82, -70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Polygon(points=[90,-70; 70,-66; 70,-74; 90,-70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Text(
-          extent=[66,-78; 92,-88],
-          string="time",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Text(
-          extent=[-21,-76; 26,-88],
-          string="startTime",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Line(points=[0, -17; 0, -71], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Text(
-          extent=[-60,-36; -12,-48],
-          string="offset",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Line(points=[-13, 50; -13, -17], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Polygon(points=[2, 50; -19, 50; 2, 50], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Polygon(points=[-13, -17; -16, -4; -10, -4; -13, -17; -13, -17], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Polygon(points=[-13, 50; -16, 37; -9, 37; -13, 50], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Text(
-          extent=[-58,22; -12,10],
-          string="height",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Polygon(points=[-13, -69; -16, -56; -10, -56; -13, -69; -13, -69], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Line(points=[-13, -18; -13, -70], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Polygon(points=[-13, -18; -16, -31; -9, -31; -13, -18], style(
-            color=10,
-            rgbcolor={95,95,95},
-            fillColor=10,
-            rgbfillColor={95,95,95})),
-        Text(
-          extent=[-78,96; -44,80],
-          string="y",
-          style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=10,
-            rgbfillColor={95,95,95}))),
+    annotation (Icon(graphics={
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-90,-70},{82,-70}}, color={192,192,192}), 
+          Polygon(
+            points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
+            lineColor={192,192,192}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-80,-70},{0,-70},{0,50},{80,50}}, color={0,0,0}), 
+          Text(
+            extent={{-150,-150},{150,-110}}, 
+            lineColor={0,0,0}, 
+            textString=
+                 "startTime=%startTime")}),
+                            Diagram(graphics={
+          Polygon(
+            points={{-80,88},{-86,68},{-74,68},{-80,88}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-80,68},{-80,-80}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-80,-18},{0,-18},{0,50},{80,50}}, 
+            color={0,0,255}, 
+            thickness=2), 
+          Line(
+            points={{-90,-70},{82,-70}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{90,-70},{70,-66},{70,-74},{90,-70}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{66,-78},{92,-88}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "time"), 
+          Text(
+            extent={{-21,-76},{26,-88}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "startTime"), 
+          Line(
+            points={{0,-17},{0,-71}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-60,-36},{-12,-48}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "offset"), 
+          Line(
+            points={{-13,50},{-13,-17}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{2,50},{-19,50},{2,50}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-13,-17},{-16,-4},{-10,-4},{-13,-17},{-13,-17}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-13,50},{-16,37},{-9,37},{-13,50}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-58,22},{-12,10}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "height"), 
+          Polygon(
+            points={{-13,-69},{-16,-56},{-10,-56},{-13,-69},{-13,-69}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-13,-18},{-13,-70}}, 
+            color={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-13,-18},{-16,-31},{-9,-31},{-13,-18}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-78,96},{-44,80}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "y")}),
       Documentation(info="<html>
 <p>
 The Integer output y is a step signal:

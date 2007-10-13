@@ -54,12 +54,20 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     SI.Voltage v "Potential at the pin";
     flow SI.Current i "Current flowing into the pin";
     annotation (defaultComponentName="pin",
-      Icon(Rectangle(extent=[-100, 100; 100, -100], style(color=3, fillColor=3))),
-      Diagram(Rectangle(extent=[-40,40; 40,-40], style(color=3, fillColor=
-               3)), Text(
-          extent=[-160,110; 40,50],
-          string="%name",
-          style(color=3))),
+      Icon(graphics={Rectangle(
+            extent={{-100,100},{100,-100}}, 
+            lineColor={0,0,255}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid)}),
+      Diagram(graphics={Rectangle(
+            extent={{-40,40},{40,-40}}, 
+            lineColor={0,0,255}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), Text(
+            extent={{-160,110},{40,50}}, 
+            lineColor={0,0,255}, 
+            textString=
+                 "%name")}),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -90,12 +98,20 @@ component.</p></html>", revisions="<html>
        </li>
 </ul>
 </html>"),
-      Icon(Rectangle(extent=[-100, 100; 100, -100], style(color=3, fillColor=3))),
-      Diagram(Rectangle(extent=[-40,40; 40,-40], style(color=3, fillColor=
-               3)), Text(
-          extent=[-160,110; 40,50],
-          string="%name",
-          style(color=3))));
+      Icon(graphics={Rectangle(
+            extent={{-100,100},{100,-100}}, 
+            lineColor={0,0,255}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid)}),
+      Diagram(graphics={Rectangle(
+            extent={{-40,40},{40,-40}}, 
+            lineColor={0,0,255}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), Text(
+            extent={{-160,110},{40,50}}, 
+            lineColor={0,0,255}, 
+            textString=
+                 "%name")}));
   end PositivePin;
   
   connector NegativePin "Negative pin of an electric component" 
@@ -117,16 +133,18 @@ component.</p></html>", revisions="<html>
        </li>
 </ul>
 </html>"),
-      Icon(Rectangle(extent=[-100, 100; 100, -100], style(
-            color=3,
-            gradient=0,
-            fillColor=7,
-            fillPattern=1))),
-      Diagram(Rectangle(extent=[-40,40; 40,-40], style(
-            color=3,
-            fillColor=7,
-            fillPattern=1)), Text(extent=[-40,110; 160,50], string=
-              "%name")),
+      Icon(graphics={Rectangle(
+            extent={{-100,100},{100,-100}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid)}),
+      Diagram(graphics={Rectangle(
+            extent={{-40,40},{40,-40}}, 
+            lineColor={0,0,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), Text(extent={{-40,110},{160,50}}, 
+              textString=
+              "%name")}),
       Terminal(Rectangle(extent=[-100, 100; 100, -100], style(color=3))));
   end NegativePin;
   
@@ -134,32 +152,49 @@ component.</p></html>", revisions="<html>
     SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
     PositivePin p 
       "Positive pin Positive pin (potential p.v > n.v for positive voltage drop v)"
-                                                                                                annotation (extent=[-110, -10; -90, 10]);
-    NegativePin n "Negative pin" annotation (extent=[90, -10; 110, 10]);
+                                                                                                annotation (Placement(
+          transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+    NegativePin n "Negative pin" annotation (Placement(transformation(extent={{
+              90,-10},{110,10}}, rotation=0)));
     annotation (
-      Diagram(
-        Polygon(points=[-120, 3; -110, 0; -120, -3; -120, 3], style(
-            color=9,
-            fillColor=9,
-            fillPattern=1)),
-        Line(points=[-136, 0; -111, 0], style(color=9, fillColor=9)),
-        Text(
-          extent=[-134, 5; -117, 20],
-          string="p.i",
-          style(color=9, fillColor=9)),
-        Line(points=[110, 0; 135, 0], style(color=9, fillColor=9)),
-        Polygon(points=[120, 3; 110, 0; 120, -3; 120, 3], style(
-            color=9,
-            fillColor=9,
-            fillPattern=1)),
-        Text(
-          extent=[117, 3; 134, 18],
-          string="n.i",
-          style(color=9, fillColor=9))),
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Polygon(
+            points={{-120,3},{-110,0},{-120,-3},{-120,3}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-136,0},{-111,0}}, 
+            color={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-134,5},{-117,20}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "p.i"), 
+          Line(
+            points={{110,0},{135,0}}, 
+            color={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{120,3},{110,0},{120,-3},{120,3}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{117,3},{134,18}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "n.i")}),
       Window(
         x=0.11,
         y=0.14,
@@ -184,10 +219,6 @@ component.</p></html>", revisions="<html>
     SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
     SI.Current i "Current flowing from pin p to pin n";
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[2, 2],
-        component=[20, 20]),
       Documentation(info="<HTML>
 <P>
 Superclass of elements which have <b>two</b> electrical pins:
@@ -206,36 +237,53 @@ This current is provided explicitly as current i.
        </li>
 </ul>
 </html>"),
-      Diagram(
-        Line(points=[-110, 20; -85, 20], style(color=9, fillColor=9)),
-        Polygon(points=[-95, 23; -85, 20; -95, 17; -95, 23], style(
-            color=9,
-            fillColor=9,
-            fillPattern=1)),
-        Line(points=[90, 20; 115, 20], style(color=9, fillColor=9)),
-        Line(points=[-125, 0; -115, 0], style(color=9)),
-        Line(points=[-120, -5; -120, 5], style(color=9)),
-        Text(
-          extent=[-110, 25; -90, 45],
-          string="i",
-          style(color=9)),
-        Polygon(points=[105, 23; 115, 20; 105, 17; 105, 23], style(
-            color=9,
-            fillColor=9,
-            fillPattern=1)),
-        Line(points=[115, 0; 125, 0], style(color=9)),
-        Text(
-          extent=[90, 45; 110, 25],
-          string="i",
-          style(color=9))),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={2,2}), graphics={
+          Line(
+            points={{-110,20},{-85,20}}, 
+            color={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-95,23},{-85,20},{-95,17},{-95,23}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{90,20},{115,20}}, 
+            color={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-125,0},{-115,0}}, color={160,160,164}), 
+          Line(points={{-120,-5},{-120,5}}, color={160,160,164}), 
+          Text(
+            extent={{-110,25},{-90,45}}, 
+            lineColor={160,160,164}, 
+            textString=
+                 "i"), 
+          Polygon(
+            points={{105,23},{115,20},{105,17},{105,23}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{115,0},{125,0}}, color={160,160,164}), 
+          Text(
+            extent={{90,45},{110,25}}, 
+            lineColor={160,160,164}, 
+            textString=
+                 "i")}),
       Window(
         x=0.33,
         y=0.04,
         width=0.63,
         height=0.67));
     PositivePin p 
-      "Positive pin (potential p.v > n.v for positive voltage drop v)"             annotation (extent=[-110, -10; -90, 10]);
-    NegativePin n "Negative pin" annotation (extent=[110, -10; 90, 10]);
+      "Positive pin (potential p.v > n.v for positive voltage drop v)"             annotation (Placement(
+          transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+    NegativePin n "Negative pin" annotation (Placement(transformation(extent={{
+              110,-10},{90,10}}, rotation=0)));
   equation 
     v = p.v - n.v;
     0 = p.i + n.i;
@@ -250,65 +298,89 @@ This current is provided explicitly as current i.
     SI.Current i2 "Current flowing from pos. to neg. pin of the right port";
     PositivePin p1 
       "Positive pin of the left port (potential p1.v > n1.v for positive voltage drop v1)"
-                                                                                                        annotation (extent=[-110, 40;
-            -90, 60]);
-    NegativePin n1 "Negative pin of the left port" annotation (extent=[-90,-60;
-          -110,-40]);
+                                                                                                        annotation (Placement(
+          transformation(extent={{-110,40},{-90,60}}, rotation=0)));
+    NegativePin n1 "Negative pin of the left port" annotation (Placement(
+          transformation(extent={{-90,-60},{-110,-40}}, rotation=0)));
     PositivePin p2 
       "Positive pin of the right port (potential p2.v > n2.v for positive voltage drop v2)"
-                                                                                                         annotation (extent=[110,40;
-          90,60]);
-    NegativePin n2 "Negative pin of the right port" annotation (extent=[90, -60;
-            110, -40]);
+                                                                                                         annotation (Placement(
+          transformation(extent={{110,40},{90,60}}, rotation=0)));
+    NegativePin n2 "Negative pin of the right port" annotation (Placement(
+          transformation(extent={{90,-60},{110,-40}}, rotation=0)));
     annotation (
-      Diagram(
-        Polygon(points=[-120, 53; -110, 50; -120, 47; -120, 53], style(
-            color=9,
-            fillColor=9,
-            fillPattern=1)),
-        Line(points=[-136, 50; -111, 50], style(color=9, fillColor=9)),
-        Polygon(points=[127, -47; 137, -50; 127, -53; 127, -47], style(
-            color=9,
-            fillColor=9,
-            fillPattern=1)),
-        Line(points=[111, -50; 136, -50], style(color=9, fillColor=9)),
-        Text(
-          extent=[112, -44; 128, -29],
-          string="i2",
-          style(color=9, fillColor=9)),
-        Text(
-          extent=[118, 52; 135, 67],
-          string="i2",
-          style(
-            color=9,
-            gradient=2,
-            fillColor=9)),
-        Polygon(points=[120, 53; 110, 50; 120, 47; 120, 53], style(
-            color=9,
-            gradient=2,
-            fillColor=9,
-            fillPattern=1)),
-        Line(points=[111, 50; 136, 50], style(
-            color=9,
-            gradient=2,
-            fillColor=9)),
-        Line(points=[-136, -49; -111, -49], style(color=9, fillColor=9)),
-        Polygon(points=[-126, -46; -136, -49; -126, -52; -126, -46], style(
-            color=9,
-            fillColor=9,
-            fillPattern=1)),
-        Text(
-          extent=[-127, -46; -110, -31],
-          string="i1",
-          style(color=9, fillColor=9)),
-        Text(
-          extent=[-136, 53; -119, 68],
-          string="i1",
-          style(color=9, fillColor=9))),
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Polygon(
+            points={{-120,53},{-110,50},{-120,47},{-120,53}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-136,50},{-111,50}}, 
+            color={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{127,-47},{137,-50},{127,-53},{127,-47}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{111,-50},{136,-50}}, 
+            color={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{112,-44},{128,-29}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "i2"), 
+          Text(
+            extent={{118,52},{135,67}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={160,160,164}, 
+            textString=
+                 "i2"), 
+          Polygon(
+            points={{120,53},{110,50},{120,47},{120,53}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={160,160,164}), 
+          Line(
+            points={{111,50},{136,50}}, 
+            color={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={160,160,164}), 
+          Line(
+            points={{-136,-49},{-111,-49}}, 
+            color={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-126,-46},{-136,-49},{-126,-52},{-126,-46}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-127,-46},{-110,-31}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "i1"), 
+          Text(
+            extent={{-136,53},{-119,68}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid, 
+            textString=
+                 "i1")}),
       Window(
         x=0.16,
         y=0.12,
@@ -338,25 +410,30 @@ This current is provided explicitly as current i.
     "Base class to measure the absolute value of a pin variable" 
     extends Modelica.Icons.RotationalSensor;
     
-    Interfaces.PositivePin p "Pin to be measured" annotation (extent=[-110, -10; -90, 10]);
+    Interfaces.PositivePin p "Pin to be measured" annotation (Placement(
+          transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput y 
-      "Measured quantity as Real output signal"                                       annotation (extent=[100, -10; 120, 10]);
+      "Measured quantity as Real output signal"                                       annotation (Placement(
+          transformation(extent={{100,-10},{120,10}}, rotation=0)));
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
       Window(
         x=0.31,
         y=0.04,
         width=0.6,
         height=0.6),
-      Icon(
-        Line(points=[-70, 0; -90, 0], style(color=0)),
-        Line(points=[70, 0; 100, 0]),
-        Text(extent=[-150, 80; 150, 120], string="%name")),
-      Diagram(Line(points=[-70,0; -96,0],   style(color=0)), Line(points=[70, 0;
-                100, 0])),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
+          Line(points={{70,0},{100,0}}), 
+          Text(extent={{-150,80},{150,120}}, textString=
+                                                 "%name")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
+            Line(points={{70,0},{100,0}})}),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -372,26 +449,34 @@ This current is provided explicitly as current i.
     "Base class to measure a relative variable between two pins" 
     extends Modelica.Icons.RotationalSensor;
     
-    Interfaces.PositivePin p "Positive pin" annotation (extent=[-110, -10; -90, 10]);
-    Interfaces.NegativePin n "Negative pin" annotation (extent=[90, -10; 110, 10]);
+    Interfaces.PositivePin p "Positive pin" annotation (Placement(
+          transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+    Interfaces.NegativePin n "Negative pin" annotation (Placement(
+          transformation(extent={{90,-10},{110,10}}, rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput y 
-      "Measured quantity as Real output signal"                                       annotation (extent=[-10, -90; 10, -110],
-        rotation=90);
+      "Measured quantity as Real output signal"                                       annotation (Placement(
+          transformation(
+          origin={0,-100}, 
+          extent={{10,-10},{-10,10}}, 
+          rotation=90)));
     
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
-      Icon(
-        Line(points=[-70, 0; -90, 0], style(color=0)),
-        Line(points=[70, 0; 90, 0], style(color=0)),
-        Line(points=[0, -90; 0, -70]),
-        Text(extent=[-150, 80; 150, 120], string="%name")),
-      Diagram(
-        Line(points=[-70,0; -96,0],   style(color=0)),
-        Line(points=[0, -90; 0, -70]),
-        Line(points=[70,0; 96,0],   style(color=0))),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
+          Line(points={{70,0},{90,0}}, color={0,0,0}), 
+          Line(points={{0,-90},{0,-70}}), 
+          Text(extent={{-150,80},{150,120}}, textString=
+                                                 "%name")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
+          Line(points={{0,-90},{0,-70}}), 
+          Line(points={{70,0},{96,0}}, color={0,0,0})}),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -410,26 +495,28 @@ This current is provided explicitly as current i.
     parameter SI.Voltage offset=0 "Voltage offset";
     parameter SI.Time startTime=0 "Time offset";
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
-      Icon(
-        Ellipse(extent=[-50, 50; 50, -50], style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=7,
-            rgbfillColor={255,255,255})),
-        Text(extent=[-150,80; 150,120], string="%name"),
-        Line(points=[-90,0; 90,0], style(color=0, rgbcolor={0,0,0})),
-        Text(
-          extent=[-120,50; -20,0],
-          style(color=3, rgbcolor={0,0,255}),
-          string="+"),
-        Text(
-          extent=[20,50; 120,0],
-          style(color=3, rgbcolor={0,0,255}),
-          string="-")),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Ellipse(
+            extent={{-50,50},{50,-50}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Text(extent={{-150,80},{150,120}}, textString=
+                                               "%name"), 
+          Line(points={{-90,0},{90,0}}, color={0,0,0}), 
+          Text(
+            extent={{-120,50},{-20,0}}, 
+            lineColor={0,0,255}, 
+            textString=
+                 "+"), 
+          Text(
+            extent={{20,50},{120,0}}, 
+            lineColor={0,0,255}, 
+            textString=
+                 "-")}),
       Window(
         x=0.31,
         y=0.09,
@@ -446,7 +533,7 @@ This current is provided explicitly as current i.
 </html>"));
     replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
         final offset = offset, final startTime=startTime) 
-    annotation (extent=[70, 70; 90, 90]);
+    annotation (Placement(transformation(extent={{70,70},{90,90}}, rotation=0)));
   equation 
     v = signalSource.y;
   end VoltageSource;
@@ -457,25 +544,25 @@ This current is provided explicitly as current i.
     parameter SI.Current offset=0 "Current offset";
     parameter SI.Time startTime=0 "Time offset";
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
-      Icon(
-        Ellipse(extent=[-50, 50; 50, -50], style(
-            color=0,
-            rgbcolor={0,0,0},
-            fillColor=7,
-            rgbfillColor={255,255,255})),
-        Line(points=[-90, 0; -50, 0], style(color=0, rgbcolor={0,0,0})),
-        Line(points=[50, 0; 90, 0], style(color=0, rgbcolor={0,0,0})),
-        Line(points=[0, -50; 0, 50], style(color=0, rgbcolor={0,0,0})),
-        Text(extent=[-150, 120; 150, 80], string="%name"),
-        Polygon(points=[90,0; 60,10; 60,-10; 90,0],      style(
-            color=3,
-            rgbcolor={0,0,255},
-            fillColor=3,
-            rgbfillColor={0,0,255}))),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Ellipse(
+            extent={{-50,50},{50,-50}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-90,0},{-50,0}}, color={0,0,0}), 
+          Line(points={{50,0},{90,0}}, color={0,0,0}), 
+          Line(points={{0,-50},{0,50}}, color={0,0,0}), 
+          Text(extent={{-150,120},{150,80}}, textString=
+                                                 "%name"), 
+          Polygon(
+            points={{90,0},{60,10},{60,-10},{90,0}}, 
+            lineColor={0,0,255}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid)}),
       Window(
         x=0.33,
         y=0.24,
@@ -491,8 +578,8 @@ This current is provided explicitly as current i.
 </ul>
 </html>"));
     replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
-        final offset = offset, final startTime=startTime) annotation (extent=[70,
-          69; 91,89]);
+        final offset = offset, final startTime=startTime) annotation (Placement(
+          transformation(extent={{70,69},{91,89}}, rotation=0)));
   equation 
     i = signalSource.y;
   end CurrentSource;

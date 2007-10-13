@@ -23,7 +23,10 @@ package Utilities "Utility models for Examples.Loops"
       diameter=0.1,
       r={0,pistonLength,0},
       color={180,180,180},
-      animation=animation) annotation (extent=[45, 80; -16, 59], rotation=270);
+      animation=animation) annotation (Placement(transformation(
+          origin={14.5,69.5}, 
+          extent={{10.5,-30.5},{-10.5,30.5}}, 
+          rotation=270)));
     Modelica.Mechanics.MultiBody.Parts.BodyBox Rod(
       widthDirection={1,0,0},
       height=0.06,
@@ -31,189 +34,240 @@ package Utilities "Utility models for Examples.Loops"
       width=0.02,
       r_shape={0,-0.02,0},
       r={0,rodLength,0},
-      animation=animation) annotation (extent=[4, -2; 24, 18], rotation=90);
+      animation=animation) annotation (Placement(transformation(
+          origin={14,8}, 
+          extent={{-10,-10},{10,10}}, 
+          rotation=90)));
     Modelica.Mechanics.MultiBody.Joints.Revolute B2(
       n={1,0,0},
       phi_start=0,
       cylinderLength=0.02,
       animation=animation,
-      cylinderDiameter=0.055) annotation (extent=[4, 25; 24, 45], rotation=0);
+      cylinderDiameter=0.055) annotation (Placement(transformation(extent={{4,
+              25},{24,45}}, rotation=0)));
     Modelica.Mechanics.MultiBody.Parts.BodyBox Crank4(
       height=0.05,
       widthDirection={1,0,0},
       width=0.02,
       r={0,-crankPinOffset,0},
       animation=animation) 
-      annotation (extent=[30.5, -64; 50.5, -84], rotation=90);
+      annotation (Placement(transformation(
+          origin={40.5,-74}, 
+          extent={{10,-10},{-10,10}}, 
+          rotation=90)));
     Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank3(
       r_shape={-0.01,0,0},
       length=0.12,
       diameter=0.03,
       r={crankPinLength,0,0},
       color={180,180,180},
-      animation=animation) annotation (extent=[4.5, -60; 24.5, -40], rotation=0);
+      animation=animation) annotation (Placement(transformation(extent={{4.5,
+              -60},{24.5,-40}}, rotation=0)));
     Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank1(
       diameter=0.05,
       r_shape={-0.01,0,0},
       length=0.12,
       r={crankLength - crankPinLength,0,0},
       color={180,180,180},
-      animation=animation) annotation (extent=[-50, -100; -30, -80], rotation=0);
+      animation=animation) annotation (Placement(transformation(extent={{-50,
+              -100},{-30,-80}}, rotation=0)));
     Modelica.Mechanics.MultiBody.Parts.BodyBox Crank2(
       height=0.05,
       widthDirection={1,0,0},
       width=0.02,
       r={0,crankPinOffset,0},
-      animation=animation) annotation (extent=[-20, -86; 0, -66], rotation=90);
+      animation=animation) annotation (Placement(transformation(
+          origin={-10,-76}, 
+          extent={{-10,-10},{10,10}}, 
+          rotation=90)));
     Joints.RevolutePlanarLoopConstraint B1(
       n={1,0,0},
       cylinderLength=0.02,
       animation=animation,
-      cylinderDiameter=0.055) annotation (extent=[4, -27; 24, -7], rotation=0);
+      cylinderDiameter=0.055) annotation (Placement(transformation(extent={{4,
+              -27},{24,-7}}, rotation=0)));
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mid(r={crankPinLength/2,0,0}, animation=
-          false) annotation (extent=[-6, -46; 14, -26]);
+          false) annotation (Placement(transformation(extent={{-6,-46},{14,-26}}, 
+            rotation=0)));
     Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic Cylinder(
       s_start=-0.3,
       n={0,-1,0},
-      boxWidth=0.02) annotation (extent=[4, 89; 24, 109], rotation=-90);
+      boxWidth=0.02) annotation (Placement(transformation(
+          origin={14,99}, 
+          extent={{-10,-10},{10,10}}, 
+          rotation=270)));
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mounting(r={crankLength,0,0}, animation=
-          false) annotation (extent=[0, 120; 20, 140]);
+          false) annotation (Placement(transformation(extent={{0,120},{20,140}}, 
+            rotation=0)));
     Modelica.Mechanics.MultiBody.Parts.FixedRotation CylinderInclination(
       r={crankLength - crankPinLength/2,0,0},
       n_y={0,cos(cylinderInclination),sin(cylinderInclination)},
       animation=false,
       rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors) 
-      annotation (extent=[-60, 30; -40, 50]);
+      annotation (Placement(transformation(extent={{-60,30},{-40,50}}, rotation
+            =0)));
     Modelica.Mechanics.MultiBody.Parts.FixedRotation CrankAngle1(
       n_y={0,cos(crankAngleOffset),sin(crankAngleOffset)},
       animation=false,
       rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors) 
-      annotation (extent=[-90, -100; -70, -80]);
+      annotation (Placement(transformation(extent={{-90,-100},{-70,-80}}, 
+            rotation=0)));
     Modelica.Mechanics.MultiBody.Parts.FixedRotation CrankAngle2(
       n_y={0,cos(-crankAngleOffset),sin(-crankAngleOffset)},
       animation=false,
       rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors) 
-      annotation (extent=[60, -100; 80, -80]);
+      annotation (Placement(transformation(extent={{60,-100},{80,-80}}, 
+            rotation=0)));
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation CylinderTop(r={0,cylinderTopPosition,0},
-        animation=false) annotation (extent=[-40, 61; -20, 81], rotation=90);
+        animation=false) annotation (Placement(transformation(
+          origin={-30,71}, 
+          extent={{-10,-10},{10,10}}, 
+          rotation=90)));
     GasForce gasForce(L=cylinderLength, d=0.1) 
-      annotation (extent=[40, 97; 60, 117], rotation=90);
-    Interfaces.Frame_a cylinder_a annotation (extent=[-116,114; -84,146]);
-    Interfaces.Frame_a cylinder_b annotation (extent=[84,114; 116,146]);
-    Interfaces.Frame_a crank_a annotation (extent=[-116,-106; -84,-74]);
-    Interfaces.Frame_a crank_b annotation (extent=[84,-106; 116,-74]);
+      annotation (Placement(transformation(
+          origin={50,107}, 
+          extent={{-10,-10},{10,10}}, 
+          rotation=90)));
+    Interfaces.Frame_a cylinder_a annotation (Placement(transformation(extent={
+              {-116,114},{-84,146}}, rotation=0)));
+    Interfaces.Frame_a cylinder_b annotation (Placement(transformation(extent={
+              {84,114},{116,146}}, rotation=0)));
+    Interfaces.Frame_a crank_a annotation (Placement(transformation(extent={{
+              -116,-106},{-84,-74}}, rotation=0)));
+    Interfaces.Frame_a crank_b annotation (Placement(transformation(extent={{84,
+              -106},{116,-74}}, rotation=0)));
   equation 
-    connect(B1.frame_a, Mid.frame_b) annotation (points=[4,-17; -6,-17; -6,-29;
-          22,-29; 22,-36; 14,-36], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(B1.frame_a, Mid.frame_b) annotation (Line(
+        points={{4,-17},{-6,-17},{-6,-29},{22,-29},{22,-36},{14,-36}}, 
+        color={95,95,95}, 
         thickness=2));
     annotation (
-      Coordsys(
-        extent=[-100, -150; 100, 150],
-        grid=[1, 1],
-        component=[20, 20]),
-      Diagram,
-      Icon(
-        Polygon(points=[-60, -50; -60, 100; 60, 100; 60, -52; 100, -52; 100,
-              150; -100, 150; -100, -50; -60, -50], style(color=0, fillColor=8)),
-        Rectangle(extent=[-58, 89; 58, 13], style(gradient=1, fillColor=8)),
-        Rectangle(extent=[-60, 81; 60, 75], style(color=0, fillColor=0)),
-        Rectangle(extent=[-60, 67; 60, 61], style(color=0, fillColor=0)),
-        Rectangle(extent=[-60, 55; 60, 49], style(color=0, fillColor=0)),
-        Polygon(points=[-60, 11; -42, 23; 38, 23; 56, 11; -60, 11], style(
-              pattern=0, fillColor=7)),
-        Ellipse(extent=[-6, 41; 2, 33], style(color=0, fillColor=0)),
-        Ellipse(extent=[-40, -129; 40, -49], style(color=8)),
-        Line(points=[0, -90; 26, -58; -2, 37], style(color=0, thickness=4)),
-        Text(extent=[-150, -124; 164, -186], string="%name"),
-        Line(points=[-100, -90; 100, -91], style(color=0, thickness=2))));
-    connect(Rod.frame_a, B1.frame_b) annotation (points=[14,-2; 14,-9; 30,-9;
-          30,-17; 24,-17], style(
-        color=10,
-        rgbcolor={95,95,95},
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-150},{100,150}}, 
+          grid={1,1}), graphics),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-150},{100,150}}, 
+          grid={1,1}), graphics={
+          Polygon(
+            points={{-60,-50},{-60,100},{60,100},{60,-52},{100,-52},{100,150},{
+                -100,150},{-100,-50},{-60,-50}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-58,89},{58,13}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.VerticalCylinder, 
+            fillColor={192,192,192}), 
+          Rectangle(
+            extent={{-60,81},{60,75}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-60,67},{60,61}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-60,55},{60,49}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-60,11},{-42,23},{38,23},{56,11},{-60,11}}, 
+            pattern=LinePattern.None, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(
+            extent={{-6,41},{2,33}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(extent={{-40,-129},{40,-49}}, lineColor={192,192,192}), 
+          Line(
+            points={{0,-90},{26,-58},{-2,37}}, 
+            color={0,0,0}, 
+            thickness=4), 
+          Text(extent={{-150,-124},{164,-186}}, textString=
+                                                    "%name"), 
+          Line(
+            points={{-100,-90},{100,-91}}, 
+            color={0,0,0}, 
+            thickness=2)}));
+    connect(Rod.frame_a, B1.frame_b) annotation (Line(
+        points={{14,-2},{14,-9},{30,-9},{30,-17},{24,-17}}, 
+        color={95,95,95}, 
         thickness=2));
     
-    connect(Cylinder.frame_b, Piston.frame_b) annotation (points=[14,89; 14,80; 
-          14.5,80], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(Cylinder.frame_b, Piston.frame_b) annotation (Line(
+        points={{14,89},{14,80},{14.5,80}}, 
+        color={95,95,95}, 
         thickness=2));
     connect(Crank1.frame_a, CrankAngle1.frame_b) 
-      annotation (points=[-50,-90; -70,-90], style(
-        color=10,
-        rgbcolor={95,95,95},
+      annotation (Line(
+        points={{-50,-90},{-70,-90}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(B2.frame_a, Piston.frame_a) annotation (points=[4,35; -6,35; -6,49; 
-          14.5,49; 14.5,59], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(B2.frame_a, Piston.frame_a) annotation (Line(
+        points={{4,35},{-6,35},{-6,49},{14.5,49},{14.5,59}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(Rod.frame_b, B2.frame_b) annotation (points=[14,18; 14,23; 32,23;
-          32,35; 24,35], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(Rod.frame_b, B2.frame_b) annotation (Line(
+        points={{14,18},{14,23},{32,23},{32,35},{24,35}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(Crank4.frame_b, CrankAngle2.frame_a) annotation (points=[40.5,-84;
-          40.5,-90; 60,-90], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(Crank4.frame_b, CrankAngle2.frame_a) annotation (Line(
+        points={{40.5,-84},{40.5,-90},{60,-90}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(Cylinder.bearing, gasForce.flange_b) annotation (points=[20, 103;
-          34, 103; 34, 117; 50, 117], style(color=58));
+    connect(Cylinder.bearing, gasForce.flange_b) annotation (Line(points={{20,
+            103},{34,103},{34,117},{50,117}}, color={0,191,0}));
     connect(Cylinder.axis, gasForce.flange_a) 
-      annotation (points=[20, 91; 50, 91; 50, 97], style(color=58));
+      annotation (Line(points={{20,91},{50,91},{50,97}}, color={0,191,0}));
     connect(CylinderInclination.frame_b, CylinderTop.frame_a) 
-      annotation (points=[-40,40; -30,40; -30,61]);
-    connect(Crank1.frame_b, Crank2.frame_a) annotation (points=[-30,-90; -10,
-          -90; -10,-86], style(
-        color=10,
-        rgbcolor={95,95,95},
+      annotation (Line(points={{-40,40},{-30,40},{-30,61}}));
+    connect(Crank1.frame_b, Crank2.frame_a) annotation (Line(
+        points={{-30,-90},{-10,-90},{-10,-86}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(Crank3.frame_b, Crank4.frame_a) annotation (points=[24.5,-50; 40.5,
-          -50; 40.5,-64], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(Crank3.frame_b, Crank4.frame_a) annotation (Line(
+        points={{24.5,-50},{40.5,-50},{40.5,-64}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(Crank3.frame_a, Crank2.frame_b) annotation (points=[4.5,-50; -10,
-          -50; -10,-66], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(Crank3.frame_a, Crank2.frame_b) annotation (Line(
+        points={{4.5,-50},{-10,-50},{-10,-66}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(Crank2.frame_b, Mid.frame_a) annotation (points=[-10,-66; -10,-36;
-          -6,-36], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(Crank2.frame_b, Mid.frame_a) annotation (Line(
+        points={{-10,-66},{-10,-36},{-6,-36}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(CylinderTop.frame_b, Cylinder.frame_a) annotation (points=[-30,81;
-          -30,120; 14,120; 14,109], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(CylinderTop.frame_b, Cylinder.frame_a) annotation (Line(
+        points={{-30,81},{-30,120},{14,120},{14,109}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(CylinderInclination.frame_a, cylinder_a) annotation (points=[-60,40;
-          -80,40; -80,130; -100,130], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(CylinderInclination.frame_a, cylinder_a) annotation (Line(
+        points={{-60,40},{-80,40},{-80,130},{-100,130}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(Mounting.frame_a, cylinder_a) annotation (points=[0,130; -100,130],
-        style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(Mounting.frame_a, cylinder_a) annotation (Line(
+        points={{0,130},{-100,130}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(Mounting.frame_b, cylinder_b) annotation (points=[20,130; 100,130],
-        style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(Mounting.frame_b, cylinder_b) annotation (Line(
+        points={{20,130},{100,130}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(CrankAngle1.frame_a, crank_a) annotation (points=[-90,-90; -100,-90],
-        style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(CrankAngle1.frame_a, crank_a) annotation (Line(
+        points={{-90,-90},{-100,-90}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(CrankAngle2.frame_b, crank_b) annotation (points=[80,-90; 100,-90],
-        style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(CrankAngle2.frame_b, crank_b) annotation (Line(
+        points={{80,-90},{100,-90}}, 
+        color={95,95,95}, 
         thickness=2));
   end Cylinder;
   
@@ -237,37 +291,49 @@ package Utilities "Utility models for Examples.Loops"
     SI.Volume V;
     SI.Temperature T;
     SI.Velocity v_rel;
-    annotation (Icon(
-        Rectangle(extent=[-90, 50; 90, -50], style(
-            color=0,
-            gradient=0,
-            fillColor=8,
-            fillPattern=1)),
-        Rectangle(extent=[-40, 50; -20, -50], style(fillColor=3,
-              fillPattern =                                                  1)),
-        Rectangle(extent=[-90, 10; -40, -10], style(fillColor=3,
-              fillPattern =                                                  1)),
-        Polygon(points=[60, 2; 54, 2; 0, 2; 0, 10; -20, 0; 0, -10; 0, -4; 60, -4;
-               60, 2], style(
-            color=1,
-            fillColor=1,
-            fillPattern=1)),
-        Text(extent=[-100, 120; 100, 60], string="%name")), Diagram(
-        Rectangle(extent=[-90, 50; 90, -50], style(
-            color=0,
-            gradient=0,
-            fillColor=8,
-            fillPattern=1)),
-        Rectangle(extent=[-40, 50; -20, -50], style(fillColor=3,
-              fillPattern =                                                  1)),
-        Rectangle(extent=[-90, 10; -40, -10], style(fillColor=3,
-              fillPattern =                                                  1)),
-        Polygon(points=[60, 2; 54, 2; 0, 2; 0, 10; -20, 0; 0, -10; 0, -4; 60, -4;
-               60, 2], style(
-            color=1,
-            fillColor=1,
-            fillPattern=1)),
-        Text(extent=[-100, 120; 100, 60], string="%name")));
+    annotation (Icon(graphics={
+          Rectangle(
+            extent={{-90,50},{90,-50}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-40,50},{-20,-50}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-90,10},{-40,-10}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{60,2},{54,2},{0,2},{0,10},{-20,0},{0,-10},{0,-4},{60,-4},{
+                60,2}}, 
+            lineColor={255,0,0}, 
+            fillColor={255,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Text(extent={{-100,120},{100,60}}, textString=
+                                                 "%name")}),Diagram(graphics={
+          Rectangle(
+            extent={{-90,50},{90,-50}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-40,50},{-20,-50}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-90,10},{-40,-10}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{60,2},{54,2},{0,2},{0,10},{-20,0},{0,-10},{0,-4},{60,-4},{
+                60,2}}, 
+            lineColor={255,0,0}, 
+            fillColor={255,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Text(extent={{-100,120},{100,60}}, textString=
+                                                 "%name")}));
   protected 
     constant SI.Mass unitMass=1;
     Modelica.SIunits.Pressure p;
@@ -307,50 +373,62 @@ package Utilities "Utility models for Examples.Loops"
     SI.Volume V;
     SI.Temperature T;
     SI.Velocity v_rel;
-    annotation (Icon(
-        Rectangle(extent=[-90, 50; 90, -50], style(
-            color=0,
-            gradient=0,
-            fillColor=8,
-            fillPattern=1)),
-        Polygon(points=[-13,4; -16,4; -65,4; -65,15; -90,0; -65,-15; -65,-4;
-              -13,-4; -13,4],
-                       style(
-            color=1,
-            fillColor=1,
-            fillPattern=1)),
-        Text(extent=[-100, 120; 100, 60], string="%name"),
-        Text(
-          extent=[-135,44; -99,19],
-          style(color=10),
-          string="a"),
-        Text(
-          extent=[97,40; 133,15],
-          style(color=10),
-          string="b"),
-        Polygon(points=[12,4; 70,4; 65,4; 65,15; 90,0; 65,-15; 65,-4; 12,-4; 12,
-              4],      style(
-            color=1,
-            fillColor=1,
-            fillPattern=1))),                               Diagram(
-        Rectangle(extent=[-90, 50; 90, -50], style(
-            color=0,
-            gradient=0,
-            fillColor=8,
-            fillPattern=1)),
-        Text(extent=[-100, 120; 100, 60], string="%name"),
-        Polygon(points=[12,5; 70,5; 65,5; 65,16; 90,1; 65,-14; 65,-3; 12,-3; 12,
-              5],      style(
-            color=1,
-            fillColor=1,
-            fillPattern=1)),
-        Polygon(points=[-13,5; -16,5; -65,5; -65,16; -90,1; -65,-14; -65,-3;
-              -13,-3; -13,5],
-                       style(
-            color=1,
-            fillColor=1,
-            fillPattern=1))),
-      Coordsys(grid=[1,1], component=[20,20]),
+    annotation (Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(
+            extent={{-90,50},{90,-50}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-13,4},{-16,4},{-65,4},{-65,15},{-90,0},{-65,-15},{-65,-4},
+                {-13,-4},{-13,4}}, 
+            lineColor={255,0,0}, 
+            fillColor={255,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Text(extent={{-100,120},{100,60}}, textString=
+                                                 "%name"), 
+          Text(
+            extent={{-135,44},{-99,19}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "a"), 
+          Text(
+            extent={{97,40},{133,15}}, 
+            lineColor={128,128,128}, 
+            textString=
+                 "b"), 
+          Polygon(
+            points={{12,4},{70,4},{65,4},{65,15},{90,0},{65,-15},{65,-4},{12,-4},
+                {12,4}}, 
+            lineColor={255,0,0}, 
+            fillColor={255,0,0}, 
+            fillPattern=FillPattern.Solid)}),               Diagram(
+          coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(
+            extent={{-90,50},{90,-50}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Text(extent={{-100,120},{100,60}}, textString=
+                                                 "%name"), 
+          Polygon(
+            points={{12,5},{70,5},{65,5},{65,16},{90,1},{65,-14},{65,-3},{12,-3},
+                {12,5}}, 
+            lineColor={255,0,0}, 
+            fillColor={255,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-13,5},{-16,5},{-65,5},{-65,16},{-90,1},{-65,-14},{-65,-3},
+                {-13,-3},{-13,5}}, 
+            lineColor={255,0,0}, 
+            fillColor={255,0,0}, 
+            fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
 The gas force in a cylinder is computed as function of the relative
@@ -446,20 +524,24 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
     
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mid(animation=false, r={crankLength -
           crankPinLength/2,crankPinOffset,0}) 
-      annotation (extent=[-44, -30; -24, -10]);
+      annotation (Placement(transformation(extent={{-44,-30},{-24,-10}}, 
+            rotation=0)));
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mounting(r={crankLength,0,0}, animation=
-          false) annotation (extent=[-3, 90; 17, 110]);
+          false) annotation (Placement(transformation(extent={{-3,90},{17,110}}, 
+            rotation=0)));
     Modelica.Mechanics.MultiBody.Parts.FixedRotation CylinderInclination(
       r={crankLength - crankPinLength/2,0,0},
       animation=false,
       rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis,
       n={1,0,0},
-      angle=cylinderInclination) annotation (extent=[-44, 30; -24, 50]);
+      angle=cylinderInclination) annotation (Placement(transformation(extent={{
+              -44,30},{-24,50}}, rotation=0)));
     Modelica.Mechanics.MultiBody.Parts.FixedRotation CrankAngle(
       animation=false,
       rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis,
       n={1,0,0},
-      angle=crankAngleOffset) annotation (extent=[-84, -80; -64, -60]);
+      angle=crankAngleOffset) annotation (Placement(transformation(extent={{-84,
+              -80},{-64,-60}}, rotation=0)));
     Joints.Assemblies.JointRRP jointRRP(
       n_a={1,0,0},
       n_b={0,-1,0},
@@ -467,7 +549,10 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
       animation=false,
       rRod2_ib=-{0,pistonLength,0},
       s_offset=-cylinderTopPosition) 
-      annotation (extent=[20, -8; -20, 32], rotation=90);
+      annotation (Placement(transformation(
+          origin={0,12}, 
+          extent={{-20,20},{20,-20}}, 
+          rotation=90)));
     Modelica.Mechanics.MultiBody.Parts.BodyShape Rod(
       animation=animation,
       r={0,rodLength,0},
@@ -485,7 +570,10 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
       m=rodMass,
       I_11=rodInertia_11,
       I_22=rodInertia_22,
-      I_33=rodInertia_33) annotation (extent=[39, -1; 59, 19], rotation=90);
+      I_33=rodInertia_33) annotation (Placement(transformation(
+          origin={49,9}, 
+          extent={{-10,-10},{10,10}}, 
+          rotation=90)));
     Modelica.Mechanics.MultiBody.Parts.BodyShape Piston(
       animation=animation,
       r={0,pistonLength,0},
@@ -502,96 +590,132 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
       m=pistonMass,
       I_11=pistonInertia_11,
       I_22=pistonInertia_22,
-      I_33=pistonInertia_33) annotation (extent=[60, 60; 40, 40], rotation=270);
+      I_33=pistonInertia_33) annotation (Placement(transformation(
+          origin={50,50}, 
+          extent={{10,-10},{-10,10}}, 
+          rotation=270)));
     GasForce gasForce(L=cylinderLength, d=0.1) 
-      annotation (extent=[-11, 60; 9, 80], rotation=180);
+      annotation (Placement(transformation(
+          origin={-1,70}, 
+          extent={{-10,-10},{10,10}}, 
+          rotation=180)));
     annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
-      Diagram,
-      Icon(
-        Polygon(points=[-60, -61; -60, 64; 60, 64; 60, -61; 100, -61; 100, 114;
-               -100, 114; -100, -61; -60, -61], style(color=0, fillColor=8)),
-        Rectangle(extent=[-58, 63; 58, -13], style(gradient=1, fillColor=8)),
-        Rectangle(extent=[-60, 55; 60, 49], style(color=0, fillColor=0)),
-        Rectangle(extent=[-60, 41; 60, 35], style(color=0, fillColor=0)),
-        Rectangle(extent=[-60, 29; 60, 23], style(color=0, fillColor=0)),
-        Polygon(points=[-57, -13; -39, -1; 41, -1; 59, -13; -57, -13], style(
-              pattern=0, fillColor=7)),
-        Ellipse(extent=[-6, 15; 2, 7], style(color=0, fillColor=0)),
-        Ellipse(extent=[-41, -139; 39, -59], style(color=8)),
-        Line(points=[-1, -99; 25, -67; -2, 10], style(color=0, thickness=4)),
-        Text(extent=[-156, 178; 158, 116], string="%name"),
-        Line(points=[-100, -99; 100, -100], style(color=0, thickness=2))));
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Polygon(
+            points={{-60,-61},{-60,64},{60,64},{60,-61},{100,-61},{100,114},{
+                -100,114},{-100,-61},{-60,-61}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-58,63},{58,-13}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.VerticalCylinder, 
+            fillColor={192,192,192}), 
+          Rectangle(
+            extent={{-60,55},{60,49}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-60,41},{60,35}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{-60,29},{60,23}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{-57,-13},{-39,-1},{41,-1},{59,-13},{-57,-13}}, 
+            pattern=LinePattern.None, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(
+            extent={{-6,15},{2,7}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(extent={{-41,-139},{39,-59}}, lineColor={192,192,192}), 
+          Line(
+            points={{-1,-99},{25,-67},{-2,10}}, 
+            color={0,0,0}, 
+            thickness=4), 
+          Text(extent={{-156,178},{158,116}}, textString=
+                                                  "%name"), 
+          Line(
+            points={{-100,-99},{100,-100}}, 
+            color={0,0,0}, 
+            thickness=2)}));
     
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation Crank(animation=false, r={crankLength,0,0}) 
-      annotation (extent=[-10, -110; 10, -90]);
-    Interfaces.Frame_a cylinder_a annotation (extent=[-116,84; -84,116]);
-    Interfaces.Frame_a cylinder_b annotation (extent=[84,84; 116,116]);
-    Interfaces.Frame_a crank_a annotation (extent=[-116,-116; -84,-84]);
-    Interfaces.Frame_a crank_b annotation (extent=[84,-116; 116,-84]);
+      annotation (Placement(transformation(extent={{-10,-110},{10,-90}}, 
+            rotation=0)));
+    Interfaces.Frame_a cylinder_a annotation (Placement(transformation(extent={
+              {-116,84},{-84,116}}, rotation=0)));
+    Interfaces.Frame_a cylinder_b annotation (Placement(transformation(extent={
+              {84,84},{116,116}}, rotation=0)));
+    Interfaces.Frame_a crank_a annotation (Placement(transformation(extent={{
+              -116,-116},{-84,-84}}, rotation=0)));
+    Interfaces.Frame_a crank_b annotation (Placement(transformation(extent={{84,
+              -116},{116,-84}}, rotation=0)));
   equation 
     
-    connect(jointRRP.frame_ia, Rod.frame_a) annotation (points=[20,-4; 49,-4;
-          49,-1], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(jointRRP.frame_ia, Rod.frame_a) annotation (Line(
+        points={{20,-4},{49,-4},{49,-1}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(Mid.frame_b, jointRRP.frame_a) annotation (points=[-24,-20;
-          1.22461e-015,-20; 1.22461e-015,-8], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(Mid.frame_b, jointRRP.frame_a) annotation (Line(
+        points={{-24,-20},{1.22461e-015,-20},{1.22461e-015,-8}}, 
+        color={95,95,95}, 
         thickness=2));
     connect(gasForce.flange_a, jointRRP.axis) 
-      annotation (points=[9,70; 16,70; 16,32],    style(color=58));
-    connect(jointRRP.bearing, gasForce.flange_b) annotation (points=[8,32; 8,52;
-          -20,52; -20,70; -11,70],        style(color=58));
-    connect(jointRRP.frame_ib, Piston.frame_b) annotation (points=[20,28; 30,28;
-          30,70; 50,70; 50,60], style(
-        color=10,
-        rgbcolor={95,95,95},
+      annotation (Line(points={{9,70},{16,70},{16,32}}, color={0,191,0}));
+    connect(jointRRP.bearing, gasForce.flange_b) annotation (Line(points={{8,32},
+            {8,52},{-20,52},{-20,70},{-11,70}}, color={0,191,0}));
+    connect(jointRRP.frame_ib, Piston.frame_b) annotation (Line(
+        points={{20,28},{30,28},{30,70},{50,70},{50,60}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(jointRRP.frame_b, CylinderInclination.frame_b) annotation (points=[
-          -1.22461e-015,32; 1,32; 1,40; -24,40], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(jointRRP.frame_b, CylinderInclination.frame_b) annotation (Line(
+        points={{-1.22461e-015,32},{1,32},{1,40},{-24,40}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(CrankAngle.frame_b, Mid.frame_a) annotation (points=[-64,-70; -56,
-          -70; -56,-20; -44,-20], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(CrankAngle.frame_b, Mid.frame_a) annotation (Line(
+        points={{-64,-70},{-56,-70},{-56,-20},{-44,-20}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(cylinder_a, CylinderInclination.frame_a) annotation (points=[-100,
-          100; -70,100; -70,40; -44,40], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(cylinder_a, CylinderInclination.frame_a) annotation (Line(
+        points={{-100,100},{-70,100},{-70,40},{-44,40}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(cylinder_a, Mounting.frame_a) annotation (points=[-100,100; -3,100],
-        style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(cylinder_a, Mounting.frame_a) annotation (Line(
+        points={{-100,100},{-3,100}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(cylinder_b, Mounting.frame_b) annotation (points=[100,100; 17,100],
-        style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(cylinder_b, Mounting.frame_b) annotation (Line(
+        points={{100,100},{17,100}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(CrankAngle.frame_a, crank_a) annotation (points=[-84,-70; -89.5,-70;
-          -89.5,-100; -100,-100], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(CrankAngle.frame_a, crank_a) annotation (Line(
+        points={{-84,-70},{-89.5,-70},{-89.5,-100},{-100,-100}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(crank_a, Crank.frame_a) annotation (points=[-100,-100; -10,-100],
-        style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(crank_a, Crank.frame_a) annotation (Line(
+        points={{-100,-100},{-10,-100}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(Crank.frame_b, crank_b) annotation (points=[10,-100; 100,-100],
-        style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(Crank.frame_b, crank_b) annotation (Line(
+        points={{10,-100},{100,-100}}, 
+        color={95,95,95}, 
         thickness=2));
   end CylinderBase;
   
@@ -607,156 +731,177 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
       width=crankPinOffset/0.5,
       height=crankPinOffset/0.5,
       r_shape={crankLength - crankPinLength/2 - 0.002,0,0}) 
-      annotation (extent=[0, -60; -20, -80], rotation=-180);
+      annotation (Placement(transformation(
+          origin={-10,-70}, 
+          extent={{10,10},{-10,-10}}, 
+          rotation=180)));
   equation 
     
-    annotation (Coordsys(grid=[1, 1], component=[20, 20]), Diagram);
+    annotation (                                           Diagram(
+          coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics));
     connect(CrankShape.frame_a, CrankAngle.frame_b) 
-      annotation (points=[-20,-70; -64,-70], style(
-        color=10,
-        rgbcolor={95,95,95},
+      annotation (Line(
+        points={{-20,-70},{-64,-70}}, 
+        color={95,95,95}, 
         thickness=2));
   end Cylinder_analytic_CAD;
   
   model EngineV6_analytic "V6 engine with analytic loop handling" 
     import SI = Modelica.SIunits;
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    replaceable model Cylinder = Cylinder_analytic_CAD extends CylinderBase 
-      "Cylinder type" 
+    replaceable model Cylinder = Cylinder_analytic_CAD constrainedby 
+      CylinderBase "Cylinder type" 
          annotation (choices(choice(redeclare model Cylinder = 
             Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CAD
             "Analytic loop handling + CAD animation"),
                                                      choice(redeclare model 
-            Cylinder=
+            Cylinder = 
               Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic
             "Analytic loop handling + standard animation")));
     
     Cylinder cylinder1(
       crankAngleOffset=-30,
       cylinderInclination=-30,
-      animation=animation) annotation (extent=[-90, -10; -70, 10]);
+      animation=animation) annotation (Placement(transformation(extent={{-90,
+              -10},{-70,10}}, rotation=0)));
     Cylinder cylinder2(
       crankAngleOffset=90,
       cylinderInclination=30,
-      animation=animation) annotation (extent=[-60, -10; -40, 10]);
+      animation=animation) annotation (Placement(transformation(extent={{-60,
+              -10},{-40,10}}, rotation=0)));
     Cylinder cylinder3(
       cylinderInclination=-30,
       animation=animation,
       crankAngleOffset=210) 
-                           annotation (extent=[-30, -10; -10, 10]);
+                           annotation (Placement(transformation(extent={{-30,
+              -10},{-10,10}}, rotation=0)));
     Cylinder cylinder4(
       cylinderInclination=30,
       animation=animation,
       crankAngleOffset=210) 
-                           annotation (extent=[0, -10; 20, 10]);
+                           annotation (Placement(transformation(extent={{0,-10},
+              {20,10}}, rotation=0)));
     Cylinder cylinder5(
       cylinderInclination=-30,
       animation=animation,
-      crankAngleOffset=90) annotation (extent=[30, -10; 50, 10]);
+      crankAngleOffset=90) annotation (Placement(transformation(extent={{30,-10},
+              {50,10}}, rotation=0)));
     Cylinder cylinder6(
       cylinderInclination=30,
       animation=animation,
       crankAngleOffset=-30) 
-                           annotation (extent=[60, -10; 80, 10]);
+                           annotation (Placement(transformation(extent={{60,-10},
+              {80,10}}, rotation=0)));
     Joints.ActuatedRevolute bearing(
       n={1,0,0},
       cylinderLength=0.02,
       cylinderDiameter=0.06,
-      animation=true) annotation (extent=[-90, -40; -70, -60], rotation=0);
+      animation=true) annotation (Placement(transformation(extent={{-90,-40},{
+              -70,-60}}, rotation=0)));
     Parts.BodyShape crank(
       animation=false,
       r_CM={6*0.1/2,0,0},
       I_22=1.e-5,
       I_33=1.e-5,
       m=6*30,
-      I_11=0.1) annotation (extent=[-50, -60; -30, -40]);
+      I_11=0.1) annotation (Placement(transformation(extent={{-50,-60},{-30,-40}}, 
+            rotation=0)));
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b 
-      annotation (extent=[100, -10; 120, 10]);
+      annotation (Placement(transformation(extent={{100,-10},{120,10}}, 
+            rotation=0)));
     Interfaces.Frame_a frame_a 
-      annotation (extent=[-16,-117; 16,-85], rotation=-90);
+      annotation (Placement(transformation(
+          origin={0,-101}, 
+          extent={{-16,-16},{16,16}}, 
+          rotation=270)));
   equation 
     connect(cylinder1.crank_b, cylinder2.crank_a) 
-      annotation (points=[-70,-10; -60,-10], style(
-        color=10,
-        rgbcolor={95,95,95},
+      annotation (Line(
+        points={{-70,-10},{-60,-10}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(cylinder2.cylinder_a, cylinder1.cylinder_b) annotation (points=[-60,10;
-          -70,10], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(cylinder2.cylinder_a, cylinder1.cylinder_b) annotation (Line(
+        points={{-60,10},{-70,10}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(cylinder3.cylinder_a, cylinder2.cylinder_b) annotation (points=[-30,10;
-          -40,10], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(cylinder3.cylinder_a, cylinder2.cylinder_b) annotation (Line(
+        points={{-30,10},{-40,10}}, 
+        color={95,95,95}, 
         thickness=2));
     connect(cylinder3.crank_a, cylinder2.crank_b) 
-      annotation (points=[-30,-10; -40,-10], style(
-        color=10,
-        rgbcolor={95,95,95},
+      annotation (Line(
+        points={{-30,-10},{-40,-10}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(cylinder3.cylinder_b, cylinder4.cylinder_a) annotation (points=[-10,10;
-          0,10], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(cylinder3.cylinder_b, cylinder4.cylinder_a) annotation (Line(
+        points={{-10,10},{0,10}}, 
+        color={95,95,95}, 
         thickness=2));
     connect(cylinder3.crank_b, cylinder4.crank_a) 
-      annotation (points=[-10,-10; 0,-10], style(
-        color=10,
-        rgbcolor={95,95,95},
+      annotation (Line(
+        points={{-10,-10},{0,-10}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(cylinder4.cylinder_b, cylinder5.cylinder_a) annotation (points=[20,10;
-          30,10], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(cylinder4.cylinder_b, cylinder5.cylinder_a) annotation (Line(
+        points={{20,10},{30,10}}, 
+        color={95,95,95}, 
         thickness=2));
     connect(cylinder4.crank_b, cylinder5.crank_a) 
-      annotation (points=[20,-10; 30,-10], style(
-        color=10,
-        rgbcolor={95,95,95},
+      annotation (Line(
+        points={{20,-10},{30,-10}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(cylinder5.cylinder_b, cylinder6.cylinder_a) annotation (points=[50,10;
-          60,10], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(cylinder5.cylinder_b, cylinder6.cylinder_a) annotation (Line(
+        points={{50,10},{60,10}}, 
+        color={95,95,95}, 
         thickness=2));
     connect(cylinder5.crank_b, cylinder6.crank_a) 
-      annotation (points=[50,-10; 60,-10], style(
-        color=10,
-        rgbcolor={95,95,95},
+      annotation (Line(
+        points={{50,-10},{60,-10}}, 
+        color={95,95,95}, 
         thickness=2));
     annotation (
-      Icon(
-        Rectangle(extent=[-100, 100; 100, -100], style(color=0, fillColor=7)),
-        Text(
-          extent=[-137, 160; 137, 104],
-          style(color=3),
-          string="%name"),
-        Bitmap(extent=[-97, 75; 99, -39], name=
-              "../../../../Images/MultiBody/Examples/Loops/EngineV6_CAD.png")),
-      Coordsys(grid=[1, 1], component=[20, 20]),
-      Diagram);
+      Icon(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics={
+          Rectangle(
+            extent={{-100,100},{100,-100}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-137,160},{137,104}}, 
+            lineColor={0,0,255}, 
+            textString=
+                 "%name"), 
+          Bitmap(extent={{-97,75},{99,-39}}, fileName=
+              "../../../../Images/MultiBody/Examples/Loops/EngineV6_CAD.png")}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-100},{100,100}}, 
+          grid={1,1}), graphics));
     connect(bearing.frame_b, crank.frame_a) 
-      annotation (points=[-70,-50; -50,-50], style(
-        color=10,
-        rgbcolor={95,95,95},
+      annotation (Line(
+        points={{-70,-50},{-50,-50}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(crank.frame_b, cylinder1.crank_a) annotation (points=[-30,-50; -24,
-          -50; -24,-26; -94,-26; -94,-10; -90,-10], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(crank.frame_b, cylinder1.crank_a) annotation (Line(
+        points={{-30,-50},{-24,-50},{-24,-26},{-94,-26},{-94,-10},{-90,-10}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(bearing.axis, flange_b) annotation (points=[-80, -60; -80, -66; 90,
-           -66; 90, 0; 110, 0], style(color=0));
-    connect(frame_a, bearing.frame_a) annotation (points=[0,-101; 0,-81; -98,
-          -81; -98,-50; -90,-50], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(bearing.axis, flange_b) annotation (Line(points={{-80,-60},{-80,-66},
+            {90,-66},{90,0},{110,0}}, color={0,0,0}));
+    connect(frame_a, bearing.frame_a) annotation (Line(
+        points={{0,-101},{0,-81},{-98,-81},{-98,-50},{-90,-50}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(bearing.frame_a, cylinder1.cylinder_a) annotation (points=[-90,-50;
-          -98,-50; -98,10; -90,10], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(bearing.frame_a, cylinder1.cylinder_a) annotation (Line(
+        points={{-90,-50},{-98,-50},{-98,10},{-90,10}}, 
+        color={95,95,95}, 
         thickness=2));
   end EngineV6_analytic;
   
@@ -764,11 +909,10 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
     import SI = Modelica.SIunits;
     extends Modelica.Icons.Example;
     annotation (
-      Diagram,
-      Coordsys(
-        extent=[-100, -120; 150, 120],
-        grid=[1, 1],
-        component=[20, 20]),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true, 
+          extent={{-100,-120},{150,120}}, 
+          grid={1,1}), graphics),
       Documentation(info="<html>
 <p>
 This is a model of the mechanical part of one cylinder of an engine. 
@@ -797,100 +941,109 @@ An animation of this example is shown in the figure below.
 </p>
 </html>"));
     Modelica.Mechanics.MultiBody.Parts.BodyCylinder Piston(diameter=0.1, r={0,-0.1,0}) 
-      annotation (extent=[150,43; 90,63],   rotation=270);
+      annotation (Placement(transformation(
+          origin={120,53}, 
+          extent={{-10,30},{10,-30}}, 
+          rotation=270)));
     Modelica.Mechanics.MultiBody.Parts.BodyBox Rod2(
       widthDirection={1,0,0},
       width=0.02,
       height=0.06,
       color={0,0,200},
-      r={0,0.2,0})     annotation (extent=[110,0; 130,20],   rotation=90);
+      r={0,0.2,0})     annotation (Placement(transformation(
+          origin={120,10}, 
+          extent={{-10,-10},{10,10}}, 
+          rotation=90)));
     Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute Bearing(
       n={1,0,0},
       cylinderLength=0.02,
-      cylinderDiameter=0.05) annotation (extent=[-50,-80; -30,-100],  rotation=0);
-    inner Modelica.Mechanics.MultiBody.World world annotation (extent=[-90,-100;
-          -70,-80]);
+      cylinderDiameter=0.05) annotation (Placement(transformation(extent={{-50,
+              -80},{-30,-100}}, rotation=0)));
+    inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
+          transformation(extent={{-90,-100},{-70,-80}}, rotation=0)));
     Modelica.Mechanics.Rotational.Inertia Inertia(
       J=0.1,
       w(fixed=true, stateSelect=StateSelect.always),
       phi(
         fixed=true,
         stateSelect=StateSelect.always,
-        start=0.001))                    annotation (extent=[-68,-120; -48,-100]);
+        start=0.001))                    annotation (Placement(transformation(
+            extent={{-68,-120},{-48,-100}}, rotation=0)));
     Modelica.Mechanics.MultiBody.Parts.BodyBox Crank4(
       height=0.05,
       widthDirection={1,0,0},
       width=0.02,
-      r={0,-0.1,0}) annotation (extent=[65.5,-65; 85.5,-85],     rotation=90);
+      r={0,-0.1,0}) annotation (Placement(transformation(
+          origin={75.5,-75}, 
+          extent={{10,-10},{-10,10}}, 
+          rotation=90)));
     Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank3(r={0.1,0,0}, diameter=0.03) annotation (
-      extent=[41.5,-71; 61.5,-51],
-      rotation=0,
-      style(color=0, thickness=2));
+      style(color=0, thickness=2), Placement(transformation(extent={{41.5,-71},
+              {61.5,-51}}, rotation=0)));
     Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank1(diameter=0.05, r={0.1,0,0}) 
-      annotation (extent=[-16,-100; 4,-80],   rotation=0);
+      annotation (Placement(transformation(extent={{-16,-100},{4,-80}}, 
+            rotation=0)));
     Modelica.Mechanics.MultiBody.Parts.BodyBox Crank2(
       height=0.05,
       widthDirection={1,0,0},
       width=0.02,
       r={0,0.1,0}) 
-                  annotation (extent=[20,-86; 40,-66],   rotation=90);
+                  annotation (Placement(transformation(
+          origin={30,-76}, 
+          extent={{-10,-10},{10,10}}, 
+          rotation=90)));
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mid(r={0.05,0,0}) 
-      annotation (extent=[30,-53; 50,-33]);
+      annotation (Placement(transformation(extent={{30,-53},{50,-33}}, rotation
+            =0)));
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation cylPosition(                 animation=false, r={0.15,
           0.55,0}) 
-      annotation (extent=[-40.5,100; -20.5,120]);
+      annotation (Placement(transformation(extent={{-40.5,100},{-20.5,120}}, 
+            rotation=0)));
     Utilities.GasForce2 gasForce(        d=0.1, L=0.35) 
-      annotation (extent=[109,107; 129,87],rotation=90);
+      annotation (Placement(transformation(
+          origin={119,97}, 
+          extent={{10,-10},{-10,10}}, 
+          rotation=90)));
   equation 
     connect(world.frame_b, Bearing.frame_a) 
-      annotation (points=[-70,-90; -50,-90], style(
-        color=10,
-        rgbcolor={95,95,95},
+      annotation (Line(
+        points={{-70,-90},{-50,-90}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(Crank2.frame_a, Crank1.frame_b) annotation (points=[30,-86; 30,-90;
-          4,-90], style(
-        color=10,
-        rgbcolor={95,95,95},
-        thickness=2,
-        fillColor=8,
-        rgbfillColor={192,192,192},
-        fillPattern=1));
-    connect(Crank2.frame_b, Crank3.frame_a) annotation (points=[30,-66; 30,-61;
-          41.5,-61], style(
-        color=10,
-        rgbcolor={95,95,95},
-        thickness=2,
-        fillColor=8,
-        rgbfillColor={192,192,192},
-        fillPattern=1));
-    connect(Bearing.frame_b, Crank1.frame_a) annotation (points=[-30,-90; -16,
-          -90], style(
-        color=10,
-        rgbcolor={95,95,95},
-        thickness=2,
-        fillColor=8,
-        rgbfillColor={192,192,192},
-        fillPattern=1));
-    connect(world.frame_b, cylPosition.frame_a) annotation (points=[-70,-90;
-          -60,-90; -60,110; -40.5,110], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(Crank2.frame_a, Crank1.frame_b) annotation (Line(
+        points={{30,-86},{30,-90},{4,-90}}, 
+        color={95,95,95}, 
+        thickness=2, 
+        fillColor={192,192,192}, 
+        fillPattern=FillPattern.Solid));
+    connect(Crank2.frame_b, Crank3.frame_a) annotation (Line(
+        points={{30,-66},{30,-61},{41.5,-61}}, 
+        color={95,95,95}, 
+        thickness=2, 
+        fillColor={192,192,192}, 
+        fillPattern=FillPattern.Solid));
+    connect(Bearing.frame_b, Crank1.frame_a) annotation (Line(
+        points={{-30,-90},{-16,-90}}, 
+        color={95,95,95}, 
+        thickness=2, 
+        fillColor={192,192,192}, 
+        fillPattern=FillPattern.Solid));
+    connect(world.frame_b, cylPosition.frame_a) annotation (Line(
+        points={{-70,-90},{-60,-90},{-60,110},{-40.5,110}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(Crank3.frame_b, Crank4.frame_a) annotation (points=[61.5,-61; 75,
-          -61; 75,-65; 75.5,-65], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(Crank3.frame_b, Crank4.frame_a) annotation (Line(
+        points={{61.5,-61},{75,-61},{75,-65},{75.5,-65}}, 
+        color={95,95,95}, 
         thickness=2));
-    connect(Inertia.flange_b, Bearing.axis) annotation (points=[-48,-110; -40,
-          -110; -40,-100],
-                     style(
-        color=0,
-        fillColor=7,
-        fillPattern=1));
-    connect(Mid.frame_a, Crank2.frame_b) annotation (points=[30,-43; 23,-43; 23,
-          -61; 30,-61; 30,-66], style(
-        color=10,
-        rgbcolor={95,95,95},
+    connect(Inertia.flange_b, Bearing.axis) annotation (Line(
+        points={{-48,-110},{-40,-110},{-40,-100}}, 
+        color={0,0,0}, 
+        fillColor={255,255,255}, 
+        fillPattern=FillPattern.Solid));
+    connect(Mid.frame_a, Crank2.frame_b) annotation (Line(
+        points={{30,-43},{23,-43},{23,-61},{30,-61},{30,-66}}, 
+        color={95,95,95}, 
         thickness=2));
   end Engine1bBase;
 end Utilities;
