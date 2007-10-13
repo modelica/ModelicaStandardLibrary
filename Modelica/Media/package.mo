@@ -4494,13 +4494,6 @@ Section 4.7 (Balanced Models) of the Modelica 3.0 specification. </p>
         "Enumeration defining whether T or h are known as boundary condition" 
           annotation (Evaluate=true);
       
-      type Explicit = enumeration(
-          dT_explicit "Explicit in density and temperature", 
-          ph_explicit "Explicit in pressure and specific enthalpy", 
-          ps_explicit "Explicit in pressure and specific entropy", 
-          pT_explicit "Explicit in pressure and temperature") 
-        "Enumeration defining the explicitly given state variable inputs" 
-          annotation (Evaluate=true);
     end Choices;
     
     annotation (Documentation(info="<html>
