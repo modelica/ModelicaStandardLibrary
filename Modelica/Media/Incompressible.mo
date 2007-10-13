@@ -11,8 +11,8 @@ package Incompressible
     
     // Extended record for input to functions based on polynomials
     record BaseProps_Tpoly "Fluid state record" 
-      extends Modelica.Media.Interfaces.PartialMedium.ThermodynamicState;
-      //      SI.SpecificHeatCapacity cp "specific heat capacity";
+      extends Modelica.Icons.Record;
+      annotation(Documentation(info="<html></html>"));
       SI.Temperature T "temperature";
       SI.Pressure p "pressure";
       //    SI.Density d "density";
@@ -67,7 +67,8 @@ package Incompressible
     constant Boolean hasHeatCapacity = not (size(tableHeatCapacity,1)==0);
     constant Boolean hasViscosity = not (size(tableViscosity,1)==0);
     constant Boolean hasVaporPressure = not (size(tableVaporPressure,1)==0);
-    final constant Real invTK[neta] = invertTemp(tableViscosity[:,1],TinK);
+    final constant Real invTK[neta] = if size(tableViscosity,1) > 0 then 
+        invertTemp(tableViscosity[:,1],TinK) else fill(0,0);
   annotation(keepConstant = true, Documentation(info="<HTML>
 <p>
 This is the base package for medium models of incompressible fluids based on
@@ -125,12 +126,12 @@ function calls can not be used.
     end invertTemp;
     
     redeclare model extends BaseProperties(
-      R=Modelica.Constants.R,
       p_bar=Cv.to_bar(p),
       T_degC(start = T_start-273.15)=Cv.to_degC(T),
       T(start = T_start,
         stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default)) 
       "Base properties of T dependent medium" 
+    //  redeclare parameter SpecificHeatCapacity R=Modelica.Constants.R,
       
       annotation(Documentation(info="<html>
 <p>
@@ -140,7 +141,7 @@ p-reference_p)/rho*(T/rho)*(partial rho /partial T). This is very small for
 liquids due to proportionality to 1/d^2, but can be problematic for gases that are
 modeled incompressible.
 </p>
-
+ 
 <p>                               
 Enthalpy is never a function of T only (h = h(T) + (p-reference_p)/d), but the
 error is also small and non-linear systems can be avoided. In particular,
@@ -167,6 +168,7 @@ which is only exactly true for a fluid with constant density d=d0.
              " K) is not in the allowed range (" + String(T_min) +
              " K <= T <= " + String(T_max) + " K) required from medium model \""
              + mediumName + "\".");
+      R = Modelica.Constants.R;
       cp = Poly.evaluate(poly_Cp,if TinK then T else T_degC);
       h = if enthalpyOfT then h_T(T) else  h_pT(p,T,densityOfT);
       if singleState then
