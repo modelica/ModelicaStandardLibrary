@@ -1646,11 +1646,11 @@ protected
 protected 
   function gravityAccelerationTypes 
     "Gravity field acceleration depending on field type and position" 
-    
+    import Modelica.Mechanics.MultiBody.Types.GravityTypes;
     extends Modelica.Icons.Function;
     input SI.Position r[3] 
       "Position vector from world frame to actual point, resolved in world frame";
-    input Integer gravityType "Type of gravity field";
+    input GravityTypes gravityType "Type of gravity field";
     input SI.Acceleration g[3] 
       "Constant gravity acceleration, resolved in world frame, if gravityType=1";
     input Real mue(unit="m3/s2") 
@@ -1658,8 +1658,10 @@ protected
     output SI.Acceleration gravity[3] 
       "Gravity acceleration at point r, resolved in world frame";
   algorithm 
-    gravity := if gravityType == 1 then g else if gravityType == 2 then -(mue/(
-      r*r))*(r/Frames.length(r)) else zeros(3);
+    gravity := if gravityType == GravityTypes.UniformGravity then g else 
+               if gravityType == GravityTypes.PointGravity then 
+                  -(mue/(r*r))*(r/Frames.length(r)) else 
+                    zeros(3);
   end gravityAccelerationTypes;
 equation 
   defineRoot(frame_b.R);
