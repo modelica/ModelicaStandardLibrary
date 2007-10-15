@@ -717,16 +717,35 @@ have been <b style=\"color:blue\">improved</b> in a
 </p>
  
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Parts.</b></td></tr>
+  <tr><td valign=\"top\"> Mounting1D<br>
+                        Rotor1D<br>
+                        BevelGear1D</td>
+      <td valign=\"top\"> Changed implementation so that no longer modifiers for connector
+                        variables are used,<br>because this violates the restrictions on
+                        \"balanced models\" of Modelica 3. </td> </tr>
+
   <tr><td colspan=\"2\"><b>Mechanics.Rotational.</b></td></tr>
   <tr><td valign=\"top\"> InitializeFlange</td>
       <td valign=\"top\"> Changed implementation so that counting unknowns and
                         equations is possible without actual values of parameters.</td> </tr>
+
   <tr><td colspan=\"2\"><b>Icons.</b></td></tr>
   <tr><td valign=\"top\"> TranslationalSensor<br>
                         RotationalSensor</td>
       <td valign=\"top\"> Removed drawing fromt the diagram layer (kept drawing only in 
                         icon layer),<br> in order that this icon can be used in situations
                         where components are dragged in the diagram layer.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>StateGraph.</b></td></tr>
+  <tr><td valign=\"top\"> InitialStep<br>
+                        InitialStepWithSignal<br>
+                        Step<br>
+                        StepWithSignal</td>
+      <td valign=\"top\"> Changed implementation so that no longer modifiers for output
+                        variables are used,<br>because this violates the restrictions on
+                        \"balanced models\" of Modelica 3. </td> </tr>
+
 </table>
 
 
