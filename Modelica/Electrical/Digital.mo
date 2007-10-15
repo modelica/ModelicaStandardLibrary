@@ -257,12 +257,12 @@ and the accompanying <b>disclaimer</b>
  
 </HTML>
 "), Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics),
     Icon(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
         Polygon(
           points={{-100,-100},{-100,50},{80,50},{80,-100},{-100,-100}}, 
@@ -279,8 +279,7 @@ and the accompanying <b>disclaimer</b>
         Text(
           extent={{-120,122},{120,73}}, 
           lineColor={255,0,0}, 
-          textString=
-               "%name"), 
+          textString="%name"), 
         Rectangle(
           extent={{-52,4},{-32,-36}}, 
           lineColor={0,0,0}, 
@@ -308,25 +307,21 @@ and the accompanying <b>disclaimer</b>
         Text(
           extent={{-32,-8},{-52,0}}, 
           lineColor={0,0,0}, 
-          textString=
-               "&"), 
+          textString="&"), 
         Text(
           extent={{28,-10},{8,-2}}, 
           lineColor={0,0,0}, 
-          textString=
-               "1"), 
+          textString="1"), 
         Text(
           extent={{28,-58},{8,-50}}, 
           lineColor={0,0,0}, 
-          textString=
-               "="), 
+          textString="="), 
         Text(
           extent={{-90,40},{70,10}}, 
           lineColor={160,160,164}, 
           fillColor={0,0,0}, 
           fillPattern=FillPattern.Solid, 
-          textString=
-               "Library")}));
+          textString="Library")}));
   
   package Examples 
     "Examples that demonstrate the usage of the Digital electrical components" 
@@ -342,17 +337,17 @@ The multiplexer converts a parallel 4 bit signal in a sequential
 </P>
 </HTML>
 "),     Icon(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,170}, 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,170},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
             grid={2,2}), graphics),
         Window(
           x=0.2,
@@ -373,8 +368,8 @@ The multiplexer converts a parallel 4 bit signal in a sequential
         x={4,3,4,3},
         t={22,140,150,180}) annotation (Placement(transformation(extent={{-80,
                 32},{-60,52}}, rotation=0)));
-      D.Examples.Utilities.MUX4 MUX annotation (Placement(transformation(extent
-              ={{-10,0},{70,80}}, rotation=0)));
+      D.Examples.Utilities.MUX4 MUX annotation (Placement(transformation(extent=
+               {{-10,0},{70,80}}, rotation=0)));
       D.Sources.Table D2(
         y0=3,
         x={4,3,4,3},
@@ -391,49 +386,49 @@ The multiplexer converts a parallel 4 bit signal in a sequential
                 -82},{-60,-62}}, rotation=0)));
     equation 
       connect(CLK.y, FF.clk) annotation (Line(
-          points={{-60,-46},{-36,-46},{-36,-52},{-20,-52}}, 
-          color={127,0,127}, 
-          fillColor={255,255,170}, 
+          points={{-60,-46},{-36,-46},{-36,-52},{-20,-52}},
+          color={127,0,127},
+          fillColor={255,255,170},
           fillPattern=FillPattern.Solid));
       connect(Enable.y, FF.k) annotation (Line(
-          points={{-60,-72},{-30,-72},{-30,-59},{-20,-59}}, 
-          color={127,0,127}, 
-          fillColor={255,255,170}, 
+          points={{-60,-72},{-30,-72},{-30,-59},{-20,-59}},
+          color={127,0,127},
+          fillColor={255,255,170},
           fillPattern=FillPattern.Solid));
       connect(Enable.y, FF.j) annotation (Line(
-          points={{-60,-72},{-30,-72},{-30,-45},{-20,-45}}, 
-          color={127,0,127}, 
-          fillColor={255,255,170}, 
+          points={{-60,-72},{-30,-72},{-30,-45},{-20,-45}},
+          color={127,0,127},
+          fillColor={255,255,170},
           fillPattern=FillPattern.Solid));
       connect(CLK.y, MUX.a0) annotation (Line(
-          points={{-60,-46},{-36,-46},{-36,22.4},{-10,22.4}}, 
-          color={127,0,127}, 
-          fillColor={255,255,170}, 
+          points={{-60,-46},{-36,-46},{-36,22.4},{-10,22.4}},
+          color={127,0,127},
+          fillColor={255,255,170},
           fillPattern=FillPattern.Solid));
       connect(D0.y, MUX.d0) annotation (Line(
-          points={{-60,68},{-10,68}}, 
-          color={127,0,127}, 
-          fillColor={255,255,170}, 
+          points={{-60,68},{-10,68}},
+          color={127,0,127},
+          fillColor={255,255,170},
           fillPattern=FillPattern.Solid));
       connect(D1.y, MUX.d1) annotation (Line(
-          points={{-60,42},{-54,42},{-54,57.6},{-10,57.6}}, 
-          color={127,0,127}, 
-          fillColor={255,255,170}, 
+          points={{-60,42},{-54,42},{-54,57.6},{-10,57.6}},
+          color={127,0,127},
+          fillColor={255,255,170},
           fillPattern=FillPattern.Solid));
       connect(D2.y, MUX.d2) annotation (Line(
-          points={{-60,16},{-50,16},{-50,47.2},{-10,47.2}}, 
-          color={127,0,127}, 
-          fillColor={255,255,170}, 
+          points={{-60,16},{-50,16},{-50,47.2},{-10,47.2}},
+          color={127,0,127},
+          fillColor={255,255,170},
           fillPattern=FillPattern.Solid));
       connect(D3.y, MUX.d3) annotation (Line(
-          points={{-60,-10},{-46,-10},{-46,36.8},{-10,36.8}}, 
-          color={127,0,127}, 
-          fillColor={255,255,170}, 
+          points={{-60,-10},{-46,-10},{-46,36.8},{-10,36.8}},
+          color={127,0,127},
+          fillColor={255,255,170},
           fillPattern=FillPattern.Solid));
       connect(FF.q, MUX.a1) annotation (Line(
-          points={{0,-45},{2,-45},{2,-22},{-20,-22},{-20,12},{-10,12}}, 
-          color={127,0,127}, 
-          fillColor={255,255,170}, 
+          points={{0,-45},{2,-45},{2,-22},{-20,-22},{-20,12},{-10,12}},
+          color={127,0,127},
+          fillColor={255,255,170},
           fillPattern=FillPattern.Solid));
     end Multiplexer;
     
@@ -448,17 +443,17 @@ Pulse-triggered master-slave flip-flop.
 </P>
 </HTML>
 "),     Icon(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,170}, 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,170},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
             grid={2,2}), graphics),
         Window(
           x=0.2,
@@ -484,19 +479,19 @@ Pulse-triggered master-slave flip-flop.
                 -38},{-60,-18}}, rotation=0)));
     equation 
       connect(J.y, FF.j)     annotation (Line(
-          points={{-60,28},{-10,28}}, 
-          color={127,0,127}, 
-          fillColor={255,255,255}, 
+          points={{-60,28},{-10,28}},
+          color={127,0,127},
+          fillColor={255,255,255},
           fillPattern=FillPattern.Solid));
       connect(CLK.y, FF.clk)    annotation (Line(
-          points={{-60,0},{-10,0}}, 
-          color={127,0,127}, 
-          fillColor={255,255,255}, 
+          points={{-60,0},{-10,0}},
+          color={127,0,127},
+          fillColor={255,255,255},
           fillPattern=FillPattern.Solid));
       connect(K.y, FF.k)      annotation (Line(
-          points={{-60,-28},{-10,-28}}, 
-          color={127,0,127}, 
-          fillColor={255,255,170}, 
+          points={{-60,-28},{-10,-28}},
+          color={127,0,127},
+          fillColor={255,255,170},
           fillPattern=FillPattern.Solid));
     end FlipFlop;
     
@@ -543,21 +538,21 @@ The simulation stop time should be 5 seconds.
 </P>
 </HTML>
 "),     Icon(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-88,100},{90,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,170}, 
+              extent={{-88,100},{90,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,170},
               fillPattern=FillPattern.Solid), Line(
               points={{40,54},{40,60},{-40,60},{10,0},{-40,-60},{40,-60},{40,
-                  -52}}, 
-              color={0,0,0}, 
+                  -52}},
+              color={0,0,0},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
             grid={2,2}), graphics),
         Window(
           x=0.2,
@@ -569,12 +564,12 @@ The simulation stop time should be 5 seconds.
       Sources.Table a(
         t={1,2,3,4},
         x={4,3,4,3},
-        y0=3)   annotation (Placement(transformation(extent={{-80,18},{-60,38}}, 
+        y0=3)   annotation (Placement(transformation(extent={{-80,18},{-60,38}},
               rotation=0)));
       Sources.Table b(
         x={4,3},
         t={2,4},
-        y0=3)   annotation (Placement(transformation(extent={{-80,-38},{-60,-18}}, 
+        y0=3)   annotation (Placement(transformation(extent={{-80,-38},{-60,-18}},
               rotation=0)));
       Digital.Examples.Utilities.HalfAdder Adder(delayTime=0.3) 
                             annotation (Placement(transformation(extent={{-40,
@@ -587,18 +582,18 @@ The simulation stop time should be 5 seconds.
                 -38},{80,-18}}, rotation=0)));
     equation 
       connect(b.y,Adder. b) annotation (Line(
-          points={{-60,-28},{-40,-28}}, 
-          color={127,0,127}, 
-          fillColor={127,0,127}, 
+          points={{-60,-28},{-40,-28}},
+          color={127,0,127},
+          fillColor={127,0,127},
           fillPattern=FillPattern.Solid));
       connect(a.y,Adder. a) annotation (Line(
-          points={{-60,28},{-40,28}}, 
-          color={127,0,127}, 
-          fillColor={127,0,127}, 
+          points={{-60,28},{-40,28}},
+          color={127,0,127},
+          fillColor={127,0,127},
           fillPattern=FillPattern.Solid));
-      connect(Adder.s, s.x[1]) annotation (Line(points={{40,28},{65,28}}, color
-            ={127,0,127}));
-      connect(Adder.c, c.x[1]) annotation (Line(points={{40,-28},{65,-28}}, 
+      connect(Adder.s, s.x[1]) annotation (Line(points={{40,28},{65,28}}, color=
+             {127,0,127}));
+      connect(Adder.c, c.x[1]) annotation (Line(points={{40,-28},{65,-28}},
             color={127,0,127}));
     end HalfAdder;
     
@@ -633,21 +628,21 @@ The simulation stop time should be 5 seconds.
 The simulation stop time should be 10 seconds.
 </HTML>
 "),     Icon(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,170}, 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,170},
               fillPattern=FillPattern.Solid), Line(
               points={{40,54},{40,60},{-40,60},{10,0},{-40,-60},{40,-60},{40,
-                  -52}}, 
-              color={0,0,0}, 
+                  -52}},
+              color={0,0,0},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
             grid={2,2}), graphics),
         Window(
           x=0.2,
@@ -668,7 +663,7 @@ The simulation stop time should be 10 seconds.
                                    annotation (Placement(transformation(extent=
                 {{70,-32},{90,-12}}, rotation=0)));
       Digital.Examples.Utilities.Counter3 Counter 
-        annotation (Placement(transformation(extent={{-60,-18},{-20,22}}, 
+        annotation (Placement(transformation(extent={{-60,-18},{-20,22}},
               rotation=0)));
       Digital.Sources.Set Enable(x=L.'1') annotation (Placement(transformation(
               extent={{-90,6},{-70,26}}, rotation=0)));
@@ -681,7 +676,7 @@ The simulation stop time should be 10 seconds.
       connect(Adder1.c_out, c_out.x[1]) 
                                        annotation (Line(points={{60,-21},{68,
               -21},{68,-22},{75,-22}}, color={127,0,127}));
-      connect(CLK.y, Counter.count) annotation (Line(points={{-70,-12},{-60,-12}}, 
+      connect(CLK.y, Counter.count) annotation (Line(points={{-70,-12},{-60,-12}},
             color={127,0,127}));
       connect(Enable.y, Counter.enable) annotation (Line(points={{-70,16},{-60,
               16}}, color={127,0,127}));
@@ -733,17 +728,17 @@ The simulation stop time has to be 5s.
 </P>
 </HTML>
 "),     Icon(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-200,-200},{200,200}}, 
+            preserveAspectRatio=true,
+            extent={{-200,-200},{200,200}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-200,200},{200,-200}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,170}, 
+              extent={{-200,200},{200,-200}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,170},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-200,-200},{200,200}}, 
+            preserveAspectRatio=true,
+            extent={{-200,-200},{200,200}},
             grid={2,2}), graphics),
         Window(
           x=0.2,
@@ -759,7 +754,7 @@ The simulation stop time has to be 5s.
       Digital.Sources.Table b4(
         y0=3,
         x={4,3},
-        t={1,3}) annotation (Placement(transformation(extent={{70,-20},{110,20}}, 
+        t={1,3}) annotation (Placement(transformation(extent={{70,-20},{110,20}},
               rotation=0)));
       Digital.Sources.Table b1(
         x={4,3,4},
@@ -769,12 +764,12 @@ The simulation stop time has to be 5s.
       Digital.Sources.Table b2(
         y0=3,
         x={4},
-        t={4}) annotation (Placement(transformation(extent={{-90,-20},{-50,20}}, 
+        t={4}) annotation (Placement(transformation(extent={{-90,-20},{-50,20}},
               rotation=0)));
       Digital.Sources.Table b3(
         y0=3,
         x={4},
-        t={1}) annotation (Placement(transformation(extent={{-10,-20},{30,20}}, 
+        t={1}) annotation (Placement(transformation(extent={{-10,-20},{30,20}},
               rotation=0)));
       Digital.Sources.Table a1(
         y0=3,
@@ -784,22 +779,22 @@ The simulation stop time has to be 5s.
       Digital.Sources.Table a2(
         y0=3,
         x={4},
-        t={1}) annotation (Placement(transformation(extent={{-90,40},{-50,80}}, 
+        t={1}) annotation (Placement(transformation(extent={{-90,40},{-50,80}},
               rotation=0)));
       Digital.Sources.Table a3(
         y0=3,
         x={4,3},
-        t={1,4}) annotation (Placement(transformation(extent={{-8,40},{30,80}}, 
+        t={1,4}) annotation (Placement(transformation(extent={{-8,40},{30,80}},
               rotation=0)));
       Digital.Sources.Table a4(
         y0=3,
         x={3},
-        t={1}) annotation (Placement(transformation(extent={{70,40},{110,80}}, 
+        t={1}) annotation (Placement(transformation(extent={{70,40},{110,80}},
               rotation=0)));
       Sources.Set Set(x=3) 
         annotation (Placement(transformation(
-            origin={-150,-74}, 
-            extent={{20,20},{-20,-20}}, 
+            origin={-150,-74},
+            extent={{20,20},{-20,-20}},
             rotation=180)));
       Digital.Examples.Utilities.FullAdder Adder1 
                                    annotation (Placement(transformation(extent=
@@ -815,64 +810,64 @@ The simulation stop time has to be 5s.
                 {140,-80},{180,-40}}, rotation=0)));
     equation 
       connect(b1.y, Adder1.b)  annotation (Line(
-          points={{-130,0},{-120,0},{-120,-54},{-100,-54}}, 
-          color={127,0,127}, 
-          fillColor={255,255,255}, 
+          points={{-130,0},{-120,0},{-120,-54},{-100,-54}},
+          color={127,0,127},
+          fillColor={255,255,255},
           fillPattern=FillPattern.Solid));
       connect(a1.y, Adder1.a)  annotation (Line(
-          points={{-130,60},{-110,60},{-110,-46},{-100,-46}}, 
-          color={127,0,127}, 
-          fillColor={255,255,255}, 
+          points={{-130,60},{-110,60},{-110,-46},{-100,-46}},
+          color={127,0,127},
+          fillColor={255,255,255},
           fillPattern=FillPattern.Solid));
       connect(Set.y, Adder1.c_in)  annotation (Line(
-          points={{-130,-74},{-100,-74}}, 
-          color={127,0,127}, 
-          fillColor={255,255,255}, 
+          points={{-130,-74},{-100,-74}},
+          color={127,0,127},
+          fillColor={255,255,255},
           fillPattern=FillPattern.Solid));
       connect(Adder1.c_out, Adder2.c_in)  annotation (Line(
-          points={{-60,-74},{-20,-74}}, 
-          color={127,0,127}, 
-          fillColor={255,255,255}, 
+          points={{-60,-74},{-20,-74}},
+          color={127,0,127},
+          fillColor={255,255,255},
           fillPattern=FillPattern.Solid));
       connect(Adder2.c_out, Adder3.c_in) annotation (Line(
-          points={{20,-74},{60,-74}}, 
-          color={127,0,127}, 
-          fillColor={255,255,255}, 
+          points={{20,-74},{60,-74}},
+          color={127,0,127},
+          fillColor={255,255,255},
           fillPattern=FillPattern.Solid));
       connect(Adder3.c_out, Adder4.c_in) annotation (Line(
-          points={{100,-74},{140,-74}}, 
-          color={127,0,127}, 
-          fillColor={255,255,255}, 
+          points={{100,-74},{140,-74}},
+          color={127,0,127},
+          fillColor={255,255,255},
           fillPattern=FillPattern.Solid));
       connect(b2.y, Adder2.b) annotation (Line(
-          points={{-50,0},{-40,0},{-40,-54},{-20,-54}}, 
-          color={127,0,127}, 
-          fillColor={255,255,255}, 
+          points={{-50,0},{-40,0},{-40,-54},{-20,-54}},
+          color={127,0,127},
+          fillColor={255,255,255},
           fillPattern=FillPattern.Solid));
       connect(a2.y, Adder2.a) annotation (Line(
-          points={{-50,60},{-30,60},{-30,-46},{-20,-46}}, 
-          color={127,0,127}, 
-          fillColor={255,255,255}, 
+          points={{-50,60},{-30,60},{-30,-46},{-20,-46}},
+          color={127,0,127},
+          fillColor={255,255,255},
           fillPattern=FillPattern.Solid));
       connect(b3.y, Adder3.b) annotation (Line(
-          points={{30,0},{40,0},{40,-54},{60,-54}}, 
-          color={127,0,127}, 
-          fillColor={255,255,255}, 
+          points={{30,0},{40,0},{40,-54},{60,-54}},
+          color={127,0,127},
+          fillColor={255,255,255},
           fillPattern=FillPattern.Solid));
       connect(a3.y, Adder3.a) annotation (Line(
-          points={{30,60},{50,60},{50,-46},{60,-46}}, 
-          color={127,0,127}, 
-          fillColor={255,255,255}, 
+          points={{30,60},{50,60},{50,-46},{60,-46}},
+          color={127,0,127},
+          fillColor={255,255,255},
           fillPattern=FillPattern.Solid));
       connect(b4.y, Adder4.b) annotation (Line(
-          points={{110,0},{120,0},{120,-54},{140,-54}}, 
-          color={127,0,127}, 
-          fillColor={255,255,255}, 
+          points={{110,0},{120,0},{120,-54},{140,-54}},
+          color={127,0,127},
+          fillColor={255,255,255},
           fillPattern=FillPattern.Solid));
       connect(a4.y, Adder4.a) annotation (Line(
-          points={{110,60},{130,60},{130,-46},{140,-46}}, 
-          color={127,0,127}, 
-          fillColor={255,255,255}, 
+          points={{110,60},{130,60},{130,-46},{140,-46}},
+          color={127,0,127},
+          fillColor={255,255,255},
           fillPattern=FillPattern.Solid));
     end Adder4;
     
@@ -883,17 +878,17 @@ The simulation stop time has to be 5s.
  
 </HTML>
 "),     Icon(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,170}, 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,170},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
             grid={2,2}), graphics),
         Window(
           x=0.2,
@@ -910,18 +905,18 @@ The simulation stop time has to be 5s.
       D.Sources.Clock Clock       annotation (Placement(transformation(extent={
                 {-90,-48},{-50,-8}}, rotation=0)));
       D.Examples.Utilities.Counter3 Counter 
-        annotation (Placement(transformation(extent={{-30,-40},{50,40}}, 
+        annotation (Placement(transformation(extent={{-30,-40},{50,40}},
               rotation=0)));
     equation 
       connect(Enable.y, Counter.enable) annotation (Line(
-          points={{-50,28},{-30,28}}, 
-          color={127,0,127}, 
-          fillColor={255,255,170}, 
+          points={{-50,28},{-30,28}},
+          color={127,0,127},
+          fillColor={255,255,170},
           fillPattern=FillPattern.Solid));
       connect(Clock.y, Counter.count) annotation (Line(
-          points={{-50,-28},{-30,-28}}, 
-          color={127,0,127}, 
-          fillColor={255,255,170}, 
+          points={{-50,-28},{-30,-28}},
+          color={127,0,127},
+          fillColor={255,255,170},
           fillPattern=FillPattern.Solid));
     end Counter3;
     
@@ -932,17 +927,17 @@ The simulation stop time has to be 5s.
  
 </HTML>
 "),     Icon(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,170}, 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,170},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
             grid={2,2}), graphics),
         Window(
           x=0.2,
@@ -959,7 +954,7 @@ The simulation stop time has to be 5s.
       D.Sources.Clock Clock       annotation (Placement(transformation(extent={
                 {-90,-48},{-50,-8}}, rotation=0)));
       D.Examples.Utilities.Counter Counter(n=4) 
-        annotation (Placement(transformation(extent={{-30,-40},{50,40}}, 
+        annotation (Placement(transformation(extent={{-30,-40},{50,40}},
               rotation=0)));
       D.Converters.LogicToReal Q0 annotation (Placement(transformation(extent={
                 {66,-40},{86,-20}}, rotation=0)));
@@ -971,14 +966,14 @@ The simulation stop time has to be 5s.
                 {66,20},{86,40}}, rotation=0)));
     equation 
       connect(Enable.y, Counter.enable) annotation (Line(
-          points={{-50,28},{-30,28}}, 
-          color={127,0,127}, 
-          fillColor={255,255,170}, 
+          points={{-50,28},{-30,28}},
+          color={127,0,127},
+          fillColor={255,255,170},
           fillPattern=FillPattern.Solid));
       connect(Clock.y, Counter.count) annotation (Line(
-          points={{-50,-28},{-30,-28}}, 
-          color={127,0,127}, 
-          fillColor={255,255,170}, 
+          points={{-50,-28},{-30,-28}},
+          color={127,0,127},
+          fillColor={255,255,170},
           fillPattern=FillPattern.Solid));
       connect(Q0.x[1], Counter.q[1]) annotation (Line(points={{71,-30},{58,-30},
               {58,-24},{50,-24}}, color={127,0,127}));
@@ -1000,88 +995,88 @@ The simulation stop time has to be 5s.
 "),     Diagram(graphics),
         Icon(graphics={
               Rectangle(
-                extent={{-90,100},{90,-100}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,170}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{-90,100},{90,-100}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,170},
+                fillPattern=FillPattern.Solid),
               Line(
-                points={{-60,100},{-60,-100}}, 
-                color={0,0,0}, 
-                thickness=2, 
-                fillPattern=FillPattern.Solid), 
+                points={{-60,100},{-60,-100}},
+                color={0,0,0},
+                thickness=2,
+                fillPattern=FillPattern.Solid),
               Line(
-                points={{60,100},{60,-100}}, 
-                color={0,0,0}, 
-                thickness=2, 
-                fillPattern=FillPattern.Solid), 
+                points={{60,100},{60,-100}},
+                color={0,0,0},
+                thickness=2,
+                fillPattern=FillPattern.Solid),
               Text(
-                extent={{-86,80},{-64,60}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-86,80},{-64,60}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                     "D0"), 
+                     "D0"),
               Text(
-                extent={{64,12},{86,-8}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{64,12},{86,-8}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                     "D"), 
+                     "D"),
               Text(
-                extent={{-150,-100},{150,-160}}, 
-                lineColor={0,0,255}, 
-                fillColor={255,255,170}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-150,-100},{150,-160}},
+                lineColor={0,0,255},
+                fillColor={255,255,170},
+                fillPattern=FillPattern.Solid,
                 textString=
-                   "%name"), 
+                   "%name"),
               Text(
-                extent={{-60,100},{60,40}}, 
-                lineColor={0,0,0}, 
-                fillPattern=FillPattern.HorizontalCylinder, 
+                extent={{-60,100},{60,40}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
                 textString=
-                     "MUX"), 
+                     "MUX"),
               Text(
-                extent={{-86,-60},{-64,-80}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-86,-60},{-64,-80}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                     "A1"), 
+                     "A1"),
               Text(
-                extent={{-86,54},{-64,34}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-86,54},{-64,34}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                     "D1"), 
+                     "D1"),
               Text(
-                extent={{-86,28},{-64,8}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-86,28},{-64,8}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                     "D2"), 
+                     "D2"),
               Text(
-                extent={{-86,2},{-64,-18}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-86,2},{-64,-18}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                     "D3"), 
+                     "D3"),
               Text(
-                extent={{-86,-36},{-64,-56}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-86,-36},{-64,-56}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
                      "A0")}));
         
@@ -1117,101 +1112,101 @@ The simulation stop time has to be 5s.
                   {-56,-60}}, rotation=0)));
     equation 
         connect(a0, Not1.x) annotation (Line(
-            points={{-100,-44},{-72,-44}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{-100,-44},{-72,-44}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
         connect(a1, Not2.x) annotation (Line(
-            points={{-100,-70},{-72,-70}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{-100,-70},{-72,-70}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
         connect(d0, And1.x[2]) annotation (Line(
-            points={{-100,70},{-58,70},{-58,70},{-16,70}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{-100,70},{-58,70},{-58,70},{-16,70}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
         connect(d1, And2.x[2]) annotation (Line(
-            points={{-100,44},{-16,44}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{-100,44},{-16,44}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
         connect(d2, And3.x[2]) annotation (Line(
-            points={{-100,18},{-16,18}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{-100,18},{-16,18}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
         connect(d3, And4.x[2]) annotation (Line(
-            points={{-100,-8},{-58,-8},{-58,-8},{-16,-8}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{-100,-8},{-58,-8},{-58,-8},{-16,-8}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
         connect(And4.y, Or1.x[1]) annotation (Line(
-            points={{0,-8},{40,-8},{40,24},{54,24}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{0,-8},{40,-8},{40,24},{54,24}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
         connect(And3.y, Or1.x[2]) annotation (Line(
-            points={{0,18},{20,18},{20,28},{54,28}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{0,18},{20,18},{20,28},{54,28}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
         connect(And2.y, Or1.x[3]) annotation (Line(
-            points={{0,44},{20,44},{20,32},{54,32}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{0,44},{20,44},{20,32},{54,32}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
         connect(And1.y, Or1.x[4]) annotation (Line(
-            points={{0,70},{40,70},{40,36},{54,36}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{0,70},{40,70},{40,36},{54,36}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
         connect(Or1.y, d) annotation (Line(
-            points={{70,30},{80,30},{80,0},{100,0}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{70,30},{80,30},{80,0},{100,0}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
         connect(Not1.y, And1.x[3]) annotation (Line(
-            points={{-56,-44},{-50,-44},{-50,75.3333},{-16,75.3333}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{-56,-44},{-50,-44},{-50,75.3333},{-16,75.3333}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
         connect(Not1.y, And3.x[3]) annotation (Line(
-            points={{-56,-44},{-50,-44},{-50,23.3333},{-16,23.3333}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{-56,-44},{-50,-44},{-50,23.3333},{-16,23.3333}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
         connect(Not2.y, And1.x[1]) annotation (Line(
-            points={{-56,-70},{-40,-70},{-40,64.6667},{-16,64.6667}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{-56,-70},{-40,-70},{-40,64.6667},{-16,64.6667}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
         connect(Not2.y, And2.x[1]) annotation (Line(
-            points={{-56,-70},{-40,-70},{-40,38.6667},{-16,38.6667}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{-56,-70},{-40,-70},{-40,38.6667},{-16,38.6667}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
         connect(a0, And4.x[3]) annotation (Line(
-            points={{-100,-44},{-80,-44},{-80,-2.66667},{-16,-2.66667}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{-100,-44},{-80,-44},{-80,-2.66667},{-16,-2.66667}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
         connect(a0, And2.x[3]) annotation (Line(
-            points={{-100,-44},{-80,-44},{-80,49.3333},{-16,49.3333}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{-100,-44},{-80,-44},{-80,49.3333},{-16,49.3333}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
         connect(a1, And4.x[1]) annotation (Line(
             points={{-100,-70},{-80,-70},{-80,-90},{-30,-90},{-30,-13.3333},{
-                -16,-13.3333}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+                -16,-13.3333}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
         connect(a1, And3.x[1]) annotation (Line(
             points={{-100,-70},{-80,-70},{-80,-90},{-30,-90},{-30,12.6667},{-16,
-                12.6667}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+                12.6667}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
     end MUX4;
       
@@ -1224,64 +1219,64 @@ The simulation stop time has to be 5s.
 "),     Diagram(graphics),
         Icon(graphics={
               Rectangle(
-                extent={{-90,100},{90,-100}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,170}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{-90,100},{90,-100}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,170},
+                fillPattern=FillPattern.Solid),
               Text(
-                extent={{-100,100},{100,40}}, 
-                lineColor={0,0,0}, 
-                fillPattern=FillPattern.HorizontalCylinder, 
+                extent={{-100,100},{100,40}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
                 textString=
-                     "RS"), 
+                     "RS"),
               Line(
-                points={{-60,100},{-60,-100}}, 
-                color={0,0,0}, 
-                thickness=2, 
-                fillPattern=FillPattern.Solid), 
+                points={{-60,100},{-60,-100}},
+                color={0,0,0},
+                thickness=2,
+                fillPattern=FillPattern.Solid),
               Line(
-                points={{60,100},{60,-100}}, 
-                color={0,0,0}, 
-                thickness=2, 
-                fillPattern=FillPattern.Solid), 
+                points={{60,100},{60,-100}},
+                color={0,0,0},
+                thickness=2,
+                fillPattern=FillPattern.Solid),
               Text(
-                extent={{-86,-60},{-64,-80}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-86,-60},{-64,-80}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                     "R"), 
+                     "R"),
               Text(
-                extent={{-86,80},{-64,60}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-86,80},{-64,60}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                     "S"), 
+                     "S"),
               Text(
-                extent={{64,80},{86,60}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{64,80},{86,60}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                     "Q"), 
+                     "Q"),
               Text(
-                extent={{64,-60},{86,-80}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{64,-60},{86,-80}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                     "QN"), 
+                     "QN"),
               Text(
-                extent={{-150,-100},{150,-160}}, 
-                lineColor={0,0,255}, 
-                fillColor={255,255,170}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-150,-100},{150,-160}},
+                lineColor={0,0,255},
+                fillColor={255,255,170},
+                fillPattern=FillPattern.Solid,
                 textString=
                    "%name")}));
       parameter Modelica.SIunits.Time delayTime=0 "delay time";
@@ -1290,8 +1285,8 @@ The simulation stop time has to be 5s.
                   {0,82}}, rotation=0)));
       D.Basic.Nor Nor2   annotation (Placement(transformation(extent={{-40,-82},
                   {0,-42}}, rotation=0)));
-      D.Interfaces.DigitalInput s   annotation (Placement(transformation(extent
-                ={{-110,60},{-90,80}}, rotation=0)));
+      D.Interfaces.DigitalInput s   annotation (Placement(transformation(extent=
+                 {{-110,60},{-90,80}}, rotation=0)));
       D.Interfaces.DigitalInput r    annotation (Placement(transformation(
                 extent={{-110,-80},{-90,-60}}, rotation=0)));
       D.Interfaces.DigitalOutput q   annotation (Placement(transformation(
@@ -1299,26 +1294,26 @@ The simulation stop time has to be 5s.
       D.Interfaces.DigitalOutput qn   annotation (Placement(transformation(
                 extent={{90,-80},{110,-60}}, rotation=0)));
       D.Delay.TransportDelay TD1(delayTime=delayTime,y0=q0) 
-          annotation (Placement(transformation(extent={{-60,-64},{-40,-44}}, 
+          annotation (Placement(transformation(extent={{-60,-64},{-40,-44}},
                 rotation=0)));
     equation 
-      connect(s, Nor1.x[2])   annotation (Line(points={{-100,70},{-32,70}}, 
+      connect(s, Nor1.x[2])   annotation (Line(points={{-100,70},{-32,70}},
               color={127,0,127}));
-      connect(r, Nor2.x[1])    annotation (Line(points={{-100,-70},{-32,-70}}, 
+      connect(r, Nor2.x[1])    annotation (Line(points={{-100,-70},{-32,-70}},
               color={127,0,127}));
       connect(Nor2.y, Nor1.x[1])   annotation (Line(points={{0,-62},{20,-62},{
                 20,-20},{-70,20},{-70,54},{-32,54}}, color={127,0,127}));
       connect(Nor1.y,qn)    annotation (Line(
-            points={{0,62},{50,62},{50,-70},{100,-70}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{0,62},{50,62},{50,-70},{100,-70}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
       connect(Nor2.y,q)    annotation (Line(
-            points={{0,-62},{70,-62},{70,70},{100,70}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{0,-62},{70,-62},{70,70},{100,70}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
-      connect(TD1.y, Nor2.x[2]) annotation (Line(points={{-40,-54},{-32,-54}}, 
+      connect(TD1.y, Nor2.x[2]) annotation (Line(points={{-40,-54},{-32,-54}},
               color={127,0,127}));
       connect(TD1.x, Nor1.y) annotation (Line(points={{-56,-54},{-70,-54},{-70,
                 -20},{20,20},{20,62},{0,62}}, color={127,0,127}));
@@ -1333,78 +1328,78 @@ The simulation stop time has to be 5s.
 "),     Diagram(graphics),
         Icon(graphics={
               Rectangle(
-                extent={{-90,100},{90,-100}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,170}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{-90,100},{90,-100}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,170},
+                fillPattern=FillPattern.Solid),
               Text(
-                extent={{-100,100},{100,40}}, 
-                lineColor={0,0,0}, 
-                fillPattern=FillPattern.HorizontalCylinder, 
+                extent={{-100,100},{100,40}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
                 textString=
-                     "RS"), 
+                     "RS"),
               Line(
-                points={{-60,100},{-60,-100}}, 
-                color={0,0,0}, 
-                thickness=2, 
-                fillPattern=FillPattern.Solid), 
+                points={{-60,100},{-60,-100}},
+                color={0,0,0},
+                thickness=2,
+                fillPattern=FillPattern.Solid),
               Line(
-                points={{60,100},{60,-100}}, 
-                color={0,0,0}, 
-                thickness=2, 
-                fillPattern=FillPattern.Solid), 
+                points={{60,100},{60,-100}},
+                color={0,0,0},
+                thickness=2,
+                fillPattern=FillPattern.Solid),
               Text(
-                extent={{-86,-60},{-64,-80}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-86,-60},{-64,-80}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                     "R"), 
+                     "R"),
               Text(
-                extent={{-86,80},{-64,60}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-86,80},{-64,60}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                     "S"), 
+                     "S"),
               Text(
-                extent={{64,80},{86,60}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{64,80},{86,60}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                     "Q"), 
+                     "Q"),
               Text(
-                extent={{64,-60},{86,-80}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{64,-60},{86,-80}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                     "QN"), 
-              Line(points={{-90,20},{-60,0},{-90,-20}}, color={0,0,0}), 
+                     "QN"),
+              Line(points={{-90,20},{-60,0},{-90,-20}}, color={0,0,0}),
               Text(
-                extent={{-150,-100},{150,-160}}, 
-                lineColor={0,0,255}, 
-                fillColor={255,255,170}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-150,-100},{150,-160}},
+                lineColor={0,0,255},
+                fillColor={255,255,170},
+                fillPattern=FillPattern.Solid,
                 textString=
                    "%name")}));
         
       parameter Modelica.SIunits.Time delayTime=0.01;
       parameter D.Interfaces.Logic q0=L.'U';
-      D.Interfaces.DigitalInput s   annotation (Placement(transformation(extent
-                ={{-110,60},{-90,80}}, rotation=0)));
+      D.Interfaces.DigitalInput s   annotation (Placement(transformation(extent=
+                 {{-110,60},{-90,80}}, rotation=0)));
       D.Interfaces.DigitalInput r     annotation (Placement(transformation(
                 extent={{-110,-80},{-90,-60}}, rotation=0)));
       D.Interfaces.DigitalOutput q annotation (Placement(transformation(extent=
                   {{90,60},{110,80}}, rotation=0)));
       D.Interfaces.DigitalOutput qn "not Q" 
-        annotation (Placement(transformation(extent={{90,-80},{110,-60}}, 
+        annotation (Placement(transformation(extent={{90,-80},{110,-60}},
                 rotation=0)));
       D.Interfaces.DigitalInput clk       annotation (Placement(transformation(
                 extent={{-110,-10},{-90,10}}, rotation=0)));
@@ -1418,45 +1413,45 @@ The simulation stop time has to be 5s.
     equation 
       connect(And2.y, RS1.r) 
                             annotation (Line(
-            points={{-30,-28},{-10,-28}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{-30,-28},{-10,-28}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
       connect(And1.y, RS1.s) 
                             annotation (Line(
-            points={{-30,28},{-10,28}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{-30,28},{-10,28}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
       connect(s, And1.x[2]) annotation (Line(
-            points={{-100,70},{-70,70},{-70,36},{-62,36}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{-100,70},{-70,70},{-70,36},{-62,36}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
       connect(clk, And1.x[1]) annotation (Line(
-            points={{-100,0},{-70,0},{-70,20},{-62,20}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{-100,0},{-70,0},{-70,20},{-62,20}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
       connect(clk, And2.x[2]) annotation (Line(
-            points={{-100,0},{-70,0},{-70,-20},{-62,-20}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{-100,0},{-70,0},{-70,-20},{-62,-20}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
       connect(r, And2.x[1]) annotation (Line(
-            points={{-100,-70},{-70,-70},{-70,-36},{-62,-36}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{-100,-70},{-70,-70},{-70,-36},{-62,-36}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
       connect(RS1.q,q) annotation (Line(
-            points={{70,28},{80,28},{80,70},{100,70}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{70,28},{80,28},{80,70},{100,70}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
       connect(RS1.qn,qn) annotation (Line(
-            points={{70,-28},{80,-28},{80,-70},{100,-70}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{70,-28},{80,-28},{80,-70},{100,-70}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
     end RSFF;
       
@@ -1469,70 +1464,70 @@ The simulation stop time has to be 5s.
 "),     Diagram(graphics),
         Icon(graphics={
               Rectangle(
-                extent={{-90,100},{90,-100}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,170}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{-90,100},{90,-100}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,170},
+                fillPattern=FillPattern.Solid),
               Line(
-                points={{-60,100},{-60,-100}}, 
-                color={0,0,0}, 
-                thickness=2, 
-                fillPattern=FillPattern.Solid), 
+                points={{-60,100},{-60,-100}},
+                color={0,0,0},
+                thickness=2,
+                fillPattern=FillPattern.Solid),
               Line(
-                points={{60,100},{60,-100}}, 
-                color={0,0,0}, 
-                thickness=2, 
-                fillPattern=FillPattern.Solid), 
+                points={{60,100},{60,-100}},
+                color={0,0,0},
+                thickness=2,
+                fillPattern=FillPattern.Solid),
               Text(
-                extent={{-86,80},{-64,60}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-86,80},{-64,60}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                     "D"), 
+                     "D"),
               Text(
-                extent={{64,80},{86,60}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{64,80},{86,60}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                     "Q"), 
+                     "Q"),
               Text(
-                extent={{64,-60},{86,-80}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{64,-60},{86,-80}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                     "QN"), 
-              Line(points={{-90,20},{-60,0},{-90,-20}}, color={0,0,0}), 
+                     "QN"),
+              Line(points={{-90,20},{-60,0},{-90,-20}}, color={0,0,0}),
               Text(
-                extent={{-150,-100},{150,-160}}, 
-                lineColor={0,0,255}, 
-                fillColor={255,255,170}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-150,-100},{150,-160}},
+                lineColor={0,0,255},
+                fillColor={255,255,170},
+                fillPattern=FillPattern.Solid,
                 textString=
-                   "%name"), 
+                   "%name"),
               Text(
-                extent={{-100,100},{100,40}}, 
-                lineColor={0,0,0}, 
-                fillPattern=FillPattern.HorizontalCylinder, 
+                extent={{-100,100},{100,40}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
                 textString=
                      "D")}));
         
       parameter Modelica.SIunits.Time Tdel=0.01;
       parameter Digital.Interfaces.Logic QInit=L.'U';
       Digital.Interfaces.DigitalInput d 
-                                    annotation (Placement(transformation(extent
-                ={{-110,60},{-90,80}}, rotation=0)));
+                                    annotation (Placement(transformation(extent=
+                 {{-110,60},{-90,80}}, rotation=0)));
       Digital.Interfaces.DigitalOutput q 
                                    annotation (Placement(transformation(extent=
                   {{90,60},{110,80}}, rotation=0)));
       Digital.Interfaces.DigitalOutput qn "not Q" 
-        annotation (Placement(transformation(extent={{90,-80},{110,-60}}, 
+        annotation (Placement(transformation(extent={{90,-80},{110,-60}},
                 rotation=0)));
       Digital.Interfaces.DigitalInput clk annotation (Placement(transformation(
                 extent={{-110,-10},{-90,10}}, rotation=0)));
@@ -1544,36 +1539,36 @@ The simulation stop time has to be 5s.
     equation 
       connect(RSFF1.q,q) 
                        annotation (Line(
-            points={{70,28},{80,28},{80,70},{100,70}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{70,28},{80,28},{80,70},{100,70}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
       connect(RSFF1.qn,qn) 
                          annotation (Line(
-            points={{70,-28},{80,-28},{80,-70},{100,-70}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{70,-28},{80,-28},{80,-70},{100,-70}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
       connect(Not1.y, RSFF1.r) 
                              annotation (Line(
-            points={{-30,-28},{-10,-28}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{-30,-28},{-10,-28}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
       connect(clk, RSFF1.clk)  annotation (Line(
-            points={{-100,0},{-10,0}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{-100,0},{-10,0}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
       connect(d, Not1.x)  annotation (Line(
-            points={{-100,70},{-80,70},{-80,-28},{-62,-28}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{-100,70},{-80,70},{-80,-28},{-62,-28}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
       connect(d, RSFF1.s)  annotation (Line(
-            points={{-100,70},{-80,70},{-80,28},{-10,28}}, 
-            color={127,0,127}, 
-            fillColor={255,255,170}, 
+            points={{-100,70},{-80,70},{-80,28},{-10,28}},
+            color={127,0,127},
+            fillColor={255,255,170},
             fillPattern=FillPattern.Solid));
     end DFF;
       
@@ -1586,81 +1581,81 @@ The simulation stop time has to be 5s.
 "),     Diagram(graphics),
         Icon(graphics={
               Rectangle(
-                extent={{-90,100},{90,-100}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,170}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{-90,100},{90,-100}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,170},
+                fillPattern=FillPattern.Solid),
               Line(
-                points={{-60,100},{-60,-100}}, 
-                color={0,0,0}, 
-                thickness=2, 
-                fillPattern=FillPattern.Solid), 
+                points={{-60,100},{-60,-100}},
+                color={0,0,0},
+                thickness=2,
+                fillPattern=FillPattern.Solid),
               Line(
-                points={{60,100},{60,-100}}, 
-                color={0,0,0}, 
-                thickness=2, 
-                fillPattern=FillPattern.Solid), 
+                points={{60,100},{60,-100}},
+                color={0,0,0},
+                thickness=2,
+                fillPattern=FillPattern.Solid),
               Text(
-                extent={{-86,80},{-64,60}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-86,80},{-64,60}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                     "J"), 
+                     "J"),
               Text(
-                extent={{64,80},{86,60}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{64,80},{86,60}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                     "Q"), 
+                     "Q"),
               Text(
-                extent={{64,-60},{86,-80}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{64,-60},{86,-80}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                     "QN"), 
-              Line(points={{-90,20},{-60,0},{-90,-20}}, color={0,0,0}), 
+                     "QN"),
+              Line(points={{-90,20},{-60,0},{-90,-20}}, color={0,0,0}),
               Text(
-                extent={{-150,-100},{150,-160}}, 
-                lineColor={0,0,255}, 
-                fillColor={255,255,170}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-150,-100},{150,-160}},
+                lineColor={0,0,255},
+                fillColor={255,255,170},
+                fillPattern=FillPattern.Solid,
                 textString=
-                   "%name"), 
+                   "%name"),
               Text(
-                extent={{-100,100},{100,40}}, 
-                lineColor={0,0,0}, 
-                fillPattern=FillPattern.HorizontalCylinder, 
+                extent={{-100,100},{100,40}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
                 textString=
-                     "JK"), 
+                     "JK"),
               Text(
-                extent={{-86,-60},{-64,-80}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-86,-60},{-64,-80}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
                      "K")}));
         
       parameter Modelica.SIunits.Time delayTime=0.001;
       parameter D.Interfaces.Logic q0=L.'0';
-      D.Interfaces.DigitalInput j   annotation (Placement(transformation(extent
-                ={{-110,60},{-90,80}}, rotation=0)));
+      D.Interfaces.DigitalInput j   annotation (Placement(transformation(extent=
+                 {{-110,60},{-90,80}}, rotation=0)));
       D.Interfaces.DigitalOutput q annotation (Placement(transformation(extent=
                   {{90,60},{110,80}}, rotation=0)));
       D.Interfaces.DigitalOutput qn "not Q" 
-        annotation (Placement(transformation(extent={{90,-80},{110,-60}}, 
+        annotation (Placement(transformation(extent={{90,-80},{110,-60}},
                 rotation=0)));
       D.Interfaces.DigitalInput clk       annotation (Placement(transformation(
                 extent={{-110,-10},{-90,10}}, rotation=0)));
-      D.Interfaces.DigitalInput k   annotation (Placement(transformation(extent
-                ={{-110,-80},{-90,-60}}, rotation=0)));
+      D.Interfaces.DigitalInput k   annotation (Placement(transformation(extent=
+                 {{-110,-80},{-90,-60}}, rotation=0)));
         D.Examples.Utilities.RS RS1(delayTime=delayTime,q0=q0) 
                                      annotation (Placement(transformation(
                 extent={{30,-24},{70,16}}, rotation=0)));
@@ -1678,9 +1673,9 @@ The simulation stop time has to be 5s.
         D.Basic.Not Not1 annotation (Placement(transformation(extent={{-34,-66},
                   {-14,-46}}, rotation=0)));
     equation 
-        connect(And2.y, RS2.r) annotation (Line(points={{-50,-14},{-44,-14}}, 
+        connect(And2.y, RS2.r) annotation (Line(points={{-50,-14},{-44,-14}},
               color={127,0,127}));
-        connect(And1.y, RS2.s) annotation (Line(points={{-50,14},{-44,14}}, 
+        connect(And1.y, RS2.s) annotation (Line(points={{-50,14},{-44,14}},
               color={127,0,127}));
         connect(clk, And2.x[3]) annotation (Line(points={{-100,0},{-74,0},{-74,
                 -8.66667},{-66,-8.66667}}, color={127,0,127}));
@@ -1688,13 +1683,13 @@ The simulation stop time has to be 5s.
                 8.66667},{-66,8.66667}}, color={127,0,127}));
         connect(k, And2.x[2]) annotation (Line(points={{-100,-70},{-74,-70},{
                 -74,-14},{-66,-14}}, color={127,0,127}));
-        connect(And4.y, RS1.r) annotation (Line(points={{24,-18},{30,-18}}, 
+        connect(And4.y, RS1.r) annotation (Line(points={{24,-18},{30,-18}},
               color={127,0,127}));
-        connect(And3.y, RS1.s) annotation (Line(points={{24,10},{30,10}}, color
-              ={127,0,127}));
-        connect(RS2.qn, And4.x[2]) annotation (Line(points={{-4,-14},{8,-14}}, 
+        connect(And3.y, RS1.s) annotation (Line(points={{24,10},{30,10}}, color=
+               {127,0,127}));
+        connect(RS2.qn, And4.x[2]) annotation (Line(points={{-4,-14},{8,-14}},
               color={127,0,127}));
-        connect(RS2.q, And3.x[2]) annotation (Line(points={{-4,14},{8,14}}, 
+        connect(RS2.q, And3.x[2]) annotation (Line(points={{-4,14},{8,14}},
               color={127,0,127}));
         connect(clk, Not1.x) annotation (Line(points={{-100,0},{-80,0},{-80,-56},
                 {-30,-56}}, color={127,0,127}));
@@ -1726,50 +1721,50 @@ The simulation stop time has to be 5s.
                     Diagram(graphics),
                              Icon(graphics={
               Rectangle(
-                extent={{-90,100},{90,-100}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,170}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{-90,100},{90,-100}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,170},
+                fillPattern=FillPattern.Solid),
               Text(
-                extent={{-90,80},{-60,60}}, 
-                lineColor={0,0,0}, 
+                extent={{-90,80},{-60,60}},
+                lineColor={0,0,0},
                 textString=
-                     "a"), 
+                     "a"),
               Text(
-                extent={{-90,-60},{-60,-80}}, 
-                lineColor={0,0,0}, 
+                extent={{-90,-60},{-60,-80}},
+                lineColor={0,0,0},
                 textString=
-                     "b"), 
+                     "b"),
               Text(
-                extent={{60,80},{90,60}}, 
-                lineColor={0,0,0}, 
+                extent={{60,80},{90,60}},
+                lineColor={0,0,0},
                 textString=
-                     "s"), 
+                     "s"),
               Text(
-                extent={{60,-60},{90,-80}}, 
-                lineColor={0,0,0}, 
+                extent={{60,-60},{90,-80}},
+                lineColor={0,0,0},
                 textString=
-                     "c"), 
+                     "c"),
               Text(
-                extent={{-150,-100},{150,-160}}, 
-                lineColor={0,0,255}, 
-                textString = "%name"), 
+                extent={{-150,-100},{150,-160}},
+                lineColor={0,0,255},
+                textString=  "%name"),
               Text(
-                extent={{-100,100},{100,0}}, 
-                lineColor={0,0,0}, 
-                fillPattern=FillPattern.HorizontalCylinder, 
+                extent={{-100,100},{100,0}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
                 textString=
-                     "+"), 
+                     "+"),
               Line(
-                points={{-60,100},{-60,-100}}, 
-                color={0,0,0}, 
-                thickness=2, 
-                fillPattern=FillPattern.Solid), 
+                points={{-60,100},{-60,-100}},
+                color={0,0,0},
+                thickness=2,
+                fillPattern=FillPattern.Solid),
               Line(
-                points={{60,100},{60,-100}}, 
-                color={0,0,0}, 
-                thickness=2, 
+                points={{60,100},{60,-100}},
+                color={0,0,0},
+                thickness=2,
                 fillPattern=FillPattern.Solid)}), 
           Documentation(info="<html>
   
@@ -1784,7 +1779,7 @@ The simulation stop time has to be 5s.
                   annotation (Placement(transformation(extent={{-20,-82},{20,
                   -42}}, rotation=0)));
                 Gates.XorGate XOR(tLH=delayTime, tHL=delayTime) 
-                  annotation (Placement(transformation(extent={{-20,42},{20,82}}, 
+                  annotation (Placement(transformation(extent={{-20,42},{20,82}},
                 rotation=0)));
         
               equation 
@@ -1844,79 +1839,79 @@ The simulation stop time has to be 5s.
 </P>
 </HTML>
 "),     Icon(coordinateSystem(
-              preserveAspectRatio=true, 
-              extent={{-100,-100},{100,100}}, 
+              preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}},
               grid={2,2}), graphics={
               Rectangle(
-                extent={{-90,100},{90,-100}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,170}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{-90,100},{90,-100}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,170},
+                fillPattern=FillPattern.Solid),
               Text(
-                extent={{-150,-96},{150,-151}}, 
-                lineColor={0,0,255}, 
+                extent={{-150,-96},{150,-151}},
+                lineColor={0,0,255},
                 textString=
-                   "%name"), 
+                   "%name"),
               Text(
-                extent={{-86,80},{-64,60}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-86,80},{-64,60}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                   "a"), 
+                   "a"),
               Text(
-                extent={{-86,40},{-64,20}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-86,40},{-64,20}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                   "b"), 
+                   "b"),
               Text(
-                extent={{-86,-60},{-64,-80}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-86,-60},{-64,-80}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                   "c_in"), 
+                   "c_in"),
               Text(
-                extent={{60,-60},{90,-80}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{60,-60},{90,-80}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                   "c_out"), 
+                   "c_out"),
               Text(
-                extent={{64,80},{86,60}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{64,80},{86,60}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                   "s"), 
+                   "s"),
               Text(
-                extent={{-100,100},{100,0}}, 
-                lineColor={0,0,0}, 
-                fillPattern=FillPattern.HorizontalCylinder, 
+                extent={{-100,100},{100,0}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
                 textString=
-           "+"), 
+           "+"),
               Line(
-                points={{-60,100},{-60,-100}}, 
-                color={0,0,0}, 
-                thickness=2, 
-                fillPattern=FillPattern.Solid), 
+                points={{-60,100},{-60,-100}},
+                color={0,0,0},
+                thickness=2,
+                fillPattern=FillPattern.Solid),
               Line(
-                points={{60,100},{60,-100}}, 
-                color={0,0,0}, 
-                thickness=2, 
+                points={{60,100},{60,-100}},
+                color={0,0,0},
+                thickness=2,
                 fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
-              preserveAspectRatio=true, 
-              extent={{-100,-100},{100,100}}, 
+              preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}},
               grid={2,2}), graphics),
         Window(
           x=0.2,
@@ -1932,51 +1927,51 @@ The simulation stop time has to be 5s.
                 extent={{-60,36},{-20,76}}, rotation=0)));
       Digital.Interfaces.DigitalInput a 
         annotation (Placement(transformation(
-              origin={-100,70}, 
-              extent={{-10,-10},{10,10}}, 
+              origin={-100,70},
+              extent={{-10,-10},{10,10}},
               rotation=180)));
       Digital.Interfaces.DigitalInput b 
         annotation (Placement(transformation(
-              origin={-100,30}, 
-              extent={{-10,-10},{10,10}}, 
+              origin={-100,30},
+              extent={{-10,-10},{10,10}},
               rotation=180)));
       Digital.Interfaces.DigitalInput c_in 
         annotation (Placement(transformation(
-              origin={-100,-70}, 
-              extent={{-10,-10},{10,10}}, 
+              origin={-100,-70},
+              extent={{-10,-10},{10,10}},
               rotation=180)));
       Digital.Interfaces.DigitalOutput s 
         annotation (Placement(transformation(
-              origin={101,70}, 
-              extent={{11,-10},{-11,10}}, 
+              origin={101,70},
+              extent={{11,-10},{-11,10}},
               rotation=180)));
       Digital.Interfaces.DigitalOutput c_out 
         annotation (Placement(transformation(
-              origin={100,-70}, 
-              extent={{10,-10},{-10,10}}, 
+              origin={100,-70},
+              extent={{10,-10},{-10,10}},
               rotation=180)));
       Basic.Or OR  annotation (Placement(transformation(extent={{10,-90},{50,
                   -50}}, rotation=0)));
     equation 
         
       connect(c_out, OR.y)   annotation (Line(
-            points={{100,-70},{50,-70}}, 
-            color={127,0,127}, 
-            fillColor={255,255,255}, 
+            points={{100,-70},{50,-70}},
+            color={127,0,127},
+            fillColor={255,255,255},
             fillPattern=FillPattern.Solid));
       connect(Adder2.c, OR.x[2]) 
                                annotation (Line(
-            points={{50,42},{70,42},{70,-40},{10,-40},{10,-62},{18,-62}}, 
-            color={127,0,127}, 
-            fillColor={255,255,255}, 
+            points={{50,42},{70,42},{70,-40},{10,-40},{10,-62},{18,-62}},
+            color={127,0,127},
+            fillColor={255,255,255},
             fillPattern=FillPattern.Solid));
       connect(Adder2.s, s) 
         annotation (Line(points={{50,70},{101,70}}, color={127,0,127}));
-        connect(Adder1.a, a) annotation (Line(points={{-60,70},{-100,70}}, 
+        connect(Adder1.a, a) annotation (Line(points={{-60,70},{-100,70}},
               color={127,0,127}));
         connect(b, Adder1.b) annotation (Line(points={{-100,30},{-70,30},{-70,
                 42},{-60,42}}, color={127,0,127}));
-        connect(Adder1.s, Adder2.a) annotation (Line(points={{-20,70},{10,70}}, 
+        connect(Adder1.s, Adder2.a) annotation (Line(points={{-20,70},{10,70}},
               color={127,0,127}));
         connect(Adder1.c, OR.x[1]) annotation (Line(points={{-20,42},{-10,42},{
                 -10,-78},{18,-78}}, color={127,0,127}));
@@ -1991,71 +1986,71 @@ The simulation stop time has to be 5s.
   
 </HTML>
 "),     Icon(coordinateSystem(
-              preserveAspectRatio=true, 
-              extent={{-100,-100},{100,100}}, 
+              preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}},
               grid={2,2}), graphics={
               Rectangle(
-                extent={{-90,100},{90,-100}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,170}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{-90,100},{90,-100}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,170},
+                fillPattern=FillPattern.Solid),
               Text(
-                extent={{68,80},{88,60}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{68,80},{88,60}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                   "S"), 
+                   "S"),
               Text(
-                extent={{-150,-100},{150,-160}}, 
-                lineColor={0,0,255}, 
-                fillColor={255,255,170}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-150,-100},{150,-160}},
+                lineColor={0,0,255},
+                fillColor={255,255,170},
+                fillPattern=FillPattern.Solid,
                 textString=
-                   "%name"), 
+                   "%name"),
               Text(
-                extent={{-40,60},{40,20}}, 
-                lineColor={0,0,0}, 
-                fillPattern=FillPattern.HorizontalCylinder, 
+                extent={{-40,60},{40,20}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
                 textString=
-                   "Adder"), 
+                   "Adder"),
               Text(
-                extent={{48,-60},{88,-80}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{48,-60},{88,-80}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                   "Cout"), 
+                   "Cout"),
               Text(
-                extent={{-90,-60},{-50,-80}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-90,-60},{-50,-80}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                   "Cin"), 
+                   "Cin"),
               Text(
-                extent={{-88,80},{-68,60}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-88,80},{-68,60}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                   "A"), 
+                   "A"),
               Text(
-                extent={{-88,40},{-68,20}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-88,40},{-68,20}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
                    "B")}),
         Diagram(coordinateSystem(
-              preserveAspectRatio=true, 
-              extent={{-100,-100},{100,100}}, 
+              preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}},
               grid={2,2}), graphics),
         Window(
           x=0.2,
@@ -2099,125 +2094,125 @@ The simulation stop time has to be 5s.
 "),      Diagram(graphics),
          Icon(graphics={
               Rectangle(
-                extent={{-90,100},{90,-100}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,170}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{-90,100},{90,-100}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,170},
+                fillPattern=FillPattern.Solid),
               Text(
-                extent={{-80,80},{-40,60}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-80,80},{-40,60}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                      "ENABLE"), 
+                      "ENABLE"),
               Text(
-                extent={{64,80},{86,60}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{64,80},{86,60}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                     "Q2"), 
+                     "Q2"),
               Text(
-                extent={{64,-60},{86,-80}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{64,-60},{86,-80}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                     "Q0"), 
+                     "Q0"),
               Text(
-                extent={{-150,-100},{150,-160}}, 
-                lineColor={0,0,255}, 
-                fillColor={255,255,170}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-150,-100},{150,-160}},
+                lineColor={0,0,255},
+                fillColor={255,255,170},
+                fillPattern=FillPattern.Solid,
                 textString=
-                    "%name"), 
+                    "%name"),
               Text(
-                extent={{-60,40},{60,0}}, 
-                lineColor={0,0,0}, 
-                fillPattern=FillPattern.HorizontalCylinder, 
+                extent={{-60,40},{60,0}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
                 textString=
-                     "Counter3"), 
+                     "Counter3"),
               Text(
-                extent={{-80,-60},{-40,-80}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-80,-60},{-40,-80}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                      "COUNT"), 
+                      "COUNT"),
               Text(
-                extent={{62,8},{84,-12}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{62,8},{84,-12}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
                      "Q1")}));
       D.Interfaces.DigitalInput enable 
                                      annotation (Placement(transformation(
                 extent={{-110,60},{-90,80}}, rotation=0)));
-      D.Interfaces.DigitalOutput q2 annotation (Placement(transformation(extent
-                ={{90,60},{110,80}}, rotation=0)));
+      D.Interfaces.DigitalOutput q2 annotation (Placement(transformation(extent=
+                 {{90,60},{110,80}}, rotation=0)));
       D.Interfaces.DigitalInput count 
                                      annotation (Placement(transformation(
                 extent={{-110,-80},{-90,-60}}, rotation=0)));
       D.Examples.Utilities.JKFF FF1 
-           annotation (Placement(transformation(extent={{-74,-20},{-34,20}}, 
+           annotation (Placement(transformation(extent={{-74,-20},{-34,20}},
                 rotation=0)));
       D.Examples.Utilities.JKFF FF2 
-           annotation (Placement(transformation(extent={{-20,-20},{20,20}}, 
+           annotation (Placement(transformation(extent={{-20,-20},{20,20}},
                 rotation=0)));
       D.Examples.Utilities.JKFF FF3 
-           annotation (Placement(transformation(extent={{34,-20},{74,20}}, 
+           annotation (Placement(transformation(extent={{34,-20},{74,20}},
                 rotation=0)));
-      D.Interfaces.DigitalOutput q1 annotation (Placement(transformation(extent
-                ={{90,-10},{110,10}}, rotation=0)));
-      D.Interfaces.DigitalOutput q0 annotation (Placement(transformation(extent
-                ={{90,-80},{110,-60}}, rotation=0)));
+      D.Interfaces.DigitalOutput q1 annotation (Placement(transformation(extent=
+                 {{90,-10},{110,10}}, rotation=0)));
+      D.Interfaces.DigitalOutput q0 annotation (Placement(transformation(extent=
+                 {{90,-80},{110,-60}}, rotation=0)));
     equation 
       connect(enable, FF1.j)       annotation (Line(
-            points={{-100,70},{-80,70},{-80,14},{-74,14}}, 
-            color={127,0,127}, 
+            points={{-100,70},{-80,70},{-80,14},{-74,14}},
+            color={127,0,127},
             fillPattern=FillPattern.Solid));
       connect(enable, FF1.k)      annotation (Line(
-            points={{-100,70},{-80,70},{-80,-14},{-74,-14}}, 
-            color={127,0,127}, 
+            points={{-100,70},{-80,70},{-80,-14},{-74,-14}},
+            color={127,0,127},
             fillPattern=FillPattern.Solid));
       connect(count, FF1.clk)      annotation (Line(
-            points={{-100,-70},{-86,-70},{-86,0},{-74,0}}, 
-            color={127,0,127}, 
+            points={{-100,-70},{-86,-70},{-86,0},{-74,0}},
+            color={127,0,127},
             fillPattern=FillPattern.Solid));
       connect(FF1.q, FF2.clk)        annotation (Line(
-            points={{-34,14},{-30,14},{-30,0},{-20,0}}, 
-            color={127,0,127}, 
+            points={{-34,14},{-30,14},{-30,0},{-20,0}},
+            color={127,0,127},
             fillPattern=FillPattern.Solid));
       connect(FF2.q, FF3.clk)        annotation (Line(
-            points={{20,14},{24,14},{24,0},{34,0}}, 
-            color={127,0,127}, 
+            points={{20,14},{24,14},{24,0},{34,0}},
+            color={127,0,127},
             fillPattern=FillPattern.Solid));
       connect(FF2.j, enable)       annotation (Line(
-            points={{-20,14},{-26,14},{-26,70},{-100,70}}, 
-            color={127,0,127}, 
+            points={{-20,14},{-26,14},{-26,70},{-100,70}},
+            color={127,0,127},
             fillPattern=FillPattern.Solid));
       connect(FF2.k, FF2.j)         annotation (Line(
-            points={{-20,-14},{-26,-14},{-26,14},{-20,14}}, 
-            color={127,0,127}, 
+            points={{-20,-14},{-26,-14},{-26,14},{-20,14}},
+            color={127,0,127},
             fillPattern=FillPattern.Solid));
       connect(FF3.k, FF3.j)         annotation (Line(
-            points={{34,-14},{28,-14},{28,14},{34,14}}, 
-            color={127,0,127}, 
+            points={{34,-14},{28,-14},{28,14},{34,14}},
+            color={127,0,127},
             fillPattern=FillPattern.Solid));
       connect(FF3.j, enable)       annotation (Line(
-            points={{34,14},{28,14},{28,70},{-100,70}}, 
-            color={127,0,127}, 
+            points={{34,14},{28,14},{28,70},{-100,70}},
+            color={127,0,127},
             fillPattern=FillPattern.Solid));
       connect(FF3.q, q2)     annotation (Line(
-            points={{74,14},{80,14},{80,70},{100,70}}, 
-            color={127,0,127}, 
+            points={{74,14},{80,14},{80,70},{100,70}},
+            color={127,0,127},
             fillPattern=FillPattern.Solid));
       connect(FF1.q, q0) annotation (Line(points={{-34,14},{-30,14},{-30,-70},{
                 100,-70}}, color={127,0,127}));
@@ -2233,68 +2228,68 @@ The simulation stop time has to be 5s.
   
 </HTML>
 "),     Diagram(graphics={Rectangle(
-                extent={{90,80},{110,-80}}, 
-                lineColor={127,0,127}, 
-                fillColor={127,0,127}, 
+                extent={{90,80},{110,-80}},
+                lineColor={127,0,127},
+                fillColor={127,0,127},
                 fillPattern=FillPattern.Solid)}),
         Icon(graphics={
               Rectangle(
-                extent={{90,80},{110,-80}}, 
-                lineColor={127,0,127}, 
-                fillColor={127,0,127}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{90,80},{110,-80}},
+                lineColor={127,0,127},
+                fillColor={127,0,127},
+                fillPattern=FillPattern.Solid),
               Rectangle(
-                extent={{-90,100},{90,-100}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,170}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{-90,100},{90,-100}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,170},
+                fillPattern=FillPattern.Solid),
               Text(
-                extent={{-80,80},{-40,60}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-80,80},{-40,60}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                     "ENABLE"), 
+                     "ENABLE"),
               Text(
-                extent={{66,8},{88,-12}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{66,8},{88,-12}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
-                     "Q"), 
+                     "Q"),
               Text(
-                extent={{-150,-100},{150,-160}}, 
-                lineColor={0,0,255}, 
-                fillColor={255,255,170}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-150,-100},{150,-160}},
+                lineColor={0,0,255},
+                fillColor={255,255,170},
+                fillPattern=FillPattern.Solid,
                 textString=
-                   "%name"), 
+                   "%name"),
               Text(
-                extent={{-40,40},{40,0}}, 
-                lineColor={0,0,0}, 
-                fillPattern=FillPattern.HorizontalCylinder, 
+                extent={{-40,40},{40,0}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
                 textString=
-                     "Counter"), 
+                     "Counter"),
               Text(
-                extent={{-80,-60},{-40,-80}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-80,-60},{-40,-80}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString=
                      "COUNT")}));
       parameter Integer n=3;
       parameter Modelica.SIunits.Time delayTime=0.001;
       parameter D.Interfaces.Logic q0=L.'0';
       D.Interfaces.DigitalInput enable 
-                                    annotation (Placement(transformation(extent
-                ={{-110,60},{-90,80}}, rotation=0)));
+                                    annotation (Placement(transformation(extent=
+                 {{-110,60},{-90,80}}, rotation=0)));
       D.Interfaces.DigitalInput count 
-                                    annotation (Placement(transformation(extent
-                ={{-110,-80},{-90,-60}}, rotation=0)));
+                                    annotation (Placement(transformation(extent=
+                 {{-110,-80},{-90,-60}}, rotation=0)));
       D.Examples.Utilities.JKFF FF[n](each delayTime=delayTime,each q0=q0);
       D.Interfaces.DigitalOutput q[n] annotation (Placement(transformation(
                 extent={{90,-80},{110,80}}, rotation=0)));
@@ -2317,7 +2312,8 @@ This package contains utility components used by package Examples.
  
 </html>"));
   end Utilities;
-    annotation (Icon(graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,-100},{80,50}}, 
             fillColor={235,235,235}, 
@@ -2333,13 +2329,12 @@ This package contains utility components used by package Examples.
           Text(
             extent={{-85,35},{65,-85}}, 
             lineColor={0,0,255}, 
-            textString=
-                 "Library"), 
+            textString="Library"), 
           Text(
             extent={{-120,122},{120,73}}, 
             lineColor={255,0,0}, 
-            textString=
-                 "%name")}),Documentation(info="<html>
+            textString="%name")}),
+                            Documentation(info="<html>
 <p>
 This package contains examples that demonstrate the usage of the
 components of the Electrical.Digital library.
@@ -2383,8 +2378,12 @@ components of the Electrical.Digital library.
 </html>"));
     
     connector DigitalSignal = Logic "Digital port (both input/output possible)"
-      annotation (Icon(graphics),
-                        Diagram(graphics),
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
+              -100,-100},{100,100}}),
+                       graphics),
+                        Diagram(coordinateSystem(preserveAspectRatio=false, 
+            extent={{-100,-100},{100,100}}),
+                                graphics),
       Documentation(info="<html>
  
 </html>"));
@@ -2392,18 +2391,19 @@ components of the Electrical.Digital library.
     connector DigitalInput = input DigitalSignal 
       "input DigitalSignal as connector" 
       annotation (defaultComponentName="x",
-        Icon(graphics={Rectangle(
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics={Rectangle(
             extent={{-100,-100},{100,100}}, 
             lineColor={127,0,127}, 
             fillColor={127,0,127}, 
             fillPattern=FillPattern.Solid)}),
-        Diagram(graphics={Text(
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+              {100,100}}), graphics={Text(
             extent={{-150,-100},{150,-160}}, 
             lineColor={127,0,127}, 
             fillColor={127,0,127}, 
             fillPattern=FillPattern.Solid, 
-            textString=
-                 "%name"), Rectangle(
+            textString="%name"), Rectangle(
             extent={{-100,-100},{100,100}}, 
             lineColor={127,0,127}, 
             fillColor={127,0,127}, 
@@ -2414,20 +2414,23 @@ components of the Electrical.Digital library.
     
     connector DigitalOutput = output DigitalSignal 
       "output DigitalSignal as connector" 
-      annotation (defaultComponentName="y", Icon(graphics={Polygon(
+      annotation (defaultComponentName="y", Icon(coordinateSystem(
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
+          graphics={Polygon(
             points={{-100,100},{100,0},{-100,-100},{-100,100}}, 
             lineColor={127,0,127}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid)}),
-                                       Diagram(graphics={Polygon(
+                                       Diagram(coordinateSystem(
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
+          graphics={Polygon(
             points={{-100,100},{100,0},{-100,-100},{-100,100}}, 
             lineColor={127,0,127}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), Text(
             extent={{-150,-100},{150,-160}}, 
             lineColor={127,0,127}, 
-            textString=
-                 "%name")}));
+            textString="%name")}));
     
     partial block SISO "Single input, single output" 
       import D = Modelica.Electrical.Digital;
@@ -2437,8 +2440,9 @@ components of the Electrical.Digital library.
       D.Interfaces.DigitalOutput y "Connector of Digital output signal" 
                     annotation (Placement(transformation(extent={{90,-10},{110,
                 10}}, rotation=0)));
-      annotation (Diagram(graphics),                                          Icon(graphics
-            ={Rectangle(
+      annotation (Diagram(graphics),                                          Icon(
+            coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={Rectangle(
               extent={{-50,100},{50,-100}}, 
               lineColor={0,0,0}, 
               lineThickness=2, 
@@ -2460,7 +2464,8 @@ components of the Electrical.Digital library.
       D.Interfaces.DigitalOutput y "Connector of Digital output signal" 
                     annotation (Placement(transformation(extent={{90,-10},{110,
                 10}}, rotation=0)));
-      annotation (Icon(graphics={Rectangle(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
+                -100,-100},{100,100}}), graphics={Rectangle(
               extent={{-50,100},{50,-100}}, 
               lineColor={0,0,0}, 
               lineThickness=2, 
@@ -2473,7 +2478,8 @@ components of the Electrical.Digital library.
 </html>"));
     end MISO;
     
-    annotation (Icon(graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,-100},{80,50}}, 
             fillColor={235,235,235}, 
@@ -2489,13 +2495,12 @@ components of the Electrical.Digital library.
           Text(
             extent={{-85,35},{65,-85}}, 
             lineColor={0,0,255}, 
-            textString=
-                 "Library"), 
+            textString="Library"), 
           Text(
             extent={{-120,122},{120,73}}, 
             lineColor={255,0,0}, 
-            textString=
-                 "%name")}),Documentation(info="<html>
+            textString="%name")}),
+                            Documentation(info="<html>
 <p>
 This package contains interface definitions
 (connectors) digital electrical components.
@@ -2567,7 +2572,8 @@ This package contains interface definitions
         1, 1, 0, 1, 1, 1, 0, 1, 1;
         -1, -1, -1, 0, -1, -1, -1, 0, -1;
         0, 0, -1, 1, 0, 0, -1, 1, 0];
-    annotation (Icon(graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,-100},{80,50}}, 
             fillColor={235,235,235}, 
@@ -2583,13 +2589,12 @@ This package contains interface definitions
           Text(
             extent={{-85,35},{65,-85}}, 
             lineColor={0,0,255}, 
-            textString=
-                 "Library"), 
+            textString="Library"), 
           Text(
             extent={{-120,122},{120,73}}, 
             lineColor={255,0,0}, 
-            textString=
-                 "%name")}),Documentation(info="<html>
+            textString="%name")}),
+                            Documentation(info="<html>
  
 </html>"));
   end Tables;
@@ -2637,40 +2642,40 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
 </HTML>"),
     Icon(graphics={
             Text(
-              extent={{152,-160},{-148,-100}}, 
-              lineColor={0,0,255}, 
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
               textString=
-                   "%name"), 
+                   "%name"),
             Rectangle(
-              extent={{-50,100},{50,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={213,170,255}, 
-              fillPattern=FillPattern.Solid), 
-            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}), 
-              
+              extent={{-50,100},{50,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid),
+            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
             Line(
-              points={{0,60},{20,60}}, 
-              color={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{0,60},{20,60}},
+              color={0,0,0},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{10,60},{10,40}}, 
-              color={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{10,60},{10,40}},
+              color={0,0,0},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-50,-40},{50,-20}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillPattern=FillPattern.Solid, 
+              extent={{-50,-40},{50,-20}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillPattern=FillPattern.Solid,
               textString=
-                   "Transport"), 
+                   "Transport"),
             Text(
-              extent={{-50,-60},{50,-40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillPattern=FillPattern.Solid, 
+              extent={{-50,-60},{50,-40}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillPattern=FillPattern.Solid,
               textString=
                    "Delay")}));
+      
     end TransportDelay;
     
     block InertialDelay "Inertial delay with initial parameter" 
@@ -2714,40 +2719,40 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
         Diagram(graphics),
         Icon(graphics={
             Text(
-              extent={{152,-160},{-148,-100}}, 
-              lineColor={0,0,255}, 
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
               textString=
-                   "%name"), 
+                   "%name"),
             Rectangle(
-              extent={{-50,100},{50,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={213,170,255}, 
-              fillPattern=FillPattern.Solid), 
-            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}), 
-              
+              extent={{-50,100},{50,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid),
+            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
             Line(
-              points={{10,60},{10,40}}, 
-              color={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{10,60},{10,40}},
+              color={0,0,0},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{0,60},{20,60}}, 
-              color={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{0,60},{20,60}},
+              color={0,0,0},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-50,-40},{50,-20}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillPattern=FillPattern.Solid, 
+              extent={{-50,-40},{50,-20}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillPattern=FillPattern.Solid,
               textString=
-                   "Inertial"), 
+                   "Inertial"),
             Text(
-              extent={{-50,-60},{50,-40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillPattern=FillPattern.Solid, 
+              extent={{-50,-60},{50,-40}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillPattern=FillPattern.Solid,
               textString=
                    "Delay")}));
+      
     end InertialDelay;
     
     model InertialDelaySensitive 
@@ -2810,49 +2815,50 @@ is used, if it is zero, the input is not delayed.
         Diagram(graphics),
         Icon(graphics={
             Text(
-              extent={{152,-160},{-148,-100}}, 
-              lineColor={0,0,255}, 
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
               textString=
-                   "%name"), 
+                   "%name"),
             Rectangle(
-              extent={{-50,100},{50,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={213,170,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-50,100},{50,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-50,-40},{50,-20}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillPattern=FillPattern.Solid, 
+              extent={{-50,-40},{50,-20}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillPattern=FillPattern.Solid,
               textString=
-                   "Inertial"), 
+                   "Inertial"),
             Text(
-              extent={{-50,-60},{50,-40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillPattern=FillPattern.Solid, 
+              extent={{-50,-60},{50,-40}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillPattern=FillPattern.Solid,
               textString=
-                   "Delay"), 
+                   "Delay"),
             Text(
-              extent={{-50,-80},{50,-60}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillPattern=FillPattern.Solid, 
+              extent={{-50,-80},{50,-60}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillPattern=FillPattern.Solid,
               textString=
-                   "sensitive"), 
-            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}), 
-              
+                   "sensitive"),
+            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
             Line(
-              points={{10,60},{10,40}}, 
-              color={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{10,60},{10,40}},
+              color={0,0,0},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{0,60},{20,60}}, 
-              color={0,0,0}, 
+              points={{0,60},{20,60}},
+              color={0,0,0},
               fillPattern=FillPattern.Solid)}));
+      
     end InertialDelaySensitive;
-    annotation (Icon(graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,-100},{80,50}}, 
             fillColor={235,235,235}, 
@@ -2868,13 +2874,12 @@ is used, if it is zero, the input is not delayed.
           Text(
             extent={{-85,35},{65,-85}}, 
             lineColor={0,0,255}, 
-            textString=
-                 "Library"), 
+            textString="Library"), 
           Text(
             extent={{-120,122},{120,73}}, 
             lineColor={255,0,0}, 
-            textString=
-                 "%name")}),Documentation(info="<html>
+            textString="%name")}),
+                            Documentation(info="<html>
   
 </html>"));
   end Delay;
@@ -2906,19 +2911,18 @@ Not with 1 input value, without delay.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Text(
               extent={{-50,40},{50,80}}, 
               lineColor={0,0,0}, 
               lineThickness=2, 
               fillPattern=FillPattern.Solid, 
-              textString=
-                   "1"), 
+              textString="1"), 
             Text(
               extent={{152,-160},{-148,-100}}, 
               lineColor={0,0,255}, 
-              textString=
-                   "%name"), 
+              textString="%name"), 
             Ellipse(
               extent={{50,6},{62,-6}}, 
               lineColor={0,0,0}, 
@@ -2956,17 +2960,16 @@ And with n input values, without delay.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(graphics={Text(
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={Text(
               extent={{-50,40},{50,80}}, 
               lineColor={0,0,0}, 
               lineThickness=2, 
               fillPattern=FillPattern.Solid, 
-              textString=
-                   "&"), Text(
+              textString="&"), Text(
               extent={{152,-160},{-148,-100}}, 
               lineColor={0,0,255}, 
-              textString=
-                   "%name")}),
+              textString="%name")}),
         Diagram(graphics));
     end And;
     
@@ -2998,19 +3001,18 @@ Nand with n input values, without delay.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Text(
               extent={{-50,40},{50,80}}, 
               lineColor={0,0,0}, 
               lineThickness=2, 
               fillPattern=FillPattern.Solid, 
-              textString=
-                   "&"), 
+              textString="&"), 
             Text(
               extent={{152,-160},{-148,-100}}, 
               lineColor={0,0,255}, 
-              textString=
-                   "%name"), 
+              textString="%name"), 
             Ellipse(
               extent={{50,6},{62,-6}}, 
               lineColor={0,0,0}, 
@@ -3048,17 +3050,16 @@ Or with n input values, without delay.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(graphics={Text(
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={Text(
               extent={{-50,40},{50,80}}, 
               lineColor={0,0,0}, 
               lineThickness=2, 
               fillPattern=FillPattern.Solid, 
-              textString=
-                   ">=1"), Text(
+              textString=">=1"), Text(
               extent={{152,-160},{-148,-100}}, 
               lineColor={0,0,255}, 
-              textString=
-                   "%name")}),
+              textString="%name")}),
         Diagram(graphics));
     end Or;
     
@@ -3090,19 +3091,18 @@ Nor with n input values, without delay.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Text(
               extent={{-50,40},{50,80}}, 
               lineColor={0,0,0}, 
               lineThickness=2, 
               fillPattern=FillPattern.Solid, 
-              textString=
-                   ">=1"), 
+              textString=">=1"), 
             Text(
               extent={{152,-160},{-148,-100}}, 
               lineColor={0,0,255}, 
-              textString=
-                   "%name"), 
+              textString="%name"), 
             Ellipse(
               extent={{50,6},{62,-6}}, 
               lineColor={0,0,0}, 
@@ -3140,17 +3140,16 @@ Xor with n input values, without delay.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(graphics={Text(
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={Text(
               extent={{-50,40},{50,80}}, 
               lineColor={0,0,0}, 
               lineThickness=2, 
               fillPattern=FillPattern.Solid, 
-              textString=
-                   "=1"), Text(
+              textString="=1"), Text(
               extent={{152,-160},{-148,-100}}, 
               lineColor={0,0,255}, 
-              textString=
-                   "%name")}),
+              textString="%name")}),
         Diagram(graphics));
     end Xor;
     
@@ -3182,20 +3181,20 @@ XNor with n input values, without delay.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(graphics={Text(
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={Text(
               extent={{-50,40},{50,80}}, 
               lineColor={0,0,0}, 
               lineThickness=2, 
               fillPattern=FillPattern.Solid, 
-              textString=
-                   "="), Text(
+              textString="="), Text(
               extent={{152,-160},{-148,-100}}, 
               lineColor={0,0,255}, 
-              textString=
-                   "%name")}),
+              textString="%name")}),
         Diagram(graphics));
     end Xnor;
-    annotation (Icon(graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,-100},{80,50}}, 
             fillColor={235,235,235}, 
@@ -3211,13 +3210,12 @@ XNor with n input values, without delay.
           Text(
             extent={{-85,35},{65,-85}}, 
             lineColor={0,0,255}, 
-            textString=
-                 "Library"), 
+            textString="Library"), 
           Text(
             extent={{-120,122},{120,73}}, 
             lineColor={255,0,0}, 
-            textString=
-                 "%name")}),Documentation(info="<html>
+            textString="%name")}),
+                            Documentation(info="<html>
   
 </html>"));
   end Basic;
@@ -3232,7 +3230,7 @@ XNor with n input values, without delay.
       D.Basic.Not G1         annotation (Placement(transformation(extent={{-60,
                 -20},{-20,20}}, rotation=0)));
       D.Delay.InertialDelaySensitive G2(tLH=tLH, tHL=tHL) 
-        annotation (Placement(transformation(extent={{20,-20},{60,20}}, 
+        annotation (Placement(transformation(extent={{20,-20},{60,20}},
               rotation=0)));
       annotation (
         Documentation(info="<HTML>
@@ -3253,34 +3251,34 @@ InvGate with 1 input value, composed by Not and sensitive intertial delay.
         Diagram(graphics),
         Icon(graphics={
             Text(
-              extent={{152,-160},{-148,-100}}, 
-              lineColor={0,0,255}, 
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
               textString=
-                   "%name"), 
+                   "%name"),
             Rectangle(
-              extent={{-50,100},{50,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={213,170,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-50,100},{50,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-50,80},{50,40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,191,127}, 
-              fillPattern=FillPattern.Solid, 
+              extent={{-50,80},{50,40}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,191,127},
+              fillPattern=FillPattern.Solid,
               textString=
-                   "1"), 
+                   "1"),
             Text(
-              extent={{-18,-60},{20,-100}}, 
-              lineColor={0,0,0}, 
+              extent={{-18,-60},{20,-100}},
+              lineColor={0,0,0},
               textString=
-                   "Gate"), 
+                   "Gate"),
             Ellipse(
-              extent={{50,6},{62,-6}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,255}, 
+              extent={{50,6},{62,-6}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}));
     equation 
       connect(G2.y, y)                      annotation (Line(points={{60,0},{
@@ -3300,7 +3298,7 @@ InvGate with 1 input value, composed by Not and sensitive intertial delay.
       D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
         tHL=tHL,
-        y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}}, 
+        y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
               rotation=0)));
       annotation (
         Documentation(info="<HTML>
@@ -3320,26 +3318,26 @@ AndGate with n input values, composed by And and sensitive intertial delay.
 </HTML>"),
         Icon(graphics={
             Text(
-              extent={{152,-160},{-148,-100}}, 
-              lineColor={0,0,255}, 
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
               textString=
-                   "%name"), 
+                   "%name"),
             Rectangle(
-              extent={{-50,100},{50,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={213,170,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-50,100},{50,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-50,80},{50,40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
+              extent={{-50,80},{50,40}},
+              lineColor={0,0,0},
+              lineThickness=2,
               textString=
-                   "&"), 
+                   "&"),
             Text(
-              extent={{-20,-60},{20,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
+              extent={{-20,-60},{20,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
               textString=
                    "Gate")}),
         Diagram(graphics));
@@ -3359,34 +3357,34 @@ AndGate with n input values, composed by And and sensitive intertial delay.
       annotation (extent=[0, -20; 40, 20], Diagram(graphics),
         Icon(graphics={
             Text(
-              extent={{152,-160},{-148,-100}}, 
-              lineColor={0,0,255}, 
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
               textString=
-                   "%name"), 
+                   "%name"),
             Rectangle(
-              extent={{-50,100},{50,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={213,170,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-50,100},{50,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-40,40},{40,80}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillPattern=FillPattern.Solid, 
+              extent={{-40,40},{40,80}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillPattern=FillPattern.Solid,
               textString=
-                   "&"), 
+                   "&"),
             Text(
-              extent={{-20,-60},{20,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
+              extent={{-20,-60},{20,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
               textString=
-                   "Gate"), 
+                   "Gate"),
             Ellipse(
-              extent={{50,6},{62,-6}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,255}, 
+              extent={{50,6},{62,-6}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
         Documentation(revisions="<HTML>
 <ul>
@@ -3401,7 +3399,7 @@ AndGate with n input values, composed by And and sensitive intertial delay.
 <P>
 NandGate with n input values, composed by Nand and sensitive intertial delay.
 </P>
-</HTML>"), 
+</HTML>"),
         Placement(transformation(extent={{0,-20},{40,20}}, rotation=0)));
       annotation (
         Documentation(info="<HTML>
@@ -3429,12 +3427,12 @@ NandGate with n input values, composed by Nand and sensitive intertial delay.
             string="Gate"),
           Ellipse(extent=[60, -10; 40, 10], style(color=0, thickness=2))),
         Diagram);
-      D.Basic.Nand G1(final n)      annotation (Placement(transformation(extent
-              ={{-40,-20},{0,20}}, rotation=0)));
+      D.Basic.Nand G1(final n)      annotation (Placement(transformation(extent=
+               {{-40,-20},{0,20}}, rotation=0)));
       D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
         tHL=tHL,
-        y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}}, 
+        y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
               rotation=0)));
     equation 
       connect(x, G1.x) 
@@ -3454,7 +3452,7 @@ NandGate with n input values, composed by Nand and sensitive intertial delay.
       D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
         tHL=tHL,
-        y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}}, 
+        y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
               rotation=0)));
       annotation (
         Documentation(info="<HTML>
@@ -3474,26 +3472,26 @@ OrGate with n input values, composed by Or and sensitive intertial delay.
 </HTML>"),
         Icon(graphics={
             Text(
-              extent={{152,-160},{-148,-100}}, 
-              lineColor={0,0,255}, 
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
               textString=
-                   "%name"), 
+                   "%name"),
             Rectangle(
-              extent={{-50,100},{50,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={213,170,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-50,100},{50,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-50,80},{50,40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
+              extent={{-50,80},{50,40}},
+              lineColor={0,0,0},
+              lineThickness=2,
               textString=
-                   ">=1"), 
+                   ">=1"),
             Text(
-              extent={{-20,-60},{20,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
+              extent={{-20,-60},{20,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
               textString=
                    "Gate")}),
         Diagram(graphics));
@@ -3515,7 +3513,7 @@ OrGate with n input values, composed by Or and sensitive intertial delay.
       D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
         tHL=tHL,
-        y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}}, 
+        y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
               rotation=0)));
       annotation (
         Documentation(info="<HTML>
@@ -3535,33 +3533,33 @@ NorGate with n input values, composed by Nor and sensitive intertial delay.
 </HTML>"),
         Icon(graphics={
             Text(
-              extent={{152,-160},{-148,-100}}, 
-              lineColor={0,0,255}, 
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
               textString=
-                   "%name"), 
+                   "%name"),
             Rectangle(
-              extent={{-50,100},{50,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={213,170,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-50,100},{50,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-50,80},{50,40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
+              extent={{-50,80},{50,40}},
+              lineColor={0,0,0},
+              lineThickness=2,
               textString=
-                   ">=1"), 
+                   ">=1"),
             Text(
-              extent={{-20,-60},{20,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
+              extent={{-20,-60},{20,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
               textString=
-                   "Gate"), 
+                   "Gate"),
             Ellipse(
-              extent={{50,6},{62,-6}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,255}, 
+              extent={{50,6},{62,-6}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
         Diagram(graphics));
     equation 
@@ -3582,7 +3580,7 @@ NorGate with n input values, composed by Nor and sensitive intertial delay.
       D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
         tHL=tHL,
-        y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}}, 
+        y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
               rotation=0)));
       annotation (
         Documentation(info="<HTML>
@@ -3602,26 +3600,26 @@ XorGate with n input values, composed by Xor and sensitive intertial delay.
 </HTML>"),
         Icon(graphics={
             Text(
-              extent={{152,-160},{-148,-100}}, 
-              lineColor={0,0,255}, 
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
               textString=
-                   "%name"), 
+                   "%name"),
             Rectangle(
-              extent={{-50,100},{50,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={213,170,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-50,100},{50,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-50,80},{50,40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
+              extent={{-50,80},{50,40}},
+              lineColor={0,0,0},
+              lineThickness=2,
               textString=
-                   "=1"), 
+                   "=1"),
             Text(
-              extent={{-20,-60},{20,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
+              extent={{-20,-60},{20,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
               textString=
                    "Gate")}),
         Diagram(graphics));
@@ -3638,12 +3636,12 @@ XorGate with n input values, composed by Xor and sensitive intertial delay.
       import D = Modelica.Electrical.Digital;
       extends D.Delay.DelayParams;
       extends D.Interfaces.MISO;
-      D.Basic.Xnor G1(final n)      annotation (Placement(transformation(extent
-              ={{-40,-20},{0,20}}, rotation=0)));
+      D.Basic.Xnor G1(final n)      annotation (Placement(transformation(extent=
+               {{-40,-20},{0,20}}, rotation=0)));
       D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
         tHL=tHL,
-        y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}}, 
+        y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
               rotation=0)));
       annotation (
         Documentation(info="<HTML>
@@ -3663,26 +3661,26 @@ XNorGate with n input values, composed by XNor and sensitive intertial delay.
 </HTML>"),
         Icon(graphics={
             Text(
-              extent={{152,-160},{-148,-100}}, 
-              lineColor={0,0,255}, 
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
               textString=
-                   "%name"), 
+                   "%name"),
             Rectangle(
-              extent={{-50,100},{50,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={213,170,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-50,100},{50,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-40,80},{40,40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
+              extent={{-40,80},{40,40}},
+              lineColor={0,0,0},
+              lineThickness=2,
               textString=
-                   "="), 
+                   "="),
             Text(
-              extent={{-20,-60},{20,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
+              extent={{-20,-60},{20,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
               textString=
                    "Gate")}),
         Diagram(graphics));
@@ -3701,7 +3699,7 @@ XNorGate with n input values, composed by XNor and sensitive intertial delay.
       extends D.Delay.DelayParams;
       extends D.Interfaces.SISO;
       D.Delay.InertialDelaySensitive G1(tLH=tLH, tHL=tHL) 
-        annotation (Placement(transformation(extent={{-30,-20},{10,20}}, 
+        annotation (Placement(transformation(extent={{-30,-20},{10,20}},
               rotation=0)));
       annotation (
         Documentation(info="<HTML>
@@ -3722,27 +3720,27 @@ BufGate with 1 input value, composed by Not and sensitive intertial delay.
         Diagram(graphics),
         Icon(graphics={
             Text(
-              extent={{152,-160},{-148,-100}}, 
-              lineColor={0,0,255}, 
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
               textString=
-                   "%name"), 
+                   "%name"),
             Rectangle(
-              extent={{-50,100},{50,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={213,170,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-50,100},{50,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-18,-60},{20,-100}}, 
-              lineColor={0,0,0}, 
+              extent={{-18,-60},{20,-100}},
+              lineColor={0,0,0},
               textString=
-                   "Gate"), 
+                   "Gate"),
             Text(
-              extent={{-50,80},{50,40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,191,127}, 
-              fillPattern=FillPattern.Solid, 
+              extent={{-50,80},{50,40}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,191,127},
+              fillPattern=FillPattern.Solid,
               textString=
                    "1")}));
     equation 
@@ -3751,7 +3749,8 @@ BufGate with 1 input value, composed by Not and sensitive intertial delay.
       connect(G1.x, x) annotation (Line(points={{-22,0},{-60,0}}, color={127,0,
               127}));
     end BufGate;
-    annotation (Icon(graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,-100},{80,50}}, 
             fillColor={235,235,235}, 
@@ -3767,13 +3766,12 @@ BufGate with 1 input value, composed by Not and sensitive intertial delay.
           Text(
             extent={{-85,35},{65,-85}}, 
             lineColor={0,0,255}, 
-            textString=
-                 "Library"), 
+            textString="Library"), 
           Text(
             extent={{-120,122},{120,73}}, 
             lineColor={255,0,0}, 
-            textString=
-                 "%name")}),Documentation(info="<html>
+            textString="%name")}),
+                            Documentation(info="<html>
   
 </html>"));
   end Gates;
@@ -3831,7 +3829,8 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
        initially modelled.</li>
 </ul>
 </HTML>"),
-    Icon(graphics={
+    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics={
             Rectangle(
               extent={{-50,100},{50,-100}}, 
               lineColor={0,0,0}, 
@@ -3843,13 +3842,11 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
               lineColor={0,0,0}, 
               lineThickness=2, 
               fillPattern=FillPattern.Solid, 
-              textString=
-                   "SET"), 
+              textString="SET"), 
             Text(
               extent={{152,-160},{-148,-100}}, 
               lineColor={0,0,255}, 
-              textString=
-                   "%name"), 
+              textString="%name"), 
             Line(points={{50,0},{90,0}}, color={127,0,127})}));
     end Set;
     
@@ -3914,7 +3911,8 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Rectangle(
               extent={{-50,100},{50,-100}}, 
               lineColor={0,0,0}, 
@@ -3924,8 +3922,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
             Text(
               extent={{152,-160},{-148,-100}}, 
               lineColor={0,0,255}, 
-              textString=
-                   "%name"), 
+              textString="%name"), 
             Line(
               points={{-30,40},{0,40},{0,80},{30,80}}, 
               color={0,0,0}, 
@@ -4002,7 +3999,8 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Rectangle(
               extent={{-50,100},{50,-100}}, 
               lineColor={0,0,0}, 
@@ -4012,8 +4010,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
             Text(
               extent={{152,-160},{-148,-100}}, 
               lineColor={0,0,255}, 
-              textString=
-                   "%name"), 
+              textString="%name"), 
             Line(points={{50,0},{90,0}}, color={127,0,127}), 
             Rectangle(
               extent={{-30,80},{32,70}}, 
@@ -4052,32 +4049,18 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
       parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small)=
            1 "Time for one period";
       parameter Modelica.SIunits.Time startTime=0 
-        "Output = offset for time < startTime";
+        "Output = quiet for time < startTime";
       parameter D.Interfaces.Logic pulse=L.'0';
       parameter D.Interfaces.Logic quiet=L.'1';
       Modelica.SIunits.Time T0(final start=startTime) 
         "Start time of current period";
       parameter Integer nperiod=-1 
         "Number of periods (< 0 means infinite number of periods)";
-      Integer np(start=0);
+      Integer np(start=0, fixed=true);
       D.Interfaces.DigitalOutput y 
                     annotation (Placement(transformation(extent={{90,-10},{110,
                 10}}, rotation=0)));
-    algorithm 
-      if nperiod == 0 then
-        y := quiet;
-      elseif (nperiod >= np) or (nperiod < 0) then
-        when sample(startTime, period) then
-          T0 := time;
-          if (nperiod > 0) then
-            np := np + 1;
-          end if;
-        end when;
-        y := if (time < startTime or time >= T0 + ((width*period)/
-          100)) or not (nperiod >= np or nperiod < 0) then quiet else pulse;
-      else
-        y := quiet;
-      end if;
+      
       annotation (Documentation(info="<HTML>
 <P>
 The pulse source forms pulses between the  <i>quiet</i> value and the <i>pulse</i> value.
@@ -4110,7 +4093,8 @@ If the logic values are imported by <br><b> import L = Modelica.Electrical.Digit
 they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
 </P>
 </HTML>
-", revisions="<HTML>
+",     revisions=
+             "<HTML>
 <ul>
 <li><i>   </i>
        by ...<br>
@@ -4120,7 +4104,8 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
        initially modelled.</li>
 </ul>
 </HTML>"),
-    Icon(graphics={
+    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
+            graphics={
             Rectangle(
               extent={{-50,100},{50,-100}}, 
               lineColor={0,0,0}, 
@@ -4130,15 +4115,47 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
             Text(
               extent={{152,-160},{-148,-100}}, 
               lineColor={0,0,255}, 
-              textString=
-                   "%name"), 
+              textString="%name"), 
             Line(points={{50,0},{90,0}}, color={127,0,127}), 
             Line(
-              points={{-36,40},{-30,40},{-30,40},{-18,40},{-18,40},{-14,40},{
-                  -14,80},{14,80},{14,40},{14,40},{14,40},{28,40},{30,40},{36,
-                  40}}, 
+              points={{-36,40},{-30,40},{-30,40},{-18,40},{-18,40},{-14,40},{-14,
+                  80},{14,80},{14,40},{14,40},{14,40},{28,40},{30,40},{36,40}}, 
+                
               color={0,0,0}, 
               fillPattern=FillPattern.Solid)}));
+      
+    /*
+algorithm 
+  if nperiod == 0 then
+    y := quiet;
+  elseif (nperiod >= np) or (nperiod < 0) then
+    when sample(startTime, period) then
+      T0 := time;
+      if (nperiod > 0) then
+        np := np + 1;
+      end if;
+    end when;
+    y := if (time < startTime or time >= T0 + ((width*period)/
+      100)) or not (nperiod >= np or nperiod < 0) then quiet else pulse;
+  else
+    y := quiet;
+  end if;
+*/
+    protected 
+      Boolean sampling;
+    equation 
+      sampling = nperiod <> 0 and (nperiod >= pre(np) or nperiod < 0);
+      
+      when sampling and sample(startTime, period) then
+         T0 = time;
+         np = if nperiod > 0 then pre(np) + 1 else pre(np);
+      end when;
+      
+      if sampling then
+         y = if time < startTime or time >= T0 + ((width*period)/100) then quiet else pulse;
+      else
+         y = quiet;
+      end if;
     end Pulse;
     
     model Clock "Digital Clock Source" 
@@ -4182,7 +4199,8 @@ The number of periods is unlimited. The first pulse starts at startTime.
        initially modelled.</li>
 </ul>
 </HTML>"),
-    Icon(graphics={
+    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics={
             Rectangle(
               extent={{-50,100},{50,-100}}, 
               lineColor={0,0,0}, 
@@ -4192,8 +4210,7 @@ The number of periods is unlimited. The first pulse starts at startTime.
             Text(
               extent={{152,-160},{-148,-100}}, 
               lineColor={0,0,255}, 
-              textString=
-                   "%name"), 
+              textString="%name"), 
             Line(points={{50,0},{90,0}}, color={127,0,127}), 
             Line(
               points={{-36,40},{-30,40},{-30,80},{-18,80},{-18,40},{-6,40},{-6,
@@ -4201,7 +4218,8 @@ The number of periods is unlimited. The first pulse starts at startTime.
               color={0,0,0}, 
               fillPattern=FillPattern.Solid)}));
     end Clock;
-    annotation (Icon(graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,-100},{80,50}}, 
             fillColor={235,235,235}, 
@@ -4217,13 +4235,12 @@ The number of periods is unlimited. The first pulse starts at startTime.
           Text(
             extent={{-85,35},{65,-85}}, 
             lineColor={0,0,255}, 
-            textString=
-                 "Library"), 
+            textString="Library"), 
           Text(
             extent={{-120,122},{120,73}}, 
             lineColor={255,0,0}, 
-            textString=
-                 "%name")}),Documentation(info="<html>
+            textString="%name")}),
+                            Documentation(info="<html>
   
 </html>"));
   end Sources;
@@ -4278,30 +4295,30 @@ If the signal width is greater than 1 this conversion is done for each signal.
 </HTML>
 "),     Icon(graphics={
             Text(
-              extent={{152,-100},{-148,-40}}, 
-              lineColor={0,0,255}, 
+              extent={{152,-100},{-148,-40}},
+              lineColor={0,0,255},
               textString=
-                   "%name"), 
+                   "%name"),
             Polygon(
-              points={{-40,-40},{-40,40},{40,40},{-40,-40}}, 
-              lineColor={127,0,127}, 
-              fillColor={127,0,127}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-40,-40},{-40,40},{40,40},{-40,-40}},
+              lineColor={127,0,127},
+              fillColor={127,0,127},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{-40,-40},{40,-40},{40,40},{-40,-40}}, 
-              lineColor={127,0,127}, 
-              lineThickness=2, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-40,-40},{40,-40},{40,40},{-40,-40}},
+              lineColor={127,0,127},
+              lineThickness=2,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{0,-20},{40,-40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
+              extent={{0,-20},{40,-40}},
+              lineColor={0,0,0},
+              lineThickness=2,
               textString=
-                   "X01"), 
+                   "X01"),
             Rectangle(
-              extent={{-40,40},{40,-40}}, 
-              lineColor={0,0,0}, 
+              extent={{-40,40},{40,-40}},
+              lineColor={0,0,0},
               lineThickness=2)}),
         Diagram(graphics));
     end LogicToXO1;
@@ -4355,30 +4372,30 @@ If the signal width is greater than 1 this conversion is done for each signal.
 </HTML>"),
         Icon(graphics={
             Text(
-              extent={{152,-100},{-148,-40}}, 
-              lineColor={0,0,255}, 
+              extent={{152,-100},{-148,-40}},
+              lineColor={0,0,255},
               textString=
-                   "%name"), 
+                   "%name"),
             Polygon(
-              points={{-40,-40},{-40,40},{40,40},{-40,-40}}, 
-              lineColor={127,0,127}, 
-              fillColor={127,0,127}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-40,-40},{-40,40},{40,40},{-40,-40}},
+              lineColor={127,0,127},
+              fillColor={127,0,127},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{-40,-40},{40,-40},{40,40},{-40,-40}}, 
-              lineColor={127,0,127}, 
-              lineThickness=2, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-40,-40},{40,-40},{40,40},{-40,-40}},
+              lineColor={127,0,127},
+              lineThickness=2,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{0,-20},{40,-40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
+              extent={{0,-20},{40,-40}},
+              lineColor={0,0,0},
+              lineThickness=2,
               textString=
-                   "X01Z"), 
+                   "X01Z"),
             Rectangle(
-              extent={{-40,40},{40,-40}}, 
-              lineColor={0,0,0}, 
+              extent={{-40,40},{40,-40}},
+              lineColor={0,0,0},
               lineThickness=2)}),
         Diagram(graphics));
     end LogicToXO1Z;
@@ -4432,30 +4449,30 @@ If the signal width is greater than 1 this conversion is done for each signal.
 </HTML>"),
         Icon(graphics={
             Text(
-              extent={{152,-100},{-148,-40}}, 
-              lineColor={0,0,255}, 
+              extent={{152,-100},{-148,-40}},
+              lineColor={0,0,255},
               textString=
-                   "%name"), 
+                   "%name"),
             Polygon(
-              points={{-40,-40},{-40,40},{40,40},{-40,-40}}, 
-              lineColor={127,0,127}, 
-              fillColor={127,0,127}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-40,-40},{-40,40},{40,40},{-40,-40}},
+              lineColor={127,0,127},
+              fillColor={127,0,127},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{-40,-40},{40,-40},{40,40},{-40,-40}}, 
-              lineColor={127,0,127}, 
-              lineThickness=2, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-40,-40},{40,-40},{40,40},{-40,-40}},
+              lineColor={127,0,127},
+              lineThickness=2,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{0,-20},{40,-40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
+              extent={{0,-20},{40,-40}},
+              lineColor={0,0,0},
+              lineThickness=2,
               textString=
-                   "UX01"), 
+                   "UX01"),
             Rectangle(
-              extent={{-40,40},{40,-40}}, 
-              lineColor={0,0,0}, 
+              extent={{-40,40},{40,-40}},
+              lineColor={0,0,0},
               lineThickness=2)}),
         Diagram(graphics));
     end LogicToUX01;
@@ -4463,7 +4480,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
     block BooleanToLogic "Boolean to Logic converter" 
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
       Modelica.Blocks.Interfaces.BooleanInput x[n] 
-        annotation (Placement(transformation(extent={{-60,-10},{-40,10}}, 
+        annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
               rotation=0)));
       annotation (
         Documentation(info="<HTML>
@@ -4492,29 +4509,29 @@ If the signal width is greater than 1 this conversion is done for each signal.
         extent=[-60, -10; -40, 10],
         Icon(graphics={
             Polygon(
-              points={{-40,-40},{40,40},{40,-40},{-40,-40}}, 
-              lineColor={127,0,127}, 
-              fillColor={127,0,127}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-40,-40},{40,40},{40,-40},{-40,-40}},
+              lineColor={127,0,127},
+              fillColor={127,0,127},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{-40,40},{40,40},{-40,-40},{-40,40}}, 
-              lineColor={255,0,255}, 
-              fillColor={255,0,255}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-40,40},{40,40},{-40,-40},{-40,40}},
+              lineColor={255,0,255},
+              fillColor={255,0,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{152,-100},{-148,-40}}, 
-              lineColor={0,0,255}, 
+              extent={{152,-100},{-148,-40}},
+              lineColor={0,0,255},
               textString=
-                   "%name"), 
+                   "%name"),
             Rectangle(
-              extent={{-40,40},{40,-40}}, 
-              lineColor={0,0,0}, 
+              extent={{-40,40},{40,-40}},
+              lineColor={0,0,0},
               lineThickness=2)}),
-        Diagram(graphics), 
+        Diagram(graphics),
         Placement(transformation(extent={{-60,-10},{-40,10}}, rotation=0)));
       
       Digital.Interfaces.DigitalOutput y[n] 
-        annotation (Placement(transformation(extent={{40,-10},{60,10}}, 
+        annotation (Placement(transformation(extent={{40,-10},{60,10}},
               rotation=0)));
       annotation (extent=[40, -10; 60, 10]);
       annotation (Diagram);
@@ -4528,10 +4545,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
     block LogicToBoolean "Logic to Boolean converter" 
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
       Digital.Interfaces.DigitalInput x[n] 
-        annotation (Placement(transformation(extent={{-60,-10},{-40,10}}, 
+        annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
               rotation=0)));
       Modelica.Blocks.Interfaces.BooleanOutput y[n] 
-        annotation (Placement(transformation(extent={{40,-10},{60,10}}, 
+        annotation (Placement(transformation(extent={{40,-10},{60,10}},
               rotation=0)));
       annotation (Documentation(info="<HTML>
 <P>
@@ -4565,23 +4582,23 @@ If the signal width is greater than 1 this conversion is done for each signal.
 </HTML>"),
     Icon(graphics={
             Polygon(
-              points={{-40,40},{40,40},{-40,-40},{-40,40}}, 
-              lineColor={127,0,127}, 
-              fillColor={127,0,127}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-40,40},{40,40},{-40,-40},{-40,40}},
+              lineColor={127,0,127},
+              fillColor={127,0,127},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{152,-100},{-148,-40}}, 
-              lineColor={0,0,255}, 
+              extent={{152,-100},{-148,-40}},
+              lineColor={0,0,255},
               textString=
-                   "%name"), 
+                   "%name"),
             Polygon(
-              points={{-40,-40},{40,-40},{40,40},{-40,-40}}, 
-              lineColor={255,0,255}, 
-              fillColor={255,0,255}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-40,-40},{40,-40},{40,40},{-40,-40}},
+              lineColor={255,0,255},
+              fillColor={255,0,255},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-40,40},{40,-40}}, 
-              lineColor={0,0,0}, 
+              extent={{-40,40},{40,-40}},
+              lineColor={0,0,0},
               lineThickness=2)}));
       parameter Integer n(final min=1) = 1 "signal width";
     equation 
@@ -4593,7 +4610,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
     block RealToLogic "Real to Logic converter" 
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
       Modelica.Blocks.Interfaces.RealInput x[n] 
-        annotation (Placement(transformation(extent={{-60,-10},{-40,10}}, 
+        annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
               rotation=0)));
       annotation (
         Documentation(info="<HTML>
@@ -4623,26 +4640,26 @@ If the signal width is greater than 1 this conversion is done for each signal.
         extent=[-60, -10; -40, 10],
         Icon(graphics={
             Polygon(
-              points={{-40,-40},{40,40},{40,-40},{-40,-40}}, 
-              lineColor={127,0,127}, 
-              fillColor={127,0,127}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-40,-40},{40,40},{40,-40},{-40,-40}},
+              lineColor={127,0,127},
+              fillColor={127,0,127},
+              fillPattern=FillPattern.Solid),
             Polygon(points={{-40,40},{40,40},{-40,-40},{-40,40}}, fillPattern=
-                  FillPattern.Solid), 
+                  FillPattern.Solid),
             Text(
-              extent={{148,-100},{-152,-40}}, 
-              lineColor={0,0,255}, 
+              extent={{148,-100},{-152,-40}},
+              lineColor={0,0,255},
               textString=
-                   "%name"), 
+                   "%name"),
             Rectangle(
-              extent={{-40,40},{40,-40}}, 
-              lineColor={0,0,0}, 
+              extent={{-40,40},{40,-40}},
+              lineColor={0,0,0},
               lineThickness=2)}),
-        Diagram(graphics), 
+        Diagram(graphics),
         Placement(transformation(extent={{-60,-10},{-40,10}}, rotation=0)));
       
       Digital.Interfaces.DigitalOutput y[n] 
-        annotation (Placement(transformation(extent={{40,-10},{60,10}}, 
+        annotation (Placement(transformation(extent={{40,-10},{60,10}},
               rotation=0)));
       annotation (extent=[40, -10; 60, 10]);
       annotation (Diagram);
@@ -4664,10 +4681,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
     block LogicToReal "Logic to Real converter" 
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
       Digital.Interfaces.DigitalInput x[n] 
-        annotation (Placement(transformation(extent={{-60,-10},{-40,10}}, 
+        annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
               rotation=0)));
       Modelica.Blocks.Interfaces.RealOutput y[n] 
-        annotation (Placement(transformation(extent={{40,-10},{60,10}}, 
+        annotation (Placement(transformation(extent={{40,-10},{60,10}},
               rotation=0)));
       annotation (Documentation(info="<HTML>
 <P>
@@ -4702,20 +4719,20 @@ The values val... are given by parameters.</P>
 </HTML>"),
     Icon(graphics={
             Polygon(
-              points={{-40,40},{40,40},{-40,-40},{-40,40}}, 
-              lineColor={127,0,127}, 
-              fillColor={127,0,127}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-40,40},{40,40},{-40,-40},{-40,40}},
+              lineColor={127,0,127},
+              fillColor={127,0,127},
+              fillPattern=FillPattern.Solid),
             Polygon(points={{-40,-40},{40,-40},{40,40},{-40,-40}}, fillPattern=
-                  FillPattern.Solid), 
+                  FillPattern.Solid),
             Text(
-              extent={{152,-100},{-148,-40}}, 
-              lineColor={0,0,255}, 
+              extent={{152,-100},{-148,-40}},
+              lineColor={0,0,255},
               textString=
-                   "%name"), 
+                   "%name"),
             Rectangle(
-              extent={{-40,40},{40,-40}}, 
-              lineColor={0,0,0}, 
+              extent={{-40,40},{40,-40}},
+              lineColor={0,0,0},
               lineThickness=2)}),
         Diagram(graphics));
       parameter Integer n(final min=1) = 1 "signal width";
@@ -4740,7 +4757,8 @@ The values val... are given by parameters.</P>
       end for;
     end LogicToReal;
     
-    annotation (Icon(graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,-100},{80,50}}, 
             fillColor={235,235,235}, 
@@ -4756,13 +4774,12 @@ The values val... are given by parameters.</P>
           Text(
             extent={{-85,35},{65,-85}}, 
             lineColor={0,0,255}, 
-            textString=
-                 "Library"), 
+            textString="Library"), 
           Text(
             extent={{-120,122},{120,73}}, 
             lineColor={255,0,0}, 
-            textString=
-                 "%name")}),Documentation(info="<html>
+            textString="%name")}),
+                            Documentation(info="<html>
  
 </html>"));
   end Converters;
