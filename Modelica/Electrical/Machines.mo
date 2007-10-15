@@ -6741,13 +6741,13 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
       output Modelica.SIunits.Current i_0_s( stateSelect=StateSelect.prefer) = spacePhasorS.zero.i 
         "stator zero-sequence current";
     // to be defined in model that extends from this partial (since airgap isn't included here)
-      output Modelica.SIunits.Current idq_ss[2] 
+      output Modelica.SIunits.Current idq_ss[2] = zeros(2) 
         "stator space phasor current / stator fixed frame";
-      output Modelica.SIunits.Current idq_sr[2](each stateSelect=StateSelect.prefer) 
+      output Modelica.SIunits.Current idq_sr[2](each stateSelect=StateSelect.prefer) = zeros(2) 
         "stator space phasor current / rotor fixed frame";
-      output Modelica.SIunits.Current idq_rs[2] 
+      output Modelica.SIunits.Current idq_rs[2] = zeros(2) 
         "rotor space phasor current / stator fixed frame";
-      output Modelica.SIunits.Current idq_rr[2](each stateSelect=StateSelect.prefer) 
+      output Modelica.SIunits.Current idq_rr[2](each stateSelect=StateSelect.prefer) = zeros(2) 
         "rotor space phasor current / rotor fixed frame";
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m) 
         annotation (extent=[50,90; 70,110]);
@@ -6787,7 +6787,7 @@ Partial model for induction machine models
           color=3,
           rgbcolor={0,0,255},
           smooth=0));
-      connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
+      connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
             -10,14; -6.12323e-016,14; -6.12323e-016,20],     style(
           color=3,
           rgbcolor={0,0,255},
