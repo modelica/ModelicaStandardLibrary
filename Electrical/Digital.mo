@@ -2381,7 +2381,7 @@ components of the Electrical.Digital library.
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
               -100,-100},{100,100}}),
                        graphics),
-                        Diagram(coordinateSystem(preserveAspectRatio=false, 
+                        Diagram(coordinateSystem(preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}),
                                 graphics),
       Documentation(info="<html>
@@ -2393,20 +2393,20 @@ components of the Electrical.Digital library.
       annotation (defaultComponentName="x",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}), graphics={Rectangle(
-            extent={{-100,-100},{100,100}}, 
-            lineColor={127,0,127}, 
-            fillColor={127,0,127}, 
+            extent={{-100,-100},{100,100}},
+            lineColor={127,0,127},
+            fillColor={127,0,127},
             fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
               {100,100}}), graphics={Text(
-            extent={{-150,-100},{150,-160}}, 
-            lineColor={127,0,127}, 
-            fillColor={127,0,127}, 
-            fillPattern=FillPattern.Solid, 
+            extent={{-150,-100},{150,-160}},
+            lineColor={127,0,127},
+            fillColor={127,0,127},
+            fillPattern=FillPattern.Solid,
             textString="%name"), Rectangle(
-            extent={{-100,-100},{100,100}}, 
-            lineColor={127,0,127}, 
-            fillColor={127,0,127}, 
+            extent={{-100,-100},{100,100}},
+            lineColor={127,0,127},
+            fillColor={127,0,127},
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
   
@@ -2443,11 +2443,11 @@ components of the Electrical.Digital library.
       annotation (Diagram(graphics),                                          Icon(
             coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Rectangle(
-              extent={{-50,100},{50,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), Line(points={{50,0},{92,0}}, 
+              extent={{-50,100},{50,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid), Line(points={{50,0},{92,0}},
                 color={127,0,127})}),
         Documentation(info="<html>
  
@@ -2466,11 +2466,11 @@ components of the Electrical.Digital library.
                 10}}, rotation=0)));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
                 -100,-100},{100,100}}), graphics={Rectangle(
-              extent={{-50,100},{50,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), Line(points={{50,0},{90,0}}, 
+              extent={{-50,100},{50,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid), Line(points={{50,0},{90,0}},
                 color={127,0,127})}),
           Diagram(graphics),
         Documentation(info="<html>
@@ -2914,20 +2914,20 @@ Not with 1 input value, without delay.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
-              extent={{-50,40},{50,80}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillPattern=FillPattern.Solid, 
-              textString="1"), 
+              extent={{-50,40},{50,80}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillPattern=FillPattern.Solid,
+              textString="1"),
             Text(
-              extent={{152,-160},{-148,-100}}, 
-              lineColor={0,0,255}, 
-              textString="%name"), 
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
+              textString="%name"),
             Ellipse(
-              extent={{50,6},{62,-6}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,255}, 
+              extent={{50,6},{62,-6}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
         Diagram(graphics));
     end Not;
@@ -2962,13 +2962,13 @@ And with n input values, without delay.
 </HTML>"),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Text(
-              extent={{-50,40},{50,80}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillPattern=FillPattern.Solid, 
+              extent={{-50,40},{50,80}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillPattern=FillPattern.Solid,
               textString="&"), Text(
-              extent={{152,-160},{-148,-100}}, 
-              lineColor={0,0,255}, 
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
               textString="%name")}),
         Diagram(graphics));
     end And;
@@ -3004,20 +3004,20 @@ Nand with n input values, without delay.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
-              extent={{-50,40},{50,80}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillPattern=FillPattern.Solid, 
-              textString="&"), 
+              extent={{-50,40},{50,80}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillPattern=FillPattern.Solid,
+              textString="&"),
             Text(
-              extent={{152,-160},{-148,-100}}, 
-              lineColor={0,0,255}, 
-              textString="%name"), 
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
+              textString="%name"),
             Ellipse(
-              extent={{50,6},{62,-6}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,255}, 
+              extent={{50,6},{62,-6}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
         Diagram(graphics));
     end Nand;
@@ -3052,13 +3052,13 @@ Or with n input values, without delay.
 </HTML>"),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Text(
-              extent={{-50,40},{50,80}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillPattern=FillPattern.Solid, 
+              extent={{-50,40},{50,80}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillPattern=FillPattern.Solid,
               textString=">=1"), Text(
-              extent={{152,-160},{-148,-100}}, 
-              lineColor={0,0,255}, 
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
               textString="%name")}),
         Diagram(graphics));
     end Or;
@@ -3094,20 +3094,20 @@ Nor with n input values, without delay.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
-              extent={{-50,40},{50,80}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillPattern=FillPattern.Solid, 
-              textString=">=1"), 
+              extent={{-50,40},{50,80}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillPattern=FillPattern.Solid,
+              textString=">=1"),
             Text(
-              extent={{152,-160},{-148,-100}}, 
-              lineColor={0,0,255}, 
-              textString="%name"), 
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
+              textString="%name"),
             Ellipse(
-              extent={{50,6},{62,-6}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,255}, 
+              extent={{50,6},{62,-6}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
         Diagram(graphics));
     end Nor;
@@ -3142,13 +3142,13 @@ Xor with n input values, without delay.
 </HTML>"),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Text(
-              extent={{-50,40},{50,80}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillPattern=FillPattern.Solid, 
+              extent={{-50,40},{50,80}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillPattern=FillPattern.Solid,
               textString="=1"), Text(
-              extent={{152,-160},{-148,-100}}, 
-              lineColor={0,0,255}, 
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
               textString="%name")}),
         Diagram(graphics));
     end Xor;
@@ -3183,13 +3183,13 @@ XNor with n input values, without delay.
 </HTML>"),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Text(
-              extent={{-50,40},{50,80}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillPattern=FillPattern.Solid, 
+              extent={{-50,40},{50,80}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillPattern=FillPattern.Solid,
               textString="="), Text(
-              extent={{152,-160},{-148,-100}}, 
-              lineColor={0,0,255}, 
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
               textString="%name")}),
         Diagram(graphics));
     end Xnor;
@@ -3815,7 +3815,7 @@ To specify <i>setval</i>, the integer code has to be used.
 </table>
  
 <P>
-If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.LogicValue; </b> <br>
+If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.Logic; </b> <br>
 they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
 </P>
 </HTML>
@@ -3832,21 +3832,21 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
                 100}}), graphics={
             Rectangle(
-              extent={{-50,100},{50,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={213,255,170}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-50,100},{50,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={213,255,170},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-50,40},{50,80}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillPattern=FillPattern.Solid, 
-              textString="SET"), 
+              extent={{-50,40},{50,80}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillPattern=FillPattern.Solid,
+              textString="SET"),
             Text(
-              extent={{152,-160},{-148,-100}}, 
-              lineColor={0,0,255}, 
-              textString="%name"), 
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
+              textString="%name"),
             Line(points={{50,0},{90,0}}, color={127,0,127})}));
     end Set;
     
@@ -3897,7 +3897,7 @@ To specify the logic value parameters, the integer code has to be used.
   <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Don't care</td></tr>
 </table>
 <P>
-If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.LogicValue; </b> <br>
+If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.Logic; </b> <br>
 they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
 </P>
 </HTML>
@@ -3914,20 +3914,20 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
-              extent={{-50,100},{50,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={213,255,170}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-50,100},{50,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={213,255,170},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{152,-160},{-148,-100}}, 
-              lineColor={0,0,255}, 
-              textString="%name"), 
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
+              textString="%name"),
             Line(
-              points={{-30,40},{0,40},{0,80},{30,80}}, 
-              color={0,0,0}, 
-              fillColor={213,170,255}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-30,40},{0,40},{0,80},{30,80}},
+              color={0,0,0},
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid),
             Line(points={{50,0},{90,0}}, color={127,0,127})}),
         Diagram(graphics));
     equation 
@@ -3985,7 +3985,7 @@ To specify the logic value parameters, the integer code has to be used.
   <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Don't care</td></tr>
 </table>
 <P>
-If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.LogicValue; </b> <br>
+If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.Logic; </b> <br>
 they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
 </P>
 </HTML>
@@ -4002,40 +4002,40 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
-              extent={{-50,100},{50,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={213,255,170}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-50,100},{50,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={213,255,170},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{152,-160},{-148,-100}}, 
-              lineColor={0,0,255}, 
-              textString="%name"), 
-            Line(points={{50,0},{90,0}}, color={127,0,127}), 
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Line(points={{50,0},{90,0}}, color={127,0,127}),
             Rectangle(
-              extent={{-30,80},{32,70}}, 
-              lineColor={0,0,0}, 
-              fillColor={215,215,215}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-30,80},{32,70}},
+              lineColor={0,0,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-30,70},{32,40}}, 
-              lineColor={0,0,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-30,70},{32,40}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{0,80},{0,40}}, 
-              color={0,0,0}, 
-              fillColor={128,255,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{0,80},{0,40}},
+              color={0,0,0},
+              fillColor={128,255,0},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{-30,60},{32,60}}, 
-              color={0,0,0}, 
-              fillColor={128,255,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-30,60},{32,60}},
+              color={0,0,0},
+              fillColor={128,255,0},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{-30,50},{32,50}}, 
-              color={0,0,0}, 
-              fillColor={128,255,0}, 
+              points={{-30,50},{32,50}},
+              color={0,0,0},
+              fillColor={128,255,0},
               fillPattern=FillPattern.Solid)}),
         Diagram(graphics));
     end Table;
@@ -4089,7 +4089,7 @@ To specify the logic value parameters, the integer code has to be used.
   <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Don't care</td></tr>
 </table>
 <P>
-If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.LogicValue; </b> <br>
+If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.Logic; </b> <br>
 they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
 </P>
 </HTML>
@@ -4202,20 +4202,20 @@ The number of periods is unlimited. The first pulse starts at startTime.
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
                 100}}), graphics={
             Rectangle(
-              extent={{-50,100},{50,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={213,255,170}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-50,100},{50,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={213,255,170},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{152,-160},{-148,-100}}, 
-              lineColor={0,0,255}, 
-              textString="%name"), 
-            Line(points={{50,0},{90,0}}, color={127,0,127}), 
+              extent={{152,-160},{-148,-100}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Line(points={{50,0},{90,0}}, color={127,0,127}),
             Line(
               points={{-36,40},{-30,40},{-30,80},{-18,80},{-18,40},{-6,40},{-6,
-                  80},{6,80},{6,40},{18,40},{18,80},{30,80},{30,40},{36,40}}, 
-              color={0,0,0}, 
+                  80},{6,80},{6,40},{18,40},{18,80},{30,80},{30,40},{36,40}},
+              color={0,0,0},
               fillPattern=FillPattern.Solid)}));
     end Clock;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
