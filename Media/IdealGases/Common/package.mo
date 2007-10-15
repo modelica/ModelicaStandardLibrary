@@ -143,8 +143,12 @@ This model has been copied from the ThermoFluid library
 and adapted to the Modelica.Media package.
 </p>
 </HTML>"),
-    Icon(graphics),
-    Diagram(graphics));
+    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+            100}}),
+         graphics),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+            100,100}}),
+            graphics));
   
   extends Interfaces.PartialPureSubstance(
      mediumName=data.name,
@@ -157,14 +161,13 @@ and adapted to the Modelica.Media package.
      Density(start=10, nominal=10),
      AbsolutePressure(start=10e5, nominal=10e5));
   
-  redeclare replaceable record extends ThermodynamicState 
+  redeclare record extends ThermodynamicState 
     "thermodynamic state variables for ideal gases" 
     AbsolutePressure p "Absolute pressure of medium";
     Temperature T "Temperature of medium";
   end ThermodynamicState;
   
-  redeclare replaceable record extends FluidConstants 
-    "Extended fluid constants" 
+  redeclare record extends FluidConstants "Extended fluid constants" 
     Temperature criticalTemperature "critical temperature";
     AbsolutePressure criticalPressure "critical pressure";
     MolarVolume criticalMolarVolume "critical molar Volume";
@@ -773,7 +776,9 @@ this never caused problems so far.
 This model has been copied from the ThermoFluid library.
 It has been developed by Hubertus Tummescheit.
 </p>
-</HTML>"), Icon(graphics));
+</HTML>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+            {100,100}}),
+                graphics));
   
   import Modelica.Math;
   import Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy;
@@ -788,6 +793,12 @@ It has been developed by Hubertus Tummescheit.
      Density(start=10, nominal=10),
      AbsolutePressure(start=10e5, nominal=10e5),
      Temperature(start=500, nominal=500));
+  
+    redeclare record extends ThermodynamicState "thermodynamic state variables" 
+    end ThermodynamicState;
+  
+  redeclare record extends FluidConstants "fluid constants" 
+  end FluidConstants;
   
   constant Modelica.Media.IdealGases.Common.DataRecord[:] data 
     "Data records of ideal gas substances";
