@@ -3160,20 +3160,18 @@ type SetRealParameter = Real "Define Real parameter (GUI not yet satisfactory)"
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(
-            extent={{-100,40},{100,-40}},
-            lineColor={0,0,0},
-            fillColor={245,245,245},
-            fillPattern=FillPattern.Solid,
-            borderPattern=BorderPattern.Raised),
-          Text(extent={{-150,90},{150,50}}, textString=
-                                            "%name ="),
+            extent={{-100,40},{100,-40}}, 
+            lineColor={0,0,0}, 
+            fillColor={245,245,245}, 
+            fillPattern=FillPattern.Solid, 
+            borderPattern=BorderPattern.Raised), 
+          Text(extent={{-150,90},{150,50}}, textString="%name ="), 
           Text(
-            extent={{-96,15},{96,-15}},
-            lineColor={0,0,0},
-            fillColor={0,255,0},
-            fillPattern=FillPattern.Solid,
-            textString=
-             "%value")}),
+            extent={{-96,15},{96,-15}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,255,0}, 
+            fillPattern=FillPattern.Solid, 
+            textString="%value")}),
   Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -3246,28 +3244,31 @@ value, still requires to go in to the text layer.
   block RadioButton 
       "Button that sets its output to true when pressed and is reset when an element of 'reset' becomes true" 
       
-    parameter Modelica.SIunits.Time buttonTimeTable[:] 
+    parameter Modelica.SIunits.Time buttonTimeTable[:]={0} 
         "Time instants where button is pressend and released";
     input Boolean reset[:]={false} 
         "Reset button to false, if an element of reset becomes true" 
       annotation (Dialog(group="Time varying expressions"));
       
-    annotation (Icon(graphics={Rectangle(
-              extent={{-100,-100},{100,100}},
-              fillColor=DynamicSelect({192,192,192}, if 
-                                          on > 0.5 then {0,255,0} else {192,192,
-                  192}),
-              fillPattern=DynamicSelect(FillPattern.Solid, if 
-                                             on > 0.5 then FillPattern.Solid else 
-                        FillPattern.Solid),
-              lineColor={128,128,128},
+    annotation (Icon(
+          coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), 
+          graphics={Rectangle(
+              extent={{-100,-100},{100,100}}, 
+              fillColor=DynamicSelect({192,192,192}, if on > 0.5 then {0,255,0}
+                   else {192,192,192}), 
+              fillPattern=DynamicSelect(FillPattern.Solid, if on > 0.5 then 
+                  FillPattern.Solid else FillPattern.Solid), 
+              lineColor={128,128,128}, 
               lineThickness=2), Text(
-              extent={{-80,-40},{80,40}},
-              lineColor={0,0,0},
-              textString=
-                 "%name")}, interaction={OnMouseDownSetBoolean(
+              extent={{-80,-40},{80,40}}, 
+              lineColor={0,0,0}, 
+              textString="%name")},
+                            interaction={OnMouseDownSetBoolean(
                             on, true)}),
-                            Diagram(graphics),
+                            Diagram(coordinateSystem(preserveAspectRatio=false, 
+              extent={{-100,-100},{100,100}}),
+                                    graphics),
         Documentation(info="<html>
   
 </html>"));
@@ -3289,14 +3290,17 @@ value, still requires to go in to the text layer.
     parameter Boolean hideConnector=false 
         "= true, if connector is not shown in the dynamic object diagram";
       
-    annotation (Icon(graphics={Rectangle(
-              extent={{100,50},{-100,-50}},
-              lineColor={0,0,255},
-              fillColor={236,233,216},
-              fillPattern=FillPattern.Solid,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Rectangle(
+              extent={{100,50},{-100,-50}}, 
+              lineColor={0,0,255}, 
+              fillColor={236,233,216}, 
+              fillPattern=FillPattern.Solid, 
               borderPattern=BorderPattern.Raised), Text(extent={{-90,-46},{90,
-                  34}}, textString=DynamicSelect(
-                           " ", realString(Value, 1, integer(precision))))}),
+                  34}}, textString=DynamicSelect(" ", realString(
+                    Value, 
+                    1, 
+                    integer(precision))))}),
         Diagram(graphics),
         Documentation(info="<html>
   
@@ -3317,16 +3321,15 @@ value, still requires to go in to the text layer.
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
       
-    annotation (Icon(graphics={Ellipse(
-              extent={{-100,-100},{100,100}},
-              fillColor=DynamicSelect({235,235,235}, if 
-                                           u > 0.5 then {0,255,0} else {235,235,
-                  235}),
-              lineColor={0,0,0},
-              pattern=LinePattern.None,
-              fillPattern=FillPattern.Sphere), Text(extent={{-150,150},{150,110}},
-                textString=                        "%name")}),
-                                                             Diagram(graphics),
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Ellipse(
+              extent={{-100,-100},{100,100}}, 
+              fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0}
+                   else {235,235,235}), 
+              lineColor={0,0,0}, 
+              pattern=LinePattern.None, 
+              fillPattern=FillPattern.Sphere), Text(extent={{-150,150},{150,110}}, 
+                textString="%name")}),                       Diagram(graphics),
         Documentation(info="<html>
   
 </html>"));
