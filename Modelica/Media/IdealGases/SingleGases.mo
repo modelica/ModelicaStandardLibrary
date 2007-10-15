@@ -50,7 +50,9 @@ Sulfur Dioxide    Sulfur Trioxide
   
   package CO "Ideal gas \"CO\" from NASA Glenn coefficients" 
     extends Common.SingleGasNasa(
-       mediumName="Carbon Monoxide");
+       mediumName="Carbon Monoxide",
+       data=Common.SingleGasesData.CO,
+       fluidConstants={Common.FluidData.CO});
     annotation (preferedView="info", Documentation(info="<HTML>
       <IMG SRC=\"../Images/Media/IdealGases/SingleGases/CO.png\"></HTML>"));
   end CO;

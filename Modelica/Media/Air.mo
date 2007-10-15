@@ -100,6 +100,10 @@ Ideal gas medium model for dry air based on the package <a href=Modelica:Modelic
     import Modelica.Constants;
     import Modelica.Media.IdealGases.Common.SingleGasNasa;
     
+    redeclare record extends ThermodynamicState 
+      "ThermodynamicState record for moist air" 
+    end ThermodynamicState;
+    
     redeclare replaceable model extends BaseProperties(
       T(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
       p(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
