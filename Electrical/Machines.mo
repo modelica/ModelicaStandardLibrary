@@ -1,5 +1,6 @@
 within Modelica.Electrical;
 
+
 package Machines "Library for electric machines" 
   extends Modelica.Icons.Library2;
   annotation (
@@ -1214,21 +1215,16 @@ The primary and secondary starpoint are available as connectors, if the connecti
 In some cases it may be necessary to ground the transformer's starpoint 
 even though the source's or load's starpoint are grounded; you may use a reasonable high earthing resistance.
 </HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics),
+        Diagram(graphics),
         experiment(StopTime=0.1),
         experimentSetupOutput);
       Modelica.Electrical.MultiPhase.Sources.SineVoltage source(freqHz=fill(50, 3),
           V=fill(sqrt(2/3)*100, 3)) 
-        annotation (Placement(transformation(
-            extent={{10,10},{-10,-10}}, 
-            rotation=-90, 
-            origin={-90,-10})));
+        annotation (Placement(transformation(extent={{-80,0},{-100,-20}}, 
+              rotation=-90)));
       Modelica.Electrical.MultiPhase.Basic.Star starS 
-        annotation (Placement(transformation(
-            extent={{10,-10},{-10,10}}, 
-            rotation=-90, 
-            origin={-90,-40})));
+        annotation (Placement(transformation(extent={{-80,-50},{-100,-30}}, 
+              rotation=-90)));
       Modelica.Electrical.Analog.Basic.Ground groundS 
         annotation (Placement(transformation(extent={{-100,-80},{-80,-60}}, 
               rotation=0)));
@@ -1239,33 +1235,23 @@ even though the source's or load's starpoint are grounded; you may use a reasona
         annotation (Placement(transformation(extent={{-60,20},{-40,0}}, 
               rotation=0)));
       Sensors.VoltageRMSsensor voltageRMSsensorS 
-        annotation (Placement(transformation(
-            extent={{10,10},{-10,-10}}, 
-            rotation=-90, 
-            origin={-40,-10})));
+        annotation (Placement(transformation(extent={{-30,0},{-50,-20}}, 
+              rotation=-90)));
       Modelica.Electrical.MultiPhase.Basic.Delta deltaS 
-        annotation (Placement(transformation(
-            extent={{10,-10},{-10,10}}, 
-            rotation=-90, 
-            origin={-40,-30})));
+        annotation (Placement(transformation(extent={{-30,-40},{-50,-20}}, 
+              rotation=-90)));
       Modelica.Electrical.Analog.Basic.Resistor earth(R=1e6) 
-        annotation (Placement(transformation(
-            extent={{10,10},{-10,-10}}, 
-            rotation=-90, 
-            origin={0,-40})));
+        annotation (Placement(transformation(extent={{10,-30},{-10,-50}}, 
+              rotation=-90)));
       Modelica.Electrical.Analog.Basic.Ground ground 
         annotation (Placement(transformation(extent={{-10,-80},{10,-60}}, 
               rotation=0)));
       Sensors.VoltageRMSsensor voltageRMSsensorL 
-        annotation (Placement(transformation(
-            extent={{10,-10},{-10,10}}, 
-            rotation=-90, 
-            origin={40,-10})));
+        annotation (Placement(transformation(extent={{50,-20},{30,0}}, rotation
+              =-90)));
       Modelica.Electrical.MultiPhase.Basic.Delta deltaL 
-        annotation (Placement(transformation(
-            extent={{10,10},{-10,-10}}, 
-            rotation=-90, 
-            origin={40,-30})));
+        annotation (Placement(transformation(extent={{50,-20},{30,-40}}, 
+              rotation=-90)));
       Sensors.CurrentRMSsensor currentRMSsensorL 
         annotation (Placement(transformation(extent={{40,20},{60,0}}, rotation=
                 0)));
@@ -1273,15 +1259,11 @@ even though the source's or load's starpoint are grounded; you may use a reasona
         annotation (Placement(transformation(extent={{70,0},{90,20}}, rotation=
                 0)));
       Modelica.Electrical.MultiPhase.Basic.Resistor load(R=RL) 
-        annotation (Placement(transformation(
-            extent={{10,10},{-10,-10}}, 
-            rotation=-90, 
-            origin={90,-10})));
+        annotation (Placement(transformation(extent={{100,0},{80,-20}}, 
+              rotation=-90)));
       Modelica.Electrical.MultiPhase.Basic.Star starL 
-        annotation (Placement(transformation(
-            extent={{10,10},{-10,-10}}, 
-            rotation=-90, 
-            origin={90,-40})));
+        annotation (Placement(transformation(extent={{100,-30},{80,-50}}, 
+              rotation=-90)));
       Modelica.Electrical.Analog.Basic.Ground groundL 
         annotation (Placement(transformation(extent={{80,-80},{100,-60}}, 
               rotation=0)));
@@ -1299,42 +1281,42 @@ even though the source's or load's starpoint are grounded; you may use a reasona
               extent={{-20,-10},{20,30}}, rotation=0)));
     equation 
       connect(starS.pin_n, groundS.p) 
-        annotation (Line(points={{-90,-30},{-90,-60}}, color={0,0,255}));
+        annotation (Line(points={{-90,-50},{-90,-60}}, color={0,0,255}));
       connect(source.plug_n, starS.plug_p) 
-        annotation (Line(points={{-90,0},{-90,-50}}, color={0,0,255}));
+        annotation (Line(points={{-90,-20},{-90,-30}}, color={0,0,255}));
       connect(starL.pin_n, groundL.p) 
-        annotation (Line(points={{90,-30},{90,-60}}, color={0,0,255}));
+        annotation (Line(points={{90,-50},{90,-60}}, color={0,0,255}));
       connect(load.plug_n, starL.plug_p) 
-        annotation (Line(points={{90,0},{90,-50}}, color={0,0,255}));
+        annotation (Line(points={{90,-20},{90,-30}}, color={0,0,255}));
       connect(earth.n,ground. p) 
-        annotation (Line(points={{1.83697e-015,-30},{0,-30},{0,-60}}, color={0,
+        annotation (Line(points={{-6.12323e-016,-50},{0,-50},{0,-60}}, color={0,
               0,255}));
       connect(electricalPowerSensorS.plug_nv, starS.plug_p) 
-        annotation (Line(points={{-80,0},{-80,-50},{-90,-50}}, color={0,0,255}));
+        annotation (Line(points={{-80,0},{-80,-30},{-90,-30}}, color={0,0,255}));
       connect(source.plug_p, electricalPowerSensorS.plug_p) 
-        annotation (Line(points={{-90,-20},{-90,10}}, color={0,0,255}));
+        annotation (Line(points={{-90,0},{-90,10}}, color={0,0,255}));
       connect(electricalPowerSensorS.plug_ni, currentRMSsensorS.plug_p) 
         annotation (Line(points={{-70,10},{-60,10}}, color={0,0,255}));
       connect(currentRMSsensorL.plug_n, electricalPowerSensorL.plug_p) 
         annotation (Line(points={{60,10},{70,10}}, color={0,0,255}));
       connect(electricalPowerSensorL.plug_ni, load.plug_p) 
-        annotation (Line(points={{90,10},{90,-20}}, color={0,0,255}));
+        annotation (Line(points={{90,10},{90,0}}, color={0,0,255}));
       connect(currentRMSsensorS.plug_n, voltageRMSsensorS.plug_p) 
-        annotation (Line(points={{-40,10},{-40,-20}}, color={0,0,255}));
+        annotation (Line(points={{-40,10},{-40,0}}, color={0,0,255}));
       connect(currentRMSsensorL.plug_p, voltageRMSsensorL.plug_p) 
-        annotation (Line(points={{40,10},{40,-20}}, color={0,0,255}));
+        annotation (Line(points={{40,10},{40,0}}, color={0,0,255}));
       connect(electricalPowerSensorL.plug_nv, starL.plug_p) 
-        annotation (Line(points={{80,0},{80,-50},{90,-50}}, color={0,0,255}));
+        annotation (Line(points={{80,0},{80,-30},{90,-30}}, color={0,0,255}));
       connect(voltageRMSsensorS.plug_n, deltaS.plug_p) 
-        annotation (Line(points={{-40,0},{-40,-40}}, color={0,0,255}));
+        annotation (Line(points={{-40,-20},{-40,-20}}, color={0,0,255}));
       connect(deltaL.plug_p, voltageRMSsensorL.plug_n) 
-        annotation (Line(points={{40,-40},{40,0}}, color={0,0,255}));
+        annotation (Line(points={{40,-20},{40,-20}}, color={0,0,255}));
       connect(deltaS.plug_n, voltageRMSsensorS.plug_p) 
-        annotation (Line(points={{-40,-20},{-50,-20},{-50,-20},{-40,-20}}, 
-            color={0,0,255}));
-      connect(deltaL.plug_n, voltageRMSsensorL.plug_p) 
-        annotation (Line(points={{40,-20},{50,-20},{50,-20},{40,-20}}, color={0,
+        annotation (Line(points={{-40,-40},{-50,-40},{-50,0},{-40,0}}, color={0,
               0,255}));
+      connect(deltaL.plug_n, voltageRMSsensorL.plug_p) 
+        annotation (Line(points={{40,-40},{50,-40},{50,0},{40,0}}, color={0,0,
+              255}));
       connect(currentRMSsensorS.plug_n, transformer.plug1) annotation (Line(
           points={{-40,10},{-20,10}}, 
           color={0,0,255}, 
@@ -5880,8 +5862,7 @@ Induced armature voltage is calculated from flux times angular velocity.
           annotation (Placement(transformation(extent={{50,-10},{70,10}}, 
                 rotation=0)));
         annotation (Diagram(graphics),
-                             Icon(coordinateSystem(preserveAspectRatio=false, 
-                extent={{-100,-100},{100,100}}), graphics={
+                             Icon(graphics={
               Ellipse(extent={{-90,60},{30,-60}}, lineColor={0,0,255}), 
               Ellipse(extent={{-30,60},{90,-60}}, lineColor={0,0,255}), 
               Text(
@@ -6069,10 +6050,8 @@ This package contains sensors that are usefull when modelling machines.
     model VoltageRMSsensor "Length of spcae phasor -> RMS voltage" 
       constant Integer m(final min=1) = 3 "Number of phases";
       Modelica.Blocks.Interfaces.RealOutput V 
-        annotation (Placement(transformation(
-            extent={{10,-10},{-10,10}}, 
-            rotation=-90, 
-            origin={0,-110})));
+        annotation (Placement(transformation(extent={{10,-120},{-10,-100}}, 
+              rotation=-90)));
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, 
               rotation=0)));
@@ -6092,8 +6071,7 @@ This package contains sensors that are usefull when modelling machines.
         annotation (Placement(transformation(extent={{10,-40},{-10,-20}}, 
               rotation=-90)));
       annotation (Diagram(graphics),
-                           Icon(coordinateSystem(preserveAspectRatio=false, 
-              extent={{-100,-100},{100,100}}), graphics={
+                           Icon(graphics={
             Ellipse(
               extent={{-70,70},{70,-70}}, 
               lineColor={0,0,0}, 
@@ -6146,10 +6124,8 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
     model CurrentRMSsensor "Length of spcae phasor -> RMS current" 
       constant Integer m(final min=1) = 3 "Number of phases";
       Modelica.Blocks.Interfaces.RealOutput I 
-        annotation (Placement(transformation(
-            extent={{10,-10},{-10,10}}, 
-            rotation=-90, 
-            origin={0,-110})));
+        annotation (Placement(transformation(extent={{10,-120},{-10,-100}}, 
+              rotation=-90)));
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, 
               rotation=0)));
@@ -6169,8 +6145,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
         annotation (Placement(transformation(extent={{10,-40},{-10,-20}}, 
               rotation=-90)));
       annotation (Diagram(graphics),
-                           Icon(coordinateSystem(preserveAspectRatio=false, 
-              extent={{-100,-100},{100,100}}), graphics={
+                           Icon(graphics={
             Ellipse(
               extent={{-70,70},{70,-70}}, 
               lineColor={0,0,0}, 
@@ -6223,15 +6198,11 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
     model ElectricalPowerSensor "Instantaneous power from spcae phasors" 
       constant Integer m(final min=1) = 3 "Number of phases";
       Modelica.Blocks.Interfaces.RealOutput P 
-        annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}}, 
-            rotation=-90, 
-            origin={-50,110})));
+        annotation (Placement(transformation(extent={{-60,100},{-40,120}}, 
+              rotation=-90)));
       Modelica.Blocks.Interfaces.RealOutput Q 
-        annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}}, 
-            rotation=-90, 
-            origin={50,110})));
+        annotation (Placement(transformation(extent={{40,100},{60,120}}, 
+              rotation=-90)));
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m) 
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, 
               rotation=0)));
@@ -6241,8 +6212,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
       Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_nv(final m=m) 
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}}, 
               rotation=0)));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics={
+      annotation (Icon(graphics={
             Ellipse(
               extent={{-70,70},{70,-70}}, 
               lineColor={0,0,0}, 
@@ -7314,13 +7284,13 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
       output Modelica.SIunits.Current i_0_s( stateSelect=StateSelect.prefer) = spacePhasorS.zero.i 
         "stator zero-sequence current";
     // to be defined in model that extends from this partial (since airgap isn't included here)
-      output Modelica.SIunits.Current idq_ss[2] 
+      output Modelica.SIunits.Current idq_ss[2] = zeros(2) 
         "stator space phasor current / stator fixed frame";
-      output Modelica.SIunits.Current idq_sr[2](each stateSelect=StateSelect.prefer) 
+      output Modelica.SIunits.Current idq_sr[2](each stateSelect=StateSelect.prefer) = zeros(2) 
         "stator space phasor current / rotor fixed frame";
-      output Modelica.SIunits.Current idq_rs[2] 
+      output Modelica.SIunits.Current idq_rs[2] = zeros(2) 
         "rotor space phasor current / stator fixed frame";
-      output Modelica.SIunits.Current idq_rr[2](each stateSelect=StateSelect.prefer) 
+      output Modelica.SIunits.Current idq_rr[2](each stateSelect=StateSelect.prefer) = zeros(2) 
         "rotor space phasor current / rotor fixed frame";
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m) 
         annotation (Placement(transformation(extent={{50,90},{70,110}}, 
