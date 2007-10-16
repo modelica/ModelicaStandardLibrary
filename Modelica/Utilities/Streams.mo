@@ -214,7 +214,7 @@ by \"\\n\" in the string.
   end error;
   
   
-  function warningRealDefault 
+  function missingRealParameter 
     "Triggers a warning if a Real parameter is not explicitly set" 
     input Real number "Number to be used as default";
     output Real result=number 
@@ -226,9 +226,9 @@ by \"\\n\" in the string.
   assert(false, "Default parameter value (= " + String(number) + ") used. Provide explicit value",
          level=  AssertionLevel.warning);
 */
-  end warningRealDefault;
+  end missingRealParameter;
 
-  function warningIntegerDefault 
+  function missingIntegerParameter 
     "Triggers a warning if an Integer parameter is not explicitly set" 
     input Integer number "Number to be used as default";
     output Integer result=number 
@@ -240,9 +240,9 @@ by \"\\n\" in the string.
   assert(false, "Default parameter value (= " + String(number) + ") used. Provide explicit value",
          level=  AssertionLevel.warning);
 */
-  end warningIntegerDefault;
+  end missingIntegerParameter;
 
-  function warningBooleanDefault 
+  function missingBooleanParameter 
     "Triggers a warning if a Boolean parameter is not explicitly set" 
     input Boolean b "Boolean value to be used as default";
     output Boolean result=b 
@@ -254,9 +254,9 @@ by \"\\n\" in the string.
   assert(false, "Default parameter value (= " + String(number) + ") used. Provide explicit value",
          level=  AssertionLevel.warning);
 */
-  end warningBooleanDefault;
+  end missingBooleanParameter;
 
-  function warningStringDefault 
+  function missingStringParameter 
     "Triggers a warning if a String parameter is not explicitly set" 
     input String string "String to be used as default";
     output String result=string 
@@ -268,7 +268,7 @@ by \"\\n\" in the string.
   assert(false, "Default parameter value (= " + String(number) + ") used. Provide explicit value",
          level=  AssertionLevel.warning);
 */
-  end warningStringDefault;
+  end missingStringParameter;
 
   function close "Close file" 
     extends Modelica.Icons.Function;
