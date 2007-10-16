@@ -92,6 +92,8 @@ Ideal gas medium model for dry air based on the package <a href=Modelica:Modelic
     
     constant IdealGases.Common.DataRecord dryair = IdealGases.Common.SingleGasesData.Air;
     constant IdealGases.Common.DataRecord steam = IdealGases.Common.SingleGasesData.H2O;
+    constant SI.MolarMass[2] MMX = {steam.MM,dryair.MM} 
+      "Molar masses of components";
     
     import Modelica.Media.Interfaces;
     import Modelica.Math;
@@ -123,9 +125,6 @@ This model computes thermodynamic properties of moist air from three independent
 </html>"));
       
     protected 
-      constant SI.MolarMass[2] MMX = {steam.MM,dryair.MM} 
-        "Molar masses of components";
-      
       MassFraction X_liquid "Mass fraction of liquid or solid water";
       MassFraction X_steam "Mass fraction of steam water";
       MassFraction X_air "Mass fraction of air";
@@ -815,15 +814,15 @@ Derivative function for <a href=Modelica:Modelica.Media.Air.MoistAir.specificInt
         Documentation(info="<html>
 Specific entropy is calculated from the thermodynamic state record, assuming ideal gas behavior and including entropy of mixing. Liquid or solid water is not taken into account, the entire water content X[1] is assumed to be in the vapor state (relative humidity below 1.0).
 </html>"));
+      
     protected 
-     MoleFraction[2] Y = massToMoleFractions(state.X,{steam.MM,dryair.MM}) 
+      MoleFraction[2] Y = massToMoleFractions(state.X,{steam.MM,dryair.MM}) 
         "molar fraction";
    algorithm 
-     s := SingleGasNasa.s0_Tlow(dryair, state.T)*(1-state.X[Water])
+     s:=SingleGasNasa.s0_Tlow(dryair, state.T)*(1-state.X[Water])
        + SingleGasNasa.s0_Tlow(steam, state.T)*state.X[Water]
-       - gasConstant(state)*Modelica.Math.log(state.p/reference_p)
-       + sum(if Y[i] > Modelica.Constants.eps then -Y[i]*Modelica.Math.log(Y[i]) else 
-                   Y[i] for i in 1:size(Y,1));
+       - (state.X[Water]*Modelica.Constants.R/MMX[Water]*(if state.X[Water]<Modelica.Constants.eps then state.X[Water] else Modelica.Math.log(Y[Water]*state.p/reference_p))
+         + (1-state.X[Water])*Modelica.Constants.R/MMX[Air]*(if (1-state.X[Water])<Modelica.Constants.eps then (1-state.X[Water]) else Modelica.Math.log(Y[Air]*state.p/reference_p)));
    end specificEntropy;
     
   redeclare function extends specificGibbsEnergy 
@@ -1049,7 +1048,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>240 
         y_T[i] = hx_T[i] - diagSlope*x;
         
         //trigger events
-        pd[i] = medium_T[i].Xi[1]*medium_T[i].MM/medium_T[i].MMX[1]*p_const;
+        pd[i] = medium_T[i].Xi[1]*medium_T[i].MM/MMX[1]*p_const;
         fog[i] = pd[i] >= Medium.saturationPressure(T_const[i]);
       end for;
       for i in 1:n_h loop

@@ -917,9 +917,14 @@ required from medium model \""   + mediumName + "\".");
   
   redeclare function extends specificEntropy "Return specific entropy" 
     extends Modelica.Icons.Function;
+  protected 
+    Real[nX] Y(unit="mol/mol")=massToMoleFractions(state.X, data.MM) 
+      "Molar fractions";
   algorithm 
-    s := s_TX(state.T, state.X) - gasConstant(state)*Modelica.Math.log(state.p/reference_p)
-      + MixEntropy(massToMoleFractions(state.X,data.MM));
+     s := s_TX(state.T, state.X) - sum(state.X[i]*Modelica.Constants.R/MMX[i]*
+      (if Y[i]>=Modelica.Constants.eps then Modelica.Math.log(Y[i]*state.p/
+      reference_p) else Y[i]) for i in 1:nX);
+    
   end specificEntropy;
   
   redeclare function extends specificGibbsEnergy "Return specific Gibbs energy" 
