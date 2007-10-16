@@ -213,6 +213,63 @@ by \"\\n\" in the string.
 </html>"));
   end error;
   
+  
+  function warningRealDefault 
+    "Triggers a warning if a Real parameter is not explicitly set" 
+    input Real number "Number to be used as default";
+    output Real result=number 
+      "Input argument number is returned and a warning assert triggered";
+  algorithm 
+    Modelica.Utilities.Streams.print("Default parameter value (= " + String(number) + ") used. Provide explicit value");
+    
+  /*
+  assert(false, "Default parameter value (= " + String(number) + ") used. Provide explicit value",
+         level=  AssertionLevel.warning);
+*/
+  end warningRealDefault;
+
+  function warningIntegerDefault 
+    "Triggers a warning if an Integer parameter is not explicitly set" 
+    input Integer number "Number to be used as default";
+    output Integer result=number 
+      "Input argument number is returned and a warning assert triggered";
+  algorithm 
+    Modelica.Utilities.Streams.print("Default parameter value (= " + String(number) + ") used. Provide explicit value");
+    
+  /*
+  assert(false, "Default parameter value (= " + String(number) + ") used. Provide explicit value",
+         level=  AssertionLevel.warning);
+*/
+  end warningIntegerDefault;
+
+  function warningBooleanDefault 
+    "Triggers a warning if a Boolean parameter is not explicitly set" 
+    input Boolean b "Boolean value to be used as default";
+    output Boolean result=b 
+      "Input argument b is returned and a warning assert triggered";
+  algorithm 
+    Modelica.Utilities.Streams.print("Default parameter value (= " + String(b) + ") used. Provide explicit value");
+    
+  /*
+  assert(false, "Default parameter value (= " + String(number) + ") used. Provide explicit value",
+         level=  AssertionLevel.warning);
+*/
+  end warningBooleanDefault;
+
+  function warningStringDefault 
+    "Triggers a warning if a String parameter is not explicitly set" 
+    input String string "String to be used as default";
+    output String result=string 
+      "Input argument string is returned and a warning assert triggered";
+  algorithm 
+    Modelica.Utilities.Streams.print("Default parameter value (= \"" + string + "\") used. Provide explicit value");
+    
+  /*
+  assert(false, "Default parameter value (= " + String(number) + ") used. Provide explicit value",
+         level=  AssertionLevel.warning);
+*/
+  end warningStringDefault;
+
   function close "Close file" 
     extends Modelica.Icons.Function;
     input String fileName "Name of the file that shall be closed";
@@ -229,5 +286,4 @@ file is already closed or does not exist.
 </p>
 </html>"));
   end close;
-  
 end Streams;
