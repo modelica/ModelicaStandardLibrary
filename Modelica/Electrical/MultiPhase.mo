@@ -1,4 +1,6 @@
 within Modelica.Electrical;
+
+
 package MultiPhase "Library for electrical components with 2, 3 or more phases" 
   extends Modelica.Icons.Library2;
   annotation (
@@ -1714,7 +1716,7 @@ This package contains multiphase potential, voltage, and current sensors.
     model PotentialSensor "Multiphase potential sensor" 
       extends Modelica.Icons.RotationalSensor;
       parameter Integer m(final min=1) = 3 "number of phases";
-      Interfaces.PositivePlug plug_p(m) annotation (extent=[-110, -10; -90, 10]);
+      Interfaces.PositivePlug plug_p(final m=m) annotation (extent=[-110, -10; -90, 10]);
       Modelica.Blocks.Interfaces.RealOutput phi[m](
           redeclare type SignalType = Modelica.SIunits.ElectricPotential) 
         "Absolute voltage potential as output signal" 
