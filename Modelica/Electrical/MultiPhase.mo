@@ -37,10 +37,10 @@ Further development:
 </p>
 </dl>
 <p>
-Copyright &copy; 1998-2005, Modelica Association and Anton Haumer.
+Copyright &copy; 1998-2007, Modelica Association and Anton Haumer.
 </p>
 <p>
-<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> 
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
@@ -1713,7 +1713,7 @@ This package contains multiphase potential, voltage, and current sensors.
     model PotentialSensor "Multiphase potential sensor" 
       extends Modelica.Icons.RotationalSensor;
       parameter Integer m(final min=1) = 3 "number of phases";
-      Interfaces.PositivePlug plug_p(m) annotation (extent=[-110, -10; -90, 10]);
+      Interfaces.PositivePlug plug_p(final m=m) annotation (extent=[-110, -10; -90, 10]);
       Modelica.Blocks.Interfaces.RealOutput phi[m](
           redeclare type SignalType = Modelica.SIunits.ElectricPotential) 
         "Absolute voltage potential as output signal" 
