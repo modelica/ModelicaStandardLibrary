@@ -1,4 +1,6 @@
 within Modelica.Electrical;
+
+
 package MultiPhase "Library for electrical components with 2, 3 or more phases" 
   extends Modelica.Icons.Library2;
   annotation (
@@ -61,7 +63,8 @@ and the accompanying <b>disclaimer</b>
       removed redeclare type SignalType</li>
   </ul>
 </html>"),
-    Icon(graphics={
+    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+            100}}), graphics={
         Ellipse(extent={{-60,10},{40,-90}}, lineColor={0,0,255}), 
         Ellipse(
           extent={{-40,-14},{-20,-34}}, 
@@ -113,7 +116,8 @@ This package contains basic analog electrical multiphase components.
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</html>"), Icon(graphics={
+</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+              {100,100}}), graphics={
           Rectangle(
             extent={{-80,-10},{60,-70}}, 
             lineColor={0,0,255}, 
@@ -585,10 +589,8 @@ Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
       "Ideal linear electrical resistors with variable resistance" 
       extends Interfaces.TwoPlug;
       Modelica.Blocks.Interfaces.RealInput R[m] 
-        annotation (Placement(transformation(
-            origin={0,100}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
+        annotation (Placement(transformation(extent={{10,90},{-10,110}}, 
+              rotation=-90)));
       Modelica.Electrical.Analog.Basic.VariableResistor variableResistor[m] 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, 
               rotation=0)));
@@ -631,10 +633,8 @@ Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor
       "Ideal linear electrical conductors with variable conductance" 
       extends Interfaces.TwoPlug;
       Modelica.Blocks.Interfaces.RealInput G[m] 
-        annotation (Placement(transformation(
-            origin={0,100}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
+        annotation (Placement(transformation(extent={{10,90},{-10,110}}, 
+              rotation=-90)));
       Modelica.Electrical.Analog.Basic.VariableConductor variableConductor[m] 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, 
               rotation=0)));
@@ -679,10 +679,8 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
       parameter Modelica.SIunits.Capacitance Cmin[m]=fill(Modelica.Constants.eps,m) 
         "minimum Capacitance";
       Modelica.Blocks.Interfaces.RealInput C[m] 
-        annotation (Placement(transformation(
-            origin={0,100}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
+        annotation (Placement(transformation(extent={{10,90},{-10,110}}, 
+              rotation=-90)));
       Modelica.Electrical.Analog.Basic.VariableCapacitor variableCapacitor[m](final Cmin = Cmin) 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, 
               rotation=0)));
@@ -725,10 +723,8 @@ Cmin is a parameter with default value Modelica.Constants.eps.
       parameter Modelica.SIunits.Inductance Lmin[m]=fill(Modelica.Constants.eps,m) 
         "minimum Inductance";
       Modelica.Blocks.Interfaces.RealInput L[m] 
-        annotation (Placement(transformation(
-            origin={0,100}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
+        annotation (Placement(transformation(extent={{10,90},{-10,110}}, 
+              rotation=-90)));
       Modelica.Electrical.Analog.Basic.VariableInductor variableInductor[m](final Lmin
           =    Lmin) 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, 
@@ -809,8 +805,9 @@ This package contains test examples of analog electrical multiphase circuits.
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</html>"), Icon(graphics={Ellipse(extent={{-60,12},{40,-88}}, lineColor={135,
-                135,135}), Polygon(
+</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+              {100,100}}), graphics={Ellipse(extent={{-60,12},{40,-88}}, 
+              lineColor={135,135,135}), Polygon(
             points={{-30,-10},{-30,-66},{28,-38},{-30,-10}}, 
             lineColor={135,135,135}, 
             fillColor={135,135,135}, 
@@ -836,15 +833,11 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
       Sources.SineVoltage SineVoltage1(
         V=fill(V, m),
         freqHz=fill(f, m),
-        m=m) annotation (Placement(transformation(
-            origin={-80,20}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=180)));
+        m=m) annotation (Placement(transformation(extent={{-70,30},{-90,10}}, 
+              rotation=-180)));
       Basic.Star StarS1(m=m) 
-        annotation (Placement(transformation(
-            origin={-90,-62}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
+        annotation (Placement(transformation(extent={{-80,-72},{-100,-52}}, 
+              rotation=-90)));
       Modelica.Electrical.Analog.Basic.Ground GroundS1 
         annotation (Placement(transformation(extent={{-100,-100},{-80,-80}}, 
               rotation=0)));
@@ -852,15 +845,11 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
         annotation (Placement(transformation(extent={{-40,0},{-20,20}}, 
               rotation=0)));
       Basic.Star StarT1(m=m) 
-        annotation (Placement(transformation(
-            origin={-40,-62}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
+        annotation (Placement(transformation(extent={{-30,-72},{-50,-52}}, 
+              rotation=-90)));
       Basic.Star StarT2(m=m) 
-        annotation (Placement(transformation(
-            origin={-20,-62}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
+        annotation (Placement(transformation(extent={{-10,-72},{-30,-52}}, 
+              rotation=-90)));
       Modelica.Electrical.Analog.Basic.Ground GroundT2 
         annotation (Placement(transformation(extent={{-30,-100},{-10,-80}}, 
               rotation=0)));
@@ -873,10 +862,8 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
         annotation (Placement(transformation(extent={{70,10},{90,30}}, rotation
               =0)));
       Basic.Star StarL1(m=m) 
-        annotation (Placement(transformation(
-            origin={90,-62}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
+        annotation (Placement(transformation(extent={{100,-72},{80,-52}}, 
+              rotation=-90)));
       Modelica.Electrical.Analog.Basic.Ground GroundT1 
         annotation (Placement(transformation(extent={{-50,-100},{-30,-80}}, 
               rotation=0)));
@@ -928,15 +915,11 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
       Sources.SineVoltage SineVoltage1(
         V=fill(V, m),
         freqHz=fill(f, m),
-        m=m) annotation (Placement(transformation(
-            origin={-80,20}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=180)));
+        m=m) annotation (Placement(transformation(extent={{-70,30},{-90,10}}, 
+              rotation=-180)));
       Basic.Star StarS1(m=m) 
-        annotation (Placement(transformation(
-            origin={-90,-62}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
+        annotation (Placement(transformation(extent={{-80,-72},{-100,-52}}, 
+              rotation=-90)));
       Modelica.Electrical.Analog.Basic.Ground GroundS1 
         annotation (Placement(transformation(extent={{-100,-100},{-80,-80}}, 
               rotation=0)));
@@ -944,14 +927,10 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
         annotation (Placement(transformation(extent={{-40,0},{-20,20}}, 
               rotation=0)));
       Basic.Star StarT1(m=m) 
-        annotation (Placement(transformation(
-            origin={-40,-62}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
-      Basic.Delta Delta1(m=m) annotation (Placement(transformation(
-            origin={50,10}, 
-            extent={{-10,10},{10,-10}}, 
-            rotation=270)));
+        annotation (Placement(transformation(extent={{-30,-72},{-50,-52}}, 
+              rotation=-90)));
+      Basic.Delta Delta1(m=m) annotation (Placement(transformation(extent={{60,
+                20},{40,0}}, rotation=-90)));
       Modelica.Electrical.Analog.Basic.Ground GroundT1 
         annotation (Placement(transformation(extent={{-50,-100},{-30,-80}}, 
               rotation=0)));
@@ -965,10 +944,8 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
         annotation (Placement(transformation(extent={{70,10},{90,30}}, rotation
               =0)));
       Basic.Star StarL1(m=m) 
-        annotation (Placement(transformation(
-            origin={90,-62}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
+        annotation (Placement(transformation(extent={{100,-72},{80,-52}}, 
+              rotation=-90)));
       Modelica.Electrical.Analog.Basic.Ground GroundL1 
         annotation (Placement(transformation(extent={{80,-100},{100,-80}}, 
               rotation=0)));
@@ -1022,46 +999,30 @@ neglecting initial transient.
         freqHz=fill(f, m)) annotation (Placement(transformation(extent={{-70,10},
                 {-90,-10}}, rotation=0)));
       Basic.Star StarS(m=m) 
-        annotation (Placement(transformation(
-            origin={-90,-50}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
+        annotation (Placement(transformation(extent={{-80,-60},{-100,-40}}, 
+              rotation=-90)));
       Basic.Inductor L1(m=m, L=fill(L, m)) 
         annotation (Placement(transformation(extent={{-52,-10},{-32,10}}, 
               rotation=0)));
       Ideal.IdealDiode IdealDiode1(m=m) 
-        annotation (Placement(transformation(
-            origin={10,20}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=90)));
-      Basic.Star Star1(m=m) annotation (Placement(transformation(
-            origin={10,50}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=90)));
+        annotation (Placement(transformation(extent={{0,30},{20,10}}, rotation=
+                90)));
+      Basic.Star Star1(m=m) annotation (Placement(transformation(extent={{0,60},
+                {20,40}}, rotation=90)));
       Ideal.IdealDiode IdealDiode2(m=m) 
-        annotation (Placement(transformation(
-            origin={10,-20}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=90)));
-      Basic.Star Star2(m=m) annotation (Placement(transformation(
-            origin={10,-50}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
+        annotation (Placement(transformation(extent={{0,-10},{20,-30}}, 
+              rotation=90)));
+      Basic.Star Star2(m=m) annotation (Placement(transformation(extent={{20,
+                -60},{0,-40}}, rotation=-90)));
       Modelica.Electrical.Analog.Basic.Resistor RLoad(R=RL) 
-        annotation (Placement(transformation(
-            origin={50,0}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
+        annotation (Placement(transformation(extent={{60,-10},{40,10}}, 
+              rotation=-90)));
       Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=2*C) 
-        annotation (Placement(transformation(
-            origin={70,30}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
+        annotation (Placement(transformation(extent={{80,20},{60,40}}, rotation
+              =-90)));
       Modelica.Electrical.Analog.Basic.Capacitor Capacitor2(C=2*C) 
-        annotation (Placement(transformation(
-            origin={70,-30}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
+        annotation (Placement(transformation(extent={{80,-40},{60,-20}}, 
+              rotation=-90)));
       Modelica.Electrical.Analog.Basic.Ground GroundDC 
         annotation (Placement(transformation(extent={{80,-80},{100,-60}}, 
               rotation=0)));
@@ -1129,7 +1090,8 @@ like thyristor, diode, switch, transformer.
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</html>"), Icon(graphics={
+</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+              {100,100}}), graphics={
           Line(points={{-100,-40},{80,-40}}), 
           Polygon(
             points={{20,-40},{-40,0},{-40,-80},{20,-40}}, 
@@ -1146,10 +1108,8 @@ like thyristor, diode, switch, transformer.
       parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m)) = zeros(m) 
         "Treshold voltage";
       Modelica.Blocks.Interfaces.BooleanInput fire[m] 
-        annotation (Placement(transformation(
-            origin={70,110}, 
-            extent={{-20,-20},{20,20}}, 
-            rotation=270)));
+        annotation (Placement(transformation(extent={{90,90},{50,130}}, 
+              rotation=-90)));
       Modelica.Electrical.Analog.Ideal.IdealThyristor idealThyristor[m](final Ron=
                Ron, final Goff=Goff, final Vknee=Vknee) annotation (Placement(
             transformation(extent={{-10,-10},{10,10}}, rotation=0)));
@@ -1194,10 +1154,8 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
       parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m)) = zeros(m) 
         "Treshold voltage";
       Modelica.Blocks.Interfaces.BooleanInput fire[m] 
-        annotation (Placement(transformation(
-            origin={70,110}, 
-            extent={{-20,-20},{20,20}}, 
-            rotation=270)));
+        annotation (Placement(transformation(extent={{90,90},{50,130}}, 
+              rotation=-90)));
       Modelica.Electrical.Analog.Ideal.IdealGTOThyristor idealGTOThyristor[m](
           final Ron=Ron, final Goff=Goff, final Vknee=Vknee) annotation (Placement(
             transformation(extent={{-10,-10},{10,10}}, rotation=0)));
@@ -1241,10 +1199,7 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
         1.E-5, m) "Opened switch conductance";
       Modelica.Blocks.Interfaces.BooleanInput control[m] 
         "true => p--n2 connected, false => p--n1 connected" annotation (Placement(
-            transformation(
-            origin={0,80}, 
-            extent={{-20,-20},{20,20}}, 
-            rotation=270)));
+            transformation(extent={{20,60},{-20,100}}, rotation=-90)));
       Interfaces.PositivePlug plug_p(final m=m) 
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, 
               rotation=0)));
@@ -1316,10 +1271,8 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
         1.E-5, m) "Opened switch conductance";
       Modelica.Blocks.Interfaces.BooleanInput control[m] 
         "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2 connected" 
-            annotation (Placement(transformation(
-            origin={0,80}, 
-            extent={{-20,-20},{20,20}}, 
-            rotation=270)));
+            annotation (Placement(transformation(extent={{20,60},{-20,100}}, 
+              rotation=-90)));
       Interfaces.PositivePlug plug_p1(final m=m) 
         annotation (Placement(transformation(extent={{-110,40},{-90,60}}, 
               rotation=0)));
@@ -1574,10 +1527,7 @@ Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
         1.E-5, m) "Opened switch conductance";
       Modelica.Blocks.Interfaces.BooleanInput control[m] 
         "true => switch open, false => p--n connected" annotation (Placement(
-            transformation(
-            origin={0,70}, 
-            extent={{-20,-20},{20,20}}, 
-            rotation=270)));
+            transformation(extent={{20,50},{-20,90}}, rotation=-90)));
       Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch idealOpeningSwitch[m](final Ron=Ron,
            final Goff=Goff) annotation (Placement(transformation(extent={{-10,
                 -10},{10,10}}, rotation=0)));
@@ -1628,10 +1578,7 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpening
         1.E-5, m) "Opened switch conductance";
       Modelica.Blocks.Interfaces.BooleanInput control[m] 
         "true => p--n connected, false => switch open" annotation (Placement(
-            transformation(
-            origin={0,70}, 
-            extent={{-20,-20},{20,20}}, 
-            rotation=270)));
+            transformation(extent={{20,50},{-20,90}}, rotation=-90)));
       Modelica.Electrical.Analog.Ideal.IdealClosingSwitch idealClosingSwitch[m](final Ron=Ron,
            final Goff=Goff) annotation (Placement(transformation(extent={{-10,
                 -10},{10,10}}, rotation=0)));
@@ -1711,7 +1658,8 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</html>"), Icon(graphics={
+</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+              {100,100}}), graphics={
           Ellipse(extent={{-60,10},{40,-90}}, lineColor={0,0,255}), 
           Ellipse(
             extent={{-40,-14},{-20,-34}}, 
@@ -1916,7 +1864,8 @@ This package contains multiphase potential, voltage, and current sensors.
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</html>"), Icon(graphics={
+</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+              {100,100}}), graphics={
           Ellipse(
             extent={{-60,10},{40,-90}}, 
             lineColor={0,0,0}, 
@@ -1957,7 +1906,8 @@ This package contains multiphase potential, voltage, and current sensors.
     model PotentialSensor "Multiphase potential sensor" 
       extends Modelica.Icons.RotationalSensor;
       parameter Integer m(final min=1) = 3 "number of phases";
-      Interfaces.PositivePlug plug_p(m) annotation (Placement(transformation(
+      Interfaces.PositivePlug plug_p(final m=m) 
+                                        annotation (Placement(transformation(
               extent={{-110,-10},{-90,10}}, rotation=0)));
       Modelica.Blocks.Interfaces.RealOutput phi[m] 
         "Absolute voltage potential as output signal" 
@@ -2002,10 +1952,8 @@ thus measuring the m potentials <i>phi[m]</i> of the m pins of plug_p.
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Modelica.Blocks.Interfaces.RealOutput v[m] 
         "Voltage between pin p and n (= p.v - n.v) as output signal" 
-         annotation (Placement(transformation(
-            origin={0,-110}, 
-            extent={{10,-10},{-10,10}}, 
-            rotation=90)));
+         annotation (Placement(transformation(extent={{10,-100},{-10,-120}}, 
+              rotation=90)));
       Modelica.Electrical.Analog.Sensors.VoltageSensor voltageSensor[m] 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, 
               rotation=0)));
@@ -2060,10 +2008,8 @@ thus measuring the m potential differences <i>v[m]</i> between the m pins of plu
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Modelica.Blocks.Interfaces.RealOutput i[m] 
         "current in the branch from p to n as output signal" 
-         annotation (Placement(transformation(
-            origin={0,-110}, 
-            extent={{10,-10},{-10,10}}, 
-            rotation=90)));
+         annotation (Placement(transformation(extent={{10,-100},{-10,-120}}, 
+              rotation=90)));
       Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor[m] 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, 
               rotation=0)));
@@ -2173,28 +2119,20 @@ This power sensor measures instantaneous electrical power of a multiphase system
       annotation (Placement(transformation(extent={{-10,-90},{10,-110}}, 
               rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput power 
-      annotation (Placement(transformation(
-            origin={-80,-110}, 
-            extent={{10,-10},{-10,10}}, 
-            rotation=90)));
+      annotation (Placement(transformation(extent={{-70,-100},{-90,-120}}, 
+              rotation=90)));
     Modelica.Electrical.MultiPhase.Sensors.VoltageSensor voltageSensor(final m=m) 
-      annotation (Placement(transformation(
-            origin={0,-20}, 
-            extent={{10,-10},{-10,10}}, 
-            rotation=90)));
+      annotation (Placement(transformation(extent={{10,-30},{-10,-10}}, 
+              rotation=90)));
     Modelica.Electrical.MultiPhase.Sensors.CurrentSensor currentSensor(final m=m) 
       annotation (Placement(transformation(extent={{-50,-10},{-30,10}}, 
               rotation=0)));
     Modelica.Blocks.Math.Product product[m] 
-      annotation (Placement(transformation(
-            origin={-30,-40}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
+      annotation (Placement(transformation(extent={{-20,-50},{-40,-30}}, 
+              rotation=270)));
     Modelica.Blocks.Math.Sum sum(final nin=m, final k=ones(m)) 
-      annotation (Placement(transformation(
-            origin={-30,-70}, 
-            extent={{10,-10},{-10,10}}, 
-            rotation=90)));
+      annotation (Placement(transformation(extent={{-20,-60},{-40,-80}}, 
+              rotation=90)));
   equation 
     connect(pc, currentSensor.plug_p) annotation (Line(points={{-100,0},{-50,0}}, 
             color={0,0,255}));
@@ -2255,7 +2193,8 @@ This package contains time-dependend and controlled multiphase voltage and curre
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</html>"), Icon(graphics={
+</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+              {100,100}}), graphics={
           Line(points={{-100,-40},{-60,-40}}), 
           Line(points={{-60,-40},{40,-40}}), 
           Line(points={{40,-40},{80,-40}}), 
@@ -2274,10 +2213,8 @@ This package contains time-dependend and controlled multiphase voltage and curre
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Modelica.Blocks.Interfaces.RealInput v[m] 
         "Voltage between pin p and n (= p.v - n.v) as input signal" 
-         annotation (Placement(transformation(
-            origin={0,70}, 
-            extent={{-20,-20},{20,20}}, 
-            rotation=270)));
+         annotation (Placement(transformation(extent={{20,50},{-20,90}}, 
+              rotation=-90)));
       Modelica.Electrical.Analog.Sources.SignalVoltage signalVoltage[m] 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, 
               rotation=0)));
@@ -2457,10 +2394,8 @@ with a default phase shift of -(j-1)/m * 2*pi for j in 1:m.
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Modelica.Blocks.Interfaces.RealInput i[m] 
         "Current flowing from pin p to pin n as input signal" 
-         annotation (Placement(transformation(
-            origin={0,70}, 
-            extent={{-20,-20},{20,20}}, 
-            rotation=270)));
+         annotation (Placement(transformation(extent={{20,50},{-20,90}}, 
+              rotation=-90)));
       Modelica.Electrical.Analog.Sources.SignalCurrent signalCurrent[m] 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, 
               rotation=0)));
