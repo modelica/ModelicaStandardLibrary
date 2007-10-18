@@ -3293,7 +3293,7 @@ InvGate with 1 input value, composed by Not and sensitive intertial delay.
       import D = Modelica.Electrical.Digital;
       extends D.Interfaces.MISO;
       extends D.Delay.DelayParams;
-      D.Basic.And G1(final n)     annotation (Placement(transformation(extent={
+      D.Basic.And G1(final n=n)     annotation (Placement(transformation(extent={
                 {-40,-20},{0,20}}, rotation=0)));
       D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
@@ -3427,7 +3427,7 @@ NandGate with n input values, composed by Nand and sensitive intertial delay.
             string="Gate"),
           Ellipse(extent=[60, -10; 40, 10], style(color=0, thickness=2))),
         Diagram);
-      D.Basic.Nand G1(final n)      annotation (Placement(transformation(extent=
+      D.Basic.Nand G1(final n=n)      annotation (Placement(transformation(extent=
                {{-40,-20},{0,20}}, rotation=0)));
       D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
@@ -3447,7 +3447,7 @@ NandGate with n input values, composed by Nand and sensitive intertial delay.
       import D = Modelica.Electrical.Digital;
       extends D.Delay.DelayParams;
       extends D.Interfaces.MISO;
-      D.Basic.Or G1(final n)    annotation (Placement(transformation(extent={{
+      D.Basic.Or G1(final n=n)    annotation (Placement(transformation(extent={{
                 -40,-20},{0,20}}, rotation=0)));
       D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
@@ -3508,7 +3508,7 @@ OrGate with n input values, composed by Or and sensitive intertial delay.
       import D = Modelica.Electrical.Digital;
       extends D.Delay.DelayParams;
       extends D.Interfaces.MISO;
-      D.Basic.Nor G1(final n)     annotation (Placement(transformation(extent={
+      D.Basic.Nor G1(final n=n)     annotation (Placement(transformation(extent={
                 {-40,-20},{0,20}}, rotation=0)));
       D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
@@ -3575,7 +3575,7 @@ NorGate with n input values, composed by Nor and sensitive intertial delay.
       import D = Modelica.Electrical.Digital;
       extends D.Delay.DelayParams;
       extends D.Interfaces.MISO;
-      D.Basic.Xor G1(final n)     annotation (Placement(transformation(extent={
+      D.Basic.Xor G1(final n=n)     annotation (Placement(transformation(extent={
                 {-40,-20},{0,20}}, rotation=0)));
       D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
@@ -3636,7 +3636,7 @@ XorGate with n input values, composed by Xor and sensitive intertial delay.
       import D = Modelica.Electrical.Digital;
       extends D.Delay.DelayParams;
       extends D.Interfaces.MISO;
-      D.Basic.Xnor G1(final n)      annotation (Placement(transformation(extent=
+      D.Basic.Xnor G1(final n=n)      annotation (Placement(transformation(extent=
                {{-40,-20},{0,20}}, rotation=0)));
       D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
@@ -4124,23 +4124,6 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
               color={0,0,0}, 
               fillPattern=FillPattern.Solid)}));
       
-    /*
-algorithm 
-  if nperiod == 0 then
-    y := quiet;
-  elseif (nperiod >= np) or (nperiod < 0) then
-    when sample(startTime, period) then
-      T0 := time;
-      if (nperiod > 0) then
-        np := np + 1;
-      end if;
-    end when;
-    y := if (time < startTime or time >= T0 + ((width*period)/
-      100)) or not (nperiod >= np or nperiod < 0) then quiet else pulse;
-  else
-    y := quiet;
-  end if;
-*/
     protected 
       Boolean sampling;
     equation 
