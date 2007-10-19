@@ -2481,15 +2481,15 @@ The Integer values have the following meaning:
       
       constant Integer min=1;
       constant Integer max=9;
-      constant Integer 'U'=1 "Uninitialized";
-      constant Integer 'X'=2 "Forcing Unknown";
-      constant Integer '0'=3 "Forcing 0";
-      constant Integer '1'=4 "Forcing 1";
-      constant Integer 'Z'=5 "High Impedance";
-      constant Integer 'W'=6 "Weak    Unknown";
-      constant Integer 'L'=7 "Weak    0";
-      constant Integer 'H'=8 "Weak    1";
-      constant Integer '-'=9 "Don't care";
+      constant Integer 'U'=1 "U  Uninitialized";
+      constant Integer 'X'=2 "X  Forcing Unknown";
+      constant Integer '0'=3 "0  Forcing 0";
+      constant Integer '1'=4 "1  Forcing 1";
+      constant Integer 'Z'=5 "Z  High Impedance";
+      constant Integer 'W'=6 "W  Weak    Unknown";
+      constant Integer 'L'=7 "L  Weak    0";
+      constant Integer 'H'=8 "H  Weak    1";
+      constant Integer '-'=9 "-  Don't care";
       annotation (Documentation(info="<html>
 <p><b>Code Table:</b></p>
 
@@ -3394,7 +3394,7 @@ InvGate with 1 input value, composed by Not and sensitive intertial delay.
       import D = Modelica.Electrical.Digital;
       extends D.Interfaces.MISO;
       extends D.Delay.DelayParams;
-      D.Basic.And G1(final n)     annotation (extent=[-40, -20; 0, 20]);
+      D.Basic.And G1(final n=n)     annotation (extent=[-40, -20; 0, 20]);
       D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
         tHL=tHL,
@@ -3518,7 +3518,7 @@ NandGate with n input values, composed by Nand and sensitive intertial delay.
           Ellipse(extent=[60, -10; 40, 10], style(color=0, thickness=2))),
         Diagram,
         DymolaStoredErrors);
-      D.Basic.Nand G1(final n)      annotation (extent=[-40,-20; 0,20]);
+      D.Basic.Nand G1(final n=n)      annotation (extent=[-40,-20; 0,20]);
       D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
         tHL=tHL,
@@ -3536,7 +3536,7 @@ NandGate with n input values, composed by Nand and sensitive intertial delay.
       import D = Modelica.Electrical.Digital;
       extends D.Delay.DelayParams;
       extends D.Interfaces.MISO;
-      D.Basic.Or G1(final n)    annotation (extent=[-40, -20; 0, 20]);
+      D.Basic.Or G1(final n=n)    annotation (extent=[-40, -20; 0, 20]);
       D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
         tHL=tHL,
@@ -3590,7 +3590,7 @@ OrGate with n input values, composed by Or and sensitive intertial delay.
       import D = Modelica.Electrical.Digital;
       extends D.Delay.DelayParams;
       extends D.Interfaces.MISO;
-      D.Basic.Nor G1(final n)     annotation (extent=[-40, -20; 0, 20]);
+      D.Basic.Nor G1(final n=n)     annotation (extent=[-40, -20; 0, 20]);
       D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
         tHL=tHL,
@@ -3650,7 +3650,7 @@ NorGate with n input values, composed by Nor and sensitive intertial delay.
       import D = Modelica.Electrical.Digital;
       extends D.Delay.DelayParams;
       extends D.Interfaces.MISO;
-      D.Basic.Xor G1(final n)     annotation (extent=[-40, -20; 0, 20]);
+      D.Basic.Xor G1(final n=n)     annotation (extent=[-40, -20; 0, 20]);
       D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
         tHL=tHL,
@@ -3704,7 +3704,7 @@ XorGate with n input values, composed by Xor and sensitive intertial delay.
       import D = Modelica.Electrical.Digital;
       extends D.Delay.DelayParams;
       extends D.Interfaces.MISO;
-      D.Basic.Xnor G1(final n)      annotation (extent=[-40,-20; 0,20]);
+      D.Basic.Xnor G1(final n=n)      annotation (extent=[-40,-20; 0,20]);
       D.Delay.InertialDelaySensitive G2(
         tLH=tLH,
         tHL=tHL,
@@ -4112,21 +4112,22 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
       Integer np(start=0);
       D.Interfaces.DigitalOutput y 
                     annotation (extent=[90,-10; 110,10]);
-    algorithm 
-      if nperiod == 0 then
-        y := quiet;
-      elseif (nperiod >= np) or (nperiod < 0) then
-        when sample(startTime, period) then
-          T0 := time;
-          if (nperiod > 0) then
-            np := np + 1;
-          end if;
-        end when;
-        y := if (time < startTime or time >= T0 + ((width*period)/
-          100)) or not (nperiod >= np or nperiod < 0) then quiet else pulse;
+    protected 
+      Boolean sampling;
+    equation 
+      sampling = nperiod <> 0 and (nperiod >= pre(np) or nperiod < 0);
+      
+      when sampling and sample(startTime, period) then
+         T0 = time;
+         np = if nperiod > 0 then pre(np) + 1 else pre(np);
+      end when;
+      
+      if sampling then
+         y = if time < startTime or time >= T0 + ((width*period)/100) then quiet else pulse;
       else
-        y := quiet;
+         y = quiet;
       end if;
+      
       annotation (Documentation(info="<HTML>
 <P>
 The pulse source forms pulses between the  <i>quiet</i> value and the <i>pulse</i> value.
