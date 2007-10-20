@@ -1,6 +1,5 @@
 within Modelica.Thermal;
 
-
 package FluidHeatFlow 
   "Simple components for 1-dimensional incompressible thermo-fluid flow models" 
   extends Modelica.Icons.Library2;
@@ -113,7 +112,8 @@ and the accompanying <b>disclaimer</b>
        fixed unit bug in SimpleFriction</li>
   </ul>
 </HTML>
-"), Icon(graphics={
+"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+            100}}), graphics={
         Polygon(
           points={{-80,10},{-60,-10},{-80,-30},{-20,-30},{0,-10},{-20,10},{-80,
               10}}, 
@@ -190,8 +190,9 @@ and the accompanying <b>disclaimer</b>
        <i>new test example: TwoMass</i></li>
   </ul>
 </HTML>
-"), Icon(graphics={Ellipse(extent={{-60,10},{40,-90}}, lineColor={135,135,135}), 
-            Polygon(
+"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={Ellipse(extent={{-60,10},{40,-90}}, lineColor={
+                135,135,135}), Polygon(
             points={{-30,-12},{-30,-68},{28,-40},{-30,-12}}, 
             lineColor={135,135,135}, 
             fillColor={135,135,135}, 
@@ -1418,7 +1419,8 @@ and the accompanying <b>disclaimer</b>
        friction losses are fed to medium</li>
   </ul>
 </HTML>
-"), Icon(graphics={
+"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
           Polygon(
             points={{-56,10},{-56,-90},{-6,-40},{44,10},{44,-90},{-56,10}}, 
             lineColor={0,0,255}, 
@@ -1640,8 +1642,9 @@ and the accompanying <b>disclaimer</b>
        semiLinear works fine</li>
   </ul>
 </HTML>
-"), Icon(graphics={Rectangle(extent={{-60,10},{40,-90}}, lineColor={255,0,0}), 
-            Ellipse(
+"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={Rectangle(extent={{-60,10},{40,-90}}, lineColor
+              ={255,0,0}), Ellipse(
             extent={{-58,8},{38,-88}}, 
             lineColor={0,0,255}, 
             fillColor={0,0,255}, 
@@ -2160,7 +2163,8 @@ and the accompanying <b>disclaimer</b>
        corrected usage of cv and cp</li>
   </ul>
 </HTML>
-"), Icon(graphics={
+"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
           Rectangle(
             extent={{-80,8},{60,-88}}, 
             lineColor={0,0,127}, 
@@ -2282,7 +2286,8 @@ and the accompanying <b>disclaimer</b>
        first stable official release</li>
   </ul>
 </HTML>
-"), Icon(graphics={
+"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
           Ellipse(
             extent={{-60,10},{40,-90}}, 
             lineColor={0,0,0}, 
@@ -2485,8 +2490,9 @@ and the accompanying <b>disclaimer</b>
        <i>new model: IdealPump</i></li>
   </ul>
 </HTML>
-"), Icon(graphics={Ellipse(extent={{-60,10},{40,-90}}, lineColor={255,0,0}), 
-            Polygon(
+"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={Ellipse(extent={{-60,10},{40,-90}}, lineColor={
+                255,0,0}), Polygon(
             points={{-40,0},{-40,-80},{38,-50},{38,-30},{-40,0}}, 
             lineColor={0,0,255}, 
             fillPattern=FillPattern.Solid)}));
