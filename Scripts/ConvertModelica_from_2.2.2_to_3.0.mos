@@ -63,3 +63,240 @@ convertClass("Modelica.Electrical.Digital.Interfaces.LogicValue","Modelica.Elect
 convertClass("Modelica.Utilities.Types.Compare.Type"  ,"Modelica.Utilities.Types.Compare")
 convertClass("Modelica.Utilities.Types.FileType.Type" ,"Modelica.Utilities.Types.FileType")
 convertClass("Modelica.Utilities.Types.TokenType.Type","Modelica.Utilities.Types.TokenType")
+
+//-------- Machines ------------------------------------------------------------
+// Convert Machines to 2.0.0 (MSL 3.0)
+// Revisions :
+// 2007/10/15: Anton Haumer
+//             first version
+// 2007/10/20: Anton Haumer
+//             extended version
+
+convertClass  ("Machines.Examples.Utilities", "Machines.Utilities");
+
+convertClass  ("Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
+               "Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet");
+convertClass  ("Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+               "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited");
+convertClass  ("Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
+               "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor");
+
+convertClass  ("Machines.Sensors.RotorAngle", "Machines.Sensors.RotorDisplacementAngle");
+convertClass  ("Machines.Sensors.VoltageRMSsensor", "Machines.Sensors.VoltageQuasiRMSSensor");
+convertClass  ("Machines.Sensors.CurrentRMSsensor", "Machines.Sensors.CurrentQuasiRMSSensor");
+
+convertElement({"Machines.Examples.Utilities.SwitchYD"}, 
+               "plug_NS", "plug_sn");
+convertElement({"Machines.Examples.Utilities.SwitchYD"}, 
+               "pug_PS", "plug_sp");
+convertElement({"Machines.Examples.Utilities.SwitchYD"}, 
+               "plug_P", "plugSupply");
+
+convertElement({"Machines.Examples.Utilities.TerminalBox"}, 
+               "StarDelta", "terminalConnection");
+
+convertElement({"Machines.Examples.Utilities.TerminalBox"}, 
+               "negativeMachinePlug", "plug_sn");
+convertElement({"Machines.Examples.Utilities.TerminalBox"}, 
+               "positiveMachinePlug", "plug_sp");
+convertElement({"Machines.Examples.Utilities.TerminalBox"}, 
+               "plugToGrid", "plugSupply");
+
+convertElement({"Machines.Interfaces.PartialBasicInductionMachine",
+                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage",
+                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing",
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage",
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage"},
+               "fNominal", "fsNominal");
+
+convertElement({"Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing"}, 
+               "VsNom", "VsNominal");
+convertElement({"Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing"}, 
+               "Vr_LR", "VrLockedRotor");
+convertElement({"Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage"}, 
+               "V0", "VsOpenCircuit");
+convertElement({"Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage"}, 
+               "VNominal", "VsNominal");
+convertElement({"Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage"}, 
+               "Ie0", "IeOpenCircuit");
+
+convertElement({"Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage",  
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
+                "Machines.BasicMachines.Components.DamperCage"}, 
+               "Lrsigma", "Lrsigmad");
+
+convertElement({"Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
+                "Machines.BasicMachines.Components.DamperCage"}, 
+               "Rr", "Rrd");
+
+convertElement({"Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage"}, 
+               "DamperCage", "useDamperCage");
+
+convertElement({"Machines.Interfaces.PartialBasicMachine", 
+                "Machines.Interfaces.PartialBasicInductionMachine", 
+                "Machines.Interfaces.PartialBasicDCMachine", 
+                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage", 
+                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
+                "Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
+                "Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
+                "Machines.BasicMachines.DCMachines.DC_SeriesExcited"}, 
+               "J_Rotor", "Jr");
+
+convertElement({"Machines.Interfaces.PartialBasicMachine", 
+                "Machines.Interfaces.PartialBasicInductionMachine", 
+                "Machines.Interfaces.PartialBasicDCMachine", 
+                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage", 
+                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
+                "Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
+                "Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
+                "Machines.BasicMachines.DCMachines.DC_SeriesExcited"}, 
+               "J_Stator", "Js");
+
+convertElement({"Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing",
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
+                "Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
+                "Machines.BasicMachines.DCMachines.DC_SeriesExcited", 
+                "Machines.BasicMachines.Components.ElectricalExcitation", 
+                "Machines.BasicMachines.Components.PartialAirGapDC", 
+                "Machines.BasicMachines.Components.AirGapDC", 
+                "Machines.Interfaces.PartialBasicDCMachine"}, 
+               "TurnsRatio", "turnsRatio");
+
+convertElement({"Machines.Interfaces.PartialBasicMachine", 
+                "Machines.Interfaces.PartialBasicInductionMachine", 
+                "Machines.Interfaces.PartialBasicDCMachine", 
+                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage", 
+                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
+                "Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
+                "Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
+                "Machines.BasicMachines.DCMachines.DC_SeriesExcited", 
+                "Machines.BasicMachines.Components.PartialAirGap", 
+                "Machines.BasicMachines.Components.AirGapS", 
+                "Machines.BasicMachines.Components.AirGapR",
+                "Machines.BasicMachines.Components.PartialAirGapDC", 
+                "Machines.BasicMachines.Components.AirGapDC"}, 
+               "flange_a", "shaft");
+
+convertElement({"Machines.Sensors.RotorAngle"}, 
+               "flange", "shaft");
+
+convertElement({"Machines.Interfaces.PartialBasicMachine", 
+                "Machines.Interfaces.PartialBasicInductionMachine", 
+                "Machines.Interfaces.PartialBasicDCMachine", 
+                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage", 
+                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
+                "Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
+                "Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
+                "Machines.BasicMachines.DCMachines.DC_SeriesExcited"}, 
+               "phi_mechanical", "phiMechanical");
+
+convertElement({"Machines.Interfaces.PartialBasicMachine", 
+                "Machines.Interfaces.PartialBasicInductionMachine", 
+                "Machines.Interfaces.PartialBasicDCMachine", 
+                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage", 
+                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
+                "Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
+                "Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
+                "Machines.BasicMachines.DCMachines.DC_SeriesExcited"}, 
+               "w_mechanical", "wMechanical");
+
+convertElement({"Machines.Interfaces.PartialBasicMachine", 
+                "Machines.Interfaces.PartialBasicInductionMachine", 
+                "Machines.Interfaces.PartialBasicDCMachine", 
+                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage", 
+                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
+                "Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
+                "Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
+                "Machines.BasicMachines.DCMachines.DC_SeriesExcited"}, 
+               "rpm_mechanical", "rpmMechanical");
+
+convertElement({"Machines.Interfaces.PartialBasicMachine", 
+                "Machines.Interfaces.PartialBasicInductionMachine", 
+                "Machines.Interfaces.PartialBasicDCMachine", 
+                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage", 
+                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
+                "Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
+                "Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
+                "Machines.BasicMachines.DCMachines.DC_SeriesExcited",
+                "Machines.BasicMachines.Components.PartialAirGap",
+                "Machines.BasicMachines.Components.AirGapS",
+                "Machines.BasicMachines.Components.AirGapR",
+                "Machines.BasicMachines.Components.PartialAirGapDC",
+                "Machines.BasicMachines.Components.AirGapDC"}, 
+               "tau_electrical", "tauElectrical");
+
+convertElement({"Machines.Interfaces.PartialBasicMachine", 
+                "Machines.Interfaces.PartialBasicInductionMachine", 
+                "Machines.Interfaces.PartialBasicDCMachine", 
+                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage", 
+                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
+                "Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
+                "Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
+                "Machines.BasicMachines.DCMachines.DC_SeriesExcited"}, 
+               "tau_shaft", "tauShaft");
+
+// Conversions for Machines.Examples
+
+convertClass  ("Machines.Examples.AIMS_start", "Machines.Examples.AIMS_Start");
+convertClass  ("Machines.Examples.SMEE_Gen", "Machines.Examples.SMEE_Generator");
+convertClass  ("Machines.Examples.DCPM_start", "Machines.Examples.DCPM_Start");
+convertClass  ("Machines.Examples.DCEE_start", "Machines.Examples.DCEE_Start");
+convertClass  ("Machines.Examples.DCSE_start", "Machines.Examples.DCSE_Start");
+
+convertElement({"Machines.Examples.AIMC_DOL",
+                "Machines.Examples.AIMC_YD",
+                "Machines.Examples.AIMS_Start",
+                "Machines.Examples.AIMC_Inverter",
+                "Machines.Examples.SMR_Inverter",
+                "Machines.Examples.SMPM_Inverter",
+                "Machines.Examples.DCPM_Start",
+                "Machines.Examples.DCEE_Start",
+                "Machines.Examples.DCSE_Start",
+                "Machines.Examples.AIMC_Steinmetz"}, 
+               "T_Load", "TLoad");
+
+convertElement({"Machines.Examples.AIMC_DOL",
+                "Machines.Examples.AIMC_YD",
+                "Machines.Examples.AIMS_Start",
+                "Machines.Examples.AIMC_Inverter",
+                "Machines.Examples.SMR_Inverter",
+                "Machines.Examples.SMPM_Inverter",
+                "Machines.Examples.DCPM_Start",
+                "Machines.Examples.DCEE_Start",
+                "Machines.Examples.DCSE_Start",
+                "Machines.Examples.AIMC_Steinmetz"}, 
+               "J_Load", "JLoad");
+
+// End Convert Machines to 2.0.0 (MSL 3.0)
+//-------- Machines ------------------------------------------------------------
