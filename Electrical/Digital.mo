@@ -340,10 +340,10 @@ The multiplexer converts a parallel 4 bit signal in a sequential
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              lineThickness=2,
-              fillColor={255,255,170},
+              extent={{-100,100},{100,-100}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2, 
+              fillColor={255,255,170}, 
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -446,10 +446,10 @@ Pulse-triggered master-slave flip-flop.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              lineThickness=2,
-              fillColor={255,255,170},
+              extent={{-100,100},{100,-100}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2, 
+              fillColor={255,255,170}, 
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -541,14 +541,14 @@ The simulation stop time should be 5 seconds.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-88,100},{90,-100}},
-              lineColor={0,0,0},
-              lineThickness=2,
-              fillColor={255,255,170},
+              extent={{-88,100},{90,-100}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2, 
+              fillColor={255,255,170}, 
               fillPattern=FillPattern.Solid), Line(
-              points={{40,54},{40,60},{-40,60},{10,0},{-40,-60},{40,-60},{40,
-                  -52}},
-              color={0,0,0},
+              points={{40,54},{40,60},{-40,60},{10,0},{-40,-60},{40,-60},{40,-52}}, 
+                
+              color={0,0,0}, 
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -631,14 +631,14 @@ The simulation stop time should be 10 seconds.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              lineThickness=2,
-              fillColor={255,255,170},
+              extent={{-100,100},{100,-100}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2, 
+              fillColor={255,255,170}, 
               fillPattern=FillPattern.Solid), Line(
-              points={{40,54},{40,60},{-40,60},{10,0},{-40,-60},{40,-60},{40,
-                  -52}},
-              color={0,0,0},
+              points={{40,54},{40,60},{-40,60},{10,0},{-40,-60},{40,-60},{40,-52}}, 
+                
+              color={0,0,0}, 
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -731,10 +731,10 @@ The simulation stop time has to be 5s.
             preserveAspectRatio=true,
             extent={{-200,-200},{200,200}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-200,200},{200,-200}},
-              lineColor={0,0,0},
-              lineThickness=2,
-              fillColor={255,255,170},
+              extent={{-200,200},{200,-200}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2, 
+              fillColor={255,255,170}, 
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -881,10 +881,10 @@ The simulation stop time has to be 5s.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              lineThickness=2,
-              fillColor={255,255,170},
+              extent={{-100,100},{100,-100}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2, 
+              fillColor={255,255,170}, 
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -930,10 +930,10 @@ The simulation stop time has to be 5s.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              lineThickness=2,
-              fillColor={255,255,170},
+              extent={{-100,100},{100,-100}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2, 
+              fillColor={255,255,170}, 
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -993,92 +993,84 @@ The simulation stop time has to be 5s.
         Documentation(info="<HTML>
 </HTML>
 "),     Diagram(graphics),
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                  100,100}}), graphics={
               Rectangle(
-                extent={{-90,100},{90,-100}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid),
+                extent={{-90,100},{90,-100}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,170}, 
+                fillPattern=FillPattern.Solid), 
               Line(
-                points={{-60,100},{-60,-100}},
-                color={0,0,0},
-                thickness=2,
-                fillPattern=FillPattern.Solid),
+                points={{-60,100},{-60,-100}}, 
+                color={0,0,0}, 
+                thickness=2, 
+                fillPattern=FillPattern.Solid), 
               Line(
-                points={{60,100},{60,-100}},
-                color={0,0,0},
-                thickness=2,
-                fillPattern=FillPattern.Solid),
+                points={{60,100},{60,-100}}, 
+                color={0,0,0}, 
+                thickness=2, 
+                fillPattern=FillPattern.Solid), 
               Text(
-                extent={{-86,80},{-64,60}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "D0"),
+                extent={{-86,80},{-64,60}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="D0"), 
               Text(
-                extent={{64,12},{86,-8}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "D"),
+                extent={{64,12},{86,-8}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="D"), 
               Text(
-                extent={{-150,-100},{150,-160}},
-                lineColor={0,0,255},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
-                textString=
-                   "%name"),
+                extent={{-150,-100},{150,-160}}, 
+                lineColor={0,0,255}, 
+                fillColor={255,255,170}, 
+                fillPattern=FillPattern.Solid, 
+                textString="%name"), 
               Text(
-                extent={{-60,100},{60,40}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.HorizontalCylinder,
-                textString=
-                     "MUX"),
+                extent={{-60,100},{60,40}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                textString="MUX"), 
               Text(
-                extent={{-86,-60},{-64,-80}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "A1"),
+                extent={{-86,-60},{-64,-80}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="A1"), 
               Text(
-                extent={{-86,54},{-64,34}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "D1"),
+                extent={{-86,54},{-64,34}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="D1"), 
               Text(
-                extent={{-86,28},{-64,8}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "D2"),
+                extent={{-86,28},{-64,8}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="D2"), 
               Text(
-                extent={{-86,2},{-64,-18}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "D3"),
+                extent={{-86,2},{-64,-18}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="D3"), 
               Text(
-                extent={{-86,-36},{-64,-56}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "A0")}));
+                extent={{-86,-36},{-64,-56}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="A0")}));
         
       parameter Modelica.SIunits.Time delayTime=0.001;
       parameter D.Interfaces.Logic q0=L.'0';
@@ -1579,69 +1571,64 @@ The simulation stop time has to be 5s.
         Documentation(info="<HTML>
 </HTML>
 "),     Diagram(graphics),
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                  100,100}}), graphics={
               Rectangle(
-                extent={{-90,100},{90,-100}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid),
+                extent={{-90,100},{90,-100}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,170}, 
+                fillPattern=FillPattern.Solid), 
               Line(
-                points={{-60,100},{-60,-100}},
-                color={0,0,0},
-                thickness=2,
-                fillPattern=FillPattern.Solid),
+                points={{-60,100},{-60,-100}}, 
+                color={0,0,0}, 
+                thickness=2, 
+                fillPattern=FillPattern.Solid), 
               Line(
-                points={{60,100},{60,-100}},
-                color={0,0,0},
-                thickness=2,
-                fillPattern=FillPattern.Solid),
+                points={{60,100},{60,-100}}, 
+                color={0,0,0}, 
+                thickness=2, 
+                fillPattern=FillPattern.Solid), 
               Text(
-                extent={{-86,80},{-64,60}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "J"),
+                extent={{-86,80},{-64,60}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="J"), 
               Text(
-                extent={{64,80},{86,60}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "Q"),
+                extent={{64,80},{86,60}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="Q"), 
               Text(
-                extent={{64,-60},{86,-80}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "QN"),
-              Line(points={{-90,20},{-60,0},{-90,-20}}, color={0,0,0}),
+                extent={{64,-60},{86,-80}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="QN"), 
+              Line(points={{-90,20},{-60,0},{-90,-20}}, color={0,0,0}), 
               Text(
-                extent={{-150,-100},{150,-160}},
-                lineColor={0,0,255},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
-                textString=
-                   "%name"),
+                extent={{-150,-100},{150,-160}}, 
+                lineColor={0,0,255}, 
+                fillColor={255,255,170}, 
+                fillPattern=FillPattern.Solid, 
+                textString="%name"), 
               Text(
-                extent={{-100,100},{100,40}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.HorizontalCylinder,
-                textString=
-                     "JK"),
+                extent={{-100,100},{100,40}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                textString="JK"), 
               Text(
-                extent={{-86,-60},{-64,-80}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "K")}));
+                extent={{-86,-60},{-64,-80}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="K")}));
         
       parameter Modelica.SIunits.Time delayTime=0.001;
       parameter D.Interfaces.Logic q0=L.'0';
@@ -2607,8 +2594,8 @@ This package contains interface definitions
     
     partial block DelayParams "Definition of delay parameters" 
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
-      parameter Modelica.SIunits.Time tLH=0 "rise inertial delay";
-      parameter Modelica.SIunits.Time tHL=0 "fall inertial delay";
+      parameter Modelica.SIunits.Time tLH(start=0) "rise inertial delay";
+      parameter Modelica.SIunits.Time tHL(start=0) "fall inertial delay";
       parameter Digital.Interfaces.Logic y0=L.'U' "initial value of output";
       annotation (Documentation(info="<html>
    
@@ -2619,7 +2606,7 @@ This package contains interface definitions
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
       extends D.Interfaces.SISO(x(start=L.'U',fixed=true));
-      parameter Modelica.SIunits.Time delayTime=0 "delay time";
+      parameter Modelica.SIunits.Time delayTime(start=0) "delay time";
       parameter D.Interfaces.Logic y0=L.'U' "initial value of output";
     protected 
       D.Interfaces.Logic x_delayed;
@@ -2685,7 +2672,8 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
       extends D.Interfaces.SISO;
-      parameter Modelica.SIunits.Time delayTime=0 "Minimum time to hold value";
+      parameter Modelica.SIunits.Time delayTime(start=0) 
+        "Minimum time to hold value";
       parameter D.Interfaces.Logic y0=L.'U' "Initial value of output y";
     protected 
       D.Interfaces.Logic y_auxiliary(start=y0, fixed=true);
@@ -2754,6 +2742,7 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
               lineThickness=2, 
               fillPattern=FillPattern.Solid, 
               textString="Delay")}));
+    equation 
       
     end InertialDelay;
     
@@ -2762,8 +2751,8 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
       extends D.Interfaces.SISO(x(start=L.'U',fixed=true));
-      parameter Modelica.SIunits.Time tLH=0 "rise inertial delay";
-      parameter Modelica.SIunits.Time tHL=0 "fall inertial delay";
+      parameter Modelica.SIunits.Time tLH(start=0) "rise inertial delay";
+      parameter Modelica.SIunits.Time tHL(start=0) "fall inertial delay";
       parameter D.Interfaces.Logic y0=L.'U' "initial value of output";
     protected 
       Integer delayTable[:,:]=D.Tables.DelayTable 
@@ -2855,6 +2844,7 @@ is used, if it is zero, the input is not delayed.
               points={{0,60},{20,60}}, 
               color={0,0,0}, 
               fillPattern=FillPattern.Solid)}));
+    equation 
       
     end InertialDelaySensitive;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
@@ -3781,7 +3771,7 @@ BufGate with 1 input value, composed by Not and sensitive intertial delay.
     block Set "Digital Set Source" 
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
-      parameter D.Interfaces.Logic x=L.'1' "Logic value to be set";
+      parameter D.Interfaces.Logic x(start=L.'1') "Logic value to be set";
       D.Interfaces.DigitalOutput y 
                     annotation (Placement(transformation(extent={{90,-10},{110,
                 10}}, rotation=0)));
@@ -3853,9 +3843,10 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
     block Step "Digital Step Source" 
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
-      parameter D.Interfaces.Logic before=L.'0' "Logic value before step";
-      parameter D.Interfaces.Logic after=L.'1' "Logic value after step";
-      parameter Real stepTime=1 "step time";
+      parameter D.Interfaces.Logic before(start=L.'0') 
+        "Logic value before step";
+      parameter D.Interfaces.Logic after(start=L.'1') "Logic value after step";
+      parameter Real stepTime(start=1) "step time";
       D.Interfaces.DigitalOutput y 
                     annotation (Placement(transformation(extent={{90,-10},{110,
                 10}}, rotation=0)));
@@ -4049,16 +4040,16 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
       parameter Real width(
         final min=Modelica.Constants.small,
-        final max=100) = 50 "Widths of pulses in % of periods";
-      parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small)=
-           1 "Time for one period";
-      parameter Modelica.SIunits.Time startTime=0 
+        final max=100, start=50) "Widths of pulses in % of periods";
+      parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small, start=1) 
+        "Time for one period";
+      parameter Modelica.SIunits.Time startTime(start=0) 
         "Output = quiet for time < startTime";
-      parameter D.Interfaces.Logic pulse=L.'0';
-      parameter D.Interfaces.Logic quiet=L.'1';
+      parameter D.Interfaces.Logic pulse(start=L.'0');
+      parameter D.Interfaces.Logic quiet(start=L.'1');
       Modelica.SIunits.Time T0(final start=startTime) 
         "Start time of current period";
-      parameter Integer nperiod=-1 
+      parameter Integer nperiod(start=-1) 
         "Number of periods (< 0 means infinite number of periods)";
       Integer np(start=0, fixed=true);
       D.Interfaces.DigitalOutput y 
@@ -4148,13 +4139,13 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
     model Clock "Digital Clock Source" 
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
-      parameter Modelica.SIunits.Time startTime=0 
+      parameter Modelica.SIunits.Time startTime(start=0) 
         "Output = offset for time < startTime";
       parameter Modelica.SIunits.Time period(
-        final min=Modelica.Constants.small)=1 "Time for one period";
+        final min=Modelica.Constants.small, start=1) "Time for one period";
       parameter Real width(
         final min=Modelica.Constants.small,
-        final max=100) = 50 "Width of pulses in % of period";
+        final max=100, start=50) "Width of pulses in % of period";
       D.Interfaces.DigitalOutput y "Connector of Digital output signal" 
                     annotation (Placement(transformation(extent={{90,-10},{110,
                 10}}, rotation=0)));
@@ -4242,7 +4233,7 @@ The number of periods is unlimited. The first pulse starts at startTime.
       D.Interfaces.DigitalOutput y[n] 
                          annotation (Placement(transformation(extent={{40,-10},
                 {60,10}}, rotation=0)));
-      parameter Integer n(final min=1) = 1 "signal width";
+      parameter Integer n(final min=1, start=1) "signal width";
     algorithm 
       for i in 1:n loop
         y[i] := T.X01Table[x[i]];
@@ -4280,32 +4271,31 @@ If the signal width is greater than 1 this conversion is done for each signal.
        initially modelled.</li>
 </ul>
 </HTML>
-"),     Icon(graphics={
+"),     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Text(
-              extent={{152,-100},{-148,-40}},
-              lineColor={0,0,255},
-              textString=
-                   "%name"),
+              extent={{152,-100},{-148,-40}}, 
+              lineColor={0,0,255}, 
+              textString="%name"), 
             Polygon(
-              points={{-40,-40},{-40,40},{40,40},{-40,-40}},
-              lineColor={127,0,127},
-              fillColor={127,0,127},
-              fillPattern=FillPattern.Solid),
+              points={{-40,-40},{-40,40},{40,40},{-40,-40}}, 
+              lineColor={127,0,127}, 
+              fillColor={127,0,127}, 
+              fillPattern=FillPattern.Solid), 
             Polygon(
-              points={{-40,-40},{40,-40},{40,40},{-40,-40}},
-              lineColor={127,0,127},
-              lineThickness=2,
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
+              points={{-40,-40},{40,-40},{40,40},{-40,-40}}, 
+              lineColor={127,0,127}, 
+              lineThickness=2, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{0,-20},{40,-40}},
-              lineColor={0,0,0},
-              lineThickness=2,
-              textString=
-                   "X01"),
+              extent={{0,-20},{40,-40}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2, 
+              textString="X01"), 
             Rectangle(
-              extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
+              extent={{-40,40},{40,-40}}, 
+              lineColor={0,0,0}, 
               lineThickness=2)}),
         Diagram(graphics));
     end LogicToXO1;
@@ -4319,7 +4309,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
       D.Interfaces.DigitalOutput y[n] 
                          annotation (Placement(transformation(extent={{40,-10},
                 {60,10}}, rotation=0)));
-      parameter Integer n(final min=1) = 1 "signal width";
+      parameter Integer n(final min=1, start=1) "signal width";
     algorithm 
       for i in 1:n loop
         y[i] := T.X01ZTable[x[i]];
@@ -4357,32 +4347,31 @@ If the signal width is greater than 1 this conversion is done for each signal.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Text(
-              extent={{152,-100},{-148,-40}},
-              lineColor={0,0,255},
-              textString=
-                   "%name"),
+              extent={{152,-100},{-148,-40}}, 
+              lineColor={0,0,255}, 
+              textString="%name"), 
             Polygon(
-              points={{-40,-40},{-40,40},{40,40},{-40,-40}},
-              lineColor={127,0,127},
-              fillColor={127,0,127},
-              fillPattern=FillPattern.Solid),
+              points={{-40,-40},{-40,40},{40,40},{-40,-40}}, 
+              lineColor={127,0,127}, 
+              fillColor={127,0,127}, 
+              fillPattern=FillPattern.Solid), 
             Polygon(
-              points={{-40,-40},{40,-40},{40,40},{-40,-40}},
-              lineColor={127,0,127},
-              lineThickness=2,
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
+              points={{-40,-40},{40,-40},{40,40},{-40,-40}}, 
+              lineColor={127,0,127}, 
+              lineThickness=2, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{0,-20},{40,-40}},
-              lineColor={0,0,0},
-              lineThickness=2,
-              textString=
-                   "X01Z"),
+              extent={{0,-20},{40,-40}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2, 
+              textString="X01Z"), 
             Rectangle(
-              extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
+              extent={{-40,40},{40,-40}}, 
+              lineColor={0,0,0}, 
               lineThickness=2)}),
         Diagram(graphics));
     end LogicToXO1Z;
@@ -4396,7 +4385,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
       D.Interfaces.DigitalOutput y[n] 
                          annotation (Placement(transformation(extent={{40,-10},
                 {60,10}}, rotation=0)));
-      parameter Integer n(final min=1) = 1 "signal width";
+      parameter Integer n(final min=1, start=1) "signal width";
     algorithm 
       for i in 1:n loop
         y[i] := T.UX01Table[x[i]];
@@ -4434,32 +4423,31 @@ If the signal width is greater than 1 this conversion is done for each signal.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Text(
-              extent={{152,-100},{-148,-40}},
-              lineColor={0,0,255},
-              textString=
-                   "%name"),
+              extent={{152,-100},{-148,-40}}, 
+              lineColor={0,0,255}, 
+              textString="%name"), 
             Polygon(
-              points={{-40,-40},{-40,40},{40,40},{-40,-40}},
-              lineColor={127,0,127},
-              fillColor={127,0,127},
-              fillPattern=FillPattern.Solid),
+              points={{-40,-40},{-40,40},{40,40},{-40,-40}}, 
+              lineColor={127,0,127}, 
+              fillColor={127,0,127}, 
+              fillPattern=FillPattern.Solid), 
             Polygon(
-              points={{-40,-40},{40,-40},{40,40},{-40,-40}},
-              lineColor={127,0,127},
-              lineThickness=2,
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
+              points={{-40,-40},{40,-40},{40,40},{-40,-40}}, 
+              lineColor={127,0,127}, 
+              lineThickness=2, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{0,-20},{40,-40}},
-              lineColor={0,0,0},
-              lineThickness=2,
-              textString=
-                   "UX01"),
+              extent={{0,-20},{40,-40}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2, 
+              textString="UX01"), 
             Rectangle(
-              extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
+              extent={{-40,40},{40,-40}}, 
+              lineColor={0,0,0}, 
               lineThickness=2)}),
         Diagram(graphics));
     end LogicToUX01;
@@ -4494,25 +4482,25 @@ If the signal width is greater than 1 this conversion is done for each signal.
 </ul>
 </HTML>"),
         extent=[-60, -10; -40, 10],
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Polygon(
-              points={{-40,-40},{40,40},{40,-40},{-40,-40}},
-              lineColor={127,0,127},
-              fillColor={127,0,127},
-              fillPattern=FillPattern.Solid),
+              points={{-40,-40},{40,40},{40,-40},{-40,-40}}, 
+              lineColor={127,0,127}, 
+              fillColor={127,0,127}, 
+              fillPattern=FillPattern.Solid), 
             Polygon(
-              points={{-40,40},{40,40},{-40,-40},{-40,40}},
-              lineColor={255,0,255},
-              fillColor={255,0,255},
-              fillPattern=FillPattern.Solid),
+              points={{-40,40},{40,40},{-40,-40},{-40,40}}, 
+              lineColor={255,0,255}, 
+              fillColor={255,0,255}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{152,-100},{-148,-40}},
-              lineColor={0,0,255},
-              textString=
-                   "%name"),
+              extent={{152,-100},{-148,-40}}, 
+              lineColor={0,0,255}, 
+              textString="%name"), 
             Rectangle(
-              extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
+              extent={{-40,40},{40,-40}}, 
+              lineColor={0,0,0}, 
               lineThickness=2)}),
         Diagram(graphics),
         Placement(transformation(extent={{-60,-10},{-40,10}}, rotation=0)));
@@ -4522,7 +4510,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
               rotation=0)));
       annotation (extent=[40, -10; 60, 10]);
       annotation (Diagram);
-      parameter Integer n(final min=1) = 1 "signal width";
+      parameter Integer n(final min=1, start=1) "signal width";
     equation 
       for i in 1:n loop
         y[i] = if x[i] then L.'1' else L.'0';
@@ -4567,27 +4555,27 @@ If the signal width is greater than 1 this conversion is done for each signal.
        initially modelled.</li>
 </ul>
 </HTML>"),
-    Icon(graphics={
+    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics={
             Polygon(
-              points={{-40,40},{40,40},{-40,-40},{-40,40}},
-              lineColor={127,0,127},
-              fillColor={127,0,127},
-              fillPattern=FillPattern.Solid),
+              points={{-40,40},{40,40},{-40,-40},{-40,40}}, 
+              lineColor={127,0,127}, 
+              fillColor={127,0,127}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{152,-100},{-148,-40}},
-              lineColor={0,0,255},
-              textString=
-                   "%name"),
+              extent={{152,-100},{-148,-40}}, 
+              lineColor={0,0,255}, 
+              textString="%name"), 
             Polygon(
-              points={{-40,-40},{40,-40},{40,40},{-40,-40}},
-              lineColor={255,0,255},
-              fillColor={255,0,255},
-              fillPattern=FillPattern.Solid),
+              points={{-40,-40},{40,-40},{40,40},{-40,-40}}, 
+              lineColor={255,0,255}, 
+              fillColor={255,0,255}, 
+              fillPattern=FillPattern.Solid), 
             Rectangle(
-              extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
+              extent={{-40,40},{40,-40}}, 
+              lineColor={0,0,0}, 
               lineThickness=2)}));
-      parameter Integer n(final min=1) = 1 "signal width";
+      parameter Integer n(final min=1, start=2) "signal width";
     equation 
       for i in 1:n loop
         y[i] = if x[i] == 4 or x[i] == 8 then true else false;
@@ -4625,22 +4613,22 @@ If the signal width is greater than 1 this conversion is done for each signal.
 </ul>
 </HTML>"),
         extent=[-60, -10; -40, 10],
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Polygon(
-              points={{-40,-40},{40,40},{40,-40},{-40,-40}},
-              lineColor={127,0,127},
-              fillColor={127,0,127},
-              fillPattern=FillPattern.Solid),
+              points={{-40,-40},{40,40},{40,-40},{-40,-40}}, 
+              lineColor={127,0,127}, 
+              fillColor={127,0,127}, 
+              fillPattern=FillPattern.Solid), 
             Polygon(points={{-40,40},{40,40},{-40,-40},{-40,40}}, fillPattern=
-                  FillPattern.Solid),
+                  FillPattern.Solid), 
             Text(
-              extent={{148,-100},{-152,-40}},
-              lineColor={0,0,255},
-              textString=
-                   "%name"),
+              extent={{148,-100},{-152,-40}}, 
+              lineColor={0,0,255}, 
+              textString="%name"), 
             Rectangle(
-              extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
+              extent={{-40,40},{40,-40}}, 
+              lineColor={0,0,0}, 
               lineThickness=2)}),
         Diagram(graphics),
         Placement(transformation(extent={{-60,-10},{-40,10}}, rotation=0)));
@@ -4650,14 +4638,15 @@ If the signal width is greater than 1 this conversion is done for each signal.
               rotation=0)));
       annotation (extent=[40, -10; 60, 10]);
       annotation (Diagram);
-      parameter Integer n(final min=1) = 1 "signal width";
-      parameter Real upper_limit=1 "upper limit";
-      parameter Real lower_limit=0 "lower limit";
-      parameter Digital.Interfaces.Logic upper_value=L.'1' 
+      parameter Integer n(final min=1, start=1) "signal width";
+      parameter Real upper_limit(start=1) "upper limit";
+      parameter Real lower_limit(start=0) "lower limit";
+      parameter Digital.Interfaces.Logic upper_value(start=L.'1') 
         "output if input > upper_limit";
-      parameter Digital.Interfaces.Logic lower_value=L.'0' 
+      parameter Digital.Interfaces.Logic lower_value(start=L.'0') 
         "output if input < lower_limit";
-      parameter Digital.Interfaces.Logic middle_value=L.'X' "output else";
+      parameter Digital.Interfaces.Logic middle_value(start=L.'X') 
+        "output else";
     equation 
       for i in 1:n loop
         y[i] = if x[i] > upper_limit then upper_value else 
@@ -4704,34 +4693,34 @@ The values val... are given by parameters.</P>
        initially modelled.</li>
 </ul>
 </HTML>"),
-    Icon(graphics={
+    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics={
             Polygon(
-              points={{-40,40},{40,40},{-40,-40},{-40,40}},
-              lineColor={127,0,127},
-              fillColor={127,0,127},
-              fillPattern=FillPattern.Solid),
+              points={{-40,40},{40,40},{-40,-40},{-40,40}}, 
+              lineColor={127,0,127}, 
+              fillColor={127,0,127}, 
+              fillPattern=FillPattern.Solid), 
             Polygon(points={{-40,-40},{40,-40},{40,40},{-40,-40}}, fillPattern=
-                  FillPattern.Solid),
+                  FillPattern.Solid), 
             Text(
-              extent={{152,-100},{-148,-40}},
-              lineColor={0,0,255},
-              textString=
-                   "%name"),
+              extent={{152,-100},{-148,-40}}, 
+              lineColor={0,0,255}, 
+              textString="%name"), 
             Rectangle(
-              extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
+              extent={{-40,40},{40,-40}}, 
+              lineColor={0,0,0}, 
               lineThickness=2)}),
         Diagram(graphics));
-      parameter Integer n(final min=1) = 1 "signal width";
-      parameter Real value_U=0.5 "value for digital U (uninitialized)";
-      parameter Real value_X=0.5 "value for digital X (Forcing Unknown)";
-      parameter Real value_0=0 "value for digital 0   (Forcing 0)";
-      parameter Real value_1=1 "value for digital 1 (Forcing 1)";
-      parameter Real value_Z=0.5 "value for digital Z (High Impedance)";
-      parameter Real value_W=0.5 "value for digital W (Weak    Unknown)";
-      parameter Real value_L=0 "value for digital L (Weak    0)";
-      parameter Real value_H=1 "value for digital H (Weak    1)";
-      parameter Real value_m=0.5 "value for digital m (Don´t care)";
+      parameter Integer n(final min=1, start=1) "signal width";
+      parameter Real value_U(start=0.5) "value for digital U (uninitialized)";
+      parameter Real value_X(start=0.5) "value for digital X (Forcing Unknown)";
+      parameter Real value_0(start=0) "value for digital 0   (Forcing 0)";
+      parameter Real value_1(start=1) "value for digital 1 (Forcing 1)";
+      parameter Real value_Z(start=0.5) "value for digital Z (High Impedance)";
+      parameter Real value_W(start=0.5) "value for digital W (Weak    Unknown)";
+      parameter Real value_L(start=0) "value for digital L (Weak    0)";
+      parameter Real value_H(start=1) "value for digital H (Weak    1)";
+      parameter Real value_m(start=0.5) "value for digital m (Don´t care)";
     equation 
       for i in 1:n loop
        y[i]= if x[i] == L.'U' then value_U else 
