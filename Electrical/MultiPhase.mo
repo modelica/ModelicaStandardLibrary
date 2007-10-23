@@ -1,5 +1,6 @@
 within Modelica.Electrical;
 
+
 package MultiPhase "Library for electrical components with 2, 3 or more phases" 
   extends Modelica.Icons.Library2;
   annotation (
@@ -80,6 +81,328 @@ and the accompanying <b>disclaimer</b>
           lineColor={0,0,255}, 
           fillColor={0,0,255}, 
           fillPattern=FillPattern.Solid)}));
+  
+  package Examples "Multiphase test examples" 
+    extends Modelica.Icons.Library2;
+    annotation (Documentation(info="<HTML>
+<p>
+This package contains test examples of analog electrical multiphase circuits.
+</p>
+
+</HTML>", revisions="<html>
+<dl>
+<p>
+  <dt><b>Main Authors:</b></dt>
+  <dd>
+  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  Technical Consulting & Electrical Engineering<br>
+  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
+  </dd>
+</p>
+<p>
+  <dt><b>Release Notes:</b></dt>
+  <dd>
+  <ul>
+  <li> v1.0 2004/10/01 Anton Haumer</li>
+  </ul>
+  </dd>
+<p>
+  <dt><b>Copyright:</b></dt>
+  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
+  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+  under the terms of the <b>Modelica license</b>, see the license conditions
+  and the accompanying <b>disclaimer</b> in the documentation of package
+  Modelica in file \"Modelica/package.mo\".</i></dd>
+</p>
+</dl>
+</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+              {100,100}}), graphics={Ellipse(extent={{-60,12},{40,-88}}, 
+              lineColor={135,135,135}), Polygon(
+            points={{-30,-10},{-30,-66},{28,-38},{-30,-10}}, 
+            lineColor={135,135,135}, 
+            fillColor={135,135,135}, 
+            fillPattern=FillPattern.Solid)}));
+    
+    model TransformerYY "Test example with multiphase components" 
+      extends Modelica.Icons.Example;
+      parameter Integer m=3 "Number of phases";
+      parameter Modelica.SIunits.Voltage V=1 "Amplitude of Star-Voltage";
+      parameter Modelica.SIunits.Frequency f=5 "Frequency";
+      parameter Modelica.SIunits.Inductance LT=0.003 
+        "Transformer stray inductance";
+      parameter Modelica.SIunits.Resistance RT=0.05 "Transformer resistance";
+      parameter Modelica.SIunits.Resistance RL=1 "Load Resistance";
+      annotation (Documentation(info="<HTML>
+<p>
+Test example with multiphase components:<br>
+Star-connected voltage source feeds via a Y-Y-transformer with internal impedance (RT, LT) a load resistor RT.<br>
+Using f=5 Hz LT=3mH defines nominal voltage drop of approximately 10 %.<br>
+Simulate for 1 second (2 periods) and compare voltages and currents of source, transformer and load.
+</p>
+</HTML>"), Diagram(graphics));
+      Sources.SineVoltage sineVoltage(
+        V=fill(V, m),
+        freqHz=fill(f, m),
+        m=m) annotation (Placement(transformation(
+            origin={-80,20}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=180)));
+      Basic.Star starS(m=m) 
+        annotation (Placement(transformation(
+            origin={-90,-62}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=270)));
+      Modelica.Electrical.Analog.Basic.Ground groundS 
+        annotation (Placement(transformation(extent={{-100,-100},{-80,-80}}, 
+              rotation=0)));
+      Ideal.IdealTransformer idealTransformer(m=m) 
+        annotation (Placement(transformation(extent={{-40,0},{-20,20}}, 
+              rotation=0)));
+      Basic.Star starT1(m=m) 
+        annotation (Placement(transformation(
+            origin={-40,-62}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=270)));
+      Basic.Star starT2(m=m) 
+        annotation (Placement(transformation(
+            origin={-20,-62}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=270)));
+      Modelica.Electrical.Analog.Basic.Ground groundT2 
+        annotation (Placement(transformation(extent={{-30,-100},{-10,-80}}, 
+              rotation=0)));
+      Basic.Resistor transformerR(m=m, R=fill(RT, m)) 
+                                             annotation (Placement(
+            transformation(extent={{0,10},{20,30}}, rotation=0)));
+      Basic.Inductor transformerL(m=m, L=fill(LT, m)) 
+        annotation (Placement(transformation(extent={{30,10},{50,30}}, rotation
+              =0)));
+      Basic.Resistor loadR(m=m, R=fill(RL, m)) 
+        annotation (Placement(transformation(extent={{70,10},{90,30}}, rotation
+              =0)));
+      Basic.Star starL(m=m) 
+        annotation (Placement(transformation(
+            origin={90,-62}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=270)));
+      Modelica.Electrical.Analog.Basic.Ground groundT1 
+        annotation (Placement(transformation(extent={{-50,-100},{-30,-80}}, 
+              rotation=0)));
+    equation 
+      connect(starS.pin_n, groundS.p) 
+        annotation (Line(points={{-90,-72},{-90,-80}}, color={0,0,255}));
+      connect(starT1.pin_n,groundT1. p) 
+        annotation (Line(points={{-40,-72},{-40,-80}}, color={0,0,255}));
+      connect(starT2.pin_n,groundT2. p) 
+        annotation (Line(points={{-20,-72},{-20,-80}}, color={0,0,255}));
+      connect(starS.plug_p, sineVoltage.plug_n) 
+        annotation (Line(points={{-90,-52},{-90,20}}, color={0,0,255}));
+      connect(sineVoltage.plug_p, idealTransformer.plug_p1) 
+        annotation (Line(points={{-70,20},{-40,20}}, color={0,0,255}));
+      connect(idealTransformer.plug_n1, starT1.plug_p) 
+        annotation (Line(points={{-40,0},{-40,-52}}, color={0,0,255}));
+      connect(starT2.plug_p, idealTransformer.plug_n2) 
+        annotation (Line(points={{-20,-52},{-20,0}}, color={0,0,255}));
+      connect(idealTransformer.plug_p2, transformerR.plug_p) 
+        annotation (Line(points={{-20,20},{0,20}}, color={0,0,255}));
+      connect(transformerR.plug_n, transformerL.plug_p) 
+        annotation (Line(points={{20,20},{30,20}}, color={0,0,255}));
+      connect(transformerL.plug_n, loadR.plug_p) 
+        annotation (Line(points={{50,20},{70,20}}, color={0,0,255}));
+      connect(loadR.plug_n, starL.plug_p) 
+        annotation (Line(points={{90,20},{90,-52}}, color={0,0,255}));
+    end TransformerYY;
+    
+    model TransformerYD "Test example with multiphase components" 
+      extends Modelica.Icons.Example;
+      parameter Integer m=3 "Number of phases";
+      parameter Modelica.SIunits.Voltage V=1 "Amplitude of Star-Voltage";
+      parameter Modelica.SIunits.Frequency f=5 "Frequency";
+      parameter Modelica.SIunits.Inductance LT=0.003 
+        "Transformer stray inductance";
+      parameter Modelica.SIunits.Resistance RT=0.05 "Transformer resistance";
+      parameter Modelica.SIunits.Resistance RL=1 "Load Resistance";
+      parameter Real nT=1/sqrt((1 - Modelica.Math.cos(2*Modelica.Constants.pi/m))
+          ^2 + (Modelica.Math.sin(2*Modelica.Constants.pi/m))^2) 
+        "Transformer ratio";
+      annotation (Documentation(info="<HTML>
+<p>
+Test example with multiphase components:<br>
+Star-connected voltage source feeds via a Y-D-transformer with internal impedance (RT, LT) a load resistor RT.<br>
+Using f=5 Hz LT=3mH defines nominal voltage drop of approximately 10 %.<br>
+Simulate for 1 second (2 periods) and compare voltages and currents of source, transformer and load.
+</p>
+</HTML>"), Diagram(graphics));
+      Sources.SineVoltage sineVoltage(
+        V=fill(V, m),
+        freqHz=fill(f, m),
+        m=m) annotation (Placement(transformation(
+            origin={-80,20}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=180)));
+      Basic.Star starS(m=m) 
+        annotation (Placement(transformation(
+            origin={-90,-62}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=270)));
+      Modelica.Electrical.Analog.Basic.Ground groundS 
+        annotation (Placement(transformation(extent={{-100,-100},{-80,-80}}, 
+              rotation=0)));
+      Ideal.IdealTransformer idealTransformer(m=m, n=fill(nT, m)) 
+        annotation (Placement(transformation(extent={{-40,0},{-20,20}}, 
+              rotation=0)));
+      Basic.Star starT(m=m) 
+        annotation (Placement(transformation(
+            origin={-40,-62}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=270)));
+      Basic.Delta deltaT2(m=m) 
+                              annotation (Placement(transformation(
+            origin={50,10}, 
+            extent={{-10,10},{10,-10}}, 
+            rotation=270)));
+      Modelica.Electrical.Analog.Basic.Ground groundT 
+        annotation (Placement(transformation(extent={{-50,-100},{-30,-80}}, 
+              rotation=0)));
+      Basic.Resistor transformerR(m=m, R=fill(RT/nT^2, m)) 
+        annotation (Placement(transformation(extent={{-10,10},{10,30}}, 
+              rotation=0)));
+      Basic.Inductor transformerL(m=m, L=fill(LT/nT^2, m)) 
+        annotation (Placement(transformation(extent={{20,10},{40,30}}, rotation
+              =0)));
+      Basic.Resistor loadR(m=m, R=fill(RL, m)) 
+        annotation (Placement(transformation(extent={{70,10},{90,30}}, rotation
+              =0)));
+      Basic.Star starL(m=m) 
+        annotation (Placement(transformation(
+            origin={90,-62}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=270)));
+      Modelica.Electrical.Analog.Basic.Ground groundL 
+        annotation (Placement(transformation(extent={{80,-100},{100,-80}}, 
+              rotation=0)));
+    equation 
+      connect(groundS.p, starS.pin_n) 
+        annotation (Line(points={{-90,-80},{-90,-72}}, color={0,0,255}));
+      connect(groundT.p, starT.pin_n) 
+        annotation (Line(points={{-40,-80},{-40,-72}}, color={0,0,255}));
+      connect(starS.plug_p, sineVoltage.plug_n) 
+        annotation (Line(points={{-90,-52},{-90,20}}, color={0,0,255}));
+      connect(sineVoltage.plug_p, idealTransformer.plug_p1) 
+        annotation (Line(points={{-70,20},{-40,20}}, color={0,0,255}));
+      connect(idealTransformer.plug_n1, starT.plug_p) 
+        annotation (Line(points={{-40,0},{-40,-52}}, color={0,0,255}));
+      connect(idealTransformer.plug_p2, transformerR.plug_p) 
+        annotation (Line(points={{-20,20},{-10,20}}, color={0,0,255}));
+      connect(transformerR.plug_n, transformerL.plug_p) 
+        annotation (Line(points={{10,20},{20,20}}, color={0,0,255}));
+      connect(transformerL.plug_n, deltaT2.plug_p) 
+        annotation (Line(points={{40,20},{50,20}}, color={0,0,255}));
+      connect(deltaT2.plug_n, idealTransformer.plug_n2) 
+        annotation (Line(points={{50,0},{-20,0}}, color={0,0,255}));
+      connect(deltaT2.plug_p, loadR.plug_p) 
+        annotation (Line(points={{50,20},{70,20}}, color={0,0,255}));
+      connect(loadR.plug_n, starL.plug_p) 
+        annotation (Line(points={{90,20},{90,-52}}, color={0,0,255}));
+      connect(starL.pin_n, groundL.p) 
+        annotation (Line(points={{90,-72},{90,-80}}, color={0,0,255}));
+    end TransformerYD;
+    
+    model Rectifier "Test example with multiphase components" 
+      extends Modelica.Icons.Example;
+      parameter Integer m=3 "Number of phases";
+      parameter Modelica.SIunits.Voltage V=1 "Amplitude of Star-Voltage";
+      parameter Modelica.SIunits.Frequency f=5 "Frequency";
+      parameter Modelica.SIunits.Inductance L=0.001 "Line Inductance";
+      parameter Modelica.SIunits.Resistance RL=2 "Load Resistance";
+      parameter Modelica.SIunits.Capacitance C=0.05 "Total DC-Capacitance";
+      parameter Modelica.SIunits.Resistance RE=1E6 "Earthing Resistance";
+      annotation (Documentation(info="<HTML>
+<p>
+Test example with multiphase components:<br>
+Star-connected voltage source feeds via a line reactor a diode bridge rectifier with a DC burden.<br>
+Using f=5 Hz, simulate for 1 second (2 periods) and compare voltages and currents of source and DC burden, 
+neglecting initial transient.
+</p>
+</HTML>"), Diagram(graphics));
+      Sources.SineVoltage sineVoltage(
+        m=m,
+        V=fill(V, m),
+        freqHz=fill(f, m)) annotation (Placement(transformation(extent={{-70,10},
+                {-90,-10}}, rotation=0)));
+      Basic.Star starS(m=m) 
+        annotation (Placement(transformation(
+            origin={-90,-50}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=270)));
+      Basic.Inductor supplyL(m=m, L=fill(L, m)) 
+        annotation (Placement(transformation(extent={{-52,-10},{-32,10}}, 
+              rotation=0)));
+      Ideal.IdealDiode idealDiode1(m=m) 
+        annotation (Placement(transformation(
+            origin={10,20}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=90)));
+      Basic.Star star1(m=m) annotation (Placement(transformation(
+            origin={10,50}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=90)));
+      Ideal.IdealDiode idealDiode2(m=m) 
+        annotation (Placement(transformation(
+            origin={10,-20}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=90)));
+      Basic.Star star2(m=m) annotation (Placement(transformation(
+            origin={10,-50}, 
+            extent={{-10,10},{10,-10}}, 
+            rotation=270)));
+      Modelica.Electrical.Analog.Basic.Resistor loadR(R=RL) 
+        annotation (Placement(transformation(
+            origin={50,0}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=270)));
+      Modelica.Electrical.Analog.Basic.Capacitor cDC1(C=2*C) 
+        annotation (Placement(transformation(
+            origin={70,30}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=270)));
+      Modelica.Electrical.Analog.Basic.Capacitor cDC2(C=2*C) 
+        annotation (Placement(transformation(
+            origin={70,-30}, 
+            extent={{-10,-10},{10,10}}, 
+            rotation=270)));
+      Modelica.Electrical.Analog.Basic.Ground groundDC 
+        annotation (Placement(transformation(extent={{80,-80},{100,-60}}, 
+              rotation=0)));
+    equation 
+      connect(cDC1.n, cDC2.p) 
+        annotation (Line(points={{70,20},{70,-20}}, color={0,0,255}));
+      connect(cDC1.n, groundDC.p) 
+        annotation (Line(points={{70,20},{70,0},{90,0},{90,-60}}, color={0,0,
+              255}));
+      connect(starS.plug_p, sineVoltage.plug_n) 
+        annotation (Line(points={{-90,-40},{-90,0}}, color={0,0,255}));
+      connect(sineVoltage.plug_p, supplyL.plug_p) 
+        annotation (Line(points={{-70,0},{-52,0}}, color={0,0,255}));
+      connect(idealDiode1.plug_p, supplyL.plug_n) 
+        annotation (Line(points={{10,10},{10,0},{-32,0}}, color={0,0,255}));
+      connect(idealDiode2.plug_n, supplyL.plug_n) 
+        annotation (Line(points={{10,-10},{10,0},{-32,0}}, color={0,0,255}));
+      connect(idealDiode1.plug_n, star1.plug_p) 
+        annotation (Line(points={{10,30},{10,40}}, color={0,0,255}));
+      connect(idealDiode2.plug_p, star2.plug_p) 
+        annotation (Line(points={{10,-30},{10,-40}}, color={0,0,255}));
+      connect(star2.pin_n, loadR.n) 
+        annotation (Line(points={{10,-60},{50,-60},{50,-10}}, color={0,0,255}));
+      connect(star2.pin_n, cDC2.n) 
+        annotation (Line(points={{10,-60},{70,-60},{70,-40}}, color={0,0,255}));
+      connect(star1.pin_n,loadR. p) 
+        annotation (Line(points={{10,60},{50,60},{50,10}}, color={0,0,255}));
+      connect(star1.pin_n, cDC1.p) 
+        annotation (Line(points={{10,60},{70,60},{70,40}}, color={0,0,255}));
+    end Rectifier;
+  end Examples;
   
   package Basic "Basic components for electrical multiphase models" 
     extends Modelica.Icons.Library2;
@@ -211,9 +534,7 @@ when used in parallel to another component.
     
     model PlugToPin_p "Connect one (positive) Pin" 
       parameter Integer m(final min=1) = 3 "number of phases";
-      parameter Integer k(
-        final min=1,
-        final max=m) = 1 "phase index";
+      parameter Integer k(final min=1, final max=m, start = 1) "phase index";
       Interfaces.PositivePlug plug_p(final m=m) 
         annotation (Placement(transformation(extent={{-30,-10},{-10,10}}, 
               rotation=0)));
@@ -263,9 +584,7 @@ Connects pin <i>k</i> of plug_p to pin_p, leaving the other pins of plug_p uncon
     
     model PlugToPin_n "Connect one (negative) Pin" 
       parameter Integer m(final min=1) = 3 "number of phases";
-      parameter Integer k(
-        final min=1,
-        final max=m) = 1 "phase index";
+      parameter Integer k(final min=1, final max=m, start = 1) "phase index";
       Interfaces.NegativePlug plug_n(final m=m) 
         annotation (Placement(transformation(extent={{-30,-10},{-10,10}}, 
               rotation=0)));
@@ -314,7 +633,7 @@ Connects pin <i>k</i> of plug_n to pin_n, leaving the other pins of plug_n uncon
     
     model Resistor "Ideal linear electrical resistors" 
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Resistance R[m]=fill(1, m) "Resistance";
+      parameter Modelica.SIunits.Resistance R[m](start=fill(1, m)) "Resistance";
       Modelica.Electrical.Analog.Basic.Resistor resistor[m](final R=R) 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, 
               rotation=0)));
@@ -348,7 +667,8 @@ Contains m resistors (Modelica.Electrical.Analog.Basic.Resistor)
     
     model Conductor "Ideal linear electrical conductors" 
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Conductance G[m]=fill(1, m) "Conductance";
+      parameter Modelica.SIunits.Conductance G[m](start=fill(1, m)) 
+        "Conductance";
       Modelica.Electrical.Analog.Basic.Conductor conductor[m](final G=G) 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, 
               rotation=0)));
@@ -382,7 +702,8 @@ Contains m conductors (Modelica.Electrical.Analog.Basic.Conductor)
     
     model Capacitor "Ideal linear electrical capacitors" 
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Capacitance C[m]=fill(1, m) "Capacitance";
+      parameter Modelica.SIunits.Capacitance C[m](start=fill(1, m)) 
+        "Capacitance";
       Modelica.Electrical.Analog.Basic.Capacitor capacitor[m](final C=C) 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, 
               rotation=0)));
@@ -413,7 +734,7 @@ Contains m capacitors (Modelica.Electrical.Analog.Basic.Capacitor)
     
     model Inductor "Ideal linear electrical inductors" 
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Inductance L[m]=fill(1, m) "Inductance";
+      parameter Modelica.SIunits.Inductance L[m](start=fill(1, m)) "Inductance";
       Modelica.Electrical.Analog.Basic.Inductor inductor[m](final L=L) 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}}, 
               rotation=0)));
@@ -451,12 +772,13 @@ Contains m inductors (Modelica.Electrical.Analog.Basic.Inductor)
     
     model SaturatingInductor "Simple model of inductors with saturation" 
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Current Inom[m]=fill(1,m) "Nominal current";
-      parameter Modelica.SIunits.Inductance Lnom[m]=fill(1,m) 
+      parameter Modelica.SIunits.Current Inom[m](start=fill(1,m)) 
+        "Nominal current";
+      parameter Modelica.SIunits.Inductance Lnom[m](start=fill(1,m)) 
         "Nominal inductance at Nominal current";
-      parameter Modelica.SIunits.Inductance Lzer[m]={2*Lnom[j] for j in 1:m} 
+      parameter Modelica.SIunits.Inductance Lzer[m](start={2*Lnom[j] for j in 1:m}) 
         "Inductance near current=0";
-      parameter Modelica.SIunits.Inductance Linf[m]={Lnom[j]/2 for j in 1:m} 
+      parameter Modelica.SIunits.Inductance Linf[m](start={Lnom[j]/2 for j in 1:m}) 
         "Inductance at large currents";
       Modelica.Electrical.Analog.Basic.SaturatingInductor saturatingInductor[m](
         final Inom=Inom,
@@ -507,11 +829,11 @@ Each element of the array of saturatingInductors is only dependent on the curren
     
     model Transformer "Multiphase Transformer" 
       extends Interfaces.FourPlug;
-      parameter Modelica.SIunits.Inductance L1[m]=fill(1, m) 
+      parameter Modelica.SIunits.Inductance L1[m](start=fill(1, m)) 
         "Primary inductance";
-      parameter Modelica.SIunits.Inductance L2[m]=fill(1, m) 
+      parameter Modelica.SIunits.Inductance L2[m](start=fill(1, m)) 
         "Secondary inductance";
-      parameter Modelica.SIunits.Inductance M[m]=fill(1, m) 
+      parameter Modelica.SIunits.Inductance M[m](start=fill(1, m)) 
         "Coupling inductance";
       Modelica.Electrical.Analog.Basic.Transformer transformer[m](
         final L1=L1,
@@ -627,7 +949,7 @@ Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor
       connect(variableResistor.n, plug_n.pin) 
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
       connect(R, variableResistor.R) 
-        annotation (Line(points={{0,100},{0,10}}, color={0,0,255}));
+        annotation (Line(points={{0,100},{0,11}}, color={0,0,255}));
     end VariableResistor;
     
     model VariableConductor 
@@ -778,326 +1100,6 @@ Lmin is a parameter with default value Modelica.Constants.eps.
     end VariableInductor;
   end Basic;
   
-  package Examples "Multiphase test examples" 
-    extends Modelica.Icons.Library2;
-    annotation (Documentation(info="<HTML>
-<p>
-This package contains test examples of analog electrical multiphase circuits.
-</p>
-
-</HTML>", revisions="<html>
-<dl>
-<p>
-  <dt><b>Main Authors:</b></dt>
-  <dd>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting & Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
-  email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-  </dd>
-</p>
-<p>
-  <dt><b>Release Notes:</b></dt>
-  <dd>
-  <ul>
-  <li> v1.0 2004/10/01 Anton Haumer</li>
-  </ul>
-  </dd>
-<p>
-  <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2006, Modelica Association and Anton Haumer.<br>
-  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
-  under the terms of the <b>Modelica license</b>, see the license conditions
-  and the accompanying <b>disclaimer</b> in the documentation of package
-  Modelica in file \"Modelica/package.mo\".</i></dd>
-</p>
-</dl>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-              {100,100}}), graphics={Ellipse(extent={{-60,12},{40,-88}}, 
-              lineColor={135,135,135}), Polygon(
-            points={{-30,-10},{-30,-66},{28,-38},{-30,-10}}, 
-            lineColor={135,135,135}, 
-            fillColor={135,135,135}, 
-            fillPattern=FillPattern.Solid)}));
-    
-    model TransformerYY "Test example with multiphase components" 
-      extends Modelica.Icons.Example;
-      parameter Integer m=3 "Number of phases";
-      parameter Modelica.SIunits.Voltage V=1 "Amplitude of Star-Voltage";
-      parameter Modelica.SIunits.Frequency f=5 "Frequency";
-      parameter Modelica.SIunits.Inductance LT=0.003 
-        "Transformer stray inductance";
-      parameter Modelica.SIunits.Resistance RT=0.05 "Transformer resistance";
-      parameter Modelica.SIunits.Resistance RL=1 "Load Resistance";
-      annotation (Documentation(info="<HTML>
-<p>
-Test example with multiphase components:<br>
-Star-connected voltage source feeds via a Y-Y-transformer with internal impedance (RT, LT) a load resistor RT.<br>
-Using f=5 Hz LT=3mH defines nominal voltage drop of approximately 10 %.<br>
-Simulate for 1 second (2 periods) and compare voltages and currents of source, transformer and load.
-</p>
-</HTML>"), Diagram(graphics));
-      Sources.SineVoltage SineVoltage1(
-        V=fill(V, m),
-        freqHz=fill(f, m),
-        m=m) annotation (Placement(transformation(
-            origin={-80,20}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=180)));
-      Basic.Star StarS1(m=m) 
-        annotation (Placement(transformation(
-            origin={-90,-62}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
-      Modelica.Electrical.Analog.Basic.Ground GroundS1 
-        annotation (Placement(transformation(extent={{-100,-100},{-80,-80}}, 
-              rotation=0)));
-      Ideal.IdealTransformer IdealTransformer1(m=m) 
-        annotation (Placement(transformation(extent={{-40,0},{-20,20}}, 
-              rotation=0)));
-      Basic.Star StarT1(m=m) 
-        annotation (Placement(transformation(
-            origin={-40,-62}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
-      Basic.Star StarT2(m=m) 
-        annotation (Placement(transformation(
-            origin={-20,-62}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
-      Modelica.Electrical.Analog.Basic.Ground GroundT2 
-        annotation (Placement(transformation(extent={{-30,-100},{-10,-80}}, 
-              rotation=0)));
-      Basic.Resistor RT1(m=m, R=fill(RT, m)) annotation (Placement(
-            transformation(extent={{0,10},{20,30}}, rotation=0)));
-      Basic.Inductor LT1(m=m, L=fill(LT, m)) 
-        annotation (Placement(transformation(extent={{30,10},{50,30}}, rotation
-              =0)));
-      Basic.Resistor RL1(m=m, R=fill(RL, m)) 
-        annotation (Placement(transformation(extent={{70,10},{90,30}}, rotation
-              =0)));
-      Basic.Star StarL1(m=m) 
-        annotation (Placement(transformation(
-            origin={90,-62}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
-      Modelica.Electrical.Analog.Basic.Ground GroundT1 
-        annotation (Placement(transformation(extent={{-50,-100},{-30,-80}}, 
-              rotation=0)));
-    equation 
-      connect(StarS1.pin_n, GroundS1.p) 
-        annotation (Line(points={{-90,-72},{-90,-80}}, color={0,0,255}));
-      connect(StarT1.pin_n, GroundT1.p) 
-        annotation (Line(points={{-40,-72},{-40,-72},{-40,-80}}, color={0,0,255}));
-      connect(StarT2.pin_n, GroundT2.p) 
-        annotation (Line(points={{-20,-72},{-20,-80}}, color={0,0,255}));
-      connect(StarS1.plug_p, SineVoltage1.plug_n) 
-        annotation (Line(points={{-90,-52},{-90,20},{-90,20}}, color={0,0,255}));
-      connect(SineVoltage1.plug_p, IdealTransformer1.plug_p1) 
-        annotation (Line(points={{-70,20},{-40,20}}, color={0,0,255}));
-      connect(IdealTransformer1.plug_n1, StarT1.plug_p) 
-        annotation (Line(points={{-40,0},{-40,-52}}, color={0,0,255}));
-      connect(StarT2.plug_p, IdealTransformer1.plug_n2) 
-        annotation (Line(points={{-20,-52},{-20,0}}, color={0,0,255}));
-      connect(IdealTransformer1.plug_p2, RT1.plug_p) 
-        annotation (Line(points={{-20,20},{0,20}}, color={0,0,255}));
-      connect(RT1.plug_n, LT1.plug_p) 
-        annotation (Line(points={{20,20},{30,20}}, color={0,0,255}));
-      connect(LT1.plug_n, RL1.plug_p) 
-        annotation (Line(points={{50,20},{70,20}}, color={0,0,255}));
-      connect(RL1.plug_n, StarL1.plug_p) 
-        annotation (Line(points={{90,20},{90,-52}}, color={0,0,255}));
-    end TransformerYY;
-    
-    model TransformerYD "Test example with multiphase components" 
-      extends Modelica.Icons.Example;
-      parameter Integer m=3 "Number of phases";
-      parameter Modelica.SIunits.Voltage V=1 "Amplitude of Star-Voltage";
-      parameter Modelica.SIunits.Frequency f=5 "Frequency";
-      parameter Modelica.SIunits.Inductance LT=0.003 
-        "Transformer stray inductance";
-      parameter Modelica.SIunits.Resistance RT=0.05 "Transformer resistance";
-      parameter Modelica.SIunits.Resistance RL=1 "Load Resistance";
-      parameter Real nT=1/sqrt((1 - Modelica.Math.cos(2*Modelica.Constants.pi/m))
-          ^2 + (Modelica.Math.sin(2*Modelica.Constants.pi/m))^2) 
-        "Transformer ratio";
-      annotation (Documentation(info="<HTML>
-<p>
-Test example with multiphase components:<br>
-Star-connected voltage source feeds via a Y-D-transformer with internal impedance (RT, LT) a load resistor RT.<br>
-Using f=5 Hz LT=3mH defines nominal voltage drop of approximately 10 %.<br>
-Simulate for 1 second (2 periods) and compare voltages and currents of source, transformer and load.
-</p>
-</HTML>"), Diagram(graphics));
-      Sources.SineVoltage SineVoltage1(
-        V=fill(V, m),
-        freqHz=fill(f, m),
-        m=m) annotation (Placement(transformation(
-            origin={-80,20}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=180)));
-      Basic.Star StarS1(m=m) 
-        annotation (Placement(transformation(
-            origin={-90,-62}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
-      Modelica.Electrical.Analog.Basic.Ground GroundS1 
-        annotation (Placement(transformation(extent={{-100,-100},{-80,-80}}, 
-              rotation=0)));
-      Ideal.IdealTransformer IdealTransformer1(m=m, n=fill(nT, m)) 
-        annotation (Placement(transformation(extent={{-40,0},{-20,20}}, 
-              rotation=0)));
-      Basic.Star StarT1(m=m) 
-        annotation (Placement(transformation(
-            origin={-40,-62}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
-      Basic.Delta Delta1(m=m) annotation (Placement(transformation(
-            origin={50,10}, 
-            extent={{-10,10},{10,-10}}, 
-            rotation=270)));
-      Modelica.Electrical.Analog.Basic.Ground GroundT1 
-        annotation (Placement(transformation(extent={{-50,-100},{-30,-80}}, 
-              rotation=0)));
-      Basic.Resistor RT1(m=m, R=fill(RT/nT^2, m)) 
-        annotation (Placement(transformation(extent={{-10,10},{10,30}}, 
-              rotation=0)));
-      Basic.Inductor LT1(m=m, L=fill(LT/nT^2, m)) 
-        annotation (Placement(transformation(extent={{20,10},{40,30}}, rotation
-              =0)));
-      Basic.Resistor RL1(m=m, R=fill(RL, m)) 
-        annotation (Placement(transformation(extent={{70,10},{90,30}}, rotation
-              =0)));
-      Basic.Star StarL1(m=m) 
-        annotation (Placement(transformation(
-            origin={90,-62}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
-      Modelica.Electrical.Analog.Basic.Ground GroundL1 
-        annotation (Placement(transformation(extent={{80,-100},{100,-80}}, 
-              rotation=0)));
-    equation 
-      connect(GroundS1.p, StarS1.pin_n) 
-        annotation (Line(points={{-90,-80},{-90,-72}}, color={0,0,255}));
-      connect(GroundT1.p, StarT1.pin_n) 
-        annotation (Line(points={{-40,-80},{-40,-72}}, color={0,0,255}));
-      connect(StarS1.plug_p, SineVoltage1.plug_n) 
-        annotation (Line(points={{-90,-52},{-90,20},{-90,20}}, color={0,0,255}));
-      connect(SineVoltage1.plug_p, IdealTransformer1.plug_p1) 
-        annotation (Line(points={{-70,20},{-40,20}}, color={0,0,255}));
-      connect(IdealTransformer1.plug_n1, StarT1.plug_p) 
-        annotation (Line(points={{-40,0},{-40,-52}}, color={0,0,255}));
-      connect(IdealTransformer1.plug_p2, RT1.plug_p) 
-        annotation (Line(points={{-20,20},{-10,20}}, color={0,0,255}));
-      connect(RT1.plug_n, LT1.plug_p) 
-        annotation (Line(points={{10,20},{20,20}}, color={0,0,255}));
-      connect(LT1.plug_n, Delta1.plug_p) 
-        annotation (Line(points={{40,20},{50,20}}, color={0,0,255}));
-      connect(Delta1.plug_n, IdealTransformer1.plug_n2) 
-        annotation (Line(points={{50,0},{-20,0}}, color={0,0,255}));
-      connect(Delta1.plug_p, RL1.plug_p) 
-        annotation (Line(points={{50,20},{70,20}}, color={0,0,255}));
-      connect(RL1.plug_n, StarL1.plug_p) 
-        annotation (Line(points={{90,20},{90,-52},{90,-52}}, color={0,0,255}));
-      connect(StarL1.pin_n, GroundL1.p) 
-        annotation (Line(points={{90,-72},{90,-80}}, color={0,0,255}));
-    end TransformerYD;
-    
-    model Rectifier "Test example with multiphase components" 
-      extends Modelica.Icons.Example;
-      parameter Integer m=3 "Number of phases";
-      parameter Modelica.SIunits.Voltage V=1 "Amplitude of Star-Voltage";
-      parameter Modelica.SIunits.Frequency f=5 "Frequency";
-      parameter Modelica.SIunits.Inductance L=0.001 "Line Inductance";
-      parameter Modelica.SIunits.Resistance RL=2 "Load Resistance";
-      parameter Modelica.SIunits.Capacitance C=0.05 "Total DC-Capacitance";
-      parameter Modelica.SIunits.Resistance RE=1E6 "Earthing Resistance";
-      annotation (Documentation(info="<HTML>
-<p>
-Test example with multiphase components:<br>
-Star-connected voltage source feeds via a line reactor a diode bridge rectifier with a DC burden.<br>
-Using f=5 Hz, simulate for 1 second (2 periods) and compare voltages and currents of source and DC burden, 
-neglecting initial transient.
-</p>
-</HTML>"), Diagram(graphics));
-      Sources.SineVoltage SineVoltage1(
-        m=m,
-        V=fill(V, m),
-        freqHz=fill(f, m)) annotation (Placement(transformation(extent={{-70,10},
-                {-90,-10}}, rotation=0)));
-      Basic.Star StarS(m=m) 
-        annotation (Placement(transformation(
-            origin={-90,-50}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
-      Basic.Inductor L1(m=m, L=fill(L, m)) 
-        annotation (Placement(transformation(extent={{-52,-10},{-32,10}}, 
-              rotation=0)));
-      Ideal.IdealDiode IdealDiode1(m=m) 
-        annotation (Placement(transformation(
-            origin={10,20}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=90)));
-      Basic.Star Star1(m=m) annotation (Placement(transformation(
-            origin={10,50}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=90)));
-      Ideal.IdealDiode IdealDiode2(m=m) 
-        annotation (Placement(transformation(
-            origin={10,-20}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=90)));
-      Basic.Star Star2(m=m) annotation (Placement(transformation(
-            origin={10,-50}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
-      Modelica.Electrical.Analog.Basic.Resistor RLoad(R=RL) 
-        annotation (Placement(transformation(
-            origin={50,0}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
-      Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=2*C) 
-        annotation (Placement(transformation(
-            origin={70,30}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
-      Modelica.Electrical.Analog.Basic.Capacitor Capacitor2(C=2*C) 
-        annotation (Placement(transformation(
-            origin={70,-30}, 
-            extent={{-10,-10},{10,10}}, 
-            rotation=270)));
-      Modelica.Electrical.Analog.Basic.Ground GroundDC 
-        annotation (Placement(transformation(extent={{80,-80},{100,-60}}, 
-              rotation=0)));
-    equation 
-      connect(Capacitor1.n, Capacitor2.p) 
-        annotation (Line(points={{70,20},{70,-20}}, color={0,0,255}));
-      connect(Capacitor1.n, GroundDC.p) 
-        annotation (Line(points={{70,20},{70,0},{90,0},{90,-60}}, color={0,0,
-              255}));
-      connect(StarS.plug_p, SineVoltage1.plug_n) 
-        annotation (Line(points={{-90,-40},{-90,0}}, color={0,0,255}));
-      connect(SineVoltage1.plug_p, L1.plug_p) 
-        annotation (Line(points={{-70,0},{-52,0}}, color={0,0,255}));
-      connect(IdealDiode1.plug_p, L1.plug_n) 
-        annotation (Line(points={{10,10},{10,0},{-32,0}}, color={0,0,255}));
-      connect(IdealDiode2.plug_n, L1.plug_n) 
-        annotation (Line(points={{10,-10},{10,0},{-32,0}}, color={0,0,255}));
-      connect(IdealDiode1.plug_n, Star1.plug_p) 
-        annotation (Line(points={{10,30},{10,40}}, color={0,0,255}));
-      connect(IdealDiode2.plug_p, Star2.plug_p) 
-        annotation (Line(points={{10,-30},{10,-40}}, color={0,0,255}));
-      connect(Star2.pin_n, RLoad.n) 
-        annotation (Line(points={{10,-60},{50,-60},{50,-10}}, color={0,0,255}));
-      connect(Star2.pin_n, Capacitor2.n) 
-        annotation (Line(points={{10,-60},{70,-60},{70,-40}}, color={0,0,255}));
-      connect(Star1.pin_n, RLoad.p) 
-        annotation (Line(points={{10,60},{50,60},{50,10}}, color={0,0,255}));
-      connect(Star1.pin_n, Capacitor1.p) 
-        annotation (Line(points={{10,60},{70,60},{70,40}}, color={0,0,255}));
-    end Rectifier;
-  end Examples;
-  
   package Ideal "Multiphase components with idealized behaviour" 
     extends Modelica.Icons.Library2;
     annotation (Documentation(info="<HTML>
@@ -1144,11 +1146,11 @@ like thyristor, diode, switch, transformer.
     
     model IdealThyristor "Multiphase ideal thyristor" 
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m)) = fill(
-        1.E-5, m) "Closed thyristor resistance";
-      parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m)) = fill(
-        1.E-5, m) "Opened thyristor conductance";
-      parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m)) = zeros(m) 
+      parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start= fill(1.E-5, m)) 
+        "Closed thyristor resistance";
+      parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start = fill(1.E-5, m)) 
+        "Opened thyristor conductance";
+      parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m), start = zeros(m)) 
         "Treshold voltage";
       Modelica.Blocks.Interfaces.BooleanInput fire[m] 
         annotation (Placement(transformation(
@@ -1192,11 +1194,11 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
     
     model IdealGTOThyristor "Multiphase ideal GTO thyristor" 
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m)) = fill(
-        1.E-5, m) "Closed thyristor resistance";
-      parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m)) = fill(
-        1.E-5, m) "Opened thyristor conductance";
-      parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m)) = zeros(m) 
+      parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start = fill(1.E-5, m)) 
+        "Closed thyristor resistance";
+      parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start = fill(1.E-5, m)) 
+        "Opened thyristor conductance";
+      parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m), start = zeros(m)) 
         "Treshold voltage";
       Modelica.Blocks.Interfaces.BooleanInput fire[m] 
         annotation (Placement(transformation(
@@ -1240,10 +1242,10 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
     
     model IdealCommutingSwitch "Multiphase ideal commuting switch" 
       parameter Integer m(final min=1) = 3 "number of phases";
-      parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m)) = fill(
-        1.E-5, m) "Closed switch resistance";
-      parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m)) = fill(
-        1.E-5, m) "Opened switch conductance";
+      parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start = fill(1.E-5, m)) 
+        "Closed switch resistance";
+      parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start = fill(1.E-5, m)) 
+        "Opened switch conductance";
       Modelica.Blocks.Interfaces.BooleanInput control[m] 
         "true => p--n2 connected, false => p--n1 connected" annotation (Placement(
             transformation(
@@ -1315,10 +1317,10 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
     
     model IdealIntermediateSwitch "Multiphase ideal intermediate switch" 
       parameter Integer m(final min=1) = 3 "number of phases";
-      parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m)) = fill(
-        1.E-5, m) "Closed switch resistance";
-      parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m)) = fill(
-        1.E-5, m) "Opened switch conductance";
+      parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start = fill(1.E-5, m)) 
+        "Closed switch resistance";
+      parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start = fill(1.E-5, m)) 
+        "Opened switch conductance";
       Modelica.Blocks.Interfaces.BooleanInput control[m] 
         "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2 connected" 
             annotation (Placement(transformation(
@@ -1400,11 +1402,11 @@ Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIn
     
     model IdealDiode "Multiphase ideal diode" 
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m)) = fill(
-        1.E-5, m) "Closed diode resistance";
-      parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m)) = fill(
-        1.E-5, m) "Opened diode conductance";
-      parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m)) = zeros(m) 
+      parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start = fill(1.E-5, m)) 
+        "Closed diode resistance";
+      parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start = fill(1.E-5, m)) 
+        "Opened diode conductance";
+      parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m), start = zeros(m)) 
         "Treshold voltage";
       Modelica.Electrical.Analog.Ideal.IdealDiode idealDiode[m](final Ron=Ron,
            final Goff=Goff, final Vknee=Vknee) annotation (Placement(
@@ -1439,7 +1441,7 @@ Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
     
     model IdealTransformer "Multiphase ideal transformer" 
       extends Interfaces.FourPlug;
-      parameter Real n[m]=fill(1, m) "Turns ratio";
+      parameter Real n[m](start=fill(1, m)) "Turns ratio";
       Modelica.Electrical.Analog.Ideal.IdealTransformer idealTransformer[m](
           final n=n) annotation (Placement(transformation(extent={{-10,-10},{10,
                 10}}, rotation=0)));
@@ -1573,10 +1575,10 @@ Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
     
     model IdealOpeningSwitch "Multiphase ideal opener" 
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m)) = fill(
-        1.E-5, m) "Closed switch resistance";
-      parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m)) = fill(
-        1.E-5, m) "Opened switch conductance";
+      parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start = fill(1.E-5, m)) 
+        "Closed switch resistance";
+      parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start = fill(1.E-5, m)) 
+        "Opened switch conductance";
       Modelica.Blocks.Interfaces.BooleanInput control[m] 
         "true => switch open, false => p--n connected" annotation (Placement(
             transformation(
@@ -1627,10 +1629,10 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpening
     
     model IdealClosingSwitch "Multiphase ideal closer" 
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m)) = fill(
-        1.E-5, m) "Closed switch resistance";
-      parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m)) = fill(
-        1.E-5, m) "Opened switch conductance";
+      parameter Modelica.SIunits.Resistance Ron[m](final min=zeros(m), start = fill(1.E-5, m)) 
+        "Closed switch resistance";
+      parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start = fill(1.E-5, m)) 
+        "Opened switch conductance";
       Modelica.Blocks.Interfaces.BooleanInput control[m] 
         "true => p--n connected, false => switch open" annotation (Placement(
             transformation(
@@ -2344,7 +2346,7 @@ Contains m signal controlled voltage sources (Modelica.Electrical.Analog.Sources
     
     model ConstantVoltage "Multiphase constant voltage source" 
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Voltage V[m]=fill(1, m) 
+      parameter Modelica.SIunits.Voltage V[m](start=fill(1, m)) 
         "Value of constant voltage";
       Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage[m](
         final V=V) annotation (Placement(transformation(extent={{-10,-10},{10,
@@ -2393,11 +2395,11 @@ Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.Constant
     
     model SineVoltage "Multiphase sine voltage source" 
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Voltage V[m]=fill(1, m) 
+      parameter Modelica.SIunits.Voltage V[m](start=fill(1, m)) 
         "Amplitudes of sine waves";
       parameter Modelica.SIunits.Angle phase[m]=-{(j - 1)/m*2*Modelica.
           Constants.pi for j in 1:m} "Phases of sine waves";
-      parameter Modelica.SIunits.Frequency freqHz[m]=fill(1, m) 
+      parameter Modelica.SIunits.Frequency freqHz[m](start=fill(1, m)) 
         "Frequencies of sine waves";
       parameter Modelica.SIunits.Voltage offset[m]=zeros(m) "Voltage offsets";
       parameter Modelica.SIunits.Time startTime[m]=zeros(m) "Time offsets";
@@ -2522,7 +2524,7 @@ Contains m signal controlled current sources (Modelica.Electrical.Analog.Sources
     
     model ConstantCurrent "Multiphase constant current source" 
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Current I[m]=fill(1, m) 
+      parameter Modelica.SIunits.Current I[m](start=fill(1, m)) 
         "Value of constant current";
       Modelica.Electrical.Analog.Sources.ConstantCurrent constantCurrent[m](
         final I=I) annotation (Placement(transformation(extent={{-10,-10},{10,
@@ -2566,11 +2568,11 @@ Contains m constant current sources (Modelica.Electrical.Analog.Sources.Constant
     
     model SineCurrent "Multiphase sine current source" 
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Current I[m]=fill(1, m) 
+      parameter Modelica.SIunits.Current I[m](start=fill(1, m)) 
         "Amplitudes of sine waves";
       parameter Modelica.SIunits.Angle phase[m]=-{(j - 1)/m*2*Modelica.
           Constants.pi for j in 1:m} "Phases of sine waves";
-      parameter Modelica.SIunits.Frequency freqHz[m]=fill(1, m) 
+      parameter Modelica.SIunits.Frequency freqHz[m](start=fill(1, m)) 
         "Frequencies of sine waves";
       parameter Modelica.SIunits.Current offset[m]=zeros(m) "Current offsets";
       parameter Modelica.SIunits.Time startTime[m]=zeros(m) "Time offsets";
