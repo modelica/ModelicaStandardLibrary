@@ -53,7 +53,7 @@ Outlet temperature is defined by variable T of the corresponding component.</li>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </p>
   <p>
-  Dr.Christian Kral & Markus Plainer<br>
+  Dr.Christian Kral<br>
   &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
   <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
   Giefinggasse 2<br>
@@ -132,7 +132,8 @@ and the accompanying <b>disclaimer</b>
             
           lineColor={255,128,0}, 
           fillColor={255,128,0}, 
-          fillPattern=FillPattern.Solid)}));
+          fillPattern=FillPattern.Solid)}), 
+    uses(Modelica(version="3.0-development")));
   
   package Examples 
     "Examples that demonstrate the usage of the FluidHeatFlow components" 
@@ -159,7 +160,7 @@ This package contains test examples:
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </p>
   <p>
-  Dr.Christian Kral & Markus Plainer<br>
+  Dr.Christian Kral<br>
   &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
   <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
   Giefinggasse 2<br>
@@ -1289,7 +1290,7 @@ This package contains utility components used for the test examples.<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </p>
   <p>
-  Dr.Christian Kral & Markus Plainer<br>
+  Dr.Christian Kral<br>
   &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
   <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
   Giefinggasse 2<br>
@@ -1401,7 +1402,7 @@ Thermodynamic equations are defined in partial models (package Partials).<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </p>
   <p>
-  Dr.Christian Kral & Markus Plainer<br>
+  Dr.Christian Kral<br>
   &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
   <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
   Giefinggasse 2<br>
@@ -1619,7 +1620,7 @@ This package contains connectors and partial models:
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </p>
   <p>
-  Dr.Christian Kral & Markus Plainer<br>
+  Dr.Christian Kral<br>
   &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
   <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
   Giefinggasse 2<br>
@@ -1754,7 +1755,7 @@ This package contains partial models, defining in a very compact way the basic t
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </p>
   <p>
-  Dr.Christian Kral & Markus Plainer<br>
+  Dr.Christian Kral<br>
   &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
   <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
   Giefinggasse 2<br>
@@ -2151,7 +2152,7 @@ This package contains definitions of medium properties.<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </p>
   <p>
-  Dr.Christian Kral & Markus Plainer<br>
+  Dr.Christian Kral<br>
   &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
   <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
   Giefinggasse 2<br>
@@ -2276,7 +2277,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </p>
   <p>
-  Dr.Christian Kral & Markus Plainer<br>
+  Dr.Christian Kral<br>
   &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
   <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
   Giefinggasse 2<br>
@@ -2478,7 +2479,7 @@ All fans / pumps are considered without losses, they do not change enthalpy flow
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </p>
   <p>
-  Dr.Christian Kral & Markus Plainer<br>
+  Dr.Christian Kral<br>
   &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
   <a href=\"http://www.arsenal.ac.at/\">arsenal research</a><br>
   Giefinggasse 2<br>
