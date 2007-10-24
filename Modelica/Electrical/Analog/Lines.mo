@@ -61,19 +61,19 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     SI.Current i2;
     parameter Real r(
       final min=Modelica.Constants.small,
-      unit="Ohm/m") = 1 "Resistance per meter";
+      unit="Ohm/m", start=1) "Resistance per meter";
     parameter Real l(
       final min=Modelica.Constants.small,
-      unit="H/m") = 1 "Inductance per meter";
+      unit="H/m", start=1) "Inductance per meter";
     parameter Real g(
       final min=Modelica.Constants.small,
-      unit="S/m") = 1 "Conductance per meter";
+      unit="S/m", start=1) "Conductance per meter";
     parameter Real c(
       final min=Modelica.Constants.small,
-      unit="F/m") = 1 "Capacitance per meter";
-    parameter SI.Length length(final min=Modelica.Constants.small) = 1 
+      unit="F/m", start=1) "Capacitance per meter";
+    parameter SI.Length length(final min=Modelica.Constants.small, start=1) 
       "Length of line";
-    parameter Integer N(final min=1) = 1 "Number of lumped segments";
+    parameter Integer N(final min=1, start=1) "Number of lumped segments";
   protected 
     Basic.Resistor R[N + 1](R=fill(r*length/(N + 1), N + 1));
     Basic.Inductor L[N + 1](L=fill(l*length/(N + 1), N + 1));
@@ -112,8 +112,8 @@ Lossy Transmission Line.
 </ul>
 </html>"),
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
             extent={{-60,60},{60,-60}}, 
@@ -125,18 +125,17 @@ Lossy Transmission Line.
           Line(points={{30,30},{-30,30}}), 
           Line(points={{-30,40},{-30,20}}), 
           Line(points={{30,40},{30,20}}), 
-          Text(extent={{-100,100},{100,70}}, textString=
-                                                 "%name")}),
+          Text(extent={{-100,100},{100,70}}, textString="%name")}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}), 
-          Line(points={{0,-60},{0,-96}}), 
-          Line(points={{60,0},{96,0}}), 
-          Line(points={{-60,0},{-96,0}}), 
-          Line(points={{30,30},{-30,30}}), 
-          Line(points={{-30,40},{-30,20}}), 
+          Rectangle(extent={{-60,60},{60,-60}}),
+          Line(points={{0,-60},{0,-96}}),
+          Line(points={{60,0},{96,0}}),
+          Line(points={{-60,0},{-96,0}}),
+          Line(points={{30,30},{-30,30}}),
+          Line(points={{-30,40},{-30,20}}),
           Line(points={{30,40},{30,20}})}),
       Window(
         x=0.24,
@@ -175,13 +174,13 @@ Lossy Transmission Line.
     SI.Current i2;
     parameter Real r(
       final min=Modelica.Constants.small,
-      unit="Ohm/m") = 1 "Resistance per meter";
+      unit="Ohm/m", start=1) "Resistance per meter";
     parameter Real c(
       final min=Modelica.Constants.small,
-      unit="F/m") = 1 "Capacitance per meter";
-    parameter SI.Length length(final min=Modelica.Constants.small) = 1 
+      unit="F/m", start=1) "Capacitance per meter";
+    parameter SI.Length length(final min=Modelica.Constants.small, start=1) 
       "Length of line";
-    parameter Integer N(final min=1) = 1 "Number of lumped segments";
+    parameter Integer N(final min=1, start=1) "Number of lumped segments";
   protected 
     Basic.Resistor R[N + 1](R=fill(r*length/(N + 1), N + 1));
     Basic.Capacitor C[N](C=fill(c*length/(N), N));
@@ -222,8 +221,8 @@ lumped segments.
         width=0.6,
         height=0.6),
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(
             extent={{-60,60},{60,-60}}, 
@@ -235,18 +234,17 @@ lumped segments.
           Line(points={{30,30},{-30,30}}), 
           Line(points={{-30,40},{-30,20}}), 
           Line(points={{30,40},{30,20}}), 
-          Text(extent={{-100,100},{100,70}}, textString=
-                                                 "%name")}),
+          Text(extent={{-100,100},{100,70}}, textString="%name")}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}), 
-          Line(points={{0,-60},{0,-96}}), 
-          Line(points={{60,0},{96,0}}), 
-          Line(points={{-60,0},{-96,0}}), 
-          Line(points={{30,30},{-30,30}}), 
-          Line(points={{-30,40},{-30,20}}), 
+          Rectangle(extent={{-60,60},{60,-60}}),
+          Line(points={{0,-60},{0,-96}}),
+          Line(points={{60,0},{96,0}}),
+          Line(points={{-60,0},{-96,0}}),
+          Line(points={{30,30},{-30,30}}),
+          Line(points={{-30,40},{-30,20}}),
           Line(points={{30,40},{30,20}})}));
   equation 
     v13 = p1.v - p3.v;
@@ -271,8 +269,9 @@ lumped segments.
     
     extends Modelica.Electrical.Analog.Interfaces.TwoPort;
     
-    parameter Modelica.SIunits.Resistance Z0=1 "Characteristic impedance";
-    parameter Modelica.SIunits.Time TD=1 "Transmission delay";
+    parameter Modelica.SIunits.Resistance Z0(start=1) 
+      "Characteristic impedance";
+    parameter Modelica.SIunits.Time TD(start=1) "Transmission delay";
     
   protected 
     Modelica.SIunits.Voltage er;
@@ -316,8 +315,8 @@ Lossless transmission line with characteristic impedance Z0 and transmission del
 </ul>
 </html>"),
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}), 
           Line(points={{60,-50},{90,-50}}), 
@@ -327,24 +326,22 @@ Lossless transmission line with characteristic impedance Z0 and transmission del
           Line(points={{30,30},{-30,30}}), 
           Line(points={{-30,40},{-30,20}}), 
           Line(points={{30,40},{30,20}}), 
-          Text(extent={{-100,100},{100,70}}, textString=
-                                                 "TLine1"), 
-          Text(extent={{-30,10},{30,-20}}, textString=
-                                               "TLine1")}),
+          Text(extent={{-100,100},{100,70}}, textString="TLine1"), 
+          Text(extent={{-30,10},{30,-20}}, textString="TLine1")}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}), 
-          Line(points={{60,-50},{96,-50}}), 
-          Line(points={{60,50},{96,50}}), 
-          Line(points={{-60,50},{-96,50}}), 
-          Line(points={{-60,-50},{-96,-50}}), 
-          Line(points={{30,30},{-30,30}}), 
-          Line(points={{-30,40},{-30,20}}), 
-          Line(points={{30,40},{30,20}}), 
+          Rectangle(extent={{-60,60},{60,-60}}),
+          Line(points={{60,-50},{96,-50}}),
+          Line(points={{60,50},{96,50}}),
+          Line(points={{-60,50},{-96,50}}),
+          Line(points={{-60,-50},{-96,-50}}),
+          Line(points={{30,30},{-30,30}}),
+          Line(points={{-30,40},{-30,20}}),
+          Line(points={{30,40},{30,20}}),
           Text(extent={{-100,100},{100,70}}, textString=
-                                                 "TLine1"), 
+                                                 "TLine1"),
           Text(extent={{-30,0},{31,-31}}, textString=
                                               "TLine1")}),
       Window(
@@ -368,9 +365,10 @@ Lossless transmission line with characteristic impedance Z0 and transmission del
     
     extends Modelica.Electrical.Analog.Interfaces.TwoPort;
     
-    parameter Modelica.SIunits.Resistance Z0=1 "Characteristic impedance";
-    parameter Modelica.SIunits.Frequency F=1 "Frequency";
-    parameter Real NL=1 "Normalized length";
+    parameter Modelica.SIunits.Resistance Z0(start=1) 
+      "Characteristic impedance";
+    parameter Modelica.SIunits.Frequency F(start=1) "Frequency";
+    parameter Real NL(start=1) "Normalized length";
     
   protected 
     Modelica.SIunits.Voltage er;
@@ -418,8 +416,8 @@ Lossless transmission line with characteristic impedance Z0, frequency F and nor
 </ul>
 </html>"),
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}), 
           Line(points={{60,-50},{90,-50}}), 
@@ -429,22 +427,20 @@ Lossless transmission line with characteristic impedance Z0, frequency F and nor
           Line(points={{30,30},{-30,30}}), 
           Line(points={{-30,40},{-30,20}}), 
           Line(points={{30,40},{30,20}}), 
-          Text(extent={{-100,100},{100,70}}, textString=
-                                                 "TLine2"), 
-          Text(extent={{-30,10},{30,-20}}, textString=
-                                               "TLine2")}),
+          Text(extent={{-100,100},{100,70}}, textString="TLine2"), 
+          Text(extent={{-30,10},{30,-20}}, textString="TLine2")}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}), 
-          Line(points={{60,-50},{96,-50}}), 
-          Line(points={{60,50},{96,50}}), 
-          Line(points={{-60,50},{-96,50}}), 
-          Line(points={{-60,-50},{-96,-50}}), 
-          Line(points={{30,30},{-30,30}}), 
-          Line(points={{-30,40},{-30,20}}), 
-          Line(points={{30,40},{30,20}}), 
+          Rectangle(extent={{-60,60},{60,-60}}),
+          Line(points={{60,-50},{96,-50}}),
+          Line(points={{60,50},{96,50}}),
+          Line(points={{-60,50},{-96,50}}),
+          Line(points={{-60,-50},{-96,-50}}),
+          Line(points={{30,30},{-30,30}}),
+          Line(points={{-30,40},{-30,20}}),
+          Line(points={{30,40},{30,20}}),
           Text(extent={{-100,100},{100,70}}, textString=
                                                  "TLine2")}),
       Window(
@@ -470,8 +466,8 @@ Lossless transmission line with characteristic impedance Z0, frequency F and nor
     
     extends Modelica.Electrical.Analog.Interfaces.TwoPort;
     
-    parameter Modelica.SIunits.Resistance Z0=1 "Natural impedance";
-    parameter Modelica.SIunits.Frequency F=1 "Frequency";
+    parameter Modelica.SIunits.Resistance Z0(start=1) "Natural impedance";
+    parameter Modelica.SIunits.Frequency F(start=1) "Frequency";
     
   protected 
     Modelica.SIunits.Voltage er;
@@ -520,8 +516,8 @@ Lossless transmission line with characteristic impedance Z0 and frequency F
 </ul>
 </html>"),
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}), 
           Line(points={{60,-50},{90,-50}}), 
@@ -531,22 +527,20 @@ Lossless transmission line with characteristic impedance Z0 and frequency F
           Line(points={{30,30},{-30,30}}), 
           Line(points={{-30,40},{-30,20}}), 
           Line(points={{30,40},{30,20}}), 
-          Text(extent={{-100,100},{100,70}}, textString=
-                                                 "TLine3"), 
-          Text(extent={{-29,-1},{30,-31}}, textString=
-                                               "TLine3")}),
+          Text(extent={{-100,100},{100,70}}, textString="TLine3"), 
+          Text(extent={{-29,-1},{30,-31}}, textString="TLine3")}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}), 
-          Line(points={{60,-50},{96,-50}}), 
-          Line(points={{60,50},{96,50}}), 
-          Line(points={{-60,50},{-96,50}}), 
-          Line(points={{-60,-50},{-96,-50}}), 
-          Line(points={{30,30},{-30,30}}), 
-          Line(points={{-30,40},{-30,20}}), 
-          Line(points={{30,40},{30,20}}), 
+          Rectangle(extent={{-60,60},{60,-60}}),
+          Line(points={{60,-50},{96,-50}}),
+          Line(points={{60,50},{96,50}}),
+          Line(points={{-60,50},{-96,50}}),
+          Line(points={{-60,-50},{-96,-50}}),
+          Line(points={{30,30},{-30,30}}),
+          Line(points={{-30,40},{-30,20}}),
+          Line(points={{30,40},{30,20}}),
           Text(extent={{-100,100},{100,70}}, textString=
                                                  "TLine3")}),
       Window(
