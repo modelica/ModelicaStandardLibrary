@@ -3060,7 +3060,8 @@ This package contains models of DC machines:
               rotation=90)));
         annotation (defaultComponentName="dcpm",
           Diagram(graphics),
-          Icon(graphics={Rectangle(
+          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                  {100,100}}), graphics={Rectangle(
                 extent={{-130,10},{-100,-10}}, 
                 lineColor={0,0,0}, 
                 fillColor={0,255,0}, 
@@ -3160,7 +3161,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
         parameter Modelica.SIunits.Resistance Re(start=100) 
           "warm field excitation resistance" 
            annotation(Dialog(group="Excitation"));
-        parameter Modelica.SIunits.Inductance Le=1 
+        parameter Modelica.SIunits.Inductance Le(start=1) 
           "total field excitation inductance" 
            annotation(Dialog(group="Excitation"));
         output Modelica.SIunits.Voltage ve = pin_ep.v-pin_en.v 
@@ -3180,7 +3181,8 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
                 rotation=0)));
         annotation (defaultComponentName="dcee",
           Diagram(graphics),
-          Icon(graphics={
+          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                  {100,100}}), graphics={
               Line(points={{-130,-4},{-129,1},{-125,5},{-120,6},{-115,5},{-111,
                     1},{-110,-4}}, color={0,0,255}), 
               Line(points={{-110,-4},{-109,1},{-105,5},{-100,6},{-95,5},{-91,1},
@@ -3322,7 +3324,8 @@ Armature current does not cover excitation current of a shunt excitation; in thi
                 rotation=0)));
         annotation (defaultComponentName="dcse",
           Diagram(graphics),
-          Icon(graphics={
+          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                  {100,100}}), graphics={
               Line(points={{-100,-10},{-105,-9},{-109,-5},{-110,0},{-109,5},{
                     -105,9},{-100,10}}, color={0,0,255}), 
               Line(points={{-100,-30},{-105,-29},{-109,-25},{-110,-20},{-109,
@@ -3502,9 +3505,10 @@ and the accompanying <b>disclaimer</b>
   <li> v1.0.0 2006/11/19 Anton Haumer<br>
        first stable release</li>
   </ul>
-</HTML>"),     Icon(graphics={Ellipse(extent={{-100,30},{20,-90}}, lineColor={0,
-                  0,255}), Ellipse(extent={{-40,30},{80,-90}}, lineColor={0,0,
-                  255})}));
+</HTML>"),     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Ellipse(extent={{-100,30},{20,-90}}, 
+                lineColor={0,0,255}), Ellipse(extent={{-40,30},{80,-90}}, 
+                lineColor={0,0,255})}));
       
       package Yy "Transformers: primary Y / secondary y" 
         extends Modelica.Icons.Library2;
@@ -7310,7 +7314,8 @@ Connector for Space Phasors:
         annotation (Placement(transformation(extent={{19,-101},{21,-99}}, 
               rotation=0)));
       annotation (
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Rectangle(
               extent={{-40,60},{80,-60}}, 
               lineColor={0,0,0}, 
@@ -7479,9 +7484,10 @@ Partial model for induction machine models
 Partial model for DC machine models.
 </HTML>"),
         Diagram(graphics),
-        Icon(graphics={Line(points={{-50,100},{-20,100},{-20,70}}, color={0,0,
-                  255}), Line(points={{50,100},{20,100},{20,70}}, color={0,0,
-                  255})}));
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}}, 
+                color={0,0,255}), Line(points={{50,100},{20,100},{20,70}}, 
+                color={0,0,255})}));
       Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap 
         annotation (Placement(transformation(extent={{50,110},{70,90}}, 
               rotation=0)));
