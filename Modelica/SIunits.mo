@@ -396,7 +396,7 @@ argument):</p>
       type Angle_deg = Real (final quantity="Angle", final unit="deg") 
         "Angle in degree";
       type AngularVelocity_rpm = Real (final quantity="AngularVelocity", final unit
-            =    "r/min") "Angular velocity in revolutions per minute";
+            =    "rev/min") "Angular velocity in revolutions per minute";
       type Velocity_kmh = Real (final quantity="Velocity", final unit="km/h") 
         "Velocity in kilometers per hour";
       type Time_day = Real (final quantity="Time", final unit="d") 
@@ -435,7 +435,7 @@ still kept in Modelica.SIunits.</p>
 </HTML>
 "), Icon(Text(
             extent=[-66, -13; 52, -67],
-            string="[r/min]",
+            string="[rev/min]",
             style(color=0))));
     end NonSIunits;
     
@@ -569,7 +569,7 @@ still kept in Modelica.SIunits.</p>
             string="rad/s"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
-            string="r/min")));
+            string="rev/min")));
     algorithm 
       rpm := (30/Modelica.Constants.pi)*rs;
     end to_rpm;
@@ -582,7 +582,7 @@ still kept in Modelica.SIunits.</p>
       annotation (Icon(Text(
             extent=[-20, 100; -100, 20],
             style(color=0),
-            string="r/min"), Text(
+            string="rev/min"), Text(
             extent=[100, -20; 20, -100],
             style(color=0),
             string="rad/s")));
@@ -863,7 +863,7 @@ still kept in Modelica.SIunits.</p>
   type AngularVelocity = Real (
       final quantity="AngularVelocity",
       final unit="rad/s",
-      displayUnit="r/min");
+      displayUnit="rev/min");
   type AngularAcceleration = Real (final quantity="AngularAcceleration", final unit
         =    "rad/s2");
   type Velocity = Real (final quantity="Velocity", final unit="m/s");
