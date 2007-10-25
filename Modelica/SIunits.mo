@@ -235,8 +235,7 @@ end UsersGuide;
             100}}), graphics={Text(
           extent={{-63,-13},{45,-67}}, 
           lineColor={0,0,0}, 
-          textString=
-               "[kg.m2]")}),
+          textString="[kg.m2]")}),
     Documentation(info="<html>
 <p>This package provides predefined types, such as <i>Mass</i>,
 <i>Angle</i>, <i>Time</i>, based on the international standard
@@ -321,7 +320,8 @@ and the accompanying <b>disclaimer</b>
        Some chapters realized.</li>
 </ul>
 </html>"),
-    Diagram(graphics={
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+            100,100}}), graphics={
         Rectangle(
           extent={{169,86},{349,236}}, 
           fillColor={235,235,235}, 
@@ -339,36 +339,32 @@ and the accompanying <b>disclaimer</b>
           lineColor={160,160,164}, 
           fillColor={0,0,0}, 
           fillPattern=FillPattern.Solid, 
-          textString=
-               "Library"), 
+          textString="Library"), 
         Text(
           extent={{206,173},{314,119}}, 
           lineColor={0,0,0}, 
-          textString=
-               "[kg.m2]"), 
+          textString="[kg.m2]"), 
         Text(
           extent={{163,320},{406,264}}, 
           lineColor={255,0,0}, 
-          textString=
-               "Modelica.SIunits")}));
+          textString="Modelica.SIunits")}));
   
   package Conversions 
     "Conversion functions to/from non SI units and type definitions of non SI units" 
     
     extends Modelica.Icons.Library2;
     
-    annotation(preferedView="info", Icon(graphics={
+    annotation(preferedView="info", Icon(coordinateSystem(preserveAspectRatio=false,
+                     extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-33,-7},{-92,-67}}, 
             lineColor={0,0,0}, 
             lineThickness=4, 
-            textString=
-                 "°C"), 
+            textString="°C"), 
           Text(
             extent={{82,-7},{22,-67}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "K"), 
+            textString="K"), 
           Line(points={{-26,-36},{6,-36}}, color={0,0,0}), 
           Polygon(
             points={{6,-28},{6,-45},{26,-37},{6,-28}}, 
@@ -414,7 +410,12 @@ argument):</p>
       type Angle_deg = Real (final quantity="Angle", final unit="deg") 
         "Angle in degree";
       type AngularVelocity_rpm = Real (final quantity="AngularVelocity", final unit
-            =    "r/min") "Angular velocity in revolutions per minute";
+            =    "1/min") 
+        "Angular velocity in revolutions per minute. Alias unit names that are outside of the SI system: rpm, r/min, rev/min"
+        annotation (Documentation(info="<html>
+<p>
+ 
+</html>"));
       type Velocity_kmh = Real (final quantity="Velocity", final unit="km/h") 
         "Velocity in kilometers per hour";
       type Time_day = Real (final quantity="Time", final unit="d") 
@@ -451,26 +452,25 @@ definitions have been placed erroneously in Modelica.SIunits although they
 are not SIunits. For backward compatibility, these type definitions are
 still kept in Modelica.SIunits.</p>
 </HTML>
-"), Icon(graphics={Text(
+"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics={Text(
               extent={{-66,-13},{52,-67}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "[r/min]")}));
+              textString="[km/h]")}));
     end NonSIunits;
     
     function to_degC "Convert from Kelvin to °Celsius" 
       extends ConversionIcon;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degC Celsius "Celsius value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "K"), Text(
+              textString="K"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "°C")}));
+              textString="°C")}));
     algorithm 
       Celsius := Kelvin + Modelica.Constants.T_zero;
     end to_degC;
@@ -479,15 +479,14 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Temperature_degC Celsius "Celsius value";
       output Temperature Kelvin "Kelvin value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "°C"), Text(
+              textString="°C"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "K")}));
+              textString="K")}));
     algorithm 
       Kelvin := Celsius - Modelica.Constants.T_zero;
     end from_degC;
@@ -496,15 +495,14 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degF Fahrenheit "Fahrenheit value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "K"), Text(
+              textString="K"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "°F")}));
+              textString="°F")}));
     algorithm 
       Fahrenheit := (Kelvin + Modelica.Constants.T_zero)*(9/5) + 32;
     end to_degF;
@@ -513,15 +511,14 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Temperature_degF Fahrenheit "Fahrenheit value";
       output Temperature Kelvin "Kelvin value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "°F"), Text(
+              textString="°F"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "K")}));
+              textString="K")}));
     algorithm 
       Kelvin := (Fahrenheit - 32)*(5/9) - Modelica.Constants.T_zero;
     end from_degF;
@@ -530,15 +527,14 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degRk Rankine "Rankine value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "K"), Text(
+              textString="K"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "°Rk")}));
+              textString="°Rk")}));
     algorithm 
       Rankine := (9/5)*Kelvin;
     end to_degRk;
@@ -547,15 +543,14 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Temperature_degRk Rankine "Rankine value";
       output Temperature Kelvin "Kelvin value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "°Rk"), Text(
+              textString="°Rk"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "K")}));
+              textString="K")}));
     algorithm 
       Kelvin := (5/9)*Rankine;
     end from_degRk;
@@ -564,15 +559,14 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Angle radian "radian value";
       output NonSIunits.Angle_deg degree "degree value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "rad"), Text(
+              textString="rad"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "deg")}));
+              textString="deg")}));
     algorithm 
       degree := (180.0/Modelica.Constants.pi)*radian;
     end to_deg;
@@ -581,15 +575,14 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Angle_deg degree "degree value";
       output Angle radian "radian value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "deg"), Text(
+              textString="deg"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "rad")}));
+              textString="rad")}));
     algorithm 
       radian := (Modelica.Constants.pi/180.0)*degree;
     end from_deg;
@@ -598,15 +591,14 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input AngularVelocity rs "radian per second value";
       output NonSIunits.AngularVelocity_rpm rpm "revolutions per minute value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "rad/s"), Text(
+              textString="rad/s"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "r/min")}));
+              textString="1/min")}));
     algorithm 
       rpm := (30/Modelica.Constants.pi)*rs;
     end to_rpm;
@@ -616,15 +608,14 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.AngularVelocity_rpm rpm "revolutions per minute value";
       output AngularVelocity rs "radian per second value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "r/min"), Text(
+              textString="1/min"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "rad/s")}));
+              textString="rad/s")}));
     algorithm 
       rs := (Modelica.Constants.pi/30)*rpm;
     end from_rpm;
@@ -633,15 +624,14 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Velocity ms "metre per second value";
       output NonSIunits.Velocity_kmh kmh "kilometre per hour value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "m/s"), Text(
+              textString="m/s"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "km/h")}));
+              textString="km/h")}));
     algorithm 
       kmh := 3.6*ms;
     end to_kmh;
@@ -650,15 +640,14 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Velocity_kmh kmh "kilometre per hour value";
       output Velocity ms "metre per second value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "km/h"), Text(
+              textString="km/h"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "m/s")}));
+              textString="m/s")}));
     algorithm 
       ms := kmh/3.6;
     end from_kmh;
@@ -667,15 +656,14 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Time s "second value";
       output NonSIunits.Time_day day "day value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "s"), Text(
+              textString="s"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "day")}));
+              textString="day")}));
     algorithm 
       day := s/86400;
     end to_day;
@@ -684,15 +672,14 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Time_day day "day value";
       output Time s "second value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "day"), Text(
+              textString="day"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "s")}));
+              textString="s")}));
     algorithm 
       s := 86400*day;
     end from_day;
@@ -701,15 +688,14 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Time s "second value";
       output NonSIunits.Time_hour hour "hour value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "s"), Text(
+              textString="s"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "hour")}));
+              textString="hour")}));
     algorithm 
       hour := s/3600;
     end to_hour;
@@ -718,15 +704,14 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Time_hour hour "hour value";
       output Time s "second value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "hour"), Text(
+              textString="hour"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "s")}));
+              textString="s")}));
     algorithm 
       s := 3600*hour;
     end from_hour;
@@ -735,15 +720,14 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Time s "second value";
       output NonSIunits.Time_minute minute "minute value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "s"), Text(
+              textString="s"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "minute")}));
+              textString="minute")}));
     algorithm 
       minute := s/60;
     end to_minute;
@@ -752,15 +736,14 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Time_minute minute "minute value";
       output Time s "second value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "minute"), Text(
+              textString="minute"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "s")}));
+              textString="s")}));
     algorithm 
       s := 60*minute;
     end from_minute;
@@ -769,15 +752,14 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Volume m3 "cubic metre value";
       output NonSIunits.Volume_litre litre "litre value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "m3"), Text(
+              textString="m3"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "litre")}));
+              textString="litre")}));
     algorithm 
       litre := 1000*m3;
     end to_litre;
@@ -786,15 +768,14 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Volume_litre litre "litre value";
       output Volume m3 "cubic metre value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "litre"), Text(
+              textString="litre"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "m3")}));
+              textString="m3")}));
     algorithm 
       m3 := litre/1000;
     end from_litre;
@@ -803,15 +784,14 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Energy J "Joule value";
       output NonSIunits.Energy_kWh kWh "kWh value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "J"), Text(
+              textString="J"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "kWh")}));
+              textString="kWh")}));
     algorithm 
       kWh := J/3.6e6;
     end to_kWh;
@@ -820,15 +800,14 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Energy_kWh kWh "kWh value";
       output Energy J "Joule value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "kWh"), Text(
+              textString="kWh"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "J")}));
+              textString="J")}));
     algorithm 
       J := 3.6e6*kWh;
     end from_kWh;
@@ -837,15 +816,14 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Pressure Pa "Pascal value";
       output NonSIunits.Pressure_bar bar "bar value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "Pa"), Text(
+              textString="Pa"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "bar")}));
+              textString="bar")}));
     algorithm 
       bar := Pa/1e5;
     end to_bar;
@@ -854,15 +832,14 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Pressure_bar bar "bar value";
       output Pressure Pa "Pascal value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "bar"), Text(
+              textString="bar"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "Pa")}));
+              textString="Pa")}));
     algorithm 
       Pa := 1e5*bar;
     end from_bar;
@@ -871,15 +848,14 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input MassFlowRate kgps "kg/s value";
       output NonSIunits.MassFlowRate_gps gps "g/s value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "kg/s"), Text(
+              textString="kg/s"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "g/s")}));
+              textString="g/s")}));
     algorithm 
       gps := 1000*kgps;
     end to_gps;
@@ -888,21 +864,21 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.MassFlowRate_gps gps "g/s value";
       output MassFlowRate kgps "kg/s value";
-      annotation (Icon(graphics={Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "g/s"), Text(
+              textString="g/s"), Text(
               extent={{100,-20},{20,-100}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "kg/s")}));
+              textString="kg/s")}));
     algorithm 
       kgps := gps/1000;
     end from_gps;
     
     partial function ConversionIcon "Base icon for conversion functions" 
-      annotation (Icon(graphics={
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}}, 
               lineColor={191,0,0}, 
@@ -914,8 +890,7 @@ still kept in Modelica.SIunits.</p>
               lineColor={191,0,0}, 
               fillColor={191,0,0}, 
               fillPattern=FillPattern.Solid), 
-            Text(extent={{-115,155},{115,105}}, textString=
-                                                    "%name")}));
+            Text(extent={{-115,155},{115,105}}, textString="%name")}));
     end ConversionIcon;
     
   end Conversions;
@@ -941,8 +916,7 @@ still kept in Modelica.SIunits.</p>
   type Duration = Time;
   type AngularVelocity = Real (
       final quantity="AngularVelocity",
-      final unit="rad/s",
-      displayUnit="r/min");
+      final unit="rad/s");
   type AngularAcceleration = Real (final quantity="AngularAcceleration", final unit
         =    "rad/s2");
   type Velocity = Real (final quantity="Velocity", final unit="m/s");
