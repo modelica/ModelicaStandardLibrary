@@ -1,9 +1,7 @@
 within Modelica.Electrical.Analog;
 package Lines 
   "Lossy and lossless segmented transmission lines, and LC distributed line models" 
-  
   extends Modelica.Icons.Library;
-  
   annotation(preferedView="info",
     Window(
       x=0.03,
@@ -130,12 +128,12 @@ Lossy Transmission Line.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}),
-          Line(points={{0,-60},{0,-96}}),
-          Line(points={{60,0},{96,0}}),
-          Line(points={{-60,0},{-96,0}}),
-          Line(points={{30,30},{-30,30}}),
-          Line(points={{-30,40},{-30,20}}),
+          Rectangle(extent={{-60,60},{60,-60}}), 
+          Line(points={{0,-60},{0,-96}}), 
+          Line(points={{60,0},{96,0}}), 
+          Line(points={{-60,0},{-96,0}}), 
+          Line(points={{30,30},{-30,30}}), 
+          Line(points={{-30,40},{-30,20}}), 
           Line(points={{30,40},{30,20}})}),
       Window(
         x=0.24,
@@ -239,12 +237,12 @@ lumped segments.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}),
-          Line(points={{0,-60},{0,-96}}),
-          Line(points={{60,0},{96,0}}),
-          Line(points={{-60,0},{-96,0}}),
-          Line(points={{30,30},{-30,30}}),
-          Line(points={{-30,40},{-30,20}}),
+          Rectangle(extent={{-60,60},{60,-60}}), 
+          Line(points={{0,-60},{0,-96}}), 
+          Line(points={{60,0},{96,0}}), 
+          Line(points={{-60,0},{-96,0}}), 
+          Line(points={{30,30},{-30,30}}), 
+          Line(points={{-30,40},{-30,20}}), 
           Line(points={{30,40},{30,20}})}));
   equation 
     v13 = p1.v - p3.v;
@@ -267,15 +265,13 @@ lumped segments.
    model TLine1 
     "Lossless transmission line with characteristic impedance Z0 and transmission delay TD" 
     
-    extends Modelica.Electrical.Analog.Interfaces.TwoPort;
-    
-    parameter Modelica.SIunits.Resistance Z0(start=1) 
+     extends Modelica.Electrical.Analog.Interfaces.TwoPort;
+     parameter Modelica.SIunits.Resistance Z0(start=1) 
       "Characteristic impedance";
-    parameter Modelica.SIunits.Time TD(start=1) "Transmission delay";
-    
+     parameter Modelica.SIunits.Time TD(start=1) "Transmission delay";
   protected 
-    Modelica.SIunits.Voltage er;
-    Modelica.SIunits.Voltage es;
+     Modelica.SIunits.Voltage er;
+     Modelica.SIunits.Voltage es;
     annotation (
       Documentation(info="<html>
 <p>
@@ -332,44 +328,38 @@ Lossless transmission line with characteristic impedance Z0 and transmission del
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}),
-          Line(points={{60,-50},{96,-50}}),
-          Line(points={{60,50},{96,50}}),
-          Line(points={{-60,50},{-96,50}}),
-          Line(points={{-60,-50},{-96,-50}}),
-          Line(points={{30,30},{-30,30}}),
-          Line(points={{-30,40},{-30,20}}),
-          Line(points={{30,40},{30,20}}),
-          Text(extent={{-100,100},{100,70}}, textString=
-                                                 "TLine1"),
-          Text(extent={{-30,0},{31,-31}}, textString=
-                                              "TLine1")}),
+          Rectangle(extent={{-60,60},{60,-60}}), 
+          Line(points={{60,-50},{96,-50}}), 
+          Line(points={{60,50},{96,50}}), 
+          Line(points={{-60,50},{-96,50}}), 
+          Line(points={{-60,-50},{-96,-50}}), 
+          Line(points={{30,30},{-30,30}}), 
+          Line(points={{-30,40},{-30,20}}), 
+          Line(points={{30,40},{30,20}}), 
+          Text(extent={{-100,100},{100,70}}, textString="TLine1"), 
+          Text(extent={{-30,0},{31,-31}}, textString="TLine1")}),
       Window(
         x=0.45,
         y=0.01,
         width=0.51,
         height=0.83));
    equation 
-    
-    assert(Z0 > 0, "Z0 has to be positive");
-    assert(TD > 0, "TD has to be positive");
-    i1 = (v1 - es)/Z0;
-    i2 = (v2 - er)/Z0;
-    es = 2*delay(v2, TD) - delay(er, TD);
-    er = 2*delay(v1, TD) - delay(es, TD);
-    
+     assert(Z0 > 0, "Z0 has to be positive");
+     assert(TD > 0, "TD has to be positive");
+     i1 = (v1 - es)/Z0;
+     i2 = (v2 - er)/Z0;
+     es = 2*delay(v2, TD) - delay(er, TD);
+     er = 2*delay(v1, TD) - delay(es, TD);
    end TLine1;
   
   model TLine2 
     "Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL" 
     
     extends Modelica.Electrical.Analog.Interfaces.TwoPort;
-    
     parameter Modelica.SIunits.Resistance Z0(start=1) 
       "Characteristic impedance";
     parameter Modelica.SIunits.Frequency F(start=1) "Frequency";
     parameter Real NL(start=1) "Normalized length";
-    
   protected 
     Modelica.SIunits.Voltage er;
     Modelica.SIunits.Voltage es;
@@ -433,23 +423,21 @@ Lossless transmission line with characteristic impedance Z0, frequency F and nor
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}),
-          Line(points={{60,-50},{96,-50}}),
-          Line(points={{60,50},{96,50}}),
-          Line(points={{-60,50},{-96,50}}),
-          Line(points={{-60,-50},{-96,-50}}),
-          Line(points={{30,30},{-30,30}}),
-          Line(points={{-30,40},{-30,20}}),
-          Line(points={{30,40},{30,20}}),
-          Text(extent={{-100,100},{100,70}}, textString=
-                                                 "TLine2")}),
+          Rectangle(extent={{-60,60},{60,-60}}), 
+          Line(points={{60,-50},{96,-50}}), 
+          Line(points={{60,50},{96,50}}), 
+          Line(points={{-60,50},{-96,50}}), 
+          Line(points={{-60,-50},{-96,-50}}), 
+          Line(points={{30,30},{-30,30}}), 
+          Line(points={{-30,40},{-30,20}}), 
+          Line(points={{30,40},{30,20}}), 
+          Text(extent={{-100,100},{100,70}}, textString="TLine2")}),
       Window(
         x=0.01,
         y=0.03,
         width=0.78,
         height=0.89));
   equation 
-    
     assert(Z0 > 0, "Z0 has to be positive");
     assert(NL > 0, "NL has to be positive");
     assert(F > 0, "F  has to be positive");
@@ -458,17 +446,13 @@ Lossless transmission line with characteristic impedance Z0, frequency F and nor
     i2 = (v2 - er)/Z0;
     es = 2*delay(v2, TD) - delay(er, TD);
     er = 2*delay(v1, TD) - delay(es, TD);
-    
   end TLine2;
   
   model TLine3 
     "Lossless transmission line with characteristic impedance Z0 and frequency F" 
-    
     extends Modelica.Electrical.Analog.Interfaces.TwoPort;
-    
     parameter Modelica.SIunits.Resistance Z0(start=1) "Natural impedance";
     parameter Modelica.SIunits.Frequency F(start=1) "Frequency";
-    
   protected 
     Modelica.SIunits.Voltage er;
     Modelica.SIunits.Voltage es;
@@ -533,23 +517,21 @@ Lossless transmission line with characteristic impedance Z0 and frequency F
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}),
-          Line(points={{60,-50},{96,-50}}),
-          Line(points={{60,50},{96,50}}),
-          Line(points={{-60,50},{-96,50}}),
-          Line(points={{-60,-50},{-96,-50}}),
-          Line(points={{30,30},{-30,30}}),
-          Line(points={{-30,40},{-30,20}}),
-          Line(points={{30,40},{30,20}}),
-          Text(extent={{-100,100},{100,70}}, textString=
-                                                 "TLine3")}),
+          Rectangle(extent={{-60,60},{60,-60}}), 
+          Line(points={{60,-50},{96,-50}}), 
+          Line(points={{60,50},{96,50}}), 
+          Line(points={{-60,50},{-96,50}}), 
+          Line(points={{-60,-50},{-96,-50}}), 
+          Line(points={{30,30},{-30,30}}), 
+          Line(points={{-30,40},{-30,20}}), 
+          Line(points={{30,40},{30,20}}), 
+          Text(extent={{-100,100},{100,70}}, textString="TLine3")}),
       Window(
         x=0,
         y=0,
         width=0.7,
         height=0.92));
   equation 
-    
     assert(Z0 > 0, "Z0 has to be positive");
     assert(F > 0, "F  has to be positive");
     TD = 1/F/4;
@@ -557,6 +539,5 @@ Lossless transmission line with characteristic impedance Z0 and frequency F
     i2 = (v2 - er)/Z0;
     es = 2*delay(v2, TD) - delay(er, TD);
     er = 2*delay(v1, TD) - delay(es, TD);
-    
   end TLine3;
 end Lines;

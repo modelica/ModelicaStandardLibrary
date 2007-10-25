@@ -54,20 +54,21 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     SI.Voltage v "Potential at the pin";
     flow SI.Current i "Current flowing into the pin";
     annotation (defaultComponentName="pin",
-      Icon(graphics={Rectangle(
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={Rectangle(
             extent={{-100,100},{100,-100}}, 
             lineColor={0,0,255}, 
             fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid)}),
-      Diagram(graphics={Rectangle(
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics={Rectangle(
             extent={{-40,40},{40,-40}}, 
             lineColor={0,0,255}, 
             fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid), Text(
             extent={{-160,110},{40,50}}, 
             lineColor={0,0,255}, 
-            textString=
-                 "%name")}),
+            textString="%name")}),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -98,20 +99,21 @@ component.</p></html>", revisions="<html>
        </li>
 </ul>
 </html>"),
-      Icon(graphics={Rectangle(
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={Rectangle(
             extent={{-100,100},{100,-100}}, 
             lineColor={0,0,255}, 
             fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid)}),
-      Diagram(graphics={Rectangle(
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics={Rectangle(
             extent={{-40,40},{40,-40}}, 
             lineColor={0,0,255}, 
             fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid), Text(
             extent={{-160,110},{40,50}}, 
             lineColor={0,0,255}, 
-            textString=
-                 "%name")}));
+            textString="%name")}));
   end PositivePin;
   
   connector NegativePin "Negative pin of an electric component" 
@@ -133,18 +135,19 @@ component.</p></html>", revisions="<html>
        </li>
 </ul>
 </html>"),
-      Icon(graphics={Rectangle(
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={Rectangle(
             extent={{-100,100},{100,-100}}, 
             lineColor={0,0,0}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid)}),
-      Diagram(graphics={Rectangle(
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics={Rectangle(
             extent={{-40,40},{40,-40}}, 
             lineColor={0,0,255}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), Text(extent={{-40,110},{160,50}}, 
-              textString=
-              "%name")}),
+              textString="%name")}),
       Terminal(Rectangle(extent=[-100, 100; 100, -100], style(color=3))));
   end NegativePin;
   
@@ -158,8 +161,8 @@ component.</p></html>", revisions="<html>
               90,-10},{110,10}}, rotation=0)));
     annotation (
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Polygon(
             points={{-120,3},{-110,0},{-120,-3},{-120,3}}, 
@@ -176,8 +179,7 @@ component.</p></html>", revisions="<html>
             lineColor={160,160,164}, 
             fillColor={160,160,164}, 
             fillPattern=FillPattern.Solid, 
-            textString=
-                 "p.i"), 
+            textString="p.i"), 
           Line(
             points={{110,0},{135,0}}, 
             color={160,160,164}, 
@@ -193,8 +195,7 @@ component.</p></html>", revisions="<html>
             lineColor={160,160,164}, 
             fillColor={160,160,164}, 
             fillPattern=FillPattern.Solid, 
-            textString=
-                 "n.i")}),
+            textString="n.i")}),
       Window(
         x=0.11,
         y=0.14,
@@ -218,6 +219,11 @@ component.</p></html>", revisions="<html>
     
     SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
     SI.Current i "Current flowing from pin p to pin n";
+    PositivePin p 
+      "Positive pin (potential p.v > n.v for positive voltage drop v)"             annotation (Placement(
+          transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+    NegativePin n "Negative pin" annotation (Placement(transformation(extent={{
+              110,-10},{90,10}}, rotation=0)));
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -238,8 +244,8 @@ This current is provided explicitly as current i.
 </ul>
 </html>"),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Line(
             points={{-110,20},{-85,20}}, 
@@ -261,8 +267,7 @@ This current is provided explicitly as current i.
           Text(
             extent={{-110,25},{-90,45}}, 
             lineColor={160,160,164}, 
-            textString=
-                 "i"), 
+            textString="i"), 
           Polygon(
             points={{105,23},{115,20},{105,17},{105,23}}, 
             lineColor={160,160,164}, 
@@ -272,18 +277,12 @@ This current is provided explicitly as current i.
           Text(
             extent={{90,45},{110,25}}, 
             lineColor={160,160,164}, 
-            textString=
-                 "i")}),
+            textString="i")}),
       Window(
         x=0.33,
         y=0.04,
         width=0.63,
         height=0.67));
-    PositivePin p 
-      "Positive pin (potential p.v > n.v for positive voltage drop v)"             annotation (Placement(
-          transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
-    NegativePin n "Negative pin" annotation (Placement(transformation(extent={{
-              110,-10},{90,10}}, rotation=0)));
   equation 
     v = p.v - n.v;
     0 = p.i + n.i;
@@ -310,8 +309,8 @@ This current is provided explicitly as current i.
           transformation(extent={{90,-60},{110,-40}}, rotation=0)));
     annotation (
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Polygon(
             points={{-120,53},{-110,50},{-120,47},{-120,53}}, 
@@ -338,15 +337,13 @@ This current is provided explicitly as current i.
             lineColor={160,160,164}, 
             fillColor={160,160,164}, 
             fillPattern=FillPattern.Solid, 
-            textString=
-                 "i2"), 
+            textString="i2"), 
           Text(
             extent={{118,52},{135,67}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={160,160,164}, 
-            textString=
-                 "i2"), 
+            textString="i2"), 
           Polygon(
             points={{120,53},{110,50},{120,47},{120,53}}, 
             lineColor={0,0,0}, 
@@ -372,15 +369,13 @@ This current is provided explicitly as current i.
             lineColor={160,160,164}, 
             fillColor={160,160,164}, 
             fillPattern=FillPattern.Solid, 
-            textString=
-                 "i1"), 
+            textString="i1"), 
           Text(
             extent={{-136,53},{-119,68}}, 
             lineColor={160,160,164}, 
             fillColor={160,160,164}, 
             fillPattern=FillPattern.Solid, 
-            textString=
-                 "i1")}),
+            textString="i1")}),
       Window(
         x=0.16,
         y=0.12,
@@ -422,16 +417,15 @@ This current is provided explicitly as current i.
         width=0.6,
         height=0.6),
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
           Line(points={{70,0},{100,0}}), 
-          Text(extent={{-150,80},{150,120}}, textString=
-                                                 "%name")}),
+          Text(extent={{-150,80},{150,120}}, textString="%name")}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
             Line(points={{70,0},{100,0}})}),
       Documentation(revisions="<html>
@@ -456,23 +450,21 @@ This current is provided explicitly as current i.
     Modelica.Blocks.Interfaces.RealOutput y 
       "Measured quantity as Real output signal"                                       annotation (Placement(
           transformation(
-          origin={0,-100}, 
-          extent={{10,-10},{-10,10}}, 
+          origin={0,-100},
+          extent={{10,-10},{-10,10}},
           rotation=90)));
-    
     annotation (
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
           Line(points={{70,0},{90,0}}, color={0,0,0}), 
           Line(points={{0,-90},{0,-70}}), 
-          Text(extent={{-150,80},{150,120}}, textString=
-                                                 "%name")}),
+          Text(extent={{-150,80},{150,120}}, textString="%name")}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
           Line(points={{0,-90},{0,-70}}), 
@@ -486,7 +478,6 @@ This current is provided explicitly as current i.
        </li>
 </ul>
 </html>"));
-    
   end RelativeSensor;
   
   partial model VoltageSource "Interface for voltage sources" 
@@ -494,29 +485,29 @@ This current is provided explicitly as current i.
     
     parameter SI.Voltage offset=0 "Voltage offset";
     parameter SI.Time startTime=0 "Time offset";
+    replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
+        final offset = offset, final startTime=startTime) 
+    annotation (Placement(transformation(extent={{70,70},{90,90}}, rotation=0)));
     annotation (
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Ellipse(
             extent={{-50,50},{50,-50}}, 
             lineColor={0,0,0}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-150,80},{150,120}}, textString=
-                                               "%name"), 
+          Text(extent={{-150,80},{150,120}}, textString="%name"), 
           Line(points={{-90,0},{90,0}}, color={0,0,0}), 
           Text(
             extent={{-120,50},{-20,0}}, 
             lineColor={0,0,255}, 
-            textString=
-                 "+"), 
+            textString="+"), 
           Text(
             extent={{20,50},{120,0}}, 
             lineColor={0,0,255}, 
-            textString=
-                 "-")}),
+            textString="-")}),
       Window(
         x=0.31,
         y=0.09,
@@ -531,22 +522,21 @@ This current is provided explicitly as current i.
        </li>
 </ul>
 </html>"));
-    replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
-        final offset = offset, final startTime=startTime) 
-    annotation (Placement(transformation(extent={{70,70},{90,90}}, rotation=0)));
   equation 
     v = signalSource.y;
   end VoltageSource;
   
   partial model CurrentSource "Interface for current sources" 
     extends OnePort;
-    
     parameter SI.Current offset=0 "Current offset";
     parameter SI.Time startTime=0 "Time offset";
+    replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
+        final offset = offset, final startTime=startTime) annotation (Placement(
+          transformation(extent={{70,69},{91,89}}, rotation=0)));
     annotation (
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Ellipse(
             extent={{-50,50},{50,-50}}, 
@@ -556,8 +546,7 @@ This current is provided explicitly as current i.
           Line(points={{-90,0},{-50,0}}, color={0,0,0}), 
           Line(points={{50,0},{90,0}}, color={0,0,0}), 
           Line(points={{0,-50},{0,50}}, color={0,0,0}), 
-          Text(extent={{-150,120},{150,80}}, textString=
-                                                 "%name"), 
+          Text(extent={{-150,120},{150,80}}, textString="%name"), 
           Polygon(
             points={{90,0},{60,10},{60,-10},{90,0}}, 
             lineColor={0,0,255}, 
@@ -577,9 +566,6 @@ This current is provided explicitly as current i.
        </li>
 </ul>
 </html>"));
-    replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
-        final offset = offset, final startTime=startTime) annotation (Placement(
-          transformation(extent={{70,69},{91,89}}, rotation=0)));
   equation 
     i = signalSource.y;
   end CurrentSource;
