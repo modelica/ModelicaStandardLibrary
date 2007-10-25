@@ -56,7 +56,11 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           origin={70,110},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-    
+  protected 
+            Real s(final unit="1") 
+      "Auxiliary variable: if on then current, if opened then voltage";
+            constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
+            constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
             annotation (
               Documentation(info="<html>
 This is an ideal thyristor model which is<br><br>
@@ -105,88 +109,81 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-80,0},{80,0}}, color={128,128,128}),
+          Line(points={{-80,0},{80,0}}, color={128,128,128}), 
           Polygon(
-            points={{70,4},{80,0},{70,-4},{70,4}},
-            lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
+            points={{70,4},{80,0},{70,-4},{70,4}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
           Line(
-            points={{0,80},{0,-80}},
-            color={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
+            points={{0,80},{0,-80}}, 
+            color={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
           Polygon(
-            points={{-4,70},{0,80},{4,70},{-4,70}},
-            lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
+            points={{-4,70},{0,80},{4,70},{-4,70}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
           Text(
-            extent={{10,80},{20,70}},
-            lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
-            textString=  "i"),
+            extent={{10,80},{20,70}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString="i"), 
           Text(
-            extent={{70,-10},{80,-20}},
-            lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
-            textString=  "v"),
+            extent={{70,-10},{80,-20}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString="v"), 
           Line(
-            points={{-80,-40},{-20,-10},{20,10},{40,70}},
-            color={0,0,0},
-            thickness=2,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
+            points={{-80,-40},{-20,-10},{20,10},{40,70}}, 
+            color={0,0,0}, 
+            thickness=2, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
           Line(
-            points={{20,9},{20,0}},
-            color={128,128,128},
-            pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
+            points={{20,9},{20,0}}, 
+            color={128,128,128}, 
+            pattern=LinePattern.Dot, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
           Text(
-            extent={{20,0},{40,-10}},
-            lineColor={128,128,128},
-            pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
-            textString=  "Vknee"),
+            extent={{20,0},{40,-10}}, 
+            lineColor={128,128,128}, 
+            pattern=LinePattern.Dot, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString="Vknee"), 
           Text(
-            extent={{20,70},{40,60}},
-            lineColor={128,128,128},
-            pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
-            textString=  "Ron"),
+            extent={{20,70},{40,60}}, 
+            lineColor={128,128,128}, 
+            pattern=LinePattern.Dot, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString="Ron"), 
           Text(
-            extent={{-20,10},{0,0}},
-            lineColor={128,128,128},
-            pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
-            textString=  "Goff"),
+            extent={{-20,10},{0,0}}, 
+            lineColor={128,128,128}, 
+            pattern=LinePattern.Dot, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString="Goff"), 
           Ellipse(
-            extent={{18,12},{22,8}},
-            pattern=LinePattern.Dot,
-            fillPattern=FillPattern.Solid),
+            extent={{18,12},{22,8}}, 
+            pattern=LinePattern.Dot, 
+            fillPattern=FillPattern.Solid), 
           Line(
-            points={{20,10},{70,40}},
-            color={0,0,0},
-            thickness=2,
+            points={{20,10},{70,40}}, 
+            color={0,0,0}, 
+            thickness=2, 
             fillPattern=FillPattern.Solid)}),
               Window(
                 x=0.27,
                 y=0.18,
                 width=0.6,
                 height=0.6));
-    
-  protected 
-            Real s(final unit="1") 
-      "Auxiliary variable: if on then current, if opened then voltage";
-            constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
-            constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
-    
           equation 
             off = s < 0 or pre(off) and not fire;
             v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
@@ -202,13 +199,16 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
             parameter Modelica.SIunits.Voltage Vknee(final min=0, start=0) 
       "Forward threshold voltage";
             Boolean off(start=true) "Switching state";
-    
             Modelica.Blocks.Interfaces.BooleanInput fire 
               annotation (Placement(transformation(
           origin={70,110},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-    
+  protected 
+            Real s(final unit="1") 
+      "Auxiliary variable: if on then current, if opened then voltage";
+            constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
+            constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
             annotation (
               Documentation(info="<html>
 This is an ideal GTO thyristor model which is<br><br>
@@ -257,87 +257,81 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-80,0},{80,0}}, color={128,128,128}),
+          Line(points={{-80,0},{80,0}}, color={128,128,128}), 
           Polygon(
-            points={{70,4},{80,0},{70,-4},{70,4}},
-            lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
+            points={{70,4},{80,0},{70,-4},{70,4}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
           Line(
-            points={{0,80},{0,-80}},
-            color={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
+            points={{0,80},{0,-80}}, 
+            color={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
           Polygon(
-            points={{-4,70},{0,80},{4,70},{-4,70}},
-            lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
+            points={{-4,70},{0,80},{4,70},{-4,70}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
           Text(
-            extent={{10,80},{20,70}},
-            lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
-            textString=  "i"),
+            extent={{10,80},{20,70}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString="i"), 
           Text(
-            extent={{70,-10},{80,-20}},
-            lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
-            textString=  "v"),
+            extent={{70,-10},{80,-20}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString="v"), 
           Line(
-            points={{-80,-40},{-20,-10},{20,10},{40,70}},
-            color={0,0,0},
-            thickness=2,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
+            points={{-80,-40},{-20,-10},{20,10},{40,70}}, 
+            color={0,0,0}, 
+            thickness=2, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
           Line(
-            points={{20,9},{20,0}},
-            color={128,128,128},
-            pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
+            points={{20,9},{20,0}}, 
+            color={128,128,128}, 
+            pattern=LinePattern.Dot, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
           Text(
-            extent={{20,0},{40,-10}},
-            lineColor={128,128,128},
-            pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
-            textString=  "Vknee"),
+            extent={{20,0},{40,-10}}, 
+            lineColor={128,128,128}, 
+            pattern=LinePattern.Dot, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString="Vknee"), 
           Text(
-            extent={{20,70},{40,60}},
-            lineColor={128,128,128},
-            pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
-            textString=  "Ron"),
+            extent={{20,70},{40,60}}, 
+            lineColor={128,128,128}, 
+            pattern=LinePattern.Dot, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString="Ron"), 
           Text(
-            extent={{-20,10},{0,0}},
-            lineColor={128,128,128},
-            pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
-            textString=  "Goff"),
+            extent={{-20,10},{0,0}}, 
+            lineColor={128,128,128}, 
+            pattern=LinePattern.Dot, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString="Goff"), 
           Ellipse(
-            extent={{18,12},{22,8}},
-            pattern=LinePattern.Dot,
-            fillPattern=FillPattern.Solid),
+            extent={{18,12},{22,8}}, 
+            pattern=LinePattern.Dot, 
+            fillPattern=FillPattern.Solid), 
           Line(
-            points={{20,10},{70,40}},
-            color={0,0,0},
-            thickness=2,
+            points={{20,10},{70,40}}, 
+            color={0,0,0}, 
+            thickness=2, 
             fillPattern=FillPattern.Solid)}),
               Window(
                 x=0.27,
                 y=0.13,
                 width=0.6,
                 height=0.6));
-    
-  protected 
-            Real s(final unit="1") 
-      "Auxiliary variable: if on then current, if opened then voltage";
-            constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
-            constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
           equation 
             off = s < 0 or not fire;
             v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
@@ -360,7 +354,11 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
           origin={0,80},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-    
+  protected 
+    Real s1(final unit="1");
+    Real s2(final unit="1") "Auxiliary variables";
+    constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
+    constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -406,23 +404,17 @@ where a description with zero Ron or zero Goff is not possible.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Ellipse(extent={{-44,4},{-36,-4}}),
-          Line(points={{-96,0},{-44,0}}),
-          Line(points={{-37,2},{40,50}}),
-          Line(points={{40,50},{96,50}}),
-          Line(points={{0,60},{0,25}}),
+          Ellipse(extent={{-44,4},{-36,-4}}), 
+          Line(points={{-96,0},{-44,0}}), 
+          Line(points={{-37,2},{40,50}}), 
+          Line(points={{40,50},{96,50}}), 
+          Line(points={{0,60},{0,25}}), 
           Line(points={{40,0},{96,0}})}),
       Window(
         x=0.21,
         y=0.05,
         width=0.6,
         height=0.6));
-  protected 
-    Real s1(final unit="1");
-    Real s2(final unit="1") "Auxiliary variables";
-    constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
-    constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
-    
   equation 
     0 = p.i + n2.i + n1.i;
     
@@ -450,7 +442,13 @@ where a description with zero Ron or zero Goff is not possible.
           origin={0,80},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-    
+  protected 
+    Real s1(final unit="1");
+    Real s2(final unit="1");
+    Real s3(final unit="1");
+    Real s4(final unit="1") "Auxiliary variables";
+    constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
+    constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -504,26 +502,19 @@ where a description with zero Ron or zero Goff is not possible.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Ellipse(extent={{-4,29},{4,21}}),
-          Line(points={{-96,0},{-40,0}}),
-          Line(points={{-96,50},{-40,50}}),
-          Line(points={{-40,0},{40,50}}),
-          Line(points={{-40,50},{40,0}}),
-          Line(points={{40,50},{96,50}}),
-          Line(points={{0,60},{0,25}}),
+          Ellipse(extent={{-4,29},{4,21}}), 
+          Line(points={{-96,0},{-40,0}}), 
+          Line(points={{-96,50},{-40,50}}), 
+          Line(points={{-40,0},{40,50}}), 
+          Line(points={{-40,50},{40,0}}), 
+          Line(points={{40,50},{96,50}}), 
+          Line(points={{0,60},{0,25}}), 
           Line(points={{40,0},{96,0}})}),
       Window(
         x=0.21,
         y=0.05,
         width=0.6,
         height=0.6));
-  protected 
-    Real s1(final unit="1");
-    Real s2(final unit="1");
-    Real s3(final unit="1");
-    Real s4(final unit="1") "Auxiliary variables";
-    constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
-    constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
   equation 
     p1.v - n1.v = (s1*unitCurrent)*(if (control) then 1 else Ron);
     p2.v - n2.v = (s2*unitCurrent)*(if (control) then 1 else Ron);
@@ -553,7 +544,11 @@ where a description with zero Ron or zero Goff is not possible.
           origin={0,100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    
+  protected 
+    Real s1(final unit="1");
+    Real s2(final unit="1") "Auxiliary variables";
+    constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
+    constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -600,22 +595,17 @@ where a description with zero Ron or zero Goff is not possible.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Ellipse(extent={{-44,4},{-36,-4}}),
-          Line(points={{-96,0},{-44,0}}),
-          Line(points={{-37,2},{40,50}}),
-          Line(points={{40,50},{96,50}}),
-          Line(points={{0,96},{0,25}}),
+          Ellipse(extent={{-44,4},{-36,-4}}), 
+          Line(points={{-96,0},{-44,0}}), 
+          Line(points={{-37,2},{40,50}}), 
+          Line(points={{40,50},{96,50}}), 
+          Line(points={{0,96},{0,25}}), 
           Line(points={{40,0},{96,0}})}),
       Window(
         x=0.21,
         y=0.05,
         width=0.6,
         height=0.6));
-  protected 
-    Real s1(final unit="1");
-    Real s2(final unit="1") "Auxiliary variables";
-    constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
-    constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
   equation 
     control.i = 0;
     0 = p.i + n2.i + n1.i;
@@ -646,7 +636,13 @@ where a description with zero Ron or zero Goff is not possible.
           origin={0,100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    
+  protected 
+    Real s1(final unit="1");
+    Real s2(final unit="1");
+    Real s3(final unit="1");
+    Real s4(final unit="1") "Auxiliary variables";
+    constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
+    constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -701,27 +697,19 @@ where a description with zero Ron or zero Goff is not possible.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Ellipse(extent={{-4,29},{4,21}}),
-          Line(points={{-96,0},{-40,0}}),
-          Line(points={{-96,50},{-40,50}}),
-          Line(points={{-40,0},{40,50}}),
-          Line(points={{-40,50},{40,0}}),
-          Line(points={{40,50},{96,50}}),
-          Line(points={{0,96},{0,25}}),
+          Ellipse(extent={{-4,29},{4,21}}), 
+          Line(points={{-96,0},{-40,0}}), 
+          Line(points={{-96,50},{-40,50}}), 
+          Line(points={{-40,0},{40,50}}), 
+          Line(points={{-40,50},{40,0}}), 
+          Line(points={{40,50},{96,50}}), 
+          Line(points={{0,96},{0,25}}), 
           Line(points={{40,0},{96,0}})}),
       Window(
         x=0.21,
         y=0.05,
         width=0.6,
         height=0.6));
-    
-  protected 
-    Real s1(final unit="1");
-    Real s2(final unit="1");
-    Real s3(final unit="1");
-    Real s4(final unit="1") "Auxiliary variables";
-    constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
-    constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
   equation 
     control.i = 0;
     
@@ -741,6 +729,17 @@ where a description with zero Ron or zero Goff is not possible.
     SI.Voltage v2 "Voltage drop over the right port";
     SI.Current i1 "Current flowing from pos. to neg. pin of the left port";
     SI.Current i2 "Current flowing from pos. to neg. pin of the right port";
+    Interfaces.PositivePin p1 "Positive pin of the left port" annotation (Placement(
+          transformation(extent={{-110,-60},{-90,-40}}, rotation=0)));
+    Interfaces.NegativePin n1 "Negative pin of the left port" annotation (Placement(
+          transformation(extent={{-110,40},{-90,60}}, rotation=0)));
+    Interfaces.PositivePin p2 "Positive pin of the right port" annotation (Placement(
+          transformation(extent={{90,-10},{110,10}}, rotation=0)));
+    Interfaces.NegativePin n2 "Negative pin of the right port" annotation (Placement(
+          transformation(
+          origin={0,-100},
+          extent={{10,-10},{-10,10}},
+          rotation=270)));
     annotation (
       Documentation(info="<html>
 <P>
@@ -779,80 +778,65 @@ are possible (norator).
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Polygon(
-            points={{60,0},{-60,70},{-60,-70},{60,0}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-96,50},{-60,50}}),
-          Line(points={{-96,-50},{-60,-50}}),
-          Line(points={{60,0},{96,0}}),
-          Line(points={{0,-35},{0,-96}}),
-          Line(points={{-55,50},{-45,50}}),
-          Line(points={{-50,-45},{-50,-55}}),
-          Line(points={{-55,-50},{-45,-50}}),
+            points={{60,0},{-60,70},{-60,-70},{60,0}}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-96,50},{-60,50}}), 
+          Line(points={{-96,-50},{-60,-50}}), 
+          Line(points={{60,0},{96,0}}), 
+          Line(points={{0,-35},{0,-96}}), 
+          Line(points={{-55,50},{-45,50}}), 
+          Line(points={{-50,-45},{-50,-55}}), 
+          Line(points={{-55,-50},{-45,-50}}), 
           Text(
-            extent={{-111,-39},{-90,-19}},
-            lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
-            textString=
-                 "p1.i=0"),
+            extent={{-111,-39},{-90,-19}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid, 
+            textString="p1.i=0"), 
           Polygon(
-            points={{120,3},{110,0},{120,-3},{120,3}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={160,160,164}),
+            points={{120,3},{110,0},{120,-3},{120,3}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={160,160,164}), 
           Line(
-            points={{111,0},{136,0}},
-            color={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={160,160,164}),
+            points={{111,0},{136,0}}, 
+            color={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={160,160,164}), 
           Text(
-            extent={{118,2},{135,17}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={160,160,164},
-            textString=
-                 "i2"),
+            extent={{118,2},{135,17}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={160,160,164}, 
+            textString="i2"), 
           Text(
-            extent={{-111,60},{-90,80}},
-            lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
-            textString=
-                 "n1.i=0"),
+            extent={{-111,60},{-90,80}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid, 
+            textString="n1.i=0"), 
           Line(
-            points={{18,-111},{18,-86}},
-            color={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid),
+            points={{18,-111},{18,-86}}, 
+            color={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
           Polygon(
-            points={{21,-101},{18,-111},{15,-101},{21,-101}},
-            lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid),
+            points={{21,-101},{18,-111},{15,-101},{21,-101}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
           Text(
-            extent={{22,-100},{39,-85}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={160,160,164},
-            textString=
-                 "i2")}),
+            extent={{22,-100},{39,-85}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={160,160,164}, 
+            textString="i2")}),
       Window(
         x=0.28,
         y=0.19,
         width=0.71,
         height=0.59));
-    Interfaces.PositivePin p1 "Positive pin of the left port" annotation (Placement(
-          transformation(extent={{-110,-60},{-90,-40}}, rotation=0)));
-    Interfaces.NegativePin n1 "Negative pin of the left port" annotation (Placement(
-          transformation(extent={{-110,40},{-90,60}}, rotation=0)));
-    Interfaces.PositivePin p2 "Positive pin of the right port" annotation (Placement(
-          transformation(extent={{90,-10},{110,10}}, rotation=0)));
-    Interfaces.NegativePin n2 "Negative pin of the right port" annotation (Placement(
-          transformation(
-          origin={0,-100},
-          extent={{10,-10},{-10,10}},
-          rotation=270)));
   equation 
     v1 = p1.v - n1.v;
     v2 = p2.v - n2.v;
@@ -866,7 +850,12 @@ are possible (norator).
   
   model IdealOpAmp3Pin 
     "Ideal operational amplifier (norator-nullator pair), but 3 pins" 
-    
+    Interfaces.PositivePin in_p "Positive pin of the input port" annotation (Placement(
+          transformation(extent={{-110,-60},{-90,-40}}, rotation=0)));
+    Interfaces.NegativePin in_n "Negative pin of the input port" annotation (Placement(
+          transformation(extent={{-110,40},{-90,60}}, rotation=0)));
+    Interfaces.PositivePin out "Output pin" annotation (Placement(
+          transformation(extent={{90,-10},{110,10}}, rotation=0)));
     annotation (
       Documentation(info="<html>
 <P>
@@ -906,57 +895,48 @@ are possible.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Polygon(
-            points={{60,0},{-60,70},{-60,-70},{60,0}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-96,50},{-60,50}}),
-          Line(points={{-96,-50},{-60,-50}}),
-          Line(points={{60,0},{97,0}}),
-          Line(points={{-55,50},{-45,50}}),
-          Line(points={{-50,-45},{-50,-55}}),
-          Line(points={{-55,-50},{-45,-50}}),
+            points={{60,0},{-60,70},{-60,-70},{60,0}}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-96,50},{-60,50}}), 
+          Line(points={{-96,-50},{-60,-50}}), 
+          Line(points={{60,0},{97,0}}), 
+          Line(points={{-55,50},{-45,50}}), 
+          Line(points={{-50,-45},{-50,-55}}), 
+          Line(points={{-55,-50},{-45,-50}}), 
           Text(
-            extent={{-111,-39},{-90,-19}},
-            lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
-            textString=
-                 "p1.i=0"),
+            extent={{-111,-39},{-90,-19}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid, 
+            textString="p1.i=0"), 
           Polygon(
-            points={{120,3},{110,0},{120,-3},{120,3}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={160,160,164}),
+            points={{120,3},{110,0},{120,-3},{120,3}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={160,160,164}), 
           Line(
-            points={{111,0},{136,0}},
-            color={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={160,160,164}),
+            points={{111,0},{136,0}}, 
+            color={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={160,160,164}), 
           Text(
-            extent={{118,2},{135,17}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={160,160,164},
-            textString=
-                 "i2"),
+            extent={{118,2},{135,17}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={160,160,164}, 
+            textString="i2"), 
           Text(
-            extent={{-111,60},{-90,80}},
-            lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
-            textString=
-                 "n1.i=0")}),
+            extent={{-111,60},{-90,80}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid, 
+            textString="n1.i=0")}),
       Window(
         x=0.28,
         y=0.19,
         width=0.71,
         height=0.59));
-    Interfaces.PositivePin in_p "Positive pin of the input port" annotation (Placement(
-          transformation(extent={{-110,-60},{-90,-40}}, rotation=0)));
-    Interfaces.NegativePin in_n "Negative pin of the input port" annotation (Placement(
-          transformation(extent={{-110,40},{-90,60}}, rotation=0)));
-    Interfaces.PositivePin out "Output pin" annotation (Placement(
-          transformation(extent={{90,-10},{110,10}}, rotation=0)));
   equation 
     in_p.v = in_n.v;
     in_p.i = 0;
@@ -964,7 +944,6 @@ are possible.
   end IdealOpAmp3Pin;
   
   model IdealOpAmpLimited "Ideal operational amplifier with limitation" 
-    
     Interfaces.PositivePin in_p "Positive pin of the input port" annotation (Placement(
           transformation(extent={{-110,-60},{-90,-40}}, rotation=0)));
     Interfaces.NegativePin in_n "Negative pin of the input port" annotation (Placement(
@@ -978,7 +957,9 @@ are possible.
       annotation (Placement(transformation(extent={{-10,-80},{10,-60}},
             rotation=0)));
     SI.Voltage vin "input voltage";
-    
+  protected 
+    Real s(final unit="1") "Auxiliary variable";
+    constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -1021,58 +1002,51 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Polygon(
-            points={{60,0},{-60,70},{-60,-70},{60,0}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}),
-          Line(points={{0,35},{0,80}}),
-          Line(points={{0,-35},{0,-80}}),
-          Line(points={{-96,50},{-60,50}}),
-          Line(points={{-96,-50},{-60,-50}}),
-          Line(points={{60,0},{96,0}}),
-          Line(points={{-55,50},{-45,50}}),
-          Line(points={{-50,-45},{-50,-55}}),
-          Line(points={{-55,-50},{-45,-50}}),
+            points={{60,0},{-60,70},{-60,-70},{60,0}}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}), 
+          Line(points={{0,35},{0,80}}), 
+          Line(points={{0,-35},{0,-80}}), 
+          Line(points={{-96,50},{-60,50}}), 
+          Line(points={{-96,-50},{-60,-50}}), 
+          Line(points={{60,0},{96,0}}), 
+          Line(points={{-55,50},{-45,50}}), 
+          Line(points={{-50,-45},{-50,-55}}), 
+          Line(points={{-55,-50},{-45,-50}}), 
           Text(
-            extent={{-111,-39},{-90,-19}},
-            lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
-            textString=
-                 "p1.i=0"),
+            extent={{-111,-39},{-90,-19}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid, 
+            textString="p1.i=0"), 
           Polygon(
-            points={{120,3},{110,0},{120,-3},{120,3}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={160,160,164}),
+            points={{120,3},{110,0},{120,-3},{120,3}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={160,160,164}), 
           Line(
-            points={{111,0},{136,0}},
-            color={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={160,160,164}),
+            points={{111,0},{136,0}}, 
+            color={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={160,160,164}), 
           Text(
-            extent={{118,2},{135,17}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={160,160,164},
-            textString=
-                 "i2"),
+            extent={{118,2},{135,17}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={160,160,164}, 
+            textString="i2"), 
           Text(
-            extent={{-111,60},{-90,80}},
-            lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
-            textString=
-                 "n1.i=0")}),
+            extent={{-111,60},{-90,80}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid, 
+            textString="n1.i=0")}),
       Window(
         x=0.28,
         y=0.19,
         width=0.71,
         height=0.59));
-    
-  protected 
-    Real s(final unit="1") "Auxiliary variable";
-    constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
   equation 
     in_p.i = 0;
     in_n.i = 0;
@@ -1092,6 +1066,11 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
           parameter Modelica.SIunits.Voltage Vknee(final min=0, start=0) 
       "Forward threshold voltage";
           Boolean off(start=true) "Switching state";
+  protected 
+          Real s(final unit="1") 
+      "Auxiliary variable: if on then current, if opened then voltage";
+          constant Real unitVoltPerOhm(unit="V/Ohm") = 1    annotation(Hide=true);
+          constant Real unitAmperePerSiemens(unit="A/S") = 1 annotation(Hide=true);
           annotation (
             Documentation(info="<html>
 <P>
@@ -1139,83 +1118,76 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-80,0},{80,0}}, color={128,128,128}),
+          Line(points={{-80,0},{80,0}}, color={128,128,128}), 
           Polygon(
-            points={{70,4},{80,0},{70,-4},{70,4}},
-            lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
+            points={{70,4},{80,0},{70,-4},{70,4}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
           Line(
-            points={{0,80},{0,-80}},
-            color={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
+            points={{0,80},{0,-80}}, 
+            color={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
           Polygon(
-            points={{-4,70},{0,80},{4,70},{-4,70}},
-            lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
+            points={{-4,70},{0,80},{4,70},{-4,70}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
           Text(
-            extent={{10,80},{20,70}},
-            lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
-            textString="i"),
+            extent={{10,80},{20,70}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString="i"), 
           Text(
-            extent={{70,-10},{80,-20}},
-            lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
-            textString="v"),
+            extent={{70,-10},{80,-20}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString="v"), 
           Line(
-            points={{-80,-40},{-20,-10},{20,10},{40,70}},
-            color={0,0,0},
-            thickness=2,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
+            points={{-80,-40},{-20,-10},{20,10},{40,70}}, 
+            color={0,0,0}, 
+            thickness=2, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
           Line(
-            points={{20,9},{20,0}},
-            color={128,128,128},
-            pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
+            points={{20,9},{20,0}}, 
+            color={128,128,128}, 
+            pattern=LinePattern.Dot, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
           Text(
-            extent={{20,0},{40,-10}},
-            lineColor={128,128,128},
-            pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
-            textString="Vknee"),
+            extent={{20,0},{40,-10}}, 
+            lineColor={128,128,128}, 
+            pattern=LinePattern.Dot, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString="Vknee"), 
           Text(
-            extent={{20,70},{40,60}},
-            lineColor={128,128,128},
-            pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
-            textString=
-                 "Ron"),
+            extent={{20,70},{40,60}}, 
+            lineColor={128,128,128}, 
+            pattern=LinePattern.Dot, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString="Ron"), 
           Text(
-            extent={{-20,10},{0,0}},
-            lineColor={128,128,128},
-            pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
-            textString=
-                 "Goff"),
+            extent={{-20,10},{0,0}}, 
+            lineColor={128,128,128}, 
+            pattern=LinePattern.Dot, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid, 
+            textString="Goff"), 
           Ellipse(
-            extent={{18,12},{22,8}},
-            pattern=LinePattern.Dot,
+            extent={{18,12},{22,8}}, 
+            pattern=LinePattern.Dot, 
             fillPattern=FillPattern.Solid)}),
             Window(
               x=0.26,
               y=0.11,
               width=0.6,
               height=0.6));
-  protected 
-          Real s(final unit="1") 
-      "Auxiliary variable: if on then current, if opened then voltage";
-          constant Real unitVoltPerOhm(unit="V/Ohm") = 1    annotation(Hide=true);
-          constant Real unitAmperePerSiemens(unit="A/S") = 1 annotation(Hide=true);
         equation 
           off = s < 0;
           v = (s*unitVoltPerOhm)*(if off then 1 else Ron) + Vknee;
@@ -1281,27 +1253,27 @@ where <i>n</i> is a real number called the turns ratio.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Ellipse(extent={{-45,-50},{-20,-25}}),
-          Ellipse(extent={{-45,-25},{-20,0}}),
-          Ellipse(extent={{-45,0},{-20,25}}),
-          Ellipse(extent={{-45,25},{-20,50}}),
+          Ellipse(extent={{-45,-50},{-20,-25}}), 
+          Ellipse(extent={{-45,-25},{-20,0}}), 
+          Ellipse(extent={{-45,0},{-20,25}}), 
+          Ellipse(extent={{-45,25},{-20,50}}), 
           Rectangle(
-            extent={{-72,-60},{-33,60}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-96,50},{-32,50}}),
-          Line(points={{-96,-50},{-32,-50}}),
-          Ellipse(extent={{20,-50},{45,-25}}),
-          Ellipse(extent={{20,-25},{45,0}}),
-          Ellipse(extent={{20,0},{45,25}}),
-          Ellipse(extent={{20,25},{45,50}}),
+            extent={{-72,-60},{-33,60}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-96,50},{-32,50}}), 
+          Line(points={{-96,-50},{-32,-50}}), 
+          Ellipse(extent={{20,-50},{45,-25}}), 
+          Ellipse(extent={{20,-25},{45,0}}), 
+          Ellipse(extent={{20,0},{45,25}}), 
+          Ellipse(extent={{20,25},{45,50}}), 
           Rectangle(
-            extent={{33,-60},{72,60}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{32,50},{96,50}}),
+            extent={{33,-60},{72,60}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{32,50},{96,50}}), 
           Line(points={{32,-50},{96,-50}})}),
       Window(
         x=0.29,
@@ -1315,6 +1287,7 @@ where <i>n</i> is a real number called the turns ratio.
   
   model IdealGyrator "Ideal gyrator" 
     extends Interfaces.TwoPort;
+    parameter SI.Conductance G(start=1) "Gyration conductance";
     annotation (
       Documentation(info="<html>
 <P>
@@ -1374,26 +1347,25 @@ where the constant <i>G</i> is called the gyration conductance.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Ellipse(extent={{-70,-30},{-10,30}}),
+          Ellipse(extent={{-70,-30},{-10,30}}), 
           Rectangle(
-            extent={{-80,-40},{-41,40}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-96,50},{-40,50},{-40,-50},{-96,-50}}),
-          Line(points={{-30,60},{20,60}}),
+            extent={{-80,-40},{-41,40}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-96,50},{-40,50},{-40,-50},{-96,-50}}), 
+          Line(points={{-30,60},{20,60}}), 
           Polygon(
-            points={{20,63},{30,60},{20,57},{20,63}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid),
-          Ellipse(extent={{10,-30},{70,30}}),
+            points={{20,63},{30,60},{20,57},{20,63}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(extent={{10,-30},{70,30}}), 
           Rectangle(
-            extent={{80,-40},{40,40}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
+            extent={{80,-40},{40,40}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
           Line(points={{96,50},{40,50},{40,-50},{96,-50}})}));
-    parameter SI.Conductance G(start=1) "Gyration conductance";
   equation 
     i1 = G*v2;
     i2 = -G*v1;
@@ -1431,8 +1403,8 @@ The model Idle is a simple idle running branch.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}),
-          Line(points={{-96,0},{-41,0}}),
+          Rectangle(extent={{-60,60},{60,-60}}), 
+          Line(points={{-96,0},{-41,0}}), 
           Line(points={{96,0},{40,0}})}),
       Window(
         x=0.36,
@@ -1440,9 +1412,7 @@ The model Idle is a simple idle running branch.
         width=0.6,
         height=0.6));
   equation 
-    
     i = 0;
-    
   end Idle;
   
   model Short "Short cut branch" 
@@ -1476,10 +1446,9 @@ The model Short is a simple short cut branch.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}),
-          Line(points={{96,0},{-96,0}}),
-          Text(extent={{-100,100},{100,70}}, textString=
-                                                 "Short")}),
+          Rectangle(extent={{-60,60},{60,-60}}), 
+          Line(points={{96,0},{-96,0}}), 
+          Text(extent={{-100,100},{100,70}}, textString="Short")}),
       Window(
         x=0.31,
         y=0.14,
@@ -1503,7 +1472,10 @@ The model Short is a simple short cut branch.
           origin={0,70},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-    
+  protected 
+   Real s(final unit="1") "Auxiliary variable";
+   constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
+   constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
     annotation (
       Documentation(info="<HTML>
 <P> 
@@ -1552,18 +1524,13 @@ where a description with zero Ron or zero Goff is not possible.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Ellipse(extent={{-44,4},{-36,-4}}),
-          Line(points={{-96,0},{-44,0}}),
-          Line(points={{-37,2},{40,50}}),
-          Line(points={{40,0},{96,0}}),
-          Text(extent={{-100,-40},{100,-79}}, textString=
-                                                  "%name"),
-          Line(points={{0,51},{0,26}}),
+          Ellipse(extent={{-44,4},{-36,-4}}), 
+          Line(points={{-96,0},{-44,0}}), 
+          Line(points={{-37,2},{40,50}}), 
+          Line(points={{40,0},{96,0}}), 
+          Text(extent={{-100,-40},{100,-79}}, textString="%name"), 
+          Line(points={{0,51},{0,26}}), 
           Line(points={{40,20},{40,0}})}));
-  protected 
-   Real s(final unit="1") "Auxiliary variable";
-   constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
-   constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
  equation 
     v = (s*unitCurrent)*(if control then 1 else Ron);
     i = (s*unitVoltage)*(if control then Goff else 1);
@@ -1584,7 +1551,10 @@ where a description with zero Ron or zero Goff is not possible.
           origin={0,70},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-    
+  protected 
+      Real s(final unit="1") "Auxiliary variable";
+      constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
+      constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
       annotation (
         Documentation(info="<HTML>
 <P> 
@@ -1633,17 +1603,12 @@ where a description with zero Ron or zero Goff is not possible.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Ellipse(extent={{-44,4},{-36,-4}}),
-          Line(points={{-96,0},{-44,0}}),
-          Line(points={{-37,2},{40,50}}),
-          Line(points={{40,0},{96,0}}),
-          Text(extent={{-100,-40},{100,-79}}, textString=
-                                                    "%name"),
+          Ellipse(extent={{-44,4},{-36,-4}}), 
+          Line(points={{-96,0},{-44,0}}), 
+          Line(points={{-37,2},{40,50}}), 
+          Line(points={{40,0},{96,0}}), 
+          Text(extent={{-100,-40},{100,-79}}, textString="%name"), 
           Line(points={{0,51},{0,26}})}));
-  protected 
-      Real s(final unit="1") "Auxiliary variable";
-      constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
-      constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
     equation 
       v = (s*unitCurrent)*(if control then Ron else 1);
       i = (s*unitVoltage)*(if control then 1 else Goff);
@@ -1669,7 +1634,10 @@ where a description with zero Ron or zero Goff is not possible.
           origin={0,100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    
+  protected 
+    Real s(final unit="1") "Auxiliary variable";
+    constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
+    constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
     annotation (
       Documentation(info="
 <HTML>
@@ -1719,16 +1687,12 @@ where a description with zero Ron or zero Goff is not possible.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Ellipse(extent={{-44,4},{-36,-4}}),
-          Line(points={{-96,0},{-44,0}}),
-          Line(points={{-37,2},{40,50}}),
-          Line(points={{40,0},{96,0}}),
-          Line(points={{0,96},{0,25}}),
+          Ellipse(extent={{-44,4},{-36,-4}}), 
+          Line(points={{-96,0},{-44,0}}), 
+          Line(points={{-37,2},{40,50}}), 
+          Line(points={{40,0},{96,0}}), 
+          Line(points={{0,96},{0,25}}), 
           Line(points={{40,20},{40,0}})}));
-  protected 
-    Real s(final unit="1") "Auxiliary variable";
-    constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
-    constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
   equation 
     control.i = 0;
     0 = p.i + n.i;
@@ -1747,7 +1711,6 @@ where a description with zero Ron or zero Goff is not possible.
       parameter SI.Conductance Goff(final min=0) = 1.E-5 
       "Opened switch conductance"   annotation (Placement(transformation(extent=
              {{-56.6667,-56.6667},{-10,-10}}, rotation=0)));
-    
       Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
       Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (Placement(
@@ -1758,7 +1721,10 @@ where a description with zero Ron or zero Goff is not possible.
           origin={0,100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    
+  protected 
+      Real s(final unit="1") "Auxiliary variable";
+      constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
+      constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
       annotation (
         Documentation(info="
 <HTML>
@@ -1808,15 +1774,11 @@ where a description with zero Ron or zero Goff is not possible.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Ellipse(extent={{-44,4},{-36,-4}}),
-          Line(points={{-96,0},{-44,0}}),
-          Line(points={{-37,2},{40,50}}),
-          Line(points={{40,0},{96,0}}),
+          Ellipse(extent={{-44,4},{-36,-4}}), 
+          Line(points={{-96,0},{-44,0}}), 
+          Line(points={{-37,2},{40,50}}), 
+          Line(points={{40,0},{96,0}}), 
           Line(points={{0,96},{0,25}})}));
-  protected 
-      Real s(final unit="1") "Auxiliary variable";
-      constant Real unitVoltage(unit="V") = 1           annotation(Hide=true);
-      constant Real unitCurrent(unit="A") = 1            annotation(Hide=true);
     equation 
       control.i = 0;
       0 = p.i + n.i;

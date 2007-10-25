@@ -99,12 +99,12 @@ continued to avoid overflow.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Polygon(
-            points={{30,0},{-30,40},{-30,-40},{30,0}},
-            lineColor={0,0,0},
-            fillColor={255,0,0},
-            fillPattern=FillPattern.None),
-          Line(points={{-96,0},{40,0}}),
-          Line(points={{40,0},{96,0}}),
+            points={{30,0},{-30,40},{-30,-40},{30,0}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,0,0}, 
+            fillPattern=FillPattern.None), 
+          Line(points={{-96,0},{40,0}}), 
+          Line(points={{40,0},{96,0}}), 
           Line(points={{30,40},{30,-40}}, color={0,0,255})}),
       Window(
         x=0.13,
@@ -117,8 +117,33 @@ continued to avoid overflow.
   end Diode;
   
   model PMOS "Simple MOS Transistor" 
-    // 6.12.2001 parameter RDS added, Clauss
-    
+    Interfaces.Pin D "Drain" annotation (Placement(transformation(extent={{90,
+              40},{110,60}}, rotation=0)));
+    Interfaces.Pin G "Gate" annotation (Placement(transformation(extent={{-90,
+              -40},{-110,-60}}, rotation=0)));
+    Interfaces.Pin S "Source" annotation (Placement(transformation(extent={{90,
+              -40},{110,-60}}, rotation=0)));
+    Interfaces.Pin B "Bulk" annotation (Placement(transformation(extent={{90,
+              -10},{110,10}}, rotation=0)));
+    parameter SIunits.Length W=20.0e-6 "Width";
+    parameter SIunits.Length L=6.0e-6 "Length";
+    parameter SIunits.Transconductance Beta=0.0105e-3 
+      "Transconductance parameter";
+    parameter SIunits.Voltage Vt=-1.0 "Zero bias threshold voltage";
+    parameter Real K2=0.41 "Bulk threshold parameter";
+    parameter Real K5=0.839 "Reduction of pinch-off region";
+    parameter SIunits.Length dW=-2.5e-6 "Narrowing of channel";
+    parameter SIunits.Length dL=-2.1e-6 "Shortening of channel";
+    parameter SIunits.Resistance RDS=1.e+7 "Drain-Source-Resistance";
+  protected 
+    Real v;
+    Real uds;
+    Real ubs;
+    Real ugst;
+    Real ud;
+    Real us;
+    Real id;
+    Real gds;
     annotation (
       Documentation(info="
 <HTML>
@@ -187,47 +212,18 @@ Some typical parameter sets are:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-96,-50},{-10,-50}}),
-          Line(points={{-10,-50},{-10,50}}),
-          Line(points={{10,70},{10,29}}),
-          Line(points={{10,20},{10,-21}}),
-          Line(points={{10,-30},{10,-71}}),
-          Line(points={{10,50},{96,50}}),
-          Line(points={{10,0},{96,0}}),
-          Line(points={{10,-50},{96,-50}}),
+          Line(points={{-96,-50},{-10,-50}}), 
+          Line(points={{-10,-50},{-10,50}}), 
+          Line(points={{10,70},{10,29}}), 
+          Line(points={{10,20},{10,-21}}), 
+          Line(points={{10,-30},{10,-71}}), 
+          Line(points={{10,50},{96,50}}), 
+          Line(points={{10,0},{96,0}}), 
+          Line(points={{10,-50},{96,-50}}), 
           Polygon(
-            points={{60,0},{40,5},{40,-5},{60,0}},
-            fillColor={0,0,255},
+            points={{60,0},{40,5},{40,-5},{60,0}}, 
+            fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid)}));
-    
-    Interfaces.Pin D "Drain" annotation (Placement(transformation(extent={{90,
-              40},{110,60}}, rotation=0)));
-    Interfaces.Pin G "Gate" annotation (Placement(transformation(extent={{-90,
-              -40},{-110,-60}}, rotation=0)));
-    Interfaces.Pin S "Source" annotation (Placement(transformation(extent={{90,
-              -40},{110,-60}}, rotation=0)));
-    Interfaces.Pin B "Bulk" annotation (Placement(transformation(extent={{90,
-              -10},{110,10}}, rotation=0)));
-    
-    parameter SIunits.Length W=20.0e-6 "Width";
-    parameter SIunits.Length L=6.0e-6 "Length";
-    parameter SIunits.Transconductance Beta=0.0105e-3 
-      "Transconductance parameter";
-    parameter SIunits.Voltage Vt=-1.0 "Zero bias threshold voltage";
-    parameter Real K2=0.41 "Bulk threshold parameter";
-    parameter Real K5=0.839 "Reduction of pinch-off region";
-    parameter SIunits.Length dW=-2.5e-6 "Narrowing of channel";
-    parameter SIunits.Length dL=-2.1e-6 "Shortening of channel";
-    parameter SIunits.Resistance RDS=1.e+7 "Drain-Source-Resistance";
-  protected 
-    Real v;
-    Real uds;
-    Real ubs;
-    Real ugst;
-    Real ud;
-    Real us;
-    Real id;
-    Real gds;
   equation 
     //assert (L + dL > 0, "Effective length must be positive");
     //assert (W + dW > 0, "Effective width  must be positive");
@@ -247,7 +243,33 @@ Some typical parameter sets are:
   end PMOS;
   
   model NMOS "Simple MOS Transistor" 
-    // 6.12.2001 parameter RDS added, Clauss
+    Interfaces.Pin D "Drain" annotation (Placement(transformation(extent={{90,
+              40},{110,60}}, rotation=0)));
+    Interfaces.Pin G "Gate" annotation (Placement(transformation(extent={{-90,
+              -40},{-110,-60}}, rotation=0)));
+    Interfaces.Pin S "Source" annotation (Placement(transformation(extent={{90,
+              -40},{110,-60}}, rotation=0)));
+    Interfaces.Pin B "Bulk" annotation (Placement(transformation(extent={{90,
+              -10},{110,10}}, rotation=0)));
+    parameter SIunits.Length W=20.e-6 "Width";
+    parameter SIunits.Length L=6.e-6 "Length";
+    parameter SIunits.Transconductance Beta=0.041e-3 
+      "Transconductance parameter";
+    parameter SIunits.Voltage Vt=0.8 "Zero bias threshold voltage";
+    parameter Real K2=1.144 "Bulk threshold parameter";
+    parameter Real K5=0.7311 "Reduction of pinch-off region";
+    parameter SIunits.Length dW=-2.5e-6 "narrowing of channel";
+    parameter SIunits.Length dL=-1.5e-6 "shortening of channel";
+    parameter SIunits.Resistance RDS=1.e+7 "Drain-Source-Resistance";
+  protected 
+    Real v;
+    Real uds;
+    Real ubs;
+    Real ugst;
+    Real ud;
+    Real us;
+    Real id;
+    Real gds;
     annotation (
       Documentation(info="
 <HTML>
@@ -321,45 +343,18 @@ Muenchen Wien 1990.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-96,-50},{-10,-50}}),
-          Line(points={{-10,-50},{-10,50}}),
-          Line(points={{10,70},{10,29}}),
-          Line(points={{10,20},{10,-21}}),
-          Line(points={{10,-30},{10,-71}}),
-          Line(points={{10,50},{96,50}}),
-          Line(points={{10,0},{96,0}}),
-          Line(points={{10,-50},{96,-50}}),
+          Line(points={{-96,-50},{-10,-50}}), 
+          Line(points={{-10,-50},{-10,50}}), 
+          Line(points={{10,70},{10,29}}), 
+          Line(points={{10,20},{10,-21}}), 
+          Line(points={{10,-30},{10,-71}}), 
+          Line(points={{10,50},{96,50}}), 
+          Line(points={{10,0},{96,0}}), 
+          Line(points={{10,-50},{96,-50}}), 
           Polygon(
-            points={{40,0},{60,5},{60,-5},{40,0}},
-            fillColor={0,0,255},
+            points={{40,0},{60,5},{60,-5},{40,0}}, 
+            fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid)}));
-    Interfaces.Pin D "Drain" annotation (Placement(transformation(extent={{90,
-              40},{110,60}}, rotation=0)));
-    Interfaces.Pin G "Gate" annotation (Placement(transformation(extent={{-90,
-              -40},{-110,-60}}, rotation=0)));
-    Interfaces.Pin S "Source" annotation (Placement(transformation(extent={{90,
-              -40},{110,-60}}, rotation=0)));
-    Interfaces.Pin B "Bulk" annotation (Placement(transformation(extent={{90,
-              -10},{110,10}}, rotation=0)));
-    parameter SIunits.Length W=20.e-6 "Width";
-    parameter SIunits.Length L=6.e-6 "Length";
-    parameter SIunits.Transconductance Beta=0.041e-3 
-      "Transconductance parameter";
-    parameter SIunits.Voltage Vt=0.8 "Zero bias threshold voltage";
-    parameter Real K2=1.144 "Bulk threshold parameter";
-    parameter Real K5=0.7311 "Reduction of pinch-off region";
-    parameter SIunits.Length dW=-2.5e-6 "narrowing of channel";
-    parameter SIunits.Length dL=-1.5e-6 "shortening of channel";
-    parameter SIunits.Resistance RDS=1.e+7 "Drain-Source-Resistance";
-  protected 
-    Real v;
-    Real uds;
-    Real ubs;
-    Real ugst;
-    Real ud;
-    Real us;
-    Real id;
-    Real gds;
   equation 
     //assert (L + dL > 0, "Effective length must be positive");
     //assert (W + dW > 0, "Effective width  must be positive");
@@ -419,6 +414,13 @@ Muenchen Wien 1990.
     algorithm 
       z:=x^y;
     end pow;
+  public 
+    Modelica.Electrical.Analog.Interfaces.Pin C "Collector" annotation (Placement(
+          transformation(extent={{90,40},{110,60}}, rotation=0)));
+    Modelica.Electrical.Analog.Interfaces.Pin B "Base" annotation (Placement(
+          transformation(extent={{-90,-10},{-110,10}}, rotation=0)));
+    Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" annotation (Placement(
+          transformation(extent={{90,-40},{110,-60}}, rotation=0)));
     annotation (
       Documentation(info="
 <HTML>
@@ -476,23 +478,16 @@ on page 317 ff.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{-10,40},{-10,-40}}),
-          Line(points={{-10,0},{-100,0}}),
-          Line(points={{30,50},{-10,10}}),
-          Line(points={{-10,-10},{30,-50}}),
-          Line(points={{30,-50},{100,-50}}),
-          Line(points={{100,50},{30,50}}),
+          Line(points={{-10,40},{-10,-40}}), 
+          Line(points={{-10,0},{-100,0}}), 
+          Line(points={{30,50},{-10,10}}), 
+          Line(points={{-10,-10},{30,-50}}), 
+          Line(points={{30,-50},{100,-50}}), 
+          Line(points={{100,50},{30,50}}), 
           Polygon(
-            points={{30,-50},{24,-36},{16,-44},{30,-50}},
-            fillColor={0,0,255},
+            points={{30,-50},{24,-36},{16,-44},{30,-50}}, 
+            fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid)}));
-  public 
-    Modelica.Electrical.Analog.Interfaces.Pin C "Collector" annotation (Placement(
-          transformation(extent={{90,40},{110,60}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.Pin B "Base" annotation (Placement(
-          transformation(extent={{-90,-10},{-110,10}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" annotation (Placement(
-          transformation(extent={{90,-40},{110,-60}}, rotation=0)));
   equation 
     ExMin = exp(EMin);
     ExMax = exp(EMax);
@@ -562,7 +557,14 @@ on page 317 ff.
     algorithm 
       z:=x^y;
     end pow;
-    annotation (
+  public 
+    Modelica.Electrical.Analog.Interfaces.Pin C "Collector" annotation (Placement(
+          transformation(extent={{90,40},{110,60}}, rotation=0)));
+    Modelica.Electrical.Analog.Interfaces.Pin B "Base" annotation (Placement(
+          transformation(extent={{-90,-10},{-110,10}}, rotation=0)));
+    Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" annotation (Placement(
+          transformation(extent={{90,-40},{110,-60}}, rotation=0)));
+                                                                      annotation (
       Documentation(info="
 <HTML>
 <P>
@@ -613,23 +615,16 @@ on page 317 ff.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-10,40},{-10,-40}}),
-          Line(points={{-10,0},{-99,0}}),
-          Line(points={{100,50},{30,50}}),
-          Line(points={{30,50},{-10,10}}),
-          Line(points={{-10,-10},{30,-50}}),
-          Line(points={{30,-50},{99,-50}}),
+          Line(points={{-10,40},{-10,-40}}), 
+          Line(points={{-10,0},{-99,0}}), 
+          Line(points={{100,50},{30,50}}), 
+          Line(points={{30,50},{-10,10}}), 
+          Line(points={{-10,-10},{30,-50}}), 
+          Line(points={{30,-50},{99,-50}}), 
           Polygon(
-            points={{-10,-10},{5,-17},{-3,-25},{-10,-10}},
-            fillColor={0,0,255},
+            points={{-10,-10},{5,-17},{-3,-25},{-10,-10}}, 
+            fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid)}));
-  public 
-    Modelica.Electrical.Analog.Interfaces.Pin C "Collector" annotation (Placement(
-          transformation(extent={{90,40},{110,60}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.Pin B "Base" annotation (Placement(
-          transformation(extent={{-90,-10},{-110,10}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" annotation (Placement(
-          transformation(extent={{90,-40},{110,-60}}, rotation=0)));
   equation 
     ExMin = exp(EMin);
     ExMax = exp(EMax);
@@ -735,13 +730,13 @@ The thermal power is calculated by <i>i*v</i>.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Polygon(
-            points={{30,0},{-30,40},{-30,-40},{30,0}},
-            lineColor={0,0,0},
-            fillColor={255,0,0},
-            fillPattern=FillPattern.None),
-          Line(points={{-99,0},{39,0}}),
-          Line(points={{40,0},{96,0}}),
-          Line(points={{30,40},{30,-40}}, color={0,0,255}),
+            points={{30,0},{-30,40},{-30,-40},{30,0}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,0,0}, 
+            fillPattern=FillPattern.None), 
+          Line(points={{-99,0},{39,0}}), 
+          Line(points={{40,0},{96,0}}), 
+          Line(points={{30,40},{30,-40}}, color={0,0,255}), 
           Line(points={{0,-20},{0,-91}}, color={191,0,0})}),
             Window(
               x=0.13,
@@ -764,7 +759,52 @@ The thermal power is calculated by <i>i*v</i>.
         end HeatingDiode;
   
         model HeatingNMOS "Simple MOS Transistor with heating port" 
-    
+          Modelica.Electrical.Analog.Interfaces.Pin D "Drain" 
+            annotation (Placement(transformation(extent={{90,40},{110,60}},
+            rotation=0)));
+          Modelica.Electrical.Analog.Interfaces.Pin G "Gate" 
+            annotation (Placement(transformation(extent={{-90,-40},{-110,-60}},
+            rotation=0)));
+          Modelica.Electrical.Analog.Interfaces.Pin S "Source" 
+            annotation (Placement(transformation(extent={{90,-40},{110,-60}},
+            rotation=0)));
+          Modelica.Electrical.Analog.Interfaces.Pin B "Bulk" 
+            annotation (Placement(transformation(extent={{90,-10},{110,10}},
+            rotation=0)));
+          Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=
+                  300.15)) 
+            annotation (Placement(transformation(
+          origin={0,-100},
+          extent={{10,-10},{-10,10}},
+          rotation=270)));
+          parameter Modelica.SIunits.Length W=20.e-6 "Width";
+          parameter Modelica.SIunits.Length L=6.e-6 "Length";
+          parameter Modelica.SIunits.Transconductance Beta=0.041e-3 
+      "Transconductance parameter";
+          parameter Modelica.SIunits.Voltage Vt=0.8 
+      "Zero bias threshold voltage";
+          parameter Real K2=1.144 "Bulk threshold parameter";
+          parameter Real K5=0.7311 "Reduction of pinch-off region";
+          parameter Modelica.SIunits.Length dW=-2.5e-6 "narrowing of channel";
+          parameter Modelica.SIunits.Length dL=-1.5e-6 "shortening of channel";
+          parameter Modelica.SIunits.Resistance RDS=1.e+7 
+      "Drain-Source-Resistance";
+          parameter Modelica.SIunits.Temperature Tnom=300.15 
+      "Parameter measurement temperature";
+          parameter Real kvt=-6.96e-3 "fitting parameter for Vt";
+          parameter Real kk2=6.0e-4 "fitting parameter for K22";
+  protected 
+          Real v;
+          Real uds;
+          Real ubs;
+          Real ugst;
+          Real ud;
+          Real us;
+          Real id;
+          Real gds;
+          Real beta_t;
+          Real vt_t;
+          Real k2_t;
           annotation (
             Documentation(info="
 <HTML>
@@ -812,7 +852,8 @@ Muenchen Wien 1990.
 </DL>
 </P>
 </HTML>
-", revisions="<html>
+",         revisions=
+             "<html>
 <ul>
 <li><i>December 7, 2005   </i>
        by Christoph Clauss<br>
@@ -843,66 +884,19 @@ Muenchen Wien 1990.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-96,-50},{-10,-50}}),
-          Line(points={{-10,-50},{-10,50}}),
-          Line(points={{10,70},{10,29}}),
-          Line(points={{10,20},{10,-21}}),
-          Line(points={{10,-30},{10,-71}}),
-          Line(points={{10,50},{96,50}}),
-          Line(points={{10,0},{96,0}}),
-          Line(points={{10,-50},{96,-50}}),
+          Line(points={{-96,-50},{-10,-50}}), 
+          Line(points={{-10,-50},{-10,50}}), 
+          Line(points={{10,70},{10,29}}), 
+          Line(points={{10,20},{10,-21}}), 
+          Line(points={{10,-30},{10,-71}}), 
+          Line(points={{10,50},{96,50}}), 
+          Line(points={{10,0},{96,0}}), 
+          Line(points={{10,-50},{96,-50}}), 
           Polygon(
-            points={{40,0},{60,5},{60,-5},{40,0}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid),
+            points={{40,0},{60,5},{60,-5},{40,0}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
           Line(points={{0,-90},{0,-49}}, color={191,0,0})}));
-    
-          Modelica.Electrical.Analog.Interfaces.Pin D "Drain" 
-            annotation (Placement(transformation(extent={{90,40},{110,60}},
-            rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin G "Gate" 
-            annotation (Placement(transformation(extent={{-90,-40},{-110,-60}},
-            rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin S "Source" 
-            annotation (Placement(transformation(extent={{90,-40},{110,-60}},
-            rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin B "Bulk" 
-            annotation (Placement(transformation(extent={{90,-10},{110,10}},
-            rotation=0)));
-          Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=
-                  300.15)) 
-            annotation (Placement(transformation(
-          origin={0,-100},
-          extent={{10,-10},{-10,10}},
-          rotation=270)));
-          parameter Modelica.SIunits.Length W=20.e-6 "Width";
-          parameter Modelica.SIunits.Length L=6.e-6 "Length";
-          parameter Modelica.SIunits.Transconductance Beta=0.041e-3 
-      "Transconductance parameter";
-          parameter Modelica.SIunits.Voltage Vt=0.8 
-      "Zero bias threshold voltage";
-          parameter Real K2=1.144 "Bulk threshold parameter";
-          parameter Real K5=0.7311 "Reduction of pinch-off region";
-          parameter Modelica.SIunits.Length dW=-2.5e-6 "narrowing of channel";
-          parameter Modelica.SIunits.Length dL=-1.5e-6 "shortening of channel";
-          parameter Modelica.SIunits.Resistance RDS=1.e+7 
-      "Drain-Source-Resistance";
-          parameter Modelica.SIunits.Temperature Tnom=300.15 
-      "Parameter measurement temperature";
-          parameter Real kvt=-6.96e-3 "fitting parameter for Vt";
-          parameter Real kk2=6.0e-4 "fitting parameter for K22";
-  protected 
-          Real v;
-          Real uds;
-          Real ubs;
-          Real ugst;
-          Real ud;
-          Real us;
-          Real id;
-          Real gds;
-          Real beta_t;
-          Real vt_t;
-          Real k2_t;
         equation 
           assert(L + dL > 0, "Effective length must be positive");
           assert(W + dW > 0, "Effective width  must be positive");
@@ -929,96 +923,7 @@ Muenchen Wien 1990.
         end HeatingNMOS;
   
         model HeatingPMOS "Simple PMOS Transistor with heating port" 
-          // 6.12.2001 parameter RDS added, Clauss
-    
-          annotation (
-            Documentation(info="
-<HTML>
-<P>
-The PMOS model is a simple model of a p-channel metal-oxide semiconductor
-FET. It differs slightly from the device used in the SPICE simulator.
-For more details please care for H. Spiro.
-</P>
-<P>
-A heating port is added for thermal electric simulation. The heating port
-is defined in the Modelica.Thermal library.
-</P>
-<P>
-The model does not consider capacitances. A high drain-source resistance RDS
-is included to avoid numerical difficulties.
-</P>
-<DL>
-<DT><b>References:</b>
-<DD>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag
-  Muenchen Wien 1990.
-</DL>
-<P>
-Some typical parameter sets are:
-</P>
-<PRE>
-  W       L      Beta        Vt       K2       K5       DW         DL
-  m       m      A/V^2       V        -        -        m          m
-  50.e-6  8.e-6  .0085e-3   -.15     .41      .839    -3.8e-6    -4.0e-6
-  20.e-6  6.e-6  .0105e-3  -1.0      .41      .839    -2.5e-6    -2.1e-6
-  30.e-6  5.e-6  .0059e-3   -.3      .98     1.01      0         -3.9e-6
-  30.e-6  5.e-6  .0152e-3   -.69     .104    1.1       -.8e-6     -.4e-6
-  30.e-6  5.e-6  .0163e-3   -.69     .104    1.1       -.8e-6     -.4e-6
-  30.e-6  5.e-6  .0182e-3   -.69     .086    1.06      -.1e-6     -.6e-6
-  20.e-6  6.e-6  .0074e-3  -1.       .4       .59      0          0
-</PRE>
-</P>
-</HTML>
-", revisions="<html>
-<ul>
-<li><i>December 7, 2005   </i>
-       by Christoph Clauss<br>
-       error in RDS calculation deleted</li>
-<li><i>March 31, 2004   </i>
-       by Christoph Clauss<br> implemented<br>
-       </li>
-</ul>
-</html>"),  Window(
-              x=0.34,
-              y=0.24,
-              width=0.6,
-              height=0.6),
-            Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
-          Text(extent={{-100,80},{100,100}}, textString="%name"), 
-          Line(points={{-90,-50},{-10,-50}}), 
-          Line(points={{-10,-50},{-10,50}}), 
-          Line(points={{10,70},{10,29}}), 
-          Line(points={{10,20},{10,-21}}), 
-          Line(points={{10,-30},{10,-71}}), 
-          Line(points={{10,50},{91,50}}), 
-          Line(points={{10,0},{90,0}}), 
-          Line(points={{10,-50},{90,-50}}), 
-          Polygon(
-            points={{60,0},{40,5},{40,-5},{60,0}}, 
-            fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{0,-91},{0,-50}}, color={191,0,0})}),
-            Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
-          Line(points={{-100,-50},{-10,-50}}),
-          Line(points={{-10,-50},{-10,50}}),
-          Line(points={{10,70},{10,29}}),
-          Line(points={{10,20},{10,-21}}),
-          Line(points={{10,-30},{10,-71}}),
-          Line(points={{10,50},{96,50}}),
-          Line(points={{10,0},{101,0}}),
-          Line(points={{10,-50},{100,-50}}),
-          Polygon(
-            points={{60,0},{40,5},{40,-5},{60,0}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{0,-95},{0,-50}}, color={191,0,0})}));
-    
-          Modelica.Electrical.Analog.Interfaces.Pin D "Drain" 
+         Modelica.Electrical.Analog.Interfaces.Pin D "Drain" 
             annotation (Placement(transformation(extent={{90,40},{110,60}},
             rotation=0)));
           Modelica.Electrical.Analog.Interfaces.Pin G "Gate" 
@@ -1064,6 +969,93 @@ Some typical parameter sets are:
           Real beta_t;
           Real vt_t;
           Real k2_t;
+          annotation (
+            Documentation(info="
+<HTML>
+<P>
+The PMOS model is a simple model of a p-channel metal-oxide semiconductor
+FET. It differs slightly from the device used in the SPICE simulator.
+For more details please care for H. Spiro.
+</P>
+<P>
+A heating port is added for thermal electric simulation. The heating port
+is defined in the Modelica.Thermal library.
+</P>
+<P>
+The model does not consider capacitances. A high drain-source resistance RDS
+is included to avoid numerical difficulties.
+</P>
+<DL>
+<DT><b>References:</b>
+<DD>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag
+  Muenchen Wien 1990.
+</DL>
+<P>
+Some typical parameter sets are:
+</P>
+<PRE>
+  W       L      Beta        Vt       K2       K5       DW         DL
+  m       m      A/V^2       V        -        -        m          m
+  50.e-6  8.e-6  .0085e-3   -.15     .41      .839    -3.8e-6    -4.0e-6
+  20.e-6  6.e-6  .0105e-3  -1.0      .41      .839    -2.5e-6    -2.1e-6
+  30.e-6  5.e-6  .0059e-3   -.3      .98     1.01      0         -3.9e-6
+  30.e-6  5.e-6  .0152e-3   -.69     .104    1.1       -.8e-6     -.4e-6
+  30.e-6  5.e-6  .0163e-3   -.69     .104    1.1       -.8e-6     -.4e-6
+  30.e-6  5.e-6  .0182e-3   -.69     .086    1.06      -.1e-6     -.6e-6
+  20.e-6  6.e-6  .0074e-3  -1.       .4       .59      0          0
+</PRE>
+</P>
+</HTML>
+",         revisions=
+             "<html>
+<ul>
+<li><i>December 7, 2005   </i>
+       by Christoph Clauss<br>
+       error in RDS calculation deleted</li>
+<li><i>March 31, 2004   </i>
+       by Christoph Clauss<br> implemented<br>
+       </li>
+</ul>
+</html>"),  Window(
+              x=0.34,
+              y=0.24,
+              width=0.6,
+              height=0.6),
+            Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Text(extent={{-100,80},{100,100}}, textString="%name"), 
+          Line(points={{-90,-50},{-10,-50}}), 
+          Line(points={{-10,-50},{-10,50}}), 
+          Line(points={{10,70},{10,29}}), 
+          Line(points={{10,20},{10,-21}}), 
+          Line(points={{10,-30},{10,-71}}), 
+          Line(points={{10,50},{91,50}}), 
+          Line(points={{10,0},{90,0}}), 
+          Line(points={{10,-50},{90,-50}}), 
+          Polygon(
+            points={{60,0},{40,5},{40,-5},{60,0}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{0,-91},{0,-50}}, color={191,0,0})}),
+            Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Line(points={{-100,-50},{-10,-50}}), 
+          Line(points={{-10,-50},{-10,50}}), 
+          Line(points={{10,70},{10,29}}), 
+          Line(points={{10,20},{10,-21}}), 
+          Line(points={{10,-30},{10,-71}}), 
+          Line(points={{10,50},{96,50}}), 
+          Line(points={{10,0},{101,0}}), 
+          Line(points={{10,-50},{100,-50}}), 
+          Polygon(
+            points={{60,0},{40,5},{40,-5},{60,0}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{0,-95},{0,-50}}, color={191,0,0})}));
         equation 
           assert(L + dL > 0, "Effective length must be positive");
           assert(W + dW > 0, "Effective width  must be positive");
@@ -1148,6 +1140,22 @@ Some typical parameter sets are:
           Real vt_t;
           Real hexp;
           Real htempexp;
+  public 
+          Modelica.Electrical.Analog.Interfaces.Pin C "Collector" 
+            annotation (Placement(transformation(extent={{90,40},{110,60}},
+            rotation=0)));
+          Modelica.Electrical.Analog.Interfaces.Pin B "Base" 
+            annotation (Placement(transformation(extent={{-90,-10},{-110,10}},
+            rotation=0)));
+          Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" 
+            annotation (Placement(transformation(extent={{90,-40},{110,-60}},
+            rotation=0)));
+          Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=
+                  300.15)) 
+            annotation (Placement(transformation(
+          origin={0,-100},
+          extent={{10,-10},{-10,10}},
+          rotation=270)));
           annotation (
             Documentation(info="
 <HTML>
@@ -1176,7 +1184,8 @@ on page 317 ff.
 </DL>
 </P>
 </HTML>
-", revisions="<html>
+",         revisions=
+             "<html>
 <ul>
 <li><i>March 20, 2004   </i>
        by Christoph Clauss<br> implemented<br>
@@ -1207,34 +1216,17 @@ on page 317 ff.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{-10,40},{-10,-40}}),
-          Line(points={{-10,0},{-100,0}}),
-          Line(points={{30,50},{-10,10}}),
-          Line(points={{-10,-10},{30,-50}}),
-          Line(points={{30,-50},{100,-50}}),
-          Line(points={{100,50},{30,50}}),
+          Line(points={{-10,40},{-10,-40}}), 
+          Line(points={{-10,0},{-100,0}}), 
+          Line(points={{30,50},{-10,10}}), 
+          Line(points={{-10,-10},{30,-50}}), 
+          Line(points={{30,-50},{100,-50}}), 
+          Line(points={{100,50},{30,50}}), 
           Polygon(
-            points={{30,-50},{24,-36},{16,-44},{30,-50}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid),
+            points={{30,-50},{24,-36},{16,-44},{30,-50}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
           Line(points={{0,-94},{0,-32}}, color={191,0,0})}));
-    
-  public 
-          Modelica.Electrical.Analog.Interfaces.Pin C "Collector" 
-            annotation (Placement(transformation(extent={{90,40},{110,60}},
-            rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin B "Base" 
-            annotation (Placement(transformation(extent={{-90,-10},{-110,10}},
-            rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" 
-            annotation (Placement(transformation(extent={{90,-40},{110,-60}},
-            rotation=0)));
-          Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=
-                  300.15)) 
-            annotation (Placement(transformation(
-          origin={0,-100},
-          extent={{10,-10},{-10,10}},
-          rotation=270)));
         equation 
           assert( heatPort.T > 0,"temperature must be positive");
           ExMin = exp(EMin);
@@ -1340,6 +1332,22 @@ on page 317 ff.
           Real vt_t;
           Real hexp;
           Real htempexp;
+  public 
+          Modelica.Electrical.Analog.Interfaces.Pin C "Collector" 
+            annotation (Placement(transformation(extent={{90,40},{110,60}},
+            rotation=0)));
+          Modelica.Electrical.Analog.Interfaces.Pin B "Base" 
+            annotation (Placement(transformation(extent={{-90,-10},{-110,10}},
+            rotation=0)));
+          Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" 
+            annotation (Placement(transformation(extent={{90,-40},{110,-60}},
+            rotation=0)));
+          Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=
+                  300.15)) 
+            annotation (Placement(transformation(
+          origin={0,-100},
+          extent={{10,-10},{-10,10}},
+          rotation=270)));
           annotation (
             Documentation(info="
 <HTML>
@@ -1366,7 +1374,8 @@ Van Nostrand Reinhold, New York 1983
 on page 317 ff.
 </DL>
 </HTML>
-", revisions="<html>
+",         revisions=
+             "<html>
 <ul>
 <li><i>March 20, 2004   </i>
        by Christoph Clauss<br> implemented<br>
@@ -1392,34 +1401,17 @@ on page 317 ff.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-10,40},{-10,-40}}),
-          Line(points={{-10,0},{-99,0}}),
-          Line(points={{96,50},{30,50}}),
-          Line(points={{30,50},{-10,10}}),
-          Line(points={{-10,-10},{30,-50}}),
-          Line(points={{30,-50},{96,-50}}),
+          Line(points={{-10,40},{-10,-40}}), 
+          Line(points={{-10,0},{-99,0}}), 
+          Line(points={{96,50},{30,50}}), 
+          Line(points={{30,50},{-10,10}}), 
+          Line(points={{-10,-10},{30,-50}}), 
+          Line(points={{30,-50},{96,-50}}), 
           Polygon(
-            points={{-10,-10},{5,-17},{-3,-25},{-10,-10}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid),
+            points={{-10,-10},{5,-17},{-3,-25},{-10,-10}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
           Line(points={{0,-91},{0,-30}}, color={191,0,0})}));
-    
-  public 
-          Modelica.Electrical.Analog.Interfaces.Pin C "Collector" 
-            annotation (Placement(transformation(extent={{90,40},{110,60}},
-            rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin B "Base" 
-            annotation (Placement(transformation(extent={{-90,-10},{-110,10}},
-            rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" 
-            annotation (Placement(transformation(extent={{90,-40},{110,-60}},
-            rotation=0)));
-          Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=
-                  300.15)) 
-            annotation (Placement(transformation(
-          origin={0,-100},
-          extent={{10,-10},{-10,10}},
-          rotation=270)));
         equation 
           assert( heatPort.T > 0,"temperature must be positive");
           ExMin = exp(EMin);

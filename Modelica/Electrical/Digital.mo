@@ -340,10 +340,10 @@ The multiplexer converts a parallel 4 bit signal in a sequential
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,170}, 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,170},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -446,10 +446,10 @@ Pulse-triggered master-slave flip-flop.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,170}, 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,170},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -541,14 +541,13 @@ The simulation stop time should be 5 seconds.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-88,100},{90,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,170}, 
+              extent={{-88,100},{90,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,170},
               fillPattern=FillPattern.Solid), Line(
-              points={{40,54},{40,60},{-40,60},{10,0},{-40,-60},{40,-60},{40,-52}}, 
-                
-              color={0,0,0}, 
+              points={{40,54},{40,60},{-40,60},{10,0},{-40,-60},{40,-60},{40,-52}},
+              color={0,0,0},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -561,6 +560,7 @@ The simulation stop time should be 5 seconds.
           height=0.69),
         experiment(StopTime=5),
         experimentSetupOutput);
+      
       Sources.Table a(
         t={1,2,3,4},
         x={4,3,4,3},
@@ -631,14 +631,13 @@ The simulation stop time should be 10 seconds.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,170}, 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,170},
               fillPattern=FillPattern.Solid), Line(
-              points={{40,54},{40,60},{-40,60},{10,0},{-40,-60},{40,-60},{40,-52}}, 
-                
-              color={0,0,0}, 
+              points={{40,54},{40,60},{-40,60},{10,0},{-40,-60},{40,-60},{40,-52}},
+              color={0,0,0},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -654,6 +653,7 @@ The simulation stop time should be 10 seconds.
           states=false,
           derivatives=false,
           inputs=false));
+      
       Digital.Examples.Utilities.FullAdder Adder1            annotation (Placement(
             transformation(extent={{0,-30},{60,30}}, rotation=0)));
       Digital.Converters.LogicToReal s 
@@ -731,10 +731,10 @@ The simulation stop time has to be 5s.
             preserveAspectRatio=true,
             extent={{-200,-200},{200,200}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-200,200},{200,-200}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,170}, 
+              extent={{-200,200},{200,-200}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,170},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -881,10 +881,10 @@ The simulation stop time has to be 5s.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,170}, 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,170},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -930,10 +930,10 @@ The simulation stop time has to be 5s.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,170}, 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,170},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -996,80 +996,80 @@ The simulation stop time has to be 5s.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                   100,100}}), graphics={
               Rectangle(
-                extent={{-90,100},{90,-100}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,170}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{-90,100},{90,-100}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,170},
+                fillPattern=FillPattern.Solid),
               Line(
-                points={{-60,100},{-60,-100}}, 
-                color={0,0,0}, 
-                thickness=2, 
-                fillPattern=FillPattern.Solid), 
+                points={{-60,100},{-60,-100}},
+                color={0,0,0},
+                thickness=2,
+                fillPattern=FillPattern.Solid),
               Line(
-                points={{60,100},{60,-100}}, 
-                color={0,0,0}, 
-                thickness=2, 
-                fillPattern=FillPattern.Solid), 
+                points={{60,100},{60,-100}},
+                color={0,0,0},
+                thickness=2,
+                fillPattern=FillPattern.Solid),
               Text(
-                extent={{-86,80},{-64,60}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
-                textString="D0"), 
+                extent={{-86,80},{-64,60}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
+                textString="D0"),
               Text(
-                extent={{64,12},{86,-8}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
-                textString="D"), 
+                extent={{64,12},{86,-8}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
+                textString="D"),
               Text(
-                extent={{-150,-100},{150,-160}}, 
-                lineColor={0,0,255}, 
-                fillColor={255,255,170}, 
-                fillPattern=FillPattern.Solid, 
-                textString="%name"), 
+                extent={{-150,-100},{150,-160}},
+                lineColor={0,0,255},
+                fillColor={255,255,170},
+                fillPattern=FillPattern.Solid,
+                textString="%name"),
               Text(
-                extent={{-60,100},{60,40}}, 
-                lineColor={0,0,0}, 
-                fillPattern=FillPattern.HorizontalCylinder, 
-                textString="MUX"), 
+                extent={{-60,100},{60,40}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                textString="MUX"),
               Text(
-                extent={{-86,-60},{-64,-80}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
-                textString="A1"), 
+                extent={{-86,-60},{-64,-80}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
+                textString="A1"),
               Text(
-                extent={{-86,54},{-64,34}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
-                textString="D1"), 
+                extent={{-86,54},{-64,34}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
+                textString="D1"),
               Text(
-                extent={{-86,28},{-64,8}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
-                textString="D2"), 
+                extent={{-86,28},{-64,8}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
+                textString="D2"),
               Text(
-                extent={{-86,2},{-64,-18}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
-                textString="D3"), 
+                extent={{-86,2},{-64,-18}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
+                textString="D3"),
               Text(
-                extent={{-86,-36},{-64,-56}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-86,-36},{-64,-56}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString="A0")}));
         
       parameter Modelica.SIunits.Time delayTime=0.001;
@@ -1574,60 +1574,60 @@ The simulation stop time has to be 5s.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                   100,100}}), graphics={
               Rectangle(
-                extent={{-90,100},{90,-100}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,170}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{-90,100},{90,-100}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,170},
+                fillPattern=FillPattern.Solid),
               Line(
-                points={{-60,100},{-60,-100}}, 
-                color={0,0,0}, 
-                thickness=2, 
-                fillPattern=FillPattern.Solid), 
+                points={{-60,100},{-60,-100}},
+                color={0,0,0},
+                thickness=2,
+                fillPattern=FillPattern.Solid),
               Line(
-                points={{60,100},{60,-100}}, 
-                color={0,0,0}, 
-                thickness=2, 
-                fillPattern=FillPattern.Solid), 
+                points={{60,100},{60,-100}},
+                color={0,0,0},
+                thickness=2,
+                fillPattern=FillPattern.Solid),
               Text(
-                extent={{-86,80},{-64,60}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
-                textString="J"), 
+                extent={{-86,80},{-64,60}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
+                textString="J"),
               Text(
-                extent={{64,80},{86,60}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
-                textString="Q"), 
+                extent={{64,80},{86,60}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
+                textString="Q"),
               Text(
-                extent={{64,-60},{86,-80}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
-                textString="QN"), 
-              Line(points={{-90,20},{-60,0},{-90,-20}}, color={0,0,0}), 
+                extent={{64,-60},{86,-80}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
+                textString="QN"),
+              Line(points={{-90,20},{-60,0},{-90,-20}}, color={0,0,0}),
               Text(
-                extent={{-150,-100},{150,-160}}, 
-                lineColor={0,0,255}, 
-                fillColor={255,255,170}, 
-                fillPattern=FillPattern.Solid, 
-                textString="%name"), 
+                extent={{-150,-100},{150,-160}},
+                lineColor={0,0,255},
+                fillColor={255,255,170},
+                fillPattern=FillPattern.Solid,
+                textString="%name"),
               Text(
-                extent={{-100,100},{100,40}}, 
-                lineColor={0,0,0}, 
-                fillPattern=FillPattern.HorizontalCylinder, 
-                textString="JK"), 
+                extent={{-100,100},{100,40}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                textString="JK"),
               Text(
-                extent={{-86,-60},{-64,-80}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{-86,-60},{-64,-80}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 textString="K")}));
         
       parameter Modelica.SIunits.Time delayTime=0.001;
@@ -2610,11 +2610,6 @@ This package contains interface definitions
       parameter D.Interfaces.Logic y0=L.'U' "initial value of output";
     protected 
       D.Interfaces.Logic x_delayed;
-    equation 
-      x_delayed = integer(delay(x, delayTime));
-      y = if delayTime > 0 then 
-              (if time >= delayTime then x_delayed else y0) else 
-                pre(x);
       annotation (Documentation(info="<HTML>
 <P>
 Provide the input as output exactly delayed by <i>Tdel</i>.
@@ -2665,7 +2660,11 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
               lineThickness=2, 
               fillPattern=FillPattern.Solid, 
               textString="Delay")}));
-      
+    equation 
+      x_delayed = integer(delay(x, delayTime));
+      y = if delayTime > 0 then 
+              (if time >= delayTime then x_delayed else y0) else 
+                pre(x);
     end TransportDelay;
     
     block InertialDelay "Inertial delay with initial parameter" 
@@ -2679,14 +2678,6 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
       D.Interfaces.Logic y_auxiliary(start=y0, fixed=true);
       D.Interfaces.Logic x_old(start=y0, fixed=true);
       discrete Modelica.SIunits.Time t_next(start=delayTime, fixed=true);
-    algorithm 
-      when delayTime > 0 and change(x) then
-        x_old := x;
-        t_next := time + delayTime;
-      elsewhen time >= t_next then
-        y_auxiliary := x;
-      end when;
-      y := if delayTime > 0 then y_auxiliary else x;
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -2707,7 +2698,9 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Diagram(graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -2742,8 +2735,14 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
               lineThickness=2, 
               fillPattern=FillPattern.Solid, 
               textString="Delay")}));
-    equation 
-      
+    algorithm 
+      when delayTime > 0 and change(x) then
+        x_old := x;
+        t_next := time + delayTime;
+      elsewhen time >= t_next then
+        y_auxiliary := x;
+      end when;
+      y := if delayTime > 0 then y_auxiliary else x;
     end InertialDelay;
     
     model InertialDelaySensitive 
@@ -2762,19 +2761,6 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
       D.Interfaces.Logic x_old(start=y0, fixed=true);
       Integer lh;
       discrete Modelica.SIunits.Time t_next;
-    algorithm 
-      when {initial(),(tLH > 0 or tHL > 0) and change(x) and not initial()} then
-        x_old := if initial() or pre(x) == 0 then y0 else pre(x);
-        lh := delayTable[x_old, x];
-        delayTime := if (lh > 0) then tLH else (if (lh < 0) then tHL else 0);
-        t_next := time + delayTime;
-        if (lh == 0 or abs(delayTime) < Modelica.Constants.small) then
-          y_auxiliary := x;
-        end if;
-     elsewhen time >= t_next then
-        y_auxiliary := x;
-     end when;
-     y := if ((tLH > 0 or tHL > 0)) then y_auxiliary else x;
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -2803,7 +2789,9 @@ is used, if it is zero, the input is not delayed.
        by Christoph Clauss<br>
        initially modelled</li>
 </HTML>"),
-        Diagram(graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -2844,8 +2832,19 @@ is used, if it is zero, the input is not delayed.
               points={{0,60},{20,60}}, 
               color={0,0,0}, 
               fillPattern=FillPattern.Solid)}));
-    equation 
-      
+    algorithm 
+      when {initial(),(tLH > 0 or tHL > 0) and change(x) and not initial()} then
+        x_old := if initial() or pre(x) == 0 then y0 else pre(x);
+        lh := delayTable[x_old, x];
+        delayTime := if (lh > 0) then tLH else (if (lh < 0) then tHL else 0);
+        t_next := time + delayTime;
+        if (lh == 0 or abs(delayTime) < Modelica.Constants.small) then
+          y_auxiliary := x;
+        end if;
+     elsewhen time >= t_next then
+        y_auxiliary := x;
+     end when;
+     y := if ((tLH > 0 or tHL > 0)) then y_auxiliary else x;
     end InertialDelaySensitive;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
@@ -2882,9 +2881,6 @@ is used, if it is zero, the input is not delayed.
       extends D.Interfaces.SISO;
     protected 
       D.Interfaces.Logic auxiliary(start=L.'0', fixed=true);
-    equation 
-      auxiliary = D.Tables.NotTable[x];
-      y = pre(auxiliary);
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -2919,7 +2915,12 @@ Not with 1 input value, without delay.
               lineThickness=2, 
               fillColor={255,255,255}, 
               fillPattern=FillPattern.Solid)}),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
+    equation 
+      auxiliary = D.Tables.NotTable[x];
+      y = pre(auxiliary);
     end Not;
     
     model And "And logic with multiple input and one output" 
@@ -2928,12 +2929,6 @@ Not with 1 input value, without delay.
       extends D.Interfaces.MISO;
     protected 
       D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
-    equation 
-      auxiliary[1] = x[1];
-      for i in 1:n - 1 loop
-        auxiliary[i + 1] = D.Tables.AndTable[auxiliary[i], x[i + 1]];
-      end for;
-      y = pre(auxiliary[n]);
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -2960,7 +2955,15 @@ And with n input values, without delay.
               extent={{152,-160},{-148,-100}}, 
               lineColor={0,0,255}, 
               textString="%name")}),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
+    equation 
+      auxiliary[1] = x[1];
+      for i in 1:n - 1 loop
+        auxiliary[i + 1] = D.Tables.AndTable[auxiliary[i], x[i + 1]];
+      end for;
+      y = pre(auxiliary[n]);
     end And;
     
     model Nand "Nand logic with multiple input and one output" 
@@ -2969,12 +2972,6 @@ And with n input values, without delay.
       extends D.Interfaces.MISO;
     protected 
       D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
-    equation 
-      auxiliary[1] = x[1];
-      for i in 1:n - 1 loop
-        auxiliary[i + 1] = D.Tables.AndTable[auxiliary[i], x[i + 1]];
-      end for;
-      y = pre(D.Tables.NotTable[auxiliary[n]]);
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -3009,7 +3006,15 @@ Nand with n input values, without delay.
               lineThickness=2, 
               fillColor={255,255,255}, 
               fillPattern=FillPattern.Solid)}),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
+    equation 
+      auxiliary[1] = x[1];
+      for i in 1:n - 1 loop
+        auxiliary[i + 1] = D.Tables.AndTable[auxiliary[i], x[i + 1]];
+      end for;
+      y = pre(D.Tables.NotTable[auxiliary[n]]);
     end Nand;
     
     model Or "Or logic with multiple input and one output" 
@@ -3018,12 +3023,6 @@ Nand with n input values, without delay.
       extends D.Interfaces.MISO;
     protected 
       D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
-    equation 
-      auxiliary[1] = x[1];
-      for i in 1:n - 1 loop
-        auxiliary[i + 1] = D.Tables.OrTable[auxiliary[i], x[i + 1]];
-      end for;
-      y = pre(auxiliary[n]);
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -3050,7 +3049,15 @@ Or with n input values, without delay.
               extent={{152,-160},{-148,-100}}, 
               lineColor={0,0,255}, 
               textString="%name")}),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
+    equation 
+      auxiliary[1] = x[1];
+      for i in 1:n - 1 loop
+        auxiliary[i + 1] = D.Tables.OrTable[auxiliary[i], x[i + 1]];
+      end for;
+      y = pre(auxiliary[n]);
     end Or;
     
     model Nor "Nor logic with multiple input and one output" 
@@ -3059,12 +3066,6 @@ Or with n input values, without delay.
       extends D.Interfaces.MISO;
     protected 
       D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
-    equation 
-      auxiliary[1] = x[1];
-      for i in 1:n - 1 loop
-        auxiliary[i + 1] = D.Tables.OrTable[auxiliary[i], x[i + 1]];
-      end for;
-      y = pre(D.Tables.NotTable[auxiliary[n]]);
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -3099,7 +3100,15 @@ Nor with n input values, without delay.
               lineThickness=2, 
               fillColor={255,255,255}, 
               fillPattern=FillPattern.Solid)}),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
+    equation 
+      auxiliary[1] = x[1];
+      for i in 1:n - 1 loop
+        auxiliary[i + 1] = D.Tables.OrTable[auxiliary[i], x[i + 1]];
+      end for;
+      y = pre(D.Tables.NotTable[auxiliary[n]]);
     end Nor;
     
     model Xor "Xor logic with multiple input and one output" 
@@ -3108,12 +3117,6 @@ Nor with n input values, without delay.
       extends D.Interfaces.MISO;
     protected 
       D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
-    equation 
-      auxiliary[1] = x[1];
-      for i in 1:n - 1 loop
-        auxiliary[i + 1] = D.Tables.XorTable[auxiliary[i], x[i + 1]];
-      end for;
-      y = pre(auxiliary[n]);
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -3140,7 +3143,15 @@ Xor with n input values, without delay.
               extent={{152,-160},{-148,-100}}, 
               lineColor={0,0,255}, 
               textString="%name")}),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
+    equation 
+      auxiliary[1] = x[1];
+      for i in 1:n - 1 loop
+        auxiliary[i + 1] = D.Tables.XorTable[auxiliary[i], x[i + 1]];
+      end for;
+      y = pre(auxiliary[n]);
     end Xor;
     
     model Xnor "Xnor logic with multiple input and one output" 
@@ -3149,12 +3160,6 @@ Xor with n input values, without delay.
       extends D.Interfaces.MISO;
     protected 
       D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
-    equation 
-      auxiliary[1] = x[1];
-      for i in 1:n - 1 loop
-        auxiliary[i + 1] = D.Tables.XorTable[auxiliary[i], x[i + 1]];
-      end for;
-      y = pre(D.Tables.NotTable[auxiliary[n]]);
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -3181,7 +3186,15 @@ XNor with n input values, without delay.
               extent={{152,-160},{-148,-100}}, 
               lineColor={0,0,255}, 
               textString="%name")}),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
+    equation 
+      auxiliary[1] = x[1];
+      for i in 1:n - 1 loop
+        auxiliary[i + 1] = D.Tables.XorTable[auxiliary[i], x[i + 1]];
+      end for;
+      y = pre(D.Tables.NotTable[auxiliary[n]]);
     end Xnor;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
@@ -3344,6 +3357,13 @@ AndGate with n input values, composed by And and sensitive intertial delay.
       import D = Modelica.Electrical.Digital;
       extends D.Delay.DelayParams;
       extends D.Interfaces.MISO;
+      D.Basic.Nand G1(final n=n)      annotation (Placement(transformation(extent=
+               {{-40,-20},{0,20}}, rotation=0)));
+      D.Delay.InertialDelaySensitive G2(
+        tLH=tLH,
+        tHL=tHL,
+        y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
+              rotation=0)));
       annotation (extent=[0, -20; 40, 20], Diagram(coordinateSystem(
               preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
                                                    graphics),
@@ -3417,13 +3437,6 @@ NandGate with n input values, composed by Nand and sensitive intertial delay.
             string="Gate"),
           Ellipse(extent=[60, -10; 40, 10], style(color=0, thickness=2))),
         Diagram);
-      D.Basic.Nand G1(final n=n)      annotation (Placement(transformation(extent=
-               {{-40,-20},{0,20}}, rotation=0)));
-      D.Delay.InertialDelaySensitive G2(
-        tLH=tLH,
-        tHL=tHL,
-        y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
-              rotation=0)));
     equation 
       connect(x, G1.x) 
         annotation (Line(points={{-60,0},{-32,0}}, color={127,0,127}));
@@ -3775,9 +3788,6 @@ BufGate with 1 input value, composed by Not and sensitive intertial delay.
       D.Interfaces.DigitalOutput y 
                     annotation (Placement(transformation(extent={{90,-10},{110,
                 10}}, rotation=0)));
-    algorithm 
-      // assert(x >= L.min and x <= L.max, "Parameter is no logic value");
-      y := x;
       annotation (Documentation(info="<HTML>
 <P>
 Sets a nine valued digital signal, which is specified by the <i>setval</i> parameter.
@@ -3838,6 +3848,8 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
               lineColor={0,0,255}, 
               textString="%name"), 
             Line(points={{50,0},{90,0}}, color={127,0,127})}));
+    algorithm 
+      y := x;
     end Set;
     
     block Step "Digital Step Source" 
@@ -3850,17 +3862,6 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
       D.Interfaces.DigitalOutput y 
                     annotation (Placement(transformation(extent={{90,-10},{110,
                 10}}, rotation=0)));
-    algorithm 
-      // assert(before >= L.min and before <= L.max, "Parameter is no logic value");
-      // assert(after >= L.min and after <= L.max, "Parameter is no logic value");
-      when initial() then
-        y := before;
-      end when;
-      if time >= stepTime then
-        y := after;
-      else
-        y := before;
-      end if;
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -3923,8 +3924,17 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}),
                 graphics));
-    equation 
-      
+    algorithm 
+      // assert(before >= L.min and before <= L.max, "Parameter is no logic value");
+      // assert(after >= L.min and after <= L.max, "Parameter is no logic value");
+      when initial() then
+        y := before;
+      end when;
+      if time >= stepTime then
+        y := after;
+      else
+        y := before;
+      end if;
     end Step;
     
     block Table "Digital Tabular Source" 
@@ -3937,20 +3947,6 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
       D.Interfaces.DigitalOutput y 
                     annotation (Placement(transformation(extent={{90,-10},{110,
                 10}}, rotation=0)));
-    algorithm 
-      if initial() then
-        // assert(y0 >= L.min and y0 <= L.max, "Parameter y0 is not of type Logic");
-        assert(n > 0, "Invalid size of table (n < 1)");
-        for i in 1:n loop
-          // assert(x[i] >= L.min and x[i] <= L.max, "Table element is not of type Logic");
-        end for;
-      end if;
-      y := y0;
-      for i in 1:n loop
-        if time >= t[i] then
-          y := x[i];
-        end if;
-      end for;
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -4033,6 +4029,20 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}),
                 graphics));
+    algorithm 
+      if initial() then
+        // assert(y0 >= L.min and y0 <= L.max, "Parameter y0 is not of type Logic");
+        assert(n > 0, "Invalid size of table (n < 1)");
+        for i in 1:n loop
+          // assert(x[i] >= L.min and x[i] <= L.max, "Table element is not of type Logic");
+        end for;
+      end if;
+      y := y0;
+      for i in 1:n loop
+        if time >= t[i] then
+          y := x[i];
+        end if;
+      end for;
     end Table;
     
     model Pulse "Digital Pulse Source" 
@@ -4055,7 +4065,8 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
       D.Interfaces.DigitalOutput y 
                     annotation (Placement(transformation(extent={{90,-10},{110,
                 10}}, rotation=0)));
-      
+    protected 
+      Boolean sampling;
       annotation (Documentation(info="<HTML>
 <P>
 The pulse source forms pulses between the  <i>quiet</i> value and the <i>pulse</i> value.
@@ -4118,9 +4129,6 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
                 
               color={0,0,0}, 
               fillPattern=FillPattern.Solid)}));
-      
-    protected 
-      Boolean sampling;
     equation 
       sampling = nperiod <> 0 and (nperiod >= pre(np) or nperiod < 0);
       
@@ -4153,11 +4161,6 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
       Modelica.SIunits.Time t_i(final start=startTime) 
         "Start time of current period";
       Modelica.SIunits.Time t_width=period*width/100;
-    algorithm 
-      when sample(startTime, period) then
-        t_i := time;
-      end when;
-      y := if (not time>=startTime) or time >= t_i + t_width then L.'0' else L.'1';
       annotation (Documentation(info="<HTML>
 <P>
 The clock source forms pulses between the  <i>'0'</i> value (forcing 0) and the <i>'1'</i> value (forcing 1).
@@ -4195,6 +4198,11 @@ The number of periods is unlimited. The first pulse starts at startTime.
                   80},{6,80},{6,40},{18,40},{18,80},{30,80},{30,40},{36,40}}, 
               color={0,0,0}, 
               fillPattern=FillPattern.Solid)}));
+    algorithm 
+      when sample(startTime, period) then
+        t_i := time;
+      end when;
+      y := if (not time>=startTime) or time >= t_i + t_width then L.'0' else L.'1';
     end Clock;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
@@ -4234,10 +4242,6 @@ The number of periods is unlimited. The first pulse starts at startTime.
                          annotation (Placement(transformation(extent={{40,-10},
                 {60,10}}, rotation=0)));
       parameter Integer n(final min=1, start=1) "signal width";
-    algorithm 
-      for i in 1:n loop
-        y[i] := T.X01Table[x[i]];
-      end for;
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -4297,7 +4301,13 @@ If the signal width is greater than 1 this conversion is done for each signal.
               extent={{-40,40},{40,-40}}, 
               lineColor={0,0,0}, 
               lineThickness=2)}),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
+    algorithm 
+      for i in 1:n loop
+        y[i] := T.X01Table[x[i]];
+      end for;
     end LogicToXO1;
     
     block LogicToXO1Z "Conversion to XO1Z" 
@@ -4310,10 +4320,6 @@ If the signal width is greater than 1 this conversion is done for each signal.
                          annotation (Placement(transformation(extent={{40,-10},
                 {60,10}}, rotation=0)));
       parameter Integer n(final min=1, start=1) "signal width";
-    algorithm 
-      for i in 1:n loop
-        y[i] := T.X01ZTable[x[i]];
-      end for;
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -4373,7 +4379,13 @@ If the signal width is greater than 1 this conversion is done for each signal.
               extent={{-40,40},{40,-40}}, 
               lineColor={0,0,0}, 
               lineThickness=2)}),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
+    algorithm 
+      for i in 1:n loop
+        y[i] := T.X01ZTable[x[i]];
+      end for;
     end LogicToXO1Z;
     
     block LogicToUX01 "Conversion to UXO1" 
@@ -4386,10 +4398,6 @@ If the signal width is greater than 1 this conversion is done for each signal.
                          annotation (Placement(transformation(extent={{40,-10},
                 {60,10}}, rotation=0)));
       parameter Integer n(final min=1, start=1) "signal width";
-    algorithm 
-      for i in 1:n loop
-        y[i] := T.UX01Table[x[i]];
-      end for;
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -4449,7 +4457,13 @@ If the signal width is greater than 1 this conversion is done for each signal.
               extent={{-40,40},{40,-40}}, 
               lineColor={0,0,0}, 
               lineThickness=2)}),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
+    algorithm 
+      for i in 1:n loop
+        y[i] := T.UX01Table[x[i]];
+      end for;
     end LogicToUX01;
     
     block BooleanToLogic "Boolean to Logic converter" 
@@ -4457,6 +4471,11 @@ If the signal width is greater than 1 this conversion is done for each signal.
       Modelica.Blocks.Interfaces.BooleanInput x[n] 
         annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
               rotation=0)));
+      parameter Integer n(final min=1, start=1) "signal width";
+      Digital.Interfaces.DigitalOutput y[n] 
+        annotation (Placement(transformation(extent={{40,-10},{60,10}},
+              rotation=0)));
+      annotation (extent=[40, -10; 60, 10]);
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -4502,15 +4521,11 @@ If the signal width is greater than 1 this conversion is done for each signal.
               extent={{-40,40},{40,-40}}, 
               lineColor={0,0,0}, 
               lineThickness=2)}),
-        Diagram(graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}),
+                graphics),
         Placement(transformation(extent={{-60,-10},{-40,10}}, rotation=0)));
-      
-      Digital.Interfaces.DigitalOutput y[n] 
-        annotation (Placement(transformation(extent={{40,-10},{60,10}},
-              rotation=0)));
-      annotation (extent=[40, -10; 60, 10]);
       annotation (Diagram);
-      parameter Integer n(final min=1, start=1) "signal width";
     equation 
       for i in 1:n loop
         y[i] = if x[i] then L.'1' else L.'0';
@@ -4525,6 +4540,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
       Modelica.Blocks.Interfaces.BooleanOutput y[n] 
         annotation (Placement(transformation(extent={{40,-10},{60,10}},
               rotation=0)));
+      parameter Integer n(final min=1, start=2) "signal width";
       annotation (Documentation(info="<HTML>
 <P>
 Conversion of a digital input into a Boolean output without any delay according to:
@@ -4575,7 +4591,6 @@ If the signal width is greater than 1 this conversion is done for each signal.
               extent={{-40,40},{40,-40}}, 
               lineColor={0,0,0}, 
               lineThickness=2)}));
-      parameter Integer n(final min=1, start=2) "signal width";
     equation 
       for i in 1:n loop
         y[i] = if x[i] == 4 or x[i] == 8 then true else false;
@@ -4587,6 +4602,19 @@ If the signal width is greater than 1 this conversion is done for each signal.
       Modelica.Blocks.Interfaces.RealInput x[n] 
         annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
               rotation=0)));
+      Digital.Interfaces.DigitalOutput y[n] 
+        annotation (Placement(transformation(extent={{40,-10},{60,10}},
+              rotation=0)));
+      parameter Integer n(final min=1, start=1) "signal width";
+      parameter Real upper_limit(start=1) "upper limit";
+      parameter Real lower_limit(start=0) "lower limit";
+      parameter Digital.Interfaces.Logic upper_value(start=L.'1') 
+        "output if input > upper_limit";
+      parameter Digital.Interfaces.Logic lower_value(start=L.'0') 
+        "output if input < lower_limit";
+      parameter Digital.Interfaces.Logic middle_value(start=L.'X') 
+        "output else";
+      annotation (extent=[40, -10; 60, 10]);
       annotation (
         Documentation(info="<HTML>
 <P>
@@ -4630,23 +4658,11 @@ If the signal width is greater than 1 this conversion is done for each signal.
               extent={{-40,40},{40,-40}}, 
               lineColor={0,0,0}, 
               lineThickness=2)}),
-        Diagram(graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}),
+                graphics),
         Placement(transformation(extent={{-60,-10},{-40,10}}, rotation=0)));
-      
-      Digital.Interfaces.DigitalOutput y[n] 
-        annotation (Placement(transformation(extent={{40,-10},{60,10}},
-              rotation=0)));
-      annotation (extent=[40, -10; 60, 10]);
       annotation (Diagram);
-      parameter Integer n(final min=1, start=1) "signal width";
-      parameter Real upper_limit(start=1) "upper limit";
-      parameter Real lower_limit(start=0) "lower limit";
-      parameter Digital.Interfaces.Logic upper_value(start=L.'1') 
-        "output if input > upper_limit";
-      parameter Digital.Interfaces.Logic lower_value(start=L.'0') 
-        "output if input < lower_limit";
-      parameter Digital.Interfaces.Logic middle_value(start=L.'X') 
-        "output else";
     equation 
       for i in 1:n loop
         y[i] = if x[i] > upper_limit then upper_value else 
@@ -4662,6 +4678,16 @@ If the signal width is greater than 1 this conversion is done for each signal.
       Modelica.Blocks.Interfaces.RealOutput y[n] 
         annotation (Placement(transformation(extent={{40,-10},{60,10}},
               rotation=0)));
+      parameter Integer n(final min=1, start=1) "signal width";
+      parameter Real value_U(start=0.5) "value for digital U (uninitialized)";
+      parameter Real value_X(start=0.5) "value for digital X (Forcing Unknown)";
+      parameter Real value_0(start=0) "value for digital 0   (Forcing 0)";
+      parameter Real value_1(start=1) "value for digital 1 (Forcing 1)";
+      parameter Real value_Z(start=0.5) "value for digital Z (High Impedance)";
+      parameter Real value_W(start=0.5) "value for digital W (Weak    Unknown)";
+      parameter Real value_L(start=0) "value for digital L (Weak    0)";
+      parameter Real value_H(start=1) "value for digital H (Weak    1)";
+      parameter Real value_m(start=0.5) "value for digital m (Don´t care)";
       annotation (Documentation(info="<HTML>
 <P>
 Conversion of a digital input into a Real output without any delay according to:
@@ -4710,17 +4736,9 @@ The values val... are given by parameters.</P>
               extent={{-40,40},{40,-40}}, 
               lineColor={0,0,0}, 
               lineThickness=2)}),
-        Diagram(graphics));
-      parameter Integer n(final min=1, start=1) "signal width";
-      parameter Real value_U(start=0.5) "value for digital U (uninitialized)";
-      parameter Real value_X(start=0.5) "value for digital X (Forcing Unknown)";
-      parameter Real value_0(start=0) "value for digital 0   (Forcing 0)";
-      parameter Real value_1(start=1) "value for digital 1 (Forcing 1)";
-      parameter Real value_Z(start=0.5) "value for digital Z (High Impedance)";
-      parameter Real value_W(start=0.5) "value for digital W (Weak    Unknown)";
-      parameter Real value_L(start=0) "value for digital L (Weak    0)";
-      parameter Real value_H(start=1) "value for digital H (Weak    1)";
-      parameter Real value_m(start=0.5) "value for digital m (Don´t care)";
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
     equation 
       for i in 1:n loop
        y[i]= if x[i] == L.'U' then value_U else 
