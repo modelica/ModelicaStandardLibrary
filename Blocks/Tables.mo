@@ -15,7 +15,9 @@ package Tables
       "table name on file or in function usertab (see docu)" 
          annotation(Dialog(group="table data definition", enable = tableOnFile));
     parameter String fileName="NoName" "file where matrix is stored" 
-         annotation(Dialog(group="table data definition", enable = tableOnFile));
+         annotation(Dialog(group="table data definition", enable = tableOnFile,
+                           __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
+                           caption="Open file in which table is present")));
     parameter Integer columns[:]=2:size(table, 2) 
       "columns of table to be interpolated" 
     annotation(Dialog(group="table data interpretation"));
@@ -123,11 +125,12 @@ rows of the file, the elements of the matrix have to be given.
 Several matrices may be defined one after another.
 </p>
 </HTML>
-"),   Icon(graphics={
-          Line(points={{-60,40},{-60,-40},{60,-40},{60,40},{30,40},{30,-40},{
-                -30,-40},{-30,40},{-60,40},{-60,20},{60,20},{60,0},{-60,0},{-60,
-                -20},{60,-20},{60,-40},{-60,-40},{-60,40},{60,40},{60,-40}}, 
-              color={0,0,0}), 
+"),   Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
+          Line(points={{-60,40},{-60,-40},{60,-40},{60,40},{30,40},{30,-40},{-30,
+                -40},{-30,40},{-60,40},{-60,20},{60,20},{60,0},{-60,0},{-60,-20},
+                {60,-20},{60,-40},{-60,-40},{-60,40},{60,40},{60,-40}}, color={
+                0,0,0}), 
           Line(points={{0,40},{0,-40}}, color={0,0,0}), 
           Rectangle(
             extent={{-60,40},{-30,20}}, 
@@ -149,7 +152,8 @@ Several matrices may be defined one after another.
             lineColor={0,0,0}, 
             fillColor={255,255,0}, 
             fillPattern=FillPattern.Solid)}),
-      Diagram(graphics={
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics={
           Rectangle(
             extent={{-60,60},{60,-60}}, 
             fillColor={235,235,235}, 
@@ -157,11 +161,11 @@ Several matrices may be defined one after another.
           Line(points={{-100,0},{-58,0}}), 
           Line(points={{60,0},{100,0}}), 
           Text(extent={{-100,100},{100,64}}, textString=
-              "1 dimensional linear table interpolation"), 
-          Line(points={{-54,40},{-54,-40},{54,-40},{54,40},{28,40},{28,-40},{
-                -28,-40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,
-                -20},{54,-20},{54,-40},{-54,-40},{-54,40},{54,40},{54,-40}}, 
-              color={0,0,0}), 
+                "1 dimensional linear table interpolation"), 
+          Line(points={{-54,40},{-54,-40},{54,-40},{54,40},{28,40},{28,-40},{-28,
+                -40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,-20},
+                {54,-20},{54,-40},{-54,-40},{-54,40},{54,40},{54,-40}}, color={
+                0,0,0}), 
           Line(points={{0,40},{0,-40}}, color={0,0,0}), 
           Rectangle(
             extent={{-54,40},{-28,20}}, 
@@ -183,14 +187,10 @@ Several matrices may be defined one after another.
             lineColor={0,0,0}, 
             fillColor={255,255,0}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-50,54},{-32,42}}, textString=
-                                             "u[1]/[2]"), 
-          Text(extent={{-24,54},{0,42}}, textString=
-                                           "y[1]"), 
-          Text(extent={{-2,-40},{30,-54}}, textString=
-                                               "columns"), 
-          Text(extent={{2,54},{26,42}}, textString=
-                                          "y[2]")}));
+          Text(extent={{-50,54},{-32,42}}, textString="u[1]/[2]"), 
+          Text(extent={{-24,54},{0,42}}, textString="y[1]"), 
+          Text(extent={{-2,-40},{30,-54}}, textString="columns"), 
+          Text(extent={{2,54},{26,42}}, textString="y[2]")}));
   equation 
     if tableOnFile then
       assert(tableName<>"NoName", "tableOnFile = true and no table name given");
@@ -222,7 +222,9 @@ Several matrices may be defined one after another.
       "table name on file or in function usertab (see docu)" 
          annotation(Dialog(group="table data definition", enable = tableOnFile));
     parameter String fileName="NoName" "file where matrix is stored" 
-         annotation(Dialog(group="table data definition", enable = tableOnFile));
+         annotation(Dialog(group="table data definition", enable = tableOnFile,
+                           __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
+                           caption="Open file in which table is present")));
     parameter Integer columns[:]=2:size(table, 2) 
       "columns of table to be interpolated" 
     annotation(Dialog(group="table data interpretation"));
@@ -330,11 +332,12 @@ rows of the file, the elements of the matrix have to be given.
 Several matrices may be defined one after another.
 </p>
 </HTML>
-"),   Icon(graphics={
-          Line(points={{-60,40},{-60,-40},{60,-40},{60,40},{30,40},{30,-40},{
-                -30,-40},{-30,40},{-60,40},{-60,20},{60,20},{60,0},{-60,0},{-60,
-                -20},{60,-20},{60,-40},{-60,-40},{-60,40},{60,40},{60,-40}}, 
-              color={0,0,0}), 
+"),   Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
+          Line(points={{-60,40},{-60,-40},{60,-40},{60,40},{30,40},{30,-40},{-30,
+                -40},{-30,40},{-60,40},{-60,20},{60,20},{60,0},{-60,0},{-60,-20},
+                {60,-20},{60,-40},{-60,-40},{-60,40},{60,40},{60,-40}}, color={
+                0,0,0}), 
           Line(points={{0,40},{0,-40}}, color={0,0,0}), 
           Rectangle(
             extent={{-60,40},{-30,20}}, 
@@ -356,7 +359,8 @@ Several matrices may be defined one after another.
             lineColor={0,0,0}, 
             fillColor={255,255,0}, 
             fillPattern=FillPattern.Solid)}),
-      Diagram(graphics={
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics={
           Rectangle(
             extent={{-60,60},{60,-60}}, 
             fillColor={235,235,235}, 
@@ -364,11 +368,11 @@ Several matrices may be defined one after another.
           Line(points={{-100,0},{-58,0}}), 
           Line(points={{60,0},{100,0}}), 
           Text(extent={{-100,100},{100,64}}, textString=
-              "1 dimensional linear table interpolation"), 
-          Line(points={{-54,40},{-54,-40},{54,-40},{54,40},{28,40},{28,-40},{
-                -28,-40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,
-                -20},{54,-20},{54,-40},{-54,-40},{-54,40},{54,40},{54,-40}}, 
-              color={0,0,0}), 
+                "1 dimensional linear table interpolation"), 
+          Line(points={{-54,40},{-54,-40},{54,-40},{54,40},{28,40},{28,-40},{-28,
+                -40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,-20},
+                {54,-20},{54,-40},{-54,-40},{-54,40},{54,40},{54,-40}}, color={
+                0,0,0}), 
           Line(points={{0,40},{0,-40}}, color={0,0,0}), 
           Rectangle(
             extent={{-54,40},{-28,20}}, 
@@ -390,14 +394,10 @@ Several matrices may be defined one after another.
             lineColor={0,0,0}, 
             fillColor={255,255,0}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-52,56},{-34,44}}, textString=
-                                               "u"), 
-          Text(extent={{-22,54},{2,42}}, textString=
-                                           "y[1]"), 
-          Text(extent={{4,54},{28,42}}, textString=
-                                          "y[2]"), 
-          Text(extent={{0,-40},{32,-54}}, textString=
-                                            "columns")}));
+          Text(extent={{-52,56},{-34,44}}, textString="u"), 
+          Text(extent={{-22,54},{2,42}}, textString="y[1]"), 
+          Text(extent={{4,54},{28,42}}, textString="y[2]"), 
+          Text(extent={{0,-40},{32,-54}}, textString="columns")}));
   equation 
     if tableOnFile then
       assert(tableName<>"NoName", "tableOnFile = true and no table name given");
@@ -430,7 +430,9 @@ Several matrices may be defined one after another.
       "table name on file or in function usertab (see docu)" 
          annotation(Dialog(group="table data definition", enable = tableOnFile));
     parameter String fileName="NoName" "file where matrix is stored" 
-         annotation(Dialog(group="table data definition", enable = tableOnFile));
+         annotation(Dialog(group="table data definition", enable = tableOnFile,
+                           __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
+                           caption="Open file in which table is present")));
     parameter Blocks.Types.Smoothness smoothness=Types.Smoothness.LinearSegments 
       "smoothness of table interpolation" 
     annotation(Dialog(group="table data interpretation"));
@@ -519,7 +521,7 @@ double table2D_1(3,4)   # comment line
 0.0  1.0  2.0  3.0  # u[2] grid points
 1.0  1.0  3.0  5.0
 2.0  2.0  4.0  6.0
-
+ 
 double table2D_2(4,4)   # comment line
 0.0  1.0  2.0  3.0  # u[2] grid points
 1.0  1.0  3.0  5.0
@@ -538,13 +540,14 @@ as if the matrix is given as a parameter. For example, the first
 column \"table2D_1[2:,1]\" contains the u[1] grid points,
 and the first row \"table2D_1[1,2:]\" contains the u[2] grid points.
 </p>
-
+ 
 </html>
-"),   Icon(graphics={
-          Line(points={{-60,40},{-60,-40},{60,-40},{60,40},{30,40},{30,-40},{
-                -30,-40},{-30,40},{-60,40},{-60,20},{60,20},{60,0},{-60,0},{-60,
-                -20},{60,-20},{60,-40},{-60,-40},{-60,40},{60,40},{60,-40}}, 
-              color={0,0,0}), 
+"),   Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
+          Line(points={{-60,40},{-60,-40},{60,-40},{60,40},{30,40},{30,-40},{-30,
+                -40},{-30,40},{-60,40},{-60,20},{60,20},{60,0},{-60,0},{-60,-20},
+                {60,-20},{60,-40},{-60,-40},{-60,40},{60,40},{60,-40}}, color={
+                0,0,0}), 
           Line(points={{0,40},{0,-40}}, color={0,0,0}), 
           Rectangle(
             extent={{-60,20},{-30,0}}, 
@@ -578,18 +581,19 @@ and the first row \"table2D_1[1,2:]\" contains the u[2] grid points.
             fillPattern=FillPattern.Solid), 
           Line(points={{-60,40},{-30,20}}, color={0,0,0}), 
           Line(points={{-30,40},{-60,20}}, color={0,0,0})}),
-      Diagram(graphics={
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics={
           Rectangle(
             extent={{-60,60},{60,-60}}, 
             fillColor={235,235,235}, 
             fillPattern=FillPattern.Solid), 
           Line(points={{60,0},{100,0}}), 
           Text(extent={{-100,100},{100,64}}, textString=
-              "2 dimensional linear table interpolation"), 
-          Line(points={{-54,40},{-54,-40},{54,-40},{54,40},{28,40},{28,-40},{
-                -28,-40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,
-                -20},{54,-20},{54,-40},{-54,-40},{-54,40},{54,40},{54,-40}}, 
-              color={0,0,0}), 
+                "2 dimensional linear table interpolation"), 
+          Line(points={{-54,40},{-54,-40},{54,-40},{54,40},{28,40},{28,-40},{-28,
+                -40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,-20},
+                {54,-20},{54,-40},{-54,-40},{-54,40},{54,40},{54,-40}}, color={
+                0,0,0}), 
           Line(points={{0,40},{0,-40}}, color={0,0,0}), 
           Rectangle(
             extent={{-54,20},{-28,0}}, 
@@ -623,12 +627,9 @@ and the first row \"table2D_1[1,2:]\" contains the u[2] grid points.
             fillPattern=FillPattern.Solid), 
           Line(points={{-54,40},{-28,20}}, color={0,0,0}), 
           Line(points={{-28,40},{-54,20}}, color={0,0,0}), 
-          Text(extent={{-54,-40},{-30,-56}}, textString=
-                                                 "u1"), 
-          Text(extent={{28,58},{52,44}}, textString=
-                                             "u2"), 
-          Text(extent={{-2,12},{32,-22}}, textString=
-                                            "y")}));
+          Text(extent={{-54,-40},{-30,-56}}, textString="u1"), 
+          Text(extent={{28,58},{52,44}}, textString="u2"), 
+          Text(extent={{-2,12},{32,-22}}, textString="y")}));
   protected 
     Real tableID;
   equation 
