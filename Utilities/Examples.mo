@@ -375,12 +375,13 @@ readRealParameter(\"test.txt\", \"w_rel0\")
     import SI = Modelica.SIunits;
     extends Modelica.Icons.Example;
     
-    parameter String file = classDirectory() + "data/Examples_readRealParameters.txt" 
-      "File on which data is present";
+    parameter String file = "Modelica/Utilities/data/Examples_readRealParameters.txt" 
+      "File on which data is present" 
+          annotation(Dialog(__Dymola_loadSelector(filter="Text files (*.txt)",
+                        caption="Open text file to read parameters of the form \"name = value\"")));
     parameter SI.Inertia J =              readRealParameter(file, "J");
     parameter SI.Angle phi_rel0 =         readRealParameter(file, "phi_rel0");
     parameter SI.AngularVelocity w_rel0 = readRealParameter(file, "w_rel0");
-  equation 
     
     annotation (preferedView="info",Documentation(info="<html>
 <p>
