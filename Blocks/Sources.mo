@@ -2626,89 +2626,89 @@ a flange according to a given acceleration.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Polygon(
-            points={{-80,90},{-85,68},{-74,68},{-80,90}}, 
-            lineColor={95,95,95}, 
-            fillColor={95,95,95}, 
-            fillPattern=FillPattern.Solid), 
+            points={{-80,90},{-85,68},{-74,68},{-80,90}},
+            lineColor={95,95,95},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid),
           Line(
-            points={{-80,68},{-80,-80}}, 
-            color={95,95,95}, 
-            fillColor={95,95,95}, 
-            fillPattern=FillPattern.Solid), 
+            points={{-80,68},{-80,-80}},
+            color={95,95,95},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid),
           Line(
-            points={{-90,-70},{82,-70}}, 
-            color={95,95,95}, 
-            fillColor={95,95,95}, 
-            fillPattern=FillPattern.Solid), 
+            points={{-90,-70},{82,-70}},
+            color={95,95,95},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid),
           Polygon(
-            points={{88,-70},{68,-65},{68,-74},{88,-70}}, 
-            lineColor={95,95,95}, 
-            fillColor={95,95,95}, 
-            fillPattern=FillPattern.Solid), 
+            points={{88,-70},{68,-65},{68,-74},{88,-70}},
+            lineColor={95,95,95},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-20,90},{30,-30}}, 
-            lineColor={255,255,255}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-20,90},{30,-30}},
+            lineColor={255,255,255},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Line(points={{-20,-30},{-20,90},{80,90},{80,-30},{-20,-30},{-20,0},{
-                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{30,90},{30,-31}}, 
-              color={0,0,0}), 
+                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{30,90},{30,-31}},
+              color={0,0,0}),
           Text(
-            extent={{-70,-42},{-32,-54}}, 
-            lineColor={0,0,0}, 
-            fillColor={95,95,95}, 
-            fillPattern=FillPattern.Solid, 
-            textString="offset"), 
+            extent={{-70,-42},{-32,-54}},
+            lineColor={0,0,0},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid,
+            textString="offset"),
           Polygon(
-            points={{-31,-30},{-33,-40},{-28,-40},{-31,-30}}, 
-            lineColor={95,95,95}, 
-            fillColor={95,95,95}, 
-            fillPattern=FillPattern.Solid), 
+            points={{-31,-30},{-33,-40},{-28,-40},{-31,-30}},
+            lineColor={95,95,95},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-31,-70},{-34,-60},{-29,-60},{-31,-70},{-31,-70}}, 
-            lineColor={95,95,95}, 
-            fillColor={95,95,95}, 
-            fillPattern=FillPattern.Solid), 
+            points={{-31,-70},{-34,-60},{-29,-60},{-31,-70},{-31,-70}},
+            lineColor={95,95,95},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid),
           Line(
-            points={{-31,-32},{-31,-70}}, 
-            color={95,95,95}, 
-            fillColor={95,95,95}, 
-            fillPattern=FillPattern.Solid), 
+            points={{-31,-32},{-31,-70}},
+            color={95,95,95},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid),
           Line(
-            points={{-20,-30},{-20,-70}}, 
-            color={95,95,95}, 
-            fillColor={95,95,95}, 
-            fillPattern=FillPattern.Solid), 
+            points={{-20,-30},{-20,-70}},
+            color={95,95,95},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-38,-73},{8,-83}}, 
-            lineColor={0,0,0}, 
-            fillColor={95,95,95}, 
-            fillPattern=FillPattern.Solid, 
-            textString="startTime"), 
+            extent={{-38,-73},{8,-83}},
+            lineColor={0,0,0},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid,
+            textString="startTime"),
           Line(
-            points={{-20,-30},{-80,-30}}, 
-            color={95,95,95}, 
-            fillColor={95,95,95}, 
-            fillPattern=FillPattern.Solid), 
+            points={{-20,-30},{-80,-30}},
+            color={95,95,95},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-76,93},{-44,75}}, 
-            lineColor={0,0,0}, 
-            fillColor={95,95,95}, 
-            fillPattern=FillPattern.Solid, 
-            textString="y"), 
+            extent={{-76,93},{-44,75}},
+            lineColor={0,0,0},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid,
+            textString="y"),
           Text(
-            extent={{66,-78},{90,-88}}, 
-            lineColor={0,0,0}, 
-            fillColor={95,95,95}, 
-            fillPattern=FillPattern.Solid, 
-            textString="time"), 
+            extent={{66,-78},{90,-88}},
+            lineColor={0,0,0},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid,
+            textString="time"),
           Text(
-            extent={{-15,83},{24,68}}, 
-            lineColor={0,0,0}, 
-            textString="time"), 
+            extent={{-15,83},{24,68}},
+            lineColor={0,0,0},
+            textString="time"),
           Text(
-            extent={{33,83},{76,67}}, 
-            lineColor={0,0,0}, 
+            extent={{33,83},{76,67}},
+            lineColor={0,0,0},
             textString="y")}),
           Documentation(info="<HTML>
 <p>
@@ -2862,7 +2862,9 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       "Table name on file or in function usertab (see docu)" 
          annotation(Dialog(group="table data definition", enable = tableOnFile));
     parameter String fileName="NoName" "File where matrix is stored" 
-         annotation(Dialog(group="table data definition", enable = tableOnFile));
+         annotation(Dialog(group="table data definition", enable = tableOnFile,
+                           __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
+                           caption="Open file in which table is present")));
     parameter Integer columns[:]=2:size(table, 2) 
       "Columns of table to be interpolated" 
     annotation(Dialog(group="table data interpretation"));
@@ -2930,11 +2932,11 @@ a table. The time points and function values are stored in a matrix
 <b>table[i,j]</b>, where the first column table[:,1] contains the
 time points and the other columns contain the data to be interpolated.
 </p>
-
+ 
 <p>
 <img src=\"../Images/Blocks/Sources/CombiTimeTable.png\">
 </p>
-
+ 
 <p>
 Via parameter <b>columns</b> it can be defined which columns of the
 table are interpolated. If, e.g., columns={2,4}, it is assumed that
@@ -3059,7 +3061,7 @@ with type, name and actual dimensions. Finally, in successive
 rows of the file, the elements of the matrix have to be given.
 Several matrices may be defined one after another.
 </p>
-
+ 
 </HTML>
 ", revisions="<html>
 <p><b>Release Notes:</b></p>
@@ -3267,9 +3269,9 @@ The Boolean output y is a constant signal:
       parameter Boolean startValue = false "Output before startTime";
     
       extends Interfaces.partialBooleanSource;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
-              -100,-100},{100,100}}), graphics={Line(points={{-80,-70},{0,-70},
-                {0,50},{80,50}}, color={0,0,0}), Text(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={Line(points={{-80,-70},{0,-70},{0,50},
+                {80,50}}, color={0,0,0}), Text(
             extent={{-150,-140},{150,-110}}, 
             lineColor={0,0,0}, 
             textString="%startTime")}),
@@ -3595,16 +3597,16 @@ at sample times (defined by parameter <b>period</b>) and is otherwise
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
               {100,100}}), graphics={
           Rectangle(
-            extent={{-34,66},{16,-54}}, 
-            lineColor={255,255,255}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-34,66},{16,-54}},
+            lineColor={255,255,255},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Line(points={{-34,-54},{-34,66},{16,66},{16,-54},{-34,-54},{-34,-24},
-                {16,-24},{16,6},{-34,6},{-34,36},{16,36},{16,66},{16,66},{16,-55}}, 
-              color={0,0,0}), 
+                {16,-24},{16,6},{-34,6},{-34,36},{16,36},{16,66},{16,66},{16,-55}},
+              color={0,0,0}),
           Text(
-            extent={{-29,59},{10,44}}, 
-            lineColor={0,0,0}, 
+            extent={{-29,59},{10,44}},
+            lineColor={0,0,0},
             textString="time")}),
         Documentation(info="<html>
 <p>
