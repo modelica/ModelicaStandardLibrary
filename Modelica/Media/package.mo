@@ -2748,25 +2748,25 @@ Modelica.Media.Examples.Tests.MediaTestModels.
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
                   {{-100,-100},{100,100}}), graphics={
               Ellipse(
-                extent={{-100,100},{100,-100}}, 
-                lineColor={0,127,255}, 
-                fillColor={0,127,255}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{-100,100},{100,-100}},
+                lineColor={0,127,255},
+                fillColor={0,127,255},
+                fillPattern=FillPattern.Solid),
               Ellipse(
-                extent={{-100,100},{100,-100}}, 
-                lineColor={0,0,0}, 
-                fillColor={0,127,255}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{-100,100},{100,-100}},
+                lineColor={0,0,0},
+                fillColor={0,127,255},
+                fillPattern=FillPattern.Solid),
               Text(extent={{-88,206},{112,112}}, textString="%name")}),
              Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={Ellipse(
-                extent={{-100,100},{100,-100}}, 
-                lineColor={0,127,255}, 
-                fillColor={0,127,255}, 
+                extent={{-100,100},{100,-100}},
+                lineColor={0,127,255},
+                fillColor={0,127,255},
                 fillPattern=FillPattern.Solid), Ellipse(
-                extent={{-100,100},{100,-100}}, 
-                lineColor={0,0,0}, 
-                fillColor={0,127,255}, 
+                extent={{-100,100},{100,-100}},
+                lineColor={0,0,0},
+                fillColor={0,127,255},
                 fillPattern=FillPattern.Solid)}),
           Documentation(info="<html>Modelica.Media.Examples.Tests.Components.FluidPort_a
 </html>"));
@@ -2777,37 +2777,37 @@ Modelica.Media.Examples.Tests.MediaTestModels.
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
                   {{-100,-100},{100,100}}), graphics={
               Ellipse(
-                extent={{-100,100},{100,-100}}, 
-                lineColor={0,127,255}, 
-                fillColor={0,127,255}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{-100,100},{100,-100}},
+                lineColor={0,127,255},
+                fillColor={0,127,255},
+                fillPattern=FillPattern.Solid),
               Ellipse(
-                extent={{-100,100},{100,-100}}, 
-                lineColor={0,0,0}, 
-                fillColor={0,127,255}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{-100,100},{100,-100}},
+                lineColor={0,0,0},
+                fillColor={0,127,255},
+                fillPattern=FillPattern.Solid),
               Ellipse(
-                extent={{-80,80},{80,-80}}, 
-                lineColor={0,127,255}, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{-80,80},{80,-80}},
+                lineColor={0,127,255},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
               Text(extent={{-88,192},{112,98}}, textString="%name")}),
              Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={
               Ellipse(
-                extent={{-100,100},{100,-100}}, 
-                lineColor={0,127,255}, 
-                fillColor={0,127,255}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{-100,100},{100,-100}},
+                lineColor={0,127,255},
+                fillColor={0,127,255},
+                fillPattern=FillPattern.Solid),
               Ellipse(
-                extent={{-100,100},{100,-100}}, 
-                lineColor={0,0,0}, 
-                fillColor={0,127,255}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{-100,100},{100,-100}},
+                lineColor={0,0,0},
+                fillColor={0,127,255},
+                fillPattern=FillPattern.Solid),
               Ellipse(
-                extent={{-80,80},{80,-80}}, 
-                lineColor={0,127,255}, 
-                fillColor={255,255,255}, 
+                extent={{-80,80},{80,-80}},
+                lineColor={0,127,255},
+                fillColor={255,255,255},
                 fillPattern=FillPattern.Solid)}),
           Documentation(info="<html> 
   
@@ -2854,14 +2854,14 @@ Modelica.Media.Examples.Tests.MediaTestModels.
          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                   100,100}}), graphics={
               Ellipse(
-                extent={{-100,100},{100,-100}}, 
-                lineColor={0,0,0}, 
-                fillPattern=FillPattern.Sphere, 
-                fillColor={170,213,255}), 
-              Text(extent={{-144,178},{146,116}}, textString="%name"), 
+                extent={{-100,100},{100,-100}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.Sphere,
+                fillColor={170,213,255}),
+              Text(extent={{-144,178},{146,116}}, textString="%name"),
               Text(
-                extent={{-130,-108},{144,-150}}, 
-                lineColor={0,0,0}, 
+                extent={{-130,-108},{144,-150}},
+                lineColor={0,0,0},
                 textString="V=%V")}),
                                Documentation(info="<html>
 <p>
@@ -2950,39 +2950,39 @@ transport.
               extent={{-100,-100},{100,100}},
               grid={2,2}), graphics={
               Rectangle(
-                extent={{20,60},{100,-60}}, 
-                lineColor={0,0,0}, 
-                fillPattern=FillPattern.HorizontalCylinder, 
-                fillColor={192,192,192}), 
+                extent={{20,60},{100,-60}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={192,192,192}),
               Rectangle(
-                extent={{38,40},{100,-40}}, 
-                lineColor={0,0,0}, 
-                fillPattern=FillPattern.HorizontalCylinder, 
-                fillColor={0,127,255}), 
+                extent={{38,40},{100,-40}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={0,127,255}),
               Ellipse(
-                extent={{-100,80},{60,-80}}, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{-100,80},{60,-80}},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
               Polygon(
-                points={{-60,70},{60,0},{-60,-68},{-60,70}}, 
-                lineColor={0,0,255}, 
-                fillColor={0,0,255}, 
-                fillPattern=FillPattern.Solid), 
+                points={{-60,70},{60,0},{-60,-68},{-60,70}},
+                lineColor={0,0,255},
+                fillColor={0,0,255},
+                fillPattern=FillPattern.Solid),
               Text(
-                extent={{-54,32},{16,-30}}, 
-                lineColor={255,0,0}, 
-                fillColor={255,0,0}, 
-                fillPattern=FillPattern.Solid, 
-                textString="m"), 
-              Text(extent={{-142,142},{156,88}}, textString="%name"), 
+                extent={{-54,32},{16,-30}},
+                lineColor={255,0,0},
+                fillColor={255,0,0},
+                fillPattern=FillPattern.Solid,
+                textString="m"),
+              Text(extent={{-142,142},{156,88}}, textString="%name"),
               Text(
-                extent={{-154,-88},{150,-132}}, 
-                lineColor={0,0,0}, 
-                textString="%m_flow"), 
+                extent={{-154,-88},{150,-132}},
+                lineColor={0,0,0},
+                textString="%m_flow"),
               Ellipse(
-                extent={{-26,30},{-18,22}}, 
-                lineColor={255,0,0}, 
-                fillColor={255,0,0}, 
+                extent={{-26,30},{-18,22}},
+                lineColor={255,0,0},
+                fillColor={255,0,0},
                 fillPattern=FillPattern.Solid)}),
           Window(
             x=0.45,
@@ -3050,10 +3050,10 @@ transport.
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},
               grid={2,2}), graphics={Ellipse(
-                extent={{-100,80},{100,-80}}, 
-                lineColor={0,0,0}, 
-                fillPattern=FillPattern.Sphere, 
-                fillColor={0,127,255}), Text(extent={{-136,144},{132,82}}, 
+                extent={{-100,80},{100,-80}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.Sphere,
+                fillColor={0,127,255}), Text(extent={{-136,144},{132,82}},
                   textString="%name")}),
           Documentation(info="<html>
 <p>
@@ -3120,24 +3120,24 @@ with exception of ambient pressure, do not have an effect.
               coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                   100,100}}), graphics={
               Rectangle(
-                extent={{-100,60},{100,-60}}, 
-                lineColor={0,0,0}, 
-                fillPattern=FillPattern.HorizontalCylinder, 
-                fillColor={192,192,192}), 
+                extent={{-100,60},{100,-60}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={192,192,192}),
               Rectangle(
-                extent={{-100,34},{100,-36}}, 
-                lineColor={0,0,0}, 
-                fillPattern=FillPattern.HorizontalCylinder, 
-                fillColor={0,127,255}), 
+                extent={{-100,34},{100,-36}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={0,127,255}),
               Text(
-                extent={{-150,140},{150,80}}, 
-                lineColor={0,0,0}, 
-                fillPattern=FillPattern.HorizontalCylinder, 
-                fillColor={0,127,255}, 
-                textString="%name"), 
+                extent={{-150,140},{150,80}},
+                lineColor={0,0,0},
+                fillPattern=FillPattern.HorizontalCylinder,
+                fillColor={0,127,255},
+                textString="%name"),
               Text(
-                extent={{-136,-62},{122,-108}}, 
-                lineColor={0,0,0}, 
+                extent={{-136,-62},{122,-108}},
+                lineColor={0,0,0},
                 textString="k=%m_flow_nominal/%dp_nominal")}),
                                                  Documentation(info="<html>
 <p>
@@ -4006,8 +4006,8 @@ Modelica source.
       SI.Conversions.NonSIunits.Pressure_bar p_bar=
        Modelica.SIunits.Conversions.to_bar(p) 
         "Absolute pressure of medium in [bar]";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics={Rectangle(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Rectangle(
               extent={{-100,100},{100,-100}}, 
               fillColor={255,255,255}, 
               fillPattern=FillPattern.Solid), Text(extent={{-152,164},{152,102}}, 
@@ -6089,7 +6089,7 @@ quantities are assumed to be constant.
         extends Modelica.Icons.Function;
       annotation(Documentation(info="<html></html>"));
     algorithm 
-      h := cp_const*state.T;
+      h := cp_const*(state.T-T0);
     end specificEnthalpy;
     
     redeclare function extends specificInternalEnergy 
@@ -6097,7 +6097,7 @@ quantities are assumed to be constant.
       extends Modelica.Icons.Function;
       annotation(Documentation(info="<html></html>"));
     algorithm 
-      u := cp_const*state.T - R_gas*state.T;
+      u := (cp_const-R_gas)*(state.T-T0);
     end specificInternalEnergy;
     
     redeclare function extends specificEntropy "Return specific entropy" 
@@ -6112,7 +6112,7 @@ quantities are assumed to be constant.
       extends Modelica.Icons.Function;
       annotation(Documentation(info="<html></html>"));
     algorithm 
-      g := cp_const*state.T - state.T*specificEntropy(state);
+      g := cp_const*(state.T-T0) - state.T*specificEntropy(state);
     end specificGibbsEnergy;
     
     redeclare function extends specificHelmholtzEnergy 
@@ -6120,7 +6120,7 @@ quantities are assumed to be constant.
       extends Modelica.Icons.Function;
       annotation(Documentation(info="<html></html>"));
     algorithm 
-      f := cp_const*state.T - R_gas*state.T - state.T*specificEntropy(state);
+      f := (cp_const-R_gas)*(state.T-T0) - state.T*specificEntropy(state);
     end specificHelmholtzEnergy;
     
     redeclare function extends dynamicViscosity "Return dynamic viscosity" 
