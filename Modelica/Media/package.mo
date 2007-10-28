@@ -6082,42 +6082,44 @@ quantities are assumed to be constant.
       d := state.p/(R_gas*state.T);
     end density;
     
-    redeclare function extends specificEnthalpy "Return specific enthalpy" 
-        extends Modelica.Icons.Function;
+    redeclare function extends specificEnthalpy 
+	"Return specific enthalpy" 
+	extends Modelica.Icons.Function;
       annotation(Documentation(info="<html></html>"));
     algorithm 
-      h := cp_const*state.T;
+      h := cp_const*(state.T-T0);
     end specificEnthalpy;
     
     redeclare function extends specificInternalEnergy 
-      "Return specific internal energy" 
-      extends Modelica.Icons.Function;
+	"Return specific internal energy" 
+	extends Modelica.Icons.Function;
       annotation(Documentation(info="<html></html>"));
     algorithm 
-      u := cp_const*state.T - R_gas*state.T;
+      u := (cp_const-R_gas)*(state.T-T0);
     end specificInternalEnergy;
     
-    redeclare function extends specificEntropy "Return specific entropy" 
-        extends Modelica.Icons.Function;
+    redeclare function extends specificEntropy 
+	"Return specific entropy" 
+	extends Modelica.Icons.Function;
       annotation(Documentation(info="<html></html>"));
     algorithm 
       s := cp_const*Modelica.Math.log(state.T/T0) - R_gas*Modelica.Math.log(state.p/reference_p);
     end specificEntropy;
     
     redeclare function extends specificGibbsEnergy 
-      "Return specific Gibbs energy" 
-      extends Modelica.Icons.Function;
+	"Return specific Gibbs energy" 
+	extends Modelica.Icons.Function;
       annotation(Documentation(info="<html></html>"));
     algorithm 
-      g := cp_const*state.T - state.T*specificEntropy(state);
+      g := cp_const*(state.T-T0) - state.T*specificEntropy(state);
     end specificGibbsEnergy;
     
     redeclare function extends specificHelmholtzEnergy 
-      "Return specific Helmholtz energy" 
-      extends Modelica.Icons.Function;
+	"Return specific Helmholtz energy" 
+	extends Modelica.Icons.Function;
       annotation(Documentation(info="<html></html>"));
     algorithm 
-      f := cp_const*state.T - R_gas*state.T - state.T*specificEntropy(state);
+      f := (cp_const-R_gas)*(state.T-T0) - state.T*specificEntropy(state);
     end specificHelmholtzEnergy;
     
     redeclare function extends dynamicViscosity "Return dynamic viscosity" 
