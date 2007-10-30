@@ -81,6 +81,12 @@ convertClass("Modelica.Utilities.Types.FileType.Type" ,"Modelica.Utilities.Types
 convertClass("Modelica.Utilities.Types.TokenType.Type","Modelica.Utilities.Types.TokenType")
 
 
+// --------- Changing from non-SI to SI units to allow stricter unit checking -------------------------
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyBox"     ,{"density"}, {"density=%density%*1000"});
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyCylinder",{"density"}, {"density=%density%*1000"});
+
+
+
 // --------- initialization of 1-dim. rotational systems to start values ------------------------------
 
 // Modelica.Mechanics.Rotational.Inertia
