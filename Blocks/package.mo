@@ -124,23 +124,23 @@ package Examples
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-99,48},{-32,8}}, lineColor={255,0,0}), 
+          Rectangle(extent={{-99,48},{-32,8}}, lineColor={255,0,0}),
           Text(
-            extent={{-98,59},{-31,51}}, 
-            lineColor={255,0,0}, 
-            textString="reference speed generation"), 
+            extent={{-98,59},{-31,51}},
+            lineColor={255,0,0},
+            textString="reference speed generation"),
           Text(
-            extent={{-98,-46},{-60,-52}}, 
-            lineColor={255,0,0}, 
-            textString="PI controller"), 
+            extent={{-98,-46},{-60,-52}},
+            lineColor={255,0,0},
+            textString="PI controller"),
           Line(
-            points={{-76,-44},{-57,-23}}, 
-            color={255,0,0}, 
-            arrow={Arrow.None,Arrow.Filled}), 
-          Rectangle(extent={{-25,6},{99,-50}}, lineColor={255,0,0}), 
+            points={{-76,-44},{-57,-23}},
+            color={255,0,0},
+            arrow={Arrow.None,Arrow.Filled}),
+          Rectangle(extent={{-25,6},{99,-50}}, lineColor={255,0,0}),
           Text(
-            extent={{4,14},{71,7}}, 
-            lineColor={255,0,0}, 
+            extent={{4,14},{71,7}},
+            lineColor={255,0,0},
             textString="plant (simple drive train)")}),
       experiment(StopTime=4),
       experimentSetupOutput,
@@ -369,10 +369,7 @@ at hand of this model (Modelica.Blocks.Examples.BusUsage):
      defined as \"expandable connector\" in order that <b>no</b> central definition
      of the connector is needed but is automatically constructed by the
      signals connected to it (see also Modelica specification 2.2.1).</li>
-<li> Input/output signals can be directly connected to the \"controlBus\". When
-     connecting, it is optionally possible that a <b>label</b> is displayed
-     at the connecting line, that contains the name of the variable on the controlBus
-     to which the signal is connected. </li>
+<li> Input/output signals can be directly connected to the \"controlBus\".</li>
 <li> A component, such as \"part\", can be directly connected to the \"controlBus\",
      provided it has also a bus connector, or the \"part\" connector is a
      sub-connector contained in the \"controlBus\". </li>
@@ -455,7 +452,9 @@ Note, even if the signals from \"Internal.StandardControlBus\" are listed, these
 just potential signals. The user might still add different signal names.
 </p>
 
-</html>"), Diagram(graphics),
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+              -100},{100,100}}),
+                   graphics),
       experiment(StopTime=2),
       experimentSetupOutput);
   public 
@@ -485,43 +484,27 @@ just potential signals. The user might still add different signal names.
           rotation=90)));
   equation 
     
-    connect(sine.y, controlBus.realSignal1) annotation (
-      Text(
-        string="%second",
-        index=1,
-        extent=[6,3; 6,3],
-        style(color=0, rgbcolor={0,0,0})), Line(points={{-39,50},{0,50},{0,14},
-            {30,14},{30,10}}, color={0,0,127}));
-    connect(booleanStep.y, controlBus.booleanSignal) annotation (
-      Text(
-        string="%second",
-        index=1,
-        extent=[6,3; 6,3],
-        style(color=0, rgbcolor={0,0,0})), Line(points={{-37,10},{30,10}},
-          color={255,0,255}));
-    connect(integerStep.y, controlBus.integerSignal) annotation (
-      Text(
-        string="%second",
-        index=1,
-        extent=[6,3; 6,3],
-        style(color=0, rgbcolor={0,0,0})), Line(points={{-39,-30},{0,-30},{0,4},
-            {30,4},{30,10}}, color={255,127,0}));
-    connect(gain.u, controlBus.realSignal1) annotation (
-      Text(
-        string="%second",
-        index=1,
-        extent=[6,3; 6,3],
-        style(color=0, rgbcolor={0,0,0})), Line(points={{-38,80},{20,80},{20,16},
-            {26,16},{26,10},{30,10}}, color={0,0,127}));
-    connect(part.subControlBus, controlBus.subControlBus) annotation (
-      Text(
-        string="%second",
-        index=1,
-        extent=[6,3; 6,3],
-        style(color=0, rgbcolor={0,0,0})), Line(
-        points={{-40,-70},{30,-70},{30,2}},
-        color={255,204,51},
-        thickness=2));
+    connect(sine.y, controlBus.realSignal1) annotation (Line(
+        points={{-39,50},{12,50},{12,14},{30,14},{30,10}}, 
+        color={0,0,127}, 
+        smooth=Smooth.None));
+    connect(booleanStep.y, controlBus.booleanSignal) annotation (Line(
+        points={{-37,10},{28,10}}, 
+        color={255,0,255}, 
+        smooth=Smooth.None));
+    connect(integerStep.y, controlBus.integerSignal) annotation (Line(
+        points={{-39,-30},{0,-30},{0,6},{30,6}}, 
+        color={255,127,0}, 
+        smooth=Smooth.None));
+    connect(part.subControlBus, controlBus.subControlBus) annotation (Line(
+        points={{-40,-70},{30,-70},{30,2}}, 
+        color={255,204,51}, 
+        thickness=2, 
+        smooth=Smooth.None));
+    connect(gain.u, controlBus.realSignal1) annotation (Line(
+        points={{-38,80},{20,80},{20,18},{28,18}}, 
+        color={0,0,127}, 
+        smooth=Smooth.None));
   end BusUsage;
   
   package BusUsage_Utilities 
@@ -539,11 +522,14 @@ This package contains utility models and bus definitions needed for the
         extends Modelica.Icons.SignalBus;
         
         annotation (
-          Icon(graphics={Rectangle(
-                extent={{-20,2},{22,-2}},
-                lineColor={255,204,51},
+          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                  {100,100}}), graphics={Rectangle(
+                extent={{-20,2},{22,-2}}, 
+                lineColor={255,204,51}, 
                 lineThickness=2)}),
-          Diagram(graphics),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}),
+                  graphics),
           Documentation(info="<html>
 <p>
 This connector defines the \"expandable connector\" ControlBus that
@@ -561,9 +547,10 @@ constructed by the signals connected to this bus.
         extends Modelica.Icons.SignalSubBus;
         
         annotation (defaultComponentPrefixes="protected",
-                    Icon(graphics={Rectangle(
-                extent={{-20,2},{22,-2}},
-                lineColor={255,204,51},
+                    Icon(coordinateSystem(preserveAspectRatio=false, extent={{
+                  -100,-100},{100,100}}), graphics={Rectangle(
+                extent={{-20,2},{22,-2}}, 
+                lineColor={255,204,51}, 
                 lineThickness=2)}),
           Documentation(info="<html>
 <p>
@@ -649,15 +636,18 @@ This package contains the bus definitions needed for the
     
    model Part "Component with sub-control bus" 
       
-      annotation (Icon(graphics={Rectangle(
-              extent={{-100,60},{100,-60}},
-              fillColor={159,159,223},
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
+                -100,-100},{100,100}}), graphics={Rectangle(
+              extent={{-100,60},{100,-60}}, 
+              fillColor={159,159,223}, 
               fillPattern=FillPattern.Solid), Text(
-              extent={{-106,124},{114,68}},
-              fillColor={159,159,223},
-              fillPattern=FillPattern.Solid,
-              textString=
-                   "%name")}),Diagram(graphics),
+              extent={{-106,124},{114,68}}, 
+              fillColor={159,159,223}, 
+              fillPattern=FillPattern.Solid, 
+              textString="%name")}),
+                              Diagram(coordinateSystem(preserveAspectRatio=true, 
+              extent={{-100,-100},{100,100}}),
+                                      graphics),
         Documentation(info="<html>
 <p>
 <p>
@@ -677,20 +667,15 @@ This model is used to demonstrate the bus usage in example
        annotation (Placement(transformation(extent={{-6,-30},{20,-10}},
               rotation=0)));
    equation 
-     connect(realExpression.y, subControlBus.myRealSignal) annotation (
-       Text(
-         string="%second",
-         index=1,
-         extent=[6,3; 6,3],
-         style(color=0, rgbcolor={0,0,0})), Line(points={{21.3,10},{86,10},{86,
-              0},{100,0}}, color={0,0,127}));
-     connect(booleanExpression.y, subControlBus.myBooleanSignal) annotation (
-       Text(
-         string="%second",
-         index=1,
-         extent=[6,3; 6,3],
-         style(color=0, rgbcolor={0,0,0})), Line(points={{21.3,-20},{58,-20},{
-              58,-2},{100,-2},{100,0}}, color={255,0,255}));
+      connect(realExpression.y, subControlBus.myRealSignal) annotation (Line(
+          points={{21.3,10},{88,10},{88,4},{96,4}}, 
+          color={0,0,127}, 
+          smooth=Smooth.None));
+      connect(booleanExpression.y, subControlBus.myBooleanSignal) annotation (
+          Line(
+          points={{21.3,-20},{60,-20},{60,-2},{98,-2}}, 
+          color={255,0,255}, 
+          smooth=Smooth.None));
    end Part;
     
   end BusUsage_Utilities;
