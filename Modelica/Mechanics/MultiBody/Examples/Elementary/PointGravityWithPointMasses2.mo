@@ -49,7 +49,9 @@ model PointGravityWithPointMasses2
         extent={{10,-10},{-10,10}},
         rotation=90)));
   
-  annotation (Diagram(graphics),
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+            -100},{100,100}}),
+                      graphics),
     experiment(StopTime=3, Tolerance=1e-006),
     experimentSetupOutput,
     Documentation(info="<html>
