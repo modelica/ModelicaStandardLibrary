@@ -1,4 +1,4 @@
-within ; 
+within ;
 package Modelica "Modelica Standard Library"
 extends Icons.Library;
 
@@ -803,6 +803,13 @@ have been <b style=\"color:blue\">changed</b> in a
                         A new component<br>\"InverseBlockConstraints\"
                         is provided instead that has the same feature, but is \"balanced\".</td> </tr>
 
+  <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Parts.</b></td></tr>
+  <tr><td valign=\"top\"> BodyBox<br>
+                        BodyCylinder</td>
+      <td valign=\"top\"> Changed unit of parameter density from g/cm3 to the SI unit kg/m3
+                        in order to allow stricter unit checking.<br>The conversion script multiplies
+                        previous density values with 1000.</td> </tr>
+
 </table>
 
 
@@ -878,6 +885,11 @@ units are wrong or errors in documentation):
                         Gear </td>
       <td valign=\"top\"> Declaration of table parameter changed from
                         table[:,:] to table[:,2].</td> 
+  </tr>
+
+  <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.</b></td></tr>
+  <tr><td valign=\"top\"> GasForce </td>
+      <td valign=\"top\"> Unit of variable \"press\" corrected (from Pa to bar)</td> 
   </tr>
 
 </table>
