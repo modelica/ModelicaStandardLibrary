@@ -1,22 +1,42 @@
 // Convert from Modelica 2.2.2 to Modelica 3.0
 
-clear
+// clear
 convertClear();
 
 
 // Change references to classes that are removed from Modelica Standard Library
-convertClass  ("Modelica.Blocks.Math.UnitConversions.ConvertAllUnits",
-               "ObsoleteModelica3.Blocks.Math.UnitConversions.ConvertAllUnits");
-convertClass  ("Modelica.Blocks.Math.TwoInputs",
-               "ObsoleteModelica3.Blocks.Math.TwoInputs");
-convertClass  ("Modelica.Blocks.Math.TwoOutputs",
-               "ObsoleteModelica3.Blocks.Math.TwoOutputs");
-convertClass  ("Modelica.Blocks.Interfaces.Adaptors.AdaptorReal",
-               "ObsoleteModelica3.Blocks.Interfaces.Adaptors.AdaptorReal");
-convertClass  ("Modelica.Blocks.Interfaces.Adaptors.AdaptorBoolean",
-               "ObsoleteModelica3.Blocks.Interfaces.Adaptors.AdaptorBoolean");
-convertClass  ("Modelica.Blocks.Interfaces.Adaptors.AdaptorInteger",
-               "ObsoleteModelica3.Blocks.Interfaces.Adaptors.AdaptorInteger");
+convertClass("Modelica.Icons.Enumeration",
+             "ObsoleteModelica3.Icons.Enumeration")
+convertClass("Modelica.Blocks.Math.UnitConversions.ConvertAllUnits",
+             "ObsoleteModelica3.Blocks.Math.UnitConversions.ConvertAllUnits");
+convertClass("Modelica.Blocks.Math.TwoInputs",
+             "ObsoleteModelica3.Blocks.Math.TwoInputs");
+convertClass("Modelica.Blocks.Math.TwoOutputs",
+             "ObsoleteModelica3.Blocks.Math.TwoOutputs");
+convertClass("Modelica.Blocks.Interfaces.Adaptors.AdaptorReal",
+             "ObsoleteModelica3.Blocks.Interfaces.Adaptors.AdaptorReal");
+convertClass("Modelica.Blocks.Interfaces.Adaptors.AdaptorBoolean",
+             "ObsoleteModelica3.Blocks.Interfaces.Adaptors.AdaptorBoolean");
+convertClass("Modelica.Blocks.Interfaces.Adaptors.AdaptorInteger",
+             "ObsoleteModelica3.Blocks.Interfaces.Adaptors.AdaptorInteger");
+
+convertClass("Modelica.Blocks.Types.StateSelection.Temp",
+             "StateSelect")
+convertClass("Modelica.Blocks.Types.StateSelection.Never",
+             "StateSelect.never")
+convertClass("Modelica.Blocks.Types.StateSelection.Avoid",
+             "StateSelect.avoid")
+convertClass("Modelica.Blocks.Types.StateSelection.Default",
+             "StateSelect.default")
+convertClass("Modelica.Blocks.Types.StateSelection.Prefer",
+             "StateSelect.prefer")
+convertClass("Modelica.Blocks.Types.StateSelection.Always",
+             "StateSelect.always")
+
+convertClass("Modelica.Mechanics.Rotational.Types.Init",
+             "ObsoleteModelica3.Mechanics.Rotational.Types.Init")
+convertClass("Modelica.Mechanics.Rotational.Types.InitRel",
+             "ObsoleteModelica3.Mechanics.Rotational.Types.InitRel")
 
 
 // Remove "SignalType" from all RealInput and RealOutput modifiers
@@ -44,10 +64,6 @@ convertClass("Modelica.Mechanics.MultiBody.Types.RotationTypes.Temp","Modelica.M
 convertClass("Modelica.Mechanics.MultiBody.Types.GravityTypes.Temp","Modelica.Mechanics.MultiBody.Types.GravityTypes")
 convertClass("Modelica.Mechanics.MultiBody.Types.Init.Temp","Modelica.Mechanics.MultiBody.Types.Init")
 
-// The enumerations in Modelica.Mechanics.Rotational.Types
-convertClass("Modelica.Mechanics.Rotational.Types.Init.Temp","Modelica.Mechanics.Rotational.Types.Init")
-convertClass("Modelica.Mechanics.Rotational.Types.InitRel.Temp","Modelica.Mechanics.Rotational.Types.InitRel")
-
 // The enumerations in Modelica.Media.Interfaces.PartialMedium.Choices
 convertClass("Modelica.Media.Interfaces.PartialMedium.Choices.Init.Temp","Modelica.Media.Interfaces.PartialMedium.Choices.Init")
 convertClass("Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy.Temp","Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy")
@@ -63,6 +79,65 @@ convertClass("Modelica.Electrical.Digital.Interfaces.LogicValue","Modelica.Elect
 convertClass("Modelica.Utilities.Types.Compare.Type"  ,"Modelica.Utilities.Types.Compare")
 convertClass("Modelica.Utilities.Types.FileType.Type" ,"Modelica.Utilities.Types.FileType")
 convertClass("Modelica.Utilities.Types.TokenType.Type","Modelica.Utilities.Types.TokenType")
+
+
+// --------- initialization of 1-dim. rotational systems to start values ------------------------------
+
+// Modelica.Mechanics.Rotational.Inertia
+convertElement  ("Modelica.Mechanics.Rotational.Inertia", "stateSelection", "stateSelect");
+convertModifiers("Modelica.Mechanics.Rotational.Inertia",{"phi_start"}, {"phi.start=%phi_start%"});
+convertModifiers("Modelica.Mechanics.Rotational.Inertia",{"w_start"}  , {"w.start=%w_start%"});
+convertModifiers("Modelica.Mechanics.Rotational.Inertia",{"a_start"}  , {"a.start=%a_start%"});
+convertModifiers("Modelica.Mechanics.Rotational.Inertia",{"initType"} , 
+                 {"phi.fixed=if (%initType%==3 or "+
+                                "%initType%==4 or "+
+                                "%initType%==7 or "+
+                                "%initType%==9) then true else false",
+                  "w.fixed=if (%initType%==2 or "+
+                              "%initType%==3 or "+
+                              "%initType%==5 or "+
+                              "%initType%==8 or "+
+                              "%initType%==9) then true else false",
+                  "a.fixed=if (%initType%==2 or "+
+                              "%initType%==6 or "+
+                              "%initType%==7 or "+
+                              "%initType%==8 or "+
+                              "%initType%==9) then true else false"}, true);
+
+// Modelica.Mechanics.Rotational.SpringDamper
+convertElement  ("Modelica.Mechanics.Rotational.SpringDamper", "stateSelection", "stateSelect");
+convertModifiers("Modelica.Mechanics.Rotational.SpringDamper",{"phi_rel_start"}, {"phi_rel.start=%phi_rel_start%"});
+convertModifiers("Modelica.Mechanics.Rotational.SpringDamper",{"w_rel_start"}  , {"w_rel.start=%w_rel_start%"});
+convertModifiers("Modelica.Mechanics.Rotational.SpringDamper",{"initType"} , 
+                 {"phi_rel.fixed=if (%initType%==3 or "+
+                                    "%initType%==4) then true else false",
+                  "w_rel.fixed=if (%initType%==2 or "+
+                                  "%initType%==3 or "+
+                                  "%initType%==5) then true else false",
+                  "a_rel.fixed=if (%initType%==2) then true else false"}, true);
+
+// Modelica.Mechanics.Rotational.InitializeFlange
+convertElement("Modelica.Mechanics.Rotational.InitializeFlange", "stateSelection", "stateSelect");
+
+
+// Modelica.Mechanics.MultiBody.Parts.Rotor1D
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.Rotor1D",{"phi_start"}, {"phi.start=%phi_start%*Modelica.Constants.D2R"});
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.Rotor1D",{"w_start"}  , {"w.start=%w_start%*Modelica.Constants.D2R"});
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.Rotor1D",{"a_start"}  , {"a.start=%a_start%*Modelica.Constants.D2R"});
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.Rotor1D",{"initType"} , 
+                 {"phi.fixed=if (%initType%==2 or "+
+                                "%initType%==4 or "+
+                                "%initType%==7) then true else false",
+                  "w.fixed=if (%initType%==2 or "+
+                              "%initType%==3 or "+
+                              "%initType%==5 or "+
+                              "%initType%==6 or "+
+                              "%initType%==7) then true else false",
+                  "a.fixed=if (%initType%==3 or "+
+                              "%initType%==6 or "+
+                              "%initType%==7) then true else false"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.Rotor1D",{"enforceStates"}, 
+                {"stateSelect=if (%enforceStates%) then StateSelect.prefer else StateSelect.default"}, true);
 
 //-------- Machines ------------------------------------------------------------
 // Convert Machines to 2.0.0 (MSL 3.0)

@@ -26,15 +26,13 @@ package Icons "Library of icons"
         Text(
           extent={{-120,135},{120,70}}, 
           lineColor={255,0,0}, 
-          textString=
-               "%name"), 
+          textString="%name"), 
         Text(
           extent={{-90,40},{70,10}}, 
           lineColor={160,160,164}, 
           fillColor={0,0,0}, 
           fillPattern=FillPattern.Solid, 
-          textString=
-               "Library"), 
+          textString="Library"), 
         Rectangle(
           extent={{-100,-100},{80,50}}, 
           fillColor={235,235,235}, 
@@ -52,8 +50,7 @@ package Icons "Library of icons"
           lineColor={160,160,164}, 
           fillColor={0,0,0}, 
           fillPattern=FillPattern.Solid, 
-          textString=
-               "Library"), 
+          textString="Library"), 
         Polygon(
           points={{-64,-20},{-50,-4},{50,-4},{36,-20},{-64,-20},{-64,-20}}, 
           lineColor={0,0,0}, 
@@ -69,8 +66,7 @@ package Icons "Library of icons"
           lineColor={128,128,128}, 
           fillColor={128,128,128}, 
           fillPattern=FillPattern.Solid, 
-          textString=
-               "Library"), 
+          textString="Library"), 
         Polygon(
           points={{50,-4},{50,-70},{36,-84},{36,-20},{50,-4}}, 
           lineColor={0,0,0}, 
@@ -136,8 +132,8 @@ and the accompanying <b>disclaimer</b>
     
     annotation (
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(extent={{-100,80},{80,-90}}, lineColor={0,0,255}), 
           Polygon(
@@ -148,21 +144,20 @@ and the accompanying <b>disclaimer</b>
             points={{80,-90},{90,-80},{90,90},{80,80},{80,-90}}, 
             fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-80,70},{60,-70}}, textString=
-                                               "Info")}),
+          Text(extent={{-80,70},{60,-70}}, textString="Info")}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-100,80},{80,-90}}, lineColor={0,0,255}), 
+          Rectangle(extent={{-100,80},{80,-90}}, lineColor={0,0,255}),
           Polygon(
-            points={{-100,80},{-90,90},{90,90},{80,80},{-100,80}}, 
-            fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
+            points={{-100,80},{-90,90},{90,90},{80,80},{-100,80}},
+            fillColor={0,0,255},
+            fillPattern=FillPattern.Solid),
           Polygon(
-            points={{80,-90},{90,-80},{90,90},{80,80},{80,-90}}, 
-            fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
+            points={{80,-90},{90,-80},{90,90},{80,80},{80,-90}},
+            fillColor={0,0,255},
+            fillPattern=FillPattern.Solid),
           Text(extent={{-80,70},{60,-70}}, textString=
                                                "Info")}),
       Documentation(info="<html>
@@ -177,8 +172,8 @@ This icon is designed for an <b>information</b> class.
   partial package Library "Icon for library" 
     
     annotation (             Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
             extent={{-100,-100},{80,50}}, 
@@ -195,13 +190,11 @@ This icon is designed for an <b>information</b> class.
           Text(
             extent={{-85,35},{65,-85}}, 
             lineColor={0,0,255}, 
-            textString=
-                 "Library"), 
+            textString="Library"), 
           Text(
             extent={{-120,122},{120,73}}, 
             lineColor={255,0,0}, 
-            textString=
-                 "%name")}),
+            textString="%name")}),
       Documentation(info="<html>
 <p>
 This icon is designed for a <b>library</b>.
@@ -213,8 +206,8 @@ This icon is designed for a <b>library</b>.
     "Icon for library where additional icon elements shall be added" 
     
     annotation (             Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
             extent={{-100,-100},{80,50}}, 
@@ -231,15 +224,13 @@ This icon is designed for a <b>library</b>.
           Text(
             extent={{-120,125},{120,70}}, 
             lineColor={255,0,0}, 
-            textString=
-                 "%name"), 
+            textString="%name"), 
           Text(
             extent={{-90,40},{70,10}}, 
             lineColor={160,160,164}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid, 
-            textString=
-                 "Library")}),
+            textString="Library")}),
       Documentation(info="<html>
 <p>
 This icon is designed for a <b>package</b> where a package
@@ -251,8 +242,8 @@ specific graphic is additionally included in the icon.
   partial model Example "Icon for an example model" 
     
     annotation (             Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
             extent={{-100,-100},{80,50}}, 
@@ -269,13 +260,11 @@ specific graphic is additionally included in the icon.
           Text(
             extent={{-96,3},{77,-49}}, 
             lineColor={0,0,255}, 
-            textString=
-                 "Example"), 
+            textString="Example"), 
           Text(
             extent={{-120,132},{120,73}}, 
             lineColor={255,0,0}, 
-            textString=
-                 "%name")}),
+            textString="%name")}),
       Documentation(info="<html>
 <p>
 This icon is designed for an <b>Example package</b>,
@@ -288,9 +277,9 @@ i.e. a package containing executable demo models.
   
   partial function Function "Icon for a function" 
     
-    annotation (Icon(graphics={
-          Text(extent={{-140,162},{136,102}}, textString=
-                                                 "%name"), 
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
+          Text(extent={{-140,162},{136,102}}, textString="%name"), 
           Ellipse(
             extent={{-100,100},{100,-100}}, 
             lineColor={255,127,0}, 
@@ -299,8 +288,8 @@ i.e. a package containing executable demo models.
           Text(
             extent={{-100,100},{100,-100}}, 
             lineColor={255,127,0}, 
-            textString=
-                 "f")}),Documentation(info="<html>
+            textString="f")}),
+                        Documentation(info="<html>
 <p>
 This icon is designed for a <b>function</b>
 </p>
@@ -309,13 +298,13 @@ This icon is designed for a <b>function</b>
   
   partial record Record "Icon for a record" 
     
-    annotation (Icon(graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,50},{100,-100}}, 
             fillColor={255,255,127}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-127,115},{127,55}}, textString=
-                                                 "%name"), 
+          Text(extent={{-127,115},{127,55}}, textString="%name"), 
           Line(points={{-100,-50},{100,-50}}, color={0,0,0}), 
           Line(points={{-100,0},{100,0}}, color={0,0,0}), 
           Line(points={{0,50},{0,-100}}, color={0,0,0})}),
@@ -326,33 +315,11 @@ This icon is designed for a <b>record</b>
 </html>"));
   end Record;
   
-  partial class Enumeration "Icon for an enumeration (emulated by a package)" 
-    
-    annotation (Icon(graphics={
-          Text(extent={{-138,164},{138,104}}, textString=
-                                                 "%name"), 
-          Ellipse(
-            extent={{-100,100},{100,-100}}, 
-            lineColor={255,0,127}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
-          Text(
-            extent={{-100,100},{100,-100}}, 
-            lineColor={255,0,127}, 
-            fillColor={223,159,191}, 
-            fillPattern=FillPattern.Solid, 
-            textString=
-                 "e")}),Documentation(info="<html>
-<p>
-This icon is designed for an <b>enumeration</b>
-(that is emulated by a package).
-</p>
-</html>"));
-  end Enumeration;
   
   type TypeReal "Icon for a Real type" 
       extends Real;
-      annotation(Icon(graphics={Rectangle(
+      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={Rectangle(
             extent={{-100,100},{100,-100}}, 
             lineColor={0,0,0}, 
             fillColor={181,181,181}, 
@@ -361,8 +328,8 @@ This icon is designed for an <b>enumeration</b>
             lineColor={0,0,0}, 
             fillColor={181,181,181}, 
             fillPattern=FillPattern.Solid, 
-            textString=
-                 "R")}),Documentation(info="<html>
+            textString="R")}),
+                        Documentation(info="<html>
 <p>
 This icon is designed for a <b>Real</b> type.
 </p>
@@ -371,7 +338,8 @@ This icon is designed for a <b>Real</b> type.
   
   type TypeInteger "Icon for an Integer type" 
       extends Integer;
-      annotation(Icon(graphics={Rectangle(
+      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={Rectangle(
             extent={{-100,100},{100,-100}}, 
             lineColor={0,0,0}, 
             fillColor={181,181,181}, 
@@ -380,8 +348,8 @@ This icon is designed for a <b>Real</b> type.
             lineColor={0,0,0}, 
             fillColor={181,181,181}, 
             fillPattern=FillPattern.Solid, 
-            textString=
-                 "I")}),Documentation(info="<html>
+            textString="I")}),
+                        Documentation(info="<html>
 <p>
 This icon is designed for an <b>Integer</b> type.
 </p>
@@ -390,7 +358,8 @@ This icon is designed for an <b>Integer</b> type.
   
   type TypeBoolean "Icon for a Boolean type" 
       extends Boolean;
-      annotation(Icon(graphics={Rectangle(
+      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={Rectangle(
             extent={{-100,100},{100,-100}}, 
             lineColor={0,0,0}, 
             fillColor={181,181,181}, 
@@ -399,8 +368,8 @@ This icon is designed for an <b>Integer</b> type.
             lineColor={0,0,0}, 
             fillColor={181,181,181}, 
             fillPattern=FillPattern.Solid, 
-            textString=
-                 "B")}),Documentation(info="<html>
+            textString="B")}),
+                        Documentation(info="<html>
 <p>
 This icon is designed for a <b>Boolean</b> type.
 </p>
@@ -409,7 +378,8 @@ This icon is designed for a <b>Boolean</b> type.
   
   type TypeString "Icon for a String type" 
       extends String;
-      annotation(Icon(graphics={Rectangle(
+      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={Rectangle(
             extent={{-100,100},{100,-100}}, 
             lineColor={0,0,0}, 
             fillColor={181,181,181}, 
@@ -418,8 +388,8 @@ This icon is designed for a <b>Boolean</b> type.
             lineColor={0,0,0}, 
             fillColor={181,181,181}, 
             fillPattern=FillPattern.Solid, 
-            textString=
-                 "S")}),Documentation(info="<html>
+            textString="S")}),
+                        Documentation(info="<html>
 <p>
 This icon is designed for a <b>String</b> type.
 </p>
@@ -431,8 +401,8 @@ This icon is designed for a <b>String</b> type.
     
     annotation (
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
             extent={{-70,-60},{70,20}}, 
@@ -453,8 +423,8 @@ This icon is designed for a <b>String</b> type.
           Line(points={{30,-40},{30,-60}}, color={0,0,0}), 
           Line(points={{50,-40},{50,-60}}, color={0,0,0})}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics),
       Documentation(info="<html>
 <p>
@@ -470,8 +440,8 @@ This icon is designed for a <b>translational sensor</b> model.
     
     annotation (
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Ellipse(
             extent={{-70,70},{70,-70}}, 
@@ -495,8 +465,8 @@ This icon is designed for a <b>translational sensor</b> model.
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics),
       Documentation(info="<html>
 <p>
@@ -510,8 +480,8 @@ This icon is designed for a <b>rotational sensor</b> model.
   partial model GearIcon "Icon for gearbox" 
     
     annotation (             Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(
             extent={{-90,10},{-60,-10}}, 
@@ -559,8 +529,8 @@ This icon is designed for a <b>gearbox</b> model.
   partial model MotorIcon "Icon for electrical motor" 
     
     annotation (             Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
             extent={{-100,50},{30,-50}}, 
@@ -591,9 +561,9 @@ This icon is designed for an <b>electrical motor</b> model.
     
     annotation (
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
-          grid={2,2}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={2,2},
           initialScale=0.2), graphics={
           Rectangle(
             extent={{-20,2},{20,-2}}, 
@@ -631,44 +601,44 @@ This icon is designed for an <b>electrical motor</b> model.
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
-          grid={2,2}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={2,2},
           initialScale=0.2), graphics={
           Polygon(
             points={{-40,25},{40,25},{50,15},{40,-20},{30,-25},{-30,-25},{-40,
-                -20},{-50,15},{-40,25}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,204,51}, 
-            fillPattern=FillPattern.Solid), 
+                -20},{-50,15},{-40,25}},
+            lineColor={0,0,0},
+            fillColor={255,204,51},
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{-32.5,7.5},{-27.5,12.5}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-32.5,7.5},{-27.5,12.5}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{-2.5,12.5},{2.5,7.5}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-2.5,12.5},{2.5,7.5}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{27.5,12.5},{32.5,7.5}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{27.5,12.5},{32.5,7.5}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{-17.5,-7.5},{-12.5,-12.5}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-17.5,-7.5},{-12.5,-12.5}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{12.5,-7.5},{17.5,-12.5}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{12.5,-7.5},{17.5,-12.5}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-150,70},{150,40}}, 
-            lineColor={0,0,0}, 
+            extent={{-150,70},{150,40}},
+            lineColor={0,0,0},
             textString=
                  "%name")}),
       Documentation(info="<html>
@@ -683,9 +653,9 @@ This icon is designed for a <b>signal bus</b> connector.
     
     annotation (
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
-          grid={2,2}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={2,2},
           initialScale=0.1), graphics={
           Line(
             points={{-16,2},{16,2}}, 
@@ -721,34 +691,34 @@ This icon is designed for a <b>signal bus</b> connector.
             lineColor={255,204,51}, 
             lineThickness=2)}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
-          grid={2,2}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={2,2},
           initialScale=0.1), graphics={
           Polygon(
             points={{-40,25},{40,25},{50,15},{40,-20},{30,-25},{-30,-25},{-40,
-                -20},{-50,15},{-40,25}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,204,51}, 
-            fillPattern=FillPattern.Solid), 
+                -20},{-50,15},{-40,25}},
+            lineColor={0,0,0},
+            fillColor={255,204,51},
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{-22.5,7.5},{-17.5,12.5}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-22.5,7.5},{-17.5,12.5}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{17.5,12.5},{22.5,7.5}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{17.5,12.5},{22.5,7.5}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{-2.5,-7.5},{2.5,-12.5}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-2.5,-7.5},{2.5,-12.5}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-150,70},{150,40}}, 
-            lineColor={0,0,0}, 
+            extent={{-150,70},{150,40}},
+            lineColor={0,0,0},
             textString=
                  "%name")}),
       Documentation(info="<html>

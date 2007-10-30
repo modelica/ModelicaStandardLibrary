@@ -2010,14 +2010,14 @@ November 3-4, 2003, pp. 149-158</p>
                 -116,-16},{-84,16}}, rotation=0)));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              fillColor={255,255,255}, 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
               fillPattern=FillPattern.Solid), Text(
-              extent={{-150,110},{150,150}}, 
-              lineColor={0,0,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid, 
+              extent={{-150,110},{150,150}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
               textString="%name")}));
     equation 
       frame_a.f=zeros(3);
@@ -2047,18 +2047,6 @@ November 3-4, 2003, pp. 149-158</p>
       "Moment of inertia of rotor around its axis of rotation";
     parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
       "Axis of rotation resolved in frame_a";
-    parameter Modelica.Mechanics.MultiBody.Types.Init initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
-      "Type of initialization (defines usage of start values below)" 
-      annotation (Dialog(group="Initialization"));
-    parameter Cv.NonSIunits.Angle_deg phi_start=0 
-      "Initial value of rotor rotation angle phi (fixed or guess value)" 
-      annotation (Evaluate=false, Dialog(group="Initialization"));
-    parameter Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs w_start=0 
-      "Initial value of relative angular velocity w = der(phi)" 
-      annotation (Evaluate=false, Dialog(group="Initialization"));
-    parameter Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2 
-      a_start=0 "Initial value of relative angular acceleration a = der(w)" 
-      annotation (Evaluate=false, Dialog(group="Initialization"));
     parameter SI.Position r_center[3]=zeros(3) 
       "Position vector from origin of frame_a to center of cylinder" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -2075,21 +2063,21 @@ November 3-4, 2003, pp. 149-158</p>
       specularCoefficient=world.defaultSpecularCoefficient 
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Boolean enforceStates=false 
-      "= true, if rotor angle (phi) and rotor speed (w) shall be used as states"
-      annotation (Dialog(tab="Advanced"));
+    parameter StateSelect stateSelect=StateSelect.default 
+      "Priority to use rotor angle (phi) and rotor speed (w) as states" annotation(Dialog(tab="Advanced"));
     parameter Boolean exact=true 
       "= true, if exact calculations; false if influence of bearing on rotor acceleration is neglected to avoid an algebraic loop"
       annotation (Dialog(tab="Advanced"));
     
-    SI.Angle phi(start=Cv.from_deg(phi_start), stateSelect=if enforceStates then 
-                StateSelect.always else StateSelect.default) 
-      "Rotation angle of rotor with respect to frame_a (= flange_a.phi = flange_b.phi)";
-    SI.AngularVelocity w(stateSelect=if enforceStates then StateSelect.always else 
-                StateSelect.default) 
-      "Angular velocity of rotor with respect to frame_a";
-    SI.AngularAcceleration a 
-      "Angular acceleration of rotor with respect to frame_a";
+    SI.Angle phi(start=0, final stateSelect=stateSelect) 
+      "Rotation angle of rotor with respect to frame_a (= flange_a.phi = flange_b.phi)"
+      annotation(Dialog(initialDialog=true));
+    SI.AngularVelocity w(start=0, final stateSelect=stateSelect) 
+      "Angular velocity of rotor with respect to frame_a" 
+      annotation(Dialog(initialDialog=true));
+    SI.AngularAcceleration a(start=0) 
+      "Angular acceleration of rotor with respect to frame_a" 
+       annotation(Dialog(initialDialog=true));
     
     Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a 
       "(left) driving flange (flange axis directed INTO cut plane)" 
@@ -2166,55 +2154,20 @@ November 3-4, 2003, pp. 149-158</p>
               100,100}}), graphics),
       uses(Modelica(version="3.0-development")));
     
-  protected 
-    outer Modelica.Mechanics.MultiBody.World world;
-    parameter Real e[3]=Modelica.Mechanics.MultiBody.Frames.normalize(
-                                         n) 
-      "Unit vector in direction of rotor axis, resolved in frame_a";
-    Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape cylinder(
-      shapeType="cylinder",
-      color=cylinderColor,
-      specularCoefficient=specularCoefficient,
-      length=cylinderLength,
-      width=cylinderDiameter,
-      height=cylinderDiameter,
-      lengthDirection=n,
-      widthDirection={0,1,0},
-      extra=1,
-      r_shape=r_center - e*(cylinderLength/2),
-      r=zeros(3),
-      R=Modelica.Mechanics.MultiBody.Frames.planarRotation(
-          e,
-          phi,
-          0)) if world.enableAnimation and animation and not world.driveTrainMechanics3D;
-    
-  public 
   encapsulated model RotorWith3DEffects 
       "1D inertia attachable on 3-dim. bodies (3D dynamic effects are taken into account)" 
       
-      import Modelica;
-      import Modelica.Mechanics.MultiBody.Frames;
-      import Modelica.Mechanics.MultiBody.Types;
-      import SI = Modelica.SIunits;
-      import Cv = Modelica.SIunits.Conversions;
+    import Modelica;
+    import Modelica.Mechanics.MultiBody.Frames;
+    import Modelica.Mechanics.MultiBody.Types;
+    import SI = Modelica.SIunits;
+    import Cv = Modelica.SIunits.Conversions;
       
     parameter Boolean animation=true 
         "= true, if animation shall be enabled (show rotor as cylinder)";
     parameter SI.Inertia J(min=0)=1 
         "Moment of inertia of rotor around its axis of rotation";
     parameter Types.Axis n={1,0,0} "Axis of rotation resolved in frame_a";
-    parameter Types.Init initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
-        "Type of initialization (defines usage of start values below)" 
-      annotation (Dialog(group="Initialization"));
-    parameter Cv.NonSIunits.Angle_deg phi_start=0 
-        "Initial value of rotor rotation angle phi (fixed or guess value)" 
-      annotation (Evaluate=false, Dialog(group="Initialization"));
-    parameter Types.AngularVelocity_degs w_start=0 
-        "Initial value of relative angular velocity w = der(phi)" 
-      annotation (Evaluate=false, Dialog(group="Initialization"));
-    parameter Types.AngularAcceleration_degs2 a_start=
-              0 "Initial value of relative angular acceleration a = der(w)" 
-      annotation (Evaluate=false, Dialog(group="Initialization"));
     parameter SI.Position r_center[3]=zeros(3) 
         "Position vector from origin of frame_a to center of cylinder" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -2230,24 +2183,25 @@ November 3-4, 2003, pp. 149-158</p>
     input Types.SpecularCoefficient specularCoefficient =                              world.defaultSpecularCoefficient 
         "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Boolean enforceStates=false 
-        "= true, if rotor angle (phi) and rotor speed (w) shall be used as states"
-      annotation (Dialog(tab="Advanced"));
-      
+    parameter StateSelect stateSelect=StateSelect.default 
+        "Priority to use rotor angle (phi) and rotor speed (w) as states" 
+                                                                        annotation(Dialog(tab="Advanced"));
     parameter Boolean exact=true 
         "= true, if exact calculations; false if influence of bearing on rotor acceleration is neglected to avoid an algebraic loop"
       annotation (Dialog(tab="Advanced"));
       
     SI.AngularVelocity w_a[3] 
         "Angular velocity of frame_a, resolved in frame_a";
-    SI.Angle phi(start=Cv.from_deg(phi_start), stateSelect=if enforceStates then 
-                StateSelect.always else StateSelect.default) 
-        "Rotation angle of rotor with respect to frame_a (= flange_a.phi = flange_b.phi)";
-    SI.AngularVelocity w(stateSelect=if enforceStates then StateSelect.always else 
-                StateSelect.default) 
-        "Angular velocity of rotor with respect to frame_a";
-    SI.AngularAcceleration a 
-        "Angular acceleration of rotor with respect to frame_a";
+    SI.Angle phi(start=0, final stateSelect=stateSelect) 
+        "Rotation angle of rotor with respect to frame_a (= flange_a.phi = flange_b.phi)"
+      annotation(Dialog(initialDialog=true));
+      
+    SI.AngularVelocity w(start=0, stateSelect=stateSelect) 
+        "Angular velocity of rotor with respect to frame_a" 
+      annotation(Dialog(initialDialog=true));
+    SI.AngularAcceleration a(start=0) 
+        "Angular acceleration of rotor with respect to frame_a" 
+      annotation(Dialog(initialDialog=true));
       
     Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a 
         "(left) driving flange (flange axis directed INTO cut plane)" 
@@ -2262,6 +2216,7 @@ November 3-4, 2003, pp. 149-158</p>
             origin={0,-100},
             extent={{-20,-20},{20,20}},
             rotation=90)));
+      
     annotation (
       Documentation(info="<html>
 <p>
@@ -2321,59 +2276,9 @@ November 3-4, 2003, pp. 149-158</p>
               fillColor={192,192,192}), 
             Text(extent={{-148,112},{152,72}}, textString="%name=%J"), 
             Line(points={{0,-70},{0,-100}}, color={0,0,0})}),
-      Diagram(graphics={
-            Line(points={{-80,-25},{-60,-25}}, color={0,0,0}),
-            Line(points={{60,-25},{80,-25}}, color={0,0,0}),
-            Line(points={{-70,-25},{-70,-70}}, color={0,0,0}),
-            Line(points={{70,-25},{70,-70}}, color={0,0,0}),
-            Line(points={{-80,25},{-60,25}}, color={0,0,0}),
-            Line(points={{60,25},{80,25}}, color={0,0,0}),
-            Line(points={{-70,45},{-70,25}}, color={0,0,0}),
-            Line(points={{70,45},{70,25}}, color={0,0,0}),
-            Line(points={{-70,-70},{70,-70}}, color={0,0,0}),
-            Rectangle(
-              extent={{-50,50},{50,-50}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{-96,10},{-50,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{50,10},{96,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Polygon(
-              points={{6,88},{-14,93},{-14,83},{6,88}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Line(
-              points={{-84,88},{-13,88}},
-              color={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{10,95},{78,82}},
-              lineColor={128,128,128},
-              textString=
-                 "rotation axis"),
-            Polygon(
-              points={{9,73},{19,70},{9,67},{9,73}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Line(
-              points={{9,70},{-21,70}},
-              color={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Text(extent={{25,77},{77,65}}, textString=
-                                             "w = der(phi) "),
-            Line(points={{0,-70},{0,-100}}, color={0,0,0})}));
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}),
+                          graphics));
       
     protected 
     outer Modelica.Mechanics.MultiBody.World world;
@@ -2394,25 +2299,6 @@ November 3-4, 2003, pp. 149-158</p>
       r=frame_a.r_0,
       R=Frames.absoluteRotation(frame_a.R, Frames.planarRotation(e, phi, 0))) if 
          world.enableAnimation and animation;
-  initial equation 
-    if initType == Types.Init.PositionVelocity then
-      phi = Cv.from_deg(phi_start);
-      w = w_start*Modelica.Constants.D2R;
-    elseif initType == Types.Init.SteadyState then
-      w = 0;
-      a = 0;
-    elseif initType == Types.Init.Position then
-      phi = Cv.from_deg(phi_start);
-    elseif initType == Types.Init.Velocity then
-      w = w_start*Modelica.Constants.D2R;
-    elseif initType == Types.Init.VelocityAcceleration then
-      w = w_start*Modelica.Constants.D2R;
-      a = a_start*Modelica.Constants.D2R;
-    elseif initType == Types.Init.PositionVelocityAcceleration then
-      phi = Cv.from_deg(phi_start);
-      w = w_start*Modelica.Constants.D2R;
-      a = a_start*Modelica.Constants.D2R;
-    end if;
   equation 
     phi = flange_a.phi;
     phi = flange_b.phi;
@@ -2431,21 +2317,35 @@ November 3-4, 2003, pp. 149-158</p>
   end RotorWith3DEffects;
     
   protected 
+    outer Modelica.Mechanics.MultiBody.World world;
+    parameter Real e[3]=Modelica.Mechanics.MultiBody.Frames.normalize(
+                                         n) 
+      "Unit vector in direction of rotor axis, resolved in frame_a";
+    Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape cylinder(
+      shapeType="cylinder",
+      color=cylinderColor,
+      specularCoefficient=specularCoefficient,
+      length=cylinderLength,
+      width=cylinderDiameter,
+      height=cylinderDiameter,
+      lengthDirection=n,
+      widthDirection={0,1,0},
+      extra=1,
+      r_shape=r_center - e*(cylinderLength/2),
+      r=zeros(3),
+      R=Modelica.Mechanics.MultiBody.Frames.planarRotation(
+          e,
+          phi,
+          0)) if world.enableAnimation and animation and not world.driveTrainMechanics3D;
+    
     Modelica.Mechanics.Rotational.Inertia inertia(
-      J=J,
-      initType=initType,
-      phi_start=phi_start*Modelica.Constants.D2R,
-      w_start=w_start*Modelica.Constants.D2R,
-      a_start=a_start*Modelica.Constants.D2R) if not world.driveTrainMechanics3D 
+      J=J) if 
+          not world.driveTrainMechanics3D 
       annotation (Placement(transformation(extent={{-20,-20},{20,20}}, rotation=0)));
     RotorWith3DEffects rotorWith3DEffects(
       animation=animation,
       J=J,
       n=n,
-      initType=initType,
-      phi_start=phi_start,
-      w_start=w_start,
-      a_start=a_start,
       r_center=r_center,
       cylinderLength=cylinderLength,
       cylinderDiameter=cylinderDiameter,
@@ -2561,7 +2461,7 @@ this component could be used to model any kind of gearbox with non-parallel axes
 3D Mechanical Effects of 1-dim. Powertrains</a>. In: <i>Proceedings of the 3rd International
 Modelica Conference</i>. Link&ouml;ping : The Modelica Association and Link&ouml;ping University,
 November 3-4, 2003, pp. 149-158</p>
-</html>"), 
+</html>"),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics));
     
@@ -2579,14 +2479,14 @@ November 3-4, 2003, pp. 149-158</p>
                 -116,-16},{-84,16}}, rotation=0)));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              fillColor={255,255,255}, 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
               fillPattern=FillPattern.Solid), Text(
-              extent={{-150,110},{150,150}}, 
-              lineColor={0,0,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid, 
+              extent={{-150,110},{150,150}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
               textString="%name")}));
     equation 
       frame_a.f=zeros(3);
@@ -2600,9 +2500,9 @@ November 3-4, 2003, pp. 149-158</p>
     flange_a.phi = ratio*flange_b.phi;
     0 = ratio*flange_a.tau + flange_b.tau;
     connect(housing.frame_a, frame_a) annotation (Line(
-        points={{20,-50},{0,-50},{0,-100}}, 
-        color={95,95,95}, 
-        thickness=2, 
+        points={{20,-50},{0,-50},{0,-100}},
+        color={95,95,95},
+        thickness=2,
         smooth=Smooth.None));
   end BevelGear1D;
 end Parts;
