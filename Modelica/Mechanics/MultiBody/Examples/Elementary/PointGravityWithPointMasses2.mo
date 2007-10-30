@@ -49,7 +49,7 @@ model PointGravityWithPointMasses2
         extent={{10,-10},{-10,10}},
         rotation=90)));
   
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
             -100},{100,100}}),
                       graphics),
     experiment(StopTime=3, Tolerance=1e-006),
@@ -134,7 +134,9 @@ model SystemWithStandardBodies
           extent={{10,-10},{-10,10}},
           rotation=90)));
     
-  annotation (Diagram(graphics),
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}),
+                      graphics),
                        Documentation(info="<html>
 <p>
 In order to compare the results of the \"PointMass\" example where
