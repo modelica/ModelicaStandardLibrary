@@ -35,8 +35,8 @@ MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
 </p>
 </html>"),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={1,1}), graphics));
   
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
@@ -45,43 +45,43 @@ MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
     rRod1_ia=r1a,
     rRod2_ib=r1b,
     checkTotalPower=true) annotation (Placement(transformation(
-        origin={-20,0}, 
-        extent={{-20,-20},{20,20}}, 
+        origin={-20,0},
+        extent={{-20,-20},{20,20}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute rev(initType=Modelica.Mechanics.MultiBody.Types.Init.Velocity) 
     annotation (Placement(transformation(
-        origin={-56,-10}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-56,-10},
+        extent={{-10,-10},{10,10}},
         rotation=90)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod1(r=rv) 
     annotation (Placement(transformation(
-        origin={-56,30}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-56,30},
+        extent={{-10,-10},{10,10}},
         rotation=90)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(r=rh) 
-    annotation (Placement(transformation(extent={{-50,-60},{-30,-40}}, rotation
-          =0)));
+    annotation (Placement(transformation(extent={{-50,-60},{-30,-40}}, rotation=
+           0)));
   Modelica.Mechanics.MultiBody.Parts.Body body1(
     m=1,
     cylinderColor={155,155,155},
     r_CM=jointRRR1.rRod1_ia/2) 
     annotation (Placement(transformation(
-        origin={6,60}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={6,60},
+        extent={{-10,-10},{10,10}},
         rotation=90)));
   Modelica.Mechanics.Rotational.Position position 
     annotation (Placement(transformation(extent={{-90,-20},{-70,0}}, rotation=0)));
   Modelica.Blocks.Sources.Sine sine(amplitude=0.7) 
     annotation (Placement(transformation(
-        origin={-96,30}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-96,30},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR jointRRR2(
     rRod1_ia=r2a,
     rRod2_ib=r2b,
     checkTotalPower=true) annotation (Placement(transformation(
-        origin={30,0}, 
-        extent={{-20,-20},{20,20}}, 
+        origin={30,0},
+        extent={{-20,-20},{20,20}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod3(r=rh) 
     annotation (Placement(transformation(extent={{0,-60},{20,-40}}, rotation=0)));
@@ -89,15 +89,15 @@ MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
     m=1,
     cylinderColor={155,155,155},
     r_CM=jointRRR2.rRod1_ia/2) annotation (Placement(transformation(
-        origin={55,61}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={55,61},
+        extent={{-10,-10},{10,10}},
         rotation=90)));
   Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR jointRRR3(
     rRod1_ia=r3a,
     rRod2_ib=r3b,
     checkTotalPower=true) annotation (Placement(transformation(
-        origin={80,0}, 
-        extent={{-20,-20},{20,20}}, 
+        origin={80,0},
+        extent={{-20,-20},{20,20}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod4(r=rh) 
     annotation (Placement(transformation(extent={{40,-60},{60,-40}}, rotation=0)));
@@ -105,71 +105,71 @@ MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
     m=1,
     cylinderColor={155,155,155},
     r_CM=jointRRR3.rRod1_ia/2) annotation (Placement(transformation(
-        origin={108,62}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={108,62},
+        extent={{-10,-10},{10,10}},
         rotation=90)));
 equation 
   connect(world.frame_b, rev.frame_a) annotation (Line(
-      points={{-66,-50},{-56,-50},{-56,-20}}, 
-      color={95,95,95}, 
+      points={{-66,-50},{-56,-50},{-56,-20}},
+      color={95,95,95},
       thickness=2));
   connect(rod1.frame_a, rev.frame_b) 
     annotation (Line(
-      points={{-56,20},{-56,0}}, 
-      color={0,0,0}, 
+      points={{-56,20},{-56,0}},
+      color={0,0,0},
       thickness=2));
   connect(rod1.frame_b, jointRRR1.frame_a) annotation (Line(
-      points={{-56,40},{-56,50},{-20,50},{-20,20}}, 
-      color={95,95,95}, 
+      points={{-56,40},{-56,50},{-20,50},{-20,20}},
+      color={95,95,95},
       thickness=2));
   connect(rod2.frame_a, world.frame_b) 
     annotation (Line(
-      points={{-50,-50},{-66,-50}}, 
-      color={95,95,95}, 
+      points={{-50,-50},{-66,-50}},
+      color={95,95,95},
       thickness=2));
   connect(rod2.frame_b, jointRRR1.frame_b) annotation (Line(
-      points={{-30,-50},{-20,-50},{-20,-20}}, 
-      color={95,95,95}, 
+      points={{-30,-50},{-20,-50},{-20,-20}},
+      color={95,95,95},
       thickness=2));
   connect(jointRRR1.frame_ia, body1.frame_a) annotation (Line(
-      points={{0,16},{6,16},{6,50}}, 
-      color={95,95,95}, 
+      points={{0,16},{6,16},{6,50}},
+      color={95,95,95},
       thickness=2));
   connect(position.flange_b, rev.axis) 
     annotation (Line(points={{-70,-10},{-66,-10}}, color={0,0,0}));
   connect(rod3.frame_a, rod2.frame_b) 
     annotation (Line(
-      points={{0,-50},{-30,-50}}, 
-      color={95,95,95}, 
+      points={{0,-50},{-30,-50}},
+      color={95,95,95},
       thickness=2));
   connect(rod3.frame_b, jointRRR2.frame_b) annotation (Line(
-      points={{20,-50},{30,-50},{30,-20}}, 
-      color={95,95,95}, 
+      points={{20,-50},{30,-50},{30,-20}},
+      color={95,95,95},
       thickness=2));
   connect(jointRRR2.frame_ia, body2.frame_a) annotation (Line(
-      points={{50,16},{55,16},{55,51}}, 
-      color={95,95,95}, 
+      points={{50,16},{55,16},{55,51}},
+      color={95,95,95},
       thickness=2));
   connect(jointRRR1.frame_im, jointRRR2.frame_a) annotation (Line(
-      points={{0,1.22465e-015},{12,1.22465e-015},{12,25},{30,25},{30,20}}, 
-      color={95,95,95}, 
+      points={{0,1.22465e-015},{12,1.22465e-015},{12,25},{30,25},{30,20}},
+      color={95,95,95},
       thickness=2));
   connect(rod3.frame_b, rod4.frame_a) 
     annotation (Line(
-      points={{20,-50},{40,-50}}, 
-      color={95,95,95}, 
+      points={{20,-50},{40,-50}},
+      color={95,95,95},
       thickness=2));
   connect(rod4.frame_b, jointRRR3.frame_b) annotation (Line(
-      points={{60,-50},{80,-50},{80,-20}}, 
-      color={95,95,95}, 
+      points={{60,-50},{80,-50},{80,-20}},
+      color={95,95,95},
       thickness=2));
   connect(jointRRR2.frame_im, jointRRR3.frame_a) annotation (Line(
-      points={{50,1.22465e-015},{60,1.22465e-015},{60,26},{80,26},{80,20}}, 
-      color={95,95,95}, 
+      points={{50,1.22465e-015},{60,1.22465e-015},{60,26},{80,26},{80,20}},
+      color={95,95,95},
       thickness=2));
   connect(jointRRR3.frame_ia, body3.frame_a) annotation (Line(
-      points={{100,16},{108,16},{108,52}}, 
-      color={95,95,95}, 
+      points={{100,16},{108,16},{108,52}},
+      color={95,95,95},
       thickness=2));
   connect(sine.y, position.phi_ref) annotation (Line(points={{-96,19},{-96,-10},
           {-92,-10}}, color={0,0,255}));

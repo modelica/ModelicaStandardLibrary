@@ -115,11 +115,7 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
             lineColor={128,128,128}, 
             fillColor={128,128,128}, 
             fillPattern=FillPattern.Solid), 
-          Line(
-            points={{0,80},{0,-80}}, 
-            color={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{0,80},{0,-80}}, color={128,128,128}), 
           Polygon(
             points={{-4,70},{0,80},{4,70},{-4,70}}, 
             lineColor={128,128,128}, 
@@ -140,15 +136,11 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
           Line(
             points={{-80,-40},{-20,-10},{20,10},{40,70}}, 
             color={0,0,0}, 
-            thickness=2, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+            thickness=2), 
           Line(
             points={{20,9},{20,0}}, 
             color={128,128,128}, 
-            pattern=LinePattern.Dot, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+            pattern=LinePattern.Dot), 
           Text(
             extent={{20,0},{40,-10}}, 
             lineColor={128,128,128}, 
@@ -177,8 +169,7 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
           Line(
             points={{20,10},{70,40}}, 
             color={0,0,0}, 
-            thickness=2, 
-            fillPattern=FillPattern.Solid)}),
+            thickness=2)}),
               Window(
                 x=0.27,
                 y=0.18,
@@ -263,11 +254,7 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
             lineColor={128,128,128}, 
             fillColor={128,128,128}, 
             fillPattern=FillPattern.Solid), 
-          Line(
-            points={{0,80},{0,-80}}, 
-            color={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{0,80},{0,-80}}, color={128,128,128}), 
           Polygon(
             points={{-4,70},{0,80},{4,70},{-4,70}}, 
             lineColor={128,128,128}, 
@@ -288,15 +275,11 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
           Line(
             points={{-80,-40},{-20,-10},{20,10},{40,70}}, 
             color={0,0,0}, 
-            thickness=2, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+            thickness=2), 
           Line(
             points={{20,9},{20,0}}, 
             color={128,128,128}, 
-            pattern=LinePattern.Dot, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+            pattern=LinePattern.Dot), 
           Text(
             extent={{20,0},{40,-10}}, 
             lineColor={128,128,128}, 
@@ -325,8 +308,7 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
           Line(
             points={{20,10},{70,40}}, 
             color={0,0,0}, 
-            thickness=2, 
-            fillPattern=FillPattern.Solid)}),
+            thickness=2)}),
               Window(
                 x=0.27,
                 y=0.13,
@@ -799,11 +781,7 @@ are possible (norator).
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={160,160,164}), 
-          Line(
-            points={{111,0},{136,0}}, 
-            color={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={160,160,164}), 
+          Line(points={{111,0},{136,0}}, color={0,0,0}), 
           Text(
             extent={{118,2},{135,17}}, 
             lineColor={0,0,0}, 
@@ -816,11 +794,7 @@ are possible (norator).
             fillColor={160,160,164}, 
             fillPattern=FillPattern.Solid, 
             textString="n1.i=0"), 
-          Line(
-            points={{18,-111},{18,-86}}, 
-            color={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{18,-111},{18,-86}}, color={160,160,164}), 
           Polygon(
             points={{21,-101},{18,-111},{15,-101},{21,-101}}, 
             lineColor={160,160,164}, 
@@ -915,11 +889,7 @@ are possible.
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={160,160,164}), 
-          Line(
-            points={{111,0},{136,0}}, 
-            color={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={160,160,164}), 
+          Line(points={{111,0},{136,0}}, color={0,0,0}), 
           Text(
             extent={{118,2},{135,17}}, 
             lineColor={0,0,0}, 
@@ -1025,11 +995,7 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={160,160,164}), 
-          Line(
-            points={{111,0},{136,0}}, 
-            color={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={160,160,164}), 
+          Line(points={{111,0},{136,0}}, color={0,0,0}), 
           Text(
             extent={{118,2},{135,17}}, 
             lineColor={0,0,0}, 
@@ -1124,11 +1090,7 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
             lineColor={128,128,128}, 
             fillColor={128,128,128}, 
             fillPattern=FillPattern.Solid), 
-          Line(
-            points={{0,80},{0,-80}}, 
-            color={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{0,80},{0,-80}}, color={128,128,128}), 
           Polygon(
             points={{-4,70},{0,80},{4,70},{-4,70}}, 
             lineColor={128,128,128}, 
@@ -1149,15 +1111,11 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
           Line(
             points={{-80,-40},{-20,-10},{20,10},{40,70}}, 
             color={0,0,0}, 
-            thickness=2, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+            thickness=2), 
           Line(
             points={{20,9},{20,0}}, 
             color={128,128,128}, 
-            pattern=LinePattern.Dot, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+            pattern=LinePattern.Dot), 
           Text(
             extent={{20,0},{40,-10}}, 
             lineColor={128,128,128}, 
@@ -1220,7 +1178,6 @@ where <i>n</i> is a real number called the turns ratio.
        </li>
 </ul>
 </html>"),
-      Coordsys(extent=[-100, -100; 100, 100], grid=[1, 1]),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1320,7 +1277,6 @@ where the constant <i>G</i> is called the gyration conductance.
             lineColor={255,255,255}, 
             pattern=LinePattern.Solid, 
             lineThickness=1, 
-            arrow={Arrow.None,Arrow.None}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
           Line(points={{-90,50},{-40,50},{-40,-50},{-90,-50}}), 
@@ -1330,7 +1286,6 @@ where the constant <i>G</i> is called the gyration conductance.
             points={{20,63},{30,60},{20,57},{20,63}}, 
             pattern=LinePattern.Solid, 
             lineThickness=1, 
-            arrow={Arrow.None,Arrow.None}, 
             fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid), 
           Ellipse(extent={{10,-30},{70,30}}), 
@@ -1339,7 +1294,6 @@ where the constant <i>G</i> is called the gyration conductance.
             lineColor={255,255,255}, 
             pattern=LinePattern.Solid, 
             lineThickness=1, 
-            arrow={Arrow.None,Arrow.None}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
           Line(points={{90,50},{40,50},{40,-50},{90,-50}})}),

@@ -340,10 +340,10 @@ The multiplexer converts a parallel 4 bit signal in a sequential
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              lineThickness=2,
-              fillColor={255,255,170},
+              extent={{-100,100},{100,-100}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2, 
+              fillColor={255,255,170}, 
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -446,10 +446,10 @@ Pulse-triggered master-slave flip-flop.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              lineThickness=2,
-              fillColor={255,255,170},
+              extent={{-100,100},{100,-100}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2, 
+              fillColor={255,255,170}, 
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -541,14 +541,12 @@ The simulation stop time should be 5 seconds.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-88,100},{90,-100}},
-              lineColor={0,0,0},
-              lineThickness=2,
-              fillColor={255,255,170},
-              fillPattern=FillPattern.Solid), Line(
-              points={{40,54},{40,60},{-40,60},{10,0},{-40,-60},{40,-60},{40,-52}},
-              color={0,0,0},
-              fillPattern=FillPattern.Solid)}),
+              extent={{-88,100},{90,-100}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2, 
+              fillColor={255,255,170}, 
+              fillPattern=FillPattern.Solid), Line(points={{40,54},{40,60},{-40,
+                  60},{10,0},{-40,-60},{40,-60},{40,-52}}, color={0,0,0})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -631,14 +629,12 @@ The simulation stop time should be 10 seconds.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              lineThickness=2,
-              fillColor={255,255,170},
-              fillPattern=FillPattern.Solid), Line(
-              points={{40,54},{40,60},{-40,60},{10,0},{-40,-60},{40,-60},{40,-52}},
-              color={0,0,0},
-              fillPattern=FillPattern.Solid)}),
+              extent={{-100,100},{100,-100}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2, 
+              fillColor={255,255,170}, 
+              fillPattern=FillPattern.Solid), Line(points={{40,54},{40,60},{-40,
+                  60},{10,0},{-40,-60},{40,-60},{40,-52}}, color={0,0,0})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -731,10 +727,10 @@ The simulation stop time has to be 5s.
             preserveAspectRatio=true,
             extent={{-200,-200},{200,200}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-200,200},{200,-200}},
-              lineColor={0,0,0},
-              lineThickness=2,
-              fillColor={255,255,170},
+              extent={{-200,200},{200,-200}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2, 
+              fillColor={255,255,170}, 
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -881,10 +877,10 @@ The simulation stop time has to be 5s.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              lineThickness=2,
-              fillColor={255,255,170},
+              extent={{-100,100},{100,-100}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2, 
+              fillColor={255,255,170}, 
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -930,10 +926,10 @@ The simulation stop time has to be 5s.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              lineThickness=2,
-              fillColor={255,255,170},
+              extent={{-100,100},{100,-100}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2, 
+              fillColor={255,255,170}, 
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -996,80 +992,78 @@ The simulation stop time has to be 5s.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                   100,100}}), graphics={
               Rectangle(
-                extent={{-90,100},{90,-100}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid),
+                extent={{-90,100},{90,-100}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,170}, 
+                fillPattern=FillPattern.Solid), 
               Line(
-                points={{-60,100},{-60,-100}},
-                color={0,0,0},
-                thickness=2,
-                fillPattern=FillPattern.Solid),
+                points={{-60,100},{-60,-100}}, 
+                color={0,0,0}, 
+                thickness=2), 
               Line(
-                points={{60,100},{60,-100}},
-                color={0,0,0},
-                thickness=2,
-                fillPattern=FillPattern.Solid),
+                points={{60,100},{60,-100}}, 
+                color={0,0,0}, 
+                thickness=2), 
               Text(
-                extent={{-86,80},{-64,60}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString="D0"),
+                extent={{-86,80},{-64,60}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="D0"), 
               Text(
-                extent={{64,12},{86,-8}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString="D"),
+                extent={{64,12},{86,-8}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="D"), 
               Text(
-                extent={{-150,-100},{150,-160}},
-                lineColor={0,0,255},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
-                textString="%name"),
+                extent={{-150,-100},{150,-160}}, 
+                lineColor={0,0,255}, 
+                fillColor={255,255,170}, 
+                fillPattern=FillPattern.Solid, 
+                textString="%name"), 
               Text(
-                extent={{-60,100},{60,40}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.HorizontalCylinder,
-                textString="MUX"),
+                extent={{-60,100},{60,40}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                textString="MUX"), 
               Text(
-                extent={{-86,-60},{-64,-80}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString="A1"),
+                extent={{-86,-60},{-64,-80}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="A1"), 
               Text(
-                extent={{-86,54},{-64,34}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString="D1"),
+                extent={{-86,54},{-64,34}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="D1"), 
               Text(
-                extent={{-86,28},{-64,8}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString="D2"),
+                extent={{-86,28},{-64,8}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="D2"), 
               Text(
-                extent={{-86,2},{-64,-18}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString="D3"),
+                extent={{-86,2},{-64,-18}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="D3"), 
               Text(
-                extent={{-86,-36},{-64,-56}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
+                extent={{-86,-36},{-64,-56}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
                 textString="A0")}));
         
       parameter Modelica.SIunits.Time delayTime=0.001;
@@ -1211,66 +1205,58 @@ The simulation stop time has to be 5s.
 "),     Diagram(graphics),
         Icon(graphics={
               Rectangle(
-                extent={{-90,100},{90,-100}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid),
+                extent={{-90,100},{90,-100}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,170}, 
+                fillPattern=FillPattern.Solid), 
               Text(
-                extent={{-100,100},{100,40}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.HorizontalCylinder,
-                textString=
-                     "RS"),
+                extent={{-100,100},{100,40}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                textString="RS"), 
               Line(
-                points={{-60,100},{-60,-100}},
-                color={0,0,0},
-                thickness=2,
-                fillPattern=FillPattern.Solid),
+                points={{-60,100},{-60,-100}}, 
+                color={0,0,0}, 
+                thickness=2), 
               Line(
-                points={{60,100},{60,-100}},
-                color={0,0,0},
-                thickness=2,
-                fillPattern=FillPattern.Solid),
+                points={{60,100},{60,-100}}, 
+                color={0,0,0}, 
+                thickness=2), 
               Text(
-                extent={{-86,-60},{-64,-80}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "R"),
+                extent={{-86,-60},{-64,-80}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="R"), 
               Text(
-                extent={{-86,80},{-64,60}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "S"),
+                extent={{-86,80},{-64,60}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="S"), 
               Text(
-                extent={{64,80},{86,60}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "Q"),
+                extent={{64,80},{86,60}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="Q"), 
               Text(
-                extent={{64,-60},{86,-80}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "QN"),
+                extent={{64,-60},{86,-80}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="QN"), 
               Text(
-                extent={{-150,-100},{150,-160}},
-                lineColor={0,0,255},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
-                textString=
-                   "%name")}));
+                extent={{-150,-100},{150,-160}}, 
+                lineColor={0,0,255}, 
+                fillColor={255,255,170}, 
+                fillPattern=FillPattern.Solid, 
+                textString="%name")}));
       parameter Modelica.SIunits.Time delayTime=0 "delay time";
       parameter D.Interfaces.Logic q0=L.'U' "initial value of output";
       D.Basic.Nor Nor1   annotation (Placement(transformation(extent={{-40,42},
@@ -1320,67 +1306,59 @@ The simulation stop time has to be 5s.
 "),     Diagram(graphics),
         Icon(graphics={
               Rectangle(
-                extent={{-90,100},{90,-100}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid),
+                extent={{-90,100},{90,-100}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,170}, 
+                fillPattern=FillPattern.Solid), 
               Text(
-                extent={{-100,100},{100,40}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.HorizontalCylinder,
-                textString=
-                     "RS"),
+                extent={{-100,100},{100,40}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                textString="RS"), 
               Line(
-                points={{-60,100},{-60,-100}},
-                color={0,0,0},
-                thickness=2,
-                fillPattern=FillPattern.Solid),
+                points={{-60,100},{-60,-100}}, 
+                color={0,0,0}, 
+                thickness=2), 
               Line(
-                points={{60,100},{60,-100}},
-                color={0,0,0},
-                thickness=2,
-                fillPattern=FillPattern.Solid),
+                points={{60,100},{60,-100}}, 
+                color={0,0,0}, 
+                thickness=2), 
               Text(
-                extent={{-86,-60},{-64,-80}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "R"),
+                extent={{-86,-60},{-64,-80}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="R"), 
               Text(
-                extent={{-86,80},{-64,60}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "S"),
+                extent={{-86,80},{-64,60}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="S"), 
               Text(
-                extent={{64,80},{86,60}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "Q"),
+                extent={{64,80},{86,60}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="Q"), 
               Text(
-                extent={{64,-60},{86,-80}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "QN"),
-              Line(points={{-90,20},{-60,0},{-90,-20}}, color={0,0,0}),
+                extent={{64,-60},{86,-80}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="QN"), 
+              Line(points={{-90,20},{-60,0},{-90,-20}}, color={0,0,0}), 
               Text(
-                extent={{-150,-100},{150,-160}},
-                lineColor={0,0,255},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
-                textString=
-                   "%name")}));
+                extent={{-150,-100},{150,-160}}, 
+                lineColor={0,0,255}, 
+                fillColor={255,255,170}, 
+                fillPattern=FillPattern.Solid, 
+                textString="%name")}));
         
       parameter Modelica.SIunits.Time delayTime=0.01;
       parameter D.Interfaces.Logic q0=L.'U';
@@ -1456,59 +1434,52 @@ The simulation stop time has to be 5s.
 "),     Diagram(graphics),
         Icon(graphics={
               Rectangle(
-                extent={{-90,100},{90,-100}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid),
+                extent={{-90,100},{90,-100}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,170}, 
+                fillPattern=FillPattern.Solid), 
               Line(
-                points={{-60,100},{-60,-100}},
-                color={0,0,0},
-                thickness=2,
-                fillPattern=FillPattern.Solid),
+                points={{-60,100},{-60,-100}}, 
+                color={0,0,0}, 
+                thickness=2), 
               Line(
-                points={{60,100},{60,-100}},
-                color={0,0,0},
-                thickness=2,
-                fillPattern=FillPattern.Solid),
+                points={{60,100},{60,-100}}, 
+                color={0,0,0}, 
+                thickness=2), 
               Text(
-                extent={{-86,80},{-64,60}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "D"),
+                extent={{-86,80},{-64,60}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="D"), 
               Text(
-                extent={{64,80},{86,60}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "Q"),
+                extent={{64,80},{86,60}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="Q"), 
               Text(
-                extent={{64,-60},{86,-80}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "QN"),
-              Line(points={{-90,20},{-60,0},{-90,-20}}, color={0,0,0}),
+                extent={{64,-60},{86,-80}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="QN"), 
+              Line(points={{-90,20},{-60,0},{-90,-20}}, color={0,0,0}), 
               Text(
-                extent={{-150,-100},{150,-160}},
-                lineColor={0,0,255},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
-                textString=
-                   "%name"),
+                extent={{-150,-100},{150,-160}}, 
+                lineColor={0,0,255}, 
+                fillColor={255,255,170}, 
+                fillPattern=FillPattern.Solid, 
+                textString="%name"), 
               Text(
-                extent={{-100,100},{100,40}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.HorizontalCylinder,
-                textString=
-                     "D")}));
+                extent={{-100,100},{100,40}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                textString="D")}));
         
       parameter Modelica.SIunits.Time Tdel=0.01;
       parameter Digital.Interfaces.Logic QInit=L.'U';
@@ -1574,60 +1545,58 @@ The simulation stop time has to be 5s.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                   100,100}}), graphics={
               Rectangle(
-                extent={{-90,100},{90,-100}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid),
+                extent={{-90,100},{90,-100}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,170}, 
+                fillPattern=FillPattern.Solid), 
               Line(
-                points={{-60,100},{-60,-100}},
-                color={0,0,0},
-                thickness=2,
-                fillPattern=FillPattern.Solid),
+                points={{-60,100},{-60,-100}}, 
+                color={0,0,0}, 
+                thickness=2), 
               Line(
-                points={{60,100},{60,-100}},
-                color={0,0,0},
-                thickness=2,
-                fillPattern=FillPattern.Solid),
+                points={{60,100},{60,-100}}, 
+                color={0,0,0}, 
+                thickness=2), 
               Text(
-                extent={{-86,80},{-64,60}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString="J"),
+                extent={{-86,80},{-64,60}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="J"), 
               Text(
-                extent={{64,80},{86,60}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString="Q"),
+                extent={{64,80},{86,60}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="Q"), 
               Text(
-                extent={{64,-60},{86,-80}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString="QN"),
-              Line(points={{-90,20},{-60,0},{-90,-20}}, color={0,0,0}),
+                extent={{64,-60},{86,-80}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="QN"), 
+              Line(points={{-90,20},{-60,0},{-90,-20}}, color={0,0,0}), 
               Text(
-                extent={{-150,-100},{150,-160}},
-                lineColor={0,0,255},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
-                textString="%name"),
+                extent={{-150,-100},{150,-160}}, 
+                lineColor={0,0,255}, 
+                fillColor={255,255,170}, 
+                fillPattern=FillPattern.Solid, 
+                textString="%name"), 
               Text(
-                extent={{-100,100},{100,40}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.HorizontalCylinder,
-                textString="JK"),
+                extent={{-100,100},{100,40}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                textString="JK"), 
               Text(
-                extent={{-86,-60},{-64,-80}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
+                extent={{-86,-60},{-64,-80}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
                 textString="K")}));
         
       parameter Modelica.SIunits.Time delayTime=0.001;
@@ -1708,51 +1677,44 @@ The simulation stop time has to be 5s.
                     Diagram(graphics),
                              Icon(graphics={
               Rectangle(
-                extent={{-90,100},{90,-100}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid),
+                extent={{-90,100},{90,-100}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,170}, 
+                fillPattern=FillPattern.Solid), 
               Text(
-                extent={{-90,80},{-60,60}},
-                lineColor={0,0,0},
-                textString=
-                     "a"),
+                extent={{-90,80},{-60,60}}, 
+                lineColor={0,0,0}, 
+                textString="a"), 
               Text(
-                extent={{-90,-60},{-60,-80}},
-                lineColor={0,0,0},
-                textString=
-                     "b"),
+                extent={{-90,-60},{-60,-80}}, 
+                lineColor={0,0,0}, 
+                textString="b"), 
               Text(
-                extent={{60,80},{90,60}},
-                lineColor={0,0,0},
-                textString=
-                     "s"),
+                extent={{60,80},{90,60}}, 
+                lineColor={0,0,0}, 
+                textString="s"), 
               Text(
-                extent={{60,-60},{90,-80}},
-                lineColor={0,0,0},
-                textString=
-                     "c"),
+                extent={{60,-60},{90,-80}}, 
+                lineColor={0,0,0}, 
+                textString="c"), 
               Text(
-                extent={{-150,-100},{150,-160}},
-                lineColor={0,0,255},
-                textString=  "%name"),
+                extent={{-150,-100},{150,-160}}, 
+                lineColor={0,0,255}, 
+                textString="%name"), 
               Text(
-                extent={{-100,100},{100,0}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.HorizontalCylinder,
-                textString=
-                     "+"),
+                extent={{-100,100},{100,0}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                textString="+"), 
               Line(
-                points={{-60,100},{-60,-100}},
-                color={0,0,0},
-                thickness=2,
-                fillPattern=FillPattern.Solid),
+                points={{-60,100},{-60,-100}}, 
+                color={0,0,0}, 
+                thickness=2), 
               Line(
-                points={{60,100},{60,-100}},
-                color={0,0,0},
-                thickness=2,
-                fillPattern=FillPattern.Solid)}), 
+                points={{60,100},{60,-100}}, 
+                color={0,0,0}, 
+                thickness=2)}), 
           Documentation(info="<html>
   
 </html>"));
@@ -1830,72 +1792,63 @@ The simulation stop time has to be 5s.
               extent={{-100,-100},{100,100}},
               grid={2,2}), graphics={
               Rectangle(
-                extent={{-90,100},{90,-100}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid),
+                extent={{-90,100},{90,-100}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,170}, 
+                fillPattern=FillPattern.Solid), 
               Text(
-                extent={{-150,-96},{150,-151}},
-                lineColor={0,0,255},
-                textString=
-                   "%name"),
+                extent={{-150,-96},{150,-151}}, 
+                lineColor={0,0,255}, 
+                textString="%name"), 
               Text(
-                extent={{-86,80},{-64,60}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                   "a"),
+                extent={{-86,80},{-64,60}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="a"), 
               Text(
-                extent={{-86,40},{-64,20}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                   "b"),
+                extent={{-86,40},{-64,20}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="b"), 
               Text(
-                extent={{-86,-60},{-64,-80}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                   "c_in"),
+                extent={{-86,-60},{-64,-80}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="c_in"), 
               Text(
-                extent={{60,-60},{90,-80}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                   "c_out"),
+                extent={{60,-60},{90,-80}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="c_out"), 
               Text(
-                extent={{64,80},{86,60}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                   "s"),
+                extent={{64,80},{86,60}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="s"), 
               Text(
-                extent={{-100,100},{100,0}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.HorizontalCylinder,
-                textString=
-           "+"),
+                extent={{-100,100},{100,0}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                textString="+"), 
               Line(
-                points={{-60,100},{-60,-100}},
-                color={0,0,0},
-                thickness=2,
-                fillPattern=FillPattern.Solid),
+                points={{-60,100},{-60,-100}}, 
+                color={0,0,0}, 
+                thickness=2), 
               Line(
-                points={{60,100},{60,-100}},
-                color={0,0,0},
-                thickness=2,
-                fillPattern=FillPattern.Solid)}),
+                points={{60,100},{60,-100}}, 
+                color={0,0,0}, 
+                thickness=2)}),
         Diagram(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},
@@ -1977,64 +1930,57 @@ The simulation stop time has to be 5s.
               extent={{-100,-100},{100,100}},
               grid={2,2}), graphics={
               Rectangle(
-                extent={{-90,100},{90,-100}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid),
+                extent={{-90,100},{90,-100}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,170}, 
+                fillPattern=FillPattern.Solid), 
               Text(
-                extent={{68,80},{88,60}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                   "S"),
+                extent={{68,80},{88,60}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="S"), 
               Text(
-                extent={{-150,-100},{150,-160}},
-                lineColor={0,0,255},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
-                textString=
-                   "%name"),
+                extent={{-150,-100},{150,-160}}, 
+                lineColor={0,0,255}, 
+                fillColor={255,255,170}, 
+                fillPattern=FillPattern.Solid, 
+                textString="%name"), 
               Text(
-                extent={{-40,60},{40,20}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.HorizontalCylinder,
-                textString=
-                   "Adder"),
+                extent={{-40,60},{40,20}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                textString="Adder"), 
               Text(
-                extent={{48,-60},{88,-80}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                   "Cout"),
+                extent={{48,-60},{88,-80}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="Cout"), 
               Text(
-                extent={{-90,-60},{-50,-80}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                   "Cin"),
+                extent={{-90,-60},{-50,-80}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="Cin"), 
               Text(
-                extent={{-88,80},{-68,60}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                   "A"),
+                extent={{-88,80},{-68,60}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="A"), 
               Text(
-                extent={{-88,40},{-68,20}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                   "B")}),
+                extent={{-88,40},{-68,20}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="B")}),
         Diagram(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},
@@ -2081,64 +2027,57 @@ The simulation stop time has to be 5s.
 "),      Diagram(graphics),
          Icon(graphics={
               Rectangle(
-                extent={{-90,100},{90,-100}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid),
+                extent={{-90,100},{90,-100}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,170}, 
+                fillPattern=FillPattern.Solid), 
               Text(
-                extent={{-80,80},{-40,60}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                      "ENABLE"),
+                extent={{-80,80},{-40,60}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="ENABLE"), 
               Text(
-                extent={{64,80},{86,60}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "Q2"),
+                extent={{64,80},{86,60}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="Q2"), 
               Text(
-                extent={{64,-60},{86,-80}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "Q0"),
+                extent={{64,-60},{86,-80}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="Q0"), 
               Text(
-                extent={{-150,-100},{150,-160}},
-                lineColor={0,0,255},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
-                textString=
-                    "%name"),
+                extent={{-150,-100},{150,-160}}, 
+                lineColor={0,0,255}, 
+                fillColor={255,255,170}, 
+                fillPattern=FillPattern.Solid, 
+                textString="%name"), 
               Text(
-                extent={{-60,40},{60,0}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.HorizontalCylinder,
-                textString=
-                     "Counter3"),
+                extent={{-60,40},{60,0}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                textString="Counter3"), 
               Text(
-                extent={{-80,-60},{-40,-80}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                      "COUNT"),
+                extent={{-80,-60},{-40,-80}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="COUNT"), 
               Text(
-                extent={{62,8},{84,-12}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "Q1")}));
+                extent={{62,8},{84,-12}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="Q1")}));
       D.Interfaces.DigitalInput enable 
                                      annotation (Placement(transformation(
                 extent={{-110,60},{-90,80}}, rotation=0)));
@@ -2215,59 +2154,54 @@ The simulation stop time has to be 5s.
   
 </HTML>
 "),     Diagram(graphics={Rectangle(
-                extent={{90,80},{110,-80}},
-                lineColor={127,0,127},
-                fillColor={127,0,127},
+                extent={{90,80},{110,-80}}, 
+                lineColor={127,0,127}, 
+                fillColor={127,0,127}, 
                 fillPattern=FillPattern.Solid)}),
         Icon(graphics={
               Rectangle(
-                extent={{90,80},{110,-80}},
-                lineColor={127,0,127},
-                fillColor={127,0,127},
-                fillPattern=FillPattern.Solid),
+                extent={{90,80},{110,-80}}, 
+                lineColor={127,0,127}, 
+                fillColor={127,0,127}, 
+                fillPattern=FillPattern.Solid), 
               Rectangle(
-                extent={{-90,100},{90,-100}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid),
+                extent={{-90,100},{90,-100}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,170}, 
+                fillPattern=FillPattern.Solid), 
               Text(
-                extent={{-80,80},{-40,60}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "ENABLE"),
+                extent={{-80,80},{-40,60}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="ENABLE"), 
               Text(
-                extent={{66,8},{88,-12}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "Q"),
+                extent={{66,8},{88,-12}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="Q"), 
               Text(
-                extent={{-150,-100},{150,-160}},
-                lineColor={0,0,255},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
-                textString=
-                   "%name"),
+                extent={{-150,-100},{150,-160}}, 
+                lineColor={0,0,255}, 
+                fillColor={255,255,170}, 
+                fillPattern=FillPattern.Solid, 
+                textString="%name"), 
               Text(
-                extent={{-40,40},{40,0}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.HorizontalCylinder,
-                textString=
-                     "Counter"),
+                extent={{-40,40},{40,0}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                textString="Counter"), 
               Text(
-                extent={{-80,-60},{-40,-80}},
-                lineColor={0,0,0},
-                lineThickness=2,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
-                textString=
-                     "COUNT")}));
+                extent={{-80,-60},{-40,-80}}, 
+                lineColor={0,0,0}, 
+                lineThickness=2, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="COUNT")}));
       parameter Integer n=3;
       parameter Modelica.SIunits.Time delayTime=0.001;
       parameter D.Interfaces.Logic q0=L.'0';
@@ -2640,14 +2574,8 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
               fillPattern=FillPattern.Solid), 
             Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}), 
               
-            Line(
-              points={{0,60},{20,60}}, 
-              color={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
-            Line(
-              points={{10,60},{10,40}}, 
-              color={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+            Line(points={{0,60},{20,60}}, color={0,0,0}), 
+            Line(points={{10,60},{10,40}}, color={0,0,0}), 
             Text(
               extent={{-50,-40},{50,-20}}, 
               lineColor={0,0,0}, 
@@ -2660,6 +2588,7 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
               lineThickness=2, 
               fillPattern=FillPattern.Solid, 
               textString="Delay")}));
+      
     equation 
       x_delayed = integer(delay(x, delayTime));
       y = if delayTime > 0 then 
@@ -2715,14 +2644,8 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
               fillPattern=FillPattern.Solid), 
             Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}), 
               
-            Line(
-              points={{10,60},{10,40}}, 
-              color={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
-            Line(
-              points={{0,60},{20,60}}, 
-              color={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+            Line(points={{10,60},{10,40}}, color={0,0,0}), 
+            Line(points={{0,60},{20,60}}, color={0,0,0}), 
             Text(
               extent={{-50,-40},{50,-20}}, 
               lineColor={0,0,0}, 
@@ -2735,6 +2658,7 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
               lineThickness=2, 
               fillPattern=FillPattern.Solid, 
               textString="Delay")}));
+      
     algorithm 
       when delayTime > 0 and change(x) then
         x_old := x;
@@ -2824,14 +2748,9 @@ is used, if it is zero, the input is not delayed.
               textString="sensitive"), 
             Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}), 
               
-            Line(
-              points={{10,60},{10,40}}, 
-              color={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
-            Line(
-              points={{0,60},{20,60}}, 
-              color={0,0,0}, 
-              fillPattern=FillPattern.Solid)}));
+            Line(points={{10,60},{10,40}}, color={0,0,0}), 
+            Line(points={{0,60},{20,60}}, color={0,0,0})}));
+      
     algorithm 
       when {initial(),(tLH > 0 or tHL > 0) and change(x) and not initial()} then
         x_old := if initial() or pre(x) == 0 then y0 else pre(x);
@@ -3915,11 +3834,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
               extent={{152,-160},{-148,-100}}, 
               lineColor={0,0,255}, 
               textString="%name"), 
-            Line(
-              points={{-30,40},{0,40},{0,80},{30,80}}, 
-              color={0,0,0}, 
-              fillColor={213,170,255}, 
-              fillPattern=FillPattern.Solid), 
+            Line(points={{-30,40},{0,40},{0,80},{30,80}}, color={0,0,0}), 
             Line(points={{50,0},{90,0}}, color={127,0,127})}),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}),
@@ -4011,21 +3926,9 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
               lineColor={0,0,0}, 
               fillColor={255,255,255}, 
               fillPattern=FillPattern.Solid), 
-            Line(
-              points={{0,80},{0,40}}, 
-              color={0,0,0}, 
-              fillColor={128,255,0}, 
-              fillPattern=FillPattern.Solid), 
-            Line(
-              points={{-30,60},{32,60}}, 
-              color={0,0,0}, 
-              fillColor={128,255,0}, 
-              fillPattern=FillPattern.Solid), 
-            Line(
-              points={{-30,50},{32,50}}, 
-              color={0,0,0}, 
-              fillColor={128,255,0}, 
-              fillPattern=FillPattern.Solid)}),
+            Line(points={{0,80},{0,40}}, color={0,0,0}), 
+            Line(points={{-30,60},{32,60}}, color={0,0,0}), 
+            Line(points={{-30,50},{32,50}}, color={0,0,0})}),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}),
                 graphics));
@@ -4123,12 +4026,10 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
               lineColor={0,0,255}, 
               textString="%name"), 
             Line(points={{50,0},{90,0}}, color={127,0,127}), 
-            Line(
-              points={{-36,40},{-30,40},{-30,40},{-18,40},{-18,40},{-14,40},{-14,
-                  80},{14,80},{14,40},{14,40},{14,40},{28,40},{30,40},{36,40}}, 
-                
-              color={0,0,0}, 
-              fillPattern=FillPattern.Solid)}));
+            Line(points={{-36,40},{-30,40},{-30,40},{-18,40},{-18,40},{-14,40},
+                  {-14,80},{14,80},{14,40},{14,40},{14,40},{28,40},{30,40},{36,
+                  40}}, color={0,0,0})}));
+      
     equation 
       sampling = nperiod <> 0 and (nperiod >= pre(np) or nperiod < 0);
       
@@ -4193,11 +4094,9 @@ The number of periods is unlimited. The first pulse starts at startTime.
               lineColor={0,0,255}, 
               textString="%name"), 
             Line(points={{50,0},{90,0}}, color={127,0,127}), 
-            Line(
-              points={{-36,40},{-30,40},{-30,80},{-18,80},{-18,40},{-6,40},{-6,
-                  80},{6,80},{6,40},{18,40},{18,80},{30,80},{30,40},{36,40}}, 
-              color={0,0,0}, 
-              fillPattern=FillPattern.Solid)}));
+            Line(points={{-36,40},{-30,40},{-30,80},{-18,80},{-18,40},{-6,40},{
+                  -6,80},{6,80},{6,40},{18,40},{18,80},{30,80},{30,40},{36,40}}, 
+                color={0,0,0})}));
     algorithm 
       when sample(startTime, period) then
         t_i := time;

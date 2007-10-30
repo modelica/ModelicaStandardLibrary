@@ -2748,25 +2748,25 @@ Modelica.Media.Examples.Tests.MediaTestModels.
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
                   {{-100,-100},{100,100}}), graphics={
               Ellipse(
-                extent={{-100,100},{100,-100}},
-                lineColor={0,127,255},
-                fillColor={0,127,255},
-                fillPattern=FillPattern.Solid),
+                extent={{-100,100},{100,-100}}, 
+                lineColor={0,127,255}, 
+                fillColor={0,127,255}, 
+                fillPattern=FillPattern.Solid), 
               Ellipse(
-                extent={{-100,100},{100,-100}},
-                lineColor={0,0,0},
-                fillColor={0,127,255},
-                fillPattern=FillPattern.Solid),
+                extent={{-100,100},{100,-100}}, 
+                lineColor={0,0,0}, 
+                fillColor={0,127,255}, 
+                fillPattern=FillPattern.Solid), 
               Text(extent={{-88,206},{112,112}}, textString="%name")}),
              Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={Ellipse(
-                extent={{-100,100},{100,-100}},
-                lineColor={0,127,255},
-                fillColor={0,127,255},
+                extent={{-100,100},{100,-100}}, 
+                lineColor={0,127,255}, 
+                fillColor={0,127,255}, 
                 fillPattern=FillPattern.Solid), Ellipse(
-                extent={{-100,100},{100,-100}},
-                lineColor={0,0,0},
-                fillColor={0,127,255},
+                extent={{-100,100},{100,-100}}, 
+                lineColor={0,0,0}, 
+                fillColor={0,127,255}, 
                 fillPattern=FillPattern.Solid)}),
           Documentation(info="<html>Modelica.Media.Examples.Tests.Components.FluidPort_a
 </html>"));
@@ -2777,37 +2777,37 @@ Modelica.Media.Examples.Tests.MediaTestModels.
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
                   {{-100,-100},{100,100}}), graphics={
               Ellipse(
-                extent={{-100,100},{100,-100}},
-                lineColor={0,127,255},
-                fillColor={0,127,255},
-                fillPattern=FillPattern.Solid),
+                extent={{-100,100},{100,-100}}, 
+                lineColor={0,127,255}, 
+                fillColor={0,127,255}, 
+                fillPattern=FillPattern.Solid), 
               Ellipse(
-                extent={{-100,100},{100,-100}},
-                lineColor={0,0,0},
-                fillColor={0,127,255},
-                fillPattern=FillPattern.Solid),
+                extent={{-100,100},{100,-100}}, 
+                lineColor={0,0,0}, 
+                fillColor={0,127,255}, 
+                fillPattern=FillPattern.Solid), 
               Ellipse(
-                extent={{-80,80},{80,-80}},
-                lineColor={0,127,255},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
+                extent={{-80,80},{80,-80}}, 
+                lineColor={0,127,255}, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid), 
               Text(extent={{-88,192},{112,98}}, textString="%name")}),
              Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={
               Ellipse(
-                extent={{-100,100},{100,-100}},
-                lineColor={0,127,255},
-                fillColor={0,127,255},
-                fillPattern=FillPattern.Solid),
+                extent={{-100,100},{100,-100}}, 
+                lineColor={0,127,255}, 
+                fillColor={0,127,255}, 
+                fillPattern=FillPattern.Solid), 
               Ellipse(
-                extent={{-100,100},{100,-100}},
-                lineColor={0,0,0},
-                fillColor={0,127,255},
-                fillPattern=FillPattern.Solid),
+                extent={{-100,100},{100,-100}}, 
+                lineColor={0,0,0}, 
+                fillColor={0,127,255}, 
+                fillPattern=FillPattern.Solid), 
               Ellipse(
-                extent={{-80,80},{80,-80}},
-                lineColor={0,127,255},
-                fillColor={255,255,255},
+                extent={{-80,80},{80,-80}}, 
+                lineColor={0,127,255}, 
+                fillColor={255,255,255}, 
                 fillPattern=FillPattern.Solid)}),
           Documentation(info="<html> 
   
@@ -2854,14 +2854,14 @@ Modelica.Media.Examples.Tests.MediaTestModels.
          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                   100,100}}), graphics={
               Ellipse(
-                extent={{-100,100},{100,-100}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.Sphere,
-                fillColor={170,213,255}),
-              Text(extent={{-144,178},{146,116}}, textString="%name"),
+                extent={{-100,100},{100,-100}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.Sphere, 
+                fillColor={170,213,255}), 
+              Text(extent={{-144,178},{146,116}}, textString="%name"), 
               Text(
-                extent={{-130,-108},{144,-150}},
-                lineColor={0,0,0},
+                extent={{-130,-108},{144,-150}}, 
+                lineColor={0,0,0}, 
                 textString="V=%V")}),
                                Documentation(info="<html>
 <p>
@@ -2950,39 +2950,39 @@ transport.
               extent={{-100,-100},{100,100}},
               grid={2,2}), graphics={
               Rectangle(
-                extent={{20,60},{100,-60}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.HorizontalCylinder,
-                fillColor={192,192,192}),
+                extent={{20,60},{100,-60}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                fillColor={192,192,192}), 
               Rectangle(
-                extent={{38,40},{100,-40}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.HorizontalCylinder,
-                fillColor={0,127,255}),
+                extent={{38,40},{100,-40}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                fillColor={0,127,255}), 
               Ellipse(
-                extent={{-100,80},{60,-80}},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
+                extent={{-100,80},{60,-80}}, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid), 
               Polygon(
-                points={{-60,70},{60,0},{-60,-68},{-60,70}},
-                lineColor={0,0,255},
-                fillColor={0,0,255},
-                fillPattern=FillPattern.Solid),
+                points={{-60,70},{60,0},{-60,-68},{-60,70}}, 
+                lineColor={0,0,255}, 
+                fillColor={0,0,255}, 
+                fillPattern=FillPattern.Solid), 
               Text(
-                extent={{-54,32},{16,-30}},
-                lineColor={255,0,0},
-                fillColor={255,0,0},
-                fillPattern=FillPattern.Solid,
-                textString="m"),
-              Text(extent={{-142,142},{156,88}}, textString="%name"),
+                extent={{-54,32},{16,-30}}, 
+                lineColor={255,0,0}, 
+                fillColor={255,0,0}, 
+                fillPattern=FillPattern.Solid, 
+                textString="m"), 
+              Text(extent={{-142,142},{156,88}}, textString="%name"), 
               Text(
-                extent={{-154,-88},{150,-132}},
-                lineColor={0,0,0},
-                textString="%m_flow"),
+                extent={{-154,-88},{150,-132}}, 
+                lineColor={0,0,0}, 
+                textString="%m_flow"), 
               Ellipse(
-                extent={{-26,30},{-18,22}},
-                lineColor={255,0,0},
-                fillColor={255,0,0},
+                extent={{-26,30},{-18,22}}, 
+                lineColor={255,0,0}, 
+                fillColor={255,0,0}, 
                 fillPattern=FillPattern.Solid)}),
           Window(
             x=0.45,
@@ -3050,10 +3050,10 @@ transport.
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},
               grid={2,2}), graphics={Ellipse(
-                extent={{-100,80},{100,-80}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.Sphere,
-                fillColor={0,127,255}), Text(extent={{-136,144},{132,82}},
+                extent={{-100,80},{100,-80}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.Sphere, 
+                fillColor={0,127,255}), Text(extent={{-136,144},{132,82}}, 
                   textString="%name")}),
           Documentation(info="<html>
 <p>
@@ -3120,24 +3120,24 @@ with exception of ambient pressure, do not have an effect.
               coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                   100,100}}), graphics={
               Rectangle(
-                extent={{-100,60},{100,-60}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.HorizontalCylinder,
-                fillColor={192,192,192}),
+                extent={{-100,60},{100,-60}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                fillColor={192,192,192}), 
               Rectangle(
-                extent={{-100,34},{100,-36}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.HorizontalCylinder,
-                fillColor={0,127,255}),
+                extent={{-100,34},{100,-36}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                fillColor={0,127,255}), 
               Text(
-                extent={{-150,140},{150,80}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.HorizontalCylinder,
-                fillColor={0,127,255},
-                textString="%name"),
+                extent={{-150,140},{150,80}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                fillColor={0,127,255}, 
+                textString="%name"), 
               Text(
-                extent={{-136,-62},{122,-108}},
-                lineColor={0,0,0},
+                extent={{-136,-62},{122,-108}}, 
+                lineColor={0,0,0}, 
                 textString="k=%m_flow_nominal/%dp_nominal")}),
                                                  Documentation(info="<html>
 <p>

@@ -65,8 +65,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     width=19e-9,
     falling=1.e-9,
     period=40e-9) annotation (Placement(transformation(
-        origin={-70,20}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-70,20},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Sources.TrapezoidVoltage VIN2(
     V=3.5,
@@ -75,15 +75,15 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     width=19e-9,
     falling=1.e-9,
     period=40e-9) annotation (Placement(transformation(
-        origin={-70,-30}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-70,-30},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Sources.RampVoltage VDD(V=5, duration=1e-9) annotation (Placement(
         transformation(
-        origin={50,70}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={50,70},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
-  Basic.Ground Gnd1 annotation (Placement(transformation(extent={{45,43},{55,53}}, 
+  Basic.Ground Gnd1 annotation (Placement(transformation(extent={{45,43},{55,53}},
           rotation=0)));
   Basic.Ground Gnd4 annotation (Placement(transformation(extent={{-75,-5},{-65,
             5}}, rotation=0)));

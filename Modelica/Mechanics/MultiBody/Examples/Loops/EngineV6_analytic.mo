@@ -24,7 +24,7 @@ model EngineV6_analytic
       start=0,
       fixed=true), w(
       start=10,
-      fixed=true), 
+      fixed=true),
     stateSelect=StateSelect.always)    annotation (Placement(transformation(
           extent={{40,10},{60,30}}, rotation=0)));
   Rotational.QuadraticSpeedDependentTorque load2(tau_nominal=-100, w_nominal=

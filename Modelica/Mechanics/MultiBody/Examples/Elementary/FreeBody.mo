@@ -15,8 +15,8 @@ encapsulated model FreeBody
       width=0.71,
       height=0.85),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics),
     Documentation(info="<html>
 <p>
@@ -47,8 +47,8 @@ ALT=\"model Examples.Elementary.FreeBody\">
     numberOfWindings=5,
     c=20,
     s_unstretched=0) annotation (Placement(transformation(
-        origin={-24,6}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-24,6},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Parts.BodyShape body(
     m=1,
@@ -68,31 +68,31 @@ ALT=\"model Examples.Elementary.FreeBody\">
     width=0.1,
     coilWidth=0.005,
     numberOfWindings=5) annotation (Placement(transformation(
-        origin={42,6}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={42,6},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
 equation 
   connect(bar2.frame_a, world.frame_b) 
     annotation (Line(
-      points={{0,30},{-40,30}}, 
-      color={95,95,95}, 
+      points={{0,30},{-40,30}},
+      color={95,95,95},
       thickness=2));
   connect(spring1.frame_b, body.frame_a) annotation (Line(
-      points={{-24,-4},{-24,-30},{0,-30}}, 
-      color={95,95,95}, 
+      points={{-24,-4},{-24,-30},{0,-30}},
+      color={95,95,95},
       thickness=2));
   connect(spring2.frame_b, body.frame_b) 
     annotation (Line(
-      points={{42,-4},{20,-30}}, 
-      color={95,95,95}, 
+      points={{42,-4},{20,-30}},
+      color={95,95,95},
       thickness=2));
   connect(bar2.frame_b, spring2.frame_a) 
     annotation (Line(
-      points={{20,30},{42,30},{42,16}}, 
-      color={95,95,95}, 
+      points={{20,30},{42,30},{42,16}},
+      color={95,95,95},
       thickness=2));
   connect(spring1.frame_a, world.frame_b) annotation (Line(
-      points={{-24,16},{-24,30},{-40,30}}, 
-      color={95,95,95}, 
+      points={{-24,16},{-24,30},{-40,30}},
+      color={95,95,95},
       thickness=2));
 end FreeBody;

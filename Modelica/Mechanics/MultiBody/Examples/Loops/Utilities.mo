@@ -314,26 +314,25 @@ package Utilities "Utility models for Examples.Loops"
           Text(extent={{-100,120},{100,60}}, textString="%name")}),
                                                             Diagram(graphics={
           Rectangle(
-            extent={{-90,50},{90,-50}},
-            lineColor={0,0,0},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
+            extent={{-90,50},{90,-50}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
           Rectangle(
-            extent={{-40,50},{-20,-50}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid),
+            extent={{-40,50},{-20,-50}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
           Rectangle(
-            extent={{-90,10},{-40,-10}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid),
+            extent={{-90,10},{-40,-10}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
           Polygon(
             points={{60,2},{54,2},{0,2},{0,10},{-20,0},{0,-10},{0,-4},{60,-4},{
-                60,2}},
-            lineColor={255,0,0},
-            fillColor={255,0,0},
-            fillPattern=FillPattern.Solid),
-          Text(extent={{-100,120},{100,60}}, textString=
-                                                 "%name")}));
+                60,2}}, 
+            lineColor={255,0,0}, 
+            fillColor={255,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Text(extent={{-100,120},{100,60}}, textString="%name")}));
   protected 
     constant SI.Mass unitMass=1;
     Modelica.SIunits.Pressure p;
@@ -408,23 +407,22 @@ package Utilities "Utility models for Examples.Loops"
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-90,50},{90,-50}},
-            lineColor={0,0,0},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Text(extent={{-100,120},{100,60}}, textString=
-                                                 "%name"),
+            extent={{-90,50},{90,-50}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
+          Text(extent={{-100,120},{100,60}}, textString="%name"), 
           Polygon(
             points={{12,5},{70,5},{65,5},{65,16},{90,1},{65,-14},{65,-3},{12,-3},
-                {12,5}},
-            lineColor={255,0,0},
-            fillColor={255,0,0},
-            fillPattern=FillPattern.Solid),
+                {12,5}}, 
+            lineColor={255,0,0}, 
+            fillColor={255,0,0}, 
+            fillPattern=FillPattern.Solid), 
           Polygon(
             points={{-13,5},{-16,5},{-65,5},{-65,16},{-90,1},{-65,-14},{-65,-3},
-                {-13,-3},{-13,5}},
-            lineColor={255,0,0},
-            fillColor={255,0,0},
+                {-13,-3},{-13,5}}, 
+            lineColor={255,0,0}, 
+            fillColor={255,0,0}, 
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
@@ -959,10 +957,10 @@ An animation of this example is shown in the figure below.
     Modelica.Mechanics.Rotational.Inertia Inertia(
       stateSelect=StateSelect.always,
       J=0.1,
-      w(fixed=true), 
+      w(fixed=true),
       phi(
-        fixed=true, 
-        start=0.001, 
+        fixed=true,
+        start=0.001,
         displayUnit="rad"))              annotation (Placement(transformation(
             extent={{-68,-120},{-48,-100}}, rotation=0)));
     Modelica.Mechanics.MultiBody.Parts.BodyBox Crank4(
@@ -974,7 +972,7 @@ An animation of this example is shown in the figure below.
           extent={{10,-10},{-10,10}},
           rotation=90)));
     Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank3(r={0.1,0,0}, diameter=0.03) annotation (
-      style(color=0, thickness=2), Placement(transformation(extent={{41.5,-71},
+                                   Placement(transformation(extent={{41.5,-71},
               {61.5,-51}}, rotation=0)));
     Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank1(diameter=0.05, r={0.1,0,0}) 
       annotation (Placement(transformation(extent={{-16,-100},{4,-80}},

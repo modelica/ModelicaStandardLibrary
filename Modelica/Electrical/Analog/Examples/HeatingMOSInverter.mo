@@ -5,12 +5,13 @@ model HeatingMOSInverter "Heating MOS Inverter"
   annotation (Placement(transformation(extent={{-80,-40},{-60,-20}}, rotation=0)));
   Modelica.Electrical.Analog.Sources.SineVoltage Sin(V=5) 
   annotation (Placement(transformation(
-        origin={-70,0}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-70,0},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   
 annotation (Diagram(graphics={Text(extent={{-100,100},{-6,72}}, textString=
-          "Heating MOS Inverter")}),Documentation(info="<HTML>
+              "Heating MOS Inverter")}),
+                                    Documentation(info="<HTML>
 <P>
 The heating MOS inverter shows a heat flow always if a transistor is leading.
 </P>
@@ -35,13 +36,13 @@ H_PMOS.heatPort.Q_flow and H_NMOS.heatPort.Q_flow<br>
 </html>"));
   Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=0.00001) 
   annotation (Placement(transformation(
-        origin={30,10}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={30,10},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Thermal.HeatTransfer.HeatCapacitor HeatCapacitor1(C=0.01) 
   annotation (Placement(transformation(
-        origin={70,-60}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={70,-60},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Thermal.HeatTransfer.ThermalConductor TC1(G=0.01) 
   annotation (Placement(transformation(extent={{0,-50},{20,-30}}, rotation=0)));
@@ -51,16 +52,16 @@ H_PMOS.heatPort.Q_flow and H_NMOS.heatPort.Q_flow<br>
   annotation (Placement(transformation(extent={{-40,0},{-20,20}}, rotation=0)));
   Modelica.Electrical.Analog.Sources.RampVoltage V(V=5, duration=1.e-2) 
   annotation (Placement(transformation(
-        origin={50,50}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={50,50},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Thermal.HeatTransfer.ThermalConductor TC2(G=0.01) 
   annotation (Placement(transformation(extent={{0,-90},{20,-70}}, rotation=0)));
   Modelica.Thermal.HeatTransfer.FixedTemperature FixedTemperature1(T=
         300) 
            annotation (Placement(transformation(
-        origin={88,-28}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={88,-28},
+        extent={{-10,-10},{10,10}},
         rotation=180)));
   Modelica.Thermal.HeatTransfer.ThermalConductor TC3(G=0.01) 
   annotation (Placement(transformation(extent={{46,-40},{66,-20}}, rotation=0)));

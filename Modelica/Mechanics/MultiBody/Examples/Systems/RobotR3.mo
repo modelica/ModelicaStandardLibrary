@@ -977,7 +977,6 @@ the definition of initial values considerably.
               pattern=LinePattern.Solid, 
               lineThickness=1, 
               fillPattern=FillPattern.HorizontalCylinder, 
-              arrow={Arrow.None,Arrow.None}, 
               fillColor={192,192,192}), 
             Polygon(
               points={{60,20},{40,40},{40,-40},{60,-20},{60,20}}, 
@@ -1001,14 +1000,12 @@ the definition of initial values considerably.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
-              extent={{72,30},{130,22}},
-              lineColor={0,0,0},
-              textString=
-                   "flange of joint axis"), Text(
-              extent={{-128,26},{-70,18}},
-              lineColor={0,0,0},
-              textString=
-                   "flange of motor axis")}));
+              extent={{72,30},{130,22}}, 
+              lineColor={0,0,0}, 
+              textString="flange of joint axis"), Text(
+              extent={{-128,26},{-70,18}}, 
+              lineColor={0,0,0}, 
+              textString="flange of motor axis")}));
       
       Modelica.Mechanics.Rotational.IdealGear gear(ratio=i) 
         annotation (Placement(transformation(extent={{50,-10},{70,10}},
@@ -1087,7 +1084,6 @@ Default values for all parameters are given for joint 4.
               pattern=LinePattern.Solid, 
               lineThickness=1, 
               fillPattern=FillPattern.HorizontalCylinder, 
-              arrow={Arrow.None,Arrow.None}, 
               fillColor={192,192,192}), 
             Polygon(
               points={{60,20},{40,40},{40,-40},{60,-20},{60,20}}, 
@@ -1378,7 +1374,6 @@ produced by the motor).
               lineColor={0,0,0}, 
               pattern=LinePattern.Solid, 
               lineThickness=1, 
-              arrow={Arrow.None,Arrow.None}, 
               fillColor={235,235,235}, 
               fillPattern=FillPattern.Solid), 
             Rectangle(

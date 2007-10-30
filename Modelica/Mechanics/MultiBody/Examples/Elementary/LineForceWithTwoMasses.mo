@@ -13,8 +13,8 @@ model LineForceWithTwoMasses
   annotation (
     experiment(StopTime=3),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={1,1}), graphics),
     Documentation(info="<html>
 <p>
@@ -76,11 +76,11 @@ side in the back is the animation with the JointUPS component.
     r={0,-0.9,0},
     width=0.01,
     animation=false) annotation (Placement(transformation(
-        origin={-40,54}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-40,54},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS jointUPS(nAxis_ia={0.7,1.2,0}, animation=
-       true) annotation (Placement(transformation(extent={{0,50},{20,30}}, 
+       true) annotation (Placement(transformation(extent={{0,50},{20,30}},
           rotation=0)));
   annotation (Diagram);
   Modelica.Mechanics.MultiBody.Parts.Body body1(
@@ -90,7 +90,7 @@ side in the back is the animation with the JointUPS component.
     m=m,
     I_11=0,
     I_22=0,
-    I_33=0) annotation (Placement(transformation(extent={{-14,14},{-34,34}}, 
+    I_33=0) annotation (Placement(transformation(extent={{-14,14},{-34,34}},
           rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.Body body2(
     r_CM=-0.2*jointUPS.eAxis_ia,
@@ -99,14 +99,14 @@ side in the back is the animation with the JointUPS component.
     m=m,
     I_11=0,
     I_22=0,
-    I_33=0) annotation (Placement(transformation(extent={{32,14},{52,34}}, 
+    I_33=0) annotation (Placement(transformation(extent={{32,14},{52,34}},
           rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(
     r={0,0.3,0},
     width=0.01,
     animation=false) annotation (Placement(transformation(
-        origin={-40,84}, 
-        extent={{10,-10},{-10,10}}, 
+        origin={-40,84},
+        extent={{10,-10},{-10,10}},
         rotation=270)));
   Modelica.Mechanics.Translational.Damper damper1(d=3) 
     annotation (Placement(transformation(extent={{0,24},{20,4}}, rotation=0)));
@@ -119,15 +119,15 @@ side in the back is the animation with the JointUPS component.
     width=0.01,
     r={0,-0.9,0.3},
     animation=false) annotation (Placement(transformation(
-        origin={-40,-46}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-40,-46},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod4(
     width=0.01,
     r={0,0.3,0.3},
     animation=false) annotation (Placement(transformation(
-        origin={-40,-16}, 
-        extent={{10,-10},{-10,10}}, 
+        origin={-40,-16},
+        extent={{10,-10},{-10,10}},
         rotation=270)));
   Modelica.Mechanics.Translational.Damper damper2(d=3) 
     annotation (Placement(transformation(extent={{0,-76},{20,-96}}, rotation=0)));
@@ -139,7 +139,7 @@ side in the back is the animation with the JointUPS component.
     cylinderLength_b=1.2,
     massDiameterFaction=2.2,
     m_a=m,
-    m_b=m) annotation (Placement(transformation(extent={{0,-50},{20,-70}}, 
+    m_b=m) annotation (Placement(transformation(extent={{0,-50},{20,-70}},
           rotation=0)));
 equation 
   connect(jointUPS.bearing, damper1.flange_a) 
@@ -148,64 +148,64 @@ equation
     annotation (Line(points={{14,30},{14,20},{20,20},{20,14}}, color={0,191,0}));
   connect(jointUPS.frame_ib, body2.frame_a) 
     annotation (Line(
-      points={{18,30},{18,24},{32,24}}, 
-      color={95,95,95}, 
+      points={{18,30},{18,24},{32,24}},
+      color={95,95,95},
       thickness=2));
   connect(world.frame_b, rod2.frame_a) annotation (Line(
-      points={{-60,70},{-40,70},{-40,74}}, 
-      color={95,95,95}, 
+      points={{-60,70},{-40,70},{-40,74}},
+      color={95,95,95},
       thickness=2));
   connect(world.frame_b, rod1.frame_a) annotation (Line(
-      points={{-60,70},{-40,70},{-40,64}}, 
-      color={95,95,95}, 
+      points={{-60,70},{-40,70},{-40,64}},
+      color={95,95,95},
       thickness=2));
   connect(rod2.frame_b, revolute1.frame_a) annotation (Line(
-      points={{-40,94},{-40,98},{-28,98},{-28,70},{-20,70}}, 
-      color={95,95,95}, 
+      points={{-40,94},{-40,98},{-28,98},{-28,70},{-20,70}},
+      color={95,95,95},
       thickness=2));
   connect(revolute1.frame_b, bodyBox1.frame_a) 
     annotation (Line(
-      points={{0,70},{20,70}}, 
-      color={95,95,95}, 
+      points={{0,70},{20,70}},
+      color={95,95,95},
       thickness=2));
   connect(bodyBox1.frame_b, jointUPS.frame_b) annotation (Line(
-      points={{40,70},{46,70},{46,40},{20,40}}, 
-      color={95,95,95}, 
+      points={{40,70},{46,70},{46,40},{20,40}},
+      color={95,95,95},
       thickness=2));
   connect(body1.frame_a, jointUPS.frame_ia) 
     annotation (Line(
-      points={{-14,24},{2,24},{2,30}}, 
-      color={95,95,95}, 
+      points={{-14,24},{2,24},{2,30}},
+      color={95,95,95},
       thickness=2));
   connect(rod1.frame_b, jointUPS.frame_a) annotation (Line(
-      points={{-40,44},{-40,40},{0,40}}, 
-      color={95,95,95}, 
+      points={{-40,44},{-40,40},{0,40}},
+      color={95,95,95},
       thickness=2));
   connect(rod4.frame_b, revolute2.frame_a) annotation (Line(
-      points={{-40,-6},{-40,-2},{-28,-2},{-28,-30},{-20,-30}}, 
-      color={95,95,95}, 
+      points={{-40,-6},{-40,-2},{-28,-2},{-28,-30},{-20,-30}},
+      color={95,95,95},
       thickness=2));
   connect(revolute2.frame_b, bodyBox2.frame_a) 
     annotation (Line(
-      points={{0,-30},{20,-30}}, 
-      color={95,95,95}, 
+      points={{0,-30},{20,-30}},
+      color={95,95,95},
       thickness=2));
   connect(world.frame_b, rod4.frame_a) annotation (Line(
-      points={{-60,70},{-52,70},{-52,-32},{-40,-32},{-40,-26}}, 
-      color={95,95,95}, 
+      points={{-60,70},{-52,70},{-52,-32},{-40,-32},{-40,-26}},
+      color={95,95,95},
       thickness=2));
   connect(rod3.frame_a, rod4.frame_a) 
     annotation (Line(
-      points={{-40,-36},{-40,-26}}, 
-      color={0,0,0}, 
+      points={{-40,-36},{-40,-26}},
+      color={0,0,0},
       thickness=2));
   connect(lineForceWithTwoMasses.frame_a, rod3.frame_b) annotation (Line(
-      points={{0,-60},{-40,-60},{-40,-56}}, 
-      color={95,95,95}, 
+      points={{0,-60},{-40,-60},{-40,-56}},
+      color={95,95,95},
       thickness=2));
   connect(lineForceWithTwoMasses.frame_b, bodyBox2.frame_b) annotation (Line(
-      points={{20,-60},{54,-60},{54,-30},{40,-30}}, 
-      color={95,95,95}, 
+      points={{20,-60},{54,-60},{54,-30},{40,-30}},
+      color={95,95,95},
       thickness=2));
   connect(lineForceWithTwoMasses.flange_b, damper2.flange_b) 
     annotation (Line(points={{16,-71},{20,-71},{20,-86}}, color={0,191,0}));

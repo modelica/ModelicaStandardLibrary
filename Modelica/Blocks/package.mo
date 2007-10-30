@@ -124,23 +124,23 @@ package Examples
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-99,48},{-32,8}}, lineColor={255,0,0}),
+          Rectangle(extent={{-99,48},{-32,8}}, lineColor={255,0,0}), 
           Text(
-            extent={{-98,59},{-31,51}},
-            lineColor={255,0,0},
-            textString="reference speed generation"),
+            extent={{-98,59},{-31,51}}, 
+            lineColor={255,0,0}, 
+            textString="reference speed generation"), 
           Text(
-            extent={{-98,-46},{-60,-52}},
-            lineColor={255,0,0},
-            textString="PI controller"),
+            extent={{-98,-46},{-60,-52}}, 
+            lineColor={255,0,0}, 
+            textString="PI controller"), 
           Line(
-            points={{-76,-44},{-57,-23}},
-            color={255,0,0},
-            arrow={Arrow.None,Arrow.Filled}),
-          Rectangle(extent={{-25,6},{99,-50}}, lineColor={255,0,0}),
+            points={{-76,-44},{-57,-23}}, 
+            color={255,0,0}, 
+            arrow={Arrow.None,Arrow.Filled}), 
+          Rectangle(extent={{-25,6},{99,-50}}, lineColor={255,0,0}), 
           Text(
-            extent={{4,14},{71,7}},
-            lineColor={255,0,0},
+            extent={{4,14},{71,7}}, 
+            lineColor={255,0,0}, 
             textString="plant (simple drive train)")}),
       experiment(StopTime=4),
       experimentSetupOutput,
@@ -485,25 +485,25 @@ just potential signals. The user might still add different signal names.
   equation 
     
     connect(sine.y, controlBus.realSignal1) annotation (Line(
-        points={{-39,50},{12,50},{12,14},{30,14},{30,10}}, 
-        color={0,0,127}, 
+        points={{-39,50},{12,50},{12,14},{30,14},{30,10}},
+        color={0,0,127},
         smooth=Smooth.None));
     connect(booleanStep.y, controlBus.booleanSignal) annotation (Line(
-        points={{-37,10},{28,10}}, 
-        color={255,0,255}, 
+        points={{-37,10},{28,10}},
+        color={255,0,255},
         smooth=Smooth.None));
     connect(integerStep.y, controlBus.integerSignal) annotation (Line(
-        points={{-39,-30},{0,-30},{0,6},{30,6}}, 
-        color={255,127,0}, 
+        points={{-39,-30},{0,-30},{0,6},{30,6}},
+        color={255,127,0},
         smooth=Smooth.None));
     connect(part.subControlBus, controlBus.subControlBus) annotation (Line(
-        points={{-40,-70},{30,-70},{30,2}}, 
-        color={255,204,51}, 
-        thickness=2, 
+        points={{-40,-70},{30,-70},{30,2}},
+        color={255,204,51},
+        thickness=2,
         smooth=Smooth.None));
     connect(gain.u, controlBus.realSignal1) annotation (Line(
-        points={{-38,80},{20,80},{20,18},{28,18}}, 
-        color={0,0,127}, 
+        points={{-38,80},{20,80},{20,18},{28,18}},
+        color={0,0,127},
         smooth=Smooth.None));
   end BusUsage;
   
@@ -580,8 +580,8 @@ constructed by the signals connected to this bus.
           
           annotation (
             Icon(graphics={Rectangle(
-                  extent={{-20,2},{22,-2}},
-                  lineColor={255,204,51},
+                  extent={{-20,2},{22,-2}}, 
+                  lineColor={255,204,51}, 
                   lineThickness=2)}),
             Diagram(graphics),
             Documentation(info="<html>
@@ -604,8 +604,8 @@ to the
           
           annotation (defaultComponentPrefixes="protected",
                       Icon(graphics={Rectangle(
-                  extent={{-20,2},{22,-2}},
-                  lineColor={255,204,51},
+                  extent={{-20,2},{22,-2}}, 
+                  lineColor={255,204,51}, 
                   lineThickness=2)}),
             Documentation(info="<html>
 <p>
@@ -645,7 +645,7 @@ This package contains the bus definitions needed for the
               fillColor={159,159,223}, 
               fillPattern=FillPattern.Solid, 
               textString="%name")}),
-                              Diagram(coordinateSystem(preserveAspectRatio=true, 
+                              Diagram(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}),
                                       graphics),
         Documentation(info="<html>
@@ -668,13 +668,13 @@ This model is used to demonstrate the bus usage in example
               rotation=0)));
    equation 
       connect(realExpression.y, subControlBus.myRealSignal) annotation (Line(
-          points={{21.3,10},{88,10},{88,4},{96,4}}, 
-          color={0,0,127}, 
+          points={{21.3,10},{88,10},{88,4},{96,4}},
+          color={0,0,127},
           smooth=Smooth.None));
       connect(booleanExpression.y, subControlBus.myBooleanSignal) annotation (
           Line(
-          points={{21.3,-20},{60,-20},{60,-2},{98,-2}}, 
-          color={255,0,255}, 
+          points={{21.3,-20},{60,-20},{60,-2},{98,-2}},
+          color={255,0,255},
           smooth=Smooth.None));
    end Part;
     

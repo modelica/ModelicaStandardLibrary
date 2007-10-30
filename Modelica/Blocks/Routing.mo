@@ -12,8 +12,8 @@ block ExtractSignal "Extract signals from an input signal vector"
       width=0.57,
       height=0.61),
     Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(extent={{-100,100},{100,-100}}), 
           Rectangle(
@@ -56,8 +56,8 @@ block ExtractSignal "Extract signals from an input signal vector"
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
           Polygon(
-            points={{-48.9983,14.8801},{-48.9983,10.8801},{-44.9983,12.8801},{
-                -48.9983,14.8801}}, 
+            points={{-48.9983,14.8801},{-48.9983,10.8801},{-44.9983,12.8801},{-48.9983,
+                14.8801}}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
           Ellipse(
@@ -86,11 +86,10 @@ block ExtractSignal "Extract signals from an input signal vector"
           Text(
             extent={{-150,-150},{150,-110}}, 
             lineColor={0,0,0}, 
-            textString=
-               "extract=%extract")}),
+            textString="extract=%extract")}),
     Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
             extent={{-90,50},{-50,-50}}, 
@@ -141,8 +140,8 @@ block ExtractSignal "Extract signals from an input signal vector"
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
           Polygon(
-            points={{-48.9983,14.8801},{-48.9983,10.8801},{-44.9983,12.8801},{
-                -48.9983,14.8801}}, 
+            points={{-48.9983,14.8801},{-48.9983,10.8801},{-44.9983,12.8801},{-48.9983,
+                14.8801}}, 
             lineColor={0,0,255}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
@@ -198,8 +197,8 @@ input vector (nin=7):</p>
 </pre>
 </HTML>
 "));
-equation 
     
+equation 
   for i in 1:nout loop
     y[i] = u[extract[i]];
       
@@ -256,8 +255,8 @@ block Extractor
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
           Polygon(
-            points={{-38.9983,14.8801},{-38.9983,10.8801},{-34.9983,12.8801},{
-                -38.9983,14.8801}}, 
+            points={{-38.9983,14.8801},{-38.9983,10.8801},{-34.9983,12.8801},{-38.9983,
+                14.8801}}, 
             lineColor={0,0,255}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
@@ -265,36 +264,12 @@ block Extractor
             extent={{-30,50},{30,-50}}, 
             fillColor={235,235,235}, 
             fillPattern=FillPattern.Solid), 
-          Line(
-            points={{100,0},{0,0}}, 
-            color={127,0,255}, 
-            fillColor={0,191,0}, 
-            fillPattern=FillPattern.Solid), 
-          Line(
-            points={{0,2},{0,-104}}, 
-            color={255,128,0}, 
-            fillColor={0,191,0}, 
-            fillPattern=FillPattern.Solid), 
-          Line(
-            points={{-35,40},{-20,40}}, 
-            color={127,0,255}, 
-            fillColor={0,191,0}, 
-            fillPattern=FillPattern.Solid), 
-          Line(
-            points={{-35,13},{-20,13}}, 
-            color={127,0,255}, 
-            fillColor={0,191,0}, 
-            fillPattern=FillPattern.Solid), 
-          Line(
-            points={{-35,-13},{-20,-13}}, 
-            color={127,0,255}, 
-            fillColor={0,191,0}, 
-            fillPattern=FillPattern.Solid), 
-          Line(
-            points={{-35,-40},{-20,-40}}, 
-            color={127,0,255}, 
-            fillColor={0,191,0}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{100,0},{0,0}}, color={127,0,255}), 
+          Line(points={{0,2},{0,-104}}, color={255,128,0}), 
+          Line(points={{-35,40},{-20,40}}, color={127,0,255}), 
+          Line(points={{-35,13},{-20,13}}, color={127,0,255}), 
+          Line(points={{-35,-13},{-20,-13}}, color={127,0,255}), 
+          Line(points={{-35,-40},{-20,-40}}, color={127,0,255}), 
           Polygon(
             points={{0,0},{-18,13},{-20,13},{-2,0},{0,0}}, 
             lineColor={127,0,255}, 
@@ -312,10 +287,11 @@ value of the additional u index:</p>
 </pre>
 <p>where index is an additional Integer input signal.</p>
 </html>"));
+    
   Modelica.Blocks.Interfaces.IntegerInput index             annotation (Placement(
           transformation(
-          origin={0,-120}, 
-          extent={{-20,-20},{20,20}}, 
+          origin={0,-120},
+          extent={{-20,-20},{20,20}},
           rotation=90)));
   protected 
   Real k[nin];
@@ -361,8 +337,8 @@ explicitly defined via parameters n1 and n2.
 </p>
 </HTML>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Line(points={{8,0},{102,0}}), 
           Ellipse(
@@ -372,8 +348,8 @@ explicitly defined via parameters n1 and n2.
           Line(points={{-98,60},{-60,60},{-4,6}}), 
           Line(points={{-98,-60},{-60,-60},{-4,-4}})}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Line(points={{-98,60},{-60,60},{-4,6}}), 
           Line(points={{-98,-60},{-60,-60},{-4,-4}}), 
@@ -416,8 +392,8 @@ Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1, n2 and n3.
 </HTML>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Line(points={{8,0},{102,0}}), 
           Line(points={{-100,70},{-60,70},{-4,6}}), 
@@ -428,8 +404,8 @@ explicitly defined via parameters n1, n2 and n3.
             fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Line(points={{-100,70},{-60,70},{-4,6}}), 
           Line(points={{-100,-70},{-62,-70},{-4,-4}}), 
@@ -478,8 +454,8 @@ explicitly defined via parameters n1, n2, n3 and n4.
 </p>
 </HTML>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{8,0},{102,0}}), 
           Line(points={{-100,90},{-60,90},{-3,4}}), 
@@ -491,8 +467,8 @@ explicitly defined via parameters n1, n2, n3 and n4.
             fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{-100,90},{-60,90},{-3,4}}), 
           Line(points={{-100,-90},{-60,-90},{-5,-6}}), 
@@ -546,8 +522,8 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
 </p>
 </HTML>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{8,0},{102,0}}), 
           Line(points={{-100,100},{-60,100},{-4,6}}), 
@@ -560,8 +536,8 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
             fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{-100,100},{-60,100},{-4,6}}), 
           Line(points={{-100,-100},{-60,-100},{-4,-4}}), 
@@ -621,8 +597,8 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
 </p>
 </HTML>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{8,0},{102,0}}), 
           Ellipse(
@@ -636,8 +612,8 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
           Line(points={{-99,-50},{-60,-50},{-9,-6}}), 
           Line(points={{-100,-85},{-60,-85},{-3,-10}})}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{-99,85},{-61,85},{-3,11}}), 
           Line(points={{-100,-85},{-60,-85},{-3,-10}}), 
@@ -681,8 +657,8 @@ explicitly defined via parameters n1 and n2.
 </p>
 </HTML>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Line(points={{100,60},{60,60},{10,8}}), 
           Ellipse(
@@ -692,8 +668,8 @@ explicitly defined via parameters n1 and n2.
           Line(points={{100,-60},{60,-60},{8,-8}}), 
           Line(points={{-100,0},{-6,0}})}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Line(points={{100,60},{60,60},{10,8}}), 
           Line(points={{100,-60},{60,-60},{8,-8}}), 
@@ -737,8 +713,8 @@ explicitly defined via parameters n1, n2 and n3.
 </p>
 </HTML>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Ellipse(
             extent={{-14,16},{16,-14}}, 
@@ -749,8 +725,8 @@ explicitly defined via parameters n1, n2 and n3.
           Line(points={{0,0},{101,0}}), 
           Line(points={{100,-70},{61,-70},{5,-5}})}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{100,70},{60,70},{4,5}}), 
           Line(points={{100,-70},{61,-70},{5,-5}}), 
@@ -799,8 +775,8 @@ Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1, n2, n3 and n4.
 </HTML>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Ellipse(
             extent={{-14,16},{16,-14}}, 
@@ -812,8 +788,8 @@ explicitly defined via parameters n1, n2, n3 and n4.
           Line(points={{100,-30},{60,-30},{8,-4}}), 
           Line(points={{99,-90},{60,-90},{6,-6}})}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{100,90},{60,90},{6,5}}), 
           Line(points={{99,-90},{60,-90},{6,-6}}), 
@@ -867,8 +843,8 @@ Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1, n2, n3, n4 and n5.
 </HTML>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Ellipse(
             extent={{-14,16},{16,-14}}, 
@@ -881,8 +857,8 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
           Line(points={{100,-40},{61,-40},{11,-7}}), 
           Line(points={{100,-80},{60,-80},{7,-5}})}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{99,80},{60,80},{6,5}}), 
           Line(points={{100,-80},{60,-80},{7,-5}}), 
@@ -940,8 +916,8 @@ Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
 </HTML>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Ellipse(
             extent={{-14,16},{16,-14}}, 
@@ -955,8 +931,8 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
           Line(points={{99,-54},{60,-54},{9,-1}}), 
           Line(points={{100,-91},{60,-91},{3,-7}})}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{99,90},{60,90},{5,10}}), 
           Line(points={{100,-91},{60,-91},{3,-7}}), 
@@ -986,7 +962,7 @@ This package contains blocks to combine and extract signals.
       annotation (Hide=true, Placement(transformation(extent={{-140,-20},{-100,
               20}}, rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput y "Output signal" 
-      annotation (Hide=true, Placement(transformation(extent={{100,-10},{120,10}}, 
+      annotation (Hide=true, Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
     annotation (Icon(graphics={Line(points={{-100,0},{100,0}}, color={0,0,127})}),
                       Documentation(info="<html>
@@ -1002,10 +978,10 @@ Passes a Real signal through without modification.  Enables signals to be read o
     extends Modelica.Blocks.Interfaces.IntegerBlockIcon;
     
     Modelica.Blocks.Interfaces.IntegerInput u "Input signal" 
-      annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, 
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
     Modelica.Blocks.Interfaces.IntegerOutput y "Output signal" 
-      annotation (Placement(transformation(extent={{100,-10},{120,10}}, 
+      annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
     annotation (Icon(graphics={Line(points={{-100,0},{100,0}}, color={255,128,0})}),
                       Documentation(info="<html>
@@ -1020,10 +996,10 @@ Passes a Real signal through without modification.  Enables signals to be read o
     extends Modelica.Blocks.Interfaces.BooleanBlockIcon;
     
     Modelica.Blocks.Interfaces.BooleanInput u "Input signal" 
-      annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, 
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
     Modelica.Blocks.Interfaces.BooleanOutput y "Output signal" 
-      annotation (Placement(transformation(extent={{100,-10},{120,10}}, 
+      annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
     annotation (Diagram(graphics),
                          Documentation(info="<html>

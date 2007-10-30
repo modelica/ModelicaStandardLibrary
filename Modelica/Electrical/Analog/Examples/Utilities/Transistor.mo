@@ -3,8 +3,8 @@ model Transistor
   
   annotation (
     Icon(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
         Rectangle(extent={{-80,80},{80,-80}}), 
         Line(points={{80,60},{100,60}}), 
@@ -27,8 +27,8 @@ model Transistor
   Basic.Resistor rtc(R=0.1) annotation (Placement(transformation(extent={{40,0},
             {60,20}}, rotation=0)));
   Basic.Capacitor ct(C=1e-10) annotation (Placement(transformation(
-        origin={-40,-30}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-40,-30},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Semiconductors.NPN Tr(
     Bf=50,
@@ -46,11 +46,11 @@ model Transistor
     Mc=0.333,
     Gbc=1e-15,
     Gbe=1e-15,
-    Vt=0.02585) annotation (Placement(transformation(extent={{-20,-20},{20,20}}, 
+    Vt=0.02585) annotation (Placement(transformation(extent={{-20,-20},{20,20}},
           rotation=0)));
   Basic.Ground Ground1 annotation (Placement(transformation(extent={{-50,-80},{
             -30,-60}}, rotation=0)));
-  Interfaces.Pin c annotation (Placement(transformation(extent={{90,50},{110,70}}, 
+  Interfaces.Pin c annotation (Placement(transformation(extent={{90,50},{110,70}},
           rotation=0)));
   Interfaces.Pin b annotation (Placement(transformation(extent={{-110,-10},{-90,
             10}}, rotation=0)));

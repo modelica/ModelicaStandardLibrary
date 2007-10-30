@@ -23,20 +23,20 @@ model ShowSaturatingInductor
     phase=phase,
     freqHz=f) 
     annotation (Placement(transformation(
-        origin={-20,0}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-20,0},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground Ground1 
-    annotation (Placement(transformation(extent={{-30,-30},{-10,-10}}, rotation
-          =0)));
+    annotation (Placement(transformation(extent={{-30,-30},{-10,-10}}, rotation=
+           0)));
   Modelica.Electrical.Analog.Basic.SaturatingInductor SaturatingInductance1(
     Lzer=Lzer,
     Lnom=Lnom,
     Inom=Inom,
     Linf=Linf) 
     annotation (Placement(transformation(
-        origin={22,6}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={22,6},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
 equation 
   v=SaturatingInductance1.v;

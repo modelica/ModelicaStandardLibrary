@@ -80,5 +80,4 @@ initialization definition.
  
 </html>"));
   
-  
 end Types;

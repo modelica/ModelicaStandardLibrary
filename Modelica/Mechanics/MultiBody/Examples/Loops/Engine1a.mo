@@ -75,7 +75,7 @@ An animation of this example is shown in the figure below.
         extent={{10,-10},{-10,10}},
         rotation=90)));
   Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank3(r={0.1,0,0}, diameter=0.03) annotation (
-    style(color=0, thickness=2), Placement(transformation(extent={{81.5,-71},{
+                                 Placement(transformation(extent={{81.5,-71},{
             101.5,-51}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank1(diameter=0.05, r={0.1,0,0}) 
     annotation (Placement(transformation(extent={{24,-100},{44,-80}}, rotation=

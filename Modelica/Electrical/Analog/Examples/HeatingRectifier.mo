@@ -2,18 +2,19 @@ within Modelica.Electrical.Analog.Examples;
 model HeatingRectifier "Heating rectifier" 
   extends Modelica.Icons.Example;
   Modelica.Electrical.Analog.Semiconductors.HeatingDiode HeatingDiode1 
-                annotation (Placement(transformation(extent={{-20,40},{0,60}}, 
+                annotation (Placement(transformation(extent={{-20,40},{0,60}},
           rotation=0)));
   Modelica.Electrical.Analog.Basic.Ground G 
   annotation (Placement(transformation(extent={{-80,0},{-60,20}}, rotation=0)));
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1 
   annotation (Placement(transformation(
-        origin={-70,40}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-70,40},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   
 annotation (Diagram(graphics={Text(extent={{-94,102},{0,74}}, textString=
-          "HeatingRectifier")}),Documentation(info="<HTML>
+              "HeatingRectifier")}),
+                                Documentation(info="<HTML>
 <P>
 The heating rectifier shows a heat flow always if the electrical capacitor is loaded.
 </P>
@@ -40,13 +41,13 @@ HeatingDiode1.heatPort.Q_flow<br>
   annotation (Placement(transformation(extent={{20,40},{40,60}}, rotation=0)));
   Modelica.Thermal.HeatTransfer.HeatCapacitor HeatCapacitor1(C=1) 
   annotation (Placement(transformation(
-        origin={-10,-50}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-10,-50},
+        extent={{-10,-10},{10,10}},
         rotation=180)));
   Modelica.Thermal.HeatTransfer.ThermalConductor ThermalConductor1(G=10) 
   annotation (Placement(transformation(
-        origin={-10,-10}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-10,-10},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Resistor R(R=1) 
   annotation (Placement(transformation(extent={{20,70},{40,90}}, rotation=0)));
@@ -64,7 +65,7 @@ equation
         points={{-10,40},{-10,20.5},{-10,0},{-10,0}}, color={191,0,0}));
   connect(ThermalConductor1.port_b, HeatCapacitor1.port) 
                                                        annotation (Line(points=
-          {{-10,-20},{-10,-25.75},{-10,-25.75},{-10,-30.5},{-10,-40},{-10,-40}}, 
+          {{-10,-20},{-10,-25.75},{-10,-25.75},{-10,-30.5},{-10,-40},{-10,-40}},
         color={191,0,0}));
   connect(R.p, Capacitor1.p) 
   annotation (Line(points={{20,80},{20,50}}, color={0,0,255}));

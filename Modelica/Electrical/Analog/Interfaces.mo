@@ -169,22 +169,14 @@ component.</p></html>", revisions="<html>
             lineColor={160,160,164}, 
             fillColor={160,160,164}, 
             fillPattern=FillPattern.Solid), 
-          Line(
-            points={{-136,0},{-111,0}}, 
-            color={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{-136,0},{-111,0}}, color={160,160,164}), 
           Text(
             extent={{-134,5},{-117,20}}, 
             lineColor={160,160,164}, 
             fillColor={160,160,164}, 
             fillPattern=FillPattern.Solid, 
             textString="p.i"), 
-          Line(
-            points={{110,0},{135,0}}, 
-            color={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{110,0},{135,0}}, color={160,160,164}), 
           Polygon(
             points={{120,3},{110,0},{120,-3},{120,3}}, 
             lineColor={160,160,164}, 
@@ -247,21 +239,13 @@ This current is provided explicitly as current i.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(
-            points={{-110,20},{-85,20}}, 
-            color={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{-110,20},{-85,20}}, color={160,160,164}), 
           Polygon(
             points={{-95,23},{-85,20},{-95,17},{-95,23}}, 
             lineColor={160,160,164}, 
             fillColor={160,160,164}, 
             fillPattern=FillPattern.Solid), 
-          Line(
-            points={{90,20},{115,20}}, 
-            color={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{90,20},{115,20}}, color={160,160,164}), 
           Line(points={{-125,0},{-115,0}}, color={160,160,164}), 
           Line(points={{-120,-5},{-120,5}}, color={160,160,164}), 
           Text(
@@ -317,21 +301,13 @@ This current is provided explicitly as current i.
             lineColor={160,160,164}, 
             fillColor={160,160,164}, 
             fillPattern=FillPattern.Solid), 
-          Line(
-            points={{-136,50},{-111,50}}, 
-            color={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{-136,50},{-111,50}}, color={160,160,164}), 
           Polygon(
             points={{127,-47},{137,-50},{127,-53},{127,-47}}, 
             lineColor={160,160,164}, 
             fillColor={160,160,164}, 
             fillPattern=FillPattern.Solid), 
-          Line(
-            points={{111,-50},{136,-50}}, 
-            color={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{111,-50},{136,-50}}, color={160,160,164}), 
           Text(
             extent={{112,-44},{128,-29}}, 
             lineColor={160,160,164}, 
@@ -349,16 +325,8 @@ This current is provided explicitly as current i.
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={160,160,164}), 
-          Line(
-            points={{111,50},{136,50}}, 
-            color={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={160,160,164}), 
-          Line(
-            points={{-136,-49},{-111,-49}}, 
-            color={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{111,50},{136,50}}, color={0,0,0}), 
+          Line(points={{-136,-49},{-111,-49}}, color={160,160,164}), 
           Polygon(
             points={{-126,-46},{-136,-49},{-126,-52},{-126,-46}}, 
             lineColor={160,160,164}, 

@@ -27,26 +27,26 @@ model PointGravityWithPointMasses2
             20,-80}}, rotation=0)));
   
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(r={1,0,0}) 
-                  annotation (Placement(transformation(extent={{20,-10},{40,10}}, 
+                  annotation (Placement(transformation(extent={{20,-10},{40,10}},
           rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation1(r={-1,0,0}) 
-                 annotation (Placement(transformation(extent={{0,-10},{-20,10}}, 
+                 annotation (Placement(transformation(extent={{0,-10},{-20,10}},
           rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation2(r={0,1,0}) 
-                 annotation (Placement(transformation(extent={{20,20},{40,40}}, 
+                 annotation (Placement(transformation(extent={{20,20},{40,40}},
           rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation3(r={0,-1,0}) 
-                 annotation (Placement(transformation(extent={{0,-40},{-20,-20}}, 
+                 annotation (Placement(transformation(extent={{0,-40},{-20,-20}},
           rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation4(r={0,0,1}) 
                  annotation (Placement(transformation(
-        origin={10,60}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={10,60},
+        extent={{-10,-10},{10,10}},
         rotation=90)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation5(r={0,0,-1}) 
                  annotation (Placement(transformation(
-        origin={10,-60}, 
-        extent={{10,-10},{-10,10}}, 
+        origin={10,-60},
+        extent={{10,-10},{-10,10}},
         rotation=90)));
   
   annotation (Diagram(graphics),
@@ -110,26 +110,26 @@ model SystemWithStandardBodies
               22,-82}}, rotation=0)));
     
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation( r={1,0,0}) 
-                  annotation (Placement(transformation(extent={{0,-20},{20,0}}, 
+                  annotation (Placement(transformation(extent={{0,-20},{20,0}},
             rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation1( r={-1,0,0}) 
-                 annotation (Placement(transformation(extent={{-20,-20},{-40,0}}, 
+                 annotation (Placement(transformation(extent={{-20,-20},{-40,0}},
             rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation2( r={0,1,0}) 
-                 annotation (Placement(transformation(extent={{0,10},{20,30}}, 
+                 annotation (Placement(transformation(extent={{0,10},{20,30}},
             rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation3( r={0,-1,0}) 
                  annotation (Placement(transformation(extent={{-20,-50},{-40,
               -30}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation4( r={0,0,1}) 
                  annotation (Placement(transformation(
-          origin={-10,50}, 
-          extent={{-10,-10},{10,10}}, 
+          origin={-10,50},
+          extent={{-10,-10},{10,10}},
           rotation=90)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation5( r={0,0,-1}) 
                  annotation (Placement(transformation(
-          origin={-10,-70}, 
-          extent={{10,-10},{-10,10}}, 
+          origin={-10,-70},
+          extent={{10,-10},{-10,10}},
           rotation=90)));
     
   annotation (Diagram(graphics),
@@ -145,58 +145,58 @@ point masses are replaced by Bodies with zero inertia.
 equation 
   connect(fixedTranslation1.frame_a, fixedTranslation.frame_a) 
                                                          annotation (Line(
-        points={{-20,-10},{0,-10}}, 
-        color={95,95,95}, 
+        points={{-20,-10},{0,-10}},
+        color={95,95,95},
         thickness=2));
   connect(fixedTranslation1.frame_a, fixedTranslation2.frame_a) 
                                                           annotation (Line(
-        points={{-20,-10},{-10,-10},{-10,20},{0,20}}, 
-        color={95,95,95}, 
+        points={{-20,-10},{-10,-10},{-10,20},{0,20}},
+        color={95,95,95},
         thickness=2));
   connect(fixedTranslation3.frame_a, fixedTranslation.frame_a) 
                                                          annotation (Line(
-        points={{-20,-40},{-10,-40},{-10,-10},{0,-10}}, 
-        color={95,95,95}, 
+        points={{-20,-40},{-10,-40},{-10,-10},{0,-10}},
+        color={95,95,95},
         thickness=2));
   connect(fixedTranslation1.frame_a, fixedTranslation4.frame_a) 
                                                           annotation (Line(
-        points={{-20,-10},{-10,-10},{-10,40}}, 
-        color={95,95,95}, 
+        points={{-20,-10},{-10,-10},{-10,40}},
+        color={95,95,95},
         thickness=2));
   connect(fixedTranslation5.frame_a, fixedTranslation.frame_a) 
                                                          annotation (Line(
-        points={{-10,-60},{-10,-10},{0,-10}}, 
-        color={95,95,95}, 
+        points={{-10,-60},{-10,-10},{0,-10}},
+        color={95,95,95},
         thickness=2));
   connect(fixedTranslation2.frame_b, pointMass3.frame_a) 
                                                       annotation (Line(
-        points={{20,20},{40,20}}, 
-        color={95,95,95}, 
+        points={{20,20},{40,20}},
+        color={95,95,95},
         thickness=2));
   connect(fixedTranslation3.frame_b, pointMass4.frame_a) 
                                                       annotation (Line(
-        points={{-40,-40},{-50,-40}}, 
-        color={95,95,95}, 
+        points={{-40,-40},{-50,-40}},
+        color={95,95,95},
         thickness=2));
   connect(pointMass5.frame_a, fixedTranslation4.frame_b) 
                                                       annotation (Line(
-        points={{0,70},{-10,70},{-10,60}}, 
-        color={95,95,95}, 
+        points={{0,70},{-10,70},{-10,60}},
+        color={95,95,95},
         thickness=2));
   connect(fixedTranslation5.frame_b, pointMass6.frame_a) 
                                                       annotation (Line(
-        points={{-10,-80},{-10,-92},{2,-92}}, 
-        color={95,95,95}, 
+        points={{-10,-80},{-10,-92},{2,-92}},
+        color={95,95,95},
         thickness=2));
   connect(fixedTranslation.frame_b, pointMass1.frame_a) 
                                                      annotation (Line(
-        points={{20,-10},{40,-10}}, 
-        color={95,95,95}, 
+        points={{20,-10},{40,-10}},
+        color={95,95,95},
         thickness=2));
   connect(fixedTranslation1.frame_b, pointMass2.frame_a) 
                                                       annotation (Line(
-        points={{-40,-10},{-60,-10}}, 
-        color={95,95,95}, 
+        points={{-40,-10},{-60,-10}},
+        color={95,95,95},
         thickness=2));
 end SystemWithStandardBodies;
   
@@ -205,65 +205,65 @@ end SystemWithStandardBodies;
 equation 
   connect(fixedTranslation1.frame_a, fixedTranslation.frame_a) 
                                                          annotation (Line(
-      points={{0,0},{20,0}}, 
-      color={95,95,95}, 
+      points={{0,0},{20,0}},
+      color={95,95,95},
       thickness=2));
   connect(fixedTranslation1.frame_a, fixedTranslation2.frame_a) 
                                                           annotation (Line(
-      points={{0,0},{10,0},{10,30},{20,30}}, 
-      color={95,95,95}, 
+      points={{0,0},{10,0},{10,30},{20,30}},
+      color={95,95,95},
       thickness=2));
   connect(fixedTranslation3.frame_a, fixedTranslation.frame_a) 
                                                          annotation (Line(
-      points={{0,-30},{10,-30},{10,0},{20,0}}, 
-      color={95,95,95}, 
+      points={{0,-30},{10,-30},{10,0},{20,0}},
+      color={95,95,95},
       thickness=2));
   connect(fixedTranslation1.frame_a, fixedTranslation4.frame_a) 
                                                           annotation (Line(
-      points={{0,0},{10,0},{10,50}}, 
-      color={95,95,95}, 
+      points={{0,0},{10,0},{10,50}},
+      color={95,95,95},
       thickness=2));
   connect(fixedTranslation5.frame_a, fixedTranslation.frame_a) 
                                                          annotation (Line(
-      points={{10,-50},{10,0},{20,0}}, 
-      color={95,95,95}, 
+      points={{10,-50},{10,0},{20,0}},
+      color={95,95,95},
       thickness=2));
   connect(fixedTranslation2.frame_b, pointMass3.frame_a) 
                                                       annotation (Line(
-      points={{40,30},{70,30}}, 
-      color={95,95,95}, 
+      points={{40,30},{70,30}},
+      color={95,95,95},
       thickness=2));
   connect(fixedTranslation3.frame_b, pointMass4.frame_a) 
                                                       annotation (Line(
-      points={{-20,-30},{-40,-30}}, 
-      color={95,95,95}, 
+      points={{-20,-30},{-40,-30}},
+      color={95,95,95},
       thickness=2));
   connect(pointMass5.frame_a, fixedTranslation4.frame_b) 
                                                       annotation (Line(
-      points={{10,90},{10,70}}, 
-      color={95,95,95}, 
+      points={{10,90},{10,70}},
+      color={95,95,95},
       thickness=2));
   connect(fixedTranslation5.frame_b, pointMass6.frame_a) 
                                                       annotation (Line(
-      points={{10,-70},{10,-90}}, 
-      color={95,95,95}, 
+      points={{10,-70},{10,-90}},
+      color={95,95,95},
       thickness=2));
   connect(fixedTranslation.frame_b, pointMass1.frame_a) 
                                                      annotation (Line(
-      points={{40,0},{70,0}}, 
-      color={95,95,95}, 
+      points={{40,0},{70,0}},
+      color={95,95,95},
       thickness=2));
   connect(fixedTranslation1.frame_b, pointMass2.frame_a) 
                                                       annotation (Line(
-      points={{-20,0},{-50,0}}, 
-      color={95,95,95}, 
+      points={{-20,0},{-50,0}},
+      color={95,95,95},
       thickness=2));
   connect(world.frame_b, freeMotion.frame_a) annotation (Line(
-      points={{-60,70},{-40,70}}, 
-      color={95,95,95}, 
+      points={{-60,70},{-40,70}},
+      color={95,95,95},
       thickness=2));
   connect(freeMotion.frame_b, fixedTranslation1.frame_a) annotation (Line(
-      points={{-20,70},{-10,70},{-10,20},{10,20},{10,0},{0,0}}, 
-      color={95,95,95}, 
+      points={{-20,70},{-10,70},{-10,20},{10,20},{10,0},{0,0}},
+      color={95,95,95},
       thickness=2));
 end PointGravityWithPointMasses2;

@@ -11,8 +11,8 @@ model DoublePendulum
       width=0.71,
       height=0.85),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics),
     Documentation(info="<html>
 <p>
@@ -52,22 +52,22 @@ equation
           {-44,28},{-58,28},{-58,50},{-48,50}}, color={0,0,0}));
   connect(revolute1.frame_b, boxBody1.frame_a) 
     annotation (Line(
-      points={{-28,10},{-10,10}}, 
-      color={95,95,95}, 
+      points={{-28,10},{-10,10}},
+      color={95,95,95},
       thickness=2));
   connect(revolute2.frame_b, boxBody2.frame_a) 
     annotation (Line(
-      points={{52,10},{74,10}}, 
-      color={95,95,95}, 
+      points={{52,10},{74,10}},
+      color={95,95,95},
       thickness=2));
   connect(boxBody1.frame_b, revolute2.frame_a) 
     annotation (Line(
-      points={{10,10},{32,10}}, 
-      color={95,95,95}, 
+      points={{10,10},{32,10}},
+      color={95,95,95},
       thickness=2));
   connect(world.frame_b, revolute1.frame_a) 
     annotation (Line(
-      points={{-68,10},{-48,10}}, 
-      color={95,95,95}, 
+      points={{-68,10},{-48,10}},
+      color={95,95,95},
       thickness=2));
 end DoublePendulum;

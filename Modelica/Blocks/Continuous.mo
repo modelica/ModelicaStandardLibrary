@@ -139,8 +139,8 @@ This is discussed in the description of package
 
 </html>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Line(points={{-80,78},{-80,-90}}, color={192,192,192}), 
           Polygon(
@@ -157,17 +157,15 @@ This is discussed in the description of package
           Text(
             extent={{0,-10},{60,-70}}, 
             lineColor={192,192,192}, 
-            textString=
-                 "I"), 
+            textString="I"), 
           Text(
             extent={{-150,-150},{150,-110}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "k=%k"), 
+            textString="k=%k"), 
           Line(points={{-80,-80},{80,80}})}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}), 
           Line(points={{-100,0},{-60,0}}), 
@@ -175,13 +173,11 @@ This is discussed in the description of package
           Text(
             extent={{-36,60},{32,2}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "k"), 
+            textString="k"), 
           Text(
             extent={{-32,0},{36,-58}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "s"), 
+            textString="s"), 
           Line(points={{-46,0},{46,0}}, color={0,0,0})}));
   initial equation 
     if initType == Init.SteadyState then
@@ -242,8 +238,8 @@ to use <b>limitAtInit</b> = <b>false</b>.
 </p>
 </html>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Line(points={{-80,78},{-80,-90}}, color={192,192,192}), 
           Polygon(
@@ -261,35 +257,30 @@ to use <b>limitAtInit</b> = <b>false</b>.
           Text(
             extent={{0,-10},{60,-70}}, 
             lineColor={192,192,192}, 
-            textString=
-                 "I"), 
+            textString="I"), 
           Text(
             extent={{-150,-150},{150,-110}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "k=%k")}),
+            textString="k=%k")}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}), 
           Text(
             extent={{-54,46},{-4,-48}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "lim"), 
+            textString="lim"), 
           Line(points={{-100,0},{-60,0}}), 
           Line(points={{60,0},{100,0}}), 
           Text(
             extent={{-8,60},{60,2}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "k"), 
+            textString="k"), 
           Text(
             extent={{-8,-2},{60,-60}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "s"), 
+            textString="s"), 
           Line(points={{4,0},{46,0}}, color={0,0,0})}));
   initial equation 
     if initType == Init.SteadyState then
@@ -354,8 +345,8 @@ If k=0, the block reduces to y=0.
 </p>
 </HTML>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Line(points={{-80,78},{-80,-90}}, color={192,192,192}), 
           Polygon(
@@ -376,27 +367,23 @@ If k=0, the block reduces to y=0.
           Text(
             extent={{-30,14},{86,60}}, 
             lineColor={192,192,192}, 
-            textString=
-                 "DT1"), 
+            textString="DT1"), 
           Text(
             extent={{-150,-150},{150,-110}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "k=%k")}),
+            textString="k=%k")}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Text(
             extent={{-54,52},{50,10}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "k s"), 
+            textString="k s"), 
           Text(
             extent={{-54,-6},{52,-52}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "T s + 1"), 
+            textString="T s + 1"), 
           Line(points={{-50,0},{50,0}}, color={0,0,0}), 
           Rectangle(extent={{-60,60},{60,-60}}), 
           Line(points={{-100,0},{-60,0}}), 
@@ -466,8 +453,8 @@ Example:
 
 </HTML>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Line(points={{-80,78},{-80,-90}}, color={192,192,192}), 
           Polygon(
@@ -488,27 +475,23 @@ Example:
           Text(
             extent={{0,0},{60,-60}}, 
             lineColor={192,192,192}, 
-            textString=
-                 "PT1"), 
+            textString="PT1"), 
           Text(
             extent={{-150,-150},{150,-110}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "T=%T")}),
+            textString="T=%T")}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Text(
             extent={{-48,52},{50,8}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "k"), 
+            textString="k"), 
           Text(
             extent={{-54,-6},{56,-56}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "T s + 1"), 
+            textString="T s + 1"), 
           Line(points={{-50,0},{50,0}}, color={0,0,0}), 
           Rectangle(extent={{-60,60},{60,-60}}), 
           Line(points={{-100,0},{-60,0}}), 
@@ -579,8 +562,8 @@ Example:
 
 </HTML>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Line(points={{-80,78},{-80,-90}}, color={192,192,192}), 
           Polygon(
@@ -601,28 +584,24 @@ Example:
           Text(
             extent={{0,-10},{60,-70}}, 
             lineColor={192,192,192}, 
-            textString=
-                 "PT2"), 
+            textString="PT2"), 
           Text(
             extent={{-150,-150},{150,-110}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "w=%w")}),
+            textString="w=%w")}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}), 
           Text(
             extent={{-60,60},{60,14}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "k"), 
+            textString="k"), 
           Text(
             extent={{-60,8},{-32,-20}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "s"), 
+            textString="s"), 
           Line(points={{-100,0},{-60,0}}), 
           Line(points={{60,0},{100,0}}), 
           Line(points={{-50,14},{50,14}}, color={0,0,0}), 
@@ -630,38 +609,32 @@ Example:
           Text(
             extent={{-52,-26},{-36,-48}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "w"), 
+            textString="w"), 
           Line(points={{-50,2},{-56,-8},{-56,-28},{-52,-46}}, color={0,0,0}), 
           Line(points={{-40,2},{-34,-10},{-34,-30},{-38,-46}}, color={0,0,0}), 
           Text(
             extent={{-34,8},{-22,-10}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "2"), 
+            textString="2"), 
           Text(
             extent={{-34,-6},{6,-36}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "+2D"), 
+            textString="+2D"), 
           Text(
             extent={{2,8},{30,-20}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "s"), 
+            textString="s"), 
           Line(points={{8,-20},{24,-20}}, color={0,0,0}), 
           Text(
             extent={{10,-26},{26,-48}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "w"), 
+            textString="w"), 
           Line(points={{12,2},{6,-8},{6,-28},{10,-46}}, color={0,0,0}), 
           Line(points={{22,2},{28,-10},{28,-30},{24,-46}}, color={0,0,0}), 
           Text(
             extent={{30,2},{58,-42}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "+1")}));
+            textString="+1")}));
   initial equation 
     if initType == Init.SteadyState then
       der(y) = 0;
@@ -738,8 +711,8 @@ This is discussed in the description of package
  
 </HTML>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Line(points={{-80,78},{-80,-90}}, color={192,192,192}), 
           Polygon(
@@ -757,33 +730,28 @@ This is discussed in the description of package
           Text(
             extent={{0,6},{60,-56}}, 
             lineColor={192,192,192}, 
-            textString=
-                 "PI"), 
+            textString="PI"), 
           Text(
             extent={{-150,-150},{150,-110}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "T=%T")}),
+            textString="T=%T")}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}), 
           Text(
             extent={{-68,24},{-24,-18}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "k"), 
+            textString="k"), 
           Text(
             extent={{-32,48},{60,0}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "T s + 1"), 
+            textString="T s + 1"), 
           Text(
             extent={{-30,-8},{52,-40}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "T s"), 
+            textString="T s"), 
           Line(points={{-24,0},{54,0}}, color={0,0,0}), 
           Line(points={{-100,0},{-60,0}}), 
           Line(points={{62,0},{100,0}})}));
@@ -830,8 +798,8 @@ This is discussed in the description of package
         width=0.55,
         height=0.68),
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Line(points={{-80,78},{-80,-90}}, color={192,192,192}), 
           Polygon(
@@ -849,13 +817,11 @@ This is discussed in the description of package
           Text(
             extent={{-20,-20},{80,-60}}, 
             lineColor={192,192,192}, 
-            textString=
-                 "PID"), 
+            textString="PID"), 
           Text(
             extent={{-150,-150},{150,-110}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "Ti=%Ti")}),
+            textString="Ti=%Ti")}),
       Documentation(info="<HTML>
 <p>
 This is the text-book version of a PID-controller.
@@ -937,11 +903,11 @@ to compute u by an algebraic equation.
  
 </HTML>
 "),   Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics));
     Blocks.Math.Gain P "Proportional part of PID controller" 
-      annotation (Placement(transformation(extent={{-60,60},{-20,100}}, 
+      annotation (Placement(transformation(extent={{-60,60},{-20,100}},
             rotation=0)));
     Blocks.Continuous.Integrator I(k=1/Ti, y_start=xi_start,
       initType=if initType==InitPID.SteadyState then 
@@ -950,7 +916,7 @@ to compute u by an algebraic equation.
                   initType==InitPID.DoNotUse_InitialIntegratorState then 
                   InitPID.InitialState else InitPID.NoInit) 
       "Integral part of PID controller" 
-      annotation (Placement(transformation(extent={{-60,-20},{-20,20}}, 
+      annotation (Placement(transformation(extent={{-60,-20},{-20,20}},
             rotation=0)));
     Blocks.Continuous.Derivative D(k=Td, T=max([Td/Nd, 100*Modelica.
           Constants.eps]), x_start=xd_start,
@@ -958,7 +924,7 @@ to compute u by an algebraic equation.
                   initType==InitPID.InitialOutput then InitPID.SteadyState else 
                if initType==InitPID.InitialState then InitPID.InitialState else 
                   InitPID.NoInit) "Derivative part of PID controller" 
-      annotation (Placement(transformation(extent={{-60,-100},{-20,-60}}, 
+      annotation (Placement(transformation(extent={{-60,-100},{-20,-60}},
             rotation=0)));
     Blocks.Math.Gain Gain(k=k) "Gain of PID controller" 
       annotation (Placement(transformation(extent={{60,-10},{80,10}}, rotation=
@@ -971,13 +937,13 @@ to compute u by an algebraic equation.
     end if;
     
   equation 
-    connect(u, P.u) annotation (Line(points={{-120,0},{-80,0},{-80,80},{-64,80}}, 
+    connect(u, P.u) annotation (Line(points={{-120,0},{-80,0},{-80,80},{-64,80}},
           color={0,0,127}));
     connect(u, I.u) 
       annotation (Line(points={{-120,0},{-64,0}}, color={0,0,127}));
     connect(u, D.u) annotation (Line(points={{-120,0},{-80,0},{-80,-80},{-64,
             -80}}, color={0,0,127}));
-    connect(P.y, Add.u1) annotation (Line(points={{-18,80},{0,80},{0,8},{18,8}}, 
+    connect(P.y, Add.u1) annotation (Line(points={{-18,80},{0,80},{0,8},{18,8}},
           color={0,0,127}));
     connect(I.y, Add.u2) 
       annotation (Line(points={{-18,0},{18,0}}, color={0,0,127}));
@@ -1051,8 +1017,8 @@ to compute u by an algebraic equation.
         width=0.6,
         height=0.72),
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{-80,78},{-80,-90}}, color={192,192,192}), 
           Polygon(
@@ -1070,8 +1036,7 @@ to compute u by an algebraic equation.
           Text(
             extent={{-20,-20},{80,-60}}, 
             lineColor={192,192,192}, 
-            textString=
-                 "PID")}),
+            textString="PID")}),
       Documentation(info="<HTML>
 <p>
 Via parameter <b>controllerType</b> either <b>P</b>, <b>PI</b>, <b>PD</b>, 
@@ -1229,14 +1194,14 @@ to use <b>limitAtInit</b> = <b>false</b>.
 </p>
 </HTML>
 "),   Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics));
     Blocks.Math.Add addP(k1=wp, k2=-1) 
-      annotation (Placement(transformation(extent={{-80,40},{-60,60}}, rotation
-            =0)));
+      annotation (Placement(transformation(extent={{-80,40},{-60,60}}, rotation=
+             0)));
     Blocks.Math.Add addD(k1=wd, k2=-1) if with_D 
-      annotation (Placement(transformation(extent={{-80,-10},{-60,10}}, 
+      annotation (Placement(transformation(extent={{-80,-10},{-60,10}},
             rotation=0)));
     Blocks.Math.Gain P annotation (Placement(transformation(extent={{-40,40},{
               -20,60}}, rotation=0)));
@@ -1246,14 +1211,14 @@ to use <b>limitAtInit</b> = <b>false</b>.
                if initType==InitPID.InitialState or 
                   initType==InitPID.DoNotUse_InitialIntegratorState then 
                   InitPID.InitialState else InitPID.NoInit) if with_I 
-      annotation (Placement(transformation(extent={{-40,-60},{-20,-40}}, 
+      annotation (Placement(transformation(extent={{-40,-60},{-20,-40}},
             rotation=0)));
     Blocks.Continuous.Derivative D(k=Td, T=max([Td/Nd, 1.e-14]), x_start=xd_start,
       initType=if initType==InitPID.SteadyState or 
                   initType==InitPID.InitialOutput then InitPID.SteadyState else 
                if initType==InitPID.InitialState then InitPID.InitialState else 
                   InitPID.NoInit) if with_D 
-      annotation (Placement(transformation(extent={{-40,-10},{-20,10}}, 
+      annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
             rotation=0)));
     Blocks.Math.Gain gainPID(k=k) annotation (Placement(transformation(extent={
               {30,-10},{50,10}}, rotation=0)));
@@ -1264,12 +1229,12 @@ to use <b>limitAtInit</b> = <b>false</b>.
     Blocks.Math.Add addSat(k1=+1, k2=-1) if 
                                      with_I 
       annotation (Evaluate=true, Placement(transformation(
-          origin={80,-50}, 
-          extent={{-10,-10},{10,10}}, 
+          origin={80,-50},
+          extent={{-10,-10},{10,10}},
           rotation=270)));
     Blocks.Math.Gain gainTrack(k=1/(k*Ni)) if with_I 
-      annotation (Placement(transformation(extent={{40,-80},{20,-60}}, rotation
-            =0)));
+      annotation (Placement(transformation(extent={{40,-80},{20,-60}}, rotation=
+             0)));
     Blocks.Nonlinear.Limiter limiter(uMax=yMax, uMin=yMin, limitsAtInit=limitsAtInit) 
       annotation (Placement(transformation(extent={{70,-10},{90,10}}, rotation=
               0)));
@@ -1280,8 +1245,8 @@ to use <b>limitAtInit</b> = <b>false</b>.
                                controllerType==SimpleController.PID annotation(Evaluate=true, Hide=true);
   public 
     Sources.Constant Dzero(k=0) if not with_D 
-      annotation (Placement(transformation(extent={{-30,20},{-20,30}}, rotation
-            =0)));
+      annotation (Placement(transformation(extent={{-30,20},{-20,30}}, rotation=
+             0)));
     Sources.Constant Izero(k=0) if not with_I 
       annotation (Placement(transformation(extent={{10,-55},{0,-45}}, rotation=
               0)));
@@ -1334,16 +1299,16 @@ to use <b>limitAtInit</b> = <b>false</b>.
     connect(gainTrack.y, addI.u3) annotation (Line(points={{19,-70},{-88,-70},{
             -88,-58},{-82,-58}}, color={0,0,127}));
     connect(u_m, addP.u2) annotation (Line(
-        points={{0,-120},{0,-92},{-92,-92},{-92,44},{-82,44}}, 
-        color={0,0,127}, 
+        points={{0,-120},{0,-92},{-92,-92},{-92,44},{-82,44}},
+        color={0,0,127},
         thickness=2));
     connect(u_m, addD.u2) annotation (Line(
-        points={{0,-120},{0,-92},{-92,-92},{-92,-6},{-82,-6}}, 
-        color={0,0,127}, 
+        points={{0,-120},{0,-92},{-92,-92},{-92,-6},{-82,-6}},
+        color={0,0,127},
         thickness=2));
     connect(u_m, addI.u2) annotation (Line(
-        points={{0,-120},{0,-92},{-92,-92},{-92,-50},{-82,-50}}, 
-        color={0,0,127}, 
+        points={{0,-120},{0,-92},{-92,-92},{-92,-50},{-82,-50}},
+        color={0,0,127},
         thickness=2));
     connect(Dzero.y, addPID.u2) annotation (Line(points={{-19.5,25},{-14,25},{
             -14,0},{-2,0}}, color={0,0,127}));
@@ -1413,29 +1378,25 @@ results in the following transfer function:
 </pre>
 </html>"),
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Line(points={{-80,0},{80,0}}), 
-          Text(extent={{-90,10},{90,90}}, textString=
-                                              "b(s)"), 
-          Text(extent={{-90,-10},{90,-90}}, textString=
-                                                "a(s)")}),
+          Text(extent={{-90,10},{90,90}}, textString="b(s)"), 
+          Text(extent={{-90,-10},{90,-90}}, textString="a(s)")}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Line(points={{40,0},{-40,0}}, color={0,0,0}), 
           Text(
             extent={{-55,55},{55,5}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "b(s)"), 
+            textString="b(s)"), 
           Text(
             extent={{-55,-5},{55,-55}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "a(s)"), 
+            textString="a(s)"), 
           Rectangle(extent={{-60,60},{60,-60}}), 
           Line(points={{-100,0},{-60,0}}), 
           Line(points={{60,0},{100,0}})}));
@@ -1519,34 +1480,28 @@ results in the following equations:
 </pre>
 </HTML>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Text(extent={{-90,10},{-10,90}}, textString=
-                                               "A"), 
-          Text(extent={{10,10},{90,90}}, textString=
-                                             "B"), 
-          Text(extent={{-90,-10},{-10,-90}}, textString=
-                                                 "C"), 
-          Text(extent={{10,-10},{90,-90}}, textString=
-                                               "D"), 
+          Text(extent={{-90,10},{-10,90}}, textString="A"), 
+          Text(extent={{10,10},{90,90}}, textString="B"), 
+          Text(extent={{-90,-10},{-10,-90}}, textString="C"), 
+          Text(extent={{10,-10},{90,-90}}, textString="D"), 
           Line(points={{0,-90},{0,90}}, color={192,192,192}), 
           Line(points={{-90,0},{90,0}}, color={192,192,192})}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}), 
           Text(
             extent={{-60,40},{60,0}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "sx=Ax+Bu"), 
+            textString="sx=Ax+Bu"), 
           Text(
             extent={{-60,0},{60,-40}}, 
             lineColor={0,0,0}, 
-            textString=
-                 " y=Cx+Du"), 
+            textString=" y=Cx+Du"), 
           Line(points={{-100,0},{-60,0}}), 
           Line(points={{60,0},{100,0}})}));
   protected 
@@ -1569,8 +1524,7 @@ results in the following equations:
       extends Interfaces.SISO;
     
       annotation (defaultComponentName="der1",
-   Icon(graphics={Text(extent={{-80,76},{80,-82}}, textString=
-                                               "der()")}),
+   Icon(graphics={Text(extent={{-80,76},{80,-82}}, textString="der()")}),
           Documentation(info="<HTML>
 <p>
 Defines that the output y is the <i>derivative</i>
@@ -1620,8 +1574,8 @@ the model.
       Icon(graphics={
           Line(points={{-80,78},{-80,-90}}, color={192,192,192}), 
           Polygon(
-            points={{-79.5584,91.817},{-87.5584,69.817},{-71.5584,69.817},{
-                -79.5584,89.817},{-79.5584,91.817}}, 
+            points={{-79.5584,91.817},{-87.5584,69.817},{-71.5584,69.817},{-79.5584,
+                89.817},{-79.5584,91.817}}, 
             lineColor={192,192,192}, 
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid), 
@@ -1640,30 +1594,25 @@ the model.
           Text(
             extent={{-45.1735,-11.47},{92,-68}}, 
             lineColor={192,192,192}, 
-            textString=
-                 "LowpassButterworthFilter"), 
+            textString="LowpassButterworthFilter"), 
           Text(
             extent={{8,-106},{8,-146}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "f=%f"), 
+            textString="f=%f"), 
           Text(
             extent={{-2,94},{94,48}}, 
             lineColor={192,192,192}, 
-            textString=
-                 "%n")}),
+            textString="%n")}),
       Diagram(graphics={
           Line(points={{40,0},{-40,0}}, color={0,0,0}), 
           Text(
             extent={{-55,55},{55,5}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "1"), 
+            textString="1"), 
           Text(
             extent={{-55,-5},{55,-55}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "a(s)"), 
+            textString="a(s)"), 
           Rectangle(extent={{-60,60},{60,-60}}), 
           Line(points={{-100,0},{-60,0}}), 
           Line(points={{60,0},{100,0}})}),
@@ -1780,8 +1729,8 @@ with zeros.</p>
           Line(points={{-80.6897,77.6256},{-80.6897,-90.3744}}, color={192,192,
                 192}), 
           Polygon(
-            points={{-79.7044,90.6305},{-87.7044,68.6305},{-71.7044,68.6305},{
-                -79.7044,88.6305},{-79.7044,90.6305}}, 
+            points={{-79.7044,90.6305},{-87.7044,68.6305},{-71.7044,68.6305},{-79.7044,
+                88.6305},{-79.7044,90.6305}}, 
             lineColor={192,192,192}, 
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid), 
@@ -1794,43 +1743,37 @@ with zeros.</p>
           Text(
             extent={{0,0},{60,-60}}, 
             lineColor={192,192,192}, 
-            textString=
-                 "PTn"), 
-          Line(points={{-80.7599,-80.5082},{-70.7599,-74.5082},{-56,-60},{-48,
-                -42},{-42,-18},{-36,4},{-26,20},{-10.7599,34.9018},{-0.759907,
+            textString="PTn"), 
+          Line(points={{-80.7599,-80.5082},{-70.7599,-74.5082},{-56,-60},{-48,-42},
+                {-42,-18},{-36,4},{-26,20},{-10.7599,34.9018},{-0.759907,
                 38.8218},{9.24009,41.6818},{19.2401,43.7818},{29.2401,45.3118},
                 {39.2401,46.4318},{49.2401,47.2518},{59.2401,47.8518},{69.2401,
                 48.2918},{79.2401,48.6118}}), 
           Text(
             extent={{-70,94},{26,48}}, 
             lineColor={192,192,192}, 
-            textString=
-                 "%n"), 
+            textString="%n"), 
           Text(
             extent={{8,-106},{8,-146}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "f=%f")}),
+            textString="f=%f")}),
       Diagram(graphics={
           Line(points={{40,0},{-40,0}}, color={0,0,0}), 
           Text(
             extent={{-55,55},{55,5}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "1"), 
+            textString="1"), 
           Rectangle(extent={{-60,60},{60,-60}}), 
           Line(points={{-100,0},{-60,0}}), 
           Line(points={{60,0},{100,0}}), 
           Text(
             extent={{-54,-6},{44,-56}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "(T s + 1)"), 
+            textString="(T s + 1)"), 
           Text(
             extent={{38,-10},{58,-30}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "n")}),
+            textString="n")}),
       Documentation(info="<html>
 <p>This block defines the transfer function between the
 input u and the output y

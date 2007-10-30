@@ -301,17 +301,17 @@ This block is used to enable calculation of values preliminary defined as inputs
       
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-            Text(extent={{-138,164},{138,104}}, textString="%name"), 
+            Text(extent={{-138,164},{138,104}}, textString="%name"),
             Ellipse(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={255,0,127}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,100},{100,-100}},
+              lineColor={255,0,127},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={255,0,127}, 
-              fillColor={223,159,191}, 
-              fillPattern=FillPattern.Solid, 
+              extent={{-100,100},{100,-100}},
+              lineColor={255,0,127},
+              fillColor={223,159,191},
+              fillPattern=FillPattern.Solid,
               textString="e")}),
                           Documentation(info="<html>
 <p>

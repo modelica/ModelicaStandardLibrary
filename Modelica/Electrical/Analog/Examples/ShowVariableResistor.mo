@@ -3,7 +3,7 @@ model ShowVariableResistor "Simple demo of a VariableResistor model"
    extends Modelica.Icons.Example;
   
   Modelica.Electrical.Analog.Basic.VariableResistor VariableResistor 
-                    annotation (Placement(transformation(extent={{-20,-20},{0,0}}, 
+                    annotation (Placement(transformation(extent={{-20,-20},{0,0}},
           rotation=0)));
   Modelica.Electrical.Analog.Basic.Ground Ground1 
   annotation (Placement(transformation(extent={{-100,-80},{-80,-60}}, rotation=
@@ -44,25 +44,24 @@ Simulate until T=1 s.
     Diagram(graphics={Text(
           extent={{-100,112},{80,40}}, 
           lineColor={0,0,255}, 
-          textString=
-               "Example VariableResistor")}),
+          textString="Example VariableResistor")}),
     experimentSetupOutput);
   
 annotation(Diagram);
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1 
   annotation (Placement(transformation(
-        origin={-90,-30}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-90,-30},
+        extent={{-10,-10},{10,10}},
         rotation=90)));
   Modelica.Blocks.Sources.Ramp Ramp1(height=5, offset=2) 
   annotation (Placement(transformation(
-        origin={-10,20}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-10,20},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
 equation 
-  connect(R1.n, R2.p)             annotation (Line(points={{-40,50},{-20,50}}, 
+  connect(R1.n, R2.p)             annotation (Line(points={{-40,50},{-20,50}},
         color={0,0,255}));
-  connect(R2.n, R3.p)             annotation (Line(points={{0,50},{20,50}}, 
+  connect(R2.n, R3.p)             annotation (Line(points={{0,50},{20,50}},
         color={0,0,255}));
   connect(R4.n, VariableResistor.p)       annotation (Line(points={{-40,-10},{
           -20,-10}}, color={0,0,255}));
@@ -73,7 +72,7 @@ equation
   connect(Ground2.p, R5.n)      annotation (Line(points={{70,-20},{70,-10},{40,
           -10}}, color={0,0,255}));
   connect(SineVoltage1.p, Ground1.p) 
-                                   annotation (Line(points={{-90,-40},{-90,-60}}, 
+                                   annotation (Line(points={{-90,-40},{-90,-60}},
         color={0,0,255}));
   connect(SineVoltage1.n, R1.p)      annotation (Line(points={{-90,-20},{-90,50},
           {-60,50}}, color={0,0,255}));

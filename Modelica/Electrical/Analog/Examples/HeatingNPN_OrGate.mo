@@ -5,7 +5,7 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
   constant Modelica.SIunits.Time tauVal=0;
   
 annotation (Diagram(graphics={Text(extent={{-100,100},{-6,72}}, textString=
-            "Heating \"NPN or\" Gate")}),
+              "Heating \"NPN or\" Gate")}),
                                      Documentation(info="<HTML>
 <P>
 The heating \"NPN or\" gate shows a heat flow always if a transistor is leading.
@@ -31,18 +31,18 @@ T1.heatPort.Q_flow and T2.heatPort.Q_flow<br>
 </html>"));
   Modelica.Thermal.HeatTransfer.HeatCapacitor HeatCapacitor1(C=0.1) 
   annotation (Placement(transformation(
-        origin={76,-84}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={76,-84},
+        extent={{-10,-10},{10,10}},
         rotation=180)));
   Modelica.Thermal.HeatTransfer.ThermalConductor TC1(G=0.01) 
   annotation (Placement(transformation(
-        origin={90,-50}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={90,-50},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Thermal.HeatTransfer.ThermalConductor TC2(G=0.01) 
   annotation (Placement(transformation(
-        origin={60,-50}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={60,-50},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   
 annotation (Documentation(info="<HTML>
@@ -70,8 +70,8 @@ T1.heatPort.Q_flow and T2.heatPort.Q_flow<br>
      StopTime=200));
   Modelica.Electrical.Analog.Sources.RampVoltage V(V=6, duration=5) 
   annotation (Placement(transformation(
-        origin={90,38}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={90,38},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Sources.TrapezoidVoltage V1(
     V=6,
@@ -82,8 +82,8 @@ T1.heatPort.Q_flow and T2.heatPort.Q_flow<br>
     period=50,
     nperiod=10) 
               annotation (Placement(transformation(
-        origin={-90,18}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-90,18},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Sources.TrapezoidVoltage V2(
     V=6,
@@ -94,8 +94,8 @@ T1.heatPort.Q_flow and T2.heatPort.Q_flow<br>
     period=50,
     nperiod=10) 
               annotation (Placement(transformation(
-        origin={-50,-42}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-50,-42},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Resistor R1(R=1800) 
   annotation (Placement(transformation(extent={{-90,48},{-70,68}}, rotation=0)));
@@ -115,18 +115,18 @@ T1.heatPort.Q_flow and T2.heatPort.Q_flow<br>
   annotation (Placement(transformation(extent={{30,-52},{50,-32}}, rotation=0)));
   Modelica.Electrical.Analog.Basic.Capacitor C1(C=CapVal) 
   annotation (Placement(transformation(
-        origin={-70,38}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-70,38},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Capacitor C2(C=CapVal) 
   annotation (Placement(transformation(
-        origin={60,42}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={60,42},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Capacitor C3(C=CapVal) 
   annotation (Placement(transformation(
-        origin={-16,-40}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-16,-40},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground Gnd5 
   annotation (Placement(transformation(extent={{-26,-76},{-6,-56}}, rotation=0)));
@@ -152,7 +152,7 @@ T1.heatPort.Q_flow and T2.heatPort.Q_flow<br>
     Gbe=1.e-12,
     EMax=40,
     vt_t(start=0.01, fixed=false)) 
-           annotation (Placement(transformation(extent={{-20,48},{0,68}}, 
+           annotation (Placement(transformation(extent={{-20,48},{0,68}},
           rotation=0)));
   Semiconductors.HeatingNPN T2(
     Bf=100,
@@ -172,7 +172,7 @@ T1.heatPort.Q_flow and T2.heatPort.Q_flow<br>
     Gbe=1.e-12,
     EMax=40,
     vt_t(start=0.01, fixed=false)) 
-           annotation (Placement(transformation(extent={{20,-22},{40,-2}}, 
+           annotation (Placement(transformation(extent={{20,-22},{40,-2}},
           rotation=0)));
 equation 
   connect(Gnd1.p, V1.n) 
@@ -204,7 +204,7 @@ equation
   connect(T1.E, Gnd3.p) 
   annotation (Line(points={{0,53},{0,36}}, color={0,0,255}));
   connect(RI.p, T1.C) 
-                    annotation (Line(points={{60,68},{30,68},{30,63},{0,63}}, 
+                    annotation (Line(points={{60,68},{30,68},{30,63},{0,63}},
         color={0,0,255}));
   connect(T2.B, R2.n) 
   annotation (Line(points={{20,-12},{-16,-12}}, color={0,0,255}));

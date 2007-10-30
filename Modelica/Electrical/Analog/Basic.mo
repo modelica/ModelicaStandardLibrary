@@ -151,21 +151,13 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
-          Line(
-            points={{-110,20},{-85,20}}, 
-            color={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{-110,20},{-85,20}}, color={160,160,164}), 
           Polygon(
             points={{-95,23},{-85,20},{-95,17},{-95,23}}, 
             lineColor={160,160,164}, 
             fillColor={160,160,164}, 
             fillPattern=FillPattern.Solid), 
-          Line(
-            points={{90,20},{115,20}}, 
-            color={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{90,20},{115,20}}, color={160,160,164}), 
           Line(points={{-125,0},{-115,0}}, color={160,160,164}), 
           Line(points={{-120,-5},{-120,5}}, color={160,160,164}), 
           Text(
@@ -186,11 +178,7 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
           Line(points={{-96,0},{-70,0}}), 
           Line(points={{70,0},{96,0}}), 
           Line(points={{0,-30},{0,-90}}, color={191,0,0}), 
-          Line(
-            points={{-52,-50},{48,50}}, 
-            color={0,0,255}, 
-            fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{-52,-50},{48,50}}, color={0,0,255}), 
           Polygon(
             points={{40,52},{50,42},{54,56},{40,52}}, 
             lineColor={0,0,255}, 
@@ -207,11 +195,7 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
           Line(points={{0,-30},{0,-91}}, color={191,0,0}), 
-          Line(
-            points={{-52,-50},{48,50}}, 
-            color={0,0,255}, 
-            fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{-52,-50},{48,50}}, color={0,0,255}), 
           Polygon(
             points={{40,52},{50,42},{54,56},{40,52}}, 
             lineColor={0,0,255}, 
@@ -749,11 +733,7 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
             lineColor={160,160,164}, 
             fillColor={160,160,164}, 
             fillPattern=FillPattern.Solid), 
-          Line(
-            points={{-20,110},{-20,85}}, 
-            color={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{-20,110},{-20,85}}, color={160,160,164}), 
           Text(
             extent={{-40,110},{-30,90}}, 
             lineColor={160,160,164}, 
@@ -768,11 +748,7 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={192,192,192}), 
-          Line(
-            points={{-20,-110},{-20,-85}}, 
-            color={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{-20,-110},{-20,-85}}, color={160,160,164}), 
           Polygon(
             points={{-17,-100},{-20,-110},{-23,-100},{-17,-100}}, 
             lineColor={160,160,164}, 
@@ -785,11 +761,7 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
           Line(points={{8,-79},{18,-79}}, color={192,192,192}), 
           Line(points={{0,-96},{0,-40}}), 
           Line(points={{14,80},{14,70}}, color={192,192,192}), 
-          Line(
-            points={{140,0},{110,0}}, 
-            color={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{140,0},{110,0}}, color={0,0,0}), 
           Text(extent={{114,-4},{148,-14}}, textString="flange_b.phi"), 
           Polygon(
             points={{140,3},{150,0},{140,-3},{140,3},{140,3}}, 
@@ -802,11 +774,7 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
             lineColor={128,128,128}, 
             fillColor={128,128,128}, 
             fillPattern=FillPattern.Solid), 
-          Line(
-            points={{30,35},{101,35}}, 
-            color={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{30,35},{101,35}}, color={128,128,128}), 
           Text(
             extent={{37,59},{105,46}}, 
             lineColor={128,128,128}, 
@@ -1210,11 +1178,7 @@ value of Slope is taken into calculation.)
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={160,160,164}), 
-          Line(
-            points={{111,0},{136,0}}, 
-            color={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={160,160,164}), 
+          Line(points={{111,0},{136,0}}, color={0,0,0}), 
           Text(
             extent={{118,2},{135,17}}, 
             lineColor={0,0,0}, 

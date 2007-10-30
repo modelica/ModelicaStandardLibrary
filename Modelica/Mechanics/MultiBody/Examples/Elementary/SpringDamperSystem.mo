@@ -14,8 +14,8 @@ encapsulated model SpringDamperSystem "Simple spring/damper/mass system"
       width=0.71,
       height=0.85),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics),
     Documentation(info="<html>
 <p>
@@ -50,8 +50,8 @@ ALT=\"model Examples.Elementary.SpringDamperSystem\">
     I_11=0.1,
     I_22=0.1,
     I_33=0.1) annotation (Placement(transformation(
-        origin={-20,-50}, 
-        extent={{-10,10},{10,-10}}, 
+        origin={-20,-50},
+        extent={{-10,10},{10,-10}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar1(animation=animation, r={0.3,0,0}) 
     annotation (Placement(transformation(extent={{-46,20},{-26,40}}, rotation=0)));
@@ -62,8 +62,8 @@ ALT=\"model Examples.Elementary.SpringDamperSystem\">
     animation=animation,
     cylinderDiameter=0.05,
     sphereDiameter=0.15) annotation (Placement(transformation(
-        origin={50,-50}, 
-        extent={{-10,10},{10,-10}}, 
+        origin={50,-50},
+        extent={{-10,10},{10,-10}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic p2(
     initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
@@ -72,16 +72,16 @@ ALT=\"model Examples.Elementary.SpringDamperSystem\">
     animation=animation,
     enforceStates=true,
     boxWidth=0.05) annotation (Placement(transformation(
-        origin={50,-10}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={50,-10},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Forces.Spring spring2(
     c=30,
     s_unstretched=0.1,
     coilWidth=0.01,
     width=0.1) annotation (Placement(transformation(
-        origin={90,-10}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={90,-10},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Forces.Spring spring1(
     s_unstretched=0.1,
@@ -89,58 +89,58 @@ ALT=\"model Examples.Elementary.SpringDamperSystem\">
     c=30,
     numberOfWindings=10,
     width=0.1) annotation (Placement(transformation(
-        origin={-6,-10}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-6,-10},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Forces.Damper damper1(d=2) 
     annotation (Placement(transformation(
-        origin={-30,-10}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-30,-10},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
 equation 
   connect(world.frame_b, bar1.frame_a) 
     annotation (Line(
-      points={{-60,30},{-46,30}}, 
-      color={95,95,95}, 
+      points={{-60,30},{-46,30}},
+      color={95,95,95},
       thickness=2));
   connect(bar1.frame_b, bar2.frame_a) 
     annotation (Line(
-      points={{-26,30},{0,30}}, 
-      color={95,95,95}, 
+      points={{-26,30},{0,30}},
+      color={95,95,95},
       thickness=2));
   connect(bar2.frame_b, p2.frame_a) 
     annotation (Line(
-      points={{20,30},{50,30},{50,0}}, 
-      color={95,95,95}, 
+      points={{20,30},{50,30},{50,0}},
+      color={95,95,95},
       thickness=2));
   connect(p2.frame_b, body2.frame_a) 
     annotation (Line(
-      points={{50,-20},{50,-40}}, 
-      color={95,95,95}, 
+      points={{50,-20},{50,-40}},
+      color={95,95,95},
       thickness=2));
   connect(bar2.frame_b, spring2.frame_a) 
     annotation (Line(
-      points={{20,30},{90,30},{90,0}}, 
-      color={95,95,95}, 
+      points={{20,30},{90,30},{90,0}},
+      color={95,95,95},
       thickness=2));
   connect(body2.frame_a, spring2.frame_b) annotation (Line(
-      points={{50,-40},{90,-40},{90,-20}}, 
-      color={95,95,95}, 
+      points={{50,-40},{90,-40},{90,-20}},
+      color={95,95,95},
       thickness=2));
   connect(damper1.frame_a, bar1.frame_b) annotation (Line(
-      points={{-30,0},{-30,10},{-20,10},{-20,30},{-26,30}}, 
-      color={95,95,95}, 
+      points={{-30,0},{-30,10},{-20,10},{-20,30},{-26,30}},
+      color={95,95,95},
       thickness=2));
   connect(spring1.frame_a, bar1.frame_b) annotation (Line(
-      points={{-6,0},{-6,10},{-20,10},{-20,30},{-26,30}}, 
-      color={95,95,95}, 
+      points={{-6,0},{-6,10},{-20,10},{-20,30},{-26,30}},
+      color={95,95,95},
       thickness=2));
   connect(damper1.frame_b, body1.frame_a) annotation (Line(
-      points={{-30,-20},{-30,-28},{-20,-28},{-20,-40}}, 
-      color={95,95,95}, 
+      points={{-30,-20},{-30,-28},{-20,-28},{-20,-40}},
+      color={95,95,95},
       thickness=2));
   connect(spring1.frame_b, body1.frame_a) annotation (Line(
-      points={{-6,-20},{-6,-28},{-20,-28},{-20,-40}}, 
-      color={95,95,95}, 
+      points={{-6,-20},{-6,-28},{-20,-28},{-20,-40}},
+      color={95,95,95},
       thickness=2));
 end SpringDamperSystem;

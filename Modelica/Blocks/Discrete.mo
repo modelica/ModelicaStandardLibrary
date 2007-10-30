@@ -92,8 +92,8 @@ via parameter <b>samplePeriod</b>.
         width=0.63,
         height=0.68),
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={Line(points={{-78,-42},{-52,-42},{-52,0},{-26,
                 0},{-26,24},{-6,24},{-6,64},{18,64},{18,20},{38,20},{38,0},{44,
                 0},{44,0},{62,0}})}),
@@ -129,8 +129,8 @@ sample instant during the sample points.
         width=0.75,
         height=0.76),
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={Line(points={{-79,-41},{-59,-33},{-40,1},{-20,
                 9},{0,63},{21,20},{41,10},{60,20}}), Line(points={{60,19},{81,
                 10}})}),
@@ -181,36 +181,30 @@ the output y is identical to parameter yStart.
 
 </HTML>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Line(points={{-30,0},{30,0}}), 
-          Text(extent={{-90,10},{90,90}}, textString=
-                                              "1"), 
-          Text(extent={{-90,-10},{90,-90}}, textString=
-                                                "z")}),
+          Text(extent={{-90,10},{90,90}}, textString="1"), 
+          Text(extent={{-90,-10},{90,-90}}, textString="z")}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
-          Text(extent={{-160,10},{-140,-10}}, textString=
-                                                  "u"), 
-          Text(extent={{115,10},{135,-10}}, textString=
-                                                "y"), 
+          Text(extent={{-160,10},{-140,-10}}, textString="u"), 
+          Text(extent={{115,10},{135,-10}}, textString="y"), 
           Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
           Line(points={{60,0},{100,0}}, color={0,0,255}), 
           Line(points={{40,0},{-40,0}}, color={0,0,0}), 
           Text(
             extent={{-55,55},{55,5}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "1"), 
+            textString="1"), 
           Text(
             extent={{-55,-5},{55,-55}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "z")}));
+            textString="z")}));
   equation 
     when sampleTrigger then
       y = pre(u);
@@ -273,23 +267,21 @@ states can be set as start values of <b>x</b>.<p>
 </ul>
 </html>"),
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Line(points={{82,0},{-84,0}}, color={0,0,255}), 
           Text(
             extent={{-92,92},{86,12}}, 
             lineColor={0,0,255}, 
-            textString=
-                 "b(z)"), 
+            textString="b(z)"), 
           Text(
             extent={{-90,-12},{90,-90}}, 
             lineColor={0,0,255}, 
-            textString=
-                 "a(z)")}),
+            textString="a(z)")}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}, fillPattern=FillPattern.None), 
           Line(
@@ -299,13 +291,11 @@ states can be set as start values of <b>x</b>.<p>
           Text(
             extent={{-54,54},{54,4}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "b(z)"), 
+            textString="b(z)"), 
           Text(
             extent={{-54,-6},{56,-56}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "a(z)"), 
+            textString="a(z)"), 
           Line(points={{-100,0},{-60,0}}), 
           Line(points={{60,0},{100,0}})}));
   equation 
@@ -390,22 +380,17 @@ results in the following equations:
 </pre>
 </HTML>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Text(extent={{-90,15},{-15,90}}, textString=
-                                               "A"), 
-          Text(extent={{15,15},{90,90}}, textString=
-                                             "B"), 
-          Text(extent={{-52,28},{54,-20}}, textString=
-                                               "z"), 
-          Text(extent={{-90,-15},{-15,-90}}, textString=
-                                                 "C"), 
-          Text(extent={{15,-15},{90,-90}}, textString=
-                                               "D")}),
+          Text(extent={{-90,15},{-15,90}}, textString="A"), 
+          Text(extent={{15,15},{90,90}}, textString="B"), 
+          Text(extent={{-52,28},{54,-20}}, textString="z"), 
+          Text(extent={{-90,-15},{-15,-90}}, textString="C"), 
+          Text(extent={{15,-15},{90,-90}}, textString="D")}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}, fillPattern=FillPattern.None), 
           Text(
@@ -413,15 +398,13 @@ results in the following equations:
             lineColor={0,0,0}, 
             fillColor={128,128,128}, 
             fillPattern=FillPattern.None, 
-            textString=
-                 "zx=Ax+Bu"), 
+            textString="zx=Ax+Bu"), 
           Text(
             extent={{-56,14},{54,-50}}, 
             lineColor={0,0,0}, 
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid, 
-            textString=
-                 "  y=Cx+Du"), 
+            textString="  y=Cx+Du"), 
           Line(points={{-102,0},{-60,0}}), 
           Line(points={{60,0},{100,0}})}));
   equation 
@@ -484,8 +467,8 @@ the initial value defined via parameter <b>y0</b>.
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
     Modelica.Blocks.Interfaces.BooleanInput trigger annotation (Placement(
           transformation(
-          origin={0,-118}, 
-          extent={{-20,-20},{20,20}}, 
+          origin={0,-118},
+          extent={{-20,-20},{20,20}},
           rotation=90)));
   equation 
     when trigger then
@@ -518,8 +501,7 @@ the initial value defined via parameter <b>y0</b>.
           Text(
             extent={{-86,82},{82,24}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "max")}),
+            textString="max")}),
       Diagram(graphics={
           Ellipse(
             extent={{-25,-10},{-45,10}}, 
@@ -552,8 +534,8 @@ at the sampling point is provided as output signal.
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
     Modelica.Blocks.Interfaces.BooleanInput trigger annotation (Placement(
           transformation(
-          origin={0,-118}, 
-          extent={{-20,-20},{20,20}}, 
+          origin={0,-118},
+          extent={{-20,-20},{20,20}},
           rotation=90)));
   equation 
     when trigger then
