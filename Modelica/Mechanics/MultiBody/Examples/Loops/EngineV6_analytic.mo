@@ -22,28 +22,27 @@ model EngineV6_analytic
     annotation (Placement(transformation(extent={{-40,0},{0,40}}, rotation=0)));
   Modelica.Mechanics.Rotational.Inertia load(phi(
       start=0,
-      fixed=true,
-      stateSelect=StateSelect.always), w(
+      fixed=true), w(
       start=10,
-      fixed=true,
-      stateSelect=StateSelect.always)) annotation (Placement(transformation(
+      fixed=true), 
+    stateSelect=StateSelect.always)    annotation (Placement(transformation(
           extent={{40,10},{60,30}}, rotation=0)));
   Rotational.QuadraticSpeedDependentTorque load2(tau_nominal=-100, w_nominal=
-        200) annotation (Placement(transformation(extent={{90,10},{70,30}}, 
+        200) annotation (Placement(transformation(extent={{90,10},{70,30}},
           rotation=0)));
   Rotational.Sensors.TorqueSensor torqueSensor 
     annotation (Placement(transformation(extent={{12,10},{32,30}}, rotation=0)));
   Blocks.Continuous.CriticalDamping filter(
     n=2,
     initType=Modelica.Blocks.Types.Init.SteadyState,
-    f=5) annotation (Placement(transformation(extent={{30,-20},{50,0}}, 
+    f=5) annotation (Placement(transformation(extent={{30,-20},{50,0}},
           rotation=0)));
 equation 
   
   annotation (
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics),
     Documentation(info="<HTML>
 <p>
@@ -74,8 +73,8 @@ a size of about 50 Mbyte (for 5000 output intervalls).
     experimentSetupOutput);
   connect(world.frame_b, engine.frame_a) 
     annotation (Line(
-      points={{-60,-10},{-20,-10},{-20,-0.2}}, 
-      color={95,95,95}, 
+      points={{-60,-10},{-20,-10},{-20,-0.2}},
+      color={95,95,95},
       thickness=2));
   connect(load2.flange, load.flange_b) 
     annotation (Line(points={{70,20},{60,20}}, color={0,0,0}));

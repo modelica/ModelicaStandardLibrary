@@ -80,15 +80,5 @@ initialization definition.
  
 </html>"));
   
-  type StateSelection = enumeration(
-      Never "Never (never use as state)", 
-      Avoid "Avoid (avoid to use as state)", 
-      Default "Default (default behaviour)", 
-      Prefer "Prefer (use as state if possible)", 
-      Always "Always (always use as state)") 
-    "Enumeration defining state selection of a variable" 
-    annotation (Documentation(info="<html>
- 
-</html>"),  Evaluate=true);
   
 end Types;

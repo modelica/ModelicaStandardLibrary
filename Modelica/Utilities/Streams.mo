@@ -77,7 +77,7 @@ Example:
     input String fileName="" 
       "File where to print (empty string is the terminal)" 
                  annotation(Dialog(__Dymola_saveSelector(filter="Text files (*.txt)",
-                        caption="Text file to store the outpout of print(..)")));
+                        caption="Text file to store the output of print(..)")));
   external "C" ModelicaInternal_print(string, fileName);
     annotation (  preferedView="info",
   Documentation(info="<HTML>

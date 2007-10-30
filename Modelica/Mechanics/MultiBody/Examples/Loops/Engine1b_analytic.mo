@@ -7,8 +7,8 @@ model Engine1b_analytic
   annotation (
     experiment(StopTime=0.5),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-120},{150,120}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-120},{150,120}},
         grid={1,1}), graphics),
     Documentation(info="<html>
 <p>
@@ -37,28 +37,28 @@ An animation of this example is shown in the figure below.
     rRod1_ia={0,0.2,0},
     rRod2_ib={0,-0.1,0}) 
     annotation (Placement(transformation(
-        origin={30,54}, 
-        extent={{-20,20},{20,-20}}, 
+        origin={30,54},
+        extent={{-20,20},{20,-20}},
         rotation=90)));
 equation 
   connect(Mid.frame_b, jointRRP.frame_a) annotation (Line(
-      points={{50,-43},{58,-43},{58,-30},{30,-30},{30,34}}, 
-      color={95,95,95}, 
+      points={{50,-43},{58,-43},{58,-30},{30,-30},{30,34}},
+      color={95,95,95},
       thickness=2));
   connect(jointRRP.frame_b, cylPosition.frame_b) annotation (Line(
-      points={{30,74},{30,110},{-20.5,110}}, 
-      color={95,95,95}, 
+      points={{30,74},{30,110},{-20.5,110}},
+      color={95,95,95},
       thickness=2));
   connect(jointRRP.axis, gasForce.flange_b) annotation (Line(points={{46,74},{
           46,82},{119,82},{119,87}}, color={0,127,0}));
   connect(jointRRP.bearing, gasForce.flange_a) annotation (Line(points={{38,74},
           {38,114},{119,114},{119,107}}, color={0,127,0}));
   connect(jointRRP.frame_ib, Piston.frame_a) annotation (Line(
-      points={{50,70},{120,70},{120,63}}, 
-      color={95,95,95}, 
+      points={{50,70},{120,70},{120,63}},
+      color={95,95,95},
       thickness=2));
   connect(jointRRP.frame_ia, Rod2.frame_a) annotation (Line(
-      points={{50,38},{80,38},{80,-10},{120,-10},{120,0}}, 
-      color={95,95,95}, 
+      points={{50,38},{80,38},{80,-10},{120,-10},{120,0}},
+      color={95,95,95},
       thickness=2));
 end Engine1b_analytic;
