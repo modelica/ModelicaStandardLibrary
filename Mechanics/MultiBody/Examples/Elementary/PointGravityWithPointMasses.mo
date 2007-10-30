@@ -4,9 +4,10 @@ model PointGravityWithPointMasses
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
   inner Modelica.Mechanics.MultiBody.World world(
-    gravityType=2,
     mue=1,
-    gravitySphereDiameter=0.1) annotation (Placement(transformation(extent={{
+    gravitySphereDiameter=0.1, 
+    gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity) 
+                               annotation (Placement(transformation(extent={{
             -20,-20},{0,0}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.PointMass body1(
     m=1,
@@ -41,7 +42,9 @@ model PointGravityWithPointMasses
 equation 
   
   annotation (
-    Diagram(graphics),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+            100,100}}),
+            graphics),
     experiment(StopTime=2),
     Documentation(info="<HTML>
 <p>
