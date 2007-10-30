@@ -2069,15 +2069,12 @@ November 3-4, 2003, pp. 149-158</p>
       "= true, if exact calculations; false if influence of bearing on rotor acceleration is neglected to avoid an algebraic loop"
       annotation (Dialog(tab="Advanced"));
     
-    SI.Angle phi(start=0, final stateSelect=stateSelect) 
-      "Rotation angle of rotor with respect to frame_a (= flange_a.phi = flange_b.phi)"
-      annotation(Dialog(initialDialog=true));
-    SI.AngularVelocity w(start=0, final stateSelect=stateSelect) 
-      "Angular velocity of rotor with respect to frame_a" 
-      annotation(Dialog(initialDialog=true));
+    SI.Angle phi(start=0, stateSelect=stateSelect) 
+      "Rotation angle of rotor with respect to frame_a (= flange_a.phi = flange_b.phi)";
+    SI.AngularVelocity w(start=0, stateSelect=stateSelect) 
+      "Angular velocity of rotor with respect to frame_a";
     SI.AngularAcceleration a(start=0) 
-      "Angular acceleration of rotor with respect to frame_a" 
-       annotation(Dialog(initialDialog=true));
+      "Angular acceleration of rotor with respect to frame_a";
     
     Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a 
       "(left) driving flange (flange axis directed INTO cut plane)" 

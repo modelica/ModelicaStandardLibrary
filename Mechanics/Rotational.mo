@@ -2243,13 +2243,11 @@ Partial model of torque dependent on speed that accelerates the flange.
       "Priority to use phi and w as states" annotation(Dialog(tab="Advanced"));
     
     SI.Angle phi(start=0, stateSelect=stateSelect) 
-      "Absolute rotation angle of component (= flange_a.phi = flange_b.phi)" 
-      annotation(Dialog(initialDialog=true));
+      "Absolute rotation angle of component (= flange_a.phi = flange_b.phi)";
     SI.AngularVelocity w(start=0, stateSelect=stateSelect) 
-      "Absolute angular velocity of component" annotation(Dialog(initialDialog=true));
+      "Absolute angular velocity of component";
     SI.AngularAcceleration a(start=0) 
-      "Absolute angular acceleration of component" 
-       annotation(Dialog(initialDialog=true));
+      "Absolute angular acceleration of component";
     
     annotation (
       Window(
@@ -2856,32 +2854,32 @@ a coupling of the element with the housing via a spring.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-68,0},{-68,65}}, color={128,128,128}), 
-          Line(points={{72,0},{72,65}}, color={128,128,128}), 
-          Line(points={{-68,60},{72,60}}, color={128,128,128}), 
+          Line(points={{-68,0},{-68,65}}, color={128,128,128}),
+          Line(points={{72,0},{72,65}}, color={128,128,128}),
+          Line(points={{-68,60},{72,60}}, color={128,128,128}),
           Polygon(
-            points={{62,63},{72,60},{62,57},{62,63}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+            points={{62,63},{72,60},{62,57},{62,63}},
+            lineColor={128,128,128},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-22,62},{18,87}}, 
-            lineColor={0,0,255}, 
-            textString="phi_rel"), 
+            extent={{-22,62},{18,87}},
+            lineColor={0,0,255},
+            textString="phi_rel"),
           Text(
-            extent={{12,-61},{80,-74}}, 
-            lineColor={128,128,128}, 
-            textString="rotation axis"), 
+            extent={{12,-61},{80,-74}},
+            lineColor={128,128,128},
+            textString="rotation axis"),
           Polygon(
-            points={{8,-68},{-12,-63},{-12,-73},{8,-68}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+            points={{8,-68},{-12,-63},{-12,-73},{8,-68}},
+            lineColor={128,128,128},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid),
           Line(
-            points={{-82,-68},{-11,-68}}, 
-            color={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+            points={{-82,-68},{-11,-68}},
+            color={128,128,128},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid),
           Line(points={{-96,0},{-60,0},{-42,-32},{-12,30},{18,-30},{48,28},{62,
                 0},{96,0}})}));
   equation 
@@ -2932,41 +2930,41 @@ between two inertia/gear elements.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-96,0},{-60,0}}, color={0,0,0}), 
-          Line(points={{-60,-30},{-60,30}}, color={0,0,0}), 
-          Line(points={{-60,-30},{60,-30}}, color={0,0,0}), 
-          Line(points={{-60,30},{60,30}}, color={0,0,0}), 
+          Line(points={{-96,0},{-60,0}}, color={0,0,0}),
+          Line(points={{-60,-30},{-60,30}}, color={0,0,0}),
+          Line(points={{-60,-30},{60,-30}}, color={0,0,0}),
+          Line(points={{-60,30},{60,30}}, color={0,0,0}),
           Rectangle(
-            extent={{-60,30},{30,-30}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{30,0},{96,0}}, color={0,0,0}), 
-          Line(points={{-68,0},{-68,65}}, color={128,128,128}), 
+            extent={{-60,30},{30,-30}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{30,0},{96,0}}, color={0,0,0}),
+          Line(points={{-68,0},{-68,65}}, color={128,128,128}),
           Text(
-            extent={{-22,62},{18,87}}, 
-            lineColor={0,0,255}, 
-            textString="phi_rel"), 
-          Line(points={{-68,60},{72,60}}, color={128,128,128}), 
-          Line(points={{72,0},{72,65}}, color={128,128,128}), 
+            extent={{-22,62},{18,87}},
+            lineColor={0,0,255},
+            textString="phi_rel"),
+          Line(points={{-68,60},{72,60}}, color={128,128,128}),
+          Line(points={{72,0},{72,65}}, color={128,128,128}),
           Polygon(
-            points={{62,63},{72,60},{62,57},{62,63}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+            points={{62,63},{72,60},{62,57},{62,63}},
+            lineColor={128,128,128},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid),
           Polygon(
-            points={{10,-60},{-10,-55},{-10,-65},{10,-60}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+            points={{10,-60},{-10,-55},{-10,-65},{10,-60}},
+            lineColor={128,128,128},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid),
           Line(
-            points={{-80,-60},{-9,-60}}, 
-            color={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+            points={{-80,-60},{-9,-60}},
+            color={128,128,128},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{14,-53},{82,-66}}, 
-            lineColor={128,128,128}, 
+            extent={{14,-53},{82,-66}},
+            lineColor={128,128,128},
             textString="rotation axis")}));
   equation 
     w_rel = der(phi_rel);
@@ -2987,9 +2985,9 @@ between two inertia/gear elements.
     
     extends Interfaces.Compliant(phi_rel(start=0, stateSelect=stateSelect));
     SI.AngularVelocity w_rel(start=0, stateSelect=stateSelect) 
-      "Relative angular velocity between flange_b and flange_a" annotation(Dialog(initialDialog=true));
+      "Relative angular velocity between flange_b and flange_a";
     SI.AngularAcceleration a_rel(start=0) 
-      "Relative angular acceleration between flange_b and flange_a" annotation(Dialog(initialDialog=true));
+      "Relative angular acceleration between flange_b and flange_a";
     
     annotation (
       Window(
@@ -3214,90 +3212,90 @@ can be used to model a gear box with backlash, elasticity and damping.
           grid={1,1}), graphics={
           Line(
             points={{-80,32},{-58,32},{-48,0},{-34,60},{-20,0},{-8,60},{0,30},{
-                20,30}}, 
-            color={0,0,0}, 
-            thickness=2), 
-          Line(points={{-68,32},{-68,97}}, color={128,128,128}), 
-          Line(points={{80,0},{80,96}}, color={128,128,128}), 
-          Line(points={{-68,92},{72,92}}, color={128,128,128}), 
+                20,30}},
+            color={0,0,0},
+            thickness=2),
+          Line(points={{-68,32},{-68,97}}, color={128,128,128}),
+          Line(points={{80,0},{80,96}}, color={128,128,128}),
+          Line(points={{-68,92},{72,92}}, color={128,128,128}),
           Polygon(
-            points={{70,95},{80,92},{70,89},{70,95}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+            points={{70,95},{80,92},{70,89},{70,95}},
+            lineColor={128,128,128},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-10,70},{30,95}}, 
-            lineColor={128,128,128}, 
-            textString="phi_rel"), 
+            extent={{-10,70},{30,95}},
+            lineColor={128,128,128},
+            textString="phi_rel"),
           Rectangle(
-            extent={{-60,-20},{-10,-80}}, 
-            lineColor={0,0,0}, 
-            lineThickness=2, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-60,-20},{-10,-80}},
+            lineColor={0,0,0},
+            lineThickness=2,
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Line(
-            points={{-52,-80},{0,-80}}, 
-            color={0,0,0}, 
-            thickness=2), 
+            points={{-52,-80},{0,-80}},
+            color={0,0,0},
+            thickness=2),
           Line(
-            points={{-52,-20},{0,-20}}, 
-            color={0,0,0}, 
-            thickness=2), 
+            points={{-52,-20},{0,-20}},
+            color={0,0,0},
+            thickness=2),
           Line(
-            points={{-10,-50},{20,-50}}, 
-            color={0,0,0}, 
-            thickness=2), 
+            points={{-10,-50},{20,-50}},
+            color={0,0,0},
+            thickness=2),
           Line(
-            points={{-80,-50},{-60,-50}}, 
-            color={0,0,0}, 
-            thickness=2), 
+            points={{-80,-50},{-60,-50}},
+            color={0,0,0},
+            thickness=2),
           Line(
-            points={{-80,32},{-80,-50}}, 
-            color={0,0,0}, 
-            thickness=2), 
+            points={{-80,32},{-80,-50}},
+            color={0,0,0},
+            thickness=2),
           Line(
-            points={{20,30},{20,-50}}, 
-            color={0,0,0}, 
-            thickness=2), 
-          Line(points={{-96,0},{-80,0}}, color={0,0,0}), 
+            points={{20,30},{20,-50}},
+            color={0,0,0},
+            thickness=2),
+          Line(points={{-96,0},{-80,0}}, color={0,0,0}),
           Line(
-            points={{96,0},{80,0}}, 
-            color={0,0,0}, 
-            thickness=2), 
+            points={{96,0},{80,0}},
+            color={0,0,0},
+            thickness=2),
           Line(
-            points={{20,0},{60,0},{60,-30}}, 
-            color={0,0,0}, 
-            thickness=2), 
+            points={{20,0},{60,0},{60,-30}},
+            color={0,0,0},
+            thickness=2),
           Line(
-            points={{40,-12},{40,-40},{80,-40},{80,0}}, 
-            color={0,0,0}, 
-            thickness=2), 
-          Line(points={{30,0},{30,64}}, color={128,128,128}), 
-          Line(points={{30,60},{80,60}}, color={128,128,128}), 
+            points={{40,-12},{40,-40},{80,-40},{80,0}},
+            color={0,0,0},
+            thickness=2),
+          Line(points={{30,0},{30,64}}, color={128,128,128}),
+          Line(points={{30,60},{80,60}}, color={128,128,128}),
           Polygon(
-            points={{70,63},{80,60},{70,57},{70,63}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+            points={{70,63},{80,60},{70,57},{70,63}},
+            lineColor={128,128,128},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{39,60},{68,46}}, 
-            lineColor={160,160,164}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid, 
-            textString="b"), 
+            extent={{39,60},{68,46}},
+            lineColor={160,160,164},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid,
+            textString="b"),
           Text(
-            extent={{15,-89},{83,-102}}, 
-            lineColor={128,128,128}, 
-            textString="rotation axis"), 
+            extent={{15,-89},{83,-102}},
+            lineColor={128,128,128},
+            textString="rotation axis"),
           Polygon(
-            points={{11,-96},{-9,-91},{-9,-101},{11,-96}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+            points={{11,-96},{-9,-91},{-9,-101},{11,-96}},
+            lineColor={128,128,128},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid),
           Line(
-            points={{-79,-96},{-8,-96}}, 
-            color={128,128,128}, 
-            fillColor={128,128,128}, 
+            points={{-79,-96},{-8,-96}},
+            color={128,128,128},
+            fillColor={128,128,128},
             fillPattern=FillPattern.Solid)}));
   equation 
     w_rel = der(phi_rel);
@@ -6100,11 +6098,11 @@ Positive torque acts accelerating.
     extends Interfaces.TwoFlanges;
     parameter StateSelect stateSelect=StateSelect.prefer 
       "Priority to use the relative angle and relative speed as states";
-    SI.Angle phi_rel(stateSelect=stateSelect) 
-      "Relative rotation angle used as state variable"  annotation(Dialog(initialDialog=true));
-    SI.AngularVelocity w_rel(stateSelect=stateSelect) 
-      "Relative angular velocity used as state variable"  annotation(Dialog(initialDialog=true));
-    SI.AngularAcceleration a_rel "Relative angular acceleration";
+    SI.Angle phi_rel(start=0, stateSelect=stateSelect) 
+      "Relative rotation angle used as state variable";
+    SI.AngularVelocity w_rel(start=0, stateSelect=stateSelect) 
+      "Relative angular velocity used as state variable";
+    SI.AngularAcceleration a_rel(start=0) "Relative angular acceleration";
     annotation (
       Window(
         x=0.23,
