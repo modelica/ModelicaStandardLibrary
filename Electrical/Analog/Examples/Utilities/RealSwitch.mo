@@ -9,7 +9,7 @@ model RealSwitch
             50}}, rotation=0)));
   Interfaces.Pin n1 annotation (Placement(transformation(extent={{90,50},{110,
             70}}, rotation=0)));
-  Interfaces.Pin n2 annotation (Placement(transformation(extent={{90,4},{110,24}}, 
+  Interfaces.Pin n2 annotation (Placement(transformation(extent={{90,4},{110,24}},
           rotation=0)));
   Interfaces.Pin control annotation (Placement(transformation(extent={{24,90},{
             44,110}}, rotation=0)));

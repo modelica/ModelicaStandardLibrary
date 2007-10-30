@@ -20,8 +20,7 @@ annotation (
         Text(
           extent={{-80,90},{80,70}}, 
           lineColor={0,0,0}, 
-          textString=
-             "Rectifier"), 
+          textString="Rectifier"), 
         Line(points={{-16,18},{-16,2},{-18,6},{-14,6},{-16,2}}, color={0,0,0}), 
           
         Line(points={{-30,22},{-26,20},{-30,18},{-30,22}}, color={0,0,0}), 
@@ -30,18 +29,15 @@ annotation (
         Text(
           extent={{-38,16},{-22,8}}, 
           lineColor={0,0,0}, 
-          textString=
-             "iAC"), 
+          textString="iAC"), 
         Text(
           extent={{-14,8},{2,0}}, 
           lineColor={0,0,0}, 
-          textString=
-             "uAC"), 
+          textString="uAC"), 
         Text(
           extent={{22,-16},{38,-24}}, 
           lineColor={0,0,0}, 
-          textString=
-             "uDC")}),
+          textString="uDC")}),
   experiment(StopTime=0.1, Interval=1e-005),
   experimentSetupOutput(
     doublePrecision=true,
@@ -75,6 +71,7 @@ You may watch Losses (of the whole diode bridge) trying different diode paramete
        </li>
 </ul>
 </html>"));
+  
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(freqHz=f,
        V=VAC*sqrt(2/3)) 
                       annotation (Placement(transformation(extent={{-70,10},{
@@ -102,65 +99,65 @@ You may watch Losses (of the whole diode bridge) trying different diode paramete
     Goff=Goff,
     Vknee=Vknee) 
     annotation (Placement(transformation(
-        origin={-20,40}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-20,40},
+        extent={{-10,-10},{10,10}},
         rotation=90)));
   Ideal.IdealDiode IdealDiode2(
     Ron=Ron,
     Goff=Goff,
     Vknee=Vknee) 
     annotation (Placement(transformation(
-        origin={0,40}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={0,40},
+        extent={{-10,-10},{10,10}},
         rotation=90)));
   Ideal.IdealDiode IdealDiode3(
     Ron=Ron,
     Goff=Goff,
     Vknee=Vknee) 
     annotation (Placement(transformation(
-        origin={20,40}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={20,40},
+        extent={{-10,-10},{10,10}},
         rotation=90)));
   Ideal.IdealDiode IdealDiode4(
     Ron=Ron,
     Goff=Goff,
     Vknee=Vknee) 
     annotation (Placement(transformation(
-        origin={-20,-40}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-20,-40},
+        extent={{-10,-10},{10,10}},
         rotation=90)));
   Ideal.IdealDiode IdealDiode5(
     Ron=Ron,
     Goff=Goff,
     Vknee=Vknee) 
     annotation (Placement(transformation(
-        origin={0,-40}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={0,-40},
+        extent={{-10,-10},{10,10}},
         rotation=90)));
   Ideal.IdealDiode IdealDiode6(
     Ron=Ron,
     Goff=Goff,
     Vknee=Vknee) 
     annotation (Placement(transformation(
-        origin={20,-40}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={20,-40},
+        extent={{-10,-10},{10,10}},
         rotation=90)));
   Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=2*CDC) 
   annotation (Placement(transformation(
-        origin={40,40}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={40,40},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Capacitor Capacitor2(C=2*CDC) 
   annotation (Placement(transformation(
-        origin={40,-40}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={40,-40},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground Ground1 
   annotation (Placement(transformation(extent={{40,-80},{60,-60}}, rotation=0)));
   Modelica.Electrical.Analog.Sources.SignalCurrent SignalCurrent1 
   annotation (Placement(transformation(
-        origin={60,0}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={60,0},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Blocks.Sources.Constant Constant1(k=IDC) 
   annotation (Placement(transformation(extent={{100,-10},{80,10}}, rotation=0)));
@@ -214,12 +211,12 @@ equation
   connect(SignalCurrent1.n, Capacitor2.n) 
     annotation (Line(points={{60,-10},{60,-50},{40,-50}}, color={0,0,255}));
   connect(Constant1.y, SignalCurrent1.i) 
-    annotation (Line(points={{79,0},{79,4.28626e-016},{67,4.28626e-016}}, color
-        ={0,0,255}));
+    annotation (Line(points={{79,0},{79,4.28626e-016},{67,4.28626e-016}}, color=
+         {0,0,255}));
   connect(Inductor1.n, IdealDiode1.p) 
     annotation (Line(points={{-40,20},{-20,20},{-20,30}}, color={0,0,255}));
   connect(Inductor2.n, IdealDiode2.p) 
-    annotation (Line(points={{-40,0},{-6.12323e-016,0},{-6.12323e-016,30}}, 
+    annotation (Line(points={{-40,0},{-6.12323e-016,0},{-6.12323e-016,30}},
         color={0,0,255}));
   connect(Inductor3.n, IdealDiode3.p) 
     annotation (Line(points={{-40,-20},{20,-20},{20,30}}, color={0,0,255}));

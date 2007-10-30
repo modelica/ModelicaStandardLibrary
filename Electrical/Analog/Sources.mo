@@ -95,21 +95,13 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           Line(points={{-96,0},{-50,0}}, color={0,0,0}), 
           Line(points={{50,0},{96,0}}, color={0,0,0}), 
           Line(points={{-50,0},{50,0}}, color={0,0,0}), 
-          Line(
-            points={{-109,20},{-84,20}}, 
-            color={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{-109,20},{-84,20}}, color={160,160,164}), 
           Polygon(
             points={{-94,23},{-84,20},{-94,17},{-94,23}}, 
             lineColor={160,160,164}, 
             fillColor={160,160,164}, 
             fillPattern=FillPattern.Solid), 
-          Line(
-            points={{91,20},{116,20}}, 
-            color={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{91,20},{116,20}}, color={160,160,164}), 
           Text(
             extent={{-109,25},{-89,45}}, 
             lineColor={160,160,164}, 

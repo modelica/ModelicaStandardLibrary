@@ -26,8 +26,8 @@ values are visualized in a diagram animation.
            Icon(graphics={Text(
             extent={{-90,40},{90,-40}}, 
             lineColor={0,0,0}, 
-            textString=
-                   "and")}),  Diagram(graphics),
+            textString="and")}),
+                              Diagram(graphics),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if all inputs are <b>true</b>, otherwise
@@ -44,8 +44,8 @@ the output is <b>false</b>.
            Icon(graphics={Text(
             extent={{-90,40},{90,-40}}, 
             lineColor={0,0,0}, 
-            textString=
-                   "or")}),   Diagram(graphics),
+            textString="or")}),
+                              Diagram(graphics),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if at least one input is <b>true</b>, otherwise
@@ -61,8 +61,8 @@ the output is <b>false</b>.
     annotation (Icon(graphics={Text(
             extent={{-90,40},{90,-40}}, 
             lineColor={0,0,0}, 
-            textString=
-                   "xor")}),  Diagram(graphics),
+            textString="xor")}),
+                              Diagram(graphics),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if exactly one input is <b>true</b>, otherwise
@@ -78,8 +78,8 @@ the output is <b>false</b>.
     annotation (Icon(graphics={Text(
             extent={{-90,40},{90,-40}}, 
             lineColor={0,0,0}, 
-            textString=
-                   "nor")}),  Diagram(graphics),
+            textString="nor")}),
+                              Diagram(graphics),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if none of the inputs is <b>true</b>, otherwise
@@ -95,8 +95,8 @@ the output is <b>false</b>.
     annotation (Icon(graphics={Text(
             extent={{-90,40},{90,-40}}, 
             lineColor={0,0,0}, 
-            textString=
-                   "nand")}), Diagram(graphics),
+            textString="nand")}),
+                              Diagram(graphics),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if at least one input is <b>false</b>, otherwise
@@ -114,8 +114,8 @@ the output is <b>false</b>.
          Icon(graphics={Text(
             extent={{-90,40},{90,-40}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "not")}),  Diagram(graphics),
+            textString="not")}),
+                            Diagram(graphics),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the input is <b>false</b>, otherwise
@@ -137,8 +137,8 @@ the output is <b>false</b>.
          Icon(graphics={Text(
             extent={{-90,40},{90,-40}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "pre")}),  Diagram(graphics),
+            textString="pre")}),
+                            Diagram(graphics),
       Documentation(info="<html>
 <p>
 This block delays the Boolean input by an infinitesimal small time delay and 
@@ -169,8 +169,8 @@ values are identical (u = pre(u)).
       Icon(graphics={Text(
             extent={{-90,40},{90,-40}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "edge")}), Diagram(graphics),
+            textString="edge")}),
+                            Diagram(graphics),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Boolean input has a rising edge
@@ -194,8 +194,7 @@ the output is <b>false</b>.
     annotation (Icon(graphics={Text(
             extent={{-90,40},{90,-40}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "falling")}),
+            textString="falling")}),
                             Diagram(graphics),
       Documentation(info="<html>
 <p>
@@ -223,8 +222,7 @@ the output is <b>false</b>.
       Icon(graphics={Text(
             extent={{-90,40},{90,-40}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "change")}),
+            textString="change")}),
                             Diagram(graphics),
       Documentation(info="<html>
 <p>
@@ -246,8 +244,8 @@ the output is <b>false</b>.
     annotation (Icon(graphics={Text(
             extent={{-90,-40},{60,40}}, 
             lineColor={0,0,0}, 
-            textString=
-                 ">")}),Diagram(graphics),
+            textString=">")}),
+                        Diagram(graphics),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Real input is greater than 
@@ -266,8 +264,8 @@ the output is <b>false</b>.
     annotation (Icon(graphics={Text(
             extent={{-90,-40},{60,40}}, 
             lineColor={0,0,0}, 
-            textString=
-                 ">=")}),   Diagram(graphics),
+            textString=">=")}),
+                            Diagram(graphics),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Real input is greater than or equal to
@@ -285,8 +283,8 @@ the output is <b>false</b>.
     annotation (Icon(graphics={Text(
             extent={{-90,-40},{60,40}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "<")}),    Diagram(graphics),
+            textString="<")}),
+                            Diagram(graphics),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Real input is less than 
@@ -304,8 +302,8 @@ the output is <b>false</b>.
     annotation (Icon(graphics={Text(
             extent={{-90,-40},{60,40}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "<=")}),   Diagram(graphics),
+            textString="<=")}),
+                            Diagram(graphics),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Real input is less than or equal to
@@ -322,19 +320,18 @@ the output is <b>false</b>.
     
     annotation (Icon(graphics={
           Ellipse(extent={{32,10},{52,-10}}, fillPattern=FillPattern.Solid), 
-          Line(points={{-100,-80},{42,-80},{42,0}}, fillPattern=FillPattern.Solid), 
-            
+          Line(points={{-100,-80},{42,-80},{42,0}}), 
           Text(
             extent={{-80,-60},{20,60}}, 
             lineColor={0,0,0}, 
-            textString=
-                 ">")}),
+            textString=">")}),
         Documentation(info="<html>
 <p>
 The output is <b>true</b> if Real input u1 is greater than
 Real input u2, otherwise the output is <b>false</b>.
 </p>
 </html>"));
+    
   equation 
     y = u1 > u2;
   end Greater;
@@ -345,19 +342,18 @@ Real input u2, otherwise the output is <b>false</b>.
     
     annotation (Icon(graphics={
           Ellipse(extent={{32,10},{52,-10}}, fillPattern=FillPattern.Solid), 
-          Line(points={{-100,-80},{42,-80},{42,0}}, fillPattern=FillPattern.Solid), 
-            
+          Line(points={{-100,-80},{42,-80},{42,0}}), 
           Text(
             extent={{-80,-60},{20,60}}, 
             lineColor={0,0,0}, 
-            textString=
-                 ">=")}),
+            textString=">=")}),
         Documentation(info="<html>
 <p>
 The output is <b>true</b> if Real input u1 is greater than or equal to
 Real input u2, otherwise the output is <b>false</b>.
 </p>
 </html>"));
+    
   equation 
     y = u1 >= u2;
   end GreaterEqual;
@@ -367,19 +363,18 @@ Real input u2, otherwise the output is <b>false</b>.
     
     annotation (Icon(graphics={
           Ellipse(extent={{32,10},{52,-10}}, fillPattern=FillPattern.Solid), 
-          Line(points={{-100,-80},{42,-80},{42,0}}, fillPattern=FillPattern.Solid), 
-            
+          Line(points={{-100,-80},{42,-80},{42,0}}), 
           Text(
             extent={{-80,-60},{20,60}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "<")}),
+            textString="<")}),
         Documentation(info="<html>
 <p>
 The output is <b>true</b> if Real input u1 is less than
 Real input u2, otherwise the output is <b>false</b>.
 </p>
 </html>"));
+    
   equation 
     y = u1 < u2;
   end Less;
@@ -389,19 +384,18 @@ Real input u2, otherwise the output is <b>false</b>.
     
     annotation (Icon(graphics={
           Ellipse(extent={{32,10},{52,-10}}, fillPattern=FillPattern.Solid), 
-          Line(points={{-100,-80},{42,-80},{42,0}}, fillPattern=FillPattern.Solid), 
-            
+          Line(points={{-100,-80},{42,-80},{42,0}}), 
           Text(
             extent={{-80,-60},{20,60}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "<=")}),
+            textString="<=")}),
         Documentation(info="<html>
 <p>
 The output is <b>true</b> if Real input u1 is less than or equal to
 Real input u2, otherwise the output is <b>false</b>.
 </p>
 </html>"));
+    
   equation 
     y = u1 <= u2;
   end LessEqual;
@@ -413,8 +407,8 @@ Real input u2, otherwise the output is <b>false</b>.
     Blocks.Interfaces.BooleanInput enable 
       "Zero input crossing is triggered if the enable input signal is true" 
       annotation (Placement(transformation(
-          origin={0,-120}, 
-          extent={{-20,-20},{20,20}}, 
+          origin={0,-120},
+          extent={{-20,-20},{20,20}},
           rotation=90)));
     
     annotation (Documentation(info="<HTML>
@@ -488,8 +482,8 @@ u1 (upper connector) and u3 (lower connector).</p>
 u1, else it is set equal to u2.</p>
 </html>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Line(
             points={{12,0},{100,0}}, 
@@ -520,8 +514,8 @@ u1, else it is set equal to u2.</p>
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics));
   equation 
     y = if u2 then u1 else u3;
@@ -557,8 +551,8 @@ u1 (upper connector) and u3 (lower connector).</p>
 u1, else it is set equal to u3.</p>
 </html>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Line(
             points={{12,0},{100,0}}, 
@@ -584,8 +578,8 @@ u1, else it is set equal to u3.</p>
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={2,2}), graphics));
   equation 
     y = if u2 then u1 else u3;
@@ -601,7 +595,7 @@ u1, else it is set equal to u3.</p>
     Blocks.Interfaces.RealInput u annotation (Placement(transformation(extent={
               {-140,-20},{-100,20}}, rotation=0)));
     Blocks.Interfaces.BooleanOutput y 
-      annotation (Placement(transformation(extent={{100,-10},{120,10}}, 
+      annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
     
     annotation (
@@ -621,13 +615,11 @@ u1, else it is set equal to u3.</p>
           Text(
             extent={{70,-80},{94,-100}}, 
             lineColor={160,160,164}, 
-            textString=
-                 "time"), 
+            textString="time"), 
           Text(
             extent={{-65,93},{-12,75}}, 
             lineColor={160,160,164}, 
-            textString=
-                 "y"), 
+            textString="y"), 
           Line(
             points={{-80,-70},{30,-70}}, 
             color={0,0,0}, 
@@ -663,23 +655,19 @@ u1, else it is set equal to u3.</p>
           Text(
             extent={{-99,2},{-70,18}}, 
             lineColor={160,160,164}, 
-            textString=
-                 "true"), 
+            textString="true"), 
           Text(
             extent={{-98,-87},{-66,-73}}, 
             lineColor={160,160,164}, 
-            textString=
-                 "false"), 
+            textString="false"), 
           Text(
             extent={{19,-87},{44,-70}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "uHigh"), 
+            textString="uHigh"), 
           Text(
             extent={{-63,-88},{-38,-71}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "uLow"), 
+            textString="uLow"), 
           Line(points={{-69,10},{-60,10}}, color={160,160,164})}),
       Icon(graphics={
           Polygon(
@@ -705,13 +693,11 @@ u1, else it is set equal to u3.</p>
           Text(
             extent={{-92,-49},{-9,-92}}, 
             lineColor={192,192,192}, 
-            textString=
-                 "%uLow"), 
+            textString="%uLow"), 
           Text(
             extent={{2,-49},{91,-92}}, 
             lineColor={192,192,192}, 
-            textString=
-                 "%uHigh"), 
+            textString="%uHigh"), 
           Rectangle(extent={{-91,-49},{-8,-92}}, lineColor={192,192,192}), 
           Line(points={{-49,-29},{-49,-49}}, color={192,192,192}), 
           Rectangle(extent={{2,-49},{91,-92}}, lineColor={192,192,192}), 
@@ -765,13 +751,11 @@ The default value of this parameter is <b>false</b>.
             extent={{-92,74},{44,44}}, 
             lineColor={0,0,0}, 
             lineThickness=2, 
-            textString=
-                 "reference"), 
+            textString="reference"), 
           Text(
             extent={{-94,-52},{-34,-74}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "u"), 
+            textString="u"), 
           Line(points={{-76,-32},{-68,-6},{-50,26},{-24,40},{-2,42},{16,36},{32,
                 28},{48,12},{58,-6},{68,-28}}), 
           Line(points={{-78,-2},{-6,18},{82,-12}}, color={255,0,0}), 
@@ -805,7 +789,7 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
                                      annotation (Placement(transformation(
             extent={{-140,-20},{-100,20}}, rotation=0)));
     Blocks.Interfaces.RealOutput y "Connector of Real output signal" 
-      annotation (Placement(transformation(extent={{100,-10},{120,10}}, 
+      annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
     
     annotation (
@@ -846,51 +830,27 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
           Line(
             points={{-60,40},{-60,-42}}, 
             color={0,0,0}, 
-            pattern=LinePattern.Dot, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            pattern=LinePattern.Dot), 
           Line(
             points={{8,-42},{8,40}}, 
             color={0,0,0}, 
-            pattern=LinePattern.Dot, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(
-            points={{-60,40},{-30,40}}, 
-            color={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Line(
-            points={{8,-20},{40,-20}}, 
-            color={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Line(
-            points={{-20,40},{-20,-20}}, 
-            color={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Line(
-            points={{-20,-20},{-20,-70}}, 
-            color={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+            pattern=LinePattern.Dot), 
+          Line(points={{-60,40},{-30,40}}, color={0,0,0}), 
+          Line(points={{8,-20},{40,-20}}, color={0,0,0}), 
+          Line(points={{-20,40},{-20,-20}}, color={0,0,0}), 
+          Line(points={{-20,-20},{-20,-70}}, color={0,0,0}), 
           Text(
             extent={{-44,50},{-44,40}}, 
             lineColor={0,0,0}, 
-            arrow={Arrow.Filled,Arrow.Filled}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid, 
-            textString=
-                 "rising"), 
+            textString="rising"), 
           Text(
             extent={{24,-10},{24,-20}}, 
             lineColor={0,0,0}, 
-            arrow={Arrow.Filled,Arrow.Filled}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid, 
-            textString=
-                 "falling"), 
+            textString="falling"), 
           Polygon(
             points={{-60,40},{-56,42},{-56,38},{-60,40}}, 
             lineColor={0,0,0}, 
@@ -939,11 +899,9 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
           Text(
             extent={{-20,6},{-20,-4}}, 
             lineColor={0,0,0}, 
-            arrow={Arrow.Filled,Arrow.Filled}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid, 
-            textString=
-                 "amplitude"), 
+            textString="amplitude"), 
           Rectangle(
             extent={{-40,-48},{0,-58}}, 
             lineColor={255,255,255}, 
@@ -952,26 +910,21 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
           Text(
             extent={{-20,-48},{-20,-58}}, 
             lineColor={0,0,0}, 
-            arrow={Arrow.Filled,Arrow.Filled}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid, 
-            textString=
-                 "offset"), 
+            textString="offset"), 
           Text(
             extent={{60,-82},{94,-92}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "time"), 
+            textString="time"), 
           Text(
             extent={{-88,-4},{-54,-14}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "y"), 
+            textString="y"), 
           Text(
             extent={{-88,-46},{-54,-56}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "u")}),
+            textString="u")}),
       Documentation(info="<HTML>
 <p>The block TriggeredTrapezoid has a boolean input and a real
 output signal and requires the parameters <i>amplitude</i>,
@@ -990,6 +943,7 @@ during <i>falling</i> to a value of <i>offset</i>.
 handled properly.</p>
 </HTML>
 "));
+    
   protected 
     discrete Real endValue "Value of y at time of recent edge";
     discrete Real rate "Current rising/falling rate";
@@ -1023,7 +977,7 @@ handled properly.</p>
                                      annotation (Placement(transformation(
             extent={{-140,-20},{-100,20}}, rotation=0)));
     Blocks.Interfaces.RealOutput y "Connector of Real output signal" 
-      annotation (Placement(transformation(extent={{100,-10},{120,10}}, 
+      annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
     
     annotation (
@@ -1063,18 +1017,15 @@ handled properly.</p>
           Text(
             extent={{-88,6},{-54,-4}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "y"), 
+            textString="y"), 
           Text(
             extent={{48,-80},{84,-88}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "time"), 
+            textString="time"), 
           Text(
             extent={{-88,-36},{-54,-46}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "u")}),
+            textString="u")}),
       Documentation(info="<HTML>
 <p> When the Boolean input \"u\" becomes <b>true</b>, the timer is started
 and the output \"y\" is the time from the time instant where u became true.
@@ -1098,7 +1049,7 @@ input becomes false.
     
     Modelica.Blocks.Interfaces.BooleanOutput condition=false 
       "Terminate simulation when condition becomes true" 
-      annotation (Dialog, Placement(transformation(extent={{200,-10},{220,10}}, 
+      annotation (Dialog, Placement(transformation(extent={{200,-10},{220,10}},
             rotation=0)));
     parameter String terminationText = "... End condition reached" 
       "Text that will be displayed when simulation is terminated";
@@ -1109,9 +1060,9 @@ input becomes false.
         width=0.6,
         height=0.6),
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-200,-15},{200,15}}, 
-          grid={2,2}, 
+          preserveAspectRatio=true,
+          extent={{-200,-15},{200,15}},
+          grid={2,2},
           initialScale=0.2), graphics={
           Rectangle(
             extent={{-200,14},{200,-16}}, 
@@ -1124,8 +1075,7 @@ input becomes false.
             lineColor={0,0,0}, 
             fillColor={0,255,0}, 
             fillPattern=FillPattern.Solid, 
-            textString=
-                 "%condition"), 
+            textString="%condition"), 
           Rectangle(
             extent={{-194,10},{-176,-8}}, 
             lineColor={0,0,0}, 
@@ -1137,12 +1087,11 @@ input becomes false.
             lineColor={0,0,255}, 
             fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid, 
-            textString=
-                 "%name")}),
+            textString="%name")}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-200,-15},{200,15}}, 
-          grid={2,2}, 
+          preserveAspectRatio=true,
+          extent={{-200,-15},{200,15}},
+          grid={2,2},
           initialScale=0.2), graphics),
       Documentation(info="<html>
 <p>

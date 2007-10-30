@@ -10,8 +10,8 @@ model CharacteristicThyristors "Characteristic of ideal thyristors"
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(V=10,
       offset=0) 
               annotation (Placement(transformation(
-        origin={-40,-10}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-40,-10},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground Ground1 
   annotation (Placement(transformation(extent={{-50,-60},{-30,-40}}, rotation=0)));
@@ -19,7 +19,8 @@ model CharacteristicThyristors "Characteristic of ideal thyristors"
   annotation (Placement(transformation(extent={{40,0},{60,20}}, rotation=0)));
   
 annotation (Diagram(graphics={Text(extent={{-96,100},{98,60}}, textString=
-          "Characteristic Thyristors")}),Documentation(info="<HTML>
+              "Characteristic Thyristors")}),
+                                         Documentation(info="<HTML>
 <P>
 Two examples of thyristors are shown:<br><br>
 the <b>ideal thyristor</b>  <br>
@@ -95,6 +96,6 @@ equation
   connect(IdealGTOThyristor1.p, IdealThyristor1.p) 
   annotation (Line(points={{-20,-20},{-20,10}}, color={0,0,255}));
   connect(IdealGTOThyristor1.fire, IdealThyristor1.fire) 
-  annotation (Line(points={{-3,-9},{-3,-2.5},{-2,-2.5},{-2,5},{-3,5},{-3,21}}, 
+  annotation (Line(points={{-3,-9},{-3,-2.5},{-2,-2.5},{-2,5},{-3,5},{-3,21}},
         color={255,0,255}));
 end CharacteristicThyristors;

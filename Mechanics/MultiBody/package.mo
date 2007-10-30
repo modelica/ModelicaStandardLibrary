@@ -1288,8 +1288,8 @@ drag Modelica.Mechanics.MultiBody.World into the top level of your model.",
       width=0.81,
       height=0.83),
     Icon(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
         Rectangle(
           extent={{-100,100},{100,-100}}, 
@@ -1314,18 +1314,15 @@ drag Modelica.Mechanics.MultiBody.World into the top level of your model.",
           lineColor={0,0,0}, 
           fillColor={0,0,0}, 
           fillPattern=FillPattern.Solid), 
-        Text(extent={{-140,165},{140,103}}, textString=
-                                                "%name"), 
+        Text(extent={{-140,165},{140,103}}, textString="%name"), 
         Text(
           extent={{95,-113},{144,-162}}, 
           lineColor={0,0,0}, 
-          textString=
-               "%label1"), 
+          textString="%label1"), 
         Text(
           extent={{-170,127},{-119,77}}, 
           lineColor={0,0,0}, 
-          textString=
-               "%label2"), 
+          textString="%label2"), 
         Line(points={{-56,78},{-56,-26}}), 
         Polygon(
           points={{-68,-26},{-56,-66},{-44,-26},{-68,-26}}, 
@@ -1342,8 +1339,8 @@ drag Modelica.Mechanics.MultiBody.World into the top level of your model.",
           fillColor={0,0,255}, 
           fillPattern=FillPattern.Solid)}),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics),
     Documentation(info="<HTML>
 <p>

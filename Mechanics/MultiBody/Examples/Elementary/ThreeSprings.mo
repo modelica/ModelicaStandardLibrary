@@ -15,8 +15,8 @@ encapsulated model ThreeSprings
       width=0.71,
       height=0.85),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics),
     Documentation(info="<html>
 <p>
@@ -44,8 +44,8 @@ ALT=\"model Examples.Elementary.ThreeSprings\">
     I_33=0.1,
     initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
     sphereDiameter=0.2) annotation (Placement(transformation(
-        origin={30,-70}, 
-        extent={{-10,10},{10,-10}}, 
+        origin={30,-70},
+        extent={{-10,10},{10,-10}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar1(animation=animation, r={0.3,0,0}) 
     annotation (Placement(transformation(extent={{-20,20},{0,40}}, rotation=0)));
@@ -57,13 +57,13 @@ ALT=\"model Examples.Elementary.ThreeSprings\">
     numberOfWindings=5,
     c=20,
     animation=animation) annotation (Placement(transformation(
-        origin={30,10}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={30,10},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(animation=animation, r={0,0,0.3}) 
     annotation (Placement(transformation(
-        origin={-30,-10}, 
-        extent={{10,-10},{-10,10}}, 
+        origin={-30,-10},
+        extent={{10,-10},{-10,10}},
         rotation=90)));
   Modelica.Mechanics.MultiBody.Forces.Spring spring2(
     s_unstretched=0.1,
@@ -72,8 +72,8 @@ ALT=\"model Examples.Elementary.ThreeSprings\">
     numberOfWindings=5,
     c=40,
     animation=animation) annotation (Placement(transformation(
-        origin={30,-38}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={30,-38},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Forces.Spring spring3(
     s_unstretched=0.1,
@@ -86,35 +86,35 @@ ALT=\"model Examples.Elementary.ThreeSprings\">
 equation 
   connect(world.frame_b, bar1.frame_a) 
     annotation (Line(
-      points={{-40,30},{-20,30}}, 
-      color={95,95,95}, 
+      points={{-40,30},{-20,30}},
+      color={95,95,95},
       thickness=2));
   connect(world.frame_b, bar2.frame_a) annotation (Line(
-      points={{-40,30},{-30,30},{-30,0}}, 
-      color={95,95,95}, 
+      points={{-40,30},{-30,30},{-30,0}},
+      color={95,95,95},
       thickness=2));
   connect(bar1.frame_b, spring1.frame_a) 
     annotation (Line(
-      points={{0,30},{30,30},{30,20}}, 
-      color={95,95,95}, 
+      points={{0,30},{30,30},{30,20}},
+      color={95,95,95},
       thickness=2));
   connect(bar2.frame_b, spring3.frame_a) annotation (Line(
-      points={{-30,-20},{-30,-32},{-20,-32}}, 
-      color={95,95,95}, 
+      points={{-30,-20},{-30,-32},{-20,-32}},
+      color={95,95,95},
       thickness=2));
   connect(spring2.frame_b, body1.frame_a) 
     annotation (Line(
-      points={{30,-48},{30,-60}}, 
-      color={0,0,0}, 
+      points={{30,-48},{30,-60}},
+      color={0,0,0},
       thickness=2));
   connect(spring3.frame_b, spring1.frame_b) 
     annotation (Line(
-      points={{0,-32},{30,-14},{30,0}}, 
-      color={95,95,95}, 
+      points={{0,-32},{30,-14},{30,0}},
+      color={95,95,95},
       thickness=2));
   connect(spring2.frame_a, spring1.frame_b) 
     annotation (Line(
-      points={{30,-28},{30,0}}, 
-      color={95,95,95}, 
+      points={{30,-28},{30,0}},
+      color={95,95,95},
       thickness=2));
 end ThreeSprings;

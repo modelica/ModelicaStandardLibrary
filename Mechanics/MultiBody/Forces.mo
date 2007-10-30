@@ -112,7 +112,7 @@ between two frame connectors, e.g., between two parts.
     extends Interfaces.PartialOneFrame_b;
     Modelica.Blocks.Interfaces.RealInput force[3] 
       "x-, y-, z-coordinates of force resolved in world frame" 
-      annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, 
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Real N_to_m(unit="N/m") = world.defaultN_to_m 
@@ -130,8 +130,8 @@ between two frame connectors, e.g., between two parts.
     annotation (
       preferedView="info",
       Diagram(graphics={Polygon(
-            points={{-100,10},{50,10},{50,31},{97,0},{50,-31},{50,-10},{-100,
-                -10},{-100,10}}, 
+            points={{-100,10},{50,10},{50,31},{97,0},{50,-31},{50,-10},{-100,-10},
+                {-100,10}}, 
             lineColor={0,0,0}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid)}),
@@ -139,16 +139,14 @@ between two frame connectors, e.g., between two parts.
           Text(
             extent={{-100,-30},{50,-70}}, 
             lineColor={192,192,192}, 
-            textString=
-                 "world"), 
+            textString="world"), 
           Polygon(
-            points={{-100,10},{50,10},{50,31},{94,0},{50,-31},{50,-10},{-100,
-                -10},{-100,10}}, 
+            points={{-100,10},{50,10},{50,31},{94,0},{50,-31},{50,-10},{-100,-10},
+                {-100,10}}, 
             lineColor={0,0,0}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-149,103},{136,42}}, textString=
-                                                 "%name")}),
+          Text(extent={{-149,103},{136,42}}, textString="%name")}),
       Documentation(info="<HTML>
 <p>
 The <b>3</b> signals of the <b>force</b> connector are interpreted
@@ -234,7 +232,7 @@ is resolved in the world frame).
     
     Modelica.Blocks.Interfaces.RealInput torque[3] 
       "x-, y-, z-coordinates of torque resolved in world frame" 
-      annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, 
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Real Nm_to_m(unit="N.m/m") = world.defaultNm_to_m 
@@ -289,16 +287,14 @@ This leads to the following animation
 </p>
 </HTML>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Text(extent={{-124,-27},{136,-87}}, textString=
-                                                  "%name"), 
+          Text(extent={{-124,-27},{136,-87}}, textString="%name"), 
           Text(
             extent={{-103,127},{60,87}}, 
             lineColor={192,192,192}, 
-            textString=
-                 "world"), 
+            textString="world"), 
           Line(
             points={{-100,0},{-94,13},{-86,28},{-74,48},{-65,60},{-52,72},{-35,
                 81},{-22,84},{-8,84},{7,80},{19,73},{32,65},{44,55},{52,47},{58,
@@ -311,8 +307,8 @@ This leads to the following animation
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={Line(
             points={{-100,0},{-94,13},{-86,28},{-74,48},{-65,60},{-52,72},{-35,
                 81},{-22,84},{-8,84},{7,80},{19,73},{32,65},{44,55},{52,47},{58,
@@ -349,7 +345,7 @@ This leads to the following animation
     
     Modelica.Blocks.Interfaces.RealInput load[6] 
       "[1:6] = x-, y-, z-coordinates of force and x-, y-, z-coordiantes of torque resolved in world frame"
-      annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, 
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Real N_to_m(unit="N/m") = world.defaultN_to_m 
@@ -374,8 +370,8 @@ This leads to the following animation
       preferedView="info",
       Diagram(graphics={
           Polygon(
-            points={{-100,10},{50,10},{50,31},{97,0},{50,-31},{50,-10},{-100,
-                -10},{-100,10}}, 
+            points={{-100,10},{50,10},{50,31},{97,0},{50,-31},{50,-10},{-100,-10},
+                {-100,10}}, 
             lineColor={0,0,0}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
@@ -394,16 +390,14 @@ This leads to the following animation
           Text(
             extent={{-74,62},{44,24}}, 
             lineColor={192,192,192}, 
-            textString=
-                 "world"), 
+            textString="world"), 
           Polygon(
-            points={{-100,10},{50,10},{50,31},{94,0},{50,-31},{50,-10},{-100,
-                -10},{-100,10}}, 
+            points={{-100,10},{50,10},{50,31},{94,0},{50,-31},{50,-10},{-100,-10},
+                {-100,10}}, 
             lineColor={0,0,0}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-137,-47},{148,-108}}, textString=
-                                                   "%name"), 
+          Text(extent={{-137,-47},{148,-108}}, textString="%name"), 
           Line(
             points={{-98,14},{-92,27},{-84,42},{-72,62},{-63,74},{-50,86},{-33,
                 95},{-20,98},{-6,98},{9,94},{21,87},{34,79},{46,69},{54,61},{60,
@@ -519,13 +513,13 @@ is resolved in the world frame).
     Interfaces.Frame_resolve frame_resolve 
       "If connected, the input signals are resolved in this frame" 
       annotation (Placement(transformation(
-          origin={0,-100}, 
-          extent={{-16,-16},{16,16}}, 
+          origin={0,-100},
+          extent={{-16,-16},{16,16}},
           rotation=270)));
     
     Modelica.Blocks.Interfaces.RealInput force[3] 
       "x-, y-, z-coordinates of force resolved in frame_b or frame_resolve (if connected)"
-      annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, 
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Real N_to_m(unit="N/m") = world.defaultN_to_m 
@@ -543,8 +537,8 @@ is resolved in the world frame).
     annotation (
       preferedView="info",
       Diagram(graphics={Polygon(
-            points={{-100,10},{50,10},{50,31},{97,0},{50,-31},{50,-10},{-100,
-                -10},{-100,10}}, 
+            points={{-100,10},{50,10},{50,31},{97,0},{50,-31},{50,-10},{-100,-10},
+                {-100,10}}, 
             lineColor={0,0,0}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid), Line(
@@ -555,16 +549,14 @@ is resolved in the world frame).
           Text(
             extent={{-89,-46},{91,-76}}, 
             lineColor={192,192,192}, 
-            textString=
-                 "resolve"), 
+            textString="resolve"), 
           Polygon(
-            points={{-100,10},{50,10},{50,31},{94,0},{50,-31},{50,-10},{-100,
-                -10},{-100,10}}, 
+            points={{-100,10},{50,10},{50,31},{94,0},{50,-31},{50,-10},{-100,-10},
+                {-100,10}}, 
             lineColor={0,0,0}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-149,103},{136,42}}, textString=
-                                                 "%name"), 
+          Text(extent={{-149,103},{136,42}}, textString="%name"), 
           Line(
             points={{0,-10},{0,-95}}, 
             color={95,95,95}, 
@@ -672,13 +664,13 @@ is resolved in the world frame).
     Interfaces.Frame_resolve frame_resolve 
       "If connected, the input signals are resolved in this frame" 
       annotation (Placement(transformation(
-          origin={0,100}, 
-          extent={{16,-16},{-16,16}}, 
+          origin={0,100},
+          extent={{16,-16},{-16,16}},
           rotation=270)));
     
     Modelica.Blocks.Interfaces.RealInput torque[3] 
       "x-, y-, z-coordinates of torque resolved in frame_b or frame_resolve (if connected)"
-      annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, 
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Real Nm_to_m(unit="N.m/m") = world.defaultNm_to_m 
@@ -714,10 +706,8 @@ is resolved in the world frame).
           Text(
             extent={{-61,64},{46,27}}, 
             lineColor={192,192,192}, 
-            textString=
-                 "resolve"), 
-          Text(extent={{-145,-28},{140,-89}}, textString=
-                                                  "%name"), 
+            textString="resolve"), 
+          Text(extent={{-145,-28},{140,-89}}, textString="%name"), 
           Line(
             points={{0,95},{0,82}}, 
             color={95,95,95}, 
@@ -835,12 +825,12 @@ is resolved in the world frame).
     Interfaces.Frame_resolve frame_resolve 
       "If connected, the input signals are resolved in this frame" 
       annotation (Placement(transformation(
-          origin={0,100}, 
-          extent={{16,-16},{-16,16}}, 
+          origin={0,100},
+          extent={{16,-16},{-16,16}},
           rotation=270)));
     Modelica.Blocks.Interfaces.RealInput load[6] 
       "[1:6] = x-, y-, z-coordinates of force and x-, y-, z-coordiantes of torque resolved in frame_b or frame_resolved (if connected)"
-      annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, 
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Real N_to_m(unit="N/m") = world.defaultN_to_m 
@@ -864,8 +854,8 @@ is resolved in the world frame).
       preferedView="info",
       Diagram(graphics={
           Polygon(
-            points={{-100,10},{50,10},{50,31},{97,0},{50,-31},{50,-10},{-100,
-                -10},{-100,10}}, 
+            points={{-100,10},{50,10},{50,31},{97,0},{50,-31},{50,-10},{-100,-10},
+                {-100,10}}, 
             lineColor={0,0,0}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
@@ -885,16 +875,14 @@ is resolved in the world frame).
           Text(
             extent={{-74,62},{44,24}}, 
             lineColor={192,192,192}, 
-            textString=
-                 "resolve"), 
+            textString="resolve"), 
           Polygon(
-            points={{-100,10},{50,10},{50,31},{94,0},{50,-31},{50,-10},{-100,
-                -10},{-100,10}}, 
+            points={{-100,10},{50,10},{50,31},{94,0},{50,-31},{50,-10},{-100,-10},
+                {-100,10}}, 
             lineColor={0,0,0}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-137,-47},{148,-108}}, textString=
-                                                   "%name"), 
+          Text(extent={{-137,-47},{148,-108}}, textString="%name"), 
           Line(points={{-100,10},{-92,26},{-84,42},{-76,52},{-60,68},{-46,76},{
                 -31,82},{-17,85},{-2,87},{14,86},{26,82},{37,75},{46,69},{54,61},
                 {60,54}}, color={0,0,0}), 
@@ -1030,14 +1018,14 @@ is resolved in the world frame).
     Interfaces.Frame_resolve frame_resolve 
       "If connected, the input signals are resolved in this frame" 
       annotation (Placement(transformation(
-          origin={40,100}, 
-          extent={{-16,-16},{16,16}}, 
+          origin={40,100},
+          extent={{-16,-16},{16,16}},
           rotation=90)));
     Modelica.Blocks.Interfaces.RealInput force[3] 
       "x-, y-, z-coordinates of force resolved in frame_b or frame_resolved (if connected)"
       annotation (Placement(transformation(
-          origin={-60,120}, 
-          extent={{-20,-20},{20,20}}, 
+          origin={-60,120},
+          extent={{-20,-20},{20,20}},
           rotation=270)));
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Real N_to_m(unit="N/m") = world.defaultN_to_m 
@@ -1072,10 +1060,8 @@ is resolved in the world frame).
           Text(
             extent={{-92,61},{87,35}}, 
             lineColor={192,192,192}, 
-            textString=
-                 "resolve"), 
-          Text(extent={{-136,-52},{149,-113}}, textString=
-                                                   "%name"), 
+            textString="resolve"), 
+          Text(extent={{-136,-52},{149,-113}}, textString="%name"), 
           Line(
             points={{40,100},{40,0}}, 
             color={95,95,95}, 
@@ -1212,15 +1198,15 @@ is resolved in the world frame).
     Interfaces.Frame_resolve frame_resolve 
       "If connected, the input signals are resolved in this frame" 
       annotation (Placement(transformation(
-          origin={40,100}, 
-          extent={{-16,-16},{16,16}}, 
+          origin={40,100},
+          extent={{-16,-16},{16,16}},
           rotation=90)));
     
     Modelica.Blocks.Interfaces.RealInput torque[3] 
       "x-, y-, z-coordiantes of torque resolved in frame_b or frame_resolved (if connected)"
       annotation (Placement(transformation(
-          origin={-60,120}, 
-          extent={{-20,-20},{20,20}}, 
+          origin={-60,120},
+          extent={{-20,-20},{20,20}},
           rotation=270)));
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Real Nm_to_m(unit="N.m/m") = world.defaultNm_to_m 
@@ -1255,10 +1241,8 @@ is resolved in the world frame).
           Text(
             extent={{-59,55},{72,30}}, 
             lineColor={192,192,192}, 
-            textString=
-                 "resolve"), 
-          Text(extent={{-139,-27},{146,-88}}, textString=
-                                                  "%name"), 
+            textString="resolve"), 
+          Text(extent={{-139,-27},{146,-88}}, textString="%name"), 
           Polygon(
             points={{100,20},{84,52},{69,39},{100,20}}, 
             lineColor={0,0,0}, 
@@ -1398,15 +1382,15 @@ is resolved in the world frame).
     Interfaces.Frame_resolve frame_resolve 
       "If connected, the input signals are resolved in this frame" 
       annotation (Placement(transformation(
-          origin={40,100}, 
-          extent={{-16,-16},{16,16}}, 
+          origin={40,100},
+          extent={{-16,-16},{16,16}},
           rotation=90)));
     
     Modelica.Blocks.Interfaces.RealInput load[6] 
       "[1:6] = x-, y-, z-coordinates of force and x-, y-, z-coordiantes of torque resolved in frame_b or frame_resolved (if connected)"
       annotation (Placement(transformation(
-          origin={-60,120}, 
-          extent={{-20,-20},{20,20}}, 
+          origin={-60,120},
+          extent={{-20,-20},{20,20}},
           rotation=270)));
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Real N_to_m(unit="N/m") = world.defaultN_to_m 
@@ -1449,10 +1433,8 @@ is resolved in the world frame).
           Text(
             extent={{-59,55},{72,30}}, 
             lineColor={192,192,192}, 
-            textString=
-                 "resolve"), 
-          Text(extent={{-136,-52},{149,-113}}, textString=
-                                                   "%name"), 
+            textString="resolve"), 
+          Text(extent={{-136,-52},{149,-113}}, textString="%name"), 
           Polygon(
             points={{100,21},{84,55},{69,39},{100,21}}, 
             lineColor={0,0,0}, 
@@ -1622,14 +1604,14 @@ is resolved in the world frame).
     Modelica.Mechanics.Translational.Interfaces.Flange_a flange_b 
       "1-dim. translational flange (connect force of Translational library between flange_a and flange_b)"
       annotation (Placement(transformation(
-          origin={60,100}, 
-          extent={{-10,-10},{10,10}}, 
+          origin={60,100},
+          extent={{-10,-10},{10,10}},
           rotation=90)));
     Modelica.Mechanics.Translational.Interfaces.Flange_b flange_a 
       "1-dim. translational flange (connect force of Translational library between flange_a and flange_b)"
       annotation (Placement(transformation(
-          origin={-60,100}, 
-          extent={{-10,-10},{10,10}}, 
+          origin={-60,100},
+          extent={{-10,-10},{10,10}},
           rotation=90)));
     
     parameter Boolean animateLine=true 
@@ -1681,8 +1663,8 @@ is resolved in the world frame).
         width=0.69,
         height=0.78),
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Ellipse(
             extent={{-95,-40},{-15,40}}, 
@@ -1704,8 +1686,7 @@ is resolved in the world frame).
             lineColor={128,128,128}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-145,-53},{145,-113}}, textString=
-                                                   "%name"), 
+          Text(extent={{-145,-53},{145,-113}}, textString="%name"), 
           Rectangle(
             extent={{-40,41},{44,-40}}, 
             lineColor={255,255,255}, 
@@ -1735,8 +1716,8 @@ is resolved in the world frame).
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{-60,80},{46,80}}), 
           Polygon(
@@ -1744,8 +1725,7 @@ is resolved in the world frame).
             lineColor={0,0,255}, 
             fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-22,100},{20,76}}, textString=
-                                               "length"), 
+          Text(extent={{-22,100},{20,76}}, textString="length"), 
           Ellipse(
             extent={{-100,-40},{-20,40}}, 
             lineColor={0,0,0}, 
@@ -1794,34 +1774,23 @@ is resolved in the world frame).
             lineColor={0,0,0}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Line(
-            points={{-60,0},{-31,0}}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{-60,0},{-31,0}}), 
           Polygon(points={{-19,0},{-31,3},{-31,-3},{-19,0}}, fillPattern=
                 FillPattern.Forward), 
-          Line(
-            points={{-60,16},{0,16}}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Line(
-            points={{0,0},{0,20}}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{-60,16},{0,16}}), 
+          Line(points={{0,0},{0,20}}), 
           Text(
             extent={{-43,-8},{-7,-33}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.None, 
-            textString=
-                 "e_rel_0"), 
+            textString="e_rel_0"), 
           Polygon(points={{0,16},{-12,19},{-12,13},{0,16}}, fillPattern=
                 FillPattern.Forward), 
           Text(
             extent={{-50,35},{51,26}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.None, 
-            textString=
-                 "length*lengthFraction"), 
+            textString="length*lengthFraction"), 
           Line(points={{-17,26},{-26,16}}, pattern=LinePattern.Dot), 
           Line(points={{-31,-13},{-40,0}}, pattern=LinePattern.Dot)}),
       Documentation(info="<html>
@@ -1986,14 +1955,14 @@ for this situation:
     Modelica.Mechanics.Translational.Interfaces.Flange_a flange_b 
       "1-dim. translational flange (connect force of Translational library between flange_a and flange_b)"
       annotation (Placement(transformation(
-          origin={60,110}, 
-          extent={{-10,-10},{10,10}}, 
+          origin={60,110},
+          extent={{-10,-10},{10,10}},
           rotation=90)));
     Modelica.Mechanics.Translational.Interfaces.Flange_b flange_a 
       "1-dim. translational flange (connect force of Translational library between flange_a and flange_b)"
       annotation (Placement(transformation(
-          origin={-60,110}, 
-          extent={{-10,-10},{10,10}}, 
+          origin={-60,110},
+          extent={{-10,-10},{10,10}},
           rotation=90)));
     
     parameter Boolean animate=true "= true, if animation shall be enabled";
@@ -2047,8 +2016,8 @@ for this situation:
         width=0.69,
         height=0.78),
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Ellipse(
             extent={{-100,-40},{-20,40}}, 
@@ -2070,8 +2039,7 @@ for this situation:
             lineColor={128,128,128}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-145,-53},{145,-113}}, textString=
-                                                   "%name"), 
+          Text(extent={{-145,-53},{145,-113}}, textString="%name"), 
           Rectangle(
             extent={{-52,40},{48,-40}}, 
             lineColor={255,255,255}, 
@@ -2108,8 +2076,8 @@ for this situation:
           Line(points={{-60,0},{-29,0}}, color={0,0,0}), 
           Line(points={{29,0},{60,0}}, color={0,0,0})}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{-60,80},{46,80}}), 
           Polygon(
@@ -2117,8 +2085,7 @@ for this situation:
             lineColor={0,0,255}, 
             fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-22,100},{20,76}}, textString=
-                                               "length"), 
+          Text(extent={{-22,100},{20,76}}, textString="length"), 
           Ellipse(
             extent={{-100,-40},{-20,40}}, 
             lineColor={0,0,0}, 
@@ -2167,55 +2134,37 @@ for this situation:
             lineColor={0,0,0}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Line(
-            points={{-18,-18},{11,-18}}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{-18,-18},{11,-18}}), 
           Polygon(points={{23,-18},{11,-15},{11,-21},{23,-18}}, fillPattern=
                 FillPattern.Forward), 
-          Line(
-            points={{-60,16},{-37,16}}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Line(
-            points={{-25,0},{-25,20}}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{-60,16},{-37,16}}), 
+          Line(points={{-25,0},{-25,20}}), 
           Text(
             extent={{-16,-19},{20,-44}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.None, 
-            textString=
-                 "e_rel_0"), 
+            textString="e_rel_0"), 
           Polygon(points={{-25,16},{-37,19},{-37,13},{-25,16}}, fillPattern=
                 FillPattern.Forward), 
           Text(
             extent={{-39,31},{-22,21}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.None, 
-            textString=
-                 "L_a"), 
+            textString="L_a"), 
           Ellipse(
             extent={{-33,7},{-17,-9}}, 
             lineColor={0,0,0}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Line(
-            points={{29,3},{29,22}}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Line(
-            points={{29,16},{60,16}}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{29,3},{29,22}}), 
+          Line(points={{29,16},{60,16}}), 
           Polygon(points={{29,16},{41,19},{41,13},{29,16}}, fillPattern=
                 FillPattern.Forward), 
           Text(
             extent={{15,36},{32,26}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.None, 
-            textString=
-                 "L_b"), 
+            textString="L_b"), 
           Line(points={{37,18},{30,27}}, pattern=LinePattern.Dot)}),
       Documentation(info="<html>
 <p>
@@ -2505,13 +2454,13 @@ for this situation:
   equation 
     connect(lineForce.frame_a, frame_a) 
       annotation (Line(
-        points={{-20,0},{-100,0}}, 
-        color={95,95,95}, 
+        points={{-20,0},{-100,0}},
+        color={95,95,95},
         thickness=2));
     connect(lineForce.frame_b, frame_b) 
       annotation (Line(
-        points={{20,0},{100,0}}, 
-        color={95,95,95}, 
+        points={{20,0},{100,0}},
+        color={95,95,95},
         thickness=2));
     connect(spring.flange_b, lineForce.flange_b) 
       annotation (Line(points={{12,50},{12,20}}, color={0,191,0}));
@@ -2527,13 +2476,11 @@ for this situation:
             pattern=LinePattern.Solid, 
             thickness=1, 
             arrow={Arrow.None,Arrow.None}), 
-          Text(extent={{-130,49},{132,109}}, textString=
-                                                 "%name"), 
+          Text(extent={{-130,49},{132,109}}, textString="%name"), 
           Text(
             extent={{-141,-92},{125,-51}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "c=%c"), 
+            textString="c=%c"), 
           Ellipse(
             extent={{-8,8},{8,-8}}, 
             lineColor={0,0,0}, 
@@ -2626,8 +2573,8 @@ where a mass is hanging on a damper.
 </p>
 </HTML>"),
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{-101,0},{-60,0}}, color={0,0,0}), 
           Line(points={{-60,-30},{-60,30}}, color={0,0,0}), 
@@ -2639,16 +2586,14 @@ where a mass is hanging on a damper.
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid), 
           Line(points={{30,0},{100,0}}, color={0,0,0}), 
-          Text(extent={{-140,47},{145,105}}, textString=
-                                                 "%name"), 
+          Text(extent={{-140,47},{145,105}}, textString="%name"), 
           Text(
             extent={{-156,-96},{152,-53}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "d=%d")}),
+            textString="d=%d")}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{-100,0},{-60,0}}, color={0,0,0}), 
           Line(points={{-60,-30},{-60,30}}, color={0,0,0}), 
@@ -2664,8 +2609,7 @@ where a mass is hanging on a damper.
           Text(
             extent={{-20,60},{10,85}}, 
             lineColor={128,128,128}, 
-            textString=
-                 "der(s)"), 
+            textString="der(s)"), 
           Polygon(
             points={{64,60},{42,68},{42,52},{62,60},{64,60}}, 
             lineColor={128,128,128}, 
@@ -2749,11 +2693,10 @@ and der(s) is the time derivative of s.
 </p>
 </HTML>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Text(extent={{-131,-166},{114,-108}}, textString=
-                                                    "%name"), 
+          Text(extent={{-131,-166},{114,-108}}, textString="%name"), 
           Line(points={{-80,40},{-60,40},{-45,10},{-15,70},{15,10},{45,70},{60,
                 40},{80,40}}, color={0,0,0}), 
           Line(points={{-80,40},{-80,-70}}, color={0,0,0}), 
@@ -2772,11 +2715,10 @@ and der(s) is the time derivative of s.
           Text(
             extent={{-140,72},{138,108}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "c,d=%c,%d")}),
+            textString="c,d=%c,%d")}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(
             points={{-80,32},{-58,32},{-43,2},{-13,62},{17,2},{47,62},{62,32},{
@@ -2794,8 +2736,7 @@ and der(s) is the time derivative of s.
           Text(
             extent={{-20,72},{20,97}}, 
             lineColor={0,0,255}, 
-            textString=
-                 "s"), 
+            textString="s"), 
           Rectangle(
             extent={{-52,-20},{38,-80}}, 
             lineColor={0,0,0}, 
@@ -2872,8 +2813,8 @@ force element) and der(s_damper) is the time derivative of s_damper.
 </p>
 </HTML>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{-100,0},{-15,0}}, color={0,0,0}), 
           Line(points={{-60,-30},{-15,-30}}, color={0,0,0}), 
@@ -2885,16 +2826,14 @@ force element) and der(s_damper) is the time derivative of s_damper.
             fillPattern=FillPattern.Solid), 
           Line(points={{-15,0},{-5,0},{5,-30},{25,30},{45,-30},{65,30},{75,0},{
                 100,0}}, color={0,0,0}), 
-          Text(extent={{-140,47},{145,105}}, textString=
-                                                 "%name"), 
+          Text(extent={{-140,47},{145,105}}, textString="%name"), 
           Text(
             extent={{-148,-96},{160,-53}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "c,d=%c,%d")}),
+            textString="c,d=%c,%d")}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{-100,0},{-15,0}}, color={0,0,0}), 
           Line(points={{-60,-30},{-15,-30}}, color={0,0,0}), 
@@ -2924,13 +2863,11 @@ force element) and der(s_damper) is the time derivative of s_damper.
           Text(
             extent={{-72,63},{-11,78}}, 
             lineColor={160,160,164}, 
-            textString=
-                 "s_damper"), 
+            textString="s_damper"), 
           Text(
             extent={{0,80},{20,100}}, 
             lineColor={160,160,164}, 
-            textString=
-                 "s")}));
+            textString="s")}));
   equation 
     f = c*(s - s_unstretched - s_damper);
     d*der(s_damper) = f;

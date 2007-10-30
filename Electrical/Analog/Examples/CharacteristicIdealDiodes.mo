@@ -17,14 +17,15 @@ model CharacteristicIdealDiodes "Characteristic of ideal diodes"
     V=10,
     offset=-9) 
     annotation (Placement(transformation(
-        origin={-40,0}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-40,0},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground Ground1 
   annotation (Placement(transformation(extent={{-50,-80},{-30,-60}}, rotation=0)));
   
   annotation (Diagram(graphics={Text(extent={{-88,102},{92,48}}, textString=
-          "Characteristic Ideal Diodes")}),Documentation(info="<HTML>
+              "Characteristic Ideal Diodes")}),
+                                           Documentation(info="<HTML>
 <P>
 Three examples of ideal diodes are shown:<br><br>
 the <b>totally ideal diode</b> (Ideal) with all parameters to be zero <br>
@@ -63,15 +64,15 @@ With_Ron_Goff_Vknee.i versus With_Ron_Goff_Vknee.v<br>
     V=10,
     offset=0) 
     annotation (Placement(transformation(
-        origin={-60,40}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-60,40},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage3(
     V=10,
     offset=0) 
     annotation (Placement(transformation(
-        origin={-20,-40}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-20,-40},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   
 annotation (Documentation(info="<HTML>

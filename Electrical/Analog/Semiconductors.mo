@@ -99,12 +99,12 @@ continued to avoid overflow.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Polygon(
-            points={{30,0},{-30,40},{-30,-40},{30,0}},
-            lineColor={0,0,0},
-            fillColor={255,0,0},
-            fillPattern=FillPattern.None),
-          Line(points={{-96,0},{40,0}}),
-          Line(points={{40,0},{96,0}}),
+            points={{30,0},{-30,40},{-30,-40},{30,0}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,0,0}, 
+            fillPattern=FillPattern.None), 
+          Line(points={{-96,0},{40,0}}), 
+          Line(points={{40,0},{96,0}}), 
           Line(points={{30,40},{30,-40}}, color={0,0,255})}),
       Window(
         x=0.13,
@@ -212,17 +212,17 @@ Some typical parameter sets are:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-96,-50},{-10,-50}}),
-          Line(points={{-10,-50},{-10,50}}),
-          Line(points={{10,70},{10,29}}),
-          Line(points={{10,20},{10,-21}}),
-          Line(points={{10,-30},{10,-71}}),
-          Line(points={{10,50},{96,50}}),
-          Line(points={{10,0},{96,0}}),
-          Line(points={{10,-50},{96,-50}}),
+          Line(points={{-96,-50},{-10,-50}}), 
+          Line(points={{-10,-50},{-10,50}}), 
+          Line(points={{10,70},{10,29}}), 
+          Line(points={{10,20},{10,-21}}), 
+          Line(points={{10,-30},{10,-71}}), 
+          Line(points={{10,50},{96,50}}), 
+          Line(points={{10,0},{96,0}}), 
+          Line(points={{10,-50},{96,-50}}), 
           Polygon(
-            points={{60,0},{40,5},{40,-5},{60,0}},
-            fillColor={0,0,255},
+            points={{60,0},{40,5},{40,-5},{60,0}}, 
+            fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid)}));
   equation 
     //assert (L + dL > 0, "Effective length must be positive");
@@ -343,17 +343,17 @@ Muenchen Wien 1990.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-96,-50},{-10,-50}}),
-          Line(points={{-10,-50},{-10,50}}),
-          Line(points={{10,70},{10,29}}),
-          Line(points={{10,20},{10,-21}}),
-          Line(points={{10,-30},{10,-71}}),
-          Line(points={{10,50},{96,50}}),
-          Line(points={{10,0},{96,0}}),
-          Line(points={{10,-50},{96,-50}}),
+          Line(points={{-96,-50},{-10,-50}}), 
+          Line(points={{-10,-50},{-10,50}}), 
+          Line(points={{10,70},{10,29}}), 
+          Line(points={{10,20},{10,-21}}), 
+          Line(points={{10,-30},{10,-71}}), 
+          Line(points={{10,50},{96,50}}), 
+          Line(points={{10,0},{96,0}}), 
+          Line(points={{10,-50},{96,-50}}), 
           Polygon(
-            points={{40,0},{60,5},{60,-5},{40,0}},
-            fillColor={0,0,255},
+            points={{40,0},{60,5},{60,-5},{40,0}}, 
+            fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid)}));
   equation 
     //assert (L + dL > 0, "Effective length must be positive");
@@ -730,13 +730,13 @@ The thermal power is calculated by <i>i*v</i>.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Polygon(
-            points={{30,0},{-30,40},{-30,-40},{30,0}},
-            lineColor={0,0,0},
-            fillColor={255,0,0},
-            fillPattern=FillPattern.None),
-          Line(points={{-99,0},{39,0}}),
-          Line(points={{40,0},{96,0}}),
-          Line(points={{30,40},{30,-40}}, color={0,0,255}),
+            points={{30,0},{-30,40},{-30,-40},{30,0}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,0,0}, 
+            fillPattern=FillPattern.None), 
+          Line(points={{-99,0},{39,0}}), 
+          Line(points={{40,0},{96,0}}), 
+          Line(points={{30,40},{30,-40}}, color={0,0,255}), 
           Line(points={{0,-20},{0,-91}}, color={191,0,0})}),
             Window(
               x=0.13,
@@ -884,18 +884,18 @@ Muenchen Wien 1990.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-96,-50},{-10,-50}}),
-          Line(points={{-10,-50},{-10,50}}),
-          Line(points={{10,70},{10,29}}),
-          Line(points={{10,20},{10,-21}}),
-          Line(points={{10,-30},{10,-71}}),
-          Line(points={{10,50},{96,50}}),
-          Line(points={{10,0},{96,0}}),
-          Line(points={{10,-50},{96,-50}}),
+          Line(points={{-96,-50},{-10,-50}}), 
+          Line(points={{-10,-50},{-10,50}}), 
+          Line(points={{10,70},{10,29}}), 
+          Line(points={{10,20},{10,-21}}), 
+          Line(points={{10,-30},{10,-71}}), 
+          Line(points={{10,50},{96,50}}), 
+          Line(points={{10,0},{96,0}}), 
+          Line(points={{10,-50},{96,-50}}), 
           Polygon(
-            points={{40,0},{60,5},{60,-5},{40,0}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid),
+            points={{40,0},{60,5},{60,-5},{40,0}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
           Line(points={{0,-90},{0,-49}}, color={191,0,0})}));
         equation 
           assert(L + dL > 0, "Effective length must be positive");
@@ -1043,18 +1043,18 @@ Some typical parameter sets are:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-100,-50},{-10,-50}}),
-          Line(points={{-10,-50},{-10,50}}),
-          Line(points={{10,70},{10,29}}),
-          Line(points={{10,20},{10,-21}}),
-          Line(points={{10,-30},{10,-71}}),
-          Line(points={{10,50},{96,50}}),
-          Line(points={{10,0},{101,0}}),
-          Line(points={{10,-50},{100,-50}}),
+          Line(points={{-100,-50},{-10,-50}}), 
+          Line(points={{-10,-50},{-10,50}}), 
+          Line(points={{10,70},{10,29}}), 
+          Line(points={{10,20},{10,-21}}), 
+          Line(points={{10,-30},{10,-71}}), 
+          Line(points={{10,50},{96,50}}), 
+          Line(points={{10,0},{101,0}}), 
+          Line(points={{10,-50},{100,-50}}), 
           Polygon(
-            points={{60,0},{40,5},{40,-5},{60,0}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid),
+            points={{60,0},{40,5},{40,-5},{60,0}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
           Line(points={{0,-95},{0,-50}}, color={191,0,0})}));
         equation 
           assert(L + dL > 0, "Effective length must be positive");

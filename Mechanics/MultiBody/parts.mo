@@ -192,11 +192,11 @@ animation = <b>false</b>.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{0,100},{0,-100}}, color={0,0,0}),
-          Line(points={{0,-80},{-100,-20}}, color={0,0,0}),
-          Line(points={{0,-40},{-100,20}}, color={0,0,0}),
-          Line(points={{0,0},{-100,60}}, color={0,0,0}),
-          Line(points={{0,40},{-100,100}}, color={0,0,0}),
+          Line(points={{0,100},{0,-100}}, color={0,0,0}), 
+          Line(points={{0,-80},{-100,-20}}, color={0,0,0}), 
+          Line(points={{0,-40},{-100,20}}, color={0,0,0}), 
+          Line(points={{0,0},{-100,60}}, color={0,0,0}), 
+          Line(points={{0,40},{-100,100}}, color={0,0,0}), 
           Line(points={{0,0},{100,0}}, color={0,0,0})}));
     
   protected 
@@ -299,59 +299,54 @@ animation = <b>false</b>.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-100,5},{100,-5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
+            extent={{-100,5},{100,-5}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
           Line(
-            points={{-95,20},{-58,20}},
-            color={128,128,128},
-            arrow={Arrow.None,Arrow.Filled}),
+            points={{-95,20},{-58,20}}, 
+            color={128,128,128}, 
+            arrow={Arrow.None,Arrow.Filled}), 
           Line(
-            points={{-94,18},{-94,50}},
-            color={128,128,128},
-            arrow={Arrow.None,Arrow.Filled}),
+            points={{-94,18},{-94,50}}, 
+            color={128,128,128}, 
+            arrow={Arrow.None,Arrow.Filled}), 
           Text(
-            extent={{-72,35},{-58,24}},
-            lineColor={128,128,128},
-            textString=
-                 "x"),
+            extent={{-72,35},{-58,24}}, 
+            lineColor={128,128,128}, 
+            textString="x"), 
           Text(
-            extent={{-113,57},{-98,45}},
-            lineColor={128,128,128},
-            textString=
-                 "y"),
-          Line(points={{-100,-4},{-100,-69}}, color={128,128,128}),
-          Line(points={{-100,-63},{90,-63}}, color={128,128,128}),
+            extent={{-113,57},{-98,45}}, 
+            lineColor={128,128,128}, 
+            textString="y"), 
+          Line(points={{-100,-4},{-100,-69}}, color={128,128,128}), 
+          Line(points={{-100,-63},{90,-63}}, color={128,128,128}), 
           Text(
-            extent={{-22,-39},{16,-63}},
-            lineColor={128,128,128},
-            textString=
-                 "r"),
+            extent={{-22,-39},{16,-63}}, 
+            lineColor={128,128,128}, 
+            textString="r"), 
           Polygon(
-            points={{88,-59},{88,-68},{100,-63},{88,-59}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Line(points={{100,-3},{100,-68}}, color={128,128,128}),
+            points={{88,-59},{88,-68},{100,-63},{88,-59}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{100,-3},{100,-68}}, color={128,128,128}), 
           Line(
-            points={{69,20},{106,20}},
-            color={128,128,128},
-            arrow={Arrow.None,Arrow.Filled}),
+            points={{69,20},{106,20}}, 
+            color={128,128,128}, 
+            arrow={Arrow.None,Arrow.Filled}), 
           Line(
-            points={{70,18},{70,50}},
-            color={128,128,128},
-            arrow={Arrow.None,Arrow.Filled}),
+            points={{70,18},{70,50}}, 
+            color={128,128,128}, 
+            arrow={Arrow.None,Arrow.Filled}), 
           Text(
-            extent={{92,35},{106,24}},
-            lineColor={128,128,128},
-            textString=
-                 "x"),
+            extent={{92,35},{106,24}}, 
+            lineColor={128,128,128}, 
+            textString="x"), 
           Text(
-            extent={{51,57},{66,45}},
-            lineColor={128,128,128},
-            textString=
-                 "y")}),
+            extent={{51,57},{66,45}}, 
+            lineColor={128,128,128}, 
+            textString="y")}),
       Documentation(info="<HTML>
 <p>
 Component for a <b>fixed translation</b> of frame_b with respect
@@ -591,59 +586,54 @@ the animation may be switched off via parameter animation = <b>false</b>.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-100,-1},{-100,-66}}, color={128,128,128}),
-          Line(points={{100,0},{100,-65}}, color={128,128,128}),
-          Line(points={{-100,-60},{89,-60}}, color={128,128,128}),
+          Line(points={{-100,-1},{-100,-66}}, color={128,128,128}), 
+          Line(points={{100,0},{100,-65}}, color={128,128,128}), 
+          Line(points={{-100,-60},{89,-60}}, color={128,128,128}), 
           Text(
-            extent={{-22,-36},{16,-60}},
-            lineColor={128,128,128},
-            textString=
-                 "r"),
+            extent={{-22,-36},{16,-60}}, 
+            lineColor={128,128,128}, 
+            textString="r"), 
           Rectangle(
-            extent={{-100,5},{100,-5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
+            extent={{-100,5},{100,-5}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
           Line(
-            points={{69,29},{97,45}},
-            color={128,128,128},
-            arrow={Arrow.None,Arrow.Filled}),
+            points={{69,29},{97,45}}, 
+            color={128,128,128}, 
+            arrow={Arrow.None,Arrow.Filled}), 
           Line(
-            points={{70,27},{55,54}},
-            color={128,128,128},
-            arrow={Arrow.None,Arrow.Filled}),
+            points={{70,27},{55,54}}, 
+            color={128,128,128}, 
+            arrow={Arrow.None,Arrow.Filled}), 
           Text(
-            extent={{95,42},{109,31}},
-            lineColor={128,128,128},
-            textString=
-                 "x"),
+            extent={{95,42},{109,31}}, 
+            lineColor={128,128,128}, 
+            textString="x"), 
           Text(
-            extent={{42,70},{57,58}},
-            lineColor={128,128,128},
-            textString=
-                 "y"),
+            extent={{42,70},{57,58}}, 
+            lineColor={128,128,128}, 
+            textString="y"), 
           Line(
-            points={{-95,22},{-58,22}},
-            color={128,128,128},
-            arrow={Arrow.None,Arrow.Filled}),
+            points={{-95,22},{-58,22}}, 
+            color={128,128,128}, 
+            arrow={Arrow.None,Arrow.Filled}), 
           Line(
-            points={{-94,20},{-94,52}},
-            color={128,128,128},
-            arrow={Arrow.None,Arrow.Filled}),
+            points={{-94,20},{-94,52}}, 
+            color={128,128,128}, 
+            arrow={Arrow.None,Arrow.Filled}), 
           Text(
-            extent={{-72,37},{-58,26}},
-            lineColor={128,128,128},
-            textString=
-                 "x"),
+            extent={{-72,37},{-58,26}}, 
+            lineColor={128,128,128}, 
+            textString="x"), 
           Text(
-            extent={{-113,59},{-98,47}},
-            lineColor={128,128,128},
-            textString=
-                 "y"),
+            extent={{-113,59},{-98,47}}, 
+            lineColor={128,128,128}, 
+            textString="y"), 
           Polygon(
-            points={{88,-56},{88,-65},{100,-60},{88,-56}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
+            points={{88,-56},{88,-65},{100,-60},{88,-56}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid)}));
   equation 
     
@@ -1253,31 +1243,29 @@ states and of the \"Advanced\" menu parameters, see model
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-100,9},{-100,43}}, color={128,128,128}),
-          Line(points={{100,0},{100,44}}, color={128,128,128}),
-          Line(points={{-100,40},{90,40}}, color={135,135,135}),
+          Line(points={{-100,9},{-100,43}}, color={128,128,128}), 
+          Line(points={{100,0},{100,44}}, color={128,128,128}), 
+          Line(points={{-100,40},{90,40}}, color={135,135,135}), 
           Polygon(
-            points={{90,44},{90,36},{100,40},{90,44}},
-            lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
+            points={{90,44},{90,36},{100,40},{90,44}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
           Text(
-            extent={{-22,68},{20,40}},
-            lineColor={128,128,128},
-            textString=
-                 "r"),
-          Line(points={{-100,-10},{-100,-90}}, color={128,128,128}),
-          Line(points={{-100,-84},{-10,-84}}, color={128,128,128}),
+            extent={{-22,68},{20,40}}, 
+            lineColor={128,128,128}, 
+            textString="r"), 
+          Line(points={{-100,-10},{-100,-90}}, color={128,128,128}), 
+          Line(points={{-100,-84},{-10,-84}}, color={128,128,128}), 
           Polygon(
-            points={{-10,-80},{-10,-88},{0,-84},{-10,-80}},
-            lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
+            points={{-10,-80},{-10,-88},{0,-84},{-10,-80}}, 
+            lineColor={128,128,128}, 
+            fillColor={128,128,128}, 
+            fillPattern=FillPattern.Solid), 
           Text(
-            extent={{-82,-66},{-56,-84}},
-            lineColor={128,128,128},
-            textString=
-                 "r_CM"),
+            extent={{-82,-66},{-56,-84}}, 
+            lineColor={128,128,128}, 
+            textString="r_CM"), 
           Line(points={{0,-46},{0,-90}}, color={128,128,128})}));
     
     FixedTranslation frameTranslation(r=r, animation=false) 
@@ -2010,14 +1998,14 @@ November 3-4, 2003, pp. 149-158</p>
                 -116,-16},{-84,16}}, rotation=0)));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
+              extent={{-100,100},{100,-100}}, 
+              lineColor={0,0,0}, 
+              fillColor={255,255,255}, 
               fillPattern=FillPattern.Solid), Text(
-              extent={{-150,110},{150,150}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
+              extent={{-150,110},{150,150}}, 
+              lineColor={0,0,255}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid, 
               textString="%name")}));
     equation 
       frame_a.f=zeros(3);
@@ -2476,14 +2464,14 @@ November 3-4, 2003, pp. 149-158</p>
                 -116,-16},{-84,16}}, rotation=0)));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
+              extent={{-100,100},{100,-100}}, 
+              lineColor={0,0,0}, 
+              fillColor={255,255,255}, 
               fillPattern=FillPattern.Solid), Text(
-              extent={{-150,110},{150,150}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
+              extent={{-150,110},{150,150}}, 
+              lineColor={0,0,255}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid, 
               textString="%name")}));
     equation 
       frame_a.f=zeros(3);

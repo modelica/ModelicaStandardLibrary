@@ -19,8 +19,7 @@ annotation(preferedView="info",
       graphics={Text(
         extent={{-59,-9},{42,-56}}, 
         lineColor={0,0,0}, 
-        textString=
-             "f(x)")}),
+        textString="f(x)")}),
   Documentation(info="<HTML>
 <p>
 This package contains <b>basic mathematical functions</b> (such as sin(..)),
@@ -4209,8 +4208,8 @@ function sin "Sine"
       width=0.6,
       height=0.6),
     Icon(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
         Line(points={{-90,0},{68,0}}, color={192,192,192}), 
         Polygon(
@@ -4226,17 +4225,12 @@ function sin "Sine"
         Text(
           extent={{12,84},{84,36}}, 
           lineColor={192,192,192}, 
-          textString=
-               "sin")}),
+          textString="sin")}),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(
-          points={{-100,0},{84,0}}, 
-          color={95,95,95}, 
-          fillColor={95,95,95}, 
-          fillPattern=FillPattern.Solid), 
+        Line(points={{-100,0},{84,0}}, color={95,95,95}), 
         Polygon(
           points={{100,0},{84,6},{84,-6},{100,0}}, 
           lineColor={95,95,95}, 
@@ -4250,19 +4244,15 @@ function sin "Sine"
               -61.9},{63.9,-47.2},{72,-24.8},{80,0}}, 
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{-105,72},{-85,88}}, textString=
-                                              "1"), 
-        Text(extent={{70,25},{90,5}}, textString=
-                                          "2*pi"), 
-        Text(extent={{-103,-72},{-83,-88}}, textString=
-                                                "-1"), 
+        Text(extent={{-105,72},{-85,88}}, textString="1"), 
+        Text(extent={{70,25},{90,5}}, textString="2*pi"), 
+        Text(extent={{-103,-72},{-83,-88}}, textString="-1"), 
         Text(
           extent={{82,-6},{102,-26}}, 
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid, 
-          textString=
-               "u"), 
+          textString="u"), 
         Line(
           points={{-80,80},{-28,80}}, 
           color={175,175,175}, 
@@ -4296,8 +4286,8 @@ function cos "Cosine"
       width=0.6,
       height=0.6),
     Icon(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
         Line(points={{-90,0},{68,0}}, color={192,192,192}), 
         Polygon(
@@ -4306,41 +4296,33 @@ function cos "Cosine"
           fillColor={192,192,192}, 
           fillPattern=FillPattern.Solid), 
         Line(points={{-80,80},{-74.4,78.1},{-68.7,72.3},{-63.1,63},{-56.7,48.7},
-              {-48.6,26.6},{-29.3,-32.5},{-22.1,-51.7},{-15.7,-65.3},{-10.1,
-              -73.8},{-4.42,-78.8},{1.21,-79.9},{6.83,-77.1},{12.5,-70.6},{18.1,
-              -60.6},{24.5,-45.7},{32.6,-23},{50.3,31.3},{57.5,50.7},{63.9,64.6},
-              {69.5,73.4},{75.2,78.6},{80,80}}, color={0,0,0}), 
+              {-48.6,26.6},{-29.3,-32.5},{-22.1,-51.7},{-15.7,-65.3},{-10.1,-73.8},
+              {-4.42,-78.8},{1.21,-79.9},{6.83,-77.1},{12.5,-70.6},{18.1,-60.6},
+              {24.5,-45.7},{32.6,-23},{50.3,31.3},{57.5,50.7},{63.9,64.6},{69.5,
+              73.4},{75.2,78.6},{80,80}}, color={0,0,0}), 
         Text(
           extent={{-36,82},{36,34}}, 
           lineColor={192,192,192}, 
-          textString=
-               "cos")}),
+          textString="cos")}),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Text(extent={{-103,72},{-83,88}}, textString=
-                                              "1"), 
-        Text(extent={{-103,-72},{-83,-88}}, textString=
-                                                "-1"), 
-        Text(extent={{70,25},{90,5}}, textString=
-                                          "2*pi"), 
-        Line(
-          points={{-100,0},{84,0}}, 
-          color={95,95,95}, 
-          fillColor={95,95,95}, 
-          fillPattern=FillPattern.Solid), 
+        Text(extent={{-103,72},{-83,88}}, textString="1"), 
+        Text(extent={{-103,-72},{-83,-88}}, textString="-1"), 
+        Text(extent={{70,25},{90,5}}, textString="2*pi"), 
+        Line(points={{-100,0},{84,0}}, color={95,95,95}), 
         Polygon(
           points={{98,0},{82,6},{82,-6},{98,0}}, 
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid), 
         Line(
-          points={{-80,80},{-74.4,78.1},{-68.7,72.3},{-63.1,63},{-56.7,48.7},{
-              -48.6,26.6},{-29.3,-32.5},{-22.1,-51.7},{-15.7,-65.3},{-10.1,
-              -73.8},{-4.42,-78.8},{1.21,-79.9},{6.83,-77.1},{12.5,-70.6},{18.1,
-              -60.6},{24.5,-45.7},{32.6,-23},{50.3,31.3},{57.5,50.7},{63.9,64.6},
-              {69.5,73.4},{75.2,78.6},{80,80}}, 
+          points={{-80,80},{-74.4,78.1},{-68.7,72.3},{-63.1,63},{-56.7,48.7},{-48.6,
+              26.6},{-29.3,-32.5},{-22.1,-51.7},{-15.7,-65.3},{-10.1,-73.8},{-4.42,
+              -78.8},{1.21,-79.9},{6.83,-77.1},{12.5,-70.6},{18.1,-60.6},{24.5,
+              -45.7},{32.6,-23},{50.3,31.3},{57.5,50.7},{63.9,64.6},{69.5,73.4},
+              {75.2,78.6},{80,80}}, 
           color={0,0,255}, 
           thickness=2), 
         Text(
@@ -4348,8 +4330,7 @@ function cos "Cosine"
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid, 
-          textString=
-               "u"), 
+          textString="u"), 
         Line(
           points={{-80,-80},{18,-80}}, 
           color={175,175,175}, 
@@ -4379,8 +4360,8 @@ function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
       width=0.6,
       height=0.6),
     Icon(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
         Line(points={{-90,0},{68,0}}, color={192,192,192}), 
         Polygon(
@@ -4388,41 +4369,32 @@ function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
           lineColor={192,192,192}, 
           fillColor={192,192,192}, 
           fillPattern=FillPattern.Solid), 
-        Line(points={{-80,-80},{-78.4,-68.4},{-76.8,-59.7},{-74.4,-50},{-71.2,
-              -40.9},{-67.1,-33},{-60.7,-24.8},{-51.1,-17.2},{-35.8,-9.98},{
-              -4.42,-1.07},{33.4,9.12},{49.4,16.2},{59.1,23.2},{65.5,30.6},{
-              70.4,39.1},{73.6,47.4},{76,56.1},{77.6,63.8},{80,80}}, color={0,0,
-              0}), 
+        Line(points={{-80,-80},{-78.4,-68.4},{-76.8,-59.7},{-74.4,-50},{-71.2,-40.9},
+              {-67.1,-33},{-60.7,-24.8},{-51.1,-17.2},{-35.8,-9.98},{-4.42,-1.07},
+              {33.4,9.12},{49.4,16.2},{59.1,23.2},{65.5,30.6},{70.4,39.1},{73.6,
+              47.4},{76,56.1},{77.6,63.8},{80,80}}, color={0,0,0}), 
         Text(
           extent={{-90,72},{-18,24}}, 
           lineColor={192,192,192}, 
-          textString=
-               "tan")}),
+          textString="tan")}),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Text(extent={{-37,-72},{-17,-88}}, textString=
-                                               "-5.8"), 
-        Text(extent={{-33,86},{-13,70}}, textString=
-                                             " 5.8"), 
-        Text(extent={{68,-13},{88,-33}}, textString=
-                                          "1.4"), 
-        Line(
-          points={{-100,0},{84,0}}, 
-          color={95,95,95}, 
-          fillColor={95,95,95}, 
-          fillPattern=FillPattern.Solid), 
+        Text(extent={{-37,-72},{-17,-88}}, textString="-5.8"), 
+        Text(extent={{-33,86},{-13,70}}, textString=" 5.8"), 
+        Text(extent={{68,-13},{88,-33}}, textString="1.4"), 
+        Line(points={{-100,0},{84,0}}, color={95,95,95}), 
         Polygon(
           points={{98,0},{82,6},{82,-6},{98,0}}, 
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid), 
         Line(
-          points={{-80,-80},{-78.4,-68.4},{-76.8,-59.7},{-74.4,-50},{-71.2,
-              -40.9},{-67.1,-33},{-60.7,-24.8},{-51.1,-17.2},{-35.8,-9.98},{
-              -4.42,-1.07},{33.4,9.12},{49.4,16.2},{59.1,23.2},{65.5,30.6},{
-              70.4,39.1},{73.6,47.4},{76,56.1},{77.6,63.8},{80,80}}, 
+          points={{-80,-80},{-78.4,-68.4},{-76.8,-59.7},{-74.4,-50},{-71.2,-40.9},
+              {-67.1,-33},{-60.7,-24.8},{-51.1,-17.2},{-35.8,-9.98},{-4.42,-1.07},
+              {33.4,9.12},{49.4,16.2},{59.1,23.2},{65.5,30.6},{70.4,39.1},{73.6,
+              47.4},{76,56.1},{77.6,63.8},{80,80}}, 
           color={0,0,255}, 
           thickness=2), 
         Text(
@@ -4430,8 +4402,7 @@ function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid, 
-          textString=
-               "u"), 
+          textString="u"), 
         Line(
           points={{0,80},{86,80}}, 
           color={175,175,175}, 
@@ -4466,8 +4437,8 @@ function asin "Inverse sine (-1 <= u <= 1)"
       width=0.6,
       height=0.6),
     Icon(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
         Line(points={{-90,0},{68,0}}, color={192,192,192}), 
         Polygon(
@@ -4481,34 +4452,25 @@ function asin "Inverse sine (-1 <= u <= 1)"
         Text(
           extent={{-88,78},{-16,30}}, 
           lineColor={192,192,192}, 
-          textString=
-               "asin")}),
+          textString="asin")}),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Text(extent={{-40,-72},{-15,-88}}, textString=
-                                               "-pi/2"), 
-        Text(extent={{-38,88},{-13,72}}, textString=
-                                             " pi/2"), 
-        Text(extent={{68,-9},{88,-29}}, textString=
-                                          "+1"), 
-        Text(extent={{-90,21},{-70,1}}, textString=
-                                            "-1"), 
-        Line(
-          points={{-100,0},{84,0}}, 
-          color={95,95,95}, 
-          fillColor={95,95,95}, 
-          fillPattern=FillPattern.Solid), 
+        Text(extent={{-40,-72},{-15,-88}}, textString="-pi/2"), 
+        Text(extent={{-38,88},{-13,72}}, textString=" pi/2"), 
+        Text(extent={{68,-9},{88,-29}}, textString="+1"), 
+        Text(extent={{-90,21},{-70,1}}, textString="-1"), 
+        Line(points={{-100,0},{84,0}}, color={95,95,95}), 
         Polygon(
           points={{98,0},{82,6},{82,-6},{98,0}}, 
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid), 
         Line(
-          points={{-80,-80},{-79.2,-72.8},{-77.6,-67.5},{-73.6,-59.4},{-66.3,
-              -49.8},{-53.5,-37.3},{-30.2,-19.7},{37.4,24.8},{57.5,40.8},{68.7,
-              52.7},{75.2,62.2},{77.6,67.5},{80,80}}, 
+          points={{-80,-80},{-79.2,-72.8},{-77.6,-67.5},{-73.6,-59.4},{-66.3,-49.8},
+              {-53.5,-37.3},{-30.2,-19.7},{37.4,24.8},{57.5,40.8},{68.7,52.7},{
+              75.2,62.2},{77.6,67.5},{80,80}}, 
           color={0,0,255}, 
           thickness=2), 
         Text(
@@ -4516,8 +4478,7 @@ function asin "Inverse sine (-1 <= u <= 1)"
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid, 
-          textString=
-               "u"), 
+          textString="u"), 
         Line(
           points={{0,80},{86,80}}, 
           color={175,175,175}, 
@@ -4551,8 +4512,8 @@ function acos "Inverse cosine (-1 <= u <= 1)"
       width=0.6,
       height=0.6),
     Icon(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
         Line(points={{-90,-80},{68,-80}}, color={192,192,192}), 
         Polygon(
@@ -4561,22 +4522,17 @@ function acos "Inverse cosine (-1 <= u <= 1)"
           fillColor={192,192,192}, 
           fillPattern=FillPattern.Solid), 
         Line(points={{-80,80},{-79.2,72.8},{-77.6,67.5},{-73.6,59.4},{-66.3,
-              49.8},{-53.5,37.3},{-30.2,19.7},{37.4,-24.8},{57.5,-40.8},{68.7,
-              -52.7},{75.2,-62.2},{77.6,-67.5},{80,-80}}, color={0,0,0}), 
+              49.8},{-53.5,37.3},{-30.2,19.7},{37.4,-24.8},{57.5,-40.8},{68.7,-52.7},
+              {75.2,-62.2},{77.6,-67.5},{80,-80}}, color={0,0,0}), 
         Text(
           extent={{-86,-14},{-14,-62}}, 
           lineColor={192,192,192}, 
-          textString=
-               "acos")}),
+          textString="acos")}),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(
-          points={{-100,-80},{84,-80}}, 
-          color={95,95,95}, 
-          fillColor={95,95,95}, 
-          fillPattern=FillPattern.Solid), 
+        Line(points={{-100,-80},{84,-80}}, color={95,95,95}), 
         Polygon(
           points={{98,-80},{82,-74},{82,-86},{98,-80}}, 
           lineColor={95,95,95}, 
@@ -4588,19 +4544,15 @@ function acos "Inverse cosine (-1 <= u <= 1)"
               {75.2,-62.2},{77.6,-67.5},{80,-80}}, 
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{-30,88},{-5,72}}, textString=
-                                            " pi"), 
-        Text(extent={{-94,-57},{-74,-77}}, textString=
-                                               "-1"), 
-        Text(extent={{60,-81},{80,-101}}, textString=
-                                              "+1"), 
+        Text(extent={{-30,88},{-5,72}}, textString=" pi"), 
+        Text(extent={{-94,-57},{-74,-77}}, textString="-1"), 
+        Text(extent={{60,-81},{80,-101}}, textString="+1"), 
         Text(
           extent={{82,-56},{102,-76}}, 
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid, 
-          textString=
-               "u"), 
+          textString="u"), 
         Line(
           points={{-2,80},{84,80}}, 
           color={175,175,175}, 
@@ -4634,8 +4586,8 @@ function atan "Inverse tangent"
       width=0.6,
       height=0.6),
     Icon(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={1,1}), graphics={
         Line(points={{-90,0},{68,0}}, color={192,192,192}), 
         Polygon(
@@ -4643,47 +4595,39 @@ function atan "Inverse tangent"
           lineColor={192,192,192}, 
           fillColor={192,192,192}, 
           fillPattern=FillPattern.Solid), 
-        Line(points={{-80,-80},{-52.7,-75.2},{-37.4,-69.7},{-26.9,-63},{-19.7,
-              -55.2},{-14.1,-45.8},{-10.1,-36.4},{-6.03,-23.9},{-1.21,-5.06},{
-              5.23,21},{9.25,34.1},{13.3,44.2},{18.1,52.9},{24.5,60.8},{33.4,
-              67.6},{47,73.6},{69.5,78.6},{80,80}}, color={0,0,0}), 
+        Line(points={{-80,-80},{-52.7,-75.2},{-37.4,-69.7},{-26.9,-63},{-19.7,-55.2},
+              {-14.1,-45.8},{-10.1,-36.4},{-6.03,-23.9},{-1.21,-5.06},{5.23,21},
+              {9.25,34.1},{13.3,44.2},{18.1,52.9},{24.5,60.8},{33.4,67.6},{47,
+              73.6},{69.5,78.6},{80,80}}, color={0,0,0}), 
         Text(
           extent={{-86,68},{-14,20}}, 
           lineColor={192,192,192}, 
-          textString=
-               "atan")}),
+          textString="atan")}),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={1,1}), graphics={
-        Line(
-          points={{-100,0},{84,0}}, 
-          color={95,95,95}, 
-          fillColor={95,95,95}, 
-          fillPattern=FillPattern.Solid), 
+        Line(points={{-100,0},{84,0}}, color={95,95,95}), 
         Polygon(
           points={{96,0},{80,6},{80,-6},{96,0}}, 
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid), 
         Line(
-          points={{-80,-80},{-52.7,-75.2},{-37.4,-69.7},{-26.9,-63},{-19.7,
-              -55.2},{-14.1,-45.8},{-10.1,-36.4},{-6.03,-23.9},{-1.21,-5.06},{
-              5.23,21},{9.25,34.1},{13.3,44.2},{18.1,52.9},{24.5,60.8},{33.4,
-              67.6},{47,73.6},{65,77},{80,78}}, 
+          points={{-80,-80},{-52.7,-75.2},{-37.4,-69.7},{-26.9,-63},{-19.7,-55.2},
+              {-14.1,-45.8},{-10.1,-36.4},{-6.03,-23.9},{-1.21,-5.06},{5.23,21},
+              {9.25,34.1},{13.3,44.2},{18.1,52.9},{24.5,60.8},{33.4,67.6},{47,
+              73.6},{65,77},{80,78}}, 
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{-34,87},{-14,74}}, textString=
-                                           "pi/2"), 
-        Text(extent={{-32,-71},{-12,-91}}, textString=
-                                               "-pi/2"), 
+        Text(extent={{-34,87},{-14,74}}, textString="pi/2"), 
+        Text(extent={{-32,-71},{-12,-91}}, textString="-pi/2"), 
         Text(
           extent={{84,-4},{104,-24}}, 
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid, 
-          textString=
-               "u"), 
+          textString="u"), 
         Line(
           points={{-2,80},{84,80}}, 
           color={175,175,175}, 
@@ -4714,8 +4658,8 @@ function atan2 "Four quadrant inverse tangent"
       width=0.6,
       height=0.6),
     Icon(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
         Line(points={{-90,0},{68,0}}, color={192,192,192}), 
         Polygon(
@@ -4725,25 +4669,20 @@ function atan2 "Four quadrant inverse tangent"
           fillPattern=FillPattern.Solid), 
         Line(points={{0,-80},{8.93,-67.2},{17.1,-59.3},{27.3,-53.6},{42.1,-49.4},
               {69.9,-45.8},{80,-45.1}}, color={0,0,0}), 
-        Line(points={{-80,-34.9},{-46.1,-31.4},{-29.4,-27.1},{-18.3,-21.5},{
-              -10.3,-14.5},{-2.03,-3.17},{7.97,11.6},{15.5,19.4},{24.3,25},{39,
-              30},{62.1,33.5},{80,34.9}}, color={0,0,0}), 
+        Line(points={{-80,-34.9},{-46.1,-31.4},{-29.4,-27.1},{-18.3,-21.5},{-10.3,
+              -14.5},{-2.03,-3.17},{7.97,11.6},{15.5,19.4},{24.3,25},{39,30},{
+              62.1,33.5},{80,34.9}}, color={0,0,0}), 
         Line(points={{-80,45.1},{-45.9,48.7},{-29.1,52.9},{-18.1,58.6},{-10.2,
               65.8},{-1.82,77.2},{0,80}}, color={0,0,0}), 
         Text(
           extent={{-90,-46},{-18,-94}}, 
           lineColor={192,192,192}, 
-          textString=
-               "atan2")}),
+          textString="atan2")}),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(
-          points={{-100,0},{84,0}}, 
-          color={95,95,95}, 
-          fillColor={95,95,95}, 
-          fillPattern=FillPattern.Solid), 
+        Line(points={{-100,0},{84,0}}, color={95,95,95}), 
         Polygon(
           points={{96,0},{80,6},{80,-6},{96,0}}, 
           lineColor={95,95,95}, 
@@ -4765,23 +4704,18 @@ function atan2 "Four quadrant inverse tangent"
               {-1.82,77.2},{0,80}}, 
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{-32,89},{-10,74}}, textString=
-                                             "pi"), 
-        Text(extent={{-32,-72},{-4,-88}}, textString=
-                                               "-pi"), 
-        Text(extent={{0,55},{20,42}}, textString=
-                                             "pi/2"), 
+        Text(extent={{-32,89},{-10,74}}, textString="pi"), 
+        Text(extent={{-32,-72},{-4,-88}}, textString="-pi"), 
+        Text(extent={{0,55},{20,42}}, textString="pi/2"), 
         Line(points={{0,40},{-8,40}}, color={192,192,192}), 
         Line(points={{0,-40},{-8,-40}}, color={192,192,192}), 
-        Text(extent={{0,-23},{20,-42}}, textString=
-                                               "-pi/2"), 
+        Text(extent={{0,-23},{20,-42}}, textString="-pi/2"), 
         Text(
           extent={{62,-4},{94,-26}}, 
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid, 
-          textString=
-               "u1, u2"), 
+          textString="u1, u2"), 
         Line(
           points={{-88,40},{86,40}}, 
           color={175,175,175}, 
@@ -4823,8 +4757,8 @@ function atan3
       width=0.6,
       height=0.6),
     Icon(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
         Line(points={{-90,0},{68,0}}, color={192,192,192}), 
         Polygon(
@@ -4834,25 +4768,20 @@ function atan3
           fillPattern=FillPattern.Solid), 
         Line(points={{0,-80},{8.93,-67.2},{17.1,-59.3},{27.3,-53.6},{42.1,-49.4},
               {69.9,-45.8},{80,-45.1}}, color={0,0,0}), 
-        Line(points={{-80,-34.9},{-46.1,-31.4},{-29.4,-27.1},{-18.3,-21.5},{
-              -10.3,-14.5},{-2.03,-3.17},{7.97,11.6},{15.5,19.4},{24.3,25},{39,
-              30},{62.1,33.5},{80,34.9}}, color={0,0,0}), 
+        Line(points={{-80,-34.9},{-46.1,-31.4},{-29.4,-27.1},{-18.3,-21.5},{-10.3,
+              -14.5},{-2.03,-3.17},{7.97,11.6},{15.5,19.4},{24.3,25},{39,30},{
+              62.1,33.5},{80,34.9}}, color={0,0,0}), 
         Line(points={{-80,45.1},{-45.9,48.7},{-29.1,52.9},{-18.1,58.6},{-10.2,
               65.8},{-1.82,77.2},{0,80}}, color={0,0,0}), 
         Text(
           extent={{-90,-46},{-18,-94}}, 
           lineColor={192,192,192}, 
-          textString=
-                 "atan3")}),
+          textString="atan3")}),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(
-          points={{-100,-86},{84,-86}}, 
-          color={95,95,95}, 
-          fillColor={95,95,95}, 
-          fillPattern=FillPattern.Solid), 
+        Line(points={{-100,-86},{84,-86}}, color={95,95,95}), 
         Polygon(
           points={{98,-86},{82,-80},{82,-92},{98,-86}}, 
           lineColor={95,95,95}, 
@@ -4874,10 +4803,8 @@ function atan3
               {-1.82,77.2},{0,80}}, 
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{-56,82},{-12,72}}, textString=
-                                           "(2*N-1)*pi"), 
-        Text(extent={{-52,-72},{-10,-88}}, textString=
-                                             "(2*N-3)*pi"), 
+        Text(extent={{-56,82},{-12,72}}, textString="(2*N-1)*pi"), 
+        Text(extent={{-52,-72},{-10,-88}}, textString="(2*N-3)*pi"), 
         Line(points={{0,40},{-8,40}}, color={192,192,192}), 
         Line(points={{0,-40},{-8,-40}}, color={192,192,192}), 
         Text(
@@ -4885,8 +4812,7 @@ function atan3
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid, 
-          textString=
-               "u1, u2, y0"), 
+          textString="u1, u2, y0"), 
         Line(
           points={{-84,40},{88,40}}, 
           color={175,175,175}, 
@@ -4933,8 +4859,8 @@ function sinh "Hyperbolic sine"
       width=0.6,
       height=0.6),
     Icon(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
         Line(points={{-90,0},{68,0}}, color={192,192,192}), 
         Polygon(
@@ -4942,51 +4868,41 @@ function sinh "Hyperbolic sine"
           lineColor={192,192,192}, 
           fillColor={192,192,192}, 
           fillPattern=FillPattern.Solid), 
-        Line(points={{-80,-80},{-76,-65.4},{-71.2,-51.4},{-65.5,-38.8},{-59.1,
-              -28.1},{-51.1,-18.7},{-41.4,-11.4},{-27.7,-5.5},{-4.42,-0.653},{
-              24.5,4.57},{39,10.1},{49.4,17.2},{57.5,25.9},{63.9,35.8},{69.5,
-              47.4},{74.4,60.4},{78.4,73.8},{80,80}}, color={0,0,0}), 
+        Line(points={{-80,-80},{-76,-65.4},{-71.2,-51.4},{-65.5,-38.8},{-59.1,-28.1},
+              {-51.1,-18.7},{-41.4,-11.4},{-27.7,-5.5},{-4.42,-0.653},{24.5,
+              4.57},{39,10.1},{49.4,17.2},{57.5,25.9},{63.9,35.8},{69.5,47.4},{
+              74.4,60.4},{78.4,73.8},{80,80}}, color={0,0,0}), 
         Text(
           extent={{-88,80},{-16,32}}, 
           lineColor={192,192,192}, 
-          textString=
-               "sinh")}),
+          textString="sinh")}),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(
-          points={{-100,0},{84,0}}, 
-          color={95,95,95}, 
-          fillColor={95,95,95}, 
-          fillPattern=FillPattern.Solid), 
+        Line(points={{-100,0},{84,0}}, color={95,95,95}), 
         Polygon(
           points={{98,0},{82,6},{82,-6},{98,0}}, 
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid), 
         Line(
-          points={{-80,-80},{-76,-65.4},{-71.2,-51.4},{-65.5,-38.8},{-59.1,
-              -28.1},{-51.1,-18.7},{-41.4,-11.4},{-27.7,-5.5},{-4.42,-0.653},{
-              24.5,4.57},{39,10.1},{49.4,17.2},{57.5,25.9},{63.9,35.8},{69.5,
-              47.4},{74.4,60.4},{78.4,73.8},{80,80}}, 
+          points={{-80,-80},{-76,-65.4},{-71.2,-51.4},{-65.5,-38.8},{-59.1,-28.1},
+              {-51.1,-18.7},{-41.4,-11.4},{-27.7,-5.5},{-4.42,-0.653},{24.5,
+              4.57},{39,10.1},{49.4,17.2},{57.5,25.9},{63.9,35.8},{69.5,47.4},{
+              74.4,60.4},{78.4,73.8},{80,80}}, 
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{-31,72},{-11,88}}, textString=
-                                             "27"), 
-        Text(extent={{-35,-88},{-15,-72}}, textString=
-                                               "-27"), 
-        Text(extent={{68,-7},{88,-27}}, textString=
-                                          "4"), 
-        Text(extent={{-98,21},{-78,1}}, textString=
-                                            "-4"), 
+        Text(extent={{-31,72},{-11,88}}, textString="27"), 
+        Text(extent={{-35,-88},{-15,-72}}, textString="-27"), 
+        Text(extent={{68,-7},{88,-27}}, textString="4"), 
+        Text(extent={{-98,21},{-78,1}}, textString="-4"), 
         Text(
           extent={{80,26},{100,6}}, 
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid, 
-          textString=
-               "u"), 
+          textString="u"), 
         Line(
           points={{0,80},{86,80}}, 
           color={175,175,175}, 
@@ -5020,8 +4936,8 @@ function cosh "Hyperbolic cosine"
       width=0.6,
       height=0.6),
     Icon(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
         Line(points={{-90,-86.083},{68,-86.083}}, color={192,192,192}), 
         Polygon(
@@ -5030,25 +4946,20 @@ function cosh "Hyperbolic cosine"
           fillColor={192,192,192}, 
           fillPattern=FillPattern.Solid), 
         Line(points={{-80,80},{-77.6,61.1},{-74.4,39.3},{-71.2,20.7},{-67.1,
-              1.29},{-63.1,-14.6},{-58.3,-29.8},{-52.7,-43.5},{-46.2,-55.1},{
-              -39,-64.3},{-30.2,-71.7},{-18.9,-77.1},{-4.42,-79.9},{10.9,-79.1},
-              {23.7,-75.2},{34.2,-68.7},{42.2,-60.6},{48.6,-51.2},{54.3,-40},{
+              1.29},{-63.1,-14.6},{-58.3,-29.8},{-52.7,-43.5},{-46.2,-55.1},{-39,
+              -64.3},{-30.2,-71.7},{-18.9,-77.1},{-4.42,-79.9},{10.9,-79.1},{
+              23.7,-75.2},{34.2,-68.7},{42.2,-60.6},{48.6,-51.2},{54.3,-40},{
               59.1,-27.5},{63.1,-14.6},{67.1,1.29},{71.2,20.7},{74.4,39.3},{
               77.6,61.1},{80,80}}, color={0,0,0}), 
         Text(
           extent={{4,66},{66,20}}, 
           lineColor={192,192,192}, 
-          textString=
-               "cosh")}),
+          textString="cosh")}),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(
-          points={{-100,-84.083},{84,-84.083}}, 
-          color={95,95,95}, 
-          fillColor={95,95,95}, 
-          fillPattern=FillPattern.Solid), 
+        Line(points={{-100,-84.083},{84,-84.083}}, color={95,95,95}), 
         Polygon(
           points={{98,-84.083},{82,-78.083},{82,-90.083},{98,-84.083}}, 
           lineColor={95,95,95}, 
@@ -5056,26 +4967,22 @@ function cosh "Hyperbolic cosine"
           fillPattern=FillPattern.Solid), 
         Line(
           points={{-80,80},{-77.6,61.1},{-74.4,39.3},{-71.2,20.7},{-67.1,1.29},
-              {-63.1,-14.6},{-58.3,-29.8},{-52.7,-43.5},{-46.2,-55.1},{-39,
-              -64.3},{-30.2,-71.7},{-18.9,-77.1},{-4.42,-79.9},{10.9,-79.1},{
-              23.7,-75.2},{34.2,-68.7},{42.2,-60.6},{48.6,-51.2},{54.3,-40},{
-              59.1,-27.5},{63.1,-14.6},{67.1,1.29},{71.2,20.7},{74.4,39.3},{
-              77.6,61.1},{80,80}}, 
+              {-63.1,-14.6},{-58.3,-29.8},{-52.7,-43.5},{-46.2,-55.1},{-39,-64.3},
+              {-30.2,-71.7},{-18.9,-77.1},{-4.42,-79.9},{10.9,-79.1},{23.7,-75.2},
+              {34.2,-68.7},{42.2,-60.6},{48.6,-51.2},{54.3,-40},{59.1,-27.5},{
+              63.1,-14.6},{67.1,1.29},{71.2,20.7},{74.4,39.3},{77.6,61.1},{80,
+              80}}, 
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{-31,72},{-11,88}}, textString=
-                                             "27"), 
-        Text(extent={{64,-83},{84,-103}}, textString=
-                                             "4"), 
-        Text(extent={{-94,-63},{-74,-83}}, textString=
-                                                "-4"), 
+        Text(extent={{-31,72},{-11,88}}, textString="27"), 
+        Text(extent={{64,-83},{84,-103}}, textString="4"), 
+        Text(extent={{-94,-63},{-74,-83}}, textString="-4"), 
         Text(
           extent={{80,-60},{100,-80}}, 
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid, 
-          textString=
-               "u"), 
+          textString="u"), 
         Line(
           points={{0,80},{88,80}}, 
           color={175,175,175}, 
@@ -5109,8 +5016,8 @@ function tanh "Hyperbolic tangent"
       width=0.6,
       height=0.6),
     Icon(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={0.5,0.5}), graphics={
         Line(points={{-90,0},{68,0}}, color={192,192,192}), 
         Polygon(
@@ -5125,17 +5032,12 @@ function tanh "Hyperbolic tangent"
         Text(
           extent={{-88,72},{-16,24}}, 
           lineColor={192,192,192}, 
-          textString=
-               "tanh")}),
+          textString="tanh")}),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={0.5,0.5}), graphics={
-        Line(
-          points={{-100,0},{84,0}}, 
-          color={95,95,95}, 
-          fillColor={95,95,95}, 
-          fillPattern=FillPattern.Solid), 
+        Line(points={{-100,0},{84,0}}, color={95,95,95}), 
         Polygon(
           points={{96,0},{80,6},{80,-6},{96,0}}, 
           lineColor={95,95,95}, 
@@ -5148,17 +5050,14 @@ function tanh "Hyperbolic tangent"
               74.5},{45.4,77.9},{72,79.4},{80,79.5}}, 
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{-29,72},{-9,88}}, textString=
-                                            "1"), 
-        Text(extent={{3,-72},{23,-88}}, textString=
-                                            "-1"), 
+        Text(extent={{-29,72},{-9,88}}, textString="1"), 
+        Text(extent={{3,-72},{23,-88}}, textString="-1"), 
         Text(
           extent={{82,-2},{102,-22}}, 
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid, 
-          textString=
-               "u"), 
+          textString="u"), 
         Line(
           points={{0,80},{88,80}}, 
           color={175,175,175}, 
@@ -5188,8 +5087,8 @@ function asinh "Inverse of sinh (area hyperbolic sine)"
       width=0.6,
       height=0.6),
     Icon(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
         Line(points={{-90,0},{68,0}}, color={192,192,192}), 
         Polygon(
@@ -5203,43 +5102,33 @@ function asinh "Inverse of sinh (area hyperbolic sine)"
         Text(
           extent={{-90,80},{-6,26}}, 
           lineColor={192,192,192}, 
-          textString=
-                 "asinh")}),
+          textString="asinh")}),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(
-          points={{-100,0},{84,0}}, 
-          color={95,95,95}, 
-          fillColor={95,95,95}, 
-          fillPattern=FillPattern.Solid), 
+        Line(points={{-100,0},{84,0}}, color={95,95,95}), 
         Polygon(
           points={{98,0},{82,6},{82,-6},{98,0}}, 
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid), 
         Line(
-          points={{-80,-80},{-56.7,-68.4},{-39.8,-56.8},{-26.9,-44.7},{-17.3,
-              -32.4},{-9.25,-19},{9.25,19},{17.3,32.4},{26.9,44.7},{39.8,56.8},
-              {56.7,68.4},{80,80}}, 
+          points={{-80,-80},{-56.7,-68.4},{-39.8,-56.8},{-26.9,-44.7},{-17.3,-32.4},
+              {-9.25,-19},{9.25,19},{17.3,32.4},{26.9,44.7},{39.8,56.8},{56.7,
+              68.4},{80,80}}, 
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{-31,72},{-11,88}}, textString=
-                                             "2.31"), 
-        Text(extent={{-35,-88},{-15,-72}}, textString=
-                                               "-2.31"), 
-        Text(extent={{72,-13},{92,-33}}, textString=
-                                          "5"), 
-        Text(extent={{-96,21},{-76,1}}, textString=
-                                            "-5"), 
+        Text(extent={{-31,72},{-11,88}}, textString="2.31"), 
+        Text(extent={{-35,-88},{-15,-72}}, textString="-2.31"), 
+        Text(extent={{72,-13},{92,-33}}, textString="5"), 
+        Text(extent={{-96,21},{-76,1}}, textString="-5"), 
         Text(
           extent={{80,22},{100,2}}, 
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid, 
-          textString=
-               "u"), 
+          textString="u"), 
         Line(
           points={{0,80},{88,80}}, 
           color={175,175,175}, 
@@ -5278,8 +5167,8 @@ function acosh "Inverse of cosh (area hyperbolic cosine)"
       width=0.6,
       height=0.6),
     Icon(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
         Line(points={{-90,-80},{68,-80}}, color={192,192,192}), 
         Polygon(
@@ -5287,50 +5176,39 @@ function acosh "Inverse of cosh (area hyperbolic cosine)"
           lineColor={192,192,192}, 
           fillColor={192,192,192}, 
           fillPattern=FillPattern.Solid), 
-        Line(points={{-66,-80},{-65.2,-66},{-64.4,-60.3},{-62.8,-52.2},{-60.4,
-              -43.4},{-56.4,-32.4},{-49.9,-19.3},{-41.1,-5.65},{-29,8.8},{-12.9,
-              23.8},{7.97,39.2},{35.3,55},{69.9,70.8},{94,80}}, color={0,0,0}), 
-          
+        Line(points={{-66,-80},{-65.2,-66},{-64.4,-60.3},{-62.8,-52.2},{-60.4,-43.4},
+              {-56.4,-32.4},{-49.9,-19.3},{-41.1,-5.65},{-29,8.8},{-12.9,23.8},
+              {7.97,39.2},{35.3,55},{69.9,70.8},{94,80}}, color={0,0,0}), 
         Text(
           extent={{-14,2},{76,-54}}, 
           lineColor={192,192,192}, 
-          textString=
-               "arcosh")}),
+          textString="arcosh")}),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(
-          points={{-100,-70},{84,-70}}, 
-          color={95,95,95}, 
-          fillColor={95,95,95}, 
-          fillPattern=FillPattern.Solid), 
+        Line(points={{-100,-70},{84,-70}}, color={95,95,95}), 
         Polygon(
           points={{100,-70},{84,-64},{84,-76},{100,-70}}, 
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid), 
         Line(
-          points={{-60,-70},{-59.2,-56},{-58.4,-50.3},{-56.8,-42.2},{-54.4,
-              -33.4},{-50.4,-22.4},{-43.9,-9.3},{-35.1,4.35},{-23,18.8},{-6.9,
-              33.8},{13.97,49.2},{41.3,65},{75.9,80.8},{100,90}}, 
+          points={{-60,-70},{-59.2,-56},{-58.4,-50.3},{-56.8,-42.2},{-54.4,-33.4},
+              {-50.4,-22.4},{-43.9,-9.3},{-35.1,4.35},{-23,18.8},{-6.9,33.8},{
+              13.97,49.2},{41.3,65},{75.9,80.8},{100,90}}, 
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{-80,66},{-58,78}}, textString=
-                                            "2.29"), 
-        Text(extent={{-73,-86},{-50,-70}}, textString=
-                                              "1.0"), 
-        Text(extent={{64,-77},{84,-92}}, textString=
-                                          "5"), 
-        Text(extent={{-96,-55},{-76,-70}}, textString=
-                                              "0"), 
+        Text(extent={{-80,66},{-58,78}}, textString="2.29"), 
+        Text(extent={{-73,-86},{-50,-70}}, textString="1.0"), 
+        Text(extent={{64,-77},{84,-92}}, textString="5"), 
+        Text(extent={{-96,-55},{-76,-70}}, textString="0"), 
         Text(
           extent={{74,-44},{94,-64}}, 
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid, 
-          textString=
-               "u"), 
+          textString="u"), 
         Line(
           points={{-80,80},{100,80}}, 
           color={175,175,175}, 
@@ -5360,6 +5238,7 @@ can become close to 1:
 <img src=\"../Images/Math/acosh.png\">
 </p>
 </html>"));
+  
 algorithm 
   assert(u>=1.0, "Input argument u (= " + String(u) + ") of acosh(u) must be >= 1.0");
   y :=Modelica.Math.log(u + sqrt(u*u - 1));
@@ -5378,8 +5257,8 @@ function exp "Exponential, base e"
       width=0.6,
       height=0.6),
     Icon(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
         Line(points={{-90,-80.3976},{68,-80.3976}}, color={192,192,192}), 
         Polygon(
@@ -5393,17 +5272,12 @@ function exp "Exponential, base e"
         Text(
           extent={{-86,50},{-14,2}}, 
           lineColor={192,192,192}, 
-          textString=
-               "exp")}),
+          textString="exp")}),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(
-          points={{-100,-80.3976},{84,-80.3976}}, 
-          color={95,95,95}, 
-          fillColor={95,95,95}, 
-          fillPattern=FillPattern.Solid), 
+        Line(points={{-100,-80.3976},{84,-80.3976}}, color={95,95,95}), 
         Polygon(
           points={{98,-80.3976},{82,-74.3976},{82,-86.3976},{98,-80.3976}}, 
           lineColor={95,95,95}, 
@@ -5415,21 +5289,16 @@ function exp "Exponential, base e"
               67.1,18.6},{72,38.2},{76,57.6},{80,80}}, 
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{-31,72},{-11,88}}, textString=
-                                             "20"), 
-        Text(extent={{-92,-81},{-72,-101}}, textString=
-                                                "-3"), 
-        Text(extent={{66,-81},{86,-101}}, textString=
-                                              "3"), 
-        Text(extent={{2,-69},{22,-89}}, textString=
-                                             "1"), 
+        Text(extent={{-31,72},{-11,88}}, textString="20"), 
+        Text(extent={{-92,-81},{-72,-101}}, textString="-3"), 
+        Text(extent={{66,-81},{86,-101}}, textString="3"), 
+        Text(extent={{2,-69},{22,-89}}, textString="1"), 
         Text(
           extent={{78,-54},{98,-74}}, 
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid, 
-          textString=
-               "u"), 
+          textString="u"), 
         Line(
           points={{0,80},{88,80}}, 
           color={175,175,175}, 
@@ -5463,8 +5332,8 @@ function log "Natural (base e) logarithm (u shall be > 0)"
       width=0.6,
       height=0.6),
     Icon(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
         Line(points={{-90,0},{68,0}}, color={192,192,192}), 
         Polygon(
@@ -5472,24 +5341,19 @@ function log "Natural (base e) logarithm (u shall be > 0)"
           lineColor={192,192,192}, 
           fillColor={192,192,192}, 
           fillPattern=FillPattern.Solid), 
-        Line(points={{-80,-80},{-79.2,-50.6},{-78.4,-37},{-77.6,-28},{-76.8,
-              -21.3},{-75.2,-11.4},{-72.8,-1.31},{-69.5,8.08},{-64.7,17.9},{
-              -57.5,28},{-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},
-              {80,80}}, color={0,0,0}), 
+        Line(points={{-80,-80},{-79.2,-50.6},{-78.4,-37},{-77.6,-28},{-76.8,-21.3},
+              {-75.2,-11.4},{-72.8,-1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},
+              {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}, 
+            color={0,0,0}), 
         Text(
           extent={{-6,-24},{66,-72}}, 
           lineColor={192,192,192}, 
-          textString=
-               "log")}),
+          textString="log")}),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(
-          points={{-100,0},{84,0}}, 
-          color={95,95,95}, 
-          fillColor={95,95,95}, 
-          fillPattern=FillPattern.Solid), 
+        Line(points={{-100,0},{84,0}}, color={95,95,95}), 
         Polygon(
           points={{100,0},{84,6},{84,-6},{100,0}}, 
           lineColor={95,95,95}, 
@@ -5502,21 +5366,16 @@ function log "Natural (base e) logarithm (u shall be > 0)"
             
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{-105,72},{-85,88}}, textString=
-                                              "3"), 
-        Text(extent={{60,-3},{80,-23}}, textString=
-                                            "20"), 
-        Text(extent={{-78,-7},{-58,-27}}, textString=
-                                              "1"), 
+        Text(extent={{-105,72},{-85,88}}, textString="3"), 
+        Text(extent={{60,-3},{80,-23}}, textString="20"), 
+        Text(extent={{-78,-7},{-58,-27}}, textString="1"), 
         Text(
           extent={{84,26},{104,6}}, 
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid, 
-          textString=
-               "u"), 
-        Text(extent={{-100,9},{-80,-11}}, textString=
-                                            "0"), 
+          textString="u"), 
+        Text(extent={{-100,9},{-80,-11}}, textString="0"), 
         Line(
           points={{-80,80},{84,80}}, 
           color={175,175,175}, 
@@ -5535,6 +5394,7 @@ with u &gt; 0:
 <img src=\"../Images/Math/log.png\">
 </p>
 </html>"));
+  
 external "C" y = log(u);
 end log;
 
@@ -5551,8 +5411,8 @@ function log10 "Base 10 logarithm (u shall be > 0)"
       width=0.6,
       height=0.6),
     Icon(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
         Line(points={{-90,0},{68,0}}, color={192,192,192}), 
         Polygon(
@@ -5560,51 +5420,41 @@ function log10 "Base 10 logarithm (u shall be > 0)"
           lineColor={192,192,192}, 
           fillColor={192,192,192}, 
           fillPattern=FillPattern.Solid), 
-        Line(points={{-79.8,-80},{-79.2,-50.6},{-78.4,-37},{-77.6,-28},{-76.8,
-              -21.3},{-75.2,-11.4},{-72.8,-1.31},{-69.5,8.08},{-64.7,17.9},{
-              -57.5,28},{-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},
-              {80,80}}, color={0,0,0}), 
+        Line(points={{-79.8,-80},{-79.2,-50.6},{-78.4,-37},{-77.6,-28},{-76.8,-21.3},
+              {-75.2,-11.4},{-72.8,-1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},
+              {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}, 
+            color={0,0,0}), 
         Text(
           extent={{-30,-22},{60,-70}}, 
           lineColor={192,192,192}, 
-          textString=
-               "log10")}),
+          textString="log10")}),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(
-          points={{-100,0},{84,0}}, 
-          color={95,95,95}, 
-          fillColor={95,95,95}, 
-          fillPattern=FillPattern.Solid), 
+        Line(points={{-100,0},{84,0}}, color={95,95,95}), 
         Polygon(
           points={{98,0},{82,6},{82,-6},{98,0}}, 
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid), 
         Line(
-          points={{-77.8,-80},{-77.2,-50.6},{-76.4,-37},{-75.6,-28},{-74.8,
-              -21.3},{-73.2,-11.4},{-70.8,-1.31},{-67.5,8.08},{-62.7,17.9},{
-              -55.5,28},{-45,38.1},{-29.8,48.1},{-8.1,58},{24.1,68},{70.7,78.1},
-              {82,80}}, 
+          points={{-77.8,-80},{-77.2,-50.6},{-76.4,-37},{-75.6,-28},{-74.8,-21.3},
+              {-73.2,-11.4},{-70.8,-1.31},{-67.5,8.08},{-62.7,17.9},{-55.5,28},
+              {-45,38.1},{-29.8,48.1},{-8.1,58},{24.1,68},{70.7,78.1},{82,80}}, 
+            
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{66,-13},{86,-33}}, textString=
-                                            "20"), 
-        Text(extent={{-78,-1},{-58,-21}}, textString=
-                                              "1"), 
-        Text(extent={{-83,62},{-63,78}}, textString=
-                                              " 1.3"), 
+        Text(extent={{66,-13},{86,-33}}, textString="20"), 
+        Text(extent={{-78,-1},{-58,-21}}, textString="1"), 
+        Text(extent={{-83,62},{-63,78}}, textString=" 1.3"), 
         Text(
           extent={{80,24},{100,4}}, 
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid, 
-          textString=
-               "u"), 
-        Text(extent={{-100,9},{-80,-11}}, textString=
-                                            "0"), 
+          textString="u"), 
+        Text(extent={{-100,9},{-80,-11}}, textString="0"), 
         Line(
           points={{-80,80},{86,80}}, 
           color={175,175,175}, 
@@ -5642,28 +5492,15 @@ partial function baseIcon1
           lineColor={192,192,192}, 
           fillColor={192,192,192}, 
           fillPattern=FillPattern.Solid), 
-        Text(extent={{-150,150},{150,110}}, textString=
-                                                "%name")}),Diagram(graphics={
-        Line(
-          points={{-80,80},{-88,80}}, 
-          color={95,95,95}, 
-          fillColor={95,95,95}, 
-          fillPattern=FillPattern.Solid), 
-        Line(
-          points={{-80,-80},{-88,-80}}, 
-          color={95,95,95}, 
-          fillColor={95,95,95}, 
-          fillPattern=FillPattern.Solid), 
-        Line(
-          points={{-80,-90},{-80,84}}, 
-          color={95,95,95}, 
-          fillColor={95,95,95}, 
-          fillPattern=FillPattern.Solid), 
+        Text(extent={{-150,150},{150,110}}, textString="%name")}),
+                                                           Diagram(graphics={
+        Line(points={{-80,80},{-88,80}}, color={95,95,95}), 
+        Line(points={{-80,-80},{-88,-80}}, color={95,95,95}), 
+        Line(points={{-80,-90},{-80,84}}, color={95,95,95}), 
         Text(
           extent={{-75,104},{-55,84}}, 
           lineColor={95,95,95}, 
-          textString=
-               "y"), 
+          textString="y"), 
         Polygon(
           points={{-80,98},{-86,82},{-74,82},{-80,98}}, 
           lineColor={95,95,95}, 
@@ -5693,30 +5530,17 @@ partial function baseIcon2
           lineColor={192,192,192}, 
           fillColor={192,192,192}, 
           fillPattern=FillPattern.Solid), 
-        Text(extent={{-150,150},{150,110}}, textString=
-                                                "%name")}),Diagram(graphics={
-        Line(
-          points={{0,80},{-8,80}}, 
-          color={95,95,95}, 
-          fillColor={95,95,95}, 
-          fillPattern=FillPattern.Solid), 
-        Line(
-          points={{0,-80},{-8,-80}}, 
-          color={95,95,95}, 
-          fillColor={95,95,95}, 
-          fillPattern=FillPattern.Solid), 
-        Line(
-          points={{0,-90},{0,84}}, 
-          color={95,95,95}, 
-          fillColor={95,95,95}, 
-          fillPattern=FillPattern.Solid), 
+        Text(extent={{-150,150},{150,110}}, textString="%name")}),
+                                                           Diagram(graphics={
+        Line(points={{0,80},{-8,80}}, color={95,95,95}), 
+        Line(points={{0,-80},{-8,-80}}, color={95,95,95}), 
+        Line(points={{0,-90},{0,84}}, color={95,95,95}), 
         Text(
           extent={{5,104},{25,84}}, 
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid, 
-          textString=
-               "y"), 
+          textString="y"), 
         Polygon(
           points={{0,98},{-6,82},{6,82},{0,98}}, 
           lineColor={95,95,95}, 

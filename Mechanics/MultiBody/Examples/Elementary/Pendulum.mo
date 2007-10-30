@@ -12,8 +12,8 @@ encapsulated model Pendulum
       width=0.71,
       height=0.85),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics),
     Documentation(info="<html>
 <p>
@@ -38,16 +38,16 @@ ALT=\"model Examples.Elementary.Pendulum\">
 equation 
   connect(world.frame_b, rev.frame_a) 
     annotation (Line(
-      points={{-40,10},{-20,10}}, 
-      color={95,95,95}, 
+      points={{-40,10},{-20,10}},
+      color={95,95,95},
       thickness=2));
   connect(damper.flange_b, rev.axis) annotation (Line(points={{0,50},{4,50},{4,
           26},{-10,26},{-10,20}}, color={0,0,0}));
   connect(rev.bearing, damper.flange_a) annotation (Line(points={{-16,20},{-16,
           26},{-28,26},{-28,50},{-20,50}}, color={0,0,0}));
   connect(body.frame_a, rev.frame_b) annotation (Line(
-      points={{20,10},{0,10}}, 
-      color={95,95,95}, 
-      thickness=2, 
+      points={{20,10},{0,10}},
+      color={95,95,95},
+      thickness=2,
       fillPattern=FillPattern.HorizontalCylinder));
 end Pendulum;

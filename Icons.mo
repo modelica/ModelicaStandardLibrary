@@ -149,17 +149,16 @@ and the accompanying <b>disclaimer</b>
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-100,80},{80,-90}}, lineColor={0,0,255}),
+          Rectangle(extent={{-100,80},{80,-90}}, lineColor={0,0,255}), 
           Polygon(
-            points={{-100,80},{-90,90},{90,90},{80,80},{-100,80}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid),
+            points={{-100,80},{-90,90},{90,90},{80,80},{-100,80}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
           Polygon(
-            points={{80,-90},{90,-80},{90,90},{80,80},{80,-90}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid),
-          Text(extent={{-80,70},{60,-70}}, textString=
-                                               "Info")}),
+            points={{80,-90},{90,-80},{90,90},{80,80},{80,-90}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid), 
+          Text(extent={{-80,70},{60,-70}}, textString="Info")}),
       Documentation(info="<html>
 <p>
 This icon is designed for an <b>information</b> class.
@@ -314,7 +313,6 @@ This icon is designed for a <b>record</b>
 </p>
 </html>"));
   end Record;
-  
   
   type TypeReal "Icon for a Real type" 
       extends Real;
@@ -499,7 +497,6 @@ This icon is designed for a <b>rotational sensor</b> model.
             pattern=LinePattern.Solid, 
             lineThickness=1, 
             fillPattern=FillPattern.HorizontalCylinder, 
-            arrow={Arrow.None,Arrow.None}, 
             fillColor={192,192,192}), 
           Polygon(
             points={{60,20},{40,40},{40,-40},{60,-20},{60,20}}, 
@@ -606,41 +603,40 @@ This icon is designed for an <b>electrical motor</b> model.
           grid={2,2},
           initialScale=0.2), graphics={
           Polygon(
-            points={{-40,25},{40,25},{50,15},{40,-20},{30,-25},{-30,-25},{-40,
-                -20},{-50,15},{-40,25}},
-            lineColor={0,0,0},
-            fillColor={255,204,51},
-            fillPattern=FillPattern.Solid),
+            points={{-40,25},{40,25},{50,15},{40,-20},{30,-25},{-30,-25},{-40,-20},
+                {-50,15},{-40,25}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,204,51}, 
+            fillPattern=FillPattern.Solid), 
           Ellipse(
-            extent={{-32.5,7.5},{-27.5,12.5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
+            extent={{-32.5,7.5},{-27.5,12.5}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
           Ellipse(
-            extent={{-2.5,12.5},{2.5,7.5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
+            extent={{-2.5,12.5},{2.5,7.5}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
           Ellipse(
-            extent={{27.5,12.5},{32.5,7.5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
+            extent={{27.5,12.5},{32.5,7.5}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
           Ellipse(
-            extent={{-17.5,-7.5},{-12.5,-12.5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
+            extent={{-17.5,-7.5},{-12.5,-12.5}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
           Ellipse(
-            extent={{12.5,-7.5},{17.5,-12.5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
+            extent={{12.5,-7.5},{17.5,-12.5}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
           Text(
-            extent={{-150,70},{150,40}},
-            lineColor={0,0,0},
-            textString=
-                 "%name")}),
+            extent={{-150,70},{150,40}}, 
+            lineColor={0,0,0}, 
+            textString="%name")}),
       Documentation(info="<html>
 <p>
 This icon is designed for a <b>signal bus</b> connector.
@@ -696,31 +692,30 @@ This icon is designed for a <b>signal bus</b> connector.
           grid={2,2},
           initialScale=0.1), graphics={
           Polygon(
-            points={{-40,25},{40,25},{50,15},{40,-20},{30,-25},{-30,-25},{-40,
-                -20},{-50,15},{-40,25}},
-            lineColor={0,0,0},
-            fillColor={255,204,51},
-            fillPattern=FillPattern.Solid),
+            points={{-40,25},{40,25},{50,15},{40,-20},{30,-25},{-30,-25},{-40,-20},
+                {-50,15},{-40,25}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,204,51}, 
+            fillPattern=FillPattern.Solid), 
           Ellipse(
-            extent={{-22.5,7.5},{-17.5,12.5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
+            extent={{-22.5,7.5},{-17.5,12.5}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
           Ellipse(
-            extent={{17.5,12.5},{22.5,7.5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
+            extent={{17.5,12.5},{22.5,7.5}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
           Ellipse(
-            extent={{-2.5,-7.5},{2.5,-12.5}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
+            extent={{-2.5,-7.5},{2.5,-12.5}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
           Text(
-            extent={{-150,70},{150,40}},
-            lineColor={0,0,0},
-            textString=
-                 "%name")}),
+            extent={{-150,70},{150,40}}, 
+            lineColor={0,0,0}, 
+            textString="%name")}),
       Documentation(info="<html>
 <p>
 This icon is designed for a <b>sub-bus</b> in a signal connector.

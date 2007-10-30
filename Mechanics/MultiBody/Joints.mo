@@ -87,9 +87,8 @@ solved, i.e., robustly and efficiently).
       Icon(graphics={Text(
             extent={{-142,62},{147,101}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "n=%n"), Text(extent={{-135,-117},{141,-60}}, textString=
-                                                                      "%name")}),
+            textString="n=%n"), Text(extent={{-135,-117},{141,-60}}, textString
+              ="%name")}),
       Documentation(info="<HTML>
 <p>
 Joint where frame_b is translated along axis n which is fixed in frame_a.
@@ -130,15 +129,14 @@ vector \"n\" defining the translation axis
       annotation (Placement(transformation(extent={{90,50},{70,70}}, rotation=0)));
     Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
       "1-dim. translational flange of the drive bearing" 
-      annotation (Placement(transformation(extent={{-30,50},{-50,70}}, rotation
-            =0)));
+      annotation (Placement(transformation(extent={{-30,50},{-50,70}}, rotation=
+             0)));
     annotation (
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Text(extent={{42,81},{57,66}}, textString=
-                                             "f"), 
+          Text(extent={{42,81},{57,66}}, textString="f"), 
           Line(points={{40,65},{70,65}}, color={0,0,255}), 
           Polygon(
             points={{-20,68},{-30,65},{-20,62},{-20,68}}, 
@@ -146,8 +144,7 @@ vector \"n\" defining the translation axis
             fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid), 
           Line(points={{-8,65},{-31,65}}, color={0,0,255}), 
-          Text(extent={{-20,80},{-5,65}}, textString=
-                                              "f"), 
+          Text(extent={{-20,80},{-5,65}}, textString="f"), 
           Polygon(
             points={{60,68},{70,65},{60,62},{60,68}}, 
             lineColor={0,0,255}, 
@@ -167,13 +164,12 @@ vector \"n\" defining the translation axis
           Text(
             extent={{0,53},{37,40}}, 
             lineColor={128,128,128}, 
-            textString=
-                 "s"), 
+            textString="s"), 
           Line(points={{84,60},{90,60}}, color={0,0,0}), 
           Line(points={{-36,60},{-30,60},{-30,50}}, color={0,0,0})}),
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
             extent={{90,30},{100,70}}, 
@@ -183,10 +179,8 @@ vector \"n\" defining the translation axis
           Text(
             extent={{-141,-92},{148,-53}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "n=%n"), 
-          Text(extent={{-132,-153},{144,-96}}, textString=
-                                                   "%name")}),
+            textString="n=%n"), 
+          Text(extent={{-132,-153},{144,-96}}, textString="%name")}),
       Documentation(info="<HTML>
 <p>
 Joint where frame_b is translated along axis n which is fixed in frame_a.
@@ -236,9 +230,8 @@ vector \"n\" defining the translation axis
           Text(
             extent={{-146,70},{143,109}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "n=%n"), 
-          Text(extent={{-137,-125},{139,-68}}, textString =           "%name"), 
+            textString="n=%n"), 
+          Text(extent={{-137,-125},{139,-68}}, textString="%name"), 
           Rectangle(
             extent={{-20,10},{20,-10}}, 
             lineColor={0,0,0}, 
@@ -259,13 +252,11 @@ vector \"n\" defining the translation axis
           Text(
             extent={{-90,14},{-54,-11}}, 
             lineColor={128,128,128}, 
-            textString=
-                 "a"), 
+            textString="a"), 
           Text(
             extent={{51,11},{87,-14}}, 
             lineColor={128,128,128}, 
-            textString=
-                 "b")}),
+            textString="b")}),
       Documentation(info="<HTML>
 <p>
 Joint where frame_b rotates around axis n which is fixed in frame_a.
@@ -319,12 +310,12 @@ vector \"n\" defining the translation axis
     
     Interfaces.Frame_a frame_a 
       "Coordinate system fixed to the joint with one cut-force and cut-torque" 
-      annotation (Placement(transformation(extent={{-116,-16},{-84,16}}, 
+      annotation (Placement(transformation(extent={{-116,-16},{-84,16}},
             rotation=0)));
     Interfaces.Frame_b frame_b 
       "Coordinate system fixed to the joint with one cut-force and cut-torque" 
-      annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation
-            =0)));
+      annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation=
+             0)));
     
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show axis as cylinder)";
@@ -350,15 +341,14 @@ vector \"n\" defining the translation axis
         width=0.65,
         height=0.69),
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
             extent={{-146,70},{143,109}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "n=%n"), 
-          Text(extent={{-137,-125},{139,-68}}, textString =           "%name"), 
+            textString="n=%n"), 
+          Text(extent={{-137,-125},{139,-68}}, textString="%name"), 
           Rectangle(
             extent={{-20,10},{20,-10}}, 
             lineColor={0,0,0}, 
@@ -379,21 +369,19 @@ vector \"n\" defining the translation axis
           Text(
             extent={{-90,14},{-54,-11}}, 
             lineColor={128,128,128}, 
-            textString=
-                 "a"), 
+            textString="a"), 
           Text(
             extent={{51,11},{87,-14}}, 
             lineColor={128,128,128}, 
-            textString=
-                 "b"), 
+            textString="b"), 
           Line(
             points={{-91,-76},{-33,15},{30,-49},{87,61}}, 
             color={255,0,0}, 
             thickness=2, 
             smooth=Smooth.None)}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
             extent={{-100,-60},{-20,60}}, 
@@ -515,11 +503,11 @@ definition of the axes vectors n in the revolute joints of the planar loop.
     extends Internal.Revolute(final tau=axis.tau);
     Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
       "1-dim. rotational flange that drives the joint" 
-      annotation (Placement(transformation(extent={{10,90},{-10,110}}, rotation
-            =0)));
+      annotation (Placement(transformation(extent={{10,90},{-10,110}}, rotation=
+             0)));
     Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing 
       "1-dim. rotational flange of the drive bearing" 
-      annotation (Placement(transformation(extent={{-70,90},{-50,110}}, 
+      annotation (Placement(transformation(extent={{-70,90},{-50,110}},
             rotation=0)));
     annotation (
       Window(
@@ -528,8 +516,8 @@ definition of the axes vectors n in the revolute joints of the planar loop.
         width=0.65,
         height=0.69),
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
             extent={{-20,10},{20,-10}}, 
@@ -551,13 +539,11 @@ definition of the axes vectors n in the revolute joints of the planar loop.
           Text(
             extent={{-90,14},{-54,-11}}, 
             lineColor={128,128,128}, 
-            textString=
-                 "a"), 
+            textString="a"), 
           Text(
             extent={{51,11},{87,-14}}, 
             lineColor={128,128,128}, 
-            textString=
-                 "b"), 
+            textString="b"), 
           Line(points={{-20,70},{-60,70}}, color={0,0,0}), 
           Line(points={{-20,80},{-20,60}}, color={0,0,0}), 
           Line(points={{20,80},{20,60}}, color={0,0,0}), 
@@ -586,13 +572,11 @@ definition of the axes vectors n in the revolute joints of the planar loop.
           Text(
             extent={{-141,-116},{148,-77}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "n=%n"), 
-          Text(extent={{-140,-172},{136,-115}}, textString=
-                                                    "%name")}),
+            textString="n=%n"), 
+          Text(extent={{-140,-172},{136,-115}}, textString="%name")}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
             extent={{-29,60},{29,-62}}, 
@@ -777,8 +761,8 @@ vector \"n\" defining the cylinder axis
 </p>
 </HTML>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
             extent={{-100,-50},{0,50}}, 
@@ -791,13 +775,11 @@ vector \"n\" defining the cylinder axis
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={192,192,192}), 
           Line(points={{0,-50},{0,50}}, color={0,0,0}), 
-          Text(extent={{-126,116},{134,56}}, textString=
-                                                 "%name"), 
+          Text(extent={{-126,116},{134,56}}, textString="%name"), 
           Text(
             extent={{-118,-65},{120,-102}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "n=%n")}));
+            textString="n=%n")}));
     
   protected 
     Visualizers.Advanced.Shape cylinder(
@@ -816,18 +798,18 @@ vector \"n\" defining the cylinder axis
   equation 
     connect(frame_a, prismatic.frame_a) 
       annotation (Line(
-        points={{-100,0},{-70,0}}, 
-        color={95,95,95}, 
+        points={{-100,0},{-70,0}},
+        color={95,95,95},
         thickness=2));
     connect(prismatic.frame_b, revolute.frame_a) 
       annotation (Line(
-        points={{-15,0},{10,0}}, 
-        color={95,95,95}, 
+        points={{-15,0},{10,0}},
+        color={95,95,95},
         thickness=2));
     connect(revolute.frame_b, frame_b) 
       annotation (Line(
-        points={{65,0},{100,0}}, 
-        color={95,95,95}, 
+        points={{65,0},{100,0}},
+        color={95,95,95},
         thickness=2));
   end Cylindrical;
   
@@ -906,8 +888,8 @@ vector \"n\" defining the cylinder axis
       cylinderColor=cylinderColor,
       specularCoefficient=specularCoefficient) 
       annotation (Placement(transformation(
-          origin={35,45}, 
-          extent={{-25,-25},{25,25}}, 
+          origin={35,45},
+          extent={{-25,-25},{25,25}},
           rotation=90)));
     annotation (
       Window(
@@ -951,8 +933,8 @@ phi_start_b = 45<sup>o</sup>).
 </p>
 </HTML>"),
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
             extent={{-100,15},{-65,-15}}, 
@@ -969,8 +951,7 @@ phi_start_b = 45<sup>o</sup>).
             lineColor={160,160,164}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-134,-70},{126,-130}}, textString=
-                                                   "%name"), 
+          Text(extent={{-134,-70},{126,-130}}, textString="%name"), 
           Rectangle(
             extent={{12,82},{80,-82}}, 
             lineColor={255,255,255}, 
@@ -984,9 +965,7 @@ phi_start_b = 45<sup>o</sup>).
           Line(
             points={{12,78},{12,-78}}, 
             color={0,0,0}, 
-            thickness=2, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            thickness=2), 
           Ellipse(
             extent={{-52,-40},{80,40}}, 
             lineColor={160,160,164}, 
@@ -1005,33 +984,29 @@ phi_start_b = 45<sup>o</sup>).
           Line(
             points={{12,78},{12,-20}}, 
             color={0,0,0}, 
-            thickness=2, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            thickness=2), 
           Line(
             points={{32,38},{-12,-36}}, 
             color={0,0,0}, 
-            thickness=2, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid)}),
+            thickness=2)}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics));
   equation 
     
     connect(frame_a, revolute_a.frame_a) 
       annotation (Line(
-        points={{-100,0},{-60,0}}, 
-        color={95,95,95}, 
+        points={{-100,0},{-60,0}},
+        color={95,95,95},
         thickness=2));
     connect(revolute_b.frame_b, frame_b) annotation (Line(
-        points={{35,70},{35,90},{70,90},{70,0},{100,0}}, 
-        color={95,95,95}, 
+        points={{35,70},{35,90},{70,90},{70,0},{100,0}},
+        color={95,95,95},
         thickness=2));
     connect(revolute_a.frame_b, revolute_b.frame_a) annotation (Line(
-        points={{-10,0},{35,0},{35,20}}, 
-        color={95,95,95}, 
+        points={{-10,0},{35,0},{35,20}},
+        color={95,95,95},
         thickness=2));
   end Universal;
   
@@ -1115,8 +1090,8 @@ phi_start_b = 45<sup>o</sup>).
       s_start=s_start_y,
       v_start=v_start_y,
       a_start=a_start_y) annotation (Placement(transformation(
-          origin={0,50}, 
-          extent={{-20,-20},{20,20}}, 
+          origin={0,50},
+          extent={{-20,-20},{20,20}},
           rotation=90)));
     Revolute revolute(
       enforceStates=enforceStates,
@@ -1173,8 +1148,8 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
 </p>
 </HTML>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
             extent={{-30,-60},{-10,60}}, 
@@ -1203,10 +1178,8 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
           Text(
             extent={{-131,-74},{133,-112}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "n=%n"), 
-          Text(extent={{-124,127},{136,67}}, textString=
-                                                 "%name")}));
+            textString="n=%n"), 
+          Text(extent={{-124,127},{136,67}}, textString="%name")}));
     
   protected 
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
@@ -1232,8 +1205,8 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
       each lengthDirection=prismatic_y.e,
       each widthDirection={1,0,0},
       each r=prismatic_y.frame_a.r_0,
-      each R=prismatic_y.frame_a.R) annotation (Placement(transformation(extent
-            ={{-46,69},{-26,89}}, rotation=0)));
+      each R=prismatic_y.frame_a.R) annotation (Placement(transformation(extent=
+             {{-46,69},{-26,89}}, rotation=0)));
     Visualizers.Advanced.Shape cylinder[ndim](
       each shapeType="cylinder",
       each color=cylinderColor,
@@ -1249,21 +1222,21 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
   equation 
     connect(frame_a, prismatic_x.frame_a) 
       annotation (Line(
-        points={{-100,0},{-69,0}}, 
-        color={95,95,95}, 
+        points={{-100,0},{-69,0}},
+        color={95,95,95},
         thickness=2));
     connect(prismatic_x.frame_b, prismatic_y.frame_a) annotation (Line(
-        points={{-29,0},{-1.22465e-015,0},{-1.22465e-015,30}}, 
-        color={95,95,95}, 
+        points={{-29,0},{-1.22465e-015,0},{-1.22465e-015,30}},
+        color={95,95,95},
         thickness=2));
     connect(prismatic_y.frame_b, revolute.frame_a) annotation (Line(
-        points={{1.22465e-015,70},{0,80},{30,80},{30,0},{41,0}}, 
-        color={95,95,95}, 
+        points={{1.22465e-015,70},{0,80},{30,80},{30,0},{41,0}},
+        color={95,95,95},
         thickness=2));
     connect(revolute.frame_b, frame_b) 
       annotation (Line(
-        points={{81,0},{100,0}}, 
-        color={95,95,95}, 
+        points={{81,0},{100,0}},
+        color={95,95,95},
         thickness=2));
   end Planar;
   
@@ -1376,8 +1349,8 @@ frame_b of the joint.
 </p>
 </html>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Ellipse(
             extent={{-70,-70},{70,70}}, 
@@ -1409,11 +1382,10 @@ frame_b of the joint.
             lineColor={0,0,0}, 
             fillPattern=FillPattern.Sphere, 
             fillColor={160,160,164}), 
-          Text(extent={{-100,-132},{100,-72}}, textString=
-                                                   "%name")}),
+          Text(extent={{-100,-132},{100,-72}}, textString="%name")}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Ellipse(
             extent={{-70,-70},{70,70}}, 
@@ -1751,16 +1723,14 @@ frame_b of the joint.
 </p>
 </HTML>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(
             points={{-86,31},{-74,61},{-49,83},{-17,92},{19,88},{40,69},{59,48}}, 
               
             color={160,160,164}, 
-            thickness=2, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            thickness=2), 
           Polygon(
             points={{90,0},{50,20},{50,-20},{90,0}}, 
             lineColor={0,0,0}, 
@@ -1774,8 +1744,7 @@ frame_b of the joint.
           Text(
             extent={{136,-35},{-150,-98}}, 
             lineColor={0,0,255}, 
-            textString=
-                 "%name"), 
+            textString="%name"), 
           Rectangle(
             extent={{-70,-5},{-90,5}}, 
             lineColor={0,0,0}, 
@@ -1797,16 +1766,14 @@ frame_b of the joint.
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(
             points={{-86,31},{-74,61},{-49,83},{-17,92},{19,88},{40,69},{59,48}}, 
               
             color={160,160,164}, 
-            thickness=2, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            thickness=2), 
           Polygon(
             points={{90,0},{50,20},{50,-20},{90,0}}, 
             lineColor={0,0,0}, 
@@ -2078,8 +2045,8 @@ frame_b of the joint.
         width=0.69,
         height=0.78),
       Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Ellipse(
             extent={{-95,-40},{-15,40}}, 
@@ -2101,8 +2068,7 @@ frame_b of the joint.
             lineColor={128,128,128}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-149,111},{141,51}}, textString=
-                                                 "%name"), 
+          Text(extent={{-149,111},{141,51}}, textString="%name"), 
           Rectangle(
             extent={{-40,40},{41,-41}}, 
             lineColor={255,255,255}, 
@@ -2126,11 +2092,10 @@ frame_b of the joint.
           Text(
             extent={{-130,-58},{137,-98}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "%rodLength")}),
+            textString="%rodLength")}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Ellipse(
             extent={{-98,-40},{-18,40}}, 
@@ -2158,8 +2123,7 @@ frame_b of the joint.
             lineColor={0,0,255}, 
             fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-37,-63},{33,-79}}, textString=
-                                                "rodLength"), 
+          Text(extent={{-37,-63},{33,-79}}, textString="rodLength"), 
           Rectangle(
             extent={{-40,41},{40,-40}}, 
             lineColor={255,255,255}, 
@@ -2184,16 +2148,12 @@ frame_b of the joint.
           Line(points={{56,-72},{56,0}}), 
           Polygon(points={{11,1},{-1,4},{-1,-2},{11,1}}, fillPattern=
                 FillPattern.Forward), 
-          Line(
-            points={{-56,1},{-1,1}}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{-56,1},{-1,1}}), 
           Text(
             extent={{-32,-4},{4,-29}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.None, 
-            textString=
-                 "eRod_a")}),
+            textString="eRod_a")}),
       Documentation(info="<html>
 <p>
 Joint that has a spherical joint on each of its two ends.
@@ -2364,8 +2324,8 @@ that has this property.
     Interfaces.Frame_a frame_ia 
       "Coordinate system at the origin of frame_a, fixed at the rod connecting the universal with the spherical joint"
       annotation (Placement(transformation(
-          origin={-40,100}, 
-          extent={{-16,-16},{16,16}}, 
+          origin={-40,100},
+          extent={{-16,-16},{16,16}},
           rotation=270)));
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Boolean showUniversalAxes=true 
@@ -2543,14 +2503,13 @@ the origin of frame_a to the middle of the rod, this might be defined as:
 </pre>
 </html>
 "),   Icon(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
             extent={{-122,-49},{138,-107}}, 
             lineColor={0,0,255}, 
-            textString=
-                 "%name"), 
+            textString="%name"), 
           Ellipse(
             extent={{-100,-40},{-19,40}}, 
             lineColor={0,0,0}, 
@@ -2569,9 +2528,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
           Line(
             points={{-60,40},{-60,-40}}, 
             color={0,0,0}, 
-            thickness=2, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            thickness=2), 
           Ellipse(
             extent={{-83,-17},{-34,21}}, 
             lineColor={0,0,0}, 
@@ -2590,15 +2547,11 @@ the origin of frame_a to the middle of the rod, this might be defined as:
           Line(
             points={{-60,40},{-60,-10}}, 
             color={0,0,0}, 
-            thickness=2, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            thickness=2), 
           Line(
             points={{-49,20},{-69,-15}}, 
             color={0,0,0}, 
-            thickness=2, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            thickness=2), 
           Ellipse(
             extent={{44,14},{73,-14}}, 
             lineColor={0,0,0}, 
@@ -2633,20 +2586,18 @@ the origin of frame_a to the middle of the rod, this might be defined as:
           Text(
             extent={{-105,118},{-67,86}}, 
             lineColor={128,128,128}, 
-            textString=
-                 "ia"), 
+            textString="ia"), 
           Text(
             extent={{-24,103},{167,64}}, 
             lineColor={0,0,0}, 
-            textString=
-                 "%rRod_ia"), 
+            textString="%rRod_ia"), 
           Line(
             points={{-40,101},{-40,60},{-60,1}}, 
             color={128,128,128}, 
             thickness=2)}),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true, 
-          extent={{-100,-100},{100,100}}, 
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{-60,-70},{46,-70}}), 
           Polygon(
@@ -2654,8 +2605,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
             lineColor={0,0,255}, 
             fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-56,-71},{56,-90}}, textString=
-                                                "rRod"), 
+          Text(extent={{-56,-71},{56,-90}}, textString="rRod"), 
           Ellipse(
             extent={{-100,-40},{-19,40}}, 
             lineColor={0,0,0}, 
@@ -2674,9 +2624,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
           Line(
             points={{-60,40},{-60,-40}}, 
             color={0,0,0}, 
-            thickness=2, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            thickness=2), 
           Ellipse(
             extent={{-83,-17},{-34,21}}, 
             lineColor={0,0,0}, 
@@ -2695,41 +2643,29 @@ the origin of frame_a to the middle of the rod, this might be defined as:
           Line(
             points={{-60,40},{-60,-10}}, 
             color={0,0,0}, 
-            thickness=2, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            thickness=2), 
           Line(
             points={{-49,20},{-69,-15}}, 
             color={0,0,0}, 
-            thickness=2, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            thickness=2), 
           Polygon(points={{7,-1},{-5,2},{-5,-4},{7,-1}}, fillPattern=
                 FillPattern.Forward), 
-          Line(
-            points={{-50,19},{-30,57}}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{-50,19},{-30,57}}), 
           Text(
             extent={{-34,78},{8,62}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.None, 
-            textString=
-                 "e2"), 
+            textString="e2"), 
           Polygon(points={{-25,64},{-33,56},{-27,53},{-25,64}}, fillPattern=
                 FillPattern.Forward), 
-          Line(
-            points={{-60,41},{-60,65}}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+          Line(points={{-60,41},{-60,65}}), 
           Polygon(points={{-60,75},{-64,63},{-56,63},{-60,75}}, fillPattern=
                 FillPattern.Forward), 
           Text(
             extent={{-93,82},{-64,62}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.None, 
-            textString=
-                 "n1"), 
+            textString="n1"), 
           Line(points={{-60,-40},{-60,-72}}), 
           Ellipse(
             extent={{20,-40},{100,40}}, 
@@ -2761,12 +2697,8 @@ the origin of frame_a to the middle of the rod, this might be defined as:
             extent={{-31,-7},{0,-28}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.None, 
-            textString=
-                 "eRod"), 
-          Line(
-            points={{-60,0},{-5,0}}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+            textString="eRod"), 
+          Line(points={{-60,0},{-5,0}}), 
           Polygon(points={{7,0},{-5,3},{-5,-3},{7,0}}, fillPattern=FillPattern.Forward), 
             
           Line(points={{60,-1},{60,-72}}), 
@@ -2774,8 +2706,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
             points={{-40,100},{-40,70},{-60,0}}, 
             color={128,128,128}, 
             thickness=2), 
-          Text(extent={{-23,30},{26,10}}, textString=
-                                              " eRod*e2 = 0;  n1*e2 = 0")}));
+          Text(extent={{-23,30},{26,10}}, textString=" eRod*e2 = 0;  n1*e2 = 0")}));
     
   protected 
     SI.Force f_b_a[3] "frame_b.f resolved in frame_a";
@@ -2995,8 +2926,8 @@ singular configuration.
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     Interfaces.Frame_a bearing "Coordinate system fixed in the bearing" 
      annotation (Placement(transformation(
-          origin={0,-100}, 
-          extent={{-16,-16},{16,16}}, 
+          origin={0,-100},
+          extent={{-16,-16},{16,16}},
           rotation=90)));
     
     parameter Real ratio=2 "Gear speed ratio";
@@ -3053,8 +2984,7 @@ singular configuration.
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={192,192,192}), 
-          Text(extent={{-156,186},{152,130}}, textString=
-                                             "%name=%ratio"), 
+          Text(extent={{-156,186},{152,130}}, textString="%name=%ratio"), 
           Line(points={{-80,20},{-60,20}}, color={0,0,0}), 
           Line(points={{-80,-20},{-60,-20}}, color={0,0,0}), 
           Line(points={{-10,60},{10,60}}, color={0,0,0}), 
@@ -3077,7 +3007,7 @@ November 3-4, 2003, pp. 149-158</p>
 </html>"),
       Diagram(graphics));
     Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute actuatedRevolute_a(n=n_a, animation=false) 
-      annotation (Placement(transformation(extent={{-40,-10},{-60,10}}, 
+      annotation (Placement(transformation(extent={{-40,-10},{-60,10}},
             rotation=0)));
     Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute actuatedRevolute_b(n=n_b, animation=false) 
       annotation (Placement(transformation(extent={{40,-10},{60,10}}, rotation=
@@ -3090,8 +3020,8 @@ November 3-4, 2003, pp. 149-158</p>
               0)));
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation2(animation=false, r=r_a) 
       annotation (Placement(transformation(
-          origin={-20,0}, 
-          extent={{-10,-10},{10,10}}, 
+          origin={-20,0},
+          extent={{-10,-10},{10,10}},
           rotation=180)));
   equation 
     assert(cardinality(bearing) > 0,
@@ -3102,32 +3032,32 @@ November 3-4, 2003, pp. 149-158</p>
     connect(idealGear.flange_b, actuatedRevolute_b.axis) 
       annotation (Line(points={{10,40},{50,40},{50,10}}, color={0,0,0}));
     connect(actuatedRevolute_a.frame_a,fixedTranslation2. frame_b) annotation (Line(
-        points={{-40,0},{-35,0},{-35,1.22465e-015},{-30,1.22465e-015}}, 
-        color={95,95,95}, 
+        points={{-40,0},{-35,0},{-35,1.22465e-015},{-30,1.22465e-015}},
+        color={95,95,95},
         thickness=2));
     connect(fixedTranslation2.frame_a, bearing) annotation (Line(
-        points={{-10,-1.22465e-015},{-4,-1.22465e-015},{-4,0},{0,0},{0,-100}}, 
-        color={95,95,95}, 
+        points={{-10,-1.22465e-015},{-4,-1.22465e-015},{-4,0},{0,0},{0,-100}},
+        color={95,95,95},
         thickness=2));
     connect(fixedTranslation1.frame_a, bearing) 
       annotation (Line(
-        points={{10,0},{0,0},{0,-100}}, 
-        color={95,95,95}, 
+        points={{10,0},{0,0},{0,-100}},
+        color={95,95,95},
         thickness=2));
     connect(fixedTranslation1.frame_b, actuatedRevolute_b.frame_a) 
       annotation (Line(
-        points={{30,0},{40,0}}, 
-        color={95,95,95}, 
+        points={{30,0},{40,0}},
+        color={95,95,95},
         thickness=2));
     connect(frame_a, actuatedRevolute_a.frame_b) 
       annotation (Line(
-        points={{-100,0},{-60,0}}, 
-        color={95,95,95}, 
+        points={{-100,0},{-60,0}},
+        color={95,95,95},
         thickness=2));
     connect(actuatedRevolute_b.frame_b, frame_b) 
       annotation (Line(
-        points={{60,0},{100,0}}, 
-        color={95,95,95}, 
+        points={{60,0},{100,0}},
+        color={95,95,95},
         thickness=2));
   end GearConstraint;
   
@@ -3255,22 +3185,22 @@ pair of joints\" from Woernle and Hiller is described in:
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
         "Coordinate system at origin of frame_a fixed at prismatic joint" 
         annotation (Placement(transformation(
-            origin={-80,100}, 
-            extent={{-8,-8},{8,8}}, 
+            origin={-80,100},
+            extent={{-8,-8},{8,8}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         "Coordinate system at origin of frame_b fixed at prismatic joint" 
         annotation (Placement(transformation(
-            origin={80,100}, 
-            extent={{-8,8},{8,-8}}, 
+            origin={80,100},
+            extent={{-8,8},{8,-8}},
             rotation=270)));
       Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
         "1-dim. translational flange that drives the prismatic joint" 
-        annotation (Placement(transformation(extent={{45,95},{35,105}}, 
+        annotation (Placement(transformation(extent={{45,95},{35,105}},
               rotation=0)));
       Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
         "1-dim. translational flange of the drive bearing of the prismatic joint"
-        annotation (Placement(transformation(extent={{-35,95},{-45,105}}, 
+        annotation (Placement(transformation(extent={{-35,95},{-45,105}},
               rotation=0)));
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -3409,15 +3339,14 @@ component).
 </p>
 </html> "),
         Icon(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
-            grid={1,1}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1},
             initialScale=0.2), graphics={
             Text(
               extent={{-140,-50},{140,-75}}, 
               lineColor={0,0,255}, 
-              textString=
-                   "%name"), 
+              textString="%name"), 
             Ellipse(
               extent={{-100,-40},{-19,40}}, 
               lineColor={0,0,0}, 
@@ -3436,9 +3365,7 @@ component).
             Line(
               points={{-60,40},{-60,-40}}, 
               color={0,0,0}, 
-              thickness=2, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              thickness=2), 
             Ellipse(
               extent={{-83,-17},{-34,21}}, 
               lineColor={0,0,0}, 
@@ -3457,15 +3384,11 @@ component).
             Line(
               points={{-60,40},{-60,-10}}, 
               color={0,0,0}, 
-              thickness=2, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              thickness=2), 
             Line(
               points={{-49,20},{-69,-15}}, 
               color={0,0,0}, 
-              thickness=2, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              thickness=2), 
             Ellipse(
               extent={{44,14},{73,-14}}, 
               lineColor={0,0,0}, 
@@ -3494,8 +3417,7 @@ component).
             Text(
               extent={{-98,84},{-60,65}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "ia"), 
+              textString="ia"), 
             Line(
               points={{-40,0},{-40,90},{-80,90},{-80,97}}, 
               color={95,95,95}, 
@@ -3503,8 +3425,7 @@ component).
             Text(
               extent={{61,86},{109,64}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "ib"), 
+              textString="ib"), 
             Rectangle(
               extent={{-35,-13},{-6,14}}, 
               pattern=LinePattern.None, 
@@ -3534,11 +3455,7 @@ component).
               points={{60,90},{40,90},{40,95}}, 
               color={95,95,95}, 
               thickness=2), 
-            Line(
-              points={{-30,70},{10,70}}, 
-              color={0,0,0}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+            Line(points={{-30,70},{10,70}}, color={0,0,0}), 
             Polygon(
               points={{30,70},{10,76},{10,63},{30,70}}, 
               lineColor={128,128,128}, 
@@ -3549,9 +3466,9 @@ component).
               color={95,95,95}, 
               thickness=2)}),
         Diagram(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
-            grid={1,1}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1},
             initialScale=0.2), graphics={
             Line(points={{-60,-70},{46,-70}}), 
             Polygon(
@@ -3559,8 +3476,7 @@ component).
               lineColor={0,0,255}, 
               fillColor={0,0,255}, 
               fillPattern=FillPattern.Solid), 
-            Text(extent={{-62,-73},{65,-90}}, textString=
-                                                  "rAxis"), 
+            Text(extent={{-62,-73},{65,-90}}, textString="rAxis"), 
             Ellipse(
               extent={{-100,-40},{-19,40}}, 
               lineColor={0,0,0}, 
@@ -3579,9 +3495,7 @@ component).
             Line(
               points={{-60,40},{-60,-40}}, 
               color={0,0,0}, 
-              thickness=2, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              thickness=2), 
             Ellipse(
               extent={{-83,-17},{-34,21}}, 
               lineColor={0,0,0}, 
@@ -3600,45 +3514,33 @@ component).
             Line(
               points={{-60,40},{-60,-10}}, 
               color={0,0,0}, 
-              thickness=2, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              thickness=2), 
             Line(
               points={{-49,20},{-69,-15}}, 
               color={0,0,0}, 
-              thickness=2, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              thickness=2), 
             Line(
               points={{-40,0},{-40,90},{-80,90},{-80,99}}, 
               color={95,95,95}, 
               thickness=2), 
             Polygon(points={{7,-1},{-5,2},{-5,-4},{7,-1}}, fillPattern=
                   FillPattern.Forward), 
-            Line(
-              points={{-50,19},{-30,57}}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+            Line(points={{-50,19},{-30,57}}), 
             Text(
               extent={{-24,74},{7,53}}, 
               lineColor={0,0,0}, 
               fillPattern=FillPattern.None, 
-              textString=
-                   "e2"), 
+              textString="e2"), 
             Polygon(points={{-25,64},{-33,56},{-27,53},{-25,64}}, fillPattern=
                   FillPattern.Forward), 
-            Line(
-              points={{-60,41},{-60,65}}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+            Line(points={{-60,41},{-60,65}}), 
             Polygon(points={{-60,75},{-64,63},{-56,63},{-60,75}}, fillPattern=
                   FillPattern.Forward), 
             Text(
               extent={{-96,82},{-65,61}}, 
               lineColor={0,0,0}, 
               fillPattern=FillPattern.None, 
-              textString=
-                   "n1"), 
+              textString="n1"), 
             Line(points={{-60,-40},{-60,-72}}), 
             Ellipse(
               extent={{20,-40},{100,40}}, 
@@ -3686,20 +3588,15 @@ component).
               extent={{-40,-2},{-1,-16}}, 
               lineColor={0,0,0}, 
               fillPattern=FillPattern.None, 
-              textString=
-                   "nAxis"), 
-            Line(
-              points={{-61,1},{-2,1}}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              textString="nAxis"), 
+            Line(points={{-61,1},{-2,1}}), 
             Polygon(points={{10,1},{-2,4},{-2,-2},{10,1}}, fillPattern=
                   FillPattern.Forward), 
             Line(
               points={{60,-1},{60,90},{80,90},{80,99}}, 
               color={95,95,95}, 
               thickness=2), 
-            Text(extent={{-24,117},{-9,102}}, textString=
-                                                  "f"), 
+            Text(extent={{-24,117},{-9,102}}, textString="f"), 
             Polygon(
               points={{-26,103},{-36,100},{-26,97},{-26,103}}, 
               lineColor={0,0,255}, 
@@ -3711,8 +3608,7 @@ component).
               fillColor={0,0,255}, 
               fillPattern=FillPattern.Solid), 
             Line(points={{14,100},{36,100}}, color={0,0,255}), 
-            Text(extent={{12,116},{27,101}}, textString=
-                                                "f"), 
+            Text(extent={{12,116},{27,101}}, textString="f"), 
             Polygon(
               points={{30,93},{40,90},{30,87},{30,93}}, 
               lineColor={128,128,128}, 
@@ -3723,8 +3619,7 @@ component).
             Text(
               extent={{-18,90},{19,77}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "s"), 
+              textString="s"), 
             Line(
               points={{60,90},{40,90},{40,98}}, 
               color={95,95,95}, 
@@ -3969,28 +3864,28 @@ origin of frame_b. You may try to use another \"n1_a\" vector.
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
         "Coordinate system at origin of frame_a fixed at connecting rod of universal and spherical joint"
         annotation (Placement(transformation(
-            origin={-80,100}, 
-            extent={{-8,-8},{8,8}}, 
+            origin={-80,100},
+            extent={{-8,-8},{8,8}},
             rotation=90)));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         "Coordinate system at origin of frame_b fixed at connecting rod of spherical and revolute joint"
         annotation (Placement(transformation(
-            origin={80,100}, 
-            extent={{-8,8},{8,-8}}, 
+            origin={80,100},
+            extent={{-8,8},{8,-8}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
         "Coordinate system at origin of spherical joint fixed at connecting rod of spherical and revolute joint"
         annotation (Placement(transformation(
-            origin={0,100}, 
-            extent={{8,-8},{-8,8}}, 
+            origin={0,100},
+            extent={{8,-8},{-8,8}},
             rotation=270)));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
         "1-dim. rotational flange that drives the revolute joint" 
-        annotation (Placement(transformation(extent={{105,85},{95,75}}, 
+        annotation (Placement(transformation(extent={{105,85},{95,75}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing 
         "1-dim. rotational flange of the drive bearing of the revolute joint" 
-        annotation (Placement(transformation(extent={{95,45},{105,35}}, 
+        annotation (Placement(transformation(extent={{95,45},{105,35}},
               rotation=0)));
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -4198,15 +4093,14 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
 </pre>
 </html> "),
         Icon(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
-            grid={1,1}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1},
             initialScale=0.2), graphics={
             Text(
               extent={{-140,-41},{140,-66}}, 
               lineColor={0,0,255}, 
-              textString=
-                   "%name"), 
+              textString="%name"), 
             Ellipse(
               extent={{-100,-30},{-40,30}}, 
               lineColor={0,0,0}, 
@@ -4225,9 +4119,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Line(
               points={{-70,28},{-70,-30}}, 
               color={0,0,0}, 
-              thickness=2, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              thickness=2), 
             Ellipse(
               extent={{-89,-18},{-48,18}}, 
               lineColor={0,0,0}, 
@@ -4246,15 +4138,11 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Line(
               points={{-70,30},{-70,-10}}, 
               color={0,0,0}, 
-              thickness=2, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              thickness=2), 
             Line(
               points={{-61,16},{-79,-15}}, 
               color={0,0,0}, 
-              thickness=2, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              thickness=2), 
             Line(
               points={{-50,0},{-50,80},{-80,80},{-80,100}}, 
               color={95,95,95}, 
@@ -4309,13 +4197,11 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Text(
               extent={{40,109},{77,91}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "ib"), 
+              textString="ib"), 
             Text(
               extent={{-124,109},{-95,92}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "ia"), 
+              textString="ia"), 
             Line(
               points={{60,30},{60,80},{80,80},{80,100}}, 
               color={95,95,95}, 
@@ -4323,8 +4209,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Text(
               extent={{-43,108},{-10,92}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "im"), 
+              textString="im"), 
             Line(
               points={{19,6},{19,80},{0,80},{0,100}}, 
               color={95,95,95}, 
@@ -4338,9 +4223,9 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
               color={95,95,95}, 
               thickness=2)}),
         Diagram(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
-            grid={1,1}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1},
             initialScale=0.2), graphics));
       
       Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint
@@ -4383,10 +4268,10 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
                 20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Sensors.RelativeSensorNew relativeSensor(
                                                                          animation=false) 
-        annotation (Placement(transformation(extent={{60,-70},{40,-90}}, 
+        annotation (Placement(transformation(extent={{60,-70},{40,-90}},
               rotation=0)));
       Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
-        annotation (Placement(transformation(extent={{-20,-50},{0,-30}}, 
+        annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
               rotation=0)));
     equation 
      // defineRoot(frame_ib.R);
@@ -4440,67 +4325,67 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       end if;
       
       connect(revolute.frame_b, rod2.frame_a) annotation (Line(
-          points={{35,0},{15,0}}, 
-          color={95,95,95}, 
-          thickness=2, 
-          fillPattern=FillPattern.Sphere, 
+          points={{35,0},{15,0}},
+          color={95,95,95},
+          thickness=2,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod2.frame_b, rod1.frame_b) annotation (Line(
-          points={{-25,0},{-52,0}}, 
-          color={95,95,95}, 
-          thickness=2, 
-          fillPattern=FillPattern.Sphere, 
+          points={{-25,0},{-52,0}},
+          color={95,95,95},
+          thickness=2,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(revolute.frame_a, frame_b) annotation (Line(
-          points={{75,0},{100,0}}, 
-          color={95,95,95}, 
-          thickness=2, 
-          fillPattern=FillPattern.Sphere, 
+          points={{75,0},{100,0}},
+          color={95,95,95},
+          thickness=2,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod2.frame_a, frame_ib) annotation (Line(
-          points={{15,0},{26,0},{26,70},{80,70},{80,100}}, 
-          color={95,95,95}, 
-          thickness=2, 
-          fillPattern=FillPattern.Sphere, 
+          points={{15,0},{26,0},{26,70},{80,70},{80,100}},
+          color={95,95,95},
+          thickness=2,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod1.frame_a, frame_a) annotation (Line(
-          points={{-92,0},{-100,0}}, 
-          color={95,95,95}, 
-          thickness=2, 
-          fillPattern=FillPattern.Sphere, 
+          points={{-92,0},{-100,0}},
+          color={95,95,95},
+          thickness=2,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(relativeSensor.frame_b, frame_a) annotation (Line(
-          points={{40,-80},{-96,-80},{-96,0},{-100,0}}, 
-          color={95,95,95}, 
-          pattern=LinePattern.Dot, 
-          fillPattern=FillPattern.Sphere, 
+          points={{40,-80},{-96,-80},{-96,0},{-100,0}},
+          color={95,95,95},
+          pattern=LinePattern.Dot,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(relativeSensor.frame_a, frame_b) annotation (Line(
-          points={{60,-80},{96,-80},{96,0},{100,0}}, 
-          color={95,95,95}, 
-          pattern=LinePattern.Dot, 
-          fillPattern=FillPattern.Sphere, 
+          points={{60,-80},{96,-80},{96,0},{100,0}},
+          color={95,95,95},
+          pattern=LinePattern.Dot,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(position_b.y, revolute.position_b)       annotation (Line(
-          points={{1,-40},{20,-40},{20,-12},{31,-12}}, 
-          color={0,0,127}, 
-          fillPattern=FillPattern.Sphere, 
+          points={{1,-40},{20,-40},{20,-12},{31,-12}},
+          color={0,0,127},
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod2.frame_b, frame_im) annotation (Line(
-          points={{-25,0},{-40,0},{-40,80},{0,80},{0,100}}, 
-          color={95,95,95}, 
+          points={{-25,0},{-40,0},{-40,80},{0,80},{0,100}},
+          color={95,95,95},
           thickness=2));
       connect(rod1.frame_ia, frame_ia) annotation (Line(
-          points={{-80,20},{-80,100}}, 
-          color={95,95,95}, 
+          points={{-80,20},{-80,100}},
+          color={95,95,95},
           thickness=2));
       connect(revolute.axis, axis) annotation (Line(points={{55,20},{55,60},{90,
               60},{90,80},{100,80}}, color={0,0,0}));
       connect(revolute.bearing, bearing) 
         annotation (Line(points={{67,20},{67,40},{100,40}}, color={0,0,0}));
       connect(relativeSensor.r_rel, revolute.position_a) annotation (Line(
-          points={{58,-69},{58,-50},{90,-50},{90,-12},{79,-12}}, 
-          color={0,0,127}, 
+          points={{58,-69},{58,-50},{90,-50},{90,-12},{79,-12}},
+          color={0,0,127},
           smooth=Smooth.None));
     end JointUSR;
     
@@ -4514,28 +4399,28 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
         "Coordinate system at origin of frame_a fixed at connecting rod of universal and spherical joint"
         annotation (Placement(transformation(
-            origin={-80,100}, 
-            extent={{-8,-8},{8,8}}, 
+            origin={-80,100},
+            extent={{-8,-8},{8,8}},
             rotation=90)));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         "Coordinate system at origin of frame_b fixed at connecting rod of spherical and prismatic joint"
         annotation (Placement(transformation(
-            origin={80,100}, 
-            extent={{-8,8},{8,-8}}, 
+            origin={80,100},
+            extent={{-8,8},{8,-8}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
         "Coordinate system at origin of spherical joint fixed at connecting rod of spherical and prismatic joint"
         annotation (Placement(transformation(
-            origin={0,100}, 
-            extent={{8,-8},{-8,8}}, 
+            origin={0,100},
+            extent={{8,-8},{-8,8}},
             rotation=270)));
       Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
         "1-dim. translational flange that drives the prismatic joint" 
-        annotation (Placement(transformation(extent={{95,75},{105,85}}, 
+        annotation (Placement(transformation(extent={{95,75},{105,85}},
               rotation=0)));
       Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
         "1-dim. translational flange of the drive bearing of the prismatic joint"
-        annotation (Placement(transformation(extent={{105,35},{95,45}}, 
+        annotation (Placement(transformation(extent={{105,35},{95,45}},
               rotation=0)));
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -4746,9 +4631,9 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
 </pre>
 </html> "),
         Icon(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
-            grid={1,1}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1},
             initialScale=0.2), graphics={
             Rectangle(
               extent={{50,20},{80,-20}}, 
@@ -4763,8 +4648,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Text(
               extent={{-140,-45},{140,-70}}, 
               lineColor={0,0,255}, 
-              textString=
-                   "%name"), 
+              textString="%name"), 
             Ellipse(
               extent={{-100,-30},{-40,30}}, 
               lineColor={0,0,0}, 
@@ -4783,9 +4667,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Line(
               points={{-70,28},{-70,-30}}, 
               color={0,0,0}, 
-              thickness=2, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              thickness=2), 
             Ellipse(
               extent={{-89,-18},{-48,18}}, 
               lineColor={0,0,0}, 
@@ -4804,15 +4686,11 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Line(
               points={{-70,30},{-70,-10}}, 
               color={0,0,0}, 
-              thickness=2, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              thickness=2), 
             Line(
               points={{-61,16},{-79,-15}}, 
               color={0,0,0}, 
-              thickness=2, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              thickness=2), 
             Line(
               points={{-50,0},{-50,80},{-80,80},{-80,100}}, 
               color={95,95,95}, 
@@ -4850,13 +4728,11 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Text(
               extent={{37,109},{68,90}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "ib"), 
+              textString="ib"), 
             Text(
               extent={{-124,110},{-93,90}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "ia"), 
+              textString="ia"), 
             Line(
               points={{50,6},{50,80},{80,80},{80,100}}, 
               color={95,95,95}, 
@@ -4864,8 +4740,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Text(
               extent={{-44,111},{-8,91}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "im"), 
+              textString="im"), 
             Line(
               points={{19,6},{19,80},{0,80},{0,100}}, 
               color={95,95,95}, 
@@ -4889,9 +4764,9 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
               color={135,135,135}, 
               thickness=2)}),
         Diagram(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
-            grid={1,1}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1},
             initialScale=0.2), graphics={
             Line(
               points={{-78,30},{-50,30}}, 
@@ -4900,14 +4775,11 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Text(
               extent={{-76,39},{-49,32}}, 
               lineColor={128,128,128}, 
-              arrow={Arrow.None,Arrow.Filled}, 
-              textString=
-                   "rRod1_ia"), 
+              textString="rRod1_ia"), 
             Text(
               extent={{-27,40},{0,33}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "rRod2_ib"), 
+              textString="rRod2_ib"), 
             Line(
               points={{3,30},{-43,30}}, 
               color={128,128,128}, 
@@ -4954,10 +4826,10 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         color=rod2Color) annotation (Placement(transformation(extent={{0,20},{
                 -40,-20}}, rotation=0)));
       Sensors.RelativeSensorNew relativeSensor(                          animation=false) 
-        annotation (Placement(transformation(extent={{50,-70},{30,-90}}, 
+        annotation (Placement(transformation(extent={{50,-70},{30,-90}},
               rotation=0)));
       Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
-        annotation (Placement(transformation(extent={{-20,-60},{0,-40}}, 
+        annotation (Placement(transformation(extent={{-20,-60},{0,-40}},
               rotation=0)));
     protected 
       Real aux 
@@ -5006,67 +4878,67 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       end if;
       
       connect(prismatic.frame_b, rod2.frame_a) annotation (Line(
-          points={{36,0},{0,0}}, 
-          color={95,95,95}, 
-          thickness=2, 
-          fillPattern=FillPattern.Sphere, 
+          points={{36,0},{0,0}},
+          color={95,95,95},
+          thickness=2,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod2.frame_b, rod1.frame_b) annotation (Line(
-          points={{-40,0},{-52,0}}, 
-          color={0,0,0}, 
-          thickness=2, 
-          fillPattern=FillPattern.Sphere, 
+          points={{-40,0},{-52,0}},
+          color={0,0,0},
+          thickness=2,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(prismatic.frame_a, frame_b) annotation (Line(
-          points={{76,0},{100,0}}, 
-          color={95,95,95}, 
-          thickness=2, 
-          fillPattern=FillPattern.Sphere, 
+          points={{76,0},{100,0}},
+          color={95,95,95},
+          thickness=2,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod2.frame_a, frame_ib) annotation (Line(
-          points={{0,0},{7,0},{7,70},{80,70},{80,100}}, 
-          color={95,95,95}, 
-          thickness=2, 
-          fillPattern=FillPattern.Sphere, 
+          points={{0,0},{7,0},{7,70},{80,70},{80,100}},
+          color={95,95,95},
+          thickness=2,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod1.frame_a, frame_a) annotation (Line(
-          points={{-92,0},{-100,0}}, 
-          color={95,95,95}, 
-          thickness=2, 
-          fillPattern=FillPattern.Sphere, 
+          points={{-92,0},{-100,0}},
+          color={95,95,95},
+          thickness=2,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(relativeSensor.frame_b, frame_a) annotation (Line(
-          points={{30,-80},{-97,-80},{-97,0},{-100,0}}, 
-          color={95,95,95}, 
-          pattern=LinePattern.Dot, 
-          fillPattern=FillPattern.Sphere, 
+          points={{30,-80},{-97,-80},{-97,0},{-100,0}},
+          color={95,95,95},
+          pattern=LinePattern.Dot,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(relativeSensor.frame_a, frame_b) annotation (Line(
-          points={{50,-80},{95,-80},{95,0},{100,0}}, 
-          color={95,95,95}, 
-          pattern=LinePattern.Dot, 
-          fillPattern=FillPattern.Sphere, 
+          points={{50,-80},{95,-80},{95,0},{100,0}},
+          color={95,95,95},
+          pattern=LinePattern.Dot,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod2.frame_b, frame_im) annotation (Line(
-          points={{-40,0},{-46,0},{-46,80},{0,80},{0,100}}, 
-          color={95,95,95}, 
+          points={{-40,0},{-46,0},{-46,80},{0,80},{0,100}},
+          color={95,95,95},
           thickness=2));
       connect(rod1.frame_ia, frame_ia) annotation (Line(
-          points={{-80,20},{-80,100}}, 
-          color={95,95,95}, 
+          points={{-80,20},{-80,100}},
+          color={95,95,95},
           thickness=2));
       connect(position_b.y, prismatic.position_b)       annotation (Line(
-          points={{1,-50},{10,-50},{10,-12},{32,-12}}, 
-          color={0,0,127}, 
-          fillColor={192,192,192}, 
+          points={{1,-50},{10,-50},{10,-12},{32,-12}},
+          color={0,0,127},
+          fillColor={192,192,192},
           fillPattern=FillPattern.Solid));
       connect(prismatic.axis, axis) annotation (Line(points={{40,14},{40,56},{
               90,56},{90,80},{100,80}}, color={0,191,0}));
       connect(prismatic.bearing, bearing) 
         annotation (Line(points={{64,14},{64,40},{100,40}}, color={0,191,0}));
       connect(relativeSensor.r_rel, prismatic.position_a) annotation (Line(
-          points={{48,-69},{48,-50},{90,-50},{90,-12},{80,-12}}, 
-          color={0,0,127}, 
+          points={{48,-69},{48,-50},{90,-50},{90,-12},{80,-12}},
+          color={0,0,127},
           smooth=Smooth.None));
     end JointUSP;
     
@@ -5081,22 +4953,22 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         "Coordinate system at origin of frame_b fixed at connecting rod of spherical and revolute joint"
         annotation (Placement(transformation(
-            origin={80,100}, 
-            extent={{-8,8},{8,-8}}, 
+            origin={80,100},
+            extent={{-8,8},{8,-8}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
         "Coordinate system at origin of spherical joint in the middle fixed at connecting rod of spherical and revolute joint"
         annotation (Placement(transformation(
-            origin={0,100}, 
-            extent={{8,-8},{-8,8}}, 
+            origin={0,100},
+            extent={{8,-8},{-8,8}},
             rotation=270)));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
         "1-dim. rotational flange that drives the revolute joint" 
-        annotation (Placement(transformation(extent={{105,85},{95,75}}, 
+        annotation (Placement(transformation(extent={{105,85},{95,75}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing 
         "1-dim. rotational flange of the drive bearing of the revolute joint" 
-        annotation (Placement(transformation(extent={{95,45},{105,35}}, 
+        annotation (Placement(transformation(extent={{95,45},{105,35}},
               rotation=0)));
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -5203,15 +5075,14 @@ component).
 </p>
 </html> "),
         Icon(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
-            grid={1,1}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1},
             initialScale=0.2), graphics={
             Text(
               extent={{-141,-41},{139,-66}}, 
               lineColor={0,0,255}, 
-              textString=
-                   "%name"), 
+              textString="%name"), 
             Ellipse(
               extent={{-100,-30},{-40,30}}, 
               lineColor={0,0,0}, 
@@ -5272,8 +5143,7 @@ component).
             Text(
               extent={{88,112},{127,92}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "ib"), 
+              textString="ib"), 
             Ellipse(
               extent={{-80,11},{-60,-9}}, 
               lineColor={0,0,0}, 
@@ -5295,8 +5165,7 @@ component).
             Text(
               extent={{-47,111},{-8,92}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "im"), 
+              textString="im"), 
             Line(
               points={{68,30},{68,80},{80,80},{80,98}}, 
               color={95,95,95}, 
@@ -5306,9 +5175,9 @@ component).
               color={95,95,95}, 
               thickness=2)}),
         Diagram(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
-            grid={1,1}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1},
             initialScale=0.2), graphics));
       
       Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint
@@ -5347,10 +5216,10 @@ component).
         r=rRod2_ib) annotation (Placement(transformation(extent={{15,-20},{-25,
                 20}}, rotation=0)));
       Sensors.RelativeSensorNew relativeSensor(                          animation=false) 
-        annotation (Placement(transformation(extent={{60,-70},{40,-90}}, 
+        annotation (Placement(transformation(extent={{60,-70},{40,-90}},
               rotation=0)));
       Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
-        annotation (Placement(transformation(extent={{-20,-50},{0,-30}}, 
+        annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
               rotation=0)));
     equation 
       /* Compute the unknown force in the rod of the rod1 joint
@@ -5400,63 +5269,63 @@ component).
       end if;
       
       connect(revolute.frame_b, rod2.frame_a) annotation (Line(
-          points={{35,0},{15,0}}, 
-          color={95,95,95}, 
-          thickness=2, 
-          fillPattern=FillPattern.Sphere, 
+          points={{35,0},{15,0}},
+          color={95,95,95},
+          thickness=2,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod2.frame_b, rod1.frame_b) annotation (Line(
-          points={{-25,0},{-49,0}}, 
-          color={95,95,95}, 
-          thickness=2, 
-          fillPattern=FillPattern.Sphere, 
+          points={{-25,0},{-49,0}},
+          color={95,95,95},
+          thickness=2,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(revolute.frame_a, frame_b) annotation (Line(
-          points={{75,0},{100,0}}, 
-          color={95,95,95}, 
-          thickness=2, 
-          fillPattern=FillPattern.Sphere, 
+          points={{75,0},{100,0}},
+          color={95,95,95},
+          thickness=2,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod2.frame_a, frame_ib) annotation (Line(
-          points={{15,0},{26,0},{26,70},{80,70},{80,100}}, 
-          color={95,95,95}, 
-          thickness=2, 
-          fillPattern=FillPattern.Sphere, 
+          points={{15,0},{26,0},{26,70},{80,70},{80,100}},
+          color={95,95,95},
+          thickness=2,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod1.frame_a, frame_a) annotation (Line(
-          points={{-89,0},{-100,0}}, 
-          color={95,95,95}, 
-          thickness=2, 
-          fillPattern=FillPattern.Sphere, 
+          points={{-89,0},{-100,0}},
+          color={95,95,95},
+          thickness=2,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(relativeSensor.frame_b, frame_a) annotation (Line(
-          points={{40,-80},{-95,-80},{-95,0},{-100,0}}, 
-          color={95,95,95}, 
-          pattern=LinePattern.Dot, 
-          fillPattern=FillPattern.Sphere, 
+          points={{40,-80},{-95,-80},{-95,0},{-100,0}},
+          color={95,95,95},
+          pattern=LinePattern.Dot,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(relativeSensor.frame_a, frame_b) annotation (Line(
-          points={{60,-80},{96,-80},{96,0},{100,0}}, 
-          color={95,95,95}, 
-          pattern=LinePattern.Dot, 
-          fillPattern=FillPattern.Sphere, 
+          points={{60,-80},{96,-80},{96,0},{100,0}},
+          color={95,95,95},
+          pattern=LinePattern.Dot,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(position_b.y, revolute.position_b)       annotation (Line(
-          points={{1,-40},{20,-40},{20,-12},{31,-12}}, 
-          color={0,0,127}, 
-          fillPattern=FillPattern.Sphere, 
+          points={{1,-40},{20,-40},{20,-12},{31,-12}},
+          color={0,0,127},
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(revolute.axis, axis) annotation (Line(points={{55,20},{55,60},{90,
               60},{90,80},{100,80}}, color={0,0,0}));
       connect(revolute.bearing, bearing) 
         annotation (Line(points={{67,20},{67,40},{100,40}}, color={0,0,0}));
       connect(rod2.frame_b, frame_im) annotation (Line(
-          points={{-25,0},{-35,0},{-35,60},{0,60},{0,100}}, 
-          color={95,95,95}, 
+          points={{-25,0},{-35,0},{-35,60},{0,60},{0,100}},
+          color={95,95,95},
           thickness=2));
       connect(relativeSensor.r_rel, revolute.position_a) annotation (Line(
-          points={{56,-69},{56,-50},{90,-50},{90,-12},{79,-12}}, 
-          color={0,0,127}, 
+          points={{56,-69},{56,-50},{90,-50},{90,-12},{79,-12}},
+          color={0,0,127},
           smooth=Smooth.None));
     end JointSSR;
     
@@ -5471,22 +5340,22 @@ component).
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         "Coordinate system at origin of frame_b fixed at connecting rod of spherical and prismatic joint"
         annotation (Placement(transformation(
-            origin={80,100}, 
-            extent={{-8,8},{8,-8}}, 
+            origin={80,100},
+            extent={{-8,8},{8,-8}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
         "Coordinate system at origin of spherical joint in the middle fixed at connecting rod of spherical and prismatic joint"
         annotation (Placement(transformation(
-            origin={0,100}, 
-            extent={{8,-8},{-8,8}}, 
+            origin={0,100},
+            extent={{8,-8},{-8,8}},
             rotation=270)));
       Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
         "1-dim. translational flange that drives the prismatic joint" 
-        annotation (Placement(transformation(extent={{95,75},{105,85}}, 
+        annotation (Placement(transformation(extent={{95,75},{105,85}},
               rotation=0)));
       Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
         "1-dim. translational flange of the drive bearing of the prismatic joint"
-        annotation (Placement(transformation(extent={{105,35},{95,45}}, 
+        annotation (Placement(transformation(extent={{105,35},{95,45}},
               rotation=0)));
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -5598,15 +5467,14 @@ component).
 </p>
 </html> "),
         Icon(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
-            grid={1,1}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1},
             initialScale=0.2), graphics={
             Text(
               extent={{-140,-40},{140,-65}}, 
               lineColor={0,0,255}, 
-              textString=
-                   "%name"), 
+              textString="%name"), 
             Ellipse(
               extent={{-100,-30},{-40,30}}, 
               lineColor={0,0,0}, 
@@ -5650,8 +5518,7 @@ component).
             Text(
               extent={{89,115},{132,92}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "ib"), 
+              textString="ib"), 
             Ellipse(
               extent={{-80,11},{-60,-9}}, 
               lineColor={0,0,0}, 
@@ -5669,8 +5536,7 @@ component).
             Text(
               extent={{-49,114},{-11,92}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "im"), 
+              textString="im"), 
             Rectangle(
               extent={{50,20},{80,-20}}, 
               lineColor={0,0,0}, 
@@ -5704,9 +5570,9 @@ component).
               color={95,95,95}, 
               thickness=2)}),
         Diagram(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
-            grid={1,1}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1},
             initialScale=0.2), graphics));
       
       Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint
@@ -5745,10 +5611,10 @@ component).
         r=rRod2_ib) annotation (Placement(transformation(extent={{15,-20},{-25,
                 20}}, rotation=0)));
       Sensors.RelativeSensorNew relativeSensor(                          animation=false) 
-        annotation (Placement(transformation(extent={{60,-70},{40,-90}}, 
+        annotation (Placement(transformation(extent={{60,-70},{40,-90}},
               rotation=0)));
       Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
-        annotation (Placement(transformation(extent={{-20,-50},{0,-30}}, 
+        annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
               rotation=0)));
     equation 
       /* Compute the unknown force in the rod of the rod1 joint
@@ -5791,63 +5657,63 @@ component).
       end if;
       
       connect(prismatic.frame_b, rod2.frame_a) annotation (Line(
-          points={{35,0},{15,0}}, 
-          color={95,95,95}, 
-          thickness=2, 
-          fillPattern=FillPattern.Sphere, 
+          points={{35,0},{15,0}},
+          color={95,95,95},
+          thickness=2,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod2.frame_b, rod1.frame_b) annotation (Line(
-          points={{-25,0},{-49,0}}, 
-          color={95,95,95}, 
-          thickness=2, 
-          fillPattern=FillPattern.Sphere, 
+          points={{-25,0},{-49,0}},
+          color={95,95,95},
+          thickness=2,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(prismatic.frame_a, frame_b) annotation (Line(
-          points={{75,0},{100,0}}, 
-          color={95,95,95}, 
-          thickness=2, 
-          fillPattern=FillPattern.Sphere, 
+          points={{75,0},{100,0}},
+          color={95,95,95},
+          thickness=2,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod2.frame_a, frame_ib) annotation (Line(
-          points={{15,0},{26,0},{26,70},{80,70},{80,100}}, 
-          color={95,95,95}, 
-          thickness=2, 
-          fillPattern=FillPattern.Sphere, 
+          points={{15,0},{26,0},{26,70},{80,70},{80,100}},
+          color={95,95,95},
+          thickness=2,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod1.frame_a, frame_a) annotation (Line(
-          points={{-89,0},{-100,0}}, 
-          color={95,95,95}, 
-          thickness=2, 
-          fillPattern=FillPattern.Sphere, 
+          points={{-89,0},{-100,0}},
+          color={95,95,95},
+          thickness=2,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(relativeSensor.frame_b, frame_a) annotation (Line(
-          points={{40,-80},{-95,-80},{-95,0},{-100,0}}, 
-          color={95,95,95}, 
-          pattern=LinePattern.Dot, 
-          fillPattern=FillPattern.Sphere, 
+          points={{40,-80},{-95,-80},{-95,0},{-100,0}},
+          color={95,95,95},
+          pattern=LinePattern.Dot,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(relativeSensor.frame_a, frame_b) annotation (Line(
-          points={{60,-80},{96,-80},{96,0},{100,0}}, 
-          color={95,95,95}, 
-          pattern=LinePattern.Dot, 
-          fillPattern=FillPattern.Sphere, 
+          points={{60,-80},{96,-80},{96,0},{100,0}},
+          color={95,95,95},
+          pattern=LinePattern.Dot,
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(position_b.y, prismatic.position_b)       annotation (Line(
-          points={{1,-40},{20,-40},{20,-12},{31,-12}}, 
-          color={0,0,127}, 
-          fillPattern=FillPattern.Sphere, 
+          points={{1,-40},{20,-40},{20,-12},{31,-12}},
+          color={0,0,127},
+          fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(prismatic.axis, axis) annotation (Line(points={{39,14},{40,14},{
               40,60},{90,60},{90,80},{100,80}}, color={0,0,0}));
       connect(prismatic.bearing, bearing) 
         annotation (Line(points={{63,14},{63,40},{100,40}}, color={0,0,0}));
       connect(rod2.frame_b, frame_im) annotation (Line(
-          points={{-25,0},{-35,0},{-35,60},{0,60},{0,100}}, 
-          color={95,95,95}, 
+          points={{-25,0},{-35,0},{-35,60},{0,60},{0,100}},
+          color={95,95,95},
           thickness=2));
       connect(relativeSensor.r_rel, prismatic.position_a) annotation (Line(
-          points={{58,-69},{58,-50},{90,-50},{90,-12},{79,-12}}, 
-          color={0,0,127}, 
+          points={{58,-69},{58,-50},{90,-50},{90,-12},{79,-12}},
+          color={0,0,127},
           smooth=Smooth.None));
     end JointSSP;
     
@@ -5863,28 +5729,28 @@ component).
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
         "Coordinate system at origin of frame_a fixed at connecting rod of left and middle revolute joint"
         annotation (Placement(transformation(
-            origin={-80,100}, 
-            extent={{-8,-8},{8,8}}, 
+            origin={-80,100},
+            extent={{-8,-8},{8,8}},
             rotation=90)));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         "Coordinate system at origin of frame_b fixed at connecting rod of middle and right revolute joint"
         annotation (Placement(transformation(
-            origin={80,100}, 
-            extent={{-8,8},{8,-8}}, 
+            origin={80,100},
+            extent={{-8,8},{8,-8}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
         "Coordinate system at origin of revolute joint in the middle fixed at connecting rod of middle and right revolute joint"
         annotation (Placement(transformation(
-            origin={0,100}, 
-            extent={{8,-8},{-8,8}}, 
+            origin={0,100},
+            extent={{8,-8},{-8,8}},
             rotation=270)));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
         "1-dim. rotational flange that drives the right revolute joint at frame_b"
-        annotation (Placement(transformation(extent={{105,85},{95,75}}, 
+        annotation (Placement(transformation(extent={{105,85},{95,75}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing 
         "1-dim. rotational flange of the drive bearing of the right revolute joint at frame_b"
-        annotation (Placement(transformation(extent={{95,45},{105,35}}, 
+        annotation (Placement(transformation(extent={{95,45},{105,35}},
               rotation=0)));
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -5983,9 +5849,9 @@ are connected by rigid rods.
 </p>
 </html> "),
         Icon(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
-            grid={1,1}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1},
             initialScale=0.2), graphics={
             Rectangle(
               extent={{-90,90},{90,-90}}, 
@@ -5995,18 +5861,15 @@ are connected by rigid rods.
             Text(
               extent={{-140,-55},{140,-80}}, 
               lineColor={0,0,255}, 
-              textString=
-                   "%name"), 
+              textString="%name"), 
             Text(
               extent={{36,114},{71,92}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "ib"), 
+              textString="ib"), 
             Text(
               extent={{-126,115},{-87,90}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "ia"), 
+              textString="ia"), 
             Ellipse(
               extent={{-100,25},{-50,-25}}, 
               lineColor={0,0,0}, 
@@ -6055,25 +5918,19 @@ are connected by rigid rods.
             Line(
               points={{80,24},{80,80},{80,80},{80,100}}, 
               color={95,95,95}, 
-              thickness=2, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              thickness=2), 
             Text(
               extent={{-128,-29},{136,-47}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "n_a=%n_a"), 
+              textString="n_a=%n_a"), 
             Line(
               points={{0,57},{0,86},{0,86},{0,100}}, 
               color={95,95,95}, 
-              thickness=2, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              thickness=2), 
             Text(
               extent={{-46,114},{-7,91}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "im"), 
+              textString="im"), 
             Line(
               points={{-80,100},{-80,8}}, 
               color={95,95,95}, 
@@ -6087,9 +5944,9 @@ are connected by rigid rods.
               color={95,95,95}, 
               thickness=2)}),
         Diagram(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
-            grid={1,1}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1},
             initialScale=0.2), graphics));
       
       JointUSR jointUSR(
@@ -6168,25 +6025,25 @@ are connected by rigid rods.
     equation 
       connect(jointUSR.frame_a, frame_a) 
         annotation (Line(
-          points={{-30,0},{-100,0}}, 
-          color={95,95,95}, 
+          points={{-30,0},{-100,0}},
+          color={95,95,95},
           thickness=2));
       connect(jointUSR.frame_b, frame_b) 
         annotation (Line(
-          points={{10,0},{100,0}}, 
-          color={95,95,95}, 
+          points={{10,0},{100,0}},
+          color={95,95,95},
           thickness=2));
       connect(jointUSR.frame_ia, frame_ia) annotation (Line(
-          points={{-26,20},{-26,70},{-80,70},{-80,100}}, 
-          color={95,95,95}, 
+          points={{-26,20},{-26,70},{-80,70},{-80,100}},
+          color={95,95,95},
           thickness=2));
       connect(jointUSR.frame_im, frame_im) annotation (Line(
-          points={{-10,20},{-10,70},{0,70},{0,100}}, 
-          color={95,95,95}, 
+          points={{-10,20},{-10,70},{0,70},{0,100}},
+          color={95,95,95},
           thickness=2));
       connect(jointUSR.frame_ib, frame_ib) annotation (Line(
-          points={{6,20},{6,50},{80,50},{80,100}}, 
-          color={95,95,95}, 
+          points={{6,20},{6,50},{80,50},{80,100}},
+          color={95,95,95},
           thickness=2));
       connect(jointUSR.axis, axis) 
         annotation (Line(points={{10,16},{86,16},{86,80},{100,80}}, color={0,0,
@@ -6206,28 +6063,28 @@ are connected by rigid rods.
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
         "Coordinate system at origin of frame_a fixed at connecting rod of revolute joints"
         annotation (Placement(transformation(
-            origin={-80,100}, 
-            extent={{-8,-8},{8,8}}, 
+            origin={-80,100},
+            extent={{-8,-8},{8,8}},
             rotation=90)));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
         "Coordinate system at origin of frame_b fixed at connecting rod of revolute and prismatic joint"
         annotation (Placement(transformation(
-            origin={80,100}, 
-            extent={{-8,8},{8,-8}}, 
+            origin={80,100},
+            extent={{-8,8},{8,-8}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
         "Coordinate system at origin of revolute joint in the middle fixed at connecting rod of revolute and prismatic joint"
         annotation (Placement(transformation(
-            origin={0,100}, 
-            extent={{8,-8},{-8,8}}, 
+            origin={0,100},
+            extent={{8,-8},{-8,8}},
             rotation=270)));
       Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
         "1-dim. translational flange that drives the prismatic joint" 
-        annotation (Placement(transformation(extent={{95,75},{105,85}}, 
+        annotation (Placement(transformation(extent={{95,75},{105,85}},
               rotation=0)));
       Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
         "1-dim. translational flange of the drive bearing of the prismatic joint"
-        annotation (Placement(transformation(extent={{105,35},{95,45}}, 
+        annotation (Placement(transformation(extent={{105,35},{95,45}},
               rotation=0)));
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -6340,9 +6197,9 @@ and 1 prismatic joint are connected by rigid rods.
 </p>
 </html> "),
         Icon(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
-            grid={1,1}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1},
             initialScale=0.2), graphics={
             Rectangle(
               extent={{-90,90},{90,-90}}, 
@@ -6352,18 +6209,15 @@ and 1 prismatic joint are connected by rigid rods.
             Text(
               extent={{-139,-53},{141,-78}}, 
               lineColor={0,0,255}, 
-              textString=
-                   "%name"), 
+              textString="%name"), 
             Text(
               extent={{26,124},{68,93}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "ib"), 
+              textString="ib"), 
             Text(
               extent={{-134,128},{-94,94}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "ia"), 
+              textString="ia"), 
             Ellipse(
               extent={{-100,25},{-50,-25}}, 
               lineColor={0,0,0}, 
@@ -6397,19 +6251,15 @@ and 1 prismatic joint are connected by rigid rods.
             Text(
               extent={{-128,-29},{139,-47}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "n_a=%n_a"), 
+              textString="n_a=%n_a"), 
             Line(
               points={{0,57},{0,86},{0,86},{0,100}}, 
               color={95,95,95}, 
-              thickness=2, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              thickness=2), 
             Text(
               extent={{-55,126},{-15,92}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "im"), 
+              textString="im"), 
             Line(
               points={{-80,100},{-80,8}}, 
               color={95,95,95}, 
@@ -6447,9 +6297,9 @@ and 1 prismatic joint are connected by rigid rods.
               color={95,95,95}, 
               thickness=2)}),
         Diagram(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
-            grid={1,1}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1},
             initialScale=0.2), graphics));
       
       JointUSP jointUSP(
@@ -6527,25 +6377,25 @@ and 1 prismatic joint are connected by rigid rods.
     equation 
       connect(jointUSP.frame_a, frame_a) 
         annotation (Line(
-          points={{-30,0},{-100,0}}, 
-          color={95,95,95}, 
+          points={{-30,0},{-100,0}},
+          color={95,95,95},
           thickness=2));
       connect(jointUSP.frame_b, frame_b) 
         annotation (Line(
-          points={{10,0},{100,0}}, 
-          color={95,95,95}, 
+          points={{10,0},{100,0}},
+          color={95,95,95},
           thickness=2));
       connect(jointUSP.frame_ia, frame_ia) annotation (Line(
-          points={{-26,20},{-26,70},{-80,70},{-80,100}}, 
-          color={95,95,95}, 
+          points={{-26,20},{-26,70},{-80,70},{-80,100}},
+          color={95,95,95},
           thickness=2));
       connect(jointUSP.frame_im, frame_im) annotation (Line(
-          points={{-10,20},{-10,70},{0,70},{0,100}}, 
-          color={95,95,95}, 
+          points={{-10,20},{-10,70},{0,70},{0,100}},
+          color={95,95,95},
           thickness=2));
       connect(jointUSP.frame_ib, frame_ib) annotation (Line(
-          points={{6,20},{6,50},{80,50},{80,100}}, 
-          color={95,95,95}, 
+          points={{6,20},{6,50},{80,50},{80,100}},
+          color={95,95,95},
           thickness=2));
       connect(jointUSP.axis, axis) 
         annotation (Line(points={{10,16},{86,16},{86,80},{100,80}}, color={0,0,
@@ -6569,11 +6419,11 @@ and 1 prismatic joint are connected by rigid rods.
       
       Interfaces.Frame_a frame_a 
         "Coordinate system fixed to the joint with one cut-force and cut-torque"
-        annotation (Placement(transformation(extent={{-116,-16},{-84,16}}, 
+        annotation (Placement(transformation(extent={{-116,-16},{-84,16}},
               rotation=0)));
       Interfaces.Frame_b frame_b 
         "Coordinate system fixed to the joint with one cut-force and cut-torque"
-        annotation (Placement(transformation(extent={{84,-16},{116,16}}, 
+        annotation (Placement(transformation(extent={{84,-16},{116,16}},
               rotation=0)));
       
       parameter Boolean animation=true 
@@ -6635,12 +6485,12 @@ connected to the revolute joint.
           width=0.65,
           height=0.69),
         Icon(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
             grid={1,1}), graphics),
         Diagram(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
               extent={{-100,-60},{-20,60}}, 
@@ -6825,8 +6675,8 @@ connected to the prismatic joint.");
           width=0.67,
           height=0.79),
         Icon(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
               extent={{-100,-50},{-30,41}}, 
@@ -6853,16 +6703,14 @@ connected to the prismatic joint.");
             Text(
               extent={{60,12},{96,-13}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "b"), 
+              textString="b"), 
             Text(
               extent={{-95,13},{-60,-9}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "a")}),
+              textString="a")}),
         Diagram(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
               extent={{-100,-50},{-30,40}}, 
@@ -6894,13 +6742,8 @@ connected to the prismatic joint.");
             Text(
               extent={{12,-67},{49,-80}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "s"), 
-            Line(
-              points={{100,-70},{100,-30}}, 
-              color={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              textString="s"), 
+            Line(points={{100,-70},{100,-30}}, color={128,128,128}), 
             Line(points={{-100,-67},{-40,-67}}, color={128,128,128}), 
             Polygon(
               points={{-40,-64},{-30,-67},{-40,-70},{-40,-64}}, 
@@ -6910,19 +6753,10 @@ connected to the prismatic joint.");
             Text(
               extent={{-83,-69},{-49,-84}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "s_offset"), 
-            Line(
-              points={{-100,-70},{-100,-50}}, 
-              color={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              textString="s_offset"), 
+            Line(points={{-100,-70},{-100,-50}}, color={128,128,128}), 
             Line(points={{100,-30},{100,29}}, color={0,0,0}), 
-            Line(
-              points={{-30,-70},{-30,-50}}, 
-              color={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid)}),
+            Line(points={{-30,-70},{-30,-50}}, color={128,128,128})}),
         Documentation(info="<HTML>
 <p>
 Joint where frame_b is translated along axis n which is fixed in frame_a.
@@ -6997,20 +6831,20 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
       extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
         "1-dim. rotational flange that drives the joint" 
-        annotation (Placement(transformation(extent={{10,90},{-10,110}}, 
+        annotation (Placement(transformation(extent={{10,90},{-10,110}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing 
         "1-dim. rotational flange of the drive bearing" 
-        annotation (Placement(transformation(extent={{-50,90},{-70,110}}, 
+        annotation (Placement(transformation(extent={{-50,90},{-70,110}},
               rotation=0)));
       
       Modelica.Blocks.Interfaces.RealInput position_a[3] 
         "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint"
-        annotation (Placement(transformation(extent={{-140,-80},{-100,-40}}, 
+        annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
               rotation=0)));
       Modelica.Blocks.Interfaces.RealInput position_b[3] 
         "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint"
-        annotation (Placement(transformation(extent={{140,-80},{100,-40}}, 
+        annotation (Placement(transformation(extent={{140,-80},{100,-40}},
               rotation=0)));
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -7055,8 +6889,8 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
           width=0.65,
           height=0.69),
         Icon(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
               extent={{-30,10},{10,-10}}, 
@@ -7073,15 +6907,13 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
               lineColor={0,0,0}, 
               fillPattern=FillPattern.HorizontalCylinder, 
               fillColor={192,192,192}), 
-            Text(extent={{-139,-168},{137,-111}}, textString=
-                                                      "%name"), 
+            Text(extent={{-139,-168},{137,-111}}, textString="%name"), 
             Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}), 
             Rectangle(extent={{30,60},{100,-60}}, lineColor={0,0,0}), 
             Text(
               extent={{-142,-108},{147,-69}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "n=%n"), 
+              textString="n=%n"), 
             Line(points={{-60,60},{-60,90}}, color={0,0,0}), 
             Line(points={{-20,70},{-60,70}}, color={0,0,0}), 
             Line(points={{-20,80},{-20,60}}, color={0,0,0}), 
@@ -7103,8 +6935,8 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
               fillPattern=FillPattern.VerticalCylinder, 
               fillColor={192,192,192})}),
         Diagram(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
               extent={{-100,-60},{-30,60}}, 
@@ -7367,19 +7199,19 @@ position a degree of freedom is lost.
       extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
       Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
         "1-dim. translational flange that drives the joint" 
-        annotation (Placement(transformation(extent={{70,80},{90,60}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{70,80},{90,60}}, rotation=
+               0)));
       Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
         "1-dim. translational flange of the drive bearing" 
-        annotation (Placement(transformation(extent={{-30,80},{-50,60}}, 
+        annotation (Placement(transformation(extent={{-30,80},{-50,60}},
               rotation=0)));
       Modelica.Blocks.Interfaces.RealInput position_a[3] 
         "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint"
-        annotation (Placement(transformation(extent={{-140,-80},{-100,-40}}, 
+        annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
               rotation=0)));
       Modelica.Blocks.Interfaces.RealInput position_b[3] 
         "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint"
-        annotation (Placement(transformation(extent={{140,-80},{100,-40}}, 
+        annotation (Placement(transformation(extent={{140,-80},{100,-40}},
               rotation=0)));
       
       parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -7426,8 +7258,8 @@ position a degree of freedom is lost.
           width=0.65,
           height=0.69),
         Icon(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
               extent={{-30,-40},{100,30}}, 
@@ -7450,8 +7282,7 @@ position a degree of freedom is lost.
               pattern=LinePattern.None, 
               fillColor={0,0,0}, 
               fillPattern=FillPattern.Solid), 
-            Text(extent={{-136,-170},{140,-113}}, textString=
-                                                      "%name"), 
+            Text(extent={{-136,-170},{140,-113}}, textString="%name"), 
             Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}), 
             Line(points={{100,-40},{100,-60}}), 
             Rectangle(
@@ -7462,19 +7293,17 @@ position a degree of freedom is lost.
             Text(
               extent={{-136,-116},{153,-77}}, 
               lineColor={0,0,0}, 
-              textString=
-                   "n=%n")}),
+              textString="n=%n")}),
         Diagram(coordinateSystem(
-            preserveAspectRatio=true, 
-            extent={{-100,-100},{100,100}}, 
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Line(points={{-30,-50},{-30,50}}, color={0,0,0}), 
             Line(points={{0,-67},{90,-67}}, color={128,128,128}), 
             Text(
               extent={{31,-68},{68,-81}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "s"), 
+              textString="s"), 
             Line(points={{-100,-67},{0,-67}}, color={128,128,128}), 
             Polygon(
               points={{-39,-64},{-29,-67},{-39,-70},{-39,-64}}, 
@@ -7484,23 +7313,10 @@ position a degree of freedom is lost.
             Text(
               extent={{-77,-70},{-43,-85}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "s_offset"), 
-            Line(
-              points={{-100,-71},{-100,-51}}, 
-              color={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(
-              points={{-30,-73},{-30,-33}}, 
-              color={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(
-              points={{100,-70},{100,-30}}, 
-              color={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              textString="s_offset"), 
+            Line(points={{-100,-71},{-100,-51}}, color={128,128,128}), 
+            Line(points={{-30,-73},{-30,-33}}, color={128,128,128}), 
+            Line(points={{100,-70},{100,-30}}, color={128,128,128}), 
             Polygon(
               points={{90,-64},{100,-67},{90,-70},{90,-64}}, 
               lineColor={128,128,128}, 
@@ -7529,8 +7345,7 @@ position a degree of freedom is lost.
               fillPattern=FillPattern.Solid), 
             Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}), 
             Line(points={{100,-40},{100,-60}}), 
-            Text(extent={{42,91},{57,76}}, textString=
-                                               "f"), 
+            Text(extent={{42,91},{57,76}}, textString="f"), 
             Line(points={{40,75},{70,75}}, color={0,0,255}), 
             Polygon(
               points={{-21,78},{-31,75},{-21,72},{-21,78}}, 
@@ -7538,8 +7353,7 @@ position a degree of freedom is lost.
               fillColor={0,0,255}, 
               fillPattern=FillPattern.Solid), 
             Line(points={{-8,75},{-31,75}}, color={0,0,255}), 
-            Text(extent={{-21,90},{-6,75}}, textString=
-                                                "f"), 
+            Text(extent={{-21,90},{-6,75}}, textString="f"), 
             Polygon(
               points={{60,78},{70,75},{60,72},{60,78}}, 
               lineColor={0,0,255}, 
@@ -7554,8 +7368,7 @@ position a degree of freedom is lost.
             Text(
               extent={{0,63},{37,50}}, 
               lineColor={128,128,128}, 
-              textString=
-                   "s"), 
+              textString="s"), 
             Rectangle(
               extent={{100,40},{90,80}}, 
               lineColor={0,0,0}, 

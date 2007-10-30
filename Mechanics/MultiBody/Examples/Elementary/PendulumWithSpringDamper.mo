@@ -14,8 +14,8 @@ encapsulated model PendulumWithSpringDamper "Simple spring/damper/mass system"
       width=0.71,
       height=0.85),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={2,2}), graphics),
     Documentation(info="<html>
 <p>
@@ -39,8 +39,8 @@ ALT=\"model Examples.Elementary.PendulumWithSpringDamper\">
     r_CM={0,0,0},
     cylinderDiameter=0.05,
     sphereDiameter=0.2) annotation (Placement(transformation(
-        origin={72,30}, 
-        extent={{10,-10},{-10,10}}, 
+        origin={72,30},
+        extent={{10,-10},{-10,10}},
         rotation=180)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar1(animation=animation, r={0.3,0,0}) 
     annotation (Placement(transformation(extent={{-46,20},{-26,40}}, rotation=0)));
@@ -54,7 +54,7 @@ ALT=\"model Examples.Elementary.PendulumWithSpringDamper\">
     d=1,
     length_a=0.1,
     diameter_a=0.08,
-    animation=false) annotation (Placement(transformation(extent={{0,-20},{20,0}}, 
+    animation=false) annotation (Placement(transformation(extent={{0,-20},{20,0}},
           rotation=0)));
   Modelica.Mechanics.MultiBody.Joints.Revolute revolute(initType=Modelica.Mechanics.MultiBody.Types.Init.
         PositionVelocity) annotation (Placement(transformation(extent={{-12,20},
@@ -68,38 +68,38 @@ ALT=\"model Examples.Elementary.PendulumWithSpringDamper\">
 equation 
   connect(world.frame_b, bar1.frame_a) 
     annotation (Line(
-      points={{-60,30},{-46,30}}, 
-      color={95,95,95}, 
+      points={{-60,30},{-46,30}},
+      color={95,95,95},
       thickness=2));
   connect(revolute.frame_a, bar1.frame_b) 
     annotation (Line(
-      points={{-12,30},{-26,30}}, 
-      color={95,95,95}, 
+      points={{-12,30},{-26,30}},
+      color={95,95,95},
       thickness=2));
   connect(prismatic.frame_a, revolute.frame_b) 
     annotation (Line(
-      points={{20,30},{8,30}}, 
-      color={95,95,95}, 
+      points={{20,30},{8,30}},
+      color={95,95,95},
       thickness=2));
   connect(damper1.frame_a, bar1.frame_b) annotation (Line(
-      points={{0,-10},{-18,-10},{-18,30},{-26,30}}, 
-      color={95,95,95}, 
+      points={{0,-10},{-18,-10},{-18,30},{-26,30}},
+      color={95,95,95},
       thickness=2));
   connect(damper1.frame_b, prismatic.frame_b) annotation (Line(
-      points={{20,-10},{44,-10},{44,30},{40,30}}, 
-      color={95,95,95}, 
+      points={{20,-10},{44,-10},{44,30},{40,30}},
+      color={95,95,95},
       thickness=2));
   connect(spring1.frame_a, bar1.frame_b) annotation (Line(
-      points={{0,-36},{-18,-36},{-18,30},{-26,30}}, 
-      color={95,95,95}, 
+      points={{0,-36},{-18,-36},{-18,30},{-26,30}},
+      color={95,95,95},
       thickness=2));
   connect(spring1.frame_b, prismatic.frame_b) annotation (Line(
-      points={{20,-36},{44,-36},{44,30},{40,30}}, 
-      color={95,95,95}, 
+      points={{20,-36},{44,-36},{44,30},{40,30}},
+      color={95,95,95},
       thickness=2));
   connect(body1.frame_a, prismatic.frame_b) 
     annotation (Line(
-      points={{62,30},{40,30}}, 
-      color={95,95,95}, 
+      points={{62,30},{40,30}},
+      color={95,95,95},
       thickness=2));
 end PendulumWithSpringDamper;

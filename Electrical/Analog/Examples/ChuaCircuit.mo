@@ -7,8 +7,8 @@ encapsulated model ChuaCircuit "Chua's circuit, ns, V, A"
   
   annotation (
     Icon(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={1,1}), graphics),
     Documentation(info="<html>
 <p>
@@ -57,29 +57,29 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     experiment(StopTime=1),
     experimentSetupOutput);
   Basic.Inductor L(L=18) annotation (Placement(transformation(
-        origin={-75,50}, 
-        extent={{-25,-25},{25,25}}, 
+        origin={-75,50},
+        extent={{-25,-25},{25,25}},
         rotation=270)));
   Basic.Resistor Ro(R=12.5e-3) annotation (Placement(transformation(
-        origin={-75,-5}, 
-        extent={{-25,-25},{25,25}}, 
+        origin={-75,-5},
+        extent={{-25,-25},{25,25}},
         rotation=270)));
   Basic.Conductor G(G=0.565) annotation (Placement(transformation(extent={{-25,
             50},{25,100}}, rotation=0)));
   Basic.Capacitor C1(C=10, v(start=4)) annotation (Placement(transformation(
-        origin={25,15}, 
-        extent={{-25,-25},{25,25}}, 
+        origin={25,15},
+        extent={{-25,-25},{25,25}},
         rotation=270)));
   Basic.Capacitor C2(C=100) annotation (Placement(transformation(
-        origin={-25,15}, 
-        extent={{-25,-25},{25,25}}, 
+        origin={-25,15},
+        extent={{-25,-25},{25,25}},
         rotation=270)));
   Utilities.NonlinearResistor Nr(
     Ga(min=-1) = -0.757576,
     Gb(min=-1) = -0.409091,
     Ve=1) annotation (Placement(transformation(
-        origin={75,15}, 
-        extent={{-25,-25},{25,25}}, 
+        origin={75,15},
+        extent={{-25,-25},{25,25}},
         rotation=270)));
   Basic.Ground Gnd annotation (Placement(transformation(extent={{-25,-100},{25,
             -50}}, rotation=0)));

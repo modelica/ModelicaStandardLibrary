@@ -3,8 +3,8 @@ model Nand "CMOS NAND Gate (see Tietze/Schenk, page 157)"
   
   annotation (
     Icon(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={1,1}), graphics={
         Rectangle(
           extent={{-50,70},{50,-70}}, 
@@ -18,19 +18,15 @@ model Nand "CMOS NAND Gate (see Tietze/Schenk, page 157)"
         Text(
           extent={{-16,50},{14,20}}, 
           lineColor={0,0,0}, 
-          textString=
-               "&"), 
+          textString="&"), 
         Line(points={{60,0},{100,0}}), 
         Line(points={{0,70},{0,100}}), 
         Line(points={{-50,50},{-100,50}}), 
         Line(points={{-50,-50},{-100,-50}}), 
         Ellipse(extent={{50,5},{60,-5}}, lineColor={0,0,0}), 
-        Text(extent={{-100,34},{-90,24}}, textString=
-                                              "x1"), 
-        Text(extent={{-100,-65},{-90,-75}}, textString=
-                                                "x2"), 
-        Text(extent={{90,-15},{100,-25}}, textString=
-                                              "y")}),
+        Text(extent={{-100,34},{-90,24}}, textString="x1"), 
+        Text(extent={{-100,-65},{-90,-75}}, textString="x2"), 
+        Text(extent={{90,-15},{100,-25}}, textString="y")}),
     Documentation(info="<html>
 <p>
 The nand gate is a basic CMOS building block. It consists of four CMOS transistors.
@@ -76,8 +72,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
       width=0.6,
       height=0.6),
     Diagram(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={1,1}), graphics));
   Semiconductors.PMOS TP1(
     W=6.5e-6,
@@ -87,7 +83,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     K2=0.41,
     K5=0.8385,
     dW=-2.5e-6,
-    dL=-2.1e-6) annotation (Placement(transformation(extent={{10,60},{30,80}}, 
+    dL=-2.1e-6) annotation (Placement(transformation(extent={{10,60},{30,80}},
           rotation=0)));
   Semiconductors.PMOS TP2(
     W=6.5e-6,
@@ -97,7 +93,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     K2=0.41,
     K5=0.8385,
     dW=-2.5e-6,
-    dL=-2.1e-6) annotation (Placement(transformation(extent={{-40,45},{-20,65}}, 
+    dL=-2.1e-6) annotation (Placement(transformation(extent={{-40,45},{-20,65}},
           rotation=0)));
   Semiconductors.NMOS TN1(
     W=6.5e-6,
@@ -107,7 +103,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     K2=1.144,
     K5=0.7311,
     dW=-2.5e-6,
-    dL=-1.5e-6) annotation (Placement(transformation(extent={{10,15},{30,35}}, 
+    dL=-1.5e-6) annotation (Placement(transformation(extent={{10,15},{30,35}},
           rotation=0)));
   Semiconductors.NMOS TN2(
     W=6.5e-6,
@@ -117,27 +113,27 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     K2=1.144,
     K5=0.7311,
     dW=-2.5e-6,
-    dL=-1.5e-6) annotation (Placement(transformation(extent={{10,-25},{30,-5}}, 
+    dL=-1.5e-6) annotation (Placement(transformation(extent={{10,-25},{30,-5}},
           rotation=0)));
   Basic.Capacitor C4(C=0.4e-13) annotation (Placement(transformation(
-        origin={60,30}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={60,30},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Basic.Capacitor C7(C=0.4e-13) annotation (Placement(transformation(
-        origin={55,-50}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={55,-50},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Basic.Ground Gnd annotation (Placement(transformation(extent={{40,-25},{50,
             -15}}, rotation=0)));
-  Basic.Ground Gnd2 annotation (Placement(transformation(extent={{55,0},{65,10}}, 
+  Basic.Ground Gnd2 annotation (Placement(transformation(extent={{55,0},{65,10}},
           rotation=0)));
   Basic.Ground Gnd3 annotation (Placement(transformation(extent={{50,-80},{60,
             -70}}, rotation=0)));
   Basic.Ground Gnd6 annotation (Placement(transformation(extent={{-15,30},{-5,
             40}}, rotation=0)));
-  Basic.Ground Gnd7 annotation (Placement(transformation(extent={{40,15},{50,25}}, 
+  Basic.Ground Gnd7 annotation (Placement(transformation(extent={{40,15},{50,25}},
           rotation=0)));
-  Basic.Ground Gnd8 annotation (Placement(transformation(extent={{40,60},{50,70}}, 
+  Basic.Ground Gnd8 annotation (Placement(transformation(extent={{40,60},{50,70}},
           rotation=0)));
   Interfaces.Pin x1 annotation (Placement(transformation(extent={{-110,40},{-90,
             60}}, rotation=0)));

@@ -35,8 +35,8 @@ MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
     Diagram(graphics));
   
   inner Modelica.Mechanics.MultiBody.World world(animateGravity=false) 
-    annotation (Placement(transformation(extent={{-80,-60},{-60,-40}}, rotation
-          =0)));
+    annotation (Placement(transformation(extent={{-80,-60},{-60,-40}}, rotation=
+           0)));
   Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute j1(
     n={1,0,0},
     initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
@@ -45,12 +45,12 @@ MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
             -20}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1}, diameter=0.05) 
     annotation (Placement(transformation(
-        origin={-30,-8}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-30,-8},
+        extent={{-10,-10},{10,10}},
         rotation=90)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(r={1.2,0,0}, animation=false) 
-    annotation (Placement(transformation(extent={{-32,-60},{-12,-40}}, rotation
-          =0)));
+    annotation (Placement(transformation(extent={{-32,-60},{-12,-40}}, rotation=
+           0)));
   Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP jointSSP(
     rod1Length=sqrt({-1,0.3,0.1}*{-1,0.3,0.1}),
     n_b={1,0,0},
@@ -64,8 +64,8 @@ MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
     r={0,0.2,0},
     diameter=0.05,
     animation=false) annotation (Placement(transformation(
-        origin={50,10}, 
-        extent={{10,-10},{-10,10}}, 
+        origin={50,10},
+        extent={{10,-10},{-10,10}},
         rotation=90)));
 equation 
   j1_phi = j1.phi;
@@ -73,28 +73,28 @@ equation
   j1_w = j1.w;
   j2_v = der(jointSSP.prismatic.distance);
   connect(j1.frame_b, b1.frame_a) annotation (Line(
-      points={{-34,-30},{-30,-30},{-30,-18}}, 
-      color={95,95,95}, 
+      points={{-34,-30},{-30,-30},{-30,-18}},
+      color={95,95,95},
       thickness=2));
   connect(j1.frame_a, world.frame_b) annotation (Line(
-      points={{-54,-30},{-60,-30},{-60,-50}}, 
-      color={95,95,95}, 
+      points={{-54,-30},{-60,-30},{-60,-50}},
+      color={95,95,95},
       thickness=2));
   connect(b3.frame_a, world.frame_b) 
     annotation (Line(
-      points={{-32,-50},{-60,-50}}, 
-      color={95,95,95}, 
+      points={{-32,-50},{-60,-50}},
+      color={95,95,95},
       thickness=2));
   connect(b1.frame_b, jointSSP.frame_a) annotation (Line(
-      points={{-30,2},{-30,20},{-20,20}}, 
-      color={95,95,95}, 
+      points={{-30,2},{-30,20},{-20,20}},
+      color={95,95,95},
       thickness=2));
   connect(b3.frame_b, jointSSP.frame_b) annotation (Line(
-      points={{-12,-50},{30,-50},{30,20},{20,20}}, 
-      color={95,95,95}, 
+      points={{-12,-50},{30,-50},{30,20},{20,20}},
+      color={95,95,95},
       thickness=2));
   connect(b2.frame_a, jointSSP.frame_ib) annotation (Line(
-      points={{50,20},{50,48},{16,48},{16,40}}, 
-      color={95,95,95}, 
+      points={{50,20},{50,48},{16,48},{16,40}},
+      color={95,95,95},
       thickness=2));
 end Fourbar_analytic;

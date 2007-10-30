@@ -141,8 +141,7 @@ and the accompanying <b>disclaimer</b>
           lineColor={160,160,164}, 
           fillColor={0,0,0}, 
           fillPattern=FillPattern.Solid, 
-          textString=
-               "Library"), 
+          textString="Library"), 
         Line(
           points={{266,224},{312,224}}, 
           color={0,0,0}, 
@@ -158,6 +157,5 @@ and the accompanying <b>disclaimer</b>
         Text(
           extent={{152,412},{458,334}}, 
           lineColor={255,0,0}, 
-          textString=
-               "Modelica.Constants")}));
+          textString="Modelica.Constants")}));
 end Constants;

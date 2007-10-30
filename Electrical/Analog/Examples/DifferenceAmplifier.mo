@@ -9,8 +9,8 @@ encapsulated model DifferenceAmplifier
   
   annotation (
     Icon(coordinateSystem(
-        preserveAspectRatio=true, 
-        extent={{-100,-100},{100,100}}, 
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
         grid={1,1}), graphics),
     Documentation(info="<html>
 <p>
@@ -63,50 +63,50 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     V=0.2,
     freqHz=0.2e9,
     damping=0.1e8) annotation (Placement(transformation(
-        origin={-90,-50}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-90,-50},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Sources.RampVoltage V2(V=15, duration=1e-9) annotation (Placement(
         transformation(
-        origin={80,50}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={80,50},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Sources.RampCurrent I1(I=0.16, duration=1e-9) annotation (Placement(
         transformation(
-        origin={-10,-50}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-10,-50},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Basic.Resistor R1(R=0.0001) annotation (Placement(transformation(extent={{-90,
             -20},{-70,0}}, rotation=0)));
   Basic.Resistor R2(R=100) annotation (Placement(transformation(
-        origin={-40,30}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-40,30},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Basic.Resistor R3(R=0.0001) annotation (Placement(transformation(extent={{70,
             -20},{90,0}}, rotation=0)));
   Basic.Resistor R4(R=100) annotation (Placement(transformation(
-        origin={40,30}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={40,30},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Basic.Capacitor C1(C=1e-10) annotation (Placement(transformation(
-        origin={-60,-50}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={-60,-50},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Basic.Capacitor C4(C=1e-10) annotation (Placement(transformation(extent={{10,
             -14},{30,6}}, rotation=0)));
   Basic.Capacitor C5(C=1e-10) annotation (Placement(transformation(
-        origin={10,-50}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={10,-50},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Basic.Capacitor C2(C=1e-10) annotation (Placement(transformation(extent={{-30,
             -14},{-10,6}}, rotation=0)));
   Basic.Capacitor C3(C=1e-10) annotation (Placement(transformation(
-        origin={60,-50}, 
-        extent={{-10,-10},{10,10}}, 
+        origin={60,-50},
+        extent={{-10,-10},{10,10}},
         rotation=270)));
   Basic.Ground Gnd1 annotation (Placement(transformation(extent={{-95,-80},{-85,
             -70}}, rotation=0)));
-  Basic.Ground Gnd9 annotation (Placement(transformation(extent={{75,20},{85,30}}, 
+  Basic.Ground Gnd9 annotation (Placement(transformation(extent={{75,20},{85,30}},
           rotation=0)));
   Basic.Ground Gnd3 annotation (Placement(transformation(extent={{-15,-20},{-5,
             -10}}, rotation=0)));
