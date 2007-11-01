@@ -1057,12 +1057,15 @@ way and provides the result as output signal <b>phi</b>
               textString="phi"), 
             Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
             Line(points={{70,0},{100,0}}, color={0,0,127}), 
-            Text(extent={{150,80},{-150,120}}, textString="%name")}),
+            Text(
+              extent={{150,80},{-150,120}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
-              Line(points={{70,0},{100,0}})}),
+              Line(points={{70,0},{100,0}}, color={0,0,255})}),
         Window(
           x=0.08,
           y=0.09,
@@ -1104,12 +1107,15 @@ way and provides the result as output signal <b>w</b>
               textString="w"), 
             Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
             Line(points={{70,0},{100,0}}, color={0,0,127}), 
-            Text(extent={{150,80},{-150,120}}, textString="%name")}),
+            Text(
+              extent={{150,80},{-150,120}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
-              Line(points={{70,0},{100,0}})}),
+              Line(points={{70,0},{100,0}}, color={0,0,255})}),
         Window(
           x=0.12,
           y=0.08,
@@ -1152,12 +1158,15 @@ blocks of the Modelica.Blocks library).
               textString="a"), 
             Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
             Line(points={{70,0},{100,0}}, color={0,0,127}), 
-            Text(extent={{150,80},{-150,120}}, textString="%name")}),
+            Text(
+              extent={{150,80},{-150,120}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
-              Line(points={{70,0},{100,0}})}),
+              Line(points={{70,0},{100,0}}, color={0,0,255})}),
         Window(
           x=0.17,
           y=0.12,
@@ -1208,7 +1217,10 @@ in an ideal way and provides the result as output signal <b>phi_rel</b>
               extent={{20,-70},{160,-100}}, 
               lineColor={0,0,0}, 
               textString="phi_rel"), 
-            Text(extent={{150,80},{-150,120}}, textString="%name"), 
+            Text(
+              extent={{150,80},{-150,120}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
             Line(points={{70,0},{90,0}}, color={0,0,0}), 
             Line(points={{0,-100},{0,-70}}, color={0,0,127})}),
@@ -1228,7 +1240,7 @@ in an ideal way and provides the result as output signal <b>phi_rel</b>
               textString="rotation axis"), 
             Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
             Line(points={{70,0},{90,0}}, color={0,0,0}), 
-            Line(points={{0,-100},{0,-70}})}),
+            Line(points={{0,-100},{0,-70}}, color={0,0,255})}),
         Window(
           x=0.12,
           y=0.17,
@@ -1280,7 +1292,10 @@ in an ideal way and provides the result as output signal <b>w_rel</b>
               lineColor={0,0,0}, 
               textString="w_rel"), 
             Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-            Text(extent={{150,80},{-150,120}}, textString="%name"), 
+            Text(
+              extent={{150,80},{-150,120}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Line(points={{70,0},{90,0}}, color={0,0,0}), 
             Line(points={{0,-100},{0,-70}}, color={0,0,127})}),
         Diagram(coordinateSystem(
@@ -1298,7 +1313,7 @@ in an ideal way and provides the result as output signal <b>w_rel</b>
               lineColor={128,128,128}, 
               textString="rotation axis"), 
             Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
-            Line(points={{0,-100},{0,-70}}), 
+            Line(points={{0,-100},{0,-70}}, color={0,0,255}), 
             Line(points={{70,0},{90,0}}, color={0,0,0})}),
         Window(
           x=0.12,
@@ -1355,7 +1370,10 @@ in an ideal way and provides the result as output signal <b>a_rel</b>
             Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
             Line(points={{70,0},{90,0}}, color={0,0,0}), 
             Line(points={{0,-100},{0,-70}}, color={0,0,127}), 
-            Text(extent={{150,80},{-150,120}}, textString="%name")}),
+            Text(
+              extent={{150,80},{-150,120}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1372,7 +1390,7 @@ in an ideal way and provides the result as output signal <b>a_rel</b>
               textString="rotation axis"), 
             Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
             Line(points={{70,0},{90,0}}, color={0,0,0}), 
-            Line(points={{0,-100},{0,-70}})}),
+            Line(points={{0,-100},{0,-70}}, color={0,0,255})}),
         Window(
           x=0.14,
           y=0.08,
@@ -1450,7 +1468,10 @@ and provides the result as output signal <b>tau</b>
             Line(points={{-80,-100},{-80,0}}, color={0,0,127}), 
             Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
             Line(points={{70,0},{90,0}}, color={0,0,0}), 
-            Text(extent={{150,80},{-150,120}}, textString="%name")}),
+            Text(
+              extent={{150,80},{-150,120}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1467,7 +1488,7 @@ and provides the result as output signal <b>tau</b>
               textString="rotation axis"), 
             Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
             Line(points={{70,0},{96,0}}, color={0,0,0}), 
-            Line(points={{-80,-100},{-80,0}})}),
+            Line(points={{-80,-100},{-80,0}}, color={0,0,255})}),
         Window(
           x=0.43,
           y=0.11,
@@ -1512,7 +1533,10 @@ and provides the result as output signal <b>power</b>
             Line(points={{-80,-100},{-80,0}}, color={0,0,127}), 
             Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
             Line(points={{70,0},{90,0}}, color={0,0,0}), 
-            Text(extent={{150,80},{-150,120}}, textString="%name")}),
+            Text(
+              extent={{150,80},{-150,120}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1529,7 +1553,7 @@ and provides the result as output signal <b>power</b>
               textString="rotation axis"), 
             Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
             Line(points={{70,0},{96,0}}, color={0,0,0}), 
-            Line(points={{-80,-100},{-80,0}})}),
+            Line(points={{-80,-100},{-80,0}}, color={0,0,255})}),
         Window(
           x=0.43,
           y=0.11,
@@ -1688,7 +1712,8 @@ differentiation of the flange angle phi:
               fillColor={135,135,135}, 
               fillPattern=FillPattern.Solid)}),
         Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=0,
-                fillColor=10))));
+                fillColor=10), 
+            lineColor={0,0,255})));
     end Flange_a;
     
     connector Flange_b "1D rotational flange (non-filled square icon)" 
@@ -1747,7 +1772,8 @@ differentiation of the flange angle phi:
               lineColor={0,0,0}, 
               textString="%name")}),
         Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=0,
-                fillColor=7))));
+                fillColor=7), 
+            lineColor={0,0,255})));
     end Flange_b;
     
     partial model Rigid 
@@ -1941,8 +1967,10 @@ It is used e.g. to build up equation-based parts of a drive train.</p>
                 extent={{-90,10},{90,-10}}, 
                 lineColor={192,192,192}, 
                 fillColor={192,192,192}, 
-                fillPattern=FillPattern.Solid), Text(extent={{-150,60},{150,20}}, 
-                  textString="%name")}));
+                fillPattern=FillPattern.Solid), Text(
+                extent={{-150,60},{150,20}}, 
+                textString="%name", 
+                lineColor={0,0,255})}));
       equation 
         flange_a.phi = flange_b.phi;
         
@@ -2080,12 +2108,15 @@ with the blocks of package Modelica.Blocks.
             grid={1,1}), graphics={
             Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
             Line(points={{70,0},{100,0}}, color={0,0,127}), 
-            Text(extent={{150,80},{-150,120}}, textString="%name")}),
+            Text(
+              extent={{150,80},{-150,120}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-              Line(points={{70,0},{100,0}})}));
+              Line(points={{70,0},{100,0}}, color={0,0,255})}));
     end AbsoluteSensor;
     
     partial model RelativeSensor 
@@ -2129,14 +2160,17 @@ with the blocks of package Modelica.Blocks.
             Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
             Line(points={{70,0},{90,0}}, color={0,0,0}), 
             Line(points={{0,-100},{0,-70}}, color={0,0,127}), 
-            Text(extent={{-150,70},{150,110}}, textString="%name")}),
+            Text(
+              extent={{-150,70},{150,110}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
             Line(points={{70,0},{90,0}}, color={0,0,0}), 
-            Line(points={{0,-100},{0,-70}})}));
+            Line(points={{0,-100},{0,-70}}, color={0,0,255})}));
     end RelativeSensor;
     
     partial model PartialSpeedDependentTorque 
@@ -2260,7 +2294,10 @@ Rotational component with <b>inertia</b> and two rigidly connected flanges.
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={192,192,192}), 
-          Text(extent={{-150,100},{150,60}}, textString="%name"), 
+          Text(
+            extent={{-150,100},{150,60}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
             extent={{-150,-80},{150,-120}}, 
             lineColor={0,0,0}, 
@@ -2336,7 +2373,10 @@ connected to other elements in an appropriate way.
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={192,192,192}), 
-          Text(extent={{-150,180},{150,140}}, textString="%name=%ratio"), 
+          Text(
+            extent={{-150,180},{150,140}}, 
+            textString="%name=%ratio", 
+            lineColor={0,0,255}), 
           Line(points={{-80,20},{-60,20}}, color={0,0,0}), 
           Line(points={{-80,-20},{-60,-20}}, color={0,0,0}), 
           Line(points={{-70,-20},{-70,-70}}, color={0,0,0}), 
@@ -2523,7 +2563,10 @@ in the flanges, are along the axis vector displayed in the icon.
           Line(points={{-70,50},{-70,40}}, color={0,0,0}), 
           Line(points={{-80,80},{-59,80}}, color={0,0,0}), 
           Line(points={{-70,100},{-70,80}}, color={0,0,0}), 
-          Text(extent={{-150,150},{150,110}}, textString="%name"), 
+          Text(
+            extent={{-150,150},{150,110}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
             extent={{-150,-110},{150,-150}}, 
             lineColor={0,0,0}, 
@@ -2577,18 +2620,36 @@ in the flanges, are along the axis vector displayed in the icon.
           Line(points={{-70,50},{-70,40}}, color={0,0,0}), 
           Line(points={{-80,80},{-59,80}}, color={0,0,0}), 
           Line(points={{-70,90},{-70,80}}, color={0,0,0}), 
-          Line(points={{-26,-42},{-32,-2}}, pattern=LinePattern.Dot), 
-          Line(points={{36,-26},{64,-60}}, pattern=LinePattern.Dot), 
-          Text(extent={{58,-66},{98,-78}}, textString="ring gear"), 
-          Text(extent={{-112,111},{-56,87}}, textString="planet carrier "), 
-          Text(extent={{-47,-42},{-3,-56}}, textString="sun gear"), 
+          Line(
+            points={{-26,-42},{-32,-2}}, 
+            pattern=LinePattern.Dot, 
+            color={0,0,255}), 
+          Line(
+            points={{36,-26},{64,-60}}, 
+            pattern=LinePattern.Dot, 
+            color={0,0,255}), 
+          Text(
+            extent={{58,-66},{98,-78}}, 
+            textString="ring gear", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-112,111},{-56,87}}, 
+            textString="planet carrier ", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-47,-42},{-3,-56}}, 
+            textString="sun gear", 
+            lineColor={0,0,255}), 
           Polygon(
             points={{58,130},{28,140},{28,120},{58,130}}, 
             lineColor={128,128,128}, 
             fillColor={128,128,128}, 
             fillPattern=FillPattern.Solid), 
           Line(points={{-52,130},{28,130}}, color={0,0,0}), 
-          Line(points={{-92,93},{-70,80}}, pattern=LinePattern.Dot), 
+          Line(
+            points={{-92,93},{-70,80}}, 
+            pattern=LinePattern.Dot, 
+            color={0,0,255}), 
           Polygon(
             points={{-7,-86},{-27,-81},{-27,-91},{-7,-86}}, 
             lineColor={128,128,128}, 
@@ -2658,7 +2719,10 @@ connected with corresponding elements.
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={192,192,192}), 
-          Text(extent={{-150,90},{150,50}}, textString="%name=%ratio"), 
+          Text(
+            extent={{-150,90},{150,50}}, 
+            textString="%name=%ratio", 
+            lineColor={0,0,255}), 
           Polygon(
             points={{-74,-60},{-54,-40},{-34,-60},{-14,-40},{6,-60},{26,-40},{
                 46,-60},{66,-40},{86,-60},{-74,-60}}, 
@@ -2719,8 +2783,10 @@ connected with corresponding elements.
             lineColor={0,0,0}, 
             fillColor={160,160,164}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-100,70},{100,40}}, textString=
-                "transform rotation into translation"), 
+          Text(
+            extent={{-100,70},{100,40}}, 
+            textString="transform rotation into translation", 
+            lineColor={0,0,255}), 
           Polygon(
             points={{-74,-60},{-54,-40},{-34,-60},{-14,-40},{6,-60},{26,-40},{
                 46,-60},{66,-40},{86,-60},{-74,-60}}, 
@@ -2786,7 +2852,10 @@ a coupling of the element with the housing via a spring.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Text(extent={{-150,80},{150,40}}, textString="%name"), 
+          Text(
+            extent={{-150,80},{150,40}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
             extent={{-150,-40},{150,-80}}, 
             lineColor={0,0,0}, 
@@ -2825,7 +2894,7 @@ a coupling of the element with the housing via a spring.
             fillPattern=FillPattern.Solid), 
           Line(points={{-82,-68},{-11,-68}}, color={128,128,128}), 
           Line(points={{-96,0},{-60,0},{-42,-32},{-12,30},{18,-30},{48,28},{62,
-                0},{96,0}})}));
+                0},{96,0}}, color={0,0,255})}));
   equation 
     tau = c*(phi_rel - phi_rel0);
   end Spring;
@@ -2865,7 +2934,10 @@ between two inertia/gear elements.
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid), 
           Line(points={{30,0},{90,0}}, color={0,0,0}), 
-          Text(extent={{-150,80},{150,40}}, textString="%name"), 
+          Text(
+            extent={{-150,80},{150,40}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
             extent={{-150,-50},{150,-90}}, 
             lineColor={0,0,0}, 
@@ -2968,7 +3040,10 @@ to describe a coupling of the element with the housing via a spring/damper.
             extent={{-101,-147},{98,-107}}, 
             lineColor={0,0,0}, 
             textString="d=%d"), 
-          Text(extent={{-190,110},{190,70}}, textString="%name=%c")}),
+          Text(
+            extent={{-190,110},{190,70}}, 
+            textString="%name=%c", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -3140,7 +3215,10 @@ can be used to model a gear box with backlash, elasticity and damping.
             extent={{-150,-130},{150,-90}}, 
             lineColor={0,0,0}, 
             textString="b=%b"), 
-          Text(extent={{-150,100},{150,60}}, textString="%name=%c")}),
+          Text(
+            extent={{-150,100},{150,60}}, 
+            textString="%name=%c", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -3397,7 +3475,10 @@ following references, especially (Armstrong and Canudas de Witt 1996):
             fillColor={160,160,164}, 
             fillPattern=FillPattern.Solid), 
           Line(points={{75,70},{75,10}}, color={0,0,0}), 
-          Text(extent={{-150,130},{150,90}}, textString="%name"), 
+          Text(
+            extent={{-150,130},{150,90}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Line(points={{-10,-90},{0,-80}}, color={0,0,0}), 
           Line(points={{-5,-90},{5,-80}}, color={0,0,0}), 
           Line(points={{0,-90},{10,-80}}, color={0,0,0}), 
@@ -3582,7 +3663,10 @@ following references, especially (Armstrong and Canudas de Witt 1996):
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={192,192,192}), 
-          Text(extent={{-150,-110},{150,-70}}, textString="%name")}),
+          Text(
+            extent={{-150,-110},{150,-70}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Documentation(info="<html>
 <p>
 This component models a <b>clutch</b>, i.e., a component with
@@ -3679,17 +3763,20 @@ following references, especially (Armstrong and Canudas de Witt 1996):
           Polygon(
             points={{-30,40},{-60,50},{-60,30},{-30,40}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Line(
             points={{0,90},{-90,70},{-90,40},{-30,40}}, 
             pattern=LinePattern.Solid, 
             thickness=1, 
-            arrow={Arrow.None,Arrow.None}), 
-          Line(points={{0,90},{90,70},{90,40},{30,40}}), 
+            arrow={Arrow.None,Arrow.None}, 
+            color={0,0,255}), 
+          Line(points={{0,90},{90,70},{90,40},{30,40}}, color={0,0,255}), 
           Polygon(
             points={{30,40},{60,50},{60,30},{30,40}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Rectangle(
             extent={{10,60},{30,-60}}, 
             lineColor={0,0,0}, 
@@ -3830,7 +3917,10 @@ following references, especially (Armstrong and Canudas de Witt 1996):
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={192,192,192}), 
-          Text(extent={{-150,-110},{150,-70}}, textString="%name"), 
+          Text(
+            extent={{-150,-110},{150,-70}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Polygon(
             points={{-10,30},{50,0},{-10,-30},{-10,30}}, 
             lineColor={0,0,0}, 
@@ -3927,17 +4017,20 @@ are dynamically coupled. The method is described in:
           Polygon(
             points={{-30,40},{-60,50},{-60,30},{-30,40}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Line(
             points={{0,90},{-90,70},{-90,40},{-30,40}}, 
             pattern=LinePattern.Solid, 
             thickness=1, 
-            arrow={Arrow.None,Arrow.None}), 
-          Line(points={{0,90},{90,70},{90,40},{30,40}}), 
+            arrow={Arrow.None,Arrow.None}, 
+            color={0,0,255}), 
+          Line(points={{0,90},{90,70},{90,40},{30,40}}, color={0,0,255}), 
           Polygon(
             points={{30,40},{60,50},{60,30},{30,40}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Rectangle(
             extent={{10,60},{30,-60}}, 
             lineColor={0,0,0}, 
@@ -4078,7 +4171,10 @@ are dynamically coupled. The method is described in:
             fillPattern=FillPattern.Solid), 
           Line(points={{0,90},{80,70},{80,-40},{70,-40}}, color={0,0,127}), 
           Line(points={{0,90},{-80,70},{-80,-40},{-70,-40}}, color={0,0,127}), 
-          Text(extent={{-150,-180},{150,-140}}, textString="%name")}),
+          Text(
+            extent={{-150,-180},{150,-140}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Documentation(info="<html>
 <p>
 This component models a <b>brake</b>, i.e., a component where a frictional
@@ -4201,21 +4297,24 @@ following references, especially (Armstrong and Canudas de Witt 1996):
             points={{0,90},{-80,70},{-80,-40},{-70,-40}}, 
             pattern=LinePattern.Solid, 
             thickness=1, 
-            arrow={Arrow.None,Arrow.None}), 
+            arrow={Arrow.None,Arrow.None}, 
+            color={0,0,255}), 
           Rectangle(
             extent={{-20,60},{20,-60}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={192,192,192}), 
-          Line(points={{0,90},{80,70},{80,-40},{70,-40}}), 
+          Line(points={{0,90},{80,70},{80,-40},{70,-40}}, color={0,0,255}), 
           Polygon(
             points={{40,-40},{70,-30},{70,-50},{40,-40}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{-40,-40},{-70,-30},{-70,-50},{-40,-40}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Rectangle(
             extent={{-40,-25},{-30,-55}}, 
             lineColor={0,0,0}, 
@@ -4469,7 +4568,10 @@ Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</p>
           Line(points={{60,20},{80,20}}, color={0,0,0}), 
           Line(points={{60,-20},{80,-20}}, color={0,0,0}), 
           Line(points={{70,-20},{70,-70}}, color={0,0,0}), 
-          Text(extent={{-150,180},{150,140}}, textString="%name=%i")}),
+          Text(
+            extent={{-150,180},{150,140}}, 
+            textString="%name=%i", 
+            lineColor={0,0,255})}),
       Diagram(graphics={
           Rectangle(
             extent={{-40,20},{-20,-20}}, 
@@ -4645,7 +4747,10 @@ Modelica.Constants.eps).
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Text(extent={{-150,100},{150,60}}, textString="%name"), 
+          Text(
+            extent={{-150,100},{150,60}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Rectangle(
             extent={{-100,20},{100,-20}}, 
             lineColor={0,0,0}, 
@@ -4837,7 +4942,10 @@ to the left and/or the right flange.
             lineColor={128,128,128}, 
             fillColor={128,128,128}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-150,110},{150,70}}, textString="%name=%ratio"), 
+          Text(
+            extent={{-150,110},{150,70}}, 
+            textString="%name=%ratio", 
+            lineColor={0,0,255}), 
           Text(
             extent={{-150,-160},{150,-120}}, 
             lineColor={0,0,0}, 
@@ -4958,7 +5066,10 @@ GearNew.</p>
             lineColor={128,128,128}, 
             fillColor={128,128,128}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-150,110},{150,70}}, textString="%name=%i"), 
+          Text(
+            extent={{-150,110},{150,70}}, 
+            textString="%name=%i", 
+            lineColor={0,0,255}), 
           Text(
             extent={{-150,-160},{150,-120}}, 
             lineColor={0,0,0}, 
@@ -5089,7 +5200,10 @@ blocks of the block library Modelica.Blocks.Sources.
             extent={{-56,-56},{-172,-90}}, 
             lineColor={0,0,0}, 
             textString="phi_ref"), 
-          Text(extent={{150,60},{-150,100}}, textString="%name")}),
+          Text(
+            extent={{150,60},{-150,100}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -5242,7 +5356,10 @@ blocks of the block library Modelica.Blocks.Sources.
             extent={{-54,-44},{-158,-78}}, 
             lineColor={0,0,0}, 
             textString="w_ref"), 
-          Text(extent={{0,120},{0,60}}, textString="%name")}),
+          Text(
+            extent={{0,120},{0,60}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -5368,7 +5485,10 @@ blocks of the block library Modelica.Blocks.Sources.
             extent={{-84,-48},{-144,-86}}, 
             lineColor={0,0,0}, 
             textString="a"), 
-          Text(extent={{-150,100},{150,60}}, textString="%name")}),
+          Text(
+            extent={{-150,100},{150,60}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -5492,7 +5612,10 @@ blocks of the block library Modelica.Blocks.Sources.
           Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
           Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
           Line(points={{-20,-32},{-30,-42}}, color={0,0,0}), 
-          Text(extent={{-100,80},{-100,40}}, textString="phi,w,a")}),
+          Text(
+            extent={{-100,80},{-100,40}}, 
+            textString="phi,w,a", 
+            lineColor={0,0,255})}),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -5522,7 +5645,10 @@ blocks of the block library Modelica.Blocks.Sources.
           Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
           Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
           Line(points={{-20,-32},{-30,-42}}, color={0,0,0}), 
-          Text(extent={{-150,100},{150,60}}, textString="%name")}),
+          Text(
+            extent={{-150,100},{150,60}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Window(
         x=0.27,
         y=0.05,
@@ -5596,7 +5722,10 @@ blocks of the block library Modelica.Blocks.Sources.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Text(extent={{-150,-90},{150,-130}}, textString="%name=%phi0"), 
+          Text(
+            extent={{-150,-90},{150,-130}}, 
+            textString="%name=%phi0", 
+            lineColor={0,0,255}), 
           Line(points={{-80,-40},{80,-40}}, color={0,0,0}), 
           Line(points={{80,-40},{40,-80}}, color={0,0,0}), 
           Line(points={{40,-40},{0,-80}}, color={0,0,0}), 
@@ -5670,7 +5799,10 @@ blocks of Modelica.Blocks.Sources.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Text(extent={{-150,110},{150,70}}, textString="%name"), 
+          Text(
+            extent={{-150,110},{150,70}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
             extent={{-62,-29},{-141,-70}}, 
             lineColor={0,0,0}, 
@@ -5760,7 +5892,10 @@ blocks of Modelica.Blocks.Sources.</p>
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Text(extent={{-150,-40},{150,-80}}, textString="%name"), 
+          Text(
+            extent={{-150,-40},{150,-80}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Polygon(
             points={{-78,24},{-69,17},{-89,0},{-78,24}}, 
             lineColor={0,0,0}, 
@@ -5996,7 +6131,10 @@ velocity of model inertia1 or of model inertia2 as state variables.
             lineColor={0,255,255}, 
             fillColor={0,255,255}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-40,40},{40,-40}}, textString="S"), 
+          Text(
+            extent={{-40,40},{40,-40}}, 
+            textString="S", 
+            lineColor={0,0,255}), 
           Line(
             points={{-92,0},{-42,0}}, 
             color={0,0,0}, 
@@ -6005,7 +6143,10 @@ velocity of model inertia1 or of model inertia2 as state variables.
             points={{40,0},{90,0}}, 
             color={0,0,0}, 
             pattern=LinePattern.Dot), 
-          Text(extent={{-150,-40},{150,-80}}, textString="%name")}),
+          Text(
+            extent={{-150,-40},{150,-80}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -6015,7 +6156,10 @@ velocity of model inertia1 or of model inertia2 as state variables.
             lineColor={0,255,255}, 
             fillColor={0,255,255}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-40,40},{40,-40}}, textString="S"), 
+          Text(
+            extent={{-40,40},{40,-40}}, 
+            textString="S", 
+            lineColor={0,0,255}), 
           Line(
             points={{40,0},{96,0}}, 
             color={0,0,0}, 
@@ -6028,7 +6172,10 @@ velocity of model inertia1 or of model inertia2 as state variables.
             fillColor={160,160,164}, 
             fillPattern=FillPattern.Solid), 
           Line(points={{-100,-60},{80,-60}}, color={160,160,164}), 
-          Text(extent={{-30,-70},{30,-90}}, textString="w_rel"), 
+          Text(
+            extent={{-30,-70},{30,-90}}, 
+            textString="w_rel", 
+            lineColor={0,0,255}), 
           Line(points={{-76,80},{-5,80}}, color={128,128,128}), 
           Polygon(
             points={{14,80},{-6,85},{-6,75},{14,80}}, 

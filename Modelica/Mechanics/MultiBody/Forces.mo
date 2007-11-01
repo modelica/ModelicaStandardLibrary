@@ -146,7 +146,10 @@ between two frame connectors, e.g., between two parts.
             lineColor={0,0,0}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-149,103},{136,42}}, textString="%name")}),
+          Text(
+            extent={{-149,103},{136,42}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Documentation(info="<HTML>
 <p>
 The <b>3</b> signals of the <b>force</b> connector are interpreted
@@ -194,19 +197,22 @@ This leads to the following animation
 An external force element exerts the inport signal
 as negative force on the connector frame (the force vector
 is resolved in the world frame).
-"),   Icon(Text(extent=[-132, 99; 128, 39], string="%name"), Polygon(points=[-100,
+"),   Icon(Text(extent=[-132, 99; 128, 39], string="%name", 
+          lineColor={0,0,255}),                              Polygon(points=[-100,
                10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
               10], style(
             color=0,
             gradient=0,
             fillColor=0,
-            fillPattern=1))),
+            fillPattern=1), 
+          lineColor={0,0,255})),
       Diagram(Polygon(points=[-90, 10; 40, 10; 40, 31; 91, 0; 40, -31; 40, -10;
                -90, -10; -90, 10], style(
             color=0,
             gradient=0,
             fillColor=0,
-            fillPattern=1))));
+            fillPattern=1), 
+          lineColor={0,0,255})));
     
   protected 
     SI.Position f_in_m[3]=frame_b.f/N_to_m 
@@ -290,7 +296,10 @@ This leads to the following animation
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Text(extent={{-124,-27},{136,-87}}, textString="%name"), 
+          Text(
+            extent={{-124,-27},{136,-87}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
             extent={{-103,127},{60,87}}, 
             lineColor={192,192,192}, 
@@ -397,7 +406,10 @@ This leads to the following animation
             lineColor={0,0,0}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-137,-47},{148,-108}}, textString="%name"), 
+          Text(
+            extent={{-137,-47},{148,-108}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Line(
             points={{-98,14},{-92,27},{-84,42},{-72,62},{-63,74},{-50,86},{-33,
                 95},{-20,98},{-6,98},{9,94},{21,87},{34,79},{46,69},{54,61},{60,
@@ -464,19 +476,22 @@ This leads to the following animation
 An external force element exerts the inport signal
 as negative force on the connector frame (the force vector
 is resolved in the world frame).
-"),   Icon(Text(extent=[-132, 99; 128, 39], string="%name"), Polygon(points=[-100,
+"),   Icon(Text(extent=[-132, 99; 128, 39], string="%name", 
+          lineColor={0,0,255}),                              Polygon(points=[-100,
                10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
               10], style(
             color=0,
             gradient=0,
             fillColor=0,
-            fillPattern=1))),
+            fillPattern=1), 
+          lineColor={0,0,255})),
       Diagram(Polygon(points=[-90, 10; 40, 10; 40, 31; 91, 0; 40, -31; 40, -10;
                -90, -10; -90, 10], style(
             color=0,
             gradient=0,
             fillColor=0,
-            fillPattern=1))));
+            fillPattern=1), 
+          lineColor={0,0,255})));
     
   protected 
     SI.Position f_in_m[3]=frame_b.f/N_to_m 
@@ -556,7 +571,10 @@ is resolved in the world frame).
             lineColor={0,0,0}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-149,103},{136,42}}, textString="%name"), 
+          Text(
+            extent={{-149,103},{136,42}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Line(
             points={{0,-10},{0,-95}}, 
             color={95,95,95}, 
@@ -616,19 +634,22 @@ This leads to the following animation
 An external force element exerts the inport signal
 as negative force on the connector frame (the force vector
 is resolved in the world frame).
-"),   Icon(Text(extent=[-132, 99; 128, 39], string="%name"), Polygon(points=[-100,
+"),   Icon(Text(extent=[-132, 99; 128, 39], string="%name", 
+          lineColor={0,0,255}),                              Polygon(points=[-100,
                10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
               10], style(
             color=0,
             gradient=0,
             fillColor=0,
-            fillPattern=1))),
+            fillPattern=1), 
+          lineColor={0,0,255})),
       Diagram(Polygon(points=[-90, 10; 40, 10; 40, 31; 91, 0; 40, -31; 40, -10;
                -90, -10; -90, 10], style(
             color=0,
             gradient=0,
             fillColor=0,
-            fillPattern=1))));
+            fillPattern=1), 
+          lineColor={0,0,255})));
     
   protected 
     SI.Position f_in_m[3]=frame_b.f/N_to_m 
@@ -707,7 +728,10 @@ is resolved in the world frame).
             extent={{-61,64},{46,27}}, 
             lineColor={192,192,192}, 
             textString="resolve"), 
-          Text(extent={{-145,-28},{140,-89}}, textString="%name"), 
+          Text(
+            extent={{-145,-28},{140,-89}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Line(
             points={{0,95},{0,82}}, 
             color={95,95,95}, 
@@ -777,19 +801,22 @@ This leads to the following animation
 An external force element exerts the inport signal
 as negative force on the connector frame (the force vector
 is resolved in the world frame).
-"),   Icon(Text(extent=[-132, 99; 128, 39], string="%name"), Polygon(points=[-100,
+"),   Icon(Text(extent=[-132, 99; 128, 39], string="%name", 
+          lineColor={0,0,255}),                              Polygon(points=[-100,
                10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
               10], style(
             color=0,
             gradient=0,
             fillColor=0,
-            fillPattern=1))),
+            fillPattern=1), 
+          lineColor={0,0,255})),
       Diagram(Polygon(points=[-90, 10; 40, 10; 40, 31; 91, 0; 40, -31; 40, -10;
                -90, -10; -90, 10], style(
             color=0,
             gradient=0,
             fillColor=0,
-            fillPattern=1))));
+            fillPattern=1), 
+          lineColor={0,0,255})));
     
   protected 
     SI.Position t_in_m[3]=frame_b.t/Nm_to_m 
@@ -882,7 +909,10 @@ is resolved in the world frame).
             lineColor={0,0,0}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-137,-47},{148,-108}}, textString="%name"), 
+          Text(
+            extent={{-137,-47},{148,-108}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Line(points={{-100,10},{-92,26},{-84,42},{-76,52},{-60,68},{-46,76},{
                 -31,82},{-17,85},{-2,87},{14,86},{26,82},{37,75},{46,69},{54,61},
                 {60,54}}, color={0,0,0}), 
@@ -958,19 +988,22 @@ This leads to the following animation
 An external force element exerts the inport signal
 as negative force on the connector frame (the force vector
 is resolved in the world frame).
-"),   Icon(Text(extent=[-132, 99; 128, 39], string="%name"), Polygon(points=[-100,
+"),   Icon(Text(extent=[-132, 99; 128, 39], string="%name", 
+          lineColor={0,0,255}),                              Polygon(points=[-100,
                10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
               10], style(
             color=0,
             gradient=0,
             fillColor=0,
-            fillPattern=1))),
+            fillPattern=1), 
+          lineColor={0,0,255})),
       Diagram(Polygon(points=[-90, 10; 40, 10; 40, 31; 91, 0; 40, -31; 40, -10;
                -90, -10; -90, 10], style(
             color=0,
             gradient=0,
             fillColor=0,
-            fillPattern=1))));
+            fillPattern=1), 
+          lineColor={0,0,255})));
     
   protected 
     SI.Position f_in_m[3]=frame_b.f/N_to_m 
@@ -1061,7 +1094,10 @@ is resolved in the world frame).
             extent={{-92,61},{87,35}}, 
             lineColor={192,192,192}, 
             textString="resolve"), 
-          Text(extent={{-136,-52},{149,-113}}, textString="%name"), 
+          Text(
+            extent={{-136,-52},{149,-113}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Line(
             points={{40,100},{40,0}}, 
             color={95,95,95}, 
@@ -1134,19 +1170,22 @@ clarity this is not shown in the animation):
 An external force element exerts the inport signal
 as negative force on the connector frame (the force vector
 is resolved in the world frame).
-"),   Icon(Text(extent=[-132, 99; 128, 39], string="%name"), Polygon(points=[-100,
+"),   Icon(Text(extent=[-132, 99; 128, 39], string="%name", 
+          lineColor={0,0,255}),                              Polygon(points=[-100,
                10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
               10], style(
             color=0,
             gradient=0,
             fillColor=0,
-            fillPattern=1))),
+            fillPattern=1), 
+          lineColor={0,0,255})),
       Diagram(Polygon(points=[-90, 10; 40, 10; 40, 31; 91, 0; 40, -31; 40, -10;
                -90, -10; -90, 10], style(
             color=0,
             gradient=0,
             fillColor=0,
-            fillPattern=1))));
+            fillPattern=1), 
+          lineColor={0,0,255})));
     
   protected 
     SI.Position f_in_m[3]=frame_b.f/N_to_m 
@@ -1242,7 +1281,10 @@ is resolved in the world frame).
             extent={{-59,55},{72,30}}, 
             lineColor={192,192,192}, 
             textString="resolve"), 
-          Text(extent={{-139,-27},{146,-88}}, textString="%name"), 
+          Text(
+            extent={{-139,-27},{146,-88}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Polygon(
             points={{100,20},{84,52},{69,39},{100,20}}, 
             lineColor={0,0,0}, 
@@ -1318,19 +1360,22 @@ clarity this is not shown in the animation):
 An external force element exerts the inport signal
 as negative force on the connector frame (the force vector
 is resolved in the world frame).
-"),   Icon(Text(extent=[-132, 99; 128, 39], string="%name"), Polygon(points=[-100,
+"),   Icon(Text(extent=[-132, 99; 128, 39], string="%name", 
+          lineColor={0,0,255}),                              Polygon(points=[-100,
                10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
               10], style(
             color=0,
             gradient=0,
             fillColor=0,
-            fillPattern=1))),
+            fillPattern=1), 
+          lineColor={0,0,255})),
       Diagram(Polygon(points=[-90, 10; 40, 10; 40, 31; 91, 0; 40, -31; 40, -10;
                -90, -10; -90, 10], style(
             color=0,
             gradient=0,
             fillColor=0,
-            fillPattern=1))));
+            fillPattern=1), 
+          lineColor={0,0,255})));
     
   protected 
     SI.Position t_in_m[3]=frame_b.t/Nm_to_m 
@@ -1424,7 +1469,8 @@ is resolved in the world frame).
     annotation (
       preferedView="info",
       Diagram(graphics),
-      Icon(graphics={
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
           Rectangle(
             extent={{-98,99},{99,-98}}, 
             lineColor={255,255,255}, 
@@ -1434,7 +1480,10 @@ is resolved in the world frame).
             extent={{-59,55},{72,30}}, 
             lineColor={192,192,192}, 
             textString="resolve"), 
-          Text(extent={{-136,-52},{149,-113}}, textString="%name"), 
+          Text(
+            extent={{-136,-52},{149,-113}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Polygon(
             points={{100,21},{84,55},{69,39},{100,21}}, 
             lineColor={0,0,0}, 
@@ -1527,19 +1576,22 @@ clarity this is not shown in the animation):
 An external force element exerts the inport signal
 as negative force on the connector frame (the force vector
 is resolved in the world frame).
-"),   Icon(Text(extent=[-132, 99; 128, 39], string="%name"), Polygon(points=[-100,
+"),   Icon(Text(extent=[-132, 99; 128, 39], string="%name", 
+          lineColor={0,0,255}),                              Polygon(points=[-100,
                10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
               10], style(
             color=0,
             gradient=0,
             fillColor=0,
-            fillPattern=1))),
+            fillPattern=1), 
+          lineColor={0,0,255})),
       Diagram(Polygon(points=[-90, 10; 40, 10; 40, 31; 91, 0; 40, -31; 40, -10;
                -90, -10; -90, 10], style(
             color=0,
             gradient=0,
             fillColor=0,
-            fillPattern=1))));
+            fillPattern=1), 
+          lineColor={0,0,255})));
     
   protected 
     SI.Position f_in_m[3]=frame_b.f/N_to_m 
@@ -1686,7 +1738,10 @@ is resolved in the world frame).
             lineColor={128,128,128}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-145,-53},{145,-113}}, textString="%name"), 
+          Text(
+            extent={{-145,-53},{145,-113}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Rectangle(
             extent={{-40,41},{44,-40}}, 
             lineColor={255,255,255}, 
@@ -1719,13 +1774,16 @@ is resolved in the world frame).
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-60,80},{46,80}}), 
+          Line(points={{-60,80},{46,80}}, color={0,0,255}), 
           Polygon(
             points={{60,80},{45,86},{45,74},{60,80}}, 
             lineColor={0,0,255}, 
             fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-22,100},{20,76}}, textString="length"), 
+          Text(
+            extent={{-22,100},{20,76}}, 
+            textString="length", 
+            lineColor={0,0,255}), 
           Ellipse(
             extent={{-100,-40},{-20,40}}, 
             lineColor={0,0,0}, 
@@ -1774,25 +1832,35 @@ is resolved in the world frame).
             lineColor={0,0,0}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Line(points={{-60,0},{-31,0}}), 
-          Polygon(points={{-19,0},{-31,3},{-31,-3},{-19,0}}, fillPattern=
-                FillPattern.Forward), 
-          Line(points={{-60,16},{0,16}}), 
-          Line(points={{0,0},{0,20}}), 
+          Line(points={{-60,0},{-31,0}}, color={0,0,255}), 
+          Polygon(
+            points={{-19,0},{-31,3},{-31,-3},{-19,0}}, 
+            fillPattern=FillPattern.Forward, 
+            lineColor={0,0,255}), 
+          Line(points={{-60,16},{0,16}}, color={0,0,255}), 
+          Line(points={{0,0},{0,20}}, color={0,0,255}), 
           Text(
             extent={{-43,-8},{-7,-33}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.None, 
             textString="e_rel_0"), 
-          Polygon(points={{0,16},{-12,19},{-12,13},{0,16}}, fillPattern=
-                FillPattern.Forward), 
+          Polygon(
+            points={{0,16},{-12,19},{-12,13},{0,16}}, 
+            fillPattern=FillPattern.Forward, 
+            lineColor={0,0,255}), 
           Text(
             extent={{-50,35},{51,26}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.None, 
             textString="length*lengthFraction"), 
-          Line(points={{-17,26},{-26,16}}, pattern=LinePattern.Dot), 
-          Line(points={{-31,-13},{-40,0}}, pattern=LinePattern.Dot)}),
+          Line(
+            points={{-17,26},{-26,16}}, 
+            pattern=LinePattern.Dot, 
+            color={0,0,255}), 
+          Line(
+            points={{-31,-13},{-40,0}}, 
+            pattern=LinePattern.Dot, 
+            color={0,0,255})}),
       Documentation(info="<html>
 <p>
 This component is used to exert a <b>line force</b>
@@ -2039,7 +2107,10 @@ for this situation:
             lineColor={128,128,128}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-145,-53},{145,-113}}, textString="%name"), 
+          Text(
+            extent={{-145,-53},{145,-113}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Rectangle(
             extent={{-52,40},{48,-40}}, 
             lineColor={255,255,255}, 
@@ -2079,13 +2150,16 @@ for this situation:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-60,80},{46,80}}), 
+          Line(points={{-60,80},{46,80}}, color={0,0,255}), 
           Polygon(
             points={{60,80},{45,86},{45,74},{60,80}}, 
             lineColor={0,0,255}, 
             fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-22,100},{20,76}}, textString="length"), 
+          Text(
+            extent={{-22,100},{20,76}}, 
+            textString="length", 
+            lineColor={0,0,255}), 
           Ellipse(
             extent={{-100,-40},{-20,40}}, 
             lineColor={0,0,0}, 
@@ -2134,18 +2208,22 @@ for this situation:
             lineColor={0,0,0}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Line(points={{-18,-18},{11,-18}}), 
-          Polygon(points={{23,-18},{11,-15},{11,-21},{23,-18}}, fillPattern=
-                FillPattern.Forward), 
-          Line(points={{-60,16},{-37,16}}), 
-          Line(points={{-25,0},{-25,20}}), 
+          Line(points={{-18,-18},{11,-18}}, color={0,0,255}), 
+          Polygon(
+            points={{23,-18},{11,-15},{11,-21},{23,-18}}, 
+            fillPattern=FillPattern.Forward, 
+            lineColor={0,0,255}), 
+          Line(points={{-60,16},{-37,16}}, color={0,0,255}), 
+          Line(points={{-25,0},{-25,20}}, color={0,0,255}), 
           Text(
             extent={{-16,-19},{20,-44}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.None, 
             textString="e_rel_0"), 
-          Polygon(points={{-25,16},{-37,19},{-37,13},{-25,16}}, fillPattern=
-                FillPattern.Forward), 
+          Polygon(
+            points={{-25,16},{-37,19},{-37,13},{-25,16}}, 
+            fillPattern=FillPattern.Forward, 
+            lineColor={0,0,255}), 
           Text(
             extent={{-39,31},{-22,21}}, 
             lineColor={0,0,0}, 
@@ -2156,16 +2234,21 @@ for this situation:
             lineColor={0,0,0}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Line(points={{29,3},{29,22}}), 
-          Line(points={{29,16},{60,16}}), 
-          Polygon(points={{29,16},{41,19},{41,13},{29,16}}, fillPattern=
-                FillPattern.Forward), 
+          Line(points={{29,3},{29,22}}, color={0,0,255}), 
+          Line(points={{29,16},{60,16}}, color={0,0,255}), 
+          Polygon(
+            points={{29,16},{41,19},{41,13},{29,16}}, 
+            fillPattern=FillPattern.Forward, 
+            lineColor={0,0,255}), 
           Text(
             extent={{15,36},{32,26}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.None, 
             textString="L_b"), 
-          Line(points={{37,18},{30,27}}, pattern=LinePattern.Dot)}),
+          Line(
+            points={{37,18},{30,27}}, 
+            pattern=LinePattern.Dot, 
+            color={0,0,255})}),
       Documentation(info="<html>
 <p>
 This component is used to exert a <b>line force</b>
@@ -2468,7 +2551,8 @@ for this situation:
       annotation (Line(points={{-8,50},{-12,50},{-12,20}}, color={0,191,0}));
     annotation (
       preferedView="info",
-      Icon(graphics={
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
           Line(
             points={{-100,0},{-58,0},{-43,-30},{-13,30},{17,-30},{47,30},{62,0},
                 {100,0}}, 
@@ -2476,7 +2560,10 @@ for this situation:
             pattern=LinePattern.Solid, 
             thickness=1, 
             arrow={Arrow.None,Arrow.None}), 
-          Text(extent={{-130,49},{132,109}}, textString="%name"), 
+          Text(
+            extent={{-130,49},{132,109}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
             extent={{-141,-92},{125,-51}}, 
             lineColor={0,0,0}, 
@@ -2586,7 +2673,10 @@ where a mass is hanging on a damper.
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid), 
           Line(points={{30,0},{100,0}}, color={0,0,0}), 
-          Text(extent={{-140,47},{145,105}}, textString="%name"), 
+          Text(
+            extent={{-140,47},{145,105}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
             extent={{-156,-96},{152,-53}}, 
             lineColor={0,0,0}, 
@@ -2696,7 +2786,10 @@ and der(s) is the time derivative of s.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Text(extent={{-131,-166},{114,-108}}, textString="%name"), 
+          Text(
+            extent={{-131,-166},{114,-108}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Line(points={{-80,40},{-60,40},{-45,10},{-15,70},{15,10},{45,70},{60,
                 40},{80,40}}, color={0,0,0}), 
           Line(points={{-80,40},{-80,-70}}, color={0,0,0}), 
@@ -2826,7 +2919,10 @@ force element) and der(s_damper) is the time derivative of s_damper.
             fillPattern=FillPattern.Solid), 
           Line(points={{-15,0},{-5,0},{5,-30},{25,30},{45,-30},{65,30},{75,0},{
                 100,0}}, color={0,0,0}), 
-          Text(extent={{-140,47},{145,105}}, textString="%name"), 
+          Text(
+            extent={{-140,47},{145,105}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
             extent={{-148,-96},{160,-53}}, 
             lineColor={0,0,0}, 

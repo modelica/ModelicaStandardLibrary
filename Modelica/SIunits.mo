@@ -325,15 +325,18 @@ and the accompanying <b>disclaimer</b>
         Rectangle(
           extent={{169,86},{349,236}}, 
           fillColor={235,235,235}, 
-          fillPattern=FillPattern.Solid), 
+          fillPattern=FillPattern.Solid, 
+          lineColor={0,0,255}), 
         Polygon(
           points={{169,236},{189,256},{369,256},{349,236},{169,236}}, 
           fillColor={235,235,235}, 
-          fillPattern=FillPattern.Solid), 
+          fillPattern=FillPattern.Solid, 
+          lineColor={0,0,255}), 
         Polygon(
           points={{369,256},{369,106},{349,86},{349,236},{369,256}}, 
           fillColor={235,235,235}, 
-          fillPattern=FillPattern.Solid), 
+          fillPattern=FillPattern.Solid, 
+          lineColor={0,0,255}), 
         Text(
           extent={{179,226},{339,196}}, 
           lineColor={160,160,164}, 
@@ -370,7 +373,8 @@ and the accompanying <b>disclaimer</b>
             points={{6,-28},{6,-45},{26,-37},{6,-28}}, 
             pattern=LinePattern.None, 
             fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid)}),
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255})}),
                               Documentation(info="<HTML>
 <p>This package provides conversion functions from the non SI Units
 defined in package Modelica.SIunits.Conversions.NonSIunits to the
@@ -890,7 +894,10 @@ still kept in Modelica.SIunits.</p>
               lineColor={191,0,0}, 
               fillColor={191,0,0}, 
               fillPattern=FillPattern.Solid), 
-            Text(extent={{-115,155},{115,105}}, textString="%name")}));
+            Text(
+              extent={{-115,155},{115,105}}, 
+              textString="%name", 
+              lineColor={0,0,255})}));
     end ConversionIcon;
     
   end Conversions;

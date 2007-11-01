@@ -13,7 +13,10 @@ model Rn
     Diagram(graphics),
     Icon(graphics={
           Bitmap(extent={{-62,6},{-62,14}}, fileName=""), 
-          Rectangle(extent={{-80,32},{80,-30}}, pattern=LinePattern.None), 
+          Rectangle(
+            extent={{-80,32},{80,-30}}, 
+            pattern=LinePattern.None, 
+            lineColor={0,0,255}), 
           Text(
             extent={{-30,-40},{30,-72}}, 
             lineColor={0,0,0}, 
@@ -86,7 +89,10 @@ model Rp
   annotation (uses(Modelica(version="2.2")), Diagram(graphics),
     Icon(graphics={
           Bitmap(extent={{-62,4},{-62,12}}, fileName=""), 
-          Rectangle(extent={{-80,30},{80,-32}}, pattern=LinePattern.None), 
+          Rectangle(
+            extent={{-80,30},{80,-32}}, 
+            pattern=LinePattern.None, 
+            lineColor={0,0,255}), 
           Line(points={{-92,0},{-80,0}}, color={85,85,255}), 
           Line(points={{80,0},{92,0}}, color={85,85,255}), 
           Text(
@@ -158,8 +164,10 @@ end Rp;
   annotation (
     uses(Modelica(version="2.2")),
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-250,-200},{
-            250,200}}), graphics={Text(extent={{-100,180},{94,140}}, textString
-            ="CauerLowPassSC")}),
+            250,200}}), graphics={Text(
+          extent={{-100,180},{94,140}}, 
+          textString="CauerLowPassSC", 
+          lineColor={0,0,255})}),
     experiment(StopTime=60, NumberOfIntervals=1500),
     experimentSetupOutput,
     Documentation(revisions="<html>
@@ -194,15 +202,18 @@ Due to the recharging of the capacitances after switching the performance of sim
         Rectangle(
           extent={{-100,-100},{80,50}}, 
           fillColor={255,255,255}, 
-          fillPattern=FillPattern.Solid), 
+          fillPattern=FillPattern.Solid, 
+          lineColor={0,0,255}), 
         Polygon(
           points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}}, 
           fillColor={255,255,255}, 
-          fillPattern=FillPattern.Solid), 
+          fillPattern=FillPattern.Solid, 
+          lineColor={0,0,255}), 
         Polygon(
           points={{100,70},{100,-80},{80,-100},{80,50},{100,70}}, 
           fillColor={255,255,255}, 
-          fillPattern=FillPattern.Solid), 
+          fillPattern=FillPattern.Solid, 
+          lineColor={0,0,255}), 
         Text(
           extent={{-96,3},{77,-49}}, 
           lineColor={0,0,255}, 

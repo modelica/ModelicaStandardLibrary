@@ -127,15 +127,18 @@ and the accompanying <b>disclaimer</b>
         Rectangle(
           extent={{200,162},{380,312}}, 
           fillColor={235,235,235}, 
-          fillPattern=FillPattern.Solid), 
+          fillPattern=FillPattern.Solid, 
+          lineColor={0,0,255}), 
         Polygon(
           points={{200,312},{220,332},{400,332},{380,312},{200,312}}, 
           fillColor={235,235,235}, 
-          fillPattern=FillPattern.Solid), 
+          fillPattern=FillPattern.Solid, 
+          lineColor={0,0,255}), 
         Polygon(
           points={{400,332},{400,182},{380,162},{380,312},{400,332}}, 
           fillColor={235,235,235}, 
-          fillPattern=FillPattern.Solid), 
+          fillPattern=FillPattern.Solid, 
+          lineColor={0,0,255}), 
         Text(
           extent={{210,302},{370,272}}, 
           lineColor={160,160,164}, 

@@ -1629,7 +1629,8 @@ buttons:
                 extent={{-122,-82},{88,-42}}, 
                 fillColor={191,0,95}, 
                 fillPattern=FillPattern.Solid, 
-                textString="%name"), 
+                textString="%name", 
+                lineColor={0,0,255}), 
               Rectangle(
                 extent={{-60,60},{80,-40}}, 
                 lineColor={0,0,0}, 
@@ -1674,7 +1675,8 @@ buttons:
                 extent={{-144,54},{152,114}}, 
                 fillColor={255,255,255}, 
                 fillPattern=FillPattern.Solid, 
-                textString="%name")}));
+                textString="%name", 
+                lineColor={0,0,255})}));
     equation 
       if outflow1.open then
         outflow1.Fo = maxflow;
@@ -2227,8 +2229,10 @@ to more than one transition");
               extent={{-100,100},{100,-100}}, 
               lineColor={0,0,0}, 
               fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), Text(extent={{160,110},{-160,150}}, 
-                textString="%name")}),
+              fillPattern=FillPattern.Solid), Text(
+              extent={{160,110},{-160,150}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
           Documentation(info="<html>
  
 </html>"));
@@ -2286,7 +2290,8 @@ block InitialStep "Initial step (= step that is active when simulation starts)"
             extent={{-200,110},{200,150}}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid, 
-            textString="%name"), 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Rectangle(
             extent={{-100,100},{100,-100}}, 
             fillColor=DynamicSelect({255,255,255}, if active > 0.5 then {0,255,
@@ -2325,7 +2330,8 @@ block InitialStepWithSignal
             extent={{-200,110},{200,150}}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid, 
-            textString="%name"), 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Rectangle(
             extent={{-100,100},{100,-100}}, 
             fillColor=DynamicSelect({255,255,255}, if active > 0.5 then {0,255,
@@ -2372,7 +2378,8 @@ block Step "Ordinary step (= step that is not active when simulation starts)"
             extent={{-200,110},{200,150}}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid, 
-            textString="%name"), Rectangle(
+            textString="%name", 
+            lineColor={0,0,255}), Rectangle(
             extent={{-100,100},{100,-100}}, 
             fillColor=DynamicSelect({255,255,255}, if active > 0.5 then {0,255,
                 0} else {255,255,255}), 
@@ -2406,7 +2413,8 @@ block StepWithSignal
             extent={{-200,110},{200,150}}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid, 
-            textString="%name"), 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Rectangle(
             extent={{-100,100},{100,-100}}, 
             fillColor=DynamicSelect({255,255,255}, if active > 0.5 then {0,255,
@@ -2458,7 +2466,10 @@ block Transition
             lineColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
           Line(points={{-30,0},{-10,0}}, color={0,0,0}), 
-          Text(extent={{200,110},{-200,150}}, textString="%name"), 
+          Text(
+            extent={{200,110},{-200,150}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
             extent={{20,20},{200,45}}, 
             lineColor=DynamicSelect({0,0,0}, if enableTimer < 0.5 then {255,255,
@@ -2517,7 +2528,10 @@ block TransitionWithSignal
             lineColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
           Line(points={{-30,0},{-10,0}}, color={0,0,0}), 
-          Text(extent={{200,110},{-200,150}}, textString="%name"), 
+          Text(
+            extent={{200,110},{-200,150}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Ellipse(
             extent={{7,-81},{-7,-95}}, 
             lineColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0}
@@ -2876,7 +2890,8 @@ partial block PartialCompositeStep
             extent={{-250,160},{250,200}}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid, 
-            textString="%name"), 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Rectangle(
             extent={{-150,150},{150,-150}}, 
             fillColor=DynamicSelect({255,255,255}, if active > 0.5 then {0,255,
@@ -3034,7 +3049,8 @@ block StateGraphRoot
             extent={{-200,110},{200,150}}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid, 
-            textString="%name"), 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Rectangle(
             extent={{-100,100},{100,-100}}, 
             fillColor=DynamicSelect({255,255,255}, if active > 0.5 then {0,255,
@@ -3099,17 +3115,17 @@ type SetRealParameter = Real "Define Real parameter (GUI not yet satisfactory)"
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(
-            extent={{-100,40},{100,-40}}, 
-            lineColor={0,0,0}, 
-            fillColor={245,245,245}, 
-            fillPattern=FillPattern.Solid, 
-            borderPattern=BorderPattern.Raised), 
-          Text(extent={{-150,90},{150,50}}, textString="%name ="), 
+            extent={{-100,40},{100,-40}},
+            lineColor={0,0,0},
+            fillColor={245,245,245},
+            fillPattern=FillPattern.Solid,
+            borderPattern=BorderPattern.Raised),
+          Text(extent={{-150,90},{150,50}}, textString="%name ="),
           Text(
-            extent={{-96,15},{96,-15}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,255,0}, 
-            fillPattern=FillPattern.Solid, 
+            extent={{-96,15},{96,-15}},
+            lineColor={0,0,0},
+            fillColor={0,255,0},
+            fillPattern=FillPattern.Solid,
             textString="%value")}),
   Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -3235,11 +3251,13 @@ value, still requires to go in to the text layer.
               lineColor={0,0,255}, 
               fillColor={236,233,216}, 
               fillPattern=FillPattern.Solid, 
-              borderPattern=BorderPattern.Raised), Text(extent={{-90,-46},{90,
-                  34}}, textString=DynamicSelect(" ", realString(
+              borderPattern=BorderPattern.Raised), Text(
+              extent={{-90,-46},{90,34}}, 
+              textString=DynamicSelect(" ", realString(
                     Value, 
                     1, 
-                    integer(precision))))}),
+                    integer(precision))), 
+              lineColor={0,0,255})}),
         Diagram(graphics),
         Documentation(info="<html>
   
@@ -3266,8 +3284,10 @@ value, still requires to go in to the text layer.
                    else {235,235,235}), 
               lineColor={0,0,0}, 
               pattern=LinePattern.None, 
-              fillPattern=FillPattern.Sphere), Text(extent={{-150,150},{150,110}}, 
-                textString="%name")}),                       Diagram(graphics),
+              fillPattern=FillPattern.Sphere), Text(
+              extent={{-150,150},{150,110}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),                        Diagram(graphics),
         Documentation(info="<html>
   
 </html>"));

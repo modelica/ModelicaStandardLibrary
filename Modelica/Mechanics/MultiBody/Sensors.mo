@@ -944,16 +944,22 @@ and resolved in the following frame
     annotation (
       preferedView="info",
       Icon(graphics={
-          Line(points={{0,-60},{0,-100}}), 
+          Line(points={{0,-60},{0,-100}}, color={0,0,255}), 
           Line(points={{-70,0},{-101,0}}, color={0,0,0}), 
           Line(points={{70,0},{100,0}}, color={0,0,0}), 
-          Text(extent={{-128,30},{133,78}}, textString="%name")}),
+          Text(
+            extent={{-128,30},{133,78}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Diagram(graphics={
           Line(points={{-70,0},{-101,0}}, color={0,0,0}), 
           Line(points={{70,0},{100,0}}, color={0,0,0}), 
-          Line(points={{0,-60},{0,-100}}), 
-          Text(extent={{-22,70},{20,46}}, textString="s"), 
-          Line(points={{-98,40},{88,40}}), 
+          Line(points={{0,-60},{0,-100}}, color={0,0,255}), 
+          Text(
+            extent={{-22,70},{20,46}}, 
+            textString="s", 
+            lineColor={0,0,255}), 
+          Line(points={{-98,40},{88,40}}, color={0,0,255}), 
           Polygon(
             points={{102,40},{87,46},{87,34},{102,40}}, 
             lineColor={0,0,255}, 
@@ -1329,7 +1335,10 @@ with negative sign at frame_a.
             extent={{-60,-92},{16,-114}}, 
             lineColor={0,0,0}, 
             textString="power"), 
-          Text(extent={{-128,126},{126,68}}, textString="%name")}),
+          Text(
+            extent={{-128,126},{126,68}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Documentation(info="<HTML>
 <p>
 This component provides the power flowing from frame_a to frame_b

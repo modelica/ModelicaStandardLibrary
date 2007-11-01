@@ -15,74 +15,88 @@ block ExtractSignal "Extract signals from an input signal vector"
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-100,100},{100,-100}}), 
+          Rectangle(extent={{-100,100},{100,-100}}, lineColor={0,0,255}), 
           Rectangle(
             extent={{-90,50},{-50,-50}}, 
             fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Rectangle(
             extent={{50,50},{90,-50}}, 
             fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{-94.4104,1.90792},{-94.4104,-2.09208},{-90.4104,-0.0920762},
                 {-94.4104,1.90792}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-72,2},{-60.1395,12.907},{-49.1395,12.907}}), 
-          Line(points={{-73,4},{-59,40},{-49,40}}), 
-          Line(points={{-112,0},{-75.0373,-0.0180176}}), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{-72,2},{-60.1395,12.907},{-49.1395,12.907}}, color={0,0,
+                255}), 
+          Line(points={{-73,4},{-59,40},{-49,40}}, color={0,0,255}), 
+          Line(points={{-112,0},{-75.0373,-0.0180176}}, color={0,0,255}), 
           Ellipse(
             extent={{-80.0437,4.59255},{-70.0437,-4.90745}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-73,-5},{-60,-40},{-49,-40}}), 
-          Line(points={{-72,-2},{-60.0698,-12.907},{-49.0698,-12.907}}), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{-73,-5},{-60,-40},{-49,-40}}, color={0,0,255}), 
+          Line(points={{-72,-2},{-60.0698,-12.907},{-49.0698,-12.907}}, color={
+                0,0,255}), 
           Polygon(
             points={{-48.8808,-11},{-48.8808,-15},{-44.8808,-13},{-48.8808,-11}}, 
               
             fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-46,13},{-35,13},{35,-30},{45,-30}}), 
-          Line(points={{-45,40},{-35,40},{35,0},{44,0}}), 
-          Line(points={{-45,-40},{-34,-40},{35,30},{44,30}}), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{-46,13},{-35,13},{35,-30},{45,-30}}, color={0,0,255}), 
+          Line(points={{-45,40},{-35,40},{35,0},{44,0}}, color={0,0,255}), 
+          Line(points={{-45,-40},{-34,-40},{35,30},{44,30}}, color={0,0,255}), 
           Polygon(
             points={{-49,42},{-49,38},{-45,40},{-49,42}}, 
             fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{-48.8728,-38.0295},{-48.8728,-42.0295},{-44.8728,-40.0295},
                 {-48.8728,-38.0295}}, 
             fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{-48.9983,14.8801},{-48.9983,10.8801},{-44.9983,12.8801},{-48.9983,
                 14.8801}}, 
             fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Ellipse(
             extent={{70.3052,4.12743},{80.3052,-5.37257}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{80,0},{100,0}}), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{80,0},{100,0}}, color={0,0,255}), 
           Polygon(
             points={{44.1618,32.3085},{44.1618,28.3085},{48.1618,30.3085},{
                 44.1618,32.3085}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{44.2575,1.80443},{44.2575,-2.19557},{48.2575,-0.195573},{
                 44.2575,1.80443}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{44.8805,-28.1745},{44.8805,-32.1745},{48.8805,-30.1745},{
                 44.8805,-28.1745}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{48,0},{70,0}}), 
-          Line(points={{47,30},{60,30},{73,3}}), 
-          Line(points={{49,-30},{60,-30},{74,-4}}), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{48,0},{70,0}}, color={0,0,255}), 
+          Line(points={{47,30},{60,30},{73,3}}, color={0,0,255}), 
+          Line(points={{49,-30},{60,-30},{74,-4}}, color={0,0,255}), 
           Text(
             extent={{-150,-150},{150,-110}}, 
             lineColor={0,0,0}, 
@@ -172,7 +186,7 @@ block ExtractSignal "Extract signals from an input signal vector"
           Line(points={{48,0},{70,0}}, color={0,0,255}), 
           Line(points={{47,30},{60,30},{73,3}}, color={0,0,255}), 
           Line(points={{49,-30},{60,-30},{74,-4}}, color={0,0,255}), 
-          Rectangle(extent={{-100,80},{100,-81}})}),
+          Rectangle(extent={{-100,80},{100,-81}}, lineColor={0,0,255})}),
     Documentation(info="<HTML>
 <p>Extract signals from the input connector and transfer them
 to the output connector.</p>
@@ -263,7 +277,8 @@ block Extractor
           Rectangle(
             extent={{-30,50},{30,-50}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Line(points={{100,0},{0,0}}, color={127,0,255}), 
           Line(points={{0,2},{0,-104}}, color={255,128,0}), 
           Line(points={{-35,40},{-20,40}}, color={127,0,255}), 
@@ -340,24 +355,26 @@ explicitly defined via parameters n1 and n2.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{8,0},{102,0}}), 
+          Line(points={{8,0},{102,0}}, color={0,0,255}), 
           Ellipse(
             extent={{-14,16},{16,-14}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-98,60},{-60,60},{-4,6}}), 
-          Line(points={{-98,-60},{-60,-60},{-4,-4}})}),
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{-98,60},{-60,60},{-4,6}}, color={0,0,255}), 
+          Line(points={{-98,-60},{-60,-60},{-4,-4}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{-98,60},{-60,60},{-4,6}}), 
-          Line(points={{-98,-60},{-60,-60},{-4,-4}}), 
-          Line(points={{8,0},{102,0}}), 
+          Line(points={{-98,60},{-60,60},{-4,6}}, color={0,0,255}), 
+          Line(points={{-98,-60},{-60,-60},{-4,-4}}, color={0,0,255}), 
+          Line(points={{8,0},{102,0}}, color={0,0,255}), 
           Ellipse(
             extent={{-14,16},{16,-14}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid)}));
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255})}));
   equation 
     [y] = [u1; u2];
   end Multiplex2;
@@ -395,26 +412,28 @@ explicitly defined via parameters n1, n2 and n3.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{8,0},{102,0}}), 
-          Line(points={{-100,70},{-60,70},{-4,6}}), 
-          Line(points={{-100,0},{-12,0}}), 
-          Line(points={{-100,-70},{-62,-70},{-4,-4}}), 
+          Line(points={{8,0},{102,0}}, color={0,0,255}), 
+          Line(points={{-100,70},{-60,70},{-4,6}}, color={0,0,255}), 
+          Line(points={{-100,0},{-12,0}}, color={0,0,255}), 
+          Line(points={{-100,-70},{-62,-70},{-4,-4}}, color={0,0,255}), 
           Ellipse(
             extent={{-14,16},{16,-14}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid)}),
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{-100,70},{-60,70},{-4,6}}), 
-          Line(points={{-100,-70},{-62,-70},{-4,-4}}), 
-          Line(points={{8,0},{102,0}}), 
+          Line(points={{-100,70},{-60,70},{-4,6}}, color={0,0,255}), 
+          Line(points={{-100,-70},{-62,-70},{-4,-4}}, color={0,0,255}), 
+          Line(points={{8,0},{102,0}}, color={0,0,255}), 
           Ellipse(
             extent={{-14,16},{16,-14}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-100,0},{-12,0}})}));
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{-100,0},{-12,0}}, color={0,0,255})}));
   equation 
     [y] = [u1; u2; u3];
   end Multiplex3;
@@ -457,28 +476,30 @@ explicitly defined via parameters n1, n2, n3 and n4.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{8,0},{102,0}}), 
-          Line(points={{-100,90},{-60,90},{-3,4}}), 
-          Line(points={{-100,30},{-60,30},{-9,0}}), 
-          Line(points={{-99,-30},{-59,-30},{-10,-5}}), 
-          Line(points={{-100,-90},{-60,-90},{-5,-6}}), 
+          Line(points={{8,0},{102,0}}, color={0,0,255}), 
+          Line(points={{-100,90},{-60,90},{-3,4}}, color={0,0,255}), 
+          Line(points={{-100,30},{-60,30},{-9,0}}, color={0,0,255}), 
+          Line(points={{-99,-30},{-59,-30},{-10,-5}}, color={0,0,255}), 
+          Line(points={{-100,-90},{-60,-90},{-5,-6}}, color={0,0,255}), 
           Ellipse(
             extent={{-15,15},{15,-15}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid)}),
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-100,90},{-60,90},{-3,4}}), 
-          Line(points={{-100,-90},{-60,-90},{-5,-6}}), 
-          Line(points={{8,0},{102,0}}), 
+          Line(points={{-100,90},{-60,90},{-3,4}}, color={0,0,255}), 
+          Line(points={{-100,-90},{-60,-90},{-5,-6}}, color={0,0,255}), 
+          Line(points={{8,0},{102,0}}, color={0,0,255}), 
           Ellipse(
             extent={{-15,15},{15,-15}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-100,30},{-60,30},{-9,0}}), 
-          Line(points={{-99,-30},{-59,-30},{-10,-5}})}));
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{-100,30},{-60,30},{-9,0}}, color={0,0,255}), 
+          Line(points={{-99,-30},{-59,-30},{-10,-5}}, color={0,0,255})}));
   equation 
     [y] = [u1; u2; u3; u4];
   end Multiplex4;
@@ -525,30 +546,32 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{8,0},{102,0}}), 
-          Line(points={{-100,100},{-60,100},{-4,6}}), 
-          Line(points={{-99,50},{-60,50},{-8,5}}), 
-          Line(points={{-100,0},{-7,0}}), 
-          Line(points={{-99,-50},{-60,-50},{-9,-6}}), 
-          Line(points={{-100,-100},{-60,-100},{-4,-4}}), 
+          Line(points={{8,0},{102,0}}, color={0,0,255}), 
+          Line(points={{-100,100},{-60,100},{-4,6}}, color={0,0,255}), 
+          Line(points={{-99,50},{-60,50},{-8,5}}, color={0,0,255}), 
+          Line(points={{-100,0},{-7,0}}, color={0,0,255}), 
+          Line(points={{-99,-50},{-60,-50},{-9,-6}}, color={0,0,255}), 
+          Line(points={{-100,-100},{-60,-100},{-4,-4}}, color={0,0,255}), 
           Ellipse(
             extent={{-15,15},{15,-15}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid)}),
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-100,100},{-60,100},{-4,6}}), 
-          Line(points={{-100,-100},{-60,-100},{-4,-4}}), 
-          Line(points={{8,0},{102,0}}), 
+          Line(points={{-100,100},{-60,100},{-4,6}}, color={0,0,255}), 
+          Line(points={{-100,-100},{-60,-100},{-4,-4}}, color={0,0,255}), 
+          Line(points={{8,0},{102,0}}, color={0,0,255}), 
           Ellipse(
             extent={{-15,15},{15,-15}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-99,50},{-60,50},{-8,5}}), 
-          Line(points={{-100,0},{-7,0}}), 
-          Line(points={{-99,-50},{-60,-50},{-9,-6}})}));
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{-99,50},{-60,50},{-8,5}}, color={0,0,255}), 
+          Line(points={{-100,0},{-7,0}}, color={0,0,255}), 
+          Line(points={{-99,-50},{-60,-50},{-9,-6}}, color={0,0,255})}));
   equation 
     [y] = [u1; u2; u3; u4; u5];
   end Multiplex5;
@@ -600,32 +623,34 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{8,0},{102,0}}), 
+          Line(points={{8,0},{102,0}}, color={0,0,255}), 
           Ellipse(
             extent={{-15,15},{15,-15}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-99,85},{-61,85},{-3,11}}), 
-          Line(points={{-100,51},{-61,51},{-7,6}}), 
-          Line(points={{-101,17},{-60,17},{-9,2}}), 
-          Line(points={{-100,-18},{-60,-18},{-11,-4}}), 
-          Line(points={{-99,-50},{-60,-50},{-9,-6}}), 
-          Line(points={{-100,-85},{-60,-85},{-3,-10}})}),
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{-99,85},{-61,85},{-3,11}}, color={0,0,255}), 
+          Line(points={{-100,51},{-61,51},{-7,6}}, color={0,0,255}), 
+          Line(points={{-101,17},{-60,17},{-9,2}}, color={0,0,255}), 
+          Line(points={{-100,-18},{-60,-18},{-11,-4}}, color={0,0,255}), 
+          Line(points={{-99,-50},{-60,-50},{-9,-6}}, color={0,0,255}), 
+          Line(points={{-100,-85},{-60,-85},{-3,-10}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-99,85},{-61,85},{-3,11}}), 
-          Line(points={{-100,-85},{-60,-85},{-3,-10}}), 
-          Line(points={{8,0},{102,0}}), 
+          Line(points={{-99,85},{-61,85},{-3,11}}, color={0,0,255}), 
+          Line(points={{-100,-85},{-60,-85},{-3,-10}}, color={0,0,255}), 
+          Line(points={{8,0},{102,0}}, color={0,0,255}), 
           Ellipse(
             extent={{-15,15},{15,-15}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-100,51},{-61,51},{-7,6}}), 
-          Line(points={{-99,-50},{-60,-50},{-9,-6}}), 
-          Line(points={{-101,17},{-60,17},{-9,2}}), 
-          Line(points={{-100,-18},{-60,-18},{-11,-4}})}));
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{-100,51},{-61,51},{-7,6}}, color={0,0,255}), 
+          Line(points={{-99,-50},{-60,-50},{-9,-6}}, color={0,0,255}), 
+          Line(points={{-101,17},{-60,17},{-9,2}}, color={0,0,255}), 
+          Line(points={{-100,-18},{-60,-18},{-11,-4}}, color={0,0,255})}));
   equation 
     [y] = [u1; u2; u3; u4; u5; u6];
   end Multiplex6;
@@ -660,24 +685,26 @@ explicitly defined via parameters n1 and n2.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{100,60},{60,60},{10,8}}), 
+          Line(points={{100,60},{60,60},{10,8}}, color={0,0,255}), 
           Ellipse(
             extent={{-14,16},{16,-14}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{100,-60},{60,-60},{8,-8}}), 
-          Line(points={{-100,0},{-6,0}})}),
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{100,-60},{60,-60},{8,-8}}, color={0,0,255}), 
+          Line(points={{-100,0},{-6,0}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{100,60},{60,60},{10,8}}), 
-          Line(points={{100,-60},{60,-60},{8,-8}}), 
-          Line(points={{-100,0},{-6,0}}), 
+          Line(points={{100,60},{60,60},{10,8}}, color={0,0,255}), 
+          Line(points={{100,-60},{60,-60},{8,-8}}, color={0,0,255}), 
+          Line(points={{-100,0},{-6,0}}, color={0,0,255}), 
           Ellipse(
             extent={{-14,16},{16,-14}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid)}));
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255})}));
   equation 
     [u] = [y1; y2];
   end DeMultiplex2;
@@ -719,23 +746,25 @@ explicitly defined via parameters n1, n2 and n3.
           Ellipse(
             extent={{-14,16},{16,-14}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-100,0},{-6,0}}), 
-          Line(points={{100,70},{60,70},{4,5}}), 
-          Line(points={{0,0},{101,0}}), 
-          Line(points={{100,-70},{61,-70},{5,-5}})}),
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{-100,0},{-6,0}}, color={0,0,255}), 
+          Line(points={{100,70},{60,70},{4,5}}, color={0,0,255}), 
+          Line(points={{0,0},{101,0}}, color={0,0,255}), 
+          Line(points={{100,-70},{61,-70},{5,-5}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{100,70},{60,70},{4,5}}), 
-          Line(points={{100,-70},{61,-70},{5,-5}}), 
-          Line(points={{-100,0},{-6,0}}), 
+          Line(points={{100,70},{60,70},{4,5}}, color={0,0,255}), 
+          Line(points={{100,-70},{61,-70},{5,-5}}, color={0,0,255}), 
+          Line(points={{-100,0},{-6,0}}, color={0,0,255}), 
           Ellipse(
             extent={{-16,15},{14,-15}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{0,0},{101,0}})}));
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{0,0},{101,0}}, color={0,0,255})}));
   equation 
     [u] = [y1; y2; y3];
   end DeMultiplex3;
@@ -781,25 +810,27 @@ explicitly defined via parameters n1, n2, n3 and n4.
           Ellipse(
             extent={{-14,16},{16,-14}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-100,0},{-6,0}}), 
-          Line(points={{100,90},{60,90},{6,5}}), 
-          Line(points={{100,30},{60,30},{9,2}}), 
-          Line(points={{100,-30},{60,-30},{8,-4}}), 
-          Line(points={{99,-90},{60,-90},{6,-6}})}),
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{-100,0},{-6,0}}, color={0,0,255}), 
+          Line(points={{100,90},{60,90},{6,5}}, color={0,0,255}), 
+          Line(points={{100,30},{60,30},{9,2}}, color={0,0,255}), 
+          Line(points={{100,-30},{60,-30},{8,-4}}, color={0,0,255}), 
+          Line(points={{99,-90},{60,-90},{6,-6}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{100,90},{60,90},{6,5}}), 
-          Line(points={{99,-90},{60,-90},{6,-6}}), 
-          Line(points={{-100,0},{-6,0}}), 
-          Line(points={{100,30},{60,30},{9,2}}), 
-          Line(points={{100,-30},{60,-30},{8,-4}}), 
+          Line(points={{100,90},{60,90},{6,5}}, color={0,0,255}), 
+          Line(points={{99,-90},{60,-90},{6,-6}}, color={0,0,255}), 
+          Line(points={{-100,0},{-6,0}}, color={0,0,255}), 
+          Line(points={{100,30},{60,30},{9,2}}, color={0,0,255}), 
+          Line(points={{100,-30},{60,-30},{8,-4}}, color={0,0,255}), 
           Ellipse(
             extent={{-16,15},{14,-15}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid)}));
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255})}));
   equation 
     [u] = [y1; y2; y3; y4];
   end DeMultiplex4;
@@ -849,27 +880,29 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
           Ellipse(
             extent={{-14,16},{16,-14}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-100,0},{-6,0}}), 
-          Line(points={{99,80},{60,80},{6,5}}), 
-          Line(points={{100,40},{60,40},{10,3}}), 
-          Line(points={{100,0},{10,0}}), 
-          Line(points={{100,-40},{61,-40},{11,-7}}), 
-          Line(points={{100,-80},{60,-80},{7,-5}})}),
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{-100,0},{-6,0}}, color={0,0,255}), 
+          Line(points={{99,80},{60,80},{6,5}}, color={0,0,255}), 
+          Line(points={{100,40},{60,40},{10,3}}, color={0,0,255}), 
+          Line(points={{100,0},{10,0}}, color={0,0,255}), 
+          Line(points={{100,-40},{61,-40},{11,-7}}, color={0,0,255}), 
+          Line(points={{100,-80},{60,-80},{7,-5}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{99,80},{60,80},{6,5}}), 
-          Line(points={{100,-80},{60,-80},{7,-5}}), 
-          Line(points={{-100,0},{-6,0}}), 
+          Line(points={{99,80},{60,80},{6,5}}, color={0,0,255}), 
+          Line(points={{100,-80},{60,-80},{7,-5}}, color={0,0,255}), 
+          Line(points={{-100,0},{-6,0}}, color={0,0,255}), 
           Ellipse(
             extent={{-14,15},{16,-15}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{100,40},{60,40},{10,3}}), 
-          Line(points={{100,0},{10,0}}), 
-          Line(points={{100,-40},{61,-40},{11,-7}})}));
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{100,40},{60,40},{10,3}}, color={0,0,255}), 
+          Line(points={{100,0},{10,0}}, color={0,0,255}), 
+          Line(points={{100,-40},{61,-40},{11,-7}}, color={0,0,255})}));
   equation 
     [u] = [y1; y2; y3; y4; y5];
   end DeMultiplex5;
@@ -922,29 +955,31 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
           Ellipse(
             extent={{-14,16},{16,-14}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-100,0},{-6,0}}), 
-          Line(points={{99,90},{60,90},{5,10}}), 
-          Line(points={{100,53},{60,53},{8,6}}), 
-          Line(points={{100,18},{59,18},{7,2}}), 
-          Line(points={{100,-19},{60,-19},{13,-2}}), 
-          Line(points={{99,-54},{60,-54},{9,-1}}), 
-          Line(points={{100,-91},{60,-91},{3,-7}})}),
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{-100,0},{-6,0}}, color={0,0,255}), 
+          Line(points={{99,90},{60,90},{5,10}}, color={0,0,255}), 
+          Line(points={{100,53},{60,53},{8,6}}, color={0,0,255}), 
+          Line(points={{100,18},{59,18},{7,2}}, color={0,0,255}), 
+          Line(points={{100,-19},{60,-19},{13,-2}}, color={0,0,255}), 
+          Line(points={{99,-54},{60,-54},{9,-1}}, color={0,0,255}), 
+          Line(points={{100,-91},{60,-91},{3,-7}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{99,90},{60,90},{5,10}}), 
-          Line(points={{100,-91},{60,-91},{3,-7}}), 
-          Line(points={{-100,0},{-6,0}}), 
+          Line(points={{99,90},{60,90},{5,10}}, color={0,0,255}), 
+          Line(points={{100,-91},{60,-91},{3,-7}}, color={0,0,255}), 
+          Line(points={{-100,0},{-6,0}}, color={0,0,255}), 
           Ellipse(
             extent={{-14,15},{16,-15}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{100,53},{60,53},{8,6}}), 
-          Line(points={{99,-54},{60,-54},{9,-1}}), 
-          Line(points={{100,18},{59,18},{7,2}}), 
-          Line(points={{100,-19},{60,-19},{13,-2}})}));
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{100,53},{60,53},{8,6}}, color={0,0,255}), 
+          Line(points={{99,-54},{60,-54},{9,-1}}, color={0,0,255}), 
+          Line(points={{100,18},{59,18},{7,2}}, color={0,0,255}), 
+          Line(points={{100,-19},{60,-19},{13,-2}}, color={0,0,255})}));
   equation 
     [u] = [y1; y2; y3; y4; y5; y6];
   end DeMultiplex6;

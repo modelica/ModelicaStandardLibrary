@@ -726,13 +726,16 @@ with the blocks of package Modelica.Blocks.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{-70,0},{-100,0}}, color={0,0,0}), 
-          Line(points={{70,0},{100,0}}), 
-          Text(extent={{-132,-125},{131,-79}}, textString="%name")}),
+          Line(points={{70,0},{100,0}}, color={0,0,255}), 
+          Text(
+            extent={{-132,-125},{131,-79}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={Line(points={{-70,0},{-100,0}}, color={0,0,0}), 
-            Line(points={{70,0},{100,0}})}));
+            Line(points={{70,0},{100,0}}, color={0,0,255})}));
   equation 
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of absolute sensor object is not connected");
@@ -778,7 +781,10 @@ with the blocks of package Modelica.Blocks.
           Line(points={{-70,0},{-101,0}}, color={0,0,0}), 
           Line(points={{70,0},{100,0}}, color={0,0,0}), 
           Line(points={{0,-100},{0,-70}}, color={0,0,127}), 
-          Text(extent={{-132,76},{129,124}}, textString="%name"), 
+          Text(
+            extent={{-132,76},{129,124}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
             extent={{-118,52},{-82,27}}, 
             lineColor={128,128,128}, 
@@ -843,7 +849,10 @@ with the blocks of package Modelica.Blocks.
           Line(points={{-70,0},{-101,0}}, color={0,0,0}), 
           Line(points={{70,0},{100,0}}, color={0,0,0}), 
           Line(points={{-80,-100},{-80,0}}, color={0,0,127}), 
-          Text(extent={{-132,76},{129,124}}, textString="%name"), 
+          Text(
+            extent={{-132,76},{129,124}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
             extent={{-118,55},{-82,30}}, 
             lineColor={128,128,128}, 

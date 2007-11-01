@@ -162,14 +162,14 @@ This is discussed in the description of package
             extent={{-150,-150},{150,-110}}, 
             lineColor={0,0,0}, 
             textString="k=%k"), 
-          Line(points={{-80,-80},{80,80}})}),
+          Line(points={{-80,-80},{80,80}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}), 
-          Line(points={{-100,0},{-60,0}}), 
-          Line(points={{60,0},{100,0}}), 
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
+          Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
+          Line(points={{60,0},{100,0}}, color={0,0,255}), 
           Text(
             extent={{-36,60},{32,2}}, 
             lineColor={0,0,0}, 
@@ -253,7 +253,7 @@ to use <b>limitAtInit</b> = <b>false</b>.
             lineColor={192,192,192}, 
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid), 
-          Line(points={{-80,-80},{20,20},{80,20}}), 
+          Line(points={{-80,-80},{20,20},{80,20}}, color={0,0,255}), 
           Text(
             extent={{0,-10},{60,-70}}, 
             lineColor={192,192,192}, 
@@ -266,13 +266,13 @@ to use <b>limitAtInit</b> = <b>false</b>.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}), 
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
           Text(
             extent={{-54,46},{-4,-48}}, 
             lineColor={0,0,0}, 
             textString="lim"), 
-          Line(points={{-100,0},{-60,0}}), 
-          Line(points={{60,0},{100,0}}), 
+          Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
+          Line(points={{60,0},{100,0}}, color={0,0,255}), 
           Text(
             extent={{-8,60},{60,2}}, 
             lineColor={0,0,0}, 
@@ -363,7 +363,7 @@ If k=0, the block reduces to y=0.
           Line(points={{-80,-80},{-80,60},{-70,17.95},{-60,-11.46},{-50,-32.05},
                 {-40,-46.45},{-30,-56.53},{-20,-63.58},{-10,-68.51},{0,-71.96},
                 {10,-74.37},{20,-76.06},{30,-77.25},{40,-78.07},{50,-78.65},{60,
-                -79.06}}), 
+                -79.06}}, color={0,0,255}), 
           Text(
             extent={{-30,14},{86,60}}, 
             lineColor={192,192,192}, 
@@ -385,9 +385,9 @@ If k=0, the block reduces to y=0.
             lineColor={0,0,0}, 
             textString="T s + 1"), 
           Line(points={{-50,0},{50,0}}, color={0,0,0}), 
-          Rectangle(extent={{-60,60},{60,-60}}), 
-          Line(points={{-100,0},{-60,0}}), 
-          Line(points={{60,0},{100,0}})}),
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
+          Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
+          Line(points={{60,0},{100,0}}, color={0,0,255})}),
       Window(
         x=0.17,
         y=0.03,
@@ -471,7 +471,7 @@ Example:
           Line(points={{-80,-80},{-70,-45.11},{-60,-19.58},{-50,-0.9087},{-40,
                 12.75},{-30,22.75},{-20,30.06},{-10,35.41},{0,39.33},{10,42.19},
                 {20,44.29},{30,45.82},{40,46.94},{50,47.76},{60,48.36},{70,48.8},
-                {80,49.12}}), 
+                {80,49.12}}, color={0,0,255}), 
           Text(
             extent={{0,0},{60,-60}}, 
             lineColor={192,192,192}, 
@@ -493,9 +493,9 @@ Example:
             lineColor={0,0,0}, 
             textString="T s + 1"), 
           Line(points={{-50,0},{50,0}}, color={0,0,0}), 
-          Rectangle(extent={{-60,60},{60,-60}}), 
-          Line(points={{-100,0},{-60,0}}), 
-          Line(points={{60,0},{100,0}})}),
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
+          Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
+          Line(points={{60,0},{100,0}}, color={0,0,255})}),
       Window(
         x=0.15,
         y=0.04,
@@ -580,7 +580,8 @@ Example:
           Line(points={{-80,-80},{-72,-68.53},{-64,-39.5},{-56,-2.522},{-48,
                 32.75},{-40,58.8},{-32,71.51},{-24,70.49},{-16,58.45},{-8,40.06},
                 {0,20.55},{8,4.459},{16,-5.271},{24,-7.629},{32,-3.428},{40,
-                5.21},{48,15.56},{56,25.03},{64,31.66},{72,34.5},{80,33.61}}), 
+                5.21},{48,15.56},{56,25.03},{64,31.66},{72,34.5},{80,33.61}}, 
+              color={0,0,255}), 
           Text(
             extent={{0,-10},{60,-70}}, 
             lineColor={192,192,192}, 
@@ -593,7 +594,7 @@ Example:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}), 
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
           Text(
             extent={{-60,60},{60,14}}, 
             lineColor={0,0,0}, 
@@ -602,8 +603,8 @@ Example:
             extent={{-60,8},{-32,-20}}, 
             lineColor={0,0,0}, 
             textString="s"), 
-          Line(points={{-100,0},{-60,0}}), 
-          Line(points={{60,0},{100,0}}), 
+          Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
+          Line(points={{60,0},{100,0}}, color={0,0,255}), 
           Line(points={{-50,14},{50,14}}, color={0,0,0}), 
           Line(points={{-54,-20},{-38,-20}}, color={0,0,0}), 
           Text(
@@ -726,7 +727,10 @@ This is discussed in the description of package
             lineColor={192,192,192}, 
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid), 
-          Line(points={{-80,-80},{-80,-20},{60,80}}, thickness=1), 
+          Line(
+            points={{-80,-80},{-80,-20},{60,80}}, 
+            thickness=1, 
+            color={0,0,255}), 
           Text(
             extent={{0,6},{60,-56}}, 
             lineColor={192,192,192}, 
@@ -739,7 +743,7 @@ This is discussed in the description of package
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}), 
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
           Text(
             extent={{-68,24},{-24,-18}}, 
             lineColor={0,0,0}, 
@@ -753,8 +757,8 @@ This is discussed in the description of package
             lineColor={0,0,0}, 
             textString="T s"), 
           Line(points={{-24,0},{54,0}}, color={0,0,0}), 
-          Line(points={{-100,0},{-60,0}}), 
-          Line(points={{62,0},{100,0}})}));
+          Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
+          Line(points={{62,0},{100,0}}, color={0,0,255})}));
   initial equation 
     if initType == Init.SteadyState then
       der(x) = 0;
@@ -813,7 +817,8 @@ This is discussed in the description of package
             lineColor={192,192,192}, 
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid), 
-          Line(points={{-80,-80},{-80,50},{-80,-20},{60,80}}), 
+          Line(points={{-80,-80},{-80,50},{-80,-20},{60,80}}, color={0,0,255}), 
+            
           Text(
             extent={{-20,-20},{80,-60}}, 
             lineColor={192,192,192}, 
@@ -1032,7 +1037,8 @@ to compute u by an algebraic equation.
             lineColor={192,192,192}, 
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid), 
-          Line(points={{-80,-80},{-80,50},{-80,-20},{30,60},{80,60}}), 
+          Line(points={{-80,-80},{-80,50},{-80,-20},{30,60},{80,60}}, color={0,
+                0,255}), 
           Text(
             extent={{-20,-20},{80,-60}}, 
             lineColor={192,192,192}, 
@@ -1381,9 +1387,15 @@ results in the following transfer function:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{-80,0},{80,0}}), 
-          Text(extent={{-90,10},{90,90}}, textString="b(s)"), 
-          Text(extent={{-90,-10},{90,-90}}, textString="a(s)")}),
+          Line(points={{-80,0},{80,0}}, color={0,0,255}), 
+          Text(
+            extent={{-90,10},{90,90}}, 
+            textString="b(s)", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-90,-10},{90,-90}}, 
+            textString="a(s)", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1397,9 +1409,9 @@ results in the following transfer function:
             extent={{-55,-5},{55,-55}}, 
             lineColor={0,0,0}, 
             textString="a(s)"), 
-          Rectangle(extent={{-60,60},{60,-60}}), 
-          Line(points={{-100,0},{-60,0}}), 
-          Line(points={{60,0},{100,0}})}));
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
+          Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
+          Line(points={{60,0},{100,0}}, color={0,0,255})}));
   initial equation 
     if initType == Init.SteadyState then
       der(x) = zeros(nx);
@@ -1483,17 +1495,29 @@ results in the following equations:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Text(extent={{-90,10},{-10,90}}, textString="A"), 
-          Text(extent={{10,10},{90,90}}, textString="B"), 
-          Text(extent={{-90,-10},{-10,-90}}, textString="C"), 
-          Text(extent={{10,-10},{90,-90}}, textString="D"), 
+          Text(
+            extent={{-90,10},{-10,90}}, 
+            textString="A", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{10,10},{90,90}}, 
+            textString="B", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-90,-10},{-10,-90}}, 
+            textString="C", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{10,-10},{90,-90}}, 
+            textString="D", 
+            lineColor={0,0,255}), 
           Line(points={{0,-90},{0,90}}, color={192,192,192}), 
           Line(points={{-90,0},{90,0}}, color={192,192,192})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}), 
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
           Text(
             extent={{-60,40},{60,0}}, 
             lineColor={0,0,0}, 
@@ -1502,8 +1526,8 @@ results in the following equations:
             extent={{-60,0},{60,-40}}, 
             lineColor={0,0,0}, 
             textString=" y=Cx+Du"), 
-          Line(points={{-100,0},{-60,0}}), 
-          Line(points={{60,0},{100,0}})}));
+          Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
+          Line(points={{60,0},{100,0}}, color={0,0,255})}));
   protected 
     parameter Integer nx = size(A, 1) "number of states";
     parameter Integer ny = size(C, 1) "number of outputs";
@@ -1524,7 +1548,10 @@ results in the following equations:
       extends Interfaces.SISO;
     
       annotation (defaultComponentName="der1",
-   Icon(graphics={Text(extent={{-80,76},{80,-82}}, textString="der()")}),
+   Icon(graphics={Text(
+            extent={{-80,76},{80,-82}}, 
+            textString="der()", 
+            lineColor={0,0,255})}),
           Documentation(info="<HTML>
 <p>
 Defines that the output y is the <i>derivative</i>
@@ -1582,7 +1609,8 @@ the model.
           Line(points={{-80,-80},{-72,-68.53},{-64,-39.5},{-56,-2.522},{-48,
                 32.75},{-40,58.8},{-32,71.51},{-24,70.49},{-16,58.45},{-8,40.06},
                 {0,20.55},{8,4.459},{16,-5.271},{24,-7.629},{32,-3.428},{40,
-                5.21},{48,15.56},{56,25.03},{64,31.66},{72,34.5},{80,33.61}}), 
+                5.21},{48,15.56},{56,25.03},{64,31.66},{72,34.5},{80,33.61}}, 
+              color={0,0,255}), 
           Line(points={{-90.9779,-80.7697},{81.0221,-80.7697}}, color={192,192,
                 192}), 
           Polygon(
@@ -1613,9 +1641,9 @@ the model.
             extent={{-55,-5},{55,-55}}, 
             lineColor={0,0,0}, 
             textString="a(s)"), 
-          Rectangle(extent={{-60,60},{60,-60}}), 
-          Line(points={{-100,0},{-60,0}}), 
-          Line(points={{60,0},{100,0}})}),
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
+          Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
+          Line(points={{60,0},{100,0}}, color={0,0,255})}),
       Documentation(info="<html>
 <p>This block defines the transfer function between the input u
 and the output y as an n-th order low pass filter with <i>Butterworth</i>
@@ -1748,7 +1776,7 @@ with zeros.</p>
                 {-42,-18},{-36,4},{-26,20},{-10.7599,34.9018},{-0.759907,
                 38.8218},{9.24009,41.6818},{19.2401,43.7818},{29.2401,45.3118},
                 {39.2401,46.4318},{49.2401,47.2518},{59.2401,47.8518},{69.2401,
-                48.2918},{79.2401,48.6118}}), 
+                48.2918},{79.2401,48.6118}}, color={0,0,255}), 
           Text(
             extent={{-70,94},{26,48}}, 
             lineColor={192,192,192}, 
@@ -1763,9 +1791,9 @@ with zeros.</p>
             extent={{-55,55},{55,5}}, 
             lineColor={0,0,0}, 
             textString="1"), 
-          Rectangle(extent={{-60,60},{60,-60}}), 
-          Line(points={{-100,0},{-60,0}}), 
-          Line(points={{60,0},{100,0}}), 
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
+          Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
+          Line(points={{60,0},{100,0}}, color={0,0,255}), 
           Text(
             extent={{-54,-6},{44,-56}}, 
             lineColor={0,0,0}, 

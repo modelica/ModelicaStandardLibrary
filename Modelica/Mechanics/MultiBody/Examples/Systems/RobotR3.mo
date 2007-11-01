@@ -107,7 +107,10 @@ load inertia.
           Bitmap(extent={{-75.5,98.25},{87,-96.75}}, fileName=
                 "../../../../Images/MultiBody/Examples/Systems/robot_kr15.bmp"), 
             
-          Text(extent={{-111.5,130},{108.5,100}}, textString="%name"), 
+          Text(
+            extent={{-111.5,130},{108.5,100}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
             extent={{-104.5,-104},{115,-128}}, 
             lineColor={0,0,0}, 
@@ -481,7 +484,10 @@ the connection to this bus) are defined
               lineColor={0,0,0}, 
               fillColor={255,255,255}, 
               fillPattern=FillPattern.Solid), 
-            Text(extent={{-150,150},{150,110}}, textString="%name"), 
+            Text(
+              extent={{-150,150},{150,110}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Polygon(
               points={{-80,90},{-88,68},{-72,68},{-80,88},{-80,90}}, 
               lineColor={192,192,192}, 
@@ -630,7 +636,10 @@ motion on the controlBus of the r3 robot.
               lineColor={0,0,0}, 
               fillColor={255,255,255}, 
               fillPattern=FillPattern.Solid), 
-            Text(extent={{-150,150},{150,110}}, textString="%name"), 
+            Text(
+              extent={{-150,150},{150,110}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Polygon(
               points={{-80,90},{-88,68},{-72,68},{-80,88},{-80,90}}, 
               lineColor={192,192,192}, 
@@ -994,8 +1003,14 @@ the definition of initial values considerably.
               lineColor={0,0,0}, 
               fillColor={0,0,0}, 
               fillPattern=FillPattern.Solid), 
-            Text(extent={{0,128},{0,68}}, textString="%name"), 
-            Text(extent={{-36,40},{36,-30}}, textString="1")}),
+            Text(
+              extent={{0,128},{0,68}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
+            Text(
+              extent={{-36,40},{36,-30}}, 
+              textString="1", 
+              lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1101,8 +1116,14 @@ Default values for all parameters are given for joint 4.
               lineColor={0,0,0}, 
               fillColor={0,0,0}, 
               fillPattern=FillPattern.Solid), 
-            Text(extent={{0,128},{0,68}}, textString="%name"), 
-            Text(extent={{-36,40},{38,-30}}, textString="2")}),
+            Text(
+              extent={{0,128},{0,68}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
+            Text(
+              extent={{-36,40},{38,-30}}, 
+              textString="2", 
+              lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1161,8 +1182,10 @@ produced by the motor).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Text(extent={{0,120},{0,60}}, textString=
-                  "%name"), Line(
+            grid={1,1}), graphics={Text(
+              extent={{0,120},{0,60}}, 
+              textString="%name", 
+              lineColor={0,0,255}), Line(
               points={{80,-102},{80,-10}}, 
               color={255,204,51}, 
               thickness=2)}),
@@ -1379,23 +1402,30 @@ produced by the motor).
             Rectangle(
               extent={{-30,54},{30,24}}, 
               fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Polygon(
               points={{-30,40},{-60,50},{-60,30},{-30,40}}, 
               lineColor={0,0,255}, 
               fillColor={0,0,255}, 
               fillPattern=FillPattern.Solid), 
-            Line(points={{-31,-41},{-78,-41},{-78,39},{-30,39}}), 
+            Line(points={{-31,-41},{-78,-41},{-78,39},{-30,39}}, color={0,0,255}), 
+              
             Rectangle(
               extent={{-30,-26},{30,-56}}, 
               fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Polygon(
               points={{60,-32},{30,-42},{60,-52},{60,-32}}, 
               fillColor={0,0,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{30,39},{76,39},{76,-41},{30,-41}}), 
-            Text(extent={{-100,150},{100,110}}, textString="%name")}),
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
+            Line(points={{30,39},{76,39},{76,-41},{30,-41}}, color={0,0,255}), 
+            Text(
+              extent={{-100,150},{100,110}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
         Window(
           x=0.01,
           y=0.01,
@@ -1525,8 +1555,10 @@ Default values of the parameters are given for the axis of joint 1.
               extent={{-100,50},{100,-50}}, 
               lineColor={0,0,0}, 
               fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={160,160,164}), Text(extent={{-150,57},{150,97}}, 
-                textString="%name")}),
+              fillColor={160,160,164}), Text(
+              extent={{-150,57},{150,97}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1669,13 +1701,34 @@ This model contains the mechanical components of the r3 robot
               lineColor={0,0,0}, 
               fillColor={192,192,192}, 
               fillPattern=FillPattern.Solid), 
-            Text(extent={{-200,280},{200,200}}, textString="%name"), 
-            Text(extent={{-200,-150},{-140,-190}}, textString="1"), 
-            Text(extent={{-200,-30},{-140,-70}}, textString="3"), 
-            Text(extent={{-200,-90},{-140,-130}}, textString="2"), 
-            Text(extent={{-200,90},{-140,50}}, textString="5"), 
-            Text(extent={{-200,28},{-140,-12}}, textString="4"), 
-            Text(extent={{-198,150},{-138,110}}, textString="6"), 
+            Text(
+              extent={{-200,280},{200,200}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
+            Text(
+              extent={{-200,-150},{-140,-190}}, 
+              textString="1", 
+              lineColor={0,0,255}), 
+            Text(
+              extent={{-200,-30},{-140,-70}}, 
+              textString="3", 
+              lineColor={0,0,255}), 
+            Text(
+              extent={{-200,-90},{-140,-130}}, 
+              textString="2", 
+              lineColor={0,0,255}), 
+            Text(
+              extent={{-200,90},{-140,50}}, 
+              textString="5", 
+              lineColor={0,0,255}), 
+            Text(
+              extent={{-200,28},{-140,-12}}, 
+              textString="4", 
+              lineColor={0,0,255}), 
+            Text(
+              extent={{-198,150},{-138,110}}, 
+              textString="6", 
+              lineColor={0,0,255}), 
             Bitmap(extent={{-130,195},{195,-195}}, fileName=
                   "../../../../Images/MultiBody/Examples/Systems/robot_kr15.bmp")}),
         Diagram(coordinateSystem(

@@ -9,9 +9,10 @@ model HeatingMOSInverter "Heating MOS Inverter"
         extent={{-10,-10},{10,10}},
         rotation=270)));
   
-annotation (Diagram(graphics={Text(extent={{-100,100},{-6,72}}, textString=
-              "Heating MOS Inverter")}),
-                                    Documentation(info="<HTML>
+annotation (Diagram(graphics={Text(
+          extent={{-100,100},{-6,72}}, 
+          textString="Heating MOS Inverter", 
+          lineColor={0,0,255})}),   Documentation(info="<HTML>
 <P>
 The heating MOS inverter shows a heat flow always if a transistor is leading.
 </P>

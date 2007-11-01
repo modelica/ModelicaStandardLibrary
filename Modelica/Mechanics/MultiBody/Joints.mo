@@ -87,8 +87,10 @@ solved, i.e., robustly and efficiently).
       Icon(graphics={Text(
             extent={{-142,62},{147,101}}, 
             lineColor={0,0,0}, 
-            textString="n=%n"), Text(extent={{-135,-117},{141,-60}}, textString
-              ="%name")}),
+            textString="n=%n"), Text(
+            extent={{-135,-117},{141,-60}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Documentation(info="<HTML>
 <p>
 Joint where frame_b is translated along axis n which is fixed in frame_a.
@@ -136,7 +138,10 @@ vector \"n\" defining the translation axis
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Text(extent={{42,81},{57,66}}, textString="f"), 
+          Text(
+            extent={{42,81},{57,66}}, 
+            textString="f", 
+            lineColor={0,0,255}), 
           Line(points={{40,65},{70,65}}, color={0,0,255}), 
           Polygon(
             points={{-20,68},{-30,65},{-20,62},{-20,68}}, 
@@ -144,7 +149,10 @@ vector \"n\" defining the translation axis
             fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid), 
           Line(points={{-8,65},{-31,65}}, color={0,0,255}), 
-          Text(extent={{-20,80},{-5,65}}, textString="f"), 
+          Text(
+            extent={{-20,80},{-5,65}}, 
+            textString="f", 
+            lineColor={0,0,255}), 
           Polygon(
             points={{60,68},{70,65},{60,62},{60,68}}, 
             lineColor={0,0,255}, 
@@ -154,7 +162,8 @@ vector \"n\" defining the translation axis
             extent={{90,30},{100,70}}, 
             pattern=LinePattern.None, 
             fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Line(points={{-30,54},{70,54}}, color={128,128,128}), 
           Polygon(
             points={{60,57},{70,54},{60,51},{60,57}}, 
@@ -175,12 +184,16 @@ vector \"n\" defining the translation axis
             extent={{90,30},{100,70}}, 
             pattern=LinePattern.None, 
             fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Text(
             extent={{-141,-92},{148,-53}}, 
             lineColor={0,0,0}, 
             textString="n=%n"), 
-          Text(extent={{-132,-153},{144,-96}}, textString="%name")}),
+          Text(
+            extent={{-132,-153},{144,-96}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Documentation(info="<HTML>
 <p>
 Joint where frame_b is translated along axis n which is fixed in frame_a.
@@ -226,12 +239,16 @@ vector \"n\" defining the translation axis
     
     extends Internal.Revolute;
     annotation (
-      Icon(graphics={
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
           Text(
             extent={{-146,70},{143,109}}, 
             lineColor={0,0,0}, 
             textString="n=%n"), 
-          Text(extent={{-137,-125},{139,-68}}, textString="%name"), 
+          Text(
+            extent={{-137,-125},{139,-68}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Rectangle(
             extent={{-20,10},{20,-10}}, 
             lineColor={0,0,0}, 
@@ -348,7 +365,10 @@ vector \"n\" defining the translation axis
             extent={{-146,70},{143,109}}, 
             lineColor={0,0,0}, 
             textString="n=%n"), 
-          Text(extent={{-137,-125},{139,-68}}, textString="%name"), 
+          Text(
+            extent={{-137,-125},{139,-68}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Rectangle(
             extent={{-20,10},{20,-10}}, 
             lineColor={0,0,0}, 
@@ -573,7 +593,10 @@ definition of the axes vectors n in the revolute joints of the planar loop.
             extent={{-141,-116},{148,-77}}, 
             lineColor={0,0,0}, 
             textString="n=%n"), 
-          Text(extent={{-140,-172},{136,-115}}, textString="%name")}),
+          Text(
+            extent={{-140,-172},{136,-115}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -775,7 +798,10 @@ vector \"n\" defining the cylinder axis
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={192,192,192}), 
           Line(points={{0,-50},{0,50}}, color={0,0,0}), 
-          Text(extent={{-126,116},{134,56}}, textString="%name"), 
+          Text(
+            extent={{-126,116},{134,56}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
             extent={{-118,-65},{120,-102}}, 
             lineColor={0,0,0}, 
@@ -951,7 +977,10 @@ phi_start_b = 45<sup>o</sup>).
             lineColor={160,160,164}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-134,-70},{126,-130}}, textString="%name"), 
+          Text(
+            extent={{-134,-70},{126,-130}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Rectangle(
             extent={{12,82},{80,-82}}, 
             lineColor={255,255,255}, 
@@ -980,7 +1009,8 @@ phi_start_b = 45<sup>o</sup>).
             points={{-22,-54},{-60,0},{-22,50},{40,52},{-22,-54}}, 
             pattern=LinePattern.None, 
             fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Line(
             points={{12,78},{12,-20}}, 
             color={0,0,0}, 
@@ -1179,7 +1209,10 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
             extent={{-131,-74},{133,-112}}, 
             lineColor={0,0,0}, 
             textString="n=%n"), 
-          Text(extent={{-124,127},{136,67}}, textString="%name")}));
+          Text(
+            extent={{-124,127},{136,67}}, 
+            textString="%name", 
+            lineColor={0,0,255})}));
     
   protected 
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
@@ -1382,7 +1415,10 @@ frame_b of the joint.
             lineColor={0,0,0}, 
             fillPattern=FillPattern.Sphere, 
             fillColor={160,160,164}), 
-          Text(extent={{-100,-132},{100,-72}}, textString="%name")}),
+          Text(
+            extent={{-100,-132},{100,-72}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2068,7 +2104,10 @@ frame_b of the joint.
             lineColor={128,128,128}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-149,111},{141,51}}, textString="%name"), 
+          Text(
+            extent={{-149,111},{141,51}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Rectangle(
             extent={{-40,40},{41,-41}}, 
             lineColor={255,255,255}, 
@@ -2117,13 +2156,16 @@ frame_b of the joint.
             lineColor={192,192,192}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
-          Line(points={{-56,-60},{46,-60}}), 
+          Line(points={{-56,-60},{46,-60}}, color={0,0,255}), 
           Polygon(
             points={{56,-60},{41,-54},{41,-66},{56,-60}}, 
             lineColor={0,0,255}, 
             fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-37,-63},{33,-79}}, textString="rodLength"), 
+          Text(
+            extent={{-37,-63},{33,-79}}, 
+            textString="rodLength", 
+            lineColor={0,0,255}), 
           Rectangle(
             extent={{-40,41},{40,-40}}, 
             lineColor={255,255,255}, 
@@ -2144,11 +2186,13 @@ frame_b of the joint.
             lineColor={0,0,0}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Line(points={{-56,-71},{-56,1}}), 
-          Line(points={{56,-72},{56,0}}), 
-          Polygon(points={{11,1},{-1,4},{-1,-2},{11,1}}, fillPattern=
-                FillPattern.Forward), 
-          Line(points={{-56,1},{-1,1}}), 
+          Line(points={{-56,-71},{-56,1}}, color={0,0,255}), 
+          Line(points={{56,-72},{56,0}}, color={0,0,255}), 
+          Polygon(
+            points={{11,1},{-1,4},{-1,-2},{11,1}}, 
+            fillPattern=FillPattern.Forward, 
+            lineColor={0,0,255}), 
+          Line(points={{-56,1},{-1,1}}, color={0,0,255}), 
           Text(
             extent={{-32,-4},{4,-29}}, 
             lineColor={0,0,0}, 
@@ -2543,7 +2587,8 @@ the origin of frame_a to the middle of the rod, this might be defined as:
             points={{-72,-20},{-89,3},{-69,25},{-45,27},{-72,-20}}, 
             pattern=LinePattern.None, 
             fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Line(
             points={{-60,40},{-60,-10}}, 
             color={0,0,0}, 
@@ -2599,13 +2644,16 @@ the origin of frame_a to the middle of the rod, this might be defined as:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-60,-70},{46,-70}}), 
+          Line(points={{-60,-70},{46,-70}}, color={0,0,255}), 
           Polygon(
             points={{60,-70},{45,-64},{45,-76},{60,-70}}, 
             lineColor={0,0,255}, 
             fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-56,-71},{56,-90}}, textString="rRod"), 
+          Text(
+            extent={{-56,-71},{56,-90}}, 
+            textString="rRod", 
+            lineColor={0,0,255}), 
           Ellipse(
             extent={{-100,-40},{-19,40}}, 
             lineColor={0,0,0}, 
@@ -2639,7 +2687,8 @@ the origin of frame_a to the middle of the rod, this might be defined as:
             points={{-72,-20},{-89,3},{-69,25},{-45,27},{-72,-20}}, 
             pattern=LinePattern.None, 
             fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Line(
             points={{-60,40},{-60,-10}}, 
             color={0,0,0}, 
@@ -2648,25 +2697,31 @@ the origin of frame_a to the middle of the rod, this might be defined as:
             points={{-49,20},{-69,-15}}, 
             color={0,0,0}, 
             thickness=2), 
-          Polygon(points={{7,-1},{-5,2},{-5,-4},{7,-1}}, fillPattern=
-                FillPattern.Forward), 
-          Line(points={{-50,19},{-30,57}}), 
+          Polygon(
+            points={{7,-1},{-5,2},{-5,-4},{7,-1}}, 
+            fillPattern=FillPattern.Forward, 
+            lineColor={0,0,255}), 
+          Line(points={{-50,19},{-30,57}}, color={0,0,255}), 
           Text(
             extent={{-34,78},{8,62}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.None, 
             textString="e2"), 
-          Polygon(points={{-25,64},{-33,56},{-27,53},{-25,64}}, fillPattern=
-                FillPattern.Forward), 
-          Line(points={{-60,41},{-60,65}}), 
-          Polygon(points={{-60,75},{-64,63},{-56,63},{-60,75}}, fillPattern=
-                FillPattern.Forward), 
+          Polygon(
+            points={{-25,64},{-33,56},{-27,53},{-25,64}}, 
+            fillPattern=FillPattern.Forward, 
+            lineColor={0,0,255}), 
+          Line(points={{-60,41},{-60,65}}, color={0,0,255}), 
+          Polygon(
+            points={{-60,75},{-64,63},{-56,63},{-60,75}}, 
+            fillPattern=FillPattern.Forward, 
+            lineColor={0,0,255}), 
           Text(
             extent={{-93,82},{-64,62}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.None, 
             textString="n1"), 
-          Line(points={{-60,-40},{-60,-72}}), 
+          Line(points={{-60,-40},{-60,-72}}, color={0,0,255}), 
           Ellipse(
             extent={{20,-40},{100,40}}, 
             lineColor={0,0,0}, 
@@ -2698,15 +2753,20 @@ the origin of frame_a to the middle of the rod, this might be defined as:
             lineColor={0,0,0}, 
             fillPattern=FillPattern.None, 
             textString="eRod"), 
-          Line(points={{-60,0},{-5,0}}), 
-          Polygon(points={{7,0},{-5,3},{-5,-3},{7,0}}, fillPattern=FillPattern.Forward), 
-            
-          Line(points={{60,-1},{60,-72}}), 
+          Line(points={{-60,0},{-5,0}}, color={0,0,255}), 
+          Polygon(
+            points={{7,0},{-5,3},{-5,-3},{7,0}}, 
+            fillPattern=FillPattern.Forward, 
+            lineColor={0,0,255}), 
+          Line(points={{60,-1},{60,-72}}, color={0,0,255}), 
           Line(
             points={{-40,100},{-40,70},{-60,0}}, 
             color={128,128,128}, 
             thickness=2), 
-          Text(extent={{-23,30},{26,10}}, textString=" eRod*e2 = 0;  n1*e2 = 0")}));
+          Text(
+            extent={{-23,30},{26,10}}, 
+            textString=" eRod*e2 = 0;  n1*e2 = 0", 
+            lineColor={0,0,255})}));
     
   protected 
     SI.Force f_b_a[3] "frame_b.f resolved in frame_a";
@@ -2984,7 +3044,10 @@ singular configuration.
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={192,192,192}), 
-          Text(extent={{-156,186},{152,130}}, textString="%name=%ratio"), 
+          Text(
+            extent={{-156,186},{152,130}}, 
+            textString="%name=%ratio", 
+            lineColor={0,0,255}), 
           Line(points={{-80,20},{-60,20}}, color={0,0,0}), 
           Line(points={{-80,-20},{-60,-20}}, color={0,0,0}), 
           Line(points={{-10,60},{10,60}}, color={0,0,0}), 
@@ -3380,7 +3443,8 @@ component).
               points={{-72,-20},{-89,3},{-69,25},{-45,27},{-72,-20}}, 
               pattern=LinePattern.None, 
               fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Line(
               points={{-60,40},{-60,-10}}, 
               color={0,0,0}, 
@@ -3430,22 +3494,26 @@ component).
               extent={{-35,-13},{-6,14}}, 
               pattern=LinePattern.None, 
               fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Rectangle(
               extent={{-35,14},{-6,18}}, 
               pattern=LinePattern.None, 
               fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Rectangle(
               extent={{-6,-7},{46,6}}, 
               pattern=LinePattern.None, 
               fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Rectangle(
               extent={{-6,6},{46,10}}, 
               pattern=LinePattern.None, 
               fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Line(points={{-6,-13},{-6,18}}, color={0,0,0}), 
             Line(
               points={{60,-1},{60,90},{80,90},{80,97}}, 
@@ -3470,13 +3538,16 @@ component).
             extent={{-100,-100},{100,100}},
             grid={1,1},
             initialScale=0.2), graphics={
-            Line(points={{-60,-70},{46,-70}}), 
+            Line(points={{-60,-70},{46,-70}}, color={0,0,255}), 
             Polygon(
               points={{60,-70},{45,-64},{45,-76},{60,-70}}, 
               lineColor={0,0,255}, 
               fillColor={0,0,255}, 
               fillPattern=FillPattern.Solid), 
-            Text(extent={{-62,-73},{65,-90}}, textString="rAxis"), 
+            Text(
+              extent={{-62,-73},{65,-90}}, 
+              textString="rAxis", 
+              lineColor={0,0,255}), 
             Ellipse(
               extent={{-100,-40},{-19,40}}, 
               lineColor={0,0,0}, 
@@ -3510,7 +3581,8 @@ component).
               points={{-72,-20},{-89,3},{-69,25},{-45,27},{-72,-20}}, 
               pattern=LinePattern.None, 
               fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Line(
               points={{-60,40},{-60,-10}}, 
               color={0,0,0}, 
@@ -3523,25 +3595,31 @@ component).
               points={{-40,0},{-40,90},{-80,90},{-80,99}}, 
               color={95,95,95}, 
               thickness=2), 
-            Polygon(points={{7,-1},{-5,2},{-5,-4},{7,-1}}, fillPattern=
-                  FillPattern.Forward), 
-            Line(points={{-50,19},{-30,57}}), 
+            Polygon(
+              points={{7,-1},{-5,2},{-5,-4},{7,-1}}, 
+              fillPattern=FillPattern.Forward, 
+              lineColor={0,0,255}), 
+            Line(points={{-50,19},{-30,57}}, color={0,0,255}), 
             Text(
               extent={{-24,74},{7,53}}, 
               lineColor={0,0,0}, 
               fillPattern=FillPattern.None, 
               textString="e2"), 
-            Polygon(points={{-25,64},{-33,56},{-27,53},{-25,64}}, fillPattern=
-                  FillPattern.Forward), 
-            Line(points={{-60,41},{-60,65}}), 
-            Polygon(points={{-60,75},{-64,63},{-56,63},{-60,75}}, fillPattern=
-                  FillPattern.Forward), 
+            Polygon(
+              points={{-25,64},{-33,56},{-27,53},{-25,64}}, 
+              fillPattern=FillPattern.Forward, 
+              lineColor={0,0,255}), 
+            Line(points={{-60,41},{-60,65}}, color={0,0,255}), 
+            Polygon(
+              points={{-60,75},{-64,63},{-56,63},{-60,75}}, 
+              fillPattern=FillPattern.Forward, 
+              lineColor={0,0,255}), 
             Text(
               extent={{-96,82},{-65,61}}, 
               lineColor={0,0,0}, 
               fillPattern=FillPattern.None, 
               textString="n1"), 
-            Line(points={{-60,-40},{-60,-72}}), 
+            Line(points={{-60,-40},{-60,-72}}, color={0,0,255}), 
             Ellipse(
               extent={{20,-40},{100,40}}, 
               lineColor={0,0,0}, 
@@ -3562,41 +3640,50 @@ component).
               lineColor={0,0,0}, 
               fillPattern=FillPattern.Sphere, 
               fillColor={128,128,128}), 
-            Line(points={{60,0},{60,-74}}), 
+            Line(points={{60,0},{60,-74}}, color={0,0,255}), 
             Rectangle(
               extent={{-35,14},{-6,18}}, 
               pattern=LinePattern.None, 
               fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Rectangle(
               extent={{-35,-13},{-6,14}}, 
               pattern=LinePattern.None, 
               fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Rectangle(
               extent={{-6,6},{46,10}}, 
               pattern=LinePattern.None, 
               fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Rectangle(
               extent={{-6,-7},{46,6}}, 
               pattern=LinePattern.None, 
               fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Line(points={{-6,-13},{-6,18}}, color={0,0,0}), 
             Text(
               extent={{-40,-2},{-1,-16}}, 
               lineColor={0,0,0}, 
               fillPattern=FillPattern.None, 
               textString="nAxis"), 
-            Line(points={{-61,1},{-2,1}}), 
-            Polygon(points={{10,1},{-2,4},{-2,-2},{10,1}}, fillPattern=
-                  FillPattern.Forward), 
+            Line(points={{-61,1},{-2,1}}, color={0,0,255}), 
+            Polygon(
+              points={{10,1},{-2,4},{-2,-2},{10,1}}, 
+              fillPattern=FillPattern.Forward, 
+              lineColor={0,0,255}), 
             Line(
               points={{60,-1},{60,90},{80,90},{80,99}}, 
               color={95,95,95}, 
               thickness=2), 
-            Text(extent={{-24,117},{-9,102}}, textString="f"), 
+            Text(
+              extent={{-24,117},{-9,102}}, 
+              textString="f", 
+              lineColor={0,0,255}), 
             Polygon(
               points={{-26,103},{-36,100},{-26,97},{-26,103}}, 
               lineColor={0,0,255}, 
@@ -3608,7 +3695,10 @@ component).
               fillColor={0,0,255}, 
               fillPattern=FillPattern.Solid), 
             Line(points={{14,100},{36,100}}, color={0,0,255}), 
-            Text(extent={{12,116},{27,101}}, textString="f"), 
+            Text(
+              extent={{12,116},{27,101}}, 
+              textString="f", 
+              lineColor={0,0,255}), 
             Polygon(
               points={{30,93},{40,90},{30,87},{30,93}}, 
               lineColor={128,128,128}, 
@@ -4134,7 +4224,8 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
               points={{-81,-17},{-92,-1},{-83,16},{-57,24},{-81,-17}}, 
               pattern=LinePattern.None, 
               fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Line(
               points={{-70,30},{-70,-10}}, 
               color={0,0,0}, 
@@ -4682,7 +4773,8 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
               points={{-81,-17},{-92,-1},{-83,16},{-57,24},{-81,-17}}, 
               pattern=LinePattern.None, 
               fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Line(
               points={{-70,30},{-70,-10}}, 
               color={0,0,0}, 
@@ -4749,12 +4841,14 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
               extent={{80,24},{100,30}}, 
               pattern=LinePattern.None, 
               fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Rectangle(
               extent={{50,14},{80,20}}, 
               pattern=LinePattern.None, 
               fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Line(
               points={{95,80},{79,80}}, 
               color={135,135,135}, 
@@ -5551,12 +5645,14 @@ component).
               extent={{50,14},{80,20}}, 
               pattern=LinePattern.None, 
               fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Rectangle(
               extent={{80,24},{100,30}}, 
               pattern=LinePattern.None, 
               fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Line(
               points={{50,6},{50,80},{80,80},{80,100}}, 
               color={95,95,95}, 
@@ -6276,12 +6372,14 @@ and 1 prismatic joint are connected by rigid rods.
               extent={{80,15},{100,21}}, 
               pattern=LinePattern.None, 
               fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Rectangle(
               extent={{53,5},{80,11}}, 
               pattern=LinePattern.None, 
               fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Rectangle(
               extent={{53,5},{80,-15}}, 
               lineColor={0,0,0}, 
@@ -6682,22 +6780,26 @@ connected to the prismatic joint.");
               extent={{-100,-50},{-30,41}}, 
               pattern=LinePattern.None, 
               fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Rectangle(
               extent={{-100,40},{-30,50}}, 
               pattern=LinePattern.None, 
               fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Rectangle(
               extent={{-30,-30},{100,20}}, 
               pattern=LinePattern.None, 
               fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Rectangle(
               extent={{-30,20},{100,30}}, 
               pattern=LinePattern.None, 
               fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Line(points={{-30,-50},{-30,50}}, color={0,0,0}), 
             Line(points={{100,-30},{100,21}}, color={0,0,0}), 
             Text(
@@ -6716,22 +6818,26 @@ connected to the prismatic joint.");
               extent={{-100,-50},{-30,40}}, 
               pattern=LinePattern.None, 
               fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Rectangle(
               extent={{-100,40},{-30,50}}, 
               pattern=LinePattern.None, 
               fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Rectangle(
               extent={{-30,-30},{100,20}}, 
               pattern=LinePattern.None, 
               fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Rectangle(
               extent={{-30,20},{100,30}}, 
               pattern=LinePattern.None, 
               fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Line(points={{-30,-50},{-30,50}}, color={0,0,0}), 
             Polygon(
               points={{90,-64},{100,-67},{90,-70},{90,-64}}, 
@@ -6907,7 +7013,10 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
               lineColor={0,0,0}, 
               fillPattern=FillPattern.HorizontalCylinder, 
               fillColor={192,192,192}), 
-            Text(extent={{-139,-168},{137,-111}}, textString="%name"), 
+            Text(
+              extent={{-139,-168},{137,-111}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}), 
             Rectangle(extent={{30,60},{100,-60}}, lineColor={0,0,0}), 
             Text(
@@ -7265,26 +7374,33 @@ position a degree of freedom is lost.
               extent={{-30,-40},{100,30}}, 
               pattern=LinePattern.None, 
               fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Rectangle(extent={{-30,40},{100,-40}}, lineColor={0,0,0}), 
             Rectangle(
               extent={{-100,-60},{-30,50}}, 
               pattern=LinePattern.None, 
               fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Rectangle(
               extent={{-100,50},{-30,60}}, 
               pattern=LinePattern.None, 
               fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Rectangle(
               extent={{-30,30},{100,40}}, 
               pattern=LinePattern.None, 
               fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
-            Text(extent={{-136,-170},{140,-113}}, textString="%name"), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
+            Text(
+              extent={{-136,-170},{140,-113}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}), 
-            Line(points={{100,-40},{100,-60}}), 
+            Line(points={{100,-40},{100,-60}}, color={0,0,255}), 
             Rectangle(
               extent={{100,40},{90,80}}, 
               lineColor={0,0,0}, 
@@ -7326,26 +7442,33 @@ position a degree of freedom is lost.
               extent={{-100,50},{-30,60}}, 
               pattern=LinePattern.None, 
               fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Rectangle(
               extent={{-100,-60},{-30,50}}, 
               pattern=LinePattern.None, 
               fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Rectangle(extent={{-30,40},{100,-40}}, lineColor={0,0,0}), 
             Rectangle(
               extent={{-30,-40},{100,30}}, 
               pattern=LinePattern.None, 
               fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Rectangle(
               extent={{-30,30},{100,40}}, 
               pattern=LinePattern.None, 
               fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}), 
-            Line(points={{100,-40},{100,-60}}), 
-            Text(extent={{42,91},{57,76}}, textString="f"), 
+            Line(points={{100,-40},{100,-60}}, color={0,0,255}), 
+            Text(
+              extent={{42,91},{57,76}}, 
+              textString="f", 
+              lineColor={0,0,255}), 
             Line(points={{40,75},{70,75}}, color={0,0,255}), 
             Polygon(
               points={{-21,78},{-31,75},{-21,72},{-21,78}}, 
@@ -7353,7 +7476,10 @@ position a degree of freedom is lost.
               fillColor={0,0,255}, 
               fillPattern=FillPattern.Solid), 
             Line(points={{-8,75},{-31,75}}, color={0,0,255}), 
-            Text(extent={{-21,90},{-6,75}}, textString="f"), 
+            Text(
+              extent={{-21,90},{-6,75}}, 
+              textString="f", 
+              lineColor={0,0,255}), 
             Polygon(
               points={{60,78},{70,75},{60,72},{60,78}}, 
               lineColor={0,0,255}, 

@@ -180,7 +180,8 @@ package Utilities "Utility models for Examples.Loops"
             points={{-60,11},{-42,23},{38,23},{56,11},{-60,11}}, 
             pattern=LinePattern.None, 
             fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Ellipse(
             extent={{-6,41},{2,33}}, 
             lineColor={0,0,0}, 
@@ -191,7 +192,10 @@ package Utilities "Utility models for Examples.Loops"
             points={{0,-90},{26,-58},{-2,37}}, 
             color={0,0,0}, 
             thickness=4), 
-          Text(extent={{-150,-124},{164,-186}}, textString="%name"), 
+          Text(
+            extent={{-150,-124},{164,-186}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Line(
             points={{-100,-90},{100,-91}}, 
             color={0,0,0}, 
@@ -300,19 +304,23 @@ package Utilities "Utility models for Examples.Loops"
           Rectangle(
             extent={{-40,50},{-20,-50}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Rectangle(
             extent={{-90,10},{-40,-10}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{60,2},{54,2},{0,2},{0,10},{-20,0},{0,-10},{0,-4},{60,-4},{
                 60,2}}, 
             lineColor={255,0,0}, 
             fillColor={255,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-100,120},{100,60}}, textString="%name")}),
-                                                            Diagram(graphics={
+          Text(
+            extent={{-100,120},{100,60}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),                         Diagram(graphics={
           Rectangle(
             extent={{-90,50},{90,-50}}, 
             lineColor={0,0,0}, 
@@ -321,18 +329,23 @@ package Utilities "Utility models for Examples.Loops"
           Rectangle(
             extent={{-40,50},{-20,-50}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Rectangle(
             extent={{-90,10},{-40,-10}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{60,2},{54,2},{0,2},{0,10},{-20,0},{0,-10},{0,-4},{60,-4},{
                 60,2}}, 
             lineColor={255,0,0}, 
             fillColor={255,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-100,120},{100,60}}, textString="%name")}));
+          Text(
+            extent={{-100,120},{100,60}}, 
+            textString="%name", 
+            lineColor={0,0,255})}));
   protected 
     constant SI.Mass unitMass=1;
     Modelica.SIunits.Pressure p;
@@ -387,7 +400,10 @@ package Utilities "Utility models for Examples.Loops"
             lineColor={255,0,0}, 
             fillColor={255,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-100,120},{100,60}}, textString="%name"), 
+          Text(
+            extent={{-100,120},{100,60}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
             extent={{-135,44},{-99,19}}, 
             lineColor={128,128,128}, 
@@ -411,7 +427,10 @@ package Utilities "Utility models for Examples.Loops"
             lineColor={0,0,0}, 
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-100,120},{100,60}}, textString="%name"), 
+          Text(
+            extent={{-100,120},{100,60}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Polygon(
             points={{12,5},{70,5},{65,5},{65,16},{90,1},{65,-14},{65,-3},{12,-3},
                 {12,5}}, 
@@ -633,7 +652,8 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
             points={{-57,-13},{-39,-1},{41,-1},{59,-13},{-57,-13}}, 
             pattern=LinePattern.None, 
             fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Ellipse(
             extent={{-6,15},{2,7}}, 
             lineColor={0,0,0}, 
@@ -644,7 +664,10 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
             points={{-1,-99},{25,-67},{-2,10}}, 
             color={0,0,0}, 
             thickness=4), 
-          Text(extent={{-156,178},{158,116}}, textString="%name"), 
+          Text(
+            extent={{-156,178},{158,116}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Line(
             points={{-100,-99},{100,-100}}, 
             color={0,0,0}, 

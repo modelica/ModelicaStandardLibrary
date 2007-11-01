@@ -552,7 +552,10 @@ constitutive equations for many types of heat transfer components.
     SI.Temperature T(start=from_degC(20)) "Temperature of part";
     annotation (
       Icon(graphics={
-          Text(extent={{-129,121},{131,70}}, textString="%name"), 
+          Text(
+            extent={{-129,121},{131,70}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Polygon(
             points={{0,67},{-20,63},{-40,57},{-52,43},{-58,35},{-68,25},{-72,13},
                 {-76,-1},{-78,-15},{-76,-31},{-76,-43},{-76,-53},{-70,-65},{-64,
@@ -697,7 +700,10 @@ compute C:
             points={{90,70},{90,-70}}, 
             color={0,0,0}, 
             thickness=2), 
-          Text(extent={{-139,134},{141,74}}, textString="%name"), 
+          Text(
+            extent={{-139,134},{141,74}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
             extent={{-115,-76},{113,-116}}, 
             lineColor={0,0,0}, 
@@ -784,7 +790,10 @@ e.g., with one of the following equations:
             lineColor={0,0,0}, 
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Backward), 
-          Text(extent={{-117,-88},{124,-128}}, textString="%name"), 
+          Text(
+            extent={{-117,-88},{124,-128}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Line(points={{100,0},{100,0}}, color={0,127,255}), 
           Line(points={{-60,20},{76,20}}, color={191,0,0}), 
           Line(points={{-60,-20},{76,-20}}, color={191,0,0}), 
@@ -943,7 +952,10 @@ McGraw-Hill, 1997, p.270):
           Line(points={{-36,30},{36,30}}, color={191,0,0}), 
           Line(points={{26,24},{36,30}}, color={191,0,0}), 
           Line(points={{26,36},{36,30}}, color={191,0,0}), 
-          Text(extent={{-132,144},{108,84}}, textString="%name"), 
+          Text(
+            extent={{-132,144},{108,84}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
             extent={{-119,-86},{117,-125}}, 
             lineColor={0,0,0}, 
@@ -1062,7 +1074,10 @@ place from the inner to the outer cylinder):
     parameter SI.Temperature T "Fixed temperature at port";
     annotation (
       Icon(graphics={
-          Text(extent={{-121,162},{119,102}}, textString="%name"), 
+          Text(
+            extent={{-121,162},{119,102}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
             extent={{-121,-105},{119,-151}}, 
             lineColor={0,0,0}, 
@@ -1137,7 +1152,10 @@ i.e., it defines a fixed temperature as a boundary condition.
             extent={{0,0},{-100,-100}}, 
             lineColor={0,0,0}, 
             textString="K"), 
-          Text(extent={{-125,162},{115,102}}, textString="%name"), 
+          Text(
+            extent={{-125,162},{115,102}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Polygon(
             points={{50,-20},{50,20},{90,0},{50,-20}}, 
             lineColor={191,0,0}, 
@@ -1187,7 +1205,10 @@ as required to keep the temperature at the specified value.
       "Temperature coefficient of heat flow rate";
     annotation (
       Icon(graphics={
-          Text(extent={{-134,120},{132,60}}, textString="%name"), 
+          Text(
+            extent={{-134,120},{132,60}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
             extent={{-137,-52},{133,-100}}, 
             lineColor={0,0,0}, 
@@ -1295,7 +1316,10 @@ in order to simulate temperature dependent losses (which are given an reference 
             lineColor={191,0,0}, 
             fillColor={191,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-134,120},{132,60}}, textString="%name")}),
+          Text(
+            extent={{-134,120},{132,60}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Documentation(info="<HTML>
 <p>
 This model allows a specified amount of heat flow rate to be \"injected\"
@@ -1362,7 +1386,7 @@ in order to simulate temperature dependent losses (which are given an reference 
             lineColor={191,0,0}, 
             fillColor={191,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Line(points={{12,0},{90,0}}), 
+          Line(points={{12,0},{90,0}}, color={0,0,255}), 
           Line(points={{-94,0},{-14,0}}, color={191,0,0}), 
           Polygon(
             points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},{
@@ -1396,7 +1420,7 @@ in order to simulate temperature dependent losses (which are given an reference 
             lineColor={191,0,0}, 
             fillColor={191,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Line(points={{12,0},{90,0}}), 
+          Line(points={{12,0},{90,0}}, color={0,0,255}), 
           Line(points={{-90,0},{-12,0}}, color={191,0,0}), 
           Polygon(
             points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},{
@@ -1418,7 +1442,10 @@ in order to simulate temperature dependent losses (which are given an reference 
             extent={{126,-20},{26,-120}}, 
             lineColor={0,0,0}, 
             textString="K"), 
-          Text(extent={{-132,144},{108,84}}, textString="%name")}),
+          Text(
+            extent={{-132,144},{108,84}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Documentation(info="<HTML>
 <p>
 This is an ideal absolute temperature sensor which returns
@@ -1446,8 +1473,11 @@ sensor model.
           Line(points={{-90,0},{-70,0},{-70,0}}, color={191,0,0}), 
           Line(points={{-90,0},{-70,0},{-70,0}}, color={191,0,0}), 
           Line(points={{70,0},{90,0},{90,0}}, color={191,0,0}), 
-          Line(points={{0,-30},{0,-80}}), 
-          Text(extent={{-140,94},{144,34}}, textString="%name"), 
+          Line(points={{0,-30},{0,-80}}, color={0,0,255}), 
+          Text(
+            extent={{-140,94},{144,34}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
             extent={{92,-62},{34,-122}}, 
             lineColor={0,0,0}, 
@@ -1456,7 +1486,7 @@ sensor model.
           Line(points={{-90,0},{-70,0},{-70,0}}, color={191,0,0}), 
           Line(points={{-98,0},{-70,0},{-70,0}}, color={191,0,0}), 
           Line(points={{70,0},{94,0},{94,0}}, color={191,0,0}), 
-          Line(points={{0,-30},{0,-80}}), 
+          Line(points={{0,-30},{0,-80}}, color={0,0,255}), 
           Text(
             extent={{64,-74},{32,-102}}, 
             lineColor={0,0,0}, 
@@ -1494,7 +1524,7 @@ the two ports of this component and is provided as output signal in Kelvin.
     annotation (
       Diagram(graphics={
           Line(points={{-70,0},{-95,0}}, color={191,0,0}), 
-          Line(points={{0,-70},{0,-90}}), 
+          Line(points={{0,-70},{0,-90}}, color={0,0,255}), 
           Line(points={{94,0},{69,0}}, color={191,0,0})}),
       Icon(graphics={
           Text(
@@ -1503,8 +1533,11 @@ the two ports of this component and is provided as output signal in Kelvin.
             textString="Q_flow"), 
           Line(points={{-70,0},{-90,0}}, color={191,0,0}), 
           Line(points={{69,0},{90,0}}, color={191,0,0}), 
-          Line(points={{0,-70},{0,-90}}), 
-          Text(extent={{-132,144},{108,84}}, textString="%name")}),
+          Line(points={{0,-70},{0,-90}}, color={0,0,255}), 
+          Text(
+            extent={{-132,144},{108,84}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Documentation(info="<HTML>
 <p>
 This model is capable of monitoring the heat flow rate flowing through
@@ -1549,8 +1582,8 @@ to port_b.
               extent={{100,-47},{44,-100}}, 
               lineColor={0,0,0}, 
               textString="K"), 
-            Line(points={{-100,0},{-40,0}}), 
-            Line(points={{41,0},{100,0}})}),
+            Line(points={{-100,0},{-40,0}}, color={0,0,255}), 
+            Line(points={{41,0},{100,0}}, color={0,0,255})}),
         Icon(graphics={
             Ellipse(
               extent={{-40,40},{40,-40}}, 
@@ -1567,9 +1600,12 @@ to port_b.
               lineColor={0,0,0}, 
               lineThickness=4, 
               textString="°C"), 
-            Line(points={{-41,0},{-100,0}}), 
-            Line(points={{100,0},{40,0}}), 
-            Text(extent={{-137,99},{132,49}}, textString="%name")}),
+            Line(points={{-41,0},{-100,0}}, color={0,0,255}), 
+            Line(points={{100,0},{40,0}}, color={0,0,255}), 
+            Text(
+              extent={{-137,99},{132,49}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
         Documentation(info="<HTML>
 <p>
 This component converts an input signal from Celsius to Kelvin
@@ -1590,7 +1626,10 @@ and provide is as output signal.
     model FromKelvin "Conversion from Kelvin to °Celsius" 
       annotation (
         Icon(graphics={
-            Text(extent={{-137,99},{132,49}}, textString="%name"), 
+            Text(
+              extent={{-137,99},{132,49}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Ellipse(
               extent={{-40,40},{40,-40}}, 
               lineColor={0,0,0}, 
@@ -1606,8 +1645,8 @@ and provide is as output signal.
               extent={{110,-39},{30,-119}}, 
               lineColor={0,0,0}, 
               textString="°C"), 
-            Line(points={{-40,0},{-100,0}}), 
-            Line(points={{40,0},{100,0}})}),
+            Line(points={{-40,0},{-100,0}}, color={0,0,255}), 
+            Line(points={{40,0},{100,0}}, color={0,0,255})}),
         Diagram(graphics={
             Ellipse(
               extent={{-40,40},{40,-40}}, 
@@ -1624,8 +1663,8 @@ and provide is as output signal.
               extent={{100,-40},{30,-100}}, 
               lineColor={0,0,0}, 
               textString="°C"), 
-            Line(points={{-100,0},{-40,0}}), 
-            Line(points={{40,0},{100,0}})}),
+            Line(points={{-100,0},{-40,0}}, color={0,0,255}), 
+            Line(points={{40,0},{100,0}}, color={0,0,255})}),
         Documentation(info="<HTML>
 <p>
 This component converts an input signal from Kelvin to Celsius
@@ -1648,7 +1687,10 @@ and provides is as output signal.
       parameter NonSI.Temperature_degC T "Fixed Temperature at the port";
       annotation (
         Icon(graphics={
-            Text(extent={{-118,165},{122,105}}, textString="%name"), 
+            Text(
+              extent={{-118,165},{122,105}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Rectangle(
               extent={{-100,100},{100,-100}}, 
               lineColor={0,0,0}, 
@@ -1723,7 +1765,10 @@ i.e., it defines a fixed temperature as a boundary condition.
               extent={{0,0},{-100,-100}}, 
               lineColor={0,0,0}, 
               textString="°C"), 
-            Text(extent={{-122,163},{118,103}}, textString="%name"), 
+            Text(
+              extent={{-122,163},{118,103}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Line(
               points={{-102,0},{64,0}}, 
               color={191,0,0}, 
@@ -1807,7 +1852,7 @@ Example:
               lineColor={191,0,0}, 
               fillColor={191,0,0}, 
               fillPattern=FillPattern.Solid), 
-            Line(points={{12,0},{90,0}}), 
+            Line(points={{12,0},{90,0}}, color={0,0,255}), 
             Line(points={{-94,0},{-12,0}}, color={191,0,0}), 
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
@@ -1841,7 +1886,7 @@ Example:
               lineColor={191,0,0}, 
               fillColor={191,0,0}, 
               fillPattern=FillPattern.Solid), 
-            Line(points={{12,0},{90,0}}), 
+            Line(points={{12,0},{90,0}}, color={0,0,255}), 
             Line(points={{-90,0},{-12,0}}, color={191,0,0}), 
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
@@ -1863,7 +1908,10 @@ Example:
               extent={{126,-20},{26,-120}}, 
               lineColor={0,0,0}, 
               textString="°C"), 
-            Text(extent={{-132,144},{108,84}}, textString="%name")}),
+            Text(
+              extent={{-132,144},{108,84}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
         Documentation(info="<HTML>
 <p>
 This is an ideal absolute temperature sensor which returns
@@ -1907,8 +1955,8 @@ sensor model.
               extent={{100,-47},{44,-100}}, 
               lineColor={0,0,0}, 
               textString="K"), 
-            Line(points={{-100,0},{-40,0}}), 
-            Line(points={{41,0},{100,0}})}),
+            Line(points={{-100,0},{-40,0}}, color={0,0,255}), 
+            Line(points={{41,0},{100,0}}, color={0,0,255})}),
         Icon(graphics={
             Ellipse(
               extent={{-40,40},{40,-40}}, 
@@ -1925,9 +1973,12 @@ sensor model.
               lineColor={0,0,0}, 
               lineThickness=4, 
               textString="°F"), 
-            Line(points={{-41,0},{-100,0}}), 
-            Line(points={{100,0},{40,0}}), 
-            Text(extent={{-137,99},{132,49}}, textString="%name")}),
+            Line(points={{-41,0},{-100,0}}, color={0,0,255}), 
+            Line(points={{100,0},{40,0}}, color={0,0,255}), 
+            Text(
+              extent={{-137,99},{132,49}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
         Documentation(info="<HTML>
 <p>
 This component converts a input signal from degree Fahrenheit to Kelvin
@@ -1948,7 +1999,10 @@ and provides is as output signal.
       parameter Integer n=1 "Number of inputs (= number of outputs)";
       annotation (
         Icon(graphics={
-            Text(extent={{-137,99},{132,49}}, textString="%name"), 
+            Text(
+              extent={{-137,99},{132,49}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Ellipse(
               extent={{-40,40},{40,-40}}, 
               lineColor={0,0,0}, 
@@ -1964,8 +2018,8 @@ and provides is as output signal.
               extent={{110,-39},{30,-119}}, 
               lineColor={0,0,0}, 
               textString="°F"), 
-            Line(points={{-40,0},{-100,0}}), 
-            Line(points={{40,0},{100,0}})}),
+            Line(points={{-40,0},{-100,0}}, color={0,0,255}), 
+            Line(points={{40,0},{100,0}}, color={0,0,255})}),
         Diagram(graphics={
             Ellipse(
               extent={{-40,40},{40,-40}}, 
@@ -1982,8 +2036,8 @@ and provides is as output signal.
               extent={{100,-40},{30,-100}}, 
               lineColor={0,0,0}, 
               textString="°F"), 
-            Line(points={{-100,0},{-40,0}}), 
-            Line(points={{40,0},{100,0}})}),
+            Line(points={{-100,0},{-40,0}}, color={0,0,255}), 
+            Line(points={{40,0},{100,0}}, color={0,0,255})}),
         Documentation(info="<HTML>
 <p>
 This component converts all input signals from Kelvin to Fahrenheit
@@ -2006,7 +2060,10 @@ and provides them as output signals.
       parameter NonSI.Temperature_degF T "Fixed Temperature at the port";
       annotation (
         Icon(graphics={
-            Text(extent={{-118,165},{122,105}}, textString="%name"), 
+            Text(
+              extent={{-118,165},{122,105}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Rectangle(
               extent={{-100,100},{100,-100}}, 
               lineColor={0,0,0}, 
@@ -2081,7 +2138,10 @@ i.e., it defines a fixed temperature as a boundary condition.
               extent={{0,0},{-100,-100}}, 
               lineColor={0,0,0}, 
               textString="°F"), 
-            Text(extent={{-122,163},{118,103}}, textString="%name"), 
+            Text(
+              extent={{-122,163},{118,103}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Line(
               points={{-102,0},{64,0}}, 
               color={191,0,0}, 
@@ -2166,7 +2226,7 @@ Example:
               lineColor={191,0,0}, 
               fillColor={191,0,0}, 
               fillPattern=FillPattern.Solid), 
-            Line(points={{12,0},{90,0}}), 
+            Line(points={{12,0},{90,0}}, color={0,0,255}), 
             Line(points={{-94,0},{-12,0}}, color={191,0,0}), 
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
@@ -2200,7 +2260,7 @@ Example:
               lineColor={191,0,0}, 
               fillColor={191,0,0}, 
               fillPattern=FillPattern.Solid), 
-            Line(points={{12,0},{90,0}}), 
+            Line(points={{12,0},{90,0}}, color={0,0,255}), 
             Line(points={{-90,0},{-12,0}}, color={191,0,0}), 
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
@@ -2222,7 +2282,10 @@ Example:
               extent={{126,-20},{26,-120}}, 
               lineColor={0,0,0}, 
               textString="°F"), 
-            Text(extent={{-132,144},{108,84}}, textString="%name")}),
+            Text(
+              extent={{-132,144},{108,84}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
         Documentation(info="<HTML>
 <p>
 This is an ideal absolute temperature sensor which returns
@@ -2267,8 +2330,8 @@ sensor model.
               extent={{100,-47},{44,-100}}, 
               lineColor={0,0,0}, 
               textString="K"), 
-            Line(points={{-100,0},{-40,0}}), 
-            Line(points={{41,0},{100,0}})}),
+            Line(points={{-100,0},{-40,0}}, color={0,0,255}), 
+            Line(points={{41,0},{100,0}}, color={0,0,255})}),
         Icon(graphics={
             Ellipse(
               extent={{-40,40},{40,-40}}, 
@@ -2285,9 +2348,12 @@ sensor model.
               lineColor={0,0,0}, 
               lineThickness=4, 
               textString="°Rk"), 
-            Line(points={{-41,0},{-100,0}}), 
-            Line(points={{100,0},{40,0}}), 
-            Text(extent={{-137,99},{132,49}}, textString="%name")}),
+            Line(points={{-41,0},{-100,0}}, color={0,0,255}), 
+            Line(points={{100,0},{40,0}}, color={0,0,255}), 
+            Text(
+              extent={{-137,99},{132,49}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
         Documentation(info="<HTML>
 <p>
 This component converts all input signals from degree Rankine to Kelvin
@@ -2309,7 +2375,10 @@ and provides them as output signals.
       parameter Integer n=1 "Number of inputs (= number of outputs)";
       annotation (
         Icon(graphics={
-            Text(extent={{-137,99},{132,49}}, textString="%name"), 
+            Text(
+              extent={{-137,99},{132,49}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Ellipse(
               extent={{-40,40},{40,-40}}, 
               lineColor={0,0,0}, 
@@ -2325,8 +2394,8 @@ and provides them as output signals.
               extent={{110,-39},{30,-119}}, 
               lineColor={0,0,0}, 
               textString="°Rk"), 
-            Line(points={{-40,0},{-100,0}}), 
-            Line(points={{40,0},{100,0}})}),
+            Line(points={{-40,0},{-100,0}}, color={0,0,255}), 
+            Line(points={{40,0},{100,0}}, color={0,0,255})}),
         Diagram(graphics={
             Ellipse(
               extent={{-40,40},{40,-40}}, 
@@ -2343,8 +2412,8 @@ and provides them as output signals.
               extent={{100,-40},{30,-100}}, 
               lineColor={0,0,0}, 
               textString="°Rk"), 
-            Line(points={{-100,0},{-40,0}}), 
-            Line(points={{40,0},{100,0}})}),
+            Line(points={{-100,0},{-40,0}}, color={0,0,255}), 
+            Line(points={{40,0},{100,0}}, color={0,0,255})}),
         Documentation(info="<HTML>
 <p>
 This component converts all input signals from Kelvin to Rankine
@@ -2367,7 +2436,10 @@ and provides them as output signals.
       parameter NonSI.Temperature_degRk T "Fixed Temperature at the port";
       annotation (
         Icon(graphics={
-            Text(extent={{-118,165},{122,105}}, textString="%name"), 
+            Text(
+              extent={{-118,165},{122,105}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Rectangle(
               extent={{-100,100},{100,-100}}, 
               lineColor={0,0,0}, 
@@ -2442,7 +2514,10 @@ This model defines a fixed temperature T at its port in degree Rankine,
               extent={{0,0},{-100,-100}}, 
               lineColor={0,0,0}, 
               textString="°Rk"), 
-            Text(extent={{-122,163},{118,103}}, textString="%name"), 
+            Text(
+              extent={{-122,163},{118,103}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Line(
               points={{-102,0},{64,0}}, 
               color={191,0,0}, 
@@ -2526,7 +2601,7 @@ Example:
               lineColor={191,0,0}, 
               fillColor={191,0,0}, 
               fillPattern=FillPattern.Solid), 
-            Line(points={{12,0},{90,0}}), 
+            Line(points={{12,0},{90,0}}, color={0,0,255}), 
             Line(points={{-94,0},{-12,0}}, color={191,0,0}), 
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
@@ -2560,7 +2635,7 @@ Example:
               lineColor={191,0,0}, 
               fillColor={191,0,0}, 
               fillPattern=FillPattern.Solid), 
-            Line(points={{12,0},{90,0}}), 
+            Line(points={{12,0},{90,0}}, color={0,0,255}), 
             Line(points={{-90,0},{-12,0}}, color={191,0,0}), 
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
@@ -2582,7 +2657,10 @@ Example:
               extent={{126,-20},{26,-120}}, 
               lineColor={0,0,0}, 
               textString="°Rk"), 
-            Text(extent={{-132,144},{108,84}}, textString="%name")}),
+            Text(
+              extent={{-132,144},{108,84}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
         Documentation(info="<HTML>
 <p>
 This is an ideal absolute temperature sensor which returns

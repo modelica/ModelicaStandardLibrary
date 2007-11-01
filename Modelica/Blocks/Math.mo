@@ -669,7 +669,10 @@ input <i>u</i>:
             extent={{-150,-140},{150,-100}}, 
             lineColor={0,0,0}, 
             textString="k=%k"), 
-          Text(extent={{-150,140},{150,100}}, textString="%name")}),
+          Text(
+            extent={{-150,140},{150,100}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -677,8 +680,10 @@ input <i>u</i>:
             points={{-100,-100},{-100,100},{100,0},{-100,-100}}, 
             lineColor={0,0,127}, 
             fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), Text(extent={{-76,38},{0,-34}}, 
-              textString="k")}));
+            fillPattern=FillPattern.Solid), Text(
+            extent={{-76,38},{0,-34}}, 
+            textString="k", 
+            lineColor={0,0,255})}));
       equation 
         y = k*u;
       end Gain;
@@ -719,8 +724,10 @@ Example:
           grid={2,2}), graphics={Text(
             extent={{-90,-60},{90,60}}, 
             lineColor={160,160,164}, 
-            textString="*K"), Text(extent={{-150,150},{150,110}}, textString=
-                "%name")}),
+            textString="*K"), Text(
+            extent={{-150,150},{150,110}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -778,8 +785,10 @@ Example:
           grid={2,2}), graphics={Line(
             points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}}, 
             color={0,0,0}, 
-            thickness=1), Text(extent={{-150,150},{150,110}}, textString=
-                "%name")}),
+            thickness=1), Text(
+            extent={{-150,150},{150,110}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -850,7 +859,10 @@ Example:
             extent={{-14,0},{82,-94}}, 
             lineColor={0,0,0}, 
             textString="-"), 
-          Text(extent={{-100,110},{100,60}}, textString="%name")}),
+          Text(
+            extent={{-100,110},{100,60}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -860,10 +872,11 @@ Example:
             pattern=LinePattern.Solid, 
             lineThickness=1, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-60,0},{-20,0}}), 
-          Line(points={{20,0},{80,0}}), 
-          Line(points={{0,-20},{0,-60}}), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{-60,0},{-20,0}}, color={0,0,255}), 
+          Line(points={{20,0},{80,0}}, color={0,0,255}), 
+          Line(points={{0,-20},{0,-60}}, color={0,0,255}), 
           Text(
             extent={{-12,10},{84,-84}}, 
             lineColor={0,0,0}, 
@@ -915,17 +928,20 @@ Example:
             extent={{-100,90},{5,50}}, 
             lineColor={0,0,0}, 
             textString="%k1"), 
-          Text(extent={{-150,150},{150,110}}, textString="%name"), 
-          Line(points={{-100,60},{-40,60},{-30,40}}), 
-          Ellipse(extent={{-50,50},{50,-50}}), 
-          Line(points={{-100,-60},{-40,-60},{-30,-40}}), 
+          Text(
+            extent={{-150,150},{150,110}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
+          Line(points={{-100,60},{-40,60},{-30,40}}, color={0,0,255}), 
+          Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,255}), 
+          Line(points={{-100,-60},{-40,-60},{-30,-40}}, color={0,0,255}), 
           Line(points={{-15,-25.99},{15,25.99}}, color={0,0,0}), 
           Rectangle(
             extent={{-100,-100},{100,100}}, 
             lineColor={0,0,127}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
-          Line(points={{50,0},{100,0}}), 
+          Line(points={{50,0},{100,0}}, color={0,0,255}), 
           Line(points={{-100,60},{-74,24},{-44,24}}, color={0,0,127}), 
           Line(points={{-100,-60},{-74,-28},{-42,-28}}, color={0,0,127}), 
           Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127}), 
@@ -959,16 +975,16 @@ Example:
             extent={{-100,90},{5,50}}, 
             lineColor={0,0,0}, 
             textString="%k1"), 
-          Line(points={{-100,60},{-40,60},{-30,40}}), 
-          Ellipse(extent={{-50,50},{50,-50}}), 
-          Line(points={{-100,-60},{-40,-60},{-30,-40}}), 
+          Line(points={{-100,60},{-40,60},{-30,40}}, color={0,0,255}), 
+          Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,255}), 
+          Line(points={{-100,-60},{-40,-60},{-30,-40}}, color={0,0,255}), 
           Line(points={{-15,-25.99},{15,25.99}}, color={0,0,0}), 
           Rectangle(
             extent={{-100,-100},{100,100}}, 
             lineColor={0,0,127}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
-          Line(points={{50,0},{100,0}}), 
+          Line(points={{50,0},{100,0}}, color={0,0,255}), 
           Line(points={{-100,60},{-74,24},{-44,24}}, color={0,0,127}), 
           Line(points={{-100,-60},{-74,-28},{-42,-28}}, color={0,0,127}), 
           Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127}), 
@@ -1141,13 +1157,13 @@ the two inputs <b>u1</b> and <b>u2</b>:
             lineColor={0,0,255}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
-          Line(points={{-100,60},{-40,60},{-30,40}}), 
-          Line(points={{-100,-60},{-40,-60},{-30,-40}}), 
-          Line(points={{50,0},{100,0}}), 
+          Line(points={{-100,60},{-40,60},{-30,40}}, color={0,0,255}), 
+          Line(points={{-100,-60},{-40,-60},{-30,-40}}, color={0,0,255}), 
+          Line(points={{50,0},{100,0}}, color={0,0,255}), 
           Line(points={{-30,0},{30,0}}, color={0,0,0}), 
           Line(points={{-15,25.99},{15,-25.99}}, color={0,0,0}), 
           Line(points={{-15,-25.99},{15,25.99}}, color={0,0,0}), 
-          Ellipse(extent={{-50,50},{50,-50}})}),
+          Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,255})}),
           Window(
             x=0.2,
             y=0.01,
@@ -1190,7 +1206,10 @@ the two inputs <b>u1</b> and <b>u2</b>:
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
           Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127}), 
-          Text(extent={{-150,150},{150,110}}, textString="%name"), 
+          Text(
+            extent={{-150,150},{150,110}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Line(points={{-100,60},{-66,60},{-40,30}}, color={0,0,127}), 
           Line(points={{-100,-60},{0,-60},{0,-50}}, color={0,0,127})}),
           Diagram(coordinateSystem(
@@ -1202,7 +1221,7 @@ the two inputs <b>u1</b> and <b>u2</b>:
             lineColor={0,0,255}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
-          Line(points={{50,0},{100,0}}), 
+          Line(points={{50,0},{100,0}}, color={0,0,255}), 
           Line(points={{-30,0},{30,0}}, color={0,0,0}), 
           Ellipse(
             extent={{-5,20},{5,30}}, 
@@ -1214,9 +1233,9 @@ the two inputs <b>u1</b> and <b>u2</b>:
             lineColor={0,0,0}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Ellipse(extent={{-50,50},{50,-50}}), 
-          Line(points={{-100,60},{-66,60},{-40,30}}), 
-          Line(points={{-100,-60},{0,-60},{0,-50}})}),
+          Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,255}), 
+          Line(points={{-100,60},{-66,60},{-40,30}}, color={0,0,255}), 
+          Line(points={{-100,-60},{0,-60},{0,-50}}, color={0,0,255})}),
           Window(
             x=0.22,
             y=0.09,
@@ -1282,9 +1301,18 @@ the two inputs <b>u1</b> and <b>u2</b>:
             extent={{74,-8},{96,-28}}, 
             lineColor={160,160,164}, 
             textString="y"), 
-          Text(extent={{52,-3},{72,-23}}, textString="1"), 
-          Text(extent={{-86,-1},{-66,-21}}, textString="-1"), 
-          Text(extent={{-28,79},{-8,59}}, textString="1")}),
+          Text(
+            extent={{52,-3},{72,-23}}, 
+            textString="1", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-86,-1},{-66,-21}}, 
+            textString="-1", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-28,79},{-8,59}}, 
+            textString="1", 
+            lineColor={0,0,255})}),
           Documentation(info="<HTML>
 <p>
 This blocks computes the output <b>y</b>
@@ -1366,8 +1394,14 @@ as <i>absolute value</i> of the input <b>u</b>:
             extent={{70,-6},{94,-26}}, 
             lineColor={160,160,164}, 
             textString="u"), 
-          Text(extent={{-25,86},{-5,70}}, textString="1"), 
-          Text(extent={{5,-72},{25,-88}}, textString="-1")}),
+          Text(
+            extent={{-25,86},{-5,70}}, 
+            textString="1", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{5,-72},{25,-88}}, 
+            textString="-1", 
+            lineColor={0,0,255})}),
           Documentation(info="<HTML>
 <p>
 This blocks computes the output <b>y</b>
@@ -1521,9 +1555,18 @@ Otherwise an error occurs.
                 59.4},{-14.9,44.1},{-6.83,21.2},{10.1,-30.8},{17.3,-50.2},{23.7,
                 -64.2},{29.3,-73.1},{35,-78.4},{40.6,-80},{46.2,-77.6},{51.9,-71.5},
                 {57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, color={0,0,0}), 
-          Text(extent={{-105,72},{-85,88}}, textString="1"), 
-          Text(extent={{70,25},{90,5}}, textString="2*pi"), 
-          Text(extent={{-105,-72},{-85,-88}}, textString="-1"), 
+          Text(
+            extent={{-105,72},{-85,88}}, 
+            textString="1", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{70,25},{90,5}}, 
+            textString="2*pi", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-105,-72},{-85,-88}}, 
+            textString="-1", 
+            lineColor={0,0,255}), 
           Text(
             extent={{76,-10},{98,-30}}, 
             lineColor={160,160,164}, 
@@ -1595,9 +1638,18 @@ as <b>sine</b> of the input <b>u</b>:
             lineColor={192,192,192}, 
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-103,72},{-83,88}}, textString="1"), 
-          Text(extent={{-79,-72},{-59,-88}}, textString="-1"), 
-          Text(extent={{70,25},{90,5}}, textString="2*pi"), 
+          Text(
+            extent={{-103,72},{-83,88}}, 
+            textString="1", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-79,-72},{-59,-88}}, 
+            textString="-1", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{70,25},{90,5}}, 
+            textString="2*pi", 
+            lineColor={0,0,255}), 
           Line(points={{-100,0},{84,0}}, color={192,192,192}), 
           Polygon(
             points={{100,0},{84,6},{84,-6},{100,0}}, 
@@ -1681,9 +1733,18 @@ as <b>cos</b> of the input <b>u</b>:
             lineColor={192,192,192}, 
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-37,-72},{-17,-88}}, textString="-5.8"), 
-          Text(extent={{-33,86},{-13,70}}, textString=" 5.8"), 
-          Text(extent={{70,25},{90,5}}, textString="1.4"), 
+          Text(
+            extent={{-37,-72},{-17,-88}}, 
+            textString="-5.8", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-33,86},{-13,70}}, 
+            textString=" 5.8", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{70,25},{90,5}}, 
+            textString="1.4", 
+            lineColor={0,0,255}), 
           Line(points={{-100,0},{84,0}}, color={192,192,192}), 
           Polygon(
             points={{100,0},{84,6},{84,-6},{100,0}}, 
@@ -1765,10 +1826,22 @@ as <b>tan</b> of the input <b>u</b>:
             lineColor={192,192,192}, 
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-40,-72},{-15,-88}}, textString="-pi/2"), 
-          Text(extent={{-38,88},{-13,72}}, textString=" pi/2"), 
-          Text(extent={{70,25},{90,5}}, textString="+1"), 
-          Text(extent={{-90,21},{-70,1}}, textString="-1"), 
+          Text(
+            extent={{-40,-72},{-15,-88}}, 
+            textString="-pi/2", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-38,88},{-13,72}}, 
+            textString=" pi/2", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{70,25},{90,5}}, 
+            textString="+1", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-90,21},{-70,1}}, 
+            textString="-1", 
+            lineColor={0,0,255}), 
           Line(points={{-100,0},{84,0}}, color={192,192,192}), 
           Polygon(
             points={{100,0},{84,6},{84,-6},{100,0}}, 
@@ -1862,9 +1935,18 @@ Otherwise an error occurs.
           Line(points={{-80,80},{-79.2,72.8},{-77.6,67.5},{-73.6,59.4},{-66.3,
                 49.8},{-53.5,37.3},{-30.2,19.7},{37.4,-24.8},{57.5,-40.8},{68.7,
                 -52.7},{75.2,-62.2},{77.6,-67.5},{80,-80}}, color={0,0,0}), 
-          Text(extent={{-30,88},{-5,72}}, textString=" pi"), 
-          Text(extent={{-94,-57},{-74,-77}}, textString="-1"), 
-          Text(extent={{80,-45},{100,-65}}, textString="+1"), 
+          Text(
+            extent={{-30,88},{-5,72}}, 
+            textString=" pi", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-94,-57},{-74,-77}}, 
+            textString="-1", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{80,-45},{100,-65}}, 
+            textString="+1", 
+            lineColor={0,0,255}), 
           Text(
             extent={{76,-84},{102,-102}}, 
             lineColor={160,160,164}, 
@@ -1950,10 +2032,22 @@ Otherwise an error occurs.
                 -55.2},{-14.1,-45.8},{-10.1,-36.4},{-6.03,-23.9},{-1.21,-5.06},
                 {5.23,21},{9.25,34.1},{13.3,44.2},{18.1,52.9},{24.5,60.8},{33.4,
                 67.6},{47,73.6},{69.5,78.6},{80,80}}, color={0,0,0}), 
-          Text(extent={{-32,91},{-12,71}}, textString="1.4"), 
-          Text(extent={{-32,-71},{-12,-91}}, textString="-1.4"), 
-          Text(extent={{73,26},{93,10}}, textString=" 5.8"), 
-          Text(extent={{-103,20},{-83,4}}, textString="-5.8"), 
+          Text(
+            extent={{-32,91},{-12,71}}, 
+            textString="1.4", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-32,-71},{-12,-91}}, 
+            textString="-1.4", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{73,26},{93,10}}, 
+            textString=" 5.8", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-103,20},{-83,4}}, 
+            textString="-5.8", 
+            lineColor={0,0,255}), 
           Text(
             extent={{66,-8},{94,-28}}, 
             lineColor={160,160,164}, 
@@ -1988,7 +2082,10 @@ This blocks computes the output <b>y</b> as the
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Text(extent={{-150,150},{150,110}}, textString="%name"), 
+          Text(
+            extent={{-150,150},{150,110}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Polygon(
             points={{0,90},{-8,68},{8,68},{0,90}}, 
             lineColor={192,192,192}, 
@@ -2041,12 +2138,24 @@ This blocks computes the output <b>y</b> as the
                 {62.1,33.5},{80,34.9}}, color={0,0,0}), 
           Line(points={{-80,45.1},{-45.9,48.7},{-29.1,52.9},{-18.1,58.6},{-10.2,
                 65.8},{-1.82,77.2},{0,80}}, color={0,0,0}), 
-          Text(extent={{-30,89},{-10,70}}, textString="pi"), 
-          Text(extent={{-30,-69},{-10,-88}}, textString="-pi"), 
-          Text(extent={{-30,49},{-10,30}}, textString="pi/2"), 
+          Text(
+            extent={{-30,89},{-10,70}}, 
+            textString="pi", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-30,-69},{-10,-88}}, 
+            textString="-pi", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-30,49},{-10,30}}, 
+            textString="pi/2", 
+            lineColor={0,0,255}), 
           Line(points={{0,40},{-8,40}}, color={192,192,192}), 
           Line(points={{0,-40},{-8,-40}}, color={192,192,192}), 
-          Text(extent={{-30,-31},{-10,-50}}, textString="-pi/2"), 
+          Text(
+            extent={{-30,-31},{-10,-50}}, 
+            textString="-pi/2", 
+            lineColor={0,0,255}), 
           Text(
             extent={{48,0},{100,-34}}, 
             lineColor={160,160,164}, 
@@ -2135,10 +2244,22 @@ block <b>Atan</b> gives a solution in the range
                 -28.1},{-51.1,-18.7},{-41.4,-11.4},{-27.7,-5.5},{-4.42,-0.653},
                 {24.5,4.57},{39,10.1},{49.4,17.2},{57.5,25.9},{63.9,35.8},{69.5,
                 47.4},{74.4,60.4},{78.4,73.8},{80,80}}, color={0,0,0}), 
-          Text(extent={{-31,72},{-11,88}}, textString="27"), 
-          Text(extent={{-35,-88},{-15,-72}}, textString="-27"), 
-          Text(extent={{70,25},{90,5}}, textString="4"), 
-          Text(extent={{-98,21},{-78,1}}, textString="-4"), 
+          Text(
+            extent={{-31,72},{-11,88}}, 
+            textString="27", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-35,-88},{-15,-72}}, 
+            textString="-27", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{70,25},{90,5}}, 
+            textString="4", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-98,21},{-78,1}}, 
+            textString="-4", 
+            lineColor={0,0,255}), 
           Text(
             extent={{72,-6},{96,-26}}, 
             lineColor={160,160,164}, 
@@ -2224,9 +2345,18 @@ This blocks computes the output <b>y</b> as the
                 {23.7,-75.2},{34.2,-68.7},{42.2,-60.6},{48.6,-51.2},{54.3,-40},
                 {59.1,-27.5},{63.1,-14.6},{67.1,1.29},{71.2,20.7},{74.4,39.3},{
                 77.6,61.1},{80,80}}, color={0,0,0}), 
-          Text(extent={{-31,72},{-11,88}}, textString="27"), 
-          Text(extent={{62,-67},{82,-87}}, textString="4"), 
-          Text(extent={{-104,-63},{-84,-83}}, textString="-4"), 
+          Text(
+            extent={{-31,72},{-11,88}}, 
+            textString="27", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{62,-67},{82,-87}}, 
+            textString="4", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-104,-63},{-84,-83}}, 
+            textString="-4", 
+            lineColor={0,0,255}), 
           Text(
             extent={{78,-54},{100,-74}}, 
             lineColor={160,160,164}, 
@@ -2307,10 +2437,22 @@ This blocks computes the output <b>y</b> as the
                 -64.2},{-17.3,-55.9},{-12.5,-44.3},{-7.64,-29.2},{-1.21,-4.82},
                 {6.83,26.3},{11.7,42},{16.5,54.2},{21.3,63.1},{26.9,69.9},{34.2,
                 75},{45.4,78.4},{72,79.9},{80,80}}, color={0,0,0}), 
-          Text(extent={{70,25},{90,5}}, textString="4"), 
-          Text(extent={{-106,21},{-86,1}}, textString="-4"), 
-          Text(extent={{-29,72},{-9,88}}, textString="1"), 
-          Text(extent={{3,-72},{23,-88}}, textString="-1"), 
+          Text(
+            extent={{70,25},{90,5}}, 
+            textString="4", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-106,21},{-86,1}}, 
+            textString="-4", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-29,72},{-9,88}}, 
+            textString="1", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{3,-72},{23,-88}}, 
+            textString="-1", 
+            lineColor={0,0,255}), 
           Text(
             extent={{72,-8},{98,-26}}, 
             lineColor={160,160,164}, 
@@ -2390,10 +2532,22 @@ This blocks computes the output <b>y</b> as the
           Line(points={{-80,-80},{-31,-77.9},{-6.03,-74},{10.9,-68.4},{23.7,-61},
                 {34.2,-51.6},{43,-40.3},{50.3,-27.8},{56.7,-13.5},{62.3,2.23},{
                 67.1,18.6},{72,38.2},{76,57.6},{80,80}}, color={0,0,0}), 
-          Text(extent={{-31,72},{-11,88}}, textString="20"), 
-          Text(extent={{-92,-83},{-72,-103}}, textString="-3"), 
-          Text(extent={{70,-83},{90,-103}}, textString="3"), 
-          Text(extent={{-18,-53},{2,-73}}, textString="1"), 
+          Text(
+            extent={{-31,72},{-11,88}}, 
+            textString="20", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-92,-83},{-72,-103}}, 
+            textString="-3", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{70,-83},{90,-103}}, 
+            textString="3", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-18,-53},{2,-73}}, 
+            textString="1", 
+            lineColor={0,0,255}), 
           Text(
             extent={{66,-52},{96,-72}}, 
             lineColor={160,160,164}, 
@@ -2477,10 +2631,22 @@ This blocks computes the output <b>y</b> as the
                 {-75.2,-11.4},{-72.8,-1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},
                 {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}, 
               color={0,0,0}), 
-          Text(extent={{-105,72},{-85,88}}, textString="3"), 
-          Text(extent={{-109,-88},{-89,-72}}, textString="-3"), 
-          Text(extent={{70,-3},{90,-23}}, textString="20"), 
-          Text(extent={{-78,-1},{-58,-21}}, textString="1"), 
+          Text(
+            extent={{-105,72},{-85,88}}, 
+            textString="3", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-109,-88},{-89,-72}}, 
+            textString="-3", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{70,-3},{90,-23}}, 
+            textString="20", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-78,-1},{-58,-21}}, 
+            textString="1", 
+            lineColor={0,0,255}), 
           Text(
             extent={{68,28},{94,8}}, 
             lineColor={160,160,164}, 
@@ -2567,10 +2733,22 @@ zero or negative.
                 -21.3},{-75.2,-11.4},{-72.8,-1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,
                 28},{-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{
                 80,80}}, color={0,0,0}), 
-          Text(extent={{70,-3},{90,-23}}, textString="20"), 
-          Text(extent={{-78,-1},{-58,-21}}, textString="1"), 
-          Text(extent={{-109,72},{-89,88}}, textString=" 1.3"), 
-          Text(extent={{-109,-88},{-89,-72}}, textString="-1.3"), 
+          Text(
+            extent={{70,-3},{90,-23}}, 
+            textString="20", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-78,-1},{-58,-21}}, 
+            textString="1", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-109,72},{-89,88}}, 
+            textString=" 1.3", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-109,-88},{-89,-72}}, 
+            textString="-1.3", 
+            lineColor={0,0,255}), 
           Text(
             extent={{62,30},{90,10}}, 
             lineColor={160,160,164}, 
@@ -2606,7 +2784,10 @@ zero or negative.
     extends Interfaces.IntegerBlockIcon;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
-          Text(extent={{-100,60},{0,-60}}, textString="R"), 
+          Text(
+            extent={{-100,60},{0,-60}}, 
+            textString="R", 
+            lineColor={0,0,255}), 
           Text(
             extent={{20,60},{120,-60}}, 
             lineColor={255,127,0}, 
@@ -2646,12 +2827,16 @@ as <i>nearest integer value</i> of the input <b>u</b>:
             extent={{-120,60},{-20,-60}}, 
             lineColor={255,127,0}, 
             textString="I"), 
-          Text(extent={{0,60},{100,-60}}, textString="R"), 
+          Text(
+            extent={{0,60},{100,-60}}, 
+            textString="R", 
+            lineColor={0,0,255}), 
           Polygon(
             points={{10,0},{-10,20},{-10,10},{-40,10},{-40,-10},{-10,-10},{-10,
                 -20},{10,0}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid)}),         Documentation(info="<html>
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255})}),                   Documentation(info="<html>
 <p>
 This block computes the output <b>y</b>
 as <i>Real equivalent</i> of the Integer input <b>u</b>:
@@ -2708,8 +2893,12 @@ and <b>realTrue</b> and <b>realFalse</b> are parameters.
             points={{-12,-46},{-32,-26},{-32,-36},{-64,-36},{-64,-56},{-32,-56},
                 {-32,-66},{-12,-46}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
-          Text(extent={{8,-4},{92,-94}}, textString="R")}),
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{8,-4},{92,-94}}, 
+            textString="R", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},

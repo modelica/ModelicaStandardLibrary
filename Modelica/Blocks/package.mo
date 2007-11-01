@@ -640,11 +640,13 @@ This package contains the bus definitions needed for the
                 -100,-100},{100,100}}), graphics={Rectangle(
               extent={{-100,60},{100,-60}}, 
               fillColor={159,159,223}, 
-              fillPattern=FillPattern.Solid), Text(
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), Text(
               extent={{-106,124},{114,68}}, 
               fillColor={159,159,223}, 
               fillPattern=FillPattern.Solid, 
-              textString="%name")}),
+              textString="%name", 
+              lineColor={0,0,255})}),
                               Diagram(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}),
                                       graphics),

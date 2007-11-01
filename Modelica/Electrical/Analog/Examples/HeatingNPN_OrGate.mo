@@ -4,9 +4,10 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
   constant Modelica.SIunits.Capacitance CapVal=0;
   constant Modelica.SIunits.Time tauVal=0;
   
-annotation (Diagram(graphics={Text(extent={{-100,100},{-6,72}}, textString=
-              "Heating \"NPN or\" Gate")}),
-                                     Documentation(info="<HTML>
+annotation (Diagram(graphics={Text(
+          extent={{-100,100},{-6,72}}, 
+          textString="Heating \"NPN or\" Gate", 
+          lineColor={0,0,255})}),    Documentation(info="<HTML>
 <P>
 The heating \"NPN or\" gate shows a heat flow always if a transistor is leading.
 </P>

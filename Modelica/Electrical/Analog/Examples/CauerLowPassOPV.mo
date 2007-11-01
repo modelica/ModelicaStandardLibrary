@@ -4,8 +4,10 @@ model CauerLowPassOPV "Cauer low pass filter with operational amplifiers"
   annotation (
     uses(Modelica(version="2.2")),
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-250,-200},{
-            250,200}}), graphics={Text(extent={{-130,172},{80,120}}, textString
-            ="CauerLowPassOPV")}),
+            250,200}}), graphics={Text(
+          extent={{-130,172},{80,120}}, 
+          textString="CauerLowPassOPV", 
+          lineColor={0,0,255})}),
     experiment(StopTime=60),
     experimentSetupOutput,
     Documentation(revisions="<html>
@@ -36,15 +38,18 @@ Do not worry about it. The negative values are o.k.
         Rectangle(
           extent={{-100,-80},{80,70}}, 
           fillColor={255,255,255}, 
-          fillPattern=FillPattern.Solid), 
+          fillPattern=FillPattern.Solid, 
+          lineColor={0,0,255}), 
         Polygon(
           points={{-100,70},{-80,90},{100,90},{80,70},{-100,70}}, 
           fillColor={255,255,255}, 
-          fillPattern=FillPattern.Solid), 
+          fillPattern=FillPattern.Solid, 
+          lineColor={0,0,255}), 
         Polygon(
           points={{100,90},{100,-60},{80,-80},{80,70},{100,90}}, 
           fillColor={255,255,255}, 
-          fillPattern=FillPattern.Solid), 
+          fillPattern=FillPattern.Solid, 
+          lineColor={0,0,255}), 
         Text(
           extent={{-96,23},{77,-29}}, 
           lineColor={0,0,255}, 

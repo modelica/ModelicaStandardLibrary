@@ -319,8 +319,11 @@ the output is <b>false</b>.
     extends Blocks.Interfaces.partialBooleanComparison;
     
     annotation (Icon(graphics={
-          Ellipse(extent={{32,10},{52,-10}}, fillPattern=FillPattern.Solid), 
-          Line(points={{-100,-80},{42,-80},{42,0}}), 
+          Ellipse(
+            extent={{32,10},{52,-10}}, 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,255}), 
           Text(
             extent={{-80,-60},{20,60}}, 
             lineColor={0,0,0}, 
@@ -341,8 +344,11 @@ Real input u2, otherwise the output is <b>false</b>.
     extends Blocks.Interfaces.partialBooleanComparison;
     
     annotation (Icon(graphics={
-          Ellipse(extent={{32,10},{52,-10}}, fillPattern=FillPattern.Solid), 
-          Line(points={{-100,-80},{42,-80},{42,0}}), 
+          Ellipse(
+            extent={{32,10},{52,-10}}, 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,255}), 
           Text(
             extent={{-80,-60},{20,60}}, 
             lineColor={0,0,0}, 
@@ -362,8 +368,11 @@ Real input u2, otherwise the output is <b>false</b>.
     extends Blocks.Interfaces.partialBooleanComparison;
     
     annotation (Icon(graphics={
-          Ellipse(extent={{32,10},{52,-10}}, fillPattern=FillPattern.Solid), 
-          Line(points={{-100,-80},{42,-80},{42,0}}), 
+          Ellipse(
+            extent={{32,10},{52,-10}}, 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,255}), 
           Text(
             extent={{-80,-60},{20,60}}, 
             lineColor={0,0,0}, 
@@ -383,8 +392,11 @@ Real input u2, otherwise the output is <b>false</b>.
     extends Blocks.Interfaces.partialBooleanComparison;
     
     annotation (Icon(graphics={
-          Ellipse(extent={{32,10},{52,-10}}, fillPattern=FillPattern.Solid), 
-          Line(points={{-100,-80},{42,-80},{42,0}}), 
+          Ellipse(
+            extent={{32,10},{52,-10}}, 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,255}), 
           Text(
             extent={{-80,-60},{20,60}}, 
             lineColor={0,0,0}, 
@@ -512,7 +524,8 @@ u1, else it is set equal to u2.</p>
           Ellipse(
             extent={{2,8},{18,-6}}, 
             fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid)}),
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -558,7 +571,8 @@ u1, else it is set equal to u3.</p>
             points={{12,0},{100,0}}, 
             pattern=LinePattern.Solid, 
             thickness=1, 
-            arrow={Arrow.None,Arrow.None}), 
+            arrow={Arrow.None,Arrow.None}, 
+            color={0,0,255}), 
           Line(
             points={{-100,0},{-40,0}}, 
             color={255,0,127}, 
@@ -569,14 +583,19 @@ u1, else it is set equal to u3.</p>
             points={{-100,-80},{-40,-80},{-40,-80}}, 
             pattern=LinePattern.Solid, 
             thickness=1, 
-            arrow={Arrow.None,Arrow.None}), 
+            arrow={Arrow.None,Arrow.None}, 
+            color={0,0,255}), 
           Line(points={{-40,12},{-40,-12}}, color={255,0,127}), 
-          Line(points={{-100,80},{-38,80}}), 
-          Line(points={{-38,80},{6,2}}, thickness=4), 
+          Line(points={{-100,80},{-38,80}}, color={0,0,255}), 
+          Line(
+            points={{-38,80},{6,2}}, 
+            thickness=4, 
+            color={0,0,255}), 
           Ellipse(
             extent={{2,8},{18,-6}}, 
             fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid)}),
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -757,7 +776,7 @@ The default value of this parameter is <b>false</b>.
             lineColor={0,0,0}, 
             textString="u"), 
           Line(points={{-76,-32},{-68,-6},{-50,26},{-24,40},{-2,42},{16,36},{32,
-                28},{48,12},{58,-6},{68,-28}}), 
+                28},{48,12},{58,-6},{68,-28}}, color={0,0,255}), 
           Line(points={{-78,-2},{-6,18},{82,-12}}, color={255,0,0}), 
           Line(points={{-78,12},{-6,30},{82,0}}, color={0,0,0}), 
           Line(points={{-78,-16},{-6,4},{82,-26}}, color={0,0,0}), 
@@ -794,8 +813,8 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
     
     annotation (
       Icon(graphics={
-          Line(points={{-60,-70},{-60,-70},{-30,40},{8,40},{40,-70},{40,-70}}), 
-            
+          Line(points={{-60,-70},{-60,-70},{-30,40},{8,40},{40,-70},{40,-70}}, 
+              color={0,0,255}), 
           Line(points={{-90,-70},{82,-70}}, color={192,192,192}), 
           Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
           Polygon(
@@ -811,8 +830,8 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
           Line(points={{-80,-70},{-60,-70},{-60,24},{8,24},{8,-70},{60,-70}}, 
               color={255,0,255})}),
       Diagram(graphics={
-          Line(points={{-80,-20},{-60,-20},{-30,40},{8,40},{40,-20},{60,-20}}), 
-            
+          Line(points={{-80,-20},{-60,-20},{-30,40},{8,40},{40,-20},{60,-20}}, 
+              color={0,0,255}), 
           Line(points={{-90,-70},{82,-70}}, color={0,0,0}), 
           Line(points={{-80,68},{-80,-80}}, color={0,0,0}), 
           Polygon(

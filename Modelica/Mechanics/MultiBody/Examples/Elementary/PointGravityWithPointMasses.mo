@@ -5,7 +5,7 @@ model PointGravityWithPointMasses
   extends Modelica.Icons.Example;
   inner Modelica.Mechanics.MultiBody.World world(
     mue=1,
-    gravitySphereDiameter=0.1, 
+    gravitySphereDiameter=0.1,
     gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity) 
                                annotation (Placement(transformation(extent={{
             -20,-20},{0,0}}, rotation=0)));
