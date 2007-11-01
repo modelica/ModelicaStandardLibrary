@@ -75,7 +75,10 @@ as output.
             extent={{-150,-150},{150,-110}}, 
             lineColor={0,0,0}, 
             textString="uMax=%uMax"), 
-          Text(extent={{-150,150},{150,110}}, textString="%name")}),
+          Text(
+            extent={{-150,150},{150,110}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -159,13 +162,20 @@ is passed as output.
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid), 
           Line(points={{-80,-70},{-50,-70},{50,70},{80,70}}, color={0,0,0}), 
-          Text(extent={{-150,150},{150,110}}, textString="%name"), 
-          Line(points={{-100,80},{66,80},{66,70}}), 
-          Line(points={{-100,-80},{-64,-80},{-64,-70}}), 
-          Polygon(points={{-64,-70},{-66,-74},{-62,-74},{-64,-70}}, fillPattern
-              =FillPattern.Solid), 
-          Polygon(points={{66,70},{64,74},{68,74},{66,70}}, fillPattern=
-                FillPattern.Solid), 
+          Text(
+            extent={{-150,150},{150,110}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
+          Line(points={{-100,80},{66,80},{66,70}}, color={0,0,255}), 
+          Line(points={{-100,-80},{-64,-80},{-64,-70}}, color={0,0,255}), 
+          Polygon(
+            points={{-64,-70},{-66,-74},{-62,-74},{-64,-70}}, 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Polygon(
+            points={{66,70},{64,74},{68,74},{66,70}}, 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{0,90},{-8,68},{8,68},{0,90}}, 
             lineColor={192,192,192}, 
@@ -201,12 +211,16 @@ is passed as output.
             extent={{30,20},{70,40}}, 
             lineColor={128,128,128}, 
             textString="uMax"), 
-          Line(points={{-100,80},{40,80},{40,40}}), 
-          Line(points={{-100,-80},{-40,-80},{-40,-40}}), 
-          Polygon(points={{40,40},{35,50},{45,50},{40,40}}, fillPattern=
-                FillPattern.Solid), 
-          Polygon(points={{-40,-40},{-45,-50},{-35,-50},{-40,-40}}, fillPattern
-              =FillPattern.Solid)}));
+          Line(points={{-100,80},{40,80},{40,40}}, color={0,0,255}), 
+          Line(points={{-100,-80},{-40,-80},{-40,-40}}, color={0,0,255}), 
+          Polygon(
+            points={{40,40},{35,50},{45,50},{40,40}}, 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Polygon(
+            points={{-40,-40},{-45,-50},{-35,-50},{-40,-40}}, 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255})}));
     
   equation 
     uMax = max(limit1, limit2);
@@ -269,7 +283,10 @@ function of the input with a slope of 1.
             extent={{-150,-150},{150,-110}}, 
             lineColor={160,160,164}, 
             textString="uMax=%uMax"), 
-          Text(extent={{-150,150},{150,110}}, textString="%name")}),
+          Text(
+            extent={{-150,150},{150,110}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -395,7 +412,10 @@ The Input signal is delayed by a given time instant, or more precisely:
             lineColor={160,160,164}, 
             textString="time"), 
           Line(points={{-64,-30},{-64,0}}, color={192,192,192}), 
-          Text(extent={{-58,-42},{-58,-32}}, textString="delayTime"), 
+          Text(
+            extent={{-58,-42},{-58,-32}}, 
+            textString="delayTime", 
+            lineColor={0,0,255}), 
           Line(points={{-94,-26},{-80,-26}}, color={192,192,192}), 
           Line(points={{-64,-26},{-50,-26}}, color={192,192,192}), 
           Polygon(
@@ -408,6 +428,7 @@ The Input signal is delayed by a given time instant, or more precisely:
             lineColor={192,192,192}, 
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid)}));
+    
   equation 
     y = delay(u, delayTime);
   end FixedDelay;
@@ -546,7 +567,10 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
             lineColor={160,160,164}, 
             textString="time"), 
           Line(points={{-64,-30},{-64,0}}, color={192,192,192}), 
-          Text(extent={{-58,-42},{-58,-32}}, textString="delayTime"), 
+          Text(
+            extent={{-58,-42},{-58,-32}}, 
+            textString="delayTime", 
+            lineColor={0,0,255}), 
           Line(points={{-94,-26},{-80,-26}}, color={192,192,192}), 
           Line(points={{-64,-26},{-50,-26}}, color={192,192,192}), 
           Polygon(
@@ -559,6 +583,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
             lineColor={192,192,192}, 
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid)}));
+    
   protected 
     function padeCoefficients 
       input Real T "delay time";
@@ -683,7 +708,10 @@ the following relationship:
             extent={{67,22},{96,6}}, 
             lineColor={160,160,164}, 
             textString="time"), 
-          Text(extent={{-58,-42},{-58,-32}}, textString="delayTime"), 
+          Text(
+            extent={{-58,-42},{-58,-32}}, 
+            textString="delayTime", 
+            lineColor={0,0,255}), 
           Line(points={{-80,-88},{-80,86}}, color={192,192,192}), 
           Text(
             extent={{-24,98},{-2,78}}, 
@@ -705,9 +733,14 @@ the following relationship:
             fillPattern=FillPattern.Solid), 
           Line(points={{-64,-26},{-50,-26}}, color={192,192,192}), 
           Line(points={{-94,-26},{-80,-26}}, color={192,192,192}), 
-          Text(extent={{-58,-42},{-58,-32}}, textString="delayTime"), 
-          Line(points={{-100,-60},{-70,-60},{-64,-44}}, arrow={Arrow.None,Arrow.Filled}), 
-            
+          Text(
+            extent={{-58,-42},{-58,-32}}, 
+            textString="delayTime", 
+            lineColor={0,0,255}), 
+          Line(
+            points={{-100,-60},{-70,-60},{-64,-44}}, 
+            arrow={Arrow.None,Arrow.Filled}, 
+            color={0,0,255}), 
           Line(points={{-80,-88},{-80,86}}, color={192,192,192}), 
           Line(points={{-100,0},{84,0}}, color={192,192,192}), 
           Line(points={{-64,0},{-52.7,34.2},{-45.5,53.1},{-39.1,66.4},{-33.4,

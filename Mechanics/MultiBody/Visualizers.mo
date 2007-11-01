@@ -189,7 +189,10 @@ definition of the colors used in the MultiBody library
             extent={{-131,-65},{134,-104}}, 
             lineColor={0,0,0}, 
             textString="%shapeType"), 
-          Text(extent={{-131,118},{129,58}}, textString="%name")}),
+          Text(
+            extent={{-131,118},{129,58}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -270,7 +273,10 @@ definition of the colors used in the MultiBody library
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Text(extent={{-123,128},{137,68}}, textString="%name"), 
+          Text(
+            extent={{-123,128},{137,68}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
             extent={{129,-106},{-131,-56}}, 
             lineColor={0,0,0}, 
@@ -596,15 +602,24 @@ MultiBody.Visualizers.FixedShape2 object is connected");
             points={{-2,-18},{72,-54}}, 
             color={0,0,0}, 
             thickness=2), 
-          Line(points={{-72,-54},{-2,-18}}, thickness=2), 
-          Polygon(points={{-98,-68},{-66,-60},{-78,-46},{-98,-68}}, fillPattern
-              =FillPattern.Solid), 
-          Text(extent={{-87,13},{-38,-36}}, textString="z"), 
+          Line(
+            points={{-72,-54},{-2,-18}}, 
+            thickness=2, 
+            color={0,0,255}), 
+          Polygon(
+            points={{-98,-68},{-66,-60},{-78,-46},{-98,-68}}, 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-87,13},{-38,-36}}, 
+            textString="z", 
+            lineColor={0,0,255}), 
           Text(
             extent={{-138,164},{146,102}}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid, 
-            textString="%name")}),
+            textString="%name", 
+            lineColor={0,0,255})}),
       Documentation(info="<HTML>
 <p>
 Model <b>FixedFrame</b> visualizes the three axes of
@@ -696,7 +711,10 @@ parameter menu.
             lineColor={128,128,128}, 
             fillColor={128,128,128}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-146,124},{142,62}}, textString="%name"), 
+          Text(
+            extent={{-146,124},{142,62}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
             extent={{-118,-74},{120,-112}}, 
             lineColor={0,0,0}, 
@@ -773,8 +791,11 @@ parameter menu.
             lineColor={128,128,128}, 
             fillColor={128,128,128}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-146,124},{142,62}}, textString="%name"), 
-          Line(points={{0,-102},{0,-30}})}),
+          Text(
+            extent={{-146,124},{142,62}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
+          Line(points={{0,-102},{0,-30}}, color={0,0,255})}),
       Diagram(graphics),
       Documentation(info="<HTML>
 <p>
@@ -925,7 +946,10 @@ library (will be replaced by a color editor).
               lineColor={128,128,128}, 
               fillColor={128,128,128}, 
               fillPattern=FillPattern.Solid), 
-            Text(extent={{-146,124},{142,62}}, textString="%name")}),
+            Text(
+              extent={{-146,124},{142,62}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
         Diagram(graphics));
       
     end Arrow;
@@ -1010,7 +1034,10 @@ library (will be replaced by a color editor).
               lineColor={128,128,128}, 
               fillColor={128,128,128}, 
               fillPattern=FillPattern.Solid), 
-            Text(extent={{-146,124},{142,62}}, textString="%name"), 
+            Text(
+              extent={{-146,124},{142,62}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Polygon(
               points={{0,60},{60,0},{0,-60},{0,60}}, 
               lineColor={128,128,128}, 
@@ -1126,7 +1153,10 @@ library (will be replaced by a color editor).
               extent={{-100,-100},{80,60}}, 
               lineColor={0,0,0}, 
               textString="%shapeType"), 
-            Text(extent={{-132,160},{128,100}}, textString="%name")}),
+            Text(
+              extent={{-132,160},{128,100}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
         Window(
           x=0.28,
           y=0.06,
@@ -1289,7 +1319,10 @@ model where a <b>Shape</b> instance is used, e.g., in the form
               lineColor={128,128,128}, 
               fillColor={255,255,255}, 
               fillPattern=FillPattern.Solid), 
-            Text(extent={{-140,164},{148,102}}, textString="%name"), 
+            Text(
+              extent={{-140,164},{148,102}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Polygon(
               points={{-82,-24},{-20,46},{-10,38},{-72,-32},{-82,-24}}, 
               lineColor={0,127,255}, 
@@ -1433,7 +1466,10 @@ The diameter and color of all line cylinders are identical.
               lineColor={0,127,255}, 
               fillColor={0,127,255}, 
               fillPattern=FillPattern.Solid), 
-            Text(extent={{-140,164},{148,102}}, textString="%name")}),
+            Text(
+              extent={{-140,164},{148,102}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
         Diagram(graphics),
         Documentation(info="<HTML>
 <p>

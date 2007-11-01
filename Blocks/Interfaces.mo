@@ -71,7 +71,8 @@ connector RealInput = input Real "'input Real' as connector"
           lineColor={0,0,127}, 
           fillColor={0,0,127}, 
           fillPattern=FillPattern.Solid)},
-       coordinateSystem(extent=[-100,-100; 100,100])),
+       coordinateSystem(extent={{-100,-100},{100,100}}, preserveAspectRatio=
+            false)),
   Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -120,9 +121,9 @@ Connector with one output signal of type Real.
 connector BooleanInput = input Boolean "'input Boolean' as connector" 
   annotation (defaultComponentName="u",
        Icon(graphics={Polygon(
-          points={{-100,100},{100,0},{-100,-100},{-100,100}}, 
-          lineColor={255,0,255}, 
-          fillColor={255,0,255}, 
+          points={{-100,100},{100,0},{-100,-100},{-100,100}},
+          lineColor={255,0,255},
+          fillColor={255,0,255},
           fillPattern=FillPattern.Solid)},
             coordinateSystem(extent=[-100,-100; 100,100])),
                                         Diagram(coordinateSystem(
@@ -130,12 +131,12 @@ connector BooleanInput = input Boolean "'input Boolean' as connector"
         extent={{-100,-100},{100,100}},
         grid={1,1},
         initialScale=0.2), graphics={Polygon(
-          points={{0,50},{100,0},{0,-50},{0,50}}, 
-          lineColor={255,0,255}, 
-          fillColor={255,0,255}, 
+          points={{0,50},{100,0},{0,-50},{0,50}},
+          lineColor={255,0,255},
+          fillColor={255,0,255},
           fillPattern=FillPattern.Solid), Text(
-          extent={{-120,105},{100,60}}, 
-          lineColor={255,0,255}, 
+          extent={{-120,105},{100,60}},
+          lineColor={255,0,255},
           textString="%name")}),
     Documentation(info="<html>
 <p>
@@ -149,20 +150,20 @@ connector BooleanOutput = output Boolean "'output Boolean' as connector"
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={1,1}), graphics={Polygon(
-          points={{-100,100},{100,0},{-100,-100},{-100,100}}, 
-          lineColor={255,0,255}, 
-          fillColor={255,255,255}, 
+          points={{-100,100},{100,0},{-100,-100},{-100,100}},
+          lineColor={255,0,255},
+          fillColor={255,255,255},
           fillPattern=FillPattern.Solid)}),
   Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={1,1}), graphics={Polygon(
-          points={{-100,50},{0,0},{-100,-50},{-100,50}}, 
-          lineColor={255,0,255}, 
-          fillColor={255,255,255}, 
+          points={{-100,50},{0,0},{-100,-50},{-100,50}},
+          lineColor={255,0,255},
+          fillColor={255,255,255},
           fillPattern=FillPattern.Solid), Text(
-          extent={{-100,140},{130,60}}, 
-          lineColor={255,0,255}, 
+          extent={{-100,140},{130,60}},
+          lineColor={255,0,255},
           textString="%name")}),
     Documentation(info="<html>
 <p>
@@ -173,9 +174,9 @@ Connector with one output signal of type Boolean.
 connector IntegerInput = input Integer "'input Integer' as connector" 
   annotation (defaultComponentName="u",
   Icon(graphics={Polygon(
-          points={{-100,100},{100,0},{-100,-100},{-100,100}}, 
-          lineColor={255,127,0}, 
-          fillColor={255,127,0}, 
+          points={{-100,100},{100,0},{-100,-100},{-100,100}},
+          lineColor={255,127,0},
+          fillColor={255,127,0},
           fillPattern=FillPattern.Solid)},
        coordinateSystem(extent=[-100,-100; 100,100])),
   Diagram(coordinateSystem(
@@ -183,12 +184,12 @@ connector IntegerInput = input Integer "'input Integer' as connector"
         extent={{-100,-100},{100,100}},
         grid={1,1},
         initialScale=0.2), graphics={Polygon(
-          points={{0,50},{100,0},{0,-50},{0,50}}, 
-          lineColor={255,127,0}, 
-          fillColor={255,127,0}, 
+          points={{0,50},{100,0},{0,-50},{0,50}},
+          lineColor={255,127,0},
+          fillColor={255,127,0},
           fillPattern=FillPattern.Solid), Text(
-          extent={{-120,105},{100,60}}, 
-          lineColor={255,127,0}, 
+          extent={{-120,105},{100,60}},
+          lineColor={255,127,0},
           textString="%name")}),
     Documentation(info="<html>
 <p>
@@ -202,20 +203,20 @@ connector IntegerOutput = output Integer "'output Integer' as connector"
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={1,1}), graphics={Polygon(
-          points={{-100,100},{100,0},{-100,-100},{-100,100}}, 
-          lineColor={255,127,0}, 
-          fillColor={255,255,255}, 
+          points={{-100,100},{100,0},{-100,-100},{-100,100}},
+          lineColor={255,127,0},
+          fillColor={255,255,255},
           fillPattern=FillPattern.Solid)}),
   Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={1,1}), graphics={Polygon(
-          points={{-100,50},{0,0},{-100,-50},{-100,50}}, 
-          lineColor={255,127,0}, 
-          fillColor={255,255,255}, 
+          points={{-100,50},{0,0},{-100,-50},{-100,50}},
+          lineColor={255,127,0},
+          fillColor={255,255,255},
           fillPattern=FillPattern.Solid), Text(
-          extent={{-100,140},{130,60}}, 
-          lineColor={255,127,0}, 
+          extent={{-100,140},{130,60}},
+          lineColor={255,127,0},
           textString="%name")}),
     Documentation(info="<html>
 <p>
@@ -236,8 +237,10 @@ Connector with one output signal of type Integer.
             extent={{-100,-100},{100,100}}, 
             lineColor={0,0,127}, 
             fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), Text(extent={{-150,150},{150,110}}, 
-              textString="%name")}),
+            fillPattern=FillPattern.Solid), Text(
+            extent={{-150,150},{150,110}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Documentation(info="<html>
 <p>
 Block that has only the basic icon for an input/output
@@ -497,9 +500,18 @@ generated signal.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Text(extent={{-102,34},{-142,24}}, textString="(setpoint)"), 
-          Text(extent={{100,24},{140,14}}, textString="(actuator)"), 
-          Text(extent={{-83,-112},{-33,-102}}, textString=" (measurement)")}),
+          Text(
+            extent={{-102,34},{-142,24}}, 
+            textString="(setpoint)", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{100,24},{140,14}}, 
+            textString="(actuator)", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-83,-112},{-33,-102}}, 
+            textString=" (measurement)", 
+            lineColor={0,0,255})}),
         Window(
           x=0.19,
           y=0.21,
@@ -536,9 +548,18 @@ to be used as base class for a corresponding controller.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Text(extent={{-100,36},{-140,26}}, textString="(setpoint)"), 
-          Text(extent={{102,24},{142,14}}, textString="(actuator)"), 
-          Text(extent={{-75,-108},{-25,-98}}, textString=" (measurement)")}),
+          Text(
+            extent={{-100,36},{-140,26}}, 
+            textString="(setpoint)", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{102,24},{142,14}}, 
+            textString="(actuator)", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-75,-108},{-25,-98}}, 
+            textString=" (measurement)", 
+            lineColor={0,0,255})}),
         Window(
           x=0.26,
           y=0.19,
@@ -560,8 +581,10 @@ to be used as base class for a corresponding controller.
             extent={{-100,-100},{100,100}}, 
             lineColor={0,0,255}, 
             fillColor={223,223,159}, 
-            fillPattern=FillPattern.Solid), Text(extent={{-150,150},{150,110}}, 
-              textString="%name")}),
+            fillPattern=FillPattern.Solid), Text(
+            extent={{-150,150},{150,110}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
                            Documentation(info="<html>
 <p>
 Block that has only the basic icon for an input/output,
@@ -744,7 +767,10 @@ to be used as base class for a corresponding controller.
       "Continuous actuator output signals"   annotation (Placement(
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
       annotation (Diagram(graphics={
-          Text(extent={{-100,-10},{-80,-30}}, textString="u_s"), 
+          Text(
+            extent={{-100,-10},{-80,-30}}, 
+            textString="u_s", 
+            lineColor={0,0,255}), 
           Text(
             extent={{-98,34},{-138,24}}, 
             lineColor={0,0,0}, 
@@ -786,8 +812,10 @@ to be used as base class for a corresponding controller.
             extent={{-100,-100},{100,100}}, 
             lineColor={255,0,255}, 
             fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), Text(extent={{-150,150},{150,110}}, 
-              textString="%name")}),
+            fillPattern=FillPattern.Solid), Text(
+            extent={{-150,150},{150,110}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Documentation(info="<html>
 <p>
 Block that has only the basic icon for an input/output,
@@ -936,8 +964,10 @@ partial block IntegerBlockIcon "Basic graphical layout of Integer block"
             extent={{-100,-100},{100,100}}, 
             lineColor={255,127,0}, 
             fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), Text(extent={{-150,150},{150,110}}, 
-              textString="%name")}),
+            fillPattern=FillPattern.Solid), Text(
+            extent={{-150,150},{150,110}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 Block that has only the basic icon for an input/output,
@@ -1036,8 +1066,10 @@ end IntegerMIBooleanMOs;
             lineColor={0,0,0}, 
             fillColor={210,210,210}, 
             fillPattern=FillPattern.Solid, 
-            borderPattern=BorderPattern.Raised), Text(extent={{-150,150},{150,
-                110}}, textString="%name")}),              Documentation(info="<html>
+            borderPattern=BorderPattern.Raised), Text(
+            extent={{-150,150},{150,110}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),                        Documentation(info="<html>
 <p>
 Block that has only the basic icon for an input/output,
 Boolean block (no declarations, no equations) used especially
@@ -1364,8 +1396,11 @@ as well as a 3D icon (e.g. used in Blocks.Logical library).
             fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
                  else {235,235,235}), 
             fillPattern=FillPattern.Solid), 
-          Ellipse(extent={{32,10},{52,-10}}, fillPattern=FillPattern.Solid), 
-          Line(points={{-100,-80},{42,-80},{42,0}})}),
+          Ellipse(
+            extent={{32,10},{52,-10}}, 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,255})}),
         Diagram(graphics),
       Documentation(info="<html>
 <p>
@@ -1643,7 +1678,10 @@ end Adaptors;
             lineColor={191,0,0}, 
             fillColor={191,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-115,155},{115,105}}, textString="%name")}),     Documentation(info="<html>
+          Text(
+            extent={{-115,155},{115,105}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),                                      Documentation(info="<html>
 <p>
 This block defines the interface of a conversion block that
 converts from one unit into another one.

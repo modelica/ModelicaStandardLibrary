@@ -267,15 +267,18 @@ and the accompanying <b>disclaimer</b>
         Polygon(
           points={{-100,-100},{-100,50},{80,50},{80,-100},{-100,-100}}, 
           fillColor={235,235,235}, 
-          fillPattern=FillPattern.Solid), 
+          fillPattern=FillPattern.Solid, 
+          lineColor={0,0,255}), 
         Polygon(
           points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}}, 
           fillColor={235,235,235}, 
-          fillPattern=FillPattern.Solid), 
+          fillPattern=FillPattern.Solid, 
+          lineColor={0,0,255}), 
         Polygon(
           points={{100,70},{100,-80},{80,-100},{80,50},{100,70}}, 
           fillColor={235,235,235}, 
-          fillPattern=FillPattern.Solid), 
+          fillPattern=FillPattern.Solid, 
+          lineColor={0,0,255}), 
         Text(
           extent={{-120,122},{120,73}}, 
           lineColor={255,0,0}, 
@@ -2238,15 +2241,18 @@ This package contains utility components used by package Examples.
           Rectangle(
             extent={{-100,-100},{80,50}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{100,70},{100,-80},{80,-100},{80,50},{100,70}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Text(
             extent={{-85,35},{65,-85}}, 
             lineColor={0,0,255}, 
@@ -2314,20 +2320,20 @@ components of the Electrical.Digital library.
       annotation (defaultComponentName="x",
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}), graphics={Rectangle(
-            extent={{-100,-100},{100,100}}, 
-            lineColor={127,0,127}, 
-            fillColor={127,0,127}, 
+            extent={{-100,-100},{100,100}},
+            lineColor={127,0,127},
+            fillColor={127,0,127},
             fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
               {100,100}}), graphics={Text(
-            extent={{-150,-100},{150,-160}}, 
-            lineColor={127,0,127}, 
-            fillColor={127,0,127}, 
-            fillPattern=FillPattern.Solid, 
+            extent={{-150,-100},{150,-160}},
+            lineColor={127,0,127},
+            fillColor={127,0,127},
+            fillPattern=FillPattern.Solid,
             textString="%name"), Rectangle(
-            extent={{-100,-100},{100,100}}, 
-            lineColor={127,0,127}, 
-            fillColor={127,0,127}, 
+            extent={{-100,-100},{100,100}},
+            lineColor={127,0,127},
+            fillColor={127,0,127},
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
   
@@ -2336,21 +2342,21 @@ components of the Electrical.Digital library.
     connector DigitalOutput = output DigitalSignal 
       "output DigitalSignal as connector" 
       annotation (defaultComponentName="y", Icon(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
           graphics={Polygon(
-            points={{-100,100},{100,0},{-100,-100},{-100,100}}, 
-            lineColor={127,0,127}, 
-            fillColor={255,255,255}, 
+            points={{-100,100},{100,0},{-100,-100},{-100,100}},
+            lineColor={127,0,127},
+            fillColor={255,255,255},
             fillPattern=FillPattern.Solid)}),
                                        Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
           graphics={Polygon(
-            points={{-100,100},{100,0},{-100,-100},{-100,100}}, 
-            lineColor={127,0,127}, 
-            fillColor={255,255,255}, 
+            points={{-100,100},{100,0},{-100,-100},{-100,100}},
+            lineColor={127,0,127},
+            fillColor={255,255,255},
             fillPattern=FillPattern.Solid), Text(
-            extent={{-150,-100},{150,-160}}, 
-            lineColor={127,0,127}, 
+            extent={{-150,-100},{150,-160}},
+            lineColor={127,0,127},
             textString="%name")}));
     
     partial block SISO "Single input, single output" 
@@ -2408,15 +2414,18 @@ components of the Electrical.Digital library.
           Rectangle(
             extent={{-100,-100},{80,50}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{100,70},{100,-80},{80,-100},{80,50},{100,70}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Text(
             extent={{-85,35},{65,-85}}, 
             lineColor={0,0,255}, 
@@ -2502,15 +2511,18 @@ This package contains interface definitions
           Rectangle(
             extent={{-100,-100},{80,50}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{100,70},{100,-80},{80,-100},{80,50},{100,70}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Text(
             extent={{-85,35},{65,-85}}, 
             lineColor={0,0,255}, 
@@ -2770,15 +2782,18 @@ is used, if it is zero, the input is not delayed.
           Rectangle(
             extent={{-100,-100},{80,50}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{100,70},{100,-80},{80,-100},{80,50},{100,70}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Text(
             extent={{-85,35},{65,-85}}, 
             lineColor={0,0,255}, 
@@ -3120,15 +3135,18 @@ XNor with n input values, without delay.
           Rectangle(
             extent={{-100,-100},{80,50}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{100,70},{100,-80},{80,-100},{80,50},{100,70}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Text(
             extent={{-85,35},{65,-85}}, 
             lineColor={0,0,255}, 
@@ -3349,12 +3367,15 @@ NandGate with n input values, composed by Nand and sensitive intertial delay.
           Text(
             extent=[-40,80; 40,40],
             style(color=0, thickness=2),
-            string="&"),
+            string="&", 
+            lineColor={0,0,255}),
           Text(
             extent=[-20, -40; 20, -80],
             style(color=0, thickness=2),
-            string="Gate"),
-          Ellipse(extent=[60, -10; 40, 10], style(color=0, thickness=2))),
+            string="Gate", 
+            lineColor={0,0,255}),
+          Ellipse(extent=[60, -10; 40, 10], style(color=0, thickness=2), 
+            lineColor={0,0,255})),
         Diagram);
     equation 
       connect(x, G1.x) 
@@ -3676,15 +3697,18 @@ BufGate with 1 input value, composed by Not and sensitive intertial delay.
           Rectangle(
             extent={{-100,-100},{80,50}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{100,70},{100,-80},{80,-100},{80,50},{100,70}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Text(
             extent={{-85,35},{65,-85}}, 
             lineColor={0,0,255}, 
@@ -4108,15 +4132,18 @@ The number of periods is unlimited. The first pulse starts at startTime.
           Rectangle(
             extent={{-100,-100},{80,50}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{100,70},{100,-80},{80,-100},{80,50},{100,70}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Text(
             extent={{-85,35},{65,-85}}, 
             lineColor={0,0,255}, 
@@ -4547,8 +4574,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
               lineColor={127,0,127}, 
               fillColor={127,0,127}, 
               fillPattern=FillPattern.Solid), 
-            Polygon(points={{-40,40},{40,40},{-40,-40},{-40,40}}, fillPattern=
-                  FillPattern.Solid), 
+            Polygon(
+              points={{-40,40},{40,40},{-40,-40},{-40,40}}, 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Text(
               extent={{148,-100},{-152,-40}}, 
               lineColor={0,0,255}, 
@@ -4625,8 +4654,10 @@ The values val... are given by parameters.</P>
               lineColor={127,0,127}, 
               fillColor={127,0,127}, 
               fillPattern=FillPattern.Solid), 
-            Polygon(points={{-40,-40},{40,-40},{40,40},{-40,-40}}, fillPattern=
-                  FillPattern.Solid), 
+            Polygon(
+              points={{-40,-40},{40,-40},{40,40},{-40,-40}}, 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Text(
               extent={{152,-100},{-148,-40}}, 
               lineColor={0,0,255}, 
@@ -4655,15 +4686,18 @@ The values val... are given by parameters.</P>
           Rectangle(
             extent={{-100,-100},{80,50}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{100,70},{100,-80},{80,-100},{80,50},{100,70}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Text(
             extent={{-85,35},{65,-85}}, 
             lineColor={0,0,255}, 

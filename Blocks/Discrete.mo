@@ -96,7 +96,7 @@ via parameter <b>samplePeriod</b>.
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={Line(points={{-78,-42},{-52,-42},{-52,0},{-26,
                 0},{-26,24},{-6,24},{-6,64},{18,64},{18,20},{38,20},{38,0},{44,
-                0},{44,0},{62,0}})}),
+                0},{44,0},{62,0}}, color={0,0,255})}),
       Documentation(info="<HTML>
 <p>
 The output is identical to the sampled input signal at sample
@@ -132,8 +132,8 @@ sample instant during the sample points.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={Line(points={{-79,-41},{-59,-33},{-40,1},{-20,
-                9},{0,63},{21,20},{41,10},{60,20}}), Line(points={{60,19},{81,
-                10}})}),
+                9},{0,63},{21,20},{41,10},{60,20}}, color={0,0,255}), Line(
+              points={{60,19},{81,10}}, color={0,0,255})}),
       Documentation(info="<HTML>
 <p>
 The output signal is the extrapolation through the
@@ -184,16 +184,28 @@ the output y is identical to parameter yStart.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{-30,0},{30,0}}), 
-          Text(extent={{-90,10},{90,90}}, textString="1"), 
-          Text(extent={{-90,-10},{90,-90}}, textString="z")}),
+          Line(points={{-30,0},{30,0}}, color={0,0,255}), 
+          Text(
+            extent={{-90,10},{90,90}}, 
+            textString="1", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-90,-10},{90,-90}}, 
+            textString="z", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
-          Text(extent={{-160,10},{-140,-10}}, textString="u"), 
-          Text(extent={{115,10},{135,-10}}, textString="y"), 
+          Text(
+            extent={{-160,10},{-140,-10}}, 
+            textString="u", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{115,10},{135,-10}}, 
+            textString="y", 
+            lineColor={0,0,255}), 
           Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
           Line(points={{60,0},{100,0}}, color={0,0,255}), 
           Line(points={{40,0},{-40,0}}, color={0,0,0}), 
@@ -283,7 +295,10 @@ states can be set as start values of <b>x</b>.<p>
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, fillPattern=FillPattern.None), 
+          Rectangle(
+            extent={{-60,60},{60,-60}}, 
+            fillPattern=FillPattern.None, 
+            lineColor={0,0,255}), 
           Line(
             points={{40,0},{-44,0}}, 
             color={0,0,0}, 
@@ -296,8 +311,8 @@ states can be set as start values of <b>x</b>.<p>
             extent={{-54,-6},{56,-56}}, 
             lineColor={0,0,0}, 
             textString="a(z)"), 
-          Line(points={{-100,0},{-60,0}}), 
-          Line(points={{60,0},{100,0}})}));
+          Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
+          Line(points={{60,0},{100,0}}, color={0,0,255})}));
   equation 
     when sampleTrigger then
       /* State variables x are defined according to
@@ -383,16 +398,34 @@ results in the following equations:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Text(extent={{-90,15},{-15,90}}, textString="A"), 
-          Text(extent={{15,15},{90,90}}, textString="B"), 
-          Text(extent={{-52,28},{54,-20}}, textString="z"), 
-          Text(extent={{-90,-15},{-15,-90}}, textString="C"), 
-          Text(extent={{15,-15},{90,-90}}, textString="D")}),
+          Text(
+            extent={{-90,15},{-15,90}}, 
+            textString="A", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{15,15},{90,90}}, 
+            textString="B", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-52,28},{54,-20}}, 
+            textString="z", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-90,-15},{-15,-90}}, 
+            textString="C", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{15,-15},{90,-90}}, 
+            textString="D", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, fillPattern=FillPattern.None), 
+          Rectangle(
+            extent={{-60,60},{60,-60}}, 
+            fillPattern=FillPattern.None, 
+            lineColor={0,0,255}), 
           Text(
             extent={{-54,50},{52,-10}}, 
             lineColor={0,0,0}, 
@@ -405,8 +438,8 @@ results in the following equations:
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid, 
             textString="  y=Cx+Du"), 
-          Line(points={{-102,0},{-60,0}}), 
-          Line(points={{60,0},{100,0}})}));
+          Line(points={{-102,0},{-60,0}}, color={0,0,255}), 
+          Line(points={{60,0},{100,0}}, color={0,0,255})}));
   equation 
     when sampleTrigger then
       x = A*pre(x) + B*u;

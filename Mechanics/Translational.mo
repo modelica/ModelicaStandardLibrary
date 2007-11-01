@@ -67,9 +67,18 @@ the two other examples).
 </ul>
 </html>"),
     Diagram(graphics={
-            Text(extent={{-100,80},{-82,60}}, textString="1)"), 
-            Text(extent={{-100,40},{-82,20}}, textString="2)"), 
-            Text(extent={{-100,-20},{-82,-40}}, textString="3)")}),
+            Text(
+              extent={{-100,80},{-82,60}}, 
+              textString="1)", 
+              lineColor={0,0,255}), 
+            Text(
+              extent={{-100,40},{-82,20}}, 
+              textString="2)", 
+              lineColor={0,0,255}), 
+            Text(
+              extent={{-100,-20},{-82,-40}}, 
+              textString="3)", 
+              lineColor={0,0,255})}),
         experiment(StopTime=1),
         experimentSetupOutput);
       Translational.SlidingMass SlidingMass1(L=1) annotation (Placement(
@@ -245,13 +254,22 @@ problems.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
-            Text(extent={{-80,14},{90,0}}, textString=
-                  "PositionSensor2.s = PositionSensor3.s"), 
-            Text(extent={{-84,4},{88,-16}}, textString=
-                  "PositionSensor3.s <> PositionSensor1.s"), 
-            Text(extent={{-82,-80},{94,-92}}, textString=
-                  "Both systems are equivalent"), 
-            Line(points={{-90,-28},{90,-28}}, thickness=2)}),
+            Text(
+              extent={{-80,14},{90,0}}, 
+              textString="PositionSensor2.s = PositionSensor3.s", 
+              lineColor={0,0,255}), 
+            Text(
+              extent={{-84,4},{88,-16}}, 
+              textString="PositionSensor3.s <> PositionSensor1.s", 
+              lineColor={0,0,255}), 
+            Text(
+              extent={{-82,-80},{94,-92}}, 
+              textString="Both systems are equivalent", 
+              lineColor={0,0,255}), 
+            Line(
+              points={{-90,-28},{90,-28}}, 
+              thickness=2, 
+              color={0,0,255})}),
         experiment(StopTime=1),
         experimentSetupOutput);
       Translational.Fixed Fixed1 annotation (Placement(transformation(extent={{
@@ -583,9 +601,18 @@ to see the difference.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
-            Text(extent={{-56,-88},{62,-100}}, textString="simulate 5 s"), 
-            Text(extent={{-100,80},{-80,60}}, textString="1)"), 
-            Text(extent={{-100,20},{-80,0}}, textString="2)")}),
+            Text(
+              extent={{-56,-88},{62,-100}}, 
+              textString="simulate 5 s", 
+              lineColor={0,0,255}), 
+            Text(
+              extent={{-100,80},{-80,60}}, 
+              textString="1)", 
+              lineColor={0,0,255}), 
+            Text(
+              extent={{-100,20},{-80,0}}, 
+              textString="2)", 
+              lineColor={0,0,255})}),
         Window(
           x=0.45,
           y=0.01,
@@ -658,12 +685,19 @@ to see the difference.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
-            Text(extent={{-98,-68},{102,-94}}, textString=
-                  "positive force => spool moves in positive direction "), 
-            Text(extent={{-32,-46},{38,-62}}, textString="Simulate for 100 s"), 
-              
-            Text(extent={{-100,-54},{100,-80}}, textString=
-                  "plot Spool.s as a function of Force1.f")}),
+            Text(
+              extent={{-98,-68},{102,-94}}, 
+              textString="positive force => spool moves in positive direction ", 
+                
+              lineColor={0,0,255}), 
+            Text(
+              extent={{-32,-46},{38,-62}}, 
+              textString="Simulate for 100 s", 
+              lineColor={0,0,255}), 
+            Text(
+              extent={{-100,-54},{100,-80}}, 
+              textString="plot Spool.s as a function of Force1.f", 
+              lineColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 When designing hydraulic valves it is often necessary to hold the spool in
@@ -708,6 +742,7 @@ Spool position s as a function of working force f.
 </html>"),
         experiment(StopTime=1),
         experimentSetupOutput);
+      
       Translational.ElastoGap InnerContactA(
         s_rel0=1e-3,
         c=1000e3,
@@ -899,7 +934,7 @@ with blocks of the Modelica.Blocks library).
             grid={1,1}), graphics={
             Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
             Line(points={{70,0},{96,0}}, color={0,0,0}), 
-            Line(points={{0,-100},{0,-60}})}));
+            Line(points={{0,-100},{0,-60}}, color={0,0,255})}));
     equation 
       flange_a.s = flange_b.s;
       flange_a.f = f;
@@ -949,12 +984,15 @@ Modelica.Blocks library).
               extent={{80,-28},{114,-62}}, 
               lineColor={0,0,0}, 
               textString="s"), 
-            Text(extent={{0,100},{0,40}}, textString="%name")}),
+            Text(
+              extent={{0,100},{0,40}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{100,0},{70,0}}), Line(points={
-                  {-70,0},{-96,0}}, color={127,255,0})}));
+            grid={1,1}), graphics={Line(points={{100,0},{70,0}}, color={0,0,255}), 
+              Line(points={{-70,0},{-96,0}}, color={127,255,0})}));
     equation 
       s = flange_a.s;
       0 = flange_a.f;
@@ -1003,7 +1041,10 @@ Modelica.Blocks library).
               extent={{80,-28},{111,-61}}, 
               lineColor={0,0,0}, 
               textString="v"), 
-            Text(extent={{0,100},{0,40}}, textString="%name")}),
+            Text(
+              extent={{0,100},{0,40}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1059,12 +1100,15 @@ Modelica.Blocks library).
               extent={{80,-28},{115,-60}}, 
               lineColor={0,0,0}, 
               textString="a"), 
-            Text(extent={{0,100},{0,40}}, textString="%name")}),
+            Text(
+              extent={{0,100},{0,40}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Line(points={{-70,0},{-97,0}}, color={127,
-                  255,0}), Line(points={{100,0},{70,0}})}));
+                  255,0}), Line(points={{100,0},{70,0}}, color={0,0,255})}));
     equation 
       v = der(flange_a.s);
       a = der(v);
@@ -1084,7 +1128,8 @@ Modelica.Blocks library).
       height=0.47,
       library=1,
       autolayout=1),
-    Icon(graphics={
+    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+            100}}), graphics={
         Line(points={{-84,-73},{66,-73}}, color={0,0,0}), 
         Rectangle(
           extent={{-81,-22},{-8,-65}}, 
@@ -1249,7 +1294,8 @@ The following variables are transported through this connector:
               lineColor={0,127,0}, 
               textString="%name")}),
         Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=58,
-                fillColor=58))));
+                fillColor=58), 
+            lineColor={0,0,255})));
       
       SI.Position s "absolute position of flange";
       flow SI.Force f "cut force directed into flange";
@@ -1302,7 +1348,8 @@ The following variables are transported through this connector:
               extent={{-40,110},{160,50}}, 
               lineColor={0,127,0}, 
               textString="%name")}),
-        Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=58))));
+        Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=58), 
+            lineColor={0,0,255})));
     end Flange_b;
     
     partial model Rigid "Rigid connection of two translational 1D flanges " 
@@ -1483,12 +1530,15 @@ with the Modelica.Blocks blocks.
               fillPattern=FillPattern.Solid), 
             Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
             Line(points={{70,0},{100,0}}, color={0,0,127}), 
-            Text(extent={{-118,99},{118,40}}, textString="%name")}),
+            Text(
+              extent={{-118,99},{118,40}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-              Line(points={{70,0},{100,0}})}));
+              Line(points={{70,0},{100,0}}, color={0,0,255})}));
     end AbsoluteSensor;
     
     partial model RelativeSensor 
@@ -1550,14 +1600,17 @@ with the Modelica.Blocks blocks.
             Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
             Line(points={{70,0},{90,0}}, color={0,0,0}), 
             Line(points={{0,-100},{0,-60}}, color={0,0,127}), 
-            Text(extent={{-117,116},{115,52}}, textString="%name")}),
+            Text(
+              extent={{-117,116},{115,52}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
             Line(points={{70,0},{90,0}}, color={0,0,0}), 
-            Line(points={{0,-100},{0,-60}})}));
+            Line(points={{0,-100},{0,-60}}, color={0,0,255})}));
     end RelativeSensor;
     
     partial model FrictionBase "Base class of Coulomb friction elements" 
@@ -1700,7 +1753,10 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
             fillColor={128,128,128}, 
             fillPattern=FillPattern.Solid), 
           Line(points={{-60,-90},{20,-90}}, color={0,0,0}), 
-          Text(extent={{0,100},{0,40}}, textString="%name")}),
+          Text(
+            extent={{0,100},{0,40}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1731,7 +1787,10 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
             lineColor={0,0,0}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-44,-41},{51,-57}}, textString="Length L"), 
+          Text(
+            extent={{-44,-41},{51,-57}}, 
+            textString="Length L", 
+            lineColor={0,0,255}), 
           Line(points={{0,30},{0,53}}, color={0,0,0}), 
           Line(points={{-72,40},{1,40}}, color={0,0,0}), 
           Polygon(
@@ -1739,7 +1798,10 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
             lineColor={0,0,0}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-61,53},{-9,42}}, textString="Position s")}));
+          Text(
+            extent={{-61,53},{-9,42}}, 
+            textString="Position s", 
+            lineColor={0,0,255})}));
   equation 
     
     v = der(s);
@@ -1877,7 +1939,10 @@ between the stops.</i> </li>
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
           Line(points={{35,0},{90,0}}, color={0,127,0}), 
-          Text(extent={{0,100},{0,40}}, textString="%name")}),
+          Text(
+            extent={{0,100},{0,40}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1917,7 +1982,10 @@ between the stops.</i> </li>
             pattern=LinePattern.Solid, 
             thickness=1, 
             arrow={Arrow.None,Arrow.None}), 
-          Text(extent={{-149,51},{-126,60}}, textString="s min"), 
+          Text(
+            extent={{-149,51},{-126,60}}, 
+            textString="s min", 
+            lineColor={0,0,255}), 
           Polygon(
             points={{-121,52},{-111,49},{-121,46},{-121,52}}, 
             lineColor={0,0,0}, 
@@ -1940,7 +2008,10 @@ between the stops.</i> </li>
             pattern=LinePattern.Solid, 
             thickness=1, 
             arrow={Arrow.None,Arrow.None}), 
-          Text(extent={{-17,83},{6,92}}, textString="s max"), 
+          Text(
+            extent={{-17,83},{6,92}}, 
+            textString="s max", 
+            lineColor={0,0,255}), 
           Polygon(
             points={{114,81},{124,78},{114,75},{114,81}}, 
             lineColor={0,0,0}, 
@@ -1958,7 +2029,10 @@ between the stops.</i> </li>
             pattern=LinePattern.Solid, 
             thickness=1, 
             arrow={Arrow.None,Arrow.None}), 
-          Text(extent={{-75,60},{-38,71}}, textString="Position s"), 
+          Text(
+            extent={{-75,60},{-38,71}}, 
+            textString="Position s", 
+            lineColor={0,0,255}), 
           Polygon(
             points={{-5,61},{5,58},{-5,55},{-5,61}}, 
             lineColor={0,0,0}, 
@@ -1977,7 +2051,10 @@ between the stops.</i> </li>
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
           Line(points={{-90,-50},{92,-50}}, color={0,0,0}), 
-          Text(extent={{-11,-46},{26,-36}}, textString="Length L")}));
+          Text(
+            extent={{-11,-46},{26,-36}}, 
+            textString="Length L", 
+            lineColor={0,0,255})}));
   equation 
     
     // Constant auxiliary variables
@@ -2063,7 +2140,10 @@ Rod <i>without inertia</i> and two rigidly connected flanges.
             lineColor={160,160,164}, 
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{0,100},{0,40}}, textString="%name")}),
+          Text(
+            extent={{0,100},{0,40}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2094,7 +2174,10 @@ Rod <i>without inertia</i> and two rigidly connected flanges.
             lineColor={0,0,0}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-44,-41},{51,-57}}, textString="Length L")}));
+          Text(
+            extent={{-44,-41},{51,-57}}, 
+            textString="Length L", 
+            lineColor={0,0,255})}));
   equation 
     0 = flange_a.f + flange_b.f;
   end Rod;
@@ -2137,7 +2220,10 @@ a coupling of the slidin mass with the housing via a spring.
             lineColor={128,128,128}, 
             fillColor={128,128,128}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{0,110},{0,50}}, textString="%name"), 
+          Text(
+            extent={{0,110},{0,50}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Line(points={{-86,0},{-60,0},{-44,-30},{-16,30},{14,-30},{44,30},{60,
                 0},{84,0}}, color={0,0,0})}),
       Diagram(coordinateSystem(
@@ -2208,7 +2294,10 @@ between two sliding masses.
             fillColor={128,128,128}, 
             fillPattern=FillPattern.Solid), 
           Line(points={{-60,-90},{20,-90}}, color={0,0,0}), 
-          Text(extent={{0,106},{0,46}}, textString="%name")}),
+          Text(
+            extent={{0,106},{0,46}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2295,7 +2384,10 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
             fillColor={128,128,128}, 
             fillPattern=FillPattern.Solid), 
           Line(points={{-57,-18},{23,-18}}, color={0,0,0}), 
-          Text(extent={{1,140},{1,80}}, textString="%name")}),
+          Text(
+            extent={{1,140},{1,80}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2446,7 +2538,10 @@ the contact of a sliding mass with the housing.
             lineColor={128,128,128}, 
             fillColor={128,128,128}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{0,120},{0,60}}, textString="%name")}));
+          Text(
+            extent={{0,120},{0,60}}, 
+            textString="%name", 
+            lineColor={0,0,255})}));
   equation 
     
     v_rel = der(s_rel);
@@ -2528,7 +2623,10 @@ blocks of the block library Modelica.Blocks.Sources.
             lineColor={0,0,0}, 
             textString="s_ref"), 
           Line(points={{-95,0},{90,0}}, color={0,127,0}), 
-          Text(extent={{0,86},{0,26}}, textString="%name")}),
+          Text(
+            extent={{0,86},{0,26}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2617,7 +2715,10 @@ blocks of the block library Modelica.Blocks.Sources.
             lineColor={0,0,0}, 
             textString="v_ref"), 
           Line(points={{-95,0},{90,0}}, color={0,127,0}), 
-          Text(extent={{0,86},{0,26}}, textString="%name")}),
+          Text(
+            extent={{0,86},{0,26}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2704,7 +2805,10 @@ blocks of the block library Modelica.Blocks.Source.
             extent={{-75,-18},{-124,-58}}, 
             lineColor={0,0,0}, 
             textString="a"), 
-          Text(extent={{0,80},{0,20}}, textString="%name")}),
+          Text(
+            extent={{0,80},{0,20}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2781,7 +2885,10 @@ blocks of the block library Modelica.Blocks.Sources.
             lineColor={0,0,0}, 
             textString="s,v,a"), 
           Line(points={{-95,0},{90,0}}, color={0,127,0}), 
-          Text(extent={{0,80},{0,20}}, textString="%name")}),
+          Text(
+            extent={{0,80},{0,20}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Window(
         x=0.27,
         y=0.05,
@@ -2850,7 +2957,10 @@ blocks of the block library Modelica.Blocks.Sources.
           Line(points={{0,-40},{-40,-80}}, color={0,0,0}), 
           Line(points={{-40,-40},{-80,-80}}, color={0,0,0}), 
           Line(points={{0,-40},{0,-10}}, color={0,0,0}), 
-          Text(extent={{0,-90},{0,-150}}, textString="%name")}),
+          Text(
+            extent={{0,-90},{0,-150}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2939,7 +3049,10 @@ blocks of Modelica.Blocks.Source.
             extent={{-100,-40},{-47,-88}}, 
             lineColor={0,0,0}, 
             textString="f"), 
-          Text(extent={{0,109},{0,49}}, textString="%name")}),
+          Text(
+            extent={{0,109},{0,49}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -3017,7 +3130,10 @@ velocity of model mass1 or of model mass2 as state variables.
             lineColor={0,255,255}, 
             fillColor={0,255,255}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-40,40},{40,-40}}, textString="S"), 
+          Text(
+            extent={{-40,40},{40,-40}}, 
+            textString="S", 
+            lineColor={0,0,255}), 
           Line(
             points={{-92,0},{-42,0}}, 
             color={0,0,0}, 
@@ -3026,7 +3142,10 @@ velocity of model mass1 or of model mass2 as state variables.
             points={{40,0},{90,0}}, 
             color={0,0,0}, 
             pattern=LinePattern.Dot), 
-          Text(extent={{0,110},{0,50}}, textString="%name")}),
+          Text(
+            extent={{0,110},{0,50}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -3036,7 +3155,10 @@ velocity of model mass1 or of model mass2 as state variables.
             lineColor={0,255,255}, 
             fillColor={0,255,255}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-40,40},{40,-40}}, textString="S"), 
+          Text(
+            extent={{-40,40},{40,-40}}, 
+            textString="S", 
+            lineColor={0,0,255}), 
           Line(
             points={{40,0},{90,0}}, 
             color={0,0,0}, 
@@ -3049,7 +3171,10 @@ velocity of model mass1 or of model mass2 as state variables.
             fillColor={160,160,164}, 
             fillPattern=FillPattern.Solid), 
           Line(points={{-100,-60},{80,-60}}, color={160,160,164}), 
-          Text(extent={{-30,-70},{30,-90}}, textString="w_rel"), 
+          Text(
+            extent={{-30,-70},{30,-90}}, 
+            textString="w_rel", 
+            lineColor={0,0,255}), 
           Line(points={{-76,80},{-5,80}}, color={128,128,128}), 
           Polygon(
             points={{14,80},{-6,85},{-6,75},{14,80}}, 

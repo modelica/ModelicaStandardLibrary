@@ -14,15 +14,18 @@ package Icons "Library of icons"
         Rectangle(
           extent={{-100,-100},{80,50}}, 
           fillColor={235,235,235}, 
-          fillPattern=FillPattern.Solid), 
+          fillPattern=FillPattern.Solid, 
+          lineColor={0,0,255}), 
         Polygon(
           points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}}, 
           fillColor={235,235,235}, 
-          fillPattern=FillPattern.Solid), 
+          fillPattern=FillPattern.Solid, 
+          lineColor={0,0,255}), 
         Polygon(
           points={{100,70},{100,-80},{80,-100},{80,50},{100,70}}, 
           fillColor={235,235,235}, 
-          fillPattern=FillPattern.Solid), 
+          fillPattern=FillPattern.Solid, 
+          lineColor={0,0,255}), 
         Text(
           extent={{-120,135},{120,70}}, 
           lineColor={255,0,0}, 
@@ -36,15 +39,18 @@ package Icons "Library of icons"
         Rectangle(
           extent={{-100,-100},{80,50}}, 
           fillColor={235,235,235}, 
-          fillPattern=FillPattern.Solid), 
+          fillPattern=FillPattern.Solid, 
+          lineColor={0,0,255}), 
         Polygon(
           points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}}, 
           fillColor={235,235,235}, 
-          fillPattern=FillPattern.Solid), 
+          fillPattern=FillPattern.Solid, 
+          lineColor={0,0,255}), 
         Polygon(
           points={{100,70},{100,-80},{80,-100},{80,50},{100,70}}, 
           fillColor={235,235,235}, 
-          fillPattern=FillPattern.Solid), 
+          fillPattern=FillPattern.Solid, 
+          lineColor={0,0,255}), 
         Text(
           extent={{-90,40},{70,10}}, 
           lineColor={160,160,164}, 
@@ -139,12 +145,17 @@ and the accompanying <b>disclaimer</b>
           Polygon(
             points={{-100,80},{-90,90},{90,90},{80,80},{-100,80}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{80,-90},{90,-80},{90,90},{80,80},{80,-90}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
-          Text(extent={{-80,70},{60,-70}}, textString="Info")}),
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-80,70},{60,-70}}, 
+            textString="Info", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -153,12 +164,17 @@ and the accompanying <b>disclaimer</b>
           Polygon(
             points={{-100,80},{-90,90},{90,90},{80,80},{-100,80}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{80,-90},{90,-80},{90,90},{80,80},{80,-90}}, 
             fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
-          Text(extent={{-80,70},{60,-70}}, textString="Info")}),
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-80,70},{60,-70}}, 
+            textString="Info", 
+            lineColor={0,0,255})}),
       Documentation(info="<html>
 <p>
 This icon is designed for an <b>information</b> class.
@@ -177,15 +193,18 @@ This icon is designed for an <b>information</b> class.
           Rectangle(
             extent={{-100,-100},{80,50}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{100,70},{100,-80},{80,-100},{80,50},{100,70}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Text(
             extent={{-85,35},{65,-85}}, 
             lineColor={0,0,255}, 
@@ -211,15 +230,18 @@ This icon is designed for a <b>library</b>.
           Rectangle(
             extent={{-100,-100},{80,50}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{100,70},{100,-80},{80,-100},{80,50},{100,70}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Text(
             extent={{-120,125},{120,70}}, 
             lineColor={255,0,0}, 
@@ -247,15 +269,18 @@ specific graphic is additionally included in the icon.
           Rectangle(
             extent={{-100,-100},{80,50}}, 
             fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}}, 
             fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
             points={{100,70},{100,-80},{80,-100},{80,50},{100,70}}, 
             fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Text(
             extent={{-96,3},{77,-49}}, 
             lineColor={0,0,255}, 
@@ -278,7 +303,10 @@ i.e. a package containing executable demo models.
     
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
-          Text(extent={{-140,162},{136,102}}, textString="%name"), 
+          Text(
+            extent={{-140,162},{136,102}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Ellipse(
             extent={{-100,100},{100,-100}}, 
             lineColor={255,127,0}, 
@@ -302,8 +330,12 @@ This icon is designed for a <b>function</b>
           Rectangle(
             extent={{-100,50},{100,-100}}, 
             fillColor={255,255,127}, 
-            fillPattern=FillPattern.Solid), 
-          Text(extent={{-127,115},{127,55}}, textString="%name"), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-127,115},{127,55}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Line(points={{-100,-50},{100,-50}}, color={0,0,0}), 
           Line(points={{-100,0},{100,0}}, color={0,0,0}), 
           Line(points={{0,50},{0,-100}}, color={0,0,0})}),

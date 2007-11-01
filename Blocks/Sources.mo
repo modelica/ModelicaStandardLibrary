@@ -30,7 +30,10 @@ package Sources
             fillColor={0,255,0}, 
             fillPattern=FillPattern.Solid, 
             textString="%y"), 
-          Text(extent={{-150,90},{140,50}}, textString="%name")}),
+          Text(
+            extent={{-150,90},{140,50}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -80,7 +83,10 @@ Variable <b>y</b> is both a variable and a connector.
             fillColor={0,255,0}, 
             fillPattern=FillPattern.Solid, 
             textString="%y"), 
-          Text(extent={{-150,90},{140,50}}, textString="%name")}),
+          Text(
+            extent={{-150,90},{140,50}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -130,7 +136,10 @@ Variable <b>y</b> is both a variable and a connector.
             fillColor={0,255,0}, 
             fillPattern=FillPattern.Solid, 
             textString="%y"), 
-          Text(extent={{-150,90},{140,50}}, textString="%name"), 
+          Text(
+            extent={{-150,90},{140,50}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Polygon(
             points={{100,10},{120,0},{100,-10},{100,10}}, 
             lineColor=DynamicSelect({255,0,255}, if y > 0.5 then {0,255,0}
@@ -2794,8 +2803,11 @@ Several matrices may be defined one after another.
             lineColor={0,0,0}, 
             textString="y[1]"), 
           Line(points={{50,90},{50,-30}}, color={0,0,0}), 
-          Line(points={{80,0},{100,0}}), 
-          Text(extent={{34,-30},{71,-42}}, textString="columns"), 
+          Line(points={{80,0},{100,0}}, color={0,0,255}), 
+          Text(
+            extent={{34,-30},{71,-42}}, 
+            textString="columns", 
+            lineColor={0,0,255}), 
           Text(
             extent={{51,82},{80,68}}, 
             lineColor={0,0,0}, 

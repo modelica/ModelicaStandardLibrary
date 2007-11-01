@@ -69,7 +69,10 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           Line(points={{-90,0},{-50,0}}, color={0,0,0}), 
           Line(points={{50,0},{90,0}}, color={0,0,0}), 
           Line(points={{-50,0},{50,0}}, color={0,0,0}), 
-          Text(extent={{-100,-120},{100,-80}}, textString="%name"), 
+          Text(
+            extent={{-100,-120},{100,-80}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
             extent={{-120,50},{-20,0}}, 
             lineColor={0,0,255}, 
@@ -150,7 +153,10 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           Line(points={{-10,60},{-10,-60}}, color={0,0,0}), 
           Line(points={{0,30},{0,-30}}, color={0,0,0}), 
           Line(points={{0,0},{90,0}}, color={0,0,0}), 
-          Text(extent={{-100,-120},{100,-80}}, textString="%name=%V"), 
+          Text(
+            extent={{-100,-120},{100,-80}}, 
+            textString="%name=%V", 
+            lineColor={0,0,255}), 
           Text(
             extent={{-120,50},{-20,0}}, 
             lineColor={0,0,255}, 
@@ -1525,7 +1531,10 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           Line(points={{-90,0},{-50,0}}, color={0,0,0}), 
           Line(points={{50,0},{90,0}}, color={0,0,0}), 
           Line(points={{0,-50},{0,50}}, color={0,0,0}), 
-          Text(extent={{-100,-120},{100,-80}}, textString="%name"), 
+          Text(
+            extent={{-100,-120},{100,-80}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Polygon(
             points={{90,0},{60,10},{60,-10},{90,0}}, 
             lineColor={0,0,255}, 
@@ -1579,7 +1588,10 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           Line(points={{-90,0},{-50,0}}, color={0,0,0}), 
           Line(points={{50,0},{90,0}}, color={0,0,0}), 
           Line(points={{0,-50},{0,50}}, color={0,0,0}), 
-          Text(extent={{-100,80},{100,120}}, textString="%name=%I"), 
+          Text(
+            extent={{-100,80},{100,120}}, 
+            textString="%name=%I", 
+            lineColor={0,0,255}), 
           Polygon(
             points={{90,0},{60,10},{60,-10},{90,0}}, 
             lineColor={0,0,255}, 

@@ -62,8 +62,11 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             lineColor={0,0,0}, 
             textString="V"), 
           Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-          Line(points={{100,0},{70,0}}), 
-          Text(extent={{-150,80},{150,120}}, textString="%name")}),
+          Line(points={{100,0},{70,0}}, color={0,0,255}), 
+          Text(
+            extent={{-150,80},{150,120}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Window(
         x=0.4,
         y=0.32,
@@ -73,7 +76,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
-            Line(points={{100,0},{70,0}})}),
+            Line(points={{100,0},{70,0}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -117,15 +120,18 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             textString="V"), 
           Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
           Line(points={{70,0},{90,0}}, color={0,0,0}), 
-          Line(points={{0,-90},{0,-70}}), 
-          Text(extent={{-150,80},{150,120}}, textString="%name")}),
+          Line(points={{0,-90},{0,-70}}, color={0,0,255}), 
+          Text(
+            extent={{-150,80},{150,120}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
           Line(points={{70,0},{96,0}}, color={0,0,0}), 
-          Line(points={{0,-90},{0,-70}})}),
+          Line(points={{0,-90},{0,-70}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -169,17 +175,23 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             lineColor={0,0,0}, 
             textString="A"), 
           Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-          Text(extent={{-150,80},{150,120}}, textString="%name"), 
+          Text(
+            extent={{-150,80},{150,120}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Line(points={{70,0},{90,0}}, color={0,0,0}), 
-          Line(points={{0,-90},{0,-70}})}),
+          Line(points={{0,-90},{0,-70}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Text(extent={{-153,79},{147,119}}, textString="%name"), 
+          Text(
+            extent={{-153,79},{147,119}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
           Line(points={{70,0},{96,0}}, color={0,0,0}), 
-          Line(points={{0,-90},{0,-70}})}),
+          Line(points={{0,-90},{0,-70}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -242,7 +254,10 @@ model PowerSensor "Sensor to measure the power"
           Line(points={{0,-70},{0,-100}}, color={0,0,255}), 
           Line(points={{-80,-100},{-80,0}}, color={0,0,255}), 
           Line(points={{-100,0},{100,0}}, color={0,0,255}), 
-          Text(extent={{150,120},{-150,160}}, textString="%name"), 
+          Text(
+            extent={{150,120},{-150,160}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Line(points={{0,70},{0,40}}, color={0,0,0}), 
           Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}), 
           Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}), 

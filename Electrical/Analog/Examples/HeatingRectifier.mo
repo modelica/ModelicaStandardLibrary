@@ -12,8 +12,10 @@ model HeatingRectifier "Heating rectifier"
         extent={{-10,-10},{10,10}},
         rotation=270)));
   
-annotation (Diagram(graphics={Text(extent={{-94,102},{0,74}}, textString=
-              "HeatingRectifier")}),
+annotation (Diagram(graphics={Text(
+          extent={{-94,102},{0,74}}, 
+          textString="HeatingRectifier", 
+          lineColor={0,0,255})}),
                                 Documentation(info="<HTML>
 <P>
 The heating rectifier shows a heat flow always if the electrical capacitor is loaded.

@@ -157,11 +157,14 @@ Several matrices may be defined one after another.
           Rectangle(
             extent={{-60,60},{60,-60}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-100,0},{-58,0}}), 
-          Line(points={{60,0},{100,0}}), 
-          Text(extent={{-100,100},{100,64}}, textString=
-                "1 dimensional linear table interpolation"), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{-100,0},{-58,0}}, color={0,0,255}), 
+          Line(points={{60,0},{100,0}}, color={0,0,255}), 
+          Text(
+            extent={{-100,100},{100,64}}, 
+            textString="1 dimensional linear table interpolation", 
+            lineColor={0,0,255}), 
           Line(points={{-54,40},{-54,-40},{54,-40},{54,40},{28,40},{28,-40},{-28,
                 -40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,-20},
                 {54,-20},{54,-40},{-54,-40},{-54,40},{54,40},{54,-40}}, color={
@@ -187,10 +190,22 @@ Several matrices may be defined one after another.
             lineColor={0,0,0}, 
             fillColor={255,255,0}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-50,54},{-32,42}}, textString="u[1]/[2]"), 
-          Text(extent={{-24,54},{0,42}}, textString="y[1]"), 
-          Text(extent={{-2,-40},{30,-54}}, textString="columns"), 
-          Text(extent={{2,54},{26,42}}, textString="y[2]")}));
+          Text(
+            extent={{-50,54},{-32,42}}, 
+            textString="u[1]/[2]", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-24,54},{0,42}}, 
+            textString="y[1]", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-2,-40},{30,-54}}, 
+            textString="columns", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{2,54},{26,42}}, 
+            textString="y[2]", 
+            lineColor={0,0,255})}));
   equation 
     if tableOnFile then
       assert(tableName<>"NoName", "tableOnFile = true and no table name given");
@@ -364,11 +379,14 @@ Several matrices may be defined one after another.
           Rectangle(
             extent={{-60,60},{60,-60}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-100,0},{-58,0}}), 
-          Line(points={{60,0},{100,0}}), 
-          Text(extent={{-100,100},{100,64}}, textString=
-                "1 dimensional linear table interpolation"), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{-100,0},{-58,0}}, color={0,0,255}), 
+          Line(points={{60,0},{100,0}}, color={0,0,255}), 
+          Text(
+            extent={{-100,100},{100,64}}, 
+            textString="1 dimensional linear table interpolation", 
+            lineColor={0,0,255}), 
           Line(points={{-54,40},{-54,-40},{54,-40},{54,40},{28,40},{28,-40},{-28,
                 -40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,-20},
                 {54,-20},{54,-40},{-54,-40},{-54,40},{54,40},{54,-40}}, color={
@@ -394,10 +412,22 @@ Several matrices may be defined one after another.
             lineColor={0,0,0}, 
             fillColor={255,255,0}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-52,56},{-34,44}}, textString="u"), 
-          Text(extent={{-22,54},{2,42}}, textString="y[1]"), 
-          Text(extent={{4,54},{28,42}}, textString="y[2]"), 
-          Text(extent={{0,-40},{32,-54}}, textString="columns")}));
+          Text(
+            extent={{-52,56},{-34,44}}, 
+            textString="u", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-22,54},{2,42}}, 
+            textString="y[1]", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{4,54},{28,42}}, 
+            textString="y[2]", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{0,-40},{32,-54}}, 
+            textString="columns", 
+            lineColor={0,0,255})}));
   equation 
     if tableOnFile then
       assert(tableName<>"NoName", "tableOnFile = true and no table name given");
@@ -586,10 +616,13 @@ and the first row \"table2D_1[1,2:]\" contains the u[2] grid points.
           Rectangle(
             extent={{-60,60},{60,-60}}, 
             fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{60,0},{100,0}}), 
-          Text(extent={{-100,100},{100,64}}, textString=
-                "2 dimensional linear table interpolation"), 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{60,0},{100,0}}, color={0,0,255}), 
+          Text(
+            extent={{-100,100},{100,64}}, 
+            textString="2 dimensional linear table interpolation", 
+            lineColor={0,0,255}), 
           Line(points={{-54,40},{-54,-40},{54,-40},{54,40},{28,40},{28,-40},{-28,
                 -40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,-20},
                 {54,-20},{54,-40},{-54,-40},{-54,40},{54,40},{54,-40}}, color={
@@ -627,9 +660,18 @@ and the first row \"table2D_1[1,2:]\" contains the u[2] grid points.
             fillPattern=FillPattern.Solid), 
           Line(points={{-54,40},{-28,20}}, color={0,0,0}), 
           Line(points={{-28,40},{-54,20}}, color={0,0,0}), 
-          Text(extent={{-54,-40},{-30,-56}}, textString="u1"), 
-          Text(extent={{28,58},{52,44}}, textString="u2"), 
-          Text(extent={{-2,12},{32,-22}}, textString="y")}));
+          Text(
+            extent={{-54,-40},{-30,-56}}, 
+            textString="u1", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{28,58},{52,44}}, 
+            textString="u2", 
+            lineColor={0,0,255}), 
+          Text(
+            extent={{-2,12},{32,-22}}, 
+            textString="y", 
+            lineColor={0,0,255})}));
   protected 
     Real tableID;
   equation 

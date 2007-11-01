@@ -19,14 +19,23 @@ model Nand "CMOS NAND Gate (see Tietze/Schenk, page 157)"
           extent={{-16,50},{14,20}}, 
           lineColor={0,0,0}, 
           textString="&"), 
-        Line(points={{60,0},{100,0}}), 
-        Line(points={{0,70},{0,100}}), 
-        Line(points={{-50,50},{-100,50}}), 
-        Line(points={{-50,-50},{-100,-50}}), 
+        Line(points={{60,0},{100,0}}, color={0,0,255}), 
+        Line(points={{0,70},{0,100}}, color={0,0,255}), 
+        Line(points={{-50,50},{-100,50}}, color={0,0,255}), 
+        Line(points={{-50,-50},{-100,-50}}, color={0,0,255}), 
         Ellipse(extent={{50,5},{60,-5}}, lineColor={0,0,0}), 
-        Text(extent={{-100,34},{-90,24}}, textString="x1"), 
-        Text(extent={{-100,-65},{-90,-75}}, textString="x2"), 
-        Text(extent={{90,-15},{100,-25}}, textString="y")}),
+        Text(
+          extent={{-100,34},{-90,24}}, 
+          textString="x1", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{-100,-65},{-90,-75}}, 
+          textString="x2", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{90,-15},{100,-25}}, 
+          textString="y", 
+          lineColor={0,0,255})}),
     Documentation(info="<html>
 <p>
 The nand gate is a basic CMOS building block. It consists of four CMOS transistors.

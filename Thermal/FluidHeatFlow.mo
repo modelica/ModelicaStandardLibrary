@@ -1453,8 +1453,10 @@ leads to neglection of temperature transient cv*m*der(T).
               extent={{-90,20},{90,-20}}, 
               lineColor={255,0,0}, 
               fillColor={0,0,255}, 
-              fillPattern=FillPattern.Solid), Text(extent={{-150,100},{150,40}}, 
-                textString="%name")}),                          Diagram(graphics));
+              fillPattern=FillPattern.Solid), Text(
+              extent={{-150,100},{150,40}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),                           Diagram(graphics));
       extends Interfaces.Partials.TwoPort(final tapT=1);
       extends Interfaces.Partials.SimpleFriction;
       parameter Modelica.SIunits.Length h_g(start=0) 
@@ -1484,7 +1486,10 @@ temperature rise defined by storing heat in medium's mass.
               lineColor={255,0,0}, 
               fillColor={0,0,255}, 
               fillPattern=FillPattern.Solid), 
-            Text(extent={{-150,100},{150,40}}, textString="%name"), 
+            Text(
+              extent={{-150,100},{150,40}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Polygon(
               points={{-10,-90},{-10,-40},{0,-20},{10,-40},{10,-90},{-10,-90}}, 
                 
@@ -1531,7 +1536,10 @@ Flow resistance under real conditions is calculated by<br>
 <tt>V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0</tt>
 </HTML>"),
       Icon(graphics={
-            Text(extent={{-150,-60},{150,-120}}, textString="%name"), 
+            Text(
+              extent={{-150,-60},{150,-120}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Polygon(
               points={{-90,10},{-60,10},{-60,60},{0,0},{60,60},{60,10},{90,10},
                   {90,-10},{60,-10},{60,-60},{0,0},{-60,-60},{-60,-10},{-90,-10},
@@ -1994,7 +2002,7 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
                 fillColor={0,0,0}, 
                 fillPattern=FillPattern.Solid), 
               Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-              Line(points={{70,0},{100,0}}), 
+              Line(points={{70,0},{100,0}}, color={0,0,255}), 
               Text(
                 extent={{-150,130},{150,70}}, 
                 lineColor={0,0,255}, 
@@ -2051,7 +2059,7 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
                 fillPattern=FillPattern.Solid), 
               Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
               Line(points={{70,0},{90,0}}, color={0,0,0}), 
-              Line(points={{0,-100},{0,-70}}), 
+              Line(points={{0,-100},{0,-70}}, color={0,0,255}), 
               Text(
                 extent={{-150,130},{150,70}}, 
                 lineColor={0,0,255}, 
@@ -2102,7 +2110,7 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected, b
                 fillPattern=FillPattern.Solid), 
               Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
               Line(points={{70,0},{90,0}}, color={0,0,0}), 
-              Line(points={{0,-100},{0,-70}}), 
+              Line(points={{0,-100},{0,-70}}, color={0,0,255}), 
               Text(
                 extent={{-150,130},{150,70}}, 
                 lineColor={0,0,255}, 
@@ -2516,7 +2524,8 @@ Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
               color=1,
               rgbcolor={255,0,0},
               fillColor=7,
-              rgbfillColor={255,255,255}))));
+              rgbfillColor={255,255,255}), 
+            lineColor={0,0,255})));
       Interfaces.FlowPort_a flowPort(final medium=medium) 
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));

@@ -2757,7 +2757,10 @@ Modelica.Media.Examples.Tests.MediaTestModels.
                 lineColor={0,0,0}, 
                 fillColor={0,127,255}, 
                 fillPattern=FillPattern.Solid), 
-              Text(extent={{-88,206},{112,112}}, textString="%name")}),
+              Text(
+                extent={{-88,206},{112,112}}, 
+                textString="%name", 
+                lineColor={0,0,255})}),
              Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={Ellipse(
                 extent={{-100,100},{100,-100}}, 
@@ -2791,7 +2794,10 @@ Modelica.Media.Examples.Tests.MediaTestModels.
                 lineColor={0,127,255}, 
                 fillColor={255,255,255}, 
                 fillPattern=FillPattern.Solid), 
-              Text(extent={{-88,192},{112,98}}, textString="%name")}),
+              Text(
+                extent={{-88,192},{112,98}}, 
+                textString="%name", 
+                lineColor={0,0,255})}),
              Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={
               Ellipse(
@@ -2858,7 +2864,10 @@ Modelica.Media.Examples.Tests.MediaTestModels.
                 lineColor={0,0,0}, 
                 fillPattern=FillPattern.Sphere, 
                 fillColor={170,213,255}), 
-              Text(extent={{-144,178},{146,116}}, textString="%name"), 
+              Text(
+                extent={{-144,178},{146,116}}, 
+                textString="%name", 
+                lineColor={0,0,255}), 
               Text(
                 extent={{-130,-108},{144,-150}}, 
                 lineColor={0,0,0}, 
@@ -2962,7 +2971,8 @@ transport.
               Ellipse(
                 extent={{-100,80},{60,-80}}, 
                 fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid), 
+                fillPattern=FillPattern.Solid, 
+                lineColor={0,0,255}), 
               Polygon(
                 points={{-60,70},{60,0},{-60,-68},{-60,70}}, 
                 lineColor={0,0,255}, 
@@ -2974,7 +2984,10 @@ transport.
                 fillColor={255,0,0}, 
                 fillPattern=FillPattern.Solid, 
                 textString="m"), 
-              Text(extent={{-142,142},{156,88}}, textString="%name"), 
+              Text(
+                extent={{-142,142},{156,88}}, 
+                textString="%name", 
+                lineColor={0,0,255}), 
               Text(
                 extent={{-154,-88},{150,-132}}, 
                 lineColor={0,0,0}, 
@@ -3053,8 +3066,10 @@ transport.
                 extent={{-100,80},{100,-80}}, 
                 lineColor={0,0,0}, 
                 fillPattern=FillPattern.Sphere, 
-                fillColor={0,127,255}), Text(extent={{-136,144},{132,82}}, 
-                  textString="%name")}),
+                fillColor={0,127,255}), Text(
+                extent={{-136,144},{132,82}}, 
+                textString="%name", 
+                lineColor={0,0,255})}),
           Documentation(info="<html>
 <p>
 Model <b>FixedAmbient_pt</b> defines constant values for ambient conditions:
@@ -4010,8 +4025,11 @@ Modelica source.
                 -100},{100,100}}), graphics={Rectangle(
               extent={{-100,100},{100,-100}}, 
               fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), Text(extent={{-152,164},{152,102}}, 
-                textString="%name")}));
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), Text(
+              extent={{-152,164},{152,102}}, 
+              textString="%name", 
+              lineColor={0,0,255})}));
       
       // Local connector definition, used for equation balancing check
       connector InputAbsolutePressure = input SI.AbsolutePressure;

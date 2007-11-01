@@ -138,7 +138,7 @@ component.</p></html>", revisions="<html>
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={Rectangle(
             extent={{-100,100},{100,-100}}, 
-            lineColor={0,0,0}, 
+            lineColor={0,0,255}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
@@ -146,9 +146,12 @@ component.</p></html>", revisions="<html>
             extent={{-40,40},{40,-40}}, 
             lineColor={0,0,255}, 
             fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), Text(extent={{-40,110},{160,50}}, 
-              textString="%name")}),
-      Terminal(Rectangle(extent=[-100, 100; 100, -100], style(color=3))));
+            fillPattern=FillPattern.Solid), Text(
+            extent={{-40,110},{160,50}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
+      Terminal(Rectangle(extent=[-100, 100; 100, -100], style(color=3), 
+          lineColor={0,0,255})));
   end NegativePin;
   
   partial model TwoPin "Component with one electrical port" 
@@ -389,13 +392,16 @@ This current is provided explicitly as current i.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-          Line(points={{70,0},{100,0}}), 
-          Text(extent={{-150,80},{150,120}}, textString="%name")}),
+          Line(points={{70,0},{100,0}}, color={0,0,255}), 
+          Text(
+            extent={{-150,80},{150,120}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
-            Line(points={{70,0},{100,0}})}),
+            Line(points={{70,0},{100,0}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -428,14 +434,17 @@ This current is provided explicitly as current i.
           grid={1,1}), graphics={
           Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
           Line(points={{70,0},{90,0}}, color={0,0,0}), 
-          Line(points={{0,-90},{0,-70}}), 
-          Text(extent={{-150,80},{150,120}}, textString="%name")}),
+          Line(points={{0,-90},{0,-70}}, color={0,0,255}), 
+          Text(
+            extent={{-150,80},{150,120}}, 
+            textString="%name", 
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
-          Line(points={{0,-90},{0,-70}}), 
+          Line(points={{0,-90},{0,-70}}, color={0,0,255}), 
           Line(points={{70,0},{96,0}}, color={0,0,0})}),
       Documentation(revisions="<html>
 <ul>
@@ -466,7 +475,10 @@ This current is provided explicitly as current i.
             lineColor={0,0,0}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
-          Text(extent={{-150,80},{150,120}}, textString="%name"), 
+          Text(
+            extent={{-150,80},{150,120}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Line(points={{-90,0},{90,0}}, color={0,0,0}), 
           Text(
             extent={{-120,50},{-20,0}}, 
@@ -514,7 +526,10 @@ This current is provided explicitly as current i.
           Line(points={{-90,0},{-50,0}}, color={0,0,0}), 
           Line(points={{50,0},{90,0}}, color={0,0,0}), 
           Line(points={{0,-50},{0,50}}, color={0,0,0}), 
-          Text(extent={{-150,120},{150,80}}, textString="%name"), 
+          Text(
+            extent={{-150,120},{150,80}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Polygon(
             points={{90,0},{60,10},{60,-10},{90,0}}, 
             lineColor={0,0,255}, 

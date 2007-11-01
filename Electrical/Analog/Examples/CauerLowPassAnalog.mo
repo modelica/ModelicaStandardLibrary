@@ -33,7 +33,10 @@ model CauerLowPassAnalog "Cauer low pass filter with analog components"
           lineColor={0,0,255}, 
           fillColor={85,85,255}, 
           fillPattern=FillPattern.Solid), 
-        Text(extent={{-110,116},{100,64}}, textString="CauerLowPassAnalog")}),
+        Text(
+          extent={{-110,116},{100,64}}, 
+          textString="CauerLowPassAnalog", 
+          lineColor={0,0,255})}),
     experiment(StopTime=60),
     experimentSetupOutput,
     Documentation(revisions="<html>
@@ -60,15 +63,18 @@ The simulation end time should be 60. Please plot both V.p.v (input voltage) and
         Rectangle(
           extent={{-80,-90},{100,60}}, 
           fillColor={255,255,255}, 
-          fillPattern=FillPattern.Solid), 
+          fillPattern=FillPattern.Solid, 
+          lineColor={0,0,255}), 
         Polygon(
           points={{-80,60},{-60,80},{120,80},{100,60},{-80,60}}, 
           fillColor={255,255,255}, 
-          fillPattern=FillPattern.Solid), 
+          fillPattern=FillPattern.Solid, 
+          lineColor={0,0,255}), 
         Polygon(
           points={{120,80},{120,-70},{100,-90},{100,60},{120,80}}, 
           fillColor={255,255,255}, 
-          fillPattern=FillPattern.Solid), 
+          fillPattern=FillPattern.Solid, 
+          lineColor={0,0,255}), 
         Text(
           extent={{-76,13},{97,-39}}, 
           lineColor={0,0,255}, 

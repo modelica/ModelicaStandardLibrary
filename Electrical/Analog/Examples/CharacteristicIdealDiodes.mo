@@ -23,9 +23,10 @@ model CharacteristicIdealDiodes "Characteristic of ideal diodes"
   Modelica.Electrical.Analog.Basic.Ground Ground1 
   annotation (Placement(transformation(extent={{-50,-80},{-30,-60}}, rotation=0)));
   
-  annotation (Diagram(graphics={Text(extent={{-88,102},{92,48}}, textString=
-              "Characteristic Ideal Diodes")}),
-                                           Documentation(info="<HTML>
+  annotation (Diagram(graphics={Text(
+          extent={{-88,102},{92,48}}, 
+          textString="Characteristic Ideal Diodes", 
+          lineColor={0,0,255})}),          Documentation(info="<HTML>
 <P>
 Three examples of ideal diodes are shown:<br><br>
 the <b>totally ideal diode</b> (Ideal) with all parameters to be zero <br>

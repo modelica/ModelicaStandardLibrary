@@ -4244,9 +4244,18 @@ function sin "Sine"
               -61.9},{63.9,-47.2},{72,-24.8},{80,0}}, 
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{-105,72},{-85,88}}, textString="1"), 
-        Text(extent={{70,25},{90,5}}, textString="2*pi"), 
-        Text(extent={{-103,-72},{-83,-88}}, textString="-1"), 
+        Text(
+          extent={{-105,72},{-85,88}}, 
+          textString="1", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{70,25},{90,5}}, 
+          textString="2*pi", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{-103,-72},{-83,-88}}, 
+          textString="-1", 
+          lineColor={0,0,255}), 
         Text(
           extent={{82,-6},{102,-26}}, 
           lineColor={95,95,95}, 
@@ -4308,9 +4317,18 @@ function cos "Cosine"
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Text(extent={{-103,72},{-83,88}}, textString="1"), 
-        Text(extent={{-103,-72},{-83,-88}}, textString="-1"), 
-        Text(extent={{70,25},{90,5}}, textString="2*pi"), 
+        Text(
+          extent={{-103,72},{-83,88}}, 
+          textString="1", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{-103,-72},{-83,-88}}, 
+          textString="-1", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{70,25},{90,5}}, 
+          textString="2*pi", 
+          lineColor={0,0,255}), 
         Line(points={{-100,0},{84,0}}, color={95,95,95}), 
         Polygon(
           points={{98,0},{82,6},{82,-6},{98,0}}, 
@@ -4381,9 +4399,18 @@ function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Text(extent={{-37,-72},{-17,-88}}, textString="-5.8"), 
-        Text(extent={{-33,86},{-13,70}}, textString=" 5.8"), 
-        Text(extent={{68,-13},{88,-33}}, textString="1.4"), 
+        Text(
+          extent={{-37,-72},{-17,-88}}, 
+          textString="-5.8", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{-33,86},{-13,70}}, 
+          textString=" 5.8", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{68,-13},{88,-33}}, 
+          textString="1.4", 
+          lineColor={0,0,255}), 
         Line(points={{-100,0},{84,0}}, color={95,95,95}), 
         Polygon(
           points={{98,0},{82,6},{82,-6},{98,0}}, 
@@ -4457,10 +4484,22 @@ function asin "Inverse sine (-1 <= u <= 1)"
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Text(extent={{-40,-72},{-15,-88}}, textString="-pi/2"), 
-        Text(extent={{-38,88},{-13,72}}, textString=" pi/2"), 
-        Text(extent={{68,-9},{88,-29}}, textString="+1"), 
-        Text(extent={{-90,21},{-70,1}}, textString="-1"), 
+        Text(
+          extent={{-40,-72},{-15,-88}}, 
+          textString="-pi/2", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{-38,88},{-13,72}}, 
+          textString=" pi/2", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{68,-9},{88,-29}}, 
+          textString="+1", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{-90,21},{-70,1}}, 
+          textString="-1", 
+          lineColor={0,0,255}), 
         Line(points={{-100,0},{84,0}}, color={95,95,95}), 
         Polygon(
           points={{98,0},{82,6},{82,-6},{98,0}}, 
@@ -4544,9 +4583,18 @@ function acos "Inverse cosine (-1 <= u <= 1)"
               {75.2,-62.2},{77.6,-67.5},{80,-80}}, 
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{-30,88},{-5,72}}, textString=" pi"), 
-        Text(extent={{-94,-57},{-74,-77}}, textString="-1"), 
-        Text(extent={{60,-81},{80,-101}}, textString="+1"), 
+        Text(
+          extent={{-30,88},{-5,72}}, 
+          textString=" pi", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{-94,-57},{-74,-77}}, 
+          textString="-1", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{60,-81},{80,-101}}, 
+          textString="+1", 
+          lineColor={0,0,255}), 
         Text(
           extent={{82,-56},{102,-76}}, 
           lineColor={95,95,95}, 
@@ -4620,8 +4668,14 @@ function atan "Inverse tangent"
               73.6},{65,77},{80,78}}, 
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{-34,87},{-14,74}}, textString="pi/2"), 
-        Text(extent={{-32,-71},{-12,-91}}, textString="-pi/2"), 
+        Text(
+          extent={{-34,87},{-14,74}}, 
+          textString="pi/2", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{-32,-71},{-12,-91}}, 
+          textString="-pi/2", 
+          lineColor={0,0,255}), 
         Text(
           extent={{84,-4},{104,-24}}, 
           lineColor={95,95,95}, 
@@ -4704,12 +4758,24 @@ function atan2 "Four quadrant inverse tangent"
               {-1.82,77.2},{0,80}}, 
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{-32,89},{-10,74}}, textString="pi"), 
-        Text(extent={{-32,-72},{-4,-88}}, textString="-pi"), 
-        Text(extent={{0,55},{20,42}}, textString="pi/2"), 
+        Text(
+          extent={{-32,89},{-10,74}}, 
+          textString="pi", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{-32,-72},{-4,-88}}, 
+          textString="-pi", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{0,55},{20,42}}, 
+          textString="pi/2", 
+          lineColor={0,0,255}), 
         Line(points={{0,40},{-8,40}}, color={192,192,192}), 
         Line(points={{0,-40},{-8,-40}}, color={192,192,192}), 
-        Text(extent={{0,-23},{20,-42}}, textString="-pi/2"), 
+        Text(
+          extent={{0,-23},{20,-42}}, 
+          textString="-pi/2", 
+          lineColor={0,0,255}), 
         Text(
           extent={{62,-4},{94,-26}}, 
           lineColor={95,95,95}, 
@@ -4803,8 +4869,14 @@ function atan3
               {-1.82,77.2},{0,80}}, 
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{-56,82},{-12,72}}, textString="(2*N-1)*pi"), 
-        Text(extent={{-52,-72},{-10,-88}}, textString="(2*N-3)*pi"), 
+        Text(
+          extent={{-56,82},{-12,72}}, 
+          textString="(2*N-1)*pi", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{-52,-72},{-10,-88}}, 
+          textString="(2*N-3)*pi", 
+          lineColor={0,0,255}), 
         Line(points={{0,40},{-8,40}}, color={192,192,192}), 
         Line(points={{0,-40},{-8,-40}}, color={192,192,192}), 
         Text(
@@ -4893,10 +4965,22 @@ function sinh "Hyperbolic sine"
               74.4,60.4},{78.4,73.8},{80,80}}, 
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{-31,72},{-11,88}}, textString="27"), 
-        Text(extent={{-35,-88},{-15,-72}}, textString="-27"), 
-        Text(extent={{68,-7},{88,-27}}, textString="4"), 
-        Text(extent={{-98,21},{-78,1}}, textString="-4"), 
+        Text(
+          extent={{-31,72},{-11,88}}, 
+          textString="27", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{-35,-88},{-15,-72}}, 
+          textString="-27", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{68,-7},{88,-27}}, 
+          textString="4", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{-98,21},{-78,1}}, 
+          textString="-4", 
+          lineColor={0,0,255}), 
         Text(
           extent={{80,26},{100,6}}, 
           lineColor={95,95,95}, 
@@ -4974,9 +5058,18 @@ function cosh "Hyperbolic cosine"
               80}}, 
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{-31,72},{-11,88}}, textString="27"), 
-        Text(extent={{64,-83},{84,-103}}, textString="4"), 
-        Text(extent={{-94,-63},{-74,-83}}, textString="-4"), 
+        Text(
+          extent={{-31,72},{-11,88}}, 
+          textString="27", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{64,-83},{84,-103}}, 
+          textString="4", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{-94,-63},{-74,-83}}, 
+          textString="-4", 
+          lineColor={0,0,255}), 
         Text(
           extent={{80,-60},{100,-80}}, 
           lineColor={95,95,95}, 
@@ -5050,8 +5143,14 @@ function tanh "Hyperbolic tangent"
               74.5},{45.4,77.9},{72,79.4},{80,79.5}}, 
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{-29,72},{-9,88}}, textString="1"), 
-        Text(extent={{3,-72},{23,-88}}, textString="-1"), 
+        Text(
+          extent={{-29,72},{-9,88}}, 
+          textString="1", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{3,-72},{23,-88}}, 
+          textString="-1", 
+          lineColor={0,0,255}), 
         Text(
           extent={{82,-2},{102,-22}}, 
           lineColor={95,95,95}, 
@@ -5119,10 +5218,22 @@ function asinh "Inverse of sinh (area hyperbolic sine)"
               68.4},{80,80}}, 
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{-31,72},{-11,88}}, textString="2.31"), 
-        Text(extent={{-35,-88},{-15,-72}}, textString="-2.31"), 
-        Text(extent={{72,-13},{92,-33}}, textString="5"), 
-        Text(extent={{-96,21},{-76,1}}, textString="-5"), 
+        Text(
+          extent={{-31,72},{-11,88}}, 
+          textString="2.31", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{-35,-88},{-15,-72}}, 
+          textString="-2.31", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{72,-13},{92,-33}}, 
+          textString="5", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{-96,21},{-76,1}}, 
+          textString="-5", 
+          lineColor={0,0,255}), 
         Text(
           extent={{80,22},{100,2}}, 
           lineColor={95,95,95}, 
@@ -5199,10 +5310,22 @@ function acosh "Inverse of cosh (area hyperbolic cosine)"
               13.97,49.2},{41.3,65},{75.9,80.8},{100,90}}, 
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{-80,66},{-58,78}}, textString="2.29"), 
-        Text(extent={{-73,-86},{-50,-70}}, textString="1.0"), 
-        Text(extent={{64,-77},{84,-92}}, textString="5"), 
-        Text(extent={{-96,-55},{-76,-70}}, textString="0"), 
+        Text(
+          extent={{-80,66},{-58,78}}, 
+          textString="2.29", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{-73,-86},{-50,-70}}, 
+          textString="1.0", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{64,-77},{84,-92}}, 
+          textString="5", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{-96,-55},{-76,-70}}, 
+          textString="0", 
+          lineColor={0,0,255}), 
         Text(
           extent={{74,-44},{94,-64}}, 
           lineColor={95,95,95}, 
@@ -5289,10 +5412,22 @@ function exp "Exponential, base e"
               67.1,18.6},{72,38.2},{76,57.6},{80,80}}, 
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{-31,72},{-11,88}}, textString="20"), 
-        Text(extent={{-92,-81},{-72,-101}}, textString="-3"), 
-        Text(extent={{66,-81},{86,-101}}, textString="3"), 
-        Text(extent={{2,-69},{22,-89}}, textString="1"), 
+        Text(
+          extent={{-31,72},{-11,88}}, 
+          textString="20", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{-92,-81},{-72,-101}}, 
+          textString="-3", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{66,-81},{86,-101}}, 
+          textString="3", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{2,-69},{22,-89}}, 
+          textString="1", 
+          lineColor={0,0,255}), 
         Text(
           extent={{78,-54},{98,-74}}, 
           lineColor={95,95,95}, 
@@ -5366,16 +5501,28 @@ function log "Natural (base e) logarithm (u shall be > 0)"
             
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{-105,72},{-85,88}}, textString="3"), 
-        Text(extent={{60,-3},{80,-23}}, textString="20"), 
-        Text(extent={{-78,-7},{-58,-27}}, textString="1"), 
+        Text(
+          extent={{-105,72},{-85,88}}, 
+          textString="3", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{60,-3},{80,-23}}, 
+          textString="20", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{-78,-7},{-58,-27}}, 
+          textString="1", 
+          lineColor={0,0,255}), 
         Text(
           extent={{84,26},{104,6}}, 
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid, 
           textString="u"), 
-        Text(extent={{-100,9},{-80,-11}}, textString="0"), 
+        Text(
+          extent={{-100,9},{-80,-11}}, 
+          textString="0", 
+          lineColor={0,0,255}), 
         Line(
           points={{-80,80},{84,80}}, 
           color={175,175,175}, 
@@ -5445,16 +5592,28 @@ function log10 "Base 10 logarithm (u shall be > 0)"
             
           color={0,0,255}, 
           thickness=2), 
-        Text(extent={{66,-13},{86,-33}}, textString="20"), 
-        Text(extent={{-78,-1},{-58,-21}}, textString="1"), 
-        Text(extent={{-83,62},{-63,78}}, textString=" 1.3"), 
+        Text(
+          extent={{66,-13},{86,-33}}, 
+          textString="20", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{-78,-1},{-58,-21}}, 
+          textString="1", 
+          lineColor={0,0,255}), 
+        Text(
+          extent={{-83,62},{-63,78}}, 
+          textString=" 1.3", 
+          lineColor={0,0,255}), 
         Text(
           extent={{80,24},{100,4}}, 
           lineColor={95,95,95}, 
           fillColor={95,95,95}, 
           fillPattern=FillPattern.Solid, 
           textString="u"), 
-        Text(extent={{-100,9},{-80,-11}}, textString="0"), 
+        Text(
+          extent={{-100,9},{-80,-11}}, 
+          textString="0", 
+          lineColor={0,0,255}), 
         Line(
           points={{-80,80},{86,80}}, 
           color={175,175,175}, 
@@ -5473,6 +5632,7 @@ with u &gt; 0:
 <img src=\"../Images/Math/log10.png\">
 </p>
 </html>"));
+  
 external "C" y = log10(u);
 end log10;
 
@@ -5492,8 +5652,10 @@ partial function baseIcon1
           lineColor={192,192,192}, 
           fillColor={192,192,192}, 
           fillPattern=FillPattern.Solid), 
-        Text(extent={{-150,150},{150,110}}, textString="%name")}),
-                                                           Diagram(graphics={
+        Text(
+          extent={{-150,150},{150,110}}, 
+          textString="%name", 
+          lineColor={0,0,255})}),                          Diagram(graphics={
         Line(points={{-80,80},{-88,80}}, color={95,95,95}), 
         Line(points={{-80,-80},{-88,-80}}, color={95,95,95}), 
         Line(points={{-80,-90},{-80,84}}, color={95,95,95}), 
@@ -5530,8 +5692,10 @@ partial function baseIcon2
           lineColor={192,192,192}, 
           fillColor={192,192,192}, 
           fillPattern=FillPattern.Solid), 
-        Text(extent={{-150,150},{150,110}}, textString="%name")}),
-                                                           Diagram(graphics={
+        Text(
+          extent={{-150,150},{150,110}}, 
+          textString="%name", 
+          lineColor={0,0,255})}),                          Diagram(graphics={
         Line(points={{0,80},{-8,80}}, color={95,95,95}), 
         Line(points={{0,-80},{-8,-80}}, color={95,95,95}), 
         Line(points={{0,-90},{0,84}}, color={95,95,95}), 
