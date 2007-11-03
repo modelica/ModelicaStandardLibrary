@@ -889,6 +889,12 @@ have been <b style=\"color:blue\">changed</b> in a
                         The conversion script automatically
                         transforms from the \"old\" to the \"new\" forms.</td> </tr>
 
+  <tr><td colspan=\"2\"><b>Media.</b></td></tr>
+  <tr><td valign=\"top\"> constant nX <br>
+                        constant nXi <br>
+                        constant reference_X<br>
+                        BaseProperties
+      <td valign=\"top\"> The package constant nX = nS, now always, even for single species media. This also allows to define mixtures with only 1 element. The package constant nXi=if fixedX then 0 else if reducedX or nS==1 then nS - 1 else nS. This required that all BaseProperties for single species media get an additional equation to define the composition X as {1.0} (or reference_X, which is {1.0} for single species). This will also mean that all user defined single species media need to be updated by that equation.</td> </tr>
 </table>
 
 
