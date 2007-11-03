@@ -125,7 +125,7 @@ rows of the file, the elements of the matrix have to be given.
 Several matrices may be defined one after another.
 </p>
 </HTML>
-"),   Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{-60,40},{-60,-40},{60,-40},{60,40},{30,40},{30,-40},{-30,
                 -40},{-30,40},{-60,40},{-60,20},{60,20},{60,0},{-60,0},{-60,-20},
@@ -152,7 +152,7 @@ Several matrices may be defined one after another.
             lineColor={0,0,0}, 
             fillColor={255,255,0}, 
             fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Rectangle(
             extent={{-60,60},{60,-60}}, 
@@ -347,7 +347,7 @@ rows of the file, the elements of the matrix have to be given.
 Several matrices may be defined one after another.
 </p>
 </HTML>
-"),   Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{-60,40},{-60,-40},{60,-40},{60,40},{30,40},{30,-40},{-30,
                 -40},{-30,40},{-60,40},{-60,20},{60,20},{60,0},{-60,0},{-60,-20},
@@ -374,7 +374,7 @@ Several matrices may be defined one after another.
             lineColor={0,0,0}, 
             fillColor={255,255,0}, 
             fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Rectangle(
             extent={{-60,60},{60,-60}}, 
@@ -572,7 +572,7 @@ and the first row \"table2D_1[1,2:]\" contains the u[2] grid points.
 </p>
  
 </html>
-"),   Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{-60,40},{-60,-40},{60,-40},{60,40},{30,40},{30,-40},{-30,
                 -40},{-30,40},{-60,40},{-60,20},{60,20},{60,0},{-60,0},{-60,-20},
@@ -611,7 +611,7 @@ and the first row \"table2D_1[1,2:]\" contains the u[2] grid points.
             fillPattern=FillPattern.Solid), 
           Line(points={{-60,40},{-30,20}}, color={0,0,0}), 
           Line(points={{-30,40},{-60,20}}, color={0,0,0})}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Rectangle(
             extent={{-60,60},{60,-60}}, 

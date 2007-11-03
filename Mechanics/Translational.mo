@@ -1128,7 +1128,7 @@ Modelica.Blocks library).
       height=0.47,
       library=1,
       autolayout=1),
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
         Line(points={{-84,-73},{66,-73}}, color={0,0,0}), 
         Rectangle(

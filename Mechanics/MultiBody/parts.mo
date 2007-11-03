@@ -2015,7 +2015,7 @@ November 3-4, 2003, pp. 149-158</p>
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a 
                                  annotation (Placement(transformation(extent={{
                 -116,-16},{-84,16}}, rotation=0)));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
@@ -2255,7 +2255,7 @@ but not vice versa.</p>
 Modelica Conference</i>. Link&ouml;ping : The Modelica Association and Link&ouml;ping University,
 November 3-4, 2003, pp. 149-158</p>
 </HTML>
-"),   Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
             Line(points={{-80,-25},{-60,-25}}, color={0,0,0}),
             Line(points={{60,-25},{80,-25}}, color={0,0,0}),
@@ -2286,7 +2286,7 @@ November 3-4, 2003, pp. 149-158</p>
               textString="%name=%J",
               lineColor={0,0,255}),
             Line(points={{0,-70},{0,-100}}, color={0,0,0})}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}),
                           graphics));
       

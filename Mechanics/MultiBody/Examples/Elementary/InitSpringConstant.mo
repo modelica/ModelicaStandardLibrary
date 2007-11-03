@@ -64,7 +64,7 @@ An animation of this simulation is shown in the figure below.
 <IMG SRC=\"../Images/MultiBody/Examples/Elementary/InitSpringConstant.png\" 
 ALT=\"model Examples.Elementary.InitSpringConstant\">
 </p>
-</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics));
 equation 
   

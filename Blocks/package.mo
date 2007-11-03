@@ -522,12 +522,12 @@ This package contains utility models and bus definitions needed for the
         extends Modelica.Icons.SignalBus;
         
         annotation (
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={Rectangle(
                 extent={{-20,2},{22,-2}}, 
                 lineColor={255,204,51}, 
                 lineThickness=2)}),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
                   graphics),
           Documentation(info="<html>
@@ -547,7 +547,7 @@ constructed by the signals connected to this bus.
         extends Modelica.Icons.SignalSubBus;
         
         annotation (defaultComponentPrefixes="protected",
-                    Icon(coordinateSystem(preserveAspectRatio=false, extent={{
+                    Icon(coordinateSystem(preserveAspectRatio=true, extent={{
                   -100,-100},{100,100}}), graphics={Rectangle(
                 extent={{-20,2},{22,-2}}, 
                 lineColor={255,204,51}, 
@@ -636,7 +636,7 @@ This package contains the bus definitions needed for the
     
    model Part "Component with sub-control bus" 
       
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{
                 -100,-100},{100,100}}), graphics={Rectangle(
               extent={{-100,60},{100,-60}}, 
               fillColor={159,159,223}, 

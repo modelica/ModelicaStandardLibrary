@@ -2745,7 +2745,7 @@ Modelica.Media.Examples.Tests.MediaTestModels.
       
       connector FluidPort_a "Fluid connector with filled icon" 
         extends FluidPort;
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent=
                   {{-100,-100},{100,100}}), graphics={
               Ellipse(
                 extent={{-100,100},{100,-100}}, 
@@ -2761,7 +2761,7 @@ Modelica.Media.Examples.Tests.MediaTestModels.
                 extent={{-88,206},{112,112}}, 
                 textString="%name", 
                 lineColor={0,0,255})}),
-             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Ellipse(
                 extent={{-100,100},{100,-100}}, 
                 lineColor={0,127,255}, 
@@ -2777,7 +2777,7 @@ Modelica.Media.Examples.Tests.MediaTestModels.
       
       connector FluidPort_b "Fluid connector with outlined icon" 
         extends FluidPort;
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent=
                   {{-100,-100},{100,100}}), graphics={
               Ellipse(
                 extent={{-100,100},{100,-100}}, 
@@ -2798,7 +2798,7 @@ Modelica.Media.Examples.Tests.MediaTestModels.
                 extent={{-88,192},{112,98}}, 
                 textString="%name", 
                 lineColor={0,0,255})}),
-             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={
               Ellipse(
                 extent={{-100,100},{100,-100}}, 
@@ -2857,7 +2857,7 @@ Modelica.Media.Examples.Tests.MediaTestModels.
           "Independent substance masses of junction volume";
         
         annotation (
-         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Ellipse(
                 extent={{-100,100},{100,-100}}, 
@@ -2886,7 +2886,7 @@ transport elements that just transport energy, mass and momentum
 between the internal ports without storing these quantities during the
 transport.
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</html>"),Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
                   graphics));
         
@@ -3132,7 +3132,7 @@ with exception of ambient pressure, do not have an effect.
           "Mass flow rate from port_a to port_b (m_flow > 0 is design flow direction)";
         Modelica.SIunits.Pressure dp "Pressure drop from port_a to port_b";
                                                                                          annotation (Icon(
-              coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Rectangle(
                 extent={{-100,60},{100,-60}}, 
@@ -4021,7 +4021,7 @@ Modelica source.
       SI.Conversions.NonSIunits.Pressure_bar p_bar=
        Modelica.SIunits.Conversions.to_bar(p) 
         "Absolute pressure of medium in [bar]";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
               extent={{-100,100},{100,-100}}, 
               fillColor={255,255,255}, 

@@ -129,7 +129,7 @@ model SystemWithStandardBodies
           extent={{10,-10},{-10,10}},
           rotation=90)));
     
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}),
                       graphics),
                        Documentation(info="<html>

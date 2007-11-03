@@ -857,7 +857,7 @@ and resolved in the following frame
     RelativePosition relativePosition annotation (Placement(transformation(
             extent={{-70,-10},{-50,10}}, rotation=0)));
     annotation (Diagram(graphics),
-                         Icon(coordinateSystem(preserveAspectRatio=false, 
+                         Icon(coordinateSystem(preserveAspectRatio=true, 
             extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{-70,0},{-96,0}}, 

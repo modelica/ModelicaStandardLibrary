@@ -1471,7 +1471,7 @@ is resolved in the world frame).
     annotation (
       preferedView="info",
       Diagram(graphics),
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
             extent={{-98,99},{99,-98}},
@@ -2556,7 +2556,7 @@ for this situation:
       annotation (Line(points={{-8,50},{-12,50},{-12,20}}, color={0,191,0}));
     annotation (
       preferedView="info",
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(
             points={{-100,0},{-58,0},{-43,-30},{-13,30},{17,-30},{47,30},{62,0},

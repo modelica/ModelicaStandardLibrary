@@ -5641,7 +5641,7 @@ end log10;
 partial function baseIcon1 
   "Basic icon for mathematical function with y-axis on left side" 
   
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+  annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={
         Rectangle(
           extent={{-100,100},{100,-100}}, 
@@ -5682,7 +5682,7 @@ end baseIcon1;
 partial function baseIcon2 
   "Basic icon for mathematical function with y-axis in middle" 
   
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+  annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={
         Rectangle(
           extent={{-100,100},{100,-100}}, 

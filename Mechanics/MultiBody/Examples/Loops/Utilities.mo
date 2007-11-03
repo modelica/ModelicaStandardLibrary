@@ -293,7 +293,7 @@ package Utilities "Utility models for Examples.Loops"
     SI.Volume V;
     SI.Temperature T;
     SI.Velocity v_rel;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Rectangle(
             extent={{-90,50},{90,-50}}, 

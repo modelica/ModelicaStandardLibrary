@@ -38,7 +38,7 @@ model PointGravityWithPointMasses
 equation 
   
   annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}),
             graphics),
     experiment(StopTime=2),

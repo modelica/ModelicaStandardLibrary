@@ -26,7 +26,7 @@ of revolute joint j1 is set to 300 deg/s in order to drive this loop.
 <IMG SRC=\"../Images/MultiBody/Examples/Loops/Fourbar1.png\" ALT=\"model Examples.Loops.Fourbar1\">
 </p>
 </html>
-"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}),
             graphics));
   

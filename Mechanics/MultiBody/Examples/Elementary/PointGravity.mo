@@ -33,7 +33,7 @@ model PointGravity "Two point masses in a point gravity field"
 equation 
   
   annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}),
             graphics),
     experiment(StopTime=5),

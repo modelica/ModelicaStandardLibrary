@@ -46,7 +46,7 @@ connected with continuous blocks or with sampled-data blocks.
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="K"), y(
             unit="degC"));
       
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -67,7 +67,7 @@ the result as output signal.
     block From_degC "Convert from °Celsius to Kelvin" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="degC"),
           y(unit="K"));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -88,7 +88,7 @@ the result as output signal.
     block To_degF "Convert from Kelvin to °Fahrenheit" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="K"), y(
             unit="degF"));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -109,7 +109,7 @@ the result as output signal.
     block From_degF "Convert from °Fahrenheit to Kelvin" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="degF"),
           y(unit="K"));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -130,7 +130,7 @@ the result as output signal.
     block To_degRk "Convert from Kelvin to °Rankine" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="K"), y(
             unit="degRk"));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -151,7 +151,7 @@ the result as output signal.
     block From_degRk "Convert from °Rankine to Kelvin" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="degRk"),
           y(unit="K"));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -172,7 +172,7 @@ the result as output signal.
     block To_deg "Convert from radian to degree" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="rad"),
           y(unit="deg"));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -193,7 +193,7 @@ the result as output signal.
     block From_deg "Convert from degree to radian" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="deg"),
           y(unit="rad"));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -214,7 +214,7 @@ the result as output signal.
     block To_rpm "Convert from radian per second to revolutions per minute" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="rad/s"),
           y(unit="1/min"));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{26,82},{-98,50}}, 
               lineColor={0,0,0}, 
@@ -235,7 +235,7 @@ the result as output signal.
     block From_rpm "Convert from revolutions per minute to radian per second" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit=
               "1/min"), y(unit="rad/s"));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{50,84},{-94,56}}, 
               lineColor={0,0,0}, 
@@ -256,7 +256,7 @@ the result as output signal.
     block To_kmh "Convert from metre per second to kilometre per hour" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="m/s"),
           y(unit="km/h"));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{0,82},{-96,42}}, 
               lineColor={0,0,0}, 
@@ -277,7 +277,7 @@ the result as output signal.
     block From_kmh "Convert from kilometre per hour to metre per second" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="km/h"),
           y(unit="m/s"));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{26,80},{-96,48}}, 
               lineColor={0,0,0}, 
@@ -298,7 +298,7 @@ the result as output signal.
     block To_day "Convert from second to day" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="s"), y(
             unit="d"));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -319,7 +319,7 @@ the result as output signal.
     block From_day "Convert from day to second" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="d"), y(
             unit="s"));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -340,7 +340,7 @@ the result as output signal.
     block To_hour "Convert from second to hour" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="s"), y(
             unit="h"));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -361,7 +361,7 @@ the result as output signal.
     block From_hour "Convert from hour to second" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="h"), y(
             unit="s"));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -382,7 +382,7 @@ the result as output signal.
     block To_minute "Convert from second to minute" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="s"), y(
             unit="min"));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -403,7 +403,7 @@ the result as output signal.
     block From_minute "Convert from minute to second" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="min"),
           y(unit="s"));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -424,7 +424,7 @@ the result as output signal.
     block To_litre "Convert from cubic metre to litre" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="m3"), y(
             unit="l"));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -445,7 +445,7 @@ the result as output signal.
     block From_litre "Convert from litre to cubic metre" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="l"), y(
             unit="m3"));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -466,7 +466,7 @@ the result as output signal.
     block To_kWh "Convert from Joule to kilo Watt hour" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="J"), y(
             unit="kW.h"));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -487,7 +487,7 @@ the result as output signal.
     block From_kWh "Convert from kilo Watt hour to Joule" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="kW.h"),
           y(unit="J"));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -508,7 +508,7 @@ the result as output signal.
     block To_bar "Convert from Pascal to bar" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="Pa"), y(
             unit="bar"));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -529,7 +529,7 @@ the result as output signal.
     block From_bar "Convert from bar to Pascal" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="bar"),
           y(unit="Pa"));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -550,7 +550,7 @@ the result as output signal.
     block To_gps "Convert from kilogram per second to gram per second" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="kg/s"),
           y(unit="g/s"));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -571,7 +571,7 @@ the result as output signal.
     block From_gps "Convert from gram per second to kilogram per second" 
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="g/s"),
           y(unit="kg/s"));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -607,7 +607,7 @@ All other blocks convert exactly between two different units.
     
     annotation(structurallyIncomplete=true,
       Diagram(graphics),
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(
             points={{-100,0},{-58,0},{-58,80},{-100,80}}, 
             color={0,0,127}, 
@@ -2782,7 +2782,7 @@ zero or negative.
   
   block RealToInteger "Convert Real to Integer signal" 
     extends Interfaces.IntegerBlockIcon;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Text(
             extent={{-100,60},{0,-60}}, 
@@ -2821,7 +2821,7 @@ as <i>nearest integer value</i> of the input <b>u</b>:
   
   block IntegerToReal "Convert integer to real signals" 
     extends Interfaces.BlockIcon;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Text(
             extent={{-120,60},{-20,-60}}, 
@@ -3071,7 +3071,7 @@ where <b>threshold</b> is a parameter.
   
   block Max "Pass through the largest signal" 
     extends Interfaces.SI2SO;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
             extent={{-90,36},{90,-36}}, 
             lineColor={160,160,164}, 
@@ -3091,7 +3091,7 @@ of the two Real inputs <b>u1</b> and <b>u2</b>:
   
   block Min "Pass through the smallest signal" 
     extends Interfaces.SI2SO;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
             extent={{-90,36},{90,-36}}, 
             lineColor={160,160,164}, 
@@ -3111,7 +3111,7 @@ the two Real inputs <b>u1</b> and <b>u2</b>:
   
   block Edge "Indicates rising edge of boolean signal" 
     extends Interfaces.BooleanSISO;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
             extent={{-90,36},{90,-36}}, 
             lineColor={160,160,164}, 
@@ -3131,7 +3131,7 @@ when the Boolean input <b>u</b> shows a <i>rising edge</i>:
   
   block BooleanChange "Indicates boolean signal changing" 
     extends Interfaces.BooleanSISO;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
             extent={{-90,36},{90,-36}}, 
             lineColor={160,160,164}, 
@@ -3152,7 +3152,7 @@ i.e., when the signal changes:
   
   block IntegerChange "Indicates integer signal changing" 
     extends Interfaces.IntegerSIBooleanSO;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
             extent={{-90,36},{90,-36}}, 
             lineColor={160,160,164}, 
