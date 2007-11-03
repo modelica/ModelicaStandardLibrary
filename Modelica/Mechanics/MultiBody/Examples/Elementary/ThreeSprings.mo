@@ -1,11 +1,6 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
-encapsulated model ThreeSprings 
-  "3-dim. springs in series and parallel connection" 
-  import Modelica.Icons;
-  import Modelica.Mechanics.MultiBody;
-  import Modelica.Mechanics.Rotational;
-  import Modelica;
-  extends Icons.Example;
+model ThreeSprings "3-dim. springs in series and parallel connection" 
+  extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
   annotation (
     experiment(StopTime=10),
@@ -37,13 +32,15 @@ ALT=\"model Examples.Elementary.ThreeSprings\">
   Modelica.Mechanics.MultiBody.Parts.Body body1(
     animation=animation,
     r_CM={0,-0.2,0},
-    r_0_start={0.5,-0.3,0},
     m=0.8,
     I_11=0.1,
     I_22=0.1,
     I_33=0.1,
-    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
-    sphereDiameter=0.2) annotation (Placement(transformation(
+    sphereDiameter=0.2,
+    r_0(start={0.5,-0.3,0}, fixed=true),
+    v_0(fixed=true),
+    angles_fixed=true,
+    w_0_fixed=true)     annotation (Placement(transformation(
         origin={30,-70},
         extent={{-10,10},{10,-10}},
         rotation=270)));
@@ -104,7 +101,7 @@ equation
       thickness=2));
   connect(spring2.frame_b, body1.frame_a) 
     annotation (Line(
-      points={{30,-48},{30,-60}},
+      points={{30,-48},{30,-51},{30,-60},{30,-60}},
       color={0,0,0},
       thickness=2));
   connect(spring3.frame_b, spring1.frame_b) 
@@ -114,7 +111,7 @@ equation
       thickness=2));
   connect(spring2.frame_a, spring1.frame_b) 
     annotation (Line(
-      points={{30,-28},{30,0}},
+      points={{30,-28},{30,-21},{30,-21},{30,-14},{30,0},{30,0}},
       color={95,95,95},
       thickness=2));
 end ThreeSprings;

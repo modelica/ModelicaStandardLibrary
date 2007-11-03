@@ -1,11 +1,6 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
-encapsulated model FreeBody 
-  "Free flying body attached by two springs to environment" 
-  import Modelica.Icons;
-  import Modelica.Mechanics.MultiBody;
-  import Modelica.Mechanics.Rotational;
-  import Modelica;
-  extends Icons.Example;
+model FreeBody "Free flying body attached by two springs to environment" 
+  extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
   annotation (
     experiment(StopTime=10),
@@ -47,7 +42,7 @@ ALT=\"model Examples.Elementary.FreeBody\">
     numberOfWindings=5,
     c=20,
     s_unstretched=0) annotation (Placement(transformation(
-        origin={-24,6},
+        origin={-20,6},
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Parts.BodyShape body(
@@ -57,10 +52,13 @@ ALT=\"model Examples.Elementary.FreeBody\">
     I_33=1,
     r={0.4,0,0},
     r_CM={0.2,0,0},
-    r_0_start={0.2,-0.5,0.1},
-    angles_start={10,10,10},
     width=0.05,
-    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity) 
+    r_0(start={0.2,-0.5,0.1}, fixed=true),
+    v_0(fixed=true),
+    angles_fixed=true,
+    w_0_fixed=true, 
+    angles_start=((({0.174532925199433,0.174532925199433,0.174532925199433})*
+        Modelica.Constants.D2R)*Modelica.Constants.D2R)*Modelica.Constants.D2R)
     annotation (Placement(transformation(extent={{0,-40},{20,-20}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Forces.Spring spring2(
     c=20,
@@ -68,7 +66,7 @@ ALT=\"model Examples.Elementary.FreeBody\">
     width=0.1,
     coilWidth=0.005,
     numberOfWindings=5) annotation (Placement(transformation(
-        origin={42,6},
+        origin={40,6},
         extent={{-10,-10},{10,10}},
         rotation=270)));
 equation 
@@ -78,21 +76,21 @@ equation
       color={95,95,95},
       thickness=2));
   connect(spring1.frame_b, body.frame_a) annotation (Line(
-      points={{-24,-4},{-24,-30},{0,-30}},
-      color={95,95,95},
-      thickness=2));
-  connect(spring2.frame_b, body.frame_b) 
-    annotation (Line(
-      points={{42,-4},{20,-30}},
+      points={{-20,-4},{-20,-30},{0,-30}},
       color={95,95,95},
       thickness=2));
   connect(bar2.frame_b, spring2.frame_a) 
     annotation (Line(
-      points={{20,30},{42,30},{42,16}},
+      points={{20,30},{40,30},{40,16}},
       color={95,95,95},
       thickness=2));
   connect(spring1.frame_a, world.frame_b) annotation (Line(
-      points={{-24,16},{-24,30},{-40,30}},
+      points={{-20,16},{-20,30},{-40,30}},
       color={95,95,95},
       thickness=2));
+  connect(body.frame_b, spring2.frame_b) annotation (Line(
+      points={{20,-30},{40,-30},{40,-4}},
+      color={95,95,95},
+      thickness=2,
+      smooth=Smooth.None));
 end FreeBody;

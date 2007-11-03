@@ -1,11 +1,6 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
-encapsulated model SpringMassSystem 
-  "Mass attached with a spring to the world frame" 
-  import Modelica.Icons;
-  import Modelica.Mechanics.MultiBody;
-  import Modelica.Mechanics.Rotational;
-  import Modelica;
-  extends Icons.Example;
+model SpringMassSystem "Mass attached with a spring to the world frame" 
+  extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
   annotation (
     experiment(StopTime=5),
@@ -47,16 +42,15 @@ ALT=\"model Examples.Elementary.SpringMassSystem\">
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
         transformation(extent={{-80,20},{-60,40}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic p1(
-    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
     n={0,-1,0},
-    s_offset=0.1,
     animation=animation,
-    enforceStates=true,
-    boxWidth=0.05) annotation (Placement(transformation(
+    boxWidth=0.05,
+    s(fixed=true, start=0.1),
+    v(fixed=true)) annotation (Placement(transformation(
         origin={-20,-10},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Mechanics.Translational.Spring spring1(c=30) 
+  Modelica.Mechanics.Translational.Spring spring1(c=30, s_rel0=0.1) 
     annotation (Placement(transformation(
         origin={10,-10},
         extent={{-10,-10},{10,10}},
@@ -80,12 +74,12 @@ ALT=\"model Examples.Elementary.SpringMassSystem\">
         extent={{-10,10},{10,-10}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic p2(
-    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
     n={0,-1,0},
-    s_offset=0.1,
     animation=animation,
-    enforceStates=true,
-    boxWidth=0.05) annotation (Placement(transformation(
+    boxWidth=0.05,
+    stateSelect=StateSelect.always,
+    s(fixed=true, start=0.1),
+    v(fixed=true)) annotation (Placement(transformation(
         origin={50,-10},
         extent={{-10,-10},{10,10}},
         rotation=270)));
@@ -99,7 +93,7 @@ ALT=\"model Examples.Elementary.SpringMassSystem\">
 equation 
   connect(body1.frame_a, p1.frame_b) 
     annotation (Line(
-      points={{-20,-40},{-20,-20}},
+      points={{-20,-40},{-20,-20},{-20,-20}},
       color={95,95,95},
       thickness=2));
   connect(world.frame_b, bar1.frame_a) 

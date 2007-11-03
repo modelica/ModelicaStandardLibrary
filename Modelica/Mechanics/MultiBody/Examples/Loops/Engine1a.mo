@@ -99,7 +99,7 @@ An animation of this example is shown in the figure below.
   Modelica.Mechanics.MultiBody.Joints.Prismatic Cylinder(
     boxWidth=0.02,
     n={0,-1,0},
-    s_start=0.15)  annotation (Placement(transformation(
+    s(start=0.15)) annotation (Placement(transformation(
         origin={90,96},
         extent={{-10,-10},{10,10}},
         rotation=270)));

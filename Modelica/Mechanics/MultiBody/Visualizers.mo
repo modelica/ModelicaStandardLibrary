@@ -170,28 +170,27 @@ definition of the colors used in the MultiBody library
           grid={1,1}), graphics={
           Polygon(
             points={{-100,33},{-100,-61},{-10,-41},{50,-61},{50,33},{-10,11},{-100,
-                33}}, 
-            lineColor={0,127,255}, 
-            fillColor={0,127,255}, 
-            fillPattern=FillPattern.Solid), 
+                33}},
+            lineColor={0,127,255},
+            fillColor={0,127,255},
+            fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-98,34},{-64,46},{0,30},{74,56},{50,32},{-10,12},{-98,34}}, 
-              
-            lineColor={255,255,255}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
+            points={{-98,34},{-64,46},{0,30},{74,56},{50,32},{-10,12},{-98,34}},
+            lineColor={255,255,255},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid),
           Polygon(
-            points={{72,54},{50,32},{50,-60},{72,-32},{72,54}}, 
-            lineColor={255,255,255}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
+            points={{72,54},{50,32},{50,-60},{72,-32},{72,54}},
+            lineColor={255,255,255},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-131,-65},{134,-104}}, 
-            lineColor={0,0,0}, 
-            textString="%shapeType"), 
+            extent={{-131,-65},{134,-104}},
+            lineColor={0,0,0},
+            textString="%shapeType"),
           Text(
-            extent={{-131,118},{129,58}}, 
-            textString="%name", 
+            extent={{-131,118},{129,58}},
+            textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -247,7 +246,8 @@ definition of the colors used in the MultiBody library
     input Types.Axis widthDirection={0,1,0} 
       "Vector in width direction of shape, resolved in frame_a" 
       annotation (Evaluate=true, Dialog(group="if animation = true", enable=animation));
-    input SI.Length length=Frames.length(r - r_shape) "Length of shape" 
+    input SI.Length length=Modelica.Math.Vectors.length(
+                                         r - r_shape) "Length of shape" 
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Distance width=0.1 "Width of shape" 
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -274,37 +274,37 @@ definition of the colors used in the MultiBody library
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{-123,128},{137,68}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-123,128},{137,68}},
+            textString="%name",
+            lineColor={0,0,255}),
           Text(
-            extent={{129,-106},{-131,-56}}, 
-            lineColor={0,0,0}, 
-            textString="%=r"), 
+            extent={{129,-106},{-131,-56}},
+            lineColor={0,0,0},
+            textString="%=r"),
           Polygon(
             points={{-100,50},{-100,-44},{-10,-24},{79,-43},{80,49},{-10,28},{-100,
-                50}}, 
-            lineColor={0,127,255}, 
-            fillColor={0,127,255}, 
-            fillPattern=FillPattern.Solid), 
+                50}},
+            lineColor={0,127,255},
+            fillColor={0,127,255},
+            fillPattern=FillPattern.Solid),
           Polygon(
             points={{-101,50},{-65,62},{-1,46},{100,70},{79,49},{-11,28},{-101,
-                50}}, 
-            lineColor={255,255,255}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
+                50}},
+            lineColor={255,255,255},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-86,15},{-50,-10}}, 
-            lineColor={0,0,0}, 
-            textString="a"), 
+            extent={{-86,15},{-50,-10}},
+            lineColor={0,0,0},
+            textString="a"),
           Text(
-            extent={{37,15},{73,-10}}, 
-            lineColor={0,0,0}, 
-            textString="b"), 
+            extent={{37,15},{73,-10}},
+            lineColor={0,0,0},
+            textString="b"),
           Polygon(
-            points={{100,70},{78,48},{78,-44},{100,-16},{100,70}}, 
-            lineColor={255,255,255}, 
-            fillColor={160,160,164}, 
+            points={{100,70},{78,48},{78,-44},{100,-16},{100,70}},
+            lineColor={255,255,255},
+            fillColor={160,160,164},
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -570,55 +570,55 @@ MultiBody.Visualizers.FixedShape2 object is connected");
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-100,100},{100,-100}}, 
-            lineColor={0,127,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-100,100},{100,-100}},
+            lineColor={0,127,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-2,92},{-14,52},{12,52},{-2,92},{-2,92}}, 
-            lineColor={0,191,0}, 
-            fillColor={0,191,0}, 
-            fillPattern=FillPattern.Solid), 
+            points={{-2,92},{-14,52},{12,52},{-2,92},{-2,92}},
+            lineColor={0,191,0},
+            fillColor={0,191,0},
+            fillPattern=FillPattern.Solid),
           Line(
-            points={{-2,-18},{-2,52}}, 
-            color={0,191,0}, 
-            thickness=2), 
+            points={{-2,-18},{-2,52}},
+            color={0,191,0},
+            thickness=2),
           Text(
-            extent={{16,93},{67,43}}, 
-            lineColor={0,191,0}, 
-            fillColor={0,191,0}, 
-            fillPattern=FillPattern.Solid, 
-            textString="y"), 
+            extent={{16,93},{67,43}},
+            lineColor={0,191,0},
+            fillColor={0,191,0},
+            fillPattern=FillPattern.Solid,
+            textString="y"),
           Text(
-            extent={{43,11},{92,-38}}, 
-            lineColor={0,0,0}, 
-            textString="x"), 
+            extent={{43,11},{92,-38}},
+            lineColor={0,0,0},
+            textString="x"),
           Polygon(
-            points={{98,-70},{74,-44},{64,-60},{98,-70}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+            points={{98,-70},{74,-44},{64,-60},{98,-70}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Line(
-            points={{-2,-18},{72,-54}}, 
-            color={0,0,0}, 
-            thickness=2), 
+            points={{-2,-18},{72,-54}},
+            color={0,0,0},
+            thickness=2),
           Line(
-            points={{-72,-54},{-2,-18}}, 
-            thickness=2, 
-            color={0,0,255}), 
+            points={{-72,-54},{-2,-18}},
+            thickness=2,
+            color={0,0,255}),
           Polygon(
-            points={{-98,-68},{-66,-60},{-78,-46},{-98,-68}}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
+            points={{-98,-68},{-66,-60},{-78,-46},{-98,-68}},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
           Text(
-            extent={{-87,13},{-38,-36}}, 
-            textString="z", 
-            lineColor={0,0,255}), 
+            extent={{-87,13},{-38,-36}},
+            textString="z",
+            lineColor={0,0,255}),
           Text(
-            extent={{-138,164},{146,102}}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid, 
-            textString="%name", 
+            extent={{-138,164},{146,102}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            textString="%name",
             lineColor={0,0,255})}),
       Documentation(info="<HTML>
 <p>
@@ -692,7 +692,8 @@ parameter menu.
       widthDirection={0,1,0},
       color=color,
       specularCoefficient=specularCoefficient,
-      r_shape=r_tail + Frames.normalize(n)*lineLength,
+      r_shape=r_tail + Modelica.Math.Vectors.normalize(
+                                        n)*lineLength,
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation;
   equation 
@@ -702,22 +703,22 @@ parameter menu.
       preferedView="info",
       Icon(graphics={
           Rectangle(
-            extent={{-100,28},{20,-30}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-100,28},{20,-30}},
+            lineColor={128,128,128},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid),
           Polygon(
-            points={{20,60},{100,0},{20,-60},{20,60}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+            points={{20,60},{100,0},{20,-60},{20,60}},
+            lineColor={128,128,128},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-146,124},{142,62}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-146,124},{142,62}},
+            textString="%name",
+            lineColor={0,0,255}),
           Text(
-            extent={{-118,-74},{120,-112}}, 
-            lineColor={0,0,0}, 
+            extent={{-118,-74},{120,-112}},
+            lineColor={0,0,0},
             textString="%length")}),
       Diagram(graphics),
       Documentation(info="<html>
@@ -782,19 +783,19 @@ parameter menu.
       preferedView="info",
       Icon(graphics={
           Rectangle(
-            extent={{-100,28},{20,-30}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-100,28},{20,-30}},
+            lineColor={128,128,128},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid),
           Polygon(
-            points={{20,60},{100,0},{20,-60},{20,60}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+            points={{20,60},{100,0},{20,-60},{20,60}},
+            lineColor={128,128,128},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-146,124},{142,62}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-146,124},{142,62}},
+            textString="%name",
+            lineColor={0,0,255}),
           Line(points={{0,-102},{0,-30}}, color={0,0,255})}),
       Diagram(graphics),
       Documentation(info="<HTML>
@@ -877,7 +878,8 @@ since they all have frame connectors).
                                                                                                             annotation(Dialog);
     protected 
       outer Modelica.Mechanics.MultiBody.World world;
-      SI.Length length=Frames.length(r_head) "Length of arrow";
+      SI.Length length=Modelica.Math.Vectors.length(
+                                     r_head) "Length of arrow";
       Visualizers.Advanced.Shape arrowLine(
         length=noEvent(max(0, length - diameter*Types.Defaults.
             ArrowHeadLengthFraction)),
@@ -937,18 +939,18 @@ library (will be replaced by a color editor).
 </HTML>"),
         Icon(graphics={
             Rectangle(
-              extent={{-100,28},{20,-30}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,28},{20,-30}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{20,60},{100,0},{20,-60},{20,60}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              points={{20,60},{100,0},{20,-60},{20,60}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-146,124},{142,62}}, 
-              textString="%name", 
+              extent={{-146,124},{142,62}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(graphics));
       
@@ -980,7 +982,8 @@ library (will be replaced by a color editor).
                                                                                                             annotation(Dialog);
     protected 
       outer Modelica.Mechanics.MultiBody.World world;
-      SI.Length length=Frames.length(r_head) "Length of arrow";
+      SI.Length length=Modelica.Math.Vectors.length(
+                                     r_head) "Length of arrow";
       SI.Length headLength=noEvent(max(0, min(length, diameter*MultiBody.Types.
           Defaults.ArrowHeadLengthFraction)));
       SI.Length headWidth=noEvent(max(0, diameter*MultiBody.Types.Defaults.
@@ -1025,23 +1028,23 @@ library (will be replaced by a color editor).
         preferedView="info",
         Icon(graphics={
             Rectangle(
-              extent={{-100,28},{0,-28}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,28},{0,-28}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{40,60},{100,0},{40,-60},{40,60}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              points={{40,60},{100,0},{40,-60},{40,60}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-146,124},{142,62}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{-146,124},{142,62}},
+              textString="%name",
+              lineColor={0,0,255}),
             Polygon(
-              points={{0,60},{60,0},{0,-60},{0,60}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
+              points={{0,60},{60,0},{0,-60},{0,60}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
               fillPattern=FillPattern.Solid)}),
         Diagram(graphics),
         Documentation(info="<HTML>
@@ -1105,11 +1108,13 @@ library (will be replaced by a color editor).
         "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog);
       // Real rxry[3, 2];
     protected 
-      Real abs_n_x=Frames.length(lengthDirection) annotation (Hide=true);
+      Real abs_n_x=Modelica.Math.Vectors.length(
+                                 lengthDirection) annotation (Hide=true);
       Real e_x[3]=noEvent(if abs_n_x < 1.e-10 then {1,0,0} else lengthDirection
           /abs_n_x) annotation (Hide=true);
       Real n_z_aux[3]=cross(e_x, widthDirection) annotation (Hide=true);
-      Real e_y[3]=noEvent(cross(Frames.normalize(cross(e_x, if n_z_aux*n_z_aux
+      Real e_y[3]=noEvent(cross(Modelica.Math.Vectors.normalize(
+                                                 cross(e_x, if n_z_aux*n_z_aux
            > 1.0e-6 then widthDirection else (if abs(e_x[1]) > 1.0e-6 then {0,1,
           0} else {1,0,0}))), e_x)) annotation (Hide=true);
       output Real Form annotation (Hide=false);
@@ -1315,33 +1320,33 @@ model where a <b>Shape</b> instance is used, e.g., in the form
         preferedView="info",
         Icon(graphics={
             Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={128,128,128}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,100},{100,-100}},
+              lineColor={128,128,128},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-140,164},{148,102}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{-140,164},{148,102}},
+              textString="%name",
+              lineColor={0,0,255}),
             Polygon(
-              points={{-82,-24},{-20,46},{-10,38},{-72,-32},{-82,-24}}, 
-              lineColor={0,127,255}, 
-              fillColor={0,127,255}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-82,-24},{-20,46},{-10,38},{-72,-32},{-82,-24}},
+              lineColor={0,127,255},
+              fillColor={0,127,255},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{-24,-34},{-82,40},{-72,46},{-14,-26},{-24,-34}}, 
-              lineColor={0,127,255}, 
-              fillColor={0,127,255}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-24,-34},{-82,40},{-72,46},{-14,-26},{-24,-34}},
+              lineColor={0,127,255},
+              fillColor={0,127,255},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{42,-18},{10,40},{20,48},{50,-6},{42,-18}}, 
-              lineColor={0,127,255}, 
-              fillColor={0,127,255}, 
-              fillPattern=FillPattern.Solid), 
+              points={{42,-18},{10,40},{20,48},{50,-6},{42,-18}},
+              lineColor={0,127,255},
+              fillColor={0,127,255},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{10,-68},{84,48},{96,42},{24,-72},{10,-68}}, 
-              lineColor={0,127,255}, 
-              fillColor={0,127,255}, 
+              points={{10,-68},{84,48},{96,42},{24,-72},{10,-68}},
+              lineColor={0,127,255},
+              fillColor={0,127,255},
               fillPattern=FillPattern.Solid)}),
         Diagram(graphics),
         Documentation(info="<HTML>
@@ -1428,7 +1433,8 @@ The diameter and color of all line cylinders are identical.
         each shapeType="cylinder",
         lengthDirection={T.resolve1(R_rel, vector([lines[i, 2, :] - lines[i, 1,
              :]; 0])) for i in 1:n},
-        length={MultiBody.Frames.length(lines[i, 2, :] - lines[i, 1, :]) for i in 
+        length={Modelica.Math.Vectors.length(
+                                        lines[i, 2, :] - lines[i, 1, :]) for i in 
                 1:n},
         r={r_abs + T.resolve1(R_lines, vector([lines[i, 1, :]; 0])) for i in 1:
             n},
@@ -1442,33 +1448,33 @@ The diameter and color of all line cylinders are identical.
         preferedView="info",
         Icon(graphics={
             Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={128,128,128}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,100},{100,-100}},
+              lineColor={128,128,128},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{-24,-34},{-82,40},{-72,46},{-14,-26},{-24,-34}}, 
-              lineColor={0,127,255}, 
-              fillColor={0,127,255}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-24,-34},{-82,40},{-72,46},{-14,-26},{-24,-34}},
+              lineColor={0,127,255},
+              fillColor={0,127,255},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{-82,-24},{-20,46},{-10,38},{-72,-32},{-82,-24}}, 
-              lineColor={0,127,255}, 
-              fillColor={0,127,255}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-82,-24},{-20,46},{-10,38},{-72,-32},{-82,-24}},
+              lineColor={0,127,255},
+              fillColor={0,127,255},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{42,-18},{10,40},{20,48},{50,-6},{42,-18}}, 
-              lineColor={0,127,255}, 
-              fillColor={0,127,255}, 
-              fillPattern=FillPattern.Solid), 
+              points={{42,-18},{10,40},{20,48},{50,-6},{42,-18}},
+              lineColor={0,127,255},
+              fillColor={0,127,255},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{10,-68},{84,48},{96,42},{24,-72},{10,-68}}, 
-              lineColor={0,127,255}, 
-              fillColor={0,127,255}, 
-              fillPattern=FillPattern.Solid), 
+              points={{10,-68},{84,48},{96,42},{24,-72},{10,-68}},
+              lineColor={0,127,255},
+              fillColor={0,127,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-140,164},{148,102}}, 
-              textString="%name", 
+              extent={{-140,164},{148,102}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(graphics),
         Documentation(info="<HTML>

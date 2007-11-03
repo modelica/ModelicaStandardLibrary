@@ -1,8 +1,5 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
-encapsulated model Pendulum 
-  "Simple pendulum with one revolute joint and one body" 
-  import Modelica;
-  import Modelica.Mechanics.MultiBody;
+model Pendulum "Simple pendulum with one revolute joint and one body" 
   extends Modelica.Icons.Example;
   annotation (
     experiment(StopTime=5),
@@ -28,8 +25,9 @@ ALT=\"model Examples.Elementary.Pendulum\">
   inner Modelica.Mechanics.MultiBody.World world(gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.
         UniformGravity) annotation (Placement(transformation(extent={{-60,0},{
             -40,20}}, rotation=0)));
-  Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute rev(n={0,0,1}, initType=Modelica.Mechanics.MultiBody.Types.
-        Init.PositionVelocity) annotation (Placement(transformation(extent={{
+  Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute rev(n={0,0,1},
+    phi(fixed=true),
+    w(fixed=true))             annotation (Placement(transformation(extent={{
             -20,0},{0,20}}, rotation=0)));
   Modelica.Mechanics.Rotational.Damper damper(d=0.1) 
     annotation (Placement(transformation(extent={{-20,40},{0,60}}, rotation=0)));

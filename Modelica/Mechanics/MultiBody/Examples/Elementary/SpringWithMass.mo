@@ -25,8 +25,11 @@ ALT=\"model Examples.Elementary.SpringWithMass\">
         origin={10,30},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Mechanics.MultiBody.Parts.Body body(initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
-      r_0_start={0,-0.3,0}) annotation (Placement(transformation(
+  Modelica.Mechanics.MultiBody.Parts.Body body(
+    r_0(start={0,-0.3,0}, fixed=true), 
+    v_0(fixed=true), 
+    angles_fixed=true, 
+    w_0_fixed=true)         annotation (Placement(transformation(
         origin={10,-10},
         extent={{-10,-10},{10,10}},
         rotation=270)));
@@ -38,7 +41,7 @@ equation
       thickness=2));
   connect(body.frame_a, spring.frame_b) 
     annotation (Line(
-      points={{10,0},{10,20}},
+      points={{10,0},{10,10},{10,20}},
       color={95,95,95},
       thickness=2));
 end SpringWithMass;

@@ -40,8 +40,9 @@ forceAndTorque component):
     annotation (Placement(transformation(extent={{-8,-30},{12,-10}}, rotation=0)));
   Forces.ForceAndTorque forceAndTorque(Nm_to_m=120, N_to_m=1200) 
     annotation (Placement(transformation(extent={{60,50},{40,30}}, rotation=0)));
-  Joints.Revolute revolute2(n={0,1,0}, initType=Modelica.Mechanics.MultiBody.Types.Init.
-        PositionVelocity) annotation (Placement(transformation(
+  Joints.Revolute revolute2(n={0,1,0},
+    phi(fixed=true),
+    w(fixed=true))        annotation (Placement(transformation(
         origin={-20,20},
         extent={{-10,-10},{10,10}},
         rotation=90)));
@@ -50,7 +51,7 @@ forceAndTorque component):
         origin={70,-10},
         extent={{10,-10},{-10,10}},
         rotation=270)));
-  Joints.Revolute revolute1(initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity) 
+  Joints.Revolute revolute1(phi(fixed=true), w(fixed=true)) 
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}}, rotation=
             0)));
   Parts.Fixed fixed2(width=0.03, r={1.5,0.25,0}) 

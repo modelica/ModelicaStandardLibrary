@@ -897,23 +897,6 @@ is not possible or too difficult to compute, use function from_T2(..).
     exy := [R.T[1, :], R.T[2, :]];
   end to_exy;
   
-  function length "Return length of a vector" 
-    extends Modelica.Icons.Function;
-    input Real r[:] "Vector";
-    output Real r_length "Length of vector r";
-  algorithm 
-    r_length := sqrt(r*r);
-  end length;
-  
-  function normalize "Return normalized vector such that length = 1" 
-    extends Modelica.Icons.Function;
-    input Real r[:] "Vector";
-    output Real r_unitLength[size(r, 1)] 
-      "Input vector r normalized to length=1";
-  algorithm 
-    r_unitLength := if length(r) > 1.e-10 then r/length(r) else r;
-  end normalize;
-  
   function axis "Return unit vector for x-, y-, or z-axis" 
     extends Modelica.Icons.Function;
     input Integer axis(min=1, max=3) "Axis vector to be returned";

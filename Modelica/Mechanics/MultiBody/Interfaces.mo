@@ -405,7 +405,8 @@ needed and if the two frame connectors should be connected for a correct model.
             extent={{100,-15},{124,-34}}, 
             lineColor={128,128,128}, 
             textString="b")},
-           coordinateSystem(extent=[-200,-200; 200,200])),
+           coordinateSystem(extent={{-200,-200},{200,200}}, preserveAspectRatio
+            =false)),
       Documentation(info="<HTML>
 <p>
 This partial model provides two frame connectors, access to the world
@@ -439,7 +440,9 @@ joint aggregation models.
   equation 
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of component is not connected");
-    annotation (Icon(graphics),
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}),
+                     graphics),
                       Documentation(info="<html>
 <p>
 This partial model provides one frame_a connector, access to the world
@@ -598,7 +601,8 @@ Note, that frame_b.f and frame_b.t are flow variables and therefore
 the negative value of frame_b.f and frame_b.t is acting at the part
 to which this force element is connected.
 </p>
-</HTML>"), Icon(graphics={Text(
+</HTML>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+              {100,100}}), graphics={Text(
             extent={{-136,42},{-100,17}}, 
             lineColor={128,128,128}, 
             textString="a"), Text(
@@ -641,7 +645,8 @@ to which this force element is connected.
     
     // Determine distance s and n_a 
     r_rel_a = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
-    s = noEvent(max(Frames.length(r_rel_a), s_small));
+    s = noEvent(max(Modelica.Math.Vectors.length(
+                                  r_rel_a), s_small));
     e_a = r_rel_a/s;
     
     /* Determine forces and torques at frame_a and frame_b */
@@ -682,7 +687,8 @@ has to be defined. Example:
       f = c*(s-s_unstretched);
    <b>end</b> Spring;
 </pre>
-</HTML>"), Icon(graphics={Text(
+</HTML>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+              {100,100}}), graphics={Text(
             extent={{-136,44},{-100,19}}, 
             lineColor={128,128,128}, 
             textString="a"), Text(
@@ -734,7 +740,7 @@ with the blocks of package Modelica.Blocks.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-70,0},{-100,0}}, color={0,0,0}), 
+          grid={1,1}), graphics={Line(points={{-70,0},{-100,0}}, color={0,0,0}),
             Line(points={{70,0},{100,0}}, color={0,0,255})}));
   equation 
     assert(cardinality(frame_a) > 0,
@@ -797,8 +803,8 @@ with the blocks of package Modelica.Blocks.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-70,0},{-100,0}}, color={0,0,0}), 
-          Line(points={{70,0},{100,0}}, color={0,0,0}), 
+          Line(points={{-70,0},{-100,0}}, color={0,0,0}),
+          Line(points={{70,0},{100,0}}, color={0,0,0}),
           Line(points={{0,-100},{0,-70}}, color={0,0,127})}));
   equation 
     
@@ -873,12 +879,12 @@ with the blocks of package Modelica.Blocks.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-70,0},{-100,0}}, color={0,0,0}), 
-          Line(points={{70,0},{100,0}}, color={0,0,0}), 
-          Line(points={{-80,-100},{-80,0}}, color={0,0,127}), 
+          Line(points={{-70,0},{-100,0}}, color={0,0,0}),
+          Line(points={{70,0},{100,0}}, color={0,0,0}),
+          Line(points={{-80,-100},{-80,0}}, color={0,0,127}),
           Line(
-            points={{80,0},{80,-100}}, 
-            color={95,95,95}, 
+            points={{80,0},{80,-100}},
+            color={95,95,95},
             pattern=LinePattern.Dot)}));
     
   protected 
@@ -921,7 +927,9 @@ with the blocks of package Modelica.Blocks.
   equation 
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of visualizer object is not connected");
-    annotation (Icon(graphics),
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}),
+                     graphics),
                       Documentation(info="<html>
 <p>
 This partial model provides one frame_a connector, access to the world

@@ -84,7 +84,8 @@ solved, i.e., robustly and efficiently).
     extends Internal.Prismatic;
     
     annotation (
-      Icon(graphics={Text(
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={Text(
             extent={{-142,62},{147,101}}, 
             lineColor={0,0,0}, 
             textString="n=%n"), Text(
@@ -94,18 +95,19 @@ solved, i.e., robustly and efficiently).
       Documentation(info="<HTML>
 <p>
 Joint where frame_b is translated along axis n which is fixed in frame_a.
-The two frames coincide when \"s + s_offset = 0\", where
-\"s_offset\" is a parameter with a zero default
-and \"s\" is the relative distance.
+The two frames coincide when the relative distance \"s = 0\".
 </p>
+
 <p>
-In the \"Advanced\" menu it can be defined via parameter <b>enforceStates</b>
+In the \"Advanced\" menu it can be defined via parameter <b>stateSelect</b>
 that the relative distance \"s\" and its derivative shall be definitely
-used as states (this means that the Modelica attributes stateSelect=StateSelect.always
-are set on these variables). The states are usually selected automatically.
+used as states by setting stateSelect=StateSelect.always.
+Default is StateSelect.prefer to use the relative distance and its
+derivative as preferred states. The states are usually selected automatically.
 In certain situations, especially when closed kinematic loops are present,
-it might be slightly more efficient, when using the \"enforceStates\" setting.
+it might be slightly more efficient, when using the StateSelect.always setting.
 </p>
+
 <p>
 In the following figure the animation of a prismatic
 joint is shown. The light blue coordinate system is
@@ -118,7 +120,9 @@ vector \"n\" defining the translation axis
 <IMG SRC=\"../Images/MultiBody/Joints/Prismatic.png\">
 </p>
 </HTML>
-"),   Diagram(graphics));
+"),   Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}),
+              graphics));
     
   end Prismatic;
   
@@ -197,24 +201,28 @@ vector \"n\" defining the translation axis
       Documentation(info="<HTML>
 <p>
 Joint where frame_b is translated along axis n which is fixed in frame_a.
-The two frames coincide when \"s + s_offset = 0\", where
-\"s_offset\" is a parameter with a zero default
-and \"s\" is the relative distance.
+The two frames coincide when the relative distance \"s = 0\".
 </p>
+
 <p>
 The prismatic joint has two additional 1-dimensional mechanical flanges
 (flange \"axis\" represents the driving flange and
 flange \"bearing\" represents the bearing) where it can be
-driven with elements of the Modelica.Mechanics.Translational library.
+driven with elements of the
+<a href=\"Modelica://Modelica.Mechanics.Translational\">Modelica.Mechanics.Translational</a>
+library.
 </p>
+
 <p>
-In the \"Advanced\" menu it can be defined via parameter <b>enforceStates</b>
+In the \"Advanced\" menu it can be defined via parameter <b>stateSelect</b>
 that the relative distance \"s\" and its derivative shall be definitely
-used as states (this means that the Modelica attributes stateSelect=StateSelect.always
-are set on these variables). The states are usually selected automatically.
+used as states by setting stateSelect=StateSelect.always.
+Default is StateSelect.prefer to use the relative distance and its
+derivative as preferred states. The states are usually selected automatically.
 In certain situations, especially when closed kinematic loops are present,
-it might be slightly more efficient, when using the \"enforceStates\" setting.
+it might be slightly more efficient, when using the StateSelect.always setting.
 </p>
+
 <p>
 In the following figure the animation of an actuated
 prismatic
@@ -277,17 +285,16 @@ vector \"n\" defining the translation axis
       Documentation(info="<HTML>
 <p>
 Joint where frame_b rotates around axis n which is fixed in frame_a.
-The two frames coincide when \"phi + phi_offset = 0\", where
-\"phi_offset\" is a parameter with a zero default
-and \"phi\" is the rotation angle.
+The two frames coincide when the rotation angle \"phi = 0\".
 </p>
 <p>
-In the \"Advanced\" menu it can be defined via parameter <b>enforceStates</b>
+In the \"Advanced\" menu it can be defined via parameter <b>stateSelect</b>
 that the rotation angle \"phi\" and its derivative shall be definitely
-used as states (this means that the Modelica attributes stateSelect=StateSelect.always
-are set on these variables). The states are usually selected automatically.
+used as states by setting stateSelect=StateSelect.always.
+Default is StateSelect.prefer to use the joint angle and its
+derivative as preferred states. The states are usually selected automatically.
 In certain situations, especially when closed kinematic loops are present,
-it might be slightly more efficient, when using the \"enforceStates\" setting.
+it might be slightly more efficient, when using the StateSelect.always setting.
 </p>
 <p>
 If a <b>planar loop</b> is present, e.g., consisting of 4 revolute joints
@@ -302,13 +309,14 @@ variables (e.g., the force in the direction of the axis of rotation is
 treated as known with value equal to zero; for standard revolute joints,
 this force is an unknown quantity).
 </p>
+
 <p>
 In the following figure the animation of a revolute
 joint is shown. The light blue coordinate system is
 frame_a and the dark blue coordinate system is 
 frame_b of the joint. The black arrow is parameter
 vector \"n\" defining the translation axis
-(here: n = {0,0,1}, phi_start = 45<sup>o</sup>).
+(here: n = {0,0,1}, phi.start = 45<sup>o</sup>).
 </p>
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Joints/Revolute.png\">
@@ -447,13 +455,15 @@ this force is an unknown quantity).
 "));
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
-    parameter Real e[3]=Frames.normalize(n) 
+    parameter Real e[3]=Modelica.Math.Vectors.normalize(
+                                         n) 
       "Unit vector in direction of rotation axis, resolved in frame_a (= same as in frame_b)";
     parameter Real nnx_a[3]=if abs(e[1]) > 0.1 then {0,1,0} else (if abs(e[2])
          > 0.1 then {0,0,1} else {1,0,0}) 
       "Arbitrary vector that is not aligned with rotation axis n" 
       annotation (Evaluate=true);
-    parameter Real ey_a[3]=Frames.normalize(cross(e, nnx_a)) 
+    parameter Real ey_a[3]=Modelica.Math.Vectors.normalize(
+                                            cross(e, nnx_a)) 
       "Unit vector orthogonal to axis n of revolute joint, resolved in frame_a"
       annotation (Evaluate=true);
     parameter Real ex_a[3]=cross(ey_a, e) 
@@ -634,23 +644,27 @@ definition of the axes vectors n in the revolute joints of the planar loop.
       Documentation(info="<HTML>
 <p>
 Joint where frame_b rotates around axis n which is fixed in frame_a.
-The two frames coincide when \"phi + phi_offset = 0\", where
-\"phi_offset\" is a parameter with a zero default
-and \"phi\" is the rotation angle.
+The two frames coincide when the rotation angle \"phi = 0\".
 </p>
+
 <p>
 The revolute joint has two additional 1-dimensional mechanical flanges
 (flange \"axis\" represents the driving flange and
 flange \"bearing\" represents the bearing) where it can be
-driven with elements of the Modelica.Mechanics.Rotational library.
+driven with elements of the
+<a href=\"Modelica://Modelica.Mechanics.Rotational\">Modelica.Mechanics.Rotational</a>
+library.
+
 </p>
+
 <p>
-In the \"Advanced\" menu it can be defined via parameter <b>enforceStates</b>
+In the \"Advanced\" menu it can be defined via parameter <b>stateSelect</b>
 that the rotation angle \"phi\" and its derivative shall be definitely
-used as states (this means that the Modelica attributes stateSelect=StateSelect.always
-are set on these variables). The states are usually selected automatically.
+used as states by setting stateSelect=StateSelect.always.
+Default is StateSelect.prefer to use the joint angle and its
+derivative as preferred states. The states are usually selected automatically.
 In certain situations, especially when closed kinematic loops are present,
-it might be slightly more efficient, when using the \"enforceStates\" setting.
+it might be slightly more efficient, when using the StateSelect.always setting.
 </p>
 <p>
 If a <b>planar loop</b> is present, e.g., consisting of 4 revolute joints
@@ -665,13 +679,14 @@ variables (e.g., the force in the direction of the axis of rotation is
 treated as known with value equal to zero; for standard revolute joints,
 this force is an unknown quantity).
 </p>
+
 <p>
 In the following figure the animation of an actuated revolute
 joint is shown. The light blue coordinate system is
 frame_a and the dark blue coordinate system is 
 frame_b of the joint. The black arrow is parameter
 vector \"n\" defining the translation axis
-(here: n = {0,0,1}, phi_start = 45<sup>o</sup>).
+(here: n = {0,0,1}, phi.start = 45<sup>o</sup>).
 </p>
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Joints/Revolute.png\">
@@ -685,34 +700,12 @@ vector \"n\" defining the translation axis
   model Cylindrical 
     "Cylindrical joint (2 degrees-of-freedom, 4 potential states)" 
     import SI = Modelica.SIunits;
-    import NonSI = Modelica.SIunits.Conversions.NonSIunits;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show cylinder)";
     parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
       "Cylinder axis resolved in frame_a (= same as in frame_b)" 
       annotation (Evaluate=true);
-    parameter Types.Init initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
-      "Type of initialization (defines usage of start values below)" 
-      annotation (Dialog(group="Initialization"));
-    parameter NonSI.Angle_deg phi_start=0 
-      "Initial value of rotation angle phi (fixed or guess value)" 
-      annotation (Evaluate=false, Dialog(group="Initialization"));
-    parameter SI.Position s_start=0 
-      "Initial value of relative distance (fixed or guess value)" 
-      annotation (Evaluate=false, Dialog(group="Initialization"));
-    parameter Types.AngularVelocity_degs w_start=0 
-      "Initial value of relative angular velocity w = der(phi)" 
-      annotation (Evaluate=false, Dialog(group="Initialization"));
-    parameter SI.Velocity v_start=0 
-      "Initial value of relative velocity v = der(s)" 
-      annotation (Evaluate=false, Dialog(group="Initialization"));
-    parameter SI.Acceleration a_start=0 
-      "Initial value of relative acceleration a = der(v)" 
-      annotation (Evaluate=false, Dialog(group="Initialization"));
-    parameter Types.AngularAcceleration_degs2 wd_start=0 
-      "Initial value of relative angular acceleration wd = der(w)" 
-      annotation (Evaluate=false, Dialog(group="Initialization"));
     parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
       "Diameter of cylinder" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -722,27 +715,32 @@ vector \"n\" defining the translation axis
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Boolean enforceStates=false 
-      "= true, if generalized variables shall be used as states (StateSelect.always)"
-      annotation (Dialog(tab="Advanced"));
+    parameter StateSelect stateSelect=StateSelect.prefer 
+      "Priority to use joint coordinates (phi, s, w, v) as states" annotation(Dialog(tab="Advanced"));
+    
     Prismatic prismatic(
       n=n,
       animation=false,
-      enforceStates=enforceStates,
-      initType=initType,
-      s_start=s_start,
-      v_start=v_start,
-      a_start=a_start) annotation (Placement(transformation(extent={{-70,-25},{
+      stateSelect=StateSelect.never) annotation (Placement(transformation(extent={{-70,-25},{
               -15,25}}, rotation=0)));
     Revolute revolute(
       n=n,
       animation=false,
-      enforceStates=enforceStates,
-      initType=initType,
-      phi_start=phi_start,
-      w_start=w_start,
-      a_start=wd_start) annotation (Placement(transformation(extent={{10,-25},{
+      stateSelect=StateSelect.never) annotation (Placement(transformation(extent={{10,-25},{
               65,25}}, rotation=0)));
+    
+    SI.Position s(start=0, stateSelect=stateSelect) 
+      "Relative distance between frame_a and frame_b";
+    SI.Angle phi(start=0, stateSelect=stateSelect) 
+      "Relative rotation angle from frame_a to frame_b";
+    SI.Velocity v(start=0, stateSelect=stateSelect) 
+      "First derivative of s (relative velocity)";
+    SI.AngularVelocity w(start=0, stateSelect=stateSelect) 
+      "First derivative of angle phi (relative angular velocity)";
+    SI.Acceleration a(start=0) "Second derivative of s (relative acceleration)";
+    SI.AngularAcceleration wd(start=0) 
+      "Second derivative of angle phi (relative angular acceleration)";
+    
     annotation (
       Window(
         x=0.33,
@@ -753,23 +751,21 @@ vector \"n\" defining the translation axis
 <p>
 Joint where frame_b rotates around and translates along axis n
 which is fixed in frame_a. The two frames coincide when
-\"revolute.phi=0\" and \"prismatic.s=0\". This joint
+\"phi=revolute.phi=0\" and \"s=prismatic.s=0\". This joint
 has the following potential states;
 <ul>
-<li> The relative angle revolute.phi [rad] around axis n, </li>
-<li> the relative distance prismatic.s [m] along axis n, </li>
-<li> the relative angular velocity revolute.w [rad/s] (= der(revolute.phi))
+<li> The relative angle phi [rad] around axis n, </li>
+<li> the relative distance s [m] along axis n, </li>
+<li> the relative angular velocity w [rad/s] (= der(phi))
      and </li>
-<li> the relative velocity prismatic.v [m/s] (= der(prismatic.s)).</li>
+<li> the relative velocity v [m/s] (= der(s)).</li>
 </ul>
 <p>
 They are used as candidates for automatic selection of states
-from the tool. This may be enforced by setting \"enforceStates=<b>true</b>\"
-in the <b>Advanced</b> menu (this means that the Modelica
-attributes stateSelect=StateSelect.always
-are set on these variables). The states are usually selected automatically.
+from the tool. This may be enforced by setting \"stateSelect=StateSelect.<b>always</b>\"
+in the <b>Advanced</b> menu. The states are usually selected automatically.
 In certain situations, especially when closed kinematic loops are present,
-it might be slightly more efficient, when using the \"enforceStates\" setting.
+it might be slightly more efficient, when using the \"StateSelect.always\" setting.
 </p>
 <p>
 In the following figure the animation of a cylindrical
@@ -819,9 +815,15 @@ vector \"n\" defining the cylinder axis
       widthDirection={0,1,0},
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation 
-      annotation (Placement(transformation(extent={{-10,40},{10,60}}, rotation=
+      annotation (Placement(transformation(extent={{-20,40},{0,60}},  rotation=
               0)));
   equation 
+    phi = revolute.phi;
+    w = der(phi);
+    wd = der(w);
+    s = prismatic.s;
+    v = der(s);
+    a = der(v);
     connect(frame_a, prismatic.frame_a) 
       annotation (Line(
         points={{-100,0},{-70,0}},
@@ -841,8 +843,6 @@ vector \"n\" defining the cylinder axis
   
   model Universal "Universal joint (2 degrees-of-freedom, 4 potential states)" 
     import SI = Modelica.SIunits;
-    import NonSI = Modelica.SIunits.Conversions.NonSIunits;
-    import Modelica.Mechanics.MultiBody.Types;
     
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -850,28 +850,6 @@ vector \"n\" defining the cylinder axis
       "Axis of revolute joint 1 resolved in frame_a" annotation (Evaluate=true);
     parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,1,0} 
       "Axis of revolute joint 2 resolved in frame_b" annotation (Evaluate=true);
-    
-    parameter Types.Init initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
-      "Type of initialization (defines usage of start values below)" 
-      annotation (Dialog(group="Initialization"));
-    parameter NonSI.Angle_deg phi_start_a=0 
-      "Initial value of rotation angle at frame_a (fixed or guess value)" 
-      annotation (Dialog(group="Initialization"));
-    parameter NonSI.Angle_deg phi_start_b=0 
-      "Initial value of rotation angle at frame_b (fixed or guess value)" 
-      annotation (Dialog(group="Initialization"));
-    parameter Types.AngularVelocity_degs w_start_a=0 
-      "Initial value of derivative of rotation angle at frame_a" 
-      annotation (Dialog(group="Initialization"));
-    parameter Types.AngularVelocity_degs w_start_b=0 
-      "Initial value of derivative of rotation angle at frame_b" 
-      annotation (Dialog(group="Initialization"));
-    parameter Types.AngularAcceleration_degs2 a_start_a=0 
-      "Initial value of second derivative of rotation angle at frame_a" 
-      annotation (Dialog(group="Initialization"));
-    parameter Types.AngularAcceleration_degs2 a_start_b=0 
-      "Initial value of second derivative of rotation angle at frame_b" 
-      annotation (Dialog(group="Initialization"));
     
     parameter SI.Distance cylinderLength=world.defaultJointLength 
       "Length of cylinders representing the joint axes" 
@@ -885,16 +863,12 @@ vector \"n\" defining the cylinder axis
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Boolean enforceStates=false 
-      "= true, if generalized variables shall be used as states (StateSelect.always)"
-      annotation (Dialog(tab="Advanced"));
+    parameter StateSelect stateSelect=StateSelect.prefer 
+      "Priority to use joint coordinates (phi_a, phi_b, w_a, w_b) as states" annotation(Dialog(tab="Advanced"));
+    
     Modelica.Mechanics.MultiBody.Joints.Revolute revolute_a(
       n=n_a,
-      enforceStates=enforceStates,
-      initType=initType,
-      phi_start=phi_start_a,
-      w_start=w_start_a,
-      a_start=a_start_a,
+      stateSelect=StateSelect.never,
       cylinderDiameter=cylinderDiameter,
       cylinderLength=cylinderLength,
       cylinderColor=cylinderColor,
@@ -903,11 +877,7 @@ vector \"n\" defining the cylinder axis
               -25},{-10,25}}, rotation=0)));
     Modelica.Mechanics.MultiBody.Joints.Revolute revolute_b(
       n=n_b,
-      enforceStates=enforceStates,
-      initType=initType,
-      phi_start=phi_start_b,
-      w_start=w_start_b,
-      a_start=a_start_b,
+      stateSelect=StateSelect.never,
       animation=animation,
       cylinderDiameter=cylinderDiameter,
       cylinderLength=cylinderLength,
@@ -917,6 +887,20 @@ vector \"n\" defining the cylinder axis
           origin={35,45},
           extent={{-25,-25},{25,25}},
           rotation=90)));
+    
+    SI.Angle phi_a(start=0, stateSelect=stateSelect) 
+      "Relative rotation angle from frame_a to intermediate frame";
+    SI.Angle phi_b(start=0, stateSelect=stateSelect) 
+      "Relative rotation angle from intermediate frame to frame_b";
+    SI.AngularVelocity w_a(start=0, stateSelect=stateSelect) 
+      "First derivative of angle phi_a (relative angular velocity a)";
+    SI.AngularVelocity w_b(start=0, stateSelect=stateSelect) 
+      "First derivative of angle phi_b (relative angular velocity b)";
+    SI.AngularAcceleration a_a(start=0) 
+      "Second derivative of angle phi_a (relative angular acceleration a)";
+    SI.AngularAcceleration a_b(start=0) 
+      "Second derivative of angle phi_b (relative angular acceleration b)";
+    
     annotation (
       Window(
         x=0.11,
@@ -931,28 +915,26 @@ The two frames coincide when
 \"revolute_a.phi=0\" and \"revolute_b.phi=0\". This joint
 has the following potential states;
 <ul>
-<li> The relative angle revolute_a.phi [rad] around axis n_a, </li>
-<li> the relative angle revolute_b.phi [rad] around axis n_b, </li>
-<li> the relative angular velocity revolute_a.w [rad/s] (= der(revolute_a.phi))
-     and </li>
-<li> the relative angular velocity revolute_b.w [rad/s] (= der(revolute_b.phi)).</li>
+<li> The relative angle phi_a = revolute_a.phi [rad] around axis n_a, </li>
+<li> the relative angle phi_b = revolute_b.phi [rad] around axis n_b, </li>
+<li> the relative angular velocity w_a (= der(phi_a))  and </li>
+<li> the relative angular velocity w_b (= der(phi_b)).</li>
 </ul>
 <p>
 They are used as candidates for automatic selection of states
-from the tool. This may be enforced by setting \"enforceStates=<b>true</b>\"
-in the <b>Advanced</b> menu (this means that the Modelica
-attributes stateSelect=StateSelect.always
-are set on these variables). The states are usually selected automatically.
+from the tool. This may be enforced by setting \"stateSelect=StateSelect.<b>always</b>\"
+in the <b>Advanced</b> menu. The states are usually selected automatically.
 In certain situations, especially when closed kinematic loops are present,
-it might be slightly more efficient, when using the \"enforceStates\" setting.
+it might be slightly more efficient, when using the \"StateSelect.always\" setting.
 </p>
+ 
 <p>
 In the following figure the animation of a universal
 joint is shown. The light blue coordinate system is
 frame_a and the dark blue coordinate system is 
 frame_b of the joint
-(here: n_a = {0,0,1}, n_b = {0,1,0}, phi_start_a = 90<sup>o</sup>,
-phi_start_b = 45<sup>o</sup>).
+(here: n_a = {0,0,1}, n_b = {0,1,0}, phi_a.start = 90<sup>o</sup>,
+phi_b.start = 45<sup>o</sup>).
 </p>
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Joints/Universal.png\">
@@ -1024,7 +1006,12 @@ phi_start_b = 45<sup>o</sup>).
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics));
   equation 
-    
+    phi_a = revolute_a.phi;
+    phi_b = revolute_b.phi;
+    w_a = der(phi_a);
+    w_b = der(phi_b);
+    a_a = der(w_a);
+    a_b = der(w_b);
     connect(frame_a, revolute_a.frame_a) 
       annotation (Line(
         points={{-100,0},{-60,0}},
@@ -1041,8 +1028,7 @@ phi_start_b = 45<sup>o</sup>).
   end Universal;
   
   model Planar "Planar joint (3 degrees-of-freedom, 6 potential states)" 
-    import NonSI = Modelica.SIunits.Conversions.NonSIunits;
-    import Modelica.Mechanics.MultiBody.Types;
+    import SI = Modelica.SIunits;
     
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -1052,37 +1038,6 @@ phi_start_b = 45<sup>o</sup>).
     parameter Modelica.Mechanics.MultiBody.Types.Axis n_x={1,0,0} 
       "Vector in direction of x-axis of plane, resolved in frame_a (n_x shall be orthogonal to n)"
       annotation (Evaluate=true);
-    
-    parameter Types.Init initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
-      "Type of initialization (defines usage of start values below)" 
-      annotation (Dialog(group="Initialization"));
-    parameter SI.Position s_start_x=0 
-      "Initial value of x-distance (along n_x; fixed or guess value)" 
-      annotation (Dialog(group="Initialization"));
-    parameter SI.Position s_start_y=0 
-      "Initial value of y-distance (along cross(n,n_x); fixed or guess value)" 
-      annotation (Dialog(group="Initialization"));
-    parameter NonSI.Angle_deg phi_start=0 
-      "Initial value of rotation angle along n (fixed or guess value)" 
-      annotation (Dialog(group="Initialization"));
-    parameter SI.Velocity v_start_x=0 
-      "Initial value of derivative of x-distance" 
-      annotation (Dialog(group="Initialization"));
-    parameter SI.Velocity v_start_y=0 
-      "Initial value of derivative of y-distance" 
-      annotation (Dialog(group="Initialization"));
-    parameter Types.AngularVelocity_degs w_start=0 
-      "Initial value of derivative of rotation angle" 
-      annotation (Dialog(group="Initialization"));
-    parameter SI.Acceleration a_start_x=0 
-      "Initial value of second derivative of x-distance" 
-      annotation (Dialog(group="Initialization"));
-    parameter SI.Acceleration a_start_y=0 
-      "Initial value of second derivative of y-distance" 
-      annotation (Dialog(group="Initialization"));
-    parameter Types.AngularAcceleration_degs2 wd_start=0 
-      "Initial value of second derivative of rotation angle" 
-      annotation (Dialog(group="Initialization"));
     parameter SI.Distance cylinderLength=world.defaultJointLength 
       "Length of revolute cylinder" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -1100,38 +1055,47 @@ phi_start_b = 45<sup>o</sup>).
     input Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
       "Color of prismatic joint boxes" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Boolean enforceStates=false 
-      "= true, if generalized variables (s,phi,v,w) shall be used as states (StateSelect.always)"
-      annotation (Dialog(tab="Advanced"));
+    parameter StateSelect stateSelect=StateSelect.prefer 
+      "Priority to use joint coordinates (s_x, s_y, phi, v_x, v_y, w) as states"
+                                                                                 annotation(Dialog(tab="Advanced"));
+    
     Prismatic prismatic_x(
-      enforceStates=enforceStates,
+      stateSelect=StateSelect.never,
       n=(cross(cross(n, n_x), n)),
-      animation=false,
-      initType=initType,
-      s_start=s_start_x,
-      v_start=v_start_x,
-      a_start=a_start_x) annotation (Placement(transformation(extent={{-69,-20},
+      animation=false) annotation (Placement(transformation(extent={{-69,-20},
               {-29,20}}, rotation=0)));
     Prismatic prismatic_y(
-      enforceStates=enforceStates,
+      stateSelect=StateSelect.never,
       n=(cross(n, n_x)),
-      animation=false,
-      initType=initType,
-      s_start=s_start_y,
-      v_start=v_start_y,
-      a_start=a_start_y) annotation (Placement(transformation(
+      animation=false) annotation (Placement(transformation(
           origin={0,50},
           extent={{-20,-20},{20,20}},
           rotation=90)));
     Revolute revolute(
-      enforceStates=enforceStates,
+      stateSelect=StateSelect.never,
       n=n,
-      animation=false,
-      initType=initType,
-      phi_start=phi_start,
-      w_start=w_start,
-      a_start=wd_start) annotation (Placement(transformation(extent={{41,-20},{
+      animation=false) annotation (Placement(transformation(extent={{41,-20},{
               81,20}}, rotation=0)));
+    
+    SI.Position s_x(start=0, stateSelect=stateSelect) 
+      "Relative distance along first prismatic joint starting at frame_a";
+    SI.Position s_y(start=0, stateSelect=stateSelect) 
+      "Relative distance along second prismatic joint starting at first prismatic joint";
+    SI.Angle phi(start=0, stateSelect=stateSelect) 
+      "Relative rotation angle from frame_a to frame_b";
+    SI.Velocity v_x(start=0, stateSelect=stateSelect) 
+      "First derivative of s_x (relative velocity in s_x direction)";
+    SI.Velocity v_y(start=0, stateSelect=stateSelect) 
+      "First derivative of s_y (relative velocity in s_y direction)";
+    SI.AngularVelocity w(start=0, stateSelect=stateSelect) 
+      "First derivative of angle phi (relative angular velocity)";
+    SI.Acceleration a_x(start=0) 
+      "Second derivative of s_x (relative acceleration in s_x direction)";
+    SI.Acceleration a_y(start=0) 
+      "Second derivative of s_y (relative acceleration in s_y direction)";
+    SI.AngularAcceleration wd(start=0) 
+      "Second derivative of angle phi (relative angular acceleration)";
+    
     annotation (
       Window(
         x=0.17,
@@ -1144,25 +1108,23 @@ Joint where frame_b can move in a plane and can rotate around an
 axis orthogonal to the plane. The plane is defined by
 vector n which is perpendicular to the plane and by vector n_x,
 which points in the direction of the x-axis of the plane.
-frame_a and frame_b coincide when prismatic_a.s=0,
-prismatic_b=0 and revolute.phi=0. This joint has the following
+frame_a and frame_b coincide when s_x=prismatic_x.s=0,
+s_y=prismatic_y.s=0 and phi=revolute.phi=0. This joint has the following
 potential states:
 <ul>
-<li> the relative distance prismatic_x.s [m] along axis n_x, </li>
-<li> the relative distance prismatic_y.s [m] along axis n_y = cross(n,n_x), </li>
-<li> the relative angle revolute.phi [rad] around axis n, </li>
-<li> the relative velocity prismatic_x.v [m/s] (= der(prismatic_x.s)).</li>
-<li> the relative velocity prismatic_y.v [m/s] (= der(prismatic_y.s)).</li>
-<li> the relative angular velocity revolute.w [rad/s] (= der(revolute.phi))</li>
+<li> the relative distance s_x = prismatic_x.s [m] along axis n_x, </li>
+<li> the relative distance s_y = prismatic_y.s [m] along axis n_y = cross(n,n_x), </li>
+<li> the relative angle phi = revolute.phi [rad] around axis n, </li>
+<li> the relative velocity v_x (= der(s_x)).</li>
+<li> the relative velocity v_y (= der(s_y)).</li>
+<li> the relative angular velocity w (= der(phi))</li>
 </ul>
 <p>
-The potential states are used as candidates for automatic selection of states
-from the tool. This may be enforced by setting \"enforceStates=<b>true</b>\"
-in the <b>Advanced</b> menu (this means that the Modelica
-attributes stateSelect=StateSelect.always
-are set on these variables). The states are usually selected automatically.
+They are used as candidates for automatic selection of states
+from the tool. This may be enforced by setting \"stateSelect=StateSelect.<b>always</b>\"
+in the <b>Advanced</b> menu. The states are usually selected automatically.
 In certain situations, especially when closed kinematic loops are present,
-it might be slightly more efficient, when using the \"enforceStates\" setting.
+it might be slightly more efficient, when using the \"StateSelect.always\" setting.
 </p>
 <p>
 In the following figure the animation of a planar
@@ -1170,8 +1132,8 @@ joint is shown. The light blue coordinate system is
 frame_a and the dark blue coordinate system is 
 frame_b of the joint. The black arrows are parameter
 vectors \"n\" and \"n_x\"
-(here: n = {0,1,0}, n_x = {0,0,1}, s_start_x = 0.5, 
-s_start_y = 0.5, phi_start = 45<sup>o</sup>).
+(here: n = {0,1,0}, n_x = {0,0,1}, s_x.start = 0.5, 
+s_y.start = 0.5, phi.start = 45<sup>o</sup>).
 </p>
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Joints/Planar.png\">
@@ -1216,7 +1178,8 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
     
   protected 
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
-    parameter Real e[3]=Frames.normalize(n);
+    parameter Real e[3]=Modelica.Math.Vectors.normalize(
+                                         n);
   protected 
     Visualizers.Advanced.Shape box_x[ndim](
       each shapeType="box",
@@ -1253,6 +1216,16 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
       each R=revolute.frame_b.R) annotation (Placement(transformation(extent={{
               50,30},{70,50}}, rotation=0)));
   equation 
+    s_x = prismatic_x.s;
+    s_y = prismatic_y.s;
+    phi = revolute.phi;
+    v_x = der(s_x);
+    v_y = der(s_y);
+    w   = der(phi);
+    a_x = der(v_x);
+    a_y = der(v_y);
+    wd  = der(w);
+    
     connect(frame_a, prismatic_x.frame_a) 
       annotation (Line(
         points={{-100,0},{-69,0}},
@@ -1278,7 +1251,6 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
     
     import Modelica.Mechanics.MultiBody.Frames;
     import SI = Modelica.SIunits;
-    import Cv = Modelica.SIunits.Conversions;
     
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     parameter Boolean animation=true 
@@ -1292,21 +1264,31 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    parameter Types.Init initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
-      "Type of initialization (defines usage of start values below)" 
+    
+    parameter Boolean angles_fixed = false 
+      "= true, if angles_start are used as initial values, else as guess values"
+      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
+    parameter SI.Angle angles_start[3]={0,0,0} 
+      "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
       annotation (Dialog(tab="Initialization"));
     parameter Types.RotationSequence sequence_start={1,2,3} 
       "Sequence of rotations to rotate frame_a into frame_b at initial time" 
       annotation (Evaluate=true, Dialog(tab="Initialization"));
-    parameter Cv.NonSIunits.Angle_deg angles_start[3]={0,0,0} 
-      "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
-      annotation (Evaluate=false, Dialog(tab="Initialization"));
-    parameter Types.AngularVelocity_degs w_rel_a_start[3]={0,0,0} 
+    
+    parameter Boolean w_rel_a_fixed = false 
+      "= true, if w_rel_a_start are used as initial values, else as guess values"
+      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
+    parameter SI.AngularVelocity w_rel_a_start[3]={0,0,0} 
       "Initial values of angular velocity of frame_b with respect to frame_a, resolved in frame_a"
-      annotation (Evaluate=false, Dialog(tab="Initialization"));
-    parameter Types.AngularAcceleration_degs2 z_rel_a_start[3]={0,0,0} 
-      "Initial values of angular acceleration z_rel = der(w_rel)" 
-      annotation (Evaluate=false, Dialog(tab="Initialization"));
+      annotation (Dialog(tab="Initialization"));
+    
+    parameter Boolean z_rel_a_fixed = false 
+      "= true, if z_rel_a_start are used as initial values, else as guess values"
+      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
+    parameter SI.AngularAcceleration z_rel_a_start[3]={0,0,0} 
+      "Initial values of angular acceleration z_rel_a = der(w_rel_a)" 
+      annotation (Dialog(tab="Initialization"));
+    
     parameter Boolean enforceStates=false 
       " = true, if relative variables of spherical joint shall be used as states (StateSelect.always)"
       annotation (Dialog(tab="Advanced"));
@@ -1319,14 +1301,8 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
              and not useQuaternions));
     
     final parameter Frames.Orientation R_rel_start=
-        Modelica.Mechanics.MultiBody.Frames.axesRotations(sequence_start, Cv.from_deg(angles_start),
-         zeros(3)) "Orientation object from frame_a to frame_b at initial time";
-    final parameter SI.AngularVelocity w_rel_start_rad[3]=
-        Modelica.Mechanics.MultiBody.Frames.resolve2(R_rel_start, w_rel_a_start*Modelica.Constants.
-         D2R);
-    final parameter SI.AngularAcceleration z_rel_start_rad[3]=
-        Modelica.Mechanics.MultiBody.Frames.resolve2(R_rel_start, z_rel_a_start*Modelica.Constants.
-         D2R);
+        Frames.axesRotations(sequence_start, angles_start, zeros(3)) 
+      "Orientation object from frame_a to frame_b at initial time";
     annotation (
       Window(
         x=0.23,
@@ -1469,8 +1445,8 @@ frame_b of the joint.
       R=frame_a.R) if world.enableAnimation and animation;
     
     // Declarations for quaternions (dummies, if quaternions are not used)
-    parameter Frames.Quaternions.Orientation Q_start=Modelica.Mechanics.MultiBody.Frames.to_Q(
-        R_rel_start) 
+    parameter Frames.Quaternions.Orientation Q_start=
+              Modelica.Mechanics.MultiBody.Frames.to_Q(R_rel_start) 
       "Quaternion orientation object from frame_a to frame_b at initial time";
     Frames.Quaternions.Orientation Q(start=Q_start, stateSelect=if 
           enforceStates and useQuaternions then StateSelect.prefer else 
@@ -1480,9 +1456,9 @@ frame_b of the joint.
     // Declaration for 3 angles
     parameter SI.Angle phi_start[3]=if sequence_start[1] ==
         sequence_angleStates[1] and sequence_start[2] == sequence_angleStates[2]
-         and sequence_start[3] == sequence_angleStates[3] then Cv.from_deg(
-        angles_start) else Frames.axesRotationsAngles(R_rel_start,
-        sequence_angleStates) "Potential angle states at initial time";
+         and sequence_start[3] == sequence_angleStates[3] then angles_start else 
+         Frames.axesRotationsAngles(R_rel_start, sequence_angleStates) 
+      "Potential angle states at initial time";
     SI.Angle phi[3](start=phi_start, stateSelect=if enforceStates and not 
           useQuaternions then StateSelect.always else StateSelect.never) 
       "Dummy or 3 angles to rotate frame_a into frame_b";
@@ -1492,7 +1468,8 @@ frame_b of the joint.
     SI.AngularAcceleration phi_dd[3] "= der(phi_d)";
     
     // Other declarations
-    SI.AngularVelocity w_rel[3](start=w_rel_start_rad, stateSelect=if 
+    SI.AngularVelocity w_rel[3](start=Frames.resolve2(R_rel_start, w_rel_a_start),
+          fixed = fill(w_rel_a_fixed,3), stateSelect=if 
           enforceStates and useQuaternions then StateSelect.always else 
           StateSelect.never) 
       "Dummy or relative angular velocity of frame_b with respect to frame_a, resolved in frame_b";
@@ -1501,13 +1478,10 @@ frame_b of the joint.
     Frames.Orientation R_rel_inv 
       "Dummy or relative orientation object to rotate from frame_b to frame_a";
   initial equation 
-    if initType == Types.Init.Position or initType == Types.Init.
-        PositionVelocity or initType == Types.Init.PositionVelocityAcceleration then
-      // Initialize positional variables
+    if angles_fixed then
       if not enforceStates then
         // no states defined in spherical object
-        Frames.smallRotation(R_rel_start) =
-          Frames.Orientation.equalityConstraint(frame_a.R, frame_b.R);
+        zeros(3) = Frames.Orientation.equalityConstraint(Frames.absoluteRotation(frame_a.R,R_rel_start),frame_b.R);
       elseif useQuaternions then
         // Quaternions Q are used as states
         zeros(3) = Frames.Quaternions.Orientation.equalityConstraint(Q, Q_start);
@@ -1517,25 +1491,12 @@ frame_b of the joint.
       end if;
     end if;
     
-    if initType == Types.Init.PositionVelocity or initType == Types.Init.
-        PositionVelocityAcceleration or initType == Types.Init.Velocity or 
-        initType == Types.Init.VelocityAcceleration then
-      // Initialize velocity variables
-      w_rel = w_rel_start_rad;
-    end if;
-    
-    if initType == Types.Init.VelocityAcceleration or initType == Types.Init.
-        PositionVelocityAcceleration then
+    if z_rel_a_fixed then
       // Initialize acceleration variables
-      der(w_rel) = z_rel_start_rad;
+      der(w_rel) = Frames.resolve2(R_rel_start, z_rel_a_start);
     end if;
-    
-    if initType == Types.Init.SteadyState then
-      w_rel = zeros(3);
-      der(w_rel) = zeros(3);
-    end if;
-    // torque balance
   equation 
+    // torque balance
     zeros(3) = frame_a.t;
     zeros(3) = frame_b.t;
     
@@ -1548,11 +1509,11 @@ frame_b of the joint.
         frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
         zeros(3) = frame_a.f + Frames.resolve1(R_rel, frame_b.f);
       else
-        R_rel_inv = Frames.Orientation(T=transpose(R_rel.T),w= -Frames.resolve1(
-           R_rel, R_rel.w));
+        R_rel_inv = Frames.inverseRotation(R_rel);
         frame_a.R = Frames.absoluteRotation(frame_b.R, R_rel_inv);
         zeros(3) = frame_b.f + Frames.resolve2(R_rel, frame_a.f);
       end if;
+      
       // Compute relative orientation object
       if useQuaternions then
         // Use Quaternions as states (with dynamic state selection)
@@ -1578,17 +1539,16 @@ frame_b of the joint.
       
     else
       // Spherical joint does not have states
-      // frame_b.r_0 = frame_a.r_0;
-      frame_b.r_0 = transpose(frame_b.R.T)*(frame_b.R.T*(transpose(frame_a.R.T)*(frame_a.R.T*frame_a.r_0)));
+      frame_b.r_0 = frame_a.r_0;
+      //frame_b.r_0 = transpose(frame_b.R.T)*(frame_b.R.T*(transpose(frame_a.R.T)*(frame_a.R.T*frame_a.r_0)));
       
       zeros(3) = frame_a.f + Frames.resolveRelative(frame_b.f, frame_b.R, frame_a.R);
       
-      if initType == Types.Init.Free or initType == Types.Init.Position then
-        // dummies
-        w_rel = zeros(3);
-      else
+      if w_rel_a_fixed or z_rel_a_fixed then
         w_rel = Frames.angularVelocity2(frame_b.R) - Frames.resolve2(frame_b.R,
            Frames.angularVelocity1(frame_a.R));
+      else
+        w_rel = zeros(3);
       end if;
       
       // Dummies
@@ -1606,36 +1566,44 @@ frame_b of the joint.
     
     import Modelica.Math.*;
     import SI = Modelica.SIunits;
-    import Cv = Modelica.SIunits.Conversions;
     
     extends Interfaces.PartialTwoFrames;
     
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show arrow from frame_a to frame_b)";
     
-    parameter Types.Init initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
-      "Type of initialization (defines usage of start values below)" 
-      annotation (Dialog(group="Initialization"));
+    SI.Position r_rel_a[3](start={0,0,0}, stateSelect=if enforceStates then 
+                StateSelect.always else StateSelect.prefer) 
+      "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a"
+      annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
+    SI.Velocity v_rel_a[3](start={0,0,0}, stateSelect=if enforceStates then StateSelect.always else 
+                StateSelect.prefer) 
+      "= der(r_rel_a), i.e., velocity of origin of frame_b with respect to origin of frame_a, resolved in frame_a"
+      annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
+    SI.Acceleration a_rel_a[3](start={0,0,0}) "= der(v_rel_a)" 
+      annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
     
-    parameter SI.Position r_rel_a_start[3]={0,0,0} 
-      "Initial values of r_rel_a (vector from origin of frame_a to origin of frame_b resolved in frame_a)"
+    parameter Boolean angles_fixed = false 
+      "= true, if angles_start are used as initial values, else as guess values"
+      annotation(Evaluate=true, choices(checkBox=true), Dialog(group="Initialization"));
+    parameter SI.Angle angles_start[3]={0,0,0} 
+      "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
       annotation (Dialog(group="Initialization"));
     parameter Types.RotationSequence sequence_start={1,2,3} 
       "Sequence of rotations to rotate frame_a into frame_b at initial time" 
       annotation (Evaluate=true, Dialog(group="Initialization"));
-    parameter Cv.NonSIunits.Angle_deg angles_start[3]={0,0,0} 
-      "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
-      annotation (Evaluate=false, Dialog(group="Initialization"));
-    parameter SI.Velocity v_rel_a_start[3]={0,0,0} 
-      "Initial values of velocity v_rel_a = der(r_rel_a)" 
+    
+    parameter Boolean w_rel_a_fixed = false 
+      "= true, if w_rel_a_start are used as initial values, else as guess values"
+      annotation(Evaluate=true, choices(checkBox=true), Dialog(group="Initialization"));
+    parameter SI.AngularVelocity w_rel_a_start[3]={0,0,0} 
+      "Initial values of angular velocity of frame_b with respect to frame_a, resolved in frame_a"
       annotation (Dialog(group="Initialization"));
-    parameter Types.AngularVelocity_degs w_rel_a_start[3]={0,0,0} 
-      "Initial values of angular velocity of frame_b with respect to frame_a resolved in frame_a"
-      annotation (Dialog(group="Initialization"));
-    parameter SI.Acceleration a_rel_a_start[3]={0,0,0} 
-      "Initial values of acceleration a_rel_a = der(v_rel_a)" 
-      annotation (Dialog(group="Initialization"));
-    parameter Types.AngularAcceleration_degs2 z_rel_a_start[3]={0,0,0} 
+    
+    parameter Boolean z_rel_a_fixed = false 
+      "= true, if z_rel_a_start are used as initial values, else as guess values"
+      annotation(Evaluate=true, choices(checkBox=true), Dialog(group="Initialization"));
+    parameter SI.AngularAcceleration z_rel_a_start[3]={0,0,0} 
       "Initial values of angular acceleration z_rel_a = der(w_rel_a)" 
       annotation (Dialog(group="Initialization"));
     
@@ -1660,16 +1628,9 @@ frame_b of the joint.
             useQuaternions));
     
     final parameter Frames.Orientation R_rel_start=
-        Modelica.Mechanics.MultiBody.Frames.axesRotations(sequence_start, Cv.from_deg(angles_start),
-         zeros(3)) "Orientation object from frame_a to frame_b at initial time";
+        Modelica.Mechanics.MultiBody.Frames.axesRotations(sequence_start, angles_start,zeros(3)) 
+      "Orientation object from frame_a to frame_b at initial time";
     
-    SI.Position r_rel_a[3](start=r_rel_a_start, stateSelect=if enforceStates then 
-                StateSelect.always else StateSelect.prefer) 
-      "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
-    SI.Velocity v_rel_a[3](stateSelect=if enforceStates then StateSelect.always else 
-                StateSelect.prefer) 
-      "= der(r_rel_a), i.e., velocity of origin of frame_b with respect to origin of frame_a, resolved in frame_a";
-    SI.Acceleration a_rel_a[3] "= der(v_rel_a)";
     annotation (
       Window(
         x=0.16,
@@ -1850,16 +1811,8 @@ frame_b of the joint.
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation;
     
-    // Initial values
-    parameter SI.AngularVelocity w_rel_b_start_rad[3]=Modelica.Mechanics.MultiBody.Frames.resolve2(
-         R_rel_start, w_rel_a_start*Modelica.Constants.D2R);
-    parameter SI.AngularAcceleration z_rel_b_start_rad[3]=
-        Modelica.Mechanics.MultiBody.Frames.resolve2(R_rel_start, z_rel_a_start*Modelica.Constants.
-         D2R);
-    
     // Declarations for quaternions (dummies, if quaternions are not used)
-    parameter Frames.Quaternions.Orientation Q_start=Modelica.Mechanics.MultiBody.Frames.to_Q(
-        R_rel_start) 
+    parameter Frames.Quaternions.Orientation Q_start=Frames.to_Q(R_rel_start) 
       "Quaternion orientation object from frame_a to frame_b at initial time";
     Frames.Quaternions.Orientation Q(start=Q_start, stateSelect=if 
           enforceStates then (if useQuaternions then StateSelect.prefer else 
@@ -1869,22 +1822,24 @@ frame_b of the joint.
     // Declaration for 3 angles
     parameter SI.Angle phi_start[3]=if sequence_start[1] ==
         sequence_angleStates[1] and sequence_start[2] == sequence_angleStates[2]
-         and sequence_start[3] == sequence_angleStates[3] then Cv.from_deg(
-        angles_start) else Frames.axesRotationsAngles(R_rel_start,
+         and sequence_start[3] == sequence_angleStates[3] then angles_start else 
+              Frames.axesRotationsAngles(R_rel_start,
         sequence_angleStates) "Potential angle states at initial time";
     SI.Angle phi[3](start=phi_start, stateSelect=if enforceStates then (if 
           useQuaternions then StateSelect.never else StateSelect.always) else 
-          StateSelect.default) 
+          StateSelect.prefer) 
       "Dummy or 3 angles to rotate frame_a into frame_b";
     SI.AngularVelocity phi_d[3](stateSelect=if enforceStates then (if 
           useQuaternions then StateSelect.never else StateSelect.always) else 
-          StateSelect.default) "= der(phi)";
+          StateSelect.prefer) "= der(phi)";
     SI.AngularAcceleration phi_dd[3] "= der(phi_d)";
     
     // Other declarations
-    SI.AngularVelocity w_rel_b[3](start=w_rel_b_start_rad, stateSelect=if 
-          enforceStates then (if useQuaternions then StateSelect.always else 
-          StateSelect.avoid) else StateSelect.default) 
+    SI.AngularVelocity w_rel_b[3](start=Frames.resolve2(R_rel_start, w_rel_a_start),
+                                  fixed=fill(w_rel_a_fixed,3),
+                                  stateSelect=if enforceStates then 
+                                  (if useQuaternions then StateSelect.always else 
+                                  StateSelect.avoid) else StateSelect.prefer) 
       "Dummy or relative angular velocity of frame_b with respect to frame_a, resolved in frame_b";
     Frames.Orientation R_rel 
       "Dummy or relative orientation object to rotate from frame_a to frame_b";
@@ -1892,14 +1847,11 @@ frame_b of the joint.
       "Dummy or relative orientation object to rotate from frame_b to frame_a";
     
   initial equation 
-    if initType == Types.Init.Position or initType == Types.Init.
-        PositionVelocity or initType == Types.Init.PositionVelocityAcceleration then
+    if angles_fixed then
       // Initialize positional variables
-      r_rel_a = r_rel_a_start;
       if not enforceStates then
         // no states defined
-        Frames.smallRotation(R_rel_start) =
-          Frames.Orientation.equalityConstraint(frame_a.R, frame_b.R);
+        zeros(3) = Frames.Orientation.equalityConstraint(Frames.absoluteRotation(frame_a.R,R_rel_start),frame_b.R);
       elseif useQuaternions then
         // Quaternions Q are used as states
         zeros(3) = Frames.Quaternions.Orientation.equalityConstraint(Q, Q_start);
@@ -1909,26 +1861,9 @@ frame_b of the joint.
       end if;
     end if;
     
-    if initType == Types.Init.PositionVelocity or initType == Types.Init.
-        PositionVelocityAcceleration or initType == Types.Init.Velocity or 
-        initType == Types.Init.VelocityAcceleration then
-      // Initialize velocity variables
-      v_rel_a = v_rel_a_start;
-      w_rel_b = w_rel_b_start_rad;
-    end if;
-    
-    if initType == Types.Init.VelocityAcceleration or initType == Types.Init.
-        PositionVelocityAcceleration then
+    if z_rel_a_fixed then
       // Initialize acceleration variables
-      a_rel_a = a_rel_a_start;
-      der(w_rel_b) = z_rel_b_start_rad;
-    end if;
-    
-    if initType == Types.Init.SteadyState then
-      v_rel_a = zeros(3);
-      w_rel_b = zeros(3);
-      a_rel_a = zeros(3);
-      der(w_rel_b) = zeros(3);
+      der(w_rel_b) = Frames.resolve2(R_rel_start, z_rel_a_start);
     end if;
     
   equation 
@@ -1952,8 +1887,7 @@ frame_b of the joint.
         R_rel_inv = Frames.nullRotation();
         frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
       else
-        R_rel_inv = Frames.Orientation(T=transpose(R_rel.T),w= -Frames.resolve1(
-           R_rel, R_rel.w));
+        R_rel_inv = Frames.inverseRotation(R_rel);
         frame_a.R = Frames.absoluteRotation(frame_b.R, R_rel_inv);
       end if;
       
@@ -1982,12 +1916,12 @@ frame_b of the joint.
       
     else
       // Free motion joint does not have states   
-      if initType == Types.Init.Free or initType == Types.Init.Position then
-        // dummies
-        w_rel_b = zeros(3);
-      else
+      if w_rel_a_fixed or z_rel_a_fixed then
         w_rel_b = Frames.angularVelocity2(frame_b.R) - Frames.resolve2(frame_b.
           R, Frames.angularVelocity1(frame_a.R));
+      else
+        // dummy
+        w_rel_b = zeros(3);
       end if;
       
       // Dummies
@@ -2045,7 +1979,7 @@ frame_b of the joint.
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     
     parameter Boolean kinematicConstraint=true 
-      "= false, if no constraint shall be defined, due to analytically solving a kinematic loop"
+      "= false, if no constraint shall be defined, due to analytically solving a kinematic loop (\"false\" should not be used by user, but only by MultiBody.Joints.Assemblies joints)"
       annotation (Dialog(tab="Advanced"));
     Real constraintResidue = rRod_0*rRod_0 - rodLength*rodLength 
       "Constraint equation of joint in residue form: Either length constraint (= default) or equation to compute rod force (for analytic solution of loops in combination with Internal.RevoluteWithLengthConstraint/PrismaticWithLengthConstraint)"
@@ -2432,11 +2366,14 @@ that has this property.
     SI.Force f_rod 
       "Constraint force in direction of the rod (positive, if rod is pressed)";
     final parameter SI.Distance rodLength(fixed=not computeRodLength)=
-      Frames.length(rRod_ia) 
+      Modelica.Math.Vectors.length(
+                    rRod_ia) 
       "Length of rod (distance between origin of frame_a and origin of frame_b)";
-    final parameter Real eRod_ia[3]=Frames.normalize(rRod_ia) 
+    final parameter Real eRod_ia[3]=Modelica.Math.Vectors.normalize(
+                                                     rRod_ia) 
       "Unit vector from origin of frame_a to origin of frame_b, resolved in frame_ia";
-    final parameter Real e2_ia[3]=Frames.normalize(cross(n1_a, eRod_ia)) 
+    final parameter Real e2_ia[3]=Modelica.Math.Vectors.normalize(
+                                                   cross(n1_a, eRod_ia)) 
       "Unit vector in direction of axis 2 of universal joint, resolved in frame_ia (orthogonal to n1_a and eRod_ia; note: frame_ia is parallel to frame_a when the universal joint angles are zero)";
     final parameter Real e3_ia[3]=cross(eRod_ia, e2_ia) 
       "Unit vector perpendicular to eRod_ia and e2_ia, resolved in frame_ia";
@@ -3003,7 +2940,8 @@ singular configuration.
       "Vector from frame bearing to frame_b resolved in bearing";
     
     annotation (
-      Icon(graphics={
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
           Rectangle(
             extent={{-98,98},{98,-98}}, 
             lineColor={255,255,255}, 
@@ -3068,7 +3006,9 @@ of <tt>frame_a</tt> and <tt>frame_b</tt> may be arbitrary.</p>
 Modelica Conference</i>. Link&ouml;ping : The Modelica Association and Link&ouml;ping University,
 November 3-4, 2003, pp. 149-158</p>
 </html>"),
-      Diagram(graphics));
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}),
+              graphics));
     Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute actuatedRevolute_a(n=n_a, animation=false) 
       annotation (Placement(transformation(extent={{-40,-10},{-60,10}},
             rotation=0)));
@@ -3310,9 +3250,11 @@ pair of joints\" from Woernle and Hiller is described in:
       parameter Boolean checkTotalPower=false 
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
-      final parameter Real eAxis_ia[3]=Frames.normalize(nAxis_ia) 
+      final parameter Real eAxis_ia[3]=Modelica.Math.Vectors.normalize(
+                                                        nAxis_ia) 
         "Unit vector from origin of frame_a to origin of frame_b, resolved in frame_ia";
-      final parameter Real e2_ia[3]=Frames.normalize(cross(n1_a, eAxis_ia)) 
+      final parameter Real e2_ia[3]=Modelica.Math.Vectors.normalize(
+                                                     cross(n1_a, eAxis_ia)) 
         "Unit vector in direction of second rotation axis of universal joint, resolved in frame_ia";
       final parameter Real e3_ia[3]=cross(eAxis_ia, e2_ia) 
         "Unit vector perpendicular to eAxis_ia and e2_ia, resolved in frame_ia";
@@ -5418,7 +5360,7 @@ component).
           color={95,95,95},
           thickness=2));
       connect(relativeSensor.r_rel, revolute.position_a) annotation (Line(
-          points={{56,-69},{56,-50},{90,-50},{90,-12},{79,-12}},
+          points={{58,-69},{58,-50},{90,-50},{90,-12},{79,-12}},
           color={0,0,127},
           smooth=Smooth.None));
     end JointSSR;
@@ -5887,7 +5829,8 @@ component).
       parameter Boolean checkTotalPower=false 
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
-      final parameter Real e_a[3]=Frames.normalize(n_a) 
+      final parameter Real e_a[3]=Modelica.Math.Vectors.normalize(
+                                                   n_a) 
         "Unit vector along axes of rotations, resolved in frame_a";
       final parameter Real e_ia[3]=jointUSR.e2_ia 
         "Unit vector along axes of rotations, resolved in frame_ia";
@@ -6098,7 +6041,8 @@ are connected by rigid rods.
         shapeType="cylinder",
         color=rodColor,
         specularCoefficient=specularCoefficient,
-        length=Frames.length(rRod1_ia),
+        length=Modelica.Math.Vectors.length(
+                             rRod1_ia),
         width=rodDiameter,
         height=rodDiameter,
         lengthDirection=rRod1_ia,
@@ -6109,7 +6053,8 @@ are connected by rigid rods.
         shapeType="cylinder",
         color=rodColor,
         specularCoefficient=specularCoefficient,
-        length=Frames.length(rRod2_ib),
+        length=Modelica.Math.Vectors.length(
+                             rRod2_ib),
         width=rodDiameter,
         height=rodDiameter,
         lengthDirection=rRod2_ib,
@@ -6231,7 +6176,8 @@ are connected by rigid rods.
       parameter Boolean checkTotalPower=false 
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
-      final parameter Real e_a[3]=Frames.normalize(n_a) 
+      final parameter Real e_a[3]=Modelica.Math.Vectors.normalize(
+                                                   n_a) 
         "Unit vector along axes of rotations, resolved in frame_a";
       final parameter Real e_ia[3]=jointUSP.e2_ia 
         "Unit vector along axes of rotations, resolved in frame_ia";
@@ -6452,7 +6398,8 @@ and 1 prismatic joint are connected by rigid rods.
         shapeType="cylinder",
         color=rodColor,
         specularCoefficient=specularCoefficient,
-        length=Frames.length(rRod1_ia),
+        length=Modelica.Math.Vectors.length(
+                             rRod1_ia),
         width=rodDiameter,
         height=rodDiameter,
         lengthDirection=rRod1_ia,
@@ -6463,7 +6410,8 @@ and 1 prismatic joint are connected by rigid rods.
         shapeType="cylinder",
         color=rodColor,
         specularCoefficient=specularCoefficient,
-        length=Frames.length(rRod2_ib),
+        length=Modelica.Math.Vectors.length(
+                             rRod2_ib),
         width=rodDiameter,
         height=rodDiameter,
         lengthDirection=rRod2_ib,
@@ -6511,15 +6459,12 @@ and 1 prismatic joint are connected by rigid rods.
       "Revolute joint (1 rotational degree-of-freedom, 2 potential states)" 
       
       import SI = Modelica.SIunits;
-      import Cv = Modelica.SIunits.Conversions;
-      import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
-      import Modelica.Mechanics.MultiBody.Types;
       
-      Interfaces.Frame_a frame_a 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a 
         "Coordinate system fixed to the joint with one cut-force and cut-torque"
         annotation (Placement(transformation(extent={{-116,-16},{-84,16}},
               rotation=0)));
-      Interfaces.Frame_b frame_b 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b 
         "Coordinate system fixed to the joint with one cut-force and cut-torque"
         annotation (Placement(transformation(extent={{84,-16},{116,16}},
               rotation=0)));
@@ -6529,53 +6474,37 @@ and 1 prismatic joint are connected by rigid rods.
       parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1} 
         "Axis of rotation resolved in frame_a (= same as in frame_b)" 
         annotation (Evaluate=true);
-      parameter Cv.NonSIunits.Angle_deg phi_offset=0 
-        "Relative angle offset (angle = phi + from_deg(phi_offset))" 
-        annotation (Evaluate=false);
-      parameter Types.Init initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
-        "Type of initialization (defines usage of start values below)" 
-        annotation (Dialog(group="Initialization"));
-      parameter Cv.NonSIunits.Angle_deg phi_start=0 
-        "Initial value of rotation angle phi (fixed or guess value)" 
-        annotation (Evaluate=false, Dialog(group="Initialization"));
-      parameter Types.AngularVelocity_degs w_start=0 
-        "Initial value of relative angular velocity w = der(phi)" 
-        annotation (Evaluate=false, Dialog(group="Initialization"));
-      parameter Types.AngularAcceleration_degs2 a_start=0 
-        "Initial value of relative angular acceleration a = der(w)" 
-        annotation (Evaluate=false, Dialog(group="Initialization"));
+      constant SI.Angle phi_offset=0 
+        "Relative angle offset (angle = phi_offset + phi)";
       parameter SI.Distance cylinderLength=world.defaultJointLength 
         "Length of cylinder representing the joint axis" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
         "Diameter of cylinder representing the joint axis" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+      input Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
         "Color of cylinder representing the joint axis" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient 
+        specularCoefficient =                                                            world.defaultSpecularCoefficient 
         "Reflection of ambient light (= 0: light is completely absorbed)" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      parameter StateSelect stateSelect=StateSelect.prefer 
+        "Priority to use joint angle phi and w=der(phi) as states" annotation(Dialog(tab="Advanced"));
       
-      parameter Boolean enforceStates=false 
-        "= true, if generalized variables (phi,w) shall be used as states (StateSelect.always)"
-        annotation (Dialog(tab="Advanced"));
-      
-      SI.Angle phi(start=Cv.from_deg(phi_start), stateSelect=if enforceStates then 
-                  StateSelect.always else StateSelect.prefer) 
-        "Relative rotation angle from frame_a to frame_b = phi + from_deg(phi_offset))"
+      SI.Angle phi(start=0, final stateSelect=stateSelect) 
+        "Relative rotation angle from frame_a to frame_b" 
          annotation (unassignedMessage="
 The rotation angle phi of a revolute joint cannot be determined.
 A non-zero mass might be missing on either side of the parts
 connected to the revolute joint.
 ");
-      SI.AngularVelocity w(stateSelect=if enforceStates then StateSelect.always else StateSelect.
-            prefer) "First derivative of angle phi (relative angular velocity)";
-      SI.AngularAcceleration a 
+      SI.AngularVelocity w(start=0, stateSelect=stateSelect) 
+        "First derivative of angle phi (relative angular velocity)";
+      SI.AngularAcceleration a(start=0) 
         "Second derivative of angle phi (relative angular acceleration)";
       SI.Torque tau=0 "Driving torque in direction of axis of rotation";
-      SI.Angle angle(start=Cv.from_deg(phi_start+phi_offset)) 
-        "= from_deg(phi_offset) + phi";
+      SI.Angle angle "= phi_offset + phi";
       annotation (
         Window(
           x=0.05,
@@ -6591,7 +6520,7 @@ connected to the revolute joint.
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
-              extent={{-100,-60},{-20,60}}, 
+              extent={{-100,-59},{-20,61}}, 
               lineColor={0,0,0}, 
               fillPattern=FillPattern.HorizontalCylinder, 
               fillColor={192,192,192}), 
@@ -6608,17 +6537,16 @@ connected to the revolute joint.
         Documentation(info="<HTML>
 <p>
 Joint where frame_b rotates around axis n which is fixed in frame_a.
-The two frames coincide when \"phi + phi_offset = 0\", where
-\"phi_offset\" is a parameter with a zero default
-and \"phi\" is the rotation angle.
+The two frames coincide when the rotation angle \"phi = 0\".
 </p>
 <p>
-In the \"Advanced\" menu it can be defined via parameter <b>enforceStates</b>
+In the \"Advanced\" menu it can be defined via parameter <b>stateSelect</b>
 that the rotation angle \"phi\" and its derivative shall be definitely
-used as states (this means that the Modelica attributes stateSelect=StateSelect.always
-are set on these variables). The states are usually selected automatically.
+used as states by setting stateSelect=StateSelect.always.
+Default is StateSelect.prefer to use the joint angle and its
+derivative as preferred states. The states are usually selected automatically.
 In certain situations, especially when closed kinematic loops are present,
-it might be slightly more efficient, when using the \"enforceStates\" setting.
+it might be slightly more efficient, when using the StateSelect.always setting.
 </p>
 <p>
 If a <b>planar loop</b> is present, e.g., consisting of 4 revolute joints
@@ -6637,13 +6565,11 @@ this force is an unknown quantity).
 "));
     protected 
       outer Modelica.Mechanics.MultiBody.World world;
-      parameter Real e[3]=Frames.normalize(n) 
+      parameter Real e[3]=Modelica.Math.Vectors.normalize(
+                                           n) 
         "Unit vector in direction of rotation axis, resolved in frame_a (= same as in frame_b)";
       Frames.Orientation R_rel 
-        "Dummy or relative orientation object from frame_a to frame_b";
-      Frames.Orientation R_rel_inv 
-        "Dummy or relative orientation object from frame_b to frame_a";
-      
+        "Relative orientation object from frame_a to frame_b or from frame_b to frame_a";
       Visualizers.Advanced.Shape cylinder(
         shapeType="cylinder",
         color=cylinderColor,
@@ -6656,56 +6582,35 @@ this force is an unknown quantity).
         r_shape=-e*(cylinderLength/2),
         r=frame_a.r_0,
         R=frame_a.R) if world.enableAnimation and animation;
-    initial equation 
-      if initType == Types.Init.PositionVelocity then
-        phi = Cv.from_deg(phi_start);
-        w = w_start*Modelica.Constants.D2R;
-      elseif initType == Types.Init.SteadyState then
-        w = 0;
-        a = 0;
-      elseif initType == Types.Init.Position then
-        phi = Cv.from_deg(phi_start);
-      elseif initType == Types.Init.Velocity then
-        w = w_start*Modelica.Constants.D2R;
-      elseif initType == Types.Init.VelocityAcceleration then
-        w = w_start*Modelica.Constants.D2R;
-        a = a_start*Modelica.Constants.D2R;
-      elseif initType == Types.Init.PositionVelocityAcceleration then
-        phi = Cv.from_deg(phi_start);
-        w = w_start*Modelica.Constants.D2R;
-        a = a_start*Modelica.Constants.D2R;
-      end if;
-      
     equation 
+      defineBranch(frame_a.R, frame_b.R);
+      
       assert(cardinality(frame_a) > 0,
         "Connector frame_a of revolute joint is not connected");
       assert(cardinality(frame_b) > 0,
         "Connector frame_b of revolute joint is not connected");
       
-      defineBranch(frame_a.R, frame_b.R);
+      angle = phi_offset + phi;
+      w = der(phi);
+      a = der(w);
       
-        angle = Cv.from_deg(phi_offset) + phi;
-        w = der(phi);
-        a = der(w);
+      // relationships between quantities of frame_a and of frame_b
+      frame_b.r_0 = frame_a.r_0;
       
-        // relationships between quantities of frame_a and of frame_b
-        R_rel = Frames.planarRotation(e, angle, der(angle));
-        frame_b.r_0 = frame_a.r_0;
+      if rooted(frame_a.R) then
+        R_rel = Frames.planarRotation(e, phi_offset + phi, w);
+        frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
+        frame_a.f = -Frames.resolve1(R_rel, frame_b.f);
+        frame_a.t = -Frames.resolve1(R_rel, frame_b.t);
+      else
+        R_rel = Frames.planarRotation(-e, phi_offset + phi, w);
+        frame_a.R = Frames.absoluteRotation(frame_b.R, R_rel);
+        frame_b.f = -Frames.resolve1(R_rel, frame_a.f);
+        frame_b.t = -Frames.resolve1(R_rel, frame_a.t);
+      end if;
       
-        if rooted(frame_a.R) then
-          R_rel_inv = Frames.nullRotation();
-          frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
-          frame_a.f = -Frames.resolve1(R_rel, frame_b.f);
-          frame_a.t = -Frames.resolve1(R_rel, frame_b.t);
-        else
-          R_rel_inv = Frames.Orientation(T=transpose(R_rel.T),w= -e*der(angle));
-          frame_a.R = Frames.absoluteRotation(frame_b.R, R_rel_inv);
-          frame_b.f = -Frames.resolve2(R_rel, frame_a.f);
-          frame_b.t = -Frames.resolve2(R_rel, frame_a.t);
-        end if;
-      
-        // d'Alemberts principle
-        tau = -frame_b.t*e;
+      // d'Alemberts principle
+      tau = -frame_b.t*e;
     end Revolute;
     
     model Prismatic 
@@ -6717,21 +6622,9 @@ this force is an unknown quantity).
       parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
         "Axis of translation resolved in frame_a (= same as in frame_b)" 
         annotation (Evaluate=true);
-      parameter SI.Position s_offset=0 
+      constant SI.Position s_offset=0 
         "Relative distance offset (distance between frame_a and frame_b = s_offset + s)"
         annotation (Evaluate=false);
-      parameter Types.Init initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
-        "Type of initialization (defines usage of start values below)" 
-        annotation (Dialog(group="Initialization"));
-      parameter SI.Position s_start=0 
-        "Initial value of distance (fixed or guess value)" 
-        annotation (Evaluate=false, Dialog(group="Initialization"));
-      parameter SI.Velocity v_start=0 
-        "Initial value of relative velocity v = der(s)" 
-        annotation (Evaluate=false, Dialog(group="Initialization"));
-      parameter SI.Acceleration a_start=0 
-        "Initial value of relative acceleration a = der(v)" 
-        annotation (Evaluate=false, Dialog(group="Initialization"));
       parameter Types.Axis boxWidthDirection={0,1,0} 
         "Vector in width direction of box, resolved in frame_a" 
         annotation (Evaluate=true, Dialog(tab="Animation", group=
@@ -6747,23 +6640,22 @@ this force is an unknown quantity).
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
         "Reflection of ambient light (= 0: light is completely absorbed)" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter Boolean enforceStates=false 
-        "= true, if generalized variables (s,v) shall be used as states (StateSelect.always)"
-        annotation (Dialog(tab="Advanced"));
-      final parameter Real e[3]=Frames.normalize(n) 
+      parameter StateSelect stateSelect=StateSelect.prefer 
+        "Priority to use distance s and v=der(s) as states" annotation(Dialog(tab="Advanced"));
+      final parameter Real e[3]=Modelica.Math.Vectors.normalize(
+                                                 n) 
         "Unit vector in direction of prismatic axis n";
       
-      SI.Position s(start=s_start, stateSelect=if enforceStates then 
-            StateSelect.always else StateSelect.prefer) 
-        "Relative distance between frame_a and frame_b = s + s_offset)" 
+      SI.Position s(start=0, final stateSelect=stateSelect) 
+        "Relative distance between frame_a and frame_b" 
         annotation (unassignedMessage="
 The relative distance s of a prismatic joint cannot be determined.
 A non-zero mass might be missing on either side of the parts
 connected to the prismatic joint.");
       
-      SI.Velocity v(stateSelect=if enforceStates then StateSelect.always else 
-            StateSelect.prefer) "First derivative of s (relative velocity)";
-      SI.Acceleration a;
+      SI.Velocity v(start=0,final stateSelect=stateSelect) 
+        "First derivative of s (relative velocity)";
+      SI.Acceleration a(start=0);
       SI.Force f=0 "Actuation force in direction of joint axis";
       
       annotation (
@@ -6866,18 +6758,19 @@ connected to the prismatic joint.");
         Documentation(info="<HTML>
 <p>
 Joint where frame_b is translated along axis n which is fixed in frame_a.
-The two frames coincide when \"s + s_offset = 0\", where
-\"s_offset\" is a parameter with a zero default
-and \"s\" is the relative distance.
+The two frames coincide when the relative distance \"s = 0\".
 </p>
+ 
 <p>
-In the \"Advanced\" menu it can be defined via parameter <b>enforceStates</b>
+In the \"Advanced\" menu it can be defined via parameter <b>stateSelect</b>
 that the relative distance \"s\" and its derivative shall be definitely
-used as states (this means that the Modelica attributes stateSelect=StateSelect.always
-are set on these variables). The states are usually selected automatically.
+used as states by setting stateSelect=StateSelect.always.
+Default is StateSelect.prefer to use the relative distance and its
+derivative as preferred states. The states are usually selected automatically.
 In certain situations, especially when closed kinematic loops are present,
-it might be slightly more efficient, when using the \"enforceStates\" setting.
+it might be slightly more efficient, when using the StateSelect.always setting.
 </p>
+ 
 </HTML>
 "));
       
@@ -6893,26 +6786,6 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
         widthDirection=boxWidthDirection,
         r=frame_a.r_0,
         R=frame_a.R) if world.enableAnimation and animation;
-    initial equation 
-      if initType == Types.Init.PositionVelocity then
-        s = s_start;
-        v = v_start;
-      elseif initType == Types.Init.SteadyState then
-        v = 0;
-        a = 0;
-      elseif initType == Types.Init.Position then
-        s = s_start;
-      elseif initType == Types.Init.Velocity then
-        v = v_start;
-      elseif initType == Types.Init.VelocityAcceleration then
-        v = v_start;
-        a = a_start;
-      elseif initType == Types.Init.PositionVelocityAcceleration then
-        s = s_start;
-        v = v_start;
-        a = a_start;
-      end if;
-      // define potential states
     equation 
       v = der(s);
       a = der(v);
@@ -6978,7 +6851,7 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
       
       final parameter Boolean positiveBranch(fixed=false) 
         "Based on phi_guess, selection of one of the two solutions of the non-linear constraint equation";
-      final parameter Real e[3]=Modelica.Mechanics.MultiBody.Frames.normalize(n) 
+      final parameter Real e[3]=Modelica.Math.Vectors.normalize(              n) 
         "Unit vector in direction of rotation axis, resolved in frame_a";
       
       SI.Angle phi "Rotation angle of revolute joint";
@@ -7350,7 +7223,7 @@ position a degree of freedom is lost.
       
       final parameter Boolean positiveBranch(fixed=false) 
         "Selection of one of the two solutions of the non-linear constraint equation";
-      final parameter Real e[3]=Modelica.Mechanics.MultiBody.Frames.normalize(n) 
+      final parameter Real e[3]=Modelica.Math.Vectors.normalize(              n) 
         "Unit vector in direction of translation axis, resolved in frame_a";
       SI.Position s 
         "Relative distance between frame_a and frame_b along axis n = s + s_offset)";
@@ -7414,91 +7287,91 @@ position a degree of freedom is lost.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
-            Line(points={{-30,-50},{-30,50}}, color={0,0,0}), 
-            Line(points={{0,-67},{90,-67}}, color={128,128,128}), 
+            Line(points={{-30,-50},{-30,50}}, color={0,0,0}),
+            Line(points={{0,-67},{90,-67}}, color={128,128,128}),
             Text(
-              extent={{31,-68},{68,-81}}, 
-              lineColor={128,128,128}, 
-              textString="s"), 
-            Line(points={{-100,-67},{0,-67}}, color={128,128,128}), 
+              extent={{31,-68},{68,-81}},
+              lineColor={128,128,128},
+              textString="s"),
+            Line(points={{-100,-67},{0,-67}}, color={128,128,128}),
             Polygon(
-              points={{-39,-64},{-29,-67},{-39,-70},{-39,-64}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-39,-64},{-29,-67},{-39,-70},{-39,-64}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-77,-70},{-43,-85}}, 
-              lineColor={128,128,128}, 
-              textString="s_offset"), 
-            Line(points={{-100,-71},{-100,-51}}, color={128,128,128}), 
-            Line(points={{-30,-73},{-30,-33}}, color={128,128,128}), 
-            Line(points={{100,-70},{100,-30}}, color={128,128,128}), 
+              extent={{-77,-70},{-43,-85}},
+              lineColor={128,128,128},
+              textString="s_offset"),
+            Line(points={{-100,-71},{-100,-51}}, color={128,128,128}),
+            Line(points={{-30,-73},{-30,-33}}, color={128,128,128}),
+            Line(points={{100,-70},{100,-30}}, color={128,128,128}),
             Polygon(
-              points={{90,-64},{100,-67},{90,-70},{90,-64}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              points={{90,-64},{100,-67},{90,-70},{90,-64}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-100,50},{-30,60}}, 
-              pattern=LinePattern.None, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              extent={{-100,50},{-30,60}},
+              pattern=LinePattern.None,
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Rectangle(
-              extent={{-100,-60},{-30,50}}, 
-              pattern=LinePattern.None, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
-            Rectangle(extent={{-30,40},{100,-40}}, lineColor={0,0,0}), 
+              extent={{-100,-60},{-30,50}},
+              pattern=LinePattern.None,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
+            Rectangle(extent={{-30,40},{100,-40}}, lineColor={0,0,0}),
             Rectangle(
-              extent={{-30,-40},{100,30}}, 
-              pattern=LinePattern.None, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              extent={{-30,-40},{100,30}},
+              pattern=LinePattern.None,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Rectangle(
-              extent={{-30,30},{100,40}}, 
-              pattern=LinePattern.None, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
-            Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}), 
-            Line(points={{100,-40},{100,-60}}, color={0,0,255}), 
+              extent={{-30,30},{100,40}},
+              pattern=LinePattern.None,
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
+            Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}),
+            Line(points={{100,-40},{100,-60}}, color={0,0,255}),
             Text(
-              extent={{42,91},{57,76}}, 
-              textString="f", 
-              lineColor={0,0,255}), 
-            Line(points={{40,75},{70,75}}, color={0,0,255}), 
+              extent={{42,91},{57,76}},
+              textString="f",
+              lineColor={0,0,255}),
+            Line(points={{40,75},{70,75}}, color={0,0,255}),
             Polygon(
-              points={{-21,78},{-31,75},{-21,72},{-21,78}}, 
-              lineColor={0,0,255}, 
-              fillColor={0,0,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-8,75},{-31,75}}, color={0,0,255}), 
+              points={{-21,78},{-31,75},{-21,72},{-21,78}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-8,75},{-31,75}}, color={0,0,255}),
             Text(
-              extent={{-21,90},{-6,75}}, 
-              textString="f", 
-              lineColor={0,0,255}), 
+              extent={{-21,90},{-6,75}},
+              textString="f",
+              lineColor={0,0,255}),
             Polygon(
-              points={{60,78},{70,75},{60,72},{60,78}}, 
-              lineColor={0,0,255}, 
-              fillColor={0,0,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-30,64},{70,64}}, color={128,128,128}), 
+              points={{60,78},{70,75},{60,72},{60,78}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-30,64},{70,64}}, color={128,128,128}),
             Polygon(
-              points={{60,67},{70,64},{60,61},{60,67}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              points={{60,67},{70,64},{60,61},{60,67}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{0,63},{37,50}}, 
-              lineColor={128,128,128}, 
-              textString="s"), 
+              extent={{0,63},{37,50}},
+              lineColor={128,128,128},
+              textString="s"),
             Rectangle(
-              extent={{100,40},{90,80}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
+              extent={{100,40},{90,80}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<HTML>
 <p>

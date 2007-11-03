@@ -32,16 +32,21 @@ form without solving a system of equations. For more details, see
 MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>. 
 </p>
 </html>"),
-    Diagram(graphics));
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+            100,100}}),
+            graphics));
   
   inner Modelica.Mechanics.MultiBody.World world(animateGravity=false) 
     annotation (Placement(transformation(extent={{-80,-60},{-60,-40}}, rotation=
            0)));
   Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute j1(
     n={1,0,0},
-    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
-    enforceStates=true,
-    w_start=300) annotation (Placement(transformation(extent={{-54,-40},{-34,
+    stateSelect=StateSelect.always,
+    phi(fixed=true),
+    w(displayUnit="deg/s",
+      start=5.235987755982989,
+      fixed=true)) 
+                 annotation (Placement(transformation(extent={{-54,-40},{-34,
             -20}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1}, diameter=0.05) 
     annotation (Placement(transformation(

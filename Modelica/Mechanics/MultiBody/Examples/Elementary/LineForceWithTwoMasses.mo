@@ -67,8 +67,8 @@ side in the back is the animation with the JointUPS component.
   
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
         transformation(extent={{-80,60},{-60,80}}, rotation=0)));
-  Modelica.Mechanics.MultiBody.Joints.Revolute revolute1(initType=Modelica.Mechanics.MultiBody.Types.Init.
-        PositionVelocity) annotation (Placement(transformation(extent={{-20,60},
+  Modelica.Mechanics.MultiBody.Joints.Revolute revolute1(phi(fixed=true), w(
+        fixed=true))      annotation (Placement(transformation(extent={{-20,60},
             {0,80}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox1(r={0.7,0,0}) 
     annotation (Placement(transformation(extent={{20,60},{40,80}}, rotation=0)));
@@ -110,8 +110,8 @@ side in the back is the animation with the JointUPS component.
         rotation=270)));
   Modelica.Mechanics.Translational.Damper damper1(d=3) 
     annotation (Placement(transformation(extent={{0,24},{20,4}}, rotation=0)));
-  Modelica.Mechanics.MultiBody.Joints.Revolute revolute2(initType=Modelica.Mechanics.MultiBody.Types.Init.
-        PositionVelocity) annotation (Placement(transformation(extent={{-20,-40},
+  Modelica.Mechanics.MultiBody.Joints.Revolute revolute2(phi(fixed=true), w(
+        fixed=true))      annotation (Placement(transformation(extent={{-20,-40},
             {0,-20}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox2(r={0.7,0,0}) 
     annotation (Placement(transformation(extent={{20,-40},{40,-20}}, rotation=0)));

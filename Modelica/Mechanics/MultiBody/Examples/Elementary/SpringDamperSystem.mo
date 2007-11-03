@@ -1,10 +1,6 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
-encapsulated model SpringDamperSystem "Simple spring/damper/mass system" 
-  import Modelica.Icons;
-  import Modelica.Mechanics.MultiBody;
-  import Modelica.Mechanics.Rotational;
-  import Modelica;
-  extends Icons.Example;
+model SpringDamperSystem "Simple spring/damper/mass system" 
+  extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
   annotation (
     experiment(StopTime=10),
@@ -41,15 +37,19 @@ ALT=\"model Examples.Elementary.SpringDamperSystem\">
   Modelica.Mechanics.MultiBody.Parts.Body body1(
     m=1,
     animation=animation,
-    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
-    r_0_start={0.3,-0.2,0},
     r_CM={0,-0.2,0},
-    w_0_start={0,0,2},
     cylinderDiameter=0.05,
     sphereDiameter=0.15,
     I_11=0.1,
     I_22=0.1,
-    I_33=0.1) annotation (Placement(transformation(
+    I_33=0.1,
+    r_0(start={0.3,-0.2,0}, fixed=true),
+    v_0(fixed=true),
+    angles_fixed=true,
+    w_0_fixed=true, 
+    w_0_start=((({0,0,2})*Modelica.Constants.D2R)*Modelica.Constants.D2R)*
+        Modelica.Constants.D2R) 
+              annotation (Placement(transformation(
         origin={-20,-50},
         extent={{-10,10},{10,-10}},
         rotation=270)));
@@ -66,12 +66,12 @@ ALT=\"model Examples.Elementary.SpringDamperSystem\">
         extent={{-10,10},{10,-10}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic p2(
-    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
     n={0,-1,0},
-    s_offset=0.1,
     animation=animation,
-    enforceStates=true,
-    boxWidth=0.05) annotation (Placement(transformation(
+    boxWidth=0.05,
+    stateSelect=StateSelect.always,
+    s(fixed=true, start=0.2),
+    v(fixed=true)) annotation (Placement(transformation(
         origin={50,-10},
         extent={{-10,-10},{10,10}},
         rotation=270)));

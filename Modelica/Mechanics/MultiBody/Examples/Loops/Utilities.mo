@@ -40,7 +40,6 @@ package Utilities "Utility models for Examples.Loops"
           rotation=90)));
     Modelica.Mechanics.MultiBody.Joints.Revolute B2(
       n={1,0,0},
-      phi_start=0,
       cylinderLength=0.02,
       animation=animation,
       cylinderDiameter=0.055) annotation (Placement(transformation(extent={{4,
@@ -90,7 +89,7 @@ package Utilities "Utility models for Examples.Loops"
           false) annotation (Placement(transformation(extent={{-6,-46},{14,-26}},
             rotation=0)));
     Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic Cylinder(
-      s_start=-0.3,
+      s(start=-0.3),
       n={0,-1,0},
       boxWidth=0.02) annotation (Placement(transformation(
           origin={14,99},
@@ -204,7 +203,6 @@ package Utilities "Utility models for Examples.Loops"
         points={{14,-2},{14,-9},{30,-9},{30,-17},{24,-17}},
         color={95,95,95},
         thickness=2));
-    
     connect(Cylinder.frame_b, Piston.frame_b) annotation (Line(
         points={{14,89},{14,80},{14.5,80}},
         color={95,95,95},
@@ -226,8 +224,8 @@ package Utilities "Utility models for Examples.Loops"
         points={{40.5,-84},{40.5,-90},{60,-90}},
         color={95,95,95},
         thickness=2));
-    connect(Cylinder.bearing, gasForce.flange_b) annotation (Line(points={{20,
-            103},{34,103},{34,117},{50,117}}, color={0,191,0}));
+    connect(Cylinder.bearing, gasForce.flange_b) annotation (Line(points={{20,103},
+            {34,103},{34,117},{50,117}},      color={0,191,0}));
     connect(Cylinder.axis, gasForce.flange_a) 
       annotation (Line(points={{20,91},{50,91},{50,97}}, color={0,191,0}));
     connect(CylinderInclination.frame_b, CylinderTop.frame_a) 
@@ -272,6 +270,7 @@ package Utilities "Utility models for Examples.Loops"
         points={{80,-90},{100,-90}},
         color={95,95,95},
         thickness=2));
+    
   end Cylinder;
   
   model GasForce 
@@ -322,29 +321,29 @@ package Utilities "Utility models for Examples.Loops"
             textString="%name", 
             lineColor={0,0,255})}),                         Diagram(graphics={
           Rectangle(
-            extent={{-90,50},{90,-50}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-90,50},{90,-50}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-40,50},{-20,-50}}, 
-            fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
+            extent={{-40,50},{-20,-50}},
+            fillColor={0,0,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
           Rectangle(
-            extent={{-90,10},{-40,-10}}, 
-            fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
+            extent={{-90,10},{-40,-10}},
+            fillColor={0,0,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
           Polygon(
             points={{60,2},{54,2},{0,2},{0,10},{-20,0},{0,-10},{0,-4},{60,-4},{
-                60,2}}, 
-            lineColor={255,0,0}, 
-            fillColor={255,0,0}, 
-            fillPattern=FillPattern.Solid), 
+                60,2}},
+            lineColor={255,0,0},
+            fillColor={255,0,0},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-100,120},{100,60}}, 
-            textString="%name", 
+            extent={{-100,120},{100,60}},
+            textString="%name",
             lineColor={0,0,255})}));
   protected 
     constant SI.Mass unitMass=1;
@@ -423,25 +422,25 @@ package Utilities "Utility models for Examples.Loops"
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-90,50},{90,-50}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-90,50},{90,-50}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-100,120},{100,60}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-100,120},{100,60}},
+            textString="%name",
+            lineColor={0,0,255}),
           Polygon(
             points={{12,5},{70,5},{65,5},{65,16},{90,1},{65,-14},{65,-3},{12,-3},
-                {12,5}}, 
-            lineColor={255,0,0}, 
-            fillColor={255,0,0}, 
-            fillPattern=FillPattern.Solid), 
+                {12,5}},
+            lineColor={255,0,0},
+            fillColor={255,0,0},
+            fillPattern=FillPattern.Solid),
           Polygon(
             points={{-13,5},{-16,5},{-65,5},{-65,16},{-90,1},{-65,-14},{-65,-3},
-                {-13,-3},{-13,5}}, 
-            lineColor={255,0,0}, 
-            fillColor={255,0,0}, 
+                {-13,-3},{-13,5}},
+            lineColor={255,0,0},
+            fillColor={255,0,0},
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
@@ -691,19 +690,19 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
         color={95,95,95},
         thickness=2));
     connect(Mid.frame_b, jointRRP.frame_a) annotation (Line(
-        points={{-24,-20},{1.22461e-015,-20},{1.22461e-015,-8}},
+        points={{-24,-20},{-1.22465e-015,-20},{-1.22465e-015,-8}},
         color={95,95,95},
         thickness=2));
     connect(gasForce.flange_a, jointRRP.axis) 
       annotation (Line(points={{9,70},{16,70},{16,32}}, color={0,191,0}));
-    connect(jointRRP.bearing, gasForce.flange_b) annotation (Line(points={{8,32},
-            {8,52},{-20,52},{-20,70},{-11,70}}, color={0,191,0}));
+    connect(jointRRP.bearing, gasForce.flange_b) annotation (Line(points={{8,32},{
+            8,52},{-20,52},{-20,70},{-11,70}},  color={0,191,0}));
     connect(jointRRP.frame_ib, Piston.frame_b) annotation (Line(
         points={{20,28},{30,28},{30,70},{50,70},{50,60}},
         color={95,95,95},
         thickness=2));
     connect(jointRRP.frame_b, CylinderInclination.frame_b) annotation (Line(
-        points={{-1.22461e-015,32},{1,32},{1,40},{-24,40}},
+        points={{1.22465e-015,32},{1,32},{1,40},{-24,40}},
         color={95,95,95},
         thickness=2));
     connect(CrankAngle.frame_b, Mid.frame_a) annotation (Line(
