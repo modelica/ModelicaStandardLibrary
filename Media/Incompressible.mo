@@ -180,6 +180,7 @@ which is only exactly true for a fluid with constant density d=d0.
       state.T = T;
       state.p = p;
       MM = MM_const;
+      X = reference_X;
     end BaseProperties;
     
     redeclare function extends setState_pTX 

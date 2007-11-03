@@ -813,8 +813,7 @@ then constants \"Medium.mediumName\", \"Medium.nX\", etc. are defined:
   <tr><td valign=\"top\">Integer</td><td valign=\"top\">nS</td>
       <td valign=\"top\">number of substances contained in the medium.</td></tr>
   <tr><td valign=\"top\">Integer</td><td valign=\"top\">nX</td>
-      <td valign=\"top\">Size of the full mass fraction vector X. If there is a single 
-          substance, then nX = 0, else nX=nS.</td></tr>
+      <td valign=\"top\">Size of the full mass fraction vector X nX=nS.</td></tr>
   <tr><td valign=\"top\">Integer</td><td valign=\"top\">nXi</td>
       <td valign=\"top\">Number of independent mass fractions. If there is a single substance,
           then nXi = 0. </td></tr>
@@ -1341,9 +1340,10 @@ following structure:</p>
                             specificEnthalpy_pTX(p_default, T_default, X_default);  
   <b>constant</b> MassFraction     X_default[nX]=reference_X; 
   <b>final constant</b> Integer    nS  = size(substanceNames,1); 
-  <b>final constant</b> Integer    nX  = <b>if</b> nS==1 <b>then</b> 0 <b>else</b> nS; 
+  <b>final constant</b> Integer    nX  = nS; 
   <b>final constant</b> Integer    nXi = <b>if</b> fixedX <b>then</b> 0 
-                                  <b>else if</b> reducedX <b>then</b> nS-1 <b>else</b> nS; 
+                                  <b>else if</b> reducedX <b>or</b> nS == 1                         
+                                  <b>then</b> nS-1 <b>else</b> nS; 
   <b>final constant</b> Integer    nC  = size(extraPropertiesNames,1);
   <b>constant</b> FluidConstants[nS] fluidConstants;
  
@@ -2224,8 +2224,7 @@ package Examples
     Medium.DynamicViscosity eta=Medium.dynamicViscosity(medium);
     Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(medium);
   equation 
-    medium.p = 1.e5;
-    
+    medium.p = 1.0e5;
     m = medium.d*V;
     U = m*medium.u;
     
@@ -2745,8 +2744,8 @@ Modelica.Media.Examples.Tests.MediaTestModels.
       
       connector FluidPort_a "Fluid connector with filled icon" 
         extends FluidPort;
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent=
-                  {{-100,-100},{100,100}}), graphics={
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={
               Ellipse(
                 extent={{-100,100},{100,-100}}, 
                 lineColor={0,127,255}, 
@@ -2761,8 +2760,8 @@ Modelica.Media.Examples.Tests.MediaTestModels.
                 extent={{-88,206},{112,112}}, 
                 textString="%name", 
                 lineColor={0,0,255})}),
-             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={Ellipse(
+             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                  {100,100}}), graphics={Ellipse(
                 extent={{-100,100},{100,-100}}, 
                 lineColor={0,127,255}, 
                 fillColor={0,127,255}, 
@@ -2777,8 +2776,8 @@ Modelica.Media.Examples.Tests.MediaTestModels.
       
       connector FluidPort_b "Fluid connector with outlined icon" 
         extends FluidPort;
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent=
-                  {{-100,-100},{100,100}}), graphics={
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={
               Ellipse(
                 extent={{-100,100},{100,-100}}, 
                 lineColor={0,127,255}, 
@@ -2798,8 +2797,8 @@ Modelica.Media.Examples.Tests.MediaTestModels.
                 extent={{-88,192},{112,98}}, 
                 textString="%name", 
                 lineColor={0,0,255})}),
-             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={
+             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                  {100,100}}), graphics={
               Ellipse(
                 extent={{-100,100},{100,-100}}, 
                 lineColor={0,127,255}, 
@@ -3218,7 +3217,9 @@ The details of the pipe friction model are described
           X_ambient=0.5*X_start) 
                                 annotation (Placement(transformation(extent={{
                   -80,0},{-60,20}}, rotation=0)));
-        annotation (Diagram(graphics),
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
+                  {{-100,-100},{100,100}}),
+                            graphics),
                              Documentation(info="<html>
   
 </html>"));
@@ -3839,6 +3840,7 @@ kind of media.
       R  = 8.3144/MM;
       state.p = p;
       state.T = T;
+      X = reference_X;
       annotation (Documentation(revisions="<html>
  
 </html>"));
@@ -3954,7 +3956,7 @@ Modelica source.
       "Reference pressure of Medium: default 1 atmosphere";
     constant Temperature reference_T=298.15 
       "Reference temperature of Medium: default 25 deg Celsius";
-    constant MassFraction reference_X[nX]= if nX == 0 then fill(0,nX) else fill(1/nX, nX) 
+    constant MassFraction reference_X[nX]= fill(1/nX, nX) 
       "Default mass fractions of medium";
     constant AbsolutePressure p_default=101325 
       "Default value for pressure of medium (for initialization)";
@@ -3965,12 +3967,12 @@ Modelica source.
     constant MassFraction X_default[nX]=reference_X 
       "Default value for mass fractions of medium (for initialization)";
     
-    final constant Integer nS=size(substanceNames, 1) "Number of substances"  annotation(Evaluate=true);
-    constant Integer nX=if nS == 1 then 0 else nS 
-      "Number of mass fractions (= 0, if only one substance)" annotation(Evaluate=true);
-    constant Integer nXi=if fixedX then 0 else if reducedX then nS - 1 else nX 
+    final constant Integer nS=size(substanceNames, 1) "Number of substances" annotation(Evaluate=true);
+    constant Integer nX = nS "Number of mass fractions" 
+                                 annotation(Evaluate=true);
+    constant Integer nXi=if fixedX then 0 else if reducedX or nS == 1 then nS - 1 else nS 
       "Number of structurally independent mass fractions (see docu for details)"
-     annotation(Evaluate=true);
+      annotation(Evaluate=true);
     
     final constant Integer nC=size(extraPropertiesNames, 1) 
       "Number of extra (outside of standard mass-balance) transported properties"
@@ -4799,6 +4801,7 @@ partial package PartialLinearFluid
         T = state.T;
         MM = MM_const;
         R  = 8.3144/MM;
+        X = reference_X;
       end BaseProperties;
     
       redeclare function extends setState_pTX 
@@ -5844,7 +5847,7 @@ required from medium model \""     + mediumName + "\".
       MM = MM_const;
       state.T = T;
       state.p = p;
-      
+      X = reference_X;
           annotation (Documentation(info="<HTML>
 <p>
 This is the most simple incompressible medium model, where
@@ -6024,7 +6027,7 @@ required from medium model \""     + mediumName + "\".
       MM = MM_const;
       state.T = T;
       state.p = p;
-      
+      X = reference_X;
           annotation (Documentation(info="<HTML>
 <p>
 This is the most simple incompressible medium model, where
