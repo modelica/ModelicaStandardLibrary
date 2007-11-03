@@ -2110,6 +2110,8 @@ properties. Of course, more tests should be performed.
   class ReleaseNotes "Release notes" 
     
     annotation (Documentation(info="<HTML>
+<h4>Version included in Modelica 3.0</h4>
+<p> See top-level release notes for MSL. </p>
 <h4>Version 1.0, 2005-03-01</h4>
 <p>
 Many improvements in the library, e.g., providing mixtures
@@ -2591,6 +2593,18 @@ is given to compare the approximation.
       der(medium2.X[1:Medium.nX]) = {0.0,0.0,0.0,0.0};
     end FlueGas;
     
+  package N2AsMix "air and steam mixture (no condensation!, pseudo-mixture)" 
+    extends IdealGases.Common.MixtureGasNasa(
+       mediumName="Nitrogen",
+       data={IdealGases.Common.SingleGasesData.N2},
+      fluidConstants={IdealGases.Common.FluidData.N2},
+       substanceNames = {"Nitrogen"},
+       reference_X={1.0});
+    annotation (Documentation(info="<html>
+  
+</html>"));
+  end N2AsMix;
+    
     model IdealGasN2 "Test IdealGas.SingleMedia.N2 medium model" 
       extends Modelica.Icons.Example;
       
@@ -2661,6 +2675,44 @@ is given to compare the approximation.
     annotation (Documentation(info="<html>
  
 </html>"));
+    model IdealGasN2Mix "Test IdealGas.SingleMedia.N2 medium model" 
+      extends Modelica.Icons.Example;
+      
+      parameter Real V=1;
+      parameter Real m_flow_ext=0.01;
+      parameter Real H_flow_ext=5000;
+      
+      package Medium = N2AsMix "Medium model";
+      // initType=Medium.Choices.Init.SteadyState,
+      
+      Medium.BaseProperties medium(preferredMediumStates=true,
+        p(start=1.e5),
+        T(start=300));
+      
+      Real m(quantity=Medium.mediumName, start = 1.0);
+      SI.InternalEnergy U;
+      
+      Medium.SpecificHeatCapacity cp=Medium.specificHeatCapacityCp(medium);
+      Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(medium);
+      Medium.IsentropicExponent gamma=Medium.isentropicExponent(medium);
+      Medium.SpecificEntropy s=Medium.specificEntropy(medium);
+      Medium.VelocityOfSound a=Medium.velocityOfSound(medium);
+    equation 
+      
+      m = medium.d*V;
+      U = m*medium.u;
+      medium.X = {1.0};
+      // Mass balance
+      der(m) = m_flow_ext;
+      
+      // Energy balance
+      der(U) = H_flow_ext;
+      annotation (Documentation(info="<html>
+  
+</html>"),
+        experiment(StopTime=1),
+        experimentSetupOutput);
+    end IdealGasN2Mix;
   end TestOnly;
   annotation (Documentation(info="<html>
 <h4>Examples</h4>
