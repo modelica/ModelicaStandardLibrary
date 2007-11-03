@@ -51,21 +51,25 @@ for rodLength:
    rodLength*rodLength = f(angle of revolute joint, distance of prismatic joint)
 </pre>
 </html>"),
-    Diagram(graphics));
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+            100,100}}),
+            graphics));
   
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
         transformation(extent={{-80,-80},{-60,-60}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute j1(
     n={1,0,0},
-    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
-    enforceStates=true,
-    w_start=300) annotation (Placement(transformation(extent={{-54,-40},{-34,
+    stateSelect=StateSelect.always,
+    phi(fixed=true),
+    w(displayUnit="deg/s",
+      start=5.235987755982989,
+      fixed=true)) 
+                 annotation (Placement(transformation(extent={{-54,-40},{-34,
             -20}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Joints.Prismatic j2(
     n={1,0,0},
-    s_offset=-0.2,
     boxWidth=0.05,
-    initType=Modelica.Mechanics.MultiBody.Types.Init.Position) 
+    s(fixed=true, start=-0.2)) 
     annotation (Placement(transformation(extent={{12,-80},{32,-60}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1}, diameter=0.05) 
     annotation (Placement(transformation(
@@ -127,7 +131,7 @@ equation
       color={95,95,95},
       thickness=2));
   connect(fixedFrame.frame_a, universalSpherical.frame_ia) annotation (Line(
-      points={{-6,60},{-6,38}},
+      points={{-6,60},{-6,49},{-6,49},{-6,38}},
       color={95,95,95},
       thickness=2));
 end Fourbar2;

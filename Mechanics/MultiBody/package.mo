@@ -37,12 +37,7 @@ For an introduction, have especially a look at:
 <li> <a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples\">MultiBody.Examples</a>
      contains examples that demonstrate the usage of this library.</li>
 </ul>
-<p>
-Note, that the MultiBody library replaces the long used
-ModelicaAdditions.MultiBody library. In
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Upgrade\">MultiBody.UsersGuide.Upgrade</a>
-it is described how to upgrade.
-</p>
+
 <p>
 Copyright &copy; 1998-2007, Modelica Association and DLR.
 </p>
@@ -1650,7 +1645,8 @@ protected
     lengthDirection=n,
     widthDirection={0,1,0},
     color=gravityArrowColor,
-    r_shape=gravityArrowTail + Frames.normalize(n)*gravityLineLength,
+    r_shape=gravityArrowTail + Modelica.Math.Vectors.normalize(
+                                                n)*gravityLineLength,
     specularCoefficient=0) if enableAnimation and animateGravity and gravityType == GravityTypes.UniformGravity;
   
   // Point gravity visualization
@@ -1668,7 +1664,8 @@ protected
   
   function gravityAcceleration = gravityAccelerationTypes (
       gravityType=gravityType,
-      g=g*MultiBody.Frames.normalize(n),
+      g=g*Modelica.Math.Vectors.normalize(
+                                     n),
       mue=mue);
   
 protected 
@@ -1688,13 +1685,15 @@ protected
   algorithm 
     gravity := if gravityType == GravityTypes.UniformGravity then g else 
                if gravityType == GravityTypes.PointGravity then 
-                  -(mue/(r*r))*(r/Frames.length(r)) else 
+                  -(mue/(r*r))*(r/Modelica.Math.Vectors.length(
+                                                r)) else 
                     zeros(3);
   end gravityAccelerationTypes;
 equation 
   defineRoot(frame_b.R);
   
-  assert(Frames.length(n) > 1.e-10,
+  assert(Modelica.Math.Vectors.length(
+                       n) > 1.e-10,
     "Parameter n of World object is wrong (lenght(n) > 0 required)");
   frame_b.r_0 = zeros(3);
   frame_b.R = Frames.nullRotation();

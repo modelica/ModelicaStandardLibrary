@@ -174,12 +174,6 @@ variable <b>extra</b> is used as instance name:
 </table>
 </html>"));
   
-  type AngularVelocity_degs = Modelica.Icons.TypeReal(final quantity="AngularVelocity", final unit
-        =    "deg/s") "Angular velocity type in deg/s";
-  
-  type AngularAcceleration_degs2 = Modelica.Icons.TypeReal (final quantity="AngularAcceleration",
-        final unit="deg/s2") "Angular acceleration type in deg/s^2";
-  
   type ResolveInFrame = enumeration(
       frame_a "Resolve vector in frame_a", 
       frame_b "Resolve vector in frame_b", 
@@ -233,47 +227,14 @@ variable <b>extra</b> is used as instance name:
 </table>
 </html>"));
   
-  type Init = enumeration(
-      Free "Free (no initialization)", 
-      PositionVelocity "Initialize generalized position and velocity variables", 
-        
-      SteadyState 
-        "Initialize in steady state (velocity and acceleration are zero)", 
-      Position "Initialize only generalized position variable(s)", 
-      Velocity "Initialize only generalized velocity variable(s)", 
-      VelocityAcceleration 
-        "Initialize generalized velocity and acceleration variables", 
-      PositionVelocityAcceleration 
-        "Initialize generalized position, velocity and acceleration variables")
-    "Enumeration defining initialization for MultiBody components" 
-      annotation (Documentation(info="<html>
-  
-<table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>Types.Init.</b></th><th><b>Meaning</b></th></tr>
-<tr><td valign=\"top\">Free</td>
-    <td valign=\"top\">No initialization</td></tr>
- 
-<tr><td valign=\"top\">PositionVelocity</td>
-    <td valign=\"top\">Initialize generalized position and velocity variables</td></tr>
- 
-<tr><td valign=\"top\">SteadyState</td>
-    <td valign=\"top\">Initialize in steady state (velocity and acceleration are zero)</td></tr>
- 
-<tr><td valign=\"top\">Position </td>
-    <td valign=\"top\">Initialize only generalized position variable(s)</td></tr>
- 
-<tr><td valign=\"top\">Velocity</td>
-    <td valign=\"top\">Initialize only generalized velocity variable(s)</td></tr>
- 
-<tr><td valign=\"top\">VelocityAcceleration</td>
-    <td valign=\"top\">Initialize generalized velocity and acceleration variables</td></tr>
- 
-<tr><td valign=\"top\">PositionVelocityAcceleration</td>
-    <td valign=\"top\">Initialize generalized position, velocity and acceleration variables</td></tr>
- 
-</table>
- 
-</html>"));
+type Init = enumeration(
+      Free, 
+      PositionVelocity, 
+      SteadyState, 
+      Position, 
+      Velocity, 
+      VelocityAcceleration, 
+      PositionVelocityAcceleration);
   
   package Defaults "Default settings of the MultiBody library via constants" 
     annotation (preferedView="info", Documentation(info="<html>

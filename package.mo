@@ -760,10 +760,25 @@ more of the following changes.
 <p>
 Version 3.0 is <b>not</b> backward compatible to previous versions.
 A conversion script is provided to transform models and libraries
-of previous versions to the new version (this conversion script
-needs still to be implemented).
+of previous versions to the new version.
 </p>
 
+<p>
+The following changes are present for the whole library:
+</p>
+
+<ul>
+<li> The graphical annotations describing the layout of icon and diagram layer
+     are changed from Modelica language version 1 to Modelica language version 3.
+     This gives several significant improvements: Especially, the coordinate system
+     of icon and diagram layers are no longer coupled and therefore the size of the
+     icon layer can be changed independently of the size of the diagram layer.
+     Also it can be defined that the aspect ratio of a component icon is kept when changing
+     its size in a model. This flag is set so that all icons of the Modelica
+     Standard Library keep its aspect ratios. This is slightly non-backward compatible:
+     If the aspect ratio was not kept when using a component from the Modelica
+     Standard Library, it is now resized so that the aspect ratio is maintained. </li>
+</ul>
 
 <p><br>
 The following <b style=\"color:blue\">existing components</b>
@@ -803,12 +818,76 @@ have been <b style=\"color:blue\">changed</b> in a
                         A new component<br>\"InverseBlockConstraints\"
                         is provided instead that has the same feature, but is \"balanced\".</td> </tr>
 
+  <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Frames.</b></td></tr>
+  <tr><td valign=\"top\"> length<br>
+                        normalize</td>
+      <td valign=\"top\"> Removed functions, since available also in Modelica.Math.Vectors
+                        <br>The conversion script changes the references correspondingly.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Joints.</b></td></tr>
+  <tr><td valign=\"top\"> Prismatic<br>
+                        ActuatedPrismatic<br>
+                        Revolute<br>
+                        ActuatedRevolute<br>
+                        Cylindrical<br>
+                        Universal<br>
+                        Planar<br>
+                        Spherical<br>
+                        FreeMotion</td>
+      <td valign=\"top\"> Changed initialization, by replacing initial value parameters with
+                        start/fixed attributes.<br>
+                        When start/fixed attributes are properly supported
+                        in the parameter menu by a Modelica tool,<br>
+                        the initialization is considerably simplified for the
+                        user and the implementation is much simpler.<br>
+                        Replaced parameter \"enforceStates\" by the more general 
+                        built-in enumeration stateSelect=StateSelection.xxx.<br>
+                        The conversion script automatically
+                        transforms from the \"old\" to the \"new\" forms.</td> </tr>
+  <tr><td valign=\"top\"> Revolute<br>
+                        ActuatedRevolute</td>
+      <td valign=\"top\"> Parameter \"planarCutJoint\" in the \"Advanced\" menu of \"Revolute\" and of
+                        \"ActuatedRevolute\" removed.<br>
+                        A new joint \"RevolutePlanarLoopConstraint\" introduced that defines the constraints
+                        of a revolute joint<br> as cut-joint in a planar loop.
+                        This change was needed in order that the revolute joint can be
+                        properly used<br>in advanced model checking.</td> </tr>
+
   <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Parts.</b></td></tr>
   <tr><td valign=\"top\"> BodyBox<br>
                         BodyCylinder</td>
       <td valign=\"top\"> Changed unit of parameter density from g/cm3 to the SI unit kg/m3
                         in order to allow stricter unit checking.<br>The conversion script multiplies
                         previous density values with 1000.</td> </tr>
+  <tr><td valign=\"top\"> Body<br>
+                        BodyShape<br>
+                        BodyBox<br>
+                        BodyCylinder<br>
+                        PointMass
+                        Rotor1D</td>
+      <td valign=\"top\"> Changed initialization, by replacing initial value parameters with
+                        start/fixed attributes.<br>
+                        When start/fixed attributes are properly supported
+                        in the parameter menu by a Modelica tool,<br>
+                        the initialization is considerably simplified for the
+                        user and the implementation is much simpler.<br>The conversion script automatically
+                        transforms from the \"old\" to the \"new\" form of initialization.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Mechanics.Rotational.</b></td></tr>
+  <tr><td valign=\"top\"> Inertia<br>
+                        SpringDamper<br>
+                        RelativeStates</td>
+      <td valign=\"top\"> Changed initialization, by replacing initial value parameters with
+                        start/fixed attributes.<br>
+                        When start/fixed attributes are properly supported
+                        in the parameter menu by a Modelica tool,<br>
+                        the initialization is considerably simplified for the
+                        user and the implementation is much simpler.<br>
+                        Parameter \"stateSelection\" in \"Inertia\" and \"SpringDamper\" replaced
+                        by the built-in enumeration<br>stateSelect=StateSelection.xxx.
+                        Introduced the \"stateSelect\" enumeration in \"RelativeStates\".<br>
+                        The conversion script automatically
+                        transforms from the \"old\" to the \"new\" forms.</td> </tr>
 
 </table>
 
@@ -821,6 +900,12 @@ have been <b style=\"color:blue\">improved</b> in a
 </p>
  
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>Math.Vectors.</b></td></tr>
+  <tr><td valign=\"top\"> normalize</td>
+      <td valign=\"top\"> Implementation changed, so that the result is awalys continuous<br>
+                        (previously, this was not the case for small vectors: normalize(eps,eps)).
+                        </td> </tr>
+
   <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Parts.</b></td></tr>
   <tr><td valign=\"top\"> Mounting1D<br>
                         Rotor1D<br>

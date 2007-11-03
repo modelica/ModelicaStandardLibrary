@@ -26,19 +26,24 @@ of revolute joint j1 is set to 300 deg/s in order to drive this loop.
 <IMG SRC=\"../Images/MultiBody/Examples/Loops/Fourbar1.png\" ALT=\"model Examples.Loops.Fourbar1\">
 </p>
 </html>
-"), Diagram(graphics));
+"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+            100,100}}),
+            graphics));
   
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
         transformation(extent={{-100,-80},{-80,-60}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Joints.Revolute j1(
     n={1,0,0},
-    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
-    enforceStates=true,
-    w_start=300) annotation (Placement(transformation(extent={{-54,-40},{-34,
+    stateSelect=StateSelect.always,
+    phi(fixed=true),
+    w(displayUnit="deg/s",
+      start=5.235987755982989,
+      fixed=true)) 
+                 annotation (Placement(transformation(extent={{-54,-40},{-34,
             -20}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Joints.Prismatic j2(
     n={1,0,0},
-    s_start=-0.2,
+    s(start=-0.2),
     boxWidth=0.05) annotation (Placement(transformation(extent={{10,-80},{30,
             -60}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1}, diameter=0.05) 

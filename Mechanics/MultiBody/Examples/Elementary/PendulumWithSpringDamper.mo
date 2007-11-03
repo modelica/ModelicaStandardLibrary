@@ -1,10 +1,6 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
-encapsulated model PendulumWithSpringDamper "Simple spring/damper/mass system" 
-  import Modelica.Icons;
-  import Modelica.Mechanics.MultiBody;
-  import Modelica.Mechanics.Rotational;
-  import Modelica;
-  extends Icons.Example;
+model PendulumWithSpringDamper "Simple spring/damper/mass system" 
+  extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
   annotation (
     experiment(StopTime=10),
@@ -56,14 +52,14 @@ ALT=\"model Examples.Elementary.PendulumWithSpringDamper\">
     diameter_a=0.08,
     animation=false) annotation (Placement(transformation(extent={{0,-20},{20,0}},
           rotation=0)));
-  Modelica.Mechanics.MultiBody.Joints.Revolute revolute(initType=Modelica.Mechanics.MultiBody.Types.Init.
-        PositionVelocity) annotation (Placement(transformation(extent={{-12,20},
+  Modelica.Mechanics.MultiBody.Joints.Revolute revolute(phi(fixed=true), w(
+        fixed=true))      annotation (Placement(transformation(extent={{-12,20},
             {8,40}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic(
-    s_start=0.5,
     boxWidth=0.04,
     boxColor={255,65,65},
-    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity) 
+    s(fixed=true, start=0.5),
+    v(fixed=true)) 
     annotation (Placement(transformation(extent={{20,20},{40,40}}, rotation=0)));
 equation 
   connect(world.frame_b, bar1.frame_a) 

@@ -48,7 +48,7 @@ MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
         origin={-20,0},
         extent={{-20,-20},{20,20}},
         rotation=270)));
-  Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute rev(initType=Modelica.Mechanics.MultiBody.Types.Init.Velocity) 
+  Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute rev(w(fixed=true)) 
     annotation (Placement(transformation(
         origin={-56,-10},
         extent={{-10,-10},{10,10}},
@@ -132,7 +132,7 @@ equation
       color={95,95,95},
       thickness=2));
   connect(jointRRR1.frame_ia, body1.frame_a) annotation (Line(
-      points={{0,16},{6,16},{6,50}},
+      points={{3.55271e-015,16},{6,16},{6,50}},
       color={95,95,95},
       thickness=2));
   connect(position.flange_b, rev.axis) 
@@ -151,7 +151,7 @@ equation
       color={95,95,95},
       thickness=2));
   connect(jointRRR1.frame_im, jointRRR2.frame_a) annotation (Line(
-      points={{0,1.22465e-015},{12,1.22465e-015},{12,25},{30,25},{30,20}},
+      points={{0,-3.67394e-015},{12,-3.67394e-015},{12,25},{30,25},{30,20}},
       color={95,95,95},
       thickness=2));
   connect(rod3.frame_b, rod4.frame_a) 
@@ -164,7 +164,7 @@ equation
       color={95,95,95},
       thickness=2));
   connect(jointRRR2.frame_im, jointRRR3.frame_a) annotation (Line(
-      points={{50,1.22465e-015},{60,1.22465e-015},{60,26},{80,26},{80,20}},
+      points={{50,-3.67394e-015},{60,-3.67394e-015},{60,26},{80,26},{80,20}},
       color={95,95,95},
       thickness=2));
   connect(jointRRR3.frame_ia, body3.frame_a) annotation (Line(
@@ -172,5 +172,5 @@ equation
       color={95,95,95},
       thickness=2));
   connect(sine.y, position.phi_ref) annotation (Line(points={{-96,19},{-96,-10},
-          {-92,-10}}, color={0,0,255}));
+          {-92,-10}}, color={0,0,127}));
 end PlanarLoops_analytic;

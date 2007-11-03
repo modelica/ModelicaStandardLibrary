@@ -6,8 +6,10 @@ model InitSpringConstant
   inner Modelica.Mechanics.MultiBody.World world(gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.
         UniformGravity) annotation (Placement(transformation(extent={{-80,0},{
             -60,20}}, rotation=0)));
-  Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute rev(n={0,0,1}, initType=Modelica.Mechanics.MultiBody.Types.
-        Init.PositionVelocityAcceleration) annotation (Placement(transformation(
+  Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute rev(n={0,0,1},
+    phi(fixed=true),
+    w(fixed=true),
+    a(fixed=true))                         annotation (Placement(transformation(
           extent={{-40,0},{-20,20}}, rotation=0)));
   Modelica.Mechanics.Rotational.Damper damper(d=0.1) 
     annotation (Placement(transformation(extent={{-40,40},{-20,60}}, rotation=0)));
@@ -48,10 +50,9 @@ the value of this parameter is computed during initialization.
 Therefore, there is one additional equation required during
 initialization. The 3 initial equations are the rotational
 angle of the revolute joint and its first and second
-derivative. The latter one are zero, in order to initialize
-in steady state. By setting parameter initType of the revolute
-joint \"rev\" to 
-\"MultiBody.Types.Init.PositionVelocityAcceleration\", the required
+derivative. The latter ones are zero, in order to initialize
+in steady state. By setting the start values of phi, w, a to zero and
+their fixed attributes to true, the required
 3 initial equations are defined.
 </p>
 <p>
@@ -63,7 +64,8 @@ An animation of this simulation is shown in the figure below.
 <IMG SRC=\"../Images/MultiBody/Examples/Elementary/InitSpringConstant.png\" 
 ALT=\"model Examples.Elementary.InitSpringConstant\">
 </p>
-</html>"));
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+            -100},{100,100}}), graphics));
 equation 
   
   connect(world.frame_b, rev.frame_a) 

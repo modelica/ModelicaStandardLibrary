@@ -11,18 +11,18 @@ model Engine1b
         extent={{-100,-120},{150,120}},
         grid={1,1}), graphics={
         Rectangle(
-          extent={{3,117},{88,-23}}, 
-          lineColor={255,0,0}, 
-          lineThickness=2), 
+          extent={{3,117},{88,-23}},
+          lineColor={255,0,0},
+          lineThickness=2),
         Text(
-          extent={{65,-30},{145,-39}}, 
-          lineColor={255,0,0}, 
-          lineThickness=2, 
-          textString="jointRRP in model"), 
+          extent={{65,-30},{145,-39}},
+          lineColor={255,0,0},
+          lineThickness=2,
+          textString="jointRRP in model"),
         Text(
-          extent={{66,-34},{141,-52}}, 
-          lineColor={255,0,0}, 
-          lineThickness=2, 
+          extent={{66,-34},{141,-52}},
+          lineColor={255,0,0},
+          lineThickness=2,
           textString="Loops.Engine1b_analytic")}),
     Documentation(info="<html>
 <p>

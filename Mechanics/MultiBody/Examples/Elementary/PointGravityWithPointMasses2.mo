@@ -5,19 +5,14 @@ model PointGravityWithPointMasses2
   model PointMass = Modelica.Mechanics.MultiBody.Parts.PointMass (m=1, sphereColor={
           255,0,0}) "Point mass used at all places of this example";
   
-  PointMass pointMass1(
-    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
-    r_0_start={3,0,0},
-    v_0_start={0,0,-1}) 
-                       annotation (Placement(transformation(extent={{60,-10},{
+  PointMass pointMass1(r_0(start={3,0,0}, fixed=true), v_0(start={0,0,-1}, 
+        fixed=true))   annotation (Placement(transformation(extent={{60,-10},{
             80,10}}, rotation=0)));
   
   PointMass pointMass2 annotation (Placement(transformation(extent={{-60,-10},{
             -40,10}}, rotation=0)));
-  PointMass pointMass3(initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
-      r_0_start={2,1,0},
-    v_0_start={0,0,-1}) 
-                       annotation (Placement(transformation(extent={{60,20},{80,
+  PointMass pointMass3(r_0(start={2,1,0}, fixed=true), v_0(start={0,0,-1}, 
+        fixed=true))   annotation (Placement(transformation(extent={{60,20},{80,
             40}}, rotation=0)));
   PointMass pointMass4 annotation (Placement(transformation(extent={{-50,-40},{
             -30,-20}}, rotation=0)));
@@ -64,7 +59,7 @@ a case (when the orientation object is not defined by an object that
 is connected to a point mass), a \"MultiBody.Joints.FreeMotion\" joint
 has to be used, to define the the degrees of freedom of this structure.
 </p>
-
+ 
 <p>
 In order to demonstrate that this approach is correct, in model
 \"referenceSystem\", the same system is again provided, but this time
@@ -73,7 +68,7 @@ set to zero. In this case, no FreeMotion object is needed because every
 body provides its absolute translational and rotational position and
 velocity as potential states.
 </p>
-
+ 
 <p>
 The two systems should move exactly in the same way. The system with the PointMasses
 object visulizes the point masses in \"red\", whereas the \"referenceSystem\" shows
@@ -95,10 +90,10 @@ model SystemWithStandardBodies
       "Body used all places of the comparision model with zero inertia tensor";
     
   PointMass pointMass1(
-    r_0_start={3,0,0},
-    initType=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity,
-    v_0_start={0,0,-1}) 
-                       annotation (Placement(transformation(extent={{40,-20},{
+      r_0(start={3,0,0}, fixed=true), 
+      v_0(start={0,0,-1}, fixed=true), 
+      angles_fixed=true, 
+      w_0_fixed=true)  annotation (Placement(transformation(extent={{40,-20},{
               60,0}}, rotation=0)));
   PointMass pointMass2 annotation (Placement(transformation(extent={{-60,-20},{
               -80,0}}, rotation=0)));
