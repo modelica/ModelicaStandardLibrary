@@ -2713,7 +2713,7 @@ Several matrices may be defined one after another.
        This allows periodic function definitions. </li>
 </ul>
 </html>"),
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
@@ -2735,7 +2735,7 @@ Several matrices may be defined one after another.
           Line(points={{-48,-50},{-48,70},{52,70},{52,-50},{-48,-50},{-48,-20},
                 {52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-51}}, 
               color={0,0,0})}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
@@ -2893,7 +2893,7 @@ The Boolean output y is a constant signal:
       parameter Boolean startValue = false "Output before startTime";
     
       extends Interfaces.partialBooleanSource;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Line(points={{-80,-70},{0,-70},{0,50},
                 {80,50}}, color={0,0,0}), Text(
             extent={{-150,-140},{150,-110}}, 
@@ -3158,7 +3158,7 @@ at sample times (defined by parameter <b>period</b>) and is otherwise
       "Vector of time points. At every time point, the output y gets its opposite value";
       extends Interfaces.partialBooleanSource;
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Rectangle(
             extent={{-18,70},{32,-50}}, 
             lineColor={255,255,255}, 
@@ -3166,7 +3166,7 @@ at sample times (defined by parameter <b>period</b>) and is otherwise
             fillPattern=FillPattern.Solid), Line(points={{-18,-50},{-18,70},{32,
                 70},{32,-50},{-18,-50},{-18,-20},{32,-20},{32,10},{-18,10},{-18,
                 40},{32,40},{32,70},{32,70},{32,-51}}, color={0,0,0})}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Rectangle(
             extent={{-34,66},{16,-54}}, 
@@ -3273,7 +3273,7 @@ changes its value to the negated value of the previous one.
     parameter Integer k=1 "Constant output value";
     extends Interfaces.IntegerSO;
     
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
           Polygon(
@@ -3343,7 +3343,7 @@ The Integer output y is a constant signal:
   block IntegerStep "Generate step signal of type Integer" 
     parameter Integer height=1 "Height of step";
     extends Interfaces.IntegerSignalSource;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
           Polygon(

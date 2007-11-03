@@ -320,7 +320,7 @@ and the accompanying <b>disclaimer</b>
        Some chapters realized.</li>
 </ul>
 </html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}), graphics={
         Rectangle(
           extent={{169,86},{349,236}}, 
@@ -357,7 +357,7 @@ and the accompanying <b>disclaimer</b>
     
     extends Modelica.Icons.Library2;
     
-    annotation(preferedView="info", Icon(coordinateSystem(preserveAspectRatio=false,
+    annotation(preferedView="info", Icon(coordinateSystem(preserveAspectRatio=true,
                      extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-33,-7},{-92,-67}}, 
@@ -456,7 +456,7 @@ definitions have been placed erroneously in Modelica.SIunits although they
 are not SIunits. For backward compatibility, these type definitions are
 still kept in Modelica.SIunits.</p>
 </HTML>
-"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={Text(
               extent={{-66,-13},{52,-67}}, 
               lineColor={0,0,0}, 
@@ -467,7 +467,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degC Celsius "Celsius value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -483,7 +483,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Temperature_degC Celsius "Celsius value";
       output Temperature Kelvin "Kelvin value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -499,7 +499,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degF Fahrenheit "Fahrenheit value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -515,7 +515,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Temperature_degF Fahrenheit "Fahrenheit value";
       output Temperature Kelvin "Kelvin value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -531,7 +531,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degRk Rankine "Rankine value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -547,7 +547,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Temperature_degRk Rankine "Rankine value";
       output Temperature Kelvin "Kelvin value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -563,7 +563,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Angle radian "radian value";
       output NonSIunits.Angle_deg degree "degree value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -579,7 +579,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Angle_deg degree "degree value";
       output Angle radian "radian value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -595,7 +595,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input AngularVelocity rs "radian per second value";
       output NonSIunits.AngularVelocity_rpm rpm "revolutions per minute value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -612,7 +612,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.AngularVelocity_rpm rpm "revolutions per minute value";
       output AngularVelocity rs "radian per second value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -628,7 +628,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Velocity ms "metre per second value";
       output NonSIunits.Velocity_kmh kmh "kilometre per hour value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -644,7 +644,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Velocity_kmh kmh "kilometre per hour value";
       output Velocity ms "metre per second value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -660,7 +660,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Time s "second value";
       output NonSIunits.Time_day day "day value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -676,7 +676,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Time_day day "day value";
       output Time s "second value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -692,7 +692,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Time s "second value";
       output NonSIunits.Time_hour hour "hour value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -708,7 +708,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Time_hour hour "hour value";
       output Time s "second value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -724,7 +724,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Time s "second value";
       output NonSIunits.Time_minute minute "minute value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -740,7 +740,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Time_minute minute "minute value";
       output Time s "second value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -756,7 +756,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Volume m3 "cubic metre value";
       output NonSIunits.Volume_litre litre "litre value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -772,7 +772,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Volume_litre litre "litre value";
       output Volume m3 "cubic metre value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -788,7 +788,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Energy J "Joule value";
       output NonSIunits.Energy_kWh kWh "kWh value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -804,7 +804,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Energy_kWh kWh "kWh value";
       output Energy J "Joule value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -820,7 +820,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input Pressure Pa "Pascal value";
       output NonSIunits.Pressure_bar bar "bar value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -836,7 +836,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.Pressure_bar bar "bar value";
       output Pressure Pa "Pascal value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -852,7 +852,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input MassFlowRate kgps "kg/s value";
       output NonSIunits.MassFlowRate_gps gps "g/s value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -868,7 +868,7 @@ still kept in Modelica.SIunits.</p>
       extends ConversionIcon;
       input NonSIunits.MassFlowRate_gps gps "g/s value";
       output MassFlowRate kgps "kg/s value";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}}, 
               lineColor={0,0,0}, 
@@ -881,7 +881,7 @@ still kept in Modelica.SIunits.</p>
     end from_gps;
     
     partial function ConversionIcon "Base icon for conversion functions" 
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}}, 

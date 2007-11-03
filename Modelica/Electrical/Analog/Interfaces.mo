@@ -54,13 +54,13 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     SI.Voltage v "Potential at the pin";
     flow SI.Current i "Current flowing into the pin";
     annotation (defaultComponentName="pin",
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Rectangle(
             extent={{-100,100},{100,-100}}, 
             lineColor={0,0,255}, 
             fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Rectangle(
             extent={{-40,40},{40,-40}}, 
             lineColor={0,0,255}, 
@@ -99,13 +99,13 @@ component.</p></html>", revisions="<html>
        </li>
 </ul>
 </html>"),
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Rectangle(
             extent={{-100,100},{100,-100}}, 
             lineColor={0,0,255}, 
             fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Rectangle(
             extent={{-40,40},{40,-40}}, 
             lineColor={0,0,255}, 
@@ -135,13 +135,13 @@ component.</p></html>", revisions="<html>
        </li>
 </ul>
 </html>"),
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Rectangle(
             extent={{-100,100},{100,-100}}, 
             lineColor={0,0,255}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Rectangle(
             extent={{-40,40},{40,-40}}, 
             lineColor={0,0,255}, 

@@ -398,7 +398,7 @@ to plot variables.
       extends Modelica.Icons.SignalSubBus;
       
       annotation (defaultComponentPrefixes="protected",
-                  Icon(coordinateSystem(preserveAspectRatio=false, extent={{
+                  Icon(coordinateSystem(preserveAspectRatio=true, extent={{
                 -100,-100},{100,100}}), graphics={Rectangle(
               extent={{-20,2},{22,-2}},
               lineColor={255,204,51},
@@ -421,12 +421,12 @@ the connection to this bus) are defined
       extends Modelica.Icons.SignalBus;
       
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Rectangle(
               extent={{-20,2},{22,-2}},
               lineColor={255,204,51},
               lineThickness=2)}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics),
         Documentation(info="<html>

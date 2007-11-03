@@ -84,7 +84,7 @@ solved, i.e., robustly and efficiently).
     extends Internal.Prismatic;
     
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Text(
             extent={{-142,62},{147,101}}, 
             lineColor={0,0,0}, 
@@ -120,7 +120,7 @@ vector \"n\" defining the translation axis
 <IMG SRC=\"../Images/MultiBody/Joints/Prismatic.png\">
 </p>
 </HTML>
-"),   Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+"),   Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}),
               graphics));
     
@@ -247,7 +247,7 @@ vector \"n\" defining the translation axis
     
     extends Internal.Revolute;
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Text(
             extent={{-146,70},{143,109}}, 
@@ -2940,7 +2940,7 @@ singular configuration.
       "Vector from frame bearing to frame_b resolved in bearing";
     
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
             extent={{-98,98},{98,-98}}, 
@@ -3006,7 +3006,7 @@ of <tt>frame_a</tt> and <tt>frame_b</tt> may be arbitrary.</p>
 Modelica Conference</i>. Link&ouml;ping : The Modelica Association and Link&ouml;ping University,
 November 3-4, 2003, pp. 149-158</p>
 </html>"),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}),
               graphics));
     Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute actuatedRevolute_a(n=n_a, animation=false) 

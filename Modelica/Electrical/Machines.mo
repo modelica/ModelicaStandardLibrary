@@ -136,7 +136,7 @@ and the accompanying <b>disclaimer</b>
        removed cardinality from support, using a boolean parameter</li>
   </ul>
 </HTML>"),
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
         Rectangle(
           extent={{-60,60},{60,-60}}, 
@@ -204,7 +204,7 @@ This package contains test examples of electric machines.
   <li> v1.6.1 2004/11/22 Anton Haumer<br>
        introduced Utilities.TerminalBox</li>
   </ul>
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Ellipse(extent={{-80,44},{60,-96}}, 
               lineColor={95,95,95}), Polygon(
             points={{-40,36},{-40,-88},{60,-26},{-40,36}}, 
@@ -1849,7 +1849,7 @@ The induction machine models use package SpacePhasors.
   <li> v1.7.1 2006/02/06 Anton Haumer<br>
        changed some naming of synchronous machines, not affecting existing models</li>
   </ul>
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Rectangle(
             extent={{-60,60},{60,-60}}, 
@@ -3060,7 +3060,7 @@ This package contains models of DC machines:
               rotation=90)));
         annotation (defaultComponentName="dcpm",
           Diagram(graphics),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={Rectangle(
                 extent={{-130,10},{-100,-10}}, 
                 lineColor={0,0,0}, 
@@ -3181,7 +3181,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
                 rotation=0)));
         annotation (defaultComponentName="dcee",
           Diagram(graphics),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Line(points={{-130,-4},{-129,1},{-125,5},{-120,6},{-115,5},{-111,
                     1},{-110,-4}}, color={0,0,255}), 
@@ -3324,7 +3324,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
                 rotation=0)));
         annotation (defaultComponentName="dcse",
           Diagram(graphics),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Line(points={{-100,-10},{-105,-9},{-109,-5},{-110,0},{-109,5},{-105,
                     9},{-100,10}}, color={0,0,255}), 
@@ -3505,7 +3505,7 @@ and the accompanying <b>disclaimer</b>
   <li> v1.0.0 2006/11/19 Anton Haumer<br>
        first stable release</li>
   </ul>
-</HTML>"),     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Ellipse(extent={{-100,30},{20,-90}}, 
                 lineColor={0,0,255}), Ellipse(extent={{-40,30},{80,-90}}, 
                 lineColor={0,0,255})}));
@@ -6076,7 +6076,7 @@ This package contains sensors that are usefull when modelling machines.
        removed mechanical flange support, also in sensor RotorDisplacementAngle<br>
        to ease the implementation of a 3D-frame in a future release</li>
   </ul>
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Ellipse(
             extent={{-74,46},{66,-94}}, 
@@ -6574,7 +6574,7 @@ This package contains components, blocks and functions to utilize space phasor t
   <li> v1.6.1 2005/11/10 Anton Haumer<br>
        improved Transformation and Rotation</li>
   </ul>
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Line(
             points={{-8,-26},{64,46},{44,38},{56,26},{64,46}}, 
             color={0,0,255}, 
@@ -7169,7 +7169,7 @@ This package contains the space phasor connector and partial models for machine 
   <li> v1.51 Beta 2005/02/01 Anton Haumer<br>
        changed parameter polePairs to Integer</li>
   </ul>
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Polygon(
             points={{-70,-30},{-10,30},{50,-30},{-10,-90},{-70,-30}}, 
             lineColor={0,0,255}, 
@@ -7245,7 +7245,7 @@ Connector for Space Phasors:
         annotation (Placement(transformation(extent={{19,-101},{21,-99}},
               rotation=0)));
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
               extent={{-40,60},{80,-60}}, 
@@ -7414,7 +7414,7 @@ Partial model for induction machine models
 Partial model for DC machine models.
 </HTML>"),
         Diagram(graphics),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}}, 
                 color={0,0,255}), Line(points={{50,100},{20,100},{20,70}}, 
                 color={0,0,255})}));

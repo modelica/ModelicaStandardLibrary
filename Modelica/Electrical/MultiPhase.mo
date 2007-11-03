@@ -63,7 +63,7 @@ and the accompanying <b>disclaimer</b>
       removed redeclare type SignalType</li>
   </ul>
 </html>"),
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
         Ellipse(extent={{-60,10},{40,-90}}, lineColor={0,0,255}), 
         Ellipse(
@@ -116,7 +116,7 @@ This package contains test examples of analog electrical multiphase circuits.
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Ellipse(extent={{-60,12},{40,-88}}, 
               lineColor={135,135,135}), Polygon(
             points={{-30,-10},{-30,-66},{28,-38},{-30,-10}}, 
@@ -438,7 +438,7 @@ This package contains basic analog electrical multiphase components.
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Rectangle(
             extent={{-80,-10},{60,-70}}, 
@@ -1165,7 +1165,7 @@ like thyristor, diode, switch, transformer.
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Line(points={{-100,-40},{80,-40}}, color={0,0,255}), 
           Polygon(
@@ -1759,7 +1759,7 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Ellipse(extent={{-60,10},{40,-90}}, lineColor={0,0,255}), 
           Ellipse(
@@ -1964,7 +1964,7 @@ This package contains multiphase potential, voltage, and current sensors.
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Ellipse(
             extent={{-60,10},{40,-90}}, 
@@ -2289,7 +2289,7 @@ This package contains time-dependend and controlled multiphase voltage and curre
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </p>
 </dl>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Line(points={{-100,-40},{-60,-40}}, color={0,0,255}), 
           Line(points={{-60,-40},{40,-40}}, color={0,0,255}), 

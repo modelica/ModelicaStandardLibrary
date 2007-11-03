@@ -459,7 +459,7 @@ in the housing on one side via component Fixed.</p>
 <p>Simulate for 1 second and plot the following variables:<br>
    angular velocities of inertias inertia2 and 3: inertia2.w, inertia3.w</p>
  
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
                    graphics),
         experiment(StopTime=1),
@@ -685,7 +685,7 @@ mode = -1/0/+1 means backward sliding,
 locked, forward sliding.</p>
  
 </HTML>"),      Commands(file="CoupledClutches.mos" "Plot inertias"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics),
         experiment(StopTime=1.5),
@@ -800,7 +800,7 @@ gear.mode  :  1 = forward rolling
              -1 = backward rolling
 </pre>
 </HTML>
-"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}),
             graphics),
         experiment(StopTime=0.5),
@@ -892,7 +892,7 @@ gear.mode           :  1 = forward rolling
 as component LossyGear includes the functionality of component BearingFriction
 (only <i>peak</i> not supported).</p>
 </HTML>
-"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}),
             graphics),
         experiment(StopTime=0.5),
@@ -981,7 +981,7 @@ as component LossyGear includes the functionality of component BearingFriction
       Modelica.Blocks.Sources.Ramp ramp(              duration=5, height=100) 
         annotation (Placement(transformation(extent={{-90,40},{-70,60}},
               rotation=0)));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
                 -100,-100},{100,100}}),
                           graphics),
                            Documentation(info="<html>
@@ -1403,7 +1403,7 @@ in an ideal way and provides the result as output signal <b>a_rel</b>
       0 = flange_a.tau;
       0 = flange_b.tau;
     end RelAccSensor;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Line(points={{-56,-61},{-56,-81}}, color={0,0,0}), 
           Line(points={{-36,-61},{-36,-81}}, color={0,0,0}), 
@@ -1609,7 +1609,7 @@ and the accompanying <b>disclaimer</b>
 </p><br>
 </HTML>
 ", revisions=""),
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
         Line(points={{-83,-66},{-63,-66}}, color={0,0,0}), 
         Line(points={{36,-68},{56,-68}}, color={0,0,0}), 
@@ -1896,13 +1896,13 @@ for a compliant connection of flanges (Interfaces.Compliant).
                        annotation (Placement(transformation(extent={{-10,-110},
                 {10,-90}}, rotation=0)));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Rectangle(
               extent={{-20,-80},{20,-120}}, 
               lineColor={192,192,192}, 
               fillColor={192,192,192}, 
               fillPattern=FillPattern.Solid)}),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Rectangle(
               extent={{-20,-80},{20,-120}}, 
               lineColor={192,192,192}, 
@@ -1962,7 +1962,7 @@ It is used e.g. to build up equation-based parts of a drive train.</p>
         extends TwoFlanges;
         parameter Boolean bearingConnected;
         
-        annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
+        annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{
                   -100,-100},{100,100}}), graphics={Rectangle(
                 extent={{-90,10},{90,-10}}, 
                 lineColor={192,192,192}, 
@@ -2189,7 +2189,7 @@ with the blocks of package Modelica.Blocks.
               rotation=0)));
       annotation (
         Diagram(graphics),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
               extent={{-96,96},{96,-96}}, 
@@ -4515,7 +4515,7 @@ and Simulating the Efficiency of Gearboxes and of Planetary Gearboxes</A>,&quot;
 pp. 257-266, The Modelica Association and Institute of Robotics and Mechatronics,
 Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</p>
 </HTML>
-"),   Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
             extent={{-40,20},{-20,-20}}, 
@@ -4907,7 +4907,7 @@ to the left and/or the right flange.
 </p>
  
 </HTML>
-"),   Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
             extent={{-40,60},{40,-60}}, 
@@ -4950,7 +4950,7 @@ to the left and/or the right flange.
             extent={{-150,-160},{150,-120}}, 
             lineColor={0,0,0}, 
             textString="c=%c")}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Text(
             extent={{2,29},{46,22}}, 
@@ -5037,7 +5037,7 @@ model Inertia to the left and/or the right flange of component
 GearNew.</p>
  
 </HTML>
-"),   Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
             extent={{-100,10},{-60,-10}}, 
@@ -5970,7 +5970,7 @@ blocks of Modelica.Blocks.Sources.</p>
       "nominal speed";
     annotation (
       Diagram(graphics),
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-100,-100},{100,100}}, color={0,0,
                 255})}),
       Documentation(info="<HTML>
@@ -5999,7 +5999,7 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
       "nominal speed";
     annotation (
       Diagram(graphics),
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-100,-100},{-80,-98},{-60,-92},{-40,
                 -82},{-20,-68},{0,-50},{20,-28},{40,-2},{60,28},{80,62},{100,
                 100}}, color={0,0,255})}),
@@ -6024,7 +6024,7 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
       "constant torque (if negative, torque is acting as load)";
     annotation (
       Diagram(graphics),
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-98,0},{100,0}}, color={0,0,255})}),
       Documentation(info="<HTML>
 <p>
@@ -6043,7 +6043,7 @@ Positive torque acts accelerating.
       "fixed speed (if negative, torque is acting as load)";
     annotation (
       Diagram(graphics),
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{0,-100},{0,100}}, color={0,0,255})}),
       Documentation(info="<HTML>
 <p>
@@ -6065,7 +6065,7 @@ Model of <b>fixed</b> angular verlocity of flange, not dependent on torque.
     
     annotation (
       Diagram(graphics),
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-80,-60},{0,-60},{0,60},{80,60}}, 
               color={0,0,255}), Text(
             extent={{0,-40},{100,-60}}, 
@@ -6231,7 +6231,7 @@ velocity of model inertia1 or of model inertia2 as state variables.
       "Flange angle";
     Modelica.SIunits.AngularVelocity w_flange(stateSelect=stateSelect)= der(phi_flange) 
       "= der(phi_flange)";
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Text(
             extent={{-94,74},{68,46}}, 
@@ -6245,7 +6245,7 @@ velocity of model inertia1 or of model inertia2 as state variables.
             extent={{-94,-46},{66,-74}}, 
             lineColor={0,0,0}, 
             textString="a_start")}),
-                              Diagram(coordinateSystem(preserveAspectRatio=false,
+                              Diagram(coordinateSystem(preserveAspectRatio=true,
                      extent={{-100,-100},{100,100}}),
                                       graphics),
       Documentation(info="<html>

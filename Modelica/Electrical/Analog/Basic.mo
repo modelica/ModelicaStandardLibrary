@@ -170,7 +170,7 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
           extent={{10,-10},{-10,10}},
           rotation=270)));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
           Line(points={{-110,20},{-85,20}}, color={160,160,164}), 
           Polygon(
@@ -205,7 +205,7 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
             lineColor={0,0,255}, 
             fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid)}),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Text(
             extent={{-142,60},{143,118}}, 
@@ -470,7 +470,7 @@ The Inductance <i>L</i> is allowed to be positive, zero, or negative.
     Modelica.SIunits.MagneticFlux Psi;
   protected 
     parameter Modelica.SIunits.Current Ipar(start=Inom/10, fixed=false);
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}), 
           Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}), 
@@ -529,7 +529,7 @@ The parameters are:
   </dd>
 </dl>
 </html>"),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}), 
           Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}), 
@@ -1522,7 +1522,7 @@ Cmin is a parameter with default value Modelica.Constants.eps.
        by Anton Haumer<br>implemented.
        </li>
 </ul>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Text(
             extent={{-134,-100},{136,-40}}, 
@@ -1539,7 +1539,7 @@ Cmin is a parameter with default value Modelica.Constants.eps.
             points={{14,28},{14,-28}}, 
             thickness=2, 
             color={0,0,255})}),
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Line(points={{-96,0},{-14,0}}, color={0,0,255}), 
           Line(points={{14,0},{96,0}}, color={0,0,255}), 
@@ -1598,7 +1598,7 @@ Lmin is a parameter with default value Modelica.Constants.eps.
        by Anton Haumer<br>implemented.
        </li>
 </ul>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Text(
             extent={{-138,-100},{136,-40}}, 
@@ -1616,7 +1616,7 @@ Lmin is a parameter with default value Modelica.Constants.eps.
             lineColor={255,255,255}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid)}),
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Line(points={{-96,0},{-60,0}}, color={0,0,255}), 
           Line(points={{0,90},{0,8}}, color={0,0,255}), 

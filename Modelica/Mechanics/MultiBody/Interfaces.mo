@@ -440,7 +440,7 @@ joint aggregation models.
   equation 
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of component is not connected");
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}),
                      graphics),
                       Documentation(info="<html>
@@ -601,7 +601,7 @@ Note, that frame_b.f and frame_b.t are flow variables and therefore
 the negative value of frame_b.f and frame_b.t is acting at the part
 to which this force element is connected.
 </p>
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Text(
             extent={{-136,42},{-100,17}}, 
             lineColor={128,128,128}, 
@@ -687,7 +687,7 @@ has to be defined. Example:
       f = c*(s-s_unstretched);
    <b>end</b> Spring;
 </pre>
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Text(
             extent={{-136,44},{-100,19}}, 
             lineColor={128,128,128}, 
@@ -927,7 +927,7 @@ with the blocks of package Modelica.Blocks.
   equation 
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of visualizer object is not connected");
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}),
                      graphics),
                       Documentation(info="<html>

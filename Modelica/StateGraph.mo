@@ -1987,14 +1987,14 @@ package Interfaces "Connectors and partial models"
     output Boolean occupied "true, if step is active" annotation (Hide=true);
     input Boolean set "true, if transition fires and step is activated" 
       annotation (Hide=true);
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
               points={{-100,100},{100,0},{-100,-100},{-100,100}}, 
               lineColor={0,0,0}, 
               fillColor={0,0,0}, 
               fillPattern=FillPattern.Solid)}),
                                             Diagram(coordinateSystem(
-              preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
             graphics={Rectangle(
               extent={{0,0},{0,0}}, 
               lineColor={255,255,255}, 
@@ -2012,7 +2012,7 @@ package Interfaces "Connectors and partial models"
     input Boolean reset "true, if transition fires and step is deactived" 
       annotation (Hide=true);
       
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
               extent={{-100,100},{100,-100}}, 
               lineColor={0,0,0}, 
@@ -2050,7 +2050,7 @@ package Interfaces "Connectors and partial models"
         "= true, if suspend transition of CompositeStep fires";
     output Boolean resume "= true, if resume transition of CompositeStep fires";
     flow input Real activeSteps "Number of active steps in the CompositeStep";
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
                      graphics),
                       Diagram(graphics));
@@ -2147,10 +2147,10 @@ to more than one transition");
         outPort[i].reset = false;
       end if;
     end for;
-    annotation(Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+    annotation(Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
                 -100,-100},{100,100}}),
                        graphics),
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}),
            graphics),
       Coordsys(grid=[1,1], component=[20,20]));
@@ -2224,7 +2224,7 @@ to more than one transition");
     
   partial block PartialStateGraphIcon "Icon for a StateGraph object" 
       
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
               extent={{-100,100},{100,-100}}, 
               lineColor={0,0,0}, 
@@ -2320,11 +2320,11 @@ block InitialStepWithSignal
     
   extends Interfaces.PartialStep;
     
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(extent={{-100,100},{100,-100}}, 
               lineColor={0,0,0}), Rectangle(extent={{-80,80},{80,-80}}, 
               lineColor={0,0,0})}),
-       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Text(
             extent={{-200,110},{200,150}}, 
@@ -2404,10 +2404,10 @@ block StepWithSignal
     
   extends Interfaces.PartialStep;
     
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(extent={{-100,100},{100,-100}}, 
               lineColor={0,0,0})}),
-       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Text(
             extent={{-200,110},{200,150}}, 
@@ -3043,7 +3043,7 @@ block StateGraphRoot
   annotation (
     defaultComponentName="stateGraphRoot",
     defaultComponentPrefixes="inner",
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Text(
             extent={{-200,110},{200,150}}, 
@@ -3206,7 +3206,7 @@ value, still requires to go in to the text layer.
       annotation (Dialog(group="Time varying expressions"));
       
     annotation (Icon(
-          coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+          coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), 
           graphics={Rectangle(
               extent={{-100,-100},{100,100}}, 
@@ -3221,7 +3221,7 @@ value, still requires to go in to the text layer.
               textString="%name")},
                             interaction={OnMouseDownSetBoolean(
                             on, true)}),
-                            Diagram(coordinateSystem(preserveAspectRatio=false,
+                            Diagram(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}),
                                     graphics),
         Documentation(info="<html>
@@ -3245,7 +3245,7 @@ value, still requires to go in to the text layer.
     parameter Boolean hideConnector=false 
         "= true, if connector is not shown in the dynamic object diagram";
       
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
               extent={{100,50},{-100,-50}}, 
               lineColor={0,0,255}, 
@@ -3277,7 +3277,7 @@ value, still requires to go in to the text layer.
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
       
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Ellipse(
               extent={{-100,-100},{100,100}}, 
               fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0}

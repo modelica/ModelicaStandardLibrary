@@ -992,7 +992,7 @@ The simulation stop time has to be 5s.
         Documentation(info="<HTML>
 </HTML>
 "),     Diagram(graphics),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Rectangle(
                 extent={{-90,100},{90,-100}}, 
@@ -1545,7 +1545,7 @@ The simulation stop time has to be 5s.
         Documentation(info="<HTML>
 </HTML>
 "),     Diagram(graphics),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Rectangle(
                 extent={{-90,100},{90,-100}}, 
@@ -2236,7 +2236,7 @@ This package contains utility components used by package Examples.
  
 </html>"));
   end Utilities;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,-100},{80,50}}, 
@@ -2305,10 +2305,10 @@ components of the Electrical.Digital library.
 </html>"));
     
     connector DigitalSignal = Logic "Digital port (both input/output possible)"
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{
               -100,-100},{100,100}}),
                        graphics),
-                        Diagram(coordinateSystem(preserveAspectRatio=false,
+                        Diagram(coordinateSystem(preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}),
                                 graphics),
       Documentation(info="<html>
@@ -2318,13 +2318,13 @@ components of the Electrical.Digital library.
     connector DigitalInput = input DigitalSignal 
       "input DigitalSignal as connector" 
       annotation (defaultComponentName="x",
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Rectangle(
             extent={{-100,-100},{100,100}},
             lineColor={127,0,127},
             fillColor={127,0,127},
             fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Text(
             extent={{-150,-100},{150,-160}},
             lineColor={127,0,127},
@@ -2342,14 +2342,14 @@ components of the Electrical.Digital library.
     connector DigitalOutput = output DigitalSignal 
       "output DigitalSignal as connector" 
       annotation (defaultComponentName="y", Icon(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
           graphics={Polygon(
             points={{-100,100},{100,0},{-100,-100},{-100,100}},
             lineColor={127,0,127},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid)}),
                                        Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
           graphics={Polygon(
             points={{-100,100},{100,0},{-100,-100},{-100,100}},
             lineColor={127,0,127},
@@ -2367,10 +2367,10 @@ components of the Electrical.Digital library.
       D.Interfaces.DigitalOutput y "Connector of Digital output signal" 
                     annotation (Placement(transformation(extent={{90,-10},{110,
                 10}}, rotation=0)));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
                 -100,-100},{100,100}}),
                           graphics),                                          Icon(
-            coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+            coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Rectangle(
               extent={{-50,100},{50,-100}}, 
               lineColor={0,0,0}, 
@@ -2393,7 +2393,7 @@ components of the Electrical.Digital library.
       D.Interfaces.DigitalOutput y "Connector of Digital output signal" 
                     annotation (Placement(transformation(extent={{90,-10},{110,
                 10}}, rotation=0)));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{
                 -100,-100},{100,100}}), graphics={Rectangle(
               extent={{-50,100},{50,-100}}, 
               lineColor={0,0,0}, 
@@ -2401,7 +2401,7 @@ components of the Electrical.Digital library.
               fillColor={255,255,255}, 
               fillPattern=FillPattern.Solid), Line(points={{50,0},{90,0}}, 
                 color={127,0,127})}),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
                   graphics),
         Documentation(info="<html>
@@ -2409,7 +2409,7 @@ components of the Electrical.Digital library.
 </html>"));
     end MISO;
     
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,-100},{80,50}}, 
@@ -2506,7 +2506,7 @@ This package contains interface definitions
         1, 1, 0, 1, 1, 1, 0, 1, 1;
         -1, -1, -1, 0, -1, -1, -1, 0, -1;
         0, 0, -1, 1, 0, 0, -1, 1, 0];
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,-100},{80,50}}, 
@@ -2572,7 +2572,7 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
        initially modelled.</li>
 </ul>
 </HTML>"),
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}}, 
@@ -2639,10 +2639,10 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}}, 
@@ -2725,10 +2725,10 @@ is used, if it is zero, the input is not delayed.
        by Christoph Clauss<br>
        initially modelled</li>
 </HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}}, 
@@ -2777,7 +2777,7 @@ is used, if it is zero, the input is not delayed.
      end when;
      y := if ((tLH > 0 or tHL > 0)) then y_auxiliary else x;
     end InertialDelaySensitive;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,-100},{80,50}}, 
@@ -2831,7 +2831,7 @@ Not with 1 input value, without delay.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{-50,40},{50,80}}, 
@@ -2849,7 +2849,7 @@ Not with 1 input value, without delay.
               lineThickness=2, 
               fillColor={255,255,255}, 
               fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));
     equation 
@@ -2879,7 +2879,7 @@ And with n input values, without delay.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Text(
               extent={{-50,40},{50,80}}, 
               lineColor={0,0,0}, 
@@ -2889,7 +2889,7 @@ And with n input values, without delay.
               extent={{152,-160},{-148,-100}}, 
               lineColor={0,0,255}, 
               textString="%name")}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));
     equation 
@@ -2922,7 +2922,7 @@ Nand with n input values, without delay.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{-50,40},{50,80}}, 
@@ -2940,7 +2940,7 @@ Nand with n input values, without delay.
               lineThickness=2, 
               fillColor={255,255,255}, 
               fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));
     equation 
@@ -2973,7 +2973,7 @@ Or with n input values, without delay.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Text(
               extent={{-50,40},{50,80}}, 
               lineColor={0,0,0}, 
@@ -2983,7 +2983,7 @@ Or with n input values, without delay.
               extent={{152,-160},{-148,-100}}, 
               lineColor={0,0,255}, 
               textString="%name")}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));
     equation 
@@ -3016,7 +3016,7 @@ Nor with n input values, without delay.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{-50,40},{50,80}}, 
@@ -3034,7 +3034,7 @@ Nor with n input values, without delay.
               lineThickness=2, 
               fillColor={255,255,255}, 
               fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));
     equation 
@@ -3067,7 +3067,7 @@ Xor with n input values, without delay.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Text(
               extent={{-50,40},{50,80}}, 
               lineColor={0,0,0}, 
@@ -3077,7 +3077,7 @@ Xor with n input values, without delay.
               extent={{152,-160},{-148,-100}}, 
               lineColor={0,0,255}, 
               textString="%name")}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));
     equation 
@@ -3110,7 +3110,7 @@ XNor with n input values, without delay.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Text(
               extent={{-50,40},{50,80}}, 
               lineColor={0,0,0}, 
@@ -3120,7 +3120,7 @@ XNor with n input values, without delay.
               extent={{152,-160},{-148,-100}}, 
               lineColor={0,0,255}, 
               textString="%name")}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));
     equation 
@@ -3130,7 +3130,7 @@ XNor with n input values, without delay.
       end for;
       y = pre(D.Tables.NotTable[auxiliary[n]]);
     end Xnor;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,-100},{80,50}}, 
@@ -3188,10 +3188,10 @@ InvGate with 1 input value, composed by Not and sensitive intertial delay.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}}, 
@@ -3256,7 +3256,7 @@ AndGate with n input values, composed by And and sensitive intertial delay.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}}, 
@@ -3278,7 +3278,7 @@ AndGate with n input values, composed by And and sensitive intertial delay.
               lineColor={0,0,0}, 
               lineThickness=2, 
               textString="Gate")}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));
     equation 
@@ -3302,9 +3302,9 @@ AndGate with n input values, composed by And and sensitive intertial delay.
         y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
               rotation=0)));
       annotation (extent=[0, -20; 40, 20], Diagram(coordinateSystem(
-              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                                                    graphics),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}}, 
@@ -3413,7 +3413,7 @@ OrGate with n input values, composed by Or and sensitive intertial delay.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}}, 
@@ -3435,7 +3435,7 @@ OrGate with n input values, composed by Or and sensitive intertial delay.
               lineColor={0,0,0}, 
               lineThickness=2, 
               textString="Gate")}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));
     equation 
@@ -3474,7 +3474,7 @@ NorGate with n input values, composed by Nor and sensitive intertial delay.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}}, 
@@ -3502,7 +3502,7 @@ NorGate with n input values, composed by Nor and sensitive intertial delay.
               lineThickness=2, 
               fillColor={255,255,255}, 
               fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));
     equation 
@@ -3541,7 +3541,7 @@ XorGate with n input values, composed by Xor and sensitive intertial delay.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}}, 
@@ -3563,7 +3563,7 @@ XorGate with n input values, composed by Xor and sensitive intertial delay.
               lineColor={0,0,0}, 
               lineThickness=2, 
               textString="Gate")}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));
     equation 
@@ -3602,7 +3602,7 @@ XNorGate with n input values, composed by XNor and sensitive intertial delay.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}}, 
@@ -3624,7 +3624,7 @@ XNorGate with n input values, composed by XNor and sensitive intertial delay.
               lineColor={0,0,0}, 
               lineThickness=2, 
               textString="Gate")}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));
     equation 
@@ -3660,10 +3660,10 @@ BufGate with 1 input value, composed by Not and sensitive intertial delay.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}}, 
@@ -3692,7 +3692,7 @@ BufGate with 1 input value, composed by Not and sensitive intertial delay.
       connect(G1.x, x) annotation (Line(points={{-22,0},{-60,0}}, color={127,0,
               127}));
     end BufGate;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,-100},{80,50}}, 
@@ -3772,7 +3772,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
        initially modelled.</li>
 </ul>
 </HTML>"),
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
             Rectangle(
               extent={{-50,100},{50,-100}}, 
@@ -3846,7 +3846,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
               extent={{-50,100},{50,-100}}, 
@@ -3860,7 +3860,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
               textString="%name"), 
             Line(points={{-30,40},{0,40},{0,80},{30,80}}, color={0,0,0}), 
             Line(points={{50,0},{90,0}}, color={127,0,127})}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));
     algorithm 
@@ -3927,7 +3927,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
               extent={{-50,100},{50,-100}}, 
@@ -3953,7 +3953,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
             Line(points={{0,80},{0,40}}, color={0,0,0}), 
             Line(points={{-30,60},{32,60}}, color={0,0,0}), 
             Line(points={{-30,50},{32,50}}, color={0,0,0})}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));
     algorithm 
@@ -4037,7 +4037,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
        initially modelled.</li>
 </ul>
 </HTML>"),
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
             graphics={
             Rectangle(
               extent={{-50,100},{50,-100}}, 
@@ -4105,7 +4105,7 @@ The number of periods is unlimited. The first pulse starts at startTime.
        initially modelled.</li>
 </ul>
 </HTML>"),
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
             Rectangle(
               extent={{-50,100},{50,-100}}, 
@@ -4127,7 +4127,7 @@ The number of periods is unlimited. The first pulse starts at startTime.
       end when;
       y := if (not time>=startTime) or time >= t_i + t_width then L.'0' else L.'1';
     end Clock;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,-100},{80,50}}, 
@@ -4201,7 +4201,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
        initially modelled.</li>
 </ul>
 </HTML>
-"),     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{152,-100},{-148,-40}}, 
@@ -4227,7 +4227,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
               extent={{-40,40},{40,-40}}, 
               lineColor={0,0,0}, 
               lineThickness=2)}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));
     algorithm 
@@ -4279,7 +4279,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{152,-100},{-148,-40}}, 
@@ -4305,7 +4305,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
               extent={{-40,40},{40,-40}}, 
               lineColor={0,0,0}, 
               lineThickness=2)}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));
     algorithm 
@@ -4357,7 +4357,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
        initially modelled.</li>
 </ul>
 </HTML>"),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{152,-100},{-148,-40}}, 
@@ -4383,7 +4383,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
               extent={{-40,40},{40,-40}}, 
               lineColor={0,0,0}, 
               lineThickness=2)}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));
     algorithm 
@@ -4427,7 +4427,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
 </ul>
 </HTML>"),
         extent=[-60, -10; -40, 10],
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Polygon(
               points={{-40,-40},{40,40},{40,-40},{-40,-40}}, 
@@ -4447,7 +4447,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
               extent={{-40,40},{40,-40}}, 
               lineColor={0,0,0}, 
               lineThickness=2)}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}),
                 graphics),
         Placement(transformation(extent={{-60,-10},{-40,10}}, rotation=0)));
@@ -4497,7 +4497,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
        initially modelled.</li>
 </ul>
 </HTML>"),
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
             Polygon(
               points={{-40,40},{40,40},{-40,-40},{-40,40}}, 
@@ -4567,7 +4567,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
 </ul>
 </HTML>"),
         extent=[-60, -10; -40, 10],
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Polygon(
               points={{-40,-40},{40,40},{40,-40},{-40,-40}}, 
@@ -4586,7 +4586,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
               extent={{-40,40},{40,-40}}, 
               lineColor={0,0,0}, 
               lineThickness=2)}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}),
                 graphics),
         Placement(transformation(extent={{-60,-10},{-40,10}}, rotation=0)));
@@ -4647,7 +4647,7 @@ The values val... are given by parameters.</P>
        initially modelled.</li>
 </ul>
 </HTML>"),
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
             Polygon(
               points={{-40,40},{40,40},{-40,-40},{-40,40}}, 
@@ -4666,7 +4666,7 @@ The values val... are given by parameters.</P>
               extent={{-40,40},{40,-40}}, 
               lineColor={0,0,0}, 
               lineThickness=2)}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));
     equation 
@@ -4681,7 +4681,7 @@ The values val... are given by parameters.</P>
       end for;
     end LogicToReal;
     
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,-100},{80,50}}, 

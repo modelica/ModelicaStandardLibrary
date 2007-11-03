@@ -143,10 +143,10 @@ This model has been copied from the ThermoFluid library
 and adapted to the Modelica.Media package.
 </p>
 </HTML>"),
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}),
          graphics),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}),
             graphics));
   
@@ -776,7 +776,7 @@ this never caused problems so far.
 This model has been copied from the ThermoFluid library.
 It has been developed by Hubertus Tummescheit.
 </p>
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
             {100,100}}),
                 graphics));
   

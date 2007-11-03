@@ -301,7 +301,7 @@ i.e. a package containing executable demo models.
   
   partial function Function "Icon for a function" 
     
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Text(
             extent={{-140,162},{136,102}}, 
@@ -325,7 +325,7 @@ This icon is designed for a <b>function</b>
   
   partial record Record "Icon for a record" 
     
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,50},{100,-100}}, 
@@ -348,7 +348,7 @@ This icon is designed for a <b>record</b>
   
   type TypeReal "Icon for a Real type" 
       extends Real;
-      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation(Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(
             extent={{-100,100},{100,-100}}, 
             lineColor={0,0,0}, 
@@ -368,7 +368,7 @@ This icon is designed for a <b>Real</b> type.
   
   type TypeInteger "Icon for an Integer type" 
       extends Integer;
-      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation(Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(
             extent={{-100,100},{100,-100}}, 
             lineColor={0,0,0}, 
@@ -388,7 +388,7 @@ This icon is designed for an <b>Integer</b> type.
   
   type TypeBoolean "Icon for a Boolean type" 
       extends Boolean;
-      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation(Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(
             extent={{-100,100},{100,-100}}, 
             lineColor={0,0,0}, 
@@ -408,7 +408,7 @@ This icon is designed for a <b>Boolean</b> type.
   
   type TypeString "Icon for a String type" 
       extends String;
-      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation(Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(
             extent={{-100,100},{100,-100}}, 
             lineColor={0,0,0}, 

@@ -51,7 +51,7 @@ for rodLength:
    rodLength*rodLength = f(angle of revolute joint, distance of prismatic joint)
 </pre>
 </html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}),
             graphics));
   
