@@ -146,8 +146,8 @@ and adapted to the Modelica.Media package.
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}),
          graphics),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}}),
+    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+            100}}),
             graphics));
   
   extends Interfaces.PartialPureSubstance(
@@ -229,6 +229,7 @@ and adapted to the Modelica.Media package.
 Temperature T (= " + String(T) + " K) is not in the allowed range
 200 K <= T <= 6000 K required from medium model \"" + mediumName + "\".
 ");
+    X = reference_X;
     MM = data.MM;
     R = data.R;
     h = h_T(data, T, excludeEnthalpyOfFormation, referenceChoice, h_offset);

@@ -254,7 +254,8 @@ package ConstantPropertyLiquidWater
      MM_const=0.018015268,
      fluidConstants = simpleWaterConstants);
   
-  annotation (Icon(graphics={Text(
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+            -100},{100,100}}), graphics={Text(
           extent={{-90,88},{90,18}}, 
           lineColor={0,0,0}, 
           fillColor={255,255,255}, 
@@ -265,7 +266,9 @@ package ConstantPropertyLiquidWater
           fillColor={255,255,255}, 
           fillPattern=FillPattern.Solid, 
           textString="water")}),
-                            Diagram(graphics),
+                            Diagram(coordinateSystem(preserveAspectRatio=false, 
+          extent={{-100,-100},{100,100}}),
+                                    graphics),
     Documentation(info="<html>
   
 </html>"));
@@ -329,7 +332,8 @@ end WaterIF97_ph;
 partial package WaterIF97_base 
   "Water: Steam properties as defined by IAPWS/IF97 standard" 
   
-  annotation (Icon(graphics={Text(
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+            -100},{100,100}}), graphics={Text(
           extent={{-94,84},{94,40}}, 
           lineColor={127,191,255}, 
           textString="IF97"), Text(
@@ -421,6 +425,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     SaturationProperties sat(Tsat(start=300.0), psat(start=1.0e5)) 
       "saturation temperature and pressure";
   equation 
+    X = reference_X;
     MM = fluidConstants[1].molarMass;
     if smoothModel then
       if onePhase then
@@ -893,7 +898,8 @@ end WaterIF97_base;
 partial package WaterIF97_fixedregion 
   "Water: Steam properties as defined by IAPWS/IF97 standard" 
   
-  annotation (Icon(graphics={Text(
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+            -100},{100,100}}), graphics={Text(
           extent={{-94,84},{94,40}}, 
           lineColor={127,191,255}, 
           textString="IF97"), Text(
@@ -987,6 +993,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     SaturationProperties sat(Tsat(start=300.0), psat(start=1.0e5)) 
       "saturation temperature and pressure";
   equation 
+    X = reference_X;
     MM = fluidConstants[1].molarMass;
     if smoothModel then
       if onePhase then
