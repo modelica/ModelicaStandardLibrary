@@ -40,7 +40,7 @@ MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
         grid={1,1}), graphics));
   
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
-        transformation(extent={{-86,-60},{-66,-40}}, rotation=0)));
+        transformation(extent={{-94,-90},{-74,-70}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR jointRRR1(
     rRod1_ia=r1a,
     rRod2_ib=r1b,
@@ -108,9 +108,11 @@ MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
         origin={108,62},
         extent={{-10,-10},{10,10}},
         rotation=90)));
+  Parts.Mounting1D mounting1D
+    annotation (Placement(transformation(extent={{-100,-50},{-80,-30}})));
 equation 
   connect(world.frame_b, rev.frame_a) annotation (Line(
-      points={{-66,-50},{-56,-50},{-56,-20}},
+      points={{-74,-80},{-56,-80},{-56,-20}},
       color={95,95,95},
       thickness=2));
   connect(rod1.frame_a, rev.frame_b) 
@@ -124,7 +126,7 @@ equation
       thickness=2));
   connect(rod2.frame_a, world.frame_b) 
     annotation (Line(
-      points={{-50,-50},{-66,-50}},
+      points={{-50,-50},{-56,-50},{-56,-80},{-74,-80}},
       color={95,95,95},
       thickness=2));
   connect(rod2.frame_b, jointRRR1.frame_b) annotation (Line(
@@ -135,8 +137,6 @@ equation
       points={{3.55271e-015,16},{6,16},{6,50}},
       color={95,95,95},
       thickness=2));
-  connect(position.flange_b, rev.axis) 
-    annotation (Line(points={{-70,-10},{-66,-10}}, color={0,0,0}));
   connect(rod3.frame_a, rod2.frame_b) 
     annotation (Line(
       points={{0,-50},{-30,-50}},
@@ -173,4 +173,17 @@ equation
       thickness=2));
   connect(sine.y, position.phi_ref) annotation (Line(points={{-96,19},{-96,-10},
           {-92,-10}}, color={0,0,127}));
+  connect(mounting1D.flange_b, position.support) annotation (Line(
+      points={{-80,-40},{-80,-20}}, 
+      color={0,0,0}, 
+      smooth=Smooth.None));
+  connect(mounting1D.frame_a, world.frame_b) annotation (Line(
+      points={{-90,-50},{-90,-57},{-70,-57},{-70,-80},{-74,-80}}, 
+      color={95,95,95}, 
+      thickness=2, 
+      smooth=Smooth.None));
+  connect(position.flange, rev.axis) annotation (Line(
+      points={{-70,-10},{-66,-10}}, 
+      color={0,0,0}, 
+      smooth=Smooth.None));
 end PlanarLoops_analytic;
