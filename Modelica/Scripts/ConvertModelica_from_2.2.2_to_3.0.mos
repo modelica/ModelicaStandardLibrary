@@ -686,6 +686,11 @@ convertElement({"Modelica.Mechanics.Rotational.Fixed",
                 "flange_b", "flange");
 
 
+//-------- Electrical ------------------------------------------------------------
+convertClass("Modelica.Electrical.Analog.Basic.EMF",
+             "Modelica.Electrical.Analog.Basic.GroundedEMF");
+
+
 
 //-------- Machines ------------------------------------------------------------
 // Convert Machines to 2.0.0 (MSL 3.0)
