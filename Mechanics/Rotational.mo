@@ -499,8 +499,6 @@ in the housing on one side via component Fixed.</p>
         annotation (Placement(transformation(extent={{-100,-8},{-84,8}},
               rotation=0)));
     equation 
-      connect(torque.flange_b, inertia1.flange_a) 
-        annotation (Line(points={{-54,0},{-40,0}}, color={0,0,0}));
       connect(inertia1.flange_b, idealGear.flange_a) 
         annotation (Line(points={{-24,0},{-10,0}}, color={0,0,0}));
       connect(idealGear.flange_b, inertia2.flange_a) 
@@ -511,14 +509,18 @@ in the housing on one side via component Fixed.</p>
         annotation (Line(points={{70,0},{84,0}}, color={0,0,0}));
       connect(damper.flange_a, inertia2.flange_b) 
         annotation (Line(points={{46,-14},{46,0},{36,0}}, color={0,0,0}));
-      connect(damper.flange_b, fixed.flange_b) 
+      connect(damper.flange_b, fixed.flange) 
         annotation (Line(points={{46,-30},{46,-40}}, color={0,0,0}));
       connect(sine.y, torque.tau) annotation (Line(points={{-83.2,0},{-71.6,0}},
             color={0,0,127}));
-      connect(torque.bearing, fixed.flange_b) annotation (Line(points={{-62,-8},
+      connect(torque.support, fixed.flange)   annotation (Line(points={{-62,-8},
               {-62,-40},{46,-40}}, color={0,0,0}));
-      connect(idealGear.bearing, fixed.flange_b) annotation (Line(points={{-2,
+      connect(idealGear.support, fixed.flange)   annotation (Line(points={{-2,
               -8},{-2,-40},{46,-40}}, color={0,0,0}));
+      connect(torque.flange, inertia1.flange_a) annotation (Line(
+          points={{-54,0},{-40,0}}, 
+          color={0,0,0}, 
+          smooth=Smooth.None));
     end First;
     
     model Friction "Drive train with clutch and brake" 
@@ -622,7 +624,7 @@ values (defined already in the model):</p>
       tBrake = brake.tau;
       tSpring = spring.tau;
       
-      connect(torque.flange_b, inertia3.flange_a) 
+      connect(torque.flange, inertia3.flange_a) 
         annotation (Line(points={{-35,0},{-25,0}}, color={0,0,0}));
       connect(inertia3.flange_b, clutch.flange_a) 
         annotation (Line(points={{-15,0},{-5,0}}, color={0,0,0}));
@@ -646,9 +648,9 @@ values (defined already in the model):</p>
              {0,0,127}));
       connect(step.y, brake.f_normalized) annotation (Line(points={{60,19.5},{
               60,5.5}}, color={0,0,127}));
-      connect(torque.bearing, fixed.flange_b) annotation (Line(points={{-40,-5},
+      connect(torque.support, fixed.flange)   annotation (Line(points={{-40,-5},
               {-40,-20},{0,-20}}, color={0,0,0}));
-      connect(brake.bearing, fixed.flange_b) annotation (Line(points={{60,-5},{
+      connect(brake.support, fixed.flange)   annotation (Line(points={{60,-5},{
               60,-20},{0,-20}}, color={0,0,0}));
     end Friction;
     
@@ -744,7 +746,7 @@ locked, forward sliding.</p>
       Fixed fixed            annotation (Placement(transformation(extent={{-68,
                 -28},{-52,-12}}, rotation=0)));
     equation 
-      connect(torque.flange_b, J1.flange_a) 
+      connect(torque.flange, J1.flange_a) 
         annotation (Line(points={{-55,0},{-45,0}}, color={0,0,0}));
       connect(J1.flange_b, clutch1.flange_a) 
         annotation (Line(points={{-35,0},{-25,0}}, color={0,0,0}));
@@ -766,7 +768,7 @@ locked, forward sliding.</p>
               {20,5.5}}, color={0,0,127}));
       connect(step2.y, clutch3.f_normalized) annotation (Line(points={{60,14.5},
               {60,5.5}}, color={0,0,127}));
-      connect(fixed.flange_b, torque.bearing) annotation (Line(points={{-60,-20},
+      connect(fixed.flange, torque.support)   annotation (Line(points={{-60,-20},
               {-60,-5}}, color={0,0,0}));
     end CoupledClutches;
     
@@ -800,8 +802,8 @@ gear.mode  :  1 = forward rolling
              -1 = backward rolling
 </pre>
 </HTML>
-"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}),
+"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+                100}}),
             graphics),
         experiment(StopTime=0.5),
         experimentSetupOutput);
@@ -836,9 +838,9 @@ gear.mode  :  1 = forward rolling
         annotation (Line(points={{-20,10},{-10,10}}, color={0,0,0}));
       connect(gear.flange_b, Inertia2.flange_a) 
         annotation (Line(points={{10,10},{20,10}}, color={0,0,0}));
-      connect(torque1.flange_b, Inertia1.flange_a) 
+      connect(torque1.flange, Inertia1.flange_a) 
         annotation (Line(points={{-50,10},{-40,10}}, color={0,0,0}));
-      connect(torque2.flange_b, Inertia2.flange_b) 
+      connect(torque2.flange, Inertia2.flange_b) 
         annotation (Line(points={{50,10},{40,10}}, color={0,0,0}));
       
       PowerLoss = gear.flange_a.tau*der(gear.flange_a.phi) + gear.flange_b.tau*
@@ -847,11 +849,11 @@ gear.mode  :  1 = forward rolling
               10}}, color={0,0,127}));
       connect(load.y, torque2.tau) annotation (Line(points={{79,10},{72,10}},
             color={0,0,127}));
-      connect(fixed.flange_b, gear.bearing) 
+      connect(fixed.flange, gear.support) 
         annotation (Line(points={{0,-20},{0,0}}, color={0,0,0}));
-      connect(fixed.flange_b, torque1.bearing) annotation (Line(points={{0,-20},
+      connect(fixed.flange, torque1.support)   annotation (Line(points={{0,-20},
               {-60,-20},{-60,0}}, color={0,0,0}));
-      connect(fixed.flange_b, torque2.bearing) annotation (Line(points={{0,-20},
+      connect(fixed.flange, torque2.support)   annotation (Line(points={{0,-20},
               {60,-20},{60,0}}, color={0,0,0}));
     end LossyGearDemo1;
     
@@ -892,8 +894,8 @@ gear.mode           :  1 = forward rolling
 as component LossyGear includes the functionality of component BearingFriction
 (only <i>peak</i> not supported).</p>
 </HTML>
-"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}),
+"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+                100}}),
             graphics),
         experiment(StopTime=0.5),
         experimentSetupOutput);
@@ -929,7 +931,7 @@ as component LossyGear includes the functionality of component BearingFriction
     equation 
       PowerLoss = gear.flange_a.tau*der(gear.flange_a.phi) + gear.flange_b.tau*
         der(gear.flange_b.phi);
-      connect(torque2.flange_b, Inertia2.flange_b) 
+      connect(torque2.flange, Inertia2.flange_b) 
         annotation (Line(points={{48,10},{40,10}}, color={0,0,0}));
       connect(Inertia2.flange_a, gear.flange_b) 
         annotation (Line(points={{20,10},{16,10}}, color={0,0,0}));
@@ -937,23 +939,23 @@ as component LossyGear includes the functionality of component BearingFriction
         annotation (Line(points={{-4,10},{-10,10}}, color={0,0,0}));
       connect(Inertia1.flange_a, bearingFriction.flange_b) 
         annotation (Line(points={{-30,10},{-38,10}}, color={0,0,0}));
-      connect(bearingFriction.flange_a, torque1.flange_b) annotation (Line(
+      connect(bearingFriction.flange_a, torque1.flange)   annotation (Line(
             points={{-58,10},{-64,10}}, color={0,0,0}));
       connect(DriveSine.y, torque1.tau) annotation (Line(points={{-81,50},{-96,
               50},{-96,10},{-86,10}}, color={0,0,127}));
       connect(load.y, torque2.tau) annotation (Line(points={{79,10},{70,10}},
             color={0,0,127}));
-      connect(gear.bearing, fixed.flange_b) 
+      connect(gear.support, fixed.flange) 
         annotation (Line(points={{6,0},{6,-40}}, color={0,0,0}));
-      connect(fixed.flange_b, torque2.bearing) annotation (Line(points={{6,-40},
+      connect(fixed.flange, torque2.support)   annotation (Line(points={{6,-40},
               {58,-40},{58,0}}, color={0,0,0}));
-      connect(fixed.flange_b, bearingFriction.bearing) annotation (Line(points=
+      connect(fixed.flange, bearingFriction.support)   annotation (Line(points=
               {{6,-40},{-48,-40},{-48,0}}, color={0,0,0}));
-      connect(torque1.bearing, fixed.flange_b) annotation (Line(points={{-74,0},
+      connect(torque1.support, fixed.flange)   annotation (Line(points={{-74,0},
               {-74,-40},{6,-40}}, color={0,0,0}));
     end LossyGearDemo2;
     
-    model ElasticBearing "Example to show possible usage of bearing flange" 
+    model ElasticBearing "Example to show possible usage of support flange" 
       extends Icons.Example;
       Modelica.Mechanics.Rotational.Inertia shaft(phi(fixed=true, start=0), w(
             fixed=true)) 
@@ -981,8 +983,8 @@ as component LossyGear includes the functionality of component BearingFriction
       Modelica.Blocks.Sources.Ramp ramp(              duration=5, height=100) 
         annotation (Placement(transformation(extent={{-90,40},{-70,60}},
               rotation=0)));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
-                -100,-100},{100,100}}),
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}),
                           graphics),
                            Documentation(info="<html>
 <p>
@@ -1006,23 +1008,23 @@ Simulate for about 10 seconds and plot the angular velocities of the inertias <t
             extent={{-10,-10},{10,10}},
             rotation=90)));
     equation 
-      connect(torque.flange_b, shaft.flange_a) 
+      connect(torque.flange, shaft.flange_a) 
         annotation (Line(points={{-30,50},{-20,50}}, color={0,0,0}));
       connect(spring.flange_b, load.flange_a) 
         annotation (Line(points={{60,50},{70,50}}, color={0,0,0}));
-      connect(springDamper.flange_a, fixed.flange_b) 
+      connect(springDamper.flange_a, fixed.flange) 
         annotation (Line(points={{20,-40},{20,-70}}, color={0,0,0}));
       connect(shaft.flange_b, idealGear.flange_a) 
         annotation (Line(points={{0,50},{10,50}}, color={0,0,0}));
       connect(idealGear.flange_b, spring.flange_a) 
         annotation (Line(points={{30,50},{40,50}}, color={0,0,0}));
-      connect(idealGear.bearing, housing.flange_b) 
+      connect(idealGear.support, housing.flange_b) 
         annotation (Line(points={{20,40},{20,20}}, color={0,0,0}));
       connect(housing.flange_a, springDamper.flange_b) 
         annotation (Line(points={{20,0},{20,-20}}, color={0,0,0}));
       connect(ramp.y, torque.tau) annotation (Line(points={{-69,50},{-52,50}},
             color={0,0,127}));
-      connect(fixed.flange_b, torque.bearing) annotation (Line(points={{20,-70},
+      connect(fixed.flange, torque.support)   annotation (Line(points={{20,-70},
               {-40,-70},{-40,40}}, color={0,0,0}));
     end ElasticBearing;
   end Examples;
@@ -1031,10 +1033,7 @@ Simulate for about 10 seconds and plot the angular velocities of the inertias <t
     "Sensors to measure variables in 1D rotational mechanical components" 
     model AngleSensor "Ideal sensor to measure the absolute flange angle" 
       
-      extends Modelica.Icons.RotationalSensor;
-      Interfaces.Flange_a flange_a "flange to be measured" 
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
+      extends Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor;
       Modelica.Blocks.Interfaces.RealOutput phi "Absolute angle of flange" 
                                     annotation (Placement(transformation(extent=
                {{100,-10},{120,10}}, rotation=0)));
@@ -1050,39 +1049,27 @@ way and provides the result as output signal <b>phi</b>
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Text(
+            grid={1,1}), graphics={Text(
               extent={{70,-30},{120,-70}}, 
               lineColor={0,0,0}, 
-              textString="phi"), 
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-            Line(points={{70,0},{100,0}}, color={0,0,127}), 
-            Text(
-              extent={{150,80},{-150,120}}, 
-              textString="%name", 
-              lineColor={0,0,255})}),
+              textString="phi")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
-              Line(points={{70,0},{100,0}}, color={0,0,255})}),
+            grid={1,1}), graphics),
         Window(
           x=0.08,
           y=0.09,
           width=0.6,
           height=0.6));
     equation 
-      phi = flange_a.phi;
-      0 = flange_a.tau;
+      phi = flange.phi;
     end AngleSensor;
     
     model SpeedSensor 
       "Ideal sensor to measure the absolute flange angular velocity" 
       
-      extends Modelica.Icons.RotationalSensor;
-      Interfaces.Flange_a flange_a "flange to be measured" 
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
+      extends Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor;
       Modelica.Blocks.Interfaces.RealOutput w 
         "Absolute angular velocity of flange" 
                                     annotation (Placement(transformation(extent=
@@ -1100,39 +1087,27 @@ way and provides the result as output signal <b>w</b>
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Text(
+            grid={1,1}), graphics={Text(
               extent={{70,-30},{120,-70}}, 
               lineColor={0,0,0}, 
-              textString="w"), 
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-            Line(points={{70,0},{100,0}}, color={0,0,127}), 
-            Text(
-              extent={{150,80},{-150,120}}, 
-              textString="%name", 
-              lineColor={0,0,255})}),
+              textString="w")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
-              Line(points={{70,0},{100,0}}, color={0,0,255})}),
+            grid={1,1}), graphics),
         Window(
           x=0.12,
           y=0.08,
           width=0.6,
           height=0.6));
     equation 
-      w = der(flange_a.phi);
-      0 = flange_a.tau;
+      w = der(flange.phi);
     end SpeedSensor;
     
     model AccSensor 
       "Ideal sensor to measure the absolute flange angular acceleration" 
       
-      extends Modelica.Icons.RotationalSensor;
-      Interfaces.Flange_a flange_a "flange to be measured" 
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
+      extends Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor;
       SI.AngularVelocity w "Absolute angular velocity of flange";
       Modelica.Blocks.Interfaces.RealOutput a 
         "Absolute angular acceleration of flange" 
@@ -1151,31 +1126,22 @@ blocks of the Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Text(
+            grid={1,1}), graphics={Text(
               extent={{70,-30},{120,-70}}, 
               lineColor={0,0,0}, 
-              textString="a"), 
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-            Line(points={{70,0},{100,0}}, color={0,0,127}), 
-            Text(
-              extent={{150,80},{-150,120}}, 
-              textString="%name", 
-              lineColor={0,0,255})}),
+              textString="a")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
-              Line(points={{70,0},{100,0}}, color={0,0,255})}),
+            grid={1,1}), graphics),
         Window(
           x=0.17,
           y=0.12,
           width=0.6,
           height=0.6));
     equation 
-      w = der(flange_a.phi);
+      w = der(flange.phi);
       a = der(w);
-      0 = flange_a.tau;
     end AccSensor;
     
     extends Modelica.Icons.Library2;
@@ -1183,16 +1149,7 @@ blocks of the Modelica.Blocks library).
     model RelAngleSensor 
       "Ideal sensor to measure the relative angle between two flanges" 
       
-      extends Modelica.Icons.RotationalSensor;
-      
-      Interfaces.Flange_a flange_a 
-        "driving flange (flange axis directed INTO cut plane)" 
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
-      Interfaces.Flange_b flange_b 
-        "(right) driven flange (flange axis directed OUT OF cut plane)" 
-        annotation (Placement(transformation(extent={{90,-10},{110,10}},
-              rotation=0)));
+      extends Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor;
       Modelica.Blocks.Interfaces.RealOutput phi_rel 
         "Relative angle between two flanges (= flange_b.phi - flange_a.phi)" 
         annotation (Placement(transformation(
@@ -1212,35 +1169,15 @@ in an ideal way and provides the result as output signal <b>phi_rel</b>
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Text(
-              extent={{20,-70},{160,-100}}, 
+            grid={1,1}), graphics={Text(
+              extent={{20,-84},{160,-114}}, 
               lineColor={0,0,0}, 
-              textString="phi_rel"), 
-            Text(
-              extent={{150,80},{-150,120}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-            Line(points={{70,0},{90,0}}, color={0,0,0}), 
-            Line(points={{0,-100},{0,-70}}, color={0,0,127})}),
+              textString="phi_rel"), Line(points={{0,-100},{0,-70}}, color={0,0,
+                  127})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Polygon(
-              points={{13,93},{-7,98},{-7,88},{13,93}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-77,93},{-6,93}}, color={128,128,128}), 
-            Text(
-              extent={{17,100},{85,87}}, 
-              lineColor={128,128,128}, 
-              textString="rotation axis"), 
-            Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
-            Line(points={{70,0},{90,0}}, color={0,0,0}), 
-            Line(points={{0,-100},{0,-70}}, color={0,0,255})}),
+            grid={1,1}), graphics),
         Window(
           x=0.12,
           y=0.17,
@@ -1249,22 +1186,13 @@ in an ideal way and provides the result as output signal <b>phi_rel</b>
     equation 
       phi_rel = flange_b.phi - flange_a.phi;
       0 = flange_a.tau;
-      0 = flange_b.tau;
     end RelAngleSensor;
     
     model RelSpeedSensor 
       "Ideal sensor to measure the relative angular velocity between two flanges" 
       
-     extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor;
       
-      Interfaces.Flange_a flange_a 
-        "driving flange (flange axis directed INTO cut plane)" 
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
-      Interfaces.Flange_b flange_b 
-        "(right) driven flange (flange axis directed OUT OF cut plane)" 
-        annotation (Placement(transformation(extent={{90,-10},{110,10}},
-              rotation=0)));
       SI.Angle phi_rel 
         "Relative angle between two flanges (flange_b.phi - flange_a.phi)";
       Modelica.Blocks.Interfaces.RealOutput w_rel 
@@ -1286,35 +1214,15 @@ in an ideal way and provides the result as output signal <b>w_rel</b>
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Text(
-              extent={{20,-70},{160,-100}}, 
+            grid={1,1}), graphics={Text(
+              extent={{20,-88},{160,-118}}, 
               lineColor={0,0,0}, 
-              textString="w_rel"), 
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-            Text(
-              extent={{150,80},{-150,120}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
-            Line(points={{70,0},{90,0}}, color={0,0,0}), 
-            Line(points={{0,-100},{0,-70}}, color={0,0,127})}),
+              textString="w_rel"), Line(points={{0,-100},{0,-70}}, color={0,0,
+                  127})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Polygon(
-              points={{13,93},{-7,98},{-7,88},{13,93}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-77,93},{-6,93}}, color={128,128,128}), 
-            Text(
-              extent={{17,100},{85,87}}, 
-              lineColor={128,128,128}, 
-              textString="rotation axis"), 
-            Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
-            Line(points={{0,-100},{0,-70}}, color={0,0,255}), 
-            Line(points={{70,0},{90,0}}, color={0,0,0})}),
+            grid={1,1}), graphics),
         Window(
           x=0.12,
           y=0.05,
@@ -1324,22 +1232,13 @@ in an ideal way and provides the result as output signal <b>w_rel</b>
       phi_rel = flange_b.phi - flange_a.phi;
       w_rel = der(phi_rel);
       0 = flange_a.tau;
-      0 = flange_b.tau;
     end RelSpeedSensor;
     
     model RelAccSensor 
       "Ideal sensor to measure the relative angular acceleration between two flanges" 
       
-     extends Modelica.Icons.RotationalSensor;
+      extends Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor;
       
-      Interfaces.Flange_a flange_a 
-        "driving flange (flange axis directed INTO cut plane)" 
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
-      Interfaces.Flange_b flange_b 
-        "(right) driven flange (flange axis directed OUT OF cut plane)" 
-        annotation (Placement(transformation(extent={{90,-10},{110,10}},
-              rotation=0)));
       SI.Angle phi_rel 
         "Relative angle between two flanges (flange_b.phi - flange_a.phi)";
       SI.AngularVelocity w_rel "Relative angular velocity between two flanges";
@@ -1362,35 +1261,15 @@ in an ideal way and provides the result as output signal <b>a_rel</b>
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Text(
-              extent={{20,-70},{160,-100}}, 
+            grid={1,1}), graphics={Text(
+              extent={{20,-86},{160,-116}}, 
               lineColor={0,0,0}, 
-              textString="a_rel"), 
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-            Line(points={{70,0},{90,0}}, color={0,0,0}), 
-            Line(points={{0,-100},{0,-70}}, color={0,0,127}), 
-            Text(
-              extent={{150,80},{-150,120}}, 
-              textString="%name", 
-              lineColor={0,0,255})}),
+              textString="a_rel"), Line(points={{0,-100},{0,-70}}, color={0,0,
+                  127})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Polygon(
-              points={{13,93},{-7,98},{-7,88},{13,93}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-77,93},{-6,93}}, color={128,128,128}), 
-            Text(
-              extent={{17,100},{85,87}}, 
-              lineColor={128,128,128}, 
-              textString="rotation axis"), 
-            Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
-            Line(points={{70,0},{90,0}}, color={0,0,0}), 
-            Line(points={{0,-100},{0,-70}}, color={0,0,255})}),
+            grid={1,1}), graphics),
         Window(
           x=0.14,
           y=0.08,
@@ -1401,7 +1280,6 @@ in an ideal way and provides the result as output signal <b>a_rel</b>
       w_rel = der(phi_rel);
       a_rel = der(w_rel);
       0 = flange_a.tau;
-      0 = flange_b.tau;
     end RelAccSensor;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
@@ -1436,13 +1314,9 @@ Modelica.Blocks library.
     model TorqueSensor 
       "Ideal sensor to measure the torque between two flanges (= flange_a.tau)" 
       
-      extends Modelica.Icons.RotationalSensor;
-      Interfaces.Flange_a flange_a annotation (Placement(transformation(extent=
-                {{-110,-10},{-90,10}}, rotation=0)));
-      Interfaces.Flange_b flange_b annotation (Placement(transformation(extent=
-                {{90,-10},{110,10}}, rotation=0)));
+      extends Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor;
       Modelica.Blocks.Interfaces.RealOutput tau 
-        "Torque in flange flange_a and flange_b (= flange_a.tau = -flange_b.tau)"
+        "Torque in flange flange_a and flange_b (tau = flange_a.tau = -flange_b.tau)"
     annotation (Placement(transformation(
             origin={-80,-110},
             extent={{10,-10},{-10,10}},
@@ -1460,35 +1334,15 @@ and provides the result as output signal <b>tau</b>
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Text(
+            grid={1,1}), graphics={Text(
               extent={{-50,-80},{50,-120}}, 
               lineColor={0,0,0}, 
-              textString="tau"), 
-            Line(points={{-80,-100},{-80,0}}, color={0,0,127}), 
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-            Line(points={{70,0},{90,0}}, color={0,0,0}), 
-            Text(
-              extent={{150,80},{-150,120}}, 
-              textString="%name", 
-              lineColor={0,0,255})}),
+              textString="tau"), Line(points={{-80,-100},{-80,0}}, color={0,0,
+                  127})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Polygon(
-              points={{14,85},{-6,90},{-6,80},{14,85}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-76,85},{-5,85}}, color={128,128,128}), 
-            Text(
-              extent={{18,92},{86,79}}, 
-              lineColor={128,128,128}, 
-              textString="rotation axis"), 
-            Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
-            Line(points={{70,0},{96,0}}, color={0,0,0}), 
-            Line(points={{-80,-100},{-80,0}}, color={0,0,255})}),
+            grid={1,1}), graphics),
         Window(
           x=0.43,
           y=0.11,
@@ -1497,17 +1351,12 @@ and provides the result as output signal <b>tau</b>
     equation 
       flange_a.phi = flange_b.phi;
       flange_a.tau = tau;
-      flange_b.tau = -tau;
     end TorqueSensor;
     
     model PowerSensor 
       "Ideal sensor to measure the power between two flanges (= flange_a.tau*der(flange_a.phi))" 
       
-      extends Modelica.Icons.RotationalSensor;
-      Interfaces.Flange_a flange_a annotation (Placement(transformation(extent=
-                {{-110,-10},{-90,10}}, rotation=0)));
-      Interfaces.Flange_b flange_b annotation (Placement(transformation(extent=
-                {{90,-10},{110,10}}, rotation=0)));
+      extends Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor;
       Modelica.Blocks.Interfaces.RealOutput power "Power in flange flange_a" 
     annotation (Placement(transformation(
             origin={-80,-110},
@@ -1525,35 +1374,15 @@ and provides the result as output signal <b>power</b>
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Text(
+            grid={1,1}), graphics={Text(
               extent={{-50,-80},{100,-120}}, 
               lineColor={0,0,0}, 
-              textString="power"), 
-            Line(points={{-80,-100},{-80,0}}, color={0,0,127}), 
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-            Line(points={{70,0},{90,0}}, color={0,0,0}), 
-            Text(
-              extent={{150,80},{-150,120}}, 
-              textString="%name", 
-              lineColor={0,0,255})}),
+              textString="power"), Line(points={{-80,-100},{-80,0}}, color={0,0,
+                  127})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Polygon(
-              points={{14,85},{-6,90},{-6,80},{14,85}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-76,85},{-5,85}}, color={128,128,128}), 
-            Text(
-              extent={{18,92},{86,79}}, 
-              lineColor={128,128,128}, 
-              textString="rotation axis"), 
-            Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
-            Line(points={{70,0},{96,0}}, color={0,0,0}), 
-            Line(points={{-80,-100},{-80,0}}, color={0,0,255})}),
+            grid={1,1}), graphics),
         Window(
           x=0.43,
           y=0.11,
@@ -1561,7 +1390,6 @@ and provides the result as output signal <b>power</b>
           height=0.59));
     equation 
       flange_a.phi = flange_b.phi;
-      0 = flange_a.tau + flange_b.tau;
       power = flange_a.tau*der(flange_a.phi);
     end PowerSensor;
   end Sensors;
@@ -1654,9 +1482,10 @@ rotational mechanical components. The components of this package can
 only be used as basic building elements for models.
 </p>
  
-</HTML>
+</html>
 "));
-    connector Flange_a "1D rotational flange (filled square icon)" 
+    connector Flange_a 
+      "1-dim. rotational flange of a shaft (filled square icon)" 
       SI.Angle phi "Absolute rotation angle of flange";
       flow SI.Torque tau "Cut torque in the flange";
       annotation(defaultComponentName = "flange_a",
@@ -1667,8 +1496,8 @@ only be used as basic building elements for models.
           height=0.68),
         Documentation(info="<HTML>
 <p>
-This is a connector for 1D rotational mechanical systems and models
-a mechanical flange. The following variables are defined in this connector:
+This is a connector for 1-dim. rotational mechanical systems and models
+the mechanical flange of a shaft. The following variables are defined in this connector:
 </p>
 <pre>
    <b>phi</b>: Absolute rotation angle of the flange in [rad].
@@ -1712,11 +1541,12 @@ differentiation of the flange angle phi:
               fillColor={135,135,135}, 
               fillPattern=FillPattern.Solid)}),
         Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=0,
-                fillColor=10), 
+                fillColor=10),
             lineColor={0,0,255})));
     end Flange_a;
     
-    connector Flange_b "1D rotational flange (non-filled square icon)" 
+    connector Flange_b 
+      "1-dim. rotational flange of a shaft (non-filled square icon)" 
       SI.Angle phi "Absolute rotation angle of flange";
       flow SI.Torque tau "Cut torque in the flange";
       annotation(defaultComponentName = "flange_b",
@@ -1727,8 +1557,8 @@ differentiation of the flange angle phi:
           height=0.65),
         Documentation(info="<HTML>
 <p>
-This is a connector for 1D rotational mechanical systems and models
-a mechanical flange. The following variables are defined in this connector:
+This is a connector for 1-dim. rotational mechanical systems and models
+the mechanical flange of a shaft. The following variables are defined in this connector:
 </p>
 <pre>
    <b>phi</b>: Absolute rotation angle of the flange in [rad].
@@ -1772,28 +1602,97 @@ differentiation of the flange angle phi:
               lineColor={0,0,0}, 
               textString="%name")}),
         Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=0,
-                fillColor=7), 
+                fillColor=7),
             lineColor={0,0,255})));
     end Flange_b;
     
-    partial model Rigid 
-      "Base class for the rigid connection of two rotational 1D flanges" 
+    connector Support "Support/housing of a 1-dim. rotational shaft" 
+      
+      SI.Angle phi 
+        "Absolute rotation angle of shaft with respect to the support";
+      flow SI.Torque tau "Reaction torque in the support";
+      
+      annotation (Documentation(info="<html>
+<p>
+This is a connector for 1-dim. rotational mechanical systems and models
+the support or housing of a shaft. The following variables are defined in this connector:
+</p>
+<pre>
+   <b>phi</b>: Absolute rotation angle of the shaft 
+        with respect to the support in [rad].
+   <b>tau</b>: Reaction torque in the support in [Nm].
+</pre>
+ 
+<p>
+It is required that a support connector is always connected since
+a not connected support leads to the equation that the support torque
+is zero (= standard Modelica semantic of not-connected connectors),
+which is not physical. In current Modelica it is not possible to
+express the property \"must always be connected\".
+Therefore, whenever a support is used, an assert has to be defined that
+guarantees that it is connected.
+</p>
+</html>"),     Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2},
+            initialScale=0.1), graphics={
+            Ellipse(
+              extent={{-100,100},{100,-100}}, 
+              lineColor={0,0,0}, 
+              fillColor={95,95,95}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-150,150},{150,-150}}, 
+              lineColor={192,192,192}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{-100,100},{100,-100}}, 
+              lineColor={0,0,0}, 
+              fillColor={95,95,95}, 
+              fillPattern=FillPattern.Solid)}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2},
+            initialScale=0.1), graphics={
+            Rectangle(
+              extent={{-60,60},{60,-60}}, 
+              lineColor={192,192,192}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-160,100},{40,60}}, 
+              lineColor={0,0,0}, 
+              textString="%name"), 
+            Ellipse(
+              extent={{-40,40},{40,-40}}, 
+              lineColor={0,0,0}, 
+              fillColor={135,135,135}, 
+              fillPattern=FillPattern.Solid)}),
+        Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=0,
+                fillColor=10),
+            lineColor={0,0,255})));
+    end Support;
+    
+    partial model PartialRigid 
+      "Base model for a rigid shaft with a left and a right shaft flange" 
       
       SI.Angle phi 
         "Absolute rotation angle of component (= flange_a.phi = flange_b.phi)";
       
-      Flange_a flange_a 
-        "(left) driving flange (flange axis directed in to cut plane)" 
+      Flange_a flange_a "Left flange of shaft" 
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
-      Flange_b flange_b 
-        "(right) driven flange (flange axis directed out of cut plane)" 
+      Flange_b flange_b "Right flange of shaft" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
       annotation (
         Documentation(info="<html>
 <p>
-This is a 1D rotational component with two rigidly connected flanges,
+This is a 1-dim. rotational component with one shaft. The left and right
+(rigidly connected) shaft flanges are the two connectors of the component,
 i.e., flange_a.phi = flange_b.phi. It is used e.g. to built up components
 with inertia.
 </p>
@@ -1811,10 +1710,10 @@ with inertia.
     equation 
       flange_a.phi = phi;
       flange_b.phi = phi;
-    end Rigid;
+    end PartialRigid;
     
-    partial model Compliant 
-      "Base class for the compliant connection of two rotational 1D flanges" 
+    partial model PartialCompliant 
+      "Base model for the compliant connection of two rotational 1-dim. shaft flanges" 
       
       SI.Angle phi_rel(start=0) 
         "Relative rotation angle (= flange_b.phi - flange_a.phi)";
@@ -1852,26 +1751,69 @@ is used to built up force elements such as springs, dampers, friction.
       phi_rel = flange_b.phi - flange_a.phi;
       flange_b.tau = tau;
       flange_a.tau = -tau;
-    end Compliant;
+    end PartialCompliant;
     
-    partial model TwoFlanges 
-      "Base class for a component with two rotational 1D flanges" 
-      Flange_a flange_a 
-        "(left) driving flange (flange axis directed in to cut plane)" 
-                        annotation (Placement(transformation(extent={{-110,-10},
+    partial model PartialGear 
+      "Base model for 1-dim. rotationalgear consisting of the flange of an input shaft, the flange of an output shaft and the support" 
+      
+      Flange_a flange_a "Flange of left shaft" annotation (Placement(transformation(extent={{-110,-10},
                 {-90,10}}, rotation=0)));
-      Flange_b flange_b 
-        "(right) driven flange (flange axis directed out of cut plane)" 
+      Flange_b flange_b "Flange of right shaft" 
                         annotation (Placement(transformation(extent={{90,-10},{
                 110,10}}, rotation=0)));
+      Support support 
+        "Support/housing of component (is required to be connected)" 
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+      
+      Modelica.SIunits.Angle phi_a 
+        "Angle between left shaft flange and support";
+      Modelica.SIunits.Angle phi_b 
+        "Angle between right shaft flange and support";
+      
+      annotation (Documentation(info="<html>
+<p>
+This is a 1-dim. rotational component with two flanges and an additional support.
+It is used e.g. to build up elementary ideal gear components. The component
+contains the torque balance, i.e., the sum of the torques of the connectors
+is zero (therefore, components that are based on PartialGear cannot have
+inertia). The support connector needs to be connected
+to avoid the unphysical behavior that the
+support torque is required to be zero (= the default value, if the
+connector is not connected).
+</p>
+ 
+</HTML>
+"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),graphics));
+    equation 
+      assert(cardinality(support) > 0, "The support connector is required to be connected");
+      
+      phi_a = flange_a.phi - support.phi;
+      phi_b = flange_b.phi - support.phi;
+      
+      // torque balance
+      0 = flange_a.tau + flange_b.tau + support.tau;
+    end PartialGear;
+    
+    partial model PartialSource 
+      "Base model for a component with a rotational 1-dim. shaft flange and a support to define either a predefined motion or a predefined torque" 
+      Flange_b flange "Flange of shaft" 
+                        annotation (Placement(transformation(extent={{90,-10},{
+                110,10}}, rotation=0)));
+      Support support 
+        "Support/housing of component (is required to be connected)" 
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+      
       annotation (
         Documentation(info="<html>
 <p>
-This is a 1D rotational component with two flanges.
-It is used e.g. to build up parts of a drive train consisting
-of several base components. There are specialized versions of this
-base class for rigidly connected flanges (Interfaces.Rigid) and
-for a compliant connection of flanges (Interfaces.Compliant).
+This is a 1-dim. rotational component with one shaft flange
+and one support. It is used to build up \"source\" components,
+e.g., driving a shaft with a predefined motion or with a 
+predefined torque. The support connector needs to be connected
+to avoid the unphysical behavior that the
+support torque is required to be zero (= the default value, if the
+connector is not connected).
 </p>
  
 </HTML>
@@ -1884,117 +1826,88 @@ for a compliant connection of flanges (Interfaces.Compliant).
           y=0.05,
           width=0.6,
           height=0.6));
-    end TwoFlanges;
+    equation 
+      assert(cardinality(support) > 0, "The support connector is required to be connected");
+      
+      // torque balance
+      0 = flange.tau + support.tau;
+    end PartialSource;
     
-    partial model Bearing 
-      "Base class for interface classes with bearing connector" 
-      extends TwoFlanges;
-      
-      SI.Torque tau_support;
-      
-      Flange_a bearing "Flange of bearing" 
-                       annotation (Placement(transformation(extent={{-10,-110},
-                {10,-90}}, rotation=0)));
+    partial model PartialTwoFlanges 
+      "Base model for a component with two rotational 1-dim. shaft flanges" 
+      Flange_a flange_a "Flange of left shaft" 
+                        annotation (Placement(transformation(extent={{-110,-10},
+                {-90,10}}, rotation=0)));
+      Flange_b flange_b "Flange of right shaft" 
+                        annotation (Placement(transformation(extent={{90,-10},{
+                110,10}}, rotation=0)));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Rectangle(
-              extent={{-20,-80},{20,-120}}, 
-              lineColor={192,192,192}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid)}),
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Rectangle(
-              extent={{-20,-80},{20,-120}}, 
-              lineColor={192,192,192}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
 <p>
-This is a 1D rotational component with two flanges and an additional bearing flange.
-It is a superclass for the two components TwoFlangesAndBearing and TwoFlangesAndBearingH.</p>
- 
-</HTML>
-"));
-      
-    end Bearing;
-    
-    partial model TwoFlangesAndBearing 
-      "Base class for a equation-based component with two rotational 1D flanges and one rotational 1D bearing flange" 
-      
-      extends Bearing;
-      
-      SI.Angle phi_a;
-      SI.Angle phi_b;
-      
-      annotation (Documentation(info="<html>
-<p>
-This is a 1D rotational component with two flanges and an additional bearing flange.
-It is used e.g. to build up equation-based parts of a drive train.</p>
- 
-</HTML>
-"));
-    equation 
-      if cardinality(bearing) == 0 then
-        bearing.phi = 0;
-      else
-        bearing.tau = tau_support;
-      end if;
-      
-      0 = flange_a.tau + flange_b.tau + tau_support;
-      
-      phi_a = flange_a.phi - bearing.phi;
-      phi_b = flange_b.phi - bearing.phi;
-    end TwoFlangesAndBearing;
-    
-    partial model TwoFlangesAndBearingH 
-      "Base class for a hierarchically composed component with two rotational 1D flanges and one rotational bearing flange" 
-      
-      extends Bearing;
-      
-      Adapter adapter(bearingConnected=cardinality(bearing) > 1) 
-        annotation (Placement(transformation(
-            origin={0,-60},
-            extent={{-10,-10},{10,10}},
-            rotation=90)));
-    protected 
-      encapsulated model Adapter 
-        import Modelica.Mechanics.Rotational.Interfaces.TwoFlanges;
-        extends TwoFlanges;
-        parameter Boolean bearingConnected;
-        
-        annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{
-                  -100,-100},{100,100}}), graphics={Rectangle(
-                extent={{-90,10},{90,-10}}, 
-                lineColor={192,192,192}, 
-                fillColor={192,192,192}, 
-                fillPattern=FillPattern.Solid), Text(
-                extent={{-150,60},{150,20}}, 
-                textString="%name", 
-                lineColor={0,0,255})}));
-      equation 
-        flange_a.phi = flange_b.phi;
-        
-        if bearingConnected then
-          0 = flange_a.tau + flange_b.tau;
-        else
-          0 = flange_a.phi;
-        end if;
-      end Adapter;
-    equation 
-      tau_support = -adapter.flange_b.tau;
-      connect(adapter.flange_a, bearing) annotation (Line(points={{
-              -6.12323e-016,-70},{0,-70},{0,-100}}, color={0,0,0}));
-      annotation (Documentation(info="<html>
-<p>
-This is a 1D rotational component with two flanges and an additional bearing flange.
+This is a 1-dim. rotational component with two flanges.
 It is used e.g. to build up parts of a drive train consisting
-of several base components.</p>
+of several components. There are specialized versions of this
+base class for rigidly connected flanges (Interfaces.PartialRigid),
+for a compliant connection of flanges (Interfaces.PartialCompliant)
+and for an elementary gear (Interfaces.PartialIdealGear).
+</p>
  
 </HTML>
-"));
-    end TwoFlangesAndBearingH;
+"),     Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics),
+        Window(
+          x=0.37,
+          y=0.05,
+          width=0.6,
+          height=0.6));
+    end PartialTwoFlanges;
     
-    partial model FrictionBase "Base class of Coulomb friction elements" 
+    partial model PartialTwoFlangesAndSupport 
+      "Base model for a component with two rotational 1-dim. shaft flanges and a support" 
+      Flange_a flange_a "Flange of left shaft" 
+                        annotation (Placement(transformation(extent={{-110,-10},
+                {-90,10}}, rotation=0)));
+      Flange_b flange_b "Flange of right shaft" 
+                        annotation (Placement(transformation(extent={{90,-10},{
+                110,10}}, rotation=0)));
+      Support support 
+        "Support/housing of component (is required to be connected)" 
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+      annotation (
+        Documentation(info="<html>
+<p>
+This is a 1-dim. rotational component with two flanges and a support.
+It is used e.g. to build up parts of a drive train consisting
+of several components. The support connector needs to be connected
+to avoid the unphysical behavior that the
+support torque is required to be zero (= the default value, if the
+connector is not connected).
+</p>
+ 
+<p>
+There are specialized versions of this
+base class for rigidly connected flanges (Interfaces.PartialRigid),
+for a compliant connection of flanges (Interfaces.PartialCompliant)
+and for an elementary gear (Interfaces.PartialIdealGear).
+</p>
+ 
+</HTML>
+"),     Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics),
+        Window(
+          x=0.37,
+          y=0.05,
+          width=0.6,
+          height=0.6));
+    equation 
+      assert(cardinality(support) > 0, "The support connector is required to be connected");
+    end PartialTwoFlangesAndSupport;
+    
+    partial model PartialFriction "Base model of Coulomb friction elements" 
       // parameter SI.AngularVelocity w_small=1 "Relative angular velocity near to zero (see model info text)";
       parameter SI.AngularVelocity w_small=1e10 
         "Relative angular velocity near to zero if jumps due to a reinit(..) of the velocity can occur (set to low value only if such impulses can occur)"
@@ -2074,18 +1987,14 @@ Basic model for Coulomb friction that models the stuck
 phase in a reliable way.
 </p>
 </html>"));
-    end FrictionBase;
+    end PartialFriction;
     
-    partial model AbsoluteSensor 
-      "Base class to measure a single absolute flange variable" 
+    partial model PartialAbsoluteSensor 
+      "Base model to measure a single absolute flange variable" 
       
-      extends Modelica.Icons.RotationalSensor;
-      Flange_a flange_a 
-        "(left) flange to be measured (flange axis directed INTO cut plane)" 
+      Flange_a flange 
+        "Flange of shaft from which sensor information shall be measured" 
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput y "Sensor signal" 
-        annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
       annotation (
         Window(
@@ -2095,13 +2004,13 @@ phase in a reliable way.
           height=0.6),
         Documentation(info="<html>
 <p>
-This is the base class of a 1D rotational component with one flange and one
-output signal y in order to measure an absolute kinematic quantity in the flange
+This is the base class of a 1-dim. rotational component with one flange of a shaft 
+in order to measure an absolute kinematic quantity in the flange
 and to provide the measured signal as output signal for further processing
 with the blocks of package Modelica.Blocks.
 </p>
  
-</HTML>
+</html>
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -2111,32 +2020,45 @@ with the blocks of package Modelica.Blocks.
             Text(
               extent={{150,80},{-150,120}}, 
               textString="%name", 
-              lineColor={0,0,255})}),
+              lineColor={0,0,255}), 
+            Ellipse(
+              extent={{-70,70},{70,-70}}, 
+              lineColor={0,0,0}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{0,70},{0,40}}, color={0,0,0}), 
+            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}), 
+            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}), 
+            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}), 
+            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}), 
+            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}), 
+            Polygon(
+              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{-5,5},{5,-5}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-              Line(points={{70,0},{100,0}}, color={0,0,255})}));
-    end AbsoluteSensor;
+            grid={1,1}), graphics));
+    equation 
+      0 = flange.tau;
+    end PartialAbsoluteSensor;
     
-    partial model RelativeSensor 
-      "Base class to measure a single relative variable between two flanges" 
+    partial model PartialRelativeSensor 
+      "Base model to measure a single relative variable between two flanges" 
       
-      extends Modelica.Icons.RotationalSensor;
-      
-      Flange_a flange_a 
-        "(left) driving flange (flange axis directed INTO cut plane)" 
+      Flange_a flange_a "Left flange of shaft" 
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
-      Flange_b flange_b 
-        "(right) driven flange (flange axis directed OUT OF cut plane)" 
+      Flange_b flange_b "Right flange of shaft" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput y "Sensor signal" 
-        annotation (Placement(transformation(
-            origin={0,-110},
-            extent={{10,-10},{-10,10}},
-            rotation=90)));
       annotation (
         Window(
           x=0.37,
@@ -2145,50 +2067,73 @@ with the blocks of package Modelica.Blocks.
           height=0.65),
         Documentation(info="<html>
 <p>
-This is a base class for 1D rotational components with two rigidly connected
-flanges and one output signal y in order to measure relative kinematic quantities
+This is a base class for 1-dim. rotational components with two rigidly connected
+flanges in order to measure relative kinematic quantities
 between the two flanges or the cut-torque in the flange and
 to provide the measured signal as output signal for further processing
 with the blocks of package Modelica.Blocks.
 </p>
  
-</HTML>
+</html>
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
             Line(points={{70,0},{90,0}}, color={0,0,0}), 
-            Line(points={{0,-100},{0,-70}}, color={0,0,127}), 
             Text(
-              extent={{-150,70},{150,110}}, 
+              extent={{-150,73},{150,113}}, 
               textString="%name", 
-              lineColor={0,0,255})}),
+              lineColor={0,0,255}), 
+            Ellipse(
+              extent={{-70,70},{70,-70}}, 
+              lineColor={0,0,0}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{0,70},{0,40}}, color={0,0,0}), 
+            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}), 
+            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}), 
+            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}), 
+            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}), 
+            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}), 
+            Polygon(
+              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{-5,5},{5,-5}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-            Line(points={{70,0},{90,0}}, color={0,0,0}), 
-            Line(points={{0,-100},{0,-70}}, color={0,0,255})}));
-    end RelativeSensor;
+            grid={1,1}), graphics));
+    equation 
+      0 = flange_a.tau + flange_b.tau;
+    end PartialRelativeSensor;
     
     partial model PartialSpeedDependentTorque 
       "Partial model of a torque acting at the flange (accelerates the flange)" 
-      Modelica.SIunits.AngularVelocity w = der(flange.phi) 
-        "Angular velocity at flange";
-      Modelica.SIunits.Torque tau = flange.tau 
-        "accelerating torque acting at flange";
       Modelica.Mechanics.Rotational.Interfaces.Flange_b flange 
         "Flange on which torque is acting" 
         annotation (Placement(transformation(extent={{110,-10},{90,10}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a bearing 
-        "Bearing at which the reaction torque (i.e., -flange.tau) is acting" 
-           annotation (Placement(transformation(extent={{-10,-130},{10,-110}},
+      Modelica.Mechanics.Rotational.Interfaces.Support support 
+        "Support/housing at which the reaction torque (= -flange.tau) is acting (is required to be connected)"
+           annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
               rotation=0)));
+      
+      Modelica.SIunits.AngularVelocity w 
+        "Angular velocity of flange (= der(flange.phi))";
+      Modelica.SIunits.Torque tau 
+        "Accelerating torque acting at flange (= flange.tau)";
+      
       annotation (
-        Diagram(graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
+                {100,100}}),
+                graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
@@ -2199,11 +2144,6 @@ with the blocks of package Modelica.Blocks.
             Line(points={{-30,-70},{30,-70}}, color={0,0,0}), 
             Line(points={{-30,-90},{-10,-70}}, color={0,0,0}), 
             Line(points={{-10,-90},{10,-70}}, color={0,0,0}), 
-            Rectangle(
-              extent={{-20,-100},{20,-140}}, 
-              lineColor={192,192,192}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
             Line(points={{10,-90},{30,-70}}, color={0,0,0}), 
             Line(points={{0,-70},{0,-110}}, color={0,0,0}), 
             Line(points={{-92,0},{-76,36},{-54,62},{-30,80},{-14,88},{10,92},{
@@ -2216,6 +2156,17 @@ with the blocks of package Modelica.Blocks.
               points={{94,16},{80,74},{50,52},{94,16}}, 
               lineColor={0,0,0}, 
               fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{-60,-68},{-44,-54},{-22,-42},{-2,-40},{16,-44},{30,-52},
+                  {42,-62},{50,-72},{58,-84}}, 
+              color={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{-67,-92},{-50,-68},{-64,-62},{-67,-92}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<HTML>
 <p>
@@ -2223,36 +2174,131 @@ Partial model of torque dependent on speed that accelerates the flange.
 </p>
 </HTML>"));
     equation 
-      if cardinality(bearing) == 0 then
-        bearing.phi = 0;
-      else
-        bearing.tau = -flange.tau;
-      end if;
+      assert(cardinality(support) > 0, "The support connector is required to be connected");
+      w = der(flange.phi);
+      tau = flange.tau;
+      0 = flange.tau + support.tau;
     end PartialSpeedDependentTorque;
   end Interfaces;
+
+  package Grounded 
+    "Components with a support, where the support connector is fixed to ground" 
+    model IdealGear "Ideal gear without inertia (support is fixed to ground)" 
+      import Modelica;
+      extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
+      parameter Real ratio=1 "Transmission ratio (flange_a.phi/flange_b.phi)";
+      
+      annotation (
+        Icon(coordinateSystem(
+            preserveAspectRatio=true, 
+            extent={{-100,-100},{100,100}}, 
+            grid={1,1}), graphics={
+            Rectangle(
+              extent={{-40,20},{-20,-20}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Rectangle(
+              extent={{-40,100},{-20,20}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Rectangle(
+              extent={{20,80},{40,39}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Rectangle(
+              extent={{20,40},{40,-40}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Rectangle(
+              extent={{40,10},{100,-10}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Rectangle(
+              extent={{-20,70},{20,50}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Rectangle(
+              extent={{-100,10},{-40,-10}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Text(
+              extent={{-153,145},{147,105}}, 
+              lineColor={0,0,255}, 
+              textString="%name"), 
+            Line(points={{-80,20},{-60,20}}, color={0,0,0}), 
+            Line(points={{-80,-20},{-60,-20}}, color={0,0,0}), 
+            Line(points={{-70,-20},{-70,-85}}, color={0,0,0}), 
+            Line(points={{0,40},{0,-100}}, color={0,0,0}), 
+            Line(points={{-10,40},{10,40}}, color={0,0,0}), 
+            Line(points={{-10,80},{10,80}}, color={0,0,0}), 
+            Line(points={{60,-20},{80,-20}}, color={0,0,0}), 
+            Line(points={{60,20},{80,20}}, color={0,0,0}), 
+            Line(points={{70,-20},{70,-85}}, color={0,0,0}), 
+            Line(points={{70,-85},{-70,-85}}, color={0,0,0}), 
+            Text(
+              extent={{-146,-49},{154,-79}}, 
+              lineColor={0,0,0}, 
+              textString="ratio=%ratio"), 
+            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}), 
+            Line(points={{-10,-120},{10,-100}}, color={0,0,0}), 
+            Line(points={{10,-120},{30,-100}}, color={0,0,0}), 
+            Line(points={{-30,-100},{30,-100}}, color={0,0,0}), 
+            Line(points={{-50,-120},{-30,-100}}, color={0,0,0})}), 
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true, 
+            extent={{-100,-100},{100,100}}, 
+            grid={1,1}), graphics), 
+        Documentation(info="<html>
+<p>
+Identical to
+<a href=\"Modelica://Modelica.Mechanics.Rotational.IdealGear\">Rotational.IdealGear</a>,
+and the support is automatically fixed to ground.
+</p>
+
+</html>"));
+      Modelica.Mechanics.Rotational.IdealGear idealGear(ratio=ratio)
+        annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+      Modelica.Mechanics.Rotational.Fixed fixed
+        annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
+    equation 
+      connect(idealGear.flange_a, flange_a) annotation (Line(
+          points={{-20,0},{-100,0}}, 
+          color={0,0,0}, 
+          smooth=Smooth.None));
+      connect(idealGear.flange_b, flange_b) annotation (Line(
+          points={{0,0},{100,0}}, 
+          color={0,0,0}, 
+          smooth=Smooth.None));
+      connect(idealGear.support, fixed.flange) annotation (Line(
+          points={{-10,-10},{-10,-30}}, 
+          color={0,0,0}, 
+          smooth=Smooth.None));
+    end IdealGear;
+  end Grounded;
   
   model Inertia "1D-rotational component with inertia" 
     import SI = Modelica.SIunits;
-    
-    Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a 
-      "Left flange of inertia shaft (= rigidly connected with flange_b)" 
-      annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-            rotation=0)));
-    Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b 
-      "Right flange of inertia shaft (= rigidly connected with flange_a)" 
-      annotation (Placement(transformation(extent={{90,-10},{110,10}},
-            rotation=0)));
+    extends Modelica.Mechanics.Rotational.Interfaces.PartialRigid(phi(start=0, stateSelect=stateSelect));
     
     parameter SI.Inertia J(min=0)=1 "Moment of inertia";
     parameter StateSelect stateSelect=StateSelect.default 
       "Priority to use phi and w as states" annotation(Dialog(tab="Advanced"));
     
-    SI.Angle phi(start=0, stateSelect=stateSelect) 
-      "Absolute rotation angle of component (= flange_a.phi = flange_b.phi)";
+  /*
+  SI.Angle phi 
+    "Absolute rotation angle of component (= flange_a.phi = flange_b.phi)";
+*/
     SI.AngularVelocity w(start=0, stateSelect=stateSelect) 
-      "Absolute angular velocity of component";
+      "Absolute angular velocity of component (= der(phi))";
     SI.AngularAcceleration a(start=0) 
-      "Absolute angular acceleration of component";
+      "Absolute angular acceleration of component (= der(w))";
     
     annotation (
       Window(
@@ -2307,15 +2353,13 @@ Rotational component with <b>inertia</b> and two rigidly connected flanges.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics));
   equation 
-    phi = flange_a.phi;
-    phi = flange_b.phi;
     w = der(phi);
     a = der(w);
     J*a = flange_a.tau + flange_b.tau;
   end Inertia;
   
   model IdealGear "Ideal gear without inertia" 
-    extends Interfaces.TwoFlangesAndBearing;
+    extends Modelica.Mechanics.Rotational.Interfaces.PartialGear;
     parameter Real ratio=1 "Transmission ratio (flange_a.phi/flange_b.phi)";
     
     annotation (
@@ -2337,24 +2381,24 @@ connected to other elements in an appropriate way.
 "),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          grid={1,1}), graphics={
           Rectangle(
             extent={{-40,20},{-20,-20}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={192,192,192}), 
           Rectangle(
-            extent={{-40,140},{-20,20}}, 
+            extent={{-40,100},{-20,20}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={192,192,192}), 
           Rectangle(
-            extent={{20,100},{40,60}}, 
+            extent={{20,80},{40,39}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={192,192,192}), 
           Rectangle(
-            extent={{20,60},{40,-60}}, 
+            extent={{20,40},{40,-40}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={192,192,192}), 
@@ -2364,7 +2408,7 @@ connected to other elements in an appropriate way.
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={192,192,192}), 
           Rectangle(
-            extent={{-20,90},{20,70}}, 
+            extent={{-20,70},{20,50}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={192,192,192}), 
@@ -2374,78 +2418,27 @@ connected to other elements in an appropriate way.
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={192,192,192}), 
           Text(
-            extent={{-150,180},{150,140}}, 
-            textString="%name=%ratio", 
-            lineColor={0,0,255}), 
+            extent={{-153,145},{147,105}}, 
+            lineColor={0,0,255}, 
+            textString="%name"), 
           Line(points={{-80,20},{-60,20}}, color={0,0,0}), 
           Line(points={{-80,-20},{-60,-20}}, color={0,0,0}), 
-          Line(points={{-70,-20},{-70,-70}}, color={0,0,0}), 
-          Line(points={{0,60},{0,-90}}, color={0,0,0}), 
-          Line(points={{-10,60},{10,60}}, color={0,0,0}), 
-          Line(points={{-10,100},{10,100}}, color={0,0,0}), 
+          Line(points={{-70,-20},{-70,-85}}, color={0,0,0}), 
+          Line(points={{0,40},{0,-90}}, color={0,0,0}), 
+          Line(points={{-10,40},{10,40}}, color={0,0,0}), 
+          Line(points={{-10,80},{10,80}}, color={0,0,0}), 
           Line(points={{60,-20},{80,-20}}, color={0,0,0}), 
           Line(points={{60,20},{80,20}}, color={0,0,0}), 
-          Line(points={{70,-20},{70,-70}}, color={0,0,0}), 
-          Line(points={{70,-70},{-70,-70}}, color={0,0,0})}),
+          Line(points={{70,-20},{70,-85}}, color={0,0,0}), 
+          Line(points={{70,-85},{-70,-85}}, color={0,0,0}), 
+          Text(
+            extent={{-146,-49},{154,-79}}, 
+            lineColor={0,0,0}, 
+            textString="ratio=%ratio")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
-          Rectangle(
-            extent={{-40,20},{-20,-20}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Rectangle(
-            extent={{-40,140},{-20,20}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Rectangle(
-            extent={{20,100},{40,60}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Rectangle(
-            extent={{20,60},{40,-60}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Rectangle(
-            extent={{-96,10},{-40,-10}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Rectangle(
-            extent={{40,10},{96,-10}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Rectangle(
-            extent={{-20,90},{20,70}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Line(points={{-90,-80},{-20,-80}}, color={128,128,128}), 
-          Polygon(
-            points={{0,-80},{-20,-75},{-20,-85},{0,-80}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
-          Text(
-            extent={{34,-72},{34,-86}}, 
-            lineColor={128,128,128}, 
-            textString="rotation axis"), 
-          Line(points={{-80,20},{-60,20}}, color={0,0,0}), 
-          Line(points={{-80,-20},{-60,-20}}, color={0,0,0}), 
-          Line(points={{-70,-20},{-70,-70}}, color={0,0,0}), 
-          Line(points={{70,-70},{-70,-70}}, color={0,0,0}), 
-          Line(points={{0,60},{0,-90}}, color={0,0,0}), 
-          Line(points={{-10,60},{10,60}}, color={0,0,0}), 
-          Line(points={{-10,100},{10,100}}, color={0,0,0}), 
-          Line(points={{60,20},{80,20}}, color={0,0,0}), 
-          Line(points={{60,-20},{80,-20}}, color={0,0,0}), 
-          Line(points={{70,-20},{70,-70}}, color={0,0,0})}));
+          grid={1,1}), graphics));
   equation 
     phi_a = ratio*phi_b;
     0 = ratio*flange_a.tau + flange_b.tau;
@@ -2456,15 +2449,13 @@ connected to other elements in an appropriate way.
       "number of ring_teeth/sun_teeth (e.g. ratio=100/50)";
     
     // kinematic relationship
-    Interfaces.Flange_a sun "sun flange (flange axis directed INTO cut plane)" 
+    Interfaces.Flange_a sun "Flange of sun shaft" 
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
             rotation=0)));
-    Interfaces.Flange_a carrier 
-      "carrier flange (flange axis directed INTO cut plane)" 
+    Interfaces.Flange_a carrier "Flange of carrier shaft" 
       annotation (Placement(transformation(extent={{-110,30},{-90,50}},
             rotation=0)));
-    Interfaces.Flange_b ring 
-      "ring flange (flange axis directed OUT OF cut plane)" 
+    Interfaces.Flange_b ring "Flange of ring shaft" 
       annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=
              0)));
     annotation (
@@ -2670,11 +2661,11 @@ in the flanges, are along the axis vector displayed in the icon.
   
   model IdealGearR2T 
     "Gearbox transforming rotational into translational motion" 
+    import SI = Modelica.SIunits;
     
     parameter Real ratio(final unit="rad/m") = 1 
-      "transmission ratio (flange_a.phi/flange_b.s)";
+      "Transmission ratio (flange_a.phi/flange_b.s)";
     
-    SI.Torque tau_support;
     SI.Force f_support;
     Interfaces.Flange_a flange_a annotation (Placement(transformation(extent={{
               -110,-10},{-90,10}}, rotation=0)));
@@ -2720,9 +2711,9 @@ connected with corresponding elements.
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={192,192,192}), 
           Text(
-            extent={{-150,90},{150,50}}, 
-            textString="%name=%ratio", 
-            lineColor={0,0,255}), 
+            extent={{-151,123},{149,83}}, 
+            lineColor={0,0,255}, 
+            textString="%name"), 
           Polygon(
             points={{-74,-60},{-54,-40},{-34,-60},{-14,-40},{6,-60},{26,-40},{
                 46,-60},{66,-40},{86,-60},{-74,-60}}, 
@@ -2743,7 +2734,11 @@ connected with corresponding elements.
             extent={{-74,-60},{106,-80}}, 
             lineColor={0,0,0}, 
             fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid)}),
+            fillPattern=FillPattern.Solid), 
+          Text(
+            extent={{-149,78},{151,48}}, 
+            lineColor={0,0,0}, 
+            textString="ratio=%ratio")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2784,7 +2779,7 @@ connected with corresponding elements.
             fillColor={160,160,164}, 
             fillPattern=FillPattern.Solid), 
           Text(
-            extent={{-100,70},{100,40}}, 
+            extent={{-100,80},{100,50}}, 
             textString="transform rotation into translation", 
             lineColor={0,0,255}), 
           Polygon(
@@ -2792,34 +2787,18 @@ connected with corresponding elements.
                 46,-60},{66,-40},{86,-60},{-74,-60}}, 
             lineColor={0,0,0}, 
             fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
-          Polygon(
-            points={{16,80},{-4,85},{-4,75},{16,80}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-74,80},{-3,80}}, color={128,128,128}), 
-          Text(
-            extent={{21,88},{89,75}}, 
-            lineColor={128,128,128}, 
-            textString="rotation axis")}));
-    Interfaces.Flange_a bearingR annotation (Placement(transformation(extent={{
+            fillPattern=FillPattern.Solid)}));
+    Interfaces.Support supportR  annotation (Placement(transformation(extent={{
               -70,-110},{-50,-90}}, rotation=0)));
     Translational.Interfaces.Flange_a bearingT 
       annotation (Placement(transformation(extent={{50,-110},{70,-90}},
             rotation=0)));
   equation 
-    (flange_a.phi - bearingR.phi) = ratio*(flange_b.s - bearingT.s);
+    (flange_a.phi - supportR.phi) = ratio*(flange_b.s - bearingT.s);
     0 = ratio*flange_a.tau + flange_b.f;
     
-    0 = flange_a.tau + tau_support;
+    0 = flange_a.tau + supportR.tau;
     0 = flange_b.f + f_support;
-    
-    if cardinality(bearingR) == 0 then
-      bearingR.phi = 0;
-    else
-      bearingR.tau = tau_support;
-    end if;
     
     if cardinality(bearingT) == 0 then
       bearingT.s = 0;
@@ -2829,7 +2808,7 @@ connected with corresponding elements.
   end IdealGearR2T;
   
   model Spring "Linear 1D rotational spring" 
-    extends Interfaces.Compliant;
+    extends Modelica.Mechanics.Rotational.Interfaces.PartialCompliant;
     parameter Real c(final unit="N.m/rad", final min=0) "Spring constant";
     parameter SI.Angle phi_rel0=0 "Unstretched spring angle";
     
@@ -2883,16 +2862,6 @@ a coupling of the element with the housing via a spring.
             extent={{-22,62},{18,87}}, 
             lineColor={0,0,255}, 
             textString="phi_rel"), 
-          Text(
-            extent={{12,-61},{80,-74}}, 
-            lineColor={128,128,128}, 
-            textString="rotation axis"), 
-          Polygon(
-            points={{8,-68},{-12,-63},{-12,-73},{8,-68}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-82,-68},{-11,-68}}, color={128,128,128}), 
           Line(points={{-96,0},{-60,0},{-42,-32},{-12,30},{18,-30},{48,28},{62,
                 0},{96,0}}, color={0,0,255})}));
   equation 
@@ -2900,7 +2869,7 @@ a coupling of the element with the housing via a spring.
   end Spring;
   
   model Damper "Linear 1D rotational damper" 
-    extends Interfaces.Compliant;
+    extends Modelica.Mechanics.Rotational.Interfaces.PartialCompliant;
     parameter Real d(
       final unit="N.m.s/rad",
       final min=0) = 0 "Damping constant";
@@ -2967,17 +2936,7 @@ between two inertia/gear elements.
             points={{62,63},{72,60},{62,57},{62,63}}, 
             lineColor={128,128,128}, 
             fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
-          Polygon(
-            points={{10,-60},{-10,-55},{-10,-65},{10,-60}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-80,-60},{-9,-60}}, color={128,128,128}), 
-          Text(
-            extent={{14,-53},{82,-66}}, 
-            lineColor={128,128,128}, 
-            textString="rotation axis")}));
+            fillPattern=FillPattern.Solid)}));
   equation 
     w_rel = der(phi_rel);
     tau = d*w_rel;
@@ -2995,7 +2954,8 @@ between two inertia/gear elements.
     parameter StateSelect stateSelect=StateSelect.default 
       "Priority to use relative angle phi and relative speed w as states" annotation(Dialog(tab="Advanced"));
     
-    extends Interfaces.Compliant(phi_rel(start=0, stateSelect=stateSelect));
+    extends Modelica.Mechanics.Rotational.Interfaces.PartialCompliant(
+                                 phi_rel(start=0, stateSelect=stateSelect));
     SI.AngularVelocity w_rel(start=0, stateSelect=stateSelect) 
       "Relative angular velocity between flange_b and flange_a";
     SI.AngularAcceleration a_rel(start=0) 
@@ -3077,17 +3037,7 @@ to describe a coupling of the element with the housing via a spring/damper.
           Line(points={{-80,32},{-80,-50}}, color={0,0,0}), 
           Line(points={{80,32},{80,-50}}, color={0,0,0}), 
           Line(points={{-96,0},{-80,0}}, color={0,0,0}), 
-          Line(points={{96,0},{80,0}}, color={0,0,0}), 
-          Text(
-            extent={{15,-87},{83,-100}}, 
-            lineColor={128,128,128}, 
-            textString="rotation axis"), 
-          Polygon(
-            points={{11,-94},{-9,-89},{-9,-99},{11,-94}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-79,-94},{-8,-94}}, color={128,128,128})}));
+          Line(points={{96,0},{80,0}}, color={0,0,0})}));
   equation 
     w_rel = der(phi_rel);
     a_rel = der(w_rel);
@@ -3097,7 +3047,7 @@ to describe a coupling of the element with the housing via a spring/damper.
   model ElastoBacklash 
     "Backlash connected in series to linear spring and damper (backlash is modeled with elasticity)" 
     
-    extends Interfaces.Compliant;
+    extends Modelica.Mechanics.Rotational.Interfaces.PartialCompliant;
     
     parameter SI.Angle b(final min=0) = 0 "Total backlash";
     parameter Real c(
@@ -3295,17 +3245,7 @@ can be used to model a gear box with backlash, elasticity and damping.
             lineColor={160,160,164}, 
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid, 
-            textString="b"), 
-          Text(
-            extent={{15,-89},{83,-102}}, 
-            lineColor={128,128,128}, 
-            textString="rotation axis"), 
-          Polygon(
-            points={{11,-96},{-9,-91},{-9,-101},{11,-96}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-79,-96},{-8,-96}}, color={128,128,128})}));
+            textString="b")}));
   equation 
     w_rel = der(phi_rel);
     tau = if b2 > b_min then (if phi_rel > b2 then c*(phi_rel - phi_rel0 - b2)
@@ -3314,14 +3254,14 @@ can be used to model a gear box with backlash, elasticity and damping.
   end ElastoBacklash;
   
   model BearingFriction "Coulomb friction in bearings " 
-    extends Interfaces.TwoFlangesAndBearing;
+    extends Modelica.Mechanics.Rotational.Interfaces.PartialGear;
     
     parameter Real tau_pos[:, 2]=[0, 1] 
       "[w,tau] Positive sliding friction characteristic (w>=0)";
     parameter Real peak(final min=1) = 1 
       "peak*tau_pos[1,2] = Maximum friction torque for w==0";
     
-    extends Interfaces.FrictionBase;
+    extends Modelica.Mechanics.Rotational.Interfaces.PartialFriction;
     
     SI.Angle phi;
     SI.AngularVelocity w "Absolute angular velocity of flange_a and flange_b";
@@ -3487,88 +3427,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
-          Rectangle(
-            extent={{-96,10},{96,-10}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Rectangle(extent={{-60,-10},{60,-60}}, lineColor={0,0,0}), 
-          Rectangle(
-            extent={{-60,-10},{60,-25}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Rectangle(
-            extent={{-60,-45},{60,-61}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Rectangle(
-            extent={{-50,-18},{50,-50}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
-          Polygon(
-            points={{60,-60},{60,-70},{75,-70},{75,-80},{-75,-80},{-75,-70},{-60,
-                -70},{-60,-60},{60,-60}}, 
-            lineColor={0,0,0}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-75,-10},{-75,-70}}, color={0,0,0}), 
-          Line(points={{75,-10},{75,-70}}, color={0,0,0}), 
-          Rectangle(extent={{-60,60},{60,10}}, lineColor={0,0,0}), 
-          Rectangle(
-            extent={{-60,60},{60,45}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Rectangle(
-            extent={{-60,25},{60,10}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Rectangle(
-            extent={{-50,51},{50,19}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-75,70},{-75,10}}, color={0,0,0}), 
-          Polygon(
-            points={{60,60},{60,70},{75,70},{75,80},{-75,80},{-75,70},{-60,70},
-                {-60,60},{60,60}}, 
-            lineColor={0,0,0}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{75,70},{75,10}}, color={0,0,0}), 
-          Line(
-            points={{-20,-24},{38,-24}}, 
-            color={255,0,0}, 
-            thickness=4), 
-          Polygon(
-            points={{-20,-19},{-20,-29},{-36,-24},{-20,-19}}, 
-            lineColor={255,0,0}, 
-            fillColor={255,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Text(
-            extent={{-45,-23},{49,-51}}, 
-            lineColor={255,0,0}, 
-            textString="tau (friction torque)"), 
-          Text(
-            extent={{14,97},{82,84}}, 
-            lineColor={128,128,128}, 
-            textString="rotation axis"), 
-          Polygon(
-            points={{10,90},{-10,95},{-10,85},{10,90}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-80,90},{-9,90}}, color={128,128,128}), 
-          Line(points={{-10,-90},{0,-80}}, color={0,0,0}), 
-          Line(points={{-5,-90},{5,-80}}, color={0,0,0}), 
-          Line(points={{0,-90},{10,-80}}, color={0,0,0}), 
-          Line(points={{5,-90},{10,-85}}, color={0,0,0}), 
-          Line(points={{-10,-85},{-5,-80}}, color={0,0,0})}));
+          grid={1,1}), graphics));
   equation 
     // Constant auxiliary variables
     tau0 = Modelica.Math.tempInterpol1(0, tau_pos, 2);
@@ -3584,8 +3443,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
     w_relfric = w;
     a_relfric = a;
     
-    // Equilibrium of torques
-    0 = flange_a.tau + flange_b.tau - tau;
+    // Friction torque  
+    support.tau = -tau;
     
     // Friction torque
     tau = if locked then sa*unitTorque else (if startForward then 
@@ -3596,7 +3455,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
   end BearingFriction;
   
   model Clutch "Clutch based on Coulomb friction " 
-    extends Interfaces.Compliant;
+    extends Modelica.Mechanics.Rotational.Interfaces.PartialCompliant;
     
     parameter Real mue_pos[:, 2]=[0, 0.5] 
       "[w,mue] positive sliding friction coefficient (w_rel>=0)";
@@ -3606,7 +3465,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       "Geometry constant containing friction distribution assumption";
     parameter SI.Force fn_max(final min=0) = 1 "Maximum normal force";
     
-    extends Interfaces.FrictionBase;
+    extends Modelica.Mechanics.Rotational.Interfaces.PartialFriction;
     
     SI.AngularVelocity w_rel 
       "Relative angular velocity (flange_b.w - flange_a.w)";
@@ -3759,54 +3618,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 "),   Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
-          Polygon(
-            points={{-30,40},{-60,50},{-60,30},{-30,40}}, 
-            fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
-          Line(
-            points={{0,90},{-90,70},{-90,40},{-30,40}}, 
-            pattern=LinePattern.Solid, 
-            thickness=1, 
-            arrow={Arrow.None,Arrow.None}, 
-            color={0,0,255}), 
-          Line(points={{0,90},{90,70},{90,40},{30,40}}, color={0,0,255}), 
-          Polygon(
-            points={{30,40},{60,50},{60,30},{30,40}}, 
-            fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
-          Rectangle(
-            extent={{10,60},{30,-60}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Rectangle(
-            extent={{-30,60},{-10,-60}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Rectangle(
-            extent={{30,10},{96,-10}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Rectangle(
-            extent={{-96,10},{-30,-10}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Text(
-            extent={{19,-90},{87,-103}}, 
-            lineColor={128,128,128}, 
-            textString="rotation axis"), 
-          Polygon(
-            points={{15,-97},{-5,-92},{-5,-102},{15,-97}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-75,-97},{-4,-97}}, color={128,128,128})}));
+          grid={1,1}), graphics));
   equation 
     // Constant auxiliary variable
     mue0 = Modelica.Math.tempInterpol1(0, mue_pos, 2);
@@ -3832,7 +3644,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
   end Clutch;
   
   model OneWayClutch "Series connection of freewheel and clutch" 
-    extends Interfaces.Compliant;
+    extends Modelica.Mechanics.Rotational.Interfaces.PartialCompliant;
     
     parameter Real mue_pos[:, 2]=[0, 0.5] 
       "[w,mue] positive sliding friction coefficient (w_rel>=0)";
@@ -4013,49 +3825,7 @@ are dynamically coupled. The method is described in:
 "),   Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
-          Polygon(
-            points={{-30,40},{-60,50},{-60,30},{-30,40}}, 
-            fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
-          Line(
-            points={{0,90},{-90,70},{-90,40},{-30,40}}, 
-            pattern=LinePattern.Solid, 
-            thickness=1, 
-            arrow={Arrow.None,Arrow.None}, 
-            color={0,0,255}), 
-          Line(points={{0,90},{90,70},{90,40},{30,40}}, color={0,0,255}), 
-          Polygon(
-            points={{30,40},{60,50},{60,30},{30,40}}, 
-            fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
-          Rectangle(
-            extent={{10,60},{30,-60}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Rectangle(
-            extent={{-30,60},{-10,-60}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Rectangle(
-            extent={{30,10},{96,-10}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Rectangle(
-            extent={{-96,10},{-30,-10}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Polygon(
-            points={{-10,30},{50,0},{-10,-30},{-10,30}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid)}));
+          grid={1,1}), graphics));
   equation 
     // Constant auxiliary variable
     mue0 = Modelica.Math.tempInterpol1(0, mue_pos, 2);
@@ -4091,7 +3861,7 @@ are dynamically coupled. The method is described in:
   end OneWayClutch;
   
   model Brake "Brake based on Coulomb friction " 
-    extends Interfaces.TwoFlangesAndBearing;
+    extends Modelica.Mechanics.Rotational.Interfaces.PartialGear;
     
     parameter Real mue_pos[:, 2]=[0, 0.5] 
       "[w,mue] positive sliding friction coefficient (w_rel>=0)";
@@ -4101,7 +3871,7 @@ are dynamically coupled. The method is described in:
       "Geometry constant containing friction distribution assumption";
     parameter SI.Force fn_max(final min=0) = 1 "Maximum normal force";
     
-    extends Interfaces.FrictionBase;
+    extends Modelica.Mechanics.Rotational.Interfaces.PartialFriction;
     
     SI.Angle phi;
     SI.AngularVelocity w "Absolute angular velocity of flange_a and flange_b";
@@ -4266,65 +4036,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 "),   Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
-          Polygon(
-            points={{-37,-55},{-37,-90},{37,-90},{37,-55},{33,-55},{33,-86},{-33,
-                -86},{-33,-55},{-37,-55}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Text(
-            extent={{14,-63},{82,-76}}, 
-            lineColor={128,128,128}, 
-            textString="rotation axis"), 
-          Polygon(
-            points={{0,-70},{-20,-65},{-20,-75},{0,-70}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,-70},{-19,-70}}, color={128,128,128}), 
-          Rectangle(
-            extent={{-96,10},{-20,-10}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Rectangle(
-            extent={{20,10},{96,-10}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Line(
-            points={{0,90},{-80,70},{-80,-40},{-70,-40}}, 
-            pattern=LinePattern.Solid, 
-            thickness=1, 
-            arrow={Arrow.None,Arrow.None}, 
-            color={0,0,255}), 
-          Rectangle(
-            extent={{-20,60},{20,-60}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Line(points={{0,90},{80,70},{80,-40},{70,-40}}, color={0,0,255}), 
-          Polygon(
-            points={{40,-40},{70,-30},{70,-50},{40,-40}}, 
-            fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
-          Polygon(
-            points={{-40,-40},{-70,-30},{-70,-50},{-40,-40}}, 
-            fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
-          Rectangle(
-            extent={{-40,-25},{-30,-55}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Rectangle(
-            extent={{30,-25},{40,-55}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid)}));
+          grid={2,2}), graphics));
   equation 
     mue0 = Modelica.Math.tempInterpol1(0, mue_pos, 2);
     
@@ -4337,8 +4049,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
     w_relfric = w;
     a_relfric = a;
     
-    // Torque equilibrium, normal force and friction torque for w_rel=0
-    0 = flange_a.tau + flange_b.tau - tau;
+    // Friction torque, normal force and friction torque for w_rel=0
+    support.tau = -tau;
     fn = fn_max*f_normalized;
     tau0 = mue0*cgeo*fn;
     tau0_max = peak*tau0;
@@ -4355,7 +4067,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
   model LossyGear 
     "Gear with mesh efficiency and bearing friction (stuck/rolling possible)" 
     
-    extends Interfaces.TwoFlangesAndBearing;
+    extends Modelica.Mechanics.Rotational.Interfaces.PartialGear;
     
     parameter Real i=1 "Transmission ratio (flange_a.phi/flange_b.phi)";
     parameter Real lossTable[:, 5]=[0, 1, 1, 0, 0] 
@@ -4516,24 +4228,10 @@ pp. 257-266, The Modelica Association and Institute of Robotics and Mechatronics
 Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</p>
 </HTML>
 "),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
+              100}}, 
+          grid={1,1}), graphics={
           Rectangle(
             extent={{-40,20},{-20,-20}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Rectangle(
-            extent={{-40,140},{-20,20}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Rectangle(
-            extent={{20,100},{40,60}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Rectangle(
-            extent={{20,60},{40,-60}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={192,192,192}), 
@@ -4543,91 +4241,57 @@ Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</p>
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={192,192,192}), 
           Rectangle(
-            extent={{-20,90},{20,70}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Rectangle(
             extent={{-100,10},{-40,-10}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={192,192,192}), 
           Polygon(
-            points={{-111,30},{-70,30},{-70,100},{-40,100},{-60,121},{-80,100},
-                {-49,100},{-49,20},{-111,20},{-111,30}}, 
+            points={{-109,40},{-80,40},{-80,80},{-90,80},{-70,100},{-50,80},{
+                -60,80},{-60,20},{-109,20},{-109,40}}, 
             lineColor={0,0,0}, 
             fillColor={255,0,0}, 
             fillPattern=FillPattern.Solid), 
           Line(points={{-80,20},{-60,20}}, color={0,0,0}), 
           Line(points={{-80,-20},{-60,-20}}, color={0,0,0}), 
-          Line(points={{-70,-20},{-70,-70}}, color={0,0,0}), 
-          Line(points={{70,-70},{-70,-70}}, color={0,0,0}), 
-          Line(points={{0,60},{0,-90}}, color={0,0,0}), 
-          Line(points={{-10,60},{10,60}}, color={0,0,0}), 
-          Line(points={{-10,100},{10,100}}, color={0,0,0}), 
+          Line(points={{-70,-20},{-70,-84}}, color={0,0,0}), 
+          Line(points={{70,-85},{-70,-85}}, color={0,0,0}), 
           Line(points={{60,20},{80,20}}, color={0,0,0}), 
           Line(points={{60,-20},{80,-20}}, color={0,0,0}), 
-          Line(points={{70,-20},{70,-70}}, color={0,0,0}), 
+          Line(points={{70,-20},{70,-85}}, color={0,0,0}), 
           Text(
-            extent={{-150,180},{150,140}}, 
-            textString="%name=%i", 
-            lineColor={0,0,255})}),
-      Diagram(graphics={
+            extent={{-148,145},{152,105}}, 
+            lineColor={0,0,255}, 
+            textString="%name"), 
           Rectangle(
-            extent={{-40,20},{-20,-20}}, 
+            extent={{-40,100},{-20,20}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={192,192,192}), 
           Rectangle(
-            extent={{-40,140},{-20,20}}, 
+            extent={{-20,70},{20,50}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Line(points={{-10,80},{10,80}}, color={0,0,0}), 
+          Line(points={{-10,40},{10,40}}, color={0,0,0}), 
+          Line(points={{0,40},{0,-90}}, color={0,0,0}), 
+          Rectangle(
+            extent={{20,80},{40,39}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={192,192,192}), 
           Rectangle(
-            extent={{20,100},{40,60}}, 
+            extent={{20,40},{40,-40}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
             fillColor={192,192,192}), 
-          Rectangle(
-            extent={{20,60},{40,-60}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Rectangle(
-            extent={{-96,10},{-40,-10}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Rectangle(
-            extent={{40,10},{96,-10}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Rectangle(
-            extent={{-20,90},{20,70}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Line(points={{-94,-76},{-23,-76}}, color={128,128,128}), 
-          Polygon(
-            points={{-4,-76},{-24,-71},{-24,-81},{-4,-76}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
           Text(
-            extent={{19,-70},{87,-83}}, 
-            lineColor={128,128,128}, 
-            textString="rotation axis"), 
-          Line(points={{-80,20},{-60,20}}, color={0,0,0}), 
-          Line(points={{-80,-20},{-60,-20}}, color={0,0,0}), 
-          Line(points={{-70,-20},{-70,-70}}, color={0,0,0}), 
-          Line(points={{70,-70},{-70,-70}}, color={0,0,0}), 
-          Line(points={{0,60},{0,-90}}, color={0,0,0}), 
-          Line(points={{-10,60},{10,60}}, color={0,0,0}), 
-          Line(points={{-10,100},{10,100}}, color={0,0,0}), 
-          Line(points={{60,20},{80,20}}, color={0,0,0}), 
-          Line(points={{60,-20},{80,-20}}, color={0,0,0}), 
-          Line(points={{70,-20},{70,-70}}, color={0,0,0})}));
+            extent={{-146,-49},{154,-79}}, 
+            lineColor={0,0,0}, 
+            textString="i=%i")}),
+      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
+              100,100}}, 
+          grid={1,1}), graphics));
     
   protected 
     constant SI.AngularAcceleration unitAngularAcceleration = 1;
@@ -4726,280 +4390,11 @@ Modelica.Constants.eps).
        and w_a < 0 then Backward else Stuck);
   end LossyGear;
   
-  model GearEfficiency "Obsolete component (use model LossyGear instead)" 
-    extends Interfaces.TwoFlangesAndBearing;
-    
-    parameter Real eta(
-      min=Modelica.Constants.small,
-      max=1) = 1 "Efficiency";
-    SI.Angle phi;
-    SI.Power power_a "Energy flowing into flange_a (= power)";
-    Boolean driving_a 
-      "True, if energy is flowing INTO and not out of flange flange_a";
-    
-    annotation (
-      Window(
-        x=0.23,
-        y=0.06,
-        width=0.69,
-        height=0.62),
-      Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
-          Text(
-            extent={{-150,100},{150,60}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
-          Rectangle(
-            extent={{-100,20},{100,-20}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Line(points={{-30,-40},{30,-40}}, color={0,0,0}), 
-          Line(points={{0,-40},{0,-90}}, color={0,0,0}), 
-          Polygon(
-            points={{-30,-20},{60,-20},{60,-80},{70,-80},{50,-100},{30,-80},{40,
-                -80},{40,-30},{-30,-30},{-30,-20},{-30,-20}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Text(
-            extent={{-150,60},{150,20}}, 
-            lineColor={0,0,0}, 
-            textString="eta=%eta"), 
-          Line(points={{30,-50},{20,-60}}, color={0,0,0}), 
-          Line(points={{30,-40},{10,-60}}, color={0,0,0}), 
-          Line(points={{20,-40},{0,-60}}, color={0,0,0}), 
-          Line(points={{10,-40},{-10,-60}}, color={0,0,0}), 
-          Line(points={{0,-40},{-20,-60}}, color={0,0,0}), 
-          Line(points={{-10,-40},{-30,-60}}, color={0,0,0}), 
-          Line(points={{-20,-40},{-30,-50}}, color={0,0,0})}),
-      obsolete=
-          "This model can get stuck due when the torque direction varies, use LossyGear instead.",
-      Documentation(info="<html>
-<p>
-THIS COMPONENT IS <b>OBSOLETE</b> and should <b>no longer be used</b>. It is only
-kept for <b>backward compatibility</b> purposes. Use model
-Modelica.Mechanics.Rotational.LossyGear instead which implements
-gear efficiency in a much more reliable way.
-</p>
-<p>
-This component consists of two rigidly connected flanges flange_a and flange_b without
-inertia where an <b>efficency</b> coefficient <b>eta</b> reduces the driven
-torque as function of the driving torque depending on the direction
-of the energy flow, i.e., energy is always lost. This can be seen as a
-simple model of the Coulomb friction acting between the teeth of a
-gearbox.
-</p>
-<p>
-Note, that most gearbox manufacturers provide tables of the
-efficiency of a gearbox as function of the angular velocity
-(efficiency becomes zero, if the angular velocity is zero).
-However, such a table is practically useless for simulation purposes,
-because in gearboxes always two types of friction is present:
-(1) Friction in the <b>bearings</b> and (2) friction between
-the teeth of the gear. (1) leads to a velocity dependent, additive
-loss-torque, whereas (2) leads to a torque-dependent reduction of the
-driving torque. The gearbox manufacturers measure both effects
-together and determine the gear efficiency from it, although for
-simulation purposes the two effects need to be separated.
-Assume for example that only constant bearing friction, i.e.,
-bearingTorque=const., is present, i.e.,
-</p>
-<pre>
-   (1)  loadTorque = motorTorque - sign(w)*bearingTorque
-</pre>
-<p>
-Gearbox manufacturers use the loss-formula
-</p>
-<pre>
-   (2)  loadTorque = eta*motorTorque
-</pre>
-<p>
-Comparing (1) and (2) gives a formulat for the efficiency eta:
-</p>
-<pre>
-   eta = (1 - sign(w)*bearingTorque/motorTorque)
-</pre>
-<p>
-When the motorTorque becomes smaller as the bearingTorque,
-(2) is useless, because the efficiency is zero. To summarize,
-be careful to determine the gear <b>efficiency</b> of this element
-from tables of the gear manufacturers.
-</p>
- 
-</HTML>
-"),   Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
-          Rectangle(
-            extent={{-96,20},{96,-21}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Line(points={{-30,-40},{30,-40}}, color={0,0,0}), 
-          Line(points={{0,60},{0,40}}, color={0,0,0}), 
-          Line(points={{-30,40},{29,40}}, color={0,0,0}), 
-          Line(points={{0,-40},{0,-90}}, color={0,0,0}), 
-          Polygon(
-            points={{-30,-20},{60,-20},{60,-80},{70,-80},{50,-100},{30,-80},{40,
-                -80},{40,-30},{-30,-30},{-30,-20},{-30,-20}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Text(
-            extent={{16,83},{84,70}}, 
-            lineColor={128,128,128}, 
-            textString="rotation axis"), 
-          Polygon(
-            points={{12,76},{-8,81},{-8,71},{12,76}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-78,76},{-7,76}}, color={128,128,128}), 
-          Line(points={{30,-50},{20,-60}}, color={0,0,0}), 
-          Line(points={{30,-40},{10,-60}}, color={0,0,0}), 
-          Line(points={{20,-40},{0,-60}}, color={0,0,0}), 
-          Line(points={{10,-40},{-10,-60}}, color={0,0,0}), 
-          Line(points={{0,-40},{-20,-60}}, color={0,0,0}), 
-          Line(points={{-10,-40},{-30,-60}}, color={0,0,0}), 
-          Line(points={{-20,-40},{-30,-50}}, color={0,0,0})}));
-    
-  equation 
-    phi = phi_a;
-    phi = phi_b;
-    power_a = flange_a.tau*der(phi);
-    driving_a = power_a >= 0;
-    flange_b.tau = -(if driving_a then eta*flange_a.tau else flange_a.tau/eta);
-  end GearEfficiency;
   
-  model Gear "Realistic model of a gearbox" 
-    extends Interfaces.TwoFlangesAndBearingH;
-    
-    parameter Real ratio=1 "transmission ratio (flange_a.phi/flange_b.phi)";
-    parameter Real eta(
-      min=Modelica.Constants.small,
-      max=1) = 1 "Gear efficiency";
-    parameter Real friction_pos[:, 2]=[0, 1] 
-      "[w,tau] positive sliding friction characteristic (w>=0)";
-    parameter Real peak(final min=1) = 1 
-      "peak*friction_pos[1,2] = maximum friction torque at zero velocity";
-    parameter Real c(
-      final unit="N.m/rad",
-      final min=Modelica.Constants.small) = 1.e5 
-      "Gear elasticity (spring constant)";
-    parameter Real d(
-      final unit="N.m.s/rad",
-      final min=0) = 0 "(relative) gear damping";
-    parameter SI.Angle b(final min=0) = 0 "Total backlash";
-    
-    annotation (
-      Documentation(info="<html>
-<p>
-This component models the essential effects of a gearbox, in particular
-gear <b>efficiency</b> due to friction between the teeth, <b>bearing friction</b>,
-gear <b>elasticity</b> and <b>damping</b>, <b>backlash</b>.
-The inertia of the gear wheels is not modeled. If necessary, inertia
-has to be taken into account by connecting components of model Inertia
-to the left and/or the right flange.
-</p>
- 
-</HTML>
-"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
-          Rectangle(
-            extent={{-40,60},{40,-60}}, 
-            lineColor={0,0,0}, 
-            pattern=LinePattern.Solid, 
-            lineThickness=1, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Polygon(
-            points={{-60,-80},{-46,-80},{-20,-20},{20,-20},{46,-80},{60,-80},{
-                60,-90},{-60,-90},{-60,-80}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Rectangle(
-            extent={{-100,10},{-60,-10}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Rectangle(
-            extent={{60,10},{100,-10}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Polygon(
-            points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={128,128,128}), 
-          Polygon(
-            points={{60,20},{40,40},{40,-40},{60,-20},{60,20}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
-          Text(
-            extent={{-150,110},{150,70}}, 
-            textString="%name=%ratio", 
-            lineColor={0,0,255}), 
-          Text(
-            extent={{-150,-160},{150,-120}}, 
-            lineColor={0,0,0}, 
-            textString="c=%c")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={
-          Text(
-            extent={{2,29},{46,22}}, 
-            lineColor={128,128,128}, 
-            textString="rotation axis"), 
-          Polygon(
-            points={{4,25},{-4,27},{-4,23},{4,25}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-36,25},{-3,25}}, color={128,128,128})}));
-    IdealGear gearRatio(final ratio=ratio) 
-      annotation (Placement(transformation(extent={{-70,-10},{-50,10}},
-            rotation=0)));
-    GearEfficiency gearEfficiency(final eta=eta) 
-      annotation (Placement(transformation(extent={{-30,-10},{-10,10}},
-            rotation=0)));
-    ElastoBacklash elastoBacklash(
-      final b=b,
-      final c=c,
-      final phi_rel0=0,
-      final d=d) annotation (Placement(transformation(extent={{50,-10},{70,10}},
-            rotation=0)));
-    BearingFriction bearingFriction(final tau_pos=friction_pos, final peak=peak) 
-      annotation (Placement(transformation(extent={{10,-10},{30,10}}, rotation=
-              0)));
-  equation 
-    connect(flange_a, gearRatio.flange_a) 
-      annotation (Line(points={{-100,0},{-70,0}}, color={0,0,0}));
-    connect(gearRatio.flange_b, gearEfficiency.flange_a) 
-      annotation (Line(points={{-50,0},{-30,0}}, color={0,0,0}));
-    connect(gearEfficiency.flange_b, bearingFriction.flange_a) 
-      annotation (Line(points={{-10,0},{10,0}}, color={0,0,0}));
-    connect(bearingFriction.flange_b, elastoBacklash.flange_a) 
-      annotation (Line(points={{30,0},{50,0}}, color={0,0,0}));
-    connect(elastoBacklash.flange_b, flange_b) 
-      annotation (Line(points={{70,0},{100,0}}, color={0,0,0}));
-    connect(gearRatio.bearing, adapter.flange_b) annotation (Line(points={{-60,-10},
-            {-60,-40},{6.12323e-016,-40},{6.12323e-016,-50}},      color={0,0,0}));
-    connect(gearEfficiency.bearing, adapter.flange_b) annotation (Line(points={{-20,-10},
-            {-20,-40},{6.12323e-016,-40},{6.12323e-016,-50}},           color={
-            0,0,0}));
-    connect(bearingFriction.bearing, adapter.flange_b) annotation (Line(points={{20,-10},
-            {20,-40},{6.12323e-016,-40},{6.12323e-016,-50}},           color={0,
-            0,0}));
-  end Gear;
   
-  model Gear2 "Realistic model of a gearbox (based on LossyGear)" 
-    extends Interfaces.TwoFlangesAndBearingH;
+  model Gearbox "Realistic model of a gearbox (based on LossyGear)" 
+    extends 
+      Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlangesAndSupport;
     
     parameter Real i=1 "transmission ratio (flange_a.phi/flange_b.phi)";
     parameter Real lossTable[:, 5]=[0, 1, 1, 0, 0] 
@@ -5067,30 +4462,22 @@ GearNew.</p>
             fillColor={128,128,128}, 
             fillPattern=FillPattern.Solid), 
           Text(
-            extent={{-150,110},{150,70}}, 
-            textString="%name=%i", 
-            lineColor={0,0,255}), 
+            extent={{-150,150},{150,110}}, 
+            lineColor={0,0,255}, 
+            textString="%name"), 
           Text(
-            extent={{-150,-160},{150,-120}}, 
+            extent={{-150,70},{150,100}}, 
             lineColor={0,0,0}, 
-            textString="c=%c"), 
+            textString="i=%i, c=%c"), 
           Polygon(
             points={{-60,-80},{-46,-80},{-20,-20},{20,-20},{46,-80},{60,-80},{
                 60,-90},{-60,-90},{-60,-80}}, 
             lineColor={0,0,0}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid)}),
-      Diagram(graphics={
-          Text(
-            extent={{2,64},{46,57}}, 
-            lineColor={128,128,128}, 
-            textString="rotation axis"), 
-          Polygon(
-            points={{4,60},{-4,62},{-4,58},{4,60}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-36,60},{-3,60}}, color={128,128,128})}));
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+              100,100}}),
+                      graphics));
     LossyGear lossyGear(final i=i, final lossTable=lossTable) 
       annotation (Placement(transformation(extent={{-60,-20},{-20,20}},
             rotation=0)));
@@ -5107,12 +4494,16 @@ GearNew.</p>
       annotation (Line(points={{-20,0},{20,0}}, color={0,0,0}));
     connect(elastoBacklash.flange_b, flange_b) 
       annotation (Line(points={{60,0},{100,0}}, color={0,0,0}));
-    connect(lossyGear.bearing, adapter.flange_b) annotation (Line(points={{-40,
-            -20},{-40,-40},{6.12323e-016,-40},{6.12323e-016,-50}}, color={0,0,0}));
-  end Gear2;
+    connect(lossyGear.support, support) annotation (Line(
+        points={{-40,-20},{-40,-80},{0,-80},{0,-100}},
+        color={0,0,0},
+        smooth=Smooth.None));
+  end Gearbox;
   
   model Position 
     "Forced movement of a flange according to a reference angle signal" 
+    import SI = Modelica.SIunits;
+    extends Modelica.Mechanics.Rotational.Interfaces.PartialSource;
     
     parameter Boolean exact=false 
       "true/false exact treatment/filtering the input signal";
@@ -5126,15 +4517,7 @@ GearNew.</p>
     output SI.AngularVelocity w "absolute angular velocity of flange flange_b";
     output SI.AngularAcceleration a 
       "absolute angular acceleration of flange flange_b";
-    SI.Torque tau_support "Support torque";
-  protected 
-    parameter Modelica.SIunits.AngularFrequency w_crit=2*Modelica.Constants.pi*f_crit 
-      "Critical frequency";
-    constant Real af=1.3617 "s coefficient of Bessel filter";
-    constant Real bf=0.6180 "s*s coefficient of Bessel filter";
-  public 
-    Interfaces.Flange_b flange_b annotation (Placement(transformation(extent={{
-              90,-10},{110,10}}, rotation=0)));
+    
     annotation (
       Window(
         x=0.33,
@@ -5176,11 +4559,6 @@ blocks of the block library Modelica.Blocks.Sources.
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(
-            extent={{-20,-80},{20,-120}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Rectangle(
             extent={{-100,20},{100,-20}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
@@ -5188,7 +4566,7 @@ blocks of the block library Modelica.Blocks.Sources.
           Line(points={{-30,-32},{30,-32}}, color={0,0,0}), 
           Line(points={{0,52},{0,32}}, color={0,0,0}), 
           Line(points={{-29,32},{30,32}}, color={0,0,0}), 
-          Line(points={{0,-32},{0,-90}}, color={0,0,0}), 
+          Line(points={{0,-32},{0,-86}}, color={0,0,0}), 
           Line(points={{30,-42},{20,-52}}, color={0,0,0}), 
           Line(points={{30,-32},{10,-52}}, color={0,0,0}), 
           Line(points={{20,-32},{0,-52}}, color={0,0,0}), 
@@ -5207,45 +4585,15 @@ blocks of the block library Modelica.Blocks.Sources.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
-          Rectangle(
-            extent={{-100,20},{100,-20}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Line(points={{-30,-32},{30,-32}}, color={0,0,0}), 
-          Line(points={{0,52},{0,32}}, color={0,0,0}), 
-          Line(points={{-29,32},{30,32}}, color={0,0,0}), 
-          Line(points={{0,-32},{0,-90}}, color={0,0,0}), 
-          Line(points={{30,-42},{20,-52}}, color={0,0,0}), 
-          Line(points={{30,-32},{10,-52}}, color={0,0,0}), 
-          Line(points={{20,-32},{0,-52}}, color={0,0,0}), 
-          Line(points={{10,-32},{-10,-52}}, color={0,0,0}), 
-          Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
-          Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
-          Line(points={{-20,-32},{-30,-42}}, color={0,0,0}), 
-          Line(points={{-80,80},{-10,80}}, color={128,128,128}), 
-          Polygon(
-            points={{10,80},{-10,85},{-10,75},{10,80}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
-          Text(
-            extent={{50,87},{50,73}}, 
-            lineColor={128,128,128}, 
-            textString="rotation axis")}));
-    Interfaces.Flange_a bearing annotation (Placement(transformation(extent={{
-              -10,-110},{10,-90}}, rotation=0)));
+          grid={2,2}), graphics));
+  protected 
+    parameter Modelica.SIunits.AngularFrequency w_crit=2*Modelica.Constants.pi*f_crit 
+      "Critical frequency";
+    constant Real af=1.3617 "s coefficient of Bessel filter";
+    constant Real bf=0.6180 "s*s coefficient of Bessel filter";
+    
   equation 
-    0 = flange_b.tau + tau_support;
-    
-    if cardinality(bearing) == 0 then
-      bearing.phi = 0;
-    else
-      bearing.tau = tau_support;
-    end if;
-    
-    phi = flange_b.phi;
+    phi = flange.phi;
     w = der(phi);
     a = der(w);
     
@@ -5264,6 +4612,8 @@ blocks of the block library Modelica.Blocks.Sources.
   
   model Speed 
     "Forced movement of a flange according to a reference angular velocity signal" 
+    import SI = Modelica.SIunits;
+    extends Modelica.Mechanics.Rotational.Interfaces.PartialSource;
     
     parameter Boolean exact=false 
       "true/false exact treatment/filtering the input signal";
@@ -5274,13 +4624,6 @@ blocks of the block library Modelica.Blocks.Sources.
     SI.Angle phi "absolute rotation angle of flange flange_b";
     SI.AngularVelocity w "absolute angular velocity of flange flange_b";
     SI.AngularAcceleration a "absolute angular acceleration of flange flange_b";
-    SI.Torque tau_support "Support torque";
-  protected 
-    parameter Modelica.SIunits.AngularFrequency w_crit=2*Modelica.Constants.pi*f_crit 
-      "Critical frequency";
-  public 
-    Interfaces.Flange_b flange_b annotation (Placement(transformation(extent={{
-              90,-10},{110,10}}, rotation=0)));
     Blocks.Interfaces.RealInput w_ref 
       "Reference angular velocity of flange_b as input signal" 
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
@@ -5332,11 +4675,6 @@ blocks of the block library Modelica.Blocks.Sources.
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(
-            extent={{-20,-80},{20,-120}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Rectangle(
             extent={{-100,20},{100,-20}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
@@ -5363,46 +4701,13 @@ blocks of the block library Modelica.Blocks.Sources.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
-          Rectangle(
-            extent={{-100,20},{100,-20}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Line(points={{-30,-32},{30,-32}}, color={0,0,0}), 
-          Line(points={{0,52},{0,32}}, color={0,0,0}), 
-          Line(points={{-29,32},{30,32}}, color={0,0,0}), 
-          Line(points={{0,-32},{0,-90}}, color={0,0,0}), 
-          Line(points={{30,-42},{20,-52}}, color={0,0,0}), 
-          Line(points={{30,-32},{10,-52}}, color={0,0,0}), 
-          Line(points={{20,-32},{0,-52}}, color={0,0,0}), 
-          Line(points={{10,-32},{-10,-52}}, color={0,0,0}), 
-          Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
-          Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
-          Line(points={{-20,-32},{-30,-42}}, color={0,0,0}), 
-          Line(points={{-80,80},{-10,80}}, color={128,128,128}), 
-          Polygon(
-            points={{10,80},{-10,85},{-10,75},{10,80}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
-          Text(
-            extent={{50,87},{50,73}}, 
-            lineColor={128,128,128}, 
-            textString="rotation axis")}));
-    Interfaces.Flange_a bearing annotation (Placement(transformation(extent={{
-              -10,-110},{10,-90}}, rotation=0)));
+          grid={2,2}), graphics));
+  protected 
+    parameter Modelica.SIunits.AngularFrequency w_crit=2*Modelica.Constants.pi*f_crit 
+      "Critical frequency";
   equation 
-    0 = flange_b.tau + tau_support;
-    
-    if cardinality(bearing) == 0 then
-      bearing.phi = 0;
-    else
-      bearing.tau = tau_support;
-    end if;
-    
     der(phi_ref) = w_ref;
-    phi = flange_b.phi;
+    phi = flange.phi;
     w = der(phi);
     a = der(w);
     
@@ -5420,6 +4725,8 @@ blocks of the block library Modelica.Blocks.Sources.
   
   model Accelerate 
     "Forced movement of a flange according to an acceleration signal" 
+    import SI = Modelica.SIunits;
+    extends Modelica.Mechanics.Rotational.Interfaces.PartialSource;
     
     parameter SI.Angle phi_start=0 "Start angle";
     parameter SI.AngularVelocity w_start=0 "Start angular velocity";
@@ -5428,10 +4735,6 @@ blocks of the block library Modelica.Blocks.Sources.
       "absolute rotation angle of flange flange_b";
     SI.AngularVelocity w(final start=w_start, final fixed=true) 
       "absolute angular velocity of flange flange_b";
-    SI.Torque tau_support "Support torque";
-    
-    Interfaces.Flange_b flange_b annotation (Placement(transformation(extent={{
-              90,-10},{110,10}}, rotation=0)));
     Blocks.Interfaces.RealInput a 
       "absolute angular acceleration of flange_b as input signal" 
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
@@ -5461,11 +4764,6 @@ blocks of the block library Modelica.Blocks.Sources.
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(
-            extent={{-20,-80},{20,-120}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Rectangle(
             extent={{-100,20},{100,-20}}, 
             lineColor={0,0,0}, 
             fillPattern=FillPattern.HorizontalCylinder, 
@@ -5492,68 +4790,25 @@ blocks of the block library Modelica.Blocks.Sources.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
-          Rectangle(
-            extent={{-100,20},{100,-20}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Line(points={{-30,-32},{30,-32}}, color={0,0,0}), 
-          Line(points={{0,52},{0,32}}, color={0,0,0}), 
-          Line(points={{-29,32},{30,32}}, color={0,0,0}), 
-          Line(points={{0,-32},{0,-90}}, color={0,0,0}), 
-          Line(points={{30,-42},{20,-52}}, color={0,0,0}), 
-          Line(points={{30,-32},{10,-52}}, color={0,0,0}), 
-          Line(points={{20,-32},{0,-52}}, color={0,0,0}), 
-          Line(points={{10,-32},{-10,-52}}, color={0,0,0}), 
-          Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
-          Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
-          Line(points={{-20,-32},{-30,-42}}, color={0,0,0}), 
-          Line(points={{-80,80},{-10,80}}, color={128,128,128}), 
-          Polygon(
-            points={{10,80},{-10,85},{-10,75},{10,80}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
-          Text(
-            extent={{50,87},{50,73}}, 
-            lineColor={128,128,128}, 
-            textString="rotation axis")}));
-    Interfaces.Flange_a bearing annotation (Placement(transformation(extent={{
-              -10,-110},{10,-90}}, rotation=0)));
+          grid={2,2}), graphics));
   equation 
-    0 = flange_b.tau + tau_support;
-    
-    if cardinality(bearing) == 0 then
-      bearing.phi = 0;
-    else
-      bearing.tau = tau_support;
-    end if;
-    
-    phi = flange_b.phi;
+    phi = flange.phi;
     w = der(phi);
     a = der(w);
   end Accelerate;
   
   model Move 
     "Forced movement of a flange according to an angle, speed and angular acceleration signal" 
+    import SI = Modelica.SIunits;
+    extends Modelica.Mechanics.Rotational.Interfaces.PartialSource;
     
     SI.Angle phi "absolute rotation angle of flange flange_b";
     SI.AngularVelocity w "absolute angular velocity of flange flange_b";
     SI.AngularAcceleration a "absolute angular acceleration of flange flange_b";
-    SI.Torque tau_support "Support torque";
     
     Modelica.Blocks.Interfaces.RealInput u[3] 
       "angle, angular velocity and angular acceleration of flange_b as input signals"
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
-            rotation=0)));
-    Interfaces.Flange_b flange_b 
-      "Flange that is forced to move according to input signals u" 
-             annotation (Placement(transformation(extent={{90,-10},{110,10}},
-            rotation=0)));
-    Interfaces.Flange_a bearing 
-      "Bearing flange (if not connected, it is assumed that it is fixed on ground)"
-             annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
             rotation=0)));
     
     annotation (
@@ -5585,46 +4840,11 @@ blocks of the block library Modelica.Blocks.Sources.
 "),   Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
-          Rectangle(
-            extent={{-100,20},{100,-20}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Line(points={{-30,-32},{30,-32}}, color={0,0,0}), 
-          Line(points={{0,52},{0,32}}, color={0,0,0}), 
-          Line(points={{-29,32},{30,32}}, color={0,0,0}), 
-          Line(points={{0,-32},{0,-90}}, color={0,0,0}), 
-          Text(
-            extent={{50,87},{50,73}}, 
-            lineColor={128,128,128}, 
-            textString="rotation axis"), 
-          Polygon(
-            points={{10,80},{-10,85},{-10,75},{10,80}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-80,80},{-10,80}}, color={128,128,128}), 
-          Line(points={{30,-42},{20,-52}}, color={0,0,0}), 
-          Line(points={{30,-32},{10,-52}}, color={0,0,0}), 
-          Line(points={{20,-32},{0,-52}}, color={0,0,0}), 
-          Line(points={{10,-32},{-10,-52}}, color={0,0,0}), 
-          Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
-          Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
-          Line(points={{-20,-32},{-30,-42}}, color={0,0,0}), 
-          Text(
-            extent={{-100,80},{-100,40}}, 
-            textString="phi,w,a", 
-            lineColor={0,0,255})}),
+          grid={2,2}), graphics),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Rectangle(
-            extent={{-20,-80},{20,-120}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
           Text(
             extent={{-80,-60},{-80,-100}}, 
             lineColor={0,0,0}, 
@@ -5692,15 +4912,7 @@ blocks of the block library Modelica.Blocks.Sources.
       qdd :=q_qd_qdd[3];
     end position_der2;
   equation 
-    0 = flange_b.tau + tau_support;
-    
-    if cardinality(bearing) == 0 then
-      bearing.phi = 0;
-    else
-      bearing.tau = tau_support;
-    end if;
-    
-    phi = flange_b.phi;
+    phi = flange.phi;
     phi = position(u,time);
     w = der(phi);
     a = der(w);
@@ -5709,7 +4921,7 @@ blocks of the block library Modelica.Blocks.Sources.
   model Fixed "Flange fixed in housing at a given angle" 
     parameter SI.Angle phi0=0 "Fixed offset angle of housing";
     
-    Interfaces.Flange_b flange_b "(right) flange fixed in housing" 
+    Interfaces.Flange_b flange "(right) flange fixed in housing" 
       annotation (Placement(transformation(extent={{10,-10},{-10,10}}, rotation=
              0)));
     annotation (
@@ -5724,14 +4936,18 @@ blocks of the block library Modelica.Blocks.Sources.
           grid={2,2}), graphics={
           Text(
             extent={{-150,-90},{150,-130}}, 
-            textString="%name=%phi0", 
-            lineColor={0,0,255}), 
+            lineColor={0,0,255}, 
+            textString="%name"), 
           Line(points={{-80,-40},{80,-40}}, color={0,0,0}), 
           Line(points={{80,-40},{40,-80}}, color={0,0,0}), 
           Line(points={{40,-40},{0,-80}}, color={0,0,0}), 
           Line(points={{0,-40},{-40,-80}}, color={0,0,0}), 
           Line(points={{-40,-40},{-80,-80}}, color={0,0,0}), 
-          Line(points={{0,-40},{0,-10}}, color={0,0,0})}),
+          Line(points={{0,-40},{0,-10}}, color={0,0,0}), 
+          Text(
+            extent={{10,0},{150,-40}}, 
+            lineColor={0,0,0}, 
+            textString="phi0=%phi0")}),
       Documentation(info="<html>
 <p>
 The <b>flange</b> of a 1D rotational mechanical system is <b>fixed</b>
@@ -5754,29 +4970,18 @@ at an angle phi0 in the <b>housing</b>. May be used:
           Line(points={{40,-40},{0,-80}}, color={0,0,0}), 
           Line(points={{0,-40},{-40,-80}}, color={0,0,0}), 
           Line(points={{-40,-40},{-80,-80}}, color={0,0,0}), 
-          Line(points={{0,-40},{0,-4}}, color={0,0,0}), 
-          Polygon(
-            points={{8,46},{-12,51},{-12,41},{8,46}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-82,46},{-11,46}}, color={128,128,128}), 
-          Text(
-            extent={{12,53},{80,40}}, 
-            lineColor={128,128,128}, 
-            textString="rotation axis")}));
+          Line(points={{0,-40},{0,-4}}, color={0,0,0})}));
   equation 
-    flange_b.phi = phi0;
+    flange.phi = phi0;
   end Fixed;
   
   model Torque "Input signal acting as external torque on a flange" 
+    extends Modelica.Mechanics.Rotational.Interfaces.PartialSource;
+    
     Modelica.Blocks.Interfaces.RealInput tau 
       "Torque driving the flange (a positive value accelerates the flange)" 
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-    Interfaces.Flange_b flange_b "(Right) flange" 
-      annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=
-             0)));
     annotation (
       Window(
         x=0.32,
@@ -5851,20 +5056,12 @@ blocks of Modelica.Blocks.Sources.
             lineColor={0,0,0}, 
             fillColor={0,0,0}, 
             fillPattern=FillPattern.Solid)}));
-    Interfaces.Flange_a bearing annotation (Placement(transformation(extent={{
-              -10,-110},{10,-90}}, rotation=0)));
   equation 
-    flange_b.tau = -tau;
-    
-    if cardinality(bearing) == 0 then
-      bearing.phi = 0;
-    else
-      bearing.tau = tau;
-    end if;
+    flange.tau = -tau;
   end Torque;
   
   model Torque2 "Input signal acting as torque on two flanges" 
-    extends Interfaces.TwoFlanges;
+    extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
     
     Modelica.Blocks.Interfaces.RealInput tau 
       "Torque driving the two flanges (a positive value accelerates the flange)"
@@ -5923,36 +5120,36 @@ blocks of Modelica.Blocks.Sources.</p>
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{15,-71},{83,-84}}, 
-            lineColor={128,128,128}, 
-            textString="rotation axis"), 
+            extent={{15,-71},{83,-84}},
+            lineColor={128,128,128},
+            textString="rotation axis"),
           Polygon(
-            points={{11,-77},{-9,-72},{-9,-82},{11,-77}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-79,-77},{-8,-77}}, color={128,128,128}), 
+            points={{11,-77},{-9,-72},{-9,-82},{11,-77}},
+            lineColor={128,128,128},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-79,-77},{-8,-77}}, color={128,128,128}),
           Line(
             points={{-75,20},{-71,23},{-66,26},{-61,28},{-57,29},{-51,30},{-42,
                 30},{-36,29},{-32,28},{-27,26},{-22,23},{-18,20},{-14,15},{-11,
-                9}}, 
-            color={0,0,0}, 
-            thickness=2), 
+                9}},
+            color={0,0,0},
+            thickness=2),
           Polygon(
-            points={{-79,24},{-70,17},{-90,0},{-79,24}}, 
-            lineColor={0,0,0}, 
-            lineThickness=2, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+            points={{-79,24},{-70,17},{-90,0},{-79,24}},
+            lineColor={0,0,0},
+            lineThickness=2,
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Line(
             points={{73,20},{69,23},{64,26},{59,28},{55,29},{49,30},{40,30},{34,
-                29},{30,28},{25,26},{20,23},{16,20},{12,15},{9,9}}, 
-            color={0,0,0}, 
-            thickness=2), 
+                29},{30,28},{25,26},{20,23},{16,20},{12,15},{9,9}},
+            color={0,0,0},
+            thickness=2),
           Polygon(
-            points={{88,0},{77,24},{68,17},{88,0}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
+            points={{88,0},{77,24},{68,17},{88,0}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
             fillPattern=FillPattern.Solid)}));
   equation 
     flange_a.tau = tau;
@@ -5963,13 +5160,15 @@ blocks of Modelica.Blocks.Sources.</p>
     extends 
       Modelica.Mechanics.Rotational.Interfaces.PartialSpeedDependentTorque;
     parameter Modelica.SIunits.Torque tau_nominal 
-      "nominal torque (if negative, torque is acting as load)";
+      "Nominal torque (if negative, torque is acting as load)";
     parameter Boolean TorqueDirection=true 
-      "same direction of torque in both directions of rotation";
+      "Same direction of torque in both directions of rotation";
     parameter Modelica.SIunits.AngularVelocity w_nominal(min=Modelica.Constants.eps) 
-      "nominal speed";
+      "Nominal speed";
     annotation (
-      Diagram(graphics),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}),
+              graphics),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-100,-100},{100,100}}, color={0,0,
                 255})}),
@@ -5992,13 +5191,15 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
     extends 
       Modelica.Mechanics.Rotational.Interfaces.PartialSpeedDependentTorque;
     parameter Modelica.SIunits.Torque tau_nominal 
-      "nominal torque (if negative, torque is acting as load)";
+      "Nominal torque (if negative, torque is acting as load)";
     parameter Boolean TorqueDirection=true 
-      "same direction of torque in both directions of rotation";
+      "Same direction of torque in both directions of rotation";
     parameter Modelica.SIunits.AngularVelocity w_nominal(min=Modelica.Constants.eps) 
-      "nominal speed";
+      "Nominal speed";
     annotation (
-      Diagram(graphics),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}),
+              graphics),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-100,-100},{-80,-98},{-60,-92},{-40,
                 -82},{-20,-68},{0,-50},{20,-28},{40,-2},{60,28},{80,62},{100,
@@ -6021,9 +5222,11 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
     extends 
       Modelica.Mechanics.Rotational.Interfaces.PartialSpeedDependentTorque;
     parameter Modelica.SIunits.Torque tau_constant 
-      "constant torque (if negative, torque is acting as load)";
+      "Constant torque (if negative, torque is acting as load)";
     annotation (
-      Diagram(graphics),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}),
+              graphics),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-98,0},{100,0}}, color={0,0,255})}),
       Documentation(info="<HTML>
@@ -6040,9 +5243,14 @@ Positive torque acts accelerating.
     extends 
       Modelica.Mechanics.Rotational.Interfaces.PartialSpeedDependentTorque;
     parameter Modelica.SIunits.AngularVelocity w_fixed 
-      "fixed speed (if negative, torque is acting as load)";
+      "Fixed speed (if negative, torque is acting as load)";
     annotation (
-      Diagram(graphics),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}),
+              graphics={Text(
+            extent={{-136,-39},{164,-69}}, 
+            lineColor={0,0,0}, 
+            textString="ratio=%ratio")}),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{0,-100},{0,100}}, color={0,0,255})}),
       Documentation(info="<HTML>
@@ -6058,13 +5266,15 @@ Model of <b>fixed</b> angular verlocity of flange, not dependent on torque.
     extends 
       Modelica.Mechanics.Rotational.Interfaces.PartialSpeedDependentTorque;
     parameter Modelica.SIunits.Torque stepTorque=1 
-      "height of torque step (if negative, torque is acting as load)";
-    parameter Modelica.SIunits.Torque offsetTorque=0 "offset of torque";
+      "Height of torque step (if negative, torque is acting as load)";
+    parameter Modelica.SIunits.Torque offsetTorque=0 "Offset of torque";
     parameter Modelica.SIunits.Time startTime=0 
-      "output = offset for time < startTime";
+      "Torque = offset for time < startTime";
     
     annotation (
-      Diagram(graphics),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}),
+              graphics),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-80,-60},{0,-60},{0,60},{80,60}}, 
               color={0,0,255}), Text(
@@ -6082,7 +5292,7 @@ Positive torque acts accelerating.
   end TorqueStep;
   
   model RelativeStates "Definition of relative state variables" 
-    extends Interfaces.TwoFlanges;
+    extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
     parameter StateSelect stateSelect=StateSelect.prefer 
       "Priority to use the relative angle and relative speed as states";
     SI.Angle phi_rel(start=0, stateSelect=stateSelect) 
