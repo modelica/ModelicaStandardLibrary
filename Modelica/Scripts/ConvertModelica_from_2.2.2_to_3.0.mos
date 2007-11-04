@@ -592,6 +592,101 @@ convertModifiers("Modelica.Mechanics.MultiBody.Parts.PointMass",{"initType"} ,
                                 "%initType%==6 or "+
                                 "%initType%==7) then true else false"}, true);
 
+
+
+//--------- New design of Rotational -------------------------------------------
+convertClass("Modelica.Mechanics.Rotational.Interfaces.Bearing",
+             "ObsoleteModelica3.Mechanics.Rotational.Interfaces.Bearing");
+convertClass("Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearing",
+             "ObsoleteModelica3.Mechanics.Rotational.Interfaces.TwoFlangesAndBearing");
+convertClass("Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearing",
+             "ObsoleteModelica3.Mechanics.Rotational.Interfaces.TwoFlangesAndBearing");
+convertClass("Modelica.Mechanics.Rotational.Sensors.AbsoluteSensor",
+             "ObsoleteModelica3.Mechanics.Rotational.Sensors.AbsoluteSensor");
+convertClass("Modelica.Mechanics.Rotational.Sensors.RelativeSensor",
+             "ObsoleteModelica3.Mechanics.Rotational.Sensors.RelativeSensor");
+
+
+convertClass("Modelica.Mechanics.Rotational.Interfaces.Rigid",
+             "Modelica.Mechanics.Rotational.Interfaces.PartialRigid");
+convertClass("Modelica.Mechanics.Rotational.Interfaces.Compliant",
+             "Modelica.Mechanics.Rotational.Interfaces.PartialCompliant");
+convertClass("Modelica.Mechanics.Rotational.Interfaces.Compliant",
+             "Modelica.Mechanics.Rotational.Interfaces.PartialCompliant");
+convertClass("Modelica.Mechanics.Rotational.Interfaces.TwoFlanges",
+             "Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges");
+convertClass("Modelica.Mechanics.Rotational.Interfaces.FrictionBase",
+             "Modelica.Mechanics.Rotational.Interfaces.PartialFriction");
+convertClass("Modelica.Mechanics.Rotational.Interfaces.AbsoluteSensor",
+             "Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor");
+convertClass("Modelica.Mechanics.Rotational.Interfaces.RelativeSensor",
+             "Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor");
+convertClass("Modelica.Mechanics.Rotational.GearEfficiency",
+             "ObsoleteModelica3.Mechanics.Rotational.GearEfficiency");
+convertClass("Modelica.Mechanics.Rotational.Gear",
+             "ObsoleteModelica3.Mechanics.Rotational.Gear");
+convertClass("Modelica.Mechanics.Rotational.Gear2",
+             "Modelica.Mechanics.Rotational.Gearbox");
+
+
+// bearing -> support
+convertElement({"Modelica.Mechanics.Rotational.IdealGear",
+                "Modelica.Mechanics.Rotational.BearingFriction",
+                "Modelica.Mechanics.Rotational.Brake",
+                "Modelica.Mechanics.Rotational.LossyGear",
+                "Modelica.Mechanics.Rotational.Gearbox",
+                "Modelica.Mechanics.Rotational.Position",
+                "Modelica.Mechanics.Rotational.Speed",
+                "Modelica.Mechanics.Rotational.Accelerate",
+                "Modelica.Mechanics.Rotational.Move",
+                "Modelica.Mechanics.Rotational.Torque",
+                "Modelica.Mechanics.Rotational.LinearSpeedDependentTorque",
+                "Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque",
+                "Modelica.Mechanics.Rotational.ConstantTorque",
+                "Modelica.Mechanics.Rotational.ConstantSpeed",
+                "Modelica.Mechanics.Rotational.TorqueStep"},
+                "bearing", "support");
+
+// bearingR -> supportR
+convertElement({"Modelica.Mechanics.Rotational.IdealGearR2T"},
+                "bearingR", "supportR");
+
+// tau_support -> support.tau
+convertElement({"Modelica.Mechanics.Rotational.IdealGear",
+                "Modelica.Mechanics.Rotational.IdealGearR2T",
+                "Modelica.Mechanics.Rotational.BearingFriction",
+                "Modelica.Mechanics.Rotational.Brake",
+                "Modelica.Mechanics.Rotational.LossyGear",
+                "Modelica.Mechanics.Rotational.Gearbox",
+                "Modelica.Mechanics.Rotational.Position",
+                "Modelica.Mechanics.Rotational.Speed",
+                "Modelica.Mechanics.Rotational.Accelerate",
+                "Modelica.Mechanics.Rotational.Move",
+                "Modelica.Mechanics.Rotational.Torque",
+                "Modelica.Mechanics.Rotational.LinearSpeedDependentTorque",
+                "Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque",
+                "Modelica.Mechanics.Rotational.ConstantTorque",
+                "Modelica.Mechanics.Rotational.ConstantSpeed",
+                "Modelica.Mechanics.Rotational.TorqueStep"},
+                "tau_support", "support.tau");
+
+// flange_a -> flange
+convertElement({"Modelica.Mechanics.Rotational.Sensors.AngleSensor",
+                "Modelica.Mechanics.Rotational.Sensors.SpeedSensor",
+                "MModelica.Mechanics.Rotational.Sensors.AccSensor"},
+                "flange_a", "flange");
+
+// flange_b -> flange
+convertElement({"Modelica.Mechanics.Rotational.Fixed",
+                "Modelica.Mechanics.Rotational.Position",
+                "Modelica.Mechanics.Rotational.Speed",
+                "Modelica.Mechanics.Rotational.Accelerate",
+                "Modelica.Mechanics.Rotational.Move",
+                "Modelica.Mechanics.Rotational.Torque"},
+                "flange_b", "flange");
+
+
+
 //-------- Machines ------------------------------------------------------------
 // Convert Machines to 2.0.0 (MSL 3.0)
 // Revisions :

@@ -230,16 +230,18 @@ is forced back to its limit after a transient phase.
     Modelica.Mechanics.Rotational.ConstantTorque loadTorque(tau_constant=10) 
       annotation (Placement(transformation(extent={{98,-15},{88,-5}}, rotation=
               0)));
+    Mechanics.Rotational.Fixed fixed
+      annotation (Placement(transformation(extent={{68,-35},{88,-15}})));
   equation 
     connect(spring.flange_b,inertia2. flange_a) 
       annotation (Line(points={{52,-10},{60,-10}}, color={0,0,0}));
     connect(inertia1.flange_b, spring.flange_a) 
       annotation (Line(points={{22,-10},{32,-10}}, color={0,0,0}));
-    connect(torque.flange_b, inertia1.flange_a) 
+    connect(torque.flange, inertia1.flange_a) 
       annotation (Line(points={{-5,-10},{2,-10}}, color={0,0,0}));
     connect(kinematicPTP.y[1], integrator.u) annotation (Line(points={{-71,30},
             {-65,30}}, color={0,0,127}));
-    connect(speedSensor.flange_a, inertia1.flange_b) 
+    connect(speedSensor.flange, inertia1.flange_b) 
       annotation (Line(points={{22,-40},{22,-10}}, color={0,0,0}));
     connect(loadTorque.flange, inertia2.flange_b) 
       annotation (Line(points={{88,-10},{80,-10}}, color={0,0,0}));
@@ -249,6 +251,14 @@ is forced back to its limit after a transient phase.
             {-46,-22}}, color={0,0,127}));
     connect(integrator.y, PI.u_s)  annotation (Line(points={{-42,30},{-37,30},{
             -37,11},{-67,11},{-67,-10},{-58,-10}}, color={0,0,127}));
+    connect(torque.support, fixed.flange) annotation (Line(
+        points={{-15,-20},{-15,-25},{78,-25}}, 
+        color={0,0,0}, 
+        smooth=Smooth.None));
+    connect(fixed.flange, loadTorque.support) annotation (Line(
+        points={{78,-25},{93,-25},{93,-15}}, 
+        color={0,0,0}, 
+        smooth=Smooth.None));
   end PID_Controller;
   
      model ShowLogicalSources 
@@ -524,8 +534,8 @@ This package contains utility models and bus definitions needed for the
         annotation (
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={Rectangle(
-                extent={{-20,2},{22,-2}}, 
-                lineColor={255,204,51}, 
+                extent={{-20,2},{22,-2}},
+                lineColor={255,204,51},
                 lineThickness=2)}),
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
@@ -549,8 +559,8 @@ constructed by the signals connected to this bus.
         annotation (defaultComponentPrefixes="protected",
                     Icon(coordinateSystem(preserveAspectRatio=true, extent={{
                   -100,-100},{100,100}}), graphics={Rectangle(
-                extent={{-20,2},{22,-2}}, 
-                lineColor={255,204,51}, 
+                extent={{-20,2},{22,-2}},
+                lineColor={255,204,51},
                 lineThickness=2)}),
           Documentation(info="<html>
 <p>
@@ -580,8 +590,8 @@ constructed by the signals connected to this bus.
           
           annotation (
             Icon(graphics={Rectangle(
-                  extent={{-20,2},{22,-2}}, 
-                  lineColor={255,204,51}, 
+                  extent={{-20,2},{22,-2}},
+                  lineColor={255,204,51},
                   lineThickness=2)}),
             Diagram(graphics),
             Documentation(info="<html>
@@ -604,8 +614,8 @@ to the
           
           annotation (defaultComponentPrefixes="protected",
                       Icon(graphics={Rectangle(
-                  extent={{-20,2},{22,-2}}, 
-                  lineColor={255,204,51}, 
+                  extent={{-20,2},{22,-2}},
+                  lineColor={255,204,51},
                   lineThickness=2)}),
             Documentation(info="<html>
 <p>
@@ -638,14 +648,14 @@ This package contains the bus definitions needed for the
       
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{
                 -100,-100},{100,100}}), graphics={Rectangle(
-              extent={{-100,60},{100,-60}}, 
-              fillColor={159,159,223}, 
-              fillPattern=FillPattern.Solid, 
+              extent={{-100,60},{100,-60}},
+              fillColor={159,159,223},
+              fillPattern=FillPattern.Solid,
               lineColor={0,0,255}), Text(
-              extent={{-106,124},{114,68}}, 
-              fillColor={159,159,223}, 
-              fillPattern=FillPattern.Solid, 
-              textString="%name", 
+              extent={{-106,124},{114,68}},
+              fillColor={159,159,223},
+              fillPattern=FillPattern.Solid,
+              textString="%name",
               lineColor={0,0,255})}),
                               Diagram(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}),
