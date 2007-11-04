@@ -1938,10 +1938,11 @@ with the blocks of package Modelica.Blocks.
     
     partial model PartialSpeedDependentTorque 
       "Partial model of a torque acting at the flange (accelerates the flange)" 
-      Modelica.SIunits.AngularVelocity w = der(flange.phi) 
-        "Angular velocity at flange";
-      Modelica.SIunits.Torque tau = flange.tau 
-        "accelerating torque acting at flange";
+      Modelica.SIunits.Angle phi 
+        "Angle of flange with respect to bearing (= flange.phi - bearing.phi)";
+      Modelica.SIunits.AngularVelocity w 
+        "Angular velocity at flange with respect to bearing (= der(phi))";
+      Modelica.SIunits.Torque tau "Accelerating torque acting at flange";
       Modelica.Mechanics.Rotational.Interfaces.Flange_b flange 
         "Flange on which torque is acting" 
         annotation (extent=[110,-10; 90,10]);
@@ -1982,6 +1983,9 @@ Partial model of torque dependent on speed that accelerates the flange.
 </p>
 </HTML>"));
     equation 
+      phi = flange.phi - bearing.phi;
+      w = der(phi);
+      tau = flange.tau;
       if cardinality(bearing) == 0 then
         bearing.phi = 0;
       else
