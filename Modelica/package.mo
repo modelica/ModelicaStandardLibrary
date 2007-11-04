@@ -770,7 +770,7 @@ The following changes are present for the whole library:
 <ul>
 <li> The graphical annotations describing the layout of icon and diagram layer
      are changed from Modelica language version 1 to Modelica language version 3.
-     This gives several significant improvements: Especially, the coordinate system
+     This gives several significant improvements:<br>Especially, the coordinate system
      of icon and diagram layers are no longer coupled and therefore the size of the
      icon layer can be changed independently of the size of the diagram layer.
      Also it can be defined that the aspect ratio of a component icon is kept when changing
@@ -778,7 +778,25 @@ The following changes are present for the whole library:
      Standard Library keep its aspect ratios. This is slightly non-backward compatible:
      If the aspect ratio was not kept when using a component from the Modelica
      Standard Library, it is now resized so that the aspect ratio is maintained. </li>
+
+<li> The operator \"cardinality\" will be removed in one of the next versions of the
+     Modelica language, since it is a reflective operator and its usage significantly
+     reduces the possibilities of advanced model checks (e.g. to guarantee that a model
+     is \"balanced\", i.e., the number of equations and unknowns is identical,
+     for all valid usages of the component). As a preparation for this change, all
+     models that contain the \"cardinality(..)\" operator are rewritten: If possible
+     the operator is removed. If this is not possible, it is only used in asserts to
+     check that, e.g., a connector is connected at least once or is connected exactly
+     once. In the next Modelica language version new language elements will be introduced
+     to specifiy such a property check without the cardinality operator. Once these
+     language elements are available, the cardinality operator will be removed completely
+     from the Modelica Standard Library.<br>
+     The changes with respect to the cardinality(..) operator are usually not backward
+     compatible. This is the reason for the changes of:<br>
+     The Rotational library (bearing/support connectors must be connected and the connection
+     is no longer optional).</li>
 </ul>
+
 
 <p><br>
 The following <b style=\"color:blue\">existing components</b>
