@@ -921,7 +921,7 @@ motion on the controlBus of the r3 robot.
     end PathToAxisControlBus;
     
     model GearType1 "Motor inertia and gearbox model for r3 joints 1,2,3 " 
-      extends Modelica.Mechanics.Rotational.Interfaces.TwoFlanges;
+      extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
       parameter Real i=-105 "gear ratio";
       parameter Real c(unit="N.m/rad") = 43 "Spring constant";
       parameter Real d(unit="N.m.s/rad") = 0.005 "Damper constant";
@@ -1056,7 +1056,7 @@ the definition of initial values considerably.
     end GearType1;
     
     model GearType2 "Motor inertia and gearbox model for r3 joints 4,5,6  " 
-      extends Modelica.Mechanics.Rotational.Interfaces.TwoFlanges;
+      extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
       parameter Real i=-99 "Gear ratio";
       parameter SI.Torque Rv0=21.8 "Viscous friction torque at zero velocity";
       parameter Real Rv1=9.8 

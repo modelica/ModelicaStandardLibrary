@@ -51,18 +51,19 @@ package Sensors "Sensors to measure variables"
     
     annotation (
       preferedView="info",
-      Icon(graphics={
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
           Text(
-            extent={{19,109},{150,84}},
-            lineColor={192,192,192},
-            textString="resolve"),
+            extent={{19,109},{150,84}}, 
+            lineColor={192,192,192}, 
+            textString="resolve"), 
           Line(
-            points={{-84,0},{-84,84},{0,84},{0,100}},
-            color={95,95,95},
-            pattern=LinePattern.Dot),
+            points={{-84,0},{-84,84},{0,84},{0,100}}, 
+            color={95,95,95}, 
+            pattern=LinePattern.Dot), 
           Text(
-            extent={{-132,52},{-96,27}},
-            lineColor={128,128,128},
+            extent={{-132,52},{-96,27}}, 
+            lineColor={128,128,128}, 
             textString="a")}),
       Diagram(graphics={Line(
             points={{-84,0},{-84,82},{0,82},{0,98}},
@@ -455,17 +456,19 @@ Exact definition of the returned quantities:
       specularCoefficient) if world.enableAnimation and animation;
     annotation (
       preferedView="info",
-      Icon(graphics={Line(
-            points={{-60,-94},{-60,-76},{0,-76},{0,-76}},
-            color={95,95,95},
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={Line(
+            points={{-60,-94},{-60,-76},{0,-76},{0,-76}}, 
+            color={95,95,95}, 
             pattern=LinePattern.Dot), Text(
-            extent={{-157,-49},{-26,-74}},
-            lineColor={192,192,192},
-            pattern=LinePattern.Dot,
+            extent={{-157,-49},{-26,-74}}, 
+            lineColor={192,192,192}, 
+            pattern=LinePattern.Dot, 
             textString="resolve")}),
-      Diagram(graphics={Line(
-            points={{-60,-98},{-60,-76},{0,-76},{0,-76}},
-            color={95,95,95},
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics={Line(
+            points={{-60,-98},{-60,-76},{0,-76},{0,-76}}, 
+            color={95,95,95}, 
             pattern=LinePattern.Dot)}),
       Documentation(info="<HTML>
 <p>
@@ -847,17 +850,20 @@ and resolved in the following frame
           r_rel = Frames.resolve2(frame_b.R, frame_b.r_0 - frame_a.r_0);
        end if;
       
-      annotation (Icon(graphics={Text(
-              extent={{-78,-60},{78,-82}},
-              lineColor={0,0,0},
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
+                -100,-100},{100,100}}), graphics={Text(
+              extent={{-78,-60},{78,-82}}, 
+              lineColor={0,0,0}, 
               textString="r_rel")}));
     end RelativePosition;
     
   protected 
     RelativePosition relativePosition annotation (Placement(transformation(
             extent={{-70,-10},{-50,10}}, rotation=0)));
-    annotation (Diagram(graphics),
-                         Icon(coordinateSystem(preserveAspectRatio=true, 
+    annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+              -100,-100},{100,100}}),
+                        graphics),
+                         Icon(coordinateSystem(preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{-70,0},{-96,0}}, 
@@ -882,7 +888,11 @@ and resolved in the following frame
           Text(
             extent={{78,51},{114,26}}, 
             lineColor={128,128,128}, 
-            textString="b")}));
+            textString="b"), 
+          Text(
+            extent={{-132,76},{129,124}}, 
+            textString="%name", 
+            lineColor={0,0,255})}));
   equation 
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of component is not connected");
@@ -900,7 +910,7 @@ and resolved in the following frame
         thickness=2,
         smooth=Smooth.None));
     connect(relativePosition.r_rel, r_rel) annotation (Line(
-        points={{-60,-11},{-60,-60.5},{-60,-110},{-80,-110}},
+        points={{-60,-11},{-60,-56},{-80,-56},{-80,-110}},
         color={0,0,127},
         smooth=Smooth.None));
   end RelativeSensorNew;
@@ -944,13 +954,14 @@ and resolved in the following frame
       specularCoefficient=specularCoefficient) if world.enableAnimation and animation;
     annotation (
       preferedView="info",
-      Icon(graphics={
-          Line(points={{0,-60},{0,-100}}, color={0,0,255}),
-          Line(points={{-70,0},{-101,0}}, color={0,0,0}),
-          Line(points={{70,0},{100,0}}, color={0,0,0}),
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
+          Line(points={{0,-60},{0,-100}}, color={0,0,255}), 
+          Line(points={{-70,0},{-101,0}}, color={0,0,0}), 
+          Line(points={{70,0},{100,0}}, color={0,0,0}), 
           Text(
-            extent={{-128,30},{133,78}},
-            textString="%name",
+            extent={{-128,30},{133,78}}, 
+            textString="%name", 
             lineColor={0,0,255})}),
       Diagram(graphics={
           Line(points={{-70,0},{-101,0}}, color={0,0,0}),
@@ -1048,11 +1059,14 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
     
     annotation (
       preferedView="info",
-      Icon(graphics={Text(
-            extent={{-190,-70},{-74,-96}},
-            lineColor={192,192,192},
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={Text(
+            extent={{-190,-70},{-74,-96}}, 
+            lineColor={192,192,192}, 
             textString="force")}),
-      Diagram(graphics),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}),
+              graphics),
       Documentation(info="<HTML>
 <p>
 The cut-force acting at the component to which frame_b is
@@ -1135,9 +1149,10 @@ with negative sign at frame_a.
     
     annotation (
       preferedView="info",
-      Icon(graphics={Text(
-            extent={{-168,-72},{-52,-98}},
-            lineColor={192,192,192},
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={Text(
+            extent={{-168,-72},{-52,-98}}, 
+            lineColor={192,192,192}, 
             textString="torque")}),
       Diagram(graphics),
       Documentation(info="<HTML>
@@ -1234,7 +1249,9 @@ with negative sign at frame_a.
       "Cut torque resolved in frame_a/frame_b or in frame_resolved, if connected";
     annotation (
       preferedView="info",
-      Icon(graphics),
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}),
+           graphics),
       Diagram(graphics),
       Documentation(info="<HTML>
 <p>
@@ -1328,17 +1345,18 @@ with negative sign at frame_a.
           Line(points={{-70,0},{-101,0}}, color={0,0,0}),
           Line(points={{70,0},{100,0}}, color={0,0,0}),
           Line(points={{-80,0},{-80,-100}}, color={0,0,127})}),
-      Icon(graphics={
-          Line(points={{-70,0},{-101,0}}, color={0,0,0}),
-          Line(points={{70,0},{100,0}}, color={0,0,0}),
-          Line(points={{-80,0},{-80,-100}}, color={0,0,127}),
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
+          Line(points={{-70,0},{-101,0}}, color={0,0,0}), 
+          Line(points={{70,0},{100,0}}, color={0,0,0}), 
+          Line(points={{-80,0},{-80,-100}}, color={0,0,127}), 
           Text(
-            extent={{-60,-92},{16,-114}},
-            lineColor={0,0,0},
-            textString="power"),
+            extent={{-60,-92},{16,-114}}, 
+            lineColor={0,0,0}, 
+            textString="power"), 
           Text(
-            extent={{-128,126},{126,68}},
-            textString="%name",
+            extent={{-128,126},{126,68}}, 
+            textString="%name", 
             lineColor={0,0,255})}),
       Documentation(info="<HTML>
 <p>
