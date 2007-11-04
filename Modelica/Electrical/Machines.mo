@@ -226,7 +226,9 @@ This package contains test examples of electric machines.
           1440.45 "nominal load speed";
       parameter Modelica.SIunits.Inertia JLoad=0.29 "load's moment of inertia";
       annotation (
-        Diagram(graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}),
+                graphics),
         experiment(StopTime=1.5, Interval=0.001),
         experimentSetupOutput(
           doublePrecision=true),
@@ -289,25 +291,25 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         terminalConnection="D") 
         annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
               rotation=0)));
+      Mechanics.Rotational.Fixed fixed
+        annotation (Placement(transformation(extent={{70,-70},{90,-50}})));
     equation 
       connect(star.pin_n, ground.p) 
         annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
       connect(sineVoltage.plug_n, star.plug_p) 
-        annotation (Line(points={{-6.12323e-016,70},{-6.12323e-016,90},{-50,90}},
+        annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
             color={0,0,255}));
       connect(sineVoltage.plug_p, idealCloser.plug_p) 
-        annotation (Line(points={{6.12323e-016,50},{0,48},{1.22461e-015,46},{
-              6.12323e-016,46},{6.12323e-016,40}}, color={0,0,255}));
+        annotation (Line(points={{-1.83697e-015,50},{0,48},{1.22461e-015,46},{
+              1.83697e-015,46},{1.83697e-015,40}}, color={0,0,255}));
       connect(aimc.shaft, loadInertia.flange_a)   annotation (Line(points={{0,
               -40},{40,-40}}, color={0,0,0}));
-      connect(loadInertia.flange_b, quadraticLoadTorque.flange) 
-        annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
       connect(booleanStep.y, idealCloser.control)   annotation (Line(points={{
               -59,40},{-20,40},{-20,30},{-7,30}}, color={255,0,255}));
       connect(idealCloser.plug_n, currentQuasiRMSSensor.plug_p) 
                                                              annotation (Line(
-          points={{-6.12323e-016,20},{-6.12323e-016,17},{6.12323e-016,17},{
-              6.12323e-016,10}},
+          points={{-1.83697e-015,20},{-1.83697e-015,17},{1.83697e-015,17},{
+              1.83697e-015,10}},
           color={0,0,255},
           fillColor={135,135,135},
           fillPattern=FillPattern.Solid));
@@ -321,8 +323,17 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           smooth=Smooth.None));
       connect(TerminalBox1.plugSupply, currentQuasiRMSSensor.plug_n) 
                                                                  annotation (Line(
-          points={{-10,-28},{-10,-20},{-6.12323e-016,-20},{-6.12323e-016,-10}},
+          points={{-10,-28},{-10,-20},{-1.83697e-015,-20},{-1.83697e-015,-10}},
           color={0,0,255},
+          smooth=Smooth.None));
+      connect(quadraticLoadTorque.support, fixed.flange) annotation (Line(
+          points={{80,-50},{80,-60}}, 
+          color={0,0,0}, 
+          smooth=Smooth.None));
+      connect(loadInertia.flange_b, quadraticLoadTorque.flange) annotation (
+          Line(
+          points={{60,-40},{70,-40}}, 
+          color={0,0,0}, 
           smooth=Smooth.None));
     end AIMC_DOL;
     
@@ -340,7 +351,9 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         rpmLoad=1440.45 "nominal load speed";
       parameter Modelica.SIunits.Inertia JLoad=0.29 "load's moment of inertia";
       annotation (
-        Diagram(graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}),
+                graphics),
         experiment(StopTime=2.5, Interval=0.001),
         experimentSetupOutput(
           doublePrecision=true),
@@ -405,15 +418,17 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         tau_nominal=-TLoad) 
         annotation (Placement(transformation(extent={{90,-50},{70,-30}},
               rotation=0)));
+      Mechanics.Rotational.Fixed fixed
+        annotation (Placement(transformation(extent={{70,-70},{90,-50}})));
     equation 
       connect(star.pin_n, ground.p) 
         annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
       connect(sineVoltage.plug_n, star.plug_p) 
-        annotation (Line(points={{-6.12323e-016,70},{-6.12323e-016,90},{-50,90}},
+        annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
             color={0,0,255}));
       connect(sineVoltage.plug_p, idealCloser.plug_p) 
-        annotation (Line(points={{6.12323e-016,50},{0,48},{1.22461e-015,46},{
-              6.12323e-016,46},{6.12323e-016,40}}, color={0,0,255}));
+        annotation (Line(points={{-1.83697e-015,50},{0,48},{1.22461e-015,46},{
+              1.83697e-015,46},{1.83697e-015,40}}, color={0,0,255}));
       connect(aimc.shaft, loadInertia.flange_a)   annotation (Line(points={{0,
               -40},{40,-40}}, color={0,0,0}));
       connect(loadInertia.flange_b, quadraticLoadTorque.flange) 
@@ -424,8 +439,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
               -20},{-21,-20}}, color={255,0,255}));
       connect(idealCloser.plug_n, currentQuasiRMSSensor.plug_p) 
                                                              annotation (Line(
-          points={{-6.12323e-016,20},{-6.12323e-016,18},{6.12323e-016,18},{
-              6.12323e-016,10}},
+          points={{-1.83697e-015,20},{-1.83697e-015,18},{1.83697e-015,18},{
+              1.83697e-015,10}},
           color={0,0,255},
           fillColor={135,135,135},
           fillPattern=FillPattern.Solid));
@@ -439,8 +454,12 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           smooth=Smooth.None));
       connect(switchYD.plugSupply, currentQuasiRMSSensor.plug_n) 
                                                               annotation (Line(
-          points={{-10,-10},{-6.12323e-016,-10}},
+          points={{-10,-10},{-1.83697e-015,-10}},
           color={0,0,255},
+          smooth=Smooth.None));
+      connect(quadraticLoadTorque.support, fixed.flange) annotation (Line(
+          points={{80,-50},{80,-60}}, 
+          color={0,0,0}, 
           smooth=Smooth.None));
     end AIMC_YD;
     
@@ -458,7 +477,9 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         rpmLoad=1440.45 "nominal load speed";
       parameter Modelica.SIunits.Inertia JLoad=0.29 "load's moment of inertia";
       annotation (
-        Diagram(graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}),
+                graphics),
         experiment(StopTime=1.5, Interval=0.001),
         experimentSetupOutput(
           doublePrecision=true),
@@ -546,15 +567,17 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
       Machines.Utilities.TerminalBox terminalBox(terminalConnection="D") 
         annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
               rotation=0)));
+      Mechanics.Rotational.Fixed fixed
+        annotation (Placement(transformation(extent={{70,-70},{90,-50}})));
     equation 
       connect(star.pin_n, ground.p) 
         annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
       connect(sineVoltage.plug_n, star.plug_p) 
-        annotation (Line(points={{-6.12323e-016,70},{-6.12323e-016,90},{-50,90}},
+        annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
             color={0,0,255}));
       connect(sineVoltage.plug_p, idealCloser.plug_p) 
-        annotation (Line(points={{6.12323e-016,50},{0,48},{1.22461e-015,46},{
-              6.12323e-016,46},{6.12323e-016,40}}, color={0,0,255}));
+        annotation (Line(points={{-1.83697e-015,50},{0,48},{1.22461e-015,46},{
+              1.83697e-015,46},{1.83697e-015,40}}, color={0,0,255}));
       connect(starRotor.pin_n, groundRotor.p) 
         annotation (Line(points={{-70,-90},{-80,-90}}, color={0,0,255}));
       connect(starRotorResistor.plug_p, rotorResistor.plug_n) 
@@ -587,14 +610,14 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
             points={{-59,-40},{-48,-40}}, color={255,0,255}));
       connect(idealCloser.plug_n, currentQuasiRMSSensor.plug_p) 
                                                              annotation (Line(
-          points={{-6.12323e-016,20},{-6.12323e-016,16},{6.12323e-016,16},{
-              6.12323e-016,10}},
+          points={{-1.83697e-015,20},{-1.83697e-015,16},{1.83697e-015,16},{
+              1.83697e-015,10}},
           color={0,0,255},
           fillColor={135,135,135},
           fillPattern=FillPattern.Solid));
       connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n) 
                                                                  annotation (Line(
-          points={{-10,-28},{-10,-20},{-6.12323e-016,-20},{-6.12323e-016,-10}},
+          points={{-10,-28},{-10,-20},{-1.83697e-015,-20},{-1.83697e-015,-10}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(terminalBox.plug_sn, aims.plug_sn)   annotation (Line(
@@ -604,6 +627,10 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
       connect(terminalBox.plug_sp, aims.plug_sp)   annotation (Line(
           points={{-4,-30},{-4,-30}},
           color={0,0,255},
+          smooth=Smooth.None));
+      connect(quadraticLoadTorque.support, fixed.flange) annotation (Line(
+          points={{80,-50},{80,-60}}, 
+          color={0,0,0}, 
           smooth=Smooth.None));
     end AIMS_Start;
     
@@ -620,7 +647,9 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
       parameter Modelica.SIunits.Time tStep=1.2 "time of load torque step";
       parameter Modelica.SIunits.Inertia JLoad=0.29 "load's moment of inertia";
       annotation (
-        Diagram(graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}),
+                graphics),
         experiment(StopTime=1.5, Interval=0.001),
         experimentSetupOutput(
           doublePrecision=true),
@@ -678,9 +707,11 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       Machines.Utilities.TerminalBox terminalBox 
                                          annotation (Placement(transformation(
               extent={{-20,-30},{0,-10}}, rotation=0)));
+      Mechanics.Rotational.Fixed fixed
+        annotation (Placement(transformation(extent={{70,-70},{90,-50}})));
     equation 
       connect(signalVoltage.plug_n, star.plug_p) 
-        annotation (Line(points={{-6.12323e-016,70},{-6.12323e-016,90},{-50,90}},
+        annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
             color={0,0,255}));
       connect(star.pin_n, ground.p) 
         annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
@@ -688,17 +719,17 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
               -40},{40,-40}}, color={0,0,0}));
       connect(ramp.y, vfController.u)   annotation (Line(points={{-59,60},{-42,
               60}}, color={0,0,255}));
-      connect(vfController.y, signalVoltage.v)   annotation (Line(points={{-19,
-              60},{-7,60}}, color={0,0,255}));
+      connect(vfController.y, signalVoltage.v)   annotation (Line(points={{-19,60},
+              {7,60}},      color={0,0,255}));
       connect(loadTorqueStep.flange, loadInertia.flange_b) 
         annotation (Line(points={{70,-40},{60,-40}}, color={0,0,0}));
       connect(signalVoltage.plug_p, currentQuasiRMSSensor.plug_p) 
                                                                annotation (Line(
-            points={{6.12323e-016,50},{6.12323e-016,40},{6.12303e-016,40},{
-              6.12303e-016,10},{6.12323e-016,10}}, color={0,0,255}));
+            points={{-1.83697e-015,50},{-1.83697e-015,40},{6.12303e-016,40},{
+              6.12303e-016,10},{1.83697e-015,10}}, color={0,0,255}));
       connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n) 
                                                                  annotation (Line(
-          points={{-10,-28},{-10,-20},{0,-20},{0,-10},{-6.12323e-016,-10}},
+          points={{-10,-28},{-10,-20},{0,-20},{0,-10},{-1.83697e-015,-10}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(terminalBox.plug_sn, aimc.plug_sn)   annotation (Line(
@@ -708,6 +739,10 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       connect(terminalBox.plug_sp, aimc.plug_sp)   annotation (Line(
           points={{-4,-30},{-4,-30}},
           color={0,0,255},
+          smooth=Smooth.None));
+      connect(loadTorqueStep.support, fixed.flange) annotation (Line(
+          points={{80,-50},{80,-60}}, 
+          color={0,0,0}, 
           smooth=Smooth.None));
     end AIMC_Inverter;
     
@@ -724,7 +759,9 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       parameter Modelica.SIunits.Time tStep=1.2 "time of load torque step";
       parameter Modelica.SIunits.Inertia JLoad=0.29 "load's moment of inertia";
       annotation (
-        Diagram(graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}),
+                graphics),
         experiment(StopTime=1.5, Interval=0.001),
         experimentSetupOutput(
           doublePrecision=true),
@@ -788,9 +825,11 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
       Machines.Utilities.TerminalBox terminalBox 
                                          annotation (Placement(transformation(
               extent={{-20,-30},{0,-10}}, rotation=0)));
+      Mechanics.Rotational.Fixed fixed
+        annotation (Placement(transformation(extent={{70,-70},{90,-50}})));
     equation 
       connect(signalVoltage.plug_n, star.plug_p) 
-        annotation (Line(points={{-6.12323e-016,70},{-6.12323e-016,90},{-50,90}},
+        annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
             color={0,0,255}));
       connect(star.pin_n, ground.p) 
         annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
@@ -799,13 +838,13 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
       connect(ramp.y, vfController.u) 
         annotation (Line(points={{-59,60},{-42,60}}, color={0,0,255}));
       connect(vfController.y, signalVoltage.v) 
-        annotation (Line(points={{-19,60},{-7,60}}, color={0,0,255}));
+        annotation (Line(points={{-19,60},{7,60}},  color={0,0,255}));
       connect(loadInertia.flange_b, loadTorqueStep.flange) 
         annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
       connect(currentQuasiRMSSensor.plug_p, signalVoltage.plug_p) 
                                                                annotation (Line(
-            points={{6.12323e-016,40},{6.12323e-016,42.5},{6.12303e-016,42.5},{
-              6.12303e-016,50},{6.12323e-016,50}}, color={0,0,255}));
+            points={{1.83697e-015,40},{1.83697e-015,42.5},{6.12303e-016,42.5},{
+              6.12303e-016,50},{-1.83697e-015,50}},color={0,0,255}));
       connect(smr.plug_sn, rotorDisplacementAngle.plug_n)    annotation (Line(
             points={{-16,-30},{-16,-20},{26,-20},{26,-30}}, color={0,0,255}));
       connect(smr.plug_sp, rotorDisplacementAngle.plug_p)    annotation (Line(
@@ -814,7 +853,7 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
         annotation (Line(points={{0,-40},{10,-40}}, color={0,0,0}));
       connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n) 
                                                                  annotation (Line(
-          points={{-10,-28},{-10,0},{-6.12323e-016,0},{-6.12323e-016,20}},
+          points={{-10,-28},{-10,0},{-1.83697e-015,0},{-1.83697e-015,20}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(terminalBox.plug_sp, smr.plug_sp)   annotation (Line(
@@ -824,6 +863,10 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
       connect(terminalBox.plug_sn, smr.plug_sn)   annotation (Line(
           points={{-16,-30},{-16,-30}},
           color={0,0,255},
+          smooth=Smooth.None));
+      connect(loadTorqueStep.support, fixed.flange) annotation (Line(
+          points={{80,-50},{80,-60}}, 
+          color={0,0,0}, 
           smooth=Smooth.None));
     end SMR_Inverter;
     
@@ -840,7 +883,9 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
       parameter Modelica.SIunits.Time tStep=1.2 "time of load torque step";
       parameter Modelica.SIunits.Inertia JLoad=0.29 "load's moment of inertia";
       annotation (
-        Diagram(graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}),
+                graphics),
         experiment(StopTime=1.5, Interval=0.001),
         experimentSetupOutput(
           doublePrecision=true),
@@ -909,21 +954,23 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
       Machines.Utilities.TerminalBox terminalBox 
                                          annotation (Placement(transformation(
               extent={{-20,-30},{0,-10}}, rotation=0)));
+      Mechanics.Rotational.Fixed fixed
+        annotation (Placement(transformation(extent={{70,-70},{90,-50}})));
     equation 
       connect(signalVoltage.plug_n, star.plug_p) 
-        annotation (Line(points={{-6.12323e-016,70},{-6.12323e-016,90},{-50,90}},
+        annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
             color={0,0,255}));
       connect(star.pin_n, ground.p) 
         annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
       connect(ramp.y, vfController.u) 
         annotation (Line(points={{-59,60},{-42,60}}, color={0,0,255}));
       connect(vfController.y, signalVoltage.v) 
-        annotation (Line(points={{-19,60},{-7,60}}, color={0,0,255}));
+        annotation (Line(points={{-19,60},{7,60}},  color={0,0,255}));
       connect(loadInertia.flange_b, loadTorqueStep.flange) 
         annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
       connect(signalVoltage.plug_p, currentQuasiRMSSensor.plug_p) 
                                                                annotation (Line(
-            points={{6.12323e-016,50},{0,50},{0,40},{6.12323e-016,40}}, color={
+            points={{-1.83697e-015,50},{0,50},{0,40},{1.83697e-015,40}},color={
               0,0,255}));
       connect(rotorDisplacementAngle.plug_n, smpm.plug_sn)    annotation (Line(
             points={{26,-30},{26,-20},{-16,-20},{-16,-30}}, color={0,0,255}));
@@ -935,7 +982,7 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
         annotation (Line(points={{0,-40},{40,-40}}, color={0,0,0}));
       connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n) 
                                                                  annotation (Line(
-          points={{-10,-28},{-10,0},{-6.12323e-016,0},{-6.12323e-016,20}},
+          points={{-10,-28},{-10,0},{-1.83697e-015,0},{-1.83697e-015,20}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(terminalBox.plug_sn, smpm.plug_sn)   annotation (Line(
@@ -945,6 +992,10 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
       connect(terminalBox.plug_sp, smpm.plug_sp)   annotation (Line(
           points={{-4,-30},{-4,-30}},
           color={0,0,255},
+          smooth=Smooth.None));
+      connect(loadTorqueStep.support, fixed.flange) annotation (Line(
+          points={{80,-50},{80,-60}}, 
+          color={0,0,0}, 
           smooth=Smooth.None));
     end SMPM_Inverter;
     
@@ -963,7 +1014,9 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
       parameter Modelica.SIunits.Conversions.NonSIunits.Angle_deg gamma0 = 0 
         "initial rotor displacement angle";
       annotation (
-        Diagram(graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}),
+                graphics),
         experiment(StopTime=30, Interval=0.005),
         experimentSetupOutput(doublePrecision=true),
         Documentation(info="<HTML>
@@ -983,10 +1036,12 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
 </HTML>"));
       Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited 
         smee(phiMechanical(start=-(Modelica.Constants.pi +
-              Modelica.SIunits.Conversions.from_deg(gamma0))/smee.p)) 
+              Modelica.SIunits.Conversions.from_deg(gamma0))/smee.p), 
+          useSupport=true) 
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
               rotation=0)));
-      Machines.Sensors.RotorDisplacementAngle rotorDisplacementAngle(p=smee.p) 
+      Machines.Sensors.RotorDisplacementAngle rotorDisplacementAngle(p=smee.p, 
+          useSupport=true) 
         annotation (Placement(transformation(
             origin={20,-40},
             extent={{-10,10},{10,-10}},
@@ -1000,7 +1055,7 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
             Modelica.SIunits.Conversions.from_rpm(rpm)) 
         annotation (Placement(transformation(extent={{90,-50},{70,-30}},
               rotation=0)));
-      Sensors.MechanicalPowerSensor mechanicalPowerSensor 
+      Sensors.MechanicalPowerSensor mechanicalPowerSensor(useSupport=true) 
         annotation (Placement(transformation(extent={{40,-50},{60,-30}},
               rotation=0)));
       Sensors.ElectricalPowerSensor electricalPowerSensor 
@@ -1037,6 +1092,8 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
       Machines.Utilities.TerminalBox terminalBox 
                                          annotation (Placement(transformation(
               extent={{-20,-30},{0,-10}}, rotation=0)));
+      Mechanics.Rotational.Fixed fixed
+        annotation (Placement(transformation(extent={{70,-70},{90,-50}})));
     equation 
       connect(rotorDisplacementAngle.plug_n, smee.plug_sn)    annotation (Line(
             points={{26,-30},{26,-20},{-16,-20},{-16,-30}}, color={0,0,255}));
@@ -1049,14 +1106,15 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
       connect(star.plug_p, sineVoltage.plug_n)   annotation (Line(points={{-50,
               90},{-40,90}}, color={0,0,255}));
       connect(electricalPowerSensor.plug_ni, currentQuasiRMSSensor.plug_p) 
-        annotation (Line(points={{6.12323e-016,50},{1.76911e-022,46},{
-              6.12323e-016,46},{6.12323e-016,40}}, color={0,0,255}));
+        annotation (Line(points={{-1.83697e-015,50},{1.76911e-022,46},{
+              1.83697e-015,46},{1.83697e-015,40}}, color={0,0,255}));
       connect(smee.shaft, mechanicalPowerSensor.flange_a) 
-        annotation (Line(points={{0,-40},{40,-40}}, color={0,0,0}));
+        annotation (Line(points={{0,-40},{10,-40},{20,-40},{40,-40}},
+                                                    color={0,0,0}));
       connect(mechanicalPowerSensor.flange_b, constantSpeed.flange) 
         annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
       connect(sineVoltage.plug_p, electricalPowerSensor.plug_p)   annotation (Line(
-            points={{-20,90},{-6.12323e-016,90},{-6.12323e-016,70}}, color={0,0,
+            points={{-20,90},{1.83697e-015,90},{1.83697e-015,70}},   color={0,0,
               255}));
       connect(rampCurrent.p, groundExcitation.p) 
                                          annotation (Line(points={{-50,-50},{
@@ -1069,7 +1127,7 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
             points={{-10,60},{-16,60},{-16,-30}}, color={0,0,255}));
       connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n) 
                                                                  annotation (Line(
-          points={{-10,-28},{-10,0},{-6.12323e-016,0},{-6.12323e-016,20}},
+          points={{-10,-28},{-10,0},{-1.83697e-015,0},{-1.83697e-015,20}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(terminalBox.plug_sn, smee.plug_sn)   annotation (Line(
@@ -1079,6 +1137,22 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
       connect(terminalBox.plug_sp, smee.plug_sp)   annotation (Line(
           points={{-4,-30},{-4,-30}},
           color={0,0,255},
+          smooth=Smooth.None));
+      connect(constantSpeed.support, fixed.flange) annotation (Line(
+          points={{80,-50},{80,-60}}, 
+          color={0,0,0}, 
+          smooth=Smooth.None));
+      connect(mechanicalPowerSensor.support, fixed.flange) annotation (Line(
+          points={{50,-50},{50,-60},{80,-60}}, 
+          color={0,0,0}, 
+          smooth=Smooth.None));
+      connect(smee.support, fixed.flange) annotation (Line(
+          points={{0,-50},{0,-60},{80,-60}}, 
+          color={0,0,0}, 
+          smooth=Smooth.None));
+      connect(rotorDisplacementAngle.support, smee.support) annotation (Line(
+          points={{10,-50},{0,-50}}, 
+          color={0,0,0}, 
           smooth=Smooth.None));
     end SMEE_Generator;
     
@@ -1092,7 +1166,9 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
       parameter Modelica.SIunits.Time tStep=1.5 "time of load torque step";
       parameter Modelica.SIunits.Inertia JLoad=0.15 "load's moment of inertia";
       annotation (
-        Diagram(graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}),
+                graphics),
         experiment(StopTime=2, Interval=0.001),
         experimentSetupOutput(
           doublePrecision=true),
@@ -1132,6 +1208,8 @@ Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
           stepTorque=-TLoad) 
                     annotation (Placement(transformation(extent={{90,-50},{70,
                 -30}}, rotation=0)));
+      Mechanics.Rotational.Fixed fixed
+        annotation (Placement(transformation(extent={{70,-70},{90,-50}})));
     equation 
       connect(dcpm.shaft, loadInertia.flange_a)  annotation (Line(points={{0,
               -40},{40,-40}}, color={0,0,0}));
@@ -1145,6 +1223,10 @@ Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
               {-16,-20},{-20,-20},{-20,40}}, color={0,0,255}));
       connect(loadInertia.flange_b, loadTorqueStep.flange) 
         annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
+      connect(loadTorqueStep.support, fixed.flange) annotation (Line(
+          points={{80,-50},{80,-60}}, 
+          color={0,0,0}, 
+          smooth=Smooth.None));
     end DCPM_Start;
     
     model DCEE_Start 
@@ -1158,7 +1240,9 @@ Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
       parameter Modelica.SIunits.Time tStep=1.5 "time of load torque step";
       parameter Modelica.SIunits.Inertia JLoad=0.15 "load's moment of inertia";
       annotation (
-        Diagram(graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}),
+                graphics),
         experiment(StopTime=2, Interval=0.001),
         experimentSetupOutput(
           doublePrecision=true),
@@ -1209,6 +1293,8 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
           stepTorque=-TLoad) 
                     annotation (Placement(transformation(extent={{90,-50},{70,
                 -30}}, rotation=0)));
+      Mechanics.Rotational.Fixed fixed
+        annotation (Placement(transformation(extent={{70,-70},{90,-50}})));
     equation 
       connect(dcee.shaft, loadInertia.flange_a)  annotation (Line(points={{0,
               -40},{40,-40}}, color={0,0,0}));
@@ -1229,6 +1315,10 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
               -46},{-30,-46},{-30,-50},{-40,-50}}, color={0,0,255}));
       connect(loadInertia.flange_b, loadTorqueStep.flange) 
         annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
+      connect(loadTorqueStep.support, fixed.flange) annotation (Line(
+          points={{80,-50},{80,-60}}, 
+          color={0,0,0}, 
+          smooth=Smooth.None));
     end DCEE_Start;
     
     model DCSE_Start 
@@ -1242,7 +1332,9 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
         rpmLoad=1410 "nominal load speed";
       parameter Modelica.SIunits.Inertia JLoad=0.15 "load's moment of inertia";
       annotation (
-        Diagram(graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}),
+                graphics),
         experiment(StopTime=2, Interval=0.001),
         experimentSetupOutput(
           doublePrecision=true),
@@ -1285,6 +1377,8 @@ Default machine parameters of model <i>DC_SeriesExcited</i> are used.
         tau_nominal=-TLoad) 
         annotation (Placement(transformation(extent={{90,-50},{70,-30}},
               rotation=0)));
+      Mechanics.Rotational.Fixed fixed
+        annotation (Placement(transformation(extent={{70,-70},{90,-50}})));
     equation 
       connect(dcse.shaft, loadInertia.flange_a)  annotation (Line(points={{0,
               -40},{40,-40}}, color={0,0,0}));
@@ -1300,6 +1394,10 @@ Default machine parameters of model <i>DC_SeriesExcited</i> are used.
               -20,-30},{-20,-34}}, color={0,0,255}));
       connect(dcse.pin_en, signalVoltage.n)   annotation (Line(points={{-20,-46},
               {-30,-46},{-30,-20},{-20,-20},{-20,40}}, color={0,0,255}));
+      connect(quadraticLoadTorque.support, fixed.flange) annotation (Line(
+          points={{80,-50},{80,-60}}, 
+          color={0,0,0}, 
+          smooth=Smooth.None));
     end DCSE_Start;
     
     model TransformerTestbench "Transformer Testbench" 
@@ -1313,7 +1411,9 @@ The primary and secondary starpoint are available as connectors, if the connecti
 In some cases it may be necessary to ground the transformer's starpoint 
 even though the source's or load's starpoint are grounded; you may use a reasonable high earthing resistance.
 </HTML>"),
-        Diagram(graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics),
         experiment(StopTime=0.1),
         experimentSetupOutput);
       Modelica.Electrical.MultiPhase.Sources.SineVoltage source(freqHz=fill(50, 3),
@@ -1406,20 +1506,23 @@ even though the source's or load's starpoint are grounded; you may use a reasona
       connect(load.plug_n, starL.plug_p) 
         annotation (Line(points={{90,-20},{90,-30}}, color={0,0,255}));
       connect(earth.n, groundT.p) 
-        annotation (Line(points={{-6.12323e-016,-50},{0,-50},{0,-60}}, color={0,
+        annotation (Line(points={{-1.83697e-015,-50},{0,-50},{0,-60}}, color={0,
               0,255}));
       connect(electricalPowerSensorS.plug_nv, starS.plug_p) 
         annotation (Line(points={{-80,0},{-80,-30},{-90,-30}}, color={0,0,255}));
       connect(source.plug_p, electricalPowerSensorS.plug_p) 
-        annotation (Line(points={{-90,0},{-90,10}}, color={0,0,255}));
+        annotation (Line(points={{-90,-1.77636e-015},{-90,10}},
+                                                    color={0,0,255}));
       connect(electricalPowerSensorS.plug_ni, currentQuasiRMSSensorS.plug_p) 
         annotation (Line(points={{-70,10},{-60,10}}, color={0,0,255}));
       connect(currentQuasiRMSSensorL.plug_n, electricalPowerSensorL.plug_p) 
         annotation (Line(points={{60,10},{70,10}}, color={0,0,255}));
       connect(electricalPowerSensorL.plug_ni, load.plug_p) 
-        annotation (Line(points={{90,10},{90,0}}, color={0,0,255}));
+        annotation (Line(points={{90,10},{90,-1.77636e-015}},
+                                                  color={0,0,255}));
       connect(currentQuasiRMSSensorS.plug_n, voltageQuasiRMSSensorS.plug_p) 
-        annotation (Line(points={{-40,10},{-40,0}}, color={0,0,255}));
+        annotation (Line(points={{-40,10},{-40,-1.77636e-015}},
+                                                    color={0,0,255}));
       connect(currentQuasiRMSSensorL.plug_p, voltageRMSSensorL.plug_p) 
         annotation (Line(points={{40,10},{40,0}}, color={0,0,255}));
       connect(electricalPowerSensorL.plug_nv, starL.plug_p) 
@@ -1429,7 +1532,8 @@ even though the source's or load's starpoint are grounded; you may use a reasona
       connect(deltaL.plug_p, voltageRMSSensorL.plug_n) 
         annotation (Line(points={{40,-20},{40,-20}}, color={0,0,255}));
       connect(deltaS.plug_n, voltageQuasiRMSSensorS.plug_p) 
-        annotation (Line(points={{-40,-40},{-50,-40},{-50,0},{-40,0}}, color={0,
+        annotation (Line(points={{-40,-40},{-50,-40},{-50,-1.77636e-015},{-40,
+              -1.77636e-015}},                                         color={0,
               0,255}));
       connect(deltaL.plug_n, voltageRMSSensorL.plug_p) 
         annotation (Line(points={{40,-40},{50,-40},{50,0},{40,0}}, color={0,0,
@@ -1461,7 +1565,9 @@ Test example with multiphase components:<br>
 Star-connected voltage source feeds via a transformer a diode bridge rectifier with a DC burden.<br>
 Using f=50 Hz, simulate for 0.1 seconds (5 periods) and compare voltages and currents of source and DC burden, 
 neglecting initial transient.
-</HTML>"), Diagram(graphics),
+</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}),
+                   graphics),
         experiment(StopTime=0.1),
         experimentSetupOutput);
       Modelica.Electrical.MultiPhase.Sources.SineVoltage source(
@@ -1548,7 +1654,8 @@ neglecting initial transient.
       connect(starAC.pin_n, groundAC.p) 
         annotation (Line(points={{-90,-50},{-90,-60}}, color={0,0,255}));
       connect(source.plug_p, currentQuasiRMSSensor.plug_p) 
-        annotation (Line(points={{-90,0},{-80,0}}, color={0,0,255}));
+        annotation (Line(points={{-90,-1.77636e-015},{-85,-1.77636e-015},{-85,0},
+              {-80,0}},                            color={0,0,255}));
       connect(load.p, cDC1.p) 
         annotation (Line(points={{50,10},{50,30},{70,30}}, color={0,0,255}));
       connect(load.n, cDC2.n) 
@@ -1577,7 +1684,9 @@ Test example with multiphase components:<br>
 Star-connected voltage source feeds via two transformers (Dd0 and Dy1) two diode bridge rectifiers with a single DC burden.<br>
 Using f=50 Hz, simulate for 0.1 seconds (5 periods) and compare voltages and currents of source and DC burden, 
 neglecting initial transient.
-</HTML>"), Diagram(graphics),
+</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}),
+                   graphics),
         experiment(StopTime=0.1),
         experimentSetupOutput);
       Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode3(m=m) 
@@ -1652,7 +1761,9 @@ neglecting initial transient.
           1462.5 "nominal load speed";
       parameter Modelica.SIunits.Inertia JLoad=0.29 "load's moment of inertia";
       annotation (
-        Diagram(graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}),
+                graphics),
         experiment(StopTime=1.5, Interval=0.001),
         experimentSetupOutput(
           doublePrecision=true),
@@ -1663,7 +1774,7 @@ the machine starts from standstill, accelerating inertias against load torque qu
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 </HTML>"));
       Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage 
-        aimc 
+        aimc(useSupport=true) 
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
               rotation=0)));
       Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(freqHz=
@@ -1727,17 +1838,19 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
             origin={30,50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor 
-        annotation (Placement(transformation(
-            origin={30,-30},
-            extent={{-10,-10},{10,10}},
-            rotation=90)));
       Modelica.Blocks.Logical.GreaterThreshold greaterThreshold(threshold=
             Modelica.SIunits.Conversions.from_rpm(rpmSwitch)) 
         annotation (Placement(transformation(
             origin={50,20},
             extent={{-10,-10},{10,10}},
             rotation=90)));
+      Mechanics.Rotational.Fixed fixed 
+        annotation (Placement(transformation(extent={{70,-70},{90,-50}})));
+      Mechanics.Rotational.Sensors.RelSpeedSensor relSpeedSensor annotation (
+          Placement(transformation(
+            extent={{-10,-10},{10,10}}, 
+            rotation=90, 
+            origin={20,-50})));
     equation 
       connect(aimc.shaft, loadInertia.flange_a)   annotation (Line(points={{0,
               -40},{40,-40}}, color={0,0,0}));
@@ -1760,13 +1873,10 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       connect(plugToPin_p1.pin_p,cStart. n)     annotation (Line(points={{10,-8},
               {30,-8},{30,10}}, color={0,0,255}));
       connect(idealOpener.n, cStart.p) 
-        annotation (Line(points={{30,40},{30,30}}, color={0,0,255}));
+        annotation (Line(points={{30,40},{30,37.5},{30,37.5},{30,35},{30,30},{
+              30,30}},                             color={0,0,255}));
       connect(idealOpener.p, idealCloser.n)   annotation (Line(points={{30,60},
               {30,90},{-10,90}}, color={0,0,255}));
-      connect(aimc.shaft, speedSensor.flange_a) 
-        annotation (Line(points={{0,-40},{30,-40}}, color={0,0,0}));
-      connect(speedSensor.w, greaterThreshold.u) annotation (Line(points={{30,
-              -19},{30,-10},{50,-10},{50,8}}, color={0,0,127}));
       connect(greaterThreshold.y, idealOpener.control)  annotation (Line(points=
              {{50,31},{50,50},{37,50}}, color={255,0,255}));
       connect(TerminalBox1.plug_sn, aimc.plug_sn)  annotation (Line(
@@ -1788,6 +1898,26 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       connect(TerminalBox1.plugSupply, plugToPin_p1.plug_p) annotation (Line(
           points={{-10,-28},{-10,-20},{10,-20},{10,-12}},
           color={0,0,255},
+          smooth=Smooth.None));
+      connect(quadraticLoadTorque.support, fixed.flange) annotation (Line(
+          points={{80,-50},{80,-60}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(aimc.shaft, relSpeedSensor.flange_b) annotation (Line(
+          points={{0,-40},{20,-40}}, 
+          color={0,0,0}, 
+          smooth=Smooth.None));
+      connect(relSpeedSensor.flange_a, fixed.flange) annotation (Line(
+          points={{20,-60},{80,-60}}, 
+          color={0,0,0}, 
+          smooth=Smooth.None));
+      connect(relSpeedSensor.w_rel, greaterThreshold.u) annotation (Line(
+          points={{31,-50},{30,-50},{30,-20},{50,-20},{50,8}}, 
+          color={0,0,127}, 
+          smooth=Smooth.None));
+      connect(aimc.support, fixed.flange) annotation (Line(
+          points={{0,-50},{0,-60},{80,-60}}, 
+          color={0,0,0}, 
           smooth=Smooth.None));
     end AIMC_Steinmetz;
     
@@ -2226,9 +2356,10 @@ using the locked-rotor voltage VR, no-load stator current I0 and powerfactor PF0
 turnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<sub>s,sigma</sub>) <u>I</u><sub>0</sub>
 </p>
 </HTML>"),   Diagram(graphics),
-          Icon(graphics={Line(points={{-100,50},{-100,20},{-60,20}}, color={0,0,
-                    255}), Line(points={{-100,-50},{-100,-20},{-60,-20}}, color
-                  ={0,0,255})}));
+          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                  {100,100}}), graphics={Line(points={{-100,50},{-100,20},{-60,
+                    20}}, color={0,0,255}), Line(points={{-100,-50},{-100,-20},
+                    {-60,-20}}, color={0,0,255})}));
       equation 
         connect(rr.plug_n, lrsigma.plug_p) 
           annotation (Line(points={{40,-80},{30,-80}}, color={0,0,255}));
@@ -2396,7 +2527,8 @@ These models use package SpacePhasors.
               rotation=270)));
         annotation (defaultComponentName="smpm",
           Diagram(graphics),
-          Icon(graphics={
+          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                  {100,100}}), graphics={
               Rectangle(
                 extent={{-130,10},{-100,-10}}, 
                 lineColor={0,0,0}, 
@@ -2634,7 +2766,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
                 rotation=0)));
         annotation (defaultComponentName="smee",
           Diagram(graphics),
-          Icon(graphics={
+          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                  {100,100}}), graphics={
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255}), 
               Line(points={{-100,50},{-100,20},{-130,20},{-130,-4}}, color={0,0,
                     255}), 
@@ -2854,7 +2987,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               rotation=270)));
         annotation (defaultComponentName="smr",
           Diagram(graphics),
-          Icon(graphics={
+          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                  {100,100}}), graphics={
               Rectangle(
                 extent={{-130,10},{-100,-10}}, 
                 lineColor={0,0,0}, 
@@ -3060,8 +3194,8 @@ This package contains models of DC machines:
               rotation=90)));
         annotation (defaultComponentName="dcpm",
           Diagram(graphics),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={Rectangle(
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={Rectangle(
                 extent={{-130,10},{-100,-10}}, 
                 lineColor={0,0,0}, 
                 fillColor={0,255,0}, 
@@ -3181,8 +3315,8 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
                 rotation=0)));
         annotation (defaultComponentName="dcee",
           Diagram(graphics),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={
               Line(points={{-130,-4},{-129,1},{-125,5},{-120,6},{-115,5},{-111,
                     1},{-110,-4}}, color={0,0,255}), 
               Line(points={{-110,-4},{-109,1},{-105,5},{-100,6},{-95,5},{-91,1},
@@ -3324,8 +3458,8 @@ Armature current does not cover excitation current of a shunt excitation; in thi
                 rotation=0)));
         annotation (defaultComponentName="dcse",
           Diagram(graphics),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={
               Line(points={{-100,-10},{-105,-9},{-109,-5},{-110,0},{-109,5},{-105,
                     9},{-100,10}}, color={0,0,255}), 
               Line(points={{-100,-30},{-105,-29},{-109,-25},{-110,-20},{-109,-15},
@@ -3533,7 +3667,8 @@ This package contains transformers primary Y connected / secondary y connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"),      Icon(graphics={Text(
+</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics={Text(
                 extent={{0,40},{0,-100}}, 
                 lineColor={0,0,255}, 
                 textString="Yy")}));
@@ -3856,7 +3991,8 @@ This package contains transformers primary Y connected / secondary d connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"),      Icon(graphics={Text(
+</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics={Text(
                 extent={{0,40},{0,-100}}, 
                 lineColor={0,0,255}, 
                 textString="Yd")}));
@@ -4135,7 +4271,8 @@ This package contains transformers primary Y connected / secondary zig-zag conne
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"),      Icon(graphics={Text(
+</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics={Text(
                 extent={{0,40},{0,-100}}, 
                 lineColor={0,0,255}, 
                 textString="Yz")}));
@@ -4517,7 +4654,8 @@ This package contains transformers primary D connected / secondary y connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"),      Icon(graphics={Text(
+</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics={Text(
                 extent={{0,40},{0,-100}}, 
                 lineColor={0,0,255}, 
                 textString="Dy")}));
@@ -4813,7 +4951,8 @@ This package contains transformers primary D connected / secondary d connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"),      Icon(graphics={Text(
+</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics={Text(
                 extent={{0,40},{0,-100}}, 
                 lineColor={0,0,255}, 
                 textString="Dd")}));
@@ -5065,7 +5204,8 @@ This package contains transformers primary D connected / secondary d connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"),      Icon(graphics={Text(
+</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics={Text(
                 extent={{0,40},{0,-100}}, 
                 lineColor={0,0,255}, 
                 textString="Dz")}));
@@ -5467,7 +5607,8 @@ These models use package SpacePhasors.
                 rotation=0)));
         annotation (
           Diagram(graphics),
-          Icon(graphics={
+          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                  {100,100}}), graphics={
               Ellipse(
                 extent={{-90,90},{90,-92}}, 
                 lineColor={0,0,255}, 
@@ -5514,7 +5655,8 @@ Partial model of the airgap, using only equations.
           "inductance matrix";
         annotation (defaultComponentName="airGap",
           Diagram(graphics),
-          Icon(graphics={Text(
+          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                  {100,100}}), graphics={Text(
                 extent={{-80,40},{0,-40}}, 
                 lineColor={0,0,0}, 
                 fillPattern=FillPattern.VerticalCylinder, 
@@ -5548,7 +5690,8 @@ Model of the airgap in stator-fixed coordinate system, using only equations.
           "inductance matrix";
         annotation (defaultComponentName="airGap",
           Diagram(graphics),
-          Icon(graphics={Text(
+          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                  {100,100}}), graphics={Text(
                 extent={{0,40},{80,-40}}, 
                 lineColor={0,0,0}, 
                 fillPattern=FillPattern.VerticalCylinder, 
@@ -5580,7 +5723,8 @@ Model of the airgap in rotor-fixed coordinate system, using only equations.
                 rotation=0)));
         annotation (
           Diagram(graphics),
-          Icon(graphics={
+          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                  {100,100}}), graphics={
               Ellipse(extent={{-60,45},{-30,75}}, lineColor={0,0,255}), 
               Ellipse(extent={{-30,45},{0,75}}, lineColor={0,0,255}), 
               Ellipse(extent={{0,45},{30,75}}, lineColor={0,0,255}), 
@@ -5627,7 +5771,8 @@ Model of a squirrel cage / damper cage in two axis.
                 rotation=0)));
         annotation (
           Diagram(graphics),
-          Icon(graphics={
+          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                  {100,100}}), graphics={
               Line(points={{60,60},{100,60}}, color={0,0,255}), 
               Line(points={{70,40},{90,40}}, color={0,0,255}), 
               Line(points={{66,50},{94,50}}, color={0,0,255}), 
@@ -5682,7 +5827,8 @@ Model of an unsymmetrical damper cage cage in two axis.
                 rotation=0)));
         annotation (
           Diagram(graphics),
-          Icon(graphics={
+          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                  {100,100}}), graphics={
               Text(
                 extent={{-150,-90},{150,-150}}, 
                 lineColor={0,0,255}, 
@@ -5725,7 +5871,8 @@ Model of an electrical excitation, converting excitation to space phasor.
                 rotation=0)));
         annotation (
           Diagram(graphics),
-          Icon(graphics={
+          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                  {100,100}}), graphics={
               Ellipse(
                 extent={{-60,60},{60,20}}, 
                 lineColor={255,0,0}, 
@@ -5800,7 +5947,8 @@ Model of a permanent magnet excitation, characterized by an equivalent excitatio
                 rotation=0)));
         annotation (
           Diagram(graphics),
-          Icon(graphics={
+          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                  {100,100}}), graphics={
               Ellipse(
                 extent={{-90,90},{90,-92}}, 
                 lineColor={0,0,255}, 
@@ -5863,7 +6011,8 @@ Induced armature voltage is calculated from flux times angular velocity.
         parameter Modelica.SIunits.Inductance Le "excitation inductance";
         annotation (defaultComponentName="airGap",
           Diagram(graphics),
-          Icon(graphics={Text(
+          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                  {100,100}}), graphics={Text(
                 extent={{-150,-100},{150,-160}}, 
                 lineColor={0,0,255}, 
                 textString="%name")}),
@@ -5916,7 +6065,8 @@ Induced armature voltage is calculated from flux times angular velocity.
           annotation (Placement(transformation(extent={{50,-10},{70,10}},
                 rotation=0)));
         annotation (Diagram(graphics),
-                             Icon(graphics={
+                             Icon(coordinateSystem(preserveAspectRatio=false, 
+                extent={{-100,-100},{100,100}}), graphics={
               Ellipse(extent={{-90,60},{30,-60}}, lineColor={0,0,255}), 
               Ellipse(extent={{-30,60},{90,-60}}, lineColor={0,0,255}), 
               Text(
@@ -5965,7 +6115,8 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
         Modelica.SIunits.Current i3[m] = plug_p3.pin.i;
         Modelica.SIunits.Current im[m] = i1 + i2/n12 + i3/n13 
           "Magnetizing current";
-        annotation (Icon(graphics={
+        annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
+                  -100,-100},{100,100}}), graphics={
               Text(
                 extent={{-100,130},{100,110}}, 
                 textString="%name", 
@@ -6132,7 +6283,8 @@ This package contains sensors that are usefull when modelling machines.
             extent={{-10,-10},{10,10}},
             rotation=270)));
       annotation (Diagram(graphics),
-                           Icon(graphics={
+                           Icon(coordinateSystem(preserveAspectRatio=false, 
+              extent={{-100,-100},{100,100}}), graphics={
             Ellipse(
               extent={{-70,70},{70,-70}}, 
               lineColor={0,0,0}, 
@@ -6213,7 +6365,8 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
             extent={{-10,-10},{10,10}},
             rotation=270)));
       annotation (Diagram(graphics),
-                           Icon(graphics={
+                           Icon(coordinateSystem(preserveAspectRatio=false, 
+              extent={{-100,-100},{100,100}}), graphics={
             Ellipse(
               extent={{-70,70},{70,-70}}, 
               lineColor={0,0,0}, 
@@ -6283,7 +6436,8 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
       Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_nv(final m=m) 
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
               rotation=0)));
-      annotation (Icon(graphics={
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
+                -100,-100},{100,100}}), graphics={
             Ellipse(
               extent={{-70,70},{70,-70}}, 
               lineColor={0,0,0}, 
@@ -6337,13 +6491,16 @@ Q = giving in stationary state reactive power.<br>
     end ElectricalPowerSensor;
     
     model MechanicalPowerSensor "Mechanical power = torque x speed" 
-      extends Modelica.Mechanics.Rotational.Interfaces.TwoFlanges;
+      extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
+      parameter Boolean useSupport=false "use support or fixed housing" 
+        annotation(Evaluate=true);
       Modelica.Blocks.Interfaces.RealOutput P 
         annotation (Placement(transformation(
-            origin={0,-110},
+            origin={0,110},
             extent={{10,-10},{-10,10}},
-            rotation=90)));
-      annotation (Icon(graphics={
+            rotation=270)));
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={
             Ellipse(
               extent={{-70,70},{70,-70}}, 
               lineColor={0,0,0}, 
@@ -6367,41 +6524,70 @@ Q = giving in stationary state reactive power.<br>
               fillPattern=FillPattern.Solid), 
             Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
             Line(points={{70,0},{90,0}}, color={0,0,0}), 
-            Line(points={{0,-100},{0,-70}}, color={0,0,255}), 
+            Line(points={{0,70},{0,100}}, color={0,0,255}), 
             Text(
               extent={{-40,-20},{40,-60}}, 
               lineColor={0,0,255}, 
-              textString="Pmech")}),
-                              Diagram(graphics),
+              textString="Pmech"), 
+            Rectangle(
+              extent={{-20,-80},{20,-120}}, 
+              lineColor={192,192,192}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid)}),
+                              Diagram(coordinateSystem(preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}}),
+                                      graphics),
         Documentation(info="<HTML>
 Calculates (mechanical) power from torque times angular speed.
 </HTML>"));
-      Modelica.Mechanics.Rotational.Sensors.TorqueSensor TorqueSensor1 
+      Modelica.Mechanics.Rotational.Sensors.TorqueSensor torqueSensor 
         annotation (Placement(transformation(extent={{20,-10},{40,10}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Sensors.SpeedSensor SpeedSensor1 
+      Modelica.Blocks.Math.Product product 
         annotation (Placement(transformation(
-            origin={-30,-10},
+            origin={0,30},
             extent={{-10,-10},{10,10}},
-            rotation=270)));
-      Modelica.Blocks.Math.Product Product1 
-        annotation (Placement(transformation(
-            origin={0,-70},
+            rotation=90)));
+      Mechanics.Rotational.Sensors.RelSpeedSensor relSpeedSensor annotation (
+          Placement(transformation(
             extent={{-10,-10},{10,10}},
-            rotation=270)));
+            rotation=90,
+            origin={-30,-30})));
+      Mechanics.Rotational.Fixed fixed if          (not useSupport) 
+        annotation (Placement(transformation(extent={{-40,-100},{-20,-80}},
+              rotation=0)));
+      Mechanics.Rotational.Interfaces.Flange_a support if          useSupport 
+        "support at which the reaction torque is acting" 
+           annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
+              rotation=0)));
     equation 
-      connect(flange_a, TorqueSensor1.flange_a) 
-        annotation (Line(points={{-100,0},{20,0}}, color={0,0,0}));
-      connect(TorqueSensor1.flange_b, flange_b) 
+      connect(flange_a, torqueSensor.flange_a) 
+        annotation (Line(points={{-100,0},{-70,0},{-40,0},{20,0}},
+                                                   color={0,0,0}));
+      connect(torqueSensor.flange_b, flange_b) 
         annotation (Line(points={{40,0},{100,0}}, color={0,0,0}));
-      connect(SpeedSensor1.flange_a, flange_a) 
-        annotation (Line(points={{-30,0},{-100,0}}, color={0,0,0}));
-      connect(SpeedSensor1.w, Product1.u2) annotation (Line(points={{-30,-21},{
-              -30,-40},{-6,-40},{-6,-58}}, color={0,0,255}));
-      connect(TorqueSensor1.tau, Product1.u1) annotation (Line(points={{22,-11},
-              {22,-40},{6,-40},{6,-58}}, color={0,0,255}));
-      connect(Product1.y, P) annotation (Line(points={{6.73556e-016,-81},{
-              6.73556e-016,-90.5},{0,-90.5},{0,-110}}, color={0,0,255}));
+      connect(product.y, P)  annotation (Line(points={{6.73556e-016,41},{
+              6.73556e-016,52},{0,52},{0,110}},        color={0,0,255}));
+      connect(torqueSensor.tau, product.u2) annotation (Line(
+          points={{22,-11},{22,-20},{6,-20},{6,18}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(flange_a, relSpeedSensor.flange_b) annotation (Line(
+          points={{-100,0},{-30,0},{-30,-20}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(relSpeedSensor.w_rel, product.u1) annotation (Line(
+          points={{-19,-30},{-6,-30},{-6,18}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(relSpeedSensor.flange_a, fixed.flange) annotation (Line(
+          points={{-30,-40},{-30,-90}}, 
+          color={0,0,0}, 
+          smooth=Smooth.None));
+      connect(relSpeedSensor.flange_a, support) annotation (Line(
+          points={{-30,-40},{-30,-80},{0,-80},{0,-100}}, 
+          color={0,0,0}, 
+          smooth=Smooth.None));
     end MechanicalPowerSensor;
     
     model RotorDisplacementAngle "Rotor lagging angle" 
@@ -6457,8 +6643,11 @@ Calculates (mechanical) power from torque times angular speed.
         annotation (Placement(transformation(extent={{90,70},{110,90}},
               rotation=0)));
       annotation (
-        Diagram(graphics),
-        Icon(graphics={
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}),
+                graphics),
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Ellipse(
               extent={{-60,80},{60,40}}, 
               lineColor={0,255,0}, 
@@ -6514,7 +6703,8 @@ Otherwise, the sensor's support has to be connected to the machine's support.
     equation 
       connect(constant_.y, add.u2) annotation (Line(points={{-29,40},{-16,40},{
               -16,32}}, color={0,0,255}));
-      connect(add.y, rotatorVS2R.angle) annotation (Line(points={{-10,9},{-10,2}},
+      connect(add.y, rotatorVS2R.angle) annotation (Line(points={{-10,9},{-10,
+              5.5},{-10,5.5},{-10,2}},
             color={0,0,255}));
       connect(ToSpacePhasorVS.y, rotatorVS2R.u) annotation (Line(points={{-39,
               -10},{-22,-10}}, color={0,0,255}));
@@ -6530,17 +6720,17 @@ Otherwise, the sensor's support has to be connected to the machine's support.
         annotation (Line(points={{-69,-10},{-62,-10}}, color={0,0,255}));
       connect(deMultiplex2.y2[1], rotorDisplacementAngle) annotation (Line(
             points={{81,-16},{90,-16},{90,0},{110,0}}, color={0,0,255}));
-      connect(relativeAngleSensor.phi_rel, add.u1) annotation (Line(points={{30,
-              69},{30,40},{-4,40},{-4,32}}, color={0,0,255}));
+      connect(relativeAngleSensor.phi_rel, add.u1) annotation (Line(points={{30,69},
+              {30,40},{-4,40},{-4,32}},     color={0,0,255}));
       connect(relativeAngleSensor.flange_b, shaft) annotation (Line(points={{20,
               80},{0,80},{0,100}}, color={0,0,0}));
-      connect(relativeAngleSensor.flange_a, fixed.flange_b) annotation (Line(
-          points={{40,80},{100,80}},
-          color={0,0,0},
-          smooth=Smooth.None));
       connect(relativeAngleSensor.flange_a, support) annotation (Line(
           points={{40,80},{60,80},{60,100},{100,100}},
           color={0,0,0},
+          smooth=Smooth.None));
+      connect(relativeAngleSensor.flange_a, fixed.flange) annotation (Line(
+          points={{40,80},{100,80}}, 
+          color={0,0,0}, 
           smooth=Smooth.None));
     end RotorDisplacementAngle;
   end Sensors;
@@ -6646,32 +6836,31 @@ a ground has to be used where necessary for currents flowing back.
           Diagram(graphics),
           Icon(graphics={
               Line(points={{0,0},{80,80},{60,72},{72,60},{80,80}}, color={0,0,
-                    255}), 
+                    255}),
               Line(points={{0,0},{80,-80},{72,-60},{60,-72},{80,-80}}, color={0,
-                    0,255}), 
+                    0,255}),
               Line(points={{-80,0},{-73.33,10},{-66.67,17.32},{-60,20},{-53.33,
                     17.32},{-46.67,10},{-40,0},{-33.33,-10},{-26.67,-17.32},{-20,
-                    -20},{-13.33,-17.32},{-6.67,-10},{0,0}}, color={0,0,255}), 
+                    -20},{-13.33,-17.32},{-6.67,-10},{0,0}}, color={0,0,255}),
               Line(points={{-90,0},{-83.33,10},{-76.67,17.32},{-70,20},{-63.33,
                     17.32},{-56.67,10},{-50,0},{-43.33,-10},{-36.67,-17.32},{-30,
-                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}}, color={0,0,255}), 
-                
+                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}}, color={0,0,255}),
               Line(points={{-70,0},{-63.33,10},{-56.67,17.32},{-50,20},{-43.33,
                     17.32},{-36.67,10},{-30,0},{-23.33,-10},{-16.67,-17.32},{-10,
-                    -20},{-3.33,-17.32},{3.33,-10},{10,0}}, color={0,0,255}), 
+                    -20},{-3.33,-17.32},{3.33,-10},{10,0}}, color={0,0,255}),
               Text(
-                extent={{-150,-100},{150,-160}}, 
-                lineColor={0,0,255}, 
-                textString="%name"), 
+                extent={{-150,-100},{150,-160}},
+                lineColor={0,0,255},
+                textString="%name"),
               Text(
-                extent={{40,10},{90,-10}}, 
-                lineColor={0,0,255}, 
-                fillColor={0,0,255}, 
-                fillPattern=FillPattern.Solid, 
-                textString="zero"), 
-              Line(points={{90,-100},{60,-100}}, color={0,0,255}), 
-              Line(points={{60,-84},{60,-116}}, color={0,0,255}), 
-              Line(points={{50,-90},{50,-110}}, color={0,0,255}), 
+                extent={{40,10},{90,-10}},
+                lineColor={0,0,255},
+                fillColor={0,0,255},
+                fillPattern=FillPattern.Solid,
+                textString="zero"),
+              Line(points={{90,-100},{60,-100}}, color={0,0,255}),
+              Line(points={{60,-84},{60,-116}}, color={0,0,255}),
+              Line(points={{50,-90},{50,-110}}, color={0,0,255}),
               Line(points={{40,-96},{40,-104}}, color={0,0,255})}),
           Documentation(info="<HTML>
 Physical transformation of voltages and currents: three phases &lt;-&gt; space phasors:<br>
@@ -6722,32 +6911,32 @@ Zero-sequence voltage and current are present at pin zero. An additional zero-se
           Diagram(graphics),
           Icon(graphics={
               Rectangle(
-                extent={{50,-2},{-2,-50}}, 
-                pattern=LinePattern.None, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
-                lineColor={0,0,255}), 
+                extent={{50,-2},{-2,-50}},
+                pattern=LinePattern.None,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
+                lineColor={0,0,255}),
               Line(points={{0,0},{80,0},{60,10},{60,-10},{80,0}}, color={0,0,
-                    255}), 
+                    255}),
               Line(points={{0,0},{0,80},{-10,60},{10,60},{0,80}}, color={0,0,
-                    255}), 
+                    255}),
               Polygon(
-                points={{50,0},{42,14},{54,16},{50,0}}, 
-                lineColor={0,0,255}, 
-                fillColor={0,0,255}, 
-                fillPattern=FillPattern.Solid), 
-              Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,255}), 
+                points={{50,0},{42,14},{54,16},{50,0}},
+                lineColor={0,0,255},
+                fillColor={0,0,255},
+                fillPattern=FillPattern.Solid),
+              Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,255}),
               Rectangle(
-                extent={{-50,50},{-2,-50}}, 
-                pattern=LinePattern.None, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
-                lineColor={0,0,255}), 
+                extent={{-50,50},{-2,-50}},
+                pattern=LinePattern.None,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
+                lineColor={0,0,255}),
               Rectangle(
-                extent={{50,-2},{-2,-50}}, 
-                pattern=LinePattern.None, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{50,-2},{-2,-50}},
+                pattern=LinePattern.None,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
                 lineColor={0,0,255})}),
           Documentation(info="<HTML>
 Rotates space phasors of left connector to right connector by the angle provided by the input signal \"angle\" from one coordinate system into another.
@@ -6811,7 +7000,8 @@ This package contains space phasor transformation blocks for use in controllers:
                 rotation=0)));
         annotation (
           Diagram(graphics),
-          Icon(graphics={
+          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                  {100,100}}), graphics={
               Line(points={{0,0},{80,80},{60,72},{72,60},{80,80}}, color={0,0,
                     255}), 
               Line(points={{0,0},{80,-80},{72,-60},{60,-72},{80,-80}}, color={0,
@@ -6857,21 +7047,21 @@ Transformation of threephase values (voltages or currents) to space phasor and z
           Diagram(graphics),
           Icon(graphics={
               Line(points={{0,0},{-80,80},{-60,72},{-72,60},{-80,80}}, color={0,
-                    0,255}), 
-              Line(points={{0,0},{-80,-80},{-72,-60},{-60,-72},{-80,-80}}, 
-                  color={0,0,255}), 
+                    0,255}),
+              Line(points={{0,0},{-80,-80},{-72,-60},{-60,-72},{-80,-80}},
+                  color={0,0,255}),
               Line(points={{0,0},{6.67,10},{13.33,17.32},{20,20},{26.67,17.32},
                     {33.33,10},{40,0},{46.67,-10},{53.33,-17.32},{60,-20},{
-                    66.67,-17.32},{73.33,-10},{80,0}}, color={0,0,255}), 
+                    66.67,-17.32},{73.33,-10},{80,0}}, color={0,0,255}),
               Line(points={{-10,0},{-3.33,10},{3.33,17.32},{10,20},{16.67,17.32},
                     {23.33,10},{30,0},{36.67,-10},{43.33,-17.32},{50,-20},{
-                    56.67,-17.32},{63.33,-10},{70,0}}, color={0,0,255}), 
+                    56.67,-17.32},{63.33,-10},{70,0}}, color={0,0,255}),
               Line(points={{10,0},{16.67,10},{23.33,17.32},{30,20},{36.67,17.32},
                     {43.33,10},{50,0},{56.67,-10},{63.33,-17.32},{70,-20},{
-                    76.67,-17.32},{83.33,-10},{90,0}}, color={0,0,255}), 
+                    76.67,-17.32},{83.33,-10},{90,0}}, color={0,0,255}),
               Text(
-                extent={{-62,-74},{14,-86}}, 
-                lineColor={0,0,0}, 
+                extent={{-62,-74},{14,-86}},
+                lineColor={0,0,0},
                 textString="zero")}),
           Documentation(info="<HTML>
 Transformation of space phasor and zero sequence value to threephase values (voltages or currents).
@@ -6895,7 +7085,8 @@ Transformation of space phasor and zero sequence value to threephase values (vol
               rotation=90)));
         annotation (
           Diagram(graphics),
-          Icon(graphics={
+          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                  {100,100}}), graphics={
               Line(points={{0,0},{0,80},{-10,60},{10,60},{0,80}}, color={0,0,
                     255}), 
               Line(points={{0,0},{80,0},{60,10},{60,-10},{80,0}}, color={0,0,
@@ -6935,7 +7126,8 @@ Rotates a space phasor (voltage or current) by the angle provided by the input s
         constant Real small=Modelica.Constants.small;
         annotation (
           Diagram(graphics),
-          Icon(graphics={
+          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                  {100,100}}), graphics={
               Line(points={{-60,60},{-60,-60},{60,-60}}, color={0,0,255}), 
               Line(points={{-100,-100},{100,100}}, color={0,0,255}), 
               Polygon(points={{26,26},{14,20},{20,14},{26,26}}, lineColor={0,0,
@@ -6976,21 +7168,21 @@ Converts a space phasor from rectangular coordinates to polar coordinates.
         annotation (
           Diagram(graphics),
           Icon(graphics={
-              Line(points={{-60,60},{-60,-60},{60,-60}}, color={0,0,255}), 
-              Line(points={{-100,-100},{100,100}}, color={0,0,255}), 
+              Line(points={{-60,60},{-60,-60},{60,-60}}, color={0,0,255}),
+              Line(points={{-100,-100},{100,100}}, color={0,0,255}),
               Polygon(points={{26,26},{14,20},{20,14},{26,26}}, lineColor={0,0,
-                    255}), 
+                    255}),
               Line(points={{-18,-18},{-14,-22},{-10,-28},{-6,-34},{-2,-44},{0,-52},
-                    {0,-60}}, color={0,0,255}), 
-              Polygon(points={{-18,-18},{-14,-26},{-10,-22},{-18,-18}}, 
-                  lineColor={0,0,255}), 
+                    {0,-60}}, color={0,0,255}),
+              Polygon(points={{-18,-18},{-14,-26},{-10,-22},{-18,-18}},
+                  lineColor={0,0,255}),
               Text(
-                extent={{-100,100},{-6,-6}}, 
-                lineColor={0,0,255}, 
-                textString="P"), 
+                extent={{-100,100},{-6,-6}},
+                lineColor={0,0,255},
+                textString="P"),
               Text(
-                extent={{6,6},{100,-100}}, 
-                lineColor={0,0,255}, 
+                extent={{6,6},{100,-100}},
+                lineColor={0,0,255},
                 textString="R")}),
           Documentation(info="<HTML>
 Converts a space phasor from polar coordinates to rectangular coordinates.
@@ -7179,7 +7371,8 @@ This package contains the space phasor connector and partial models for machine 
     connector SpacePhasor "Connector for Space Phasors" 
       Modelica.SIunits.Voltage v_[2];
       flow Modelica.SIunits.Current i_[2];
-      annotation (Diagram(graphics={Polygon(
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+                -100,-100},{100,100}}), graphics={Polygon(
               points={{0,100},{-100,0},{0,-100},{100,0},{0,100}}, 
               lineColor={0,0,255}, 
               fillColor={0,0,255}, 
@@ -7188,7 +7381,9 @@ This package contains the space phasor connector and partial models for machine 
               lineColor={0,0,255}, 
               fillColor={0,0,255}, 
               fillPattern=FillPattern.Solid, 
-              textString="%name")}),     Icon(graphics={Polygon(
+              textString="%name")}),     Icon(coordinateSystem(
+              preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
+            graphics={Polygon(
               points={{0,100},{-100,0},{0,-100},{100,0},{0,100}}, 
               lineColor={0,0,255}, 
               fillColor={0,0,255}, 
@@ -7296,19 +7491,22 @@ If <i>useSupport</i> = false, it is assumed that the stator is fixed.<br>
 Otherwise reaction torque (i.e. airGap torque, minus acceleration torque for stator's moment of inertia) can be measured at <i>support</i>.<br>
 One may also fix the the shaft and let rotate the stator; parameter Js is only of importance when the stator is rotating.
 </HTML>"),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}),
+                graphics));
     equation 
       connect(inertiaRotor.flange_b, shaft) annotation (Line(points={{80,
-              1.22465e-015},{92,1.22465e-015},{92,0},{100,0}}, color={0,0,0}));
+              -1.22465e-015},{92,-1.22465e-015},{92,0},{100,0}},
+                                                               color={0,0,0}));
       connect(inertiaStator.flange_b, support) 
         annotation (Line(points={{80,-100},{100,-100}}, color={0,0,0}));
-      connect(internalSupport, fixed.flange_b) annotation (Line(
-          points={{20,-100},{40,-100}},
-          color={0,0,0},
-          smooth=Smooth.None));
       connect(internalSupport, inertiaStator.flange_a) annotation (Line(
           points={{20,-100},{20,-96},{60,-96},{60,-100}},
           color={0,0,0},
+          smooth=Smooth.None));
+      connect(internalSupport, fixed.flange) annotation (Line(
+          points={{20,-100},{40,-100}}, 
+          color={0,0,0}, 
           smooth=Smooth.None));
     end PartialBasicMachine;
     
@@ -7362,9 +7560,10 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
 Partial model for induction machine models
 </HTML>"),
         Diagram(graphics),
-        Icon(graphics={Line(points={{-50,100},{-20,100},{-20,70}}, color={0,0,
-                  255}), Line(points={{50,100},{20,100},{20,70}}, color={0,0,
-                  255})}));
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}}, 
+                color={0,0,255}), Line(points={{50,100},{20,100},{20,70}}, 
+                color={0,0,255})}));
     equation 
       connect(plug_sp, rs.plug_p) annotation (Line(
           points={{60,100},{60,60},{60,60}},
@@ -7484,7 +7683,8 @@ This package contains utility components for testing examples.
       output Modelica.SIunits.Voltage amplitude;
       annotation (
         Diagram(graphics),
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Line(points={{-100,-100},{0,60},{80,60}}, color={0,0,255}), 
             Line(points={{-70,0},{-60.2,29.9},{-53.8,46.5},{-48.2,58.1},{-43.3,
                   65.2},{-38.3,69.2},{-33.4,69.8},{-28.5,67},{-23.6,61},{-18.6,
@@ -7531,7 +7731,8 @@ Phase shifts between sine-waves may be choosen by the user; default values are <
         annotation (Placement(transformation(extent={{-70,-90},{-50,-110}},
               rotation=0)));
       annotation (Diagram(graphics),
-                           Icon(graphics={
+                           Icon(coordinateSystem(preserveAspectRatio=false, 
+              extent={{-100,-100},{100,100}}), graphics={
             Polygon(
               points={{-100,-60},{-60,-100},{58,-100},{100,-60},{100,60},{60,
                   100},{-60,100},{-100,60},{-100,-60}}, 
@@ -7608,7 +7809,8 @@ If <i>control</i> is true, plug_sp and plug_sn are delta connected and they are 
         annotation (Placement(transformation(extent={{-10,-70},{10,-90}},
               rotation=0)));
       annotation (Diagram(graphics),
-        Icon(graphics={Polygon(
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={Polygon(
               points={{-80,-80},{-80,-84},{-80,-120},{-40,-140},{40,-140},{80,-110},
                   {80,-84},{76,-80},{-80,-80}}, 
               lineColor={95,95,95}, 
