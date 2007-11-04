@@ -71,10 +71,9 @@ connector RealInput = input Real "'input Real' as connector"
           lineColor={0,0,127}, 
           fillColor={0,0,127}, 
           fillPattern=FillPattern.Solid)},
-       coordinateSystem(extent={{-100,-100},{100,100}}, preserveAspectRatio=
-            false)),
+       coordinateSystem(extent={{-100,-100},{100,100}}, preserveAspectRatio=false, initialScale=0.2)),
   Diagram(coordinateSystem(
-        preserveAspectRatio=true,
+        preserveAspectRatio=true, initialScale=0.2,
         extent={{-100,-100},{100,100}},
         grid={1,1},
         initialScale=0.2), graphics={Polygon(
@@ -121,22 +120,22 @@ Connector with one output signal of type Real.
 connector BooleanInput = input Boolean "'input Boolean' as connector" 
   annotation (defaultComponentName="u",
        Icon(graphics={Polygon(
-          points={{-100,100},{100,0},{-100,-100},{-100,100}},
-          lineColor={255,0,255},
-          fillColor={255,0,255},
+          points={{-100,100},{100,0},{-100,-100},{-100,100}}, 
+          lineColor={255,0,255}, 
+          fillColor={255,0,255}, 
           fillPattern=FillPattern.Solid)},
-            coordinateSystem(extent=[-100,-100; 100,100])),
-                                        Diagram(coordinateSystem(
-        preserveAspectRatio=true,
+            coordinateSystem(extent={{-100,-100},{100,100}},
+        preserveAspectRatio=false, initialScale=0.2)),    Diagram(coordinateSystem(
+        preserveAspectRatio=true, initialScale=0.2,
         extent={{-100,-100},{100,100}},
         grid={1,1},
         initialScale=0.2), graphics={Polygon(
-          points={{0,50},{100,0},{0,-50},{0,50}},
-          lineColor={255,0,255},
-          fillColor={255,0,255},
+          points={{0,50},{100,0},{0,-50},{0,50}}, 
+          lineColor={255,0,255}, 
+          fillColor={255,0,255}, 
           fillPattern=FillPattern.Solid), Text(
-          extent={{-120,105},{100,60}},
-          lineColor={255,0,255},
+          extent={{-120,105},{100,60}}, 
+          lineColor={255,0,255}, 
           textString="%name")}),
     Documentation(info="<html>
 <p>
@@ -150,20 +149,20 @@ connector BooleanOutput = output Boolean "'output Boolean' as connector"
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={1,1}), graphics={Polygon(
-          points={{-100,100},{100,0},{-100,-100},{-100,100}},
-          lineColor={255,0,255},
-          fillColor={255,255,255},
+          points={{-100,100},{100,0},{-100,-100},{-100,100}}, 
+          lineColor={255,0,255}, 
+          fillColor={255,255,255}, 
           fillPattern=FillPattern.Solid)}),
   Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={1,1}), graphics={Polygon(
-          points={{-100,50},{0,0},{-100,-50},{-100,50}},
-          lineColor={255,0,255},
-          fillColor={255,255,255},
+          points={{-100,50},{0,0},{-100,-50},{-100,50}}, 
+          lineColor={255,0,255}, 
+          fillColor={255,255,255}, 
           fillPattern=FillPattern.Solid), Text(
-          extent={{-100,140},{130,60}},
-          lineColor={255,0,255},
+          extent={{-100,140},{130,60}}, 
+          lineColor={255,0,255}, 
           textString="%name")}),
     Documentation(info="<html>
 <p>
@@ -174,22 +173,23 @@ Connector with one output signal of type Boolean.
 connector IntegerInput = input Integer "'input Integer' as connector" 
   annotation (defaultComponentName="u",
   Icon(graphics={Polygon(
-          points={{-100,100},{100,0},{-100,-100},{-100,100}},
-          lineColor={255,127,0},
-          fillColor={255,127,0},
+          points={{-100,100},{100,0},{-100,-100},{-100,100}}, 
+          lineColor={255,127,0}, 
+          fillColor={255,127,0}, 
           fillPattern=FillPattern.Solid)},
-       coordinateSystem(extent=[-100,-100; 100,100])),
+       coordinateSystem(extent={{-100,-100},{100,100}}, preserveAspectRatio=false,
+                 initialScale=0.2)),
   Diagram(coordinateSystem(
-        preserveAspectRatio=true,
+        preserveAspectRatio=true, initialScale=0.2,
         extent={{-100,-100},{100,100}},
         grid={1,1},
         initialScale=0.2), graphics={Polygon(
-          points={{0,50},{100,0},{0,-50},{0,50}},
-          lineColor={255,127,0},
-          fillColor={255,127,0},
+          points={{0,50},{100,0},{0,-50},{0,50}}, 
+          lineColor={255,127,0}, 
+          fillColor={255,127,0}, 
           fillPattern=FillPattern.Solid), Text(
-          extent={{-120,105},{100,60}},
-          lineColor={255,127,0},
+          extent={{-120,105},{100,60}}, 
+          lineColor={255,127,0}, 
           textString="%name")}),
     Documentation(info="<html>
 <p>
@@ -203,20 +203,20 @@ connector IntegerOutput = output Integer "'output Integer' as connector"
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={1,1}), graphics={Polygon(
-          points={{-100,100},{100,0},{-100,-100},{-100,100}},
-          lineColor={255,127,0},
-          fillColor={255,255,255},
+          points={{-100,100},{100,0},{-100,-100},{-100,100}}, 
+          lineColor={255,127,0}, 
+          fillColor={255,255,255}, 
           fillPattern=FillPattern.Solid)}),
   Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={1,1}), graphics={Polygon(
-          points={{-100,50},{0,0},{-100,-50},{-100,50}},
-          lineColor={255,127,0},
-          fillColor={255,255,255},
+          points={{-100,50},{0,0},{-100,-50},{-100,50}}, 
+          lineColor={255,127,0}, 
+          fillColor={255,255,255}, 
           fillPattern=FillPattern.Solid), Text(
-          extent={{-100,140},{130,60}},
-          lineColor={255,127,0},
+          extent={{-100,140},{130,60}}, 
+          lineColor={255,127,0}, 
           textString="%name")}),
     Documentation(info="<html>
 <p>
@@ -501,16 +501,16 @@ generated signal.
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Text(
-            extent={{-102,34},{-142,24}}, 
-            textString="(setpoint)", 
-            lineColor={0,0,255}), 
+            extent={{-102,34},{-142,24}},
+            textString="(setpoint)",
+            lineColor={0,0,255}),
           Text(
-            extent={{100,24},{140,14}}, 
-            textString="(actuator)", 
-            lineColor={0,0,255}), 
+            extent={{100,24},{140,14}},
+            textString="(actuator)",
+            lineColor={0,0,255}),
           Text(
-            extent={{-83,-112},{-33,-102}}, 
-            textString=" (measurement)", 
+            extent={{-83,-112},{-33,-102}},
+            textString=" (measurement)",
             lineColor={0,0,255})}),
         Window(
           x=0.19,
@@ -549,16 +549,16 @@ to be used as base class for a corresponding controller.
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Text(
-            extent={{-100,36},{-140,26}}, 
-            textString="(setpoint)", 
-            lineColor={0,0,255}), 
+            extent={{-100,36},{-140,26}},
+            textString="(setpoint)",
+            lineColor={0,0,255}),
           Text(
-            extent={{102,24},{142,14}}, 
-            textString="(actuator)", 
-            lineColor={0,0,255}), 
+            extent={{102,24},{142,14}},
+            textString="(actuator)",
+            lineColor={0,0,255}),
           Text(
-            extent={{-75,-108},{-25,-98}}, 
-            textString=" (measurement)", 
+            extent={{-75,-108},{-25,-98}},
+            textString=" (measurement)",
             lineColor={0,0,255})}),
         Window(
           x=0.26,
@@ -577,7 +577,8 @@ to be used as base class for a corresponding controller.
     partial block DiscreteBlockIcon 
     "Graphical layout of discrete block component icon" 
     
-      annotation (Icon(graphics={Rectangle(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
+              -100,-100},{100,100}}), graphics={Rectangle(
             extent={{-100,-100},{100,100}}, 
             lineColor={0,0,255}, 
             fillColor={223,223,159}, 
@@ -710,16 +711,16 @@ These signals are sampled due to the defined <b>samplePeriod</b> parameter.
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
       annotation (Diagram(graphics={
           Text(
-            extent={{-100,34},{-140,24}}, 
-            lineColor={0,0,0}, 
-            textString="(setpoint)"), 
+            extent={{-100,34},{-140,24}},
+            lineColor={0,0,0},
+            textString="(setpoint)"),
           Text(
-            extent={{100,22},{130,14}}, 
-            lineColor={0,0,0}, 
-            textString="(actuator)"), 
+            extent={{100,22},{130,14}},
+            lineColor={0,0,0},
+            textString="(actuator)"),
           Text(
-            extent={{-70,-112},{-20,-102}}, 
-            lineColor={0,0,0}, 
+            extent={{-70,-112},{-20,-102}},
+            lineColor={0,0,0},
             textString=" (measurement)")}),
                               Documentation(info="<html>
 <p>
@@ -768,20 +769,20 @@ to be used as base class for a corresponding controller.
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
       annotation (Diagram(graphics={
           Text(
-            extent={{-100,-10},{-80,-30}}, 
-            textString="u_s", 
-            lineColor={0,0,255}), 
+            extent={{-100,-10},{-80,-30}},
+            textString="u_s",
+            lineColor={0,0,255}),
           Text(
-            extent={{-98,34},{-138,24}}, 
-            lineColor={0,0,0}, 
-            textString="(setpoint)"), 
+            extent={{-98,34},{-138,24}},
+            lineColor={0,0,0},
+            textString="(setpoint)"),
           Text(
-            extent={{98,24},{138,14}}, 
-            lineColor={0,0,0}, 
-            textString="(actuator)"), 
+            extent={{98,24},{138,14}},
+            lineColor={0,0,0},
+            textString="(actuator)"),
           Text(
-            extent={{-62,-110},{-12,-100}}, 
-            lineColor={0,0,0}, 
+            extent={{-62,-110},{-12,-100}},
+            lineColor={0,0,0},
             textString=" (measurement)")}),
                               Documentation(info="<html>
 <p>
@@ -960,7 +961,8 @@ This component has one continuous Boolean output signal y.
   
 partial block IntegerBlockIcon "Basic graphical layout of Integer block" 
     
-  annotation (Icon(graphics={Rectangle(
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={Rectangle(
             extent={{-100,-100},{100,100}}, 
             lineColor={255,127,0}, 
             fillColor={255,255,255}, 
@@ -1061,7 +1063,8 @@ end IntegerMIBooleanMOs;
   partial block partialBooleanBlockIcon 
     "Basic graphical layout of logical block" 
     
-    annotation (Icon(graphics={Rectangle(
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={Rectangle(
             extent={{-100,100},{100,-100}}, 
             lineColor={0,0,0}, 
             fillColor={210,210,210}, 
@@ -1090,7 +1093,8 @@ in the Blocks.Logical library.
       "Connector of Boolean output signal"   annotation (Placement(
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
     
-    annotation (Icon(graphics={Ellipse(
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={Ellipse(
             extent={{-71,7},{-85,-7}}, 
             lineColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0}
                  else {235,235,235}), 
@@ -1227,7 +1231,8 @@ with a 3D icon (e.g. used in Blocks.Logical library).
                                             annotation (Placement(
           transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
     
-    annotation (Icon(graphics={Ellipse(
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={Ellipse(
             extent={{-71,7},{-85,-7}}, 
             lineColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0}
                  else {235,235,235}), 
@@ -1250,7 +1255,8 @@ with a 3D icon (e.g. used in Blocks.Logical library).
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
     extends partialBooleanBlockIcon;
     
-    annotation (Icon(graphics={Ellipse(
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={Ellipse(
             extent={{71,7},{85,-7}}, 
             lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
                  else {235,235,235}), 
@@ -1274,7 +1280,8 @@ with a 3D icon (e.g. used in Blocks.Logical library).
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
     
-    annotation (Icon(graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
           Polygon(
             points={{-80,88},{-88,66},{-72,66},{-80,88}}, 
             lineColor={255,0,255}, 
@@ -1296,28 +1303,28 @@ with a 3D icon (e.g. used in Blocks.Logical library).
             fillPattern=FillPattern.Solid)}),
         Diagram(graphics={
           Polygon(
-            points={{-70,92},{-76,70},{-64,70},{-70,92}}, 
-            lineColor={95,95,95}, 
-            fillColor={95,95,95}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-70,70},{-70,-88}}, color={95,95,95}), 
-          Line(points={{-90,-70},{68,-70}}, color={95,95,95}), 
+            points={{-70,92},{-76,70},{-64,70},{-70,92}},
+            lineColor={95,95,95},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-70,70},{-70,-88}}, color={95,95,95}),
+          Line(points={{-90,-70},{68,-70}}, color={95,95,95}),
           Polygon(
-            points={{90,-70},{68,-64},{68,-76},{90,-70}}, 
-            lineColor={95,95,95}, 
-            fillColor={95,95,95}, 
-            fillPattern=FillPattern.Solid), 
+            points={{90,-70},{68,-64},{68,-76},{90,-70}},
+            lineColor={95,95,95},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{54,-80},{106,-92}}, 
-            lineColor={0,0,0}, 
-            fillColor={95,95,95}, 
-            fillPattern=FillPattern.Solid, 
-            textString="time"), 
+            extent={{54,-80},{106,-92}},
+            lineColor={0,0,0},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid,
+            textString="time"),
           Text(
-            extent={{-64,92},{-46,74}}, 
-            lineColor={0,0,0}, 
-            fillColor={95,95,95}, 
-            fillPattern=FillPattern.Solid, 
+            extent={{-64,92},{-46,74}},
+            lineColor={0,0,0},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid,
             textString="y")}),
       Documentation(info="<html>
 <p>
@@ -1341,7 +1348,8 @@ and a 3D icon (e.g. used in Blocks.Logical library).
                                       annotation (Placement(transformation(
             extent={{100,-10},{120,10}}, rotation=0)));
     
-    annotation (Icon(graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,100},{100,-100}}, 
             lineColor={0,0,0}, 
@@ -1382,7 +1390,8 @@ as well as a 3D icon (e.g. used in Blocks.Logical library).
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
     
-    annotation (Icon(graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,100},{100,-100}}, 
             lineColor={0,0,0}, 
@@ -1424,19 +1433,19 @@ package Adaptors
             transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
     annotation (Icon(graphics={
             Rectangle(
-              extent={{-100,40},{100,-40}}, 
-              lineColor={0,0,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,40},{100,-40}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-144,96},{144,46}}, 
-              lineColor={0,0,0}, 
-              textString="%name"), 
+              extent={{-144,96},{144,46}},
+              lineColor={0,0,0},
+              textString="%name"),
             Text(
-              extent={{-100,30},{100,-30}}, 
-              lineColor={0,0,255}, 
-              fillColor={191,0,0}, 
-              fillPattern=FillPattern.Solid, 
+              extent={{-100,30},{100,-30}},
+              lineColor={0,0,255},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid,
               textString="send")}),        Documentation(info="<html>
 <p>
 Obsolete block that was previously used to connect a Real signal
@@ -1462,19 +1471,19 @@ for signal buses, see example
             transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
     annotation (Icon(graphics={
             Rectangle(
-              extent={{-100,40},{100,-40}}, 
-              lineColor={255,0,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,40},{100,-40}},
+              lineColor={255,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-144,96},{144,46}}, 
-              lineColor={0,0,0}, 
-              textString="%name"), 
+              extent={{-144,96},{144,46}},
+              lineColor={0,0,0},
+              textString="%name"),
             Text(
-              extent={{-100,30},{100,-30}}, 
-              lineColor={255,0,255}, 
-              fillColor={191,0,0}, 
-              fillPattern=FillPattern.Solid, 
+              extent={{-100,30},{100,-30}},
+              lineColor={255,0,255},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid,
               textString="send")}),        Documentation(info="<html>
 <p>
 Obsolete block that was previously used to connect a Boolean signal
@@ -1500,19 +1509,19 @@ for signal buses, see example
             transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
     annotation (Icon(graphics={
             Rectangle(
-              extent={{-100,40},{100,-40}}, 
-              lineColor={255,127,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,40},{100,-40}},
+              lineColor={255,127,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-144,96},{144,46}}, 
-              lineColor={0,0,0}, 
-              textString="%name"), 
+              extent={{-144,96},{144,46}},
+              lineColor={0,0,0},
+              textString="%name"),
             Text(
-              extent={{-100,30},{100,-30}}, 
-              lineColor={255,127,0}, 
-              fillColor={191,0,0}, 
-              fillPattern=FillPattern.Solid, 
+              extent={{-100,30},{100,-30}},
+              lineColor={255,127,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid,
               textString="send")}),        Documentation(info="<html>
 <p>
 Obsolete block that was previously used to connect an Integer signal
@@ -1537,19 +1546,19 @@ for signal buses, see example
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
     annotation (Icon(graphics={
             Rectangle(
-              extent={{-100,40},{100,-40}}, 
-              lineColor={0,0,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,40},{100,-40}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-100,30},{100,-30}}, 
-              lineColor={0,0,255}, 
-              fillColor={191,0,0}, 
-              fillPattern=FillPattern.Solid, 
-              textString="receive"), 
+              extent={{-100,30},{100,-30}},
+              lineColor={0,0,255},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid,
+              textString="receive"),
             Text(
-              extent={{-144,96},{144,46}}, 
-              lineColor={0,0,0}, 
+              extent={{-144,96},{144,46}},
+              lineColor={0,0,0},
               textString="%name")}),
                             Documentation(info="<html>
 <p>
@@ -1575,19 +1584,19 @@ for signal buses, see example
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
     annotation (Icon(graphics={
             Rectangle(
-              extent={{-100,40},{100,-40}}, 
-              lineColor={255,0,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,40},{100,-40}},
+              lineColor={255,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-100,30},{100,-30}}, 
-              lineColor={255,0,255}, 
-              fillColor={191,0,0}, 
-              fillPattern=FillPattern.Solid, 
-              textString="receive"), 
+              extent={{-100,30},{100,-30}},
+              lineColor={255,0,255},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid,
+              textString="receive"),
             Text(
-              extent={{-144,96},{144,46}}, 
-              lineColor={0,0,0}, 
+              extent={{-144,96},{144,46}},
+              lineColor={0,0,0},
               textString="%name")}),
                             Documentation(info="<html>
 <p>
@@ -1613,19 +1622,19 @@ for signal buses, see example
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
     annotation (Icon(graphics={
             Rectangle(
-              extent={{-100,40},{100,-40}}, 
-              lineColor={255,127,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,40},{100,-40}},
+              lineColor={255,127,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-100,30},{100,-30}}, 
-              lineColor={255,127,0}, 
-              fillColor={191,0,0}, 
-              fillPattern=FillPattern.Solid, 
-              textString="receive"), 
+              extent={{-100,30},{100,-30}},
+              lineColor={255,127,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid,
+              textString="receive"),
             Text(
-              extent={{-144,96},{144,46}}, 
-              lineColor={0,0,0}, 
+              extent={{-144,96},{144,46}},
+              lineColor={0,0,0},
               textString="%name")}),
                             Documentation(info="<html>
 <p>
@@ -1666,7 +1675,8 @@ end Adaptors;
       "Connector of Real output signal containing input signal u in another unit"
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
-    annotation (Icon(graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,100},{100,-100}}, 
             lineColor={0,0,127}, 
