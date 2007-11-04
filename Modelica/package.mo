@@ -594,6 +594,18 @@ that can lead to wrong simulation results):
   <tr><td valign=\"top\"> Model-Name </td>
       <td valign=\"top\"> Description text</td> 
   </tr>
+  <tr><td colspan=\"2\"><b>Mechanics.Rotational.</b></td></tr>
+  <tr><td valign=\"top\"> LinearSpeedDependentTorque<br>
+                        QuadraticSpeedDependentTorque<br>
+                        ConstantTorque<br>
+                        ConstantSpeed<br>
+                        TorqueStep</td>
+      <td valign=\"top\"> Speed used in torque calculation was der(flange.phi) and not
+                        the speed relative to the bearing<br> (= der(flange.phi) - der(bearing.phi)).
+                        This was correct. This bug leads to wrong simulation results,<br> 
+                        when the bearing is not fixed to ground </td> 
+  </tr>
+
 </table>
  
  
