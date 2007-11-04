@@ -6,6 +6,7 @@ package ObsoleteModelica3
       package Adaptors 
       model AdaptorReal 
           "Completely obsolete adaptor between 'old' and 'new' Real signal connectors (only for backward compatibility)" 
+        extends ObsoleteModelica3.Icons.ObsoleteBlock;
         Modelica.Blocks.Interfaces.RealSignal newReal 
             "Connector of Modelica version 2.1"                annotation (                            Hide=true,
               Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
@@ -16,29 +17,27 @@ package ObsoleteModelica3
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
                 Rectangle(
-                  extent={{-100,40},{100,-40}},
-                  lineColor={0,0,255},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),
+                  extent={{-100,40},{100,-40}}, 
+                  lineColor={0,0,255}, 
+                  fillColor={255,255,255}, 
+                  fillPattern=FillPattern.Solid), 
                 Text(
-                  extent={{-144,96},{144,46}},
-                  lineColor={0,0,0},
-                  textString=
-                     ""),
+                  extent={{-144,96},{144,46}}, 
+                  lineColor={0,0,0}, 
+                  textString=""), 
                 Text(
-                  extent={{-88,22},{88,-24}},
-                  lineColor={0,0,255},
-                  fillColor={191,0,0},
-                  fillPattern=FillPattern.Solid,
-                  textString=
-                     "adaptor"),
+                  extent={{-88,22},{88,-24}}, 
+                  lineColor={0,0,255}, 
+                  fillColor={191,0,0}, 
+                  fillPattern=FillPattern.Solid, 
+                  textString="adaptor"), 
                 Text(
-                  extent={{-216,-58},{36,-80}},
-                  lineColor={0,0,0},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
-                  textString=
-                     "port.signal")}),Documentation(info="<html>
+                  extent={{-216,-58},{36,-80}}, 
+                  lineColor={0,0,0}, 
+                  fillColor={255,255,255}, 
+                  fillPattern=FillPattern.Solid, 
+                  textString="port.signal")}),
+                                      Documentation(info="<html>
 <p>
 Completely obsolete adaptor between the Real signal connector
 of version 1.6 and version &ge; 2.1 of the Modelica Standard Library.
@@ -60,6 +59,7 @@ This block is only provided for backward compatibility.
         
       model AdaptorBoolean 
           "Completely obsolete adaptor between 'old' and 'new' Boolean signal connectors (only for backward compatibility)" 
+        extends ObsoleteModelica3.Icons.ObsoleteBlock;
         Modelica.Blocks.Interfaces.BooleanSignal newBoolean 
             "Connector of Modelica version 2.1" 
           annotation (                            Hide=true, Placement(
@@ -71,27 +71,25 @@ This block is only provided for backward compatibility.
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
                 Rectangle(
-                  extent={{-100,40},{100,-40}},
-                  lineColor={255,0,255},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),
+                  extent={{-100,40},{100,-40}}, 
+                  lineColor={255,0,255}, 
+                  fillColor={255,255,255}, 
+                  fillPattern=FillPattern.Solid), 
                 Text(
-                  extent={{-144,96},{144,46}},
-                  lineColor={0,0,0},
-                  textString=
-                     ""),
+                  extent={{-144,96},{144,46}}, 
+                  lineColor={0,0,0}, 
+                  textString=""), 
                 Text(
-                  extent={{-88,22},{88,-24}},
-                  lineColor={255,0,255},
-                  textString=
-                     "adaptor"),
+                  extent={{-88,22},{88,-24}}, 
+                  lineColor={255,0,255}, 
+                  textString="adaptor"), 
                 Text(
-                  extent={{-216,-58},{36,-80}},
-                  lineColor={0,0,0},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
-                  textString=
-                     "port.signal")}),Documentation(info="<html>
+                  extent={{-216,-58},{36,-80}}, 
+                  lineColor={0,0,0}, 
+                  fillColor={255,255,255}, 
+                  fillPattern=FillPattern.Solid, 
+                  textString="port.signal")}),
+                                      Documentation(info="<html>
 <p>
 Completely obsolete adaptor between the Real signal connector
 of version 1.6 and version &ge; 2.1 of the Modelica Standard Library.
@@ -115,6 +113,7 @@ This block is only provided for backward compatibility.
         
       model AdaptorInteger 
           "Completely obsolete adaptor between 'old' and 'new' Integer signal connectors (only for backward compatibility)" 
+        extends ObsoleteModelica3.Icons.ObsoleteBlock;
         Modelica.Blocks.Interfaces.IntegerSignal newInteger 
             "Connector of Modelica version 2.1" 
           annotation (                            Hide=true, Placement(
@@ -126,27 +125,25 @@ This block is only provided for backward compatibility.
            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
                 Rectangle(
-                  extent={{-100,40},{100,-40}},
-                  lineColor={255,127,0},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),
+                  extent={{-100,40},{100,-40}}, 
+                  lineColor={255,127,0}, 
+                  fillColor={255,255,255}, 
+                  fillPattern=FillPattern.Solid), 
                 Text(
-                  extent={{-144,96},{144,46}},
-                  lineColor={0,0,0},
-                  textString=
-                     ""),
+                  extent={{-144,96},{144,46}}, 
+                  lineColor={0,0,0}, 
+                  textString=""), 
                 Text(
-                  extent={{-88,22},{88,-24}},
-                  lineColor={255,127,0},
-                  textString=
-                     "adaptor"),
+                  extent={{-88,22},{88,-24}}, 
+                  lineColor={255,127,0}, 
+                  textString="adaptor"), 
                 Text(
-                  extent={{-216,-58},{36,-80}},
-                  lineColor={0,0,0},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
-                  textString=
-                     "port.signal")}),Documentation(info="<html>
+                  extent={{-216,-58},{36,-80}}, 
+                  lineColor={0,0,0}, 
+                  fillColor={255,255,255}, 
+                  fillPattern=FillPattern.Solid, 
+                  textString="port.signal")}),
+                                      Documentation(info="<html>
 <p>
 Completely obsolete adaptor between the Real signal connector
 of version 1.6 and version &ge; 2.1 of the Modelica Standard Library.
@@ -183,15 +180,16 @@ Internal replaceable block that is used to construct the
 </p>
 </html>"));
           extends ConversionBlock;
+          extends ObsoleteModelica3.Icons.ObsoleteBlock;
           
           annotation (
             defaultComponentName="convert",
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={Line(points={{-90,0},{30,0}}, color=
                       {191,0,0}), Polygon(
-                  points={{90,0},{30,20},{30,-20},{90,0}},
-                  lineColor={191,0,0},
-                  fillColor={191,0,0},
+                  points={{90,0},{30,20},{30,-20},{90,0}}, 
+                  lineColor={191,0,0}, 
+                  fillColor={191,0,0}, 
                   fillPattern=FillPattern.Solid)}),
             Documentation(info="<html>
 <p>This block implements the Modelica.SIunits.Conversions functions as a fixed causality block to
@@ -216,6 +214,7 @@ The desired conversion can be selected in the parameter menu
       block TwoInputs 
         "Change causality of input signals by defining that two input signals are identical (e.g. for inverse models)" 
         extends Modelica.Blocks.Interfaces.BlockIcon;
+        extends ObsoleteModelica3.Icons.ObsoleteBlock;
             annotation(structurallyIncomplete,
               Window(
                 x=0.15,
@@ -233,10 +232,9 @@ defined as outputs (e.g. useful for inverse model generation).
               preserveAspectRatio=false,
               extent={{-100,-100},{100,100}},
               grid={2,2}), graphics={Text(
-                extent={{-95,50},{95,-50}},
-                lineColor={0,0,127},
-                textString=
-                         "=")}));
+                extent={{-95,50},{95,-50}}, 
+                lineColor={0,0,127}, 
+                textString="=")}));
             Modelica.Blocks.Interfaces.RealInput u1 
           "Connector of first Real input signal" 
               annotation (                                       layer="icon",
@@ -256,6 +254,7 @@ defined as outputs (e.g. useful for inverse model generation).
           block TwoOutputs 
         "Change causality of output signals by defining that two output signals are identical (e.g. for inverse models)" 
             extends Modelica.Blocks.Interfaces.BlockIcon;
+            extends ObsoleteModelica3.Icons.ObsoleteBlock;
             annotation(structurallyIncomplete,
               Window(
                 x=0.21,
@@ -274,10 +273,9 @@ This block is used to enable calculation of values preliminary defined as inputs
               preserveAspectRatio=false,
               extent={{-100,-100},{100,100}},
               grid={2,2}), graphics={Text(
-                extent={{-95,50},{95,-50}},
-                lineColor={0,0,127},
-                textString=
-                         "=")}));
+                extent={{-95,50},{95,-50}}, 
+                lineColor={0,0,127}, 
+                textString="=")}));
             output Modelica.Blocks.Interfaces.RealOutput y1 
           "Connector of first Real output signal" 
               annotation (Placement(transformation(extent={{100,-10},{120,10}},
@@ -297,21 +295,44 @@ This block is used to enable calculation of values preliminary defined as inputs
   end Blocks;
   annotation (uses(Modelica(version="3.0-development")));
   package Icons 
+    partial block ObsoleteBlock "Icon for an obsolete block" 
+      
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
+                -100,-100},{100,100}}), graphics={Rectangle(
+              extent={{-102,102},{102,-102}}, 
+              lineColor={255,0,0}, 
+              pattern=LinePattern.Dash, 
+              lineThickness=2)}),        Documentation(info="<html>
+<p>
+This partial class is intended to design a <em>default icon
+for an obsolete class</em> that will be removed from the
+PowerTrain library later on.
+<p>
+</html>",
+        revisions="<html>
+<img src=\"../Extras/Images/dlr_logo.png\"  width=60 >
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <b>      Copyright &copy; 1999-2007, DLR Institute of Robotics and Mechatronics</b>
+</html>"));
+    equation 
+      
+    end ObsoleteBlock;
+
     partial class Enumeration "Icon for an enumeration (emulated by a package)" 
       
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
-            Text(extent={{-138,164},{138,104}}, textString="%name"),
+            Text(extent={{-138,164},{138,104}}, textString="%name"), 
             Ellipse(
-              extent={{-100,100},{100,-100}},
-              lineColor={255,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
+              extent={{-100,100},{100,-100}}, 
+              lineColor={255,0,127}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{-100,100},{100,-100}},
-              lineColor={255,0,127},
-              fillColor={223,159,191},
-              fillPattern=FillPattern.Solid,
+              extent={{-100,100},{100,-100}}, 
+              lineColor={255,0,127}, 
+              fillColor={223,159,191}, 
+              fillPattern=FillPattern.Solid, 
               textString="e")}),
                           Documentation(info="<html>
 <p>
@@ -323,6 +344,82 @@ This icon is designed for an <b>enumeration</b>
   end Icons;
   
   package Mechanics 
+    package MultiBody 
+      package Types 
+        type AngularVelocity_degs = Modelica.Icons.TypeReal(final quantity="AngularVelocity", final unit
+              =    "deg/s") "Angular velocity type in deg/s";
+        type AngularAcceleration_degs2 = Modelica.Icons.TypeReal (final 
+              quantity =                                                         "AngularAcceleration",
+              final unit="deg/s2") "Angular acceleration type in deg/s^2";
+        package Init 
+          "Type, constants and menu choices to define initialization, as temporary solution until enumerations are available" 
+          
+          annotation (Documentation(info="<html>
+  
+</html>"),         uses(Modelica(version="2.2.2")));
+          extends ObsoleteModelica3.Icons.Enumeration;
+          
+          constant Integer Free=1;
+          constant Integer PositionVelocity=2;
+          constant Integer SteadyState=3;
+          constant Integer Position=4;
+          constant Integer Velocity=5;
+          constant Integer VelocityAcceleration=6;
+          constant Integer PositionVelocityAcceleration=7;
+          
+          type Temp 
+            "Temporary type of Init with choices for menus (until enumerations are available)" 
+            
+            extends Modelica.Icons.TypeInteger;
+            annotation (choices(
+                choice=Modelica.Mechanics.MultiBody.Types.Init.Free 
+                  "free (no initialization)",
+                choice=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity 
+                  "initialize generalized position and velocity variables",
+                choice=Modelica.Mechanics.MultiBody.Types.Init.SteadyState 
+                  "initialize in steady state (velocity and acceleration are zero)",
+                choice=Modelica.Mechanics.MultiBody.Types.Init.Position 
+                  "initialize only generalized position variable(s)",
+                choice=Modelica.Mechanics.MultiBody.Types.Init.Velocity 
+                  "initialize only generalized velocity variable(s)",
+                choice=Modelica.Mechanics.MultiBody.Types.Init.VelocityAcceleration 
+                  "initialize generalized velocity and acceleration variables",
+                choice=Modelica.Mechanics.MultiBody.Types.Init.PositionVelocityAcceleration 
+                  "initialize generalized position, velocity and acceleration variables"),
+                Documentation(info="<html>
+  
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><b>Types.Init.</b></th><th><b>Meaning</b></th></tr>
+<tr><td valign=\"top\">Free</td>
+    <td valign=\"top\">No initialization</td></tr>
+ 
+<tr><td valign=\"top\">PositionVelocity</td>
+    <td valign=\"top\">Initialize generalized position and velocity variables</td></tr>
+ 
+<tr><td valign=\"top\">SteadyState</td>
+    <td valign=\"top\">Initialize in steady state (velocity and acceleration are zero)</td></tr>
+ 
+<tr><td valign=\"top\">Position </td>
+    <td valign=\"top\">Initialize only generalized position variable(s)</td></tr>
+ 
+<tr><td valign=\"top\">Velocity</td>
+    <td valign=\"top\">Initialize only generalized velocity variable(s)</td></tr>
+ 
+<tr><td valign=\"top\">VelocityAcceleration</td>
+    <td valign=\"top\">Initialize generalized velocity and acceleration variables</td></tr>
+ 
+<tr><td valign=\"top\">PositionVelocityAcceleration</td>
+    <td valign=\"top\">Initialize generalized position, velocity and acceleration variables</td></tr>
+ 
+</table>
+ 
+</html>"));
+            
+          end Temp;
+        end Init;
+      end Types;
+    end MultiBody;
+    
     package Rotational 
       package Types 
         "Constants and types with choices, especially to build menus" 
