@@ -17,25 +17,25 @@ package ObsoleteModelica3
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
                 Rectangle(
-                  extent={{-100,40},{100,-40}}, 
-                  lineColor={0,0,255}, 
-                  fillColor={255,255,255}, 
-                  fillPattern=FillPattern.Solid), 
+                  extent={{-100,40},{100,-40}},
+                  lineColor={0,0,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),
                 Text(
-                  extent={{-144,96},{144,46}}, 
-                  lineColor={0,0,0}, 
-                  textString=""), 
+                  extent={{-144,96},{144,46}},
+                  lineColor={0,0,0},
+                  textString=""),
                 Text(
-                  extent={{-88,22},{88,-24}}, 
-                  lineColor={0,0,255}, 
-                  fillColor={191,0,0}, 
-                  fillPattern=FillPattern.Solid, 
-                  textString="adaptor"), 
+                  extent={{-88,22},{88,-24}},
+                  lineColor={0,0,255},
+                  fillColor={191,0,0},
+                  fillPattern=FillPattern.Solid,
+                  textString="adaptor"),
                 Text(
-                  extent={{-216,-58},{36,-80}}, 
-                  lineColor={0,0,0}, 
-                  fillColor={255,255,255}, 
-                  fillPattern=FillPattern.Solid, 
+                  extent={{-216,-58},{36,-80}},
+                  lineColor={0,0,0},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid,
                   textString="port.signal")}),
                                       Documentation(info="<html>
 <p>
@@ -71,23 +71,23 @@ This block is only provided for backward compatibility.
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
                 Rectangle(
-                  extent={{-100,40},{100,-40}}, 
-                  lineColor={255,0,255}, 
-                  fillColor={255,255,255}, 
-                  fillPattern=FillPattern.Solid), 
+                  extent={{-100,40},{100,-40}},
+                  lineColor={255,0,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),
                 Text(
-                  extent={{-144,96},{144,46}}, 
-                  lineColor={0,0,0}, 
-                  textString=""), 
+                  extent={{-144,96},{144,46}},
+                  lineColor={0,0,0},
+                  textString=""),
                 Text(
-                  extent={{-88,22},{88,-24}}, 
-                  lineColor={255,0,255}, 
-                  textString="adaptor"), 
+                  extent={{-88,22},{88,-24}},
+                  lineColor={255,0,255},
+                  textString="adaptor"),
                 Text(
-                  extent={{-216,-58},{36,-80}}, 
-                  lineColor={0,0,0}, 
-                  fillColor={255,255,255}, 
-                  fillPattern=FillPattern.Solid, 
+                  extent={{-216,-58},{36,-80}},
+                  lineColor={0,0,0},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid,
                   textString="port.signal")}),
                                       Documentation(info="<html>
 <p>
@@ -125,23 +125,23 @@ This block is only provided for backward compatibility.
            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
                 Rectangle(
-                  extent={{-100,40},{100,-40}}, 
-                  lineColor={255,127,0}, 
-                  fillColor={255,255,255}, 
-                  fillPattern=FillPattern.Solid), 
+                  extent={{-100,40},{100,-40}},
+                  lineColor={255,127,0},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),
                 Text(
-                  extent={{-144,96},{144,46}}, 
-                  lineColor={0,0,0}, 
-                  textString=""), 
+                  extent={{-144,96},{144,46}},
+                  lineColor={0,0,0},
+                  textString=""),
                 Text(
-                  extent={{-88,22},{88,-24}}, 
-                  lineColor={255,127,0}, 
-                  textString="adaptor"), 
+                  extent={{-88,22},{88,-24}},
+                  lineColor={255,127,0},
+                  textString="adaptor"),
                 Text(
-                  extent={{-216,-58},{36,-80}}, 
-                  lineColor={0,0,0}, 
-                  fillColor={255,255,255}, 
-                  fillPattern=FillPattern.Solid, 
+                  extent={{-216,-58},{36,-80}},
+                  lineColor={0,0,0},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid,
                   textString="port.signal")}),
                                       Documentation(info="<html>
 <p>
@@ -187,9 +187,9 @@ Internal replaceable block that is used to construct the
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={Line(points={{-90,0},{30,0}}, color=
                       {191,0,0}), Polygon(
-                  points={{90,0},{30,20},{30,-20},{90,0}}, 
-                  lineColor={191,0,0}, 
-                  fillColor={191,0,0}, 
+                  points={{90,0},{30,20},{30,-20},{90,0}},
+                  lineColor={191,0,0},
+                  fillColor={191,0,0},
                   fillPattern=FillPattern.Solid)}),
             Documentation(info="<html>
 <p>This block implements the Modelica.SIunits.Conversions functions as a fixed causality block to
@@ -232,8 +232,8 @@ defined as outputs (e.g. useful for inverse model generation).
               preserveAspectRatio=false,
               extent={{-100,-100},{100,100}},
               grid={2,2}), graphics={Text(
-                extent={{-95,50},{95,-50}}, 
-                lineColor={0,0,127}, 
+                extent={{-95,50},{95,-50}},
+                lineColor={0,0,127},
                 textString="=")}));
             Modelica.Blocks.Interfaces.RealInput u1 
           "Connector of first Real input signal" 
@@ -273,8 +273,8 @@ This block is used to enable calculation of values preliminary defined as inputs
               preserveAspectRatio=false,
               extent={{-100,-100},{100,100}},
               grid={2,2}), graphics={Text(
-                extent={{-95,50},{95,-50}}, 
-                lineColor={0,0,127}, 
+                extent={{-95,50},{95,-50}},
+                lineColor={0,0,127},
                 textString="=")}));
             output Modelica.Blocks.Interfaces.RealOutput y1 
           "Connector of first Real output signal" 
@@ -297,8 +297,8 @@ This block is used to enable calculation of values preliminary defined as inputs
   package Icons 
     partial block ObsoleteBlock "Icon for an obsolete block" 
       
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics={Rectangle(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Rectangle(
               extent={{-102,102},{102,-102}}, 
               lineColor={255,0,0}, 
               pattern=LinePattern.Dash, 
@@ -317,7 +317,7 @@ PowerTrain library later on.
     equation 
       
     end ObsoleteBlock;
-
+    
     partial class Enumeration "Icon for an enumeration (emulated by a package)" 
       
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
@@ -421,6 +421,224 @@ This icon is designed for an <b>enumeration</b>
     end MultiBody;
     
     package Rotational 
+      package Sensors 
+        partial model AbsoluteSensor 
+          "Base model to measure a single absolute flange variable" 
+          
+          extends Modelica.Icons.RotationalSensor;
+          extends ObsoleteModelica3.Icons.ObsoleteBlock;
+          
+          Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a 
+            "(left) flange to be measured (flange axis directed INTO cut plane)"
+            annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+                  rotation=0)));
+          Modelica.Blocks.Interfaces.RealOutput y "Sensor signal" 
+            annotation (Placement(transformation(extent={{100,-10},{120,10}},
+                  rotation=0)));
+          annotation (
+            Window(
+              x=0.39,
+              y=0.05,
+              width=0.6,
+              height=0.6),
+            Documentation(info="<html>
+<p>
+This is the base class of a 1D rotational component with one flange and one
+output signal y in order to measure an absolute kinematic quantity in the flange
+and to provide the measured signal as output signal for further processing
+with the blocks of package Modelica.Blocks.
+</p>
+ 
+</HTML>
+"),         Icon(coordinateSystem(
+                preserveAspectRatio=true,
+                extent={{-100,-100},{100,100}},
+                grid={1,1}), graphics={
+                Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
+                Line(points={{70,0},{100,0}}, color={0,0,127}), 
+                Text(
+                  extent={{150,80},{-150,120}}, 
+                  textString="%name", 
+                  lineColor={0,0,255})}),
+            Diagram(coordinateSystem(
+                preserveAspectRatio=true,
+                extent={{-100,-100},{100,100}},
+                grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,
+                      0,0}), Line(points={{70,0},{100,0}}, color={0,0,255})}));
+        end AbsoluteSensor;
+
+        partial model RelativeSensor 
+          "Base model to measure a single relative variable between two flanges" 
+          
+          extends Modelica.Icons.RotationalSensor;
+          extends ObsoleteModelica3.Icons.ObsoleteBlock;
+          
+          Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a 
+            "(left) driving flange (flange axis directed INTO cut plane)" 
+            annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+                  rotation=0)));
+          Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b 
+            "(right) driven flange (flange axis directed OUT OF cut plane)" 
+            annotation (Placement(transformation(extent={{90,-10},{110,10}},
+                  rotation=0)));
+          Modelica.Blocks.Interfaces.RealOutput y "Sensor signal" 
+            annotation (Placement(transformation(
+                origin={0,-110},
+                extent={{10,-10},{-10,10}},
+                rotation=90)));
+          annotation (
+            Window(
+              x=0.37,
+              y=0.02,
+              width=0.6,
+              height=0.65),
+            Documentation(info="<html>
+<p>
+This is a base class for 1D rotational components with two rigidly connected
+flanges and one output signal y in order to measure relative kinematic quantities
+between the two flanges or the cut-torque in the flange and
+to provide the measured signal as output signal for further processing
+with the blocks of package Modelica.Blocks.
+</p>
+ 
+</HTML>
+"),         Icon(coordinateSystem(
+                preserveAspectRatio=true,
+                extent={{-100,-100},{100,100}},
+                grid={1,1}), graphics={
+                Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
+                Line(points={{70,0},{90,0}}, color={0,0,0}), 
+                Line(points={{0,-100},{0,-70}}, color={0,0,127}), 
+                Text(
+                  extent={{-150,70},{150,110}}, 
+                  textString="%name", 
+                  lineColor={0,0,255})}),
+            Diagram(coordinateSystem(
+                preserveAspectRatio=true,
+                extent={{-100,-100},{100,100}},
+                grid={1,1}), graphics={
+                Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
+                Line(points={{70,0},{90,0}}, color={0,0,0}), 
+                Line(points={{0,-100},{0,-70}}, color={0,0,255})}));
+        end RelativeSensor;
+      end Sensors;
+
+      package Interfaces 
+        partial model Bearing 
+          "Base class for interface classes with bearing connector" 
+          extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
+          extends ObsoleteModelica3.Icons.ObsoleteBlock;
+          
+          Modelica.SIunits.Torque tau_support;
+          
+          Modelica.Mechanics.Rotational.Interfaces.Flange_a bearing 
+            "Flange of bearing" 
+                           annotation (Placement(transformation(extent={{-10,-110},
+                    {10,-90}}, rotation=0)));
+          annotation (
+            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                    -100},{100,100}}), graphics={Rectangle(
+                  extent={{-20,-80},{20,-120}}, 
+                  lineColor={192,192,192}, 
+                  fillColor={192,192,192}, 
+                  fillPattern=FillPattern.Solid)}),
+            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                    {100,100}}), graphics={Rectangle(
+                  extent={{-20,-80},{20,-120}}, 
+                  lineColor={192,192,192}, 
+                  fillColor={192,192,192}, 
+                  fillPattern=FillPattern.Solid)}),
+            Documentation(info="<html>
+<p>
+This is a 1D rotational component with two flanges and an additional bearing flange.
+It is a superclass for the two components TwoFlangesAndBearing and TwoFlangesAndBearingH.</p>
+ 
+</HTML>
+"));
+          
+        end Bearing;
+
+        partial model TwoFlangesAndBearing 
+          "Base class for a equation-based component with two rotational 1D flanges and one rotational 1D bearing flange" 
+          
+          extends ObsoleteModelica3.Mechanics.Rotational.Interfaces.Bearing;
+          
+          Modelica.SIunits.Angle phi_a;
+          Modelica.SIunits.Angle phi_b;
+          
+          annotation (Documentation(info="<html>
+<p>
+This is a 1D rotational component with two flanges and an additional bearing flange.
+It is used e.g. to build up equation-based parts of a drive train.</p>
+ 
+</HTML>
+"));
+        equation 
+          if cardinality(bearing) == 0 then
+            bearing.phi = 0;
+          else
+            bearing.tau = tau_support;
+          end if;
+          
+          0 = flange_a.tau + flange_b.tau + tau_support;
+          
+          phi_a = flange_a.phi - bearing.phi;
+          phi_b = flange_b.phi - bearing.phi;
+        end TwoFlangesAndBearing;
+
+        partial model TwoFlangesAndBearingH 
+          "Base class for a hierarchically composed component with two rotational 1D flanges and one rotational bearing flange" 
+          
+          extends ObsoleteModelica3.Mechanics.Rotational.Interfaces.Bearing;
+          
+          Adapter adapter(bearingConnected=cardinality(bearing) > 1) 
+            annotation (Placement(transformation(
+                origin={0,-60},
+                extent={{-10,-10},{10,10}},
+                rotation=90)));
+        protected 
+          encapsulated model Adapter 
+            import Modelica;
+            import ObsoleteModelica3;
+            import TwoFlanges = 
+              Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
+            extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
+            extends ObsoleteModelica3.Icons.ObsoleteBlock;
+            parameter Boolean bearingConnected;
+            
+            annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                      -100},{100,100}}), graphics={Rectangle(
+                    extent={{-90,10},{90,-10}}, 
+                    lineColor={192,192,192}, 
+                    fillColor={192,192,192}, 
+                    fillPattern=FillPattern.Solid), Text(
+                    extent={{-150,60},{150,20}}, 
+                    textString="%name", 
+                    lineColor={0,0,255})}));
+          equation 
+            flange_a.phi = flange_b.phi;
+            
+            if bearingConnected then
+              0 = flange_a.tau + flange_b.tau;
+            else
+              0 = flange_a.phi;
+            end if;
+          end Adapter;
+        equation 
+          tau_support = -adapter.flange_b.tau;
+          connect(adapter.flange_a, bearing) annotation (Line(points={{
+                  -6.12323e-016,-70},{0,-70},{0,-100}}, color={0,0,0}));
+          annotation (Documentation(info="<html>
+<p>
+This is a 1D rotational component with two flanges and an additional bearing flange.
+It is used e.g. to build up parts of a drive train consisting
+of several base components.</p>
+ 
+</HTML>
+"));
+        end TwoFlangesAndBearingH;
+      end Interfaces;
+
       package Types 
         "Constants and types with choices, especially to build menus" 
         extends Modelica.Icons.Library;
@@ -525,6 +743,283 @@ quantities.
 </html>"));
         end InitRel;
       end Types;
+
+      model GearEfficiency "Obsolete component (use model LossyGear instead)" 
+        extends Modelica.Mechanics.Rotational.Interfaces.PartialGear;
+        extends ObsoleteModelica3.Icons.ObsoleteBlock;
+        
+        parameter Real eta(
+          min=Modelica.Constants.small,
+          max=1) = 1 "Efficiency";
+        Modelica.SIunits.Angle phi;
+        Modelica.SIunits.Power power_a "Energy flowing into flange_a (= power)";
+        Boolean driving_a 
+          "True, if energy is flowing INTO and not out of flange flange_a";
+        
+        annotation (
+          Window(
+            x=0.23,
+            y=0.06,
+            width=0.69,
+            height=0.62),
+          Icon(coordinateSystem(
+              preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}},
+              grid={1,1}), graphics={
+              Text(
+                extent={{-150,100},{150,60}}, 
+                textString="%name", 
+                lineColor={0,0,255}), 
+              Rectangle(
+                extent={{-100,20},{100,-20}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                fillColor={192,192,192}), 
+              Line(points={{-30,-40},{30,-40}}, color={0,0,0}), 
+              Line(points={{0,-40},{0,-90}}, color={0,0,0}), 
+              Polygon(
+                points={{-30,-20},{60,-20},{60,-80},{70,-80},{50,-100},{30,-80},
+                    {40,-80},{40,-30},{-30,-30},{-30,-20},{-30,-20}}, 
+                lineColor={0,0,0}, 
+                fillColor={255,0,0}, 
+                fillPattern=FillPattern.Solid), 
+              Text(
+                extent={{-150,60},{150,20}}, 
+                lineColor={0,0,0}, 
+                textString="eta=%eta"), 
+              Line(points={{30,-50},{20,-60}}, color={0,0,0}), 
+              Line(points={{30,-40},{10,-60}}, color={0,0,0}), 
+              Line(points={{20,-40},{0,-60}}, color={0,0,0}), 
+              Line(points={{10,-40},{-10,-60}}, color={0,0,0}), 
+              Line(points={{0,-40},{-20,-60}}, color={0,0,0}), 
+              Line(points={{-10,-40},{-30,-60}}, color={0,0,0}), 
+              Line(points={{-20,-40},{-30,-50}}, color={0,0,0})}),
+          obsolete=
+              "This model can get stuck due when the torque direction varies, use LossyGear instead.",
+          Documentation(info="<html>
+<p>
+THIS COMPONENT IS <b>OBSOLETE</b> and should <b>no longer be used</b>. It is only
+kept for <b>backward compatibility</b> purposes. Use model
+Modelica.Mechanics.Rotational.LossyGear instead which implements
+gear efficiency in a much more reliable way.
+</p>
+<p>
+This component consists of two rigidly connected flanges flange_a and flange_b without
+inertia where an <b>efficency</b> coefficient <b>eta</b> reduces the driven
+torque as function of the driving torque depending on the direction
+of the energy flow, i.e., energy is always lost. This can be seen as a
+simple model of the Coulomb friction acting between the teeth of a
+gearbox.
+</p>
+<p>
+Note, that most gearbox manufacturers provide tables of the
+efficiency of a gearbox as function of the angular velocity
+(efficiency becomes zero, if the angular velocity is zero).
+However, such a table is practically useless for simulation purposes,
+because in gearboxes always two types of friction is present:
+(1) Friction in the <b>bearings</b> and (2) friction between
+the teeth of the gear. (1) leads to a velocity dependent, additive
+loss-torque, whereas (2) leads to a torque-dependent reduction of the
+driving torque. The gearbox manufacturers measure both effects
+together and determine the gear efficiency from it, although for
+simulation purposes the two effects need to be separated.
+Assume for example that only constant bearing friction, i.e.,
+bearingTorque=const., is present, i.e.,
+</p>
+<pre>
+   (1)  loadTorque = motorTorque - sign(w)*bearingTorque
+</pre>
+<p>
+Gearbox manufacturers use the loss-formula
+</p>
+<pre>
+   (2)  loadTorque = eta*motorTorque
+</pre>
+<p>
+Comparing (1) and (2) gives a formulat for the efficiency eta:
+</p>
+<pre>
+   eta = (1 - sign(w)*bearingTorque/motorTorque)
+</pre>
+<p>
+When the motorTorque becomes smaller as the bearingTorque,
+(2) is useless, because the efficiency is zero. To summarize,
+be careful to determine the gear <b>efficiency</b> of this element
+from tables of the gear manufacturers.
+</p>
+ 
+</HTML>
+"),       Diagram(coordinateSystem(
+              preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}},
+              grid={1,1}), graphics={
+              Rectangle(
+                extent={{-96,20},{96,-21}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                fillColor={192,192,192}), 
+              Line(points={{-30,-40},{30,-40}}, color={0,0,0}), 
+              Line(points={{0,60},{0,40}}, color={0,0,0}), 
+              Line(points={{-30,40},{29,40}}, color={0,0,0}), 
+              Line(points={{0,-40},{0,-90}}, color={0,0,0}), 
+              Polygon(
+                points={{-30,-20},{60,-20},{60,-80},{70,-80},{50,-100},{30,-80},
+                    {40,-80},{40,-30},{-30,-30},{-30,-20},{-30,-20}}, 
+                lineColor={0,0,0}, 
+                fillColor={255,0,0}, 
+                fillPattern=FillPattern.Solid), 
+              Text(
+                extent={{16,83},{84,70}}, 
+                lineColor={128,128,128}, 
+                textString="rotation axis"), 
+              Polygon(
+                points={{12,76},{-8,81},{-8,71},{12,76}}, 
+                lineColor={128,128,128}, 
+                fillColor={128,128,128}, 
+                fillPattern=FillPattern.Solid), 
+              Line(points={{-78,76},{-7,76}}, color={128,128,128}), 
+              Line(points={{30,-50},{20,-60}}, color={0,0,0}), 
+              Line(points={{30,-40},{10,-60}}, color={0,0,0}), 
+              Line(points={{20,-40},{0,-60}}, color={0,0,0}), 
+              Line(points={{10,-40},{-10,-60}}, color={0,0,0}), 
+              Line(points={{0,-40},{-20,-60}}, color={0,0,0}), 
+              Line(points={{-10,-40},{-30,-60}}, color={0,0,0}), 
+              Line(points={{-20,-40},{-30,-50}}, color={0,0,0})}));
+        
+      equation 
+        phi = phi_a;
+        phi = phi_b;
+        power_a = flange_a.tau*der(phi);
+        driving_a = power_a >= 0;
+        flange_b.tau = -(if driving_a then eta*flange_a.tau else flange_a.tau/eta);
+      end GearEfficiency;
+
+      model Gear "Realistic model of a gearbox" 
+        extends 
+          ObsoleteModelica3.Mechanics.Rotational.Interfaces.TwoFlangesAndBearingH;
+        
+        parameter Real ratio=1 "transmission ratio (flange_a.phi/flange_b.phi)";
+        parameter Real eta(
+          min=Modelica.Constants.small,
+          max=1) = 1 "Gear efficiency";
+        parameter Real friction_pos[:, 2]=[0, 1] 
+          "[w,tau] positive sliding friction characteristic (w>=0)";
+        parameter Real peak(final min=1) = 1 
+          "peak*friction_pos[1,2] = maximum friction torque at zero velocity";
+        parameter Real c(
+          final unit="N.m/rad",
+          final min=Modelica.Constants.small) = 1.e5 
+          "Gear elasticity (spring constant)";
+        parameter Real d(
+          final unit="N.m.s/rad",
+          final min=0) = 0 "(relative) gear damping";
+        parameter Modelica.SIunits.Angle b(final min=0)=0 "Total backlash";
+        
+        annotation (
+          Documentation(info="<html>
+<p>
+This component models the essential effects of a gearbox, in particular
+gear <b>efficiency</b> due to friction between the teeth, <b>bearing friction</b>,
+gear <b>elasticity</b> and <b>damping</b>, <b>backlash</b>.
+The inertia of the gear wheels is not modeled. If necessary, inertia
+has to be taken into account by connecting components of model Inertia
+to the left and/or the right flange.
+</p>
+ 
+</HTML>
+"),       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={
+              Rectangle(
+                extent={{-40,60},{40,-60}}, 
+                lineColor={0,0,0}, 
+                pattern=LinePattern.Solid, 
+                lineThickness=1, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                fillColor={192,192,192}), 
+              Polygon(
+                points={{-60,-80},{-46,-80},{-20,-20},{20,-20},{46,-80},{60,-80},
+                    {60,-90},{-60,-90},{-60,-80}}, 
+                lineColor={0,0,0}, 
+                fillColor={0,0,0}, 
+                fillPattern=FillPattern.Solid), 
+              Rectangle(
+                extent={{-100,10},{-60,-10}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                fillColor={192,192,192}), 
+              Rectangle(
+                extent={{60,10},{100,-10}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                fillColor={192,192,192}), 
+              Polygon(
+                points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}}, 
+                  
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.HorizontalCylinder, 
+                fillColor={128,128,128}), 
+              Polygon(
+                points={{60,20},{40,40},{40,-40},{60,-20},{60,20}}, 
+                lineColor={128,128,128}, 
+                fillColor={128,128,128}, 
+                fillPattern=FillPattern.Solid), 
+              Text(
+                extent={{-150,110},{150,70}}, 
+                textString="%name=%ratio", 
+                lineColor={0,0,255}), 
+              Text(
+                extent={{-150,-160},{150,-120}}, 
+                lineColor={0,0,0}, 
+                textString="c=%c")}),
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                  {100,100}}), graphics={
+              Text(
+                extent={{2,29},{46,22}}, 
+                lineColor={128,128,128}, 
+                textString="rotation axis"), 
+              Polygon(
+                points={{4,25},{-4,27},{-4,23},{4,25}}, 
+                lineColor={128,128,128}, 
+                fillColor={128,128,128}, 
+                fillPattern=FillPattern.Solid), 
+              Line(points={{-36,25},{-3,25}}, color={128,128,128})}));
+        Modelica.Mechanics.Rotational.IdealGear gearRatio(final ratio=ratio) 
+          annotation (Placement(transformation(extent={{-70,-10},{-50,10}},
+                rotation=0)));
+        ObsoleteModelica3.Mechanics.Rotational.GearEfficiency gearEfficiency(
+                                      final eta=eta) 
+          annotation (Placement(transformation(extent={{-30,-10},{-10,10}},
+                rotation=0)));
+        Modelica.Mechanics.Rotational.ElastoBacklash elastoBacklash(
+          final b=b, 
+          final c=c, 
+          final phi_rel0=0, 
+          final d=d) annotation (Placement(transformation(extent={{50,-10},{70,10}},
+                rotation=0)));
+        Modelica.Mechanics.Rotational.BearingFriction bearingFriction(final 
+            tau_pos=friction_pos, final peak=peak) 
+          annotation (Placement(transformation(extent={{10,-10},{30,10}}, rotation=
+                  0)));
+      equation 
+        connect(flange_a, gearRatio.flange_a) 
+          annotation (Line(points={{-100,0},{-70,0}}, color={0,0,0}));
+        connect(gearRatio.flange_b, gearEfficiency.flange_a) 
+          annotation (Line(points={{-50,0},{-30,0}}, color={0,0,0}));
+        connect(gearEfficiency.flange_b, bearingFriction.flange_a) 
+          annotation (Line(points={{-10,0},{10,0}}, color={0,0,0}));
+        connect(bearingFriction.flange_b, elastoBacklash.flange_a) 
+          annotation (Line(points={{30,0},{50,0}}, color={0,0,0}));
+        connect(elastoBacklash.flange_b, flange_b) 
+          annotation (Line(points={{70,0},{100,0}}, color={0,0,0}));
+        connect(gearRatio.bearing, adapter.flange_b) annotation (Line(points={{-60,-10},
+                {-60,-40},{6.12323e-016,-40},{6.12323e-016,-50}},      color={0,0,0}));
+        connect(gearEfficiency.bearing, adapter.flange_b) annotation (Line(points={{-20,-10},
+                {-20,-40},{6.12323e-016,-40},{6.12323e-016,-50}},           color={
+                0,0,0}));
+        connect(bearingFriction.bearing, adapter.flange_b) annotation (Line(points={{20,-10},
+                {20,-40},{6.12323e-016,-40},{6.12323e-016,-50}},           color={0,
+                0,0}));
+      end Gear;
     end Rotational;
   end Mechanics;
 end ObsoleteModelica3;
