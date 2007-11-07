@@ -480,11 +480,11 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
       connect(Star1.pin_n, Ground1.p) 
         annotation (points=[-70, 90; -80, 90], style(color=3));
       connect(SineVoltage1.plug_n, Star1.plug_p) 
-        annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
+        annotation (points=[-6.12323e-016,70; -6.12323e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
-            6.12303e-016,46; 6.12303e-016,40], style(color=3));
+        annotation (points=[6.12323e-016,50; 0,48; 1.22461e-015,46; 
+            6.12323e-016,46; 6.12323e-016,40], style(color=3));
       connect(Star3.pin_n, Ground3.p) 
         annotation (points=[-70,-90; -80,-90],   style(color=3));
       connect(Star4.plug_p, Resistor1.plug_n) annotation (points=[-80,-70; -70,
@@ -521,7 +521,7 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
       connect(BooleanStep2.y, IdealCommutingSwitch1.control) annotation (points=[
             -59,-40; -48,-40], style(color=5, rgbcolor={255,0,255}));
       connect(IdealCloser1.plug_n, CurrentRMSsensor1.plug_p) annotation (points=[
-            -6.12303e-016,20; -6.12303e-016,16; 6.12303e-016,16; 6.12303e-016,
+            -6.12323e-016,20; -6.12323e-016,16; 6.12323e-016,16; 6.12323e-016,
             10], style(
           color=3,
           rgbcolor={0,0,255},
@@ -543,7 +543,7 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
           rgbfillColor={135,135,135},
           fillPattern=1));
       connect(TerminalBox1.plugToGrid, CurrentRMSsensor1.plug_n) annotation (
-          points=[-10,-28; -10,-20; -6.12303e-016,-20; -6.12303e-016,-10],
+          points=[-10,-28; -10,-20; -6.12323e-016,-20; -6.12323e-016,-10],
           style(
           color=3,
           rgbcolor={0,0,255},
@@ -703,7 +703,7 @@ Default machine parameters of model <i>SM_ReluctanceRotorDamperCage</i> are used
       Utilities.TerminalBox TerminalBox1 annotation (extent=[-20,-30; 0,-10]);
     equation 
       connect(SignalVoltage1.plug_n, Star1.plug_p) 
-        annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
+        annotation (points=[-6.12323e-016,70; -6.12323e-016,90; -50,90],
                                                         style(color=3));
       connect(Star1.pin_n, Ground1.p) 
         annotation (points=[-70, 90; -80, 90], style(color=3));
@@ -716,13 +716,13 @@ Default machine parameters of model <i>SM_ReluctanceRotorDamperCage</i> are used
       connect(LoadInertia.flange_b, TorqueStep1.flange) 
         annotation (points=[60,-40; 70,-40], style(color=0, rgbcolor={0,0,0}));
       connect(CurrentRMSsensor1.plug_p, SignalVoltage1.plug_p) annotation (
-          points=[6.12303e-016,40; 6.12303e-016,42.5; 6.12303e-016,42.5;
-            6.12303e-016,45; 6.12303e-016,50; 6.12303e-016,50], style(color=3,
+          points=[6.12323e-016,40; 6.12323e-016,42.5; 6.12303e-016,42.5; 
+            6.12303e-016,45; 6.12303e-016,50; 6.12323e-016,50], style(color=3,
             rgbcolor={0,0,255}));
       connect(SMR1.plug_sn, RotorAngle1.plug_n)  annotation (points=[-16,-30;
             -16,-20], style(color=3, rgbcolor={0,0,255}));
       connect(SMR1.plug_sp, RotorAngle1.plug_p)  annotation (points=[-4,-30; -4,
-            -25; -4,-20; -4,-20], style(color=3, rgbcolor={0,0,255}));
+            -20],                 style(color=3, rgbcolor={0,0,255}));
       connect(SMR1.flange_a, RotorAngle1.flange) 
         annotation (points=[0,-40; 0,-10], style(color=0, rgbcolor={0,0,0}));
       connect(TerminalBox1.positiveMachinePlug, SMR1.plug_sp)  annotation (points=[-4,-30;
@@ -740,7 +740,7 @@ Default machine parameters of model <i>SM_ReluctanceRotorDamperCage</i> are used
           rgbfillColor={135,135,135},
           fillPattern=1));
       connect(TerminalBox1.plugToGrid, CurrentRMSsensor1.plug_n) annotation (
-          points=[-10,-28; 12,-28; 12,20; -6.12303e-016,20], style(
+          points=[-10,-28; 12,-28; 12,20; -6.12323e-016,20], style(
           color=3,
           rgbcolor={0,0,255},
           fillColor=10,
@@ -810,7 +810,7 @@ Default machine parameters of model <i>SM_PermanentMagnetDamperCage</i> are used
       Utilities.TerminalBox TerminalBox1 annotation (extent=[-20,-30; 0,-10]);
     equation 
       connect(SignalVoltage1.plug_n, Star1.plug_p) 
-        annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
+        annotation (points=[-6.12323e-016,70; -6.12323e-016,90; -50,90],
                                                         style(color=3));
       connect(Star1.pin_n, Ground1.p) 
         annotation (points=[-70, 90; -80, 90], style(color=3));
@@ -821,12 +821,12 @@ Default machine parameters of model <i>SM_PermanentMagnetDamperCage</i> are used
       connect(LoadInertia.flange_b, TorqueStep1.flange) 
         annotation (points=[60,-40; 70,-40], style(color=0, rgbcolor={0,0,0}));
       connect(SignalVoltage1.plug_p, CurrentRMSsensor1.plug_p) annotation (points=[
-            6.12303e-016,50; 0,50; 0,40; 6.12303e-016,40], style(color=3,
+            6.12323e-016,50; 0,50; 0,40; 6.12323e-016,40], style(color=3,
             rgbcolor={0,0,255}));
       connect(RotorAngle1.plug_n, SMPM1.plug_sn)  annotation (points=[-16,-20;
             -16,-30], style(color=3, rgbcolor={0,0,255}));
-      connect(RotorAngle1.plug_p, SMPM1.plug_sp)  annotation (points=[-4,-20;
-            -4,-25; -4,-25; -4,-30], style(color=3, rgbcolor={0,0,255}));
+      connect(RotorAngle1.plug_p, SMPM1.plug_sp)  annotation (points=[-4,-20; 
+            -4,-30],                 style(color=3, rgbcolor={0,0,255}));
       connect(RotorAngle1.flange, SMPM1.flange_a) 
         annotation (points=[0,-10; 0,-40], style(color=0, rgbcolor={0,0,0}));
       connect(SMPM1.flange_a, LoadInertia.flange_a) 
@@ -846,7 +846,7 @@ Default machine parameters of model <i>SM_PermanentMagnetDamperCage</i> are used
           rgbfillColor={135,135,135},
           fillPattern=1));
       connect(TerminalBox1.plugToGrid, CurrentRMSsensor1.plug_n) annotation (
-          points=[-10,-28; 12,-28; 12,20; -6.12303e-016,20], style(
+          points=[-10,-28; 12,-28; 12,20; -6.12323e-016,20], style(
           color=3,
           rgbcolor={0,0,255},
           fillColor=10,
@@ -888,8 +888,9 @@ Simulate for 30 seconds and plot (versus RotorAngle1.rotorAngle):
 Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are used.
 </HTML>"));
       Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage
-        SMEE1(phi_mechanical(start=-(Modelica.Constants.pi +
-              Modelica.SIunits.Conversions.from_deg(gamma0))/SMEE1.p)) 
+        SMEE1(phi_mechanical(start=-(Modelica.Constants.pi + 
+              Modelica.SIunits.Conversions.from_deg(gamma0))/SMEE1.p, fixed=
+              true)) 
         annotation (extent=[-20,-50; 0,-30],     rotation=0);
       Machines.Sensors.RotorAngle RotorAngle1(p=SMEE1.p) 
         annotation (extent=[-20,0; 0,-20], rotation=-90);
@@ -922,7 +923,7 @@ Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are us
     equation 
       connect(RotorAngle1.plug_n, SMEE1.plug_sn)  annotation (points=[-16,-20;
             -16,-30], style(color=3, rgbcolor={0,0,255}));
-      connect(RotorAngle1.plug_p, SMEE1.plug_sp)  annotation (points=[-4,-20;
+      connect(RotorAngle1.plug_p, SMEE1.plug_sp)  annotation (points=[-4,-20; 
             -4,-25; -4,-25; -4,-30], style(color=3, rgbcolor={0,0,255}));
       connect(RotorAngle1.flange, SMEE1.flange_a) 
         annotation (points=[0,-10; 0,-40], style(color=0, rgbcolor={0,0,0}));
@@ -931,14 +932,14 @@ Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are us
       connect(Star1.plug_p, SineVoltage1.plug_n) annotation (points=[-50,90;
             -40,90], style(color=3, rgbcolor={0,0,255}));
       connect(ElectricalPowerSensor1.plug_ni, CurrentRMSsensor1.plug_p) 
-        annotation (points=[6.12303e-016,50; 1.76911e-022,46; 6.12303e-016,46;
-            6.12303e-016,40], style(color=3, rgbcolor={0,0,255}));
+        annotation (points=[6.12323e-016,50; 1.76911e-022,46; 6.12323e-016,46; 
+            6.12323e-016,40], style(color=3, rgbcolor={0,0,255}));
       connect(SMEE1.flange_a, MechanicalPowerSensor1.flange_a) 
         annotation (points=[0,-40; 10,-40], style(color=0, rgbcolor={0,0,0}));
       connect(MechanicalPowerSensor1.flange_b, ConstantSpeed1.flange) 
         annotation (points=[30,-40; 70,-40], style(color=0, rgbcolor={0,0,0}));
       connect(SineVoltage1.plug_p, ElectricalPowerSensor1.plug_p) annotation (
-          points=[-20,90; -6.12303e-016,90; -6.12303e-016,70], style(color=3,
+          points=[-20,90; -6.12323e-016,90; -6.12323e-016,70], style(color=3,
             rgbcolor={0,0,255}));
       connect(RampCurrent1.p, Ground3.p) annotation (points=[-50,-50; -80,-50],
           style(color=3, rgbcolor={0,0,255}));
@@ -961,7 +962,7 @@ Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are us
           rgbfillColor={135,135,135},
           fillPattern=1));
       connect(TerminalBox1.plugToGrid, CurrentRMSsensor1.plug_n) annotation (
-          points=[-10,-28; 10,-28; 10,20; -6.12303e-016,20], style(
+          points=[-10,-28; 10,-28; 10,20; -6.12323e-016,20], style(
           color=3,
           rgbcolor={0,0,255},
           fillColor=10,
@@ -2168,7 +2169,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             style(color=3, rgbcolor={0,0,255}));
         connect(spacePhasorS.plug_n, plug_sn) annotation (points=[-10,40; -10,
               60; -60,60; -60,100],     style(color=3, rgbcolor={0,0,255}));
-        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground, spacePhasorS.zero) annotation (points=[-10,20;
               -10,14; -6.12303e-016,14; -6.12303e-016,20], style(
             color=3,
             rgbcolor={0,0,255},
