@@ -907,8 +907,9 @@ Simulate for 30 seconds and plot (versus RotorAngle1.rotorAngle):
 Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are used.
 </HTML>"));
       Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage
-        SMEE1(phi_mechanical(start=-(Modelica.Constants.pi +
-              Modelica.SIunits.Conversions.from_deg(gamma0))/SMEE1.p)) 
+        SMEE1(phi_mechanical(start=-(Modelica.Constants.pi + 
+              Modelica.SIunits.Conversions.from_deg(gamma0))/SMEE1.p, fixed=
+              true)) 
         annotation (extent=[-20,-50; 0,-30],     rotation=0);
       Machines.Sensors.RotorAngle RotorAngle1(p=SMEE1.p) 
         annotation (extent=[30,-50; 10,-30],
@@ -952,7 +953,7 @@ Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are us
       connect(Star1.plug_p, SineVoltage1.plug_n) annotation (points=[-50,90;
             -40,90], style(color=3, rgbcolor={0,0,255}));
       connect(ElectricalPowerSensor1.plug_ni, CurrentRMSsensor1.plug_p) 
-        annotation (points=[6.12323e-016,50; 1.76911e-022,46; 6.12323e-016,46;
+        annotation (points=[6.12323e-016,50; 1.76911e-022,46; 6.12323e-016,46; 
             6.12323e-016,40], style(color=3, rgbcolor={0,0,255}));
       connect(SMEE1.flange_a, MechanicalPowerSensor1.flange_a) 
         annotation (points=[0,-40; 40,-40], style(color=0, rgbcolor={0,0,0}));
@@ -2053,7 +2054,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(airGapS.spacePhasor_s, spacePhasorS.spacePhasor) annotation (points=[10,10; 
+        connect(airGapS.spacePhasor_s, spacePhasorS.spacePhasor) annotation (points=[10,10;
               10,20],        style(
             color=3,
             rgbcolor={0,0,255},
@@ -2079,7 +2080,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(lssigma.plug_n,spacePhasorS. plug_p) annotation (points=[10,60; 
+        connect(lssigma.plug_n,spacePhasorS. plug_p) annotation (points=[10,60;
               10,40], style(
             color=3,
             rgbcolor={0,0,255},
@@ -2090,7 +2091,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
               -10,14; -6.12323e-016,14; -6.12323e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -2294,7 +2295,7 @@ TurnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
                 255}));
         connect(rr.plug_p, plug_rp)        annotation (points=[60,-80; 60,-90;
               -80,-90; -80,60; -100,60],  style(color=3, rgbcolor={0,0,255}));
-        connect(spacePhasorR.ground, spacePhasorR.zero) annotation (points=[-10,-20; 
+        connect(spacePhasorR.ground, spacePhasorR.zero) annotation (points=[-10,-20;
               -10,-14; -6.12323e-016,-14; -6.12323e-016,-20],      style(
             color=3,
             rgbcolor={0,0,255},
@@ -2303,7 +2304,7 @@ TurnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
             fillPattern=1));
         connect(airGapS.spacePhasor_r, spacePhasorR.spacePhasor) 
           annotation (points=[10,-10; 10,-20], style(color=3, rgbcolor={0,0,255}));
-        connect(spacePhasorS.spacePhasor, airGapS.spacePhasor_s) annotation (points=[10,20; 
+        connect(spacePhasorS.spacePhasor, airGapS.spacePhasor_s) annotation (points=[10,20;
               10,10],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -2330,7 +2331,7 @@ TurnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(lssigma.plug_n,spacePhasorS. plug_p) annotation (points=[10,60; 
+        connect(lssigma.plug_n,spacePhasorS. plug_p) annotation (points=[10,60;
               10,40], style(
             color=3,
             rgbcolor={0,0,255},
@@ -2341,7 +2342,7 @@ TurnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
               -10,14; -6.12323e-016,14; -6.12323e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -2620,7 +2621,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         connect(airGapR.spacePhasor_r, permanentMagnet.spacePhasor_r) 
           annotation (points=[10,-10; 20,-10; 20,-50; 10,-50], style(color=3,
               rgbcolor={0,0,255}));
-        connect(spacePhasorS.spacePhasor, airGapR.spacePhasor_s) annotation (points=[10,20; 
+        connect(spacePhasorS.spacePhasor, airGapR.spacePhasor_s) annotation (points=[10,20;
               10,10],        style(
             color=3,
             rgbcolor={0,0,255},
@@ -2647,7 +2648,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(lssigma.plug_n,spacePhasorS. plug_p) annotation (points=[10,60; 
+        connect(lssigma.plug_n,spacePhasorS. plug_p) annotation (points=[10,60;
               10,40], style(
             color=3,
             rgbcolor={0,0,255},
@@ -2658,7 +2659,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
               -10,14; -6.12323e-016,14; -6.12323e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -2916,7 +2917,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         connect(airGapR.spacePhasor_r, electricalExcitation.spacePhasor_r) 
           annotation (points=[10,-10; 20,-10; 20,-50; 10,-50],
                                                style(color=3, rgbcolor={0,0,255}));
-        connect(spacePhasorS.spacePhasor, airGapR.spacePhasor_s) annotation (points=[10,20; 
+        connect(spacePhasorS.spacePhasor, airGapR.spacePhasor_s) annotation (points=[10,20;
               10,10],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -2943,7 +2944,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(lssigma.plug_n,spacePhasorS. plug_p) annotation (points=[10,60; 
+        connect(lssigma.plug_n,spacePhasorS. plug_p) annotation (points=[10,60;
               10,40], style(
             color=3,
             rgbcolor={0,0,255},
@@ -2954,7 +2955,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
               -10,14; -6.12323e-016,14; -6.12323e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -3142,7 +3143,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
       equation 
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) 
           annotation (points=[10,-10; 10,-20], style(color=3, rgbcolor={0,0,255}));
-        connect(spacePhasorS.spacePhasor, airGapR.spacePhasor_s) annotation (points=[10,20; 
+        connect(spacePhasorS.spacePhasor, airGapR.spacePhasor_s) annotation (points=[10,20;
               10,10],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -3169,7 +3170,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(lssigma.plug_n,spacePhasorS. plug_p) annotation (points=[10,60; 
+        connect(lssigma.plug_n,spacePhasorS. plug_p) annotation (points=[10,60;
               10,40], style(
             color=3,
             rgbcolor={0,0,255},
@@ -3180,7 +3181,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
               -10,14; -6.12323e-016,14; -6.12323e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
