@@ -1,4 +1,4 @@
-within Modelica.Thermal;
+within Modelica.Thermal; 
 package HeatTransfer 
   "Library of 1-dimensional heat transfer with lumped elements" 
   import Modelica.SIunits.Conversions.*;
