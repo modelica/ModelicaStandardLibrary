@@ -830,6 +830,17 @@ The following changes are present for the whole library:
      be provided.</li>
 </ul>
 
+<p><br>
+The following <b style=\"color:blue\">new components</b> have been added 
+to <b style=\"color:blue\">existing</b> libraries:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>Electrical.Machines.(Examples.)Utilities</b></td></tr>
+  <tr><td valign=\"top\">TransformerData</td>
+      <td valign=\"top\"> A record that calculates required impedances (parameters) from nominal data of transformers.</td> </tr>
+</table>
+
 
 <p><br>
 The following <b style=\"color:blue\">existing components</b>
@@ -868,6 +879,62 @@ have been <b style=\"color:blue\">changed</b> in a
       <td valign=\"top\"> Moved to library ObsoleteModelica3, since the models are not \"balanced\".
                         A new component<br>\"InverseBlockConstraints\"
                         is provided instead that has the same feature, but is \"balanced\".</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Electrical.MultiPhase.</b></td></tr>
+  <tr><td valign=\"top\"> </td>
+      <td valign=\"top\"> Changed all default values of parameters to (start=xxx), with the following exceptions:<br>
+                        <tt>parameter Integer m(final min=1) = 3 \"number of phases\";</tt><br>
+                        <tt>parameter Modelica.SIunits.Angle phase[m]=-{(j - 1)/m*2*pi for j in 1:m} \"Phases of sine  waves\";</tt><br>
+                        <tt>parameter Modelica.SIunits.Voltage/Current offset[m]=zeros(m) \"Voltage/Current offsets\";</tt><br>
+                        <tt>parameter Modelica.SIunits.Time startTime[m]=zeros(m) \"Time offsets\";</tt><br>
+                        Removed all <tt>redeclare type SignalType</tt> from <tt>RealInput</tt> and <tt>RealOutput</tt></td> </tr>
+
+  <tr><td colspan=\"2\"><b>Electrical.MultiPhase.Examples.</b></td></tr>
+  <tr><td valign=\"top\"> </td>
+      <td valign=\"top\"> Changed the instance names of components used in the examples to more up-to-date style.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Electrical.Machines.</b></td></tr>
+  <tr><td valign=\"top\"> </td>
+      <td valign=\"top\"> Changed all default values of parameters to (start=xxx)<br>
+                        Removed all <tt>redeclare type SignalType</tt> from <tt>RealInput</tt> and <tt>RealOutput</tt></td></tr>
+  <tr><td valign=\"top\"> </td>
+      <td valign=\"top\"> Moved package <tt>Machines.Examples.Utilities</tt> to <tt>Machines.Utilities</tt></td> </tr>
+  <tr><td valign=\"top\"> </td>
+      <td valign=\"top\"> Changed the following component resp. variable resp. parameter names to be more concise:<br>
+                        Removed suffix \"DamperCage\" from all synchronous induction machines 
+                        since the user can choose whether the damper cage is present or not.<br><tt>
+                        RotorAngle ... RotorDisplacementAngle<br>
+                        J_Rotor ... Jr<br>
+                        Rr ........ Rrd (damper of synchronous induction machines)<br>
+                        Lrsigma ... Lrsigmad (damper of synchronous induction machines)<br>
+                        phi_mecahnical ... phiMechanical<br>
+                        w_mechanical ..... wMechanical<br>
+                        rpm_mechanical ... rpmMechanical<br>
+                        tau_electrical ... tauElectrical<br>
+                        tau_shaft ........ tauShaft<br>
+                        TurnsRatio ....... turnsRatio    (AIMS)<br>
+                        VsNom ............ VsNominal     (AIMS)<br>
+                        Vr_Lr ............ VrLockedRotor (AIMS)<br>
+                        DamperCage ....... useDamperCage (synchronous induction machines)<br>
+                        V0 ............... VsOpenCicuit  (SMPM)<br>
+                        Ie0 .............. IeOpenCicuit  (SMEE)
+                        </tt></td> </tr>
+  <tr><td valign=\"top\">Interfaces.</td>
+      <td valign=\"top\"> Moved as much code as possible from specific machine models to partials to reduce redundant code.</td> </tr>
+  <tr><td valign=\"top\">Interfaces.Adapter</td>
+      <td valign=\"top\"> Removed to avoid cardinality; instead, the following solution has been implemented:</td> </tr>
+  <tr><td valign=\"top\">Sensors.RotorDisplacementAngle<br>Interfaces.PartialBasicMachine</td>
+      <td valign=\"top\"> Introduced <tt>parameter Boolean useSupport=false \"enable / disable (=fixed stator) support\"</tt><br>
+                        The rotational support connector is only present with <tt>useSupport = true;</tt><br>
+                        otherwise the stator is fixed internally.<br>
+                        The rotational connector <tt>flange_a</tt> has been renamed to <tt>shaft</tt>.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Electrical.Machines.Examples.</b></td></tr>
+  <tr><td valign=\"top\"> </td>
+      <td valign=\"top\"> Changed the names of the examples to be more meaninglful.<br>
+                        Changed the instance names of components used in the examples to more up-to-date style.</td> </tr>
+  <tr><td valign=\"top\">SMEE_Generator</td>
+      <td valign=\"top\"> Initialization of <tt>smee.phiMechanical</tt> with <tt>fixed=true</tt></td> </tr>
 
   <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Frames.</b></td></tr>
   <tr><td valign=\"top\"> length<br>
@@ -946,6 +1013,15 @@ have been <b style=\"color:blue\">changed</b> in a
                         constant reference_X<br>
                         BaseProperties
       <td valign=\"top\"> The package constant nX = nS, now always, even for single species media. This also allows to define mixtures with only 1 element. The package constant nXi=if fixedX then 0 else if reducedX or nS==1 then nS - 1 else nS. This required that all BaseProperties for single species media get an additional equation to define the composition X as {1.0} (or reference_X, which is {1.0} for single species). This will also mean that all user defined single species media need to be updated by that equation.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.</b></td></tr>
+  <tr><td valign=\"top\"> </td>
+      <td valign=\"top\"> Changed all default values of parameters to (start=xxx)<br>
+                        Removed all <tt>redeclare type SignalType</tt> from <tt>RealInput</tt> and <tt>RealOutput</tt></td> </tr>
+
+  <tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.Examples.</b></td></tr>
+  <tr><td valign=\"top\"> </td>
+      <td valign=\"top\"> Changed the instance names of components used in the examples to more up-to-date style.</td> </tr>
 </table>
 
 
@@ -982,6 +1058,11 @@ have been <b style=\"color:blue\">improved</b> in a
       <td valign=\"top\"> Removed drawing fromt the diagram layer (kept drawing only in 
                         icon layer),<br> in order that this icon can be used in situations
                         where components are dragged in the diagram layer.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.Interfaces.Partials.</b></td></tr>
+  <tr><td valign=\"top\">TwoPort</td>
+      <td valign=\"top\"> Introduced <tt>parameter Real tapT(final min=0, final max=1)=1</tt> that defines the temperature of the heatPort
+                        betwen inlet and outlet.</td> </tr>
 
   <tr><td colspan=\"2\"><b>StateGraph.</b></td></tr>
   <tr><td valign=\"top\"> InitialStep<br>
@@ -1033,6 +1114,10 @@ units are wrong or errors in documentation):
   <tr><td valign=\"top\"> GasForce </td>
       <td valign=\"top\"> Unit of variable \"press\" corrected (from Pa to bar)</td> 
   </tr>
+
+  <tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.Interfaces.Partials.</b></td></tr>
+  <tr><td valign=\"top\">SimpleFriction</td>
+      <td valign=\"top\"> The internal parameter k is defined and calculated with the appropriate unit.</td> </tr>
 
 </table>
                                
