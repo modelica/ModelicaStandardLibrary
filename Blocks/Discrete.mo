@@ -41,21 +41,23 @@ as the components of packages <b>Modelica.Blocks.Math</b>,
     extends Interfaces.DiscreteSISO;
     
     annotation (
-      Icon(graphics={
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
           Ellipse(
             extent={{-25,-10},{-45,10}}, 
-            lineColor={0,0,255}, 
+            lineColor={0,0,127}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
           Ellipse(
             extent={{45,-10},{25,10}}, 
-            lineColor={0,0,255}, 
+            lineColor={0,0,127}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
-          Line(points={{-100,0},{-45,0}}, color={0,0,255}), 
-          Line(points={{45,0},{100,0}}, color={0,0,255}), 
-          Line(points={{-35,0},{30,35}}, color={0,0,255})}),
-      Diagram(graphics={
+          Line(points={{-100,0},{-45,0}}, color={0,0,127}), 
+          Line(points={{45,0},{100,0}}, color={0,0,127}), 
+          Line(points={{-35,0},{30,35}}, color={0,0,127})}),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics={
           Ellipse(
             extent={{-25,-10},{-45,10}}, 
             lineColor={0,0,255}, 
@@ -96,7 +98,7 @@ via parameter <b>samplePeriod</b>.
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={Line(points={{-78,-42},{-52,-42},{-52,0},{-26,
                 0},{-26,24},{-6,24},{-6,64},{18,64},{18,20},{38,20},{38,0},{44,
-                0},{44,0},{62,0}}, color={0,0,255})}),
+                0},{44,0},{62,0}}, color={0,0,127})}),
       Documentation(info="<HTML>
 <p>
 The output is identical to the sampled input signal at sample
@@ -132,7 +134,7 @@ sample instant during the sample points.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={Line(points={{-79,-41},{-59,-33},{-40,1},{-20,
-                9},{0,63},{21,20},{41,10},{60,20}}, color={0,0,255}), Line(
+                9},{0,63},{21,20},{41,10},{60,20}}, color={0,0,127}), Line(
               points={{60,19},{81,10}}, color={0,0,255})}),
       Documentation(info="<HTML>
 <p>
@@ -184,15 +186,15 @@ the output y is identical to parameter yStart.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{-30,0},{30,0}}, color={0,0,255}), 
+          Line(points={{-30,0},{30,0}}, color={0,0,127}), 
           Text(
             extent={{-90,10},{90,90}}, 
             textString="1", 
-            lineColor={0,0,255}), 
+            lineColor={0,0,127}), 
           Text(
             extent={{-90,-10},{90,-90}}, 
             textString="z", 
-            lineColor={0,0,255})}),
+            lineColor={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -282,14 +284,14 @@ states can be set as start values of <b>x</b>.<p>
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{82,0},{-84,0}}, color={0,0,255}), 
+          Line(points={{82,0},{-84,0}}, color={0,0,127}), 
           Text(
             extent={{-92,92},{86,12}}, 
-            lineColor={0,0,255}, 
+            lineColor={0,0,127}, 
             textString="b(z)"), 
           Text(
             extent={{-90,-12},{90,-90}}, 
-            lineColor={0,0,255}, 
+            lineColor={0,0,127}, 
             textString="a(z)")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -401,23 +403,23 @@ results in the following equations:
           Text(
             extent={{-90,15},{-15,90}}, 
             textString="A", 
-            lineColor={0,0,255}), 
+            lineColor={0,0,127}), 
           Text(
             extent={{15,15},{90,90}}, 
             textString="B", 
-            lineColor={0,0,255}), 
+            lineColor={0,0,127}), 
           Text(
             extent={{-52,28},{54,-20}}, 
             textString="z", 
-            lineColor={0,0,255}), 
+            lineColor={0,0,127}), 
           Text(
             extent={{-90,-15},{-15,-90}}, 
             textString="C", 
-            lineColor={0,0,255}), 
+            lineColor={0,0,127}), 
           Text(
             extent={{15,-15},{90,-90}}, 
             textString="D", 
-            lineColor={0,0,255})}),
+            lineColor={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -452,22 +454,24 @@ results in the following equations:
     parameter Real y_start=0 "initial value of output signal";
     
     annotation (
-      Icon(graphics={
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
           Ellipse(
             extent={{-25,-10},{-45,10}}, 
-            lineColor={0,0,255}, 
+            lineColor={0,0,127}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
           Ellipse(
             extent={{45,-10},{25,10}}, 
-            lineColor={0,0,255}, 
+            lineColor={0,0,127}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
-          Line(points={{-100,0},{-45,0}}, color={0,0,255}), 
-          Line(points={{45,0},{100,0}}, color={0,0,255}), 
+          Line(points={{-100,0},{-45,0}}, color={0,0,127}), 
+          Line(points={{45,0},{100,0}}, color={0,0,127}), 
           Line(points={{0,-100},{0,-26}}, color={255,0,255}), 
-          Line(points={{-35,0},{28,-48}}, color={0,0,255})}),
-      Diagram(graphics={
+          Line(points={{-35,0},{28,-48}}, color={0,0,127})}),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics={
           Ellipse(
             extent={{-25,-10},{-45,10}}, 
             lineColor={0,0,255}, 
@@ -516,26 +520,28 @@ the initial value defined via parameter <b>y0</b>.
     
     extends Interfaces.DiscreteBlockIcon;
     annotation (
-      Icon(graphics={
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
           Ellipse(
             extent={{-25,-10},{-45,10}}, 
-            lineColor={0,0,255}, 
+            lineColor={0,0,127}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
           Ellipse(
             extent={{45,-10},{25,10}}, 
-            lineColor={0,0,255}, 
+            lineColor={0,0,127}, 
             fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid), 
-          Line(points={{-100,0},{-45,0}}, color={0,0,255}), 
-          Line(points={{45,0},{100,0}}, color={0,0,255}), 
+          Line(points={{-100,0},{-45,0}}, color={0,0,127}), 
+          Line(points={{45,0},{100,0}}, color={0,0,127}), 
           Line(points={{0,-100},{0,-26}}, color={255,0,255}), 
-          Line(points={{-35,0},{28,-48}}, color={0,0,255}), 
+          Line(points={{-35,0},{28,-48}}, color={0,0,127}), 
           Text(
             extent={{-86,82},{82,24}}, 
             lineColor={0,0,0}, 
             textString="max")}),
-      Diagram(graphics={
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics={
           Ellipse(
             extent={{-25,-10},{-45,10}}, 
             lineColor={0,0,255}, 

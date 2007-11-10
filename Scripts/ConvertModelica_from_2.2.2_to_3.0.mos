@@ -593,6 +593,10 @@ convertModifiers("Modelica.Mechanics.MultiBody.Parts.PointMass",{"initType"} ,
                                 "%initType%==7) then true else false"}, true);
 
 
+// --------- initialization of Thermal.HeatTransfer with start values ----------
+convertModifiers("Modelica.Thermal.HeatTransfer.HeatCapacitor",{"steadyState"} , 
+                 {"der_T.fixed=if %steadyState% then true else false"}, true);
+
 
 //--------- New design of Rotational -------------------------------------------
 convertClass("Modelica.Mechanics.Rotational.Interfaces.Bearing",

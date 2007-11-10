@@ -33,7 +33,7 @@ This package contains <b>discontinuous</b> and
 </html>
 "));
       block Limiter "Limit the range of a signal" 
-        parameter Real uMax=1 "Upper limits of input signals";
+        parameter Real uMax(start=1) "Upper limits of input signals";
         parameter Real uMin= -uMax "Lower limits of input signals";
         parameter Boolean limitsAtInit = true 
       "= false, if limits are ignored during initializiation (i.e., y=u)";
@@ -153,7 +153,8 @@ limit2. If this is not the case, the corresponding limit
 is passed as output.
 </p>
 </HTML>
-"),   Icon(graphics={
+"),   Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
           Line(points={{0,-90},{0,68}}, color={192,192,192}), 
           Line(points={{-90,0},{68,0}}, color={192,192,192}), 
           Polygon(
@@ -166,22 +167,23 @@ is passed as output.
             extent={{-150,150},{150,110}}, 
             textString="%name", 
             lineColor={0,0,255}), 
-          Line(points={{-100,80},{66,80},{66,70}}, color={0,0,255}), 
-          Line(points={{-100,-80},{-64,-80},{-64,-70}}, color={0,0,255}), 
+          Line(points={{-100,80},{66,80},{66,70}}, color={0,0,127}), 
+          Line(points={{-100,-80},{-64,-80},{-64,-70}}, color={0,0,127}), 
           Polygon(
             points={{-64,-70},{-66,-74},{-62,-74},{-64,-70}}, 
             fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
+            lineColor={0,0,127}), 
           Polygon(
             points={{66,70},{64,74},{68,74},{66,70}}, 
             fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
+            lineColor={0,0,127}), 
           Polygon(
             points={{0,90},{-8,68},{8,68},{0,90}}, 
             lineColor={192,192,192}, 
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid)}),
-      Diagram(graphics={
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics={
           Line(points={{0,-60},{0,50}}, color={192,192,192}), 
           Polygon(
             points={{0,60},{-5,50},{5,50},{0,60}}, 
@@ -239,7 +241,7 @@ is passed as output.
   end VariableLimiter;
   
       block DeadZone "Provide a region of zero output" 
-        parameter Real uMax=1 "Upper limits of dead zones";
+        parameter Real uMax(start=1) "Upper limits of dead zones";
         parameter Real uMin=-uMax "Lower limits of dead zones";
         parameter Boolean deadZoneAtInit = true 
       "= false, if dead zone is ignored during initializiation (i.e., y=u)";
@@ -333,7 +335,7 @@ function of the input with a slope of 1.
   
   block FixedDelay "Delay block with fixed DelayTime" 
     extends Modelica.Blocks.Interfaces.SISO;
-    parameter SI.Time delayTime=1 
+    parameter SI.Time delayTime(start=1) 
       "Delay time of output with respect to input signal";
     
     annotation (
@@ -363,7 +365,7 @@ The Input signal is delayed by a given time instant, or more precisely:
                 74.6},{-55.8,79.1},{-50.2,79.8},{-44.6,76.6},{-38.9,69.7},{-33.3,
                 59.4},{-26.9,44.1},{-18.83,21.2},{-1.9,-30.8},{5.3,-50.2},{11.7,
                 -64.2},{17.3,-73.1},{23,-78.4},{28.6,-80},{34.2,-77.6},{39.9,-71.5},
-                {45.5,-61.9},{51.9,-47.2},{60,-24.8},{68,0}}, color={0,0,255}), 
+                {45.5,-61.9},{51.9,-47.2},{60,-24.8},{68,0}}, color={0,0,127}), 
             
           Line(points={{-62,0},{-50.7,34.2},{-43.5,53.1},{-37.1,66.4},{-31.4,
                 74.6},{-25.8,79.1},{-20.2,79.8},{-14.6,76.6},{-8.9,69.7},{-3.3,
@@ -435,7 +437,7 @@ The Input signal is delayed by a given time instant, or more precisely:
   
   block PadeDelay "Pade approximation of delay block with fixed DelayTime " 
     extends Modelica.Blocks.Interfaces.SISO;
-    parameter SI.Time delayTime=1 
+    parameter SI.Time delayTime(start=1) 
       "Delay time of output with respect to input signal";
     parameter Integer n(min=1) = 1 "Order of pade approximation";
     parameter Integer m(
@@ -509,7 +511,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
                 74.6},{-57.8,79.1},{-52.2,79.8},{-46.6,76.6},{-40.9,69.7},{-35.3,
                 59.4},{-28.9,44.1},{-20.83,21.2},{-3.9,-30.8},{3.3,-50.2},{9.7,
                 -64.2},{15.3,-73.1},{21,-78.4},{26.6,-80},{32.2,-77.6},{37.9,-71.5},
-                {43.5,-61.9},{49.9,-47.2},{58,-24.8},{66,0}}, color={0,0,255}), 
+                {43.5,-61.9},{49.9,-47.2},{58,-24.8},{66,0}}, color={0,0,127}), 
             
           Line(points={{-72,0},{-60.7,34.2},{-53.5,53.1},{-47.1,66.4},{-41.4,
                 74.6},{-35.8,79.1},{-30.2,79.8},{-24.6,76.6},{-18.9,69.7},{-13.3,
@@ -622,7 +624,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
   
   block VariableDelay "Delay block with variable DelayTime" 
     extends Modelica.Blocks.Interfaces.SISO;
-    parameter Real delayMax(min=0) = 1 "maximum delay time";
+    parameter Real delayMax(min=0, start=1) "maximum delay time";
     annotation (
       Window(
         x=0.26,
@@ -656,7 +658,7 @@ the following relationship:
                 74.6},{-55.8,79.1},{-50.2,79.8},{-44.6,76.6},{-38.9,69.7},{-33.3,
                 59.4},{-26.9,44.1},{-18.83,21.2},{-1.9,-30.8},{5.3,-50.2},{11.7,
                 -64.2},{17.3,-73.1},{23,-78.4},{28.6,-80},{34.2,-77.6},{39.9,-71.5},
-                {45.5,-61.9},{51.9,-47.2},{60,-24.8},{68,0}}, color={0,0,255}), 
+                {45.5,-61.9},{51.9,-47.2},{60,-24.8},{68,0}}, color={0,0,127}), 
             
           Line(points={{-64,0},{-52.7,34.2},{-45.5,53.1},{-39.1,66.4},{-33.4,
                 74.6},{-27.8,79.1},{-22.2,79.8},{-16.6,76.6},{-10.9,69.7},{-5.3,

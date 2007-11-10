@@ -501,16 +501,16 @@ generated signal.
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Text(
-            extent={{-102,34},{-142,24}},
-            textString="(setpoint)",
-            lineColor={0,0,255}),
+            extent={{-102,34},{-142,24}}, 
+            textString="(setpoint)", 
+            lineColor={0,0,255}), 
           Text(
-            extent={{100,24},{140,14}},
-            textString="(actuator)",
-            lineColor={0,0,255}),
+            extent={{100,24},{140,14}}, 
+            textString="(actuator)", 
+            lineColor={0,0,255}), 
           Text(
-            extent={{-83,-112},{-33,-102}},
-            textString=" (measurement)",
+            extent={{-83,-112},{-33,-102}}, 
+            textString=" (measurement)", 
             lineColor={0,0,255})}),
         Window(
           x=0.19,
@@ -549,16 +549,16 @@ to be used as base class for a corresponding controller.
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Text(
-            extent={{-100,36},{-140,26}},
-            textString="(setpoint)",
-            lineColor={0,0,255}),
+            extent={{-100,36},{-140,26}}, 
+            textString="(setpoint)", 
+            lineColor={0,0,255}), 
           Text(
-            extent={{102,24},{142,14}},
-            textString="(actuator)",
-            lineColor={0,0,255}),
+            extent={{102,24},{142,14}}, 
+            textString="(actuator)", 
+            lineColor={0,0,255}), 
           Text(
-            extent={{-75,-108},{-25,-98}},
-            textString=" (measurement)",
+            extent={{-75,-108},{-25,-98}}, 
+            textString=" (measurement)", 
             lineColor={0,0,255})}),
         Window(
           x=0.26,
@@ -577,10 +577,10 @@ to be used as base class for a corresponding controller.
     partial block DiscreteBlockIcon 
     "Graphical layout of discrete block component icon" 
     
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
-              -100,-100},{100,100}}), graphics={Rectangle(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={Rectangle(
             extent={{-100,-100},{100,100}}, 
-            lineColor={0,0,255}, 
+            lineColor={0,0,127}, 
             fillColor={223,223,159}, 
             fillPattern=FillPattern.Solid), Text(
             extent={{-150,150},{150,110}}, 
@@ -600,7 +600,7 @@ from Blocks.Discrete.
     partial block DiscreteBlock "Base class of discrete control blocks" 
       extends DiscreteBlockIcon;
     
-      parameter SI.Time samplePeriod(min=100*Modelica.Constants.eps) = 0.1 
+      parameter SI.Time samplePeriod(min=100*Modelica.Constants.eps, start = 0.1) 
       "Sample period of component";
       parameter SI.Time startTime=0 "First sample time instant";
   protected 
@@ -709,18 +709,19 @@ These signals are sampled due to the defined <b>samplePeriod</b> parameter.
       Modelica.Blocks.Interfaces.RealOutput y 
       "Continuous scalar actuator output signal"   annotation (Placement(
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
-      annotation (Diagram(graphics={
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
           Text(
-            extent={{-100,34},{-140,24}},
-            lineColor={0,0,0},
-            textString="(setpoint)"),
+            extent={{-100,34},{-140,24}}, 
+            lineColor={0,0,0}, 
+            textString="(setpoint)"), 
           Text(
-            extent={{100,22},{130,14}},
-            lineColor={0,0,0},
-            textString="(actuator)"),
+            extent={{100,22},{130,14}}, 
+            lineColor={0,0,0}, 
+            textString="(actuator)"), 
           Text(
-            extent={{-70,-112},{-20,-102}},
-            lineColor={0,0,0},
+            extent={{-70,-112},{-20,-102}}, 
+            lineColor={0,0,0}, 
             textString=" (measurement)")}),
                               Documentation(info="<html>
 <p>
@@ -735,7 +736,7 @@ to be used as base class for a corresponding controller.
       connect(u_s, sampler_s.u)           annotation (Line(points={{-120,0},{
             -102,0}}));
       connect(u_m, sampler_m.u)           annotation (Line(points={{0,-120},{0,
-            -111},{0,-102},{-7.34764e-016,-102}}));
+            -111},{0,-102},{-7.34788e-016,-102}}));
     end SVdiscrete;
   
     partial block MVdiscrete "Discrete Multi-Variable controller" 
@@ -767,22 +768,23 @@ to be used as base class for a corresponding controller.
       Modelica.Blocks.Interfaces.RealOutput y[ny] 
       "Continuous actuator output signals"   annotation (Placement(
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
-      annotation (Diagram(graphics={
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
           Text(
-            extent={{-100,-10},{-80,-30}},
-            textString="u_s",
-            lineColor={0,0,255}),
+            extent={{-100,-10},{-80,-30}}, 
+            textString="u_s", 
+            lineColor={0,0,255}), 
           Text(
-            extent={{-98,34},{-138,24}},
-            lineColor={0,0,0},
-            textString="(setpoint)"),
+            extent={{-98,34},{-138,24}}, 
+            lineColor={0,0,0}, 
+            textString="(setpoint)"), 
           Text(
-            extent={{98,24},{138,14}},
-            lineColor={0,0,0},
-            textString="(actuator)"),
+            extent={{98,24},{138,14}}, 
+            lineColor={0,0,0}, 
+            textString="(actuator)"), 
           Text(
-            extent={{-62,-110},{-12,-100}},
-            lineColor={0,0,0},
+            extent={{-62,-110},{-12,-100}}, 
+            lineColor={0,0,0}, 
             textString=" (measurement)")}),
                               Documentation(info="<html>
 <p>
@@ -797,7 +799,7 @@ to be used as base class for a corresponding controller.
       connect(u_s, sampler_s.u)           annotation (Line(points={{-120,0},{
             -92,0}}));
       connect(u_m, sampler_m.u)           annotation (Line(points={{0,-120},{0,
-            -106},{0,-92},{-7.34764e-016,-92}}));
+            -106},{0,-92},{-7.34788e-016,-92}}));
     end MVdiscrete;
   
     partial block BooleanBlockIcon "Basic graphical layout of Boolean block" 
@@ -1301,30 +1303,31 @@ with a 3D icon (e.g. used in Blocks.Logical library).
             fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
                  else {235,235,235}), 
             fillPattern=FillPattern.Solid)}),
-        Diagram(graphics={
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+              {100,100}}), graphics={
           Polygon(
-            points={{-70,92},{-76,70},{-64,70},{-70,92}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-70,70},{-70,-88}}, color={95,95,95}),
-          Line(points={{-90,-70},{68,-70}}, color={95,95,95}),
+            points={{-70,92},{-76,70},{-64,70},{-70,92}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-70,70},{-70,-88}}, color={95,95,95}), 
+          Line(points={{-90,-70},{68,-70}}, color={95,95,95}), 
           Polygon(
-            points={{90,-70},{68,-64},{68,-76},{90,-70}},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid),
+            points={{90,-70},{68,-64},{68,-76},{90,-70}}, 
+            lineColor={95,95,95}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid), 
           Text(
-            extent={{54,-80},{106,-92}},
-            lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
-            textString="time"),
+            extent={{54,-80},{106,-92}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
+            textString="time"), 
           Text(
-            extent={{-64,92},{-46,74}},
-            lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
+            extent={{-64,92},{-46,74}}, 
+            lineColor={0,0,0}, 
+            fillColor={95,95,95}, 
+            fillPattern=FillPattern.Solid, 
             textString="y")}),
       Documentation(info="<html>
 <p>
@@ -1367,7 +1370,9 @@ and a 3D icon (e.g. used in Blocks.Logical library).
             fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
                  else {235,235,235}), 
             fillPattern=FillPattern.Solid)}),
-        Diagram(graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+              {100,100}}),
+                graphics),
       Documentation(info="<html>
 <p>
 Block has one continuous Real input and one continuous Boolean output signal
@@ -1410,7 +1415,9 @@ as well as a 3D icon (e.g. used in Blocks.Logical library).
             fillPattern=FillPattern.Solid, 
             lineColor={0,0,255}), 
           Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,255})}),
-        Diagram(graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+              {100,100}}),
+                graphics),
       Documentation(info="<html>
 <p>
 Block has two continuous Real input and one continuous Boolean output signal
@@ -1431,7 +1438,8 @@ package Adaptors
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
     RealInput u "Input signal to be send to bus" annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
-    annotation (Icon(graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,40},{100,-40}},
               lineColor={0,0,255},
@@ -1469,7 +1477,8 @@ for signal buses, see example
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
     BooleanInput u "Input signal to be send to bus" annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
-    annotation (Icon(graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,40},{100,-40}},
               lineColor={255,0,255},
@@ -1507,7 +1516,8 @@ for signal buses, see example
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
     IntegerInput u "Input signal to be send to bus" annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
-    annotation (Icon(graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,40},{100,-40}},
               lineColor={255,127,0},
@@ -1544,7 +1554,8 @@ for signal buses, see example
             transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
     RealOutput y "Output signal to be received from bus" annotation (Placement(
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
-    annotation (Icon(graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,40},{100,-40}},
               lineColor={0,0,255},
@@ -1582,7 +1593,8 @@ for signal buses, see example
             transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
     BooleanOutput y "Output signal to be received from bus" annotation (Placement(
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
-    annotation (Icon(graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,40},{100,-40}},
               lineColor={255,0,255},
@@ -1620,7 +1632,8 @@ for signal buses, see example
             transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
     IntegerOutput y "Output signal to be received from bus" annotation (Placement(
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
-    annotation (Icon(graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,40},{100,-40}},
               lineColor={255,127,0},

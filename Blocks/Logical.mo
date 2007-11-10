@@ -23,11 +23,14 @@ values are visualized in a diagram animation.
   model And "Logical 'and': y = u1 and u2" 
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (defaultComponentName="and1",
-           Icon(graphics={Text(
+           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+              {100,100}}), graphics={Text(
             extent={{-90,40},{90,-40}}, 
             lineColor={0,0,0}, 
             textString="and")}),
-                              Diagram(graphics),
+                              Diagram(coordinateSystem(preserveAspectRatio=
+              false, extent={{-100,-100},{100,100}}),
+                                      graphics),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if all inputs are <b>true</b>, otherwise
@@ -41,11 +44,14 @@ the output is <b>false</b>.
   model Or "Logical 'or': y = u1 or u2" 
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (defaultComponentName="or1",
-           Icon(graphics={Text(
+           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+              {100,100}}), graphics={Text(
             extent={{-90,40},{90,-40}}, 
             lineColor={0,0,0}, 
             textString="or")}),
-                              Diagram(graphics),
+                              Diagram(coordinateSystem(preserveAspectRatio=
+              false, extent={{-100,-100},{100,100}}),
+                                      graphics),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if at least one input is <b>true</b>, otherwise
@@ -58,11 +64,14 @@ the output is <b>false</b>.
   
   model Xor "Logical 'xor': y = u1 xor u2" 
     extends Blocks.Interfaces.partialBooleanSI2SO;
-    annotation (Icon(graphics={Text(
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={Text(
             extent={{-90,40},{90,-40}}, 
             lineColor={0,0,0}, 
             textString="xor")}),
-                              Diagram(graphics),
+                              Diagram(coordinateSystem(preserveAspectRatio=
+              false, extent={{-100,-100},{100,100}}),
+                                      graphics),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if exactly one input is <b>true</b>, otherwise
@@ -75,11 +84,14 @@ the output is <b>false</b>.
   
   model Nor "Logical 'nor': y = not (u1 or u2)" 
     extends Blocks.Interfaces.partialBooleanSI2SO;
-    annotation (Icon(graphics={Text(
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={Text(
             extent={{-90,40},{90,-40}}, 
             lineColor={0,0,0}, 
             textString="nor")}),
-                              Diagram(graphics),
+                              Diagram(coordinateSystem(preserveAspectRatio=
+              false, extent={{-100,-100},{100,100}}),
+                                      graphics),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if none of the inputs is <b>true</b>, otherwise
@@ -92,11 +104,14 @@ the output is <b>false</b>.
   
   model Nand "Logical 'nand': y = not (u1 and u2)" 
     extends Blocks.Interfaces.partialBooleanSI2SO;
-    annotation (Icon(graphics={Text(
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={Text(
             extent={{-90,40},{90,-40}}, 
             lineColor={0,0,0}, 
             textString="nand")}),
-                              Diagram(graphics),
+                              Diagram(coordinateSystem(preserveAspectRatio=
+              false, extent={{-100,-100},{100,100}}),
+                                      graphics),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if at least one input is <b>false</b>, otherwise
@@ -111,11 +126,14 @@ the output is <b>false</b>.
     extends Blocks.Interfaces.partialBooleanSISO;
     
     annotation (defaultComponentName="not1",
-         Icon(graphics={Text(
+         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics={Text(
             extent={{-90,40},{90,-40}}, 
             lineColor={0,0,0}, 
             textString="not")}),
-                            Diagram(graphics),
+                            Diagram(coordinateSystem(preserveAspectRatio=false, 
+            extent={{-100,-100},{100,100}}),
+                                    graphics),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the input is <b>false</b>, otherwise
@@ -134,11 +152,14 @@ the output is <b>false</b>.
     extends Blocks.Interfaces.partialBooleanSISO;
     
     annotation (defaultComponentName="pre1",
-         Icon(graphics={Text(
+         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics={Text(
             extent={{-90,40},{90,-40}}, 
             lineColor={0,0,0}, 
             textString="pre")}),
-                            Diagram(graphics),
+                            Diagram(coordinateSystem(preserveAspectRatio=false, 
+            extent={{-100,-100},{100,100}}),
+                                    graphics),
       Documentation(info="<html>
 <p>
 This block delays the Boolean input by an infinitesimal small time delay and 
@@ -166,11 +187,14 @@ values are identical (u = pre(u)).
     extends Blocks.Interfaces.partialBooleanSISO;
     
     annotation (defaultComponentName="edge1",
-      Icon(graphics={Text(
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={Text(
             extent={{-90,40},{90,-40}}, 
             lineColor={0,0,0}, 
             textString="edge")}),
-                            Diagram(graphics),
+                            Diagram(coordinateSystem(preserveAspectRatio=false, 
+            extent={{-100,-100},{100,100}}),
+                                    graphics),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Boolean input has a rising edge
@@ -191,11 +215,14 @@ the output is <b>false</b>.
       "Start value of pre(u) at initial time";
     extends Blocks.Interfaces.partialBooleanSISO;
     
-    annotation (Icon(graphics={Text(
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={Text(
             extent={{-90,40},{90,-40}}, 
             lineColor={0,0,0}, 
             textString="falling")}),
-                            Diagram(graphics),
+                            Diagram(coordinateSystem(preserveAspectRatio=false, 
+            extent={{-100,-100},{100,100}}),
+                                    graphics),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Boolean input has a falling edge
@@ -219,11 +246,14 @@ the output is <b>false</b>.
     extends Blocks.Interfaces.partialBooleanSISO;
     
     annotation (defaultComponentName="change1",
-      Icon(graphics={Text(
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={Text(
             extent={{-90,40},{90,-40}}, 
             lineColor={0,0,0}, 
             textString="change")}),
-                            Diagram(graphics),
+                            Diagram(coordinateSystem(preserveAspectRatio=false, 
+            extent={{-100,-100},{100,100}}),
+                                    graphics),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Boolean input has either a rising edge
@@ -241,11 +271,14 @@ the output is <b>false</b>.
   block GreaterThreshold 
     "Output y is true, if input u is greater than threshold" 
     extends Blocks.Interfaces.partialBooleanThresholdComparison;
-    annotation (Icon(graphics={Text(
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={Text(
             extent={{-90,-40},{60,40}}, 
             lineColor={0,0,0}, 
             textString=">")}),
-                        Diagram(graphics),
+                        Diagram(coordinateSystem(preserveAspectRatio=false, 
+            extent={{-100,-100},{100,100}}),
+                                graphics),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Real input is greater than 
@@ -261,11 +294,14 @@ the output is <b>false</b>.
     "Output y is true, if input u is greater or equal than threshold" 
     
     extends Blocks.Interfaces.partialBooleanThresholdComparison;
-    annotation (Icon(graphics={Text(
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={Text(
             extent={{-90,-40},{60,40}}, 
             lineColor={0,0,0}, 
             textString=">=")}),
-                            Diagram(graphics),
+                            Diagram(coordinateSystem(preserveAspectRatio=false, 
+            extent={{-100,-100},{100,100}}),
+                                    graphics),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Real input is greater than or equal to
@@ -280,11 +316,14 @@ the output is <b>false</b>.
   block LessThreshold "Output y is true, if input u is less than threshold" 
     
     extends Blocks.Interfaces.partialBooleanThresholdComparison;
-    annotation (Icon(graphics={Text(
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={Text(
             extent={{-90,-40},{60,40}}, 
             lineColor={0,0,0}, 
             textString="<")}),
-                            Diagram(graphics),
+                            Diagram(coordinateSystem(preserveAspectRatio=false, 
+            extent={{-100,-100},{100,100}}),
+                                    graphics),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Real input is less than 
@@ -299,11 +338,14 @@ the output is <b>false</b>.
   block LessEqualThreshold 
     "Output y is true, if input u is less or equal than threshold" 
     extends Blocks.Interfaces.partialBooleanThresholdComparison;
-    annotation (Icon(graphics={Text(
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={Text(
             extent={{-90,-40},{60,40}}, 
             lineColor={0,0,0}, 
             textString="<=")}),
-                            Diagram(graphics),
+                            Diagram(coordinateSystem(preserveAspectRatio=false, 
+            extent={{-100,-100},{100,100}}),
+                                    graphics),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Real input is less than or equal to
@@ -318,7 +360,8 @@ the output is <b>false</b>.
   block Greater "Output y is true, if input u1 is greater as input u2" 
     extends Blocks.Interfaces.partialBooleanComparison;
     
-    annotation (Icon(graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
           Ellipse(
             extent={{32,10},{52,-10}}, 
             fillPattern=FillPattern.Solid, 
@@ -343,7 +386,8 @@ Real input u2, otherwise the output is <b>false</b>.
     "Output y is true, if input u1 is greater or equal as input u2" 
     extends Blocks.Interfaces.partialBooleanComparison;
     
-    annotation (Icon(graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
           Ellipse(
             extent={{32,10},{52,-10}}, 
             fillPattern=FillPattern.Solid, 
@@ -367,7 +411,8 @@ Real input u2, otherwise the output is <b>false</b>.
   block Less "Output y is true, if input u1 is less as input u2" 
     extends Blocks.Interfaces.partialBooleanComparison;
     
-    annotation (Icon(graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
           Ellipse(
             extent={{32,10},{52,-10}}, 
             fillPattern=FillPattern.Solid, 
@@ -391,7 +436,8 @@ Real input u2, otherwise the output is <b>false</b>.
   block LessEqual "Output y is true, if input u1 is less or equal as input u2" 
     extends Blocks.Interfaces.partialBooleanComparison;
     
-    annotation (Icon(graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
           Ellipse(
             extent={{32,10},{52,-10}}, 
             fillPattern=FillPattern.Solid, 
@@ -440,7 +486,8 @@ continuous integration. In order to check that this component is
 actually working as expected, one should connect its output to, e.g.,
 component <i>ModelicaAdditions.Blocks.Discrete.TriggeredSampler</i>.
 </p>
-</HTML>"), Icon(graphics={
+</HTML>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+              {100,100}}), graphics={
           Line(points={{-78,68},{-78,-80}}, color={192,192,192}), 
           Polygon(
             points={{-78,90},{-86,68},{-70,68},{-78,90}}, 
@@ -607,8 +654,8 @@ u1, else it is set equal to u3.</p>
   block Hysteresis "Transform Real to Boolean signal with Hysteresis" 
     
     extends Blocks.Interfaces.partialBooleanBlockIcon;
-    parameter Real uLow=0 "if y=true and u<=uLow, switch to y=false";
-    parameter Real uHigh=1 "if y=false and u>=uHigh, switch to y=true";
+    parameter Real uLow(start=0) "if y=true and u<=uLow, switch to y=false";
+    parameter Real uHigh(start=1) "if y=false and u>=uHigh, switch to y=true";
     parameter Boolean pre_y_start = false "Value of pre(y) at initial time";
     
     Blocks.Interfaces.RealInput u annotation (Placement(transformation(extent={
@@ -618,7 +665,8 @@ u1, else it is set equal to u3.</p>
             rotation=0)));
     
     annotation (
-      Diagram(graphics={
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics={
           Polygon(
             points={{-65,89},{-73,67},{-57,67},{-65,89}}, 
             lineColor={192,192,192}, 
@@ -688,7 +736,8 @@ u1, else it is set equal to u3.</p>
             lineColor={0,0,0}, 
             textString="uLow"), 
           Line(points={{-69,10},{-60,10}}, color={160,160,164})}),
-      Icon(graphics={
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
             lineColor={192,192,192}, 
@@ -762,10 +811,11 @@ The default value of this parameter is <b>false</b>.
                                       annotation (Placement(transformation(
             extent={{100,-10},{120,10}}, rotation=0)));
     
-    parameter Real bandwidth=0.1 "Bandwidth around reference signal";
+    parameter Real bandwidth(start=0.1) "Bandwidth around reference signal";
     parameter Boolean pre_y_start = false "Value of pre(y) at initial time";
     
-    annotation (Icon(graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
           Text(
             extent={{-92,74},{44,44}}, 
             lineColor={0,0,0}, 
@@ -812,7 +862,8 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
             rotation=0)));
     
     annotation (
-      Icon(graphics={
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
           Line(points={{-60,-70},{-60,-70},{-30,40},{8,40},{40,-70},{40,-70}}, 
               color={0,0,255}), 
           Line(points={{-90,-70},{82,-70}}, color={192,192,192}), 
@@ -829,7 +880,8 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
             fillPattern=FillPattern.Solid), 
           Line(points={{-80,-70},{-60,-70},{-60,24},{8,24},{8,-70},{60,-70}}, 
               color={255,0,255})}),
-      Diagram(graphics={
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics={
           Line(points={{-80,-20},{-60,-20},{-30,40},{8,40},{40,-20},{60,-20}}, 
               color={0,0,255}), 
           Line(points={{-90,-70},{82,-70}}, color={0,0,0}), 
@@ -1000,7 +1052,8 @@ handled properly.</p>
             rotation=0)));
     
     annotation (
-      Icon(graphics={
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
           Line(points={{-90,-70},{82,-70}}, color={192,192,192}), 
           Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
           Polygon(
@@ -1016,7 +1069,8 @@ handled properly.</p>
           Line(points={{-80,-70},{-60,-70},{-60,-26},{38,-26},{38,-70},{66,-70}}, 
               color={255,0,255}), 
           Line(points={{-80,0},{-62,0},{40,90},{40,0},{68,0}}, color={0,0,255})}),
-      Diagram(graphics={
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics={
           Line(points={{-90,-70},{82,-70}}, color={0,0,0}), 
           Line(points={{-80,68},{-80,-80}}, color={0,0,0}), 
           Polygon(

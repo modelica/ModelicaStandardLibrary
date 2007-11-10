@@ -9,7 +9,7 @@ package Tables
       "true, if table is defined on file or in function usertab" 
       annotation(Dialog(group="table data definition"));
     parameter Real table[:, :]=fill(0.0,0,2) 
-      "table matrix (grid = first column)" 
+      "table matrix (grid = first column; e.g., table=[0,2])" 
          annotation(Dialog(group="table data definition", enable = not tableOnFile));
     parameter String tableName="NoName" 
       "table name on file or in function usertab (see docu)" 
@@ -231,7 +231,7 @@ Several matrices may be defined one after another.
       "true, if table is defined on file or in function usertab" 
       annotation(Dialog(group="table data definition"));
     parameter Real table[:, :]=fill(0.0,0,2) 
-      "table matrix (grid = first column)" 
+      "table matrix (grid = first column; e.g., table=[0,2])" 
          annotation(Dialog(group="table data definition", enable = not tableOnFile));
     parameter String tableName="NoName" 
       "table name on file or in function usertab (see docu)" 
@@ -454,7 +454,7 @@ Several matrices may be defined one after another.
       "true, if table is defined on file or in function usertab" 
       annotation(Dialog(group="table data definition"));
     parameter Real table[:, :]=fill(0.0,0,2) 
-      "table matrix (grid u1 = first column, grid u2 = first row)" 
+      "table matrix (grid u1 = first column, grid u2 = first row; e.g. table=[0,0;0,1])"
          annotation(Dialog(group="table data definition", enable = not tableOnFile));
     parameter String tableName="NoName" 
       "table name on file or in function usertab (see docu)" 
