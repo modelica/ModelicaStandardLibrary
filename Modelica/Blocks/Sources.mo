@@ -359,7 +359,7 @@ The Real output y is a clock signal:
       end Clock;
   
       block Constant "Generate constant signal of type Real" 
-        parameter Real k=1 "Constant output value";
+        parameter Real k(start=1) "Constant output value";
         extends Interfaces.SO;
     
         annotation (defaultComponentName="const",
@@ -565,7 +565,7 @@ The Real output y is a step signal:
   
       block Ramp "Generate ramp signal" 
         parameter Real height=1 "Height of ramps";
-        parameter Modelica.SIunits.Time duration(min=Modelica.Constants.small) = 2 
+        parameter Modelica.SIunits.Time duration(min=Modelica.Constants.small, start = 2) 
       "Durations of ramp";
         parameter Real offset=0 "Offset of output signal";
         parameter Modelica.SIunits.Time startTime=0 
@@ -722,7 +722,7 @@ The Real output y is a ramp signal:
   
       block Sine "Generate sine signal" 
         parameter Real amplitude=1 "Amplitude of sine wave";
-        parameter SIunits.Frequency freqHz=1 "Frequency of sine wave";
+        parameter SIunits.Frequency freqHz(start=1) "Frequency of sine wave";
         parameter SIunits.Angle phase=0 "Phase of sine wave";
         parameter Real offset=0 "Offset of output signal";
         parameter SIunits.Time startTime=0 
@@ -849,9 +849,10 @@ The Real output y is a sine signal:
   
       block ExpSine "Generate exponentially damped sine signal" 
         parameter Real amplitude=1 "Amplitude of sine wave";
-        parameter SIunits.Frequency freqHz=2 "Frequency of sine wave";
+        parameter SIunits.Frequency freqHz(start=2) "Frequency of sine wave";
         parameter SIunits.Angle phase=0 "Phase of sine wave";
-        parameter SIunits.Damping damping=1 "Damping coefficient of sine wave";
+        parameter SIunits.Damping damping(start=1) 
+      "Damping coefficient of sine wave";
         parameter Real offset=0 "Offset of output signal";
         parameter SIunits.Time startTime=0 
       "Output = offset for time < startTime";
@@ -1004,9 +1005,9 @@ The Real output y is a sine signal with exponentially changing amplitude:
       model Exponentials "Generate a rising and falling exponential signal" 
     
         parameter Real outMax=1 "Height of output for infinite riseTime";
-        parameter SIunits.Time riseTime(min=0) = 0.5 "Rise time";
-        parameter SIunits.Time riseTimeConst(min=Modelica.Constants.small)=
-          0.1 "Rise time constant";
+        parameter SIunits.Time riseTime(min=0,start = 0.5) "Rise time";
+        parameter SIunits.Time riseTimeConst(min=Modelica.Constants.small)=0.1 
+      "Rise time constant; rising is defined as outMax*(1-exp(-riseTime/riseTimeConst))";
         parameter SIunits.Time fallTimeConst(min=Modelica.Constants.small)=
           riseTimeConst "Fall time constant";
         parameter Real offset=0 "Offset of output signal";
@@ -1153,8 +1154,8 @@ by a falling exponential signal:
         parameter Real amplitude=1 "Amplitude of pulse";
         parameter Real width(
           final min=Modelica.Constants.small,
-          final max=100) = 50 "Width of pulse in % of periods";
-        parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small)=1 
+          final max=100) = 50 "Width of pulse in % of period";
+        parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small,start=1) 
       "Time for one period";
         parameter Real offset=0 "Offset of output signals";
         parameter Modelica.SIunits.Time startTime=0 
@@ -1327,7 +1328,7 @@ The Real output y is a pulse signal:
   
       block SawTooth "Generate saw tooth signal" 
         parameter Real amplitude=1 "Amplitude of saw tooth";
-        parameter SIunits.Time period(final min=Modelica.Constants.small) = 1 
+        parameter SIunits.Time period(final min=Modelica.Constants.small,start = 1) 
       "Time for one period";
         parameter Real offset=0 "Offset of output signals";
         parameter SIunits.Time startTime=0 
@@ -1481,7 +1482,7 @@ The Real output y is a saw tooth signal:
       "Width duration of trapezoid";
         parameter SIunits.Time falling(final min=0) = 0 
       "Falling duration of trapezoid";
-        parameter SIunits.Time period(final min=Modelica.Constants.small) = 1 
+        parameter SIunits.Time period(final min=Modelica.Constants.small, start= 1) 
       "Time for one period";
         parameter Integer nperiod=-1 
       "Number of periods (< 0 means infinite number of periods)";
@@ -1722,10 +1723,10 @@ The Real output y is a trapezoid signal:
       block KinematicPTP 
     "Move as fast as possible along a distance within given kinematic constraints" 
     
-        parameter Real deltaq[:]={1} "Distance to move";
-        parameter Real qd_max[:](final min=Modelica.Constants.small) = {1} 
+        parameter Real deltaq[:] "Distance to move";
+        parameter Real qd_max[:](final min=Modelica.Constants.small) 
       "Maximum velocities der(q)";
-        parameter Real qdd_max[:](final min=Modelica.Constants.small) = {1} 
+        parameter Real qdd_max[:](final min=Modelica.Constants.small) 
       "Maximum accelerations der(qd)";
         parameter SIunits.Time startTime=0 
       "Time instant at which movement starts";
@@ -1846,6 +1847,7 @@ and deceleration phase. This means that only one of the signals
 is at its limits whereas the others are sychnronized in such a way
 that the end point is reached at the same time instant.
 </p>
+
 <p>
 This element is useful to generate a reference signal for a controller
 which controls a drive train or in combination with model
@@ -1896,11 +1898,11 @@ a flange according to a given acceleration.
   block KinematicPTP2 
     "Move as fast as possible from start to end position within given kinematic constraints with output signals q, qd=der(q), qdd=der(qd)" 
     
-    parameter Real q_begin[:]={0} "Start position";
-    parameter Real q_end[:]={1} "End position";
-    parameter Real qd_max[:](final min=Modelica.Constants.small) = {1} 
+    parameter Real q_begin[:] = {0} "Start position";
+    parameter Real q_end[:] "End position";
+    parameter Real qd_max[:](final min=Modelica.Constants.small) 
       "Maximum velocities der(q)";
-    parameter Real qdd_max[:](final min=Modelica.Constants.small) = {1} 
+    parameter Real qdd_max[:](final min=Modelica.Constants.small) 
       "Maximum accelerations der(qd)";
     parameter SI.Time startTime=0 "Time instant at which movement starts";
     
@@ -2031,6 +2033,7 @@ and deceleration phase. This means that only one of the signals
 is at its limits whereas the others are sychnronized in such a way
 that the end point is reached at the same time instant.
 </p>
+
 <p>
 This element is useful to generate a reference signal for a controller
 which controls, e.g., a drive train, or to drive
@@ -2236,8 +2239,8 @@ a flange according to a given acceleration.
       block TimeTable 
     "Generate a (possibly discontinuous) signal by linear interpolation in a table" 
     
-        parameter Real table[:, 2]=[0, 0; 1, 1; 2, 4] 
-      "Table matrix (time = first column)";
+        parameter Real table[:, 2] 
+      "Table matrix (time = first column; e.g. table=[0, 0; 1, 1; 2, 4])";
         parameter Real offset=0 "Offset of output signal";
         parameter SIunits.Time startTime=0 
       "Output = offset for time < startTime";
@@ -2391,14 +2394,15 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     e.g., time = 2.0, the output y =  4.0,
     e.g., time = 5.0, the output y = 23.0 (i.e. extrapolation).
 </pre>
-
-
+ 
+ 
 <p>
 <img src=\"../Images/Blocks/Sources/TimeTable.png\">
 </p>
-
+ 
 </HTML>
-", revisions="<html>
+",       revisions=
+             "<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>Oct. 21, 2002</i>
@@ -2495,8 +2499,8 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     parameter Boolean tableOnFile=false 
       "= true, if table is defined on file or in function usertab" 
       annotation(Dialog(group="table data definition"));
-    parameter Real table[:, :]=fill(0.0,0,2) 
-      "Table matrix (time = first column)" 
+    parameter Real table[:, :] = fill(0.0,0,2) 
+      "Table matrix (time = first column; e.g. table=[0,2])" 
          annotation(Dialog(group="table data definition", enable = not tableOnFile));
     parameter String tableName="NoName" 
       "Table name on file or in function usertab (see docu)" 
@@ -2899,7 +2903,8 @@ The Boolean output y is a constant signal:
             extent={{-150,-140},{150,-110}}, 
             lineColor={0,0,0}, 
             textString="%startTime")}),
-                              Diagram(graphics={
+                              Diagram(coordinateSystem(preserveAspectRatio=
+              false, extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{-80,-70},{0,-70},{0,50},{80,50}}, 
             color={0,0,255}, 
@@ -2945,8 +2950,8 @@ The Boolean output y is a step signal:
       parameter Real width(
         final min=Modelica.Constants.small,
         final max=100) = 50 "Width of pulse in % of period";
-      parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small)=
-         1 "Time for one period";
+      parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small,start=1) 
+      "Time for one period";
       parameter Modelica.SIunits.Time startTime=0 "Time instant of first pulse";
       extends Modelica.Blocks.Interfaces.partialBooleanSource;
       annotation (
@@ -3052,8 +3057,8 @@ The Boolean output y is a pulse signal:
     end BooleanPulse;
   
     block SampleTrigger "Generate sample trigger signal" 
-      parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small)=
-         0.01 "Sample period";
+      parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small,start=0.01) 
+      "Sample period";
       parameter Modelica.SIunits.Time startTime=0 
       "Time instant of first sample trigger";
       extends Interfaces.partialBooleanSource;
@@ -3154,8 +3159,8 @@ at sample times (defined by parameter <b>period</b>) and is otherwise
     
       parameter Boolean startValue = false 
       "Start value of y. At time = table[1], y changes to 'not startValue'";
-      parameter Modelica.SIunits.Time table[:] = {0} 
-      "Vector of time points. At every time point, the output y gets its opposite value";
+      parameter Modelica.SIunits.Time table[:] 
+      "Vector of time points. At every time point, the output y gets its opposite value (e.g. table={0,1})";
       extends Interfaces.partialBooleanSource;
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -3270,7 +3275,7 @@ changes its value to the negated value of the previous one.
     end BooleanTable;
   
   block IntegerConstant "Generate constant signal of type Integer" 
-    parameter Integer k=1 "Constant output value";
+    parameter Integer k(start=1) "Constant output value";
     extends Interfaces.IntegerSO;
     
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -3292,7 +3297,8 @@ changes its value to the negated value of the previous one.
             extent={{-150,-150},{150,-110}}, 
             lineColor={0,0,0}, 
             textString="k=%k")}),
-                            Diagram(graphics={
+                            Diagram(coordinateSystem(preserveAspectRatio=false, 
+            extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{-80,90},{-86,68},{-74,68},{-80,90}}, 
             lineColor={95,95,95}, 
@@ -3362,7 +3368,8 @@ The Integer output y is a constant signal:
             extent={{-150,-150},{150,-110}}, 
             lineColor={0,0,0}, 
             textString="startTime=%startTime")}),
-                            Diagram(graphics={
+                            Diagram(coordinateSystem(preserveAspectRatio=false, 
+            extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{-80,88},{-86,68},{-74,68},{-80,88}}, 
             lineColor={95,95,95}, 

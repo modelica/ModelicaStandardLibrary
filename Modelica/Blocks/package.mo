@@ -219,7 +219,9 @@ is forced back to its limit after a transient phase.
     Modelica.Mechanics.Rotational.Inertia inertia2(J=2) 
       annotation (Placement(transformation(extent={{60,-20},{80,0}}, rotation=0)));
     Modelica.Blocks.Sources.KinematicPTP kinematicPTP(startTime=0.5, deltaq={
-          driveAngle}) annotation (Placement(transformation(extent={{-92,20},{
+          driveAngle}, 
+      qd_max={1}, 
+      qdd_max={1})     annotation (Placement(transformation(extent={{-92,20},{
               -72,40}}, rotation=0)));
     Modelica.Blocks.Continuous.Integrator integrator(initType=Modelica.Blocks.
           Types.Init.InitialState) annotation (Placement(transformation(extent=
@@ -230,7 +232,7 @@ is forced back to its limit after a transient phase.
     Modelica.Mechanics.Rotational.ConstantTorque loadTorque(tau_constant=10) 
       annotation (Placement(transformation(extent={{98,-15},{88,-5}}, rotation=
               0)));
-    Mechanics.Rotational.Fixed fixed
+    Mechanics.Rotational.Fixed fixed 
       annotation (Placement(transformation(extent={{68,-35},{88,-15}})));
   equation 
     connect(spring.flange_b,inertia2. flange_a) 
@@ -252,12 +254,12 @@ is forced back to its limit after a transient phase.
     connect(integrator.y, PI.u_s)  annotation (Line(points={{-42,30},{-37,30},{
             -37,11},{-67,11},{-67,-10},{-58,-10}}, color={0,0,127}));
     connect(torque.support, fixed.flange) annotation (Line(
-        points={{-15,-20},{-15,-25},{78,-25}}, 
-        color={0,0,0}, 
+        points={{-15,-20},{-15,-25},{78,-25}},
+        color={0,0,0},
         smooth=Smooth.None));
     connect(fixed.flange, loadTorque.support) annotation (Line(
-        points={{78,-25},{93,-25},{93,-15}}, 
-        color={0,0,0}, 
+        points={{78,-25},{93,-25},{93,-15}},
+        color={0,0,0},
         smooth=Smooth.None));
   end PID_Controller;
   

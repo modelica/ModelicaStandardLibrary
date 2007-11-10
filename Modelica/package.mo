@@ -768,16 +768,28 @@ The following changes are present for the whole library:
 </p>
 
 <ul>
+<li> In the Modelican language version 3.0, several restrictions have been
+     introduced to allow better checking, e.g., models on all levels must be balanced
+     (number of equations = number of unknown variables - unknown variables that have
+     to be defined when using the component). A few models of the Modelica
+     Standard Library did not fulfill these new restrictions and had
+     either to be moved to library ObsoleteModelica3 (e.g. Blocks.Math.TwoInputs)
+     or had to be differently implemented 
+     (e.g. Media.Interfaces.PartialMedium.BaseProperties).
+     The Modelica Standard Library version 3.0 fulfills all the restrictions of
+     the Modelica Language version 3.0.<br>&nbsp;
+     </li>
+
 <li> The graphical annotations describing the layout of icon and diagram layer
      are changed from Modelica language version 1 to Modelica language version 3.
-     This gives several significant improvements:<br>Especially, the coordinate system
+     This gives several significant improvements:<br>Especially, the coordinate systems
      of icon and diagram layers are no longer coupled and therefore the size of the
      icon layer can be changed independently of the size of the diagram layer.
      Also it can be defined that the aspect ratio of a component icon is kept when changing
      its size in a model. This flag is set so that all icons of the Modelica
      Standard Library keep its aspect ratios. This is slightly non-backward compatible:
      If the aspect ratio was not kept when using a component from the Modelica
-     Standard Library, it is now resized so that the aspect ratio is maintained. </li>
+     Standard Library, it is now resized so that the aspect ratio is maintained.<br>&nbsp; </li>
 
 <li> The operator \"cardinality\" will be removed in one of the next versions of the
      Modelica language, since it is a reflective operator and its usage significantly
@@ -794,7 +806,28 @@ The following changes are present for the whole library:
      The changes with respect to the cardinality(..) operator are usually not backward
      compatible. This is the reason for the changes of:<br>
      The Rotational library (bearing/support connectors must be connected and the connection
-     is no longer optional).</li>
+     is no longer optional).<br>&nbsp;</li>
+
+<li> Nearly all parameters defined in the Modelica Standard Library had been
+     defined with a default equation, e.g.,
+     <pre>   <b>parameter</b> Modelica.SIunits.Resistance R=1; </pre>
+     Physical parameters, such as a resistance, mass, gear ratio, do not have a meaningful
+     default and in nearly all cases, the user of the corresponding component has to
+     provide values for such parameters. If the user forgets this, a tool
+     cannot provide diagnostics, since a default value is present in the library
+     (such as 1 Ohm for the resistance). In most cases the model will simulate but will
+     give wrong results due to wrong parameter values. To improve this situation, all physical
+     parameter declarations in the Modelica Standard Library have been changed, so
+     that the previous default becomes a start value. For example, the above
+     declaration is changed to:
+     <pre>   <b>parameter</b> Modelica.SIunits.Resistance R(start=1);  </pre>
+     This is a backward compatible change and completely equivalent from the perspective
+     of the Modelica language. It is, however, adviced that tools will print a warning
+     or optionally an error message, if the start value of a parameter is defined, but
+     no value for the parameter is given via a modification. Furthermore, it is expected,
+     that the input field of a parameter menu is empty, if no default equation is defined,
+     but only a start value. This shows clearly to the modeler that a value has to 
+     be provided.</li>
 </ul>
 
 

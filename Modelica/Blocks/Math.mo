@@ -606,7 +606,9 @@ All other blocks convert exactly between two different units.
     extends Modelica.Blocks.Interfaces.BlockIcon;
     
     annotation(structurallyIncomplete=true,
-      Diagram(graphics),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}),
+              graphics),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(
             points={{-100,0},{-58,0},{-58,80},{-100,80}}, 
@@ -630,7 +632,7 @@ All other blocks convert exactly between two different units.
   
       block Gain "Output the product of a gain value with the input signal" 
     
-        parameter Real k=1 "Gain value multiplied with input signal";
+        parameter Real k(start=1) "Gain value multiplied with input signal";
   public 
         Interfaces.RealInput u "Input signal connector" 
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}},

@@ -162,7 +162,7 @@ This is discussed in the description of package
             extent={{-150,-150},{150,-110}}, 
             lineColor={0,0,0}, 
             textString="k=%k"), 
-          Line(points={{-80,-80},{80,80}}, color={0,0,255})}),
+          Line(points={{-80,-80},{80,80}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -193,7 +193,7 @@ This is discussed in the description of package
   block LimIntegrator "Integrator with limited value of the output" 
     import Modelica.Blocks.Types.Init;
     parameter Real k=1 "Integrator gain";
-    parameter Real outMax=1 "Upper limit of output";
+    parameter Real outMax(start=1) "Upper limit of output";
     parameter Real outMin=-outMax "Lower limit of output";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.InitialState 
       "Type of initialization" 
@@ -253,7 +253,7 @@ to use <b>limitAtInit</b> = <b>false</b>.
             lineColor={192,192,192}, 
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid), 
-          Line(points={{-80,-80},{20,20},{80,20}}, color={0,0,255}), 
+          Line(points={{-80,-80},{20,20},{80,20}}, color={0,0,127}), 
           Text(
             extent={{0,-10},{60,-70}}, 
             lineColor={192,192,192}, 
@@ -363,7 +363,7 @@ If k=0, the block reduces to y=0.
           Line(points={{-80,-80},{-80,60},{-70,17.95},{-60,-11.46},{-50,-32.05},
                 {-40,-46.45},{-30,-56.53},{-20,-63.58},{-10,-68.51},{0,-71.96},
                 {10,-74.37},{20,-76.06},{30,-77.25},{40,-78.07},{50,-78.65},{60,
-                -79.06}}, color={0,0,255}), 
+                -79.06}}, color={0,0,127}), 
           Text(
             extent={{-30,14},{86,60}}, 
             lineColor={192,192,192}, 
@@ -415,7 +415,7 @@ If k=0, the block reduces to y=0.
   block FirstOrder "First order transfer function block (= 1 pole)" 
     import Modelica.Blocks.Types.Init;
     parameter Real k=1 "Gain";
-    parameter SIunits.Time T=1 "Time Constant";
+    parameter SIunits.Time T(start=1) "Time Constant";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit 
       "Type of initialization (InitialState and InitialOutput are identical)"         annotation(Evaluate=true,
         Dialog(group="Initialization"));
@@ -471,7 +471,7 @@ Example:
           Line(points={{-80,-80},{-70,-45.11},{-60,-19.58},{-50,-0.9087},{-40,
                 12.75},{-30,22.75},{-20,30.06},{-10,35.41},{0,39.33},{10,42.19},
                 {20,44.29},{30,45.82},{40,46.94},{50,47.76},{60,48.36},{70,48.8},
-                {80,49.12}}, color={0,0,255}), 
+                {80,49.12}}, color={0,0,127}), 
           Text(
             extent={{0,0},{60,-60}}, 
             lineColor={192,192,192}, 
@@ -514,8 +514,8 @@ Example:
   block SecondOrder "Second order transfer function block (= 2 poles)" 
     import Modelica.Blocks.Types.Init;
     parameter Real k=1 "Gain";
-    parameter Real w=1 "Angular frequency";
-    parameter Real D=1 "Damping";
+    parameter Real w(start=1) "Angular frequency";
+    parameter Real D(start=1) "Damping";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit 
       "Type of initialization (InitialState and InitialOutput are identical)"         annotation(Evaluate=true,
         Dialog(group="Initialization"));
@@ -581,7 +581,7 @@ Example:
                 32.75},{-40,58.8},{-32,71.51},{-24,70.49},{-16,58.45},{-8,40.06},
                 {0,20.55},{8,4.459},{16,-5.271},{24,-7.629},{32,-3.428},{40,
                 5.21},{48,15.56},{56,25.03},{64,31.66},{72,34.5},{80,33.61}}, 
-              color={0,0,255}), 
+              color={0,0,127}), 
           Text(
             extent={{0,-10},{60,-70}}, 
             lineColor={192,192,192}, 
@@ -652,7 +652,8 @@ Example:
   block PI "Proportional-Integral controller" 
     import Modelica.Blocks.Types.Init;
     parameter Real k=1 "Gain";
-    parameter SIunits.Time T=1 "Time Constant (T>0 required)";
+    parameter SIunits.Time T(start=1,min=Modelica.Constants.small) 
+      "Time Constant (T>0 required)";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit 
       "Type of initialization (SteadyState and InitialOutput are identical)"  annotation(Evaluate=true,
         Dialog(group="Initialization"));
@@ -727,10 +728,7 @@ This is discussed in the description of package
             lineColor={192,192,192}, 
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid), 
-          Line(
-            points={{-80,-80},{-80,-20},{60,80}}, 
-            thickness=1, 
-            color={0,0,255}), 
+          Line(points={{-80,-80},{-80,-20},{60,80}}, color={0,0,127}), 
           Text(
             extent={{0,6},{60,-56}}, 
             lineColor={192,192,192}, 
@@ -777,9 +775,10 @@ This is discussed in the description of package
     extends Interfaces.SISO;
     
     parameter Real k=1 "Gain";
-    parameter SIunits.Time Ti(min=Modelica.Constants.small) = 0.5 
+    parameter SIunits.Time Ti(min=Modelica.Constants.small, start=0.5) 
       "Time Constant of Integrator";
-    parameter SIunits.Time Td(min=0) = 0.1 "Time Constant of Derivative block";
+    parameter SIunits.Time Td(min=0, start=0.1) 
+      "Time Constant of Derivative block";
     parameter Real Nd(min=Modelica.Constants.small) = 10 
       "The higher Nd, the more ideal the derivative block";
     parameter Modelica.Blocks.Types.InitPID initType= Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState 
@@ -817,7 +816,7 @@ This is discussed in the description of package
             lineColor={192,192,192}, 
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid), 
-          Line(points={{-80,-80},{-80,50},{-80,-20},{60,80}}, color={0,0,255}), 
+          Line(points={{-80,-80},{-80,50},{-80,-20},{60,80}}, color={0,0,127}), 
             
           Text(
             extent={{-20,-20},{80,-60}}, 
@@ -911,6 +910,7 @@ to compute u by an algebraic equation.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics));
+    
     Blocks.Math.Gain P "Proportional part of PID controller" 
       annotation (Placement(transformation(extent={{-60,60},{-20,100}},
             rotation=0)));
@@ -971,14 +971,15 @@ to compute u by an algebraic equation.
     parameter Modelica.Blocks.Types.SimpleController controllerType=
            Modelica.Blocks.Types.SimpleController.PID "Type of controller";
     parameter Real k(min=0) = 1 "Gain of controller";
-    parameter SIunits.Time Ti(min=Modelica.Constants.small) = 0.5 
+    parameter SIunits.Time Ti(min=Modelica.Constants.small, start=0.5) 
       "Time constant of Integrator block" 
        annotation(Dialog(enable=controllerType==SimpleController.PI or 
                                 controllerType==SimpleController.PID));
-    parameter SIunits.Time Td(min=0) = 0.1 "Time constant of Derivative block" 
+    parameter SIunits.Time Td(min=0, start= 0.1) 
+      "Time constant of Derivative block" 
          annotation(Dialog(enable=controllerType==SimpleController.PD or 
                                   controllerType==SimpleController.PID));
-    parameter Real yMax=1 "Upper limit of output";
+    parameter Real yMax(start=1) "Upper limit of output";
     parameter Real yMin=-yMax "Lower limit of output";
     parameter Real wp(min=0) = 1 
       "Set-point weight for Proportional block (0..1)";
@@ -1038,7 +1039,7 @@ to compute u by an algebraic equation.
             fillColor={192,192,192}, 
             fillPattern=FillPattern.Solid), 
           Line(points={{-80,-80},{-80,50},{-80,-20},{30,60},{80,60}}, color={0,
-                0,255}), 
+                0,127}), 
           Text(
             extent={{-20,-20},{80,-60}}, 
             lineColor={192,192,192}, 
@@ -1326,8 +1327,10 @@ to use <b>limitAtInit</b> = <b>false</b>.
     import Modelica.Blocks.Types.Init;
     extends Interfaces.SISO;
     
-    parameter Real b[:]={1} "Numerator coefficients of transfer function.";
-    parameter Real a[:]={1,1} "Denominator coefficients of transfer function.";
+    parameter Real b[:]={1} "Numerator coefficients of transfer function" 
+      annotation(Dialog(group="y = (2*s+3)/(4*s^2+5*s+6)*u is defined as b={2,3}, a={4,5,6}"));
+    parameter Real a[:] "Denominator coefficients of transfer function" 
+      annotation(Dialog(group="y = (2*s+3)/(4*s^2+5*s+6)*u is defined as b={2,3}, a={4,5,6}"));
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit 
       "Type of initialization"         annotation(Evaluate=true, Dialog(group=
             "Initialization"));
@@ -1342,11 +1345,11 @@ to use <b>limitAtInit</b> = <b>false</b>.
       "State of transfer function from controller canonical form";
   protected 
     parameter Integer na=size(a, 1) "Size of Denominator of transfer function.";
-    parameter Integer nb(max=na) = size(b, 1) 
-      "Size of Numerator of transfer function.";
+    parameter Integer nb=size(b, 1) "Size of Numerator of transfer function.";
     parameter Integer nx=size(a, 1) - 1;
-    Real x1dot "Derivative of first state of TransferFcn";
-    Real xn "Highest order state of TransferFcn";
+    parameter Real bb[:] = vector([zeros(max(0,na-nb),1);b]);
+    parameter Real d = bb[1]/a[1];
+    parameter Real a_end = if a[end] > 100*Modelica.Constants.eps*Modelica.Math.Vectors.norm(a) then a[end] else 1.0;
     annotation (
       Window(
         x=0.39,
@@ -1387,15 +1390,15 @@ results in the following transfer function:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{-80,0},{80,0}}, color={0,0,255}), 
+          Line(points={{-80,0},{80,0}}, color={0,0,127}), 
           Text(
             extent={{-90,10},{90,90}}, 
             textString="b(s)", 
-            lineColor={0,0,255}), 
+            lineColor={0,0,127}), 
           Text(
             extent={{-90,-10},{90,-90}}, 
             textString="a(s)", 
-            lineColor={0,0,255})}),
+            lineColor={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1419,20 +1422,27 @@ results in the following transfer function:
       x = x_start;
     elseif initType == Init.InitialOutput then
       y = y_start;
-      der(x[1:nx-1]) = zeros(nx-1);
+      der(x[2:nx]) = zeros(nx-1);
     end if;
   equation 
-    [der(x); xn] = [x1dot; x];
-    [u] = transpose([a])*[x1dot; x];
-    [y] = transpose([zeros(na - nb, 1); b])*[x1dot; x];
+    assert(size(b,1) <= size(a,1), "Transfer function is not proper");
+    if nx == 0 then
+       y = d*u;
+    else
+       der(x[1])    = (-a[2:na]*x + a_end*u)/a[1];
+       der(x[2:nx]) = x[1:nx-1];
+       y = ((bb[2:na] - d*a[2:na])*x)/a_end + d*u;
+    end if;
   end TransferFunction;
   
   block StateSpace "Linear state space system" 
     import Modelica.Blocks.Types.Init;
-    parameter Real A[:, size(A, 1)]=[1, 0; 0, 1] 
-      "Matrix A of state space model";
-    parameter Real B[size(A, 1), :]=[1; 1] "Matrix B of state space model";
-    parameter Real C[:, size(A, 1)]=[1, 1] "Matrix C of state space model";
+    parameter Real A[:, size(A, 1)] 
+      "Matrix A of state space model (e.g. A=[1, 0; 0, 1])";
+    parameter Real B[size(A, 1), :] 
+      "Matrix B of state space model (e.g. B=[1; 1])";
+    parameter Real C[:, size(A, 1)] 
+      "Matrix C of state space model (e.g. C=[1, 1])";
     parameter Real D[size(C, 1), size(B, 2)]=zeros(size(C, 1), size(B, 2)) 
       "Matrix D of state space model";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit 
@@ -1498,19 +1508,19 @@ results in the following equations:
           Text(
             extent={{-90,10},{-10,90}}, 
             textString="A", 
-            lineColor={0,0,255}), 
+            lineColor={0,0,127}), 
           Text(
             extent={{10,10},{90,90}}, 
             textString="B", 
-            lineColor={0,0,255}), 
+            lineColor={0,0,127}), 
           Text(
             extent={{-90,-10},{-10,-90}}, 
             textString="C", 
-            lineColor={0,0,255}), 
+            lineColor={0,0,127}), 
           Text(
             extent={{10,-10},{90,-90}}, 
             textString="D", 
-            lineColor={0,0,255}), 
+            lineColor={0,0,127}), 
           Line(points={{0,-90},{0,90}}, color={192,192,192}), 
           Line(points={{-90,0},{90,0}}, color={192,192,192})}),
       Diagram(coordinateSystem(
@@ -1548,10 +1558,11 @@ results in the following equations:
       extends Interfaces.SISO;
     
       annotation (defaultComponentName="der1",
-   Icon(graphics={Text(
+   Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={Text(
             extent={{-80,76},{80,-82}}, 
             textString="der()", 
-            lineColor={0,0,255})}),
+            lineColor={0,0,127})}),
           Documentation(info="<HTML>
 <p>
 Defines that the output y is the <i>derivative</i>
@@ -1575,7 +1586,7 @@ the model.
     extends Modelica.Blocks.Interfaces.SISO;
     
     parameter Integer n(min=1) = 2 "Order of filter";
-    parameter SI.Frequency f=1 "Cut-off frequency";
+    parameter SI.Frequency f(start=1) "Cut-off frequency";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit 
       "Type of initialization"                                                        annotation(Evaluate=true,
         Dialog(group="Initialization"));
@@ -1598,7 +1609,8 @@ the model.
     output Real xr(start=xr_start) 
       "state of real pole for uneven order otherwise dummy";
     annotation (
-      Icon(graphics={
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
           Line(points={{-80,78},{-80,-90}}, color={192,192,192}), 
           Polygon(
             points={{-79.5584,91.817},{-87.5584,69.817},{-71.5584,69.817},{-79.5584,
@@ -1610,7 +1622,7 @@ the model.
                 32.75},{-40,58.8},{-32,71.51},{-24,70.49},{-16,58.45},{-8,40.06},
                 {0,20.55},{8,4.459},{16,-5.271},{24,-7.629},{32,-3.428},{40,
                 5.21},{48,15.56},{56,25.03},{64,31.66},{72,34.5},{80,33.61}}, 
-              color={0,0,255}), 
+              color={0,0,127}), 
           Line(points={{-90.9779,-80.7697},{81.0221,-80.7697}}, color={192,192,
                 192}), 
           Polygon(
@@ -1631,7 +1643,8 @@ the model.
             extent={{-2,94},{94,48}}, 
             lineColor={192,192,192}, 
             textString="%n")}),
-      Diagram(graphics={
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics={
           Line(points={{40,0},{-40,0}}, color={0,0,0}), 
           Text(
             extent={{-55,55},{55,5}}, 
@@ -1740,7 +1753,7 @@ with zeros.</p>
     extends Modelica.Blocks.Interfaces.SISO;
     
     parameter Integer n=2 "Order of filter";
-    parameter Modelica.SIunits.Frequency f=1 "Cut-off frequency";
+    parameter Modelica.SIunits.Frequency f(start=1) "Cut-off frequency";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit 
       "Type of initialization"                                                        annotation(Evaluate=true,
         Dialog(group="Initialization"));
@@ -1753,7 +1766,8 @@ with zeros.</p>
     
     output Real x[n](start=x_start) "Filter states";
     annotation (
-      Icon(graphics={
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
           Line(points={{-80.6897,77.6256},{-80.6897,-90.3744}}, color={192,192,
                 192}), 
           Polygon(
@@ -1776,7 +1790,7 @@ with zeros.</p>
                 {-42,-18},{-36,4},{-26,20},{-10.7599,34.9018},{-0.759907,
                 38.8218},{9.24009,41.6818},{19.2401,43.7818},{29.2401,45.3118},
                 {39.2401,46.4318},{49.2401,47.2518},{59.2401,47.8518},{69.2401,
-                48.2918},{79.2401,48.6118}}, color={0,0,255}), 
+                48.2918},{79.2401,48.6118}}, color={0,0,127}), 
           Text(
             extent={{-70,94},{26,48}}, 
             lineColor={192,192,192}, 
@@ -1785,7 +1799,8 @@ with zeros.</p>
             extent={{8,-106},{8,-146}}, 
             lineColor={0,0,0}, 
             textString="f=%f")}),
-      Diagram(graphics={
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics={
           Line(points={{40,0},{-40,0}}, color={0,0,0}), 
           Text(
             extent={{-55,55},{55,5}}, 
