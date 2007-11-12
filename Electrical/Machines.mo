@@ -1036,8 +1036,8 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
 </HTML>"));
       Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited 
         smee(
-          useSupport=true, phiMechanical(start=-(Modelica.Constants.pi + 
-              Modelica.SIunits.Conversions.from_deg(gamma0))/smee.p, fixed=true))
+          useSupport=true, phiMechanical(start=-(Modelica.Constants.pi +
+              Modelica.SIunits.Conversions.from_deg(gamma0))/smee.p, fixed=true)) 
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
               rotation=0)));
       Machines.Sensors.RotorDisplacementAngle rotorDisplacementAngle(p=smee.p,
@@ -2167,22 +2167,25 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">sqrt(Xs*Xr * (1-sigma))/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
-</HTML>"),       Diagram(graphics));
+</HTML>"),       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+                  -100,-100},{100,100}}),
+                         graphics));
       equation 
         connect(airGapS.spacePhasor_r, squirrelCageR.spacePhasor_r) 
-          annotation (Line(points={{10,-10},{10,-20}}, color={0,0,255}));
+          annotation (Line(points={{10,-10},{10,-12.5},{10,-12.5},{10,-15},{10,
+                -15},{10,-20}},                        color={0,0,255}));
         connect(spacePhasorS.spacePhasor, airGapS.spacePhasor_s) annotation (Line(
-            points={{10,20},{10,10}},
+            points={{10,20},{10,15},{10,10},{10,10}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapS.shaft, inertiaRotor.flange_a) annotation (Line(
-            points={{10,6.12323e-016},{35,6.12323e-016},{35,-1.22465e-015},{60,
-                -1.22465e-015}},
+            points={{10,-1.83697e-015},{35,-1.83697e-015},{35,1.22465e-015},{60,
+                1.22465e-015}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(airGapS.support, internalSupport) annotation (Line(
-            points={{-10,-6.12323e-016},{-56,-6.12323e-016},{-56,0},{-90,0},{
-                -90,-100},{20,-100}},
+            points={{-10,1.83697e-015},{-56,1.83697e-015},{-56,0},{-90,0},{-90,
+                -100},{20,-100}},
             color={0,0,0},
             smooth=Smooth.None));
       end AIM_SquirrelCage;
@@ -2355,7 +2358,9 @@ at standstill with open rotor circuit at nominal voltage and nominal frequency, 
 using the locked-rotor voltage VR, no-load stator current I0 and powerfactor PF0:<br>
 turnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<sub>s,sigma</sub>) <u>I</u><sub>0</sub>
 </p>
-</HTML>"),   Diagram(graphics),
+</HTML>"),   Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}),
+                     graphics),
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Line(points={{-100,50},{-100,20},{-60,
                     20}}, color={0,0,255}), Line(points={{-100,-50},{-100,-20},
@@ -2379,24 +2384,25 @@ turnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
         connect(rr.plug_p, plug_rp)        annotation (Line(points={{60,-80},{
                 60,-90},{-80,-90},{-80,60},{-100,60}}, color={0,0,255}));
         connect(spacePhasorR.ground, spacePhasorR.zero) annotation (Line(
-            points={{-10,-20},{-10,-14},{-6.12323e-016,-14},{-6.12323e-016,-20}},
+            points={{-10,-20},{-10,-14},{6.12323e-016,-14},{6.12323e-016,-20}},
             color={0,0,255},
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid));
         
         connect(airGapS.spacePhasor_r, spacePhasorR.spacePhasor) 
-          annotation (Line(points={{10,-10},{10,-20}}, color={0,0,255}));
+          annotation (Line(points={{10,-10},{10,-15},{10,-15},{10,-20}},
+                                                       color={0,0,255}));
         connect(spacePhasorS.spacePhasor, airGapS.spacePhasor_s) annotation (Line(
-            points={{10,20},{10,10}},
+            points={{10,20},{10,15},{10,10},{10,10}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapS.shaft, inertiaRotor.flange_a) annotation (Line(
-            points={{10,6.12323e-016},{36,6.12323e-016},{36,-1.22465e-015},{60,
-                -1.22465e-015}},
+            points={{10,-1.83697e-015},{36,-1.83697e-015},{36,1.22465e-015},{60,
+                1.22465e-015}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(airGapS.support, internalSupport) annotation (Line(
-            points={{-10,-6.12323e-016},{-90,-6.12323e-016},{-90,-100},{20,-100}},
+            points={{-10,1.83697e-015},{-90,1.83697e-015},{-90,-100},{20,-100}},
             color={0,0,0},
             smooth=Smooth.None));
         
@@ -2526,7 +2532,9 @@ These models use package SpacePhasors.
               extent={{-10,-10},{10,10}},
               rotation=270)));
         annotation (defaultComponentName="smpm",
-          Diagram(graphics),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}),
+                  graphics),
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
@@ -2658,21 +2666,22 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 </HTML>"));
       equation 
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) annotation (Line(
-              points={{10,-10},{10,-20}}, color={0,0,255}));
+              points={{10,-10},{10,-12.5},{10,-12.5},{10,-15},{10,-20},{10,-20}},
+                                          color={0,0,255}));
         connect(airGapR.spacePhasor_r, permanentMagnet.spacePhasor_r) 
           annotation (Line(points={{10,-10},{20,-10},{20,-50},{10,-50}}, color=
                 {0,0,255}));
         connect(spacePhasorS.spacePhasor, airGapR.spacePhasor_s) annotation (Line(
-            points={{10,20},{10,10}},
+            points={{10,20},{10,15},{10,10},{10,10}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapR.shaft, inertiaRotor.flange_a) annotation (Line(
-            points={{10,6.12323e-016},{36,6.12323e-016},{36,-1.22465e-015},{60,
-                -1.22465e-015}},
+            points={{10,-1.83697e-015},{36,-1.83697e-015},{36,1.22465e-015},{60,
+                1.22465e-015}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(airGapR.support, internalSupport) annotation (Line(
-            points={{-10,-6.12323e-016},{-90,-6.12323e-016},{-90,-100},{20,-100}},
+            points={{-10,1.83697e-015},{-90,1.83697e-015},{-90,-100},{20,-100}},
             color={0,0,0},
             smooth=Smooth.None));
         
@@ -2765,7 +2774,9 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           annotation (Placement(transformation(extent={{-90,-50},{-110,-70}},
                 rotation=0)));
         annotation (defaultComponentName="smee",
-          Diagram(graphics),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}),
+                  graphics),
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255}), 
@@ -2913,31 +2924,33 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 </table>
 </HTML>"));
       equation 
-        connect(electricalExcitation.pin_en, pin_en) annotation (Line(points={{
-                -10,-70},{-70,-70},{-70,-60},{-100,-60}}, color={0,0,255}));
+        connect(electricalExcitation.pin_en, pin_en) annotation (Line(points={{10,-70},
+                {-70,-70},{-70,-60},{-100,-60}},          color={0,0,255}));
         connect(pin_ep, re.p) annotation (Line(points={{-100,60},{-80,60},{-80,
                 -90},{60,-90},{60,-80}}, color={0,0,255}));
         connect(lesigma.p, re.n) 
           annotation (Line(points={{30,-80},{40,-80}}, color={0,0,255}));
         connect(lesigma.n, electricalExcitation.pin_ep) 
-          annotation (Line(points={{10,-80},{10,-70}}, color={0,0,255}));
+          annotation (Line(points={{10,-80},{10,-75},{10,-70},{-10,-70}},
+                                                       color={0,0,255}));
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) 
-          annotation (Line(points={{10,-10},{10,-20}}, color={0,0,255}));
+          annotation (Line(points={{10,-10},{10,-12.5},{10,-12.5},{10,-15},{10,
+                -20},{10,-20}},                        color={0,0,255}));
         connect(airGapR.spacePhasor_r, electricalExcitation.spacePhasor_r) 
-          annotation (Line(points={{10,-10},{20,-10},{20,-50},{10,-50}}, color=
+          annotation (Line(points={{10,-10},{20,-10},{20,-50},{-10,-50}},color=
                 {0,0,255}));
         connect(airGapR.shaft, inertiaRotor.flange_a) annotation (Line(
-            points={{10,6.12323e-016},{36,6.12323e-016},{36,-1.22465e-015},{60,
-                -1.22465e-015}},
+            points={{10,-1.83697e-015},{36,-1.83697e-015},{36,1.22465e-015},{60,
+                1.22465e-015}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(spacePhasorS.spacePhasor, airGapR.spacePhasor_s) annotation (Line(
-            points={{10,20},{10,10}},
+            points={{10,20},{10,15},{10,10},{10,10}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapR.support, internalSupport) annotation (Line(
-            points={{-10,-6.12323e-016},{-46,-6.12323e-016},{-46,0},{-90,0},{
-                -90,-100},{20,-100}},
+            points={{-10,1.83697e-015},{-46,1.83697e-015},{-46,0},{-90,0},{-90,
+                -100},{20,-100}},
             color={0,0,0},
             smooth=Smooth.None));
       end SM_ElectricalExcited;
@@ -2986,19 +2999,21 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               extent={{-10,-10},{10,10}},
               rotation=270)));
         annotation (defaultComponentName="smr",
-          Diagram(graphics),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}),
+                  graphics),
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
-                extent={{-130,10},{-100,-10}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
+                extent={{-130,10},{-100,-10}}, 
+                lineColor={0,0,0}, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid), 
               Rectangle(
-                extent={{-100,10},{-70,-10}},
-                lineColor={0,0,0},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
+                extent={{-100,10},{-70,-10}}, 
+                lineColor={0,0,0}, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid), 
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255})}),
           Documentation(info="<HTML>
 <b>Model of a three phase synchronous induction machine with reluctance rotor and damper cage.</b><br>
@@ -3110,18 +3125,19 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 </HTML>"));
       equation 
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) 
-          annotation (Line(points={{10,-10},{10,-20}}, color={0,0,255}));
+          annotation (Line(points={{10,-10},{10,-12.5},{10,-12.5},{10,-15},{10,
+                -20},{10,-20}},                        color={0,0,255}));
         connect(spacePhasorS.spacePhasor, airGapR.spacePhasor_s) annotation (Line(
-            points={{10,20},{10,10}},
+            points={{10,20},{10,15},{10,10},{10,10}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapR.shaft, inertiaRotor.flange_a) annotation (Line(
-            points={{10,6.12323e-016},{34,6.12323e-016},{34,-1.22465e-015},{60,
-                -1.22465e-015}},
+            points={{10,-1.83697e-015},{34,-1.83697e-015},{34,1.22465e-015},{60,
+                1.22465e-015}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(airGapR.support, internalSupport) annotation (Line(
-            points={{-10,-6.12323e-016},{-90,-6.12323e-016},{-90,-100},{20,-100}},
+            points={{-10,1.83697e-015},{-90,1.83697e-015},{-90,-100},{20,-100}},
             color={0,0,0},
             smooth=Smooth.None));
         
@@ -3196,13 +3212,13 @@ This package contains models of DC machines:
           Diagram(graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={Rectangle(
-                extent={{-130,10},{-100,-10}},
-                lineColor={0,0,0},
-                fillColor={0,255,0},
+                extent={{-130,10},{-100,-10}}, 
+                lineColor={0,0,0}, 
+                fillColor={0,255,0}, 
                 fillPattern=FillPattern.Solid), Rectangle(
-                extent={{-100,10},{-70,-10}},
-                lineColor={0,0,0},
-                fillColor={255,0,0},
+                extent={{-100,10},{-70,-10}}, 
+                lineColor={0,0,0}, 
+                fillColor={255,0,0}, 
                 fillPattern=FillPattern.Solid)}),
           Documentation(info="<HTML>
 <b>Model of a DC Machine with Permanent magnet.</b><br>
@@ -3314,17 +3330,19 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
           annotation (Placement(transformation(extent={{-90,-50},{-110,-70}},
                 rotation=0)));
         annotation (defaultComponentName="dcee",
-          Diagram(graphics),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}),
+                  graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Line(points={{-130,-4},{-129,1},{-125,5},{-120,6},{-115,5},{-111,
-                    1},{-110,-4}}, color={0,0,255}),
+                    1},{-110,-4}}, color={0,0,255}), 
               Line(points={{-110,-4},{-109,1},{-105,5},{-100,6},{-95,5},{-91,1},
-                    {-90,-4}}, color={0,0,255}),
+                    {-90,-4}}, color={0,0,255}), 
               Line(points={{-90,-4},{-89,1},{-85,5},{-80,6},{-75,5},{-71,1},{-70,
-                    -4}}, color={0,0,255}),
+                    -4}}, color={0,0,255}), 
               Line(points={{-100,-50},{-100,-20},{-70,-20},{-70,-2}}, color={0,
-                    0,255}),
+                    0,255}), 
               Line(points={{-100,50},{-100,20},{-130,20},{-130,-4}}, color={0,0,
                     255})}),
           Documentation(info="<HTML>
@@ -3408,12 +3426,12 @@ Armature current does not cover excitation current of a shunt excitation; in thi
         connect(re.n, airGapDC.pin_ep) annotation (Line(points={{-40,-40},{10,
                 -40},{10,-10}}, color={0,0,255}));
         connect(airGapDC.shaft, inertiaRotor.flange_a) annotation (Line(
-            points={{10,6.12323e-016},{38,6.12323e-016},{38,-1.22465e-015},{60,
-                -1.22465e-015}},
+            points={{10,-1.83697e-015},{38,-1.83697e-015},{38,1.22465e-015},{60,
+                1.22465e-015}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(airGapDC.pin_ap, la.n) annotation (Line(
-            points={{10,10},{10,60}},
+            points={{10,10},{10,35},{10,35},{10,60}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapDC.pin_an, pin_an) annotation (Line(
@@ -3421,8 +3439,8 @@ Armature current does not cover excitation current of a shunt excitation; in thi
             color={0,0,255},
             smooth=Smooth.None));
         connect(airGapDC.support, internalSupport) annotation (Line(
-            points={{-10,-6.12323e-016},{-46,-6.12323e-016},{-46,0},{-90,0},{
-                -90,-100},{20,-100}},
+            points={{-10,1.83697e-015},{-46,1.83697e-015},{-46,0},{-90,0},{-90,
+                -100},{20,-100}},
             color={0,0,0},
             smooth=Smooth.None));
       end DC_ElectricalExcited;
@@ -3461,12 +3479,12 @@ Armature current does not cover excitation current of a shunt excitation; in thi
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Line(points={{-100,-10},{-105,-9},{-109,-5},{-110,0},{-109,5},{-105,
-                    9},{-100,10}}, color={0,0,255}),
+                    9},{-100,10}}, color={0,0,255}), 
               Line(points={{-100,-30},{-105,-29},{-109,-25},{-110,-20},{-109,-15},
-                    {-105,-11},{-100,-10}}, color={0,0,255}),
+                    {-105,-11},{-100,-10}}, color={0,0,255}), 
               Line(points={{-100,10},{-105,11},{-109,15},{-110,20},{-109,25},{-105,
-                    29},{-100,30}}, color={0,0,255}),
-              Line(points={{-100,50},{-100,30}}, color={0,0,255}),
+                    29},{-100,30}}, color={0,0,255}), 
+              Line(points={{-100,50},{-100,30}}, color={0,0,255}), 
               Line(points={{-100,-30},{-100,-50}}, color={0,0,255})}),
           Documentation(info="<HTML>
 <b>Model of a DC Machine with Series excitation.</b><br>
@@ -3640,8 +3658,8 @@ and the accompanying <b>disclaimer</b>
        first stable release</li>
   </ul>
 </HTML>"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Ellipse(extent={{-100,30},{20,-90}},
-                lineColor={0,0,255}), Ellipse(extent={{-40,30},{80,-90}},
+                -100},{100,100}}), graphics={Ellipse(extent={{-100,30},{20,-90}}, 
+                lineColor={0,0,255}), Ellipse(extent={{-40,30},{80,-90}}, 
                 lineColor={0,0,255})}));
       
       package Yy "Transformers: primary Y / secondary y" 
@@ -3669,8 +3687,8 @@ This package contains transformers primary Y connected / secondary y connected i
   </ul>
 </HTML>"),      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={Text(
-                extent={{0,40},{0,-100}},
-                lineColor={0,0,255},
+                extent={{0,40},{0,-100}}, 
+                lineColor={0,0,255}, 
                 textString="Yy")}));
         
         model Yy00 "Transformer Yy0" 
@@ -3696,7 +3714,9 @@ Transformer Yy0
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
-          annotation (Diagram(graphics));
+          annotation (Diagram(coordinateSystem(preserveAspectRatio=false, 
+                  extent={{-100,-100},{100,100}}),
+                              graphics));
         equation 
           connect(star1.pin_n, starpoint1) 
             annotation (Line(points={{-10,-90},{-10,-100},{-50,-100}}, color={0,
@@ -3708,7 +3728,8 @@ Transformer Yy0
             annotation (Line(points={{-50,0},{-50,20},{-10,20},{-10,5}}, color=
                   {0,0,255}));
           connect(core.plug_n1, star1.plug_p) 
-            annotation (Line(points={{-10,-5},{-10,-70}}, color={0,0,255}));
+            annotation (Line(points={{-10,-5},{-10,-37.5},{-10,-70},{-10,-70}},
+                                                          color={0,0,255}));
           connect(core.plug_n2, core.plug_p3) 
             annotation (Line(points={{10,4},{10,-4}}, color={0,0,255}));
           connect(core.plug_p2, l2sigma.plug_p) 
@@ -3993,8 +4014,8 @@ This package contains transformers primary Y connected / secondary d connected i
   </ul>
 </HTML>"),      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={Text(
-                extent={{0,40},{0,-100}},
-                lineColor={0,0,255},
+                extent={{0,40},{0,-100}}, 
+                lineColor={0,0,255}, 
                 textString="Yd")}));
         
         model Yd01 "Transformer Yd1" 
@@ -4273,8 +4294,8 @@ This package contains transformers primary Y connected / secondary zig-zag conne
   </ul>
 </HTML>"),      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={Text(
-                extent={{0,40},{0,-100}},
-                lineColor={0,0,255},
+                extent={{0,40},{0,-100}}, 
+                lineColor={0,0,255}, 
                 textString="Yz")}));
         
         model Yz01 "Transformer Yz1" 
@@ -4656,8 +4677,8 @@ This package contains transformers primary D connected / secondary y connected i
   </ul>
 </HTML>"),      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={Text(
-                extent={{0,40},{0,-100}},
-                lineColor={0,0,255},
+                extent={{0,40},{0,-100}}, 
+                lineColor={0,0,255}, 
                 textString="Dy")}));
         
         model Dy01 "Transformer Dy1" 
@@ -4953,8 +4974,8 @@ This package contains transformers primary D connected / secondary d connected i
   </ul>
 </HTML>"),      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={Text(
-                extent={{0,40},{0,-100}},
-                lineColor={0,0,255},
+                extent={{0,40},{0,-100}}, 
+                lineColor={0,0,255}, 
                 textString="Dd")}));
         
         model Dd00 "Transformer Dd0" 
@@ -5206,8 +5227,8 @@ This package contains transformers primary D connected / secondary d connected i
   </ul>
 </HTML>"),      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={Text(
-                extent={{0,40},{0,-100}},
-                lineColor={0,0,255},
+                extent={{0,40},{0,-100}}, 
+                lineColor={0,0,255}, 
                 textString="Dz")}));
         
         model Dz00 "Transformer Dz0" 
@@ -5610,19 +5631,19 @@ These models use package SpacePhasors.
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={
               Ellipse(
-                extent={{-90,90},{90,-92}},
-                lineColor={0,0,255},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(extent={{-80,80},{80,-80}}, lineColor={0,0,255}),
+                extent={{-90,90},{90,-92}}, 
+                lineColor={0,0,255}, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid), 
+              Ellipse(extent={{-80,80},{80,-80}}, lineColor={0,0,255}), 
               Rectangle(
-                extent={{-10,90},{10,-80}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.VerticalCylinder,
-                fillColor={128,128,128}),
+                extent={{-10,90},{10,-80}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.VerticalCylinder, 
+                fillColor={128,128,128}), 
               Text(
-                extent={{-150,-90},{150,-150}},
-                lineColor={0,0,255},
+                extent={{-150,-90},{150,-150}}, 
+                lineColor={0,0,255}, 
                 textString="%name")}),
           Documentation(info="<HTML>
 Partial model of the airgap, using only equations.
@@ -5657,13 +5678,13 @@ Partial model of the airgap, using only equations.
           Diagram(graphics),
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Text(
-                extent={{-80,40},{0,-40}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.VerticalCylinder,
-                fillColor={128,128,128},
+                extent={{-80,40},{0,-40}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.VerticalCylinder, 
+                fillColor={128,128,128}, 
                 textString="S"), Text(
-                extent={{-150,-90},{150,-150}},
-                lineColor={0,0,255},
+                extent={{-150,-90},{150,-150}}, 
+                lineColor={0,0,255}, 
                 textString="%name")}),
           Documentation(info="<HTML>
 Model of the airgap in stator-fixed coordinate system, using only equations.
@@ -5692,13 +5713,13 @@ Model of the airgap in stator-fixed coordinate system, using only equations.
           Diagram(graphics),
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Text(
-                extent={{0,40},{80,-40}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.VerticalCylinder,
-                fillColor={128,128,128},
+                extent={{0,40},{80,-40}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.VerticalCylinder, 
+                fillColor={128,128,128}, 
                 textString="R"), Text(
-                extent={{-150,-90},{150,-150}},
-                lineColor={0,0,255},
+                extent={{-150,-90},{150,-150}}, 
+                lineColor={0,0,255}, 
                 textString="%name")}),
           Documentation(info="<HTML>
 Model of the airgap in rotor-fixed coordinate system, using only equations.
@@ -5725,30 +5746,30 @@ Model of the airgap in rotor-fixed coordinate system, using only equations.
           Diagram(graphics),
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={
-              Ellipse(extent={{-60,45},{-30,75}}, lineColor={0,0,255}),
-              Ellipse(extent={{-30,45},{0,75}}, lineColor={0,0,255}),
-              Ellipse(extent={{0,45},{30,75}}, lineColor={0,0,255}),
-              Ellipse(extent={{30,45},{60,75}}, lineColor={0,0,255}),
+              Ellipse(extent={{-60,45},{-30,75}}, lineColor={0,0,255}), 
+              Ellipse(extent={{-30,45},{0,75}}, lineColor={0,0,255}), 
+              Ellipse(extent={{0,45},{30,75}}, lineColor={0,0,255}), 
+              Ellipse(extent={{30,45},{60,75}}, lineColor={0,0,255}), 
               Rectangle(
-                extent={{-60,30},{60,60}},
-                lineColor={255,255,255},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{-100,60},{-60,60}}, color={0,0,255}),
-              Line(points={{60,60},{80,60},{80,40}}, color={0,0,255}),
+                extent={{-60,30},{60,60}}, 
+                lineColor={255,255,255}, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid), 
+              Line(points={{-100,60},{-60,60}}, color={0,0,255}), 
+              Line(points={{60,60},{80,60},{80,40}}, color={0,0,255}), 
               Rectangle(
-                extent={{60,40},{100,-40}},
-                lineColor={0,0,255},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{80,-40},{80,-60}}, color={0,0,255}),
-              Line(points={{60,-60},{100,-60}}, color={0,0,255}),
-              Line(points={{70,-80},{90,-80}}, color={0,0,255}),
-              Line(points={{66,-70},{94,-70}}, color={0,0,255}),
+                extent={{60,40},{100,-40}}, 
+                lineColor={0,0,255}, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid), 
+              Line(points={{80,-40},{80,-60}}, color={0,0,255}), 
+              Line(points={{60,-60},{100,-60}}, color={0,0,255}), 
+              Line(points={{70,-80},{90,-80}}, color={0,0,255}), 
+              Line(points={{66,-70},{94,-70}}, color={0,0,255}), 
               Text(
-                extent={{-150,-90},{150,-150}},
-                lineColor={0,0,255},
-                textString="%name"),
+                extent={{-150,-90},{150,-150}}, 
+                lineColor={0,0,255}, 
+                textString="%name"), 
               Line(points={{-100,90},{-100,60}}, color={0,0,255})}),
           Documentation(info="<HTML>
 Model of a squirrel cage / damper cage in two axis.
@@ -5773,40 +5794,40 @@ Model of a squirrel cage / damper cage in two axis.
           Diagram(graphics),
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={
-              Line(points={{60,60},{100,60}}, color={0,0,255}),
-              Line(points={{70,40},{90,40}}, color={0,0,255}),
-              Line(points={{66,50},{94,50}}, color={0,0,255}),
+              Line(points={{60,60},{100,60}}, color={0,0,255}), 
+              Line(points={{70,40},{90,40}}, color={0,0,255}), 
+              Line(points={{66,50},{94,50}}, color={0,0,255}), 
               Text(
-                extent={{-150,-90},{150,-150}},
-                lineColor={0,0,255},
-                textString="%name"),
-              Ellipse(extent={{-60,90},{-40,70}}, lineColor={0,0,255}),
-              Ellipse(extent={{-40,90},{-20,70}}, lineColor={0,0,255}),
-              Ellipse(extent={{-20,90},{0,70}}, lineColor={0,0,255}),
-              Line(points={{-80,0},{-80,-20}}, color={0,0,255}),
-              Rectangle(extent={{20,90},{60,70}}, lineColor={0,0,255}),
-              Line(points={{60,80},{80,80},{80,60}}, color={0,0,255}),
-              Line(points={{-100,90},{-100,80},{-60,80}}, color={0,0,255}),
+                extent={{-150,-90},{150,-150}}, 
+                lineColor={0,0,255}, 
+                textString="%name"), 
+              Ellipse(extent={{-60,90},{-40,70}}, lineColor={0,0,255}), 
+              Ellipse(extent={{-40,90},{-20,70}}, lineColor={0,0,255}), 
+              Ellipse(extent={{-20,90},{0,70}}, lineColor={0,0,255}), 
+              Line(points={{-80,0},{-80,-20}}, color={0,0,255}), 
+              Rectangle(extent={{20,90},{60,70}}, lineColor={0,0,255}), 
+              Line(points={{60,80},{80,80},{80,60}}, color={0,0,255}), 
+              Line(points={{-100,90},{-100,80},{-60,80}}, color={0,0,255}), 
               Line(points={{-100,90},{-100,80},{-80,80},{-80,60}}, color={0,0,
-                    255}),
-              Ellipse(extent={{-90,60},{-70,40}}, lineColor={0,0,255}),
-              Ellipse(extent={{-90,40},{-70,20}}, lineColor={0,0,255}),
-              Ellipse(extent={{-90,20},{-70,0}}, lineColor={0,0,255}),
+                    255}), 
+              Ellipse(extent={{-90,60},{-70,40}}, lineColor={0,0,255}), 
+              Ellipse(extent={{-90,40},{-70,20}}, lineColor={0,0,255}), 
+              Ellipse(extent={{-90,20},{-70,0}}, lineColor={0,0,255}), 
               Rectangle(
-                extent={{-80,0},{-70,60}},
-                lineColor={255,255,255},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{0,80},{20,80}}, color={0,0,255}),
-              Rectangle(extent={{-90,-20},{-70,-60}}, lineColor={0,0,255}),
-              Line(points={{-100,-80},{-60,-80}}, color={0,0,255}),
-              Line(points={{-90,-100},{-70,-100}}, color={0,0,255}),
-              Line(points={{-94,-90},{-66,-90}}, color={0,0,255}),
-              Line(points={{-80,-60},{-80,-80}}, color={0,0,255}),
+                extent={{-80,0},{-70,60}}, 
+                lineColor={255,255,255}, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid), 
+              Line(points={{0,80},{20,80}}, color={0,0,255}), 
+              Rectangle(extent={{-90,-20},{-70,-60}}, lineColor={0,0,255}), 
+              Line(points={{-100,-80},{-60,-80}}, color={0,0,255}), 
+              Line(points={{-90,-100},{-70,-100}}, color={0,0,255}), 
+              Line(points={{-94,-90},{-66,-90}}, color={0,0,255}), 
+              Line(points={{-80,-60},{-80,-80}}, color={0,0,255}), 
               Rectangle(
-                extent={{0,70},{-60,80}},
-                lineColor={255,255,255},
-                fillColor={255,255,255},
+                extent={{0,70},{-60,80}}, 
+                lineColor={255,255,255}, 
+                fillColor={255,255,255}, 
                 fillPattern=FillPattern.Solid)}),
           Documentation(info="<HTML>
 Model of an unsymmetrical damper cage cage in two axis.
@@ -5830,22 +5851,22 @@ Model of an unsymmetrical damper cage cage in two axis.
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={
               Text(
-                extent={{-150,-90},{150,-150}},
-                lineColor={0,0,255},
-                textString="%name"),
+                extent={{-150,-90},{150,-150}}, 
+                lineColor={0,0,255}, 
+                textString="%name"), 
               Polygon(
-                points={{-90,100},{-70,106},{-70,94},{-90,100}},
-                lineColor={0,0,255},
-                fillColor={0,0,255},
-                fillPattern=FillPattern.Solid),
-              Ellipse(extent={{-70,40},{10,-40}}, lineColor={0,0,255}),
-              Ellipse(extent={{-10,40},{70,-40}}, lineColor={0,0,255}),
+                points={{-90,100},{-70,106},{-70,94},{-90,100}}, 
+                lineColor={0,0,255}, 
+                fillColor={0,0,255}, 
+                fillPattern=FillPattern.Solid), 
+              Ellipse(extent={{-70,40},{10,-40}}, lineColor={0,0,255}), 
+              Ellipse(extent={{-10,40},{70,-40}}, lineColor={0,0,255}), 
               Line(points={{-30,0},{-54,32},{-50,20},{-44,26},{-54,32}}, color=
-                    {0,0,255}),
-              Line(points={{-30,0},{-54,-32},{-50,-20},{-44,-26},{-54,-32}},
-                  color={0,0,255}),
-              Line(points={{-54,32},{-54,100},{-70,100}}, color={0,0,255}),
-              Line(points={{90,100},{30,100},{30,40}}, color={0,0,255}),
+                    {0,0,255}), 
+              Line(points={{-30,0},{-54,-32},{-50,-20},{-44,-26},{-54,-32}}, 
+                  color={0,0,255}), 
+              Line(points={{-54,32},{-54,100},{-70,100}}, color={0,0,255}), 
+              Line(points={{90,100},{30,100},{30,40}}, color={0,0,255}), 
               Line(points={{30,-40},{30,-100},{90,-100}}, color={0,0,255})}),
           Documentation(info="<HTML>
 Model of an electrical excitation, converting excitation to space phasor.
@@ -5874,39 +5895,39 @@ Model of an electrical excitation, converting excitation to space phasor.
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={
               Ellipse(
-                extent={{-60,60},{60,20}},
-                lineColor={255,0,0},
-                fillColor={255,0,0},
-                fillPattern=FillPattern.Solid),
+                extent={{-60,60},{60,20}}, 
+                lineColor={255,0,0}, 
+                fillColor={255,0,0}, 
+                fillPattern=FillPattern.Solid), 
               Ellipse(
-                extent={{-60,-20},{60,-60}},
-                lineColor={0,255,0},
-                fillColor={0,255,0},
-                fillPattern=FillPattern.Solid),
+                extent={{-60,-20},{60,-60}}, 
+                lineColor={0,255,0}, 
+                fillColor={0,255,0}, 
+                fillPattern=FillPattern.Solid), 
               Rectangle(
-                extent={{-60,40},{60,0}},
-                lineColor={255,0,0},
-                fillColor={255,0,0},
-                fillPattern=FillPattern.Solid),
+                extent={{-60,40},{60,0}}, 
+                lineColor={255,0,0}, 
+                fillColor={255,0,0}, 
+                fillPattern=FillPattern.Solid), 
               Polygon(
-                points={{-90,100},{-70,106},{-70,94},{-90,100}},
-                lineColor={0,0,255},
-                fillColor={0,0,255},
-                fillPattern=FillPattern.Solid),
+                points={{-90,100},{-70,106},{-70,94},{-90,100}}, 
+                lineColor={0,0,255}, 
+                fillColor={0,0,255}, 
+                fillPattern=FillPattern.Solid), 
               Rectangle(
-                extent={{-60,0},{60,-40}},
-                lineColor={0,255,0},
-                pattern=LinePattern.None,
-                lineThickness=2,
-                fillColor={0,255,0},
-                fillPattern=FillPattern.Solid),
-              Line(points={{-60,-40},{-60,0}}, color={0,255,0}),
-              Line(points={{60,-40},{60,0}}, color={0,255,0}),
-              Line(points={{0,100},{-70,100}}, color={0,0,255}),
-              Line(points={{0,100},{0,60}}, color={255,0,0}),
+                extent={{-60,0},{60,-40}}, 
+                lineColor={0,255,0}, 
+                pattern=LinePattern.None, 
+                lineThickness=2, 
+                fillColor={0,255,0}, 
+                fillPattern=FillPattern.Solid), 
+              Line(points={{-60,-40},{-60,0}}, color={0,255,0}), 
+              Line(points={{60,-40},{60,0}}, color={0,255,0}), 
+              Line(points={{0,100},{-70,100}}, color={0,0,255}), 
+              Line(points={{0,100},{0,60}}, color={255,0,0}), 
               Text(
-                extent={{-150,-90},{150,-150}},
-                lineColor={0,0,255},
+                extent={{-150,-90},{150,-150}}, 
+                lineColor={0,0,255}, 
                 textString="%name")}),
           Documentation(info="<HTML>
 Model of a permanent magnet excitation, characterized by an equivalent excitation current.
@@ -5950,35 +5971,35 @@ Model of a permanent magnet excitation, characterized by an equivalent excitatio
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={
               Ellipse(
-                extent={{-90,90},{90,-92}},
-                lineColor={0,0,255},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
+                extent={{-90,90},{90,-92}}, 
+                lineColor={0,0,255}, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid), 
               Ellipse(
-                extent={{-80,80},{80,-80}},
-                lineColor={0,0,255},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
+                extent={{-80,80},{80,-80}}, 
+                lineColor={0,0,255}, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid), 
               Rectangle(
-                extent={{-10,90},{10,-80}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.VerticalCylinder,
-                fillColor={128,128,128}),
+                extent={{-10,90},{10,-80}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.VerticalCylinder, 
+                fillColor={128,128,128}), 
               Text(
-                extent={{0,40},{80,-40}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.VerticalCylinder,
-                fillColor={128,128,128},
-                textString="E"),
+                extent={{0,40},{80,-40}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.VerticalCylinder, 
+                fillColor={128,128,128}, 
+                textString="E"), 
               Text(
-                extent={{-150,-100},{150,-160}},
-                lineColor={0,0,255},
-                textString="%name"),
+                extent={{-150,-100},{150,-160}}, 
+                lineColor={0,0,255}, 
+                textString="%name"), 
               Text(
-                extent={{-80,40},{0,-40}},
-                lineColor={0,0,0},
-                fillPattern=FillPattern.VerticalCylinder,
-                fillColor={128,128,128},
+                extent={{-80,40},{0,-40}}, 
+                lineColor={0,0,0}, 
+                fillPattern=FillPattern.VerticalCylinder, 
+                fillColor={128,128,128}, 
                 textString="A")}),
           Documentation(info="<HTML>
 Linear model of the airgap (without saturation effects) of a DC machine, using only equations.<br>
@@ -6013,8 +6034,8 @@ Induced armature voltage is calculated from flux times angular velocity.
           Diagram(graphics),
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Text(
-                extent={{-150,-100},{150,-160}},
-                lineColor={0,0,255},
+                extent={{-150,-100},{150,-160}}, 
+                lineColor={0,0,255}, 
                 textString="%name")}),
           Documentation(info="<HTML>
 Linear model of the airgap (without saturation effects) of a DC machine, using only equations.<br>
@@ -6064,22 +6085,24 @@ Induced armature voltage is calculated from flux times angular velocity.
         Modelica.Electrical.MultiPhase.Basic.Inductor l2sigma(final m=m, final L=fill(L2sigma, m)) 
           annotation (Placement(transformation(extent={{50,-10},{70,10}},
                 rotation=0)));
-        annotation (Diagram(graphics),
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
+                  {{-100,-100},{100,100}}),
+                            graphics),
                              Icon(coordinateSystem(preserveAspectRatio=false,
                 extent={{-100,-100},{100,100}}), graphics={
-              Ellipse(extent={{-90,60},{30,-60}}, lineColor={0,0,255}),
-              Ellipse(extent={{-30,60},{90,-60}}, lineColor={0,0,255}),
+              Ellipse(extent={{-90,60},{30,-60}}, lineColor={0,0,255}), 
+              Ellipse(extent={{-30,60},{90,-60}}, lineColor={0,0,255}), 
               Text(
-                extent={{0,100},{0,60}},
-                lineColor={0,0,255},
-                textString="%name"),
+                extent={{0,100},{0,60}}, 
+                lineColor={0,0,255}, 
+                textString="%name"), 
               Text(
-                extent={{0,40},{0,-40}},
-                lineColor={0,0,255},
-                textString="%VectorGroup"),
+                extent={{0,40},{0,-40}}, 
+                lineColor={0,0,255}, 
+                textString="%VectorGroup"), 
               Text(
-                extent={{0,-60},{0,-100}},
-                lineColor={0,0,255},
+                extent={{0,-60},{0,-100}}, 
+                lineColor={0,0,255}, 
                 textString="n=%n")}),
           Documentation(info="<html>
 Partialmodel of a threephase transformer, containing primary and secondary resistances and stray inductances, as well as the iron core. 
@@ -6115,40 +6138,40 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
         Modelica.SIunits.Current i3[m] = plug_p3.pin.i;
         Modelica.SIunits.Current im[m] = i1 + i2/n12 + i3/n13 
           "Magnetizing current";
-        annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
-                  -100,-100},{100,100}}), graphics={
+        annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics={
               Text(
-                extent={{-100,130},{100,110}},
-                textString="%name",
-                lineColor={0,0,255}),
-              Ellipse(extent={{-45,-50},{-20,-25}}, lineColor={0,0,255}),
-              Ellipse(extent={{-45,-25},{-20,0}}, lineColor={0,0,255}),
-              Ellipse(extent={{-45,0},{-20,25}}, lineColor={0,0,255}),
-              Ellipse(extent={{-45,25},{-20,50}}, lineColor={0,0,255}),
+                extent={{-100,130},{100,110}}, 
+                textString="%name", 
+                lineColor={0,0,255}), 
+              Ellipse(extent={{-45,-50},{-20,-25}}, lineColor={0,0,255}), 
+              Ellipse(extent={{-45,-25},{-20,0}}, lineColor={0,0,255}), 
+              Ellipse(extent={{-45,0},{-20,25}}, lineColor={0,0,255}), 
+              Ellipse(extent={{-45,25},{-20,50}}, lineColor={0,0,255}), 
               Rectangle(
-                extent={{-46,-50},{-34,50}},
-                lineColor={255,255,255},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{-90,50},{-32,50}}, color={0,0,255}),
-              Line(points={{-90,-50},{-32,-50}}, color={0,0,255}),
-              Ellipse(extent={{20,40},{45,65}}, lineColor={0,0,255}),
-              Ellipse(extent={{20,65},{45,90}}, lineColor={0,0,255}),
+                extent={{-46,-50},{-34,50}}, 
+                lineColor={255,255,255}, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid), 
+              Line(points={{-90,50},{-32,50}}, color={0,0,255}), 
+              Line(points={{-90,-50},{-32,-50}}, color={0,0,255}), 
+              Ellipse(extent={{20,40},{45,65}}, lineColor={0,0,255}), 
+              Ellipse(extent={{20,65},{45,90}}, lineColor={0,0,255}), 
               Rectangle(
-                extent={{36,40},{46,90}},
-                lineColor={255,255,255},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{32,90},{90,90}}, color={0,0,255}),
-              Line(points={{34,40},{92,40}}, color={0,0,255}),
-              Ellipse(extent={{20,-90},{45,-65}}, lineColor={0,0,255}),
-              Ellipse(extent={{20,-65},{45,-40}}, lineColor={0,0,255}),
+                extent={{36,40},{46,90}}, 
+                lineColor={255,255,255}, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid), 
+              Line(points={{32,90},{90,90}}, color={0,0,255}), 
+              Line(points={{34,40},{92,40}}, color={0,0,255}), 
+              Ellipse(extent={{20,-90},{45,-65}}, lineColor={0,0,255}), 
+              Ellipse(extent={{20,-65},{45,-40}}, lineColor={0,0,255}), 
               Rectangle(
-                extent={{36,-90},{46,-40}},
-                lineColor={255,255,255},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),
-              Line(points={{32,-40},{90,-40}}, color={0,0,255}),
+                extent={{36,-90},{46,-40}}, 
+                lineColor={255,255,255}, 
+                fillColor={255,255,255}, 
+                fillPattern=FillPattern.Solid), 
+              Line(points={{32,-40},{90,-40}}, color={0,0,255}), 
               Line(points={{34,-90},{92,-90}}, color={0,0,255})}),
           Diagram(graphics),
           Window(
@@ -6368,32 +6391,32 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
                            Icon(coordinateSystem(preserveAspectRatio=false,
               extent={{-100,-100},{100,100}}), graphics={
             Ellipse(
-              extent={{-70,70},{70,-70}}, 
-              lineColor={0,0,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{0,70},{0,40}}, color={0,0,0}), 
-            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}), 
-            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}), 
-            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}), 
-            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}), 
-            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}), 
+              extent={{-70,70},{70,-70}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,70},{0,40}}, color={0,0,0}),
+            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
+            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
+            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
+            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
+            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
             Polygon(
-              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-5,5},{5,-5}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-90,0},{-70,0}}, color={0,0,255}), 
-            Line(points={{70,0},{90,0}}, color={0,0,255}), 
-            Line(points={{0,-70},{0,-100}}, color={0,0,255}), 
+              extent={{-5,5},{5,-5}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-90,0},{-70,0}}, color={0,0,255}),
+            Line(points={{70,0},{90,0}}, color={0,0,255}),
+            Line(points={{0,-70},{0,-100}}, color={0,0,255}),
             Text(
-              extent={{-40,-20},{40,-60}}, 
-              lineColor={0,0,255}, 
+              extent={{-40,-20},{40,-60}},
+              lineColor={0,0,255},
               textString="A RMS")}),
         Documentation(info="<HTML>
 Measured 3-phase instantaneous currents are transformed to the corresponding space phasor; <br>
@@ -6439,35 +6462,34 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Ellipse(
-              extent={{-70,70},{70,-70}}, 
-              lineColor={0,0,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{0,70},{0,40}}, color={0,0,0}), 
-            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}), 
-            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}), 
-            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}), 
-            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}), 
-            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}), 
+              extent={{-70,70},{70,-70}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,70},{0,40}}, color={0,0,0}),
+            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
+            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
+            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
+            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
+            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
             Polygon(
-              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-5,5},{5,-5}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-90,0},{-70,0}}, color={0,0,255}), 
-            Line(points={{70,0},{90,0}}, color={0,0,255}), 
+              extent={{-5,5},{5,-5}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-90,0},{-70,0}}, color={0,0,255}),
+            Line(points={{70,0},{90,0}}, color={0,0,255}),
             Text(
-              extent={{-40,-20},{40,-60}}, 
-              lineColor={0,0,255}, 
-              textString="P Q"), 
-            Line(points={{0,-70},{0,-90}}, color={0,0,255}), 
-            Line(points={{-10,70},{-10,80},{-50,80},{-50,100}}, color={0,0,255}), 
-              
+              extent={{-40,-20},{40,-60}},
+              lineColor={0,0,255},
+              textString="P Q"),
+            Line(points={{0,-70},{0,-90}}, color={0,0,255}),
+            Line(points={{-10,70},{-10,80},{-50,80},{-50,100}}, color={0,0,255}),
             Line(points={{10,70},{10,80},{50,80},{50,100}}, color={0,0,255})}),
           Diagram(graphics),
         Documentation(info="<HTML>
@@ -6502,37 +6524,37 @@ Q = giving in stationary state reactive power.<br>
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Ellipse(
-              extent={{-70,70},{70,-70}}, 
-              lineColor={0,0,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{0,70},{0,40}}, color={0,0,0}), 
-            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}), 
-            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}), 
-            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}), 
-            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}), 
-            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}), 
+              extent={{-70,70},{70,-70}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,70},{0,40}}, color={0,0,0}),
+            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
+            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
+            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
+            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
+            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
             Polygon(
-              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-5,5},{5,-5}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-            Line(points={{70,0},{90,0}}, color={0,0,0}), 
-            Line(points={{0,70},{0,100}}, color={0,0,255}), 
+              extent={{-5,5},{5,-5}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            Line(points={{70,0},{90,0}}, color={0,0,0}),
+            Line(points={{0,70},{0,100}}, color={0,0,255}),
             Text(
-              extent={{-40,-20},{40,-60}}, 
-              lineColor={0,0,255}, 
-              textString="Pmech"), 
+              extent={{-40,-20},{40,-60}},
+              lineColor={0,0,255},
+              textString="Pmech"),
             Rectangle(
-              extent={{-20,-80},{20,-120}}, 
-              lineColor={192,192,192}, 
-              fillColor={192,192,192}, 
+              extent={{-20,-80},{20,-120}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
               fillPattern=FillPattern.Solid)}),
                               Diagram(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}),
@@ -6649,46 +6671,46 @@ Calculates (mechanical) power from torque times angular speed.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
-              extent={{-60,80},{60,40}}, 
-              lineColor={0,255,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-60,80},{60,40}},
+              lineColor={0,255,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-60,-40},{60,-80}}, 
-              lineColor={0,255,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-60,-40},{60,-80}},
+              lineColor={0,255,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-60,60},{60,40}}, 
-              lineColor={0,255,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-60,60},{60,40}},
+              lineColor={0,255,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-60,-40},{60,-60}}, 
-              lineColor={0,255,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-60,-40},{60,-60}},
+              lineColor={0,255,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-40,40},{40,-40}}, 
-              lineColor={0,255,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{0,0},{-80,80}}, color={0,0,255}), 
+              extent={{-40,40},{40,-40}},
+              lineColor={0,255,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,0},{-80,80}}, color={0,0,255}),
             Polygon(
-              points={{-80,80},{-68,76},{-76,68},{-80,80}}, 
-              lineColor={0,0,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{0,0},{0,80}}, color={0,255,0}), 
+              points={{-80,80},{-68,76},{-76,68},{-80,80}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,0},{0,80}}, color={0,255,0}),
             Polygon(
-              points={{0,84},{4,72},{-4,72},{0,84}}, 
-              lineColor={0,255,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              points={{0,84},{4,72},{-4,72},{0,84}},
+              lineColor={0,255,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{80,120},{120,80}}, 
-              lineColor={192,192,192}, 
-              fillColor={192,192,192}, 
+              extent={{80,120},{120,80}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<HTML>
 Calculates rotor lagging angle by measuring the stator phase voltages, transforming them to the correspondig space phasor in stator-fixed coordinate system, <br>
@@ -6834,33 +6856,35 @@ a ground has to be used where necessary for currents flowing back.
                 rotation=0)));
         annotation (
           Diagram(graphics),
-          Icon(graphics={
+          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                  {100,100}}), graphics={
               Line(points={{0,0},{80,80},{60,72},{72,60},{80,80}}, color={0,0,
-                    255}),
+                    255}), 
               Line(points={{0,0},{80,-80},{72,-60},{60,-72},{80,-80}}, color={0,
-                    0,255}),
+                    0,255}), 
               Line(points={{-80,0},{-73.33,10},{-66.67,17.32},{-60,20},{-53.33,
                     17.32},{-46.67,10},{-40,0},{-33.33,-10},{-26.67,-17.32},{-20,
-                    -20},{-13.33,-17.32},{-6.67,-10},{0,0}}, color={0,0,255}),
+                    -20},{-13.33,-17.32},{-6.67,-10},{0,0}}, color={0,0,255}), 
               Line(points={{-90,0},{-83.33,10},{-76.67,17.32},{-70,20},{-63.33,
                     17.32},{-56.67,10},{-50,0},{-43.33,-10},{-36.67,-17.32},{-30,
-                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}}, color={0,0,255}),
+                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}}, color={0,0,255}), 
+                
               Line(points={{-70,0},{-63.33,10},{-56.67,17.32},{-50,20},{-43.33,
                     17.32},{-36.67,10},{-30,0},{-23.33,-10},{-16.67,-17.32},{-10,
-                    -20},{-3.33,-17.32},{3.33,-10},{10,0}}, color={0,0,255}),
+                    -20},{-3.33,-17.32},{3.33,-10},{10,0}}, color={0,0,255}), 
               Text(
-                extent={{-150,-100},{150,-160}},
-                lineColor={0,0,255},
-                textString="%name"),
+                extent={{-150,-100},{150,-160}}, 
+                lineColor={0,0,255}, 
+                textString="%name"), 
               Text(
-                extent={{40,10},{90,-10}},
-                lineColor={0,0,255},
-                fillColor={0,0,255},
-                fillPattern=FillPattern.Solid,
-                textString="zero"),
-              Line(points={{90,-100},{60,-100}}, color={0,0,255}),
-              Line(points={{60,-84},{60,-116}}, color={0,0,255}),
-              Line(points={{50,-90},{50,-110}}, color={0,0,255}),
+                extent={{40,10},{90,-10}}, 
+                lineColor={0,0,255}, 
+                fillColor={0,0,255}, 
+                fillPattern=FillPattern.Solid, 
+                textString="zero"), 
+              Line(points={{90,-100},{60,-100}}, color={0,0,255}), 
+              Line(points={{60,-84},{60,-116}}, color={0,0,255}), 
+              Line(points={{50,-90},{50,-110}}, color={0,0,255}), 
               Line(points={{40,-96},{40,-104}}, color={0,0,255})}),
           Documentation(info="<HTML>
 Physical transformation of voltages and currents: three phases &lt;-&gt; space phasors:<br>
@@ -7370,22 +7394,22 @@ This package contains the space phasor connector and partial models for machine 
     connector SpacePhasor "Connector for Space Phasors" 
       Modelica.SIunits.Voltage v_[2];
       flow Modelica.SIunits.Current i_[2];
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics={Polygon(
-              points={{0,100},{-100,0},{0,-100},{100,0},{0,100}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Polygon(
+              points={{0,100},{-100,0},{0,-100},{100,0},{0,100}}, 
+              lineColor={0,0,255}, 
+              fillColor={0,0,255}, 
               fillPattern=FillPattern.Solid), Text(
-              extent={{-150,-90},{150,-150}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              extent={{-150,-90},{150,-150}}, 
+              lineColor={0,0,255}, 
+              fillColor={0,0,255}, 
+              fillPattern=FillPattern.Solid, 
               textString="%name")}),     Icon(coordinateSystem(
-              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+              preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
             graphics={Polygon(
-              points={{0,100},{-100,0},{0,-100},{100,0},{0,100}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
+              points={{0,100},{-100,0},{0,-100},{100,0},{0,100}}, 
+              lineColor={0,0,255}, 
+              fillColor={0,0,255}, 
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<HTML>
 Connector for Space Phasors:
@@ -7553,12 +7577,14 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
       SpacePhasors.Components.SpacePhasor spacePhasorS 
         annotation (Placement(transformation(
             origin={0,30},
-            extent={{10,-10},{-10,10}},
+            extent={{10,10},{-10,-10}},
             rotation=90)));
       annotation (Documentation(info="<HTML>
 Partial model for induction machine models
 </HTML>"),
-        Diagram(graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}}, 
                 color={0,0,255}), Line(points={{50,100},{20,100},{20,70}}, 
@@ -7573,7 +7599,7 @@ Partial model for induction machine models
           color={0,0,255},
           smooth=Smooth.None));
       connect(lssigma.plug_n, spacePhasorS.plug_p) annotation (Line(
-          points={{10,60},{10,40}},
+          points={{10,60},{10,50},{10,40},{10,40}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(spacePhasorS.plug_n, plug_sn) annotation (Line(
@@ -7611,10 +7637,12 @@ Partial model for induction machine models
       annotation (Documentation(info="<HTML>
 Partial model for DC machine models.
 </HTML>"),
-        Diagram(graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}},
-                color={0,0,255}), Line(points={{50,100},{20,100},{20,70}},
+                100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}}, 
+                color={0,0,255}), Line(points={{50,100},{20,100},{20,70}}, 
                 color={0,0,255})}));
       Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap 
         annotation (Placement(transformation(extent={{50,110},{70,90}},
@@ -7734,18 +7762,18 @@ Phase shifts between sine-waves may be choosen by the user; default values are <
               extent={{-100,-100},{100,100}}), graphics={
             Polygon(
               points={{-100,-60},{-60,-100},{58,-100},{100,-60},{100,60},{60,
-                  100},{-60,100},{-100,60},{-100,-60}},
-              lineColor={175,175,175},
-              smooth=Smooth.None,
-              fillColor={215,215,215},
-              fillPattern=FillPattern.Solid),
+                  100},{-60,100},{-100,60},{-100,-60}}, 
+              lineColor={175,175,175}, 
+              smooth=Smooth.None, 
+              fillColor={215,215,215}, 
+              fillPattern=FillPattern.Solid), 
             Line(
-              points={{-80,52},{-40,0},{-2,52},{-40,0},{-40,-52}},
-              color={0,0,255},
-              thickness=2),
+              points={{-80,52},{-40,0},{-2,52},{-40,0},{-40,-52}}, 
+              color={0,0,255}, 
+              thickness=2), 
             Line(
-              points={{0,40},{0,-40},{80,0},{0,40}},
-              color={0,0,255},
+              points={{0,40},{0,-40},{80,0},{0,40}}, 
+              color={0,0,255}, 
               thickness=2)}),
         Documentation(info="<HTML>
 Simple Star-Delta-switch.<br>
