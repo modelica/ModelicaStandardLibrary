@@ -898,6 +898,12 @@ convertElement({"Machines.Interfaces.PartialBasicMachine",
                 "Machines.BasicMachines.DCMachines.DC_SeriesExcited"}, 
                "tau_shaft", "tauShaft");
 
+convertModifiers({"Machines.Interfaces.PartialBasicDCMachine", 
+                  "Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
+                  "Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
+                  "Machines.BasicMachines.DCMachines.DC_SeriesExcited"}, 
+                 {"rpmNominal"}, {"wNominal=%rpmNominal%*2*Modelica.Constants.pi/60"});
+
 // Conversions for Machines.Examples
 
 convertClass  ("Machines.Examples.AIMS_start", "Machines.Examples.AIMS_Start");
