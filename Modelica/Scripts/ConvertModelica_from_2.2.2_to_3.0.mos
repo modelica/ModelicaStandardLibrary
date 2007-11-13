@@ -932,3 +932,28 @@ convertElement({"Machines.Examples.AIMC_DOL",
 
 // End Convert Machines to 2.0.0 (MSL 3.0)
 //-------- Machines ------------------------------------------------------------
+//-------- HeatTransfer ------------------------------------------------------------
+// Convert HeatTransfer to 1.1.1 (MSL 3.0)
+// Revisions :
+// 2007/11/13: Anton Haumer
+//             first version
+
+clear
+convertClear();
+
+convertClass  ("HeatTransfer.HeatCapacitor",         "HeatTransfer.Components.HeatCapacitor");
+convertClass  ("HeatTransfer.ThermalConductor",      "HeatTransfer.Components.ThermalConductor");
+convertClass  ("HeatTransfer.ThermalConvection",     "HeatTransfer.Components.Convection");
+convertClass  ("HeatTransfer.BodyRadiation",         "HeatTransfer.Components.BodyRadiation");
+
+convertClass  ("HeatTransfer.TemperatureSensor",     "HeatTransfer.Sensors.TemperatureSensor");
+convertClass  ("HeatTransfer.RelTemperatureSensor",  "HeatTransfer.Sensors.RelTemperatureSensor");
+convertClass  ("HeatTransfer.HeatFlowSensor",        "HeatTransfer.Sensors.HeatFlowSensor");
+
+convertClass  ("HeatTransfer.FixedTemperature",      "HeatTransfer.Sources.FixedTemperature");
+convertClass  ("HeatTransfer.PrescribedTemperature", "HeatTransfer.Sources.PrescribedTemperature");
+convertClass  ("HeatTransfer.FixedHeatFlow",         "HeatTransfer.Sources.FixedHeatFlow");
+convertClass  ("HeatTransfer.PrescribedHeatFlow",    "HeatTransfer.Sources.PrescribedHeatFlow");
+
+// End Convert HeatTransfer to 1.1.1 (MSL 3.0)
+//-------- HeatTransfer ------------------------------------------------------------
