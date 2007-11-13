@@ -1,13 +1,13 @@
 within Modelica.Thermal; 
+
+
 package HeatTransfer 
   "Library of 1-dimensional heat transfer with lumped elements" 
   import Modelica.SIunits.Conversions.*;
-  import SI = Modelica.SIunits;
-  import NonSI = Modelica.SIunits.Conversions.NonSIunits;
   extends Modelica.Icons.Library2;
-  
-  annotation (version="1.1", versionDate="2005-06-13",
-    preferedView="info", Icon(coordinateSystem(preserveAspectRatio=false, 
+  annotation (
+    version="1.1.1", versionDate="2007-11-13",
+    preferedView="info", Icon(coordinateSystem(preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
         Polygon(
           points={{-54,-6},{-61,-7},{-75,-15},{-79,-24},{-80,-34},{-78,-42},{-73,
@@ -124,6 +124,17 @@ Ludwig Marvan, VA TECH ELIN EBG Elektronik GmbH, Wien, Austria;
 Hans Olsson, Dynasim AB, Sweden;
 Hubertus Tummescheit, Lund Institute of Technology, Lund, Sweden.
 </p>
+<dl>
+  <dt><b>Main Authors:</b></dt>
+  <dd>
+  <p>
+  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+  Technical Consulting & Electrical Engineering<br>
+  A-3423 St.Andrae-Woerdern, Austria<br>
+  email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
+  </p>
+  </dd>
+</dl>
 <p><b>Copyright &copy; 2001-2007, Modelica Association, Michael Tiller and DLR.</b></p>
 <p><i>
 This Modelica package is free software; it can be redistributed and/or modified
@@ -145,6 +156,8 @@ Modelica in file \"Modelica/package.mo\".
        Refined all Examples; removed Examples.FrequencyInverter, introducing Examples.Motor<br>
        Introduced temperature dependent correction (1 + alpha*(T - T_ref)) in Fixed/PrescribedHeatFlow<br>
 </li>
+  <li> v1.1.1 2007/11/13 Anton Haumer<br>
+       componentes moved to sub-packages</li>
 </ul>
 </html>"));
   package Examples 
@@ -153,17 +166,18 @@ Modelica in file \"Modelica/package.mo\".
     
     model TwoMasses "Simple conduction demo" 
       extends Modelica.Icons.Example;
-      parameter SI.Temperature T_final_K(fixed=false) 
+      parameter Modelica.SIunits.Temperature T_final_K(fixed=false) 
         "Projected final temperature";
-      parameter NonSI.Temperature_degC T_final_degC(fixed=false) 
-        "Projected final temperature";
-      HeatTransfer.HeatCapacitor mass1(C=15, T(start=373.15, fixed=true)) 
+      HeatTransfer.Components.HeatCapacitor mass1(
+                                       C=15, T(start=373.15, fixed=true)) 
         annotation (Placement(transformation(extent={{-100,20},{-40,80}},
               rotation=0)));
-      HeatTransfer.HeatCapacitor mass2(C=15, T(start=273.15, fixed=true)) 
+      HeatTransfer.Components.HeatCapacitor mass2(
+                                       C=15, T(start=273.15, fixed=true)) 
                                                                     annotation (Placement(
             transformation(extent={{40,20},{100,80}}, rotation=0)));
-      HeatTransfer.ThermalConductor conduction(G=10) annotation (Placement(
+      HeatTransfer.Components.ThermalConductor conduction(
+                                               G=10) annotation (Placement(
             transformation(extent={{-30,-20},{30,40}}, rotation=0)));
       annotation (Documentation(info="<HTML>
 <p>
@@ -197,17 +211,16 @@ Tsensor1.T, Tsensor2.T, T_final_degC
       connect(mass2.port, Tsensor2.port) annotation (Line(points={{70,20},{70,
               -60},{60,-60}}, color={191,0,0}));
     initial equation 
-      T_final_K = (mass1.port.T*mass1.C + mass2.port.T*mass2.C)/(mass1.C +
-        mass2.C);
-      T_final_degC = to_degC(T_final_K);
+      T_final_K = (mass1.T*mass1.C + mass2.T*mass2.C)/(mass1.C + mass2.C);
     end TwoMasses;
     
     model ControlledTemperature "Control temperature of a resistor" 
       extends Modelica.Icons.Example;
-      parameter SI.Temperature TAmb(displayUnit="degC") = 293.15 
+      parameter Modelica.SIunits.Temperature TAmb(displayUnit="degC") = 293.15 
         "Ambient Temperature";
-      parameter SI.TemperatureDifference TDif = 2 "Error in Temperature";
-      output SI.Temperature TRes(displayUnit="degC") = HeatingResistor1.heatPort.T 
+      parameter Modelica.SIunits.TemperatureDifference TDif = 2 
+        "Error in Temperature";
+      output Modelica.SIunits.Temperature TRes(displayUnit="degC") = heatingResistor.heatPort.T 
         "Resulting Temperature";
       annotation (Documentation(info="<HTML>
 <P>
@@ -230,79 +243,85 @@ An approppriate simulating time would be 10 seconds.
             graphics),
         experiment(StopTime=10),
         experimentSetupOutput);
-      Modelica.Electrical.Analog.Basic.Ground Ground1 
+      Modelica.Electrical.Analog.Basic.Ground ground 
                                   annotation (Placement(transformation(extent={
                 {-100,-100},{-80,-80}}, rotation=0)));
-      Modelica.Electrical.Analog.Sources.ConstantVoltage ConstantVoltage1(V=10) 
+      Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=10) 
                                                             annotation (Placement(
             transformation(
             origin={-90,-50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      HeatTransfer.HeatCapacitor HeatCapacitor1(C=1, T(start=TAmb, fixed=true)) 
+      HeatTransfer.Components.HeatCapacitor heatCapacitor(
+                                               C=1, T(start=TAmb, fixed=true)) 
         annotation (Placement(transformation(extent={{0,-60},{20,-80}},
               rotation=0)));
-      Modelica.Electrical.Analog.Basic.HeatingResistor HeatingResistor1(
+      Modelica.Electrical.Analog.Basic.HeatingResistor heatingResistor(
         R_ref=10,
         T_ref=from_degC(20),
         alpha=1/(235 + 20)) annotation (Placement(transformation(
             origin={-30,-50},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      HeatTransfer.FixedTemperature FixedTemperature1(T=TAmb) 
+      HeatTransfer.Sources.FixedTemperature fixedTemperature(
+                                                     T=TAmb) 
         annotation (Placement(transformation(extent={{100,-60},{80,-40}},
               rotation=0)));
-      HeatTransfer.Celsius.TemperatureSensor TemperatureSensor1 annotation (Placement(
+      HeatTransfer.Celsius.TemperatureSensor temperatureSensor  annotation (Placement(
             transformation(
             origin={10,-30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      HeatTransfer.ThermalConductor ThermalConductor1(G=0.1) annotation (Placement(
+      HeatTransfer.Components.ThermalConductor thermalConductor(
+                                                     G=0.1)  annotation (Placement(
             transformation(extent={{40,-60},{60,-40}}, rotation=0)));
-      Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch IdealSwitch1 
+      Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch idealSwitch 
             annotation (Placement(transformation(extent={{-70,-50},{-50,-30}},
               rotation=0)));
-      Modelica.Blocks.Sources.Ramp Ramp1(
+      Modelica.Blocks.Sources.Ramp ramp(
         height=25,
         duration=6,
         offset=25,
         startTime=2) annotation (Placement(transformation(extent={{40,0},{20,20}},
               rotation=0)));
-      Modelica.Blocks.Logical.OnOffController OnOffController1(bandwidth=TDif) 
+      Modelica.Blocks.Logical.OnOffController onOffController(bandwidth=TDif) 
         annotation (Placement(transformation(extent={{0,-20},{-20,0}}, rotation=
                0)));
-      Modelica.Blocks.Logical.Not Not1 annotation (Placement(transformation(
+      Modelica.Blocks.Logical.Not logicalNot 
+                                       annotation (Placement(transformation(
               extent={{-30,-20},{-50,0}}, rotation=0)));
     equation 
-      connect(ConstantVoltage1.n, HeatingResistor1.n) annotation (Line(points={{-90,-60},
+      connect(constantVoltage.n, heatingResistor.n)   annotation (Line(points={{-90,-60},
               {-30,-60}},           color={0,0,255}));
-      connect(ConstantVoltage1.n, Ground1.p) annotation (Line(points={{-90,-60},
+      connect(constantVoltage.n, ground.p)   annotation (Line(points={{-90,-60},
               {-90,-80}}, color={0,0,255}));
-      connect(HeatingResistor1.heatPort, ThermalConductor1.port_a) annotation (Line(
+      connect(heatingResistor.heatPort, thermalConductor.port_a)   annotation (Line(
             points={{-20,-50},{40,-50}}, color={191,0,0}));
-      connect(ThermalConductor1.port_b, FixedTemperature1.port) annotation (Line(
+      connect(thermalConductor.port_b, fixedTemperature.port)   annotation (Line(
             points={{60,-50},{80,-50}}, color={191,0,0}));
-      connect(HeatingResistor1.heatPort, TemperatureSensor1.port) annotation (Line(
+      connect(heatingResistor.heatPort, temperatureSensor.port)   annotation (Line(
             points={{-20,-50},{10,-50},{10,-40}}, color={191,0,0}));
-      connect(HeatingResistor1.heatPort, HeatCapacitor1.port) annotation (Line(
+      connect(heatingResistor.heatPort, heatCapacitor.port)   annotation (Line(
             points={{-20,-50},{10,-50},{10,-60}}, color={191,0,0}));
-      connect(ConstantVoltage1.p, IdealSwitch1.p) annotation (Line(points={{-90,
+      connect(constantVoltage.p, idealSwitch.p)   annotation (Line(points={{-90,
               -40},{-70,-40}}, color={0,0,255}));
-      connect(IdealSwitch1.n, HeatingResistor1.p) annotation (Line(points={{-50,-40},
+      connect(idealSwitch.n, heatingResistor.p)   annotation (Line(points={{-50,-40},
               {-30,-40}},      color={0,0,255}));
-      connect(Ramp1.y, OnOffController1.reference) annotation (Line(points={{19,
+      connect(ramp.y, onOffController.reference)   annotation (Line(points={{19,
               10},{10,10},{10,-4},{2,-4}}, color={0,0,127}));
-      connect(TemperatureSensor1.T, OnOffController1.u) annotation (Line(points=
+      connect(temperatureSensor.T, onOffController.u)   annotation (Line(points=
              {{10,-20},{10,-16},{2,-16}}, color={0,0,127}));
-      connect(OnOffController1.y, Not1.u) annotation (Line(points={{-21,-10},{
+      connect(onOffController.y, logicalNot.u) 
+                                          annotation (Line(points={{-21,-10},{
               -28,-10}}, color={255,0,255}));
-      connect(Not1.y, IdealSwitch1.control) annotation (Line(points={{-51,-10},
+      connect(logicalNot.y, idealSwitch.control) 
+                                            annotation (Line(points={{-51,-10},
               {-60,-10},{-60,-33}}, color={255,0,255}));
     end ControlledTemperature;
     
     model Motor "Second order thermal model of a motor" 
       extends Modelica.Icons.Example;
-      parameter SI.Temperature TAmb(displayUnit="degC") = 293.15 
+      parameter Modelica.SIunits.Temperature TAmb(displayUnit="degC") = 293.15 
         "Ambient temperature";
       annotation (Documentation(info="<HTML>
 <p>
@@ -345,13 +364,14 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
             origin={-40,70},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      HeatTransfer.PrescribedHeatFlow windingLosses(T_ref=from_degC(95), alpha=
+      HeatTransfer.Sources.PrescribedHeatFlow windingLosses(
+                                                    T_ref=from_degC(95), alpha=
             3.03E-3)                         annotation (Placement(
             transformation(
             origin={-80,10},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      HeatTransfer.HeatCapacitor winding(                          C=2500, T(start=
+      HeatTransfer.Components.HeatCapacitor winding(               C=2500, T(start=
               TAmb, fixed=true))            annotation (Placement(
             transformation(extent={{-90,-20},{-70,-40}}, rotation=0)));
       HeatTransfer.Celsius.TemperatureSensor Twinding 
@@ -360,16 +380,17 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
             origin={-60,-50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      HeatTransfer.ThermalConductor winding2core(G=10) 
+      HeatTransfer.Components.ThermalConductor winding2core(
+                                                 G=10) 
                                             annotation (Placement(
             transformation(extent={{-50,-20},{-30,0}}, rotation=0)));
-      HeatTransfer.PrescribedHeatFlow coreLosses 
+      HeatTransfer.Sources.PrescribedHeatFlow coreLosses 
                                              annotation (Placement(
             transformation(
             origin={0,10},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      HeatTransfer.HeatCapacitor core(                          C=25000, T(start=
+      HeatTransfer.Components.HeatCapacitor core(               C=25000, T(start=
               TAmb, fixed=true))            annotation (Placement(
             transformation(extent={{-10,-20},{10,-40}}, rotation=0)));
       HeatTransfer.Celsius.TemperatureSensor Tcore   annotation (Placement(
@@ -382,9 +403,11 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
             origin={40,30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      HeatTransfer.Convection convection annotation (Placement(transformation(
+      HeatTransfer.Components.Convection convection 
+                                         annotation (Placement(transformation(
               extent={{30,-20},{50,0}}, rotation=0)));
-      HeatTransfer.FixedTemperature environment(T=TAmb)       annotation (Placement(
+      HeatTransfer.Sources.FixedTemperature environment(
+                                                T=TAmb)       annotation (Placement(
             transformation(
             origin={80,-10},
             extent={{-10,-10},{10,10}},
@@ -410,7 +433,7 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
                                           annotation (Line(points={{-30,-10},{
               30,-10}}, color={191,0,0}));
       connect(convection.fluid, environment.port) annotation (Line(points={{50,-10},
-              {70,-10}},                        color={191,0,0}));
+              {60,-10},{60,-10},{70,-10}},      color={191,0,0}));
       connect(convectionConstant.y, convection.Gc) 
         annotation (Line(points={{40,19},{40,0}}, color={0,0,127}));
       connect(lossTable.y[1], windingLosses.Q_flow) annotation (Line(points={{
@@ -436,8 +459,8 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
     extends Modelica.Icons.Library2;
     
     partial connector HeatPort "Thermal port for 1-dim. heat transfer" 
-      SI.Temperature T "Port temperature";
-      flow SI.HeatFlowRate Q_flow 
+      Modelica.SIunits.Temperature T "Port temperature";
+      flow Modelica.SIunits.HeatFlowRate Q_flow 
         "Heat flow rate (positive if flowing from outside into the component)";
       annotation (Documentation(info="<html>
   
@@ -521,8 +544,9 @@ class.</p>
     partial model Element1D 
       "Partial heat transfer element with two HeatPort connectors that does not store energy" 
       
-      SI.HeatFlowRate Q_flow "Heat flow rate from port_a -> port_b";
-      SI.TemperatureDifference dT "port_a.T - port_b.T";
+      Modelica.SIunits.HeatFlowRate Q_flow 
+        "Heat flow rate from port_a -> port_b";
+      Modelica.SIunits.TemperatureDifference dT "port_a.T - port_b.T";
     public 
       HeatPort_a port_a annotation (Placement(transformation(extent={{-110,-10},
                 {-90,10}}, rotation=0)));
@@ -563,77 +587,110 @@ constitutive equations for many types of heat transfer components.
 </html>"));
   end Interfaces;
   
-  model HeatCapacitor "Lumped thermal element storing heat" 
-    parameter SI.HeatCapacity C "Heat capacity of element (= cp*m)";
-    SI.Temperature T(start=293.15, displayUnit="degC") "Temperature of element";
-    Real der_T(start=0, unit="K/s", displayUnit="degC/s") 
-      "Time derivative of temperature (= der(T))";
-    annotation (
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}}), graphics={
-          Text(
-            extent={{-129,121},{131,70}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
-          Polygon(
-            points={{0,67},{-20,63},{-40,57},{-52,43},{-58,35},{-68,25},{-72,13},
-                {-76,-1},{-78,-15},{-76,-31},{-76,-43},{-76,-53},{-70,-65},{-64,
-                -73},{-48,-77},{-30,-83},{-18,-83},{-2,-85},{8,-89},{22,-89},{
-                32,-87},{42,-81},{54,-75},{56,-73},{66,-61},{68,-53},{70,-51},{
-                72,-35},{76,-21},{78,-13},{78,3},{74,15},{66,25},{54,33},{44,41},
-                {36,57},{26,65},{0,67}}, 
-            lineColor={160,160,164}, 
+  package Components "Lumped thermal components" 
+  extends Modelica.Icons.Library2;
+    
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
+          Rectangle(
+            extent={{-100,18},{-70,-100}}, 
+            lineColor={0,0,0}, 
             fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Polygon(
-            points={{-58,35},{-68,25},{-72,13},{-76,-1},{-78,-15},{-76,-31},{-76,
-                -43},{-76,-53},{-70,-65},{-64,-73},{-48,-77},{-30,-83},{-18,-83},
-                {-2,-85},{8,-89},{22,-89},{32,-87},{42,-81},{54,-75},{42,-77},{
-                40,-77},{30,-79},{20,-81},{18,-81},{10,-81},{2,-77},{-12,-73},{
-                -22,-73},{-30,-71},{-40,-65},{-50,-55},{-56,-43},{-58,-35},{-58,
-                -25},{-60,-13},{-60,-5},{-60,7},{-58,17},{-56,19},{-52,27},{-48,
-                35},{-44,45},{-40,57},{-58,35}}, 
-            lineColor={0,0,0}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
-          Text(
-            extent={{-69,7},{71,-24}}, 
-            lineColor={0,0,0}, 
-            textString="%C")}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics={
-          Polygon(
-            points={{0,67},{-20,63},{-40,57},{-52,43},{-58,35},{-68,25},{-72,13},
-                {-76,-1},{-78,-15},{-76,-31},{-76,-43},{-76,-53},{-70,-65},{-64,
-                -73},{-48,-77},{-30,-83},{-18,-83},{-2,-85},{8,-89},{22,-89},{
-                32,-87},{42,-81},{54,-75},{56,-73},{66,-61},{68,-53},{70,-51},{
-                72,-35},{76,-21},{78,-13},{78,3},{74,15},{66,25},{54,33},{44,41},
-                {36,57},{26,65},{0,67}}, 
-            lineColor={160,160,164}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Polygon(
-            points={{-58,35},{-68,25},{-72,13},{-76,-1},{-78,-15},{-76,-31},{-76,
-                -43},{-76,-53},{-70,-65},{-64,-73},{-48,-77},{-30,-83},{-18,-83},
-                {-2,-85},{8,-89},{22,-89},{32,-87},{42,-81},{54,-75},{42,-77},{
-                40,-77},{30,-79},{20,-81},{18,-81},{10,-81},{2,-77},{-12,-73},{
-                -22,-73},{-30,-71},{-40,-65},{-50,-55},{-56,-43},{-58,-35},{-58,
-                -25},{-60,-13},{-60,-5},{-60,7},{-58,17},{-56,19},{-52,27},{-48,
-                35},{-44,45},{-40,57},{-58,35}}, 
-            lineColor={0,0,0}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
-          Ellipse(
-            extent={{-6,-1},{6,-12}}, 
-            lineColor={255,0,0}, 
-            fillColor={191,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Text(
-            extent={{11,13},{50,-25}}, 
-            lineColor={0,0,0}, 
-            textString="T"), 
-          Line(points={{0,-12},{0,-96}}, color={255,0,0})}),
-      Documentation(info="<HTML>
+            fillPattern=FillPattern.Backward), 
+          Line(points={{-44,16},{-44,-100}}, color={0,127,255}), 
+          Line(points={{-4,16},{-4,-100}}, color={0,127,255}), 
+          Line(points={{30,18},{30,-100}}, color={0,127,255}), 
+          Line(points={{66,18},{66,-100}}, color={0,127,255}), 
+          Line(points={{66,-100},{76,-80}}, color={0,127,255}), 
+          Line(points={{66,-100},{56,-80}}, color={0,127,255}), 
+          Line(points={{30,-100},{40,-80}}, color={0,127,255}), 
+          Line(points={{30,-100},{20,-80}}, color={0,127,255}), 
+          Line(points={{-4,-100},{6,-80}}, color={0,127,255}), 
+          Line(points={{-4,-100},{-14,-80}}, color={0,127,255}), 
+          Line(points={{-44,-100},{-34,-80}}, color={0,127,255}), 
+          Line(points={{-44,-100},{-54,-80}}, color={0,127,255}), 
+          Line(points={{-70,-60},{66,-60}}, color={191,0,0}), 
+          Line(points={{46,-70},{66,-60}}, color={191,0,0}), 
+          Line(points={{46,-50},{66,-60}}, color={191,0,0}), 
+          Line(points={{46,-30},{66,-20}}, color={191,0,0}), 
+          Line(points={{46,-10},{66,-20}}, color={191,0,0}), 
+          Line(points={{-70,-20},{66,-20}}, color={191,0,0})}), Documentation(
+          info="<html>
+
+</html>"));
+    model HeatCapacitor "Lumped thermal element storing heat" 
+      parameter Modelica.SIunits.HeatCapacity C 
+        "Heat capacity of element (= cp*m)";
+      Modelica.SIunits.Temperature T(start=293.15, displayUnit="degC") 
+        "Temperature of element";
+      Real der_T(start=0, unit="K/s", displayUnit="degC/s") 
+        "Time derivative of temperature (= der(T))";
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Text(
+              extent={{-129,121},{131,70}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
+            Polygon(
+              points={{0,67},{-20,63},{-40,57},{-52,43},{-58,35},{-68,25},{-72,
+                  13},{-76,-1},{-78,-15},{-76,-31},{-76,-43},{-76,-53},{-70,-65},
+                  {-64,-73},{-48,-77},{-30,-83},{-18,-83},{-2,-85},{8,-89},{22,
+                  -89},{32,-87},{42,-81},{54,-75},{56,-73},{66,-61},{68,-53},{
+                  70,-51},{72,-35},{76,-21},{78,-13},{78,3},{74,15},{66,25},{54,
+                  33},{44,41},{36,57},{26,65},{0,67}}, 
+              lineColor={160,160,164}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{-58,35},{-68,25},{-72,13},{-76,-1},{-78,-15},{-76,-31},{
+                  -76,-43},{-76,-53},{-70,-65},{-64,-73},{-48,-77},{-30,-83},{-18,
+                  -83},{-2,-85},{8,-89},{22,-89},{32,-87},{42,-81},{54,-75},{42,
+                  -77},{40,-77},{30,-79},{20,-81},{18,-81},{10,-81},{2,-77},{-12,
+                  -73},{-22,-73},{-30,-71},{-40,-65},{-50,-55},{-56,-43},{-58,-35},
+                  {-58,-25},{-60,-13},{-60,-5},{-60,7},{-58,17},{-56,19},{-52,
+                  27},{-48,35},{-44,45},{-40,57},{-58,35}}, 
+              lineColor={0,0,0}, 
+              fillColor={160,160,164}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-69,7},{71,-24}}, 
+              lineColor={0,0,0}, 
+              textString="%C")}),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),graphics(
+            Polygon(
+              points={{0,67},{-20,63},{-40,57},{-52,43},{-58,35},{-68,25},{-72,13},
+                  {-76,-1},{-78,-15},{-76,-31},{-76,-43},{-76,-53},{-70,-65},{-64,
+                  -73},{-48,-77},{-30,-83},{-18,-83},{-2,-85},{8,-89},{22,-89},{
+                  32,-87},{42,-81},{54,-75},{56,-73},{66,-61},{68,-53},{70,-51},{
+                  72,-35},{76,-21},{78,-13},{78,3},{74,15},{66,25},{54,33},{44,41},
+                  {36,57},{26,65},{0,67}},
+              lineColor={160,160,164},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-58,35},{-68,25},{-72,13},{-76,-1},{-78,-15},{-76,-31},{-76,
+                  -43},{-76,-53},{-70,-65},{-64,-73},{-48,-77},{-30,-83},{-18,-83},
+                  {-2,-85},{8,-89},{22,-89},{32,-87},{42,-81},{54,-75},{42,-77},{
+                  40,-77},{30,-79},{20,-81},{18,-81},{10,-81},{2,-77},{-12,-73},{
+                  -22,-73},{-30,-71},{-40,-65},{-50,-55},{-56,-43},{-58,-35},{-58,
+                  -25},{-60,-13},{-60,-5},{-60,7},{-58,17},{-56,19},{-52,27},{-48,
+                  35},{-44,45},{-40,57},{-58,35}},
+              lineColor={0,0,0},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid),
+            Ellipse(
+              extent={{-6,-1},{6,-12}},
+              lineColor={255,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{11,13},{50,-25}},
+              lineColor={0,0,0},
+              textString="T"),
+            Line(points={{0,-12},{0,-96}}, color={255,0,0}))),
+        Documentation(info="<HTML>
 <p>
 This is a generic model for the heat capacity of a material.
 No specific geometry is assumed beyond a total volume with
@@ -684,63 +741,63 @@ compute C:
 </pre>
 </HTML>
 "));
-    Interfaces.HeatPort_a port annotation (Placement(transformation(
-          origin={0,-100},
-          extent={{-10,-10},{10,10}},
-          rotation=90)));
-  equation 
-    T = port.T;
-    der_T = der(T);
-    C*der(T) = port.Q_flow;
-  end HeatCapacitor;
-  
-  model ThermalConductor 
-    "Lumped thermal element transporting heat without storing it" 
-    extends Interfaces.Element1D;
-    parameter SI.ThermalConductance G 
-      "Constant thermal conductance of material";
+      Interfaces.HeatPort_a port annotation (Placement(transformation(
+            origin={0,-100},
+            extent={{-10,-10},{10,10}},
+            rotation=90)));
+    equation 
+      T = port.T;
+      der_T = der(T);
+      C*der(T) = port.Q_flow;
+    end HeatCapacitor;
     
-    annotation (
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}}), graphics={
-          Rectangle(
-            extent={{-90,70},{90,-70}}, 
-            lineColor={0,0,0}, 
-            pattern=LinePattern.None, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Backward), 
-          Line(
-            points={{-90,70},{-90,-70}}, 
-            color={0,0,0}, 
-            thickness=2), 
-          Line(
-            points={{90,70},{90,-70}}, 
-            color={0,0,0}, 
-            thickness=2), 
-          Text(
-            extent={{-139,134},{141,74}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
-          Text(
-            extent={{-115,-76},{113,-116}}, 
-            lineColor={0,0,0}, 
-            textString="G=%G")}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics={
-          Line(
-            points={{-80,0},{80,0}}, 
-            color={255,0,0}, 
-            thickness=2, 
-            arrow={Arrow.None,Arrow.Filled}), 
-          Text(
-            extent={{-26,-10},{27,-39}}, 
-            lineColor={255,0,0}, 
-            textString="Q_flow"), 
-          Text(
-            extent={{-80,50},{80,20}}, 
-            lineColor={0,0,0}, 
-            textString="dT = port_a.T - port_b.T")}),
-      Documentation(info="<HTML>
+    model ThermalConductor 
+      "Lumped thermal element transporting heat without storing it" 
+      extends Interfaces.Element1D;
+      parameter Modelica.SIunits.ThermalConductance G 
+        "Constant thermal conductance of material";
+      
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Rectangle(
+              extent={{-90,70},{90,-70}}, 
+              lineColor={0,0,0}, 
+              pattern=LinePattern.None, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Backward), 
+            Line(
+              points={{-90,70},{-90,-70}}, 
+              color={0,0,0}, 
+              thickness=2), 
+            Line(
+              points={{90,70},{90,-70}}, 
+              color={0,0,0}, 
+              thickness=2), 
+            Text(
+              extent={{-139,134},{141,74}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
+            Text(
+              extent={{-115,-76},{113,-116}}, 
+              lineColor={0,0,0}, 
+              textString="G=%G")}),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),graphics(
+            Line(
+              points={{-80,0},{80,0}},
+              color={255,0,0},
+              thickness=2,
+              arrow={Arrow.None,Arrow.Filled}),
+            Text(
+              extent={{-26,-10},{27,-39}},
+              lineColor={255,0,0},
+              textString="Q_flow"),
+            Text(
+              extent={{-80,50},{80,20}},
+              lineColor={0,0,0},
+              textString="dT = port_a.T - port_b.T"))),
+        Documentation(info="<HTML>
 <p>
 This is a model for transport of heat without storing it.
 It may be used for complicated geometries where
@@ -789,50 +846,50 @@ e.g., with one of the following equations:
 </pre>
 </HTML>
 "));
-  equation 
-    Q_flow = G*dT;
-  end ThermalConductor;
-  
-  model Convection "Lumped thermal element for heat convection" 
-    SI.HeatFlowRate Q_flow "Heat flow rate from solid -> fluid";
-    SI.TemperatureDifference dT "= solid.T - fluid.T";
-    annotation (
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}}), graphics={
-          Rectangle(
-            extent={{-62,80},{98,-80}}, 
-            lineColor={255,255,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
-          Rectangle(
-            extent={{-90,80},{-60,-80}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Backward), 
-          Text(
-            extent={{-117,-88},{124,-128}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
-          Line(points={{100,0},{100,0}}, color={0,127,255}), 
-          Line(points={{-60,20},{76,20}}, color={191,0,0}), 
-          Line(points={{-60,-20},{76,-20}}, color={191,0,0}), 
-          Line(points={{-34,80},{-34,-80}}, color={0,127,255}), 
-          Line(points={{6,80},{6,-80}}, color={0,127,255}), 
-          Line(points={{40,80},{40,-80}}, color={0,127,255}), 
-          Line(points={{76,80},{76,-80}}, color={0,127,255}), 
-          Line(points={{-34,-80},{-44,-60}}, color={0,127,255}), 
-          Line(points={{-34,-80},{-24,-60}}, color={0,127,255}), 
-          Line(points={{6,-80},{-4,-60}}, color={0,127,255}), 
-          Line(points={{6,-80},{16,-60}}, color={0,127,255}), 
-          Line(points={{40,-80},{30,-60}}, color={0,127,255}), 
-          Line(points={{40,-80},{50,-60}}, color={0,127,255}), 
-          Line(points={{76,-80},{66,-60}}, color={0,127,255}), 
-          Line(points={{76,-80},{86,-60}}, color={0,127,255}), 
-          Line(points={{56,-30},{76,-20}}, color={191,0,0}), 
-          Line(points={{56,-10},{76,-20}}, color={191,0,0}), 
-          Line(points={{56,10},{76,20}}, color={191,0,0}), 
-          Line(points={{56,30},{76,20}}, color={191,0,0})}),
-      Documentation(info="<HTML>
+    equation 
+      Q_flow = G*dT;
+    end ThermalConductor;
+    
+    model Convection "Lumped thermal element for heat convection" 
+      Modelica.SIunits.HeatFlowRate Q_flow "Heat flow rate from solid -> fluid";
+      Modelica.SIunits.TemperatureDifference dT "= solid.T - fluid.T";
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Rectangle(
+              extent={{-62,80},{98,-80}}, 
+              lineColor={255,255,255}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-90,80},{-60,-80}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Backward), 
+            Text(
+              extent={{-117,-88},{124,-128}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
+            Line(points={{100,0},{100,0}}, color={0,127,255}), 
+            Line(points={{-60,20},{76,20}}, color={191,0,0}), 
+            Line(points={{-60,-20},{76,-20}}, color={191,0,0}), 
+            Line(points={{-34,80},{-34,-80}}, color={0,127,255}), 
+            Line(points={{6,80},{6,-80}}, color={0,127,255}), 
+            Line(points={{40,80},{40,-80}}, color={0,127,255}), 
+            Line(points={{76,80},{76,-80}}, color={0,127,255}), 
+            Line(points={{-34,-80},{-44,-60}}, color={0,127,255}), 
+            Line(points={{-34,-80},{-24,-60}}, color={0,127,255}), 
+            Line(points={{6,-80},{-4,-60}}, color={0,127,255}), 
+            Line(points={{6,-80},{16,-60}}, color={0,127,255}), 
+            Line(points={{40,-80},{30,-60}}, color={0,127,255}), 
+            Line(points={{40,-80},{50,-60}}, color={0,127,255}), 
+            Line(points={{76,-80},{66,-60}}, color={0,127,255}), 
+            Line(points={{76,-80},{86,-60}}, color={0,127,255}), 
+            Line(points={{56,-30},{76,-20}}, color={191,0,0}), 
+            Line(points={{56,-10},{76,-20}}, color={191,0,0}), 
+            Line(points={{56,10},{76,20}}, color={191,0,0}), 
+            Line(points={{56,30},{76,20}}, color={191,0,0})}),
+        Documentation(info="<HTML>
 <p>
 This is a model of linear heat convection, e.g., the heat transfer
 between a plate and the surrounding air. It may be used for complicated
@@ -895,103 +952,103 @@ McGraw-Hill, 1997, p.270):
       Re < 5e5 and 0.6 < Pr < 50
 </pre>
 </HTML>
-"),   Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics={
-          Rectangle(
-            extent={{-90,80},{-60,-80}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Backward), 
-          Line(points={{100,0},{100,0}}, color={0,127,255}), 
-          Line(points={{100,0},{100,0}}, color={0,127,255}), 
-          Line(points={{100,0},{100,0}}, color={0,127,255}), 
-          Text(
-            extent={{-35,42},{-5,20}}, 
-            lineColor={255,0,0}, 
-            textString="Q_flow"), 
-          Line(points={{-60,20},{76,20}}, color={191,0,0}), 
-          Line(points={{-60,-20},{76,-20}}, color={191,0,0}), 
-          Line(points={{-34,80},{-34,-80}}, color={0,127,255}), 
-          Line(points={{6,80},{6,-80}}, color={0,127,255}), 
-          Line(points={{40,80},{40,-80}}, color={0,127,255}), 
-          Line(points={{76,80},{76,-80}}, color={0,127,255}), 
-          Line(points={{-34,-80},{-44,-60}}, color={0,127,255}), 
-          Line(points={{-34,-80},{-24,-60}}, color={0,127,255}), 
-          Line(points={{6,-80},{-4,-60}}, color={0,127,255}), 
-          Line(points={{6,-80},{16,-60}}, color={0,127,255}), 
-          Line(points={{40,-80},{30,-60}}, color={0,127,255}), 
-          Line(points={{40,-80},{50,-60}}, color={0,127,255}), 
-          Line(points={{76,-80},{66,-60}}, color={0,127,255}), 
-          Line(points={{76,-80},{86,-60}}, color={0,127,255}), 
-          Line(points={{56,-30},{76,-20}}, color={191,0,0}), 
-          Line(points={{56,-10},{76,-20}}, color={191,0,0}), 
-          Line(points={{56,10},{76,20}}, color={191,0,0}), 
-          Line(points={{56,30},{76,20}}, color={191,0,0})}));
-    Modelica.Blocks.Interfaces.RealInput Gc 
-      "Signal representing the convective thermal conductance in [W/K]" 
-      annotation (Placement(transformation(
-          origin={0,100},
-          extent={{-20,-20},{20,20}},
-          rotation=270)));
-    Interfaces.HeatPort_a solid annotation (Placement(transformation(extent={{
-              -110,-10},{-90,10}}, rotation=0)));
-    Interfaces.HeatPort_b fluid annotation (Placement(transformation(extent={{
-              90,-10},{110,10}}, rotation=0)));
-  equation 
-    dT = solid.T - fluid.T;
-    solid.Q_flow = Q_flow;
-    fluid.Q_flow = -Q_flow;
-    Q_flow = Gc*dT;
-  end Convection;
-  
-  model BodyRadiation "Lumped thermal element for radiation heat transfer" 
-    extends Interfaces.Element1D;
-    parameter Real Gr(unit="m2") 
-      "Net radiation conductance between two surfaces (see docu)";
-    annotation (
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}}), graphics={
-          Rectangle(
-            extent={{50,80},{90,-80}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Backward), 
-          Rectangle(
-            extent={{-90,80},{-50,-80}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Backward), 
-          Line(points={{-36,10},{36,10}}, color={191,0,0}), 
-          Line(points={{-36,10},{-26,16}}, color={191,0,0}), 
-          Line(points={{-36,10},{-26,4}}, color={191,0,0}), 
-          Line(points={{-36,-10},{36,-10}}, color={191,0,0}), 
-          Line(points={{26,-16},{36,-10}}, color={191,0,0}), 
-          Line(points={{26,-4},{36,-10}}, color={191,0,0}), 
-          Line(points={{-36,-30},{36,-30}}, color={191,0,0}), 
-          Line(points={{-36,-30},{-26,-24}}, color={191,0,0}), 
-          Line(points={{-36,-30},{-26,-36}}, color={191,0,0}), 
-          Line(points={{-36,30},{36,30}}, color={191,0,0}), 
-          Line(points={{26,24},{36,30}}, color={191,0,0}), 
-          Line(points={{26,36},{36,30}}, color={191,0,0}), 
-          Text(
-            extent={{-132,144},{108,84}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
-          Text(
-            extent={{-119,-86},{117,-125}}, 
-            lineColor={0,0,0}, 
-            textString="G=%G"), 
-          Rectangle(
-            extent={{-50,80},{-44,-80}}, 
-            lineColor={191,0,0}, 
-            fillColor={191,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Rectangle(
-            extent={{45,80},{50,-80}}, 
-            lineColor={191,0,0}, 
-            fillColor={191,0,0}, 
-            fillPattern=FillPattern.Solid)}),
-      Documentation(info="<HTML>
+"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),graphics(
+            Rectangle(
+              extent={{-90,80},{-60,-80}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Backward),
+            Line(points={{100,0},{100,0}}, color={0,127,255}),
+            Line(points={{100,0},{100,0}}, color={0,127,255}),
+            Line(points={{100,0},{100,0}}, color={0,127,255}),
+            Text(
+              extent={{-35,42},{-5,20}},
+              lineColor={255,0,0},
+              textString="Q_flow"),
+            Line(points={{-60,20},{76,20}}, color={191,0,0}),
+            Line(points={{-60,-20},{76,-20}}, color={191,0,0}),
+            Line(points={{-34,80},{-34,-80}}, color={0,127,255}),
+            Line(points={{6,80},{6,-80}}, color={0,127,255}),
+            Line(points={{40,80},{40,-80}}, color={0,127,255}),
+            Line(points={{76,80},{76,-80}}, color={0,127,255}),
+            Line(points={{-34,-80},{-44,-60}}, color={0,127,255}),
+            Line(points={{-34,-80},{-24,-60}}, color={0,127,255}),
+            Line(points={{6,-80},{-4,-60}}, color={0,127,255}),
+            Line(points={{6,-80},{16,-60}}, color={0,127,255}),
+            Line(points={{40,-80},{30,-60}}, color={0,127,255}),
+            Line(points={{40,-80},{50,-60}}, color={0,127,255}),
+            Line(points={{76,-80},{66,-60}}, color={0,127,255}),
+            Line(points={{76,-80},{86,-60}}, color={0,127,255}),
+            Line(points={{56,-30},{76,-20}}, color={191,0,0}),
+            Line(points={{56,-10},{76,-20}}, color={191,0,0}),
+            Line(points={{56,10},{76,20}}, color={191,0,0}),
+            Line(points={{56,30},{76,20}}, color={191,0,0}))));
+      Modelica.Blocks.Interfaces.RealInput Gc 
+        "Signal representing the convective thermal conductance in [W/K]" 
+        annotation (Placement(transformation(
+            origin={0,100},
+            extent={{-20,-20},{20,20}},
+            rotation=270)));
+      Interfaces.HeatPort_a solid annotation (Placement(transformation(extent={{
+                -110,-10},{-90,10}}, rotation=0)));
+      Interfaces.HeatPort_b fluid annotation (Placement(transformation(extent={{
+                90,-10},{110,10}}, rotation=0)));
+    equation 
+      dT = solid.T - fluid.T;
+      solid.Q_flow = Q_flow;
+      fluid.Q_flow = -Q_flow;
+      Q_flow = Gc*dT;
+    end Convection;
+    
+    model BodyRadiation "Lumped thermal element for radiation heat transfer" 
+      extends Interfaces.Element1D;
+      parameter Real Gr(unit="m2") 
+        "Net radiation conductance between two surfaces (see docu)";
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Rectangle(
+              extent={{50,80},{90,-80}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Backward), 
+            Rectangle(
+              extent={{-90,80},{-50,-80}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Backward), 
+            Line(points={{-36,10},{36,10}}, color={191,0,0}), 
+            Line(points={{-36,10},{-26,16}}, color={191,0,0}), 
+            Line(points={{-36,10},{-26,4}}, color={191,0,0}), 
+            Line(points={{-36,-10},{36,-10}}, color={191,0,0}), 
+            Line(points={{26,-16},{36,-10}}, color={191,0,0}), 
+            Line(points={{26,-4},{36,-10}}, color={191,0,0}), 
+            Line(points={{-36,-30},{36,-30}}, color={191,0,0}), 
+            Line(points={{-36,-30},{-26,-24}}, color={191,0,0}), 
+            Line(points={{-36,-30},{-26,-36}}, color={191,0,0}), 
+            Line(points={{-36,30},{36,30}}, color={191,0,0}), 
+            Line(points={{26,24},{36,30}}, color={191,0,0}), 
+            Line(points={{26,36},{36,30}}, color={191,0,0}), 
+            Text(
+              extent={{-132,144},{108,84}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
+            Text(
+              extent={{-119,-86},{117,-125}}, 
+              lineColor={0,0,0}, 
+              textString="G=%G"), 
+            Rectangle(
+              extent={{-50,80},{-44,-80}}, 
+              lineColor={191,0,0}, 
+              fillColor={191,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{45,80},{50,-80}}, 
+              lineColor={191,0,0}, 
+              fillColor={191,0,0}, 
+              fillPattern=FillPattern.Solid)}),
+        Documentation(info="<HTML>
 <p>
 This is a model describing the thermal radiation, i.e., electromagnetic
 radiation emitted between two bodies as a result of their temperatures.
@@ -1055,138 +1112,408 @@ place from the inner to the outer cylinder):
        e2: Emission value of outer cylinder (0..1)
 </pre>
 </HTML>
-"),   Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics={
-          Rectangle(
-            extent={{-90,80},{-56,-80}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Backward), 
-          Line(
-            points={{-56,80},{-56,-80}}, 
-            color={0,0,0}, 
-            thickness=4), 
-          Line(
-            points={{50,80},{50,-80}}, 
-            color={0,0,0}, 
-            thickness=4), 
-          Rectangle(
-            extent={{50,80},{90,-80}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Backward), 
-          Line(points={{-40,10},{40,10}}, color={191,0,0}), 
-          Line(points={{-40,10},{-30,16}}, color={191,0,0}), 
-          Line(points={{-40,10},{-30,4}}, color={191,0,0}), 
-          Line(points={{-40,-10},{40,-10}}, color={191,0,0}), 
-          Line(points={{30,-16},{40,-10}}, color={191,0,0}), 
-          Line(points={{30,-4},{40,-10}}, color={191,0,0}), 
-          Line(points={{-40,-30},{40,-30}}, color={191,0,0}), 
-          Line(points={{-40,-30},{-30,-24}}, color={191,0,0}), 
-          Line(points={{-40,-30},{-30,-36}}, color={191,0,0}), 
-          Line(points={{-40,30},{40,30}}, color={191,0,0}), 
-          Line(points={{30,24},{40,30}}, color={191,0,0}), 
-          Line(points={{30,36},{40,30}}, color={191,0,0})}));
-  equation 
-    Q_flow = Gr*Modelica.Constants.sigma*(port_a.T^4 - port_b.T^4);
-  end BodyRadiation;
-  
-  model FixedTemperature "Fixed temperature boundary condition in Kelvin" 
+"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics(
+            Rectangle(
+              extent={{-90,80},{-56,-80}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Backward),
+            Line(
+              points={{-56,80},{-56,-80}},
+              color={0,0,0},
+              thickness=4),
+            Line(
+              points={{50,80},{50,-80}},
+              color={0,0,0},
+              thickness=4),
+            Rectangle(
+              extent={{50,80},{90,-80}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Backward),
+            Line(points={{-40,10},{40,10}}, color={191,0,0}),
+            Line(points={{-40,10},{-30,16}}, color={191,0,0}),
+            Line(points={{-40,10},{-30,4}}, color={191,0,0}),
+            Line(points={{-40,-10},{40,-10}}, color={191,0,0}),
+            Line(points={{30,-16},{40,-10}}, color={191,0,0}),
+            Line(points={{30,-4},{40,-10}}, color={191,0,0}),
+            Line(points={{-40,-30},{40,-30}}, color={191,0,0}),
+            Line(points={{-40,-30},{-30,-24}}, color={191,0,0}),
+            Line(points={{-40,-30},{-30,-36}}, color={191,0,0}),
+            Line(points={{-40,30},{40,30}}, color={191,0,0}),
+            Line(points={{30,24},{40,30}}, color={191,0,0}),
+            Line(points={{30,36},{40,30}}, color={191,0,0}))));
+    equation 
+      Q_flow = Gr*Modelica.Constants.sigma*(port_a.T^4 - port_b.T^4);
+    end BodyRadiation;
+  end Components;
+
+  package Sensors "Thermal sensors" 
+  extends Modelica.Icons.Library2;
     
-    parameter SI.Temperature T "Fixed temperature at port";
-    annotation (
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}}), graphics={
-          Text(
-            extent={{-121,162},{119,102}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
-          Text(
-            extent={{-121,-105},{119,-151}}, 
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
+          Ellipse(
+            extent={{-60,10},{40,-90}}, 
             lineColor={0,0,0}, 
-            textString="T=%T"), 
-          Rectangle(
-            extent={{-100,100},{100,-100}}, 
-            lineColor={0,0,0}, 
-            pattern=LinePattern.None, 
-            fillColor={159,159,223}, 
-            fillPattern=FillPattern.Backward), 
-          Text(
-            extent={{0,0},{-100,-100}}, 
-            lineColor={0,0,0}, 
-            textString="K"), 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
           Line(
-            points={{-52,0},{56,0}}, 
+            points={{-50,-16},{-36,-25}}, 
+            color={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-35,0},{-25,-14}}, 
+            color={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{-10,7},{-10,-10}}, 
+            color={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{15,0},{5,-14}}, 
+            color={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Line(
+            points={{30,-15},{16,-25}}, 
+            color={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Ellipse(
+            extent={{-15,-35},{-5,-45}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-10,-40},{-6,-26}}, color={0,0,0}), 
+          Polygon(
+            points={{-12,-24},{-0.5,-27},{2,1.5},{-12,-24}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+
+</html>"));
+    model TemperatureSensor "Absolute temperature sensor in Kelvin" 
+      
+      annotation (
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics(
+            Ellipse(
+              extent={{-20,-98},{20,-60}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{-12,40},{12,-68}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{12,0},{90,0}}, color={0,0,255}),
+            Line(points={{-94,0},{-14,0}}, color={191,0,0}),
+            Polygon(
+              points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},{
+                  12,80},{12,40},{-12,40}},
+              lineColor={0,0,0},
+              lineThickness=2),
+            Line(
+              points={{-12,40},{-12,-64}},
+              color={0,0,0},
+              thickness=2),
+            Line(
+              points={{12,40},{12,-64}},
+              color={0,0,0},
+              thickness=2),
+            Line(points={{-40,-20},{-12,-20}}, color={0,0,0}),
+            Line(points={{-40,20},{-12,20}}, color={0,0,0}),
+            Line(points={{-40,60},{-12,60}}, color={0,0,0}),
+            Text(
+              extent={{102,-28},{60,-78}},
+              lineColor={0,0,0},
+              textString="K"))),
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Ellipse(
+              extent={{-20,-98},{20,-60}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2, 
+              fillColor={191,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-12,40},{12,-68}}, 
+              lineColor={191,0,0}, 
+              fillColor={191,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{12,0},{90,0}}, color={0,0,255}), 
+            Line(points={{-90,0},{-12,0}}, color={191,0,0}), 
+            Polygon(
+              points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
+                  {12,80},{12,40},{-12,40}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2), 
+            Line(
+              points={{-12,40},{-12,-64}}, 
+              color={0,0,0}, 
+              thickness=2), 
+            Line(
+              points={{12,40},{12,-64}}, 
+              color={0,0,0}, 
+              thickness=2), 
+            Line(points={{-40,-20},{-12,-20}}, color={0,0,0}), 
+            Line(points={{-40,20},{-12,20}}, color={0,0,0}), 
+            Line(points={{-40,60},{-12,60}}, color={0,0,0}), 
+            Text(
+              extent={{126,-20},{26,-120}}, 
+              lineColor={0,0,0}, 
+              textString="K"), 
+            Text(
+              extent={{-132,144},{108,84}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
+        Documentation(info="<HTML>
+<p>
+This is an ideal absolute temperature sensor which returns
+the temperature of the connected port in Kelvin as an output
+signal.  The sensor itself has no thermal interaction with
+whatever it is connected to.  Furthermore, no
+thermocouple-like lags are associated with this
+sensor model.
+</p>
+</HTML>
+"));
+      Modelica.Blocks.Interfaces.RealOutput T annotation (Placement(
+            transformation(extent={{90,-10},{110,10}}, rotation=0)));
+      Interfaces.HeatPort_a port annotation (Placement(transformation(extent={{
+                -110,-10},{-90,10}}, rotation=0)));
+    equation 
+      T = port.T;
+      port.Q_flow = 0;
+    end TemperatureSensor;
+    
+    model RelTemperatureSensor "Relative Temperature sensor" 
+      extends Modelica.Icons.TranslationalSensor;
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Line(points={{-90,0},{-70,0},{-70,0}}, color={191,0,0}), 
+            Line(points={{-90,0},{-70,0},{-70,0}}, color={191,0,0}), 
+            Line(points={{70,0},{90,0},{90,0}}, color={191,0,0}), 
+            Line(points={{0,-30},{0,-80}}, color={0,0,255}), 
+            Text(
+              extent={{-140,94},{144,34}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
+            Text(
+              extent={{92,-62},{34,-122}}, 
+              lineColor={0,0,0}, 
+              textString="K")}),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics(
+            Line(points={{-90,0},{-70,0},{-70,0}}, color={191,0,0}),
+            Line(points={{-98,0},{-70,0},{-70,0}}, color={191,0,0}),
+            Line(points={{70,0},{94,0},{94,0}}, color={191,0,0}),
+            Line(points={{0,-30},{0,-80}}, color={0,0,255}),
+            Text(
+              extent={{64,-74},{32,-102}},
+              lineColor={0,0,0},
+              textString="K"))),
+        Documentation(info="<HTML>
+<p>
+The relative temperature \"port_a.T - port_b.T\" is determined between
+the two ports of this component and is provided as output signal in Kelvin.
+</p>
+</HTML>
+"));
+      Interfaces.HeatPort_a port_a annotation (Placement(transformation(extent={{
+                -110,-10},{-90,10}}, rotation=0)));
+      Interfaces.HeatPort_b port_b annotation (Placement(transformation(extent={{
+                90,-10},{110,10}}, rotation=0)));
+      Modelica.Blocks.Interfaces.RealOutput T_rel 
+                            annotation (Placement(transformation(
+            origin={0,-90},
+            extent={{10,-10},{-10,10}},
+            rotation=90)));
+    equation 
+      T_rel = port_a.T - port_b.T;
+      0 = port_a.Q_flow;
+      0 = port_b.Q_flow;
+    end RelTemperatureSensor;
+    
+    model HeatFlowSensor "Heat flow rate sensor" 
+      extends Modelica.Icons.RotationalSensor;
+      Modelica.Blocks.Interfaces.RealOutput Q_flow 
+        "Heat flow from port_a to port_b"                                            annotation (Placement(
+            transformation(
+            origin={0,-100},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      annotation (
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics(
+            Line(points={{-70,0},{-95,0}}, color={191,0,0}),
+            Line(points={{0,-70},{0,-90}}, color={0,0,255}),
+            Line(points={{94,0},{69,0}}, color={191,0,0}))),
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Text(
+              extent={{33,-58},{88,-116}}, 
+              lineColor={0,0,0}, 
+              textString="Q_flow"), 
+            Line(points={{-70,0},{-90,0}}, color={191,0,0}), 
+            Line(points={{69,0},{90,0}}, color={191,0,0}), 
+            Line(points={{0,-70},{0,-90}}, color={0,0,255}), 
+            Text(
+              extent={{-132,144},{108,84}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
+        Documentation(info="<HTML>
+<p>
+This model is capable of monitoring the heat flow rate flowing through
+this component. The sensed value of heat flow rate is the amount that
+passes through this sensor while keeping the temperature drop across the
+sensor zero.  This is an ideal model so it does not absorb any energy
+and it has no direct effect on the thermal response of a system it is included in.
+The output signal is positive, if the heat flows from port_a
+to port_b.
+</p>
+</HTML>
+"));
+      Interfaces.HeatPort_a port_a annotation (Placement(transformation(extent={{
+                -110,-10},{-90,10}}, rotation=0)));
+      Interfaces.HeatPort_b port_b annotation (Placement(transformation(extent={{
+                90,-10},{110,10}}, rotation=0)));
+    equation 
+      port_a.T = port_b.T;
+      port_a.Q_flow + port_b.Q_flow = 0;
+      Q_flow = port_a.Q_flow;
+    end HeatFlowSensor;
+  end Sensors;
+
+  package Sources "Thermal sources" 
+  extends Modelica.Icons.Library2;
+    
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
+          Line(
+            points={{-100,-20},{36,-20}}, 
+            color={191,0,0}, 
+            thickness=2), 
+          Line(
+            points={{-100,-60},{38,-60}}, 
             color={191,0,0}, 
             thickness=2), 
           Polygon(
-            points={{50,-20},{50,20},{90,0},{50,-20}}, 
+            points={{30,-80},{30,-40},{60,-60},{30,-80}}, 
             lineColor={191,0,0}, 
             fillColor={191,0,0}, 
-            fillPattern=FillPattern.Solid)}),
-      Documentation(info="<HTML>
+            fillPattern=FillPattern.Solid), 
+          Polygon(
+            points={{30,-40},{30,0},{60,-20},{30,-40}}, 
+            lineColor={191,0,0}, 
+            fillColor={191,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Rectangle(
+            extent={{60,0},{80,-80}}, 
+            lineColor={191,0,0}, 
+            fillColor={191,0,0}, 
+            fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+
+</html>"));
+    model FixedTemperature "Fixed temperature boundary condition in Kelvin" 
+      
+      parameter Modelica.SIunits.Temperature T "Fixed temperature at port";
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Text(
+              extent={{-121,162},{119,102}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
+            Text(
+              extent={{-121,-105},{119,-151}}, 
+              lineColor={0,0,0}, 
+              textString="T=%T"), 
+            Rectangle(
+              extent={{-100,100},{100,-100}}, 
+              lineColor={0,0,0}, 
+              pattern=LinePattern.None, 
+              fillColor={159,159,223}, 
+              fillPattern=FillPattern.Backward), 
+            Text(
+              extent={{0,0},{-100,-100}}, 
+              lineColor={0,0,0}, 
+              textString="K"), 
+            Line(
+              points={{-52,0},{56,0}}, 
+              color={191,0,0}, 
+              thickness=2), 
+            Polygon(
+              points={{50,-20},{50,20},{90,0},{50,-20}}, 
+              lineColor={191,0,0}, 
+              fillColor={191,0,0}, 
+              fillPattern=FillPattern.Solid)}),
+        Documentation(info="<HTML>
 <p>
 This model defines a fixed temperature T at its port in Kelvin,
 i.e., it defines a fixed temperature as a boundary condition.
 </p>
 </HTML>
-"),   Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics={
-          Rectangle(
-            extent={{-100,100},{100,-101}}, 
-            lineColor={0,0,0}, 
-            pattern=LinePattern.None, 
-            fillColor={159,159,223}, 
-            fillPattern=FillPattern.Backward), 
-          Line(
-            points={{-52,0},{56,0}}, 
-            color={191,0,0}, 
-            thickness=2), 
-          Text(
-            extent={{0,0},{-100,-100}}, 
-            lineColor={0,0,0}, 
-            textString="K"), 
-          Polygon(
-            points={{52,-20},{52,20},{90,0},{52,-20}}, 
-            lineColor={191,0,0}, 
-            fillColor={191,0,0}, 
-            fillPattern=FillPattern.Solid)}));
-    Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{90,
-              -10},{110,10}}, rotation=0)));
-  equation 
-    port.T = T;
-  end FixedTemperature;
-  
-  model PrescribedTemperature 
-    "Variable temperature boundary condition in Kelvin" 
+"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics(
+            Rectangle(
+              extent={{-100,100},{100,-101}},
+              lineColor={0,0,0},
+              pattern=LinePattern.None,
+              fillColor={159,159,223},
+              fillPattern=FillPattern.Backward),
+            Line(
+              points={{-52,0},{56,0}},
+              color={191,0,0},
+              thickness=2),
+            Text(
+              extent={{0,0},{-100,-100}},
+              lineColor={0,0,0},
+              textString="K"),
+            Polygon(
+              points={{52,-20},{52,20},{90,0},{52,-20}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid))));
+      Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{90,
+                -10},{110,10}}, rotation=0)));
+    equation 
+      port.T = T;
+    end FixedTemperature;
     
-    annotation (
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}}), graphics={
-          Rectangle(
-            extent={{-100,100},{100,-100}}, 
-            lineColor={0,0,0}, 
-            pattern=LinePattern.None, 
-            fillColor={159,159,223}, 
-            fillPattern=FillPattern.Backward), 
-          Line(
-            points={{-102,0},{64,0}}, 
-            color={191,0,0}, 
-            thickness=2), 
-          Text(
-            extent={{0,0},{-100,-100}}, 
-            lineColor={0,0,0}, 
-            textString="K"), 
-          Text(
-            extent={{-125,162},{115,102}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
-          Polygon(
-            points={{50,-20},{50,20},{90,0},{50,-20}}, 
-            lineColor={191,0,0}, 
-            fillColor={191,0,0}, 
-            fillPattern=FillPattern.Solid)}),
-      Documentation(info="<HTML>
+    model PrescribedTemperature 
+      "Variable temperature boundary condition in Kelvin" 
+      
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Rectangle(
+              extent={{-100,100},{100,-100}}, 
+              lineColor={0,0,0}, 
+              pattern=LinePattern.None, 
+              fillColor={159,159,223}, 
+              fillPattern=FillPattern.Backward), 
+            Line(
+              points={{-102,0},{64,0}}, 
+              color={191,0,0}, 
+              thickness=2), 
+            Text(
+              extent={{0,0},{-100,-100}}, 
+              lineColor={0,0,0}, 
+              textString="K"), 
+            Text(
+              extent={{-125,162},{115,102}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
+            Polygon(
+              points={{50,-20},{50,20},{90,0},{50,-20}}, 
+              lineColor={191,0,0}, 
+              fillColor={191,0,0}, 
+              fillPattern=FillPattern.Solid)}),
+        Documentation(info="<HTML>
 <p>
 This model represents a variable temperature boundary condition.
 The temperature in [K] is given as input signal <b>T</b>
@@ -1195,99 +1522,101 @@ an infinite reservoir able to absorb or generate as much energy
 as required to keep the temperature at the specified value.
 </p>
 </HTML>
-"),   Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics={
-          Rectangle(
-            extent={{-100,100},{100,-100}}, 
-            lineColor={0,0,0}, 
-            pattern=LinePattern.None, 
-            fillColor={159,159,223}, 
-            fillPattern=FillPattern.Backward), 
-          Text(
-            extent={{0,0},{-100,-100}}, 
-            lineColor={0,0,0}, 
-            textString="K"), 
-          Line(
-            points={{-102,0},{64,0}}, 
-            color={191,0,0}, 
-            thickness=2), 
-          Polygon(
-            points={{52,-20},{52,20},{90,0},{52,-20}}, 
-            lineColor={191,0,0}, 
-            fillColor={191,0,0}, 
-            fillPattern=FillPattern.Solid)}));
-    Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{90,
-              -10},{110,10}}, rotation=0)));
-    Modelica.Blocks.Interfaces.RealInput T annotation (Placement(transformation(
-            extent={{-140,-20},{-100,20}}, rotation=0)));
-  equation 
-    port.T = T;
-  end PrescribedTemperature;
-  
-  model FixedHeatFlow "Fixed heat flow boundary condition" 
-    parameter SI.HeatFlowRate Q_flow "Fixed heat flow rate at port";
-    parameter SI.Temperature T_ref=293.15 "Reference temperature";
-    parameter Real alpha(unit="1/K") = 0 
-      "Temperature coefficient of heat flow rate";
-    annotation (
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}}), graphics={
-          Text(
-            extent={{-134,120},{132,60}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
-          Text(
-            extent={{-137,-52},{133,-100}}, 
-            lineColor={0,0,0}, 
-            textString="Q_flow=%Q_flow"), 
-          Line(
-            points={{-100,-20},{48,-20}}, 
-            color={191,0,0}, 
-            thickness=2), 
-          Line(
-            points={{-100,20},{46,20}}, 
-            color={191,0,0}, 
-            thickness=2), 
-          Polygon(
-            points={{40,0},{40,40},{70,20},{40,0}}, 
-            lineColor={191,0,0}, 
-            fillColor={191,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Polygon(
-            points={{40,-40},{40,0},{70,-20},{40,-40}}, 
-            lineColor={191,0,0}, 
-            fillColor={191,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Rectangle(
-            extent={{70,40},{90,-40}}, 
-            lineColor={191,0,0}, 
-            fillColor={191,0,0}, 
-            fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics={
-          Text(
-            extent={{-100,40},{0,-36}}, 
-            lineColor={0,0,0}, 
-            textString="Q_flow=const."), 
-          Line(
-            points={{-48,-20},{60,-20}}, 
-            color={191,0,0}, 
-            thickness=2), 
-          Line(
-            points={{-48,20},{60,20}}, 
-            color={191,0,0}, 
-            thickness=2), 
-          Polygon(
-            points={{60,0},{60,40},{90,20},{60,0}}, 
-            lineColor={191,0,0}, 
-            fillColor={191,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Polygon(
-            points={{60,-40},{60,0},{90,-20},{60,-40}}, 
-            lineColor={191,0,0}, 
-            fillColor={191,0,0}, 
-            fillPattern=FillPattern.Solid)}),
-      Documentation(info="<HTML>
+"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics(
+            Rectangle(
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              pattern=LinePattern.None,
+              fillColor={159,159,223},
+              fillPattern=FillPattern.Backward),
+            Text(
+              extent={{0,0},{-100,-100}},
+              lineColor={0,0,0},
+              textString="K"),
+            Line(
+              points={{-102,0},{64,0}},
+              color={191,0,0},
+              thickness=2),
+            Polygon(
+              points={{52,-20},{52,20},{90,0},{52,-20}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid))));
+      Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{90,
+                -10},{110,10}}, rotation=0)));
+      Modelica.Blocks.Interfaces.RealInput T annotation (Placement(transformation(
+              extent={{-140,-20},{-100,20}}, rotation=0)));
+    equation 
+      port.T = T;
+    end PrescribedTemperature;
+    
+    model FixedHeatFlow "Fixed heat flow boundary condition" 
+      parameter Modelica.SIunits.HeatFlowRate Q_flow 
+        "Fixed heat flow rate at port";
+      parameter Modelica.SIunits.Temperature T_ref=293.15 
+        "Reference temperature";
+      parameter Real alpha(unit="1/K") = 0 
+        "Temperature coefficient of heat flow rate";
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Text(
+              extent={{-134,120},{132,60}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
+            Text(
+              extent={{-137,-52},{133,-100}}, 
+              lineColor={0,0,0}, 
+              textString="Q_flow=%Q_flow"), 
+            Line(
+              points={{-100,-20},{48,-20}}, 
+              color={191,0,0}, 
+              thickness=2), 
+            Line(
+              points={{-100,20},{46,20}}, 
+              color={191,0,0}, 
+              thickness=2), 
+            Polygon(
+              points={{40,0},{40,40},{70,20},{40,0}}, 
+              lineColor={191,0,0}, 
+              fillColor={191,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{40,-40},{40,0},{70,-20},{40,-40}}, 
+              lineColor={191,0,0}, 
+              fillColor={191,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{70,40},{90,-40}}, 
+              lineColor={191,0,0}, 
+              fillColor={191,0,0}, 
+              fillPattern=FillPattern.Solid)}),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),graphics(
+            Text(
+              extent={{-100,40},{0,-36}},
+              lineColor={0,0,0},
+              textString="Q_flow=const."),
+            Line(
+              points={{-48,-20},{60,-20}},
+              color={191,0,0},
+              thickness=2),
+            Line(
+              points={{-48,20},{60,20}},
+              color={191,0,0},
+              thickness=2),
+            Polygon(
+              points={{60,0},{60,40},{90,20},{60,0}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{60,-40},{60,0},{90,-20},{60,-40}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid))),
+        Documentation(info="<HTML>
 <p>
 This model allows a specified amount of heat flow rate to be \"injected\"
 into a thermal system at a given port.  The constant amount of heat
@@ -1301,55 +1630,56 @@ in order to simulate temperature dependent losses (which are given an reference 
 </p>
 </HTML>
 "));
-    Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{90,
-              -10},{110,10}}, rotation=0)));
-  equation 
-    port.Q_flow = -Q_flow*(1 + alpha*(port.T - T_ref));
-  end FixedHeatFlow;
-  
-  model PrescribedHeatFlow "Prescribed heat flow boundary condition" 
-    parameter SI.Temperature T_ref=293.15 "Reference temperature";
-    parameter Real alpha(unit="1/K") = 0 
-      "Temperature coefficient of heat flow rate";
-    annotation (
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}}), graphics={
-          Line(
-            points={{-60,-20},{40,-20}}, 
-            color={191,0,0}, 
-            thickness=2), 
-          Line(
-            points={{-60,20},{40,20}}, 
-            color={191,0,0}, 
-            thickness=2), 
-          Line(
-            points={{-80,0},{-60,-20}}, 
-            color={191,0,0}, 
-            thickness=2), 
-          Line(
-            points={{-80,0},{-60,20}}, 
-            color={191,0,0}, 
-            thickness=2), 
-          Polygon(
-            points={{40,0},{40,40},{70,20},{40,0}}, 
-            lineColor={191,0,0}, 
-            fillColor={191,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Polygon(
-            points={{40,-40},{40,0},{70,-20},{40,-40}}, 
-            lineColor={191,0,0}, 
-            fillColor={191,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Rectangle(
-            extent={{70,40},{90,-40}}, 
-            lineColor={191,0,0}, 
-            fillColor={191,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Text(
-            extent={{-134,120},{132,60}}, 
-            textString="%name", 
-            lineColor={0,0,255})}),
-      Documentation(info="<HTML>
+      Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{90,
+                -10},{110,10}}, rotation=0)));
+    equation 
+      port.Q_flow = -Q_flow*(1 + alpha*(port.T - T_ref));
+    end FixedHeatFlow;
+    
+    model PrescribedHeatFlow "Prescribed heat flow boundary condition" 
+      parameter Modelica.SIunits.Temperature T_ref=293.15 
+        "Reference temperature";
+      parameter Real alpha(unit="1/K") = 0 
+        "Temperature coefficient of heat flow rate";
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Line(
+              points={{-60,-20},{40,-20}}, 
+              color={191,0,0}, 
+              thickness=2), 
+            Line(
+              points={{-60,20},{40,20}}, 
+              color={191,0,0}, 
+              thickness=2), 
+            Line(
+              points={{-80,0},{-60,-20}}, 
+              color={191,0,0}, 
+              thickness=2), 
+            Line(
+              points={{-80,0},{-60,20}}, 
+              color={191,0,0}, 
+              thickness=2), 
+            Polygon(
+              points={{40,0},{40,40},{70,20},{40,0}}, 
+              lineColor={191,0,0}, 
+              fillColor={191,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{40,-40},{40,0},{70,-20},{40,-40}}, 
+              lineColor={191,0,0}, 
+              fillColor={191,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{70,40},{90,-40}}, 
+              lineColor={191,0,0}, 
+              fillColor={191,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-134,120},{132,60}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
+        Documentation(info="<HTML>
 <p>
 This model allows a specified amount of heat flow rate to be \"injected\"
 into a thermal system at a given port.  The amount of heat
@@ -1362,239 +1692,55 @@ If parameter alpha is > 0, the heat flow is mulitplied by (1 + alpha*(port.T - T
 in order to simulate temperature dependent losses (which are given an reference temperature T_ref).
 </p>
 </HTML>
-"),   Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics={
-          Line(
-            points={{-60,-20},{68,-20}}, 
-            color={191,0,0}, 
-            thickness=2), 
-          Line(
-            points={{-60,20},{68,20}}, 
-            color={191,0,0}, 
-            thickness=2), 
-          Line(
-            points={{-80,0},{-60,-20}}, 
-            color={191,0,0}, 
-            thickness=2), 
-          Line(
-            points={{-80,0},{-60,20}}, 
-            color={191,0,0}, 
-            thickness=2), 
-          Polygon(
-            points={{60,0},{60,40},{90,20},{60,0}}, 
-            lineColor={191,0,0}, 
-            fillColor={191,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Polygon(
-            points={{60,-40},{60,0},{90,-20},{60,-40}}, 
-            lineColor={191,0,0}, 
-            fillColor={191,0,0}, 
-            fillPattern=FillPattern.Solid)}));
-    Modelica.Blocks.Interfaces.RealInput Q_flow 
-          annotation (Placement(transformation(
-          origin={-100,0},
-          extent={{20,-20},{-20,20}},
-          rotation=180)));
-    Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{90,
-              -10},{110,10}}, rotation=0)));
-  equation 
-    port.Q_flow = -Q_flow*(1 + alpha*(port.T - T_ref));
-  end PrescribedHeatFlow;
+"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics(
+            Line(
+              points={{-60,-20},{68,-20}},
+              color={191,0,0},
+              thickness=2),
+            Line(
+              points={{-60,20},{68,20}},
+              color={191,0,0},
+              thickness=2),
+            Line(
+              points={{-80,0},{-60,-20}},
+              color={191,0,0},
+              thickness=2),
+            Line(
+              points={{-80,0},{-60,20}},
+              color={191,0,0},
+              thickness=2),
+            Polygon(
+              points={{60,0},{60,40},{90,20},{60,0}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{60,-40},{60,0},{90,-20},{60,-40}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid))));
+      Modelica.Blocks.Interfaces.RealInput Q_flow 
+            annotation (Placement(transformation(
+            origin={-100,0},
+            extent={{20,-20},{-20,20}},
+            rotation=180)));
+      Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{90,
+                -10},{110,10}}, rotation=0)));
+    equation 
+      port.Q_flow = -Q_flow*(1 + alpha*(port.T - T_ref));
+    end PrescribedHeatFlow;
+  end Sources;
   
-  model TemperatureSensor "Absolute temperature sensor in Kelvin" 
-    
-    annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics={
-          Ellipse(
-            extent={{-20,-98},{20,-60}}, 
-            lineColor={0,0,0}, 
-            lineThickness=2, 
-            fillColor={191,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Rectangle(
-            extent={{-12,40},{12,-68}}, 
-            lineColor={191,0,0}, 
-            fillColor={191,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{12,0},{90,0}}, color={0,0,255}), 
-          Line(points={{-94,0},{-14,0}}, color={191,0,0}), 
-          Polygon(
-            points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},{
-                12,80},{12,40},{-12,40}}, 
-            lineColor={0,0,0}, 
-            lineThickness=2), 
-          Line(
-            points={{-12,40},{-12,-64}}, 
-            color={0,0,0}, 
-            thickness=2), 
-          Line(
-            points={{12,40},{12,-64}}, 
-            color={0,0,0}, 
-            thickness=2), 
-          Line(points={{-40,-20},{-12,-20}}, color={0,0,0}), 
-          Line(points={{-40,20},{-12,20}}, color={0,0,0}), 
-          Line(points={{-40,60},{-12,60}}, color={0,0,0}), 
-          Text(
-            extent={{102,-28},{60,-78}}, 
-            lineColor={0,0,0}, 
-            textString="K")}),
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}}), graphics={
-          Ellipse(
-            extent={{-20,-98},{20,-60}}, 
-            lineColor={0,0,0}, 
-            lineThickness=2, 
-            fillColor={191,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Rectangle(
-            extent={{-12,40},{12,-68}}, 
-            lineColor={191,0,0}, 
-            fillColor={191,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{12,0},{90,0}}, color={0,0,255}), 
-          Line(points={{-90,0},{-12,0}}, color={191,0,0}), 
-          Polygon(
-            points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},{
-                12,80},{12,40},{-12,40}}, 
-            lineColor={0,0,0}, 
-            lineThickness=2), 
-          Line(
-            points={{-12,40},{-12,-64}}, 
-            color={0,0,0}, 
-            thickness=2), 
-          Line(
-            points={{12,40},{12,-64}}, 
-            color={0,0,0}, 
-            thickness=2), 
-          Line(points={{-40,-20},{-12,-20}}, color={0,0,0}), 
-          Line(points={{-40,20},{-12,20}}, color={0,0,0}), 
-          Line(points={{-40,60},{-12,60}}, color={0,0,0}), 
-          Text(
-            extent={{126,-20},{26,-120}}, 
-            lineColor={0,0,0}, 
-            textString="K"), 
-          Text(
-            extent={{-132,144},{108,84}}, 
-            textString="%name", 
-            lineColor={0,0,255})}),
-      Documentation(info="<HTML>
-<p>
-This is an ideal absolute temperature sensor which returns
-the temperature of the connected port in Kelvin as an output
-signal.  The sensor itself has no thermal interaction with
-whatever it is connected to.  Furthermore, no
-thermocouple-like lags are associated with this
-sensor model.
-</p>
-</HTML>
-"));
-    Modelica.Blocks.Interfaces.RealOutput T annotation (Placement(
-          transformation(extent={{90,-10},{110,10}}, rotation=0)));
-    Interfaces.HeatPort_a port annotation (Placement(transformation(extent={{
-              -110,-10},{-90,10}}, rotation=0)));
-  equation 
-    T = port.T;
-    port.Q_flow = 0;
-  end TemperatureSensor;
   
-  model RelTemperatureSensor "Relative Temperature sensor" 
-    extends Modelica.Icons.TranslationalSensor;
-    annotation (
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}}), graphics={
-          Line(points={{-90,0},{-70,0},{-70,0}}, color={191,0,0}), 
-          Line(points={{-90,0},{-70,0},{-70,0}}, color={191,0,0}), 
-          Line(points={{70,0},{90,0},{90,0}}, color={191,0,0}), 
-          Line(points={{0,-30},{0,-80}}, color={0,0,255}), 
-          Text(
-            extent={{-140,94},{144,34}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
-          Text(
-            extent={{92,-62},{34,-122}}, 
-            lineColor={0,0,0}, 
-            textString="K")}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics={
-          Line(points={{-90,0},{-70,0},{-70,0}}, color={191,0,0}), 
-          Line(points={{-98,0},{-70,0},{-70,0}}, color={191,0,0}), 
-          Line(points={{70,0},{94,0},{94,0}}, color={191,0,0}), 
-          Line(points={{0,-30},{0,-80}}, color={0,0,255}), 
-          Text(
-            extent={{64,-74},{32,-102}}, 
-            lineColor={0,0,0}, 
-            textString="K")}),
-      Documentation(info="<HTML>
-<p>
-The relative temperature \"port_a.T - port_b.T\" is determined between
-the two ports of this component and is provided as output signal in Kelvin.
-</p>
-</HTML>
-"));
-    Interfaces.HeatPort_a port_a annotation (Placement(transformation(extent={{
-              -110,-10},{-90,10}}, rotation=0)));
-    Interfaces.HeatPort_b port_b annotation (Placement(transformation(extent={{
-              90,-10},{110,10}}, rotation=0)));
-    Modelica.Blocks.Interfaces.RealOutput T_rel 
-                          annotation (Placement(transformation(
-          origin={0,-90},
-          extent={{10,-10},{-10,10}},
-          rotation=90)));
-  equation 
-    T_rel = port_a.T - port_b.T;
-    0 = port_a.Q_flow;
-    0 = port_b.Q_flow;
-  end RelTemperatureSensor;
   
-  model HeatFlowSensor "Heat flow rate sensor" 
-    extends Modelica.Icons.RotationalSensor;
-    Modelica.Blocks.Interfaces.RealOutput Q_flow 
-      "Heat flow from port_a to port_b"                                            annotation (Placement(
-          transformation(
-          origin={0,-100},
-          extent={{-10,-10},{10,10}},
-          rotation=270)));
-    annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics={
-          Line(points={{-70,0},{-95,0}}, color={191,0,0}), 
-          Line(points={{0,-70},{0,-90}}, color={0,0,255}), 
-          Line(points={{94,0},{69,0}}, color={191,0,0})}),
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}}), graphics={
-          Text(
-            extent={{33,-58},{88,-116}}, 
-            lineColor={0,0,0}, 
-            textString="Q_flow"), 
-          Line(points={{-70,0},{-90,0}}, color={191,0,0}), 
-          Line(points={{69,0},{90,0}}, color={191,0,0}), 
-          Line(points={{0,-70},{0,-90}}, color={0,0,255}), 
-          Text(
-            extent={{-132,144},{108,84}}, 
-            textString="%name", 
-            lineColor={0,0,255})}),
-      Documentation(info="<HTML>
-<p>
-This model is capable of monitoring the heat flow rate flowing through
-this component. The sensed value of heat flow rate is the amount that
-passes through this sensor while keeping the temperature drop across the
-sensor zero.  This is an ideal model so it does not absorb any energy
-and it has no direct effect on the thermal response of a system it is included in.
-The output signal is positive, if the heat flows from port_a
-to port_b.
-</p>
-</HTML>
-"));
-    Interfaces.HeatPort_a port_a annotation (Placement(transformation(extent={{
-              -110,-10},{-90,10}}, rotation=0)));
-    Interfaces.HeatPort_b port_b annotation (Placement(transformation(extent={{
-              90,-10},{110,10}}, rotation=0)));
-  equation 
-    port_a.T = port_b.T;
-    port_a.Q_flow + port_b.Q_flow = 0;
-    Q_flow = port_a.Q_flow;
-  end HeatFlowSensor;
+  
+  
+  
+  
+  
+  
+  
   
   package Celsius "Components with Celsius input and/or output" 
     
@@ -1605,21 +1751,21 @@ to port_b.
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics={
             Ellipse(
-              extent={{-40,40},{40,-40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-40,40},{40,-40}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-40,-50},{-99,-99}}, 
-              lineColor={0,0,0}, 
-              lineThickness=4, 
-              textString="°C"), 
+              extent={{-40,-50},{-99,-99}},
+              lineColor={0,0,0},
+              lineThickness=4,
+              textString="°C"),
             Text(
-              extent={{100,-47},{44,-100}}, 
-              lineColor={0,0,0}, 
-              textString="K"), 
-            Line(points={{-100,0},{-40,0}}, color={0,0,255}), 
+              extent={{100,-47},{44,-100}},
+              lineColor={0,0,0},
+              textString="K"),
+            Line(points={{-100,0},{-40,0}}, color={0,0,255}),
             Line(points={{41,0},{100,0}}, color={0,0,255})}),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -1689,21 +1835,21 @@ and provide is as output signal.
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics={
             Ellipse(
-              extent={{-40,40},{40,-40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-40,40},{40,-40}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-42,-41},{-101,-98}}, 
-              lineColor={0,0,0}, 
-              lineThickness=4, 
-              textString="K"), 
+              extent={{-42,-41},{-101,-98}},
+              lineColor={0,0,0},
+              lineThickness=4,
+              textString="K"),
             Text(
-              extent={{100,-40},{30,-100}}, 
-              lineColor={0,0,0}, 
-              textString="°C"), 
-            Line(points={{-100,0},{-40,0}}, color={0,0,255}), 
+              extent={{100,-40},{30,-100}},
+              lineColor={0,0,0},
+              textString="°C"),
+            Line(points={{-100,0},{-40,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
         Documentation(info="<HTML>
 <p>
@@ -1724,7 +1870,8 @@ and provides is as output signal.
     
     model FixedTemperature 
       "Fixed temperature boundary condition in degree Celsius" 
-      parameter NonSI.Temperature_degC T "Fixed Temperature at the port";
+      parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degC T 
+        "Fixed Temperature at the port";
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -1762,26 +1909,26 @@ i.e., it defines a fixed temperature as a boundary condition.
 </p>
 </HTML>
 "),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics={
+                {100,100}}), graphics(
             Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              pattern=LinePattern.None, 
-              fillColor={159,159,223}, 
-              fillPattern=FillPattern.Backward), 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              pattern=LinePattern.None,
+              fillColor={159,159,223},
+              fillPattern=FillPattern.Backward),
             Line(
-              points={{-42,0},{66,0}}, 
-              color={191,0,0}, 
-              thickness=2), 
+              points={{-42,0},{66,0}},
+              color={191,0,0},
+              thickness=2),
             Text(
-              extent={{0,0},{-100,-100}}, 
-              lineColor={0,0,0}, 
-              textString="°C"), 
+              extent={{0,0},{-100,-100}},
+              lineColor={0,0,0},
+              textString="°C"),
             Polygon(
-              points={{52,-20},{52,20},{90,0},{52,-20}}, 
-              lineColor={191,0,0}, 
-              fillColor={191,0,0}, 
-              fillPattern=FillPattern.Solid)}));
+              points={{52,-20},{52,20},{90,0},{52,-20}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid))));
       Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{
                 90,-10},{110,10}}, rotation=0)));
     equation 
@@ -1831,26 +1978,26 @@ as required to keep the temperature at the specified value.
 </p>
 </HTML>
 "),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics={
+                {100,100}}), graphics(
             Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              pattern=LinePattern.None, 
-              fillColor={159,159,223}, 
-              fillPattern=FillPattern.Backward), 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              pattern=LinePattern.None,
+              fillColor={159,159,223},
+              fillPattern=FillPattern.Backward),
             Line(
-              points={{-102,0},{64,0}}, 
-              color={191,0,0}, 
-              thickness=2), 
+              points={{-102,0},{64,0}},
+              color={191,0,0},
+              thickness=2),
             Text(
-              extent={{0,0},{-100,-100}}, 
-              lineColor={0,0,0}, 
-              textString="°C"), 
+              extent={{0,0},{-100,-100}},
+              lineColor={0,0,0},
+              textString="°C"),
             Polygon(
-              points={{52,-20},{52,20},{90,0},{52,-20}}, 
-              lineColor={191,0,0}, 
-              fillColor={191,0,0}, 
-              fillPattern=FillPattern.Solid)}));
+              points={{52,-20},{52,20},{90,0},{52,-20}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid))));
       Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{
                 90,-10},{110,10}}, rotation=0)));
       Modelica.Blocks.Interfaces.RealInput T                       annotation (Placement(
@@ -1888,37 +2035,37 @@ Example:
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics={
             Ellipse(
-              extent={{-20,-98},{20,-60}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={191,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-20,-98},{20,-60}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-12,40},{12,-68}}, 
-              lineColor={191,0,0}, 
-              fillColor={191,0,0}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{12,0},{90,0}}, color={0,0,255}), 
-            Line(points={{-94,0},{-12,0}}, color={191,0,0}), 
+              extent={{-12,40},{12,-68}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{12,0},{90,0}}, color={0,0,255}),
+            Line(points={{-94,0},{-12,0}}, color={191,0,0}),
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
-                  {12,80},{12,40},{-12,40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2), 
+                  {12,80},{12,40},{-12,40}},
+              lineColor={0,0,0},
+              lineThickness=2),
             Line(
-              points={{-12,40},{-12,-64}}, 
-              color={0,0,0}, 
-              thickness=2), 
+              points={{-12,40},{-12,-64}},
+              color={0,0,0},
+              thickness=2),
             Line(
-              points={{12,40},{12,-64}}, 
-              color={0,0,0}, 
-              thickness=2), 
-            Line(points={{-40,-20},{-12,-20}}, color={0,0,0}), 
-            Line(points={{-40,20},{-12,20}}, color={0,0,0}), 
-            Line(points={{-40,60},{-12,60}}, color={0,0,0}), 
+              points={{12,40},{12,-64}},
+              color={0,0,0},
+              thickness=2),
+            Line(points={{-40,-20},{-12,-20}}, color={0,0,0}),
+            Line(points={{-40,20},{-12,20}}, color={0,0,0}),
+            Line(points={{-40,60},{-12,60}}, color={0,0,0}),
             Text(
-              extent={{102,-22},{60,-74}}, 
-              lineColor={0,0,0}, 
+              extent={{102,-22},{60,-74}},
+              lineColor={0,0,0},
               textString="°C")}),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -2004,27 +2151,28 @@ sensor model.
               textString="K"),
             Line(points={{-100,0},{-40,0}}, color={0,0,255}),
             Line(points={{41,0},{100,0}}, color={0,0,255})}),
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Ellipse(
-              extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
-              lineThickness=2,
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
+              extent={{-40,40},{40,-40}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{112,-40},{32,-120}},
-              lineColor={0,0,0},
-              textString="K"),
+              extent={{112,-40},{32,-120}}, 
+              lineColor={0,0,0}, 
+              textString="K"), 
             Text(
-              extent={{-31,-39},{-111,-119}},
-              lineColor={0,0,0},
-              lineThickness=4,
-              textString="°F"),
-            Line(points={{-41,0},{-100,0}}, color={0,0,255}),
-            Line(points={{100,0},{40,0}}, color={0,0,255}),
+              extent={{-31,-39},{-111,-119}}, 
+              lineColor={0,0,0}, 
+              lineThickness=4, 
+              textString="°F"), 
+            Line(points={{-41,0},{-100,0}}, color={0,0,255}), 
+            Line(points={{100,0},{40,0}}, color={0,0,255}), 
             Text(
-              extent={{-137,99},{132,49}},
-              textString="%name",
+              extent={{-137,99},{132,49}}, 
+              textString="%name", 
               lineColor={0,0,255})}),
         Documentation(info="<HTML>
 <p>
@@ -2045,27 +2193,28 @@ and provides is as output signal.
     model FromKelvin "Conversion from Kelvin to °Fahrenheit" 
       parameter Integer n=1 "Number of inputs (= number of outputs)";
       annotation (
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Text(
-              extent={{-137,99},{132,49}},
-              textString="%name",
-              lineColor={0,0,255}),
+              extent={{-137,99},{132,49}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Ellipse(
-              extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
-              lineThickness=2,
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
+              extent={{-40,40},{40,-40}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{-34,-42},{-114,-122}},
-              lineColor={0,0,0},
-              lineThickness=4,
-              textString="K"),
+              extent={{-34,-42},{-114,-122}}, 
+              lineColor={0,0,0}, 
+              lineThickness=4, 
+              textString="K"), 
             Text(
-              extent={{110,-39},{30,-119}},
-              lineColor={0,0,0},
-              textString="°F"),
-            Line(points={{-40,0},{-100,0}}, color={0,0,255}),
+              extent={{110,-39},{30,-119}}, 
+              lineColor={0,0,0}, 
+              textString="°F"), 
+            Line(points={{-40,0},{-100,0}}, color={0,0,255}), 
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
         Diagram(graphics={
             Ellipse(
@@ -2104,35 +2253,37 @@ and provides them as output signals.
     
     model FixedTemperature 
       "Fixed temperature boundary condition in °Fahrenheit" 
-      parameter NonSI.Temperature_degF T "Fixed Temperature at the port";
+      parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degF T 
+        "Fixed Temperature at the port";
       annotation (
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Text(
-              extent={{-118,165},{122,105}},
-              textString="%name",
-              lineColor={0,0,255}),
+              extent={{-118,165},{122,105}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              pattern=LinePattern.None,
-              fillColor={159,159,223},
-              fillPattern=FillPattern.Backward),
+              extent={{-100,100},{100,-100}}, 
+              lineColor={0,0,0}, 
+              pattern=LinePattern.None, 
+              fillColor={159,159,223}, 
+              fillPattern=FillPattern.Backward), 
             Text(
-              extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
-              textString="°F"),
+              extent={{0,0},{-100,-100}}, 
+              lineColor={0,0,0}, 
+              textString="°F"), 
             Polygon(
-              points={{52,-20},{52,20},{90,0},{52,-20}},
-              lineColor={191,0,0},
-              fillColor={191,0,0},
-              fillPattern=FillPattern.Solid),
+              points={{52,-20},{52,20},{90,0},{52,-20}}, 
+              lineColor={191,0,0}, 
+              fillColor={191,0,0}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{-145,-102},{135,-151}},
-              lineColor={0,0,0},
-              textString="T=%T"),
+              extent={{-145,-102},{135,-151}}, 
+              lineColor={0,0,0}, 
+              textString="T=%T"), 
             Line(
-              points={{-42,0},{66,0}},
-              color={191,0,0},
+              points={{-42,0},{66,0}}, 
+              color={191,0,0}, 
               thickness=2)}),
         Documentation(info="<HTML>
 <p>
@@ -2140,7 +2291,8 @@ This model defines a fixed temperature T at its port in [degF],
 i.e., it defines a fixed temperature as a boundary condition.
 </p>
 </HTML>
-"),     Diagram(graphics={
+"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics(
             Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
@@ -2159,7 +2311,7 @@ i.e., it defines a fixed temperature as a boundary condition.
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
               fillColor={191,0,0},
-              fillPattern=FillPattern.Solid)}));
+              fillPattern=FillPattern.Solid))));
       Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{
                 90,-10},{110,10}}, rotation=0)));
     equation 
@@ -2170,33 +2322,34 @@ i.e., it defines a fixed temperature as a boundary condition.
       "Variable temperature boundary condition in °Fahrenheit" 
       
       annotation (
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              pattern=LinePattern.None,
-              fillColor={159,159,223},
-              fillPattern=FillPattern.Backward),
+              extent={{-100,100},{100,-100}}, 
+              lineColor={0,0,0}, 
+              pattern=LinePattern.None, 
+              fillColor={159,159,223}, 
+              fillPattern=FillPattern.Backward), 
             Line(
-              points={{-102,0},{64,0}},
-              color={191,0,0},
-              thickness=2),
+              points={{-102,0},{64,0}}, 
+              color={191,0,0}, 
+              thickness=2), 
             Text(
-              extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
-              textString="°F"),
+              extent={{0,0},{-100,-100}}, 
+              lineColor={0,0,0}, 
+              textString="°F"), 
             Text(
-              extent={{-122,163},{118,103}},
-              textString="%name",
-              lineColor={0,0,255}),
+              extent={{-122,163},{118,103}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Line(
-              points={{-102,0},{64,0}},
-              color={191,0,0},
-              thickness=2),
+              points={{-102,0},{64,0}}, 
+              color={191,0,0}, 
+              thickness=2), 
             Polygon(
-              points={{52,-20},{52,20},{90,0},{52,-20}},
-              lineColor={191,0,0},
-              fillColor={191,0,0},
+              points={{52,-20},{52,20},{90,0},{52,-20}}, 
+              lineColor={191,0,0}, 
+              fillColor={191,0,0}, 
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<HTML>
 <p>
@@ -2296,43 +2449,44 @@ Example:
               extent={{102,-22},{60,-74}},
               lineColor={0,0,0},
               textString="°F")}),
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Ellipse(
-              extent={{-20,-98},{20,-60}},
-              lineColor={0,0,0},
-              lineThickness=2,
-              fillColor={191,0,0},
-              fillPattern=FillPattern.Solid),
+              extent={{-20,-98},{20,-60}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2, 
+              fillColor={191,0,0}, 
+              fillPattern=FillPattern.Solid), 
             Rectangle(
-              extent={{-12,40},{12,-68}},
-              lineColor={191,0,0},
-              fillColor={191,0,0},
-              fillPattern=FillPattern.Solid),
-            Line(points={{12,0},{90,0}}, color={0,0,255}),
-            Line(points={{-90,0},{-12,0}}, color={191,0,0}),
+              extent={{-12,40},{12,-68}}, 
+              lineColor={191,0,0}, 
+              fillColor={191,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{12,0},{90,0}}, color={0,0,255}), 
+            Line(points={{-90,0},{-12,0}}, color={191,0,0}), 
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
-                  {12,80},{12,40},{-12,40}},
-              lineColor={0,0,0},
-              lineThickness=2),
+                  {12,80},{12,40},{-12,40}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2), 
             Line(
-              points={{-12,40},{-12,-64}},
-              color={0,0,0},
-              thickness=2),
+              points={{-12,40},{-12,-64}}, 
+              color={0,0,0}, 
+              thickness=2), 
             Line(
-              points={{12,40},{12,-64}},
-              color={0,0,0},
-              thickness=2),
-            Line(points={{-40,-20},{-12,-20}}, color={0,0,0}),
-            Line(points={{-40,20},{-12,20}}, color={0,0,0}),
-            Line(points={{-40,60},{-12,60}}, color={0,0,0}),
+              points={{12,40},{12,-64}}, 
+              color={0,0,0}, 
+              thickness=2), 
+            Line(points={{-40,-20},{-12,-20}}, color={0,0,0}), 
+            Line(points={{-40,20},{-12,20}}, color={0,0,0}), 
+            Line(points={{-40,60},{-12,60}}, color={0,0,0}), 
             Text(
-              extent={{126,-20},{26,-120}},
-              lineColor={0,0,0},
-              textString="°F"),
+              extent={{126,-20},{26,-120}}, 
+              lineColor={0,0,0}, 
+              textString="°F"), 
             Text(
-              extent={{-132,144},{108,84}},
-              textString="%name",
+              extent={{-132,144},{108,84}}, 
+              textString="%name", 
               lineColor={0,0,255})}),
         Documentation(info="<HTML>
 <p>
@@ -2380,27 +2534,28 @@ sensor model.
               textString="K"),
             Line(points={{-100,0},{-40,0}}, color={0,0,255}),
             Line(points={{41,0},{100,0}}, color={0,0,255})}),
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Ellipse(
-              extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
-              lineThickness=2,
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
+              extent={{-40,40},{40,-40}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{112,-40},{32,-120}},
-              lineColor={0,0,0},
-              textString="K"),
+              extent={{112,-40},{32,-120}}, 
+              lineColor={0,0,0}, 
+              textString="K"), 
             Text(
-              extent={{-31,-39},{-111,-119}},
-              lineColor={0,0,0},
-              lineThickness=4,
-              textString="°Rk"),
-            Line(points={{-41,0},{-100,0}}, color={0,0,255}),
-            Line(points={{100,0},{40,0}}, color={0,0,255}),
+              extent={{-31,-39},{-111,-119}}, 
+              lineColor={0,0,0}, 
+              lineThickness=4, 
+              textString="°Rk"), 
+            Line(points={{-41,0},{-100,0}}, color={0,0,255}), 
+            Line(points={{100,0},{40,0}}, color={0,0,255}), 
             Text(
-              extent={{-137,99},{132,49}},
-              textString="%name",
+              extent={{-137,99},{132,49}}, 
+              textString="%name", 
               lineColor={0,0,255})}),
         Documentation(info="<HTML>
 <p>
@@ -2422,27 +2577,28 @@ and provides them as output signals.
     model FromKelvin "Conversion from Kelvin to °Rankine" 
       parameter Integer n=1 "Number of inputs (= number of outputs)";
       annotation (
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Text(
-              extent={{-137,99},{132,49}},
-              textString="%name",
-              lineColor={0,0,255}),
+              extent={{-137,99},{132,49}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Ellipse(
-              extent={{-40,40},{40,-40}},
-              lineColor={0,0,0},
-              lineThickness=2,
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
+              extent={{-40,40},{40,-40}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{-34,-42},{-114,-122}},
-              lineColor={0,0,0},
-              lineThickness=4,
-              textString="K"),
+              extent={{-34,-42},{-114,-122}}, 
+              lineColor={0,0,0}, 
+              lineThickness=4, 
+              textString="K"), 
             Text(
-              extent={{110,-39},{30,-119}},
-              lineColor={0,0,0},
-              textString="°Rk"),
-            Line(points={{-40,0},{-100,0}}, color={0,0,255}),
+              extent={{110,-39},{30,-119}}, 
+              lineColor={0,0,0}, 
+              textString="°Rk"), 
+            Line(points={{-40,0},{-100,0}}, color={0,0,255}), 
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
         Diagram(graphics={
             Ellipse(
@@ -2481,35 +2637,37 @@ and provides them as output signals.
     
     model FixedTemperature "Fixed temperature boundary condition in °Rankine" 
       
-      parameter NonSI.Temperature_degRk T "Fixed Temperature at the port";
+      parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degRk T 
+        "Fixed Temperature at the port";
       annotation (
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Text(
-              extent={{-118,165},{122,105}},
-              textString="%name",
-              lineColor={0,0,255}),
+              extent={{-118,165},{122,105}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              pattern=LinePattern.None,
-              fillColor={159,159,223},
-              fillPattern=FillPattern.Backward),
+              extent={{-100,100},{100,-100}}, 
+              lineColor={0,0,0}, 
+              pattern=LinePattern.None, 
+              fillColor={159,159,223}, 
+              fillPattern=FillPattern.Backward), 
             Text(
-              extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
-              textString="°Rk"),
+              extent={{0,0},{-100,-100}}, 
+              lineColor={0,0,0}, 
+              textString="°Rk"), 
             Polygon(
-              points={{52,-20},{52,20},{90,0},{52,-20}},
-              lineColor={191,0,0},
-              fillColor={191,0,0},
-              fillPattern=FillPattern.Solid),
+              points={{52,-20},{52,20},{90,0},{52,-20}}, 
+              lineColor={191,0,0}, 
+              fillColor={191,0,0}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{-145,-102},{135,-151}},
-              lineColor={0,0,0},
-              textString="T=%T"),
+              extent={{-145,-102},{135,-151}}, 
+              lineColor={0,0,0}, 
+              textString="T=%T"), 
             Line(
-              points={{-42,0},{66,0}},
-              color={191,0,0},
+              points={{-42,0},{66,0}}, 
+              color={191,0,0}, 
               thickness=2)}),
         Documentation(info="<HTML>
 <p>
@@ -2517,7 +2675,8 @@ This model defines a fixed temperature T at its port in degree Rankine,
 [degRk], i.e., it defines a fixed temperature as a boundary condition.
 </p>
 </HTML>
-"),     Diagram(graphics={
+"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics(
             Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
@@ -2536,7 +2695,7 @@ This model defines a fixed temperature T at its port in degree Rankine,
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
               fillColor={191,0,0},
-              fillPattern=FillPattern.Solid)}));
+              fillPattern=FillPattern.Solid))));
       Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{
                 90,-10},{110,10}}, rotation=0)));
     equation 
@@ -2547,33 +2706,34 @@ This model defines a fixed temperature T at its port in degree Rankine,
       "Variable temperature boundary condition in °Rankine" 
       
       annotation (
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              pattern=LinePattern.None,
-              fillColor={159,159,223},
-              fillPattern=FillPattern.Backward),
+              extent={{-100,100},{100,-100}}, 
+              lineColor={0,0,0}, 
+              pattern=LinePattern.None, 
+              fillColor={159,159,223}, 
+              fillPattern=FillPattern.Backward), 
             Line(
-              points={{-102,0},{64,0}},
-              color={191,0,0},
-              thickness=2),
+              points={{-102,0},{64,0}}, 
+              color={191,0,0}, 
+              thickness=2), 
             Text(
-              extent={{0,0},{-100,-100}},
-              lineColor={0,0,0},
-              textString="°Rk"),
+              extent={{0,0},{-100,-100}}, 
+              lineColor={0,0,0}, 
+              textString="°Rk"), 
             Text(
-              extent={{-122,163},{118,103}},
-              textString="%name",
-              lineColor={0,0,255}),
+              extent={{-122,163},{118,103}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Line(
-              points={{-102,0},{64,0}},
-              color={191,0,0},
-              thickness=2),
+              points={{-102,0},{64,0}}, 
+              color={191,0,0}, 
+              thickness=2), 
             Polygon(
-              points={{52,-20},{52,20},{90,0},{52,-20}},
-              lineColor={191,0,0},
-              fillColor={191,0,0},
+              points={{52,-20},{52,20},{90,0},{52,-20}}, 
+              lineColor={191,0,0}, 
+              fillColor={191,0,0}, 
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<HTML>
 <p>
@@ -2672,43 +2832,44 @@ Example:
               extent={{102,-22},{60,-74}},
               lineColor={0,0,0},
               textString="°Rk")}),
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Ellipse(
-              extent={{-20,-98},{20,-60}},
-              lineColor={0,0,0},
-              lineThickness=2,
-              fillColor={191,0,0},
-              fillPattern=FillPattern.Solid),
+              extent={{-20,-98},{20,-60}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2, 
+              fillColor={191,0,0}, 
+              fillPattern=FillPattern.Solid), 
             Rectangle(
-              extent={{-12,40},{12,-68}},
-              lineColor={191,0,0},
-              fillColor={191,0,0},
-              fillPattern=FillPattern.Solid),
-            Line(points={{12,0},{90,0}}, color={0,0,255}),
-            Line(points={{-90,0},{-12,0}}, color={191,0,0}),
+              extent={{-12,40},{12,-68}}, 
+              lineColor={191,0,0}, 
+              fillColor={191,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{12,0},{90,0}}, color={0,0,255}), 
+            Line(points={{-90,0},{-12,0}}, color={191,0,0}), 
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
-                  {12,80},{12,40},{-12,40}},
-              lineColor={0,0,0},
-              lineThickness=2),
+                  {12,80},{12,40},{-12,40}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2), 
             Line(
-              points={{-12,40},{-12,-64}},
-              color={0,0,0},
-              thickness=2),
+              points={{-12,40},{-12,-64}}, 
+              color={0,0,0}, 
+              thickness=2), 
             Line(
-              points={{12,40},{12,-64}},
-              color={0,0,0},
-              thickness=2),
-            Line(points={{-40,-20},{-12,-20}}, color={0,0,0}),
-            Line(points={{-40,20},{-12,20}}, color={0,0,0}),
-            Line(points={{-40,60},{-12,60}}, color={0,0,0}),
+              points={{12,40},{12,-64}}, 
+              color={0,0,0}, 
+              thickness=2), 
+            Line(points={{-40,-20},{-12,-20}}, color={0,0,0}), 
+            Line(points={{-40,20},{-12,20}}, color={0,0,0}), 
+            Line(points={{-40,60},{-12,60}}, color={0,0,0}), 
             Text(
-              extent={{126,-20},{26,-120}},
-              lineColor={0,0,0},
-              textString="°Rk"),
+              extent={{126,-20},{26,-120}}, 
+              lineColor={0,0,0}, 
+              textString="°Rk"), 
             Text(
-              extent={{-132,144},{108,84}},
-              textString="%name",
+              extent={{-132,144},{108,84}}, 
+              textString="%name", 
               lineColor={0,0,255})}),
         Documentation(info="<HTML>
 <p>
