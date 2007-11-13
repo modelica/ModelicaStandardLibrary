@@ -912,7 +912,7 @@ have been <b style=\"color:blue\">changed</b> in a
                         J_Rotor ... Jr<br>
                         Rr ........ Rrd (damper of synchronous induction machines)<br>
                         Lrsigma ... Lrsigmad (damper of synchronous induction machines)<br>
-                        phi_mecahnical ... phiMechanical<br>
+                        phi_mechanical ... phiMechanical<br>
                         w_mechanical ..... wMechanical<br>
                         rpm_mechanical ... rpmMechanical<br>
                         tau_electrical ... tauElectrical<br>
@@ -1016,13 +1016,34 @@ have been <b style=\"color:blue\">changed</b> in a
   <tr><td valign=\"top\"> constant nX <br>
                         constant nXi <br>
                         constant reference_X<br>
-                        BaseProperties
+                        BaseProperties</td>
       <td valign=\"top\"> The package constant nX = nS, now always, even for single species media. This also allows to define mixtures with only 1 element. The package constant nXi=if fixedX then 0 else if reducedX or nS==1 then nS - 1 else nS. This required that all BaseProperties for single species media get an additional equation to define the composition X as {1.0} (or reference_X, which is {1.0} for single species). This will also mean that all user defined single species media need to be updated by that equation.</td> </tr>
 
   <tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.</b></td></tr>
   <tr><td valign=\"top\"> </td>
       <td valign=\"top\"> Changed all default values of parameters to (start=xxx)<br>
                         Removed all <tt>redeclare type SignalType</tt> from <tt>RealInput</tt> and <tt>RealOutput</tt></td> </tr>
+
+  <tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.Sensors.</b></td></tr>
+  <tr><td valign=\"top\"> <br>
+                        pSensor<br>TSensor<br>dpSensor<br>dTSensor<br>m_flowSensor<br>V_flowSensor<br>H_flowSensor</td>
+      <td valign=\"top\"> renamed to:<br>
+                        PressureSensor<br>TemperatureSensor<br>RelPressureSensor<br>RelTemperatureSensor<br>MassFlowSensor<br>VolumeFlowSensor<br>EnthalpyFlowSensor
+                        </td> </tr>
+
+  <tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.Sources.</b></td></tr>
+  <tr><td valign=\"top\"> Ambient<br>PrescribedAmbient</td>
+      <td valign=\"top\"> available as one combined component Ambient<br>
+                        Boolean parameters usePressureInput and useTemperatureInput decide 
+                        whether pressure and/or temperature are constant or prescribed</td> </tr>
+  <tr><td valign=\"top\"> ConstantVolumeFlow<br>PrescribedVolumeFlow</td>
+      <td valign=\"top\"> available as one combined component VolumeFlow<br>
+                        Boolean parameter useVolumeFlowInput decides 
+                        whether volume flow is constant or prescribed</td> </tr>
+  <tr><td valign=\"top\"> ConstantPressureIncrease<br>PrescribedPressureIncrease</td>
+      <td valign=\"top\"> available as one combined component PressureIncrease<br>
+                        Boolean parameter usePressureIncreaseInput decides 
+                        whether pressure increase is constant or prescribed</td> </tr>
 
   <tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.Examples.</b></td></tr>
   <tr><td valign=\"top\"> </td>
