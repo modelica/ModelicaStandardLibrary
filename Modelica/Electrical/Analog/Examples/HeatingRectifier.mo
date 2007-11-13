@@ -12,7 +12,8 @@ model HeatingRectifier "Heating rectifier"
         extent={{-10,-10},{10,10}},
         rotation=270)));
   
-annotation (Diagram(graphics={Text(
+annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+            -100},{100,100}}), graphics={Text(
           extent={{-94,102},{0,74}}, 
           textString="HeatingRectifier", 
           lineColor={0,0,255})}),
@@ -41,12 +42,12 @@ HeatingDiode1.heatPort.Q_flow<br>
 </html>"));
   Modelica.Electrical.Analog.Basic.Capacitor Capacitor1 
   annotation (Placement(transformation(extent={{20,40},{40,60}}, rotation=0)));
-  Modelica.Thermal.HeatTransfer.HeatCapacitor HeatCapacitor1(C=1) 
+  Modelica.Thermal.HeatTransfer.Components.HeatCapacitor HeatCapacitor1(C=1) 
   annotation (Placement(transformation(
         origin={-10,-50},
         extent={{-10,-10},{10,10}},
         rotation=180)));
-  Modelica.Thermal.HeatTransfer.ThermalConductor ThermalConductor1(G=10) 
+  Modelica.Thermal.HeatTransfer.Components.ThermalConductor ThermalConductor1(G=10) 
   annotation (Placement(transformation(
         origin={-10,-10},
         extent={{-10,-10},{10,10}},
@@ -66,14 +67,13 @@ equation
                                                           annotation (Line(
         points={{-10,40},{-10,20.5},{-10,0},{-10,0}}, color={191,0,0}));
   connect(ThermalConductor1.port_b, HeatCapacitor1.port) 
-                                                       annotation (Line(points=
-          {{-10,-20},{-10,-25.75},{-10,-25.75},{-10,-30.5},{-10,-40},{-10,-40}},
+                                                       annotation (Line(points={{-10,-20},
+          {-10,-25.75},{-10,-25.75},{-10,-30.5},{-10,-40},{-10,-40}},
         color={191,0,0}));
   connect(R.p, Capacitor1.p) 
   annotation (Line(points={{20,80},{20,50}}, color={0,0,255}));
   connect(R.n, Capacitor1.n) 
   annotation (Line(points={{40,80},{40,50}}, color={0,0,255}));
-  
 annotation (Documentation(info="<HTML>
 <P>
 The heating rectifier shows a heat flow always if the electrical capacitor is loaded.
@@ -97,4 +97,5 @@ HeatingDiode1.heatPort.Q_flow<br>
 "),
   experiment(
      StopTime=5));
+  
 end HeatingRectifier;
