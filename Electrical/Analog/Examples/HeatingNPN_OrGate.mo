@@ -4,7 +4,8 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
   constant Modelica.SIunits.Capacitance CapVal=0;
   constant Modelica.SIunits.Time tauVal=0;
   
-annotation (Diagram(graphics={Text(
+annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+            -100},{100,100}}), graphics={Text(
           extent={{-100,100},{-6,72}}, 
           textString="Heating \"NPN or\" Gate", 
           lineColor={0,0,255})}),    Documentation(info="<HTML>
@@ -30,17 +31,17 @@ T1.heatPort.Q_flow and T2.heatPort.Q_flow<br>
        </li>
 </ul>
 </html>"));
-  Modelica.Thermal.HeatTransfer.HeatCapacitor HeatCapacitor1(C=0.1) 
+  Modelica.Thermal.HeatTransfer.Components.HeatCapacitor HeatCapacitor1(C=0.1) 
   annotation (Placement(transformation(
         origin={76,-84},
         extent={{-10,-10},{10,10}},
         rotation=180)));
-  Modelica.Thermal.HeatTransfer.ThermalConductor TC1(G=0.01) 
+  Modelica.Thermal.HeatTransfer.Components.ThermalConductor TC1(G=0.01) 
   annotation (Placement(transformation(
         origin={90,-50},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Thermal.HeatTransfer.ThermalConductor TC2(G=0.01) 
+  Modelica.Thermal.HeatTransfer.Components.ThermalConductor TC2(G=0.01) 
   annotation (Placement(transformation(
         origin={60,-50},
         extent={{-10,-10},{10,10}},

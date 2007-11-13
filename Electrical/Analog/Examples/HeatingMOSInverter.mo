@@ -9,7 +9,8 @@ model HeatingMOSInverter "Heating MOS Inverter"
         extent={{-10,-10},{10,10}},
         rotation=270)));
   
-annotation (Diagram(graphics={Text(
+annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+            -100},{100,100}}), graphics={Text(
           extent={{-100,100},{-6,72}}, 
           textString="Heating MOS Inverter", 
           lineColor={0,0,255})}),   Documentation(info="<HTML>
@@ -40,12 +41,12 @@ H_PMOS.heatPort.Q_flow and H_NMOS.heatPort.Q_flow<br>
         origin={30,10},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Thermal.HeatTransfer.HeatCapacitor HeatCapacitor1(C=0.01) 
+  Modelica.Thermal.HeatTransfer.Components.HeatCapacitor HeatCapacitor1(C=0.01) 
   annotation (Placement(transformation(
         origin={70,-60},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Thermal.HeatTransfer.ThermalConductor TC1(G=0.01) 
+  Modelica.Thermal.HeatTransfer.Components.ThermalConductor TC1(G=0.01) 
   annotation (Placement(transformation(extent={{0,-50},{20,-30}}, rotation=0)));
   Semiconductors.HeatingPMOS H_PMOS 
   annotation (Placement(transformation(extent={{-40,40},{-20,60}}, rotation=0)));
@@ -56,22 +57,21 @@ H_PMOS.heatPort.Q_flow and H_NMOS.heatPort.Q_flow<br>
         origin={50,50},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Thermal.HeatTransfer.ThermalConductor TC2(G=0.01) 
+  Modelica.Thermal.HeatTransfer.Components.ThermalConductor TC2(G=0.01) 
   annotation (Placement(transformation(extent={{0,-90},{20,-70}}, rotation=0)));
-  Modelica.Thermal.HeatTransfer.FixedTemperature FixedTemperature1(T=
+  Modelica.Thermal.HeatTransfer.Sources.FixedTemperature FixedTemperature1(T=
         300) 
            annotation (Placement(transformation(
-        origin={88,-28},
+        origin={90,-30},
         extent={{-10,-10},{10,10}},
         rotation=180)));
-  Modelica.Thermal.HeatTransfer.ThermalConductor TC3(G=0.01) 
-  annotation (Placement(transformation(extent={{46,-40},{66,-20}}, rotation=0)));
+  Modelica.Thermal.HeatTransfer.Components.ThermalConductor TC3(G=0.01) 
+  annotation (Placement(transformation(extent={{50,-40},{70,-20}}, rotation=0)));
 equation 
   connect(Sin.n, G.p) 
   annotation (Line(points={{-70,-10},{-70,-20}}, color={0,0,255}));
   connect(Capacitor1.n, G.p) 
   annotation (Line(points={{30,0},{30,-20},{-70,-20}}, color={0,0,255}));
-  
 annotation (Documentation(info="<HTML>
 <P>
 The heating MOS inverter shows a heat flow always if a transistor is leading.
@@ -95,6 +95,7 @@ H_PMOS.heatPort.Q_flow and H_NMOS.heatPort.Q_flow<br>
 "),
   experiment(
      StopTime=5));
+  
   connect(H_NMOS.G, H_PMOS.G) 
   annotation (Line(points={{-40,5},{-40,45}}, color={0,0,255}));
   connect(H_NMOS.G, Sin.p) 
@@ -125,9 +126,9 @@ H_PMOS.heatPort.Q_flow and H_NMOS.heatPort.Q_flow<br>
   connect(TC2.port_a, H_NMOS.heatPort) 
   annotation (Line(points={{0,-80},{-30,-80},{-30,0}}, color={191,0,0}));
   connect(TC3.port_b, FixedTemperature1.port) 
-                                            annotation (Line(points={{66,-30},{
-          70,-30},{70,-28},{78,-28}}, color={191,0,0}));
+                                            annotation (Line(points={{70,-30},{
+          80,-30}},                   color={191,0,0}));
   connect(TC3.port_a, HeatCapacitor1.port) 
-                                         annotation (Line(points={{46,-30},{52,
-          -30},{52,-60},{60,-60}}, color={191,0,0}));
+                                         annotation (Line(points={{50,-30},{40,
+          -30},{40,-60},{60,-60}}, color={191,0,0}));
 end HeatingMOSInverter;
