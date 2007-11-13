@@ -880,6 +880,11 @@ have been <b style=\"color:blue\">changed</b> in a
                         A new component<br>\"InverseBlockConstraints\"
                         is provided instead that has the same feature, but is \"balanced\".</td> </tr>
 
+  <tr><td colspan=\"2\"><b>Electrical.Analog.Baisc.</b></td></tr>
+  <tr><td valign=\"top\"> HeatingResistor</td>
+      <td valign=\"top\"> The heatPort has to be connected; otherwise the component Resistor (without heatPort) has to be used.<br>
+                        cardinality() is only used to check whether the heatPort is connected.</td> </tr>
+
   <tr><td colspan=\"2\"><b>Electrical.MultiPhase.</b></td></tr>
   <tr><td valign=\"top\"> </td>
       <td valign=\"top\"> Changed all default values of parameters to (start=xxx), with the following exceptions:<br>
