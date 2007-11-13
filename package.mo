@@ -1022,6 +1022,25 @@ have been <b style=\"color:blue\">changed</b> in a
   <tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.Examples.</b></td></tr>
   <tr><td valign=\"top\"> </td>
       <td valign=\"top\"> Changed the instance names of components used in the examples to more up-to-date style.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Thermal.HeatTransfer.</b></td></tr>
+  <tr><td valign=\"top\"> </td>
+      <td valign=\"top\"> Removed all <tt>redeclare type SignalType</tt> from <tt>RealInput</tt> and <tt>RealOutput</tt></td> </tr>
+
+  <tr><td colspan=\"2\"><b>Thermal.HeatTransfer.</b></td></tr>
+  <tr><td valign=\"top\"> <br><br>
+                        HeatCapacitor<br>ThermalConductor<br>ThermalConvection<br>BodyRadiation<br><br>
+                        TemperatureSensor<br>RelTemperatureSensor<br>HeatFlowSensor<br><br>
+                        FixedTemperature<br>PrescribedTemperature<br>FixedHeatFlow<br>PrescribedHeatFlow</td>
+      <td valign=\"top\"> Moved components to sub-packages:<br><br>
+                        Components.HeatCapacitor<br>Components.ThermalConductor<br>Components.ThermalConvection<br>Components.BodyRadiation<br><br>
+                        Sensors.TemperatureSensor<br>Sensors.RelTemperatureSensor<br>Sensors.HeatFlowSensor<br><br>
+                        Sources.FixedTemperature<br>Sources.PrescribedTemperature<br>Sources.FixedHeatFlow<br>Sources.PrescribedHeatFlow
+                        </tt></td> </tr>
+
+  <tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.Examples.</b></td></tr>
+  <tr><td valign=\"top\"> </td>
+      <td valign=\"top\"> Changed the instance names of components used in the examples to more up-to-date style.</td> </tr>
 </table>
 
 
