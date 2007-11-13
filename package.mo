@@ -905,6 +905,10 @@ have been <b style=\"color:blue\">changed</b> in a
   <tr><td valign=\"top\"> </td>
       <td valign=\"top\"> Moved package <tt>Machines.Examples.Utilities</tt> to <tt>Machines.Utilities</tt></td> </tr>
   <tr><td valign=\"top\"> </td>
+      <td valign=\"top\"> Removed all nonSIunits; especially in DCMachines<br>
+                        parameter NonSIunits.AngularVelocity_rpm rpmNominal was replaced by<br>
+                        parameter SIunits.AngularVelocity wNominal</td> </tr>
+  <tr><td valign=\"top\"> </td>
       <td valign=\"top\"> Changed the following component resp. variable resp. parameter names to be more concise:<br>
                         Removed suffix \"DamperCage\" from all synchronous induction machines 
                         since the user can choose whether the damper cage is present or not.<br><tt>
