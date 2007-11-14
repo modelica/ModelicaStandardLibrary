@@ -237,7 +237,7 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
         "Cooling medium" 
         annotation(choicesAllMatching=true);
-      parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
+      parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degC TAmb=20 
         "Ambient temperature";
       output Modelica.SIunits.TemperatureDifference dTSource=
         PrescribedHeatFlow1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
@@ -362,7 +362,7 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
         "Cooling medium" 
         annotation(choicesAllMatching=true);
-      parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
+      parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degC TAmb=20 
         "Ambient temperature";
       output Modelica.SIunits.TemperatureDifference dTSource1=
         PrescribedHeatFlow1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
@@ -522,7 +522,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
       parameter FluidHeatFlow.Media.Medium innerMedium=FluidHeatFlow.Media.Medium() 
         "Inner medium" 
         annotation(choicesAllMatching=true);
-      parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
+      parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degC TAmb=20 
         "Ambient temperature";
       output Modelica.SIunits.TemperatureDifference dTSource=
         PrescribedHeatFlow1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
@@ -656,7 +656,7 @@ You may try to:
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
         "Cooling medium" 
         annotation(choicesAllMatching=true);
-      parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
+      parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degC TAmb=20 
         "Ambient temperature";
       output Modelica.SIunits.TemperatureDifference dTSource=
         PrescribedHeatFlow1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
@@ -755,7 +755,7 @@ then started again (using a ramp of 0.2 s).
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
         "Cooling medium" 
         annotation(choicesAllMatching=true);
-      parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
+      parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degC TAmb=20 
         "Ambient temperature";
       output Modelica.SIunits.TemperatureDifference dTSource=
         PrescribedHeatFlow1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
@@ -835,7 +835,7 @@ then started again (using a ramp of 0.2 s).
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
         "Cooling medium" 
         annotation(choicesAllMatching=true);
-      parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
+      parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degC TAmb=20 
         "Ambient temperature";
       output Modelica.SIunits.TemperatureDifference dTSource1=
         PrescribedHeatFlow1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
@@ -954,9 +954,9 @@ the time behaviour depending on coolant flow.
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
         "Cooling medium" 
         annotation(choicesAllMatching=true);
-      parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
+      parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degC TAmb=20 
         "Ambient temperature";
-      parameter Modelica.SIunits.CelsiusTemperature TMass=40 
+      parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degC TMass=40 
         "Inital temperature of mass";
       output Modelica.SIunits.TemperatureDifference dTMass=
         HeatCapacitor1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
@@ -1020,11 +1020,13 @@ the time behaviour depending on coolant flow.
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
         "Cooling medium" 
         annotation(choicesAllMatching=true);
-      parameter Modelica.SIunits.CelsiusTemperature TAmb=20 
+      parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degC TAmb=20 
         "Ambient temperature";
-      parameter Modelica.SIunits.CelsiusTemperature TMass1=40 
+      parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degC TMass1
+        =                                                                       40 
         "Inital temperature of mass1";
-      parameter Modelica.SIunits.CelsiusTemperature TMass2=60 
+      parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degC TMass2
+        =                                                                       60 
         "Inital temperature of mass2";
       output Modelica.SIunits.TemperatureDifference dTMass1=
         HeatCapacitor1.port.T-Modelica.SIunits.Conversions.from_degC(TAmb) 
@@ -1676,13 +1678,14 @@ See also sketch at diagram layer.
         Modelica.SIunits.VolumeFlowRate VolumeFlow;
         Modelica.SIunits.Power Q_friction;
       protected 
+        parameter Modelica.SIunits.Pressure dpNomMin=dpLaminar/V_flowLaminar*V_flowNominal;
         parameter Real k(final unit="Pa.s2/m6", fixed=false);
       initial algorithm 
         assert(V_flowNominal>V_flowLaminar,
           "SimpleFriction: V_flowNominal has to be > V_flowLaminar!");
-        assert(dpNominal>=dpLaminar/V_flowLaminar*V_flowNominal,
+        assert(dpNominal>=dpNomMin,
           "SimpleFriction: dpNominal has to be > dpLaminar/V_flowLaminar*V_flowNominal!");
-        k:=(dpNominal - dpLaminar/V_flowLaminar*V_flowNominal)/(V_flowNominal - V_flowLaminar)^2;
+        k:=(dpNominal - dpNomMin)/(V_flowNominal - V_flowLaminar)^2;
       equation 
         if     VolumeFlow > +V_flowLaminar then
           pressureDrop = +dpLaminar/V_flowLaminar*VolumeFlow + k*(VolumeFlow - V_flowLaminar)^2;
