@@ -1,5 +1,71 @@
 package Rotational 
   "Library to model 1-dimensional, rotational mechanical systems" 
+  extends Modelica.Icons.Library2;
+  import SI = Modelica.SIunits;
+
+ annotation(preferedView="info",
+    Window(
+      x=0.05,
+      y=0.09,
+      width=0.43,
+      height=0.63,
+      library=1,
+      autolayout=1),
+    Documentation(info="<html>
+ 
+<p>
+Library <b>Rotational</b> is a <b>free</b> Modelica package providing
+1-dimensional, rotational mechanical components to model in a convenient way
+drive trains with frictional losses. A typical, simple example is shown
+in the next figure:
+</p>
+ 
+<p><img src=\"../Images/Rotational/driveExample.png\"></p>
+ 
+<p>
+For an introduction, have especially a look at:
+</p>
+<ul>
+<li> <a href=\"Modelica://Modelica.Mechanics.Rotational.UsersGuide\">Rotational.UsersGuide</a>
+     discusses the most important aspects how to use this library.</li>
+<li> <a href=\"Modelica://Modelica.Mechanics.Rotational.Examples\">Rotational.Examples</a>
+     contains examples that demonstrate the usage of this library.</li>
+</ul>
+ 
+<p>
+Copyright &copy; 1998-2006, Modelica Association and DLR.
+</p>
+<p>
+<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b> 
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
+</p><br>
+</HTML>
+", revisions=""),
+    Icon(
+      Line(points=[-83, -66; -63, -66], style(color=0)),
+      Line(points=[36, -68; 56, -68], style(color=0)),
+      Line(points=[-73, -66; -73, -91], style(color=0)),
+      Line(points=[46, -68; 46, -91], style(color=0)),
+      Line(points=[-83, -29; -63, -29], style(color=0)),
+      Line(points=[36, -32; 56, -32], style(color=0)),
+      Line(points=[-73, -9; -73, -29], style(color=0)),
+      Line(points=[46, -12; 46, -32], style(color=0)),
+      Line(points=[-73, -91; 46, -91], style(color=0)),
+      Rectangle(extent=[-47, -17; 27, -80], style(
+          color=0,
+          gradient=2,
+          fillColor=8)),
+      Rectangle(extent=[-87, -41; -47, -54], style(
+          color=0,
+          gradient=2,
+          fillColor=8)),
+      Rectangle(extent=[27, -42; 66, -56], style(
+          color=0,
+          gradient=2,
+          fillColor=8))));
+  
 package UsersGuide "Users Guide" 
   annotation (DocumentationClass=true, Documentation(info="<HTML>
 <h3><font color=\"#008000\" size=5>Users Guide of package Rotational</font></h3>
@@ -822,7 +888,7 @@ as component LossyGear includes the functionality of component BearingFriction
     end LossyGearDemo2;
     
     model ElasticBearing "Example to show possible usage of bearing flange" 
-      extends Icons.Example;
+      extends Modelica.Icons.Example;
       Modelica.Mechanics.Rotational.Inertia shaft 
         annotation (extent=[-20, 40; 0, 60]);
       Modelica.Mechanics.Rotational.Inertia load(J=50) 
@@ -1327,72 +1393,6 @@ and provides the result as output signal <b>power</b>
       power = flange_a.tau*der(flange_a.phi);
     end PowerSensor;
   end Sensors;
-  import SI = Modelica.SIunits;
-  
-  extends Modelica.Icons.Library2;
-  
-  annotation(preferedView="info",
-    Window(
-      x=0.05,
-      y=0.09,
-      width=0.43,
-      height=0.63,
-      library=1,
-      autolayout=1),
-    Documentation(info="<html>
- 
-<p>
-Library <b>Rotational</b> is a <b>free</b> Modelica package providing
-1-dimensional, rotational mechanical components to model in a convenient way
-drive trains with frictional losses. A typical, simple example is shown
-in the next figure:
-</p>
- 
-<p><img src=\"../Images/Rotational/driveExample.png\"></p>
- 
-<p>
-For an introduction, have especially a look at:
-</p>
-<ul>
-<li> <a href=\"Modelica://Modelica.Mechanics.Rotational.UsersGuide\">Rotational.UsersGuide</a>
-     discusses the most important aspects how to use this library.</li>
-<li> <a href=\"Modelica://Modelica.Mechanics.Rotational.Examples\">Rotational.Examples</a>
-     contains examples that demonstrate the usage of this library.</li>
-</ul>
- 
-<p>
-Copyright &copy; 1998-2006, Modelica Association and DLR.
-</p>
-<p>
-<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> 
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
-</p><br>
-</HTML>
-", revisions=""),
-    Icon(
-      Line(points=[-83, -66; -63, -66], style(color=0)),
-      Line(points=[36, -68; 56, -68], style(color=0)),
-      Line(points=[-73, -66; -73, -91], style(color=0)),
-      Line(points=[46, -68; 46, -91], style(color=0)),
-      Line(points=[-83, -29; -63, -29], style(color=0)),
-      Line(points=[36, -32; 56, -32], style(color=0)),
-      Line(points=[-73, -9; -73, -29], style(color=0)),
-      Line(points=[46, -12; 46, -32], style(color=0)),
-      Line(points=[-73, -91; 46, -91], style(color=0)),
-      Rectangle(extent=[-47, -17; 27, -80], style(
-          color=0,
-          gradient=2,
-          fillColor=8)),
-      Rectangle(extent=[-87, -41; -47, -54], style(
-          color=0,
-          gradient=2,
-          fillColor=8)),
-      Rectangle(extent=[27, -42; 66, -56], style(
-          color=0,
-          gradient=2,
-          fillColor=8))));
   
   package Interfaces 
     "Connectors and partial models for 1D rotational mechanical components" 
@@ -2480,7 +2480,7 @@ connected with corresponding elements.
           string="rotation axis",
           style(color=10))));
     Interfaces.Flange_a bearingR annotation (extent=[-70, -110; -50, -90]);
-    Translational.Interfaces.Flange_a bearingT 
+    Modelica.Mechanics.Translational.Interfaces.Flange_a bearingT 
       annotation (extent=[50, -110; 70, -90]);
   equation 
     (flange_a.phi - bearingR.phi) = ratio*(flange_b.s - bearingT.s);
@@ -4661,10 +4661,11 @@ blocks of the block library Modelica.Blocks.Sources.
     SI.AngularAcceleration a "absolute angular acceleration of flange flange_b";
     SI.Torque tau_support "Support torque";
   protected 
-    parameter Real w_crit=2*Constants.pi*f_crit "critical frequency in [1/s]";
+    parameter Real w_crit=2*Modelica.Constants.pi*f_crit 
+      "critical frequency in [1/s]";
   public 
     Interfaces.Flange_b flange_b annotation (extent=[90, -10; 110, 10]);
-    Blocks.Interfaces.RealInput w_ref(redeclare type SignalType = 
+    Modelica.Blocks.Interfaces.RealInput w_ref(redeclare type SignalType = 
           SI.AngularVelocity) 
       "Reference angular velocity of flange_b as input signal" 
       annotation (extent=[-140, -20; -100, 20]);
@@ -4799,7 +4800,7 @@ blocks of the block library Modelica.Blocks.Sources.
     SI.Torque tau_support "Support torque";
     
     Interfaces.Flange_b flange_b annotation (extent=[90, -10; 110, 10]);
-    Blocks.Interfaces.RealInput a(
+    Modelica.Blocks.Interfaces.RealInput a(
           redeclare type SignalType = SI.AngularAcceleration) 
       "absolute angular acceleration of flange_b as input signal" 
       annotation (extent=[-140, -20; -100, 20]);
@@ -5093,6 +5094,7 @@ at an angle phi0 in the <b>housing</b>. May be used:
   end Fixed;
   
   model Torque "Input signal acting as external torque on a flange" 
+    
     Modelica.Blocks.Interfaces.RealInput tau( redeclare type SignalType = 
           SI.Torque) 
       "Torque driving the flange (a positive value accelerates the flange)" 
