@@ -1,6 +1,134 @@
 within Modelica.Mechanics;
+
 package Translational 
   "Library to model 1-dimensional, translational mechanical systems" 
+  extends Modelica.Icons.Library2;
+  import SI = Modelica.SIunits;
+
+  annotation(preferedView="info",
+    Window(
+      x=0.05,
+      y=0.09,
+      width=0.39,
+      height=0.47,
+      library=1,
+      autolayout=1),
+    Icon(
+      Line(points=[-84, -73; 66, -73], style(color=0)),
+      Rectangle(extent=[-81, -22; -8, -65], style(
+          color=0,
+          gradient=3,
+          fillColor=8,
+          fillPattern=1)),
+      Line(points=[-8, -43; -1, -43; 6, -64; 17, -23; 29, -65; 40, -23; 50, -44;
+              61, -44], style(color=0)),
+      Line(points=[-59, -73; -84, -93], style(color=0)),
+      Line(points=[-11, -73; -36, -93], style(color=0)),
+      Line(points=[-34, -73; -59, -93], style(color=0)),
+      Line(points=[14, -73; -11, -93], style(color=0)),
+      Line(points=[39, -73; 14, -93], style(color=0)),
+      Line(points=[63, -73; 38, -93], style(color=0))), Documentation(info="<html>
+<p>
+This package contains components to model <i>1-dimensional translational
+mechanical</i> systems.
+</p>
+<p>
+The <i>filled</i> and <i>non-filled green squares</i> at the left and
+right side of a component represent <i>mechanical flanges</i>.
+Drawing a line between such squares means that the corresponding
+flanges are <i>rigidly attached</i> to each other. The components of this
+library can be usually connected together in an arbitrary way. E.g. it is
+possible to connect two springs or two sliding masses with inertia directly
+together.
+<p> The only <i>connection restriction</i> is that the Coulomb friction
+elements (Stop) should be only connected
+together provided a compliant element, such as a spring, is in between.
+The reason is that otherwise the frictional force is not uniquely
+defined if the elements are stuck at the same time instant (i.e., there
+does not exist a unique solution) and some simulation systems may not be
+able to handle this situation, since this leads to a singularity during
+simulation. It can only be resolved in a \"clean way\" by combining the
+two connected friction elements into
+one component and resolving the ambiguity of the frictional force in the
+stuck mode.
+</p>
+<p> Another restriction arises if the hard stops in model Stop are used, i. e.
+the movement of the mass is limited by a stop at smax or smin.
+<font color=\"#ff0000\"> <b>This requires the states Stop.s and Stop.v</b> </font>. If these states are eliminated during the index reduction
+the model will not work. To avoid this any inertias should be connected via springs
+to the Stop element, other sliding masses, dampers or hydraulic chambers must be avoided. </p>
+<p>
+In the <i>icon</i> of every component an <i>arrow</i> is displayed in grey
+color. This arrow characterizes the coordinate system in which the vectors
+of the component are resolved. It is directed into the positive
+translational direction (in the mathematical sense).
+In the flanges of a component, a coordinate system is rigidly attached
+to the flange. It is called <i>flange frame</i> and is directed in parallel
+to the component coordinate system. As a result, e.g., the positive
+cut-force of a \"left\" flange (flange_a) is directed into the flange, whereas
+the positive cut-force of a \"right\" flange (flange_b) is directed out of the
+flange. A flange is described by a Modelica connector containing
+the following variables:
+</p>
+<pre>
+   SIunits.Position s  \"absolute position of flange\";
+   <i>flow</i> Force f        \"cut-force in the flange\";
+</pre>
+ 
+<p>
+This library is designed in a fully object oriented way in order that
+components can be connected together in every meaningful combination
+(e.g. direct connection of two springs or two shafts with inertia).
+As a consequence, most models lead to a system of
+differential-algebraic equations of <i>index 3</i> (= constraint
+equations have to be differentiated twice in order to arrive at
+a state space representation) and the Modelica translator or
+the simulator has to cope with this system representation.
+According to our present knowledge, this requires that the
+Modelica translator is able to symbolically differentiate equations
+(otherwise it is e.g. not possible to provide consistent initial
+conditions; even if consistent initial conditions are present, most
+numerical DAE integrators can cope at most with index 2 DAEs).
+</p>
+ 
+<dl>
+<dt><b>Main Author:</b></dt>
+<dd>Peter Beater <br>
+    Universit&auml;t Paderborn, Abteilung Soest<br>
+    Fachbereich Maschinenbau/Automatisierungstechnik<br>
+    L&uuml;becker Ring 2 <br>
+    D 59494 Soest <br>
+    Germany <br>
+    email: <A HREF=\"mailto:Beater@mailso.uni-paderborn.de\">Beater@mailso.uni-paderborn.de</A><br>
+</dd>
+</dl>
+ 
+<p>
+Copyright &copy; 1998-2007, Modelica Association and Universit&auml;t Paderborn, FB 12.
+</p>
+<p>
+<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b> 
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
+</p><br>
+ 
+</HTML>
+", revisions="<html>
+<ul>
+<li><i>Version 1.0 (January 5, 2000)</i>
+       by Peter Beater <br>
+       Realized a first version based on Modelica library Mechanics.Rotational
+       by Martin Otter and an existing Dymola library onedof.lib by Peter Beater.
+       <br>
+<li><i>Version 1.01 (July 18, 2001)</i>
+       by Peter Beater <br>
+       Assert statement added to \"Stop\", small bug fixes in examples.
+       <br><br>
+</li>
+</ul>
+</html>"));
+  
   package Examples "Demonstration examples of the components of this package" 
     
     extends Modelica.Icons.Library;
@@ -1003,134 +1131,6 @@ Modelica.Blocks library).
     end AccSensor;
   end Sensors;
   
-  import SI = Modelica.SIunits;
-  
-  extends Modelica.Icons.Library2;
-  
-  annotation(preferedView="info",
-    Window(
-      x=0.05,
-      y=0.09,
-      width=0.39,
-      height=0.47,
-      library=1,
-      autolayout=1),
-    Icon(
-      Line(points=[-84, -73; 66, -73], style(color=0)),
-      Rectangle(extent=[-81, -22; -8, -65], style(
-          color=0,
-          gradient=3,
-          fillColor=8,
-          fillPattern=1)),
-      Line(points=[-8, -43; -1, -43; 6, -64; 17, -23; 29, -65; 40, -23; 50, -44;
-              61, -44], style(color=0)),
-      Line(points=[-59, -73; -84, -93], style(color=0)),
-      Line(points=[-11, -73; -36, -93], style(color=0)),
-      Line(points=[-34, -73; -59, -93], style(color=0)),
-      Line(points=[14, -73; -11, -93], style(color=0)),
-      Line(points=[39, -73; 14, -93], style(color=0)),
-      Line(points=[63, -73; 38, -93], style(color=0))), Documentation(info="<html>
-<p>
-This package contains components to model <i>1-dimensional translational
-mechanical</i> systems.
-</p>
-<p>
-The <i>filled</i> and <i>non-filled green squares</i> at the left and
-right side of a component represent <i>mechanical flanges</i>.
-Drawing a line between such squares means that the corresponding
-flanges are <i>rigidly attached</i> to each other. The components of this
-library can be usually connected together in an arbitrary way. E.g. it is
-possible to connect two springs or two sliding masses with inertia directly
-together.
-<p> The only <i>connection restriction</i> is that the Coulomb friction
-elements (Stop) should be only connected
-together provided a compliant element, such as a spring, is in between.
-The reason is that otherwise the frictional force is not uniquely
-defined if the elements are stuck at the same time instant (i.e., there
-does not exist a unique solution) and some simulation systems may not be
-able to handle this situation, since this leads to a singularity during
-simulation. It can only be resolved in a \"clean way\" by combining the
-two connected friction elements into
-one component and resolving the ambiguity of the frictional force in the
-stuck mode.
-</p>
-<p> Another restriction arises if the hard stops in model Stop are used, i. e.
-the movement of the mass is limited by a stop at smax or smin.
-<font color=\"#ff0000\"> <b>This requires the states Stop.s and Stop.v</b> </font>. If these states are eliminated during the index reduction
-the model will not work. To avoid this any inertias should be connected via springs
-to the Stop element, other sliding masses, dampers or hydraulic chambers must be avoided. </p>
-<p>
-In the <i>icon</i> of every component an <i>arrow</i> is displayed in grey
-color. This arrow characterizes the coordinate system in which the vectors
-of the component are resolved. It is directed into the positive
-translational direction (in the mathematical sense).
-In the flanges of a component, a coordinate system is rigidly attached
-to the flange. It is called <i>flange frame</i> and is directed in parallel
-to the component coordinate system. As a result, e.g., the positive
-cut-force of a \"left\" flange (flange_a) is directed into the flange, whereas
-the positive cut-force of a \"right\" flange (flange_b) is directed out of the
-flange. A flange is described by a Modelica connector containing
-the following variables:
-</p>
-<pre>
-   SIunits.Position s  \"absolute position of flange\";
-   <i>flow</i> Force f        \"cut-force in the flange\";
-</pre>
-
-<p>
-This library is designed in a fully object oriented way in order that
-components can be connected together in every meaningful combination
-(e.g. direct connection of two springs or two shafts with inertia).
-As a consequence, most models lead to a system of
-differential-algebraic equations of <i>index 3</i> (= constraint
-equations have to be differentiated twice in order to arrive at
-a state space representation) and the Modelica translator or
-the simulator has to cope with this system representation.
-According to our present knowledge, this requires that the
-Modelica translator is able to symbolically differentiate equations
-(otherwise it is e.g. not possible to provide consistent initial
-conditions; even if consistent initial conditions are present, most
-numerical DAE integrators can cope at most with index 2 DAEs).
-</p>
-
-<dl>
-<dt><b>Main Author:</b></dt>
-<dd>Peter Beater <br>
-    Universit&auml;t Paderborn, Abteilung Soest<br>
-    Fachbereich Maschinenbau/Automatisierungstechnik<br>
-    L&uuml;becker Ring 2 <br>
-    D 59494 Soest <br>
-    Germany <br>
-    email: <A HREF=\"mailto:Beater@mailso.uni-paderborn.de\">Beater@mailso.uni-paderborn.de</A><br>
-</dd>
-</dl>
-
-<p>
-Copyright &copy; 1998-2007, Modelica Association and Universit&auml;t Paderborn, FB 12.
-</p>
-<p>
-<i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
-under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> 
-<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
-</p><br>
-
-</HTML>
-", revisions="<html>
-<ul>
-<li><i>Version 1.0 (January 5, 2000)</i>
-       by Peter Beater <br>
-       Realized a first version based on Modelica library Mechanics.Rotational
-       by Martin Otter and an existing Dymola library onedof.lib by Peter Beater.
-       <br>
-<li><i>Version 1.01 (July 18, 2001)</i>
-       by Peter Beater <br>
-       Assert statement added to \"Stop\", small bug fixes in examples.
-       <br><br>
-</li>
-</ul>
-</html>"));
-  
   package Interfaces 
     "Interfaces for 1-dim. translational mechanical components" 
     
@@ -1594,7 +1594,7 @@ The sliding mass has the length L, the position coordinate s is in the middle.
 Sign convention: A positive force at flange flange_a moves the sliding mass in the positive direction.
 A negative force at flange flange_a moves the sliding mass to the negative direction.
 </p>
-
+ 
 </html>
 ", revisions="<html>
 <p><b>Release Notes:</b></p>
@@ -1710,7 +1710,7 @@ Entwurf hydraulischer Maschinen</a>. Springer Verlag Berlin Heidelberg New York.
 <P>The friction model is implemented in a \"clean\" way by state events and leads to
 continuous/discrete systems of equations which have to be solved by appropriate
 numerical methods. The method is described in: </P>
-
+ 
 <dl>
 Otter M., Elmqvist H., and Mattsson S.E. (1999):
 <i><DD>Hybrid Modeling in Modelica based on the Synchronous Data Flow Principle</i>. CACSD'99, Aug. 22.-26, Hawaii. </DD>
@@ -1734,7 +1734,7 @@ Armstrong B. (1991):</dt>
 <DD>A<i> new model for control of systems with friction.</i> IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<BR>
 </DD>
 </DL>
-
+ 
 </HTML>
 ", revisions="<html>
 <p><b>Release Notes:</b></p>
@@ -1924,7 +1924,7 @@ between the stops.</i> </li>
 <p>
 Rod <i>without inertia</i> and two rigidly connected flanges.
 </p>
-
+ 
 </HTML>
 ", revisions="<html>
 <p><b>Release Notes:</b></p>
@@ -1993,7 +1993,7 @@ between two sliding masses, or between
 a sliding mass and the housing (model Fixed), to describe
 a coupling of the slidin mass with the housing via a spring.
 </p>
-
+ 
 </HTML>
 ", revisions="<html>
 <p><b>Release Notes:</b></p>
@@ -2046,7 +2046,7 @@ a coupling of the slidin mass with the housing via a spring.
 between a sliding mass and the housing (model Fixed), or
 between two sliding masses.
 </p>
-
+ 
 </HTML>
 ", revisions="<html>
 <p><b>Release Notes:</b></p>
@@ -2192,7 +2192,7 @@ between
 a sliding mass and the housing (model Fixed), to describe
 the contact of a sliding mass with the housing.
 </p>
-
+ 
 </HTML>
 ", revisions="<html>
 <p><b>Release Notes:</b></p>
@@ -2484,7 +2484,7 @@ integration of the acceleration.
 The acceleration \"a(t)\" can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Source.
 </p>
-
+ 
 </HTML>
 ", revisions="<html>
 <p><b>Release Notes:</b></p>
@@ -2657,7 +2657,7 @@ at an position s0 in the <i>housing</i>. May be used:
 <li> to fix a rigid element, such as a sliding mass, at a specific
      position.
 </ul>
-
+ 
 </HTML>
 ", revisions="<html>
 <p><b>Release Notes:</b></p>
@@ -2698,7 +2698,7 @@ i.e., the component connected to the flange is driven by force f.
 Input signal s can be provided from one of the signal generator
 blocks of Modelica.Blocks.Source.
 </p>
-
+ 
 </HTML>
 ", revisions="<html>
 <p><b>Release Notes:</b></p>
@@ -2773,7 +2773,7 @@ the two masses are used as state variables. Additionally, the
 simulator selects either the absolute position and absolute
 velocity of model mass1 or of model mass2 as state variables.
 </p>
-
+ 
 </HTML>
 ", revisions="<html>
 <p><b>Release Notes:</b></p>
