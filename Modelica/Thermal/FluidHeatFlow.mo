@@ -258,7 +258,7 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
       Sources.VolumeFlow pump(
         medium=medium,
         m=0,
-        T0=TAmb, 
+        T0=TAmb,
         useVolumeFlowInput=true) 
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
               rotation=0)));
@@ -314,8 +314,8 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
                                    annotation (Line(points={{-9,-30},{0,-30}},
             color={0,0,127}));
       connect(volumeFlow.y, pump.volumeFlow) annotation (Line(
-          points={{-39,20},{-30,20},{-30,10}}, 
-          color={0,0,127}, 
+          points={{-39,20},{-30,20},{-30,10}},
+          color={0,0,127},
           smooth=Smooth.None));
     end SimpleCooling;
     
@@ -406,7 +406,7 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
       Sources.VolumeFlow pump(
         medium=medium,
         m=0,
-        T0=TAmb, 
+        T0=TAmb,
         useVolumeFlowInput=true) 
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
               rotation=0)));
@@ -516,8 +516,8 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
       connect(pipe3.flowPort_b,ambient2. flowPort) 
         annotation (Line(points={{60,0},{80,0}}, color={255,0,0}));
       connect(volumeFlow.y, pump.volumeFlow) annotation (Line(
-          points={{-39,20},{-30,20},{-30,10}}, 
-          color={0,0,127}, 
+          points={{-39,20},{-30,20},{-30,10}},
+          color={0,0,127},
           smooth=Smooth.None));
     end ParallelCooling;
     
@@ -596,7 +596,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
       Sources.VolumeFlow outerPump(
         medium=outerMedium,
         m=0,
-        T0=TAmb, 
+        T0=TAmb,
         useVolumeFlowInput=true) 
         annotation (Placement(transformation(extent={{-40,60},{-20,80}},
               rotation=0)));
@@ -637,7 +637,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
       Sources.VolumeFlow innerPump(
         medium=innerMedium,
         m=0,
-        T0=TAmb, 
+        T0=TAmb,
         useVolumeFlowInput=true) 
         annotation (Placement(transformation(
             origin={-20,-30},
@@ -718,12 +718,12 @@ Inner coolant's temperature rise near the source is the same as temperature drop
       connect(outerGc.y, outerConvection.Gc) 
         annotation (Line(points={{-19,40},{0,40}},  color={0,0,127}));
       connect(outerVolumeFlow.y, outerPump.volumeFlow) annotation (Line(
-          points={{-39,90},{-30,90},{-30,80}}, 
-          color={0,0,127}, 
+          points={{-39,90},{-30,90},{-30,80}},
+          color={0,0,127},
           smooth=Smooth.None));
       connect(innerVolumeFlow.y, innerPump.volumeFlow) annotation (Line(
-          points={{-39,-30},{-30,-30}}, 
-          color={0,0,127}, 
+          points={{-39,-30},{-30,-30}},
+          color={0,0,127},
           smooth=Smooth.None));
     end IndirectCooling;
     
@@ -882,7 +882,7 @@ then started again (using a ramp of 0.2 s).
       Sources.VolumeFlow pump(
         medium=medium,
         m=0,
-        T0=TAmb, 
+        T0=TAmb,
         useVolumeFlowInput=true) 
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
               rotation=0)));
@@ -938,8 +938,8 @@ then started again (using a ramp of 0.2 s).
                                    annotation (Line(points={{-9,-30},{0,-30}},
             color={0,0,127}));
       connect(volumeFlow.y, pump.volumeFlow) annotation (Line(
-          points={{-39,20},{-30,20},{-30,10}}, 
-          color={0,0,127}, 
+          points={{-39,20},{-30,20},{-30,10}},
+          color={0,0,127},
           smooth=Smooth.None));
     end PumpDropOut;
     
@@ -982,7 +982,7 @@ then started again (using a ramp of 0.2 s).
       Sources.VolumeFlow pump(
         medium=medium,
         m=0,
-        T0=TAmb, 
+        T0=TAmb,
         useVolumeFlowInput=true) 
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
               rotation=0)));
@@ -1092,8 +1092,8 @@ then started again (using a ramp of 0.2 s).
       connect(pipe3.flowPort_b,ambient2. flowPort) 
         annotation (Line(points={{60,0},{80,0}}, color={255,0,0}));
       connect(volumeFlow.y, pump.volumeFlow) annotation (Line(
-          points={{-39,20},{-30,20},{-30,10}}, 
-          color={0,0,127}, 
+          points={{-39,20},{-30,20},{-30,10}},
+          color={0,0,127},
           smooth=Smooth.None));
     end ParallelPumpDropOut;
     
@@ -1129,7 +1129,7 @@ the time behaviour depending on coolant flow.
       Sources.VolumeFlow pump(
         medium=medium,
         m=0,
-        T0=TAmb, 
+        T0=TAmb,
         useVolumeFlowInput=true) 
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
               rotation=0)));
@@ -1171,8 +1171,8 @@ the time behaviour depending on coolant flow.
       connect(pipe.heatPort, thermalConductor.port_b) 
         annotation (Line(points={{10,-10},{10,-20}}, color={191,0,0}));
       connect(volumeFlow.y, pump.volumeFlow) annotation (Line(
-          points={{-39,20},{-30,20},{-30,10}}, 
-          color={0,0,127}, 
+          points={{-39,20},{-30,20},{-30,10}},
+          color={0,0,127},
           smooth=Smooth.None));
     end OneMass;
     
@@ -1218,7 +1218,7 @@ the time behaviour depending on coolant flow.
       Sources.VolumeFlow pump(
         medium=medium,
         m=0,
-        T0=TAmb, 
+        T0=TAmb,
         useVolumeFlowInput=true) 
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
               rotation=0)));
@@ -1295,8 +1295,8 @@ the time behaviour depending on coolant flow.
       connect(thermalConductor1.port_a, heatCapacitor1.port) annotation (Line(
             points={{10,-50},{10,-55},{10,-60},{10,-60}}, color={191,0,0}));
       connect(volumeFlow.y, pump.volumeFlow) annotation (Line(
-          points={{-39,20},{-30,20},{-30,10}}, 
-          color={0,0,127}, 
+          points={{-39,20},{-30,20},{-30,10}},
+          color={0,0,127},
           smooth=Smooth.None));
     end TwoMass;
     
@@ -1363,23 +1363,22 @@ Block generating the sum of two ramps.
                   graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
-              Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+              Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
               Polygon(
-                points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
-                lineColor={192,192,192}, 
-                fillColor={192,192,192}, 
-                fillPattern=FillPattern.Solid), 
-              Line(points={{-90,-70},{82,-70}}, color={192,192,192}), 
+                points={{-80,90},{-88,68},{-72,68},{-80,90}},
+                lineColor={192,192,192},
+                fillColor={192,192,192},
+                fillPattern=FillPattern.Solid),
+              Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
               Polygon(
-                points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
-                lineColor={192,192,192}, 
-                fillColor={192,192,192}, 
-                fillPattern=FillPattern.Solid), 
+                points={{90,-70},{68,-62},{68,-78},{90,-70}},
+                lineColor={192,192,192},
+                fillColor={192,192,192},
+                fillPattern=FillPattern.Solid),
               Line(
-                points={{-80,-60},{-50,-60},{-30,60},{10,60},{30,-20},{70,-20}}, 
-                  
-                color={0,0,0}, 
-                fillColor={0,0,0}, 
+                points={{-80,-60},{-50,-60},{-30,60},{10,60},{30,-20},{70,-20}},
+                color={0,0,0},
+                fillColor={0,0,0},
                 fillPattern=FillPattern.Solid)}));
         
         Modelica.Blocks.Math.Add add  annotation (Placement(transformation(
@@ -1486,10 +1485,10 @@ leads to neglection of temperature transient cv*m*der(T).
 </HTML>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={Rectangle(
-              extent={{-90,20},{90,-20}}, 
-              lineColor={255,0,0}, 
-              fillColor={0,0,255}, 
-              fillPattern=FillPattern.Solid), Text(extent={{-150,100},{150,40}}, 
+              extent={{-90,20},{90,-20}},
+              lineColor={255,0,0},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid), Text(extent={{-150,100},{150,40}},
                 textString="%name")}),                          Diagram(
             coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}),                                             graphics));
@@ -1573,18 +1572,18 @@ Flow resistance under real conditions is calculated by<br>
 </HTML>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
-            Text(extent={{-150,-60},{150,-120}}, textString="%name"), 
+            Text(extent={{-150,-60},{150,-120}}, textString="%name"),
             Polygon(
               points={{-90,10},{-60,10},{-60,60},{0,0},{60,60},{60,10},{90,10},
                   {90,-10},{60,-10},{60,-60},{0,0},{-60,-60},{-60,-10},{-90,-10},
-                  {-90,10}}, 
-              lineColor={255,0,0}, 
-              fillColor={0,0,255}, 
-              fillPattern=FillPattern.Solid), 
+                  {-90,10}},
+              lineColor={255,0,0},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{0,80},{0,0}}, 
-              color={0,0,127}, 
-              fillColor={0,0,255}, 
+              points={{0,80},{0,0}},
+              color={0,0,127},
+              fillColor={0,0,255},
               fillPattern=FillPattern.Solid)}),
                                 Diagram(coordinateSystem(preserveAspectRatio=
                 false, extent={{-100,-100},{100,100}}),
@@ -1849,39 +1848,39 @@ See also sketch at diagram layer.
 </HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={
-              Line(points={{-80,0},{80,0}}, color={0,0,255}),
-              Line(points={{0,80},{0,-80}}, color={0,0,255}),
-              Line(points={{-40,-20},{40,20}}, color={0,0,255}),
-              Line(points={{40,20},{60,40},{70,60},{74,80}}, color={0,0,255}),
+              Line(points={{-80,0},{80,0}}, color={0,0,255}), 
+              Line(points={{0,80},{0,-80}}, color={0,0,255}), 
+              Line(points={{-40,-20},{40,20}}, color={0,0,255}), 
+              Line(points={{40,20},{60,40},{70,60},{74,80}}, color={0,0,255}), 
               Line(points={{-40,-20},{-60,-40},{-70,-60},{-74,-80}}, color={0,0,
-                    255}),
-              Line(points={{40,20},{40,0}}, color={0,0,255}),
-              Line(points={{60,40},{60,0}}, color={0,0,255}),
-              Line(points={{40,20},{0,20}}, color={0,0,255}),
-              Line(points={{60,40},{0,40}}, color={0,0,255}),
+                    255}), 
+              Line(points={{40,20},{40,0}}, color={0,0,255}), 
+              Line(points={{60,40},{60,0}}, color={0,0,255}), 
+              Line(points={{40,20},{0,20}}, color={0,0,255}), 
+              Line(points={{60,40},{0,40}}, color={0,0,255}), 
               Text(
-                extent={{18,0},{48,-20}},
-                lineColor={0,0,255},
-                textString="V_flowLaminar"),
+                extent={{18,0},{48,-20}}, 
+                lineColor={0,0,255}, 
+                textString="V_flowLaminar"), 
               Text(
-                extent={{50,0},{80,-20}},
-                lineColor={0,0,255},
-                textString="V_flowNominal"),
+                extent={{50,0},{80,-20}}, 
+                lineColor={0,0,255}, 
+                textString="V_flowNominal"), 
               Text(
-                extent={{-30,30},{-4,10}},
-                lineColor={0,0,255},
-                textString="dpLaminar"),
+                extent={{-30,30},{-4,10}}, 
+                lineColor={0,0,255}, 
+                textString="dpLaminar"), 
               Text(
-                extent={{-30,50},{-4,30}},
-                lineColor={0,0,255},
-                textString="dpNominal"),
+                extent={{-30,50},{-4,30}}, 
+                lineColor={0,0,255}, 
+                textString="dpNominal"), 
               Text(
-                extent={{0,20},{30,0}},
-                lineColor={0,0,255},
-                textString="dp ~ V_flow"),
+                extent={{0,20},{30,0}}, 
+                lineColor={0,0,255}, 
+                textString="dp ~ V_flow"), 
               Text(
-                extent={{30,60},{60,40}},
-                lineColor={0,0,255},
+                extent={{30,60},{60,40}}, 
+                lineColor={0,0,255}, 
                 textString="dp ~ V_flow²")}));
         parameter Modelica.SIunits.VolumeFlowRate V_flowLaminar(min=Modelica.Constants.small, start=0.1) 
           "Laminar volume flow" 
@@ -1902,13 +1901,14 @@ See also sketch at diagram layer.
         Modelica.SIunits.VolumeFlowRate volumeFlow;
         Modelica.SIunits.Power Q_friction;
       protected 
+        parameter Modelica.SIunits.Pressure dpNomMin=dpLaminar/V_flowLaminar*V_flowNominal;
         parameter Real k(final unit="Pa.s2/m6", fixed=false);
       initial algorithm 
         assert(V_flowNominal>V_flowLaminar,
           "SimpleFriction: V_flowNominal has to be > V_flowLaminar!");
-        assert(dpNominal>=dpLaminar/V_flowLaminar*V_flowNominal,
+        assert(dpNominal>=dpNomMin,
           "SimpleFriction: dpNominal has to be > dpLaminar/V_flowLaminar*V_flowNominal!");
-        k:=(dpNominal - dpLaminar/V_flowLaminar*V_flowNominal)/(V_flowNominal - V_flowLaminar)^2;
+        k:=(dpNominal - dpNomMin)/(V_flowNominal - V_flowLaminar)^2;
       equation 
         if     volumeFlow > +V_flowLaminar then
           pressureDrop = +dpLaminar/V_flowLaminar*volumeFlow + k*(volumeFlow - V_flowLaminar)^2;
@@ -2396,8 +2396,8 @@ Thermodynamic equations are defined by Partials.AbsoluteSensor.
       y = flowPort.p;
       annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-22,-20},{20,-60}}, 
-              lineColor={0,0,255}, 
+              extent={{-22,-20},{20,-60}},
+              lineColor={0,0,255},
               textString="p")}),
                           Diagram);
     end PressureSensor;
@@ -2415,8 +2415,8 @@ Thermodynamic equations are defined by Partials.AbsoluteSensor.
       medium.cp*y = flowPort.h;
       annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-22,-20},{20,-60}}, 
-              lineColor={0,0,255}, 
+              extent={{-22,-20},{20,-60}},
+              lineColor={0,0,255},
               textString="T")}));
     end TemperatureSensor;
     
@@ -2433,8 +2433,8 @@ Thermodynamic equations are defined by Partials.RelativeSensor.
       y = flowPort_a.p - flowPort_b.p;
       annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-22,-20},{20,-60}}, 
-              lineColor={0,0,255}, 
+              extent={{-22,-20},{20,-60}},
+              lineColor={0,0,255},
               textString="dp")}));
     end RelPressureSensor;
     
@@ -2454,8 +2454,8 @@ Outlet temperature is defined by variable T of the corresponding component.
       medium.cp*y = flowPort_a.h - flowPort_b.h;
       annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-22,-20},{20,-60}}, 
-              lineColor={0,0,255}, 
+              extent={{-22,-20},{20,-60}},
+              lineColor={0,0,255},
               textString="dT")}));
     end RelTemperatureSensor;
     
@@ -2472,8 +2472,8 @@ Thermodynamic equations are defined by Partials.FlowSensor.
       y = V_flow*medium.rho;
       annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-22,-20},{20,-60}}, 
-              lineColor={0,0,255}, 
+              extent={{-22,-20},{20,-60}},
+              lineColor={0,0,255},
               textString="m")}));
     end MassFlowSensor;
     
@@ -2490,8 +2490,8 @@ Thermodynamic equations are defined by Partials.FlowSensor.
       y = V_flow;
       annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-22,-20},{20,-60}}, 
-              lineColor={0,0,255}, 
+              extent={{-22,-20},{20,-60}},
+              lineColor={0,0,255},
               textString="V")}));
     end VolumeFlowSensor;
     
@@ -2508,8 +2508,8 @@ Thermodynamic equations are defined by Partials.FlowSensor.
       y = flowPort_a.H_flow;
       annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-22,-20},{20,-60}}, 
-              lineColor={0,0,255}, 
+              extent={{-22,-20},{20,-60}},
+              lineColor={0,0,255},
               textString="H")}));
     end EnthalpyFlowSensor;
   end Sensors;
@@ -2635,7 +2635,6 @@ Thermodynamic equations are defined by Partials.Ambient.
           smooth=Smooth.None));
     end Ambient;
     
-    
     model AbsolutePressure "Defines absolute pressure level" 
       
     annotation (Documentation(info="<HTML>
@@ -2646,12 +2645,12 @@ Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
                        graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Text(
-              extent={{-150,150},{150,90}}, 
-              lineColor={0,0,255}, 
+              extent={{-150,150},{150,90}},
+              lineColor={0,0,255},
               textString="%name"), Ellipse(
-              extent={{-90,90},{90,-90}}, 
-              lineColor={255,0,0}, 
-              fillColor={255,255,255}, 
+              extent={{-90,90},{90,-90}},
+              lineColor={255,0,0},
+              fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}));
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
         "medium" 
@@ -2739,7 +2738,6 @@ Thermodynamic equations are defined by Partials.TwoPort.
           smooth=Smooth.None));
     end VolumeFlow;
     
-    
     model PressureIncrease "Enforces constant pressure increase" 
       
     annotation (Documentation(info="<HTML>
@@ -2752,22 +2750,22 @@ Thermodynamic equations are defined by Partials.TwoPort.
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
                 100}}), graphics={
             Ellipse(
-              extent={{-90,90},{90,-90}}, 
-              lineColor={255,0,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-90,90},{90,-90}},
+              lineColor={255,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-150,-90},{150,-150}}, 
-              lineColor={0,0,255}, 
-              textString="%name"), 
+              extent={{-150,-90},{150,-150}},
+              lineColor={0,0,255},
+              textString="%name"),
             Polygon(
-              points={{-60,68},{90,10},{90,-10},{-60,-68},{-60,68}}, 
-              lineColor={0,0,255}, 
-              fillColor={255,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-60,68},{90,10},{90,-10},{-60,-68},{-60,68}},
+              lineColor={0,0,255},
+              fillColor={255,0,0},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-40,20},{0,-20}}, 
-              lineColor={0,0,0}, 
+              extent={{-40,20},{0,-20}},
+              lineColor={0,0,0},
               textString="dp")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
@@ -2811,7 +2809,6 @@ Thermodynamic equations are defined by Partials.TwoPort.
           smooth=Smooth.None));
     end PressureIncrease;
     
-    
     model IdealPump "Model of an ideal pump" 
       
     annotation (Documentation(info="<HTML>
@@ -2831,23 +2828,23 @@ Thermodynamic equations are defined by Partials.TwoPort.
 </HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Ellipse(
-              extent={{-90,90},{90,-90}}, 
-              lineColor={255,0,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-90,90},{90,-90}},
+              lineColor={255,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-150,150},{150,90}}, 
-              lineColor={0,0,255}, 
-              textString="%name"), 
+              extent={{-150,150},{150,90}},
+              lineColor={0,0,255},
+              textString="%name"),
             Rectangle(
-              extent={{-10,-40},{10,-100}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.VerticalCylinder, 
-              fillColor={175,175,175}), 
+              extent={{-10,-40},{10,-100}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
+              fillColor={175,175,175}),
             Polygon(
-              points={{-60,68},{90,10},{90,-10},{-60,-68},{-60,68}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
+              points={{-60,68},{90,10},{90,-10},{-60,-68},{-60,68}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
               fillColor={0,0,255})}),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}),
