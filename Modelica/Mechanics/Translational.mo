@@ -2,7 +2,6 @@ package Translational
   "Library to model 1-dimensional, translational mechanical systems" 
   extends Modelica.Icons.Library2;
   import SI = Modelica.SIunits;
-
   annotation(preferedView="info",
     Window(
       x=0.05,
@@ -282,7 +281,9 @@ combination). In this case the system is not at rest.
 <li><i>First Version from December 10, 1999 by P. Beater </i> </li>
 <li><i>Parameters and documentation modified, July 17, 2001 by P. Beater </i> </li>
 </ul>
-</html>"));
+</html>"), 
+        experiment(StopTime=5), 
+        experimentSetupOutput);
       Translational.SlidingMass M3(L=3, s(start=4.5)) annotation (extent=[-20,
             60; 0, 80]);
       Translational.Spring S2(s_rel0=2, c=1e3) annotation (extent=[-60, 60; -40,
@@ -295,13 +296,15 @@ combination). In this case the system is not at rest.
       Translational.SlidingMass M1(L=1) annotation (extent=[-20, -20; 0, 0]);
       Translational.Spring S1(
         s_rel0=1,
-        c=1e3,
-        s_rel(start=1)) annotation (extent=[-58, -20; -38, 0]);
+        c=1e3, 
+        s_rel(start=1, fixed=false)) 
+                        annotation (extent=[-58, -20; -38, 0]);
       Translational.Fixed Fixed2(s0=-1) annotation (extent=[-100, -20; -80, 0]);
       Translational.SpringDamper SD1(
         s_rel0=1,
-        c=111,
-        s_rel(start=1)) annotation (extent=[20, -20; 40, 0]);
+        c=111, 
+        s_rel(start=1, fixed=true)) 
+                        annotation (extent=[20, -20; 40, 0]);
       Translational.SlidingMass M2(L=2) annotation (extent=[60, -20; 80, 0]);
     equation 
       connect(Fixed1.flange_b, S2.flange_a) annotation (points=[-90, 70; -60,
@@ -691,7 +694,9 @@ to see the difference.
 <li><i>First Version from December 10, 1999 by P. Beater </i> </li>
 </ul>
 
-</html>"));
+</html>"), 
+        experiment(StopTime=5), 
+        experimentSetupOutput);
       Translational.Stop Stop1(L=1) annotation (extent=[60, 60; 80, 80]);
       Translational.Force Force1 annotation (extent=[18, 60; 38, 80]);
       Sources.Sine Sine1(amplitude=25, freqHz=0.25) annotation (extent=[-20,
@@ -782,7 +787,9 @@ Spool position s as a function of working force f.
 <li><i>Ocotber 5, 2002, object diagram and parameters changed, by P. Beater </i> </li>
 </ul>
 
-</html>"));
+</html>"), 
+        experiment(StopTime=100), 
+        experimentSetupOutput);
       Translational.ElastoGap InnerContactA(
         s_rel0=1e-3,
         c=1000e3,
