@@ -1,10 +1,10 @@
 within Modelica.Mechanics;
 
+
 package Translational 
   "Library to model 1-dimensional, translational mechanical systems" 
   extends Modelica.Icons.Library2;
   import SI = Modelica.SIunits;
-
   annotation(preferedView="info",
     Window(
       x=0.05,
@@ -300,7 +300,7 @@ combination). In this case the system is not at rest.
 <li><i>Parameters and documentation modified, July 17, 2001 by P. Beater </i> </li>
 </ul>
 </html>"),
-        experiment(StopTime=1),
+        experiment(StopTime=5),
         experimentSetupOutput);
       Translational.SlidingMass M3(L=3, s(start=4.5)) annotation (Placement(
             transformation(extent={{-20,60},{0,80}}, rotation=0)));
@@ -316,15 +316,17 @@ combination). In this case the system is not at rest.
               extent={{-20,-20},{0,0}}, rotation=0)));
       Translational.Spring S1(
         s_rel0=1,
-        c=1e3,
-        s_rel(start=1)) annotation (Placement(transformation(extent={{-58,-20},
+        c=1e3, 
+        s_rel(start=1, fixed=false)) 
+                        annotation (Placement(transformation(extent={{-58,-20},
                 {-38,0}}, rotation=0)));
       Translational.Fixed Fixed2(s0=-1) annotation (Placement(transformation(
               extent={{-100,-20},{-80,0}}, rotation=0)));
       Translational.SpringDamper SD1(
         s_rel0=1,
-        c=111,
-        s_rel(start=1)) annotation (Placement(transformation(extent={{20,-20},{
+        c=111, 
+        s_rel(start=1, fixed=true)) 
+                        annotation (Placement(transformation(extent={{20,-20},{
                 40,0}}, rotation=0)));
       Translational.SlidingMass M2(L=2) annotation (Placement(transformation(
               extent={{60,-20},{80,0}}, rotation=0)));
@@ -732,16 +734,16 @@ to see the difference.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-56,-88},{62,-100}},
-              textString="simulate 5 s",
-              lineColor={0,0,255}),
+              extent={{-56,-88},{62,-100}}, 
+              textString="simulate 5 s", 
+              lineColor={0,0,255}), 
             Text(
-              extent={{-100,80},{-80,60}},
-              textString="1)",
-              lineColor={0,0,255}),
+              extent={{-100,80},{-80,60}}, 
+              textString="1)", 
+              lineColor={0,0,255}), 
             Text(
-              extent={{-100,20},{-80,0}},
-              textString="2)",
+              extent={{-100,20},{-80,0}}, 
+              textString="2)", 
               lineColor={0,0,255})}),
         Window(
           x=0.45,
@@ -766,7 +768,7 @@ to see the difference.
 </ul>
 
 </html>"),
-        experiment(StopTime=1),
+        experiment(StopTime=5),
         experimentSetupOutput);
       Translational.Stop Stop1(L=1) annotation (Placement(transformation(extent=
                {{60,60},{80,80}}, rotation=0)));
@@ -816,16 +818,17 @@ to see the difference.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-98,-68},{102,-94}},
-              textString="positive force => spool moves in positive direction ",
-              lineColor={0,0,255}),
+              extent={{-98,-68},{102,-94}}, 
+              textString="positive force => spool moves in positive direction ", 
+                
+              lineColor={0,0,255}), 
             Text(
-              extent={{-32,-46},{38,-62}},
-              textString="Simulate for 100 s",
-              lineColor={0,0,255}),
+              extent={{-32,-46},{38,-62}}, 
+              textString="Simulate for 100 s", 
+              lineColor={0,0,255}), 
             Text(
-              extent={{-100,-54},{100,-80}},
-              textString="plot Spool.s as a function of Force1.f",
+              extent={{-100,-54},{100,-80}}, 
+              textString="plot Spool.s as a function of Force1.f", 
               lineColor={0,0,255})}),
         Documentation(info="<html>
 <p>
@@ -869,7 +872,7 @@ Spool position s as a function of working force f.
 </ul>
 
 </html>"),
-        experiment(StopTime=1),
+        experiment(StopTime=100),
         experimentSetupOutput);
       
       Translational.ElastoGap InnerContactA(
