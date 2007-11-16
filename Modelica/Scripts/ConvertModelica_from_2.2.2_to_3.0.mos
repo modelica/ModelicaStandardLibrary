@@ -704,236 +704,236 @@ convertClass("Modelica.Electrical.Analog.Basic.EMF",
 // 2007/10/20: Anton Haumer
 //             extended version
 
-convertClass  ("Machines.Examples.Utilities", "Machines.Utilities");
+convertClass  ("Modelica.Electrical.Machines.Examples.Utilities", "Modelica.Electrical.Machines.Utilities");
 
-convertClass  ("Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
-               "Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet");
-convertClass  ("Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
-               "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited");
-convertClass  ("Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
-               "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor");
+convertClass  ("Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
+               "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet");
+convertClass  ("Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+               "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited");
+convertClass  ("Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
+               "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor");
 
-convertClass  ("Machines.Sensors.RotorAngle", "Machines.Sensors.RotorDisplacementAngle");
-convertClass  ("Machines.Sensors.VoltageRMSsensor", "Machines.Sensors.VoltageQuasiRMSSensor");
-convertClass  ("Machines.Sensors.CurrentRMSsensor", "Machines.Sensors.CurrentQuasiRMSSensor");
+convertClass  ("Modelica.Electrical.Machines.Sensors.RotorAngle", "Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle");
+convertClass  ("Modelica.Electrical.Machines.Sensors.VoltageRMSsensor", "Modelica.Electrical.Machines.Sensors.VoltageQuasiRMSSensor");
+convertClass  ("Modelica.Electrical.Machines.Sensors.CurrentRMSsensor", "Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor");
 
-convertElement({"Machines.Examples.Utilities.SwitchYD"}, 
+convertElement({"Modelica.Electrical.Machines.Examples.Utilities.SwitchYD"}, 
                "plug_NS", "plug_sn");
-convertElement({"Machines.Examples.Utilities.SwitchYD"}, 
+convertElement({"Modelica.Electrical.Machines.Examples.Utilities.SwitchYD"}, 
                "pug_PS", "plug_sp");
-convertElement({"Machines.Examples.Utilities.SwitchYD"}, 
+convertElement({"Modelica.Electrical.Machines.Examples.Utilities.SwitchYD"}, 
                "plug_P", "plugSupply");
 
-convertElement({"Machines.Examples.Utilities.TerminalBox"}, 
+convertElement({"Modelica.Electrical.Machines.Examples.Utilities.TerminalBox"}, 
                "StarDelta", "terminalConnection");
 
-convertElement({"Machines.Examples.Utilities.TerminalBox"}, 
+convertElement({"Modelica.Electrical.Machines.Examples.Utilities.TerminalBox"}, 
                "negativeMachinePlug", "plug_sn");
-convertElement({"Machines.Examples.Utilities.TerminalBox"}, 
+convertElement({"Modelica.Electrical.Machines.Examples.Utilities.TerminalBox"}, 
                "positiveMachinePlug", "plug_sp");
-convertElement({"Machines.Examples.Utilities.TerminalBox"}, 
+convertElement({"Modelica.Electrical.Machines.Examples.Utilities.TerminalBox"}, 
                "plugToGrid", "plugSupply");
 
-convertElement({"Machines.Interfaces.PartialBasicInductionMachine",
-                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage",
-                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing",
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage",
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage"},
+convertElement({"Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine",
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage",
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage"},
                "fNominal", "fsNominal");
 
-convertElement({"Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing"}, 
+convertElement({"Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing"}, 
                "VsNom", "VsNominal");
-convertElement({"Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing"}, 
+convertElement({"Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing"}, 
                "Vr_LR", "VrLockedRotor");
-convertElement({"Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage"}, 
+convertElement({"Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage"}, 
                "V0", "VsOpenCircuit");
-convertElement({"Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage"}, 
+convertElement({"Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage"}, 
                "VNominal", "VsNominal");
-convertElement({"Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage"}, 
+convertElement({"Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage"}, 
                "Ie0", "IeOpenCircuit");
 
-convertElement({"Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage",  
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
-                "Machines.BasicMachines.Components.DamperCage"}, 
+convertElement({"Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage",  
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.Components.DamperCage"}, 
                "Lrsigma", "Lrsigmad");
 
-convertElement({"Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
-                "Machines.BasicMachines.Components.DamperCage"}, 
+convertElement({"Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.Components.DamperCage"}, 
                "Rr", "Rrd");
 
-convertElement({"Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage"}, 
+convertElement({"Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage"}, 
                "DamperCage", "useDamperCage");
 
-convertElement({"Machines.Interfaces.PartialBasicMachine", 
-                "Machines.Interfaces.PartialBasicInductionMachine", 
-                "Machines.Interfaces.PartialBasicDCMachine", 
-                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage", 
-                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
-                "Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
-                "Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
-                "Machines.BasicMachines.DCMachines.DC_SeriesExcited"}, 
+convertElement({"Modelica.Electrical.Machines.Interfaces.PartialBasicMachine", 
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine", 
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine", 
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage", 
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited"}, 
                "J_Rotor", "Jr");
 
-convertElement({"Machines.Interfaces.PartialBasicMachine", 
-                "Machines.Interfaces.PartialBasicInductionMachine", 
-                "Machines.Interfaces.PartialBasicDCMachine", 
-                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage", 
-                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
-                "Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
-                "Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
-                "Machines.BasicMachines.DCMachines.DC_SeriesExcited"}, 
+convertElement({"Modelica.Electrical.Machines.Interfaces.PartialBasicMachine", 
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine", 
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine", 
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage", 
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited"}, 
                "J_Stator", "Js");
 
-convertElement({"Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing",
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
-                "Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
-                "Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
-                "Machines.BasicMachines.DCMachines.DC_SeriesExcited", 
-                "Machines.BasicMachines.Components.ElectricalExcitation", 
-                "Machines.BasicMachines.Components.PartialAirGapDC", 
-                "Machines.BasicMachines.Components.AirGapDC", 
-                "Machines.Interfaces.PartialBasicDCMachine"}, 
+convertElement({"Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited", 
+                "Modelica.Electrical.Machines.BasicMachines.Components.ElectricalExcitation", 
+                "Modelica.Electrical.Machines.BasicMachines.Components.PartialAirGapDC", 
+                "Modelica.Electrical.Machines.BasicMachines.Components.AirGapDC", 
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine"}, 
                "TurnsRatio", "turnsRatio");
 
-convertElement({"Machines.Interfaces.PartialBasicMachine", 
-                "Machines.Interfaces.PartialBasicInductionMachine", 
-                "Machines.Interfaces.PartialBasicDCMachine", 
-                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage", 
-                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
-                "Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
-                "Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
-                "Machines.BasicMachines.DCMachines.DC_SeriesExcited", 
-                "Machines.BasicMachines.Components.PartialAirGap", 
-                "Machines.BasicMachines.Components.AirGapS", 
-                "Machines.BasicMachines.Components.AirGapR",
-                "Machines.BasicMachines.Components.PartialAirGapDC", 
-                "Machines.BasicMachines.Components.AirGapDC"}, 
+convertElement({"Modelica.Electrical.Machines.Interfaces.PartialBasicMachine", 
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine", 
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine", 
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage", 
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited", 
+                "Modelica.Electrical.Machines.BasicMachines.Components.PartialAirGap", 
+                "Modelica.Electrical.Machines.BasicMachines.Components.AirGapS", 
+                "Modelica.Electrical.Machines.BasicMachines.Components.AirGapR",
+                "Modelica.Electrical.Machines.BasicMachines.Components.PartialAirGapDC", 
+                "Modelica.Electrical.Machines.BasicMachines.Components.AirGapDC"}, 
                "flange_a", "shaft");
 
-convertElement({"Machines.Sensors.RotorAngle"}, 
+convertElement({"Modelica.Electrical.Machines.Sensors.RotorAngle"}, 
                "flange", "shaft");
 
-convertElement({"Machines.Interfaces.PartialBasicMachine", 
-                "Machines.Interfaces.PartialBasicInductionMachine", 
-                "Machines.Interfaces.PartialBasicDCMachine", 
-                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage", 
-                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
-                "Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
-                "Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
-                "Machines.BasicMachines.DCMachines.DC_SeriesExcited"}, 
+convertElement({"Modelica.Electrical.Machines.Interfaces.PartialBasicMachine", 
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine", 
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine", 
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage", 
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited"}, 
                "phi_mechanical", "phiMechanical");
 
-convertElement({"Machines.Interfaces.PartialBasicMachine", 
-                "Machines.Interfaces.PartialBasicInductionMachine", 
-                "Machines.Interfaces.PartialBasicDCMachine", 
-                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage", 
-                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
-                "Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
-                "Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
-                "Machines.BasicMachines.DCMachines.DC_SeriesExcited"}, 
+convertElement({"Modelica.Electrical.Machines.Interfaces.PartialBasicMachine", 
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine", 
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine", 
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage", 
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited"}, 
                "w_mechanical", "wMechanical");
 
-convertElement({"Machines.Interfaces.PartialBasicMachine", 
-                "Machines.Interfaces.PartialBasicInductionMachine", 
-                "Machines.Interfaces.PartialBasicDCMachine", 
-                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage", 
-                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
-                "Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
-                "Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
-                "Machines.BasicMachines.DCMachines.DC_SeriesExcited"}, 
+convertElement({"Modelica.Electrical.Machines.Interfaces.PartialBasicMachine", 
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine", 
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine", 
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage", 
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited"}, 
                "rpm_mechanical", "rpmMechanical");
 
-convertElement({"Machines.Interfaces.PartialBasicMachine", 
-                "Machines.Interfaces.PartialBasicInductionMachine", 
-                "Machines.Interfaces.PartialBasicDCMachine", 
-                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage", 
-                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
-                "Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
-                "Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
-                "Machines.BasicMachines.DCMachines.DC_SeriesExcited",
-                "Machines.BasicMachines.Components.PartialAirGap",
-                "Machines.BasicMachines.Components.AirGapS",
-                "Machines.BasicMachines.Components.AirGapR",
-                "Machines.BasicMachines.Components.PartialAirGapDC",
-                "Machines.BasicMachines.Components.AirGapDC"}, 
+convertElement({"Modelica.Electrical.Machines.Interfaces.PartialBasicMachine", 
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine", 
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine", 
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage", 
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited",
+                "Modelica.Electrical.Machines.BasicMachines.Components.PartialAirGap",
+                "Modelica.Electrical.Machines.BasicMachines.Components.AirGapS",
+                "Modelica.Electrical.Machines.BasicMachines.Components.AirGapR",
+                "Modelica.Electrical.Machines.BasicMachines.Components.PartialAirGapDC",
+                "Modelica.Electrical.Machines.BasicMachines.Components.AirGapDC"}, 
                "tau_electrical", "tauElectrical");
 
-convertElement({"Machines.Interfaces.PartialBasicMachine", 
-                "Machines.Interfaces.PartialBasicInductionMachine", 
-                "Machines.Interfaces.PartialBasicDCMachine", 
-                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage", 
-                "Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
-                "Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
-                "Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
-                "Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
-                "Machines.BasicMachines.DCMachines.DC_SeriesExcited"}, 
+convertElement({"Modelica.Electrical.Machines.Interfaces.PartialBasicMachine", 
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine", 
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine", 
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage", 
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited"}, 
                "tau_shaft", "tauShaft");
 
-convertModifiers({"Machines.Interfaces.PartialBasicDCMachine", 
-                  "Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
-                  "Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
-                  "Machines.BasicMachines.DCMachines.DC_SeriesExcited"}, 
+convertModifiers({"Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine", 
+                  "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet", 
+                  "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited", 
+                  "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited"}, 
                  {"rpmNominal"}, {"wNominal=%rpmNominal%*2*Modelica.Constants.pi/60"});
 
 // Conversions for Machines.Examples
 
-convertClass  ("Machines.Examples.AIMS_start", "Machines.Examples.AIMS_Start");
-convertClass  ("Machines.Examples.SMEE_Gen", "Machines.Examples.SMEE_Generator");
-convertClass  ("Machines.Examples.DCPM_start", "Machines.Examples.DCPM_Start");
-convertClass  ("Machines.Examples.DCEE_start", "Machines.Examples.DCEE_Start");
-convertClass  ("Machines.Examples.DCSE_start", "Machines.Examples.DCSE_Start");
+convertClass  ("Modelica.Electrical.Machines.Examples.AIMS_start", "Modelica.Electrical.Machines.Examples.AIMS_Start");
+convertClass  ("Modelica.Electrical.Machines.Examples.SMEE_Gen", "Modelica.Electrical.Machines.Examples.SMEE_Generator");
+convertClass  ("Modelica.Electrical.Machines.Examples.DCPM_start", "Modelica.Electrical.Machines.Examples.DCPM_Start");
+convertClass  ("Modelica.Electrical.Machines.Examples.DCEE_start", "Modelica.Electrical.Machines.Examples.DCEE_Start");
+convertClass  ("Modelica.Electrical.Machines.Examples.DCSE_start", "Modelica.Electrical.Machines.Examples.DCSE_Start");
 
-convertElement({"Machines.Examples.AIMC_DOL",
-                "Machines.Examples.AIMC_YD",
-                "Machines.Examples.AIMS_Start",
-                "Machines.Examples.AIMC_Inverter",
-                "Machines.Examples.SMR_Inverter",
-                "Machines.Examples.SMPM_Inverter",
-                "Machines.Examples.DCPM_Start",
-                "Machines.Examples.DCEE_Start",
-                "Machines.Examples.DCSE_Start",
-                "Machines.Examples.AIMC_Steinmetz"}, 
+convertElement({"Modelica.Electrical.Machines.Examples.AIMC_DOL",
+                "Modelica.Electrical.Machines.Examples.AIMC_YD",
+                "Modelica.Electrical.Machines.Examples.AIMS_Start",
+                "Modelica.Electrical.Machines.Examples.AIMC_Inverter",
+                "Modelica.Electrical.Machines.Examples.SMR_Inverter",
+                "Modelica.Electrical.Machines.Examples.SMPM_Inverter",
+                "Modelica.Electrical.Machines.Examples.DCPM_Start",
+                "Modelica.Electrical.Machines.Examples.DCEE_Start",
+                "Modelica.Electrical.Machines.Examples.DCSE_Start",
+                "Modelica.Electrical.Machines.Examples.AIMC_Steinmetz"}, 
                "T_Load", "TLoad");
 
-convertElement({"Machines.Examples.AIMC_DOL",
-                "Machines.Examples.AIMC_YD",
-                "Machines.Examples.AIMS_Start",
-                "Machines.Examples.AIMC_Inverter",
-                "Machines.Examples.SMR_Inverter",
-                "Machines.Examples.SMPM_Inverter",
-                "Machines.Examples.DCPM_Start",
-                "Machines.Examples.DCEE_Start",
-                "Machines.Examples.DCSE_Start",
-                "Machines.Examples.AIMC_Steinmetz"}, 
+convertElement({"Modelica.Electrical.Machines.Examples.AIMC_DOL",
+                "Modelica.Electrical.Machines.Examples.AIMC_YD",
+                "Modelica.Electrical.Machines.Examples.AIMS_Start",
+                "Modelica.Electrical.Machines.Examples.AIMC_Inverter",
+                "Modelica.Electrical.Machines.Examples.SMR_Inverter",
+                "Modelica.Electrical.Machines.Examples.SMPM_Inverter",
+                "Modelica.Electrical.Machines.Examples.DCPM_Start",
+                "Modelica.Electrical.Machines.Examples.DCEE_Start",
+                "Modelica.Electrical.Machines.Examples.DCSE_Start",
+                "Modelica.Electrical.Machines.Examples.AIMC_Steinmetz"}, 
                "J_Load", "JLoad");
 
 // End Convert Machines to 2.0.0 (MSL 3.0)
@@ -947,46 +947,46 @@ convertElement({"Machines.Examples.AIMC_DOL",
 clear
 convertClear();
 
-convertClass    ("FluidHeatFlow.Sensors.pSensor",      "FluidHeatFlow.Sensors.PressureSensor");
-convertClass    ("FluidHeatFlow.Sensors.TSensor",      "FluidHeatFlow.Sensors.TemperatureSensor");
-convertClass    ("FluidHeatFlow.Sensors.dpSensor",     "FluidHeatFlow.Sensors.RelPressureSensor");
-convertClass    ("FluidHeatFlow.Sensors.dTSensor",     "FluidHeatFlow.Sensors.RelTemperatureSensor");
-convertClass    ("FluidHeatFlow.Sensors.m_flowSensor", "FluidHeatFlow.Sensors.MassFlowSensor");
-convertClass    ("FluidHeatFlow.Sensors.V_flowSensor", "FluidHeatFlow.Sensors.VolumeFlowSensor");
-convertClass    ("FluidHeatFlow.Sensors.H_flowSensor", "FluidHeatFlow.Sensors.EnthalpyFlowSensor");
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sensors.pSensor",      "Modelica.Thermal.FluidHeatFlow.Sensors.PressureSensor");
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sensors.TSensor",      "Modelica.Thermal.FluidHeatFlow.Sensors.TemperatureSensor");
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sensors.dpSensor",     "Modelica.Thermal.FluidHeatFlow.Sensors.RelPressureSensor");
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sensors.dTSensor",     "Modelica.Thermal.FluidHeatFlow.Sensors.RelTemperatureSensor");
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sensors.m_flowSensor", "Modelica.Thermal.FluidHeatFlow.Sensors.MassFlowSensor");
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sensors.V_flowSensor", "Modelica.Thermal.FluidHeatFlow.Sensors.VolumeFlowSensor");
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sensors.H_flowSensor", "Modelica.Thermal.FluidHeatFlow.Sensors.EnthalpyFlowSensor");
 
-convertElement  ({"FluidHeatFlow.Interfaces.Partials.SimpleFriction",
-                  "FluidHeatFlow.Components.IsolatedPipe",
-                  "FluidHeatFlow.Components.HeatedPipe"}, 
+convertElement  ({"Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SimpleFriction",
+                  "Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe",
+                  "Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe"}, 
                  "VolumeFlow", "volumeFlow");
 
-convertElement  ({"FluidHeatFlow.Sources.IdealPump"}, "w_Nominal", "wNominal");
+convertElement  ({"Modelica.Thermal.FluidHeatFlow.Sources.IdealPump"}, "w_Nominal", "wNominal");
 
-convertClass    ("FluidHeatFlow.Sources.Ambient", "FluidHeatFlow.Sources.Ambient");
-convertModifiers({"FluidHeatFlow.Sources.Ambient"}, fill("",0), {"usePressureInput=false", "useTemperatureInput=false"});
-convertElement  ({"FluidHeatFlow.Sources.Ambient"}, "p_Ambient", "constantAmbientPressure");
-convertElement  ({"FluidHeatFlow.Sources.Ambient"}, "T_Ambient", "constantAmbientTemperature");
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sources.Ambient", "Modelica.Thermal.FluidHeatFlow.Sources.Ambient");
+convertModifiers({"Modelica.Thermal.FluidHeatFlow.Sources.Ambient"}, fill("",0), {"usePressureInput=false", "useTemperatureInput=false"});
+convertElement  ({"Modelica.Thermal.FluidHeatFlow.Sources.Ambient"}, "p_Ambient", "constantAmbientPressure");
+convertElement  ({"Modelica.Thermal.FluidHeatFlow.Sources.Ambient"}, "T_Ambient", "constantAmbientTemperature");
 
-convertClass    ("FluidHeatFlow.Sources.PrescribedAmbient", "FluidHeatFlow.Sources.Ambient");
-convertModifiers({"FluidHeatFlow.Sources.PrescribedAmbient"}, fill("",0), {"usePressureInput=true", "useTemperatureInput=true"});
-convertElement  ({"FluidHeatFlow.Sources.PrescribedAmbient"}, "p_Ambient", "ambientPressure");
-convertElement  ({"FluidHeatFlow.Sources.PrescribedAmbient"}, "T_Ambient", "ambientTemperature");
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sources.PrescribedAmbient", "Modelica.Thermal.FluidHeatFlow.Sources.Ambient");
+convertModifiers({"Modelica.Thermal.FluidHeatFlow.Sources.PrescribedAmbient"}, fill("",0), {"usePressureInput=true", "useTemperatureInput=true"});
+convertElement  ({"Modelica.Thermal.FluidHeatFlow.Sources.PrescribedAmbient"}, "p_Ambient", "ambientPressure");
+convertElement  ({"Modelica.Thermal.FluidHeatFlow.Sources.PrescribedAmbient"}, "T_Ambient", "ambientTemperature");
 
-convertClass    ("FluidHeatFlow.Sources.ConstantVolumeFlow", "FluidHeatFlow.Sources.VolumeFlow");
-convertModifiers({"FluidHeatFlow.Sources.ConstantVolumeFlow"}, fill("",0), {"useVolumeFlowInput=false"});
-convertElement  ({"FluidHeatFlow.Sources.ConstantVolumeFlow"}, "VolumeFlow", "constantVolumeFlow");
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sources.ConstantVolumeFlow", "Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow");
+convertModifiers({"Modelica.Thermal.FluidHeatFlow.Sources.ConstantVolumeFlow"}, fill("",0), {"useVolumeFlowInput=false"});
+convertElement  ({"Modelica.Thermal.FluidHeatFlow.Sources.ConstantVolumeFlow"}, "VolumeFlow", "constantVolumeFlow");
 
-convertClass    ("FluidHeatFlow.Sources.PrescribedVolumeFlow", "FluidHeatFlow.Sources.VolumeFlow");
-convertModifiers({"FluidHeatFlow.Sources.PrescribedVolumeFlow"}, fill("",0), {"useVolumeFlowInput=true"});
-convertElement  ({"FluidHeatFlow.Sources.PrescribedVolumeFlow"}, "VolumeFlow", "volumeFlow");
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow", "Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow");
+convertModifiers({"Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow"}, fill("",0), {"useVolumeFlowInput=true"});
+convertElement  ({"Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow"}, "VolumeFlow", "volumeFlow");
 
-convertClass    ("FluidHeatFlow.Sources.ConstantPressureIncrease", "FluidHeatFlow.Sources.PressureIncrease");
-convertModifiers({"FluidHeatFlow.Sources.ConstantPressureIncrease"}, fill("",0), {"usePressureIncreaseInput=false"});
-convertElement  ({"FluidHeatFlow.Sources.ConstantPressureIncrease"}, "PressureIncrease", "constantPressureIncrease");
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sources.ConstantPressureIncrease", "Modelica.Thermal.FluidHeatFlow.Sources.PressureIncrease");
+convertModifiers({"Modelica.Thermal.FluidHeatFlow.Sources.ConstantPressureIncrease"}, fill("",0), {"usePressureIncreaseInput=false"});
+convertElement  ({"Modelica.Thermal.FluidHeatFlow.Sources.ConstantPressureIncrease"}, "PressureIncrease", "constantPressureIncrease");
 
-convertClass    ("FluidHeatFlow.Sources.PrescribedPressureIncrease", "FluidHeatFlow.Sources.PressureIncrease");
-convertModifiers({"FluidHeatFlow.Sources.PrescribedPressureIncrease"}, fill("",0), {"usePressureIncreaseInput=true"});
-convertElement  ({"FluidHeatFlow.Sources.PrescribedPressureIncrease"}, "PressureIncrease", "pressureIncrease");
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sources.PrescribedPressureIncrease", "Modelica.Thermal.FluidHeatFlow.Sources.PressureIncrease");
+convertModifiers({"Modelica.Thermal.FluidHeatFlow.Sources.PrescribedPressureIncrease"}, fill("",0), {"usePressureIncreaseInput=true"});
+convertElement  ({"Modelica.Thermal.FluidHeatFlow.Sources.PrescribedPressureIncrease"}, "PressureIncrease", "pressureIncrease");
 
 // End Convert FluidHeatFlow to 1.6.6 (MSL 3.0)
 //-------- FluidHeatFlow ------------------------------------------------------------
@@ -999,19 +999,19 @@ convertElement  ({"FluidHeatFlow.Sources.PrescribedPressureIncrease"}, "Pressure
 clear
 convertClear();
 
-convertClass  ("HeatTransfer.HeatCapacitor",         "HeatTransfer.Components.HeatCapacitor");
-convertClass  ("HeatTransfer.ThermalConductor",      "HeatTransfer.Components.ThermalConductor");
-convertClass  ("HeatTransfer.ThermalConvection",     "HeatTransfer.Components.Convection");
-convertClass  ("HeatTransfer.BodyRadiation",         "HeatTransfer.Components.BodyRadiation");
+convertClass  ("Modelica.Thermal.HeatTransfer.HeatCapacitor",         "Modelica.Thermal.HeatTransfer.Components.HeatCapacitor");
+convertClass  ("Modelica.Thermal.HeatTransfer.ThermalConductor",      "Modelica.Thermal.HeatTransfer.Components.ThermalConductor");
+convertClass  ("Modelica.Thermal.HeatTransfer.ThermalConvection",     "Modelica.Thermal.HeatTransfer.Components.Convection");
+convertClass  ("Modelica.Thermal.HeatTransfer.BodyRadiation",         "Modelica.Thermal.HeatTransfer.Components.BodyRadiation");
 
-convertClass  ("HeatTransfer.TemperatureSensor",     "HeatTransfer.Sensors.TemperatureSensor");
-convertClass  ("HeatTransfer.RelTemperatureSensor",  "HeatTransfer.Sensors.RelTemperatureSensor");
-convertClass  ("HeatTransfer.HeatFlowSensor",        "HeatTransfer.Sensors.HeatFlowSensor");
+convertClass  ("Modelica.Thermal.HeatTransfer.TemperatureSensor",     "Modelica.Thermal.HeatTransfer.Sensors.TemperatureSensor");
+convertClass  ("Modelica.Thermal.HeatTransfer.RelTemperatureSensor",  "Modelica.Thermal.HeatTransfer.Sensors.RelTemperatureSensor");
+convertClass  ("Modelica.Thermal.HeatTransfer.HeatFlowSensor",        "Modelica.Thermal.HeatTransfer.Sensors.HeatFlowSensor");
 
-convertClass  ("HeatTransfer.FixedTemperature",      "HeatTransfer.Sources.FixedTemperature");
-convertClass  ("HeatTransfer.PrescribedTemperature", "HeatTransfer.Sources.PrescribedTemperature");
-convertClass  ("HeatTransfer.FixedHeatFlow",         "HeatTransfer.Sources.FixedHeatFlow");
-convertClass  ("HeatTransfer.PrescribedHeatFlow",    "HeatTransfer.Sources.PrescribedHeatFlow");
+convertClass  ("Modelica.Thermal.HeatTransfer.FixedTemperature",      "Modelica.Thermal.HeatTransfer.Sources.FixedTemperature");
+convertClass  ("Modelica.Thermal.HeatTransfer.PrescribedTemperature", "Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature");
+convertClass  ("Modelica.Thermal.HeatTransfer.FixedHeatFlow",         "Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow");
+convertClass  ("Modelica.Thermal.HeatTransfer.PrescribedHeatFlow",    "Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow");
 
 // End Convert HeatTransfer to 1.1.1 (MSL 3.0)
 //-------- HeatTransfer ------------------------------------------------------------
