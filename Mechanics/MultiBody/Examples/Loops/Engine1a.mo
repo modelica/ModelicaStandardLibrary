@@ -61,7 +61,7 @@ An animation of this example is shown in the figure below.
             -80},{10,-100}}, rotation=0)));
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
         transformation(extent={{-50,-100},{-30,-80}}, rotation=0)));
-  Modelica.Mechanics.Rotational.Inertia Inertia(
+  Modelica.Mechanics.Rotational.Components.Inertia Inertia(
       stateSelect=StateSelect.always,
       phi(fixed=true, start=0),
       w(fixed=true, start=10))         annotation (Placement(transformation(

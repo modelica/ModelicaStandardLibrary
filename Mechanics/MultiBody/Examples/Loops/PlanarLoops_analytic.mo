@@ -69,7 +69,7 @@ MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
         origin={6,60},
         extent={{-10,-10},{10,10}},
         rotation=90)));
-  Modelica.Mechanics.Rotational.Position position 
+  Modelica.Mechanics.Rotational.Sources.Position position 
     annotation (Placement(transformation(extent={{-90,-20},{-70,0}}, rotation=0)));
   Modelica.Blocks.Sources.Sine sine(amplitude=0.7) 
     annotation (Placement(transformation(
@@ -108,7 +108,7 @@ MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
         origin={108,62},
         extent={{-10,-10},{10,10}},
         rotation=90)));
-  Parts.Mounting1D mounting1D
+  Parts.Mounting1D mounting1D 
     annotation (Placement(transformation(extent={{-100,-50},{-80,-30}})));
 equation 
   connect(world.frame_b, rev.frame_a) annotation (Line(
@@ -174,16 +174,16 @@ equation
   connect(sine.y, position.phi_ref) annotation (Line(points={{-96,19},{-96,-10},
           {-92,-10}}, color={0,0,127}));
   connect(mounting1D.flange_b, position.support) annotation (Line(
-      points={{-80,-40},{-80,-20}}, 
-      color={0,0,0}, 
+      points={{-80,-40},{-80,-20}},
+      color={0,0,0},
       smooth=Smooth.None));
   connect(mounting1D.frame_a, world.frame_b) annotation (Line(
-      points={{-90,-50},{-90,-57},{-70,-57},{-70,-80},{-74,-80}}, 
-      color={95,95,95}, 
-      thickness=2, 
+      points={{-90,-50},{-90,-57},{-70,-57},{-70,-80},{-74,-80}},
+      color={95,95,95},
+      thickness=2,
       smooth=Smooth.None));
   connect(position.flange, rev.axis) annotation (Line(
-      points={{-70,-10},{-66,-10}}, 
-      color={0,0,0}, 
+      points={{-70,-10},{-66,-10}},
+      color={0,0,0},
       smooth=Smooth.None));
 end PlanarLoops_analytic;

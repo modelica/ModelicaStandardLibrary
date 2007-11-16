@@ -58,14 +58,16 @@ model EngineV6
     crankAngleOffset=Cv.from_deg(-30)) 
                          annotation (Placement(transformation(extent={{100,4},{
             120,34}}, rotation=0)));
-  Rotational.Inertia load(phi(
+  Modelica.Mechanics.Rotational.Components.Inertia load(
+                          phi(
       start=0,
       fixed=true), w(
       start=10,
       fixed=true),
     stateSelect=StateSelect.always)    annotation (Placement(transformation(
           extent={{-44,-30},{-24,-10}}, rotation=0)));
-  Rotational.QuadraticSpeedDependentTorque load2(tau_nominal=-100, w_nominal=
+  Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque load2(
+                                                 tau_nominal=-100, w_nominal=
         200) annotation (Placement(transformation(extent={{6,-30},{-14,-10}},
           rotation=0)));
   Rotational.Sensors.TorqueSensor torqueSensor 

@@ -20,14 +20,16 @@ model EngineV6_analytic
   Utilities.EngineV6_analytic engine(redeclare model Cylinder = 
         Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CAD)
     annotation (Placement(transformation(extent={{-40,0},{0,40}}, rotation=0)));
-  Modelica.Mechanics.Rotational.Inertia load(phi(
+  Modelica.Mechanics.Rotational.Components.Inertia load(
+                                             phi(
       start=0,
       fixed=true), w(
       start=10,
       fixed=true),
     stateSelect=StateSelect.always)    annotation (Placement(transformation(
           extent={{40,10},{60,30}}, rotation=0)));
-  Rotational.QuadraticSpeedDependentTorque load2(tau_nominal=-100, w_nominal=
+  Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque load2(
+                                                 tau_nominal=-100, w_nominal=
         200) annotation (Placement(transformation(extent={{90,10},{70,30}},
           rotation=0)));
   Rotational.Sensors.TorqueSensor torqueSensor 
