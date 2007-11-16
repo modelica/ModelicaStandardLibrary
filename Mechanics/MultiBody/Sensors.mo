@@ -788,17 +788,40 @@ and resolved in the following frame
       "Coordinate system fixed to the component with one cut-force and cut-torque"
                                annotation (Placement(transformation(extent={{84,
               -16},{116,16}}, rotation=0)));
-    Blocks.Interfaces.RealOutput r_rel[3] 
-      "Relative position vector frame_b.r_0 - frame_a.r_0 resolved in frame_a or frame_b"
-      annotation (Placement(transformation(
-          origin={-80,-110},
-          extent={{10,-10},{-10,10}},
-          rotation=90)));
+    
+    Interfaces.Frame_resolve frame_resolve 
+      "If resolveInFrame = ResolveInFrame2.frame_resolve, the output signals are resolved in this frame"
+                                                                                                         annotation (Placement(transformation(
+            extent={{84,64},{116,96}}), iconTransformation(extent={{84,64},{116,
+              96}})));
     
     parameter Boolean animation=true 
       "= true, if animation shall be enabled (show arrow)";
-    parameter Boolean resolveInFrame_a=true 
-      "= true, if relative vectors from frame_a to frame_b are resolved before differentiation in frame_a, otherwise in frame_b";
+    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame2 resolveInFrame
+      =
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_a 
+      "Frame in which relative vectors from frame_a to frame_b are resolved before differentiation";
+    parameter Boolean get_r_rel=false 
+      "= true, to measure the relative position vector from the origin of frame_a to frame_b";
+    parameter Boolean get_v_rel=false 
+      "= true, to measure the relative velocity of the origin of frame_b with respect to frame_a";
+    parameter Boolean get_a_rel=false 
+      "= true, to measure the relative acceleration of the origin of frame_b with respect to frame_a";
+    parameter Boolean get_angles=false 
+      "= true, to measure the 3 rotation angles to rotate frame_a into frame_b along the axes defined in 'sequence' below";
+    parameter Boolean get_w_rel=false 
+      "= true, to measure the relative angular velocity of frame_b with respect to frame_a";
+    parameter Boolean get_z_rel=false 
+      "= true, to measure the relative angular acceleration of frame_b with respect to frame_a";
+    parameter Types.RotationSequence sequence(
+      min={1,1,1},
+      max={3,3,3}) = {1,2,3} 
+      "Angles are returned to rotate frame_a around axes sequence[1], sequence[2] and finally sequence[3] into frame_b"
+      annotation (Evaluate=true, Dialog(group="if get_angles = true", enable=get_angles));
+    parameter SI.Angle guessAngle1=0 
+      "Select angles[1] such that abs(angles[1] - guessAngle1) is a minimum" 
+      annotation (Dialog(group="if get_angles = true", enable=get_angles));
+    
     input SI.Diameter arrowDiameter=world.defaultArrowDiameter 
       " Diameter of relative arrow from frame_a to frame_b" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -809,7 +832,146 @@ and resolved in the following frame
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     
+    Blocks.Interfaces.RealOutput r_rel[3] if get_r_rel 
+      "Relative position vector frame_b.r_0 - frame_a.r_0 resolved in frame_a or frame_b"
+      annotation (Placement(transformation(
+          origin={-100,-110},
+          extent={{10,-10},{-10,10}},
+          rotation=90)));
+    Blocks.Interfaces.RealOutput v_rel[3] if get_v_rel 
+      "Relative velocity vector (= der(r_rel))" 
+      annotation (Placement(transformation(
+          origin={-60,-110},
+          extent={{10,-10},{-10,10}},
+          rotation=90)));
+    Blocks.Interfaces.RealOutput a_rel[3] if get_a_rel 
+      "Relative acceleration vector (= der(v_rel))" 
+      annotation (Placement(transformation(
+          origin={-20,-110},
+          extent={{10,-10},{-10,10}},
+          rotation=90)));
+    Blocks.Interfaces.RealOutput angles[3] if get_angles 
+      "Angles to rotate frame_a into frame_b via 'sequence'" 
+      annotation (Placement(transformation(
+          origin={20,-110},
+          extent={{10,-10},{-10,10}},
+          rotation=90)));
+    Blocks.Interfaces.RealOutput w_rel[3] if get_w_rel 
+      "Relative angular velocity vector" 
+      annotation (Placement(transformation(
+          origin={60,-110},
+          extent={{10,-10},{-10,10}},
+          rotation=90)));
+    Blocks.Interfaces.RealOutput z_rel[3] if get_z_rel 
+      "Relative angular acceleration vector (= der(w_rel))" 
+      annotation (Placement(transformation(
+          origin={100,-110},
+          extent={{10,-10},{-10,10}},
+          rotation=90)));
+    
+    annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
+              -100},{100,100}},
+          grid={1,1}),  graphics),
+                         Icon(coordinateSystem(preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Line(
+            points={{-70,0},{-95,0}}, 
+            color={0,0,0}, 
+            smooth=Smooth.None), 
+          Line(
+            points={{96,0},{70,0}}, 
+            color={0,0,0}, 
+            smooth=Smooth.None), 
+          Text(
+            extent={{-127,-77},{-92,-93}}, 
+            lineColor={0,0,0}, 
+            textString="r"), 
+          Text(
+            extent={{-112,44},{-76,19}}, 
+            lineColor={128,128,128}, 
+            textString="a"), 
+          Text(
+            extent={{72,44},{108,19}}, 
+            lineColor={128,128,128}, 
+            textString="b"), 
+          Text(
+            extent={{-132,90},{129,138}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
+          Line(
+            points={{-60,-36},{-60,-100}}, 
+            color={0,0,127}, 
+            smooth=Smooth.None), 
+          Line(
+            points={{20,-67},{20,-100}}, 
+            color={0,0,127}, 
+            smooth=Smooth.None), 
+          Text(
+            extent={{-90,-77},{-55,-93}}, 
+            lineColor={0,0,0}, 
+            textString="v"), 
+          Text(
+            extent={{-58,-77},{-23,-93}}, 
+            lineColor={0,0,0}, 
+            textString="a"), 
+          Line(
+            points={{-84,0},{-84,-60},{-100,-60},{-100,-100}}, 
+            color={0,0,127}, 
+            smooth=Smooth.None), 
+          Line(
+            points={{-20,-67},{-20,-100}}, 
+            color={0,0,127}, 
+            smooth=Smooth.None), 
+          Line(
+            points={{60,-36},{60,-100}}, 
+            color={0,0,127}, 
+            smooth=Smooth.None), 
+          Line(
+            points={{86,0},{86,-60},{100,-60},{100,-100}}, 
+            color={0,0,127}, 
+            smooth=Smooth.None), 
+          Text(
+            extent={{96,-76},{136,-93}}, 
+            lineColor={0,0,0}, 
+            textString="z"), 
+          Text(
+            extent={{55,-76},{100,-92}}, 
+            lineColor={0,0,0}, 
+            textString="w"), 
+          Line(
+            points={{95,80},{50,80},{50,49}}, 
+            color={0,0,0}, 
+            pattern=LinePattern.Dot, 
+            smooth=Smooth.None)}));
+    
   protected 
+    Internal.RelativePosition relativePosition if get_r_rel or get_v_rel or get_a_rel 
+      annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+    Blocks.Continuous.Der der1[3] if get_v_rel or get_a_rel annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=-90,
+          origin={-60,-40})));
+    Blocks.Continuous.Der der2[3] if get_a_rel annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=-90,
+          origin={-20,-80})));
+    Internal.RelativeAngles relativeAngles if get_angles 
+      annotation (Placement(transformation(extent={{10,-25},{30,-5}})));
+    Internal.RelativeAngularVelocity relativeAngularVelocity if get_w_rel or get_z_rel 
+      annotation (Placement(transformation(extent={{50,-47},{70,-27}})));
+    Blocks.Continuous.Der der3[3] if get_z_rel annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=-90,
+          origin={100,-70})));
+    Internal.ZeroForceAndTorque zeroForce1 
+      annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
+    Internal.ZeroForceAndTorque zeroForce2 
+      annotation (Placement(transformation(extent={{80,20},{60,40}})));
+    Internal.ZeroPosition zeroPosition if not (resolveInFrame ==
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve) 
+      annotation (Placement(transformation(extent={{-30,3},{-10,23}})));
+    
     outer Modelica.Mechanics.MultiBody.World world;
     
     Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow arrow(
@@ -818,101 +980,108 @@ and resolved in the following frame
       diameter=arrowDiameter,
       color=arrowColor,
       specularCoefficient) if world.enableAnimation and animation;
-    
-    encapsulated model RelativePosition "Determine relative position" 
-      import Modelica;
-      import Modelica.Mechanics.MultiBody.Frames;
-      extends Modelica.Blocks.Interfaces.BlockIcon;
-      
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a 
-        "Coordinate system a"                                                       annotation (Placement(
-            transformation(extent={{-116,-16},{-84,16}}, rotation=0)));
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b 
-        "Coordinate system b"                                                       annotation (Placement(
-            transformation(extent={{84,-16},{116,16}}, rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput r_rel[3] 
-        "Relative position vector, frame_b.r_0 - frame_a.r_0, resolved in frame_a or frame_b depending on parameter resolveInFrame_a)"
-        annotation (Placement(transformation(
-            origin={0,-110},
-            extent={{-10,-10},{10,10}},
-            rotation=270)));
-      parameter Boolean resolveInFrame_a=true 
-        "= true, if relative vectors from frame_a to frame_b are resolved before differentiation in frame_a, otherwise in frame_b";
-      
-    equation 
-       frame_a.f = zeros(3);
-       frame_a.t = zeros(3);
-       frame_b.f = zeros(3);
-       frame_b.t = zeros(3);
-       if resolveInFrame_a then
-          r_rel = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
-       else
-          r_rel = Frames.resolve2(frame_b.R, frame_b.r_0 - frame_a.r_0);
-       end if;
-      
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics={Text(
-              extent={{-78,-60},{78,-82}}, 
-              lineColor={0,0,0}, 
-              textString="r_rel")}));
-    end RelativePosition;
-    
-  protected 
-    RelativePosition relativePosition annotation (Placement(transformation(
-            extent={{-70,-10},{-50,10}}, rotation=0)));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-              -100,-100},{100,100}}),
-                        graphics),
-                         Icon(coordinateSystem(preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics={
-          Line(
-            points={{-70,0},{-96,0}}, 
-            color={0,0,0}, 
-            smooth=Smooth.None), 
-          Line(
-            points={{96,0},{70,0}}, 
-            color={0,0,0}, 
-            smooth=Smooth.None), 
-          Line(
-            points={{-80,0},{-80,-100}}, 
-            color={0,0,127}, 
-            smooth=Smooth.None), 
-          Text(
-            extent={{-116,-62},{-44,-76}}, 
-            lineColor={0,0,0}, 
-            textString="r_rel"), 
-          Text(
-            extent={{-112,51},{-76,26}}, 
-            lineColor={128,128,128}, 
-            textString="a"), 
-          Text(
-            extent={{78,51},{114,26}}, 
-            lineColor={128,128,128}, 
-            textString="b"), 
-          Text(
-            extent={{-132,76},{129,124}}, 
-            textString="%name", 
-            lineColor={0,0,255})}));
   equation 
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of component is not connected");
     assert(cardinality(frame_b) > 0,
       "Connector frame_b of component is not connected");
+    assert(resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve
+           and cardinality(frame_resolve) > 0 or 
+           not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve)
+           and cardinality(frame_resolve) == 0,
+      "Connector frame_resolve of component is not connected, although it is enabled");
     
     connect(relativePosition.frame_a, frame_a) annotation (Line(
-        points={{-70,0},{-100,0}},
+        points={{-80,0},{-100,0}},
         color={95,95,95},
         thickness=2,
         smooth=Smooth.None));
     connect(relativePosition.frame_b, frame_b) annotation (Line(
-        points={{-50,0},{100,0}},
+        points={{-60,0},{100,0}},
         color={95,95,95},
         thickness=2,
         smooth=Smooth.None));
     connect(relativePosition.r_rel, r_rel) annotation (Line(
-        points={{-60,-11},{-60,-56},{-80,-56},{-80,-110}},
+        points={{-70,-11},{-70,-20},{-90,-20},{-90,-80},{-100,-80},{-100,-110}},
         color={0,0,127},
         smooth=Smooth.None));
+    connect(zeroForce1.frame_a, frame_a) 
+                                    annotation (Line(
+        points={{-80,50},{-90,50},{-90,0},{-100,0}},
+        color={95,95,95},
+        thickness=2,
+        smooth=Smooth.None));
+    connect(zeroForce2.frame_a, frame_b) 
+                                    annotation (Line(
+        points={{80,30},{90,30},{90,0},{100,0}},
+        color={95,95,95},
+        thickness=2,
+        smooth=Smooth.None));
+    connect(relativePosition.r_rel, der1.u) annotation (Line(
+        points={{-70,-11},{-70,-20},{-60,-20},{-60,-28}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(der2.u, der1.y) annotation (Line(
+        points={{-20,-68},{-20,-60},{-60,-60},{-60,-51}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(der2.y, a_rel) annotation (Line(
+        points={{-20,-91},{-20,-100.5},{-20,-100.5},{-20,-110}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(der1.y, v_rel) annotation (Line(
+        points={{-60,-51},{-60,-110}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(relativeAngles.frame_a, frame_a) annotation (Line(
+        points={{10,-15},{0,-15},{0,30},{-90,30},{-90,0},{-100,0}},
+        color={95,95,95},
+        thickness=2,
+        smooth=Smooth.None));
+    connect(relativeAngles.frame_b, frame_b) annotation (Line(
+        points={{30,-15},{40,-15},{40,0},{100,0}},
+        color={95,95,95},
+        thickness=2,
+        smooth=Smooth.None));
+    connect(relativeAngles.angles, angles) annotation (Line(
+        points={{20,-26},{20,-110}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(relativeAngularVelocity.frame_b, frame_b) annotation (Line(
+        points={{70,-37},{80,-37},{80,0},{100,0}},
+        color={95,95,95},
+        thickness=2,
+        smooth=Smooth.None));
+    connect(relativeAngularVelocity.frame_a, frame_a) annotation (Line(
+        points={{50,-37},{0,-37},{0,30},{-90,30},{-90,0},{-100,0}},
+        color={95,95,95},
+        thickness=2,
+        smooth=Smooth.None));
+    connect(relativeAngularVelocity.w_rel, w_rel) annotation (Line(
+        points={{60,-48},{60,-110}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(relativeAngularVelocity.w_rel, der3.u) annotation (Line(
+        points={{60,-48},{60,-54},{100,-54},{100,-58}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(der3.y, z_rel) annotation (Line(
+        points={{100,-81},{100,-110}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(frame_resolve, relativePosition.frame_resolve) annotation (Line(
+        points={{100,80},{-50,80},{-50,7},{-60,7}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None,
+        thickness=2));
+    connect(zeroPosition.frame_resolve, relativePosition.frame_resolve) 
+      annotation (Line(
+        points={{-30,13},{-50,13},{-50,7},{-60,7}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None,
+        thickness=2));
   end RelativeSensorNew;
   
   model Distance 
@@ -1413,4 +1582,208 @@ coordinate system.
   </tr>
 </table>
 </HTML>"));
+  package Internal "Internal package, should not be used by user" 
+    model ZeroForceAndTorque 
+       extends Modelica.Blocks.Interfaces.BlockIcon;
+      Interfaces.Frame_a frame_a 
+        annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
+              extent={{-74,24},{80,-20}}, 
+              lineColor={0,0,0}, 
+              textString="f = t = 0")}));
+    equation 
+      frame_a.f = zeros(3);
+      frame_a.t = zeros(3);
+    end ZeroForceAndTorque;
+
+    model ZeroPosition 
+       extends Modelica.Blocks.Interfaces.BlockIcon;
+      Interfaces.Frame_resolve frame_resolve 
+        annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
+              extent={{-74,24},{80,-20}}, 
+              lineColor={0,0,0}, 
+              textString="r = 0")}), Diagram(coordinateSystem(
+              preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
+            graphics));
+    equation 
+      defineRoot(frame_resolve.R);
+      frame_resolve.R = Modelica.Mechanics.MultiBody.Frames.nullRotation();
+      frame_resolve.r_0 = zeros(3);
+    end ZeroPosition;
+
+    model PartialRelativeSensor "Determine relative position" 
+      // extends Modelica.Blocks.Interfaces.BlockIcon;
+      
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a 
+        "Coordinate system a"                                                       annotation (Placement(
+            transformation(extent={{-116,-16},{-84,16}}, rotation=0)));
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b 
+        "Coordinate system b"                                                       annotation (Placement(
+            transformation(extent={{84,-16},{116,16}}, rotation=0)));
+      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame2 
+        resolveInFrame=
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_a 
+        "Frame in which relative vector from frame_a to frame_b is resolved before differentiation";
+      
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}},
+            grid={1,1}), graphics={
+            Ellipse(
+              extent={{-70,70},{70,-70}}, 
+              lineColor={0,0,0}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{0,70},{0,40}}, color={0,0,0}), 
+            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}), 
+            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}), 
+            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}), 
+            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}), 
+            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}), 
+            Polygon(
+              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{-5,5},{5,-5}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{-70,0},{-95,0}}, 
+              color={0,0,0}, 
+              smooth=Smooth.None), 
+            Line(
+              points={{96,0},{70,0}}, 
+              color={0,0,0}, 
+              smooth=Smooth.None), 
+            Text(
+              extent={{-112,51},{-76,26}}, 
+              lineColor={128,128,128}, 
+              textString="a"), 
+            Text(
+              extent={{-132,76},{129,124}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
+            Text(
+              extent={{78,51},{114,26}}, 
+              lineColor={128,128,128}, 
+              textString="b"), 
+            Line(
+              points={{0,-70},{0,-100}}, 
+              color={0,0,127}, 
+              smooth=Smooth.None)}), Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1})));
+    equation 
+       frame_a.f = zeros(3);
+       frame_a.t = zeros(3);
+       frame_b.f = zeros(3);
+       frame_b.t = zeros(3);
+    end PartialRelativeSensor;
+    
+    model RelativePosition "Determine relative position" 
+      import Modelica.Mechanics.MultiBody.Types.ResolveInFrame2;
+      extends PartialRelativeSensor;
+      Interfaces.Frame_resolve frame_resolve 
+        annotation (Placement(transformation(extent={{84,44},{116,76}}), 
+            iconTransformation(extent={{84,54},{116,86}})));
+      Modelica.Blocks.Interfaces.RealOutput r_rel[3] 
+        "Relative position vector, frame_b.r_0 - frame_a.r_0 resolved in frame defined by parameter resolveInFrame"
+        annotation (Placement(transformation(
+            origin={0,-110},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={Text(
+              extent={{12,-76},{96,-106}}, 
+              lineColor={0,0,0}, 
+              textString="r_rel"), Line(
+              points={{36,60},{68,60},{68,70},{96,70}}, 
+              color={0,0,0}, 
+              smooth=Smooth.None, 
+              pattern=LinePattern.Dot)}),
+                                     Diagram(coordinateSystem(
+              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+            graphics));
+    equation 
+       frame_resolve.f = zeros(3);
+       frame_resolve.t = zeros(3);
+       if resolveInFrame == ResolveInFrame2.frame_a then
+          r_rel = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
+       elseif resolveInFrame == ResolveInFrame2.frame_b then
+          r_rel = Frames.resolve2(frame_b.R, frame_b.r_0 - frame_a.r_0);
+       elseif resolveInFrame == ResolveInFrame2.world then
+          r_rel = frame_b.r_0 - frame_a.r_0;
+       else
+          r_rel = Frames.resolve2(frame_resolve.R, frame_b.r_0 - frame_a.r_0);
+       end if;
+    end RelativePosition;
+    
+    model RelativeAngles "Determine relative angles" 
+      extends PartialRelativeSensor(final resolveInFrame = Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_a);
+      Modelica.Blocks.Interfaces.RealOutput angles[3] 
+        "Angles to rotate frame_a into frame_b via 'sequence'" 
+        annotation (Placement(transformation(
+            origin={0,-110},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      parameter Types.RotationSequence sequence(
+        min={1,1,1},
+        max={3,3,3}) = {1,2,3} 
+        "Angles are returned to rotate frame_a around axes sequence[1], sequence[2] and finally sequence[3] into frame_b"
+        annotation (Evaluate=true);
+      parameter SI.Angle guessAngle1=0 
+        "Select angles[1] such that abs(angles[1] - guessAngle1) is a minimum";
+      Modelica.Mechanics.MultiBody.Frames.Orientation R_rel 
+        "Relative orientation object from frame_a to frame_b";
+      
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={Text(
+              extent={{0,-76},{110,-98}}, 
+              lineColor={0,0,0}, 
+              textString="angles")}),Diagram(coordinateSystem(
+              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+            graphics));
+    equation 
+      R_rel = Modelica.Mechanics.MultiBody.Frames.relativeRotation(frame_a.R, frame_b.R);
+      angles = Frames.axesRotationsAngles(R_rel, sequence, guessAngle1);
+    end RelativeAngles;
+
+    model RelativeAngularVelocity "Determine relative angular velocity" 
+      import Modelica.Mechanics.MultiBody.Frames;
+      extends PartialRelativeSensor;
+      Modelica.Blocks.Interfaces.RealOutput w_rel[3] 
+        "Relative angular acceleration vector" 
+        annotation (Placement(transformation(
+            origin={0,-110},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      
+      Modelica.Mechanics.MultiBody.Frames.Orientation R_rel 
+        "Relative orientation object from frame_a to frame_b";
+      
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={Text(
+              extent={{12,-76},{96,-106}}, 
+              lineColor={0,0,0}, 
+              textString="w_rel")}), Diagram(coordinateSystem(
+              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+            graphics));
+    equation 
+       R_rel = Frames.relativeRotation(frame_a.R, frame_b.R);
+       if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_a then
+          w_rel = Frames.angularVelocity1(R_rel);
+       elseif resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_b then
+          w_rel = Frames.angularVelocity2(R_rel);
+       else
+          w_rel = Frames.resolve1(frame_a.R, Frames.angularVelocity1(R_rel));
+       end if;
+    end RelativeAngularVelocity;
+  end Internal;
 end Sensors;

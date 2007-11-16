@@ -183,6 +183,16 @@ variable <b>extra</b> is used as instance name:
  
 </html>"));
   
+  type ResolveInFrame2 = enumeration(
+      frame_a "Resolve in frame_a", 
+      frame_b "Resolve in frame_b", 
+      world "Resolve in world frame", 
+      frame_resolve "Resolve in frame_resolve") 
+    "Enumeration to define the frame in which a vector is resolved" 
+                                               annotation (Documentation(info="<html>
+ 
+</html>"));
+  
   type RotationTypes = enumeration(
       RotationAxis "Rotating frame_a around an angle with a fixed axis", 
       TwoAxesVectors "Resolve two vectors of frame_b in frame_a", 

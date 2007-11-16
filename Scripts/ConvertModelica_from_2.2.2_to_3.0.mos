@@ -63,6 +63,11 @@ convertClass("Modelica.Mechanics.MultiBody.Frames.length",
 convertClass("Modelica.Mechanics.MultiBody.Frames.normalize",
              "Modelica.Math.Vectors.normalize")
 
+// Change reference to CelsiusTemperature
+convertClass("Modelica.SIunits.CelsiusTemperature",
+             "Modelica.SIunits.Conversions.NonSIunits.Temperature_degC")
+
+
 // --------- Changing from emulated to real enumerations --------------------------------------
 // The enumerations in Modelica.Blocks.Types
 convertClass("Modelica.Blocks.Types.Extrapolation.Temp","Modelica.Blocks.Types.Extrapolation")

@@ -167,17 +167,17 @@ This is discussed in the description of package
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
-          Line(points={{60,0},{100,0}}, color={0,0,255}), 
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
+          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
+          Line(points={{60,0},{100,0}}, color={0,0,255}),
           Text(
-            extent={{-36,60},{32,2}}, 
-            lineColor={0,0,0}, 
-            textString="k"), 
+            extent={{-36,60},{32,2}},
+            lineColor={0,0,0},
+            textString="k"),
           Text(
-            extent={{-32,0},{36,-58}}, 
-            lineColor={0,0,0}, 
-            textString="s"), 
+            extent={{-32,0},{36,-58}},
+            lineColor={0,0,0},
+            textString="s"),
           Line(points={{-46,0},{46,0}}, color={0,0,0})}));
   initial equation 
     if initType == Init.SteadyState then
@@ -266,21 +266,21 @@ to use <b>limitAtInit</b> = <b>false</b>.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Text(
-            extent={{-54,46},{-4,-48}}, 
-            lineColor={0,0,0}, 
-            textString="lim"), 
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
-          Line(points={{60,0},{100,0}}, color={0,0,255}), 
+            extent={{-54,46},{-4,-48}},
+            lineColor={0,0,0},
+            textString="lim"),
+          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
+          Line(points={{60,0},{100,0}}, color={0,0,255}),
           Text(
-            extent={{-8,60},{60,2}}, 
-            lineColor={0,0,0}, 
-            textString="k"), 
+            extent={{-8,60},{60,2}},
+            lineColor={0,0,0},
+            textString="k"),
           Text(
-            extent={{-8,-2},{60,-60}}, 
-            lineColor={0,0,0}, 
-            textString="s"), 
+            extent={{-8,-2},{60,-60}},
+            lineColor={0,0,0},
+            textString="s"),
           Line(points={{4,0},{46,0}}, color={0,0,0})}));
   initial equation 
     if initType == Init.SteadyState then
@@ -377,16 +377,16 @@ If k=0, the block reduces to y=0.
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Text(
-            extent={{-54,52},{50,10}}, 
-            lineColor={0,0,0}, 
-            textString="k s"), 
+            extent={{-54,52},{50,10}},
+            lineColor={0,0,0},
+            textString="k s"),
           Text(
-            extent={{-54,-6},{52,-52}}, 
-            lineColor={0,0,0}, 
-            textString="T s + 1"), 
-          Line(points={{-50,0},{50,0}}, color={0,0,0}), 
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
+            extent={{-54,-6},{52,-52}},
+            lineColor={0,0,0},
+            textString="T s + 1"),
+          Line(points={{-50,0},{50,0}}, color={0,0,0}),
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
+          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255})}),
       Window(
         x=0.17,
@@ -485,16 +485,16 @@ Example:
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Text(
-            extent={{-48,52},{50,8}}, 
-            lineColor={0,0,0}, 
-            textString="k"), 
+            extent={{-48,52},{50,8}},
+            lineColor={0,0,0},
+            textString="k"),
           Text(
-            extent={{-54,-6},{56,-56}}, 
-            lineColor={0,0,0}, 
-            textString="T s + 1"), 
-          Line(points={{-50,0},{50,0}}, color={0,0,0}), 
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
+            extent={{-54,-6},{56,-56}},
+            lineColor={0,0,0},
+            textString="T s + 1"),
+          Line(points={{-50,0},{50,0}}, color={0,0,0}),
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
+          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255})}),
       Window(
         x=0.15,
@@ -594,47 +594,47 @@ Example:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Text(
-            extent={{-60,60},{60,14}}, 
-            lineColor={0,0,0}, 
-            textString="k"), 
+            extent={{-60,60},{60,14}},
+            lineColor={0,0,0},
+            textString="k"),
           Text(
-            extent={{-60,8},{-32,-20}}, 
-            lineColor={0,0,0}, 
-            textString="s"), 
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
-          Line(points={{60,0},{100,0}}, color={0,0,255}), 
-          Line(points={{-50,14},{50,14}}, color={0,0,0}), 
-          Line(points={{-54,-20},{-38,-20}}, color={0,0,0}), 
+            extent={{-60,8},{-32,-20}},
+            lineColor={0,0,0},
+            textString="s"),
+          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
+          Line(points={{60,0},{100,0}}, color={0,0,255}),
+          Line(points={{-50,14},{50,14}}, color={0,0,0}),
+          Line(points={{-54,-20},{-38,-20}}, color={0,0,0}),
           Text(
-            extent={{-52,-26},{-36,-48}}, 
-            lineColor={0,0,0}, 
-            textString="w"), 
-          Line(points={{-50,2},{-56,-8},{-56,-28},{-52,-46}}, color={0,0,0}), 
-          Line(points={{-40,2},{-34,-10},{-34,-30},{-38,-46}}, color={0,0,0}), 
+            extent={{-52,-26},{-36,-48}},
+            lineColor={0,0,0},
+            textString="w"),
+          Line(points={{-50,2},{-56,-8},{-56,-28},{-52,-46}}, color={0,0,0}),
+          Line(points={{-40,2},{-34,-10},{-34,-30},{-38,-46}}, color={0,0,0}),
           Text(
-            extent={{-34,8},{-22,-10}}, 
-            lineColor={0,0,0}, 
-            textString="2"), 
+            extent={{-34,8},{-22,-10}},
+            lineColor={0,0,0},
+            textString="2"),
           Text(
-            extent={{-34,-6},{6,-36}}, 
-            lineColor={0,0,0}, 
-            textString="+2D"), 
+            extent={{-34,-6},{6,-36}},
+            lineColor={0,0,0},
+            textString="+2D"),
           Text(
-            extent={{2,8},{30,-20}}, 
-            lineColor={0,0,0}, 
-            textString="s"), 
-          Line(points={{8,-20},{24,-20}}, color={0,0,0}), 
+            extent={{2,8},{30,-20}},
+            lineColor={0,0,0},
+            textString="s"),
+          Line(points={{8,-20},{24,-20}}, color={0,0,0}),
           Text(
-            extent={{10,-26},{26,-48}}, 
-            lineColor={0,0,0}, 
-            textString="w"), 
-          Line(points={{12,2},{6,-8},{6,-28},{10,-46}}, color={0,0,0}), 
-          Line(points={{22,2},{28,-10},{28,-30},{24,-46}}, color={0,0,0}), 
+            extent={{10,-26},{26,-48}},
+            lineColor={0,0,0},
+            textString="w"),
+          Line(points={{12,2},{6,-8},{6,-28},{10,-46}}, color={0,0,0}),
+          Line(points={{22,2},{28,-10},{28,-30},{24,-46}}, color={0,0,0}),
           Text(
-            extent={{30,2},{58,-42}}, 
-            lineColor={0,0,0}, 
+            extent={{30,2},{58,-42}},
+            lineColor={0,0,0},
             textString="+1")}));
   initial equation 
     if initType == Init.SteadyState then
@@ -741,21 +741,21 @@ This is discussed in the description of package
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Text(
-            extent={{-68,24},{-24,-18}}, 
-            lineColor={0,0,0}, 
-            textString="k"), 
+            extent={{-68,24},{-24,-18}},
+            lineColor={0,0,0},
+            textString="k"),
           Text(
-            extent={{-32,48},{60,0}}, 
-            lineColor={0,0,0}, 
-            textString="T s + 1"), 
+            extent={{-32,48},{60,0}},
+            lineColor={0,0,0},
+            textString="T s + 1"),
           Text(
-            extent={{-30,-8},{52,-40}}, 
-            lineColor={0,0,0}, 
-            textString="T s"), 
-          Line(points={{-24,0},{54,0}}, color={0,0,0}), 
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
+            extent={{-30,-8},{52,-40}},
+            lineColor={0,0,0},
+            textString="T s"),
+          Line(points={{-24,0},{54,0}}, color={0,0,0}),
+          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{62,0},{100,0}}, color={0,0,255})}));
   initial equation 
     if initType == Init.SteadyState then
@@ -1350,6 +1350,7 @@ to use <b>limitAtInit</b> = <b>false</b>.
     parameter Real bb[:] = vector([zeros(max(0,na-nb),1);b]);
     parameter Real d = bb[1]/a[1];
     parameter Real a_end = if a[end] > 100*Modelica.Constants.eps*Modelica.Math.Vectors.norm(a) then a[end] else 1.0;
+    Real x_scaled[size(x,1)] "Scaled vector x";
     annotation (
       Window(
         x=0.39,
@@ -1417,21 +1418,22 @@ results in the following transfer function:
           Line(points={{60,0},{100,0}}, color={0,0,255})}));
   initial equation 
     if initType == Init.SteadyState then
-      der(x) = zeros(nx);
+      der(x_scaled) = zeros(nx);
     elseif initType == Init.InitialState then
-      x = x_start;
+      x_scaled = x_start*a_end;
     elseif initType == Init.InitialOutput then
       y = y_start;
-      der(x[2:nx]) = zeros(nx-1);
+      der(x_scaled[2:nx]) = zeros(nx-1);
     end if;
   equation 
     assert(size(b,1) <= size(a,1), "Transfer function is not proper");
     if nx == 0 then
        y = d*u;
     else
-       der(x[1])    = (-a[2:na]*x + a_end*u)/a[1];
-       der(x[2:nx]) = x[1:nx-1];
-       y = ((bb[2:na] - d*a[2:na])*x)/a_end + d*u;
+       der(x_scaled[1])    = (-a[2:na]*x_scaled + a_end*u)/a[1];
+       der(x_scaled[2:nx]) = x_scaled[1:nx-1];
+       y = ((bb[2:na] - d*a[2:na])*x_scaled)/a_end + d*u;
+       x = x_scaled/a_end;
     end if;
   end TransferFunction;
   
@@ -1527,16 +1529,16 @@ results in the following equations:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Text(
-            extent={{-60,40},{60,0}}, 
-            lineColor={0,0,0}, 
-            textString="sx=Ax+Bu"), 
+            extent={{-60,40},{60,0}},
+            lineColor={0,0,0},
+            textString="sx=Ax+Bu"),
           Text(
-            extent={{-60,0},{60,-40}}, 
-            lineColor={0,0,0}, 
-            textString=" y=Cx+Du"), 
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
+            extent={{-60,0},{60,-40}},
+            lineColor={0,0,0},
+            textString=" y=Cx+Du"),
+          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255})}));
   protected 
     parameter Integer nx = size(A, 1) "number of states";
@@ -1645,17 +1647,17 @@ the model.
             textString="%n")}),
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}), graphics={
-          Line(points={{40,0},{-40,0}}, color={0,0,0}), 
+          Line(points={{40,0},{-40,0}}, color={0,0,0}),
           Text(
-            extent={{-55,55},{55,5}}, 
-            lineColor={0,0,0}, 
-            textString="1"), 
+            extent={{-55,55},{55,5}},
+            lineColor={0,0,0},
+            textString="1"),
           Text(
-            extent={{-55,-5},{55,-55}}, 
-            lineColor={0,0,0}, 
-            textString="a(s)"), 
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
+            extent={{-55,-5},{55,-55}},
+            lineColor={0,0,0},
+            textString="a(s)"),
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
+          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255})}),
       Documentation(info="<html>
 <p>This block defines the transfer function between the input u
@@ -1801,21 +1803,21 @@ with zeros.</p>
             textString="f=%f")}),
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}), graphics={
-          Line(points={{40,0},{-40,0}}, color={0,0,0}), 
+          Line(points={{40,0},{-40,0}}, color={0,0,0}),
           Text(
-            extent={{-55,55},{55,5}}, 
-            lineColor={0,0,0}, 
-            textString="1"), 
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
-          Line(points={{60,0},{100,0}}, color={0,0,255}), 
+            extent={{-55,55},{55,5}},
+            lineColor={0,0,0},
+            textString="1"),
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
+          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
+          Line(points={{60,0},{100,0}}, color={0,0,255}),
           Text(
-            extent={{-54,-6},{44,-56}}, 
-            lineColor={0,0,0}, 
-            textString="(T s + 1)"), 
+            extent={{-54,-6},{44,-56}},
+            lineColor={0,0,0},
+            textString="(T s + 1)"),
           Text(
-            extent={{38,-10},{58,-30}}, 
-            lineColor={0,0,0}, 
+            extent={{38,-10},{58,-30}},
+            lineColor={0,0,0},
             textString="n")}),
       Documentation(info="<html>
 <p>This block defines the transfer function between the

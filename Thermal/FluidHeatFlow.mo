@@ -960,7 +960,7 @@ then started again (using a ramp of 0.2 s).
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
         "Cooling medium" 
         annotation(choicesAllMatching=true);
-      parameter Modelica.SIunits.CelsiusTemperature TAmb(displayUnit="degC")=293.15 
+      parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degC TAmb(displayUnit="degC")=293.15 
         "Ambient temperature";
       output Modelica.SIunits.TemperatureDifference dTSource1=
         prescribedHeatFlow1.port.T-TAmb "Source1 over Ambient";
@@ -1113,9 +1113,9 @@ the time behaviour depending on coolant flow.
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
         "Cooling medium" 
         annotation(choicesAllMatching=true);
-      parameter Modelica.SIunits.CelsiusTemperature TAmb(displayUnit="degC")=293.15 
+      parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degC TAmb(displayUnit="degC")=293.15 
         "Ambient temperature";
-      parameter Modelica.SIunits.CelsiusTemperature TMass(displayUnit="degC")=313.15 
+      parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degC TMass(displayUnit="degC")=313.15 
         "Inital temperature of mass";
       output Modelica.SIunits.TemperatureDifference dTMass=
         heatCapacitor.port.T-TAmb "Mass over Ambient";
@@ -1192,11 +1192,11 @@ the time behaviour depending on coolant flow.
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
         "Cooling medium" 
         annotation(choicesAllMatching=true);
-      parameter Modelica.SIunits.CelsiusTemperature TAmb(displayUnit="degC")=293.15 
+      parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degC TAmb(displayUnit="degC")=293.15 
         "Ambient temperature";
-      parameter Modelica.SIunits.CelsiusTemperature TMass1(displayUnit="degC")=313.15 
+      parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degC TMass1(displayUnit="degC")=313.15 
         "Inital temperature of mass1";
-      parameter Modelica.SIunits.CelsiusTemperature TMass2(displayUnit="degC")=333.15 
+      parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degC TMass2(displayUnit="degC")=333.15 
         "Inital temperature of mass2";
       output Modelica.SIunits.TemperatureDifference dTMass1=
         heatCapacitor1.port.T-TAmb "Mass1 over Ambient";
