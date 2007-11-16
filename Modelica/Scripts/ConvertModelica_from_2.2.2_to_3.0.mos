@@ -1020,3 +1020,43 @@ convertClass  ("Modelica.Thermal.HeatTransfer.PrescribedHeatFlow",    "Modelica.
 
 // End Convert HeatTransfer to 1.1.1 (MSL 3.0)
 //-------- HeatTransfer ------------------------------------------------------------
+//-------- Rotational (sub-packages!) ------------------------------------------------------------
+// Convert Rotational (MSL 3.0)
+// Revisions :
+// 2007/11/16: Anton Haumer
+//             additional conversions due to structuring with sub-libraries
+
+clear
+convertClear();
+
+convertClass  ("Modelica.Mechanics.Rotational.Position",    "Modelica.Mechanics.Rotational.Sources.Position");
+convertClass  ("Modelica.Mechanics.Rotational.Speed",       "Modelica.Mechanics.Rotational.Sources.Speed");
+convertClass  ("Modelica.Mechanics.Rotational.Accelerate",  "Modelica.Mechanics.Rotational.Sources.Accelerate");
+convertClass  ("Modelica.Mechanics.Rotational.Move",        "Modelica.Mechanics.Rotational.Sources.Move");
+convertClass  ("Modelica.Mechanics.Rotational.Torque",      "Modelica.Mechanics.Rotational.Sources.Torque");
+convertClass  ("Modelica.Mechanics.Rotational.Torque2",     "Modelica.Mechanics.Rotational.Sources.Torque2");
+convertClass  ("Modelica.Mechanics.Rotational.LinearSpeedDependentTorque",     "Modelica.Mechanics.Rotational.Sources.LinearSpeedDependentTorque");
+convertClass  ("Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque",  "Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque");
+convertClass  ("Modelica.Mechanics.Rotational.ConstantTorque",                 "Modelica.Mechanics.Rotational.Sources.ConstantTorque");
+convertClass  ("Modelica.Mechanics.Rotational.ConstantSpeed",                  "Modelica.Mechanics.Rotational.Sources.ConstantSpeed");
+convertClass  ("Modelica.Mechanics.Rotational.RelativeStates",                 "Modelica.Mechanics.Rotational.Sources.RelativeStates");
+convertClass  ("Modelica.Mechanics.Rotational.Fixed",                          "Modelica.Mechanics.Rotational.Components.Fixed");
+convertClass  ("Modelica.Mechanics.Rotational.Inertia",                        "Modelica.Mechanics.Rotational.Components.Inertia");
+convertClass  ("Modelica.Mechanics.Rotational.Spring",                         "Modelica.Mechanics.Rotational.Components.Spring");
+convertClass  ("Modelica.Mechanics.Rotational.Damper",                         "Modelica.Mechanics.Rotational.Components.Damper");
+convertClass  ("Modelica.Mechanics.Rotational.SpringDamper",                   "Modelica.Mechanics.Rotational.Components.SpringDamper");
+convertClass  ("Modelica.Mechanics.Rotational.ElastoBacklash",                 "Modelica.Mechanics.Rotational.Components.ElastoBacklash");
+convertClass  ("Modelica.Mechanics.Rotational.BearingFriction",                "Modelica.Mechanics.Rotational.Components.BearingFriction");
+convertClass  ("Modelica.Mechanics.Rotational.Brake",                          "Modelica.Mechanics.Rotational.Components.Brake");
+convertClass  ("Modelica.Mechanics.Rotational.Clutch",                         "Modelica.Mechanics.Rotational.Components.Clutch");
+convertClass  ("Modelica.Mechanics.Rotational.OneWayClutch",                   "Modelica.Mechanics.Rotational.Components.OneWayClutch");
+convertClass  ("Modelica.Mechanics.Rotational.IdealGear",                      "Modelica.Mechanics.Rotational.Components.IdealGear");
+convertClass  ("Modelica.Mechanics.Rotational.LossyGear",                      "Modelica.Mechanics.Rotational.Components.LossyGear");
+convertClass  ("Modelica.Mechanics.Rotational.IdealPlanetary",                 "Modelica.Mechanics.Rotational.Components.IdealPlanetary");
+convertClass  ("Modelica.Mechanics.Rotational.Gearbox",                        "Modelica.Mechanics.Rotational.Components.Gearbox");
+convertClass  ("Modelica.Mechanics.Rotational.IdealGearR2T",                   "Modelica.Mechanics.Rotational.Components.IdealGearR2T");
+convertClass  ("Modelica.Mechanics.Rotational.IdealRollingWheel",              "Modelica.Mechanics.Rotational.Components.IdealRollingWheel");
+convertClass  ("Modelica.Mechanics.Rotational.InitializeFlange",               "Modelica.Mechanics.Rotational.Components.InitializeFlange");
+
+// End Convert Rotational (MSL 3.0)
+//-------- Rotational (sub-packages!) ------------------------------------------------------------
