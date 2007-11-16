@@ -29,7 +29,8 @@ ALT=\"model Examples.Elementary.Pendulum\">
     phi(fixed=true),
     w(fixed=true))             annotation (Placement(transformation(extent={{
             -20,0},{0,20}}, rotation=0)));
-  Modelica.Mechanics.Rotational.Damper damper(d=0.1) 
+  Modelica.Mechanics.Rotational.Components.Damper damper(
+                                              d=0.1) 
     annotation (Placement(transformation(extent={{-20,40},{0,60}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.Body body(m=1.0, r_CM={0.5,0,0}) 
     annotation (Placement(transformation(extent={{20,0},{40,20}}, rotation=0)));

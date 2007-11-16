@@ -35,7 +35,8 @@ ALT=\"model Examples.Elementary.DoublePendulum\">
   Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute revolute1(phi(fixed=true),
       w(fixed=true))                                             annotation (Placement(transformation(extent={{-48,0},
             {-28,20}}, rotation=0)));
-  Modelica.Mechanics.Rotational.Damper damper(d=0.1) 
+  Modelica.Mechanics.Rotational.Components.Damper damper(
+                                              d=0.1) 
     annotation (Placement(transformation(extent={{-48,40},{-28,60}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.BodyBox boxBody1(r={0.5,0,0}, width=0.06) 
     annotation (Placement(transformation(extent={{-10,0},{10,20}}, rotation=0)));

@@ -11,7 +11,8 @@ model InitSpringConstant
     w(fixed=true),
     a(fixed=true))                         annotation (Placement(transformation(
           extent={{-40,0},{-20,20}}, rotation=0)));
-  Modelica.Mechanics.Rotational.Damper damper(d=0.1) 
+  Modelica.Mechanics.Rotational.Components.Damper damper(
+                                              d=0.1) 
     annotation (Placement(transformation(extent={{-40,40},{-20,60}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.BodyShape body(
     r={1,0,0},
