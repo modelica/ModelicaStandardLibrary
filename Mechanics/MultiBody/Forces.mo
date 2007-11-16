@@ -2537,7 +2537,8 @@ for this situation:
       massDiameter=massDiameter,
       massColor=massColor) annotation (Placement(transformation(extent={{-20,
               -20},{20,20}}, rotation=0)));
-    Modelica.Mechanics.Translational.Spring spring(s_rel0=s_unstretched, c=c) 
+    Modelica.Mechanics.Translational.Components.Spring spring(
+                                                   s_rel0=s_unstretched, c=c) 
       annotation (Placement(transformation(extent={{-8,40},{12,60}}, rotation=0)));
   equation 
     connect(lineForce.frame_a, frame_a) 
@@ -2560,23 +2561,23 @@ for this situation:
               100}}), graphics={
           Line(
             points={{-100,0},{-58,0},{-43,-30},{-13,30},{17,-30},{47,30},{62,0},
-                {100,0}}, 
-            color={0,0,0}, 
-            pattern=LinePattern.Solid, 
-            thickness=1, 
-            arrow={Arrow.None,Arrow.None}), 
+                {100,0}},
+            color={0,0,0},
+            pattern=LinePattern.Solid,
+            thickness=1,
+            arrow={Arrow.None,Arrow.None}),
           Text(
-            extent={{-130,49},{132,109}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-130,49},{132,109}},
+            textString="%name",
+            lineColor={0,0,255}),
           Text(
-            extent={{-141,-92},{125,-51}}, 
-            lineColor={0,0,0}, 
-            textString="c=%c"), 
+            extent={{-141,-92},{125,-51}},
+            lineColor={0,0,0},
+            textString="c=%c"),
           Ellipse(
-            extent={{-8,8},{8,-8}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
+            extent={{-8,8},{8,-8}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
             fillPattern=FillPattern.Solid)}),
       Diagram(graphics),
       Documentation(info="<HTML>
@@ -2668,23 +2669,23 @@ where a mass is hanging on a damper.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-101,0},{-60,0}}, color={0,0,0}), 
-          Line(points={{-60,-30},{-60,30}}, color={0,0,0}), 
-          Line(points={{-60,-30},{60,-30}}, color={0,0,0}), 
-          Line(points={{-60,30},{60,30}}, color={0,0,0}), 
+          Line(points={{-101,0},{-60,0}}, color={0,0,0}),
+          Line(points={{-60,-30},{-60,30}}, color={0,0,0}),
+          Line(points={{-60,-30},{60,-30}}, color={0,0,0}),
+          Line(points={{-60,30},{60,30}}, color={0,0,0}),
           Rectangle(
-            extent={{-60,30},{30,-30}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{30,0},{100,0}}, color={0,0,0}), 
+            extent={{-60,30},{30,-30}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{30,0},{100,0}}, color={0,0,0}),
           Text(
-            extent={{-140,47},{145,105}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-140,47},{145,105}},
+            textString="%name",
+            lineColor={0,0,255}),
           Text(
-            extent={{-156,-96},{152,-53}}, 
-            lineColor={0,0,0}, 
+            extent={{-156,-96},{152,-53}},
+            lineColor={0,0,0},
             textString="d=%d")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
