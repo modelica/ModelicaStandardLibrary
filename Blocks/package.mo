@@ -116,7 +116,8 @@ package Examples
       controllerType=Modelica.Blocks.Types.SimpleController.PI) 
       annotation (Placement(transformation(extent={{-56,-20},{-36,0}}, rotation=
              0)));
-    Modelica.Mechanics.Rotational.Inertia inertia1(a(fixed=true), phi(fixed=
+    Modelica.Mechanics.Rotational.Components.Inertia inertia1(
+                                                   a(fixed=true), phi(fixed=
             true, start=0))                   annotation (Placement(
           transformation(extent={{2,-20},{22,0}}, rotation=0)));
     annotation (
@@ -208,19 +209,21 @@ is forced back to its limit after a transient phase.
 </p>
 
 </html>"));
-    Modelica.Mechanics.Rotational.Torque torque 
+    Modelica.Mechanics.Rotational.Sources.Torque torque 
       annotation (Placement(transformation(extent={{-25,-20},{-5,0}}, rotation=
               0)));
-    Modelica.Mechanics.Rotational.SpringDamper spring(c=1e4, d=100,
+    Modelica.Mechanics.Rotational.Components.SpringDamper spring(
+                                                      c=1e4, d=100,
       stateSelect=StateSelect.prefer,
       w_rel(fixed=true),
       a_rel(fixed=true)) 
       annotation (Placement(transformation(extent={{32,-20},{52,0}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Inertia inertia2(J=2) 
+    Modelica.Mechanics.Rotational.Components.Inertia inertia2(
+                                                   J=2) 
       annotation (Placement(transformation(extent={{60,-20},{80,0}}, rotation=0)));
     Modelica.Blocks.Sources.KinematicPTP kinematicPTP(startTime=0.5, deltaq={
-          driveAngle}, 
-      qd_max={1}, 
+          driveAngle},
+      qd_max={1},
       qdd_max={1})     annotation (Placement(transformation(extent={{-92,20},{
               -72,40}}, rotation=0)));
     Modelica.Blocks.Continuous.Integrator integrator(initType=Modelica.Blocks.
@@ -229,10 +232,11 @@ is forced back to its limit after a transient phase.
     Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor 
       annotation (Placement(transformation(extent={{22,-50},{2,-30}}, rotation=
               0)));
-    Modelica.Mechanics.Rotational.ConstantTorque loadTorque(tau_constant=10) 
+    Modelica.Mechanics.Rotational.Sources.ConstantTorque loadTorque(
+                                                            tau_constant=10) 
       annotation (Placement(transformation(extent={{98,-15},{88,-5}}, rotation=
               0)));
-    Mechanics.Rotational.Fixed fixed 
+    Modelica.Mechanics.Rotational.Components.Fixed fixed 
       annotation (Placement(transformation(extent={{68,-35},{88,-15}})));
   equation 
     connect(spring.flange_b,inertia2. flange_a) 
