@@ -2349,7 +2349,7 @@ November 3-4, 2003, pp. 149-158</p>
           phi,
           0)) if world.enableAnimation and animation and not world.driveTrainMechanics3D;
     
-    Modelica.Mechanics.Rotational.Inertia inertia(
+    Modelica.Mechanics.Rotational.Components.Inertia inertia(
       J=J) if 
           not world.driveTrainMechanics3D 
       annotation (Placement(transformation(extent={{-20,-20},{20,20}}, rotation=0)));
