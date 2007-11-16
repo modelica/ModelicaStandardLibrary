@@ -320,8 +320,8 @@ and the accompanying <b>disclaimer</b>
        Some chapters realized.</li>
 </ul>
 </html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}}), graphics={
+    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+            100}}), graphics={
         Rectangle(
           extent={{169,86},{349,236}}, 
           fillColor={235,235,235}, 
@@ -1061,9 +1061,7 @@ still kept in Modelica.SIunits.</p>
   type TemperatureDifference = Real (
       final quantity="ThermodynamicTemperature",
       final unit="K") annotation(__Dymola_absoluteValue=false);
-  type CelsiusTemperature = Real (final quantity="CelsiusTemperature", final unit
-        =    "degC") annotation(__Dymola_absoluteValue=true);
-  type Temp_C = CelsiusTemperature;
+  type Temp_C = Modelica.SIunits.Conversions.NonSIunits.Temperature_degC;
   type LinearExpansionCoefficient = Real (final quantity=
           "LinearExpansionCoefficient", final unit="1/K");
   type CubicExpansionCoefficient = Real (final quantity=
