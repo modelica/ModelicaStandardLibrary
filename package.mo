@@ -839,6 +839,27 @@ to <b style=\"color:blue\">existing</b> libraries:
   <tr><td colspan=\"2\"><b>Electrical.Machines.(Examples.)Utilities</b></td></tr>
   <tr><td valign=\"top\">TransformerData</td>
       <td valign=\"top\"> A record that calculates required impedances (parameters) from nominal data of transformers.</td> </tr>
+  <tr><td colspan=\"2\"><b>Mechanics.Translational.Sensors</b></td></tr>
+  <tr><td valign=\"top\">RelPositionSensor<br>RelSpeedSensor<br>RelAccSensor<br>PowerSensor</td>
+      <td valign=\"top\"> Relative position sensor, i.e. distance between two flanges<br>
+                        Relative speed sensor<br>
+                        Relative acceleration sensor<br>
+                        Ideal power sensor</td> </tr>
+  <tr><td colspan=\"2\"><b>Mechanics.Translational(.Components)</b></td></tr>
+  <tr><td valign=\"top\">InitializeFlange</td>
+      <td valign=\"top\"> Initializes a flange with pre-defined postion, speed and acceleration .</td> </tr>
+  <tr><td colspan=\"2\"><b>Mechanics.Translational(.Sources)</b></td></tr>
+  <tr><td valign=\"top\">Force2<br>LinearSpeedDependentForce<br>QuadraticSpeedDependentForce<br>
+                       ConstantForce<br>ConstantSpeed<br>ForceStep</td>
+      <td valign=\"top\"> Force acting on 2 flanges<br> 
+                        Force linearly dependent on flange speed<br>
+                        Force quadratic dependent on flange speed<br>
+                        Constant force source<br>
+                        Constant speed source<br>
+                        Force step</td> </tr>
+  <tr><td colspan=\"2\"><b>Mechanics.TranslationalGrounded</b></td></tr>
+  <tr><td valign=\"top\"> </td>
+      <td valign=\"top\"> All components and sources with internal fixing instead of support connector</td> </tr>
 </table>
 
 
@@ -1002,7 +1023,7 @@ have been <b style=\"color:blue\">changed</b> in a
 
   <tr><td colspan=\"2\"><b>Mechanics.Rotational.</b></td></tr>
   <tr><td valign=\"top\"> </td>
-      <td valign=\"top\"> Moved components to structired sub-packages (Sources, Components)</td> </tr>
+      <td valign=\"top\"> Moved components to structured sub-packages (Sources, Components)</td> </tr>
 
   <tr><td colspan=\"2\"><b>Mechanics.Rotational.</b></td></tr>
   <tr><td valign=\"top\"> Inertia<br>
@@ -1019,6 +1040,15 @@ have been <b style=\"color:blue\">changed</b> in a
                         Introduced the \"stateSelect\" enumeration in \"RelativeStates\".<br>
                         The conversion script automatically
                         transforms from the \"old\" to the \"new\" forms.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Mechanics.Translational.</b></td></tr>
+  <tr><td valign=\"top\"> </td>
+      <td valign=\"top\"> Changed all default values of parameters to (start=xxx)<br>
+                        Removed all <tt>redeclare type SignalType</tt> from <tt>RealInput</tt> and <tt>RealOutput</tt></td></tr>
+  <tr><td valign=\"top\"> </td>
+      <td valign=\"top\"> Moved components to structured sub-packages (Sources, Components)</td> </tr>
+  <tr><td valign=\"top\"> </td>
+      <td valign=\"top\"> Adaptions correspondig to Rotational</td> </tr>
 
   <tr><td colspan=\"2\"><b>Media.</b></td></tr>
   <tr><td valign=\"top\"> constant nX <br>
