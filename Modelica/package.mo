@@ -1001,6 +1001,10 @@ have been <b style=\"color:blue\">changed</b> in a
                         transforms from the \"old\" to the \"new\" form of initialization.</td> </tr>
 
   <tr><td colspan=\"2\"><b>Mechanics.Rotational.</b></td></tr>
+  <tr><td valign=\"top\"> </td>
+      <td valign=\"top\"> Moved components to structired sub-packages (Sources, Components)</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Mechanics.Rotational.</b></td></tr>
   <tr><td valign=\"top\"> Inertia<br>
                         SpringDamper<br>
                         RelativeStates</td>
