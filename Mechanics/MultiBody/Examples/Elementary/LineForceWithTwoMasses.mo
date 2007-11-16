@@ -108,7 +108,8 @@ side in the back is the animation with the JointUPS component.
         origin={-40,84},
         extent={{10,-10},{-10,10}},
         rotation=270)));
-  Modelica.Mechanics.Translational.Damper damper1(d=3) 
+  Modelica.Mechanics.Translational.Components.Damper damper1(
+                                                  d=3) 
     annotation (Placement(transformation(extent={{0,24},{20,4}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Joints.Revolute revolute2(phi(fixed=true), w(
         fixed=true))      annotation (Placement(transformation(extent={{-20,-40},
@@ -129,7 +130,8 @@ side in the back is the animation with the JointUPS component.
         origin={-40,-16},
         extent={{10,-10},{-10,10}},
         rotation=270)));
-  Modelica.Mechanics.Translational.Damper damper2(d=3) 
+  Modelica.Mechanics.Translational.Components.Damper damper2(
+                                                  d=3) 
     annotation (Placement(transformation(extent={{0,-76},{20,-96}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses 
     lineForceWithTwoMasses(
