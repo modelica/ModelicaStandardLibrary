@@ -1060,3 +1060,46 @@ convertClass  ("Modelica.Mechanics.Rotational.InitializeFlange",               "
 
 // End Convert Rotational (MSL 3.0)
 //-------- Rotational (sub-packages!) ------------------------------------------------------------
+//-------- Translational ------------------------------------------------------------
+// Convert Translational to 1.1.0 (MSL 3.0)
+// annotation(conversion(from(version="x.x.x", script="Convert_Translational_to_1_1_0.mos")));
+// Revisions :
+// 2007/11/15: Anton Haumer
+//             first version
+
+clear
+convertClear();
+
+convertClass  ("Modelica.Mechanics.Translational.Fixed",              "Modelica.Mechanics.Translational.Components.Fixed");
+convertClass  ("Modelica.Mechanics.Translational.Rod",                "Modelica.Mechanics.Translational.Components.Rod");
+convertClass  ("Modelica.Mechanics.Translational.SlidingMass",        "Modelica.Mechanics.Translational.Components.Mass");
+convertClass  ("Modelica.Mechanics.Translational.Spring",             "Modelica.Mechanics.Translational.Components.Spring");
+convertClass  ("Modelica.Mechanics.Translational.Damper",             "Modelica.Mechanics.Translational.Components.Damper");
+convertClass  ("Modelica.Mechanics.Translational.SpringDamper",       "Modelica.Mechanics.Translational.Components.SpringDamper");
+convertClass  ("Modelica.Mechanics.Translational.ElastoGap",          "Modelica.Mechanics.Translational.Components.ElastoGap");
+convertClass  ("Modelica.Mechanics.Translational.Stop",               "Modelica.Mechanics.Translational.Components.MassWithStopAndFriction");
+convertClass  ("Modelica.Mechanics.Translational.Position",           "Modelica.Mechanics.Translational.Sources.Position");
+convertClass  ("Modelica.Mechanics.Translational.Speed",              "Modelica.Mechanics.Translational.Sources.Speed");
+convertClass  ("Modelica.Mechanics.Translational.Accelerate",         "Modelica.Mechanics.Translational.Sources.Accelerate");
+convertClass  ("Modelica.Mechanics.Translational.Move",               "Modelica.Mechanics.Translational.Sources.Move");
+convertClass  ("Modelica.Mechanics.Translational.Force",              "Modelica.Mechanics.Translational.Sources.Force");
+convertClass  ("Modelica.Mechanics.Translational.RelativeStates",     "Modelica.Mechanics.Translational.Sources.RelatvieStates");
+convertClass  ("Modelica.Mechanics.Translational.Interfaces.Rigid",          "Modelica.Mechanics.Translational.Interfaces.PartialRigid");
+convertClass  ("Modelica.Mechanics.Translational.Interfaces.Compliant",      "Modelica.Mechanics.Translational.Interfaces.PartialCompliant");
+convertClass  ("Modelica.Mechanics.Translational.Interfaces.TwoFlanges",     "Modelica.Mechanics.Translational.Interfaces.PartialTwoFlanges");
+convertClass  ("Modelica.Mechanics.Translational.Interfaces.FrictionBase",   "Modelica.Mechanics.Translational.Interfaces.PartialFriction");
+convertClass  ("Modelica.Mechanics.Translational.Interfaces.AbsoluteSensor", "Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensor");
+convertClass  ("Modelica.Mechanics.Translational.Interfaces.RelativeSensor", "Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor");
+convertElement({"Modelica.Mechanics.Translational.Interfaces.AbsoluteSensor"}, "flange_a", "flange");
+convertElement({"Modelica.Mechanics.Translational.Sensors.PositionSensor"},    "flange_a", "flange");
+convertElement({"Modelica.Mechanics.Translational.Sensors.SpeedSensor"},       "flange_a", "flange");
+convertElement({"Modelica.Mechanics.Translational.Sensors.AccSensor"},         "flange_a", "flange");
+convertElement({"Modelica.Mechanics.Translational.Position"},                "flange_b", "flange");
+convertElement({"Modelica.Mechanics.Translational.Speed"},                   "flange_b", "flange");
+convertElement({"Modelica.Mechanics.Translational.Accelerate"},              "flange_b", "flange");
+convertElement({"Modelica.Mechanics.Translational.Move"},                    "flange_b", "flange");
+convertElement({"Modelica.Mechanics.Translational.Fixed"},                   "flange_b", "flange");
+convertElement({"Modelica.Mechanics.Translational.Force"},                   "flange_b", "flange");
+
+// End Convert Translational to 1.1.0 (MSL 3.0)
+//-------- Translational ------------------------------------------------------------
