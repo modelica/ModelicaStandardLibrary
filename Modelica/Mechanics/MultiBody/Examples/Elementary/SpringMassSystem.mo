@@ -50,7 +50,8 @@ ALT=\"model Examples.Elementary.SpringMassSystem\">
         origin={-20,-10},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Mechanics.Translational.Spring spring1(c=30, s_rel0=0.1) 
+  Modelica.Mechanics.Translational.Components.Spring spring1(
+                                                  c=30, s_rel0=0.1) 
     annotation (Placement(transformation(
         origin={10,-10},
         extent={{-10,-10},{10,10}},
