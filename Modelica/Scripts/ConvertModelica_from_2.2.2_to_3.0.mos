@@ -1057,6 +1057,10 @@ convertClass  ("Modelica.Mechanics.Rotational.Gearbox",                        "
 convertClass  ("Modelica.Mechanics.Rotational.IdealGearR2T",                   "Modelica.Mechanics.Rotational.Components.IdealGearR2T");
 convertClass  ("Modelica.Mechanics.Rotational.IdealRollingWheel",              "Modelica.Mechanics.Rotational.Components.IdealRollingWheel");
 convertClass  ("Modelica.Mechanics.Rotational.InitializeFlange",               "Modelica.Mechanics.Rotational.Components.InitializeFlange");
+convertElement({"Modelica.Mechanics.Rotational.IdealGearR2T"}, "flange_a", "flangeR");
+convertElement({"Modelica.Mechanics.Rotational.IdealGearR2T"}, "flange_b", "flangeT");
+convertElement({"Modelica.Mechanics.Rotational.IdealGearR2T"}, "bearingT", "supportT");
+
 
 // End Convert Rotational (MSL 3.0)
 //-------- Rotational (sub-packages!) ------------------------------------------------------------
