@@ -1254,7 +1254,7 @@ Simulate for about 10 seconds and plot the angular velocities of the inertias <t
       connect(fixed.flange, torque.support)   annotation (Line(points={{20,-60},
               {-40,-60},{-40,40}}, color={0,0,0}));
     end ElasticBearing;
-
+    
     model Backlash "Example to demonstrate backlash" 
       extends Modelica.Icons.Example;
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true,
@@ -1301,6 +1301,70 @@ This model demonstrates the effect of a backlash on eigenfrequency.
           color={0,0,0},
           smooth=Smooth.None));
     end Backlash;
+    
+    model RollingWheel "Demonstrate coupling Rotational - Translational" 
+      extends Modelica.Icons.Example;
+      Components.IdealRollingWheel idealRollingWheel(radius=1) 
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+      Components.Inertia inertia(J=1) 
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+      Grounded.TorqueStep torqueStep(
+        stepTorque=10,
+        offsetTorque=0,
+        startTime=0.1) 
+        annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
+      Components.Fixed fixed 
+        annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
+      Translational.Components.Fixed fixed1 
+        annotation (Placement(transformation(extent={{0,-30},{20,-10}})));
+      Translational.Components.Mass mass(L=0, m=1) 
+        annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+      Translational.Grounded.QuadraticSpeedDependentForce 
+        quadraticSpeedDependentForce(
+        f_nominal=-10,
+        ForceDirection=false,
+        v_nominal=5) 
+        annotation (Placement(transformation(extent={{72,-10},{52,10}})));
+    equation 
+      
+      annotation (
+        Documentation(info="<html>
+<p>
+This model demonstrates the coupling between rotational and translational components:<br>
+A torque (step) accelerates both the inertia (of the wheel) and the mass (of the vehicle).<br>
+Du to a speed dependent force (like driving resistance), we find an eqilibrium at 5 m/s after approx. 5 s.
+</p>
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics),
+        experiment(StopTime=5),
+        experimentSetupOutput);
+      connect(torqueStep.flange, inertia.flange_a) annotation (Line(
+          points={{-50,0},{-40,0}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(idealRollingWheel.hubSupport, fixed.flange) annotation (Line(
+          points={{-10,-10.2},{-10,-20}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(inertia.flange_b, idealRollingWheel.hubFlange) annotation (Line(
+          points={{-20,0},{-10,0}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(idealRollingWheel.wheelSupport, fixed1.flange) annotation (Line(
+          points={{10,-10},{10,-20}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(idealRollingWheel.wheelFlange, mass.flange_a) annotation (Line(
+          points={{10,0},{20,0}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(quadraticSpeedDependentForce.flange, mass.flange_b) annotation (
+          Line(
+          points={{52,0},{40,0}},
+          color={0,127,0},
+          smooth=Smooth.None));
+    end RollingWheel;
   end Examples;
   
   package Components "Components for 1D rotational mechanical drive trains" 
@@ -3484,8 +3548,8 @@ GearNew.</p>
               lineColor={0,0,0}, 
               fillColor={0,0,0}, 
               fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}),
                         graphics));
       
       Modelica.Mechanics.Rotational.Components.LossyGear lossyGear(
@@ -3518,11 +3582,10 @@ GearNew.</p>
       parameter Real ratio(final unit="rad/m", start=1) 
         "Transmission ratio (flange_a.phi/flange_b.s)";
       
-      SI.Force f_support;
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a 
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a flangeR 
                                    annotation (Placement(transformation(extent={{
                 -110,-10},{-90,10}}, rotation=0)));
-      Modelica.Mechanics.Translational.Interfaces.Flange_b flange_b 
+      Modelica.Mechanics.Translational.Interfaces.Flange_b flangeT 
         annotation (Placement(transformation(extent={{90,10},{110,-10}}, rotation=
                0)));
       annotation (
@@ -3543,11 +3606,6 @@ connected with corresponding elements.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
-            Rectangle(
-              extent={{40,-80},{80,-120}}, 
-              lineColor={192,192,192}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
             Ellipse(
               extent={{-70,40},{10,-40}}, 
               lineColor={0,0,0}, 
@@ -3579,11 +3637,6 @@ connected with corresponding elements.
               fillColor={160,160,164}, 
               fillPattern=FillPattern.Solid), 
             Rectangle(
-              extent={{-80,-80},{-40,-120}}, 
-              lineColor={192,192,192}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
-            Rectangle(
               extent={{-74,-60},{106,-80}}, 
               lineColor={0,0,0}, 
               fillColor={160,160,164}, 
@@ -3591,74 +3644,73 @@ connected with corresponding elements.
             Text(
               extent={{-149,78},{151,48}}, 
               lineColor={0,0,0}, 
-              textString="ratio=%ratio")}),
+              textString="ratio=%ratio"), 
+            Line(
+              points={{-100,15},{-80,15}}, 
+              color={0,0,0}, 
+              smooth=Smooth.None), 
+            Line(
+              points={{-100,-16},{-80,-16}}, 
+              color={0,0,0}, 
+              smooth=Smooth.None), 
+            Line(
+              points={{-100,-16},{-100,-84}}, 
+              color={0,0,0}, 
+              smooth=Smooth.None)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
-            Rectangle(
-              extent={{-80,-80},{-40,-120}},
-              lineColor={192,192,192},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{40,-80},{80,-120}},
-              lineColor={192,192,192},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-70,40},{10,-40}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
+              extent={{-70,40},{10,-40}}, 
+              lineColor={0,0,0}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
             Ellipse(
-              extent={{-40,10},{-20,-10}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
+              extent={{-40,10},{-20,-10}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
             Rectangle(
-              extent={{-100,10},{-69,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{-100,10},{-69,-10}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Rectangle(
-              extent={{-74,-60},{106,-80}},
-              lineColor={0,0,0},
-              fillColor={160,160,164},
-              fillPattern=FillPattern.Solid),
+              extent={{-74,-60},{106,-80}}, 
+              lineColor={0,0,0}, 
+              fillColor={160,160,164}, 
+              fillPattern=FillPattern.Solid), 
             Rectangle(
-              extent={{95,-10},{106,-60}},
-              lineColor={0,0,0},
-              fillColor={160,160,164},
-              fillPattern=FillPattern.Solid),
+              extent={{95,-10},{106,-60}}, 
+              lineColor={0,0,0}, 
+              fillColor={160,160,164}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{-100,80},{100,50}},
-              textString="transform rotation into translation",
-              lineColor={0,0,255}),
+              extent={{-100,80},{100,50}}, 
+              textString="transform rotation into translation", 
+              lineColor={0,0,255}), 
             Polygon(
               points={{-74,-60},{-54,-40},{-34,-60},{-14,-40},{6,-60},{26,-40},
-                  {46,-60},{66,-40},{86,-60},{-74,-60}},
-              lineColor={0,0,0},
-              fillColor={160,160,164},
+                  {46,-60},{66,-40},{86,-60},{-74,-60}}, 
+              lineColor={0,0,0}, 
+              fillColor={160,160,164}, 
               fillPattern=FillPattern.Solid)}));
       Modelica.Mechanics.Rotational.Interfaces.Support supportR 
-                                   annotation (Placement(transformation(extent={{
-                -70,-110},{-50,-90}}, rotation=0)));
-      Modelica.Mechanics.Translational.Interfaces.Flange_a bearingT 
-        annotation (Placement(transformation(extent={{50,-110},{70,-90}},
+                                   annotation (Placement(transformation(extent={{-110,
+                -110},{-90,-90}},     rotation=0)));
+      Translational.Interfaces.Support supportT 
+        annotation (Placement(transformation(extent={{90,-110},{110,-90}},
               rotation=0)));
     equation 
-      (flange_a.phi - supportR.phi) = ratio*(flange_b.s - bearingT.s);
-      0 = ratio*flange_a.tau + flange_b.f;
+      assert(cardinality(supportR) > 0, "The rotational support connector is required to be connected");
+      assert(cardinality(supportT) > 0, "The translational support connector is required to be connected");
       
-      0 = flange_a.tau + supportR.tau;
-      0 = flange_b.f + f_support;
+      (flangeR.phi - supportR.phi) = ratio*(flangeT.s - supportT.s);
+      0 = ratio*flangeR.tau + flangeT.f;
       
-      if cardinality(bearingT) == 0 then
-        bearingT.s = 0;
-      else
-        bearingT.f = f_support;
-      end if;
+      0 = flangeR.tau + supportR.tau;
+      0 = flangeT.f + supportT.f;
     end IdealGearR2T;
     
     model IdealRollingWheel 
@@ -3672,10 +3724,10 @@ connected with corresponding elements.
         annotation (Placement(transformation(extent={{90,-10},{110,10}},   rotation=0)));
       Modelica.Mechanics.Rotational.Interfaces.Support hubSupport 
         "Support of wheel shaft" 
-        annotation (Placement(transformation(extent={{-90,-112},{-70,-92}})));
-      Modelica.Mechanics.Translational.Interfaces.Flange_a wheelSupport 
+        annotation (Placement(transformation(extent={{-110,-112},{-90,-92}})));
+      Translational.Interfaces.Support wheelSupport 
         "Support of translational movement" 
-        annotation (Placement(transformation(extent={{70,-110},{90,-90}})));
+        annotation (Placement(transformation(extent={{90,-110},{110,-90}})));
       
       parameter Modelica.SIunits.Distance radius(start=0.3) "Wheel radius";
       
@@ -3736,7 +3788,7 @@ connected with corresponding elements.
               color={0,0,0}, 
               smooth=Smooth.None), 
             Line(
-              points={{-80,-20},{-80,-88}}, 
+              points={{-100,-20},{-100,-88}}, 
               color={0,0,0}, 
               smooth=Smooth.None), 
             Line(
@@ -3744,11 +3796,11 @@ connected with corresponding elements.
               color={0,0,0}, 
               smooth=Smooth.None), 
             Line(
-              points={{80,-22},{80,-90}}, 
+              points={{80,-22},{80,-86}}, 
               color={0,127,0}, 
               smooth=Smooth.None), 
             Line(
-              points={{80,-86},{-20,-86}}, 
+              points={{100,-86},{-20,-86}}, 
               color={0,127,0}, 
               smooth=Smooth.None), 
             Line(
@@ -3766,6 +3818,10 @@ connected with corresponding elements.
             Line(
               points={{60,-86},{40,-100}}, 
               color={0,127,0}, 
+              smooth=Smooth.None), 
+            Line(
+              points={{80,-86},{60,-100}}, 
+              color={0,127,0}, 
               smooth=Smooth.None)}),
           Documentation(info="<html>
 <p>
@@ -3774,17 +3830,20 @@ no rolling resistance. This component defines the kinematic constraint:
 </p>
  
 <pre>
-   (hubFlange.phi - hubSupport.phi)*wheelRadius = (wheelFlange.s - roadSupport.s);
+   (hubFlange.phi - hubSupport.phi)*wheelRadius = (wheelFlange.s - wheelSupport.s);
 </pre>
  
 </html>
 "),     uses(Modelica(version="2.2.2")),
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
                 {100,100}}),graphics));
-      
     equation 
+      assert(cardinality(hubSupport) > 0, "The hub support connector is required to be connected");
+      assert(cardinality(wheelSupport) > 0, "The wheel support connector is required to be connected");
+      
       (hubFlange.phi - hubSupport.phi)*radius = (wheelFlange.s - wheelSupport.s);
       0 = radius*wheelFlange.f + hubFlange.tau;
+      
       0 = hubFlange.tau + hubSupport.tau;
       0 = wheelFlange.f + wheelSupport.f;
     end IdealRollingWheel;
@@ -4804,8 +4863,8 @@ way and provides the result as output signal <b>phi</b>
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
-              extent={{70,-30},{120,-70}}, 
-              lineColor={0,0,0}, 
+              extent={{70,-30},{120,-70}},
+              lineColor={0,0,0},
               textString="phi")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -4842,8 +4901,8 @@ way and provides the result as output signal <b>w</b>
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
-              extent={{70,-30},{120,-70}}, 
-              lineColor={0,0,0}, 
+              extent={{70,-30},{120,-70}},
+              lineColor={0,0,0},
               textString="w")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -4881,8 +4940,8 @@ blocks of the Modelica.Blocks library).
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
-              extent={{70,-30},{120,-70}}, 
-              lineColor={0,0,0}, 
+              extent={{70,-30},{120,-70}},
+              lineColor={0,0,0},
               textString="a")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -4922,8 +4981,8 @@ in an ideal way and provides the result as output signal <b>phi_rel</b>
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
-              extent={{20,-84},{160,-114}}, 
-              lineColor={0,0,0}, 
+              extent={{20,-84},{160,-114}},
+              lineColor={0,0,0},
               textString="phi_rel"), Line(points={{0,-100},{0,-70}}, color={0,0,
                   127})}),
         Diagram(coordinateSystem(
@@ -4967,8 +5026,8 @@ in an ideal way and provides the result as output signal <b>w_rel</b>
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
-              extent={{20,-88},{160,-118}}, 
-              lineColor={0,0,0}, 
+              extent={{20,-88},{160,-118}},
+              lineColor={0,0,0},
               textString="w_rel"), Line(points={{0,-100},{0,-70}}, color={0,0,
                   127})}),
         Diagram(coordinateSystem(
@@ -5014,8 +5073,8 @@ in an ideal way and provides the result as output signal <b>a_rel</b>
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
-              extent={{20,-86},{160,-116}}, 
-              lineColor={0,0,0}, 
+              extent={{20,-86},{160,-116}},
+              lineColor={0,0,0},
               textString="a_rel"), Line(points={{0,-100},{0,-70}}, color={0,0,
                   127})}),
         Diagram(coordinateSystem(
@@ -5058,8 +5117,8 @@ and provides the result as output signal <b>tau</b>
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
-              extent={{-50,-80},{50,-120}}, 
-              lineColor={0,0,0}, 
+              extent={{-50,-80},{50,-120}},
+              lineColor={0,0,0},
               textString="tau"), Line(points={{-80,-100},{-80,0}}, color={0,0,
                   127})}),
         Diagram(coordinateSystem(
@@ -5098,8 +5157,8 @@ and provides the result as output signal <b>power</b>
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
-              extent={{-50,-80},{100,-120}}, 
-              lineColor={0,0,0}, 
+              extent={{-50,-80},{100,-120}},
+              lineColor={0,0,0},
               textString="power"), Line(points={{-80,-100},{-80,0}}, color={0,0,
                   127})}),
         Diagram(coordinateSystem(
@@ -5582,43 +5641,43 @@ blocks of Modelica.Blocks.Sources.
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Text(
-              extent={{-150,110},{150,70}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{-150,110},{150,70}},
+              textString="%name",
+              lineColor={0,0,255}),
             Text(
-              extent={{-62,-29},{-141,-70}}, 
-              lineColor={0,0,0}, 
-              textString="tau"), 
+              extent={{-62,-29},{-141,-70}},
+              lineColor={0,0,0},
+              textString="tau"),
             Line(
               points={{-88,0},{-64,30},{-36,52},{-2,62},{28,56},{48,44},{64,28},
-                  {76,14},{86,0}}, 
-              color={0,0,0}, 
-              thickness=2), 
+                  {76,14},{86,0}},
+              color={0,0,0},
+              thickness=2),
             Polygon(
-              points={{86,0},{66,58},{37,27},{86,0}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{86,0},{66,58},{37,27},{86,0}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-20,-80},{20,-120}}, 
-              lineColor={192,192,192}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-30,-30},{30,-30}}, color={0,0,0}), 
-            Line(points={{0,-30},{0,-90}}, color={0,0,0}), 
-            Line(points={{-30,-50},{-10,-30}}, color={0,0,0}), 
-            Line(points={{-10,-50},{10,-30}}, color={0,0,0}), 
-            Line(points={{10,-50},{30,-30}}, color={0,0,0}), 
+              extent={{-20,-80},{20,-120}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-30,-30},{30,-30}}, color={0,0,0}),
+            Line(points={{0,-30},{0,-90}}, color={0,0,0}),
+            Line(points={{-30,-50},{-10,-30}}, color={0,0,0}),
+            Line(points={{-10,-50},{10,-30}}, color={0,0,0}),
+            Line(points={{10,-50},{30,-30}}, color={0,0,0}),
             Line(
               points={{-54,-42},{-38,-28},{-16,-16},{4,-14},{22,-18},{36,-26},{
-                  48,-36},{56,-46},{64,-58}}, 
-              color={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+                  48,-36},{56,-46},{64,-58}},
+              color={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{-61,-66},{-44,-42},{-58,-36},{-61,-66}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
+              points={{-61,-66},{-44,-42},{-58,-36},{-61,-66}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -6221,62 +6280,62 @@ and the support is automatically fixed to ground.
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
-              extent={{-40,20},{-20,-20}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{-40,20},{-20,-20}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{-40,100},{-20,20}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{-40,100},{-20,20}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{20,80},{40,39}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{20,80},{40,39}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{20,40},{40,-40}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{20,40},{40,-40}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{40,10},{100,-10}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{40,10},{100,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{-20,70},{20,50}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{-20,70},{20,50}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{-100,10},{-40,-10}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{-100,10},{-40,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Text(
-              extent={{-153,145},{147,105}}, 
-              lineColor={0,0,255}, 
-              textString="%name"), 
-            Line(points={{-80,20},{-60,20}}, color={0,0,0}), 
-            Line(points={{-80,-20},{-60,-20}}, color={0,0,0}), 
-            Line(points={{-70,-20},{-70,-85}}, color={0,0,0}), 
-            Line(points={{0,40},{0,-100}}, color={0,0,0}), 
-            Line(points={{-10,40},{10,40}}, color={0,0,0}), 
-            Line(points={{-10,80},{10,80}}, color={0,0,0}), 
-            Line(points={{60,-20},{80,-20}}, color={0,0,0}), 
-            Line(points={{60,20},{80,20}}, color={0,0,0}), 
-            Line(points={{70,-20},{70,-85}}, color={0,0,0}), 
-            Line(points={{70,-85},{-70,-85}}, color={0,0,0}), 
+              extent={{-153,145},{147,105}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Line(points={{-80,20},{-60,20}}, color={0,0,0}),
+            Line(points={{-80,-20},{-60,-20}}, color={0,0,0}),
+            Line(points={{-70,-20},{-70,-85}}, color={0,0,0}),
+            Line(points={{0,40},{0,-100}}, color={0,0,0}),
+            Line(points={{-10,40},{10,40}}, color={0,0,0}),
+            Line(points={{-10,80},{10,80}}, color={0,0,0}),
+            Line(points={{60,-20},{80,-20}}, color={0,0,0}),
+            Line(points={{60,20},{80,20}}, color={0,0,0}),
+            Line(points={{70,-20},{70,-85}}, color={0,0,0}),
+            Line(points={{70,-85},{-70,-85}}, color={0,0,0}),
             Text(
-              extent={{-146,-49},{154,-79}}, 
-              lineColor={0,0,0}, 
-              textString="ratio=%ratio"), 
-            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}), 
-            Line(points={{-10,-120},{10,-100}}, color={0,0,0}), 
-            Line(points={{10,-120},{30,-100}}, color={0,0,0}), 
-            Line(points={{-30,-100},{30,-100}}, color={0,0,0}), 
+              extent={{-146,-49},{154,-79}},
+              lineColor={0,0,0},
+              textString="ratio=%ratio"),
+            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}),
+            Line(points={{-10,-120},{10,-100}}, color={0,0,0}),
+            Line(points={{10,-120},{30,-100}}, color={0,0,0}),
+            Line(points={{-30,-100},{30,-100}}, color={0,0,0}),
             Line(points={{-50,-120},{-30,-100}}, color={0,0,0})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -6813,43 +6872,43 @@ and the support is automatically fixed to ground.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
-              extent={{-150,110},{150,70}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{-150,110},{150,70}},
+              textString="%name",
+              lineColor={0,0,255}),
             Line(
               points={{-88,0},{-64,30},{-36,52},{-2,62},{28,56},{48,44},{64,28},
-                  {76,14},{86,0}}, 
-              color={0,0,0}, 
-              thickness=2), 
+                  {76,14},{86,0}},
+              color={0,0,0},
+              thickness=2),
             Polygon(
-              points={{86,0},{66,58},{37,27},{86,0}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-30,-30},{30,-30}}, color={0,0,0}), 
-            Line(points={{0,-30},{0,-100}}, color={0,0,0}), 
-            Line(points={{-30,-50},{-10,-30}}, color={0,0,0}), 
-            Line(points={{-10,-50},{10,-30}}, color={0,0,0}), 
-            Line(points={{10,-50},{30,-30}}, color={0,0,0}), 
+              points={{86,0},{66,58},{37,27},{86,0}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-30,-30},{30,-30}}, color={0,0,0}),
+            Line(points={{0,-30},{0,-100}}, color={0,0,0}),
+            Line(points={{-30,-50},{-10,-30}}, color={0,0,0}),
+            Line(points={{-10,-50},{10,-30}}, color={0,0,0}),
+            Line(points={{10,-50},{30,-30}}, color={0,0,0}),
             Text(
-              extent={{-62,-29},{-141,-70}}, 
-              lineColor={0,0,0}, 
-              textString="tau"), 
-            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}), 
-            Line(points={{-10,-120},{10,-100}}, color={0,0,0}), 
-            Line(points={{10,-120},{30,-100}}, color={0,0,0}), 
-            Line(points={{-30,-100},{30,-100}}, color={0,0,0}), 
-            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}), 
+              extent={{-62,-29},{-141,-70}},
+              lineColor={0,0,0},
+              textString="tau"),
+            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}),
+            Line(points={{-10,-120},{10,-100}}, color={0,0,0}),
+            Line(points={{10,-120},{30,-100}}, color={0,0,0}),
+            Line(points={{-30,-100},{30,-100}}, color={0,0,0}),
+            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}),
             Line(
               points={{-54,-34},{-38,-20},{-16,-8},{4,-6},{22,-10},{36,-18},{48,
-                  -28},{56,-38},{64,-50}}, 
-              color={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+                  -28},{56,-38},{64,-50}},
+              color={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{-61,-58},{-44,-34},{-58,-28},{-61,-58}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
+              points={{-61,-58},{-44,-34},{-58,-28},{-61,-58}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}));
       Modelica.Mechanics.Rotational.Components.Fixed fixed 
         annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
