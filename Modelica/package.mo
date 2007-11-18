@@ -1172,9 +1172,18 @@ that can lead to wrong simulation results):
 </p>
  
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-  <tr><td colspan=\"2\"><b>Package-Name.</b></td></tr>
-  <tr><td valign=\"top\"> Model-Name </td>
-      <td valign=\"top\"> Description text</td> 
+  <tr><td colspan=\"2\"><b>Mechanics.Rotational.</b></td></tr>
+  <tr><td valign=\"top\"> ElastoBacklash </td>
+      <td valign=\"top\"> If the damping torque was too large, the reaction torque 
+                        could \"pull\" which is unphysical. The component was
+                        newly written by limiting the damping torque in such a case
+                        so that \"pulling\" torques can no longer occur. Furthermore,
+                        during initialization the characteristics is made continuous
+                        to reduce numerical errors. The relative angle and relative
+                        angular velocities are used as states, if possible
+                        (StateSelect.prefer), since relative quantities lead usually
+                        to better behavior. The nominal value of the state phi_rel
+                        is computed from the nominal torque. </td> 
   </tr>
 </table>
  

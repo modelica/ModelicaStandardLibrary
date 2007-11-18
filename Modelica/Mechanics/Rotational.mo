@@ -1165,8 +1165,8 @@ as component LossyGear includes the functionality of component BearingFriction
       Rotational.Components.Fixed fixed 
         annotation (Placement(transformation(extent={{10,-70},{30,-50}},
               rotation=0)));
-      Rotational.Components.SpringDamper springDamper(        c=1e5, d=5, 
-        phi_rel(fixed=true), 
+      Rotational.Components.SpringDamper springDamper(        c=1e5, d=5,
+        phi_rel(fixed=true),
         w_rel(fixed=true)) 
         annotation (Placement(transformation(
             origin={20,-30},
@@ -1239,18 +1239,23 @@ also that the damping torque does not lead to unphysical pulling torques
       constant SI.Angle pi=Modelica.Constants.pi;
       Components.Fixed fixed1 
         annotation (Placement(transformation(extent={{-50,50},{-30,70}})));
-      Components.SpringDamper springDamper(c=20E3, d=50) 
+      Components.SpringDamper springDamper(c=20E3, d=50,
+        phi_nominal(displayUnit="rad") = 1) 
         annotation (Placement(transformation(extent={{-20,50},{0,70}})));
-      Components.Inertia inertia1(J=5, phi(fixed=true, start=pi/2)) 
+      Components.Inertia inertia1(J=5,
+        phi(fixed=true, start=pi/2),
+        w(fixed=true, start=0)) 
         annotation (Placement(transformation(extent={{20,50},{40,70}})));
       Components.Fixed fixed2 
         annotation (Placement(transformation(extent={{-50,-50},{-30,-30}})));
       Components.ElastoBacklash elastoBacklash(
         c=20E3,
         b=pi/4,
-        d=50) 
+        d=50,
+        phi_nominal(displayUnit="rad") = 1) 
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
-      Components.Inertia inertia2(J=5, phi(fixed=true, start=pi/2)) 
+      Components.Inertia inertia2(J=5, phi(fixed=true, start=pi/2),
+        w(fixed=true, start=0)) 
         annotation (Placement(transformation(extent={{20,-50},{40,-30}})));
     equation 
       connect(springDamper.flange_b, inertia1.flange_a) 
@@ -1683,8 +1688,7 @@ between two inertia/gear elements.
         final unit="N.m.s/rad",
         final min=0, start=0) "Damping constant";
       parameter SI.Angle phi_rel0=0 "Unstretched spring angle";
-      extends Rotational.Interfaces.PartialCompliantWithRelativeStates(
-                        final phi_nominal = tau_nominal/c);
+      extends Rotational.Interfaces.PartialCompliantWithRelativeStates;
       
       annotation (
         Window(
@@ -1775,9 +1779,6 @@ to describe a coupling of the element with the housing via a spring/damper.
       "Backlash connected in series to linear spring and damper (backlash is modeled with elasticity)" 
       import SI = Modelica.SIunits;
       
-      extends Rotational.Interfaces.PartialCompliantWithRelativeStates(
-                        final phi_nominal = tau_nominal/c);
-      
       parameter Real c(
         final unit="N.m/rad",
         final min=Modelica.Constants.small, start=1.0e5) 
@@ -1787,6 +1788,8 @@ to describe a coupling of the element with the housing via a spring/damper.
         final min=0) = 0 "Damping constant";
       parameter SI.Angle b(final min=0) = 0 "Total backlash";
       parameter SI.Angle phi_rel0=0 "Unstretched spring angle";
+      
+      extends Rotational.Interfaces.PartialCompliantWithRelativeStates;
     protected 
       final parameter SI.Angle bMax = b/2 
         "Backlash in range bMin <= phi_rel - phi_rel0 <= bMax";
@@ -1811,23 +1814,23 @@ This element consists of a <b>backlash</b> element <b>connected in series</b>
 to a <b>spring</b> and <b>damper</b> element which are <b>connected in parallel</b>.
 The spring constant shall be non-zero, otherwise the component cannot be used.
 </p>
-
+ 
 <p>
 In combination with components IdealGear, the ElastoBacklash model
 can be used to model a gear box with backlash, elasticity and damping.
 </p>
-
+ 
 <p>
 The linear spring and damper torques are slightly modified in order that
 the reaction torque only \"pushes\" and cannot \"pull\" (which is unphysical). 
 </p>
-
+ 
 <p>
 During initialization, the backlash characteristic is replaced by a continuous
 approximation in the backlash region, in order to reduce problems during
 initialization, especially for inverse models.
 </p>
-
+ 
 <p>
 If the backlash b is smaller as 1e-10 (especially, if b=0),
 then the backlash is ignored and the component reduces to a spring/damper
@@ -2003,7 +2006,7 @@ element in parallel.
               fillPattern=FillPattern.Solid, 
               textString="b")}));
     equation 
-      if initial() then
+        if initial() then
          /* During initialization the characteristic is modified, in order that
         it is a strict monoton rising function. Otherwise, initialization might
         result in a singular system when the characteristic has to be
@@ -2044,6 +2047,7 @@ element in parallel.
      is not evaluated during translation (i.e., in the above form 
      it cannot be changed anymore after translation).
    */
+        
          tau_c = if abs(b) <= bEps then c*phi_diff else 
                  if phi_diff > bMax then c*(phi_diff - bMax) else 
                  if phi_diff < bMin then c*(phi_diff - bMin) else 0;
@@ -4064,6 +4068,288 @@ provided via a signal bus.
           color={0,0,0},
           smooth=Smooth.None));
     end InitializeFlange;
+
+    model ElastoBacklash2 
+      "Backlash connected in series to linear spring and damper (backlash is modeled with elasticity)" 
+      import SI = Modelica.SIunits;
+      
+      parameter Real c(
+        final unit="N.m/rad",
+        final min=Modelica.Constants.small, start=1.0e5) 
+        "Spring constant (c > 0 required)";
+      parameter Real d(
+        final unit="N.m.s/rad",
+        final min=0) = 0 "Damping constant";
+      parameter SI.Angle b(final min=0) = 0 "Total backlash";
+      parameter SI.Angle phi_rel0=0 "Unstretched spring angle";
+      
+      extends Rotational.Interfaces.PartialCompliantWithRelativeStates;
+    protected 
+      SI.Torque tau_c;
+      SI.Torque tau_d;
+      SI.Angle phi_diff =  phi_rel - phi_rel0;
+      
+      // A minimum backlash is defined in order to avoid an infinite
+      // number of state events if backlash b is set to zero.
+      constant SI.Angle bEps = 1e-10 "minimum backlash";
+      annotation (
+        Window(
+          x=0.45,
+          y=0.01,
+          width=0.44,
+          height=0.65),
+        Documentation(info="<html>
+<p>
+This element consists of a <b>backlash</b> element <b>connected in series</b>
+to a <b>spring</b> and <b>damper</b> element which are <b>connected in parallel</b>.
+The spring constant shall be non-zero, otherwise the component cannot be used.
+</p>
+ 
+<p>
+In combination with components IdealGear, the ElastoBacklash model
+can be used to model a gear box with backlash, elasticity and damping.
+</p>
+ 
+<p>
+The linear spring and damper torques are slightly modified in order that
+the reaction torque only \"pushes\" and cannot \"pull\" (which is unphysical). 
+</p>
+ 
+<p>
+During initialization, the backlash characteristic is replaced by a continuous
+approximation in the backlash region, in order to reduce problems during
+initialization, especially for inverse models.
+</p>
+ 
+<p>
+If the backlash b is smaller as 1e-10 (especially, if b=0),
+then the backlash is ignored and the component reduces to a spring/damper
+element in parallel.
+</p>
+ 
+</html>
+"),     Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={
+            Line(
+              points={{-80,32},{-58,32},{-48,0},{-34,61},{-20,0},{-8,60},{0,30},
+                  {20,30}}, 
+              color={0,0,0}, 
+              pattern=LinePattern.Solid, 
+              thickness=1, 
+              arrow={Arrow.None,Arrow.None}), 
+            Rectangle(
+              extent={{-60,-10},{-10,-50}}, 
+              lineColor={0,0,0}, 
+              pattern=LinePattern.Solid, 
+              lineThickness=1, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{-60,-50},{0,-50}}, 
+              color={0,0,0}, 
+              pattern=LinePattern.Solid, 
+              thickness=1, 
+              arrow={Arrow.None,Arrow.None}), 
+            Line(
+              points={{-60,-10},{0,-10}}, 
+              color={0,0,0}, 
+              pattern=LinePattern.Solid, 
+              thickness=1, 
+              arrow={Arrow.None,Arrow.None}), 
+            Line(
+              points={{-10,-30},{20,-30}}, 
+              color={0,0,0}, 
+              pattern=LinePattern.Solid, 
+              thickness=1, 
+              arrow={Arrow.None,Arrow.None}), 
+            Line(
+              points={{-80,-30},{-60,-30}}, 
+              color={0,0,0}, 
+              pattern=LinePattern.Solid, 
+              thickness=1, 
+              arrow={Arrow.None,Arrow.None}), 
+            Line(
+              points={{-80,32},{-80,-30}}, 
+              color={0,0,0}, 
+              pattern=LinePattern.Solid, 
+              thickness=1, 
+              arrow={Arrow.None,Arrow.None}), 
+            Line(
+              points={{20,30},{20,-30}}, 
+              color={0,0,0}, 
+              pattern=LinePattern.Solid, 
+              thickness=1, 
+              arrow={Arrow.None,Arrow.None}), 
+            Line(
+              points={{-90,0},{-80,0}}, 
+              color={0,0,0}, 
+              pattern=LinePattern.Solid, 
+              thickness=1, 
+              arrow={Arrow.None,Arrow.None}), 
+            Line(
+              points={{90,0},{80,0}}, 
+              color={0,0,0}, 
+              pattern=LinePattern.Solid, 
+              thickness=1, 
+              arrow={Arrow.None,Arrow.None}), 
+            Line(
+              points={{20,0},{60,0},{60,-30}}, 
+              color={0,0,0}, 
+              pattern=LinePattern.Solid, 
+              thickness=1, 
+              arrow={Arrow.None,Arrow.None}), 
+            Line(
+              points={{40,-12},{40,-40},{80,-40},{80,0}}, 
+              color={0,0,0}, 
+              pattern=LinePattern.Solid, 
+              thickness=1, 
+              arrow={Arrow.None,Arrow.None}), 
+            Text(
+              extent={{-150,-130},{150,-90}}, 
+              lineColor={0,0,0}, 
+              textString="b=%b"), 
+            Text(
+              extent={{-150,100},{150,60}}, 
+              lineColor={0,0,255}, 
+              textString="%name"), 
+            Text(
+              extent={{-152,-92},{148,-52}}, 
+              lineColor={0,0,0}, 
+              textString="c=%c")}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={
+            Line(
+              points={{-80,32},{-58,32},{-48,0},{-34,60},{-20,0},{-8,60},{0,30},
+                  {20,30}}, 
+              color={0,0,0}, 
+              thickness=2), 
+            Line(points={{-68,32},{-68,97}}, color={128,128,128}), 
+            Line(points={{80,0},{80,96}}, color={128,128,128}), 
+            Line(points={{-68,92},{72,92}}, color={128,128,128}), 
+            Polygon(
+              points={{70,95},{80,92},{70,89},{70,95}}, 
+              lineColor={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-10,70},{30,95}}, 
+              lineColor={128,128,128}, 
+              textString="phi_rel"), 
+            Rectangle(
+              extent={{-60,-20},{-10,-80}}, 
+              lineColor={0,0,0}, 
+              lineThickness=2, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{-52,-80},{0,-80}}, 
+              color={0,0,0}, 
+              thickness=2), 
+            Line(
+              points={{-52,-20},{0,-20}}, 
+              color={0,0,0}, 
+              thickness=2), 
+            Line(
+              points={{-10,-50},{20,-50}}, 
+              color={0,0,0}, 
+              thickness=2), 
+            Line(
+              points={{-80,-50},{-60,-50}}, 
+              color={0,0,0}, 
+              thickness=2), 
+            Line(
+              points={{-80,32},{-80,-50}}, 
+              color={0,0,0}, 
+              thickness=2), 
+            Line(
+              points={{20,30},{20,-50}}, 
+              color={0,0,0}, 
+              thickness=2), 
+            Line(points={{-96,0},{-80,0}}, color={0,0,0}), 
+            Line(
+              points={{96,0},{80,0}}, 
+              color={0,0,0}, 
+              thickness=2), 
+            Line(
+              points={{20,0},{60,0},{60,-30}}, 
+              color={0,0,0}, 
+              thickness=2), 
+            Line(
+              points={{40,-12},{40,-40},{80,-40},{80,0}}, 
+              color={0,0,0}, 
+              thickness=2), 
+            Line(points={{30,0},{30,64}}, color={128,128,128}), 
+            Line(points={{30,60},{80,60}}, color={128,128,128}), 
+            Polygon(
+              points={{70,63},{80,60},{70,57},{70,63}}, 
+              lineColor={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{39,60},{68,46}}, 
+              lineColor={160,160,164}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid, 
+              textString="b")}));
+    equation 
+        if initial() then
+         /* During initialization the characteristic is modified, in order that
+        it is a strict monoton rising function. Otherwise, initialization might
+        result in a singular system when the characteristic has to be
+        inverted. The characteristic is modified in the range 1.5*bMin <= phi_rel - phi_rel0 <= 1.5 bMax,
+        so that in this range a linear characteristic is present that approaches the original
+        function continuously at its limits, e.g.,
+          original:  tau(1.5*bMax) = c*(phi_diff - bMax) 
+                                   = c*(0.5*bMax)
+          initial :  tau(1.5*bMax) = (c/3)*phi_diff
+                                   = (c/3)*(3/2)*bMax
+                                   = (c/2)*bMax
+     */
+         tau_c = if phi_diff > 1.5*bMax then c*(phi_diff - bMax) else 
+                 if phi_diff < 1.5*bMin then c*(phi_diff - bMin) else (c/3)*phi_diff;
+         tau_d = d*w_rel;
+         tau   = tau_c + tau_d;
+      else
+     /*    
+     if abs(b) <= bEps then
+        tau_c = c*phi_rel;
+        tau_d = d*w_rel;
+        tau   = tau_c + tau_d;
+     elseif phi_rel > bMax then
+        tau_c = c*(phi_diff - bMax);
+        tau_d = d*w_rel;
+        tau   = smooth(0, noEvent(if tau_c + tau_d <= 0 then 0 else tau_c + min(tau_c,tau_d)));
+     elseif phi_rel < bMin then
+        tau_c = c*(phi_diff - bMin);
+        tau_d = d*w_rel;
+        tau   = smooth(0, noEvent(if tau_c + tau_d >= 0 then 0 else tau_c + max(tau_c,tau_d)));
+     else
+        tau_c = 0;
+        tau_d = 0;
+        tau   = 0;
+     end if;
+ 
+     This is written in the form below, in order that parameter "b"
+     is not evaluated during translation (i.e., in the above form 
+     it cannot be changed anymore after translation).
+   */
+        
+         tau_c = if abs(b) <= bEps then c*phi_diff else 
+                 if phi_diff > bMax then c*(phi_diff - bMax) else 
+                 if phi_diff < bMin then c*(phi_diff - bMin) else 0;
+         tau_d = d*w_rel;
+         tau   = if abs(b) <= bEps then tau_c + tau_d else 
+                   if phi_rel > bMax then 
+                      smooth(0, noEvent(if tau_c + tau_d <= 0 then 0 else tau_c + min(tau_c,tau_d))) else 
+                   if phi_rel < bMin then 
+                      smooth(0, noEvent(if tau_c + tau_d >= 0 then 0 else tau_c + max(tau_c,tau_d))) else 0;
+      end if;
+      
+    end ElastoBacklash2;
   end Components;
   
   package Interfaces 
@@ -4359,14 +4645,14 @@ is used to built up force elements such as springs, dampers, friction.
       
       parameter StateSelect stateSelect=StateSelect.prefer 
         "Priority to use relative angle phi_rel and relative speed w_rel as states"
-                                                                                    annotation(Dialog(tab="Advanced"));
-      parameter SI.Torque tau_nominal(min=10*Modelica.Constants.eps)=100 
-        "Nominal torque (used for scaling)" annotation(Dialog(tab="Advanced"));
-      parameter Real phi_nominal 
-        "Nominal value of phi; must be defined in a subclass, utilizing tau_nominal";
+      annotation(Hide=true, Dialog(tab="Advanced"));
+      parameter SI.Angle phi_nominal=1e-4 
+        "Nominal value of phi_rel (used for scaling)" annotation(Dialog(tab="Advanced"));
       
-      SI.Angle phi_rel(start=0, nominal=phi_nominal, stateSelect=stateSelect) 
+      SI.Angle phi_rel(start=0) 
         "Relative rotation angle (= flange_b.phi - flange_a.phi)";
+      SI.Angle phi_rel_scaled(stateSelect=stateSelect) 
+        "Relative rotationa angle scaled with phi_nominal";
       SI.AngularVelocity w_rel(start=0, stateSelect=stateSelect) 
         "Relative angular velocity (= der(phi_rel))";
       SI.AngularAcceleration a_rel(start=0) 
@@ -4394,13 +4680,25 @@ of the two flanges sum-up to zero, i.e., they have the same absolute value
 but opposite sign: flange_a.tau + flange_b.tau = 0. This base class
 is used to built up force elements such as springs, dampers, friction.
 </p>
-
+ 
 <p>
 The difference to base classe \"PartialCompliant\" is that the relative
-angle and the relative angular velocity are defined as potential states.
-In order to improve the numerics, a nominal value for the torque can be
-defined that has to be used in a derived class to compute the nominal
-value of the relative angle (which is by default a state).
+angle and the relative angular velocity are defined as preferred states.
+The reason is that for a large class of drive trains, such as drive 
+trains in vehicles, the absolute angle is quickly increasing during operation.
+Numerically, it is better to use relative angles between drive train components
+because they remain in a limited size. For this reason, StateSelect.prefer
+is set for the relative angle of this component.
+</p>
+ 
+<p>
+In order to improve the numerics, a nominal value for the relative angle
+should be set, since drive train angles are in the order of 1e-4 rad and 
+then step size control of the integrator is practically switched off for
+such a variable. A default nominal value of phi_nominal = 1e-4 is defined.
+This nominal value might also be computed from other values, such
+as \"phi_nominal = tau_nominal / c\" for a rotational spring, if tau_nominal
+and c have more meaningful values for the user.
 </p>
  
 </html>
@@ -4410,7 +4708,8 @@ value of the relative angle (which is by default a state).
             grid={2,2}), graphics));
     equation 
       phi_rel = flange_b.phi - flange_a.phi;
-      w_rel = der(phi_rel);
+      phi_rel_scaled = phi_rel/phi_nominal;
+      w_rel = phi_nominal*der(phi_rel_scaled);
       a_rel = der(w_rel);
       flange_b.tau = tau;
       flange_a.tau = -tau;
