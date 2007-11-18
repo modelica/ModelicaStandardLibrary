@@ -1156,17 +1156,18 @@ as component LossyGear includes the functionality of component BearingFriction
         annotation (Placement(transformation(extent={{-20,40},{0,60}}, rotation=
                0)));
       Rotational.Components.Inertia load(        J=50,
-        phi(fixed=true, start=0),
         w(fixed=true)) 
         annotation (Placement(transformation(extent={{70,40},{90,60}}, rotation=
                0)));
-      Rotational.Components.Spring spring(        c=1e3) 
+      Rotational.Components.Spring spring(        c=1e3, phi_rel(fixed=true)) 
         annotation (Placement(transformation(extent={{40,40},{60,60}}, rotation=
                0)));
       Rotational.Components.Fixed fixed 
         annotation (Placement(transformation(extent={{10,-70},{30,-50}},
               rotation=0)));
-      Rotational.Components.SpringDamper springDamper(        c=1e5, d=5) 
+      Rotational.Components.SpringDamper springDamper(        c=1e5, d=5, 
+        phi_rel(fixed=true), 
+        w_rel(fixed=true)) 
         annotation (Placement(transformation(
             origin={20,-30},
             extent={{-10,-10},{10,10}},
@@ -1196,9 +1197,7 @@ Simulate for about 10 seconds and plot the angular velocities of the inertias <t
         annotation (Placement(transformation(extent={{10,40},{30,60}}, rotation=
                0)));
       Rotational.Components.Inertia housing(
-                      J=5,
-        phi(fixed=true, start=0),
-        w(fixed=true))     annotation (Placement(transformation(
+                      J=5) annotation (Placement(transformation(
             origin={20,10},
             extent={{-10,-10},{10,10}},
             rotation=90)));
@@ -1248,7 +1247,7 @@ also that the damping torque does not lead to unphysical pulling torques
         annotation (Placement(transformation(extent={{-50,-50},{-30,-30}})));
       Components.ElastoBacklash elastoBacklash(
         c=20E3,
-        b=pi/4, 
+        b=pi/4,
         d=50) 
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
       Components.Inertia inertia2(J=5, phi(fixed=true, start=pi/2)) 
@@ -1684,14 +1683,8 @@ between two inertia/gear elements.
         final unit="N.m.s/rad",
         final min=0, start=0) "Damping constant";
       parameter SI.Angle phi_rel0=0 "Unstretched spring angle";
-      parameter StateSelect stateSelect=StateSelect.default 
-        "Priority to use relative angle phi and relative speed w as states" annotation(Dialog(tab="Advanced"));
-        extends Rotational.Interfaces.PartialCompliant(
-                                   phi_rel(start=0, stateSelect=stateSelect));
-      SI.AngularVelocity w_rel(start=0, stateSelect=stateSelect) 
-        "Relative angular velocity between flange_b and flange_a";
-      SI.AngularAcceleration a_rel(start=0) 
-        "Relative angular acceleration between flange_b and flange_a";
+      extends Rotational.Interfaces.PartialCompliantWithRelativeStates(
+                        final phi_nominal = tau_nominal/c);
       
       annotation (
         Window(
@@ -1775,8 +1768,6 @@ to describe a coupling of the element with the housing via a spring/damper.
             Line(points={{-96,0},{-80,0}}, color={0,0,0}), 
             Line(points={{96,0},{80,0}}, color={0,0,0})}));
     equation 
-      w_rel = der(phi_rel);
-      a_rel = der(w_rel);
       tau = c*(phi_rel - phi_rel0) + d*w_rel;
     end SpringDamper;
     
@@ -4366,7 +4357,7 @@ is used to built up force elements such as springs, dampers, friction.
     partial model PartialCompliantWithRelativeStates 
       "Base model for the compliant connection of two rotational 1-dim. shaft flanges where the relative angle and relative angular velocities are used as states" 
       
-      parameter StateSelect stateSelect=StateSelect.default 
+      parameter StateSelect stateSelect=StateSelect.prefer 
         "Priority to use relative angle phi_rel and relative speed w_rel as states"
                                                                                     annotation(Dialog(tab="Advanced"));
       parameter SI.Torque tau_nominal(min=10*Modelica.Constants.eps)=100 
@@ -4424,7 +4415,7 @@ value of the relative angle (which is by default a state).
       flange_b.tau = tau;
       flange_a.tau = -tau;
     end PartialCompliantWithRelativeStates;
-
+    
     partial model PartialGear 
       "Base model for 1-dim. rotationalgear consisting of the flange of an input shaft, the flange of an output shaft and the support" 
       
@@ -7205,13 +7196,13 @@ and the support is automatically fixed to ground.
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
-              extent={{-150,140},{150,100}}, 
-              lineColor={0,0,255}, 
-              textString="%name"), 
-            Line(points={{-80,-60},{0,-60},{0,60},{80,60}}, color={0,0,255}), 
+              extent={{-150,140},{150,100}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Line(points={{-80,-60},{0,-60},{0,60},{80,60}}, color={0,0,255}),
             Text(
-              extent={{0,-40},{100,-60}}, 
-              lineColor={0,0,255}, 
+              extent={{0,-40},{100,-60}},
+              lineColor={0,0,255},
               textString="time")}));
       Rotational.Sources.TorqueStep torqueStep(
         final stepTorque=stepTorque,
