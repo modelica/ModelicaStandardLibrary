@@ -1353,9 +1353,9 @@ and sequence[2] &ne; sequence[3]. Often used values are:
           resolveInFrame) 
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=false,extent={{-100,
-              -100},{100,100}}, 
+              -100},{100,100}},
           grid={1,1}),           graphics), Icon(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}, 
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(
             points={{70,0},{100,0}}, 
@@ -1965,18 +1965,18 @@ computed as:
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}), graphics={
-          Line(points={{-70,0},{-101,0}}, color={0,0,0}), 
-          Line(points={{70,0},{100,0}}, color={0,0,0}), 
-          Line(points={{0,-60},{0,-100}}, color={0,0,255}), 
+          Line(points={{-70,0},{-101,0}}, color={0,0,0}),
+          Line(points={{70,0},{100,0}}, color={0,0,0}),
+          Line(points={{0,-60},{0,-100}}, color={0,0,255}),
           Text(
-            extent={{-22,70},{20,46}}, 
-            textString="s", 
-            lineColor={0,0,255}), 
-          Line(points={{-98,40},{88,40}}, color={0,0,255}), 
+            extent={{-22,70},{20,46}},
+            textString="s",
+            lineColor={0,0,255}),
+          Line(points={{-98,40},{88,40}}, color={0,0,255}),
           Polygon(
-            points={{102,40},{87,46},{87,34},{102,40}}, 
-            lineColor={0,0,255}, 
-            fillColor={0,0,255}, 
+            points={{102,40},{87,46},{87,34},{102,40}},
+            lineColor={0,0,255},
+            fillColor={0,0,255},
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<HTML>
 <p>
@@ -2030,11 +2030,9 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
   model CutForce "Measure cut force vector" 
     
     import SI = Modelica.SIunits;
-    import Modelica.Mechanics.MultiBody.Types;
     
-    extends Modelica.Mechanics.MultiBody.Interfaces.PartialCutForceSensor;
     Modelica.Blocks.Interfaces.RealOutput force[3] 
-      "Cut force resolved in frame_a/frame_b or in frame_resolved, if connected"
+      "Cut force resolved in frame defined by resolveInFrame" 
          annotation (Placement(transformation(
           origin={-80,-110},
           extent={{10,-10},{-10,10}},
@@ -2044,8 +2042,7 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
       "= true, if animation shall be enabled (show arrow)";
     parameter Boolean positiveSign=true 
       "= true, if force with positive sign is returned (= frame_a.f), otherwise with negative sign (= frame_b.f)";
-    parameter Boolean resolveInFrame_a=true 
-      "= true, if force is resolved in frame_a/frame_b, otherwise in the world frame (if connector frame_resolve is connected, the force is resolved in frame_resolve)";
+    
     input Real N_to_m(unit="N/m") = 1000 
       " Force arrow scaling (length = force/N_to_m)" 
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -2058,31 +2055,52 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(group="if animation = true", enable=animation));
     
+    extends Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceSensor;
+    
     annotation (
-      preferedView="info",
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={Text(
             extent={{-190,-70},{-74,-96}}, 
-            lineColor={192,192,192}, 
-            textString="force")}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+            lineColor={0,0,0}, 
+            textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,
+                127})}),
+      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}}),
               graphics),
       Documentation(info="<HTML>
 <p>
-The cut-force acting at the component to which frame_b is
-connected is determined and provided at the output signal connector 
+The cut-force acting between the two frames to which this
+model is connected, is determined and provided at the output signal connector 
 <b>force</b> (= frame_a.f). If parameter <b>positiveSign</b> =
 <b>false</b>, the negative cut-force is provided (= frame_b.f).
-If <b>frame_resolve</b> is connected to another frame, then the
-cut-force is resolved in frame_resolve.
-If <b>frame_resolve</b> is <b>not</b> connected then the
-coordinate system in which the cut-force is resolved
-is defined by parameter <b>resolveInFrame_a</b>.
-If this parameter is <b>true</b>, then the
-cut-force is resolved in frame_a, otherwise it is
-resolved in the world frame.
+
+<p>
+Via parameter <b>resolveInFrame</b> it is defined, in which frame 
+the force vector is resolved:
 </p>
+ 
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><b>resolveInFrame =<br>Types.ResolveInFrame2.</b></th><th><b>Meaning</b></th></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
+ 
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+ 
+<tr><td valign=\"top\">frame_b</td>
+    <td valign=\"top\">Resolve vector in frame_b</td></tr>
+ 
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+</table>
+ 
+<p>
+If resolveInFrame = Types.ResolveInFrame2.frame_resolve, the conditional connector
+\"frame_resolve\" is enabled and output force is resolved in the frame, to
+which frame_resolve is connected. Note, if this connector is enabled, it must
+be connected.
+</p>
+
 <p>
 In the following figure the animation of a CutForce
 sensor is shown. The dark blue coordinate system is frame_b, 
@@ -2094,7 +2112,6 @@ with negative sign at frame_a.
 </p>
 </HTML>"));
   protected 
-    outer Modelica.Mechanics.MultiBody.World world;
     SI.Position f_in_m[3]=frame_a.f*(if positiveSign then +1 else -1)/N_to_m 
       "Force mapped from N to m for animation";
     Visualizers.Advanced.Arrow forceArrow(
@@ -2105,26 +2122,47 @@ with negative sign at frame_a.
       r=frame_b.r_0,
       r_tail=f_in_m,
       r_head=-f_in_m) if world.enableAnimation and animation;
+    
+    Internal.BasicCutForce cutForce(resolveInFrame=resolveInFrame, positiveSign=
+          positiveSign) 
+      annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
+    Internal.ZeroPosition zeroPosition if 
+      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve) 
+      annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
   equation 
-    if cardinality(frame_resolve) == 1 then
-      force = Frames.resolve2(frame_resolve.R, Frames.resolve1(frame_a.R,
-        frame_a.f))*(if positiveSign then +1 else -1);
-    elseif resolveInFrame_a then
-      force = frame_a.f*(if positiveSign then +1 else -1);
-    else
-      force = Frames.resolve1(frame_a.R, frame_a.f)*(if positiveSign then +1 else 
-              -1);
-    end if;
+    connect(cutForce.frame_a, frame_a)      annotation (Line(
+        points={{-50,0},{-100,0}},
+        color={95,95,95},
+        thickness=2,
+        smooth=Smooth.None));
+    connect(cutForce.frame_b, frame_b)      annotation (Line(
+        points={{-30,0},{100,0}},
+        color={95,95,95},
+        thickness=2,
+        smooth=Smooth.None));
+    connect(cutForce.frame_resolve, frame_resolve)      annotation (Line(
+        points={{-32,-10},{-32,-60},{80,-60},{80,-100}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
+    connect(cutForce.force, force)      annotation (Line(
+        points={{-48,-11},{-48,-60},{-80,-60},{-80,-110}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(zeroPosition.frame_resolve, cutForce.frame_resolve)      annotation (
+        Line(
+        points={{0,-30},{-32,-30},{-32,-10}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
   end CutForce;
   
   model CutTorque "Measure cut torque vector" 
     
     import SI = Modelica.SIunits;
-    import Modelica.Mechanics.MultiBody.Types;
     
-    extends Modelica.Mechanics.MultiBody.Interfaces.PartialCutForceSensor;
     Modelica.Blocks.Interfaces.RealOutput torque[3] 
-      "Cut torque resolved in frame_a/frame_b or in frame_resolved, if connected"
+      "Cut torque resolved in frame defined by resolveInFrame" 
          annotation (Placement(transformation(
           origin={-80,-110},
           extent={{10,-10},{-10,10}},
@@ -2134,43 +2172,66 @@ with negative sign at frame_a.
       "= true, if animation shall be enabled (show arrow)";
     parameter Boolean positiveSign=true 
       "= true, if torque with positive sign is returned (= frame_a.t), otherwise with negative sign (= frame_b.t)";
-    parameter Boolean resolveInFrame_a=true 
-      "= true, if torque is resolved in frame_a/frame_b, otherwise in the world frame (if connector frame_resolve is connected, the torque is resolved in frame_resolve)";
     input Real Nm_to_m(unit="N.m/m") = 1000 
-      " Torque arrow scaling (length = torque/Nm_to_m)" 
+      "Torque arrow scaling (length = torque/Nm_to_m)" 
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter torqueDiameter=world.defaultArrowDiameter 
-      " Diameter of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
+      "Diameter of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor 
-      " Color of torque arrow" 
+      "Color of torque arrow" 
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(group="if animation = true", enable=animation));
     
+    extends Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceSensor;
+    
     annotation (
-      preferedView="info",
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
               100}}), graphics={Text(
-            extent={{-168,-72},{-52,-98}}, 
-            lineColor={192,192,192}, 
-            textString="torque")}),
-      Diagram(graphics),
+            extent={{-180,-72},{-64,-98}}, 
+            lineColor={0,0,0}, 
+            textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,0,
+                127})}),
+      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
+              100,100}}),
+              graphics),
       Documentation(info="<HTML>
 <p>
-The cut-torque acting at the component to which frame_b is
-connected is determined and provided at the output signal connector 
+The cut-torque acting between the two frames to which this
+model is connected, is determined and provided at the output signal connector 
 <b>torque</b> (= frame_a.t). If parameter <b>positiveSign</b> =
-<b>false</b>, the negative cut-force is provided (= frame_b.t).
-If <b>frame_resolve</b> is connected to another frame, then the
-cut-torque is resolved in frame_resolve.
-If <b>frame_resolve</b> is <b>not</b> connected then the
-coordinate system in which the cut-torque is resolved
-is defined by parameter <b>resolveInFrame_a</b>.
-If this parameter is <b>true</b>, then the
-cut-torque is resolved in frame_a, otherwise it is
-resolved in the world frame.
+<b>false</b>, the negative cut-torque is provided (= frame_b.t).
 </p>
+
+<p>
+Via parameter <b>resolveInFrame</b> it is defined, in which frame 
+the torque vector is resolved:
+</p>
+ 
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><b>resolveInFrame =<br>Types.ResolveInFrame2.</b></th><th><b>Meaning</b></th></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vector in world frame</td></tr>
+ 
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vector in frame_a</td></tr>
+ 
+<tr><td valign=\"top\">frame_b</td>
+    <td valign=\"top\">Resolve vector in frame_b</td></tr>
+ 
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
+</table>
+ 
+<p>
+If resolveInFrame = Types.ResolveInFrame2.frame_resolve, the conditional connector
+\"frame_resolve\" is enabled and output torque is resolved in the frame, to
+which frame_resolve is connected. Note, if this connector is enabled, it must
+be connected.
+</p>
+
+
 <p>
 In the following figure the animation of a CutTorque
 sensor is shown. The dark blue coordinate system is frame_b, 
@@ -2182,7 +2243,6 @@ with negative sign at frame_a.
 </p>
 </HTML>"));
   protected 
-    outer Modelica.Mechanics.MultiBody.World world;
     SI.Position t_in_m[3]=frame_a.t*(if positiveSign then +1 else -1)/Nm_to_m 
       "Torque mapped from Nm to m for animation";
     Visualizers.Advanced.DoubleArrow torqueArrow(
@@ -2193,16 +2253,37 @@ with negative sign at frame_a.
       r=frame_b.r_0,
       r_tail=t_in_m,
       r_head=-t_in_m) if world.enableAnimation and animation;
+    Internal.BasicCutTorque cutTorque(resolveInFrame=resolveInFrame, positiveSign=
+         positiveSign) 
+      annotation (Placement(transformation(extent={{-62,-10},{-42,10}})));
+    Internal.ZeroPosition zeroPosition if 
+      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve) 
+      annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
   equation 
-    if cardinality(frame_resolve) == 1 then
-      torque = Frames.resolve2(frame_resolve.R, Frames.resolve1(frame_a.R,
-        frame_a.t))*(if positiveSign then +1 else -1);
-    elseif resolveInFrame_a then
-      torque = frame_a.t*(if positiveSign then +1 else -1);
-    else
-      torque = Frames.resolve1(frame_a.R, frame_a.t)*(if positiveSign then +1 else 
-              -1);
-    end if;
+    connect(cutTorque.frame_a, frame_a) annotation (Line(
+        points={{-62,0},{-100,0}},
+        color={95,95,95},
+        thickness=2,
+        smooth=Smooth.None));
+    connect(cutTorque.frame_b, frame_b) annotation (Line(
+        points={{-42,0},{100,0}},
+        color={95,95,95},
+        thickness=2,
+        smooth=Smooth.None));
+    connect(cutTorque.torque, torque) annotation (Line(
+        points={{-60,-11},{-60,-80},{-80,-80},{-80,-110}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(cutTorque.frame_resolve, frame_resolve) annotation (Line(
+        points={{-44,-10},{-44,-74},{80,-74},{80,-100}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
+    connect(zeroPosition.frame_resolve, cutTorque.frame_resolve) annotation (Line(
+        points={{-20,-30},{-44,-30},{-44,-10}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
   end CutTorque;
   
   model CutForceAndTorque "Measure cut force and cut torque vector" 
@@ -2210,11 +2291,16 @@ with negative sign at frame_a.
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
     
-    extends Modelica.Mechanics.MultiBody.Interfaces.PartialCutForceSensor;
-    Modelica.Blocks.Interfaces.RealOutput load[6] 
-      "Cut force and cut torque resolved in frame_a/frame_b or in frame_resolved, if connected"
+    Modelica.Blocks.Interfaces.RealOutput force[3] 
+      "Cut force resolved in frame defined by resolveInFrame" 
          annotation (Placement(transformation(
           origin={-80,-110},
+          extent={{10,-10},{-10,10}},
+          rotation=90)));
+    Modelica.Blocks.Interfaces.RealOutput torque[3] 
+      "Cut torque resolved in frame defined by resolveInFrame" 
+         annotation (Placement(transformation(
+          origin={0,-110},
           extent={{10,-10},{-10,10}},
           rotation=90)));
     
@@ -2222,61 +2308,81 @@ with negative sign at frame_a.
       "= true, if animation shall be enabled (show force and torque arrow)";
     parameter Boolean positiveSign=true 
       "= true, if force and torque with positive sign is returned (= frame_a.f/.t), otherwise with negative sign (= frame_b.f/.t)";
-    parameter Boolean resolveInFrame_a=true 
-      "= true, if force and torque are resolved in frame_a/frame_b, otherwise in the world frame (if connector frame_resolve is connected, the force/torque is resolved in frame_resolve)";
     input Real N_to_m(unit="N/m") = 1000 
-      " Force arrow scaling (length = force/N_to_m)" 
+      "Force arrow scaling (length = force/N_to_m)" 
       annotation (Dialog(group="if animation = true", enable=animation));
     input Real Nm_to_m(unit="N.m/m") = 1000 
-      " Torque arrow scaling (length = torque/Nm_to_m)" 
+      "Torque arrow scaling (length = torque/Nm_to_m)" 
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter forceDiameter=world.defaultArrowDiameter 
-      " Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
+      "Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter torqueDiameter=forceDiameter " Diameter of torque arrow" 
                                   annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor 
-      " Color of force arrow" 
+      "Color of force arrow" 
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor 
-      " Color of torque arrow" 
+      "Color of torque arrow" 
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(group="if animation = true", enable=animation));
     
-    SI.Force force[3] 
-      "Cut force resolved in frame_a/frame_b or in frame_resolved, if connected";
-    SI.Torque torque[3] 
-      "Cut torque resolved in frame_a/frame_b or in frame_resolved, if connected";
+    extends Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceSensor;
+    
     annotation (
-      preferedView="info",
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}}),
-           graphics),
-      Diagram(graphics),
+      Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
+              100}}), graphics={
+          Line(points={{-80,-100},{-80,0}}, color={0,0,127}), 
+          Line(points={{0,-100},{0,-70}}, color={0,0,127}), 
+          Text(
+            extent={{-188,-70},{-72,-96}}, 
+            lineColor={0,0,0}, 
+            textString="force"), 
+          Text(
+            extent={{-56,-70},{60,-96}}, 
+            lineColor={0,0,0}, 
+            textString="torque")}),
+      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
+              100,100}}),
+              graphics),
       Documentation(info="<HTML>
 <p>
-The cut-force and cut-torque acting at the component to which frame_b is
-connected are determined and provided at the output signal connector 
-<b>load</b>:
-</p>
-<pre>
-  load[1:3] = frame_a.f;
-  load[4:6] = frame_a.t;
-</pre>
-<p>
+The cut-force and cut-torque acting between the two frames to which this
+model is connected, are determined and provided at the output signal connectors 
+<b>force</b> (= frame_a.f) and <b>torque</b> (= frame_a.t).
 If parameter <b>positiveSign</b> =
-<b>false</b>, the negative cut-force and negative
-cut-torque is provided (= frame_b.f and frame_b.t).
-If <b>frame_resolve</b> is connected to another frame, then the
-cut-force and cut-torque are resolved in frame_resolve.
-If <b>frame_resolve</b> is <b>not</b> connected then the
-coordinate system in which the cut-force and cut-torque is resolved
-is defined by parameter <b>resolveInFrame_a</b>.
-If this parameter is <b>true</b>, then the
-cut-force and cut-torque is resolved in frame_a, otherwise it is
-resolved in the world frame.
+<b>false</b>, the negative cut-force and cut-torque is provided 
+(= frame_b.f, frame_b.t).
+
+<p>
+Via parameter <b>resolveInFrame</b> it is defined, in which frame 
+the two vectors are resolved:
 </p>
+ 
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><b>resolveInFrame =<br>Types.ResolveInFrame2.</b></th><th><b>Meaning</b></th></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve vectors in world frame</td></tr>
+ 
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve vectors in frame_a</td></tr>
+ 
+<tr><td valign=\"top\">frame_b</td>
+    <td valign=\"top\">Resolve vectors in frame_b</td></tr>
+ 
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve vectors in frame_resolve</td></tr>
+</table>
+ 
+<p>
+If resolveInFrame = Types.ResolveInFrame2.frame_resolve, the conditional connector
+\"frame_resolve\" is enabled and the output vectors force and torque are resolved in the frame, to
+which frame_resolve is connected. Note, if this connector is enabled, it must
+be connected.
+</p>
+
+
 <p>
 In the following figure the animation of a CutForceAndTorque
 sensor is shown. The dark blue coordinate system is frame_b, 
@@ -2289,7 +2395,6 @@ with negative sign at frame_a.
 </p>
 </HTML>"));
   protected 
-    outer Modelica.Mechanics.MultiBody.World world;
     parameter Integer csign=if positiveSign then +1 else -1;
     SI.Position f_in_m[3]=frame_a.f*csign/N_to_m 
       "Force mapped from N to m for animation";
@@ -2311,22 +2416,59 @@ with negative sign at frame_a.
       r=frame_b.r_0,
       r_tail=t_in_m,
       r_head=-t_in_m) if world.enableAnimation and animation;
+    Internal.BasicCutForce cutForce(resolveInFrame=resolveInFrame, positiveSign=
+          positiveSign) 
+      annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+    Internal.BasicCutTorque cutTorque(resolveInFrame=resolveInFrame, positiveSign=
+         positiveSign) 
+      annotation (Placement(transformation(extent={{-2,-10},{18,10}})));
+    Internal.ZeroPosition zeroPosition if 
+      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve) 
+      annotation (Placement(transformation(extent={{60,30},{80,50}})));
   equation 
-    if cardinality(frame_resolve) == 1 then
-      force = Frames.resolve2(frame_resolve.R, Frames.resolve1(frame_a.R,
-        frame_a.f))*csign;
-      torque = Frames.resolve2(frame_resolve.R, Frames.resolve1(frame_a.R,
-        frame_a.t))*csign;
-    elseif resolveInFrame_a then
-      force = frame_a.f*csign;
-      torque = frame_a.t*csign;
-    else
-      force = Frames.resolve1(frame_a.R, frame_a.f)*csign;
-      torque = Frames.resolve1(frame_a.R, frame_a.t)*csign;
-    end if;
-    
-    load[1:3] = force;
-    load[4:6] = torque;
+    connect(cutForce.frame_a, frame_a) annotation (Line(
+        points={{-60,0},{-100,0}},
+        color={95,95,95},
+        thickness=2,
+        smooth=Smooth.None));
+    connect(cutForce.frame_b, cutTorque.frame_a) annotation (Line(
+        points={{-40,0},{-2,0}},
+        color={95,95,95},
+        thickness=2,
+        smooth=Smooth.None));
+    connect(cutTorque.frame_b, frame_b) annotation (Line(
+        points={{18,0},{100,0}},
+        color={95,95,95},
+        thickness=2,
+        smooth=Smooth.None));
+    connect(cutForce.force, force) annotation (Line(
+        points={{-58,-11},{-60,-11},{-60,-20},{-80,-20},{-80,-110}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(cutTorque.torque, torque) annotation (Line(
+        points={{0,-11},{0,-110}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(zeroPosition.frame_resolve, cutTorque.frame_resolve) annotation (Line(
+        points={{60,40},{32,40},{32,-20},{16,-20},{16,-10}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
+    connect(zeroPosition.frame_resolve, cutForce.frame_resolve) annotation (Line(
+        points={{60,40},{-26,40},{-26,-20},{-42,-20},{-42,-10}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
+    connect(cutForce.frame_resolve, frame_resolve) annotation (Line(
+        points={{-42,-10},{-42,-70},{80,-70},{80,-100}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
+    connect(cutTorque.frame_resolve, frame_resolve) annotation (Line(
+        points={{16,-10},{16,-70},{80,-70},{80,-100}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
   end CutForceAndTorque;
   
   model Power "Measure power flowing from frame_a to frame_b" 
@@ -2496,7 +2638,7 @@ transformed output vector as \"Real r_out[3]\";
         color={0,0,127},
         smooth=Smooth.None));
   end TansformAbsoluteVector;
-
+  
   model TansformRelativeVector "Transform relative vector in to another frame" 
     extends Internal.PartialRelativeSensor;
     
@@ -3163,5 +3305,271 @@ transformed output vector as \"Real r_out[3]\";
       frame_a.t = zeros(3);
     end ZeroForceAndTorque;
     
+    partial model PartialCutForceSensor 
+      "Base model to measure the cut force and/or torque between two frames, defined by components" 
+      
+      extends Modelica.Icons.RotationalSensor;
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a 
+        "Coordinate system a"                                                          annotation (Placement(
+            transformation(extent={{-116,-16},{-84,16}}, rotation=0)));
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b 
+        "Coordinate system b"                                                          annotation (Placement(
+            transformation(extent={{84,-16},{116,16}}, rotation=0)));
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve 
+        "The output vector is optionally resolved in this frame (cut-force/-torque are set to zero)"
+        annotation (Placement(transformation(
+            origin={80,-100},
+            extent={{-16,-16},{16,16}},
+            rotation=270)));
+      
+      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame2 
+        resolveInFrame=
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_a 
+        "Frame in which output vector is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
+      
+      annotation (
+        Window(
+          x=0.37,
+          y=0.02,
+          width=0.6,
+          height=0.65),
+        Documentation(info="
+<HTML>
+<p>
+This is a base class for 3-dim. mechanical components with two frames
+and one output port in order to measure the cut-force and/or
+cut-torque acting between the two frames and
+to provide the measured signals as output for further processing
+with the blocks of package Modelica.Blocks.
+</p>
+</HTML>
+"),     Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={
+            Line(points={{-70,0},{-101,0}}, color={0,0,0}), 
+            Line(points={{70,0},{100,0}}, color={0,0,0}), 
+            Text(
+              extent={{-132,76},{129,124}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
+            Text(
+              extent={{-118,55},{-82,30}}, 
+              lineColor={128,128,128}, 
+              textString="a"), 
+            Text(
+              extent={{83,55},{119,30}}, 
+              lineColor={128,128,128}, 
+              textString="b"), 
+            Text(
+              extent={{70,-66},{201,-91}}, 
+              lineColor={95,95,95}, 
+              textString="resolve"), 
+            Line(
+              points={{80,0},{80,-100}}, 
+              color={95,95,95}, 
+              pattern=LinePattern.Dot)}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics));
+      
+    protected 
+      outer Modelica.Mechanics.MultiBody.World world;
+    equation 
+      assert(cardinality(frame_a) > 0,
+        "Connector frame_a of cut-force/-torque sensor object is not connected");
+      assert(cardinality(frame_b) > 0,
+        "Connector frame_b of cut-force/-torque sensor object is not connected");
+      
+    end PartialCutForceSensor;
+
+    partial model PartialCutForceBaseSensor 
+      "Base model to measure the cut force and/or torque between two frames, defined by equations (frame_resolve must be connected exactly once)" 
+      
+      extends Modelica.Icons.RotationalSensor;
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a 
+        "Coordinate system a"                                                          annotation (Placement(
+            transformation(extent={{-116,-16},{-84,16}}, rotation=0)));
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b 
+        "Coordinate system b"                                                          annotation (Placement(
+            transformation(extent={{84,-16},{116,16}}, rotation=0)));
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve 
+        "The output vector is optionally resolved in this frame (cut-force/-torque are set to zero)"
+        annotation (Placement(transformation(
+            origin={80,-100},
+            extent={{-16,-16},{16,16}},
+            rotation=270)));
+      
+      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame2 
+        resolveInFrame=
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_a 
+        "Frame in which output vector is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
+      
+      annotation (
+        Window(
+          x=0.37,
+          y=0.02,
+          width=0.6,
+          height=0.65),
+        Documentation(info="
+<HTML>
+<p>
+This is a base class for 3-dim. mechanical components with two frames
+and one output port in order to measure the cut-force and/or
+cut-torque acting between the two frames and
+to provide the measured signals as output for further processing
+with the blocks of package Modelica.Blocks.
+</p>
+</HTML>
+"),     Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={
+            Line(points={{-70,0},{-101,0}}, color={0,0,0}), 
+            Line(points={{70,0},{100,0}}, color={0,0,0}), 
+            Text(
+              extent={{-132,76},{129,124}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
+            Text(
+              extent={{-118,55},{-82,30}}, 
+              lineColor={128,128,128}, 
+              textString="a"), 
+            Text(
+              extent={{83,55},{119,30}}, 
+              lineColor={128,128,128}, 
+              textString="b"), 
+            Text(
+              extent={{70,-66},{201,-91}}, 
+              lineColor={95,95,95}, 
+              textString="resolve"), 
+            Line(
+              points={{80,0},{80,-100}}, 
+              color={95,95,95}, 
+              pattern=LinePattern.Dot)}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics));
+      
+    protected 
+      outer Modelica.Mechanics.MultiBody.World world;
+    equation 
+      defineBranch(frame_a.R, frame_b.R);
+      assert(cardinality(frame_a) > 0,
+        "Connector frame_a of cut-force/-torque sensor object is not connected");
+      assert(cardinality(frame_b) > 0,
+        "Connector frame_b of cut-force/-torque sensor object is not connected");
+      
+      // frame_a and frame_b are identical
+      frame_a.r_0 = frame_b.r_0;
+      frame_a.R = frame_b.R;
+      
+      // force and torque balance
+      zeros(3) = frame_a.f + frame_b.f;
+      zeros(3) = frame_a.t + frame_b.t;
+      frame_resolve.f = zeros(3);
+      frame_resolve.t = zeros(3);
+    end PartialCutForceBaseSensor;
+
+    model BasicCutForce 
+      "Measure cut force vector (frame_resolve must be connected)" 
+      
+      import SI = Modelica.SIunits;
+      import Modelica.Mechanics.MultiBody.Types.ResolveInFrame2;
+      import Modelica.Mechanics.MultiBody.Frames;
+      
+      extends 
+        Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceBaseSensor;
+      Modelica.Blocks.Interfaces.RealOutput force[3](final quantity="Force", final unit
+          =                                                                             "N") 
+        "Cut force resolved in frame defined by resolveInFrame" 
+           annotation (Placement(transformation(
+            origin={-80,-110},
+            extent={{10,-10},{-10,10}},
+            rotation=90)));
+        parameter Boolean positiveSign=true 
+        "= true, if force with positive sign is returned (= frame_a.f), otherwise with negative sign (= frame_b.f)";
+      annotation (
+         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                100,100}}, 
+            grid={1,1}), graphics={Text(
+              extent={{-190,-70},{-74,-96}}, 
+              lineColor={0,0,0}, 
+              textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,
+                  127})}),
+        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
+                {100,100}}, 
+            grid={1,1}),
+                graphics),
+        Documentation(info="<HTML>
+ 
+</HTML>"));
+    protected 
+      parameter Integer csign=if positiveSign then +1 else -1;
+    equation 
+       if resolveInFrame == ResolveInFrame2.world then
+          force = Frames.resolve1(frame_a.R, frame_a.f)*csign;
+       elseif resolveInFrame == ResolveInFrame2.frame_a then
+          force = frame_a.f*csign;
+       elseif resolveInFrame == ResolveInFrame2.frame_b then
+          force = frame_b.f*(-csign);
+       elseif resolveInFrame == ResolveInFrame2.frame_resolve then
+          force = Frames.resolveRelative(frame_a.f, frame_a.R, frame_resolve.R)*csign;
+       else
+          assert(false,"Wrong value for parameter resolveInFrame");
+          force = zeros(3);
+       end if;
+    end BasicCutForce;
+
+    model BasicCutTorque 
+      "Measure cut torque vector (frame_resolve must be connected)" 
+      
+      import SI = Modelica.SIunits;
+      import Modelica.Mechanics.MultiBody.Types.ResolveInFrame2;
+      import Modelica.Mechanics.MultiBody.Frames;
+      
+      extends 
+        Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceBaseSensor;
+      Modelica.Blocks.Interfaces.RealOutput torque[3](final quantity="Torque", final unit
+          = "N.m") "Cut torque resolved in frame defined by resolveInFrame" 
+           annotation (Placement(transformation(
+            origin={-80,-110},
+            extent={{10,-10},{-10,10}},
+            rotation=90)));
+      
+      parameter Boolean positiveSign=true 
+        "= true, if torque with positive sign is returned (= frame_a.t), otherwise with negative sign (= frame_b.t)";
+      
+      annotation (
+         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                100,100}}), graphics={Text(
+              extent={{-190,-70},{-74,-96}}, 
+              lineColor={0,0,0}, 
+              textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,
+                  0,127})}),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics),
+        Documentation(info="<HTML>
+ 
+</HTML>"));
+    protected 
+      parameter Integer csign=if positiveSign then +1 else -1;
+    equation 
+       if resolveInFrame == ResolveInFrame2.world then
+          torque = Frames.resolve1(frame_a.R, frame_a.t)*csign;
+       elseif resolveInFrame == ResolveInFrame2.frame_a then
+          torque = frame_a.t*csign;
+       elseif resolveInFrame == ResolveInFrame2.frame_b then
+          torque = frame_b.t*(-csign);
+       elseif resolveInFrame == ResolveInFrame2.frame_resolve then
+          torque = Frames.resolveRelative(frame_a.t, frame_a.R, frame_resolve.R)*csign;
+       else
+          assert(false,"Wrong value for parameter resolveInFrame");
+          torque = zeros(3);
+       end if;
+    end BasicCutTorque;
   end Internal;
 end Sensors;

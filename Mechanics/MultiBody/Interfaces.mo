@@ -405,8 +405,7 @@ needed and if the two frame connectors should be connected for a correct model.
             extent={{100,-15},{124,-34}}, 
             lineColor={128,128,128}, 
             textString="b")},
-           coordinateSystem(extent={{-200,-200},{200,200}}, preserveAspectRatio
-            =false)),
+           coordinateSystem(extent={{-200,-200},{200,200}}, preserveAspectRatio=false)),
       Documentation(info="<HTML>
 <p>
 This partial model provides two frame connectors, access to the world
@@ -740,7 +739,7 @@ with the blocks of package Modelica.Blocks.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-70,0},{-100,0}}, color={0,0,0}),
+          grid={1,1}), graphics={Line(points={{-70,0},{-100,0}}, color={0,0,0}), 
             Line(points={{70,0},{100,0}}, color={0,0,255})}));
   equation 
     assert(cardinality(frame_a) > 0,
@@ -803,8 +802,8 @@ with the blocks of package Modelica.Blocks.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-70,0},{-100,0}}, color={0,0,0}),
-          Line(points={{70,0},{100,0}}, color={0,0,0}),
+          Line(points={{-70,0},{-100,0}}, color={0,0,0}), 
+          Line(points={{70,0},{100,0}}, color={0,0,0}), 
           Line(points={{0,-100},{0,-70}}, color={0,0,127})}));
   equation 
     
@@ -815,106 +814,6 @@ with the blocks of package Modelica.Blocks.
     
   end PartialRelativeSensor;
   
-  partial model PartialCutForceSensor 
-    "Base model to measure the cut force and/or torque between two frames" 
-    
-    extends Modelica.Icons.RotationalSensor;
-    Interfaces.Frame_a frame_a 
-      "Coordinate system with one cut-force and cut-torque"                          annotation (Placement(
-          transformation(extent={{-116,-16},{-84,16}}, rotation=0)));
-    Interfaces.Frame_b frame_b 
-      "Coordinate system with one cut-force and cut-torque"                          annotation (Placement(
-          transformation(extent={{84,-16},{116,16}}, rotation=0)));
-    Interfaces.Frame_resolve frame_resolve 
-      "If connected, the output signals are resolved in this frame (cut-force/-torque are set to zero)"
-      annotation (Placement(transformation(
-          origin={80,-100},
-          extent={{-16,-16},{16,16}},
-          rotation=270)));
-    
-    annotation (
-      Window(
-        x=0.37,
-        y=0.02,
-        width=0.6,
-        height=0.65),
-      Documentation(info="
-<HTML>
-<p>
-This is a base class for 3-dim. mechanical components with two frames
-and one output port in order to measure the cut-force and/or
-cut-torque acting between the two frames and
-to provide the measured signals as output for further processing
-with the blocks of package Modelica.Blocks.
-</p>
-</HTML>
-"),   Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
-          Line(points={{-70,0},{-101,0}}, color={0,0,0}), 
-          Line(points={{70,0},{100,0}}, color={0,0,0}), 
-          Line(points={{-80,-100},{-80,0}}, color={0,0,127}), 
-          Text(
-            extent={{-132,76},{129,124}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
-          Text(
-            extent={{-118,55},{-82,30}}, 
-            lineColor={128,128,128}, 
-            textString="a"), 
-          Text(
-            extent={{83,55},{119,30}}, 
-            lineColor={128,128,128}, 
-            textString="b"), 
-          Text(
-            extent={{-31,-72},{100,-97}}, 
-            lineColor={192,192,192}, 
-            textString="resolve"), 
-          Line(
-            points={{80,0},{80,-100}}, 
-            color={95,95,95}, 
-            pattern=LinePattern.Dot)}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
-          Line(points={{-70,0},{-100,0}}, color={0,0,0}),
-          Line(points={{70,0},{100,0}}, color={0,0,0}),
-          Line(points={{-80,-100},{-80,0}}, color={0,0,127}),
-          Line(
-            points={{80,0},{80,-100}},
-            color={95,95,95},
-            pattern=LinePattern.Dot)}));
-    
-  protected 
-    outer Modelica.Mechanics.MultiBody.World world;
-  equation 
-    defineBranch(frame_a.R, frame_b.R);
-    assert(cardinality(frame_a) > 0,
-      "Connector frame_a of cut-force/-torque sensor object is not connected");
-    assert(cardinality(frame_b) > 0,
-      "Connector frame_b of cut-force/-torque sensor object is not connected");
-    
-    // frame_a and frame_b are identical
-    frame_a.r_0 = frame_b.r_0;
-    frame_a.R = frame_b.R;
-    
-    // force and torque balance
-    zeros(3) = frame_a.f + frame_b.f;
-    zeros(3) = frame_a.t + frame_b.t;
-    
-    // deduce cut-force
-    if cardinality(frame_resolve) == 1 then
-      // frame_resolve is connected
-      frame_resolve.f = zeros(3);
-      frame_resolve.t = zeros(3);
-    else
-      // frame_resolve is NOT connected
-      frame_resolve.r_0 = zeros(3);
-      frame_resolve.R = Frames.nullRotation();
-    end if;
-  end PartialCutForceSensor;
   
   partial model PartialVisualizer 
     "Base model for visualizers (has a frame_a on the left side + outer world + assert to guarantee that the component is connected)" 
