@@ -2190,19 +2190,19 @@ thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to t
       Documentation(info="<html><p>
 This power sensor measures instantaneous electrical power of a multiphase system and has a separated voltage and current path. The plugs of the voltage path are <code>pv</code> and <code>nv</code>, the plugs of the current path are <code>pc</code> and <code>nc</code>. The internal resistance of each current path is zero, the internal resistance of each voltage path is infinite. 
 </p></html>"));
-    Modelica.Electrical.MultiPhase.Interfaces.PositivePlug pc(final m=m) 
+    MultiPhase.Interfaces.PositivePlug pc(final m=m) 
         "Positive plug, current path" 
       annotation (Placement(transformation(extent={{-110,10},{-90,-10}},
               rotation=0)));
-    Modelica.Electrical.MultiPhase.Interfaces.NegativePlug nc(final m=m) 
+    MultiPhase.Interfaces.NegativePlug nc(final m=m) 
         "Negative plug, current path" 
       annotation (Placement(transformation(extent={{90,10},{110,-10}}, rotation=
                0)));
-    Modelica.Electrical.MultiPhase.Interfaces.PositivePlug pv(final m=m) 
+    MultiPhase.Interfaces.PositivePlug pv(final m=m) 
         "Positive plug, voltage path" 
       annotation (Placement(transformation(extent={{-10,90},{10,110}}, rotation=
                0)));
-    Modelica.Electrical.MultiPhase.Interfaces.NegativePlug nv(final m=m) 
+    MultiPhase.Interfaces.NegativePlug nv(final m=m) 
         "Negative plug, voltage path" 
       annotation (Placement(transformation(extent={{-10,-90},{10,-110}},
               rotation=0)));
@@ -2211,12 +2211,12 @@ This power sensor measures instantaneous electrical power of a multiphase system
             origin={-80,-110},
             extent={{10,-10},{-10,10}},
             rotation=90)));
-    Modelica.Electrical.MultiPhase.Sensors.VoltageSensor voltageSensor(final m=m) 
+    MultiPhase.Sensors.VoltageSensor voltageSensor(final m=m) 
       annotation (Placement(transformation(
             origin={0,-20},
             extent={{10,-10},{-10,10}},
             rotation=90)));
-    Modelica.Electrical.MultiPhase.Sensors.CurrentSensor currentSensor(final m=m) 
+    MultiPhase.Sensors.CurrentSensor currentSensor(final m=m) 
       annotation (Placement(transformation(extent={{-50,-10},{-30,10}},
               rotation=0)));
     Modelica.Blocks.Math.Product product[m] 
