@@ -54,24 +54,24 @@ different icons.
           extent={{-100,-100},{100,100}},
           grid={1,1},
           initialScale=0.16), graphics={Rectangle(
-            extent={{-10,10},{10,-10}}, 
-            lineColor={95,95,95}, 
+            extent={{-10,10},{10,-10}},
+            lineColor={95,95,95},
             lineThickness=2), Rectangle(
-            extent={{-30,100},{30,-100}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
+            extent={{-30,100},{30,-100}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
      Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1},
           initialScale=0.16), graphics={Text(
-            extent={{-140,-50},{140,-88}}, 
-            lineColor={0,0,0}, 
+            extent={{-140,-50},{140,-88}},
+            lineColor={0,0,0},
             textString="%name"), Rectangle(
-            extent={{-12,40},{12,-40}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
+            extent={{-12,40},{12,-40}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
       Window(
         x=0.21,
@@ -141,26 +141,26 @@ coordinate system a vector is resolved (non-filled rectangular icon)"
           extent={{-100,-100},{100,100}},
           grid={1,1},
           initialScale=0.16), graphics={Rectangle(
-            extent={{-10,10},{10,-10}}, 
-            lineColor={95,95,95}, 
+            extent={{-10,10},{10,-10}},
+            lineColor={95,95,95},
             pattern=LinePattern.Dot), Rectangle(
-            extent={{-30,100},{30,-100}}, 
-            lineColor={95,95,95}, 
-            pattern=LinePattern.Dot, 
-            fillColor={255,255,255}, 
+            extent={{-30,100},{30,-100}},
+            lineColor={95,95,95},
+            pattern=LinePattern.Dot,
+            fillColor={255,255,255},
             fillPattern=FillPattern.Solid)}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1},
           initialScale=0.16), graphics={Text(
-            extent={{-140,-50},{140,-88}}, 
-            lineColor={0,0,0}, 
+            extent={{-140,-50},{140,-88}},
+            lineColor={0,0,0},
             textString="%name"), Rectangle(
-            extent={{-12,40},{12,-40}}, 
-            lineColor={95,95,95}, 
-            pattern=LinePattern.Dot, 
-            fillColor={255,255,255}, 
+            extent={{-12,40},{12,-40}},
+            lineColor={95,95,95},
+            pattern=LinePattern.Dot,
+            fillColor={255,255,255},
             fillPattern=FillPattern.Solid)}),
     Window(
       x=0.21,
@@ -199,59 +199,59 @@ end Frame_resolve;
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-20,1},{20,-1}}, 
-            lineColor={135,135,135}, 
-            lineThickness=2, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-20,1},{20,-1}},
+            lineColor={135,135,135},
+            lineThickness=2,
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-100,100},{100,-100}}, 
-            lineColor={255,255,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-100,100},{100,-100}},
+            lineColor={255,255,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-100,25},{100,-24}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={175,175,175}), 
-          Line(points={{-80,60},{80,60}}, color={0,0,0}), 
-          Line(points={{-80,-60},{80,-60}}, color={0,0,0}), 
-          Line(points={{0,100},{0,60}}, color={0,0,0}), 
-          Line(points={{0,-60},{0,-100}}, color={0,0,0}), 
-          Rectangle(extent={{-100,100},{100,-100}}, lineColor={135,135,135}), 
+            extent={{-100,25},{100,-24}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={175,175,175}),
+          Line(points={{-80,60},{80,60}}, color={0,0,0}),
+          Line(points={{-80,-60},{80,-60}}, color={0,0,0}),
+          Line(points={{0,100},{0,60}}, color={0,0,0}),
+          Line(points={{0,-60},{0,-100}}, color={0,0,0}),
+          Rectangle(extent={{-100,100},{100,-100}}, lineColor={135,135,135}),
           Rectangle(extent={{-100,25},{100,-24}}, lineColor={0,0,0})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(
-            points={{-50,-40},{50,-40}}, 
-            color={0,0,0}, 
-            thickness=2), 
+            points={{-50,-40},{50,-40}},
+            color={0,0,0},
+            thickness=2),
           Line(
-            points={{-50,40},{50,40}}, 
-            color={0,0,0}, 
-            thickness=2), 
+            points={{-50,40},{50,40}},
+            color={0,0,0},
+            thickness=2),
           Text(
-            extent={{-158,-66},{158,-124}}, 
-            lineColor={0,0,0}, 
-            lineThickness=2, 
-            textString="%name"), 
+            extent={{-158,-66},{158,-124}},
+            lineColor={0,0,0},
+            lineThickness=2,
+            textString="%name"),
           Rectangle(
-            extent={{-60,60},{60,-60}}, 
-            lineColor={255,255,255}, 
-            lineThickness=2, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-60,60},{60,-60}},
+            lineColor={255,255,255},
+            lineThickness=2,
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-60,15},{60,-15}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={175,175,175}), 
-          Line(points={{0,60},{0,40}}, color={0,0,0}), 
-          Line(points={{0,-40},{0,-60}}, color={0,0,0}), 
-          Line(points={{-50,40},{50,40}}, color={0,0,0}), 
-          Line(points={{-50,-40},{50,-40}}, color={0,0,0}), 
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={135,135,135}), 
+            extent={{-60,15},{60,-15}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={175,175,175}),
+          Line(points={{0,60},{0,40}}, color={0,0,0}),
+          Line(points={{0,-40},{0,-60}}, color={0,0,0}),
+          Line(points={{-50,40},{50,40}}, color={0,0,0}),
+          Line(points={{-50,-40},{50,-40}}, color={0,0,0}),
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={135,135,135}),
           Rectangle(extent={{-60,15},{60,-15}}, lineColor={0,0,0})}),
       Documentation(info="<html>
 <p>
@@ -298,20 +298,20 @@ to the FlangeWithBearing connector.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-100,30},{20,-100}}, 
-            lineColor={255,255,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-100,30},{20,-100}},
+            lineColor={255,255,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Line(
-            points={{-100,-10},{-100,-40},{0,-40},{0,-100}}, 
-            color={0,0,0}, 
-            thickness=2), 
-          Line(points={{-90,0},{0,0}}, color={0,0,0}), 
+            points={{-100,-10},{-100,-40},{0,-40},{0,-100}},
+            color={0,0,0},
+            thickness=2),
+          Line(points={{-90,0},{0,0}}, color={0,0,0}),
           Text(
-            extent={{-216,88},{86,36}}, 
-            lineColor={0,0,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid, 
+            extent={{-216,88},{86,36}},
+            lineColor={0,0,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
             textString="%name")}),
       Documentation(info="<html>
 <p>
@@ -358,11 +358,11 @@ connector.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={Text(
-            extent={{-136,-25},{-100,-50}}, 
-            lineColor={128,128,128}, 
+            extent={{-136,-25},{-100,-50}},
+            lineColor={128,128,128},
             textString="a"), Text(
-            extent={{100,-25},{136,-50}}, 
-            lineColor={128,128,128}, 
+            extent={{100,-25},{136,-50}},
+            lineColor={128,128,128},
             textString="b")}),
       Documentation(info="<HTML>
 <p>
@@ -399,11 +399,11 @@ needed and if the two frame connectors should be connected for a correct model.
       "Connector frame_b of component is not connected");
     annotation (
       Icon(graphics={Text(
-            extent={{-123,-15},{-100,-34}}, 
-            lineColor={128,128,128}, 
+            extent={{-123,-15},{-100,-34}},
+            lineColor={128,128,128},
             textString="a"), Text(
-            extent={{100,-15},{124,-34}}, 
-            lineColor={128,128,128}, 
+            extent={{100,-15},{124,-34}},
+            lineColor={128,128,128},
             textString="b")},
            coordinateSystem(extent={{-200,-200},{200,200}}, preserveAspectRatio=false)),
       Documentation(info="<HTML>
@@ -602,11 +602,11 @@ to which this force element is connected.
 </p>
 </HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Text(
-            extent={{-136,42},{-100,17}}, 
-            lineColor={128,128,128}, 
+            extent={{-136,42},{-100,17}},
+            lineColor={128,128,128},
             textString="a"), Text(
-            extent={{102,44},{138,19}}, 
-            lineColor={128,128,128}, 
+            extent={{102,44},{138,19}},
+            lineColor={128,128,128},
             textString="b")}));
   end PartialForce;
   
@@ -688,11 +688,11 @@ has to be defined. Example:
 </pre>
 </HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Text(
-            extent={{-136,44},{-100,19}}, 
-            lineColor={128,128,128}, 
+            extent={{-136,44},{-100,19}},
+            lineColor={128,128,128},
             textString="a"), Text(
-            extent={{100,42},{136,17}}, 
-            lineColor={128,128,128}, 
+            extent={{100,42},{136,17}},
+            lineColor={128,128,128},
             textString="b")}));
   end PartialLineForce;
   
@@ -730,16 +730,16 @@ with the blocks of package Modelica.Blocks.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-70,0},{-100,0}}, color={0,0,0}), 
-          Line(points={{70,0},{100,0}}, color={0,0,255}), 
+          Line(points={{-70,0},{-100,0}}, color={0,0,0}),
+          Line(points={{70,0},{100,0}}, color={0,0,255}),
           Text(
-            extent={{-132,-125},{131,-79}}, 
-            textString="%name", 
+            extent={{-132,-125},{131,-79}},
+            textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-70,0},{-100,0}}, color={0,0,0}), 
+          grid={1,1}), graphics={Line(points={{-70,0},{-100,0}}, color={0,0,0}),
             Line(points={{70,0},{100,0}}, color={0,0,255})}));
   equation 
     assert(cardinality(frame_a) > 0,
@@ -783,27 +783,27 @@ with the blocks of package Modelica.Blocks.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-70,0},{-101,0}}, color={0,0,0}), 
-          Line(points={{70,0},{100,0}}, color={0,0,0}), 
-          Line(points={{0,-100},{0,-70}}, color={0,0,127}), 
+          Line(points={{-70,0},{-101,0}}, color={0,0,0}),
+          Line(points={{70,0},{100,0}}, color={0,0,0}),
+          Line(points={{0,-100},{0,-70}}, color={0,0,127}),
           Text(
-            extent={{-132,76},{129,124}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-132,76},{129,124}},
+            textString="%name",
+            lineColor={0,0,255}),
           Text(
-            extent={{-118,52},{-82,27}}, 
-            lineColor={128,128,128}, 
-            textString="a"), 
+            extent={{-118,52},{-82,27}},
+            lineColor={128,128,128},
+            textString="a"),
           Text(
-            extent={{85,53},{121,28}}, 
-            lineColor={128,128,128}, 
+            extent={{85,53},{121,28}},
+            lineColor={128,128,128},
             textString="b")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-70,0},{-100,0}}, color={0,0,0}), 
-          Line(points={{70,0},{100,0}}, color={0,0,0}), 
+          Line(points={{-70,0},{-100,0}}, color={0,0,0}),
+          Line(points={{70,0},{100,0}}, color={0,0,0}),
           Line(points={{0,-100},{0,-70}}, color={0,0,127})}));
   equation 
     
@@ -813,7 +813,6 @@ with the blocks of package Modelica.Blocks.
       "Connector frame_b of relative sensor object is not connected");
     
   end PartialRelativeSensor;
-  
   
   partial model PartialVisualizer 
     "Base model for visualizers (has a frame_a on the left side + outer world + assert to guarantee that the component is connected)" 

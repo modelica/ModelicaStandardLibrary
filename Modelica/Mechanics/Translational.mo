@@ -911,16 +911,16 @@ to see the difference.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-56,-88},{62,-100}}, 
-              textString="simulate 5 s", 
-              lineColor={0,0,255}), 
+              extent={{-56,-88},{62,-100}},
+              textString="simulate 5 s",
+              lineColor={0,0,255}),
             Text(
-              extent={{-100,80},{-80,60}}, 
-              textString="1)", 
-              lineColor={0,0,255}), 
+              extent={{-100,80},{-80,60}},
+              textString="1)",
+              lineColor={0,0,255}),
             Text(
-              extent={{-100,20},{-80,0}}, 
-              textString="2)", 
+              extent={{-100,20},{-80,0}},
+              textString="2)",
               lineColor={0,0,255})}),
         Window(
           x=0.45,
@@ -939,7 +939,7 @@ to see the difference.
 </html>
 "),     experiment(StopTime=5),
         experimentSetupOutput);
-      Components.MassWithStopAndFriction stop1(                                 L=1) 
+      Translational.Components.MassWithStopAndFriction stop1(                   L=1) 
                                     annotation (Placement(transformation(extent=
                {{60,60},{80,80}}, rotation=0)));
       Translational.Grounded.Force force 
@@ -960,22 +960,15 @@ to see the difference.
       Translational.Components.Spring spring(s_rel0=1, c=500) 
                                                     annotation (Placement(
             transformation(extent={{20,0},{40,20}}, rotation=0)));
-      Translational.Components.Fixed fixed2b(s0=-1.75) 
+      Translational.Components.Fixed fixed2(s0=-1.75) 
                                            annotation (Placement(transformation(
               extent={{-22,0},{-2,20}}, rotation=0)));
-      Translational.Components.Fixed fixed2a(s0=-1.75) 
-                                           annotation (Placement(transformation(
-              extent={{60,-20},{80,0}}, rotation=0)));
-      Translational.Components.Fixed fixed1a(s0=-1.75) 
-                                           annotation (Placement(transformation(
-              extent={{60,40},{80,60}}, rotation=0)));
     equation 
       connect(spring.flange_b, stop2.flange_a)  annotation (Line(points={{40,10},
               {60,10}}, color={0,191,0}));
       connect(sineForce.y, force.f) 
         annotation (Line(points={{1,70},{18,70}}, color={0,0,127}));
-      connect(spring.flange_a, fixed2b.flange) 
-                                              annotation (Line(
+      connect(spring.flange_a, fixed2.flange) annotation (Line(
           points={{20,10},{-12,10}},
           color={0,127,0},
           smooth=Smooth.None,
@@ -987,14 +980,6 @@ to see the difference.
           smooth=Smooth.None,
           fillColor={0,127,0},
           fillPattern=FillPattern.Solid));
-      connect(stop2.support, fixed2a.flange) annotation (Line(
-          points={{70,0},{70,-10}}, 
-          color={0,127,0}, 
-          smooth=Smooth.None));
-      connect(stop1.support, fixed1a.flange) annotation (Line(
-          points={{70,60},{70,50}}, 
-          color={0,127,0}, 
-          smooth=Smooth.None));
     end Friction;
     
     model PreLoad "Preload of a spool using ElastoGap models." 
@@ -1012,17 +997,16 @@ to see the difference.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-98,-68},{102,-94}}, 
-              textString="positive force => spool moves in positive direction ", 
-                
-              lineColor={0,0,255}), 
+              extent={{-98,-68},{102,-94}},
+              textString="positive force => spool moves in positive direction ",
+              lineColor={0,0,255}),
             Text(
-              extent={{-32,-46},{38,-62}}, 
-              textString="Simulate for 100 s", 
-              lineColor={0,0,255}), 
+              extent={{-32,-46},{38,-62}},
+              textString="Simulate for 100 s",
+              lineColor={0,0,255}),
             Text(
-              extent={{-100,-54},{100,-80}}, 
-              lineColor={0,0,255}, 
+              extent={{-100,-54},{100,-80}},
+              lineColor={0,0,255},
               textString="plot spool.s as a function of force.f")}),
         Documentation(info="<html>
 <p>
@@ -1288,9 +1272,9 @@ mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
     extends Modelica.Icons.Library2;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(
-            extent={{-67,-66},{44,-6}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Sphere, 
+            extent={{-67,-66},{44,-6}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.Sphere,
             fillColor={255,255,255})}),                     Documentation(info="<html>
 <p>
 This package contains basic components 1D mechanical translational drive trains.
@@ -1310,19 +1294,19 @@ This package contains basic components 1D mechanical translational drive trains.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
-            Line(points={{-80,-40},{80,-40}}, color={0,0,0}), 
-            Line(points={{80,-40},{40,-80}}, color={0,0,0}), 
-            Line(points={{40,-40},{0,-80}}, color={0,0,0}), 
-            Line(points={{0,-40},{-40,-80}}, color={0,0,0}), 
-            Line(points={{-40,-40},{-80,-80}}, color={0,0,0}), 
-            Line(points={{0,-40},{0,-10}}, color={0,0,0}), 
+            Line(points={{-80,-40},{80,-40}}, color={0,0,0}),
+            Line(points={{80,-40},{40,-80}}, color={0,0,0}),
+            Line(points={{40,-40},{0,-80}}, color={0,0,0}),
+            Line(points={{0,-40},{-40,-80}}, color={0,0,0}),
+            Line(points={{-40,-40},{-80,-80}}, color={0,0,0}),
+            Line(points={{0,-40},{0,-10}}, color={0,0,0}),
             Text(
-              extent={{0,-90},{0,-150}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{0,-90},{0,-150}},
+              textString="%name",
+              lineColor={0,0,255}),
             Text(
-              extent={{0,0},{140,-40}}, 
-              lineColor={0,0,0}, 
+              extent={{0,0},{140,-40}},
+              lineColor={0,0,0},
               textString="s0=%s0")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -1369,26 +1353,26 @@ Rod <i>without inertia</i> and two rigidly connected flanges.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
-            Line(points={{-100,0},{-55,0}}, color={0,127,0}), 
-            Line(points={{53,0},{99,0}}, color={0,127,0}), 
+            Line(points={{-100,0},{-55,0}}, color={0,127,0}),
+            Line(points={{53,0},{99,0}}, color={0,127,0}),
             Polygon(
-              points={{50,-90},{20,-80},{20,-100},{50,-90}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-60,-90},{20,-90}}, color={0,0,0}), 
+              points={{50,-90},{20,-80},{20,-100},{50,-90}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-60,-90},{20,-90}}, color={0,0,0}),
             Rectangle(
-              extent={{-55,10},{53,-10}}, 
-              lineColor={160,160,164}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-55,10},{53,-10}},
+              lineColor={160,160,164},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{0,100},{0,40}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{0,100},{0,40}},
+              textString="%name",
+              lineColor={0,0,255}),
             Text(
-              extent={{-100,-20},{100,-80}}, 
-              lineColor={0,0,255}, 
+              extent={{-100,-20},{100,-80}},
+              lineColor={0,0,255},
               textString="L=%L")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -1458,26 +1442,26 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
-            Line(points={{-100,0},{-55,0}}, color={0,127,0}), 
-            Line(points={{55,0},{100,0}}, color={0,127,0}), 
+            Line(points={{-100,0},{-55,0}}, color={0,127,0}),
+            Line(points={{55,0},{100,0}}, color={0,127,0}),
             Rectangle(
-              extent={{-55,-30},{56,30}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={255,255,255}), 
+              extent={{-55,-30},{56,30}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={255,255,255}),
             Polygon(
-              points={{50,-90},{20,-80},{20,-100},{50,-90}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-60,-90},{20,-90}}, color={0,0,0}), 
+              points={{50,-90},{20,-80},{20,-100},{50,-90}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-60,-90},{20,-90}}, color={0,0,0}),
             Text(
-              extent={{0,100},{0,40}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{0,100},{0,40}},
+              textString="%name",
+              lineColor={0,0,255}),
             Text(
-              extent={{-100,-40},{100,-80}}, 
-              lineColor={0,0,255}, 
+              extent={{-100,-40},{100,-80}},
+              lineColor={0,0,255},
               textString="m=%m")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -1555,16 +1539,16 @@ a coupling of the sliding mass with the housing via a spring.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
-            Line(points={{-60,-90},{20,-90}}, color={0,0,0}), 
+            Line(points={{-60,-90},{20,-90}}, color={0,0,0}),
             Polygon(
-              points={{50,-90},{20,-80},{20,-100},{50,-90}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              points={{50,-90},{20,-80},{20,-100},{50,-90}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{0,110},{0,50}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{0,110},{0,50}},
+              textString="%name",
+              lineColor={0,0,255}),
             Line(points={{-86,0},{-60,0},{-44,-30},{-16,30},{14,-30},{44,30},{
                   60,0},{84,0}}, color={0,0,0})}),
         Diagram(coordinateSystem(
@@ -1612,25 +1596,25 @@ between two sliding masses.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
-            Line(points={{-90,0},{-60,0}}, color={0,0,0}), 
-            Line(points={{-60,-30},{-60,30}}, color={0,0,0}), 
-            Line(points={{-60,-30},{60,-30}}, color={0,0,0}), 
-            Line(points={{-60,30},{60,30}}, color={0,0,0}), 
+            Line(points={{-90,0},{-60,0}}, color={0,0,0}),
+            Line(points={{-60,-30},{-60,30}}, color={0,0,0}),
+            Line(points={{-60,-30},{60,-30}}, color={0,0,0}),
+            Line(points={{-60,30},{60,30}}, color={0,0,0}),
             Rectangle(
-              extent={{-60,30},{30,-30}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{30,0},{90,0}}, color={0,0,0}), 
+              extent={{-60,30},{30,-30}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Line(points={{30,0},{90,0}}, color={0,0,0}),
             Polygon(
-              points={{50,-90},{20,-80},{20,-100},{50,-90}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-60,-90},{20,-90}}, color={0,0,0}), 
+              points={{50,-90},{20,-80},{20,-100},{50,-90}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-60,-90},{20,-90}}, color={0,0,0}),
             Text(
-              extent={{0,106},{0,46}}, 
-              textString="%name", 
+              extent={{0,106},{0,46}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -1662,12 +1646,18 @@ between two sliding masses.
     end Damper;
     
     model SpringDamper "Linear 1D translational spring and damper in parallel" 
-      extends Translational.Interfaces.PartialCompliantWithRelativeStates;
+      extends Translational.Interfaces.PartialCompliant(s_rel(start=0, stateSelect=stateSelect));
       parameter Real c(final unit="N/m", final min=0, start = 1) 
         "spring constant";
       parameter Real d(final unit="N.s/m", final min=0, start = 1) 
         "damping constant";
       parameter SI.Position s_rel0=0 "unstretched spring length";
+      parameter StateSelect stateSelect=StateSelect.default 
+        "Priority to use relative angle phi and relative speed w as states" annotation(Dialog(tab="Advanced"));
+      SI.Velocity v_rel(start=0, stateSelect=stateSelect) 
+        "relative velocity between flange_a and flange_b";
+      SI.Acceleration a_rel(start=0) 
+        "relative acceleration between flange_a and flange_b";
       annotation (
         Window(
           x=0.2,
@@ -1688,29 +1678,29 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Line(points={{-80,40},{-60,40},{-45,10},{-15,70},{15,10},{45,70},{
-                  60,40},{80,40}}, color={0,0,0}), 
-            Line(points={{-80,40},{-80,-70}}, color={0,0,0}), 
-            Line(points={{-80,-70},{-52,-70}}, color={0,0,0}), 
+                  60,40},{80,40}}, color={0,0,0}),
+            Line(points={{-80,40},{-80,-70}}, color={0,0,0}),
+            Line(points={{-80,-70},{-52,-70}}, color={0,0,0}),
             Rectangle(
-              extent={{-52,-49},{38,-91}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-52,-49},{68,-49}}, color={0,0,0}), 
-            Line(points={{-51,-91},{69,-91}}, color={0,0,0}), 
-            Line(points={{38,-70},{80,-70}}, color={0,0,0}), 
-            Line(points={{80,40},{80,-70}}, color={0,0,0}), 
-            Line(points={{-90,0},{-80,0}}, color={0,0,0}), 
-            Line(points={{80,0},{90,0}}, color={0,0,0}), 
+              extent={{-52,-49},{38,-91}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-52,-49},{68,-49}}, color={0,0,0}),
+            Line(points={{-51,-91},{69,-91}}, color={0,0,0}),
+            Line(points={{38,-70},{80,-70}}, color={0,0,0}),
+            Line(points={{80,40},{80,-70}}, color={0,0,0}),
+            Line(points={{-90,0},{-80,0}}, color={0,0,0}),
+            Line(points={{80,0},{90,0}}, color={0,0,0}),
             Polygon(
-              points={{53,-18},{23,-8},{23,-28},{53,-18}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-57,-18},{23,-18}}, color={0,0,0}), 
+              points={{53,-18},{23,-8},{23,-28},{53,-18}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-57,-18},{23,-18}}, color={0,0,0}),
             Text(
-              extent={{1,140},{1,80}}, 
-              textString="%name", 
+              extent={{1,140},{1,80}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -1718,45 +1708,48 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
             grid={1,1}), graphics={
             Line(
               points={{-80,32},{-58,32},{-43,2},{-13,62},{17,2},{47,62},{62,32},
-                  {80,32}}, 
-              color={0,0,0}, 
-              thickness=2), 
-            Line(points={{-100,31},{-100,96}}, color={128,128,128}), 
-            Line(points={{100,29},{100,94}}, color={128,128,128}), 
-            Line(points={{-98,82},{100,82}}, color={128,128,128}), 
+                  {80,32}},
+              color={0,0,0},
+              thickness=2),
+            Line(points={{-100,31},{-100,96}}, color={128,128,128}),
+            Line(points={{100,29},{100,94}}, color={128,128,128}),
+            Line(points={{-98,82},{100,82}}, color={128,128,128}),
             Polygon(
-              points={{90,85},{100,82},{90,79},{90,85}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              points={{90,85},{100,82},{90,79},{90,85}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-21,61},{19,86}}, 
-              lineColor={0,0,255}, 
-              textString="s_rel"), 
+              extent={{-21,61},{19,86}},
+              lineColor={0,0,255},
+              textString="s_rel"),
             Rectangle(
-              extent={{-52,-28},{38,-72}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-51,-72},{69,-72}}, color={0,0,0}), 
-            Line(points={{-52,-28},{68,-28}}, color={0,0,0}), 
-            Line(points={{38,-50},{80,-50}}, color={0,0,0}), 
-            Line(points={{-80,-50},{-52,-50}}, color={0,0,0}), 
-            Line(points={{-80,32},{-80,-50}}, color={0,0,0}), 
-            Line(points={{80,32},{80,-50}}, color={0,0,0}), 
-            Line(points={{-90,0},{-80,0}}, color={0,0,0}), 
+              extent={{-52,-28},{38,-72}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-51,-72},{69,-72}}, color={0,0,0}),
+            Line(points={{-52,-28},{68,-28}}, color={0,0,0}),
+            Line(points={{38,-50},{80,-50}}, color={0,0,0}),
+            Line(points={{-80,-50},{-52,-50}}, color={0,0,0}),
+            Line(points={{-80,32},{-80,-50}}, color={0,0,0}),
+            Line(points={{80,32},{80,-50}}, color={0,0,0}),
+            Line(points={{-90,0},{-80,0}}, color={0,0,0}),
             Line(points={{90,0},{80,0}}, color={0,0,0})}));
     equation 
+      v_rel = der(s_rel);
+      a_rel = der(v_rel);
       f = c*(s_rel - s_rel0) + d*v_rel;
     end SpringDamper;
     
     model ElastoGap "1D translational spring damper combination with gap" 
-      extends Translational.Interfaces.PartialCompliantWithRelativeStates;
+      extends Translational.Interfaces.PartialCompliant;
       parameter SI.Position s_rel0=0 "unstretched spring length";
       parameter Real c(final unit="N/m", final min=0, start = 1) 
         "spring constant";
       parameter Real d(final unit="N.s/m", final min=0, start = 1) 
         "damping constant";
+      SI.Velocity v_rel "relative velocity between flange_a and flange_b";
       Boolean contact "false, if s_rel > l ";
       
       annotation (
@@ -1779,84 +1772,85 @@ the contact of a sliding mass with the housing.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
-            Line(points={{-100,0},{-50,0}}, color={0,127,0}), 
+            Line(points={{-100,0},{-50,0}}, color={0,127,0}),
             Line(
-              points={{-48,34},{-48,-46}}, 
-              color={0,0,0}, 
-              thickness=4), 
-            Line(points={{8,40},{8,2}}, color={0,0,0}), 
-            Line(points={{-2,0},{38,0},{38,44},{-2,44}}, color={0,0,0}), 
-            Line(points={{38,22},{72,22}}, color={0,0,0}), 
+              points={{-48,34},{-48,-46}},
+              color={0,0,0},
+              thickness=4),
+            Line(points={{8,40},{8,2}}, color={0,0,0}),
+            Line(points={{-2,0},{38,0},{38,44},{-2,44}}, color={0,0,0}),
+            Line(points={{38,22},{72,22}}, color={0,0,0}),
             Line(
-              points={{-12,-38},{-12,20}}, 
-              color={0,0,0}, 
-              thickness=4), 
-            Line(points={{-12,22},{8,22}}, color={0,0,0}), 
-            Line(points={{-12,-38},{-2,-38}}, color={0,0,0}), 
-            Line(points={{72,0},{90,0}}, color={0,127,0}), 
-            Line(points={{72,22},{72,-42}}, color={0,0,0}), 
+              points={{-12,-38},{-12,20}},
+              color={0,0,0},
+              thickness=4),
+            Line(points={{-12,22},{8,22}}, color={0,0,0}),
+            Line(points={{-12,-38},{-2,-38}}, color={0,0,0}),
+            Line(points={{72,0},{90,0}}, color={0,127,0}),
+            Line(points={{72,22},{72,-42}}, color={0,0,0}),
             Line(points={{-2,-38},{10,-28},{22,-48},{38,-28},{50,-48},{64,-28},
-                  {72,-40}}, color={0,0,0}), 
+                  {72,-40}}, color={0,0,0}),
             Rectangle(
-              extent={{8,44},{38,0}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{8,44},{38,0}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-28,-80},{12,-55}}, 
-              lineColor={0,0,255}, 
-              textString="s_rel"), 
-            Line(points={{-100,-29},{-100,-61}}, color={0,0,0}), 
-            Line(points={{100,-61},{100,-28}}, color={0,0,0}), 
-            Line(points={{-98,-60},{98,-60}}, color={0,0,0}), 
+              extent={{-28,-80},{12,-55}},
+              lineColor={0,0,255},
+              textString="s_rel"),
+            Line(points={{-100,-29},{-100,-61}}, color={0,0,0}),
+            Line(points={{100,-61},{100,-28}}, color={0,0,0}),
+            Line(points={{-98,-60},{98,-60}}, color={0,0,0}),
             Polygon(
-              points={{-101,-60},{-96,-59},{-96,-61},{-101,-60}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-101,-60},{-96,-59},{-96,-61},{-101,-60}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{100,-60},{95,-61},{95,-59},{100,-60}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
+              points={{100,-60},{95,-61},{95,-59},{100,-60}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
-            Line(points={{-98,0},{-48,0}}, color={0,127,0}), 
+            Line(points={{-98,0},{-48,0}}, color={0,127,0}),
             Line(
-              points={{-48,34},{-48,-46}}, 
-              color={0,0,0}, 
-              thickness=4), 
-            Line(points={{8,40},{8,2}}, color={0,0,0}), 
-            Line(points={{-2,0},{38,0},{38,44},{-2,44}}, color={0,0,0}), 
-            Line(points={{38,22},{72,22}}, color={0,0,0}), 
+              points={{-48,34},{-48,-46}},
+              color={0,0,0},
+              thickness=4),
+            Line(points={{8,40},{8,2}}, color={0,0,0}),
+            Line(points={{-2,0},{38,0},{38,44},{-2,44}}, color={0,0,0}),
+            Line(points={{38,22},{72,22}}, color={0,0,0}),
             Line(
-              points={{-12,-38},{-12,20}}, 
-              color={0,0,0}, 
-              thickness=4), 
-            Line(points={{-12,22},{8,22}}, color={0,0,0}), 
-            Line(points={{-12,-38},{-2,-38}}, color={0,0,0}), 
-            Line(points={{72,0},{98,0}}, color={0,127,0}), 
-            Line(points={{72,22},{72,-42}}, color={0,0,0}), 
+              points={{-12,-38},{-12,20}},
+              color={0,0,0},
+              thickness=4),
+            Line(points={{-12,22},{8,22}}, color={0,0,0}),
+            Line(points={{-12,-38},{-2,-38}}, color={0,0,0}),
+            Line(points={{72,0},{98,0}}, color={0,127,0}),
+            Line(points={{72,22},{72,-42}}, color={0,0,0}),
             Line(points={{-2,-38},{10,-28},{22,-48},{38,-28},{50,-48},{64,-28},
-                  {72,-40}}, color={0,0,0}), 
+                  {72,-40}}, color={0,0,0}),
             Rectangle(
-              extent={{8,44},{38,0}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-60,-90},{20,-90}}, color={0,0,0}), 
+              extent={{8,44},{38,0}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-60,-90},{20,-90}}, color={0,0,0}),
             Polygon(
-              points={{50,-90},{20,-80},{20,-100},{50,-90}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              points={{50,-90},{20,-80},{20,-100},{50,-90}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{0,120},{0,60}}, 
-              textString="%name", 
+              extent={{0,120},{0,60}},
+              textString="%name",
               lineColor={0,0,255})}));
     equation 
+      v_rel = der(s_rel);
       contact = s_rel < s_rel0;
       f = if contact then (c*(s_rel - s_rel0) + d*v_rel) else 0;
     end ElastoGap;
@@ -1963,152 +1957,149 @@ between the stops.</i> </li>
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Polygon(
-              points={{50,-80},{20,-70},{20,-90},{50,-80}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-60,-80},{20,-80}}, color={0,0,0}), 
+              points={{50,-90},{20,-80},{20,-100},{50,-90}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-60,-90},{20,-90}}, color={0,0,0}),
             Rectangle(
-              extent={{-30,30},{35,-35}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={255,255,255}), 
-            Line(points={{-90,0},{-30,0}}, color={0,127,0}), 
+              extent={{-30,30},{35,-35}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={255,255,255}),
+            Line(points={{-90,0},{-30,0}}, color={0,127,0}),
             Rectangle(
-              extent={{-70,-45},{74,-60}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-70,-45},{74,-60}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-63,-15},{-55,-45}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-63,-15},{-55,-45}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{60,-16},{69,-45}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{35,0},{90,0}}, color={0,127,0}), 
+              extent={{60,-16},{69,-45}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{35,0},{90,0}}, color={0,127,0}),
             Text(
-              extent={{0,100},{0,40}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
-            Line(points={{0,-60},{0,-100}}, color={0,0,0})}),
+              extent={{0,100},{0,40}},
+              textString="%name",
+              lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Polygon(
-              points={{50,-75},{20,-65},{20,-85},{50,-75}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-60,-75},{20,-75}}, color={0,0,0}), 
+              points={{50,-90},{20,-80},{20,-100},{50,-90}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-60,-90},{20,-90}}, color={0,0,0}),
             Rectangle(
-              extent={{-30,26},{35,-9}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={255,255,255}), 
-            Line(points={{-90,0},{-30,0}}, color={0,127,0}), 
-            Line(points={{35,0},{90,0}}, color={0,127,0}), 
+              extent={{-30,26},{35,-9}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={255,255,255}),
+            Line(points={{-90,0},{-30,0}}, color={0,127,0}),
+            Line(points={{35,0},{90,0}}, color={0,127,0}),
             Rectangle(
-              extent={{-68,-14},{76,-29}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-68,-14},{76,-29}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-119,43},{-111,17}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-119,43},{-111,17}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{-111,43},{-111,50}}, 
-              color={0,0,0}, 
-              pattern=LinePattern.Solid, 
-              thickness=1, 
-              arrow={Arrow.None,Arrow.None}), 
+              points={{-111,43},{-111,50}},
+              color={0,0,0},
+              pattern=LinePattern.Solid,
+              thickness=1,
+              arrow={Arrow.None,Arrow.None}),
             Line(
-              points={{-151,49},{-113,49}}, 
-              color={0,0,0}, 
-              pattern=LinePattern.Solid, 
-              thickness=1, 
-              arrow={Arrow.None,Arrow.None}), 
+              points={{-151,49},{-113,49}},
+              color={0,0,0},
+              pattern=LinePattern.Solid,
+              thickness=1,
+              arrow={Arrow.None,Arrow.None}),
             Text(
-              extent={{-149,51},{-126,60}}, 
-              textString="s min", 
-              lineColor={0,0,255}), 
+              extent={{-149,51},{-126,60}},
+              textString="s min",
+              lineColor={0,0,255}),
             Polygon(
-              points={{-121,52},{-111,49},{-121,46},{-121,52}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-121,52},{-111,49},{-121,46},{-121,52}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{124,42},{132,17}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{124,42},{132,17}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{124,39},{124,87}}, 
-              color={0,0,0}, 
-              pattern=LinePattern.Solid, 
-              thickness=1, 
-              arrow={Arrow.None,Arrow.None}), 
+              points={{124,39},{124,87}},
+              color={0,0,0},
+              pattern=LinePattern.Solid,
+              thickness=1,
+              arrow={Arrow.None,Arrow.None}),
             Line(
-              points={{-19,78},{121,78}}, 
-              color={0,0,0}, 
-              pattern=LinePattern.Solid, 
-              thickness=1, 
-              arrow={Arrow.None,Arrow.None}), 
+              points={{-19,78},{121,78}},
+              color={0,0,0},
+              pattern=LinePattern.Solid,
+              thickness=1,
+              arrow={Arrow.None,Arrow.None}),
             Text(
-              extent={{-17,83},{6,92}}, 
-              textString="s max", 
-              lineColor={0,0,255}), 
+              extent={{-17,83},{6,92}},
+              textString="s max",
+              lineColor={0,0,255}),
             Polygon(
-              points={{114,81},{124,78},{114,75},{114,81}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{114,81},{124,78},{114,75},{114,81}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{5,26},{5,63}}, 
-              color={0,0,0}, 
-              pattern=LinePattern.Solid, 
-              thickness=1, 
-              arrow={Arrow.None,Arrow.None}), 
+              points={{5,26},{5,63}},
+              color={0,0,0},
+              pattern=LinePattern.Solid,
+              thickness=1,
+              arrow={Arrow.None,Arrow.None}),
             Line(
-              points={{-77,58},{-1,58}}, 
-              color={0,0,0}, 
-              pattern=LinePattern.Solid, 
-              thickness=1, 
-              arrow={Arrow.None,Arrow.None}), 
+              points={{-77,58},{-1,58}},
+              color={0,0,0},
+              pattern=LinePattern.Solid,
+              thickness=1,
+              arrow={Arrow.None,Arrow.None}),
             Text(
-              extent={{-75,60},{-38,71}}, 
-              textString="Position s", 
-              lineColor={0,0,255}), 
+              extent={{-75,60},{-38,71}},
+              textString="Position s",
+              lineColor={0,0,255}),
             Polygon(
-              points={{-5,61},{5,58},{-5,55},{-5,61}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-100,-10},{-100,-60}}, color={0,0,0}), 
-            Line(points={{100,-10},{100,-60}}, color={0,0,0}), 
+              points={{-5,61},{5,58},{-5,55},{-5,61}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-100,-10},{-100,-60}}, color={0,0,0}),
+            Line(points={{100,-10},{100,-60}}, color={0,0,0}),
             Polygon(
-              points={{90,-47},{100,-50},{90,-53},{90,-47}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{90,-47},{100,-50},{90,-53},{90,-47}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{-90,-47},{-90,-53},{-100,-50},{-90,-47}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-90,-50},{92,-50}}, color={0,0,0}), 
+              points={{-90,-47},{-90,-53},{-100,-50},{-90,-47}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-90,-50},{92,-50}}, color={0,0,0}),
             Text(
-              extent={{-11,-46},{26,-36}}, 
-              textString="Length L", 
+              extent={{-11,-46},{26,-36}},
+              textString="Length L",
               lineColor={0,0,255})}));
-      Interfaces.Support support
-        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
     equation 
       // Constant auxiliary variables
       f0 = (F_Coulomb + F_Stribeck);
@@ -2121,7 +2112,6 @@ between the stops.</i> </li>
       a_relfric = a;
     // Equilibrium of forces
       0 = flange_a.f + flange_b.f - f - m*der(v);
-      support.f = - f;
     // Friction force
       f = if locked then sa*unitForce else 
           if free then   0 else 
@@ -2243,67 +2233,67 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 "), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
             Rectangle(
-              extent={{-90,10},{90,-10}}, 
-              lineColor={0,127,0}, 
-              fillColor={215,215,215}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-90,10},{90,-10}},
+              lineColor={0,127,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-48,-10},{-28,-30}}, 
-              lineColor={95,95,95}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={175,175,175}), 
+              extent={{-48,-10},{-28,-30}},
+              lineColor={95,95,95},
+              fillPattern=FillPattern.Sphere,
+              fillColor={175,175,175}),
             Ellipse(
-              extent={{-10,-10},{10,-30}}, 
-              lineColor={95,95,95}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={175,175,175}), 
+              extent={{-10,-10},{10,-30}},
+              lineColor={95,95,95},
+              fillPattern=FillPattern.Sphere,
+              fillColor={175,175,175}),
             Ellipse(
-              extent={{30,-10},{50,-30}}, 
-              lineColor={95,95,95}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={175,175,175}), 
+              extent={{30,-10},{50,-30}},
+              lineColor={95,95,95},
+              fillPattern=FillPattern.Sphere,
+              fillColor={175,175,175}),
             Polygon(
               points={{-60,-30},{60,-30},{60,-12},{80,-12},{80,-50},{-80,-50},{
-                  -80,-12},{-60,-12},{-60,-30}}, 
-              lineColor={95,95,95}, 
-              fillPattern=FillPattern.Solid, 
-              smooth=Smooth.None, 
-              fillColor={175,175,175}), 
+                  -80,-12},{-60,-12},{-60,-30}},
+              lineColor={95,95,95},
+              fillPattern=FillPattern.Solid,
+              smooth=Smooth.None,
+              fillColor={175,175,175}),
             Text(
-              extent={{-150,100},{150,60}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
-            Line(points={{-10,-85},{-5,-80}}, color={0,0,0}), 
-            Line(points={{-5,-90},{5,-80}}, color={0,0,0}), 
-            Line(points={{-10,-90},{0,-80}}, color={0,0,0}), 
-            Line(points={{0,-90},{10,-80}}, color={0,0,0}), 
+              extent={{-150,100},{150,60}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{-10,-85},{-5,-80}}, color={0,0,0}),
+            Line(points={{-5,-90},{5,-80}}, color={0,0,0}),
+            Line(points={{-10,-90},{0,-80}}, color={0,0,0}),
+            Line(points={{0,-90},{10,-80}}, color={0,0,0}),
             Polygon(
-              points={{-60,-50},{-20,-80},{20,-80},{60,-50},{-60,-50}}, 
-              lineColor={95,95,95}, 
-              smooth=Smooth.None, 
-              fillColor={175,175,175}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-60,-50},{-20,-80},{20,-80},{60,-50},{-60,-50}},
+              lineColor={95,95,95},
+              smooth=Smooth.None,
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-50,30},{-30,10}}, 
-              lineColor={95,95,95}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={175,175,175}), 
+              extent={{-50,30},{-30,10}},
+              lineColor={95,95,95},
+              fillPattern=FillPattern.Sphere,
+              fillColor={175,175,175}),
             Ellipse(
-              extent={{-10,30},{10,10}}, 
-              lineColor={95,95,95}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={175,175,175}), 
+              extent={{-10,30},{10,10}},
+              lineColor={95,95,95},
+              fillPattern=FillPattern.Sphere,
+              fillColor={175,175,175}),
             Ellipse(
-              extent={{30,30},{50,10}}, 
-              lineColor={95,95,95}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={175,175,175}), 
+              extent={{30,30},{50,10}},
+              lineColor={95,95,95},
+              fillPattern=FillPattern.Sphere,
+              fillColor={175,175,175}),
             Polygon(
               points={{-60,30},{60,30},{60,12},{80,12},{80,50},{-80,50},{-80,12},
-                  {-60,12},{-60,30}}, 
-              lineColor={95,95,95}, 
-              fillPattern=FillPattern.Solid, 
-              smooth=Smooth.None, 
+                  {-60,12},{-60,30}},
+              lineColor={95,95,95},
+              fillPattern=FillPattern.Solid,
+              smooth=Smooth.None,
               fillColor={175,175,175})}));
       extends Translational.Interfaces.PartialGear;
       parameter Real f_pos[:, 2]=[0, 1] 
@@ -2425,59 +2415,59 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 "), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
             Rectangle(
-              extent={{-90,10},{90,-10}}, 
-              lineColor={0,127,0}, 
-              fillColor={215,215,215}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-90,10},{90,-10}},
+              lineColor={0,127,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-20,30},{20,20}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-20,30},{20,20}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-20,-20},{20,-30}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-20,-20},{20,-30}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{0,-30},{10,-50},{-10,-50},{0,-30}}, 
-              lineColor={0,0,127}, 
-              fillColor={0,0,127}, 
-              fillPattern=FillPattern.Solid), 
+              points={{0,-30},{10,-50},{-10,-50},{0,-30}},
+              lineColor={0,0,127},
+              fillColor={0,0,127},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{10,50},{-10,50},{0,30},{10,50}}, 
-              lineColor={0,0,127}, 
-              fillColor={0,0,127}, 
-              fillPattern=FillPattern.Solid), 
+              points={{10,50},{-10,50},{0,30},{10,50}},
+              lineColor={0,0,127},
+              fillColor={0,0,127},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{0,90},{0,50}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None), 
+              points={{0,90},{0,50}},
+              color={0,0,0},
+              smooth=Smooth.None),
             Rectangle(
-              extent={{20,28},{30,22}}, 
-              lineColor={175,175,175}, 
-              fillColor={175,175,175}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{20,28},{30,22}},
+              lineColor={175,175,175},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{20,-22},{30,-28}}, 
-              lineColor={175,175,175}, 
-              fillColor={175,175,175}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{20,-22},{30,-28}},
+              lineColor={175,175,175},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{30,28},{36,-102}}, 
-              lineColor={175,175,175}, 
-              fillColor={175,175,175}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{30,28},{36,-102}},
+              lineColor={175,175,175},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{14,-96},{30,-102}}, 
-              lineColor={175,175,175}, 
-              fillColor={175,175,175}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{14,-96},{30,-102}},
+              lineColor={175,175,175},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{0,-50},{0,-60},{-40,-50},{-40,48},{0,60},{0,90}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None, 
-              fillColor={175,175,175}, 
+              points={{0,-50},{0,-60},{-40,-50},{-40,48},{0,60},{0,90}},
+              color={0,0,0},
+              smooth=Smooth.None,
+              fillColor={175,175,175},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics));
@@ -2583,16 +2573,16 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Text(
-              extent={{-94,74},{68,46}}, 
-              lineColor={0,0,0}, 
-              textString="phi_start"), 
+              extent={{-94,74},{68,46}},
+              lineColor={0,0,0},
+              textString="phi_start"),
             Text(
-              extent={{-94,16},{70,-14}}, 
-              lineColor={0,0,0}, 
-              textString="w_start"), 
+              extent={{-94,16},{70,-14}},
+              lineColor={0,0,0},
+              textString="w_start"),
             Text(
-              extent={{-94,-46},{66,-74}}, 
-              lineColor={0,0,0}, 
+              extent={{-94,-46},{66,-74}},
+              lineColor={0,0,0},
               textString="a_start")}),
                                 Diagram(coordinateSystem(preserveAspectRatio=true,
                        extent={{-100,-100},{100,100}}),
@@ -2780,18 +2770,18 @@ The following variables are transported through this connector:
 </HTML>
 "),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Rectangle(
-              extent={{-100,-100},{100,100}}, 
-              lineColor={0,127,0}, 
-              fillColor={0,127,0}, 
+              extent={{-100,-100},{100,100}},
+              lineColor={0,127,0},
+              fillColor={0,127,0},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Rectangle(
-              extent={{-40,-40},{40,40}}, 
-              lineColor={0,127,0}, 
-              fillColor={0,127,0}, 
+              extent={{-40,-40},{40,40}},
+              lineColor={0,127,0},
+              fillColor={0,127,0},
               fillPattern=FillPattern.Solid), Text(
-              extent={{-160,110},{40,50}}, 
-              lineColor={0,127,0}, 
+              extent={{-160,110},{40,50}},
+              lineColor={0,127,0},
               textString="%name")}),
         Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=58,
                 fillColor=58),
@@ -2955,10 +2945,10 @@ flange is the same. It is used to built up springs, dampers etc.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Polygon(
-              points={{50,-90},{20,-80},{20,-100},{50,-90}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), Line(points={{-60,-90},{20,-90}}, 
+              points={{50,-90},{20,-80},{20,-100},{50,-90}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid), Line(points={{-60,-90},{20,-90}},
                 color={0,0,0})}));
     equation 
       s_rel = flange_b.s - flange_a.s;
@@ -2966,82 +2956,6 @@ flange is the same. It is used to built up springs, dampers etc.
       flange_a.f = -f;
     end PartialCompliant;
     
-    partial model PartialCompliantWithRelativeStates 
-      "Base model for the compliant connection of two translational 1-dim. shaft flanges where the relative position and relative velocities are used as states" 
-      
-      parameter StateSelect stateSelect=StateSelect.prefer 
-        "Priority to use relative angle phi_rel and relative speed w_rel as states"
-      annotation(Hide=true, Dialog(tab="Advanced"));
-      parameter SI.Distance s_nominal=1e-4 
-        "Nominal value of s_rel (used for scaling)"   annotation(Dialog(tab="Advanced"));
-      
-      SI.Distance s_rel(start=0) 
-        "Relative distance (= flange_b.s - flange_a.s)";
-      Real s_rel_scaled(stateSelect=stateSelect) 
-        "Relative distance scaled with s_nominal";
-      SI.Velocity v_rel(start=0, stateSelect=stateSelect) 
-        "Relative velocity (= der(s_rel))";
-      SI.Acceleration a_rel(start=0) "Relative acceleration (= der(v_rel))";
-      
-      SI.Force f "Forces between flanges (= flange_b.f)";
-      Translational.Interfaces.Flange_a flange_a 
-        "Left flange of compliant 1-dim. translational component" 
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
-      Translational.Interfaces.Flange_b flange_b 
-        "Right flange of compliant 1-dim. transational component" 
-        annotation (Placement(transformation(extent={{90,-10},{110,10}},
-              rotation=0)));
-      annotation (
-        Window(
-          x=0.32,
-          y=0.01,
-          width=0.6,
-          height=0.6),
-        Documentation(info="<html>
-<p>
-This is a 1-dim. translational component with a compliant connection of two
-translational 1-dim. flanges where inertial effects between the two
-flanges are neglected. The basic assumption is that the cut-forces
-of the two flanges sum-up to zero, i.e., they have the same absolute value
-but opposite sign: flange_a.f + flange_b.f = 0. This base class
-is used to built up force elements such as springs, dampers, friction.
-</p>
- 
-<p>
-The difference to base classe \"PartialCompliant\" is that the relative
-distance and the relative velocity are defined as preferred states.
-The reason is that for a large class of drive trains, 
-the absolute position is quickly increasing during operation.
-Numerically, it is better to use relative distances between drive train components
-because they remain in a limited size. For this reason, StateSelect.prefer
-is set for the relative distance of this component.
-</p>
- 
-<p>
-In order to improve the numerics, a nominal value for the relative distance
-should be set, since drive train distances are in a small order and 
-then step size control of the integrator is practically switched off for
-such a variable. A default nominal value of s_nominal = 1e-4 is defined.
-This nominal value might also be computed from other values, such
-as \"s_nominal = f_nominal / c\" for a spring, if f_nominal
-and c have more meaningful values for the user.
-</p>
- 
-</html>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics));
-    equation 
-      s_rel = flange_b.s - flange_a.s;
-      s_rel_scaled = s_rel/s_nominal;
-      v_rel = s_nominal*der(s_rel_scaled);
-      a_rel = der(v_rel);
-      flange_b.f =  f;
-      flange_a.f = -f;
-    end PartialCompliantWithRelativeStates;
-
     partial model PartialGear 
       "Base model for 1-dim. translational gear consisting of input and output flange and the support" 
       
@@ -3303,17 +3217,17 @@ with the Modelica.Blocks blocks.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
-            Line(points={{-100,-90},{-20,-90}}, color={0,0,0}), 
+            Line(points={{-100,-90},{-20,-90}}, color={0,0,0}),
             Polygon(
-              points={{10,-90},{-20,-80},{-20,-100},{10,-90}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-            Line(points={{70,0},{100,0}}, color={0,0,127}), 
+              points={{10,-90},{-20,-80},{-20,-100},{10,-90}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            Line(points={{70,0},{100,0}}, color={0,0,127}),
             Text(
-              extent={{-118,99},{118,40}}, 
-              textString="%name", 
+              extent={{-118,99},{118,40}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -3355,17 +3269,17 @@ with the Modelica.Blocks blocks.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
-            Line(points={{-51,34},{29,34}}, color={0,0,0}), 
+            Line(points={{-51,34},{29,34}}, color={0,0,0}),
             Polygon(
-              points={{59,34},{29,44},{29,24},{59,34}}, 
-              lineColor={0,0,0}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-            Line(points={{70,0},{90,0}}, color={0,0,0}), 
+              points={{59,34},{29,44},{29,24},{59,34}},
+              lineColor={0,0,0},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            Line(points={{70,0},{90,0}}, color={0,0,0}),
             Text(
-              extent={{-117,116},{115,52}}, 
-              textString="%name", 
+              extent={{-117,116},{115,52}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -3398,30 +3312,30 @@ with the Modelica.Blocks blocks.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
             Rectangle(
-              extent={{-96,96},{96,-96}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-30,-70},{30,-70}}, color={0,0,0}), 
-            Line(points={{-30,-90},{-10,-70}}, color={0,0,0}), 
-            Line(points={{-10,-90},{10,-70}}, color={0,0,0}), 
-            Line(points={{10,-90},{30,-70}}, color={0,0,0}), 
-            Line(points={{0,-70},{0,-110}}, color={0,0,0}), 
+              extent={{-96,96},{96,-96}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-30,-70},{30,-70}}, color={0,0,0}),
+            Line(points={{-30,-90},{-10,-70}}, color={0,0,0}),
+            Line(points={{-10,-90},{10,-70}}, color={0,0,0}),
+            Line(points={{10,-90},{30,-70}}, color={0,0,0}),
+            Line(points={{0,-70},{0,-110}}, color={0,0,0}),
             Text(
-              extent={{-150,140},{150,100}}, 
-              lineColor={0,0,255}, 
-              textString="%name"), 
-            Line(points={{-78,80},{51,80}}, color={0,0,0}), 
+              extent={{-150,140},{150,100}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Line(points={{-78,80},{51,80}}, color={0,0,0}),
             Polygon(
-              points={{81,80},{51,90},{51,70},{81,80}}, 
-              lineColor={0,0,0}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-52,-60},{77,-60}}, color={0,0,0}), 
+              points={{81,80},{51,90},{51,70},{81,80}},
+              lineColor={0,0,0},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-52,-60},{77,-60}}, color={0,0,0}),
             Polygon(
-              points={{-82,-60},{-51,-50},{-51,-70},{-82,-60}}, 
-              lineColor={0,0,0}, 
-              fillColor={128,128,128}, 
+              points={{-82,-60},{-51,-50},{-51,-70},{-82,-60}},
+              lineColor={0,0,0},
+              fillColor={128,128,128},
               fillPattern=FillPattern.Solid)}),
       Documentation(info="<HTML>
 <p>
@@ -3449,37 +3363,37 @@ Partial model of force dependent on speed that accelerates the flange.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
             Rectangle(
-              extent={{-96,96},{96,-96}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-30,-70},{30,-70}}, color={0,0,0}), 
-            Line(points={{-30,-90},{-10,-70}}, color={0,0,0}), 
-            Line(points={{-10,-90},{10,-70}}, color={0,0,0}), 
-            Line(points={{10,-90},{30,-70}}, color={0,0,0}), 
-            Line(points={{0,-70},{0,-100}}, color={0,0,0}), 
+              extent={{-96,96},{96,-96}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-30,-70},{30,-70}}, color={0,0,0}),
+            Line(points={{-30,-90},{-10,-70}}, color={0,0,0}),
+            Line(points={{-10,-90},{10,-70}}, color={0,0,0}),
+            Line(points={{10,-90},{30,-70}}, color={0,0,0}),
+            Line(points={{0,-70},{0,-100}}, color={0,0,0}),
             Text(
-              extent={{-150,140},{150,100}}, 
-              lineColor={0,0,255}, 
-              textString="%name"), 
-            Line(points={{-78,80},{51,80}}, color={0,0,0}), 
+              extent={{-150,140},{150,100}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Line(points={{-78,80},{51,80}}, color={0,0,0}),
             Polygon(
-              points={{81,80},{51,90},{51,70},{81,80}}, 
-              lineColor={0,0,0}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-52,-60},{77,-60}}, color={0,0,0}), 
+              points={{81,80},{51,90},{51,70},{81,80}},
+              lineColor={0,0,0},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-52,-60},{77,-60}}, color={0,0,0}),
             Polygon(
-              points={{-82,-60},{-51,-50},{-51,-70},{-82,-60}}, 
-              lineColor={0,0,0}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{0,-70},{0,-100}}, color={0,0,0}), 
-            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}), 
-            Line(points={{-10,-120},{10,-100}}, color={0,0,0}), 
-            Line(points={{10,-120},{30,-100}}, color={0,0,0}), 
-            Line(points={{-30,-100},{30,-100}}, color={0,0,0}), 
-            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}), 
+              points={{-82,-60},{-51,-50},{-51,-70},{-82,-60}},
+              lineColor={0,0,0},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,-70},{0,-100}}, color={0,0,0}),
+            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}),
+            Line(points={{-10,-120},{10,-100}}, color={0,0,0}),
+            Line(points={{10,-120},{30,-100}}, color={0,0,0}),
+            Line(points={{-30,-100},{30,-100}}, color={0,0,0}),
+            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}),
             Line(points={{-50,-90},{-30,-70}}, color={0,0,0})}),
       Documentation(info="<HTML>
 <p>
@@ -3506,22 +3420,22 @@ Partial model of force dependent on speed that accelerates the flange.
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
-            extent={{-76,-81},{64,-1}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-76,-81},{64,-1}},
+            lineColor={0,0,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-6,-61},{-16,-37},{4,-37},{-6,-61}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-6,-21},{-6,-37}}, color={0,0,0}), 
-          Line(points={{-76,-21},{-6,-21}}, color={0,0,0}), 
-          Line(points={{-56,-61},{-56,-81}}, color={0,0,0}), 
-          Line(points={{-36,-61},{-36,-81}}, color={0,0,0}), 
-          Line(points={{-16,-61},{-16,-81}}, color={0,0,0}), 
-          Line(points={{4,-61},{4,-81}}, color={0,0,0}), 
-          Line(points={{24,-61},{24,-81}}, color={0,0,0}), 
+            points={{-6,-61},{-16,-37},{4,-37},{-6,-61}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-6,-21},{-6,-37}}, color={0,0,0}),
+          Line(points={{-76,-21},{-6,-21}}, color={0,0,0}),
+          Line(points={{-56,-61},{-56,-81}}, color={0,0,0}),
+          Line(points={{-36,-61},{-36,-81}}, color={0,0,0}),
+          Line(points={{-16,-61},{-16,-81}}, color={0,0,0}),
+          Line(points={{4,-61},{4,-81}}, color={0,0,0}),
+          Line(points={{24,-61},{24,-81}}, color={0,0,0}),
           Line(points={{44,-61},{44,-81}}, color={0,0,0})}),
       Documentation(info="<html>
 <p>
@@ -3870,9 +3784,9 @@ and provides the result as output signal <b>power</b>
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Polygon(
             points={{-100,-32},{10,-32},{10,-1},{80,-42},{10,-83},{10,-52},{-100,
-                -52},{-100,-32}}, 
-            lineColor={0,127,0}, 
-            fillColor={0,127,0}, 
+                -52},{-100,-32}},
+            lineColor={0,127,0},
+            fillColor={0,127,0},
             fillPattern=FillPattern.Solid)}),               Documentation(info="<html>
 <p>
 This package contains ideal sources to drive 1D mechanical translational drive trains.
@@ -3938,28 +3852,28 @@ blocks of the block library Modelica.Blocks.Sources.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-40,-40},{-126,-78}}, 
-              lineColor={0,0,0}, 
-              textString="s_ref"), 
+              extent={{-40,-40},{-126,-78}},
+              lineColor={0,0,0},
+              textString="s_ref"),
             Rectangle(
-              extent={{-100,20},{100,-20}}, 
-              lineColor={0,127,0}, 
-              fillColor={215,215,215}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,20},{100,-20}},
+              lineColor={0,127,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{150,60},{-150,100}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
-            Line(points={{0,52},{0,32}}, color={0,0,0}), 
-            Line(points={{-29,32},{30,32}}, color={0,0,0}), 
-            Line(points={{-30,-32},{30,-32}}, color={0,0,0}), 
-            Line(points={{0,-32},{0,-86}}, color={0,0,0}), 
-            Line(points={{30,-42},{20,-52}}, color={0,0,0}), 
-            Line(points={{30,-32},{10,-52}}, color={0,0,0}), 
-            Line(points={{20,-32},{0,-52}}, color={0,0,0}), 
-            Line(points={{10,-32},{-10,-52}}, color={0,0,0}), 
-            Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
-            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
+              extent={{150,60},{-150,100}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{0,52},{0,32}}, color={0,0,0}),
+            Line(points={{-29,32},{30,32}}, color={0,0,0}),
+            Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
+            Line(points={{0,-32},{0,-86}}, color={0,0,0}),
+            Line(points={{30,-42},{20,-52}}, color={0,0,0}),
+            Line(points={{30,-32},{10,-52}}, color={0,0,0}),
+            Line(points={{20,-32},{0,-52}}, color={0,0,0}),
+            Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
+            Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
+            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
             Line(points={{-20,-32},{-30,-42}}, color={0,0,0})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -4036,28 +3950,28 @@ blocks of the block library Modelica.Blocks.Sources.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-40,-40},{-126,-78}}, 
-              lineColor={0,0,0}, 
-              textString="v_ref"), 
-            Line(points={{-30,-32},{30,-32}}, color={0,0,0}), 
-            Line(points={{0,-32},{0,-86}}, color={0,0,0}), 
-            Line(points={{30,-42},{20,-52}}, color={0,0,0}), 
-            Line(points={{30,-32},{10,-52}}, color={0,0,0}), 
-            Line(points={{20,-32},{0,-52}}, color={0,0,0}), 
-            Line(points={{10,-32},{-10,-52}}, color={0,0,0}), 
-            Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
-            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
-            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}), 
+              extent={{-40,-40},{-126,-78}},
+              lineColor={0,0,0},
+              textString="v_ref"),
+            Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
+            Line(points={{0,-32},{0,-86}}, color={0,0,0}),
+            Line(points={{30,-42},{20,-52}}, color={0,0,0}),
+            Line(points={{30,-32},{10,-52}}, color={0,0,0}),
+            Line(points={{20,-32},{0,-52}}, color={0,0,0}),
+            Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
+            Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
+            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
+            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
             Rectangle(
-              extent={{-100,20},{100,-20}}, 
-              lineColor={0,127,0}, 
-              fillColor={215,215,215}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-29,32},{30,32}}, color={0,0,0}), 
-            Line(points={{0,52},{0,32}}, color={0,0,0}), 
+              extent={{-100,20},{100,-20}},
+              lineColor={0,127,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-29,32},{30,32}}, color={0,0,0}),
+            Line(points={{0,52},{0,32}}, color={0,0,0}),
             Text(
-              extent={{150,60},{-150,100}}, 
-              textString="%name", 
+              extent={{150,60},{-150,100}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -4123,28 +4037,28 @@ blocks of the block library Modelica.Blocks.Source.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-75,-18},{-124,-58}}, 
-              lineColor={0,0,0}, 
-              textString="a"), 
-            Line(points={{-30,-32},{30,-32}}, color={0,0,0}), 
-            Line(points={{0,-32},{0,-86}}, color={0,0,0}), 
-            Line(points={{30,-42},{20,-52}}, color={0,0,0}), 
-            Line(points={{30,-32},{10,-52}}, color={0,0,0}), 
-            Line(points={{20,-32},{0,-52}}, color={0,0,0}), 
-            Line(points={{10,-32},{-10,-52}}, color={0,0,0}), 
-            Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
-            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
-            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}), 
+              extent={{-75,-18},{-124,-58}},
+              lineColor={0,0,0},
+              textString="a"),
+            Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
+            Line(points={{0,-32},{0,-86}}, color={0,0,0}),
+            Line(points={{30,-42},{20,-52}}, color={0,0,0}),
+            Line(points={{30,-32},{10,-52}}, color={0,0,0}),
+            Line(points={{20,-32},{0,-52}}, color={0,0,0}),
+            Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
+            Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
+            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
+            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
             Rectangle(
-              extent={{-100,20},{100,-20}}, 
-              lineColor={0,127,0}, 
-              fillColor={215,215,215}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-29,32},{30,32}}, color={0,0,0}), 
-            Line(points={{0,52},{0,32}}, color={0,0,0}), 
+              extent={{-100,20},{100,-20}},
+              lineColor={0,127,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-29,32},{30,32}}, color={0,0,0}),
+            Line(points={{0,52},{0,32}}, color={0,0,0}),
             Text(
-              extent={{150,60},{-150,100}}, 
-              textString="%name", 
+              extent={{150,60},{-150,100}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -4202,28 +4116,28 @@ blocks of the block library Modelica.Blocks.Sources.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-140,-62},{20,-100}}, 
-              lineColor={0,0,0}, 
-              textString="s,v,a"), 
-            Line(points={{-30,-32},{30,-32}}, color={0,0,0}), 
-            Line(points={{0,-32},{0,-86}}, color={0,0,0}), 
-            Line(points={{30,-42},{20,-52}}, color={0,0,0}), 
-            Line(points={{30,-32},{10,-52}}, color={0,0,0}), 
-            Line(points={{20,-32},{0,-52}}, color={0,0,0}), 
-            Line(points={{10,-32},{-10,-52}}, color={0,0,0}), 
-            Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
-            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
-            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}), 
+              extent={{-140,-62},{20,-100}},
+              lineColor={0,0,0},
+              textString="s,v,a"),
+            Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
+            Line(points={{0,-32},{0,-86}}, color={0,0,0}),
+            Line(points={{30,-42},{20,-52}}, color={0,0,0}),
+            Line(points={{30,-32},{10,-52}}, color={0,0,0}),
+            Line(points={{20,-32},{0,-52}}, color={0,0,0}),
+            Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
+            Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
+            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
+            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
             Rectangle(
-              extent={{-100,20},{100,-20}}, 
-              lineColor={0,127,0}, 
-              fillColor={215,215,215}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{0,52},{0,32}}, color={0,0,0}), 
-            Line(points={{-29,32},{30,32}}, color={0,0,0}), 
+              extent={{-100,20},{100,-20}},
+              lineColor={0,127,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,52},{0,32}}, color={0,0,0}),
+            Line(points={{-29,32},{30,32}}, color={0,0,0}),
             Text(
-              extent={{150,60},{-150,100}}, 
-              textString="%name", 
+              extent={{150,60},{-150,100}},
+              textString="%name",
               lineColor={0,0,255})}),
         Window(
           x=0.27,
@@ -4304,28 +4218,28 @@ blocks of Modelica.Blocks.Source.
             grid={2,2}), graphics={
             Polygon(
               points={{-100,10},{20,10},{20,41},{90,0},{20,-41},{20,-10},{-100,
-                  -10},{-100,10}}, 
-              lineColor={0,127,0}, 
-              fillColor={215,215,215}, 
-              fillPattern=FillPattern.Solid), 
+                  -10},{-100,10}},
+              lineColor={0,127,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-100,-40},{-47,-88}}, 
-              lineColor={0,0,0}, 
-              textString="f"), 
+              extent={{-100,-40},{-47,-88}},
+              lineColor={0,0,0},
+              textString="f"),
             Text(
-              extent={{0,109},{0,49}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
-            Line(points={{-30,-60},{30,-60}}, color={0,0,0}), 
-            Line(points={{0,-60},{0,-85}}, color={0,0,0}), 
-            Line(points={{-30,-80},{-10,-60}}, color={0,0,0}), 
-            Line(points={{-10,-80},{10,-60}}, color={0,0,0}), 
-            Line(points={{10,-80},{30,-60}}, color={0,0,0}), 
+              extent={{0,109},{0,49}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{-30,-60},{30,-60}}, color={0,0,0}),
+            Line(points={{0,-60},{0,-85}}, color={0,0,0}),
+            Line(points={{-30,-80},{-10,-60}}, color={0,0,0}),
+            Line(points={{-10,-80},{10,-60}}, color={0,0,0}),
+            Line(points={{10,-80},{30,-60}}, color={0,0,0}),
             Polygon(
-              points={{-61,-50},{-30,-40},{-30,-60},{-61,-50}}, 
-              lineColor={0,0,0}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-61,-50},{-30,-40},{-30,-60},{-61,-50}},
+              lineColor={0,0,0},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
             Line(points={{-31,-50},{50,-50}}, color={0,0,0})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -4402,7 +4316,7 @@ blocks of Modelica.Blocks.Source.
       parameter Modelica.SIunits.Velocity v_nominal(min=Modelica.Constants.eps) 
         "Nominal speed";
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}}, 
+                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}},
                 color={0,0,255})}), Documentation(info="<HTML>
 <p>
 Model of force, linearly dependent on velocity of flange.<br>
@@ -4448,7 +4362,7 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
       parameter Modelica.SIunits.Force f_constant 
         "Nominal force (if negative, force is acting as load)";
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{-100,0},{98,0}}, 
+                -100},{100,100}}), graphics={Line(points={{-100,0},{98,0}},
                 color={0,0,255})}),
                                Documentation(info="<HTML>
 <p>
@@ -4465,7 +4379,7 @@ Positive force acts accelerating.
       parameter Modelica.SIunits.Velocity v_fixed 
         "Fixed speed (if negative, force is acting as load)";
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{0,-100},{0,100}}, 
+                -100},{100,100}}), graphics={Line(points={{0,-100},{0,100}},
                 color={0,0,255})}), Documentation(info="<HTML>
 <p>
 Model of <b>fixed</b> verlocity of flange, not dependent on force.
@@ -4485,8 +4399,8 @@ Model of <b>fixed</b> verlocity of flange, not dependent on force.
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-80,-60},{0,-60},{0,
                   60},{80,60}}, color={0,0,255}), Text(
-              extent={{0,-40},{100,-60}}, 
-              lineColor={0,0,255}, 
+              extent={{0,-40},{100,-60}},
+              lineColor={0,0,255},
               textString="time")}), Documentation(info="<HTML>
 <p>
 Model of a force step at time .<br>
@@ -4618,98 +4532,6 @@ velocity of model mass1 or of model mass2 as state variables.
   package Grounded 
   extends Modelica.Icons.Library2;
     
-    model MassWithStopAndFriction 
-      "Sliding mass with hard stop and Stribeck friction (support is fixed to ground)" 
-      extends Translational.Interfaces.PartialTwoFlanges;
-      parameter SI.Length L(start=0) 
-        "length of component from left flange to right flange (= flange_b.s - flange_a.s)";
-      parameter SI.Position smax(start= 25) 
-        "right stop for (right end of) sliding mass";
-      parameter SI.Position smin(start=-25) 
-        "left stop for (left end of) sliding mass";
-      parameter Modelica.SIunits.Mass m(start=1) "mass";
-      parameter Real F_prop(final unit="N.s/m", final min=0, start = 1) 
-        "velocity dependent friction";
-      parameter Modelica.SIunits.Force F_Coulomb(start=5) 
-        "constant friction: Coulomb force";
-      parameter Modelica.SIunits.Force F_Stribeck(start=10) "Stribeck effect";
-      parameter Real fexp(final unit="s/m", final min=0, start = 2) 
-        "exponential decay";
-      annotation (Documentation(info="<html>
-<p>
-Identical to
-<a href=\"Modelica://Modelica.Mechanics.Translational.Components.MassWithStopAndFriction\">Translational.Components.MassWithStopAndFriction</a>,
-and the support is automatically fixed to ground.
-</p>
-</html>"),     Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                -100},{100,100}}), graphics={
-            Line(points={{0,-60},{0,-100}}, color={0,0,0}), 
-            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}), 
-            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}), 
-            Line(points={{-10,-120},{10,-100}}, color={0,0,0}), 
-            Line(points={{10,-120},{30,-100}}, color={0,0,0}), 
-            Line(points={{-30,-100},{30,-100}}, color={0,0,0}), 
-            Text(
-              extent={{0,100},{0,40}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
-            Line(points={{-90,0},{-30,0}}, color={0,127,0}), 
-            Rectangle(
-              extent={{-30,30},{35,-35}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={255,255,255}), 
-            Line(points={{35,0},{90,0}}, color={0,127,0}), 
-            Rectangle(
-              extent={{-63,-15},{-55,-45}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
-            Rectangle(
-              extent={{60,-16},{69,-45}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
-            Rectangle(
-              extent={{-70,-45},{74,-60}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-60,-80},{20,-80}}, color={0,0,0}), 
-            Polygon(
-              points={{50,-80},{20,-70},{20,-90},{50,-80}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics));
-      Translational.Components.Fixed fixed 
-        annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
-      Components.MassWithStopAndFriction massWithStopAndFriction(
-        final L=L,
-        final smax=smax,
-        final smin=smin,
-        final m=m,
-        final F_prop=F_prop,
-        final F_Coulomb=F_Coulomb,
-        final F_Stribeck=F_Stribeck,
-        final fexp=fexp)
-        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-    equation 
-      connect(flange_a, massWithStopAndFriction.flange_a) annotation (Line(
-          points={{-100,0},{-10,0}}, 
-          color={0,127,0}, 
-          smooth=Smooth.None));
-      connect(massWithStopAndFriction.flange_b, flange_b) annotation (Line(
-          points={{10,0},{100,0}}, 
-          color={0,127,0}, 
-          smooth=Smooth.None));
-      connect(massWithStopAndFriction.support, fixed.flange) annotation (Line(
-          points={{0,-10},{0,-30}}, 
-          color={0,127,0}, 
-          smooth=Smooth.None));
-    end MassWithStopAndFriction;
-
     model SupportFriction 
       "Coulomb friction in support (support is fixed to ground)" 
       extends Translational.Interfaces.PartialTwoFlanges;
@@ -4720,75 +4542,75 @@ and the support is automatically fixed to ground.
       annotation (Documentation(info="<html>
 <p>
 Identical to
-<a href=\"Modelica://Modelica.Mechanics.Translational.Components.SupportFriction\">Translational.Components.SupportFriction</a>,
+<a href=\"Modelica://Modelica.Mechanics.Translational.SupportFriction\">Translational.SupportFriction</a>,
 and the support is automatically fixed to ground.
 </p>
 </html>"),     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
-              extent={{-90,10},{90,-10}}, 
-              lineColor={0,127,0}, 
-              fillColor={215,215,215}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-90,10},{90,-10}},
+              lineColor={0,127,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-48,-10},{-28,-30}}, 
-              lineColor={95,95,95}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={175,175,175}), 
+              extent={{-48,-10},{-28,-30}},
+              lineColor={95,95,95},
+              fillPattern=FillPattern.Sphere,
+              fillColor={175,175,175}),
             Ellipse(
-              extent={{-10,-10},{10,-30}}, 
-              lineColor={95,95,95}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={175,175,175}), 
+              extent={{-10,-10},{10,-30}},
+              lineColor={95,95,95},
+              fillPattern=FillPattern.Sphere,
+              fillColor={175,175,175}),
             Ellipse(
-              extent={{30,-10},{50,-30}}, 
-              lineColor={95,95,95}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={175,175,175}), 
+              extent={{30,-10},{50,-30}},
+              lineColor={95,95,95},
+              fillPattern=FillPattern.Sphere,
+              fillColor={175,175,175}),
             Polygon(
               points={{-60,-30},{60,-30},{60,-12},{80,-12},{80,-50},{-80,-50},{
-                  -80,-12},{-60,-12},{-60,-30}}, 
-              lineColor={95,95,95}, 
-              fillPattern=FillPattern.Solid, 
-              smooth=Smooth.None, 
-              fillColor={175,175,175}), 
+                  -80,-12},{-60,-12},{-60,-30}},
+              lineColor={95,95,95},
+              fillPattern=FillPattern.Solid,
+              smooth=Smooth.None,
+              fillColor={175,175,175}),
             Text(
-              extent={{-150,100},{150,60}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{-150,100},{150,60}},
+              textString="%name",
+              lineColor={0,0,255}),
             Polygon(
-              points={{-60,-50},{-20,-80},{20,-80},{60,-50},{-60,-50}}, 
-              lineColor={95,95,95}, 
-              smooth=Smooth.None, 
-              fillColor={175,175,175}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-60,-50},{-20,-80},{20,-80},{60,-50},{-60,-50}},
+              lineColor={95,95,95},
+              smooth=Smooth.None,
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-50,30},{-30,10}}, 
-              lineColor={95,95,95}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={175,175,175}), 
+              extent={{-50,30},{-30,10}},
+              lineColor={95,95,95},
+              fillPattern=FillPattern.Sphere,
+              fillColor={175,175,175}),
             Ellipse(
-              extent={{-10,30},{10,10}}, 
-              lineColor={95,95,95}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={175,175,175}), 
+              extent={{-10,30},{10,10}},
+              lineColor={95,95,95},
+              fillPattern=FillPattern.Sphere,
+              fillColor={175,175,175}),
             Ellipse(
-              extent={{30,30},{50,10}}, 
-              lineColor={95,95,95}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={175,175,175}), 
+              extent={{30,30},{50,10}},
+              lineColor={95,95,95},
+              fillPattern=FillPattern.Sphere,
+              fillColor={175,175,175}),
             Polygon(
               points={{-60,30},{60,30},{60,12},{80,12},{80,50},{-80,50},{-80,12},
-                  {-60,12},{-60,30}}, 
-              lineColor={95,95,95}, 
-              fillPattern=FillPattern.Solid, 
-              smooth=Smooth.None, 
-              fillColor={175,175,175}), 
-            Line(points={{0,-80},{0,-100}}, color={0,0,0}), 
-            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}), 
-            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}), 
-            Line(points={{-10,-120},{10,-100}}, color={0,0,0}), 
-            Line(points={{10,-120},{30,-100}}, color={0,0,0}), 
+                  {-60,12},{-60,30}},
+              lineColor={95,95,95},
+              fillPattern=FillPattern.Solid,
+              smooth=Smooth.None,
+              fillColor={175,175,175}),
+            Line(points={{0,-80},{0,-100}}, color={0,0,0}),
+            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}),
+            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}),
+            Line(points={{-10,-120},{10,-100}}, color={0,0,0}),
+            Line(points={{10,-120},{30,-100}}, color={0,0,0}),
             Line(points={{-30,-100},{30,-100}}, color={0,0,0})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics));
@@ -4830,71 +4652,71 @@ and the support is automatically fixed to ground.
       annotation (Documentation(info="<html>
 <p>
 Identical to
-<a href=\"Modelica://Modelica.Mechanics.Translational.Components.Brake\">Translational.Components.Brake</a>,
+<a href=\"Modelica://Modelica.Mechanics.Translational.Brake\">Translational.Brake</a>,
 and the support is automatically fixed to ground.
 </p>
 </html>"),     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
-              extent={{-90,10},{90,-10}}, 
-              lineColor={0,127,0}, 
-              fillColor={215,215,215}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{0,-80},{0,-100}}, color={0,0,0}), 
-            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}), 
-            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}), 
-            Line(points={{-10,-120},{10,-100}}, color={0,0,0}), 
-            Line(points={{10,-120},{30,-100}}, color={0,0,0}), 
-            Line(points={{-30,-100},{30,-100}}, color={0,0,0}), 
+              extent={{-90,10},{90,-10}},
+              lineColor={0,127,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,-80},{0,-100}}, color={0,0,0}),
+            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}),
+            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}),
+            Line(points={{-10,-120},{10,-100}}, color={0,0,0}),
+            Line(points={{10,-120},{30,-100}}, color={0,0,0}),
+            Line(points={{-30,-100},{30,-100}}, color={0,0,0}),
             Line(
-              points={{0,-50},{0,-60},{-40,-50},{-40,48},{0,60},{0,90}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None, 
-              fillColor={175,175,175}, 
-              fillPattern=FillPattern.Solid), 
+              points={{0,-50},{0,-60},{-40,-50},{-40,48},{0,60},{0,90}},
+              color={0,0,0},
+              smooth=Smooth.None,
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{0,90},{0,50}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None), 
+              points={{0,90},{0,50}},
+              color={0,0,0},
+              smooth=Smooth.None),
             Polygon(
-              points={{10,50},{-10,50},{0,30},{10,50}}, 
-              lineColor={0,0,127}, 
-              fillColor={0,0,127}, 
-              fillPattern=FillPattern.Solid), 
+              points={{10,50},{-10,50},{0,30},{10,50}},
+              lineColor={0,0,127},
+              fillColor={0,0,127},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-20,30},{20,20}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-20,30},{20,20}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-20,-20},{20,-30}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-20,-20},{20,-30}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{0,-30},{10,-50},{-10,-50},{0,-30}}, 
-              lineColor={0,0,127}, 
-              fillColor={0,0,127}, 
-              fillPattern=FillPattern.Solid), 
+              points={{0,-30},{10,-50},{-10,-50},{0,-30}},
+              lineColor={0,0,127},
+              fillColor={0,0,127},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{20,-22},{30,-28}}, 
-              lineColor={175,175,175}, 
-              fillColor={175,175,175}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{20,-22},{30,-28}},
+              lineColor={175,175,175},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{20,28},{30,22}}, 
-              lineColor={175,175,175}, 
-              fillColor={175,175,175}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{20,28},{30,22}},
+              lineColor={175,175,175},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{30,28},{36,-84}}, 
-              lineColor={175,175,175}, 
-              fillColor={175,175,175}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{30,28},{36,-84}},
+              lineColor={175,175,175},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{0,-78},{30,-84}}, 
-              lineColor={175,175,175}, 
-              fillColor={175,175,175}, 
+              extent={{0,-78},{30,-84}},
+              lineColor={175,175,175},
+              fillColor={175,175,175},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics));
@@ -4957,7 +4779,7 @@ and the support is automatically fixed to ground.
         Documentation(info="<html>
 <p>
 Identical to
-<a href=\"Modelica://Modelica.Mechanics.Translational.Sources.Position\">Translational.Sources.Position</a>,
+<a href=\"Modelica://Modelica.Mechanics.Translational.Position\">Translational.Position</a>,
 and the support is automatically fixed to ground.
 </p>
 </html>"),
@@ -4966,34 +4788,34 @@ and the support is automatically fixed to ground.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-40,-40},{-126,-78}}, 
-              lineColor={0,0,0}, 
-              textString="s_ref"), 
+              extent={{-40,-40},{-126,-78}},
+              lineColor={0,0,0},
+              textString="s_ref"),
             Rectangle(
-              extent={{-100,20},{100,-20}}, 
-              lineColor={0,127,0}, 
-              fillColor={215,215,215}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,20},{100,-20}},
+              lineColor={0,127,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{150,60},{-150,100}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
-            Line(points={{0,52},{0,32}}, color={0,0,0}), 
-            Line(points={{-29,32},{30,32}}, color={0,0,0}), 
-            Line(points={{-30,-32},{30,-32}}, color={0,0,0}), 
-            Line(points={{0,-32},{0,-86}}, color={0,0,0}), 
-            Line(points={{30,-42},{20,-52}}, color={0,0,0}), 
-            Line(points={{30,-32},{10,-52}}, color={0,0,0}), 
-            Line(points={{20,-32},{0,-52}}, color={0,0,0}), 
-            Line(points={{10,-32},{-10,-52}}, color={0,0,0}), 
-            Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
-            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
-            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}), 
-            Line(points={{0,-32},{0,-100}}, color={0,0,0}), 
-            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}), 
-            Line(points={{-10,-120},{10,-100}}, color={0,0,0}), 
-            Line(points={{10,-120},{30,-100}}, color={0,0,0}), 
-            Line(points={{-30,-100},{30,-100}}, color={0,0,0}), 
+              extent={{150,60},{-150,100}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{0,52},{0,32}}, color={0,0,0}),
+            Line(points={{-29,32},{30,32}}, color={0,0,0}),
+            Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
+            Line(points={{0,-32},{0,-86}}, color={0,0,0}),
+            Line(points={{30,-42},{20,-52}}, color={0,0,0}),
+            Line(points={{30,-32},{10,-52}}, color={0,0,0}),
+            Line(points={{20,-32},{0,-52}}, color={0,0,0}),
+            Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
+            Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
+            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
+            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
+            Line(points={{0,-32},{0,-100}}, color={0,0,0}),
+            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}),
+            Line(points={{-10,-120},{10,-100}}, color={0,0,0}),
+            Line(points={{10,-120},{30,-100}}, color={0,0,0}),
+            Line(points={{-30,-100},{30,-100}}, color={0,0,0}),
             Line(points={{-50,-120},{-30,-100}}, color={0,0,0})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -5045,11 +4867,11 @@ or on a multi-body system).
 
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
               {100,100}}), graphics={
-          Line(points={{-34,-42},{26,-42}}, color={0,0,0}), 
-          Line(points={{-4,-22},{-4,-42}}, color={0,0,0}), 
-          Line(points={{-54,-62},{-34,-42}}, color={0,0,0}), 
-          Line(points={{-34,-62},{-14,-42}}, color={0,0,0}), 
-          Line(points={{-14,-62},{6,-42}}, color={0,0,0}), 
+          Line(points={{-34,-42},{26,-42}}, color={0,0,0}),
+          Line(points={{-4,-22},{-4,-42}}, color={0,0,0}),
+          Line(points={{-54,-62},{-34,-42}}, color={0,0,0}),
+          Line(points={{-34,-62},{-14,-42}}, color={0,0,0}),
+          Line(points={{-14,-62},{6,-42}}, color={0,0,0}),
           Line(points={{6,-62},{26,-42}}, color={0,0,0})}));
     
     model Speed "Forced movement of a flange according to a reference speed" 
@@ -5069,7 +4891,7 @@ or on a multi-body system).
         Documentation(info="<html>
 <p>
 Identical to
-<a href=\"Modelica://Modelica.Mechanics.Translational.Sources.Speed\">Translational.Sources.Speed</a>,
+<a href=\"Modelica://Modelica.Mechanics.Translational.Speed\">Translational.Speed</a>,
 and the support is automatically fixed to ground.
 </p>
 </html>"),
@@ -5078,34 +4900,34 @@ and the support is automatically fixed to ground.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-40,-40},{-126,-78}}, 
-              lineColor={0,0,0}, 
-              textString="v_ref"), 
+              extent={{-40,-40},{-126,-78}},
+              lineColor={0,0,0},
+              textString="v_ref"),
             Rectangle(
-              extent={{-100,20},{100,-20}}, 
-              lineColor={0,127,0}, 
-              fillColor={215,215,215}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,20},{100,-20}},
+              lineColor={0,127,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{150,60},{-150,100}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
-            Line(points={{0,52},{0,32}}, color={0,0,0}), 
-            Line(points={{-29,32},{30,32}}, color={0,0,0}), 
-            Line(points={{-30,-32},{30,-32}}, color={0,0,0}), 
-            Line(points={{0,-32},{0,-86}}, color={0,0,0}), 
-            Line(points={{30,-42},{20,-52}}, color={0,0,0}), 
-            Line(points={{30,-32},{10,-52}}, color={0,0,0}), 
-            Line(points={{20,-32},{0,-52}}, color={0,0,0}), 
-            Line(points={{10,-32},{-10,-52}}, color={0,0,0}), 
-            Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
-            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
-            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}), 
-            Line(points={{0,-32},{0,-100}}, color={0,0,0}), 
-            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}), 
-            Line(points={{-10,-120},{10,-100}}, color={0,0,0}), 
-            Line(points={{10,-120},{30,-100}}, color={0,0,0}), 
-            Line(points={{-30,-100},{30,-100}}, color={0,0,0}), 
+              extent={{150,60},{-150,100}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{0,52},{0,32}}, color={0,0,0}),
+            Line(points={{-29,32},{30,32}}, color={0,0,0}),
+            Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
+            Line(points={{0,-32},{0,-86}}, color={0,0,0}),
+            Line(points={{30,-42},{20,-52}}, color={0,0,0}),
+            Line(points={{30,-32},{10,-52}}, color={0,0,0}),
+            Line(points={{20,-32},{0,-52}}, color={0,0,0}),
+            Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
+            Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
+            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
+            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
+            Line(points={{0,-32},{0,-100}}, color={0,0,0}),
+            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}),
+            Line(points={{-10,-120},{10,-100}}, color={0,0,0}),
+            Line(points={{10,-120},{30,-100}}, color={0,0,0}),
+            Line(points={{-30,-100},{30,-100}}, color={0,0,0}),
             Line(points={{-50,-120},{-30,-100}}, color={0,0,0})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -5158,7 +4980,7 @@ and the support is automatically fixed to ground.
         Documentation(info="<html>
 <p>
 Identical to
-<a href=\"Modelica://Modelica.Mechanics.Translational.Sources.Accelerate\">Translational.Sources.Accelerate</a>,
+<a href=\"Modelica://Modelica.Mechanics.Translational.Accelerate\">Translational.Accelerate</a>,
 and the support is automatically fixed to ground.
 </p>
 </html>"),
@@ -5167,34 +4989,34 @@ and the support is automatically fixed to ground.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-75,-18},{-124,-58}}, 
-              lineColor={0,0,0}, 
-              textString="a"), 
-            Line(points={{-30,-32},{30,-32}}, color={0,0,0}), 
-            Line(points={{0,-32},{0,-86}}, color={0,0,0}), 
-            Line(points={{30,-42},{20,-52}}, color={0,0,0}), 
-            Line(points={{30,-32},{10,-52}}, color={0,0,0}), 
-            Line(points={{20,-32},{0,-52}}, color={0,0,0}), 
-            Line(points={{10,-32},{-10,-52}}, color={0,0,0}), 
-            Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
-            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
-            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}), 
+              extent={{-75,-18},{-124,-58}},
+              lineColor={0,0,0},
+              textString="a"),
+            Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
+            Line(points={{0,-32},{0,-86}}, color={0,0,0}),
+            Line(points={{30,-42},{20,-52}}, color={0,0,0}),
+            Line(points={{30,-32},{10,-52}}, color={0,0,0}),
+            Line(points={{20,-32},{0,-52}}, color={0,0,0}),
+            Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
+            Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
+            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
+            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
             Rectangle(
-              extent={{-100,20},{100,-20}}, 
-              lineColor={0,127,0}, 
-              fillColor={215,215,215}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-29,32},{30,32}}, color={0,0,0}), 
-            Line(points={{0,52},{0,32}}, color={0,0,0}), 
+              extent={{-100,20},{100,-20}},
+              lineColor={0,127,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-29,32},{30,32}}, color={0,0,0}),
+            Line(points={{0,52},{0,32}}, color={0,0,0}),
             Text(
-              extent={{150,60},{-150,100}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
-            Line(points={{0,-32},{0,-100}}, color={0,0,0}), 
-            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}), 
-            Line(points={{-10,-120},{10,-100}}, color={0,0,0}), 
-            Line(points={{10,-120},{30,-100}}, color={0,0,0}), 
-            Line(points={{-30,-100},{30,-100}}, color={0,0,0}), 
+              extent={{150,60},{-150,100}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{0,-32},{0,-100}}, color={0,0,0}),
+            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}),
+            Line(points={{-10,-120},{10,-100}}, color={0,0,0}),
+            Line(points={{10,-120},{30,-100}}, color={0,0,0}),
+            Line(points={{-30,-100},{30,-100}}, color={0,0,0}),
             Line(points={{-50,-120},{-30,-100}}, color={0,0,0})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -5240,7 +5062,7 @@ and the support is automatically fixed to ground.
         Documentation(info="<html>
 <p>
 Identical to
-<a href=\"Modelica://Modelica.Mechanics.Translational.Sources.Move\">Translational.Sources.Move</a>,
+<a href=\"Modelica://Modelica.Mechanics.Translational.Move\">Translational.Move</a>,
 and the support is automatically fixed to ground.
 </p>
 </html>"),
@@ -5253,34 +5075,34 @@ and the support is automatically fixed to ground.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-140,-62},{20,-100}}, 
-              lineColor={0,0,0}, 
-              textString="s,v,a"), 
-            Line(points={{-30,-32},{30,-32}}, color={0,0,0}), 
-            Line(points={{0,-32},{0,-86}}, color={0,0,0}), 
-            Line(points={{30,-42},{20,-52}}, color={0,0,0}), 
-            Line(points={{30,-32},{10,-52}}, color={0,0,0}), 
-            Line(points={{20,-32},{0,-52}}, color={0,0,0}), 
-            Line(points={{10,-32},{-10,-52}}, color={0,0,0}), 
-            Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
-            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
-            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}), 
+              extent={{-140,-62},{20,-100}},
+              lineColor={0,0,0},
+              textString="s,v,a"),
+            Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
+            Line(points={{0,-32},{0,-86}}, color={0,0,0}),
+            Line(points={{30,-42},{20,-52}}, color={0,0,0}),
+            Line(points={{30,-32},{10,-52}}, color={0,0,0}),
+            Line(points={{20,-32},{0,-52}}, color={0,0,0}),
+            Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
+            Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
+            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
+            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
             Rectangle(
-              extent={{-100,20},{100,-20}}, 
-              lineColor={0,127,0}, 
-              fillColor={215,215,215}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{0,52},{0,32}}, color={0,0,0}), 
-            Line(points={{-29,32},{30,32}}, color={0,0,0}), 
+              extent={{-100,20},{100,-20}},
+              lineColor={0,127,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,52},{0,32}}, color={0,0,0}),
+            Line(points={{-29,32},{30,32}}, color={0,0,0}),
             Text(
-              extent={{150,60},{-150,100}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
-            Line(points={{0,-32},{0,-100}}, color={0,0,0}), 
-            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}), 
-            Line(points={{-10,-120},{10,-100}}, color={0,0,0}), 
-            Line(points={{10,-120},{30,-100}}, color={0,0,0}), 
-            Line(points={{-30,-100},{30,-100}}, color={0,0,0}), 
+              extent={{150,60},{-150,100}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{0,-32},{0,-100}}, color={0,0,0}),
+            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}),
+            Line(points={{-10,-120},{10,-100}}, color={0,0,0}),
+            Line(points={{10,-120},{30,-100}}, color={0,0,0}),
+            Line(points={{-30,-100},{30,-100}}, color={0,0,0}),
             Line(points={{-50,-120},{-30,-100}}, color={0,0,0})}),
         Window(
           x=0.27,
@@ -5328,7 +5150,7 @@ and the support is automatically fixed to ground.
         Documentation(info="<html>
 <p>
 Identical to
-<a href=\"Modelica://Modelica.Mechanics.Translational.Sources.Force\">Translational.Sources.Force</a>,
+<a href=\"Modelica://Modelica.Mechanics.Translational.Force\">Translational.Force</a>,
 and the support is automatically fixed to ground.
 </p>
 </html>
@@ -5338,35 +5160,35 @@ and the support is automatically fixed to ground.
             grid={2,2}), graphics={
             Polygon(
               points={{-100,10},{20,10},{20,41},{90,0},{20,-41},{20,-10},{-100,
-                  -10},{-100,10}}, 
-              lineColor={0,127,0}, 
-              fillColor={215,215,215}, 
-              fillPattern=FillPattern.Solid), 
+                  -10},{-100,10}},
+              lineColor={0,127,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-100,-40},{-47,-88}}, 
-              lineColor={0,0,0}, 
-              textString="f"), 
+              extent={{-100,-40},{-47,-88}},
+              lineColor={0,0,0},
+              textString="f"),
             Text(
-              extent={{0,109},{0,49}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
-            Line(points={{-30,-60},{30,-60}}, color={0,0,0}), 
-            Line(points={{0,-60},{0,-85}}, color={0,0,0}), 
-            Line(points={{-30,-80},{-10,-60}}, color={0,0,0}), 
-            Line(points={{-10,-80},{10,-60}}, color={0,0,0}), 
-            Line(points={{10,-80},{30,-60}}, color={0,0,0}), 
+              extent={{0,109},{0,49}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{-30,-60},{30,-60}}, color={0,0,0}),
+            Line(points={{0,-60},{0,-85}}, color={0,0,0}),
+            Line(points={{-30,-80},{-10,-60}}, color={0,0,0}),
+            Line(points={{-10,-80},{10,-60}}, color={0,0,0}),
+            Line(points={{10,-80},{30,-60}}, color={0,0,0}),
             Polygon(
-              points={{-61,-50},{-30,-40},{-30,-60},{-61,-50}}, 
-              lineColor={0,0,0}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-31,-50},{50,-50}}, color={0,0,0}), 
-            Line(points={{0,-60},{0,-85}}, color={0,0,0}), 
-            Line(points={{0,-60},{0,-99}}, color={0,0,0}), 
-            Line(points={{-30,-119},{-10,-99}}, color={0,0,0}), 
-            Line(points={{-10,-119},{10,-99}}, color={0,0,0}), 
-            Line(points={{10,-119},{30,-99}}, color={0,0,0}), 
-            Line(points={{-30,-99},{30,-99}}, color={0,0,0}), 
+              points={{-61,-50},{-30,-40},{-30,-60},{-61,-50}},
+              lineColor={0,0,0},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-31,-50},{50,-50}}, color={0,0,0}),
+            Line(points={{0,-60},{0,-85}}, color={0,0,0}),
+            Line(points={{0,-60},{0,-99}}, color={0,0,0}),
+            Line(points={{-30,-119},{-10,-99}}, color={0,0,0}),
+            Line(points={{-10,-119},{10,-99}}, color={0,0,0}),
+            Line(points={{10,-119},{30,-99}}, color={0,0,0}),
+            Line(points={{-30,-99},{30,-99}}, color={0,0,0}),
             Line(points={{-50,-119},{-30,-99}}, color={0,0,0})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -5408,12 +5230,11 @@ and the support is automatically fixed to ground.
       parameter Modelica.SIunits.Velocity v_nominal(min=Modelica.Constants.eps) 
         "Nominal speed";
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}}, 
+                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}},
                 color={0,0,255})}), Documentation(info="<HTML>
 <p>
-Identical to
-<a href=\"Modelica://Modelica.Mechanics.Translational.Sources.LinearSpeedDependentForce\">Translational.Sources.LinearSpeedDependentForce</a>,
-and the support is automatically fixed to ground.
+Model of force, linearly dependent on velocity of flange.<br>
+Parameter ForceDirection chooses whether direction of force is the same in both directions of movement or not.
 </p>
 </HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -5449,14 +5270,12 @@ and the support is automatically fixed to ground.
                   {-60,-92},{-40,-82},{-20,-68},{0,-50},{20,-28},{40,-2},{60,28},
                   {80,62},{100,100}}, color={0,0,255})}),Documentation(info="<HTML>
 <p>
-Identical to
-<a href=\"Modelica://Modelica.Mechanics.Translational.Sources.QuadraticSpeedDependentForce\">Translational.Sources.QuadraticSpeedDependentForce</a>,
-and the support is automatically fixed to ground.
+Model of force, quadratic dependent on velocity of flange.<br>
+Parameter ForceDirection chooses whether direction of force is the same in both directions of movement or not.
 </p>
 </HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
-                        graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+                100}}), graphics));
       Translational.Sources.QuadraticSpeedDependentForce 
         quadraticSpeedDependentForce(
         final f_nominal=f_nominal,
@@ -5481,13 +5300,12 @@ and the support is automatically fixed to ground.
       parameter Modelica.SIunits.Force f_constant 
         "Nominal force (if negative, force is acting as load)";
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{-100,0},{98,0}}, 
+                -100},{100,100}}), graphics={Line(points={{-100,0},{98,0}},
                 color={0,0,255})}),
                                Documentation(info="<HTML>
 <p>
-Identical to
-<a href=\"Modelica://Modelica.Mechanics.Translational.Sources.ConstantForce\">Translational.Sources.ConstantForce</a>,
-and the support is automatically fixed to ground.
+Model of constant force, not dependent on velocity of flange.<br>
+Positive force acts accelerating.
 </p>
 </HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -5512,12 +5330,10 @@ and the support is automatically fixed to ground.
       parameter Modelica.SIunits.Velocity v_fixed 
         "Fixed speed (if negative, force is acting as load)";
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{0,-100},{0,100}}, 
+                -100},{100,100}}), graphics={Line(points={{0,-100},{0,100}},
                 color={0,0,255})}), Documentation(info="<HTML>
 <p>
-Identical to
-<a href=\"Modelica://Modelica.Mechanics.Translational.Sources.ConstantSpeed\">Translational.Sources.ConstantSpeed</a>,
-and the support is automatically fixed to ground.
+Model of <b>fixed</b> verlocity of flange, not dependent on force.
 </p>
 </HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -5547,13 +5363,12 @@ and the support is automatically fixed to ground.
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-80,-60},{0,-60},{0,
                   60},{80,60}}, color={0,0,255}), Text(
-              extent={{0,-40},{100,-60}}, 
-              lineColor={0,0,255}, 
+              extent={{0,-40},{100,-60}},
+              lineColor={0,0,255},
               textString="time")}), Documentation(info="<HTML>
 <p>
-Identical to
-<a href=\"Modelica://Modelica.Mechanics.Translational.Sources.ForceStep\">Translational.Sources.ForceStep</a>,
-and the support is automatically fixed to ground.
+Model of a force step at time .<br>
+Positive force acts accelerating.
 </p>
 </HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},

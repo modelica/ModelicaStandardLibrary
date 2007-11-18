@@ -104,77 +104,77 @@ package Sensors "Sensors to measure variables"
             extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(
-            visible=get_r, 
-            points={{-84,0},{-84,-60},{-100,-60},{-100,-100}}, 
-            color={0,0,127}, 
-            smooth=Smooth.None), 
+            visible=get_r,
+            points={{-84,0},{-84,-60},{-100,-60},{-100,-100}},
+            color={0,0,127},
+            smooth=Smooth.None),
           Line(
-            visible=get_a, 
-            points={{-20,-67},{-20,-100}}, 
-            color={0,0,127}, 
-            smooth=Smooth.None), 
+            visible=get_a,
+            points={{-20,-67},{-20,-100}},
+            color={0,0,127},
+            smooth=Smooth.None),
           Line(
-            visible=get_w, 
-            points={{60,-36},{60,-100}}, 
-            color={0,0,127}, 
-            smooth=Smooth.None), 
+            visible=get_w,
+            points={{60,-36},{60,-100}},
+            color={0,0,127},
+            smooth=Smooth.None),
           Line(
-            visible=get_z, 
-            points={{86,0},{86,-60},{100,-60},{100,-100}}, 
-            color={0,0,127}, 
-            smooth=Smooth.None), 
+            visible=get_z,
+            points={{86,0},{86,-60},{100,-60},{100,-100}},
+            color={0,0,127},
+            smooth=Smooth.None),
           Line(
-            visible=get_v, 
-            points={{-60,-36},{-60,-100}}, 
-            color={0,0,127}, 
-            smooth=Smooth.None), 
+            visible=get_v,
+            points={{-60,-36},{-60,-100}},
+            color={0,0,127},
+            smooth=Smooth.None),
           Line(
-            visible=get_angles, 
-            points={{20,-67},{20,-100}}, 
-            color={0,0,127}, 
-            smooth=Smooth.None), 
+            visible=get_angles,
+            points={{20,-67},{20,-100}},
+            color={0,0,127},
+            smooth=Smooth.None),
           Line(
-            points={{95,0},{95,0},{70,0}}, 
-            color={0,0,0}, 
-            pattern=LinePattern.Dot, 
-            smooth=Smooth.None), 
+            points={{95,0},{95,0},{70,0}},
+            color={0,0,0},
+            pattern=LinePattern.Dot,
+            smooth=Smooth.None),
           Text(
-            extent={{-132,76},{129,124}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-132,76},{129,124}},
+            textString="%name",
+            lineColor={0,0,255}),
           Text(
-            visible=get_r, 
-            extent={{-130,-74},{-95,-90}}, 
-            lineColor={0,0,0}, 
-            textString="r"), 
+            visible=get_r,
+            extent={{-130,-74},{-95,-90}},
+            lineColor={0,0,0},
+            textString="r"),
           Text(
-            visible=get_v, 
-            extent={{-95,-74},{-60,-90}}, 
-            lineColor={0,0,0}, 
-            textString="v"), 
+            visible=get_v,
+            extent={{-95,-74},{-60,-90}},
+            lineColor={0,0,0},
+            textString="v"),
           Text(
-            visible=get_a, 
-            extent={{-55,-74},{-20,-90}}, 
-            lineColor={0,0,0}, 
-            textString="a"), 
+            visible=get_a,
+            extent={{-55,-74},{-20,-90}},
+            lineColor={0,0,0},
+            textString="a"),
           Text(
-            visible=get_angles, 
-            extent={{-71,-35},{96,-54}}, 
-            lineColor={0,0,0}, 
-            textString="angles"), 
+            visible=get_angles,
+            extent={{-71,-35},{96,-54}},
+            lineColor={0,0,0},
+            textString="angles"),
           Text(
-            visible=get_w, 
-            extent={{59,-68},{105,-85}}, 
-            lineColor={0,0,0}, 
-            textString="w"), 
+            visible=get_w,
+            extent={{59,-68},{105,-85}},
+            lineColor={0,0,0},
+            textString="w"),
           Text(
-            visible=get_z, 
-            extent={{107,-68},{153,-84}}, 
-            lineColor={0,0,0}, 
-            textString="z"), 
+            visible=get_z,
+            extent={{107,-68},{153,-84}},
+            lineColor={0,0,0},
+            textString="z"),
           Text(
-            extent={{60,52},{191,27}}, 
-            lineColor={95,95,95}, 
+            extent={{60,52},{191,27}},
+            lineColor={95,95,95},
             textString="resolve")}),
       Documentation(info="<html>
 <p>
@@ -580,73 +580,73 @@ and sequence[2] &ne; sequence[3]. Often used values are:
             extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(
-            visible=get_r_rel, 
-            points={{-84,0},{-84,-60},{-100,-60},{-100,-100}}, 
-            color={0,0,127}, 
-            smooth=Smooth.None), 
+            visible=get_r_rel,
+            points={{-84,0},{-84,-60},{-100,-60},{-100,-100}},
+            color={0,0,127},
+            smooth=Smooth.None),
           Line(
-            visible=get_a_rel, 
-            points={{-20,-67},{-20,-100}}, 
-            color={0,0,127}, 
-            smooth=Smooth.None), 
+            visible=get_a_rel,
+            points={{-20,-67},{-20,-100}},
+            color={0,0,127},
+            smooth=Smooth.None),
           Line(
-            visible=get_w_rel, 
-            points={{60,-36},{60,-100}}, 
-            color={0,0,127}, 
-            smooth=Smooth.None), 
+            visible=get_w_rel,
+            points={{60,-36},{60,-100}},
+            color={0,0,127},
+            smooth=Smooth.None),
           Line(
-            visible=get_z_rel, 
-            points={{86,0},{86,-60},{100,-60},{100,-100}}, 
-            color={0,0,127}, 
-            smooth=Smooth.None), 
+            visible=get_z_rel,
+            points={{86,0},{86,-60},{100,-60},{100,-100}},
+            color={0,0,127},
+            smooth=Smooth.None),
           Line(
-            visible=get_v_rel, 
-            points={{-60,-36},{-60,-100}}, 
-            color={0,0,127}, 
-            smooth=Smooth.None), 
+            visible=get_v_rel,
+            points={{-60,-36},{-60,-100}},
+            color={0,0,127},
+            smooth=Smooth.None),
           Line(
-            visible=get_angles, 
-            points={{20,-67},{20,-100}}, 
-            color={0,0,127}, 
-            smooth=Smooth.None), 
+            visible=get_angles,
+            points={{20,-67},{20,-100}},
+            color={0,0,127},
+            smooth=Smooth.None),
           Line(
-            points={{95,80},{50,80},{50,49}}, 
-            color={0,0,0}, 
-            pattern=LinePattern.Dot, 
-            smooth=Smooth.None), 
+            points={{95,80},{50,80},{50,49}},
+            color={0,0,0},
+            pattern=LinePattern.Dot,
+            smooth=Smooth.None),
           Text(
-            extent={{-132,90},{129,138}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-132,90},{129,138}},
+            textString="%name",
+            lineColor={0,0,255}),
           Text(
-            visible=get_r_rel, 
-            extent={{-130,-74},{-95,-90}}, 
-            lineColor={0,0,0}, 
-            textString="r"), 
+            visible=get_r_rel,
+            extent={{-130,-74},{-95,-90}},
+            lineColor={0,0,0},
+            textString="r"),
           Text(
-            visible=get_v_rel, 
-            extent={{-95,-74},{-60,-90}}, 
-            lineColor={0,0,0}, 
-            textString="v"), 
+            visible=get_v_rel,
+            extent={{-95,-74},{-60,-90}},
+            lineColor={0,0,0},
+            textString="v"),
           Text(
-            visible=get_a_rel, 
-            extent={{-55,-74},{-20,-90}}, 
-            lineColor={0,0,0}, 
-            textString="a"), 
+            visible=get_a_rel,
+            extent={{-55,-74},{-20,-90}},
+            lineColor={0,0,0},
+            textString="a"),
           Text(
-            visible=get_angles, 
-            extent={{-71,-35},{96,-54}}, 
-            lineColor={0,0,0}, 
-            textString="angles"), 
+            visible=get_angles,
+            extent={{-71,-35},{96,-54}},
+            lineColor={0,0,0},
+            textString="angles"),
           Text(
-            visible=get_w_rel, 
-            extent={{63,-73},{103,-90}}, 
-            lineColor={0,0,0}, 
-            textString="w"), 
+            visible=get_w_rel,
+            extent={{63,-73},{103,-90}},
+            lineColor={0,0,0},
+            textString="w"),
           Text(
-            visible=get_z_rel, 
-            extent={{103,-71},{149,-87}}, 
-            lineColor={0,0,0}, 
+            visible=get_z_rel,
+            extent={{103,-71},{149,-87}},
+            lineColor={0,0,0},
             textString="z")}),
       Documentation(info="<html>
 <p>
@@ -1014,28 +1014,28 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
           graphics={
           Line(
-            points={{70,0},{100,0}}, 
-            color={0,0,127}, 
-            smooth=Smooth.None), 
+            points={{70,0},{100,0}},
+            color={0,0,127},
+            smooth=Smooth.None),
           Text(
-            extent={{-127,95},{134,143}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-127,95},{134,143}},
+            textString="%name",
+            lineColor={0,0,255}),
           Text(
-            extent={{62,46},{146,16}}, 
-            lineColor={0,0,0}, 
-            textString="r"), 
+            extent={{62,46},{146,16}},
+            lineColor={0,0,0},
+            textString="r"),
           Text(
-            extent={{15,-67},{146,-92}}, 
-            lineColor={95,95,95}, 
-            textString="resolve"), 
+            extent={{15,-67},{146,-92}},
+            lineColor={95,95,95},
+            textString="resolve"),
           Line(
-            points={{0,-96},{0,-96},{0,-70},{0,-70}}, 
-            color={0,0,0}, 
-            smooth=Smooth.None, 
+            points={{0,-96},{0,-96},{0,-70},{0,-70}},
+            color={0,0,0},
+            smooth=Smooth.None,
             pattern=LinePattern.Dot)}),
       Documentation(info="<html>
 <p>
@@ -1138,25 +1138,25 @@ computed as:
             preserveAspectRatio=true,  extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(
-            points={{70,0},{100,0}}, 
-            color={0,0,127}, 
-            smooth=Smooth.None), 
+            points={{70,0},{100,0}},
+            color={0,0,127},
+            smooth=Smooth.None),
           Text(
-            extent={{-130,72},{131,120}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-130,72},{131,120}},
+            textString="%name",
+            lineColor={0,0,255}),
           Text(
-            extent={{58,48},{142,18}}, 
-            lineColor={0,0,0}, 
-            textString="v"), 
+            extent={{58,48},{142,18}},
+            lineColor={0,0,0},
+            textString="v"),
           Text(
-            extent={{15,-67},{146,-92}}, 
-            lineColor={95,95,95}, 
-            textString="resolve"), 
+            extent={{15,-67},{146,-92}},
+            lineColor={95,95,95},
+            textString="resolve"),
           Line(
-            points={{0,-70},{0,-95}}, 
-            color={95,95,95}, 
-            smooth=Smooth.None, 
+            points={{0,-70},{0,-95}},
+            color={95,95,95},
+            smooth=Smooth.None,
             pattern=LinePattern.Dot)}),
       Documentation(info="<html>
 <p>
@@ -1259,24 +1259,24 @@ computed as:
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Text(
-            extent={{-108,43},{-72,18}}, 
-            lineColor={128,128,128}, 
-            textString="a"), 
+            extent={{-108,43},{-72,18}},
+            lineColor={128,128,128},
+            textString="a"),
           Line(
-            points={{-70,0},{-96,0},{-96,0}}, 
-            color={0,0,0}, 
-            smooth=Smooth.None), 
+            points={{-70,0},{-96,0},{-96,0}},
+            color={0,0,0},
+            smooth=Smooth.None),
           Text(
-            extent={{-132,76},{129,124}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-132,76},{129,124}},
+            textString="%name",
+            lineColor={0,0,255}),
           Line(
-            points={{70,0},{100,0}}, 
-            color={0,0,127}, 
-            smooth=Smooth.None), 
+            points={{70,0},{100,0}},
+            color={0,0,127},
+            smooth=Smooth.None),
           Text(
-            extent={{62,-22},{172,-44}}, 
-            lineColor={0,0,0}, 
+            extent={{62,-22},{172,-44}},
+            lineColor={0,0,0},
             textString="angles")}),Diagram(coordinateSystem(
             preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
           graphics),
@@ -1358,25 +1358,25 @@ and sequence[2] &ne; sequence[3]. Often used values are:
             preserveAspectRatio=false, extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(
-            points={{70,0},{100,0}}, 
-            color={0,0,127}, 
-            smooth=Smooth.None), 
+            points={{70,0},{100,0}},
+            color={0,0,127},
+            smooth=Smooth.None),
           Text(
-            extent={{-127,77},{134,125}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-127,77},{134,125}},
+            textString="%name",
+            lineColor={0,0,255}),
           Text(
-            extent={{66,48},{150,18}}, 
-            lineColor={0,0,0}, 
-            textString="w"), 
+            extent={{66,48},{150,18}},
+            lineColor={0,0,0},
+            textString="w"),
           Line(
-            points={{0,-70},{0,-96}}, 
-            color={95,95,95}, 
-            smooth=Smooth.None, 
-            pattern=LinePattern.Dot), 
+            points={{0,-70},{0,-96}},
+            color={95,95,95},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot),
           Text(
-            extent={{15,-67},{146,-92}}, 
-            lineColor={95,95,95}, 
+            extent={{15,-67},{146,-92}},
+            lineColor={95,95,95},
             textString="resolve")}),
       Documentation(info="<html>
 <p>
@@ -1473,19 +1473,19 @@ computed as:
     
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
           graphics={
           Line(
-            points={{0,-70},{0,-100}}, 
-            color={0,0,127}, 
-            smooth=Smooth.None), 
+            points={{0,-70},{0,-100}},
+            color={0,0,127},
+            smooth=Smooth.None),
           Text(
-            extent={{-127,95},{134,143}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-127,95},{134,143}},
+            textString="%name",
+            lineColor={0,0,255}),
           Text(
-            extent={{18,-80},{102,-110}}, 
-            lineColor={0,0,0}, 
+            extent={{18,-80},{102,-110}},
+            lineColor={0,0,0},
             textString="r_rel")}),
       Documentation(info="<html>
 <p>
@@ -1592,16 +1592,16 @@ computed as:
             preserveAspectRatio=true,  extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(
-            points={{0,-70},{0,-100}}, 
-            color={0,0,127}, 
-            smooth=Smooth.None), 
+            points={{0,-70},{0,-100}},
+            color={0,0,127},
+            smooth=Smooth.None),
           Text(
-            extent={{-127,95},{134,143}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-127,95},{134,143}},
+            textString="%name",
+            lineColor={0,0,255}),
           Text(
-            extent={{18,-80},{102,-110}}, 
-            lineColor={0,0,0}, 
+            extent={{18,-80},{102,-110}},
+            lineColor={0,0,0},
             textString="r_rel")}),
       Documentation(info="<html>
 <p>
@@ -1716,32 +1716,32 @@ computed as:
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Text(
-            extent={{-108,43},{-72,18}}, 
-            lineColor={128,128,128}, 
-            textString="a"), 
+            extent={{-108,43},{-72,18}},
+            lineColor={128,128,128},
+            textString="a"),
           Text(
-            extent={{72,41},{108,16}}, 
-            lineColor={128,128,128}, 
-            textString="b"), 
+            extent={{72,41},{108,16}},
+            lineColor={128,128,128},
+            textString="b"),
           Line(
-            points={{-70,0},{-96,0},{-96,0}}, 
-            color={0,0,0}, 
-            smooth=Smooth.None), 
+            points={{-70,0},{-96,0},{-96,0}},
+            color={0,0,0},
+            smooth=Smooth.None),
           Line(
-            points={{96,0},{70,0},{70,0}}, 
-            color={0,0,0}, 
-            smooth=Smooth.None), 
+            points={{96,0},{70,0},{70,0}},
+            color={0,0,0},
+            smooth=Smooth.None),
           Text(
-            extent={{-132,90},{129,138}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-132,90},{129,138}},
+            textString="%name",
+            lineColor={0,0,255}),
           Line(
-            points={{0,-70},{0,-100}}, 
-            color={0,0,127}, 
-            smooth=Smooth.None), 
+            points={{0,-70},{0,-100}},
+            color={0,0,127},
+            smooth=Smooth.None),
           Text(
-            extent={{0,-76},{110,-98}}, 
-            lineColor={0,0,0}, 
+            extent={{0,-76},{110,-98}},
+            lineColor={0,0,0},
             textString="angles")}),Diagram(coordinateSystem(
             preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
           graphics),
@@ -1818,19 +1818,19 @@ and sequence[2] &ne; sequence[3]. Often used values are:
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
           graphics={
           Line(
-            points={{0,-70},{0,-100}}, 
-            color={0,0,127}, 
-            smooth=Smooth.None), 
+            points={{0,-70},{0,-100}},
+            color={0,0,127},
+            smooth=Smooth.None),
           Text(
-            extent={{-127,95},{134,143}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-127,95},{134,143}},
+            textString="%name",
+            lineColor={0,0,255}),
           Text(
-            extent={{14,-78},{98,-108}}, 
-            lineColor={0,0,0}, 
+            extent={{14,-78},{98,-108}},
+            lineColor={0,0,0},
             textString="w_rel")}),
       Documentation(info="<html>
 <p>
@@ -1956,12 +1956,12 @@ computed as:
       preferedView="info",
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{0,-60},{0,-100}}, color={0,0,255}), 
-          Line(points={{-70,0},{-101,0}}, color={0,0,0}), 
-          Line(points={{70,0},{100,0}}, color={0,0,0}), 
+          Line(points={{0,-60},{0,-100}}, color={0,0,255}),
+          Line(points={{-70,0},{-101,0}}, color={0,0,0}),
+          Line(points={{70,0},{100,0}}, color={0,0,0}),
           Text(
-            extent={{-128,30},{133,78}}, 
-            textString="%name", 
+            extent={{-128,30},{133,78}},
+            textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}), graphics={
@@ -2060,8 +2060,8 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={Text(
-            extent={{-190,-70},{-74,-96}}, 
-            lineColor={0,0,0}, 
+            extent={{-190,-70},{-74,-96}},
+            lineColor={0,0,0},
             textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,
                 127})}),
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
@@ -2189,8 +2189,8 @@ with negative sign at frame_a.
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
               100}}), graphics={Text(
-            extent={{-180,-72},{-64,-98}}, 
-            lineColor={0,0,0}, 
+            extent={{-180,-72},{-64,-98}},
+            lineColor={0,0,0},
             textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,0,
                 127})}),
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
@@ -2333,15 +2333,15 @@ with negative sign at frame_a.
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{-80,-100},{-80,0}}, color={0,0,127}), 
-          Line(points={{0,-100},{0,-70}}, color={0,0,127}), 
+          Line(points={{-80,-100},{-80,0}}, color={0,0,127}),
+          Line(points={{0,-100},{0,-70}}, color={0,0,127}),
           Text(
-            extent={{-188,-70},{-72,-96}}, 
-            lineColor={0,0,0}, 
-            textString="force"), 
+            extent={{-188,-70},{-72,-96}},
+            lineColor={0,0,0},
+            textString="force"),
           Text(
-            extent={{-56,-70},{60,-96}}, 
-            lineColor={0,0,0}, 
+            extent={{-56,-70},{60,-96}},
+            lineColor={0,0,0},
             textString="torque")}),
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}}),
@@ -2488,16 +2488,16 @@ with negative sign at frame_a.
               100,100}}), graphics),
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{-70,0},{-101,0}}, color={0,0,0}), 
-          Line(points={{70,0},{100,0}}, color={0,0,0}), 
-          Line(points={{-80,0},{-80,-100}}, color={0,0,127}), 
+          Line(points={{-70,0},{-101,0}}, color={0,0,0}),
+          Line(points={{70,0},{100,0}}, color={0,0,0}),
+          Line(points={{-80,0},{-80,-100}}, color={0,0,127}),
           Text(
-            extent={{-60,-92},{16,-114}}, 
-            lineColor={0,0,0}, 
-            textString="power"), 
+            extent={{-60,-92},{16,-114}},
+            lineColor={0,0,0},
+            textString="power"),
           Text(
-            extent={{-128,126},{126,68}}, 
-            textString="%name", 
+            extent={{-128,126},{126,68}},
+            textString="%name",
             lineColor={0,0,255})}),
       Documentation(info="<HTML>
 <p>
@@ -2563,40 +2563,40 @@ coordinate system.
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true,  extent={{-100,-100},{100,100}}), 
+            preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
           graphics={
           Line(
-            points={{0,-70},{0,-100}}, 
-            color={0,0,127}, 
-            smooth=Smooth.None), 
+            points={{0,-70},{0,-100}},
+            color={0,0,127},
+            smooth=Smooth.None),
           Line(
-            points={{0,100},{0,70}}, 
-            color={0,0,127}, 
-            smooth=Smooth.None), 
+            points={{0,100},{0,70}},
+            color={0,0,127},
+            smooth=Smooth.None),
           Text(
-            extent={{-104,124},{-18,96}}, 
-            lineColor={0,0,0}, 
-            textString="r_in"), 
+            extent={{-104,124},{-18,96}},
+            lineColor={0,0,0},
+            textString="r_in"),
           Text(
-            extent={{-124,-76},{2,-104}}, 
-            lineColor={0,0,0}, 
-            textString="r_out"), 
+            extent={{-124,-76},{2,-104}},
+            lineColor={0,0,0},
+            textString="r_out"),
           Line(
-            points={{95,0},{95,0},{70,0},{70,0}}, 
-            color={0,0,0}, 
-            smooth=Smooth.None, 
-            pattern=LinePattern.Dot), 
+            points={{95,0},{95,0},{70,0},{70,0}},
+            color={0,0,0},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot),
           Text(
-            extent={{58,47},{189,22}}, 
-            lineColor={95,95,95}, 
-            textString="resolve"), 
+            extent={{58,47},{189,22}},
+            lineColor={95,95,95},
+            textString="resolve"),
           Line(
-            points={{-70,0},{-96,0},{-96,0}}, 
-            color={0,0,0}, 
-            smooth=Smooth.None), 
+            points={{-70,0},{-96,0},{-96,0}},
+            color={0,0,0},
+            smooth=Smooth.None),
           Text(
-            extent={{-116,45},{-80,20}}, 
-            lineColor={95,95,95}, 
+            extent={{-116,45},{-80,20}},
+            lineColor={95,95,95},
             textString="a")}),
       Documentation(info="<html>
 <p>
@@ -2673,23 +2673,23 @@ transformed output vector as \"Real r_out[3]\";
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
           graphics={
           Line(
-            points={{0,-70},{0,-100}}, 
-            color={0,0,127}, 
-            smooth=Smooth.None), 
+            points={{0,-70},{0,-100}},
+            color={0,0,127},
+            smooth=Smooth.None),
           Line(
-            points={{0,100},{0,70}}, 
-            color={0,0,127}, 
-            smooth=Smooth.None), 
+            points={{0,100},{0,70}},
+            color={0,0,127},
+            smooth=Smooth.None),
           Text(
-            extent={{-104,124},{-18,96}}, 
-            lineColor={0,0,0}, 
-            textString="r_in"), 
+            extent={{-104,124},{-18,96}},
+            lineColor={0,0,0},
+            textString="r_in"),
           Text(
-            extent={{-124,-76},{2,-104}}, 
-            lineColor={0,0,0}, 
+            extent={{-124,-76},{2,-104}},
+            lineColor={0,0,0},
             textString="r_out")}),
       Documentation(info="<html>
 <p>
@@ -2752,11 +2752,11 @@ transformed output vector as \"Real r_out[3]\";
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics), Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={Text(
-              extent={{-108,43},{-72,18}}, 
-              lineColor={128,128,128}, 
+              extent={{-108,43},{-72,18}},
+              lineColor={128,128,128},
               textString="a"), Line(
-              points={{-70,0},{-96,0},{-96,0}}, 
-              color={0,0,0}, 
+              points={{-70,0},{-96,0},{-96,0}},
+              color={0,0,0},
               smooth=Smooth.None)}));
     equation 
        assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
@@ -2786,27 +2786,27 @@ transformed output vector as \"Real r_out[3]\";
               extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Text(
-              extent={{-108,43},{-72,18}}, 
-              lineColor={95,95,95}, 
-              textString="a"), 
+              extent={{-108,43},{-72,18}},
+              lineColor={95,95,95},
+              textString="a"),
             Line(
-              points={{-70,0},{-96,0},{-96,0}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None), 
+              points={{-70,0},{-96,0},{-96,0}},
+              color={0,0,0},
+              smooth=Smooth.None),
             Line(
-              points={{0,15},{0,-15}}, 
-              color={0,0,127}, 
-              smooth=Smooth.None, 
-              origin={85,0}, 
-              rotation=90), 
+              points={{0,15},{0,-15}},
+              color={0,0,127},
+              smooth=Smooth.None,
+              origin={85,0},
+              rotation=90),
             Line(
-              points={{0,-95},{0,-95},{0,-70},{0,-70}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None, 
-              pattern=LinePattern.Dot), 
+              points={{0,-95},{0,-95},{0,-70},{0,-70}},
+              color={0,0,0},
+              smooth=Smooth.None,
+              pattern=LinePattern.Dot),
             Text(
-              extent={{0,-75},{131,-100}}, 
-              lineColor={95,95,95}, 
+              extent={{0,-75},{131,-100}},
+              lineColor={95,95,95},
               textString="resolve")}));
     equation 
        assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
@@ -2834,25 +2834,25 @@ transformed output vector as \"Real r_out[3]\";
             grid={1,1}), graphics), Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Text(
-              extent={{-108,43},{-72,18}}, 
-              lineColor={128,128,128}, 
-              textString="a"), 
+              extent={{-108,43},{-72,18}},
+              lineColor={128,128,128},
+              textString="a"),
             Text(
-              extent={{72,41},{108,16}}, 
-              lineColor={128,128,128}, 
-              textString="b"), 
+              extent={{72,41},{108,16}},
+              lineColor={128,128,128},
+              textString="b"),
             Line(
-              points={{-70,0},{-96,0},{-96,0}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None), 
+              points={{-70,0},{-96,0},{-96,0}},
+              color={0,0,0},
+              smooth=Smooth.None),
             Line(
-              points={{96,0},{70,0},{70,0}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None), 
+              points={{96,0},{70,0},{70,0}},
+              color={0,0,0},
+              smooth=Smooth.None),
             Line(
-              points={{60,36},{60,36},{60,80},{95,80}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None, 
+              points={{60,36},{60,36},{60,80},{95,80}},
+              color={0,0,0},
+              smooth=Smooth.None,
               pattern=LinePattern.Dot)}));
     equation 
        assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
@@ -2881,29 +2881,29 @@ transformed output vector as \"Real r_out[3]\";
             grid={1,1}), graphics), Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Text(
-              extent={{-108,43},{-72,18}}, 
-              lineColor={128,128,128}, 
-              textString="a"), 
+              extent={{-108,43},{-72,18}},
+              lineColor={128,128,128},
+              textString="a"),
             Text(
-              extent={{72,41},{108,16}}, 
-              lineColor={128,128,128}, 
-              textString="b"), 
+              extent={{72,41},{108,16}},
+              lineColor={128,128,128},
+              textString="b"),
             Line(
-              points={{-70,0},{-96,0},{-96,0}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None), 
+              points={{-70,0},{-96,0},{-96,0}},
+              color={0,0,0},
+              smooth=Smooth.None),
             Line(
-              points={{96,0},{70,0},{70,0}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None), 
+              points={{96,0},{70,0},{70,0}},
+              color={0,0,0},
+              smooth=Smooth.None),
             Line(
-              points={{0,-70},{0,-100}}, 
-              color={0,0,127}, 
-              smooth=Smooth.None), 
+              points={{0,-70},{0,-100}},
+              color={0,0,127},
+              smooth=Smooth.None),
             Line(
-              points={{60,36},{60,36},{60,80},{95,80}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None, 
+              points={{60,36},{60,36},{60,80},{95,80}},
+              color={0,0,0},
+              smooth=Smooth.None,
               pattern=LinePattern.Dot)}));
     equation 
        assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
@@ -2938,11 +2938,11 @@ transformed output vector as \"Real r_out[3]\";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}},
             grid={1,1}), graphics={Text(
-              extent={{61,47},{145,17}}, 
-              lineColor={0,0,0}, 
+              extent={{61,47},{145,17}},
+              lineColor={0,0,0},
               textString="r"), Text(
-              extent={{-127,75},{134,123}}, 
-              textString="%name", 
+              extent={{-127,75},{134,123}},
+              textString="%name",
               lineColor={0,0,255})}),Diagram(coordinateSystem(
               preserveAspectRatio=true,  extent={{-100,-100},{100,100}},
             grid={1,1}),
@@ -2979,11 +2979,11 @@ transformed output vector as \"Real r_out[3]\";
       
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{62,48},{146,18}}, 
-              lineColor={0,0,0}, 
+              extent={{62,48},{146,18}},
+              lineColor={0,0,0},
               textString="w"), Text(
-              extent={{-130,76},{131,124}}, 
-              textString="%name", 
+              extent={{-130,76},{131,124}},
+              textString="%name",
               lineColor={0,0,255})}),Diagram(coordinateSystem(
               preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
             graphics));
@@ -3021,11 +3021,11 @@ transformed output vector as \"Real r_out[3]\";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}},
             grid={1,1}), graphics={Text(
-              extent={{12,-76},{96,-106}}, 
-              lineColor={0,0,0}, 
+              extent={{12,-76},{96,-106}},
+              lineColor={0,0,0},
               textString="r_rel"), Text(
-              extent={{-127,95},{134,143}}, 
-              textString="%name", 
+              extent={{-127,95},{134,143}},
+              textString="%name",
               lineColor={0,0,255})}),Diagram(coordinateSystem(
               preserveAspectRatio=true,  extent={{-100,-100},{100,100}},
             grid={1,1}),
@@ -3061,11 +3061,11 @@ transformed output vector as \"Real r_out[3]\";
       
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{12,-76},{96,-106}}, 
-              lineColor={0,0,0}, 
+              extent={{12,-76},{96,-106}},
+              lineColor={0,0,0},
               textString="w_rel"), Text(
-              extent={{-132,90},{129,138}}, 
-              textString="%name", 
+              extent={{-132,90},{129,138}},
+              textString="%name",
               lineColor={0,0,255})}),Diagram(coordinateSystem(
               preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics));
@@ -3128,37 +3128,37 @@ transformed output vector as \"Real r_out[3]\";
                 -100},{100,100}},
             grid={1,1}), graphics={
             Text(
-              extent={{-128,-84},{-2,-112}}, 
-              lineColor={0,0,0}, 
-              textString="r_out"), 
+              extent={{-128,-84},{-2,-112}},
+              lineColor={0,0,0},
+              textString="r_out"),
             Text(
-              extent={{-108,137},{-22,109}}, 
-              lineColor={0,0,0}, 
-              textString="r_in"), 
+              extent={{-108,137},{-22,109}},
+              lineColor={0,0,0},
+              textString="r_in"),
             Line(
-              points={{0,100},{0,70}}, 
-              color={0,0,127}, 
-              smooth=Smooth.None), 
+              points={{0,100},{0,70}},
+              color={0,0,127},
+              smooth=Smooth.None),
             Line(
-              points={{0,-70},{0,-100}}, 
-              color={0,0,127}, 
-              smooth=Smooth.None), 
+              points={{0,-70},{0,-100}},
+              color={0,0,127},
+              smooth=Smooth.None),
             Text(
-              extent={{58,47},{189,22}}, 
-              lineColor={95,95,95}, 
-              textString="resolve"), 
+              extent={{58,47},{189,22}},
+              lineColor={95,95,95},
+              textString="resolve"),
             Text(
-              extent={{-116,45},{-80,20}}, 
-              lineColor={95,95,95}, 
-              textString="a"), 
+              extent={{-116,45},{-80,20}},
+              lineColor={95,95,95},
+              textString="a"),
             Line(
-              points={{-70,0},{-96,0},{-96,0}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None), 
+              points={{-70,0},{-96,0},{-96,0}},
+              color={0,0,0},
+              smooth=Smooth.None),
             Line(
-              points={{95,0},{95,0},{70,0},{70,0}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None, 
+              points={{95,0},{95,0},{70,0},{70,0}},
+              color={0,0,0},
+              smooth=Smooth.None,
               pattern=LinePattern.Dot)}),
                                      Diagram(coordinateSystem(
               preserveAspectRatio=true,  extent={{-100,-100},{100,100}},
@@ -3230,16 +3230,16 @@ transformed output vector as \"Real r_out[3]\";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
                 -100},{100,100}}), graphics={
             Text(
-              extent={{-128,-92},{-2,-120}}, 
-              lineColor={0,0,0}, 
-              textString="r_out"), 
+              extent={{-128,-92},{-2,-120}},
+              lineColor={0,0,0},
+              textString="r_out"),
             Text(
-              extent={{-108,144},{-22,116}}, 
-              lineColor={0,0,0}, 
-              textString="r_in"), 
+              extent={{-108,144},{-22,116}},
+              lineColor={0,0,0},
+              textString="r_in"),
             Line(
-              points={{0,100},{0,70}}, 
-              color={0,0,127}, 
+              points={{0,100},{0,70}},
+              color={0,0,127},
               smooth=Smooth.None)}), Diagram(coordinateSystem(
               preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
             graphics));
@@ -3280,8 +3280,8 @@ transformed output vector as \"Real r_out[3]\";
         annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-74,24},{80,-20}}, 
-              lineColor={0,0,0}, 
+              extent={{-74,24},{80,-20}},
+              lineColor={0,0,0},
               textString="r = 0")}), Diagram(coordinateSystem(
               preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics));
@@ -3297,8 +3297,8 @@ transformed output vector as \"Real r_out[3]\";
         annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
-              extent={{-74,24},{80,-20}}, 
-              lineColor={0,0,0}, 
+              extent={{-74,24},{80,-20}},
+              lineColor={0,0,0},
               textString="f = t = 0")}));
     equation 
       frame_a.f = zeros(3);
@@ -3347,27 +3347,27 @@ with the blocks of package Modelica.Blocks.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
-            Line(points={{-70,0},{-101,0}}, color={0,0,0}), 
-            Line(points={{70,0},{100,0}}, color={0,0,0}), 
+            Line(points={{-70,0},{-101,0}}, color={0,0,0}),
+            Line(points={{70,0},{100,0}}, color={0,0,0}),
             Text(
-              extent={{-132,76},{129,124}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{-132,76},{129,124}},
+              textString="%name",
+              lineColor={0,0,255}),
             Text(
-              extent={{-118,55},{-82,30}}, 
-              lineColor={128,128,128}, 
-              textString="a"), 
+              extent={{-118,55},{-82,30}},
+              lineColor={128,128,128},
+              textString="a"),
             Text(
-              extent={{83,55},{119,30}}, 
-              lineColor={128,128,128}, 
-              textString="b"), 
+              extent={{83,55},{119,30}},
+              lineColor={128,128,128},
+              textString="b"),
             Text(
-              extent={{70,-66},{201,-91}}, 
-              lineColor={95,95,95}, 
-              textString="resolve"), 
+              extent={{70,-66},{201,-91}},
+              lineColor={95,95,95},
+              textString="resolve"),
             Line(
-              points={{80,0},{80,-100}}, 
-              color={95,95,95}, 
+              points={{80,0},{80,-100}},
+              color={95,95,95},
               pattern=LinePattern.Dot)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -3383,7 +3383,7 @@ with the blocks of package Modelica.Blocks.
         "Connector frame_b of cut-force/-torque sensor object is not connected");
       
     end PartialCutForceSensor;
-
+    
     partial model PartialCutForceBaseSensor 
       "Base model to measure the cut force and/or torque between two frames, defined by equations (frame_resolve must be connected exactly once)" 
       
@@ -3426,27 +3426,27 @@ with the blocks of package Modelica.Blocks.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
-            Line(points={{-70,0},{-101,0}}, color={0,0,0}), 
-            Line(points={{70,0},{100,0}}, color={0,0,0}), 
+            Line(points={{-70,0},{-101,0}}, color={0,0,0}),
+            Line(points={{70,0},{100,0}}, color={0,0,0}),
             Text(
-              extent={{-132,76},{129,124}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{-132,76},{129,124}},
+              textString="%name",
+              lineColor={0,0,255}),
             Text(
-              extent={{-118,55},{-82,30}}, 
-              lineColor={128,128,128}, 
-              textString="a"), 
+              extent={{-118,55},{-82,30}},
+              lineColor={128,128,128},
+              textString="a"),
             Text(
-              extent={{83,55},{119,30}}, 
-              lineColor={128,128,128}, 
-              textString="b"), 
+              extent={{83,55},{119,30}},
+              lineColor={128,128,128},
+              textString="b"),
             Text(
-              extent={{70,-66},{201,-91}}, 
-              lineColor={95,95,95}, 
-              textString="resolve"), 
+              extent={{70,-66},{201,-91}},
+              lineColor={95,95,95},
+              textString="resolve"),
             Line(
-              points={{80,0},{80,-100}}, 
-              color={95,95,95}, 
+              points={{80,0},{80,-100}},
+              color={95,95,95},
               pattern=LinePattern.Dot)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -3472,7 +3472,7 @@ with the blocks of package Modelica.Blocks.
       frame_resolve.f = zeros(3);
       frame_resolve.t = zeros(3);
     end PartialCutForceBaseSensor;
-
+    
     model BasicCutForce 
       "Measure cut force vector (frame_resolve must be connected)" 
       
@@ -3493,14 +3493,14 @@ with the blocks of package Modelica.Blocks.
         "= true, if force with positive sign is returned (= frame_a.f), otherwise with negative sign (= frame_b.f)";
       annotation (
          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}, 
+                100,100}},
             grid={1,1}), graphics={Text(
-              extent={{-190,-70},{-74,-96}}, 
-              lineColor={0,0,0}, 
+              extent={{-190,-70},{-74,-96}},
+              lineColor={0,0,0},
               textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,
                   127})}),
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}, 
+                {100,100}},
             grid={1,1}),
                 graphics),
         Documentation(info="<HTML>
@@ -3522,7 +3522,7 @@ with the blocks of package Modelica.Blocks.
           force = zeros(3);
        end if;
     end BasicCutForce;
-
+    
     model BasicCutTorque 
       "Measure cut torque vector (frame_resolve must be connected)" 
       
@@ -3545,8 +3545,8 @@ with the blocks of package Modelica.Blocks.
       annotation (
          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Text(
-              extent={{-190,-70},{-74,-96}}, 
-              lineColor={0,0,0}, 
+              extent={{-190,-70},{-74,-96}},
+              lineColor={0,0,0},
               textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,
                   0,127})}),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},

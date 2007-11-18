@@ -46,7 +46,7 @@ ALT=\"model Examples.Elementary.SpringDamperSystem\">
     r_0(start={0.3,-0.2,0}, fixed=true),
     v_0(fixed=true),
     angles_fixed=true,
-    w_0_fixed=true, 
+    w_0_fixed=true,
     w_0_start=((({0,0,2})*Modelica.Constants.D2R)*Modelica.Constants.D2R)*
         Modelica.Constants.D2R) 
               annotation (Placement(transformation(

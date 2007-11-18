@@ -56,9 +56,9 @@ ALT=\"model Examples.Elementary.FreeBody\">
     r_0(start={0.2,-0.5,0.1}, fixed=true),
     v_0(fixed=true),
     angles_fixed=true,
-    w_0_fixed=true, 
+    w_0_fixed=true,
     angles_start=((({0.174532925199433,0.174532925199433,0.174532925199433})*
-        Modelica.Constants.D2R)*Modelica.Constants.D2R)*Modelica.Constants.D2R)
+        Modelica.Constants.D2R)*Modelica.Constants.D2R)*Modelica.Constants.D2R) 
     annotation (Placement(transformation(extent={{0,-40},{20,-20}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Forces.Spring spring2(
     c=20,

@@ -13,10 +13,10 @@ model PointGravity "Two point masses in a point gravity field"
     sphereDiameter=0.1,
     I_11=0.1,
     I_22=0.1,
-    I_33=0.1, 
-    r_0(start={0,0.6,0}, fixed=true), 
-    v_0(start={1,0,0}, fixed=true), 
-    angles_fixed=true, 
+    I_33=0.1,
+    r_0(start={0,0.6,0}, fixed=true),
+    v_0(start={1,0,0}, fixed=true),
+    angles_fixed=true,
     w_0_fixed=true) 
     annotation (Placement(transformation(extent={{-20,20},{0,40}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.Body body2(
@@ -24,10 +24,10 @@ model PointGravity "Two point masses in a point gravity field"
     sphereDiameter=0.1,
     I_11=0.1,
     I_22=0.1,
-    I_33=0.1, 
-    r_0(start={0.6,0.6,0}, fixed=true), 
-    v_0(start={0.6,0,0}, fixed=true), 
-    angles_fixed=true, 
+    I_33=0.1,
+    r_0(start={0.6,0.6,0}, fixed=true),
+    v_0(start={0.6,0,0}, fixed=true),
+    angles_fixed=true,
     w_0_fixed=true) 
     annotation (Placement(transformation(extent={{20,20},{40,40}}, rotation=0)));
 equation 
