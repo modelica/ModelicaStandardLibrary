@@ -846,8 +846,10 @@ to <b style=\"color:blue\">existing</b> libraries:
                         Relative acceleration sensor<br>
                         Ideal power sensor</td> </tr>
   <tr><td colspan=\"2\"><b>Mechanics.Translational(.Components)</b></td></tr>
-  <tr><td valign=\"top\">InitializeFlange</td>
-      <td valign=\"top\"> Initializes a flange with pre-defined postion, speed and acceleration .</td> </tr>
+  <tr><td valign=\"top\">SupportFriction<br>Brake<br>InitializeFlange</td>
+      <td valign=\"top\"> Model of friction due to support<br>
+                        Model of a brake, baes on Coulomb friction<br>
+                        Initializes a flange with pre-defined postion, speed and acceleration .</td> </tr>
   <tr><td colspan=\"2\"><b>Mechanics.Translational(.Sources)</b></td></tr>
   <tr><td valign=\"top\">Force2<br>LinearSpeedDependentForce<br>QuadraticSpeedDependentForce<br>
                        ConstantForce<br>ConstantSpeed<br>ForceStep</td>
@@ -1049,6 +1051,11 @@ have been <b style=\"color:blue\">changed</b> in a
       <td valign=\"top\"> Moved components to structured sub-packages (Sources, Components)</td> </tr>
   <tr><td valign=\"top\"> </td>
       <td valign=\"top\"> Adaptions correspondig to Rotational</td> </tr>
+  <tr><td valign=\"top\"> Interfaces.FrictionBase</td>
+      <td valign=\"top\"> Renamed to PartialFrictionWithStop<br>
+                        Based on that, additionally PartialFriction (without stop, as in Rotational) is available.</td> </tr>
+  <tr><td valign=\"top\"> Stop</td>
+      <td valign=\"top\"> Renamed to Components.SlidingMassWithFrictionAndStop to be more concise</td> </tr>
 
   <tr><td colspan=\"2\"><b>Media.</b></td></tr>
   <tr><td valign=\"top\"> constant nX <br>
