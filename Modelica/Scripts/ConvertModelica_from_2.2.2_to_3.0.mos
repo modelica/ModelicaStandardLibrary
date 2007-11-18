@@ -39,6 +39,10 @@ convertClass("Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs",
              "ObsoleteModelica3.Mechanics.MultiBody.Types.AngularVelocity_degs")
 convertClass("Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2",
              "ObsoleteModelica3.Mechanics.MultiBody.Types.AngularAcceleration_degs2")
+convertClass("Modelica.Mechanics.MultiBody.Sensors.RelativeSensor",
+             "ObsoleteModelica3.Mechanics.MultiBody.Sensors.RelativeSensor")
+convertClass("Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor",
+             "ObsoleteModelica3.Mechanics.MultiBody.Sensors.AbsoluteSensor")
 
 convertClass("Modelica.Mechanics.Rotational.Types.Init",
              "ObsoleteModelica3.Mechanics.Rotational.Types.Init")
