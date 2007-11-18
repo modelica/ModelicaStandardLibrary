@@ -43,6 +43,9 @@ convertClass("Modelica.Mechanics.MultiBody.Sensors.RelativeSensor",
              "ObsoleteModelica3.Mechanics.MultiBody.Sensors.RelativeSensor")
 convertClass("Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor",
              "ObsoleteModelica3.Mechanics.MultiBody.Sensors.AbsoluteSensor")
+convertClass("Modelica.Mechanics.MultiBody.Interfaces.PartialCutForceSensor",
+             "ObsoleteModelica3.Mechanics.MultiBody.Interfaces.PartialCutForceSensor")
+
 
 convertClass("Modelica.Mechanics.Rotational.Types.Init",
              "ObsoleteModelica3.Mechanics.Rotational.Types.Init")
