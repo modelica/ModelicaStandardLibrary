@@ -997,16 +997,17 @@ to see the difference.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-98,-68},{102,-94}},
-              textString="positive force => spool moves in positive direction ",
-              lineColor={0,0,255}),
+              extent={{-98,-68},{102,-94}}, 
+              textString="positive force => spool moves in positive direction ", 
+                
+              lineColor={0,0,255}), 
             Text(
-              extent={{-32,-46},{38,-62}},
-              textString="Simulate for 100 s",
-              lineColor={0,0,255}),
+              extent={{-32,-46},{38,-62}}, 
+              textString="Simulate for 100 s", 
+              lineColor={0,0,255}), 
             Text(
-              extent={{-100,-54},{100,-80}},
-              lineColor={0,0,255},
+              extent={{-100,-54},{100,-80}}, 
+              lineColor={0,0,255}, 
               textString="plot spool.s as a function of force.f")}),
         Documentation(info="<html>
 <p>
@@ -1170,6 +1171,102 @@ Spool position s as a function of working force f.
           color={0,127,0},
           smooth=Smooth.None));
     end PreLoad;
+
+    model ElastoGap "Demonstrate usgae of ElastoGap" 
+    extends Modelica.Icons.Example;
+      annotation (
+        Documentation(info="<html>
+This model demonstrates the effect of ElastoGaps on eigenfrequency:<br>
+Plot mass1.s and mass2.s as well as mass1.v and mass2.v<br><br>
+mass1 is moved by both spring forces all the time.<br>
+Since elastoGap1 lifts off at s &gt; -0.5 m and elastoGap2 lifts off s &lt; +0.5 m, 
+mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
+</html>"), 
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics), 
+        experiment(StopTime=10), 
+        experimentSetupOutput);
+      Components.Fixed fixed
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+      Components.Rod rod1(L=2)
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+      Components.Rod rod2(L=2)
+        annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+      Components.SpringDamper springDamper1(
+        c=10, 
+        d=0.1, 
+        s_rel0=1, 
+        s_rel(fixed=false, start=1))
+        annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
+      Components.SpringDamper springDamper2(
+        c=10, 
+        d=0.1, 
+        s_rel0=1, 
+        s_rel(fixed=false, start=1))
+        annotation (Placement(transformation(extent={{20,20},{40,40}})));
+      Components.Mass mass1(
+        s(fixed=true, start=2), 
+        L=0, 
+        m=1) annotation (Placement(transformation(extent={{-10,20},{10,40}})));
+      Components.ElastoGap elastoGap1(
+        c=10, 
+        d=0.1, 
+        s_rel(fixed=false, start=1.5), 
+        s_rel0=1.5)
+        annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
+      Components.ElastoGap elastoGap2(
+        c=10, 
+        d=0.1, 
+        s_rel(fixed=false, start=1.5), 
+        s_rel0=1.5)
+        annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
+      Components.Mass mass2(
+        s(fixed=true, start=2), 
+        L=0, 
+        m=1) annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
+    equation 
+      
+      connect(rod1.flange_b, fixed.flange) annotation (Line(
+          points={{-20,0},{0,0}}, 
+          color={0,127,0}, 
+          smooth=Smooth.None));
+      connect(fixed.flange, rod2.flange_a) annotation (Line(
+          points={{0,0},{20,0}}, 
+          color={0,127,0}, 
+          smooth=Smooth.None));
+      connect(springDamper1.flange_a, rod1.flange_a) annotation (Line(
+          points={{-40,30},{-40,0}}, 
+          color={0,127,0}, 
+          smooth=Smooth.None));
+      connect(springDamper2.flange_b, rod2.flange_b) annotation (Line(
+          points={{40,30},{40,0},{40,0}}, 
+          color={0,127,0}, 
+          smooth=Smooth.None));
+      connect(springDamper1.flange_b, mass1.flange_a) annotation (Line(
+          points={{-20,30},{-10,30}}, 
+          color={0,127,0}, 
+          smooth=Smooth.None));
+      connect(mass1.flange_b, springDamper2.flange_a) annotation (Line(
+          points={{10,30},{20,30}}, 
+          color={0,127,0}, 
+          smooth=Smooth.None));
+      connect(rod1.flange_a, elastoGap1.flange_a) annotation (Line(
+          points={{-40,0},{-40,-30}}, 
+          color={0,127,0}, 
+          smooth=Smooth.None));
+      connect(rod2.flange_b, elastoGap2.flange_b) annotation (Line(
+          points={{40,0},{40,-30}}, 
+          color={0,127,0}, 
+          smooth=Smooth.None));
+      connect(elastoGap1.flange_b, mass2.flange_a) annotation (Line(
+          points={{-20,-30},{-10,-30}}, 
+          color={0,127,0}, 
+          smooth=Smooth.None));
+      connect(mass2.flange_b, elastoGap2.flange_a) annotation (Line(
+          points={{10,-30},{20,-30}}, 
+          color={0,127,0}, 
+          smooth=Smooth.None));
+    end ElastoGap;
   end Examples;
   
   package Components "Components for 1D translational mechanical drive trains" 
@@ -1273,40 +1370,44 @@ Rod <i>without inertia</i> and two rigidly connected flanges.
             Text(
               extent={{0,100},{0,40}}, 
               textString="%name", 
-              lineColor={0,0,255})}),
+              lineColor={0,0,255}), 
+            Text(
+              extent={{-100,-20},{100,-80}}, 
+              lineColor={0,0,255}, 
+              textString="L=%L")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
-            Line(points={{-100,0},{-55,0}}, color={0,127,0}),
-            Line(points={{54,0},{100,0}}, color={0,127,0}),
+            Line(points={{-100,0},{-55,0}}, color={0,127,0}), 
+            Line(points={{54,0},{100,0}}, color={0,127,0}), 
             Polygon(
-              points={{50,-90},{20,-80},{20,-100},{50,-90}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-60,-90},{20,-90}}, color={0,0,0}),
+              points={{50,-90},{20,-80},{20,-100},{50,-90}}, 
+              lineColor={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-60,-90},{20,-90}}, color={0,0,0}), 
             Rectangle(
-              extent={{-55,3},{53,-4}},
-              lineColor={160,160,164},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-100,-29},{-100,-61}}, color={0,0,0}),
-            Line(points={{100,-61},{100,-28}}, color={0,0,0}),
-            Line(points={{-98,-60},{98,-60}}, color={0,0,0}),
+              extent={{-55,3},{53,-4}}, 
+              lineColor={160,160,164}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-100,-29},{-100,-61}}, color={0,0,0}), 
+            Line(points={{100,-61},{100,-28}}, color={0,0,0}), 
+            Line(points={{-98,-60},{98,-60}}, color={0,0,0}), 
             Polygon(
-              points={{-101,-60},{-96,-59},{-96,-61},{-101,-60}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
+              points={{-101,-60},{-96,-59},{-96,-61},{-101,-60}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
             Polygon(
-              points={{100,-60},{95,-61},{95,-59},{100,-60}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
+              points={{100,-60},{95,-61},{95,-59},{100,-60}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{-44,-41},{51,-57}},
-              textString="Length L",
+              extent={{-44,-41},{51,-57}}, 
+              textString="Length L", 
               lineColor={0,0,255})}));
     equation 
       0 = flange_a.f + flange_b.f;
@@ -1358,51 +1459,55 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
             Text(
               extent={{0,100},{0,40}}, 
               textString="%name", 
-              lineColor={0,0,255})}),
+              lineColor={0,0,255}), 
+            Text(
+              extent={{-100,-40},{100,-80}}, 
+              lineColor={0,0,255}, 
+              textString="m=%m")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
-            Line(points={{-100,0},{-55,0}}, color={0,127,0}),
-            Line(points={{55,0},{100,0}}, color={0,127,0}),
+            Line(points={{-100,0},{-55,0}}, color={0,127,0}), 
+            Line(points={{55,0},{100,0}}, color={0,127,0}), 
             Rectangle(
-              extent={{-55,-30},{55,30}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.Sphere,
-              fillColor={255,255,255}),
+              extent={{-55,-30},{55,30}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.Sphere, 
+              fillColor={255,255,255}), 
             Polygon(
-              points={{50,-90},{20,-80},{20,-100},{50,-90}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-60,-90},{20,-90}}, color={0,0,0}),
-            Line(points={{-100,-29},{-100,-61}}, color={0,0,0}),
-            Line(points={{100,-61},{100,-28}}, color={0,0,0}),
-            Line(points={{-98,-60},{98,-60}}, color={0,0,0}),
+              points={{50,-90},{20,-80},{20,-100},{50,-90}}, 
+              lineColor={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-60,-90},{20,-90}}, color={0,0,0}), 
+            Line(points={{-100,-29},{-100,-61}}, color={0,0,0}), 
+            Line(points={{100,-61},{100,-28}}, color={0,0,0}), 
+            Line(points={{-98,-60},{98,-60}}, color={0,0,0}), 
             Polygon(
-              points={{-101,-60},{-96,-59},{-96,-61},{-101,-60}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
+              points={{-101,-60},{-96,-59},{-96,-61},{-101,-60}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
             Polygon(
-              points={{100,-60},{95,-61},{95,-59},{100,-60}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
+              points={{100,-60},{95,-61},{95,-59},{100,-60}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{-44,-41},{51,-57}},
-              textString="Length L",
-              lineColor={0,0,255}),
-            Line(points={{0,30},{0,53}}, color={0,0,0}),
-            Line(points={{-72,40},{1,40}}, color={0,0,0}),
+              extent={{-44,-41},{51,-57}}, 
+              textString="Length L", 
+              lineColor={0,0,255}), 
+            Line(points={{0,30},{0,53}}, color={0,0,0}), 
+            Line(points={{-72,40},{1,40}}, color={0,0,0}), 
             Polygon(
-              points={{-7,42},{-7,38},{-1,40},{-7,42}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
+              points={{-7,42},{-7,38},{-1,40},{-7,42}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{-61,53},{-9,42}},
-              textString="Position s",
+              extent={{-61,53},{-9,42}}, 
+              textString="Position s", 
               lineColor={0,0,255})}));
     equation 
       v = der(s);
@@ -2827,37 +2932,37 @@ Partial model of force dependent on speed that accelerates the flange.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
             Rectangle(
-              extent={{-96,96},{96,-96}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-30,-70},{30,-70}}, color={0,0,0}),
-            Line(points={{-30,-90},{-10,-70}}, color={0,0,0}),
-            Line(points={{-10,-90},{10,-70}}, color={0,0,0}),
-            Line(points={{10,-90},{30,-70}}, color={0,0,0}),
-            Line(points={{0,-70},{0,-100}}, color={0,0,0}),
+              extent={{-96,96},{96,-96}}, 
+              lineColor={255,255,255}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-30,-70},{30,-70}}, color={0,0,0}), 
+            Line(points={{-30,-90},{-10,-70}}, color={0,0,0}), 
+            Line(points={{-10,-90},{10,-70}}, color={0,0,0}), 
+            Line(points={{10,-90},{30,-70}}, color={0,0,0}), 
+            Line(points={{0,-70},{0,-100}}, color={0,0,0}), 
             Text(
-              extent={{-150,140},{150,100}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Line(points={{-78,80},{51,80}}, color={0,0,0}),
+              extent={{-150,140},{150,100}}, 
+              lineColor={0,0,255}, 
+              textString="%name"), 
+            Line(points={{-78,80},{51,80}}, color={0,0,0}), 
             Polygon(
-              points={{81,80},{51,90},{51,70},{81,80}},
-              lineColor={0,0,0},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-52,-60},{77,-60}}, color={0,0,0}),
+              points={{81,80},{51,90},{51,70},{81,80}}, 
+              lineColor={0,0,0}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-52,-60},{77,-60}}, color={0,0,0}), 
             Polygon(
-              points={{-82,-60},{-51,-50},{-51,-70},{-82,-60}},
-              lineColor={0,0,0},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Line(points={{0,-70},{0,-100}}, color={0,0,0}),
-            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}),
-            Line(points={{-10,-120},{10,-100}}, color={0,0,0}),
-            Line(points={{10,-120},{30,-100}}, color={0,0,0}),
-            Line(points={{-30,-100},{30,-100}}, color={0,0,0}),
-            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}),
+              points={{-82,-60},{-51,-50},{-51,-70},{-82,-60}}, 
+              lineColor={0,0,0}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{0,-70},{0,-100}}, color={0,0,0}), 
+            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}), 
+            Line(points={{-10,-120},{10,-100}}, color={0,0,0}), 
+            Line(points={{10,-120},{30,-100}}, color={0,0,0}), 
+            Line(points={{-30,-100},{30,-100}}, color={0,0,0}), 
+            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}), 
             Line(points={{-50,-90},{-30,-70}}, color={0,0,0})}),
       Documentation(info="<HTML>
 <p>
@@ -4395,35 +4500,35 @@ and the support is automatically fixed to ground.
             grid={2,2}), graphics={
             Polygon(
               points={{-100,10},{20,10},{20,41},{90,0},{20,-41},{20,-10},{-100,
-                  -10},{-100,10}},
-              lineColor={0,127,0},
-              fillColor={0,127,0},
-              fillPattern=FillPattern.Solid),
+                  -10},{-100,10}}, 
+              lineColor={0,127,0}, 
+              fillColor={0,127,0}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{-100,-40},{-47,-88}},
-              lineColor={0,0,0},
-              textString="f"),
+              extent={{-100,-40},{-47,-88}}, 
+              lineColor={0,0,0}, 
+              textString="f"), 
             Text(
-              extent={{0,109},{0,49}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Line(points={{-30,-60},{30,-60}}, color={0,0,0}),
-            Line(points={{0,-60},{0,-85}}, color={0,0,0}),
-            Line(points={{-30,-80},{-10,-60}}, color={0,0,0}),
-            Line(points={{-10,-80},{10,-60}}, color={0,0,0}),
-            Line(points={{10,-80},{30,-60}}, color={0,0,0}),
+              extent={{0,109},{0,49}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
+            Line(points={{-30,-60},{30,-60}}, color={0,0,0}), 
+            Line(points={{0,-60},{0,-85}}, color={0,0,0}), 
+            Line(points={{-30,-80},{-10,-60}}, color={0,0,0}), 
+            Line(points={{-10,-80},{10,-60}}, color={0,0,0}), 
+            Line(points={{10,-80},{30,-60}}, color={0,0,0}), 
             Polygon(
-              points={{-61,-50},{-30,-40},{-30,-60},{-61,-50}},
-              lineColor={0,0,0},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-31,-50},{50,-50}}, color={0,0,0}),
-            Line(points={{0,-60},{0,-85}}, color={0,0,0}),
-            Line(points={{0,-60},{0,-99}}, color={0,0,0}),
-            Line(points={{-30,-119},{-10,-99}}, color={0,0,0}),
-            Line(points={{-10,-119},{10,-99}}, color={0,0,0}),
-            Line(points={{10,-119},{30,-99}}, color={0,0,0}),
-            Line(points={{-30,-99},{30,-99}}, color={0,0,0}),
+              points={{-61,-50},{-30,-40},{-30,-60},{-61,-50}}, 
+              lineColor={0,0,0}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-31,-50},{50,-50}}, color={0,0,0}), 
+            Line(points={{0,-60},{0,-85}}, color={0,0,0}), 
+            Line(points={{0,-60},{0,-99}}, color={0,0,0}), 
+            Line(points={{-30,-119},{-10,-99}}, color={0,0,0}), 
+            Line(points={{-10,-119},{10,-99}}, color={0,0,0}), 
+            Line(points={{10,-119},{30,-99}}, color={0,0,0}), 
+            Line(points={{-30,-99},{30,-99}}, color={0,0,0}), 
             Line(points={{-50,-119},{-30,-99}}, color={0,0,0})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
