@@ -214,34 +214,31 @@ the two other examples).
               lineColor={0,0,255})}),
         experiment(StopTime=1),
         experimentSetupOutput);
-      Modelica.Mechanics.Translational.Components.Mass mass1(L=1) 
-                                                  annotation (Placement(
+      Translational.Components.Mass mass1(L=1)    annotation (Placement(
             transformation(extent={{40,60},{60,80}}, rotation=0)));
-      Modelica.Mechanics.Translational.Grounded.Force force1 
+      Translational.Grounded.Force force1 
                                  annotation (Placement(transformation(extent={{
                 -4,60},{16,80}}, rotation=0)));
       Modelica.Blocks.Sources.Constant constant1 
                                  annotation (Placement(transformation(extent={{
                 -44,60},{-24,80}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Mass mass2(L=1) 
-                                                  annotation (Placement(
+      Translational.Components.Mass mass2(L=1)    annotation (Placement(
             transformation(extent={{40,0},{60,20}}, rotation=0)));
-      Modelica.Mechanics.Translational.Grounded.Force force2 
+      Translational.Grounded.Force force2 
                                  annotation (Placement(transformation(extent={{
                 -4,20},{16,40}}, rotation=0)));
       Modelica.Blocks.Sources.Constant constant2 
                                  annotation (Placement(transformation(extent={{
                 -44,20},{-24,40}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Mass mass3(L=1) 
-                                                  annotation (Placement(
+      Translational.Components.Mass mass3(L=1)    annotation (Placement(
             transformation(extent={{-40,-40},{-20,-20}}, rotation=0)));
-      Modelica.Mechanics.Translational.Sources.Force force3 
+      Translational.Sources.Force force3 
                                  annotation (Placement(transformation(extent={{
                 20,-40},{0,-20}}, rotation=0)));
       Modelica.Blocks.Sources.Constant constant3 
                                  annotation (Placement(transformation(extent={{
                 60,-40},{40,-20}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Fixed fixed 
+      Translational.Components.Fixed fixed 
                   annotation (Placement(transformation(extent={{0,-60},{20,-40}})));
     equation 
       connect(constant1.y,force1. f) annotation (Line(points={{-23,70},{-6,70}},
@@ -328,49 +325,41 @@ combination). In this case the system is not at rest.
                 {100,100}}),
                         graphics));
       
-      Modelica.Mechanics.Translational.Components.Fixed fixed2(
-                                                    s0=1) 
+      Translational.Components.Fixed fixed2(        s0=1) 
                                        annotation (Placement(transformation(
               extent={{-100,60},{-80,80}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Spring s2(
-                                                 s_rel0=2, c=1e3) 
+      Translational.Components.Spring s2(        s_rel0=2, c=1e3) 
                                                annotation (Placement(
             transformation(extent={{-60,60},{-40,80}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Mass m3(
-                                                  L=3, s(start=4.5, fixed=true)) 
+      Translational.Components.Mass m3(           L=3, s(start=4.5, fixed=true)) 
                                                       annotation (Placement(
             transformation(extent={{-20,60},{0,80}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.SpringDamper sd2(
-                                                        s_rel0=4, c=111) 
+      Translational.Components.SpringDamper sd2(        s_rel0=4, c=111) 
                                                       annotation (Placement(
             transformation(extent={{20,60},{40,80}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Mass m4(
-                                                  L=5, s(start=12.5, fixed=true)) 
+      Translational.Components.Mass m4(           L=5, s(start=12.5, fixed=true)) 
                                                        annotation (Placement(
             transformation(extent={{60,60},{80,80}}, rotation=0)));
       
-      Modelica.Mechanics.Translational.Components.Fixed fixed1(
-                                                    s0=-1) 
+      Translational.Components.Fixed fixed1(        s0=-1) 
                                         annotation (Placement(transformation(
               extent={{-100,-20},{-80,0}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Spring s1(
+      Translational.Components.Spring s1(
         s_rel0=1,
         c=1e3,
         s_rel(start=1, fixed=false)) 
                         annotation (Placement(transformation(extent={{-58,-20},
                 {-38,0}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Mass m1(
-                                                  L=1) 
+      Translational.Components.Mass m1(           L=1) 
                                         annotation (Placement(transformation(
               extent={{-20,-20},{0,0}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.SpringDamper sd1(
+      Translational.Components.SpringDamper sd1(
         s_rel0=1,
         c=111,
         s_rel(start=1, fixed=true)) 
                         annotation (Placement(transformation(extent={{20,-20},{
                 40,0}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Mass m2(
-                                                  L=2) 
+      Translational.Components.Mass m2(           L=2) 
                                         annotation (Placement(transformation(
               extent={{60,-20},{80,0}}, rotation=0)));
     equation 
@@ -471,52 +460,40 @@ problems.
               color={0,0,255})}),
         experiment(StopTime=1),
         experimentSetupOutput);
-      Modelica.Mechanics.Translational.Components.Fixed fixed 
+      Translational.Components.Fixed fixed 
                                  annotation (Placement(transformation(extent={{
                 -20,20},{0,40}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Rod rod1(
-                                                L=1) 
+      Translational.Components.Rod rod1(        L=1) 
                                   annotation (Placement(transformation(extent={
                 {-48,20},{-28,40}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Rod rod2(
-                                                L=1) 
+      Translational.Components.Rod rod2(        L=1) 
                                   annotation (Placement(transformation(extent={
                 {20,20},{40,40}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Rod rod3(
-                                                L=1) 
+      Translational.Components.Rod rod3(        L=1) 
                                   annotation (Placement(transformation(extent={
                 {-30,58},{-50,78}}, rotation=0)));
-      Modelica.Mechanics.Translational.Sensors.PositionSensor positionSensor2 
-                                                           annotation (Placement(
+      Translational.Sensors.PositionSensor positionSensor2 annotation (Placement(
             transformation(extent={{60,20},{80,40}}, rotation=0)));
-      Modelica.Mechanics.Translational.Sensors.PositionSensor positionSensor1 
-                                                           annotation (Placement(
+      Translational.Sensors.PositionSensor positionSensor1 annotation (Placement(
             transformation(extent={{-60,20},{-80,40}}, rotation=0)));
-      Modelica.Mechanics.Translational.Sensors.PositionSensor positionSensor3 
-                                                           annotation (Placement(
+      Translational.Sensors.PositionSensor positionSensor3 annotation (Placement(
             transformation(extent={{-60,58},{-80,78}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Fixed fixed1(
-                                                    s0=-1.9) 
+      Translational.Components.Fixed fixed1(        s0=-1.9) 
                                           annotation (Placement(transformation(
               extent={{-100,-60},{-80,-40}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Spring spring1(
-                                                      s_rel0=2, c=11) 
+      Translational.Components.Spring spring1(        s_rel0=2, c=11) 
                                                    annotation (Placement(
             transformation(extent={{-80,-60},{-60,-40}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Mass inertia1(
-                                                        L=2) 
+      Translational.Components.Mass inertia1(           L=2) 
                                                   annotation (Placement(
             transformation(extent={{-50,-60},{-30,-40}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Fixed fixed2(
-                                                    s0=-1.9) 
+      Translational.Components.Fixed fixed2(        s0=-1.9) 
                                           annotation (Placement(transformation(
               extent={{0,-60},{20,-40}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Spring spring2(
-                                                      s_rel0=2, c=11) 
+      Translational.Components.Spring spring2(        s_rel0=2, c=11) 
                                                    annotation (Placement(
             transformation(extent={{30,-60},{50,-40}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Mass inertia2(
-                                                        L=2) 
+      Translational.Components.Mass inertia2(           L=2) 
                                                   annotation (Placement(
             transformation(extent={{80,-60},{60,-40}}, rotation=0)));
     equation 
@@ -577,11 +554,10 @@ problems.
     model Accelerate "Use of model accelerate." 
       
       extends Modelica.Icons.Example;
-      Modelica.Mechanics.Translational.Sources.Accelerate accelerate 
+      Translational.Sources.Accelerate accelerate 
                                            annotation (Placement(transformation(
               extent={{-40,20},{-20,40}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Mass mass(L=1) 
-                                                  annotation (Placement(
+      Translational.Components.Mass mass(L=1)     annotation (Placement(
             transformation(extent={{40,20},{60,40}}, rotation=0)));
       Modelica.Blocks.Sources.Constant constantAcc 
                                                  annotation (Placement(transformation(extent={{
@@ -593,7 +569,7 @@ problems.
                    graphics),
         experiment(StopTime=1),
         experimentSetupOutput);
-      Modelica.Mechanics.Translational.Components.Fixed fixed 
+      Translational.Components.Fixed fixed 
         annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
     equation 
       connect(constantAcc.y, accelerate.a) 
@@ -623,50 +599,43 @@ problems.
         experimentSetupOutput,
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics));
-      Modelica.Mechanics.Translational.Components.Mass mass1(
+      Translational.Components.Mass mass1(
         L=1,
         s(start=3, fixed=true),
         v(start=10, fixed=true)) 
                     annotation (Placement(transformation(extent={{-80,60},{-60,
                 80}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Damper damper1(
-                                                      d=25) 
+      Translational.Components.Damper damper1(        d=25) 
                                          annotation (Placement(transformation(
               extent={{-20,60},{0,80}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Fixed fixed1(
-                                                    s0=4.5) 
+      Translational.Components.Fixed fixed1(        s0=4.5) 
                                          annotation (Placement(transformation(
               extent={{22,60},{42,80}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Mass mass2(
+      Translational.Components.Mass mass2(
         L=1,
         s(start=3, fixed=true),
         v(start=10, fixed=true)) 
                     annotation (Placement(transformation(extent={{-80,0},{-60,
                 20}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Damper damper2(
-                                                      d=25) 
+      Translational.Components.Damper damper2(        d=25) 
                                          annotation (Placement(transformation(
               extent={{-20,0},{0,20}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Fixed fixed2(
-                                                    s0=4.5) 
+      Translational.Components.Fixed fixed2(        s0=4.5) 
                                          annotation (Placement(transformation(
               extent={{20,0},{40,20}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Mass mass3(
+      Translational.Components.Mass mass3(
         L=1,
         s(start=3, fixed=true),
         v(start=10, fixed=true)) 
                     annotation (Placement(transformation(extent={{-80,-60},{-60,
                 -40}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Fixed fixed3(
-                                                    s0=4.5) 
+      Translational.Components.Fixed fixed3(        s0=4.5) 
                                          annotation (Placement(transformation(
               extent={{20,-60},{40,-40}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Spring spring2(
-                                                      s_rel0=1) 
+      Translational.Components.Spring spring2(        s_rel0=1) 
                                              annotation (Placement(
             transformation(extent={{-20,-20},{0,0}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.SpringDamper springDamper3(
-                                                                  s_rel0=1, d=25) 
+      Translational.Components.SpringDamper springDamper3(        s_rel0=1, d=25) 
                                                                annotation (Placement(
             transformation(extent={{-20,-60},{0,-40}}, rotation=0)));
     equation 
@@ -738,53 +707,48 @@ If damping is added the amplitudes are bounded.
             grid={2,2}), graphics),
         experiment(StopTime=1),
         experimentSetupOutput);
-      Modelica.Mechanics.Translational.Components.Mass mass1(
+      Translational.Components.Mass mass1(
         L=1,
         s(start=-0.5, fixed=true),
         v(start=0, fixed=true)) 
                       annotation (Placement(transformation(extent={{-20,40},{0,
                 60}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Spring spring1(
-                                                      s_rel0=1, c=10000) 
+      Translational.Components.Spring spring1(        s_rel0=1, c=10000) 
                                                       annotation (Placement(
             transformation(extent={{20,40},{40,60}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Fixed fixed1(
-                                                    s0=1) 
+      Translational.Components.Fixed fixed1(        s0=1) 
                                          annotation (Placement(transformation(
               extent={{60,40},{80,60}}, rotation=0)));
-      Modelica.Mechanics.Translational.Sources.Force force1 
+      Translational.Sources.Force force1 
                                  annotation (Placement(transformation(extent={{
                 -60,40},{-40,60}}, rotation=0)));
       Modelica.Blocks.Sources.Sine sine1(freqHz=15.9155) annotation (Placement(transformation(
               extent={{-100,40},{-80,60}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Mass mass2(
+      Translational.Components.Mass mass2(
         L=1,
         s(start=-0.5, fixed=true),
         v(start=0, fixed=true)) 
                       annotation (Placement(transformation(extent={{-20,-60},{0,
                 -40}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Spring spring2(
-                                                      s_rel0=1, c=10000) 
+      Translational.Components.Spring spring2(        s_rel0=1, c=10000) 
                                                       annotation (Placement(
             transformation(extent={{20,-60},{40,-40}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Fixed fixed2(
-                                                    s0=1) 
+      Translational.Components.Fixed fixed2(        s0=1) 
                                          annotation (Placement(transformation(
               extent={{60,-60},{80,-40}}, rotation=0)));
-      Modelica.Mechanics.Translational.Sources.Force force2 
+      Translational.Sources.Force force2 
                                  annotation (Placement(transformation(extent={{
                 -60,-60},{-40,-40}}, rotation=0)));
       Modelica.Blocks.Sources.Sine sine2(freqHz=15.9155) annotation (Placement(transformation(
               extent={{-100,-60},{-80,-40}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Damper damper1(
-                                                      d=10) 
+      Translational.Components.Damper damper1(        d=10) 
                                          annotation (Placement(transformation(
               extent={{20,-36},{40,-16}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Fixed fixed3 
+      Translational.Components.Fixed fixed3 
                                          annotation (Placement(transformation(
               extent={{-60,20},{-40,40}},
                                         rotation=0)));
-      Modelica.Mechanics.Translational.Components.Fixed fixed4 
+      Translational.Components.Fixed fixed4 
                                          annotation (Placement(transformation(
               extent={{-60,-80},{-40,-60}},
                                           rotation=0)));
@@ -875,31 +839,25 @@ to see the difference.
             grid={2,2}), graphics),
         experiment(StopTime=1),
         experimentSetupOutput);
-      Modelica.Mechanics.Translational.Sensors.ForceSensor forceSensor 
-                                                     annotation (Placement(
+      Translational.Sensors.ForceSensor forceSensor  annotation (Placement(
             transformation(extent={{-20,40},{0,60}}, rotation=0)));
-      Modelica.Mechanics.Translational.Sensors.SpeedSensor speedSensor1 
-                                                     annotation (Placement(
+      Translational.Sensors.SpeedSensor speedSensor1 annotation (Placement(
             transformation(extent={{20,-40},{40,-20}}, rotation=0)));
-      Modelica.Mechanics.Translational.Sensors.PositionSensor positionSensor1 
-                                                           annotation (Placement(
+      Translational.Sensors.PositionSensor positionSensor1 annotation (Placement(
             transformation(extent={{20,0},{40,20}}, rotation=0)));
-      Modelica.Mechanics.Translational.Sensors.AccSensor accSensor1 
-                                                 annotation (Placement(
+      Translational.Sensors.AccSensor accSensor1 annotation (Placement(
             transformation(extent={{20,-80},{40,-60}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Mass mass(L=1) 
-                                                  annotation (Placement(
+      Translational.Components.Mass mass(L=1)     annotation (Placement(
             transformation(extent={{20,40},{40,60}}, rotation=0)));
-      Modelica.Mechanics.Translational.Sources.Force force 
+      Translational.Sources.Force force 
                                  annotation (Placement(transformation(extent={{
                 -60,40},{-40,60}}, rotation=0)));
       Modelica.Blocks.Sources.Sine sineForce(amplitude=10, freqHz=4) 
                                                                  annotation (Placement(
             transformation(extent={{-100,40},{-80,60}}, rotation=0)));
-      Modelica.Mechanics.Translational.Sensors.PositionSensor positionSensor2 
-                                                           annotation (Placement(
+      Translational.Sensors.PositionSensor positionSensor2 annotation (Placement(
             transformation(extent={{60,40},{80,60}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Fixed fixed 
+      Translational.Components.Fixed fixed 
                   annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
     equation 
       connect(forceSensor.flange_b, mass.flange_a)          annotation (Line(
@@ -981,18 +939,16 @@ to see the difference.
 </html>
 "),     experiment(StopTime=5),
         experimentSetupOutput);
-      Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop1
-        (                                                                       L=1) 
+      Translational.Components.MassWithStopAndFriction stop1(                   L=1) 
                                     annotation (Placement(transformation(extent=
                {{60,60},{80,80}}, rotation=0)));
-      Modelica.Mechanics.Translational.Grounded.Force force 
+      Translational.Grounded.Force force 
                                  annotation (Placement(transformation(extent={{20,60},
                 {40,80}},        rotation=0)));
       Modelica.Blocks.Sources.Sine sineForce(amplitude=25, freqHz=0.25) 
                                                                     annotation (Placement(
             transformation(extent={{-20,60},{0,80}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop2
-        (
+      Translational.Components.MassWithStopAndFriction stop2(
         L=1,
         smax=0.9,
         smin=-0.9,
@@ -1001,10 +957,10 @@ to see the difference.
         s(start=0),
         v(start=-5)) annotation (Placement(transformation(extent={{60,0},{80,20}},
               rotation=0)));
-      Modelica.Mechanics.Translational.Components.Spring spring(s_rel0=1, c=500) 
+      Translational.Components.Spring spring(s_rel0=1, c=500) 
                                                     annotation (Placement(
             transformation(extent={{20,0},{40,20}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Fixed fixed2(s0=-1.75) 
+      Translational.Components.Fixed fixed2(s0=-1.75) 
                                            annotation (Placement(transformation(
               extent={{-22,0},{-2,20}}, rotation=0)));
     equation 
@@ -1087,84 +1043,76 @@ Spool position s as a function of working force f.
 "),     experiment(StopTime=100),
         experimentSetupOutput);
       
-      Modelica.Mechanics.Translational.Components.ElastoGap innerContactA(
+      Translational.Components.ElastoGap innerContactA(
         c=1000e3,
         d=250,
         s_rel0=0.001) 
                annotation (Placement(transformation(extent={{-70,20},{-50,40}},
               rotation=0)));
-      Modelica.Mechanics.Translational.Components.ElastoGap innerContactB(
+      Translational.Components.ElastoGap innerContactB(
         c=1000e3,
         d=250,
         s_rel0=0.001) 
                annotation (                                          Placement(
             transformation(extent={{50,20},{70,40}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Mass spool(
+      Translational.Components.Mass spool(
         L=0.19,
         m=0.150,
         s(start=0.01475, fixed=true)) 
                            annotation (Placement(transformation(extent={{0,-40},
                 {40,0}},  rotation=0)));
-      Modelica.Mechanics.Translational.Components.Fixed fixedLe(
-                                                     s0=-0.0955) 
+      Translational.Components.Fixed fixedLe(        s0=-0.0955) 
                                                annotation (Placement(
             transformation(extent={{-10,-10},{10,10}}, rotation=270,
             origin={-80,90})));
-      Modelica.Mechanics.Translational.Components.Mass springPlateA(
+      Translational.Components.Mass springPlateA(
         m=10e-3,
         L=0.002,
         s(start=-0.093, fixed=true)) 
                          annotation (Placement(transformation(extent={{-40,60},
                 {-20,80}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Mass springPlateB(
+      Translational.Components.Mass springPlateB(
         m=10e-3,
         s(start=-0.06925, fixed=true),
         L=0.002)            annotation (
           Placement(transformation(extent={{20,60},{40,80}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Spring spring(
-                                                     c=20e3, s_rel0=0.025) 
+      Translational.Components.Spring spring(        c=20e3, s_rel0=0.025) 
         annotation (Placement(transformation(extent={{-10,60},{10,80}},rotation=
                0)));
-      Modelica.Mechanics.Translational.Components.ElastoGap outerContactA(
+      Translational.Components.ElastoGap outerContactA(
         c=1000e3,
         d=250,
         s_rel0=0.0015) 
                annotation (Placement(transformation(extent={{-70,60},{-50,80}},
               rotation=0)));
-      Modelica.Mechanics.Translational.Components.ElastoGap outerContactB(
+      Translational.Components.ElastoGap outerContactB(
         c=1000e3,
         d=250,
         s_rel0=0.0015) annotation (Placement(transformation(extent={{50,60},{70,
                 80}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Rod rod1(
-                                                L=0.007) 
+      Translational.Components.Rod rod1(        L=0.007) 
                                      annotation (Placement(transformation(
               extent={{-40,30},{-20,50}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Damper friction(
-                                                       d=2500) 
+      Translational.Components.Damper friction(        d=2500) 
                                             annotation (Placement(
             transformation(
             origin={-80,50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Mechanics.Translational.Grounded.Force force 
+      Translational.Grounded.Force force 
                                  annotation (Placement(transformation(extent={{-38,-30},
                 {-18,-10}},          rotation=0)));
-      Modelica.Mechanics.Translational.Components.Rod housing(
-                                                   L=0.0305) 
+      Translational.Components.Rod housing(        L=0.0305) 
                                            annotation (Placement(transformation(
               extent={{-10,80},{10,100}},
                                         rotation=0)));
-      Modelica.Mechanics.Translational.Components.Rod rod3(
-                                                L=0.00575) 
+      Translational.Components.Rod rod3(        L=0.00575) 
                                         annotation (Placement(transformation(
               extent={{-40,-2},{-20,18}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Rod rod4(
-                                                L=0.00575) 
+      Translational.Components.Rod rod4(        L=0.00575) 
                                         annotation (Placement(transformation(
               extent={{20,-2},{40,18}}, rotation=0)));
-      Modelica.Mechanics.Translational.Components.Rod rod2(
-                                                L=0.007) 
+      Translational.Components.Rod rod2(        L=0.007) 
                                      annotation (Placement(transformation(
               extent={{20,30},{40,50}}, rotation=0)));
       Modelica.Blocks.Sources.Sine sineForce(amplitude=150, freqHz=0.01) 
@@ -1291,7 +1239,7 @@ at an position s0 in the <i>housing</i>. May be used:
     end Fixed;
     
     model Rod "Rod without inertia" 
-      extends Modelica.Mechanics.Translational.Interfaces.PartialRigid;
+      extends Translational.Interfaces.PartialRigid;
       
       annotation (
         Window(
@@ -1365,7 +1313,7 @@ Rod <i>without inertia</i> and two rigidly connected flanges.
     end Rod;
     
     model Mass "Sliding mass with inertia" 
-      extends Modelica.Mechanics.Translational.Interfaces.PartialRigid(s(start=0, stateSelect=stateSelect));
+      extends Translational.Interfaces.PartialRigid(s(start=0, stateSelect=stateSelect));
       parameter SI.Mass m(min=0, start=1) "mass of the sliding mass";
       parameter StateSelect stateSelect=StateSelect.default 
         "Priority to use s and v as states" annotation(Dialog(tab="Advanced"));
@@ -1463,7 +1411,7 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
     end Mass;
     
     model Spring "Linear 1D translational spring" 
-      extends Modelica.Mechanics.Translational.Interfaces.PartialCompliant;
+      extends Translational.Interfaces.PartialCompliant;
       parameter Real c(final unit="N/m", final min=0, start = 1) 
         "spring constant ";
       parameter SI.Distance s_rel0=0 "unstretched spring length";
@@ -1522,7 +1470,7 @@ a coupling of the sliding mass with the housing via a spring.
     end Spring;
     
     model Damper "Linear 1D translational damper" 
-      extends Modelica.Mechanics.Translational.Interfaces.PartialCompliant;
+      extends Translational.Interfaces.PartialCompliant;
       parameter Real d(final unit="N.s/m", final min=0, start = 0) 
         "damping constant";
       SI.Velocity v_rel "relative velocity between flange_a and flange_b";
@@ -1594,7 +1542,7 @@ between two sliding masses.
     end Damper;
     
     model SpringDamper "Linear 1D translational spring and damper in parallel" 
-      extends Modelica.Mechanics.Translational.Interfaces.PartialCompliant(s_rel(start=0, stateSelect=stateSelect));
+      extends Translational.Interfaces.PartialCompliant(s_rel(start=0, stateSelect=stateSelect));
       parameter Real c(final unit="N/m", final min=0, start = 1) 
         "spring constant";
       parameter Real d(final unit="N.s/m", final min=0, start = 1) 
@@ -1691,7 +1639,7 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
     end SpringDamper;
     
     model ElastoGap "1D translational spring damper combination with gap" 
-      extends Modelica.Mechanics.Translational.Interfaces.PartialCompliant;
+      extends Translational.Interfaces.PartialCompliant;
       parameter SI.Position s_rel0=0 "unstretched spring length";
       parameter Real c(final unit="N/m", final min=0, start = 1) 
         "spring constant";
@@ -1805,8 +1753,8 @@ the contact of a sliding mass with the housing.
     
     model MassWithStopAndFriction 
       "Sliding mass with hard stop and Stribeck friction" 
-      extends Modelica.Mechanics.Translational.Interfaces.PartialRigid(s(stateSelect = StateSelect.always));
-      extends Modelica.Mechanics.Translational.Interfaces.PartialFriction(final len=L, final pos=s);
+      extends Translational.Interfaces.PartialRigid(s(stateSelect = StateSelect.always));
+      extends Translational.Interfaces.PartialFriction(final len=L, final pos=s);
       Modelica.SIunits.Velocity v(stateSelect = StateSelect.always) 
         "Absolute velocity of flange_a and flange_b";
       Modelica.SIunits.Acceleration a 
@@ -2733,17 +2681,17 @@ with the Modelica.Blocks blocks.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
-            Line(points={{-100,-90},{-20,-90}}, color={0,0,0}), 
+            Line(points={{-100,-90},{-20,-90}}, color={0,0,0}),
             Polygon(
-              points={{10,-90},{-20,-80},{-20,-100},{10,-90}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-            Line(points={{70,0},{100,0}}, color={0,0,127}), 
+              points={{10,-90},{-20,-80},{-20,-100},{10,-90}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            Line(points={{70,0},{100,0}}, color={0,0,127}),
             Text(
-              extent={{-118,99},{118,40}}, 
-              textString="%name", 
+              extent={{-118,99},{118,40}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -2785,17 +2733,17 @@ with the Modelica.Blocks blocks.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
-            Line(points={{-51,34},{29,34}}, color={0,0,0}), 
+            Line(points={{-51,34},{29,34}}, color={0,0,0}),
             Polygon(
-              points={{59,34},{29,44},{29,24},{59,34}}, 
-              lineColor={0,0,0}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-            Line(points={{70,0},{90,0}}, color={0,0,0}), 
+              points={{59,34},{29,44},{29,24},{59,34}},
+              lineColor={0,0,0},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            Line(points={{70,0},{90,0}}, color={0,0,0}),
             Text(
-              extent={{-117,116},{115,52}}, 
-              textString="%name", 
+              extent={{-117,116},{115,52}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -2828,30 +2776,30 @@ with the Modelica.Blocks blocks.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
             Rectangle(
-              extent={{-96,96},{96,-96}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-30,-70},{30,-70}}, color={0,0,0}), 
-            Line(points={{-30,-90},{-10,-70}}, color={0,0,0}), 
-            Line(points={{-10,-90},{10,-70}}, color={0,0,0}), 
-            Line(points={{10,-90},{30,-70}}, color={0,0,0}), 
-            Line(points={{0,-70},{0,-110}}, color={0,0,0}), 
+              extent={{-96,96},{96,-96}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-30,-70},{30,-70}}, color={0,0,0}),
+            Line(points={{-30,-90},{-10,-70}}, color={0,0,0}),
+            Line(points={{-10,-90},{10,-70}}, color={0,0,0}),
+            Line(points={{10,-90},{30,-70}}, color={0,0,0}),
+            Line(points={{0,-70},{0,-110}}, color={0,0,0}),
             Text(
-              extent={{-150,140},{150,100}}, 
-              lineColor={0,0,255}, 
-              textString="%name"), 
-            Line(points={{-78,80},{51,80}}, color={0,0,0}), 
+              extent={{-150,140},{150,100}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Line(points={{-78,80},{51,80}}, color={0,0,0}),
             Polygon(
-              points={{81,80},{51,90},{51,70},{81,80}}, 
-              lineColor={0,0,0}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-52,-60},{77,-60}}, color={0,0,0}), 
+              points={{81,80},{51,90},{51,70},{81,80}},
+              lineColor={0,0,0},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-52,-60},{77,-60}}, color={0,0,0}),
             Polygon(
-              points={{-82,-60},{-51,-50},{-51,-70},{-82,-60}}, 
-              lineColor={0,0,0}, 
-              fillColor={128,128,128}, 
+              points={{-82,-60},{-51,-50},{-51,-70},{-82,-60}},
+              lineColor={0,0,0},
+              fillColor={128,128,128},
               fillPattern=FillPattern.Solid)}),
       Documentation(info="<HTML>
 <p>
@@ -2879,44 +2827,44 @@ Partial model of force dependent on speed that accelerates the flange.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
             Rectangle(
-              extent={{-96,96},{96,-96}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-30,-70},{30,-70}}, color={0,0,0}), 
-            Line(points={{-30,-90},{-10,-70}}, color={0,0,0}), 
-            Line(points={{-10,-90},{10,-70}}, color={0,0,0}), 
-            Line(points={{10,-90},{30,-70}}, color={0,0,0}), 
-            Line(points={{0,-70},{0,-100}}, color={0,0,0}), 
+              extent={{-96,96},{96,-96}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-30,-70},{30,-70}}, color={0,0,0}),
+            Line(points={{-30,-90},{-10,-70}}, color={0,0,0}),
+            Line(points={{-10,-90},{10,-70}}, color={0,0,0}),
+            Line(points={{10,-90},{30,-70}}, color={0,0,0}),
+            Line(points={{0,-70},{0,-100}}, color={0,0,0}),
             Text(
-              extent={{-150,140},{150,100}}, 
-              lineColor={0,0,255}, 
-              textString="%name"), 
-            Line(points={{-78,80},{51,80}}, color={0,0,0}), 
+              extent={{-150,140},{150,100}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Line(points={{-78,80},{51,80}}, color={0,0,0}),
             Polygon(
-              points={{81,80},{51,90},{51,70},{81,80}}, 
-              lineColor={0,0,0}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-52,-60},{77,-60}}, color={0,0,0}), 
+              points={{81,80},{51,90},{51,70},{81,80}},
+              lineColor={0,0,0},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-52,-60},{77,-60}}, color={0,0,0}),
             Polygon(
-              points={{-82,-60},{-51,-50},{-51,-70},{-82,-60}}, 
-              lineColor={0,0,0}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{0,-70},{0,-100}}, color={0,0,0}), 
-            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}), 
-            Line(points={{-10,-120},{10,-100}}, color={0,0,0}), 
-            Line(points={{10,-120},{30,-100}}, color={0,0,0}), 
-            Line(points={{-30,-100},{30,-100}}, color={0,0,0}), 
-            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}), 
+              points={{-82,-60},{-51,-50},{-51,-70},{-82,-60}},
+              lineColor={0,0,0},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,-70},{0,-100}}, color={0,0,0}),
+            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}),
+            Line(points={{-10,-120},{10,-100}}, color={0,0,0}),
+            Line(points={{10,-120},{30,-100}}, color={0,0,0}),
+            Line(points={{-30,-100},{30,-100}}, color={0,0,0}),
+            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}),
             Line(points={{-50,-90},{-30,-70}}, color={0,0,0})}),
       Documentation(info="<HTML>
 <p>
 Partial model of force dependent on speed that accelerates the flange.
 </p>
 </HTML>"));
-    Modelica.Mechanics.Translational.Components.Fixed fixed 
+    Translational.Components.Fixed fixed 
       annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
   end PartialSpeedDependentForceGrounded;
   end Interfaces;
@@ -2962,7 +2910,7 @@ Modelica.Blocks library.
 </html>"));
     
     model PositionSensor "Ideal sensor to measure the absolute position" 
-      extends Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensor;
+      extends Translational.Interfaces.PartialAbsoluteSensor;
       Modelica.Blocks.Interfaces.RealOutput s "Absolute position of flange" 
                                     annotation (Placement(transformation(extent={{100,-11},
                 {120,9}},            rotation=0), iconTransformation(extent={{100,
@@ -2998,7 +2946,7 @@ Modelica.Blocks library).
     end PositionSensor;
     
     model SpeedSensor "Ideal sensor to measure the absolute velocity" 
-      extends Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensor;
+      extends Translational.Interfaces.PartialAbsoluteSensor;
       Modelica.Blocks.Interfaces.RealOutput v 
         "Absolute velocity of flange as output signal" 
            annotation (Placement(transformation(extent={{100,-10},{120,10}},
@@ -3034,7 +2982,7 @@ Modelica.Blocks library).
     end SpeedSensor;
     
     model AccSensor "Ideal sensor to measure the absolute acceleration" 
-      extends Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensor;
+      extends Translational.Interfaces.PartialAbsoluteSensor;
       SI.Velocity v "Absolute velocity of flange";
       Modelica.Blocks.Interfaces.RealOutput a 
         "Absolute acceleration of flange as output signal" 
@@ -3073,7 +3021,7 @@ Modelica.Blocks library).
     end AccSensor;
     
     model RelPositionSensor "Ideal sensor to measure the relative position" 
-      extends Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor;
+      extends Translational.Interfaces.PartialRelativeSensor;
       Modelica.Blocks.Interfaces.RealOutput s_rel 
         "Distance between two flanges (= flange_b.s - flange_a.s)" 
                                     annotation (Placement(transformation(extent={{-10,-10},
@@ -3114,7 +3062,7 @@ Modelica.Blocks library).
     end RelPositionSensor;
     
     model RelSpeedSensor "Ideal sensor to measure the relative speed" 
-      extends Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor;
+      extends Translational.Interfaces.PartialRelativeSensor;
       SI.Position s_rel 
         "distance between the two flanges (flange_b.s - flange_a.s)";
       Modelica.Blocks.Interfaces.RealOutput v_rel 
@@ -3165,7 +3113,7 @@ Modelica.Blocks library).
     end RelSpeedSensor;
     
     model RelAccSensor "Ideal sensor to measure the relative acceleration" 
-      extends Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor;
+      extends Translational.Interfaces.PartialRelativeSensor;
       SI.Position s_rel 
         "distance between the two flanges (flange_b.s - flange_a.s)";
       SI.Velocity v_rel 
@@ -3212,7 +3160,7 @@ Modelica.Blocks library).
     end RelAccSensor;
     
     model ForceSensor "Ideal sensor to measure the force between two flanges" 
-      extends Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor;
+      extends Translational.Interfaces.PartialRelativeSensor;
       Modelica.Blocks.Interfaces.RealOutput f 
         "force in flange_a and flange_b (f = flange_a.f = -flange_b.f)" 
          annotation (Placement(transformation(
@@ -3255,7 +3203,7 @@ with blocks of the Modelica.Blocks library).
     
     model PowerSensor 
       "Ideal sensor to measure the power between two flanges (= flange_a.f*der(flange_a.s))" 
-      extends Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor;
+      extends Translational.Interfaces.PartialRelativeSensor;
       Modelica.Blocks.Interfaces.RealOutput power "Power in flange flange_a" 
          annotation (Placement(transformation(
             origin={-80,-110},
@@ -3311,7 +3259,7 @@ This package contains ideal sources to drive 1D mechanical translational drive t
     
     model Position 
       "Forced movement of a flange according to a reference position" 
-      extends Modelica.Mechanics.Translational.Interfaces.PartialSource;
+      extends Translational.Interfaces.PartialSource;
       parameter Boolean exact=false 
         "true/false exact treatment/filtering the input signal";
       parameter SI.Frequency f_crit=50 
@@ -3368,28 +3316,28 @@ blocks of the block library Modelica.Blocks.Sources.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-40,-40},{-126,-78}}, 
-              lineColor={0,0,0}, 
-              textString="s_ref"), 
+              extent={{-40,-40},{-126,-78}},
+              lineColor={0,0,0},
+              textString="s_ref"),
             Rectangle(
-              extent={{-100,20},{100,-20}}, 
-              lineColor={0,127,0}, 
-              fillColor={0,127,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,20},{100,-20}},
+              lineColor={0,127,0},
+              fillColor={0,127,0},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{150,60},{-150,100}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
-            Line(points={{0,52},{0,32}}, color={0,0,0}), 
-            Line(points={{-29,32},{30,32}}, color={0,0,0}), 
-            Line(points={{-30,-32},{30,-32}}, color={0,0,0}), 
-            Line(points={{0,-32},{0,-86}}, color={0,0,0}), 
-            Line(points={{30,-42},{20,-52}}, color={0,0,0}), 
-            Line(points={{30,-32},{10,-52}}, color={0,0,0}), 
-            Line(points={{20,-32},{0,-52}}, color={0,0,0}), 
-            Line(points={{10,-32},{-10,-52}}, color={0,0,0}), 
-            Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
-            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
+              extent={{150,60},{-150,100}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{0,52},{0,32}}, color={0,0,0}),
+            Line(points={{-29,32},{30,32}}, color={0,0,0}),
+            Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
+            Line(points={{0,-32},{0,-86}}, color={0,0,0}),
+            Line(points={{30,-42},{20,-52}}, color={0,0,0}),
+            Line(points={{30,-32},{10,-52}}, color={0,0,0}),
+            Line(points={{20,-32},{0,-52}}, color={0,0,0}),
+            Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
+            Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
+            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
             Line(points={{-20,-32},{-30,-42}}, color={0,0,0})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -3414,7 +3362,7 @@ blocks of the block library Modelica.Blocks.Sources.
     end Position;
     
     model Speed "Forced movement of a flange according to a reference speed" 
-      extends Modelica.Mechanics.Translational.Interfaces.PartialSource;
+      extends Translational.Interfaces.PartialSource;
       parameter Boolean exact=false 
         "true/false exact treatment/filtering the input signal";
       parameter SI.Frequency f_crit=50 
@@ -3466,28 +3414,28 @@ blocks of the block library Modelica.Blocks.Sources.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-40,-40},{-126,-78}}, 
-              lineColor={0,0,0}, 
-              textString="v_ref"), 
-            Line(points={{-30,-32},{30,-32}}, color={0,0,0}), 
-            Line(points={{0,-32},{0,-86}}, color={0,0,0}), 
-            Line(points={{30,-42},{20,-52}}, color={0,0,0}), 
-            Line(points={{30,-32},{10,-52}}, color={0,0,0}), 
-            Line(points={{20,-32},{0,-52}}, color={0,0,0}), 
-            Line(points={{10,-32},{-10,-52}}, color={0,0,0}), 
-            Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
-            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
-            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}), 
+              extent={{-40,-40},{-126,-78}},
+              lineColor={0,0,0},
+              textString="v_ref"),
+            Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
+            Line(points={{0,-32},{0,-86}}, color={0,0,0}),
+            Line(points={{30,-42},{20,-52}}, color={0,0,0}),
+            Line(points={{30,-32},{10,-52}}, color={0,0,0}),
+            Line(points={{20,-32},{0,-52}}, color={0,0,0}),
+            Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
+            Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
+            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
+            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
             Rectangle(
-              extent={{-100,20},{100,-20}}, 
-              lineColor={0,127,0}, 
-              fillColor={0,127,0}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-29,32},{30,32}}, color={0,0,0}), 
-            Line(points={{0,52},{0,32}}, color={0,0,0}), 
+              extent={{-100,20},{100,-20}},
+              lineColor={0,127,0},
+              fillColor={0,127,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-29,32},{30,32}}, color={0,0,0}),
+            Line(points={{0,52},{0,32}}, color={0,0,0}),
             Text(
-              extent={{150,60},{-150,100}}, 
-              textString="%name", 
+              extent={{150,60},{-150,100}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -3516,7 +3464,7 @@ blocks of the block library Modelica.Blocks.Sources.
     
     model Accelerate 
       "Forced movement of a flange according to an acceleration signal" 
-       extends Modelica.Mechanics.Translational.Interfaces.PartialSource;
+       extends Translational.Interfaces.PartialSource;
       parameter SI.Position s_start=0 "Start position";
       parameter SI.Velocity v_start=0 "Start velocity";
       
@@ -3553,28 +3501,28 @@ blocks of the block library Modelica.Blocks.Source.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-75,-18},{-124,-58}}, 
-              lineColor={0,0,0}, 
-              textString="a"), 
-            Line(points={{-30,-32},{30,-32}}, color={0,0,0}), 
-            Line(points={{0,-32},{0,-86}}, color={0,0,0}), 
-            Line(points={{30,-42},{20,-52}}, color={0,0,0}), 
-            Line(points={{30,-32},{10,-52}}, color={0,0,0}), 
-            Line(points={{20,-32},{0,-52}}, color={0,0,0}), 
-            Line(points={{10,-32},{-10,-52}}, color={0,0,0}), 
-            Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
-            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
-            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}), 
+              extent={{-75,-18},{-124,-58}},
+              lineColor={0,0,0},
+              textString="a"),
+            Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
+            Line(points={{0,-32},{0,-86}}, color={0,0,0}),
+            Line(points={{30,-42},{20,-52}}, color={0,0,0}),
+            Line(points={{30,-32},{10,-52}}, color={0,0,0}),
+            Line(points={{20,-32},{0,-52}}, color={0,0,0}),
+            Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
+            Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
+            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
+            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
             Rectangle(
-              extent={{-100,20},{100,-20}}, 
-              lineColor={0,127,0}, 
-              fillColor={0,127,0}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-29,32},{30,32}}, color={0,0,0}), 
-            Line(points={{0,52},{0,32}}, color={0,0,0}), 
+              extent={{-100,20},{100,-20}},
+              lineColor={0,127,0},
+              fillColor={0,127,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-29,32},{30,32}}, color={0,0,0}),
+            Line(points={{0,52},{0,32}}, color={0,0,0}),
             Text(
-              extent={{150,60},{-150,100}}, 
-              textString="%name", 
+              extent={{150,60},{-150,100}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -3588,7 +3536,7 @@ blocks of the block library Modelica.Blocks.Source.
     
     model Move 
       "Forced movement of a flange according to a position, velocity and acceleration signal" 
-       extends Modelica.Mechanics.Translational.Interfaces.PartialSource;
+       extends Translational.Interfaces.PartialSource;
       SI.Position s "absolute position of flange";
       SI.Velocity v "absolute velocity of flange";
       SI.Acceleration a "absolute acceleration of flange";
@@ -3632,28 +3580,28 @@ blocks of the block library Modelica.Blocks.Sources.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-140,-62},{20,-100}}, 
-              lineColor={0,0,0}, 
-              textString="s,v,a"), 
-            Line(points={{-30,-32},{30,-32}}, color={0,0,0}), 
-            Line(points={{0,-32},{0,-86}}, color={0,0,0}), 
-            Line(points={{30,-42},{20,-52}}, color={0,0,0}), 
-            Line(points={{30,-32},{10,-52}}, color={0,0,0}), 
-            Line(points={{20,-32},{0,-52}}, color={0,0,0}), 
-            Line(points={{10,-32},{-10,-52}}, color={0,0,0}), 
-            Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
-            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
-            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}), 
+              extent={{-140,-62},{20,-100}},
+              lineColor={0,0,0},
+              textString="s,v,a"),
+            Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
+            Line(points={{0,-32},{0,-86}}, color={0,0,0}),
+            Line(points={{30,-42},{20,-52}}, color={0,0,0}),
+            Line(points={{30,-32},{10,-52}}, color={0,0,0}),
+            Line(points={{20,-32},{0,-52}}, color={0,0,0}),
+            Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
+            Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
+            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
+            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
             Rectangle(
-              extent={{-100,20},{100,-20}}, 
-              lineColor={0,127,0}, 
-              fillColor={0,127,0}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{0,52},{0,32}}, color={0,0,0}), 
-            Line(points={{-29,32},{30,32}}, color={0,0,0}), 
+              extent={{-100,20},{100,-20}},
+              lineColor={0,127,0},
+              fillColor={0,127,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,52},{0,32}}, color={0,0,0}),
+            Line(points={{-29,32},{30,32}}, color={0,0,0}),
             Text(
-              extent={{150,60},{-150,100}}, 
-              textString="%name", 
+              extent={{150,60},{-150,100}},
+              textString="%name",
               lineColor={0,0,255})}),
         Window(
           x=0.27,
@@ -3706,7 +3654,7 @@ blocks of the block library Modelica.Blocks.Sources.
     
     model Force 
       "External force acting on a drive train element as input signal" 
-      extends Modelica.Mechanics.Translational.Interfaces.PartialSource;
+      extends Translational.Interfaces.PartialSource;
       Modelica.Blocks.Interfaces.RealInput f "driving force as input signal" 
                                         annotation (Placement(transformation(
               extent={{-140,-20},{-100,20}}, rotation=0)));
@@ -3734,28 +3682,28 @@ blocks of Modelica.Blocks.Source.
             grid={2,2}), graphics={
             Polygon(
               points={{-100,10},{20,10},{20,41},{90,0},{20,-41},{20,-10},{-100,
-                  -10},{-100,10}}, 
-              lineColor={0,127,0}, 
-              fillColor={0,127,0}, 
-              fillPattern=FillPattern.Solid), 
+                  -10},{-100,10}},
+              lineColor={0,127,0},
+              fillColor={0,127,0},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-100,-40},{-47,-88}}, 
-              lineColor={0,0,0}, 
-              textString="f"), 
+              extent={{-100,-40},{-47,-88}},
+              lineColor={0,0,0},
+              textString="f"),
             Text(
-              extent={{0,109},{0,49}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
-            Line(points={{-30,-60},{30,-60}}, color={0,0,0}), 
-            Line(points={{0,-60},{0,-85}}, color={0,0,0}), 
-            Line(points={{-30,-80},{-10,-60}}, color={0,0,0}), 
-            Line(points={{-10,-80},{10,-60}}, color={0,0,0}), 
-            Line(points={{10,-80},{30,-60}}, color={0,0,0}), 
+              extent={{0,109},{0,49}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{-30,-60},{30,-60}}, color={0,0,0}),
+            Line(points={{0,-60},{0,-85}}, color={0,0,0}),
+            Line(points={{-30,-80},{-10,-60}}, color={0,0,0}),
+            Line(points={{-10,-80},{10,-60}}, color={0,0,0}),
+            Line(points={{10,-80},{30,-60}}, color={0,0,0}),
             Polygon(
-              points={{-61,-50},{-30,-40},{-30,-60},{-61,-50}}, 
-              lineColor={0,0,0}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-61,-50},{-30,-40},{-30,-60},{-61,-50}},
+              lineColor={0,0,0},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
             Line(points={{-31,-50},{50,-50}}, color={0,0,0})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -3766,7 +3714,7 @@ blocks of Modelica.Blocks.Source.
     end Force;
     
     model Force2 "Input signal acting as torque on two flanges" 
-      extends Modelica.Mechanics.Translational.Interfaces.PartialTwoFlanges;
+      extends Translational.Interfaces.PartialTwoFlanges;
       Modelica.Blocks.Interfaces.RealInput f "driving force as input signal" 
                                         annotation (Placement(transformation(
               extent={{-20,-20},{20,20}},    rotation=270,
@@ -3797,22 +3745,22 @@ blocks of Modelica.Blocks.Source.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{0,-40},{0,-100}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{0,-40},{0,-100}},
+              textString="%name",
+              lineColor={0,0,255}),
             Polygon(
               points={{90,0},{60,-30},{60,-10},{10,-10},{10,10},{60,10},{60,31},
-                  {90,0}}, 
-              lineColor={0,127,0}, 
-              smooth=Smooth.None, 
-              fillColor={0,127,0}, 
-              fillPattern=FillPattern.Solid), 
+                  {90,0}},
+              lineColor={0,127,0},
+              smooth=Smooth.None,
+              fillColor={0,127,0},
+              fillPattern=FillPattern.Solid),
             Polygon(
               points={{-90,0},{-60,30},{-60,10},{-10,10},{-10,-10},{-60,-10},{-60,
-                  -30},{-90,0}}, 
-              lineColor={0,127,0}, 
-              smooth=Smooth.None, 
-              fillColor={0,127,0}, 
+                  -30},{-90,0}},
+              lineColor={0,127,0},
+              smooth=Smooth.None,
+              fillColor={0,127,0},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -3824,8 +3772,7 @@ blocks of Modelica.Blocks.Source.
     end Force2;
     
     model LinearSpeedDependentForce "Linear dependency of force versus speed" 
-      extends 
-        Modelica.Mechanics.Translational.Interfaces.PartialSpeedDependentForce;
+      extends Translational.Interfaces.PartialSpeedDependentForce;
       parameter Modelica.SIunits.Force f_nominal 
         "Nominal force (if negative, force is acting as load)";
       parameter Boolean ForceDirection=true 
@@ -3833,7 +3780,7 @@ blocks of Modelica.Blocks.Source.
       parameter Modelica.SIunits.Velocity v_nominal(min=Modelica.Constants.eps) 
         "Nominal speed";
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}}, 
+                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}},
                 color={0,0,255})}), Documentation(info="<HTML>
 <p>
 Model of force, linearly dependent on velocity of flange.<br>
@@ -3850,8 +3797,7 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
     
     model QuadraticSpeedDependentForce 
       "Quadratic dependency of force versus speed" 
-      extends 
-        Modelica.Mechanics.Translational.Interfaces.PartialSpeedDependentForce;
+      extends Translational.Interfaces.PartialSpeedDependentForce;
       parameter Modelica.SIunits.Force f_nominal 
         "Nominal force (if negative, force is acting as load)";
       parameter Boolean ForceDirection=true 
@@ -3876,12 +3822,11 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
     end QuadraticSpeedDependentForce;
     
     model ConstantForce "Constant force, not dependent on speed" 
-      extends 
-        Modelica.Mechanics.Translational.Interfaces.PartialSpeedDependentForce;
+      extends Translational.Interfaces.PartialSpeedDependentForce;
       parameter Modelica.SIunits.Force f_constant 
         "Nominal force (if negative, force is acting as load)";
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{-100,0},{98,0}}, 
+                -100},{100,100}}), graphics={Line(points={{-100,0},{98,0}},
                 color={0,0,255})}),
                                Documentation(info="<HTML>
 <p>
@@ -3894,12 +3839,11 @@ Positive force acts accelerating.
     end ConstantForce;
     
     model ConstantSpeed "Constant speed, not dependent on force" 
-      extends 
-        Modelica.Mechanics.Translational.Interfaces.PartialSpeedDependentForce;
+      extends Translational.Interfaces.PartialSpeedDependentForce;
       parameter Modelica.SIunits.Velocity v_fixed 
         "Fixed speed (if negative, force is acting as load)";
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{0,-100},{0,100}}, 
+                -100},{100,100}}), graphics={Line(points={{0,-100},{0,100}},
                 color={0,0,255})}), Documentation(info="<HTML>
 <p>
 Model of <b>fixed</b> verlocity of flange, not dependent on force.
@@ -3910,8 +3854,7 @@ Model of <b>fixed</b> verlocity of flange, not dependent on force.
     end ConstantSpeed;
     
     model ForceStep "Constant force, not dependent on speed" 
-      extends 
-        Modelica.Mechanics.Translational.Interfaces.PartialSpeedDependentForce;
+      extends Translational.Interfaces.PartialSpeedDependentForce;
       parameter Modelica.SIunits.Force stepForce(start=1) 
         "Height of force step (if negative, force is acting as load)";
       parameter Modelica.SIunits.Force offsetForce(start=0) "Offset of force";
@@ -3920,8 +3863,8 @@ Model of <b>fixed</b> verlocity of flange, not dependent on force.
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-80,-60},{0,-60},{0,
                   60},{80,60}}, color={0,0,255}), Text(
-              extent={{0,-40},{100,-60}}, 
-              lineColor={0,0,255}, 
+              extent={{0,-40},{100,-60}},
+              lineColor={0,0,255},
               textString="time")}), Documentation(info="<HTML>
 <p>
 Model of a force step at time .<br>
@@ -3933,7 +3876,7 @@ Positive force acts accelerating.
     end ForceStep;
     
     model RelativeStates "Definition of relative state variables" 
-      extends Modelica.Mechanics.Translational.Interfaces.PartialTwoFlanges;
+      extends Translational.Interfaces.PartialTwoFlanges;
       parameter StateSelect stateSelect=StateSelect.prefer 
         "Priority to use the relative angle and relative speed as states";
       SI.Position s_rel(start=0, stateSelect=StateSelect.prefer) 
@@ -3978,25 +3921,25 @@ velocity of model mass1 or of model mass2 as state variables.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Ellipse(
-              extent={{-40,40},{40,-40}}, 
-              lineColor={0,255,255}, 
-              fillColor={0,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-40,40},{40,-40}},
+              lineColor={0,255,255},
+              fillColor={0,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-40,40},{40,-40}}, 
-              textString="S", 
-              lineColor={0,0,255}), 
+              extent={{-40,40},{40,-40}},
+              textString="S",
+              lineColor={0,0,255}),
             Line(
-              points={{-92,0},{-42,0}}, 
-              color={0,0,0}, 
-              pattern=LinePattern.Dot), 
+              points={{-92,0},{-42,0}},
+              color={0,0,0},
+              pattern=LinePattern.Dot),
             Line(
-              points={{40,0},{90,0}}, 
-              color={0,0,0}, 
-              pattern=LinePattern.Dot), 
+              points={{40,0},{90,0}},
+              color={0,0,0},
+              pattern=LinePattern.Dot),
             Text(
-              extent={{0,110},{0,50}}, 
-              textString="%name", 
+              extent={{0,110},{0,50}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -4113,12 +4056,11 @@ and the support is automatically fixed to ground.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
-      Modelica.Mechanics.Translational.Interfaces.Flange_b flange 
+      Translational.Interfaces.Flange_b flange 
         annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-      Modelica.Mechanics.Translational.Components.Fixed fixed 
+      Translational.Components.Fixed fixed 
         annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
-      Modelica.Mechanics.Translational.Sources.Position position(
-                                                         final exact=exact, final 
+      Translational.Sources.Position position(           final exact=exact, final 
           f_crit =                                                                       f_crit) 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     equation 
@@ -4226,12 +4168,11 @@ and the support is automatically fixed to ground.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
-      Modelica.Mechanics.Translational.Interfaces.Flange_b flange 
+      Translational.Interfaces.Flange_b flange 
         annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-      Modelica.Mechanics.Translational.Components.Fixed fixed 
+      Translational.Components.Fixed fixed 
         annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
-      Modelica.Mechanics.Translational.Sources.Speed speed(
-                                                   final exact=exact, final 
+      Translational.Sources.Speed speed(           final exact=exact, final 
           f_crit =                                                                 f_crit) 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     equation 
@@ -4316,12 +4257,11 @@ and the support is automatically fixed to ground.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
-      Modelica.Mechanics.Translational.Interfaces.Flange_b flange 
+      Translational.Interfaces.Flange_b flange 
         annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-      Modelica.Mechanics.Translational.Components.Fixed fixed 
+      Translational.Components.Fixed fixed 
         annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
-      Modelica.Mechanics.Translational.Sources.Accelerate accelerate(
-                                                             final s_start=s_start, final 
+      Translational.Sources.Accelerate accelerate(           final s_start=s_start, final 
           v_start=
             v_start) 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
@@ -4404,11 +4344,11 @@ and the support is automatically fixed to ground.
           y=0.05,
           width=0.6,
           height=0.6));
-      Modelica.Mechanics.Translational.Components.Fixed fixed 
+      Translational.Components.Fixed fixed 
         annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
-      Modelica.Mechanics.Translational.Interfaces.Flange_b flange 
+      Translational.Interfaces.Flange_b flange 
         annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-      Modelica.Mechanics.Translational.Sources.Move move 
+      Translational.Sources.Move move 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     equation 
       connect(u, move.u) annotation (Line(
@@ -4489,11 +4429,11 @@ and the support is automatically fixed to ground.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
-      Modelica.Mechanics.Translational.Interfaces.Flange_b flange 
+      Translational.Interfaces.Flange_b flange 
         annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-      Modelica.Mechanics.Translational.Components.Fixed fixed 
+      Translational.Components.Fixed fixed 
         annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
-      Modelica.Mechanics.Translational.Sources.Force force 
+      Translational.Sources.Force force 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     equation 
       connect(f, force.f) annotation (Line(
@@ -4534,8 +4474,7 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
 </HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics));
-      Modelica.Mechanics.Translational.Sources.LinearSpeedDependentForce 
-        linearSpeedDependentForce(
+      Translational.Sources.LinearSpeedDependentForce linearSpeedDependentForce(
         final f_nominal=f_nominal,
         final ForceDirection=ForceDirection,
         final v_nominal=v_nominal) 
@@ -4572,7 +4511,7 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
 </HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics));
-      Modelica.Mechanics.Translational.Sources.QuadraticSpeedDependentForce 
+      Translational.Sources.QuadraticSpeedDependentForce 
         quadraticSpeedDependentForce(
         final f_nominal=f_nominal,
         final ForceDirection=ForceDirection,
@@ -4606,8 +4545,7 @@ Positive force acts accelerating.
 </HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics));
-      Modelica.Mechanics.Translational.Sources.ConstantForce constantForce(
-                                                                   final 
+      Translational.Sources.ConstantForce constantForce(           final 
           f_constant =                                                                            f_constant) 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     equation 
@@ -4635,8 +4573,7 @@ Model of <b>fixed</b> verlocity of flange, not dependent on force.
 </HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics));
-      Modelica.Mechanics.Translational.Sources.ConstantSpeed constantSpeed(
-                                                                   final 
+      Translational.Sources.ConstantSpeed constantSpeed(           final 
           v_fixed =                                                                            v_fixed) 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     equation 
@@ -4671,7 +4608,7 @@ Positive force acts accelerating.
 </HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics));
-      Modelica.Mechanics.Translational.Sources.ForceStep forceStep(
+      Translational.Sources.ForceStep forceStep(
         final stepForce=stepForce,
         final offsetForce=offsetForce,
         final startTime=startTime) 
