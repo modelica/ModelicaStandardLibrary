@@ -1091,9 +1091,11 @@ convertClass  ("Modelica.Mechanics.Translational.RelativeStates",     "Modelica.
 convertClass  ("Modelica.Mechanics.Translational.Interfaces.Rigid",          "Modelica.Mechanics.Translational.Interfaces.PartialRigid");
 convertClass  ("Modelica.Mechanics.Translational.Interfaces.Compliant",      "Modelica.Mechanics.Translational.Interfaces.PartialCompliant");
 convertClass  ("Modelica.Mechanics.Translational.Interfaces.TwoFlanges",     "Modelica.Mechanics.Translational.Interfaces.PartialTwoFlanges");
-convertClass  ("Modelica.Mechanics.Translational.Interfaces.FrictionBase",   "Modelica.Mechanics.Translational.Interfaces.PartialFriction");
+convertClass  ("Modelica.Mechanics.Translational.Interfaces.FrictionBase",   "Modelica.Mechanics.Translational.Interfaces.PartialFrictionWithStop");
 convertClass  ("Modelica.Mechanics.Translational.Interfaces.AbsoluteSensor", "Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensor");
 convertClass  ("Modelica.Mechanics.Translational.Interfaces.RelativeSensor", "Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor");
+convertElement({"Modelica.Mechanics.Translational.Interfaces.FrictionBase"},   "s", "pos");
+convertElement({"Modelica.Mechanics.Translational.Interfaces.FrictionBase"},   "L", "len");
 convertElement({"Modelica.Mechanics.Translational.Interfaces.AbsoluteSensor"}, "flange_a", "flange");
 convertElement({"Modelica.Mechanics.Translational.Sensors.PositionSensor"},    "flange_a", "flange");
 convertElement({"Modelica.Mechanics.Translational.Sensors.SpeedSensor"},       "flange_a", "flange");
