@@ -101,19 +101,20 @@ load inertia.
           extent={{-100,-100},{100,100}},
           grid={0.5,0.5}), graphics={
           Rectangle(
-            extent={{-99.5,100},{100,-100}},
-            lineColor={0,0,0},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
+            extent={{-99.5,100},{100,-100}}, 
+            lineColor={0,0,0}, 
+            fillColor={192,192,192}, 
+            fillPattern=FillPattern.Solid), 
           Bitmap(extent={{-75.5,98.25},{87,-96.75}}, fileName=
-                "../../../../Images/MultiBody/Examples/Systems/robot_kr15.bmp"),
+                "../../../../Images/MultiBody/Examples/Systems/robot_kr15.bmp"), 
+            
           Text(
-            extent={{-111.5,130},{108.5,100}},
-            textString="%name",
-            lineColor={0,0,255}),
+            extent={{-111.5,130},{108.5,100}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
-            extent={{-104.5,-104},{115,-128}},
-            lineColor={0,0,0},
+            extent={{-104.5,-104},{115,-128}}, 
+            lineColor={0,0,0}, 
             textString="mLoad=%mLoad")}),
       experiment(StopTime=3),
       Commands(
@@ -401,8 +402,8 @@ to plot variables.
       annotation (defaultComponentPrefixes="protected",
                   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
-              extent={{-20,2},{22,-2}},
-              lineColor={255,204,51},
+              extent={{-20,2},{22,-2}}, 
+              lineColor={255,204,51}, 
               lineThickness=2)}),
         Documentation(info="<html>
 <p>
@@ -424,8 +425,8 @@ the connection to this bus) are defined
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Rectangle(
-              extent={{-20,2},{22,-2}},
-              lineColor={255,204,51},
+              extent={{-20,2},{22,-2}}, 
+              lineColor={255,204,51}, 
               lineThickness=2)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
@@ -480,34 +481,34 @@ the connection to this bus) are defined
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
+              extent={{-100,100},{100,-100}}, 
+              lineColor={0,0,0}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{-150,150},{150,110}},
-              textString="%name",
-              lineColor={0,0,255}),
+              extent={{-150,150},{150,110}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Polygon(
-              points={{-80,90},{-88,68},{-72,68},{-80,88},{-80,90}},
-              lineColor={192,192,192},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-80,78},{-80,-82}}, color={192,192,192}),
-            Line(points={{-90,0},{82,0}}, color={192,192,192}),
+              points={{-80,90},{-88,68},{-72,68},{-80,88},{-80,90}}, 
+              lineColor={192,192,192}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-80,78},{-80,-82}}, color={192,192,192}), 
+            Line(points={{-90,0},{82,0}}, color={192,192,192}), 
             Polygon(
-              points={{90,0},{68,8},{68,-8},{90,0}},
-              lineColor={192,192,192},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
+              points={{90,0},{68,8},{68,-8},{90,0}}, 
+              lineColor={192,192,192}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{-42,55},{29,12}},
-              lineColor={192,192,192},
-              textString="w"),
-            Line(points={{-80,0},{-41,69},{26,69},{58,0}}, color={0,0,0}),
+              extent={{-42,55},{29,12}}, 
+              lineColor={192,192,192}, 
+              textString="w"), 
+            Line(points={{-80,0},{-41,69},{26,69},{58,0}}, color={0,0,0}), 
             Text(
-              extent={{-73,-44},{82,-69}},
-              lineColor={0,0,0},
+              extent={{-73,-44},{82,-69}}, 
+              lineColor={0,0,0}, 
               textString="1 axis")}),
         Window(
           x=0.03,
@@ -632,34 +633,34 @@ motion on the controlBus of the r3 robot.
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
-              extent={{-100,100},{100,-100}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
+              extent={{-100,100},{100,-100}}, 
+              lineColor={0,0,0}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{-150,150},{150,110}},
-              textString="%name",
-              lineColor={0,0,255}),
+              extent={{-150,150},{150,110}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Polygon(
-              points={{-80,90},{-88,68},{-72,68},{-80,88},{-80,90}},
-              lineColor={192,192,192},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-80,78},{-80,-82}}, color={192,192,192}),
-            Line(points={{-90,0},{82,0}}, color={192,192,192}),
+              points={{-80,90},{-88,68},{-72,68},{-80,88},{-80,90}}, 
+              lineColor={192,192,192}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-80,78},{-80,-82}}, color={192,192,192}), 
+            Line(points={{-90,0},{82,0}}, color={192,192,192}), 
             Polygon(
-              points={{90,0},{68,8},{68,-8},{90,0}},
-              lineColor={192,192,192},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
+              points={{90,0},{68,8},{68,-8},{90,0}}, 
+              lineColor={192,192,192}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{-42,55},{29,12}},
-              lineColor={192,192,192},
-              textString="w"),
-            Line(points={{-80,0},{-41,69},{26,69},{58,0}}, color={0,0,0}),
+              extent={{-42,55},{29,12}}, 
+              lineColor={192,192,192}, 
+              textString="w"), 
+            Line(points={{-80,0},{-41,69},{26,69},{58,0}}, color={0,0,0}), 
             Text(
-              extent={{-70,-43},{85,-68}},
-              lineColor={0,0,0},
+              extent={{-70,-43},{85,-68}}, 
+              lineColor={0,0,0}, 
               textString="6 axes")}),
         Window(
           x=0.03,
@@ -859,28 +860,28 @@ motion on the controlBus of the r3 robot.
             grid={2,2},
             initialScale=0.1), graphics={
             Text(
-              extent={{-100,98},{-24,68}},
-              lineColor={0,0,0},
-              textString="q"),
+              extent={{-100,98},{-24,68}}, 
+              lineColor={0,0,0}, 
+              textString="q"), 
             Text(
-              extent={{-94,46},{-18,16}},
-              lineColor={0,0,0},
-              textString="qd"),
+              extent={{-94,46},{-18,16}}, 
+              lineColor={0,0,0}, 
+              textString="qd"), 
             Text(
-              extent={{-96,-16},{-20,-46}},
-              lineColor={0,0,0},
-              textString="qdd"),
+              extent={{-96,-16},{-20,-46}}, 
+              lineColor={0,0,0}, 
+              textString="qdd"), 
             Text(
-              extent={{-2,20},{80,-18}},
-              lineColor={0,0,0},
-              textString="%axisUsed"),
+              extent={{-2,20},{80,-18}}, 
+              lineColor={0,0,0}, 
+              textString="%axisUsed"), 
             Text(
-              extent={{2,52},{76,28}},
-              lineColor={0,0,0},
-              textString="axis"),
+              extent={{2,52},{76,28}}, 
+              lineColor={0,0,0}, 
+              textString="axis"), 
             Text(
-              extent={{-94,-70},{32,-96}},
-              lineColor={0,0,0},
+              extent={{-94,-70},{32,-96}}, 
+              lineColor={0,0,0}, 
               textString="moving")}));
     equation 
       connect(q_axisUsed.u, q[axisUsed]) annotation (Line(points={{-42,60},{-60,
@@ -970,58 +971,59 @@ the definition of initial values considerably.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Rectangle(
-              extent={{-100,10},{-60,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{-100,10},{-60,-10}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Polygon(
-              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={128,128,128}),
+              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}}, 
+                
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={128,128,128}), 
             Rectangle(
-              extent={{-40,60},{40,-60}},
-              lineColor={0,0,0},
-              pattern=LinePattern.Solid,
-              lineThickness=1,
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{-40,60},{40,-60}}, 
+              lineColor={0,0,0}, 
+              pattern=LinePattern.Solid, 
+              lineThickness=1, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Polygon(
-              points={{60,20},{40,40},{40,-40},{60,-20},{60,20}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
+              points={{60,20},{40,40},{40,-40},{60,-20},{60,20}}, 
+              lineColor={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
             Rectangle(
-              extent={{60,10},{100,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{60,10},{100,-10}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Polygon(
               points={{-60,-90},{-50,-90},{-20,-30},{20,-30},{48,-90},{60,-90},
-                  {60,-100},{-60,-100},{-60,-90}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
+                  {60,-100},{-60,-100},{-60,-90}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{0,128},{0,68}},
-              textString="%name",
-              lineColor={0,0,255}),
+              extent={{0,128},{0,68}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Text(
-              extent={{-36,40},{36,-30}},
-              textString="1",
+              extent={{-36,40},{36,-30}}, 
+              textString="1", 
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
-              extent={{72,30},{130,22}},
-              lineColor={0,0,0},
+              extent={{72,30},{130,22}}, 
+              lineColor={0,0,0}, 
               textString="flange of joint axis"), Text(
-              extent={{-128,26},{-70,18}},
-              lineColor={0,0,0},
+              extent={{-128,26},{-70,18}}, 
+              lineColor={0,0,0}, 
               textString="flange of motor axis")}));
       
-      Modelica.Mechanics.Rotational.Components.IdealGear gear(
+      Modelica.Mechanics.Rotational.Grounded.IdealGear gear(
                                                    ratio=i) 
         annotation (Placement(transformation(extent={{50,-10},{70,10}},
               rotation=0)));
@@ -1029,7 +1031,7 @@ the definition of initial values considerably.
                                                         c=c, d=d) 
         annotation (Placement(transformation(extent={{0,-10},{20,10}}, rotation=
                0)));
-      Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction(
+      Modelica.Mechanics.Rotational.Grounded.BearingFriction bearingFriction(
                                                                     tau_pos=[0,
              Rv0/unitTorque; 1, (Rv0 + Rv1*unitAngularVelocity)/unitTorque]) annotation (Placement(
             transformation(extent={{-60,-10},{-40,10}}, rotation=0)));
@@ -1085,45 +1087,46 @@ Default values for all parameters are given for joint 4.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Rectangle(
-              extent={{-100,10},{-60,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{-100,10},{-60,-10}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Polygon(
-              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={128,128,128}),
+              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}}, 
+                
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={128,128,128}), 
             Rectangle(
-              extent={{-40,60},{40,-60}},
-              lineColor={0,0,0},
-              pattern=LinePattern.Solid,
-              lineThickness=1,
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{-40,60},{40,-60}}, 
+              lineColor={0,0,0}, 
+              pattern=LinePattern.Solid, 
+              lineThickness=1, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Polygon(
-              points={{60,20},{40,40},{40,-40},{60,-20},{60,20}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
+              points={{60,20},{40,40},{40,-40},{60,-20},{60,20}}, 
+              lineColor={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
             Rectangle(
-              extent={{60,10},{100,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{60,10},{100,-10}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Polygon(
               points={{-60,-90},{-50,-90},{-20,-30},{20,-30},{48,-90},{60,-90},
-                  {60,-100},{-60,-100},{-60,-90}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
+                  {60,-100},{-60,-100},{-60,-90}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{0,128},{0,68}},
-              textString="%name",
-              lineColor={0,0,255}),
+              extent={{0,128},{0,68}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Text(
-              extent={{-36,40},{38,-30}},
-              textString="2",
+              extent={{-36,40},{38,-30}}, 
+              textString="2", 
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -1132,11 +1135,11 @@ Default values for all parameters are given for joint 4.
       
       constant SI.AngularVelocity unitAngularVelocity = 1;
       constant SI.Torque unitTorque = 1;
-      Modelica.Mechanics.Rotational.Components.IdealGear gear(
+      Modelica.Mechanics.Rotational.Grounded.IdealGear gear(
                                                    ratio=i) 
         annotation (Placement(transformation(extent={{-28,-10},{-8,10}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction(
+      Modelica.Mechanics.Rotational.Grounded.BearingFriction bearingFriction(
                                                                     tau_pos=[0,
              Rv0/unitTorque; 1, (Rv0 + Rv1*unitAngularVelocity)/unitTorque], peak=peak) 
         annotation (Placement(transformation(extent={{30,-10},{50,10}},
@@ -1186,11 +1189,11 @@ produced by the motor).
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
-              extent={{0,120},{0,60}},
-              textString="%name",
+              extent={{0,120},{0,60}}, 
+              textString="%name", 
               lineColor={0,0,255}), Line(
-              points={{80,-102},{80,-10}},
-              color={255,204,51},
+              points={{80,-102},{80,-10}}, 
+              color={255,204,51}, 
               thickness=2)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -1396,37 +1399,38 @@ produced by the motor).
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
-              extent={{-100,-100},{100,100}},
-              lineColor={0,0,0},
-              pattern=LinePattern.Solid,
-              lineThickness=1,
-              fillColor={235,235,235},
-              fillPattern=FillPattern.Solid),
+              extent={{-100,-100},{100,100}}, 
+              lineColor={0,0,0}, 
+              pattern=LinePattern.Solid, 
+              lineThickness=1, 
+              fillColor={235,235,235}, 
+              fillPattern=FillPattern.Solid), 
             Rectangle(
-              extent={{-30,54},{30,24}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
+              extent={{-30,54},{30,24}}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Polygon(
-              points={{-30,40},{-60,50},{-60,30},{-30,40}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-31,-41},{-78,-41},{-78,39},{-30,39}}, color={0,0,255}),
+              points={{-30,40},{-60,50},{-60,30},{-30,40}}, 
+              lineColor={0,0,255}, 
+              fillColor={0,0,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-31,-41},{-78,-41},{-78,39},{-30,39}}, color={0,0,255}), 
+              
             Rectangle(
-              extent={{-30,-26},{30,-56}},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
+              extent={{-30,-26},{30,-56}}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
             Polygon(
-              points={{60,-32},{30,-42},{60,-52},{60,-32}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),
-            Line(points={{30,39},{76,39},{76,-41},{30,-41}}, color={0,0,255}),
+              points={{60,-32},{30,-42},{60,-52},{60,-32}}, 
+              fillColor={0,0,255}, 
+              fillPattern=FillPattern.Solid, 
+              lineColor={0,0,255}), 
+            Line(points={{30,39},{76,39},{76,-41},{30,-41}}, color={0,0,255}), 
             Text(
-              extent={{-100,150},{100,110}},
-              textString="%name",
+              extent={{-100,150},{100,110}}, 
+              textString="%name", 
               lineColor={0,0,255})}),
         Window(
           x=0.01,
@@ -1554,12 +1558,12 @@ Default values of the parameters are given for the axis of joint 1.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Rectangle(
-              extent={{-100,50},{100,-50}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
+              extent={{-100,50},{100,-50}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
               fillColor={160,160,164}), Text(
-              extent={{-150,57},{150,97}},
-              textString="%name",
+              extent={{-150,57},{150,97}}, 
+              textString="%name", 
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -1700,38 +1704,38 @@ This model contains the mechanical components of the r3 robot
             extent={{-200,-200},{200,200}},
             grid={2,2}), graphics={
             Rectangle(
-              extent={{-200,200},{200,-200}},
-              lineColor={0,0,0},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
+              extent={{-200,200},{200,-200}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{-200,280},{200,200}},
-              textString="%name",
-              lineColor={0,0,255}),
+              extent={{-200,280},{200,200}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Text(
-              extent={{-200,-150},{-140,-190}},
-              textString="1",
-              lineColor={0,0,255}),
+              extent={{-200,-150},{-140,-190}}, 
+              textString="1", 
+              lineColor={0,0,255}), 
             Text(
-              extent={{-200,-30},{-140,-70}},
-              textString="3",
-              lineColor={0,0,255}),
+              extent={{-200,-30},{-140,-70}}, 
+              textString="3", 
+              lineColor={0,0,255}), 
             Text(
-              extent={{-200,-90},{-140,-130}},
-              textString="2",
-              lineColor={0,0,255}),
+              extent={{-200,-90},{-140,-130}}, 
+              textString="2", 
+              lineColor={0,0,255}), 
             Text(
-              extent={{-200,90},{-140,50}},
-              textString="5",
-              lineColor={0,0,255}),
+              extent={{-200,90},{-140,50}}, 
+              textString="5", 
+              lineColor={0,0,255}), 
             Text(
-              extent={{-200,28},{-140,-12}},
-              textString="4",
-              lineColor={0,0,255}),
+              extent={{-200,28},{-140,-12}}, 
+              textString="4", 
+              lineColor={0,0,255}), 
             Text(
-              extent={{-198,150},{-138,110}},
-              textString="6",
-              lineColor={0,0,255}),
+              extent={{-198,150},{-138,110}}, 
+              textString="6", 
+              lineColor={0,0,255}), 
             Bitmap(extent={{-130,195},{195,-195}}, fileName=
                   "../../../../Images/MultiBody/Examples/Systems/robot_kr15.bmp")}),
         Diagram(coordinateSystem(

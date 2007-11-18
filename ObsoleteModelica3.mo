@@ -345,6 +345,110 @@ This icon is designed for an <b>enumeration</b>
   
   package Mechanics 
     package MultiBody 
+      package Interfaces 
+        partial model PartialCutForceSensor 
+          "Base model to measure the cut force and/or torque between two frames" 
+          
+          extends Modelica.Icons.RotationalSensor;
+          extends ObsoleteModelica3.Icons.ObsoleteBlock;
+          Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a 
+            "Coordinate system with one cut-force and cut-torque"                          annotation (Placement(
+                transformation(extent={{-116,-16},{-84,16}}, rotation=0)));
+          Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b 
+            "Coordinate system with one cut-force and cut-torque"                          annotation (Placement(
+                transformation(extent={{84,-16},{116,16}}, rotation=0)));
+          Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve 
+            "If connected, the output signals are resolved in this frame (cut-force/-torque are set to zero)"
+            annotation (Placement(transformation(
+                origin={80,-100},
+                extent={{-16,-16},{16,16}},
+                rotation=270)));
+          
+          annotation (
+            Window(
+              x=0.37,
+              y=0.02,
+              width=0.6,
+              height=0.65),
+            Documentation(info="
+<HTML>
+<p>
+This is a base class for 3-dim. mechanical components with two frames
+and one output port in order to measure the cut-force and/or
+cut-torque acting between the two frames and
+to provide the measured signals as output for further processing
+with the blocks of package Modelica.Blocks.
+</p>
+</HTML>
+"),         Icon(coordinateSystem(
+                preserveAspectRatio=true,
+                extent={{-100,-100},{100,100}},
+                grid={1,1}), graphics={
+                Line(points={{-70,0},{-101,0}}, color={0,0,0}), 
+                Line(points={{70,0},{100,0}}, color={0,0,0}), 
+                Line(points={{-80,-100},{-80,0}}, color={0,0,127}), 
+                Text(
+                  extent={{-132,76},{129,124}}, 
+                  textString="%name", 
+                  lineColor={0,0,255}), 
+                Text(
+                  extent={{-118,55},{-82,30}}, 
+                  lineColor={128,128,128}, 
+                  textString="a"), 
+                Text(
+                  extent={{83,55},{119,30}}, 
+                  lineColor={128,128,128}, 
+                  textString="b"), 
+                Text(
+                  extent={{-31,-72},{100,-97}}, 
+                  lineColor={192,192,192}, 
+                  textString="resolve"), 
+                Line(
+                  points={{80,0},{80,-100}}, 
+                  color={95,95,95}, 
+                  pattern=LinePattern.Dot)}),
+            Diagram(coordinateSystem(
+                preserveAspectRatio=true,
+                extent={{-100,-100},{100,100}},
+                grid={1,1}), graphics={
+                Line(points={{-70,0},{-100,0}}, color={0,0,0}), 
+                Line(points={{70,0},{100,0}}, color={0,0,0}), 
+                Line(points={{-80,-100},{-80,0}}, color={0,0,127}), 
+                Line(
+                  points={{80,0},{80,-100}}, 
+                  color={95,95,95}, 
+                  pattern=LinePattern.Dot)}));
+          
+        protected 
+          outer Modelica.Mechanics.MultiBody.World world;
+        equation 
+          defineBranch(frame_a.R, frame_b.R);
+          assert(cardinality(frame_a) > 0,
+            "Connector frame_a of cut-force/-torque sensor object is not connected");
+          assert(cardinality(frame_b) > 0,
+            "Connector frame_b of cut-force/-torque sensor object is not connected");
+          
+          // frame_a and frame_b are identical
+          frame_a.r_0 = frame_b.r_0;
+          frame_a.R = frame_b.R;
+          
+          // force and torque balance
+          zeros(3) = frame_a.f + frame_b.f;
+          zeros(3) = frame_a.t + frame_b.t;
+          
+          // deduce cut-force
+          if cardinality(frame_resolve) == 1 then
+            // frame_resolve is connected
+            frame_resolve.f = zeros(3);
+            frame_resolve.t = zeros(3);
+          else
+            // frame_resolve is NOT connected
+            frame_resolve.r_0 = zeros(3);
+            frame_resolve.R = Modelica.Mechanics.MultiBody.Frames.nullRotation();
+          end if;
+        end PartialCutForceSensor;
+      end Interfaces;
+
       package Types 
         type AngularVelocity_degs = Modelica.Icons.TypeReal(final quantity="AngularVelocity", final unit
               =    "deg/s") "Angular velocity type in deg/s";
@@ -418,7 +522,7 @@ This icon is designed for an <b>enumeration</b>
           end Temp;
         end Init;
       end Types;
-
+      
       package Sensors 
         model AbsoluteSensor 
           "Measure absolute kinematic quantities of a frame connector" 
@@ -475,21 +579,21 @@ This icon is designed for an <b>enumeration</b>
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
                 Text(
-                  extent={{19,109},{150,84}}, 
-                  lineColor={192,192,192}, 
-                  textString="resolve"), 
+                  extent={{19,109},{150,84}},
+                  lineColor={192,192,192},
+                  textString="resolve"),
                 Line(
-                  points={{-84,0},{-84,84},{0,84},{0,100}}, 
-                  color={95,95,95}, 
-                  pattern=LinePattern.Dot), 
+                  points={{-84,0},{-84,84},{0,84},{0,100}},
+                  color={95,95,95},
+                  pattern=LinePattern.Dot),
                 Text(
-                  extent={{-132,52},{-96,27}}, 
-                  lineColor={128,128,128}, 
+                  extent={{-132,52},{-96,27}},
+                  lineColor={128,128,128},
                   textString="a")}),
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Line(
-                  points={{-84,0},{-84,82},{0,82},{0,98}}, 
-                  color={95,95,95}, 
+                  points={{-84,0},{-84,82},{0,82},{0,98}},
+                  color={95,95,95},
                   pattern=LinePattern.Dot)}),
             Documentation(info="<HTML>
 <p>
@@ -786,7 +890,7 @@ Exact definition of the returned quantities:
             y[i6:i6 + 2] = z_abs;
           end if;
         end AbsoluteSensor;
-
+        
         model RelativeSensor 
           "Measure relative kinematic quantities between two frame connectors" 
           
@@ -879,17 +983,17 @@ Exact definition of the returned quantities:
           annotation (
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={Line(
-                  points={{-60,-94},{-60,-76},{0,-76},{0,-76}}, 
-                  color={95,95,95}, 
+                  points={{-60,-94},{-60,-76},{0,-76},{0,-76}},
+                  color={95,95,95},
                   pattern=LinePattern.Dot), Text(
-                  extent={{-157,-49},{-26,-74}}, 
-                  lineColor={192,192,192}, 
-                  pattern=LinePattern.Dot, 
+                  extent={{-157,-49},{-26,-74}},
+                  lineColor={192,192,192},
+                  pattern=LinePattern.Dot,
                   textString="resolve")}),
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Line(
-                  points={{-60,-98},{-60,-76},{0,-76},{0,-76}}, 
-                  color={95,95,95}, 
+                  points={{-60,-98},{-60,-76},{0,-76},{0,-76}},
+                  color={95,95,95},
                   pattern=LinePattern.Dot)}),
             Documentation(info="<HTML>
 <p>
