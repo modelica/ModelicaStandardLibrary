@@ -4071,857 +4071,6 @@ provided via a signal bus.
     
   end Components;
   
-  package Interfaces 
-    "Connectors and partial models for 1D rotational mechanical components" 
-    
-    extends Modelica.Icons.Library;
-    
-    annotation(preferedView="info", Window(
-        x=0.07,
-        y=0.13,
-        width=0.43,
-        height=0.52,
-        library=1,
-        autolayout=1), Documentation(info="<html>
-<p>
-This package contains connectors and partial models for 1-dim.
-rotational mechanical components. The components of this package can
-only be used as basic building elements for models.
-</p>
- 
-</html>
-"));
-    connector Flange_a 
-      "1-dim. rotational flange of a shaft (filled square icon)" 
-      SI.Angle phi "Absolute rotation angle of flange";
-      flow SI.Torque tau "Cut torque in the flange";
-      annotation(defaultComponentName = "flange_a",
-        Window(
-          x=0.23,
-          y=0.02,
-          width=0.56,
-          height=0.68),
-        Documentation(info="<HTML>
-<p>
-This is a connector for 1-dim. rotational mechanical systems and models
-the mechanical flange of a shaft. The following variables are defined in this connector:
-</p>
-<pre>
-   <b>phi</b>: Absolute rotation angle of the flange in [rad].
-   <b>tau</b>: Cut-torque in the flange in [Nm].
-</pre>
-<p>
-There is a second connector for flanges: Flange_b. The connectors
-Flange_a and Flange_b are completely identical. There is only a difference
-in the icons, in order to easier identify a flange variable in a diagram.
-For a discussion on the actual direction of the cut-torque tau and
-of the rotation angle, see the information text of package Rotational
-(section 4. Sign conventions).
-</p>
-<p>
-If needed, the absolute angular velocity w and the
-absolute angular acceleration a of the flange can be determined by
-differentiation of the flange angle phi:
-</p>
-<pre>
-     w = der(phi);    a = der(w)
-</pre>
- 
-</HTML>
-"),     Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Ellipse(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              fillColor={95,95,95}, 
-              fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Text(
-              extent={{-160,90},{40,50}}, 
-              lineColor={0,0,0}, 
-              textString="%name"), Ellipse(
-              extent={{-40,40},{40,-40}}, 
-              lineColor={0,0,0}, 
-              fillColor={135,135,135}, 
-              fillPattern=FillPattern.Solid)}),
-        Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=0,
-                fillColor=10),
-            lineColor={0,0,255})));
-    end Flange_a;
-    
-    connector Flange_b 
-      "1-dim. rotational flange of a shaft (non-filled square icon)" 
-      SI.Angle phi "Absolute rotation angle of flange";
-      flow SI.Torque tau "Cut torque in the flange";
-      annotation(defaultComponentName = "flange_b",
-        Window(
-          x=0.21,
-          y=0.05,
-          width=0.48,
-          height=0.65),
-        Documentation(info="<HTML>
-<p>
-This is a connector for 1-dim. rotational mechanical systems and models
-the mechanical flange of a shaft. The following variables are defined in this connector:
-</p>
-<pre>
-   <b>phi</b>: Absolute rotation angle of the flange in [rad].
-   <b>tau</b>: Cut-torque in the flange in [Nm].
-</pre>
-<p>
-There is a second connector for flanges: Flange_a. The connectors
-Flange_a and Flange_b are completely identical. There is only a difference
-in the icons, in order to easier identify a flange variable in a diagram.
-For a discussion on the actual direction of the cut-torque tau and
-of the rotation angle, see the information text of package Rotational
-(section 4. Sign conventions).
-</p>
-<p>
-If needed, the absolute angular velocity w and the
-absolute angular acceleration a of the flange can be determined by
-differentiation of the flange angle phi:
-</p>
-<pre>
-     w = der(phi);    a = der(w)
-</pre>
- 
-</HTML>
-"),     Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Ellipse(
-              extent={{-98,100},{102,-100}}, 
-              lineColor={0,0,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Ellipse(
-              extent={{-40,40},{40,-40}}, 
-              lineColor={0,0,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), Text(
-              extent={{-40,90},{160,50}}, 
-              lineColor={0,0,0}, 
-              textString="%name")}),
-        Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=0,
-                fillColor=7),
-            lineColor={0,0,255})));
-    end Flange_b;
-    
-    connector Support "Support/housing of a 1-dim. rotational shaft" 
-      
-      SI.Angle phi 
-        "Absolute rotation angle of shaft with respect to the support";
-      flow SI.Torque tau "Reaction torque in the support";
-      
-      annotation (Documentation(info="<html>
-<p>
-This is a connector for 1-dim. rotational mechanical systems and models
-the support or housing of a shaft. The following variables are defined in this connector:
-</p>
-<pre>
-   <b>phi</b>: Absolute rotation angle of the shaft 
-        with respect to the support in [rad].
-   <b>tau</b>: Reaction torque in the support in [Nm].
-</pre>
- 
-<p>
-It is required that a support connector is always connected since
-a not connected support leads to the equation that the support torque
-is zero (= standard Modelica semantic of not-connected connectors),
-which is not physical. In current Modelica it is not possible to
-express the property \"must always be connected\".
-Therefore, whenever a support is used, an assert has to be defined that
-guarantees that it is connected.
-</p>
-</html>"),     Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2},
-            initialScale=0.1), graphics={
-            Ellipse(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              fillColor={95,95,95}, 
-              fillPattern=FillPattern.Solid), 
-            Rectangle(
-              extent={{-150,150},{150,-150}}, 
-              lineColor={192,192,192}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
-            Ellipse(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              fillColor={95,95,95}, 
-              fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2},
-            initialScale=0.1), graphics={
-            Rectangle(
-              extent={{-60,60},{60,-60}}, 
-              lineColor={192,192,192}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
-            Text(
-              extent={{-160,100},{40,60}}, 
-              lineColor={0,0,0}, 
-              textString="%name"), 
-            Ellipse(
-              extent={{-40,40},{40,-40}}, 
-              lineColor={0,0,0}, 
-              fillColor={135,135,135}, 
-              fillPattern=FillPattern.Solid)}),
-        Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=0,
-                fillColor=10),
-            lineColor={0,0,255})));
-    end Support;
-    
-    partial model PartialRigid 
-      "Base model for a rigid shaft with a left and a right shaft flange" 
-      parameter SI.Angle deltaPhi=0 
-        "rotation of component from left flange to right flange (= flange_b.phi - flange_a.phi)";
-      SI.Angle phi 
-        "Absolute rotation angle of component (= flange_a.phi = flange_b.phi)";
-      
-      Flange_a flange_a "Left flange of shaft" 
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
-      Flange_b flange_b "Right flange of shaft" 
-        annotation (Placement(transformation(extent={{90,-10},{110,10}},
-              rotation=0)));
-      annotation (
-        Documentation(info="<html>
-<p>
-This is a 1-dim. rotational component with one shaft. The left and right
-(rigidly connected) shaft flanges are the two connectors of the component,
-i.e., flange_a.phi = flange_b.phi. It is used e.g. to built up components
-with inertia.
-</p>
- 
-</HTML>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
-        Window(
-          x=0.18,
-          y=0.3,
-          width=0.61,
-          height=0.66));
-    equation 
-      flange_a.phi = phi - deltaPhi/2;
-      flange_b.phi = phi + deltaPhi/2;
-    end PartialRigid;
-    
-    partial model PartialCompliant 
-      "Base model for the compliant connection of two rotational 1-dim. shaft flanges" 
-      
-      SI.Angle phi_rel(start=0) 
-        "Relative rotation angle (= flange_b.phi - flange_a.phi)";
-      SI.Torque tau "Torque between flanges (= flange_b.tau)";
-      Flange_a flange_a "Left flange of compliant 1-dim. rotational component" 
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
-      Flange_b flange_b "Right flange of compliant 1-dim. rotational component"
-        annotation (Placement(transformation(extent={{90,-10},{110,10}},
-              rotation=0)));
-      annotation (
-        Window(
-          x=0.32,
-          y=0.01,
-          width=0.6,
-          height=0.6),
-        Documentation(info="<html>
-<p>
-This is a 1D rotational component with a compliant connection of two
-rotational 1D flanges where inertial effects between the two
-flanges are neglected. The basic assumption is that the cut-torques
-of the two flanges sum-up to zero, i.e., they have the same absolute value
-but opposite sign: flange_a.tau + flange_b.tau = 0. This base class
-is used to built up force elements such as springs, dampers, friction.
-</p>
- 
-</HTML>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics));
-    equation 
-      phi_rel = flange_b.phi - flange_a.phi;
-      flange_b.tau = tau;
-      flange_a.tau = -tau;
-    end PartialCompliant;
-    
-    partial model PartialCompliantWithRelativeStates 
-      "Base model for the compliant connection of two rotational 1-dim. shaft flanges where the relative angle and relative angular velocities are used as states" 
-      
-      parameter StateSelect stateSelect=StateSelect.prefer 
-        "Priority to use relative angle phi_rel and relative speed w_rel as states"
-      annotation(Hide=true, Dialog(tab="Advanced"));
-      parameter SI.Angle phi_nominal=1e-4 
-        "Nominal value of phi_rel (used for scaling)" annotation(Dialog(tab="Advanced"));
-      
-      SI.Angle phi_rel(start=0) 
-        "Relative rotation angle (= flange_b.phi - flange_a.phi)";
-      SI.Angle phi_rel_scaled(stateSelect=stateSelect) 
-        "Relative rotationa angle scaled with phi_nominal";
-      SI.AngularVelocity w_rel(start=0, stateSelect=stateSelect) 
-        "Relative angular velocity (= der(phi_rel))";
-      SI.AngularAcceleration a_rel(start=0) 
-        "Relative angular acceleration (= der(w_rel))";
-      
-      SI.Torque tau "Torque between flanges (= flange_b.tau)";
-      Flange_a flange_a "Left flange of compliant 1-dim. rotational component" 
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
-      Flange_b flange_b "Right flange of compliant 1-dim. rotational component"
-        annotation (Placement(transformation(extent={{90,-10},{110,10}},
-              rotation=0)));
-      annotation (
-        Window(
-          x=0.32,
-          y=0.01,
-          width=0.6,
-          height=0.6),
-        Documentation(info="<html>
-<p>
-This is a 1-dim. rotational component with a compliant connection of two
-rotational 1-dim. flanges where inertial effects between the two
-flanges are neglected. The basic assumption is that the cut-torques
-of the two flanges sum-up to zero, i.e., they have the same absolute value
-but opposite sign: flange_a.tau + flange_b.tau = 0. This base class
-is used to built up force elements such as springs, dampers, friction.
-</p>
- 
-<p>
-The difference to base classe \"PartialCompliant\" is that the relative
-angle and the relative angular velocity are defined as preferred states.
-The reason is that for a large class of drive trains, such as drive 
-trains in vehicles, the absolute angle is quickly increasing during operation.
-Numerically, it is better to use relative angles between drive train components
-because they remain in a limited size. For this reason, StateSelect.prefer
-is set for the relative angle of this component.
-</p>
- 
-<p>
-In order to improve the numerics, a nominal value for the relative angle
-should be set, since drive train angles are in the order of 1e-4 rad and 
-then step size control of the integrator is practically switched off for
-such a variable. A default nominal value of phi_nominal = 1e-4 is defined.
-This nominal value might also be computed from other values, such
-as \"phi_nominal = tau_nominal / c\" for a rotational spring, if tau_nominal
-and c have more meaningful values for the user.
-</p>
- 
-</html>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics));
-    equation 
-      phi_rel = flange_b.phi - flange_a.phi;
-      phi_rel_scaled = phi_rel/phi_nominal;
-      w_rel = phi_nominal*der(phi_rel_scaled);
-      a_rel = der(w_rel);
-      flange_b.tau = tau;
-      flange_a.tau = -tau;
-    end PartialCompliantWithRelativeStates;
-    
-    partial model PartialGear 
-      "Base model for 1-dim. rotationalgear consisting of the flange of an input shaft, the flange of an output shaft and the support" 
-      
-      Flange_a flange_a "Flange of left shaft" annotation (Placement(transformation(extent={{-110,-10},
-                {-90,10}}, rotation=0)));
-      Flange_b flange_b "Flange of right shaft" 
-                        annotation (Placement(transformation(extent={{90,-10},{
-                110,10}}, rotation=0)));
-      Support support 
-        "Support/housing of component (is required to be connected)" 
-        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-      
-      Modelica.SIunits.Angle phi_a 
-        "Angle between left shaft flange and support";
-      Modelica.SIunits.Angle phi_b 
-        "Angle between right shaft flange and support";
-      
-      annotation (Documentation(info="<html>
-<p>
-This is a 1-dim. rotational component with two flanges and an additional support.
-It is used e.g. to build up elementary ideal gear components. The component
-contains the torque balance, i.e., the sum of the torques of the connectors
-is zero (therefore, components that are based on PartialGear cannot have
-inertia). The support connector needs to be connected
-to avoid the unphysical behavior that the
-support torque is required to be zero (= the default value, if the
-connector is not connected).
-</p>
- 
-</HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}),graphics));
-    equation 
-      assert(cardinality(support) > 0, "The support connector is required to be connected");
-      
-      phi_a = flange_a.phi - support.phi;
-      phi_b = flange_b.phi - support.phi;
-      
-      // torque balance
-      0 = flange_a.tau + flange_b.tau + support.tau;
-    end PartialGear;
-    
-    partial model PartialSource 
-      "Base model for a component with a rotational 1-dim. shaft flange and a support to define either a predefined motion or a predefined torque" 
-      Flange_b flange "Flange of shaft" 
-                        annotation (Placement(transformation(extent={{90,-10},{
-                110,10}}, rotation=0)));
-      Support support 
-        "Support/housing of component (is required to be connected)" 
-        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-      
-      annotation (
-        Documentation(info="<html>
-<p>
-This is a 1-dim. rotational component with one shaft flange
-and one support. It is used to build up \"source\" components,
-e.g., driving a shaft with a predefined motion or with a 
-predefined torque. The support connector needs to be connected
-to avoid the unphysical behavior that the
-support torque is required to be zero (= the default value, if the
-connector is not connected).
-</p>
- 
-</HTML>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
-        Window(
-          x=0.37,
-          y=0.05,
-          width=0.6,
-          height=0.6),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics));
-    equation 
-      assert(cardinality(support) > 0, "The support connector is required to be connected");
-      
-      // torque balance
-      0 = flange.tau + support.tau;
-    end PartialSource;
-    
-    partial model PartialTwoFlanges 
-      "Base model for a component with two rotational 1-dim. shaft flanges" 
-      Flange_a flange_a "Flange of left shaft" 
-                        annotation (Placement(transformation(extent={{-110,-10},
-                {-90,10}}, rotation=0)));
-      Flange_b flange_b "Flange of right shaft" 
-                        annotation (Placement(transformation(extent={{90,-10},{
-                110,10}}, rotation=0)));
-      annotation (
-        Documentation(info="<html>
-<p>
-This is a 1-dim. rotational component with two flanges.
-It is used e.g. to build up parts of a drive train consisting
-of several components. There are specialized versions of this
-base class for rigidly connected flanges (Interfaces.PartialRigid),
-for a compliant connection of flanges (Interfaces.PartialCompliant)
-and for an elementary gear (Interfaces.PartialIdealGear).
-</p>
- 
-</HTML>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
-        Window(
-          x=0.37,
-          y=0.05,
-          width=0.6,
-          height=0.6));
-    end PartialTwoFlanges;
-    
-    partial model PartialTwoFlangesAndSupport 
-      "Base model for a component with two rotational 1-dim. shaft flanges and a support" 
-      Flange_a flange_a "Flange of left shaft" 
-                        annotation (Placement(transformation(extent={{-110,-10},
-                {-90,10}}, rotation=0)));
-      Flange_b flange_b "Flange of right shaft" 
-                        annotation (Placement(transformation(extent={{90,-10},{
-                110,10}}, rotation=0)));
-      Support support 
-        "Support/housing of component (is required to be connected)" 
-        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-      annotation (
-        Documentation(info="<html>
-<p>
-This is a 1-dim. rotational component with two flanges and a support.
-It is used e.g. to build up parts of a drive train consisting
-of several components. The support connector needs to be connected
-to avoid the unphysical behavior that the
-support torque is required to be zero (= the default value, if the
-connector is not connected).
-</p>
- 
-<p>
-There are specialized versions of this
-base class for rigidly connected flanges (Interfaces.PartialRigid),
-for a compliant connection of flanges (Interfaces.PartialCompliant)
-and for an elementary gear (Interfaces.PartialIdealGear).
-</p>
- 
-</HTML>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
-        Window(
-          x=0.37,
-          y=0.05,
-          width=0.6,
-          height=0.6));
-    equation 
-      assert(cardinality(support) > 0, "The support connector is required to be connected");
-    end PartialTwoFlangesAndSupport;
-    
-    partial model PartialFriction "Base model of Coulomb friction elements" 
-      
-      annotation (Documentation(info="<html>
-<p>
-Basic model for Coulomb friction that models the stuck phase in a reliable way.
-</p>
-</html>"));
-      // parameter SI.AngularVelocity w_small=1 "Relative angular velocity near to zero (see model info text)";
-      parameter SI.AngularVelocity w_small=1e10 
-        "Relative angular velocity near to zero if jumps due to a reinit(..) of the velocity can occur (set to low value only if such impulses can occur)"
-         annotation(Dialog(tab="Advanced"));
-    // Equations to define the following variables have to be defined in subclasses
-      SI.AngularVelocity w_relfric 
-        "Relative angular velocity between frictional surfaces";
-      SI.AngularAcceleration a_relfric 
-        "Relative angular acceleration between frictional surfaces";
-      SI.Torque tau 
-        "Friction torque (positive, if directed in opposite direction of w_rel)";
-      SI.Torque tau0 "Friction torque for w=0 and forward sliding";
-      SI.Torque tau0_max "Maximum friction torque for w=0 and locked";
-      Boolean free "true, if frictional element is not active";
-    // Equations to define the following variables are given in this class
-      Real sa(final unit="1") 
-        "Path parameter of friction characteristic tau = f(a_relfric)";
-      Boolean startForward(start=false, fixed=true) 
-        "true, if w_rel=0 and start of forward sliding or w_rel > w_small";
-      Boolean startBackward(start=false, fixed=true) 
-        "true, if w_rel=0 and start of backward sliding or w_rel < -w_small";
-      Boolean locked(start=false) "true, if w_rel=0 and not sliding";
-      constant Integer Unknown=3 "Value of mode is not known";
-      constant Integer Free=2 "Element is not active";
-      constant Integer Forward=1 "w_rel > 0 (forward sliding)";
-      constant Integer Stuck=0 
-        "w_rel = 0 (forward sliding, locked or backward sliding)";
-      constant Integer Backward=-1 "w_rel < 0 (backward sliding)";
-      Integer mode(
-        final min=Backward,
-        final max=Unknown,
-        start=Unknown, fixed=true);
-    protected 
-      constant SI.AngularAcceleration unitAngularAcceleration = 1 annotation(Hide=true);
-      constant SI.Torque unitTorque = 1 annotation(Hide=true);
-    equation 
-    /* Friction characteristic
-   locked is introduced to help the Modelica translator determining
-   the different structural configurations, 
-   if for each configuration special code shall be generated)
-*/
-      startForward  = pre(mode) == Stuck and 
-        (pre(startForward)  or sa >  tau0_max/unitTorque and sa >  tau0/unitTorque) or 
-        pre(mode) == Backward and w_relfric >  w_small or initial() and w_relfric > 0;
-      startBackward = pre(mode) == Stuck and 
-        (pre(startBackward) or sa < -tau0_max/unitTorque and sa < -tau0/unitTorque) or 
-        pre(mode) == Forward  and w_relfric < -w_small or initial() and w_relfric < 0;
-      locked = not free and 
-        not (pre(mode) == Forward or startForward or pre(mode) == Backward or startBackward);
-      a_relfric/unitAngularAcceleration = if locked then               0 else 
-                                          if free then                 sa else 
-                                          if startForward then         sa - tau0/unitTorque else 
-                                          if startBackward then        sa + tau0/unitTorque else 
-                                          if pre(mode) == Forward then sa - tau0/unitTorque else 
-                                                                       sa + tau0/unitTorque;
-    /* Friction torque has to be defined in a subclass. Example for a clutch:
-   tau = if locked then sa else 
-         if free then   0 else 
-         cgeo*fn*(if startForward then          Math.tempInterpol1( w_relfric, mue_pos, 2) else
-                  if startBackward then        -Math.tempInterpol1(-w_relfric, mue_pos, 2) else
-                  if pre(mode) == Forward then  Math.tempInterpol1( w_relfric, mue_pos, 2) else 
-                                               -Math.tempInterpol1(-w_relfric, mue_pos, 2));
-*/
-    // finite state machine to determine configuration
-      mode = if free then Free else 
-        (if (pre(mode) == Forward  or pre(mode) == Free or startForward)  and w_relfric > 0 then 
-           Forward else 
-         if (pre(mode) == Backward or pre(mode) == Free or startBackward) and w_relfric < 0 then 
-           Backward else 
-           Stuck);
-    end PartialFriction;
-    
-    partial model PartialAbsoluteSensor 
-      "Base model to measure a single absolute flange variable" 
-      
-      Flange_a flange 
-        "Flange of shaft from which sensor information shall be measured" 
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
-      annotation (
-        Window(
-          x=0.39,
-          y=0.05,
-          width=0.6,
-          height=0.6),
-        Documentation(info="<html>
-<p>
-This is the base class of a 1-dim. rotational component with one flange of a shaft 
-in order to measure an absolute kinematic quantity in the flange
-and to provide the measured signal as output signal for further processing
-with the blocks of package Modelica.Blocks.
-</p>
- 
-</html>
-"),     Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
-            Line(points={{70,0},{100,0}}, color={0,0,127}),
-            Text(
-              extent={{150,80},{-150,120}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Ellipse(
-              extent={{-70,70},{70,-70}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{0,70},{0,40}}, color={0,0,0}),
-            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
-            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
-            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
-            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
-            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
-            Polygon(
-              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Ellipse(
-              extent={{-5,5},{5,-5}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
-    equation 
-      0 = flange.tau;
-    end PartialAbsoluteSensor;
-    
-    partial model PartialRelativeSensor 
-      "Base model to measure a single relative variable between two flanges" 
-      
-      Flange_a flange_a "Left flange of shaft" 
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
-      Flange_b flange_b "Right flange of shaft" 
-        annotation (Placement(transformation(extent={{90,-10},{110,10}},
-              rotation=0)));
-      annotation (
-        Window(
-          x=0.37,
-          y=0.02,
-          width=0.6,
-          height=0.65),
-        Documentation(info="<html>
-<p>
-This is a base class for 1-dim. rotational components with two rigidly connected
-flanges in order to measure relative kinematic quantities
-between the two flanges or the cut-torque in the flange and
-to provide the measured signal as output signal for further processing
-with the blocks of package Modelica.Blocks.
-</p>
- 
-</html>
-"),     Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
-            Line(points={{70,0},{90,0}}, color={0,0,0}),
-            Text(
-              extent={{-150,73},{150,113}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Ellipse(
-              extent={{-70,70},{70,-70}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{0,70},{0,40}}, color={0,0,0}),
-            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
-            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
-            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
-            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
-            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
-            Polygon(
-              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Ellipse(
-              extent={{-5,5},{5,-5}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
-    equation 
-      0 = flange_a.tau + flange_b.tau;
-    end PartialRelativeSensor;
-    
-    partial model PartialSpeedDependentTorque 
-      "Partial model of a torque acting at the flange (accelerates the flange)" 
-      Rotational.Interfaces.Flange_b flange "Flange on which torque is acting" 
-        annotation (Placement(transformation(extent={{110,-10},{90,10}},
-              rotation=0)));
-      Rotational.Interfaces.Support support 
-        "Support/housing at which the reaction torque (= -flange.tau) is acting (is required to be connected)"
-           annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
-              rotation=0)));
-      
-      Modelica.SIunits.Angle phi 
-        "Angle of flange with respect to support (= flange.phi - support.phi)";
-      Modelica.SIunits.AngularVelocity w 
-        "Angular velocity of flange with respect to support (= der(phi))";
-      Modelica.SIunits.Torque tau 
-        "Accelerating torque acting at flange (= flange.tau)";
-      
-      annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}),
-                graphics),
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={
-            Rectangle(
-              extent={{-96,96},{96,-96}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-30,-70},{30,-70}}, color={0,0,0}),
-            Line(points={{-30,-90},{-10,-70}}, color={0,0,0}),
-            Line(points={{-10,-90},{10,-70}}, color={0,0,0}),
-            Line(points={{10,-90},{30,-70}}, color={0,0,0}),
-            Line(points={{0,-70},{0,-110}}, color={0,0,0}),
-            Line(points={{-92,0},{-76,36},{-54,62},{-30,80},{-14,88},{10,92},{
-                  26,90},{46,80},{64,62}}, color={0,0,0}),
-            Text(
-              extent={{-150,140},{150,100}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Polygon(
-              points={{94,16},{80,74},{50,52},{94,16}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Line(
-              points={{-60,-68},{-44,-54},{-22,-42},{-2,-40},{16,-44},{30,-52},
-                  {42,-62},{50,-72},{58,-84}},
-              color={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{-67,-92},{-50,-68},{-64,-62},{-67,-92}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid)}),
-        Documentation(info="<HTML>
-<p>
-Partial model of torque dependent on speed that accelerates the flange.
-</p>
-</HTML>"));
-    equation 
-      assert(cardinality(support) > 0, "The support connector is required to be connected");
-      phi = flange.phi - support.phi;
-      w = der(phi);
-      tau = flange.tau;
-      0 = flange.tau + support.tau;
-    end PartialSpeedDependentTorque;
-    
-    partial model PartialSpeedDependentTorqueGrounded 
-      "Partial model of a torque acting at the flange (accelerates the flange)" 
-      Rotational.Interfaces.Flange_b flange "Flange on which torque is acting" 
-        annotation (Placement(transformation(extent={{110,-10},{90,10}},
-              rotation=0)));
-      
-      annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}),
-                graphics),
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={
-            Rectangle(
-              extent={{-96,96},{96,-96}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-30,-70},{30,-70}}, color={0,0,0}),
-            Line(points={{-30,-90},{-10,-70}}, color={0,0,0}),
-            Line(points={{-10,-90},{10,-70}}, color={0,0,0}),
-            Line(points={{10,-90},{30,-70}}, color={0,0,0}),
-            Line(points={{0,-70},{0,-100}}, color={0,0,0}),
-            Line(points={{-92,0},{-76,36},{-54,62},{-30,80},{-14,88},{10,92},{
-                  26,90},{46,80},{64,62}}, color={0,0,0}),
-            Text(
-              extent={{-150,140},{150,100}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Polygon(
-              points={{94,16},{80,74},{50,52},{94,16}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Line(
-              points={{-60,-68},{-44,-54},{-22,-42},{-2,-40},{16,-44},{30,-52},
-                  {42,-62},{50,-72},{58,-84}},
-              color={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{-67,-92},{-50,-68},{-64,-62},{-67,-92}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-30,-100},{30,-100}}, color={0,0,0}),
-            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}),
-            Line(points={{-10,-120},{10,-100}}, color={0,0,0}),
-            Line(points={{10,-120},{30,-100}}, color={0,0,0}),
-            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}),
-            Line(points={{0,-70},{0,-100}}, color={0,0,0}),
-            Line(points={{-50,-90},{-30,-70}}, color={0,0,0})}),
-        Documentation(info="<HTML>
-<p>
-Partial model of torque dependent on speed that accelerates the flange.
-</p>
-</HTML>"));
-      Rotational.Components.Fixed fixed 
-        annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
-    end PartialSpeedDependentTorqueGrounded;
-  end Interfaces;
   
   package Sensors 
     "Sensors to measure variables in 1D rotational mechanical components" 
@@ -6188,67 +5337,67 @@ and the support is automatically fixed to ground.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
-              extent={{-100,10},{100,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(extent={{-60,-10},{60,-60}}, lineColor={0,0,0}),
+              extent={{-100,10},{100,-10}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Rectangle(extent={{-60,-10},{60,-60}}, lineColor={0,0,0}), 
             Rectangle(
-              extent={{-60,-10},{60,-25}},
-              lineColor={0,0,0},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
+              extent={{-60,-10},{60,-25}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
             Rectangle(
-              extent={{-60,-45},{60,-61}},
-              lineColor={0,0,0},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
+              extent={{-60,-45},{60,-61}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
             Rectangle(
-              extent={{-50,-18},{50,-50}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
+              extent={{-50,-18},{50,-50}}, 
+              lineColor={0,0,0}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
             Polygon(
               points={{60,-60},{60,-70},{75,-70},{75,-80},{-75,-80},{-75,-70},{
-                  -60,-70},{-60,-60},{60,-60}},
-              lineColor={0,0,0},
-              fillColor={160,160,164},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-75,-10},{-75,-70}}, color={0,0,0}),
-            Line(points={{75,-10},{75,-70}}, color={0,0,0}),
-            Rectangle(extent={{-60,60},{60,10}}, lineColor={0,0,0}),
+                  -60,-70},{-60,-60},{60,-60}}, 
+              lineColor={0,0,0}, 
+              fillColor={160,160,164}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-75,-10},{-75,-70}}, color={0,0,0}), 
+            Line(points={{75,-10},{75,-70}}, color={0,0,0}), 
+            Rectangle(extent={{-60,60},{60,10}}, lineColor={0,0,0}), 
             Rectangle(
-              extent={{-60,60},{60,45}},
-              lineColor={0,0,0},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
+              extent={{-60,60},{60,45}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
             Rectangle(
-              extent={{-60,25},{60,10}},
-              lineColor={0,0,0},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
+              extent={{-60,25},{60,10}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
             Rectangle(
-              extent={{-50,51},{50,19}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-75,70},{-75,10}}, color={0,0,0}),
+              extent={{-50,51},{50,19}}, 
+              lineColor={0,0,0}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-75,70},{-75,10}}, color={0,0,0}), 
             Polygon(
               points={{60,60},{60,70},{75,70},{75,80},{-75,80},{-75,70},{-60,70},
-                  {-60,60},{60,60}},
-              lineColor={0,0,0},
-              fillColor={160,160,164},
-              fillPattern=FillPattern.Solid),
-            Line(points={{75,70},{75,10}}, color={0,0,0}),
+                  {-60,60},{60,60}}, 
+              lineColor={0,0,0}, 
+              fillColor={160,160,164}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{75,70},{75,10}}, color={0,0,0}), 
             Text(
-              extent={{-150,130},{150,90}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}),
-            Line(points={{-10,-120},{10,-100}}, color={0,0,0}),
-            Line(points={{10,-120},{30,-100}}, color={0,0,0}),
-            Line(points={{-30,-100},{30,-100}}, color={0,0,0}),
-            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}),
+              extent={{-150,130},{150,90}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
+            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}), 
+            Line(points={{-10,-120},{10,-100}}, color={0,0,0}), 
+            Line(points={{10,-120},{30,-100}}, color={0,0,0}), 
+            Line(points={{-30,-100},{30,-100}}, color={0,0,0}), 
+            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}), 
             Line(points={{0,-80},{0,-100}}, color={0,0,0})}));
       Rotational.Components.BearingFriction bearingFriction(        tau_pos=
             tau_pos, peak=peak) 
@@ -6293,52 +5442,53 @@ and the support is automatically fixed to ground.
                 100,100}}), graphics={
             Polygon(
               points={{-37,-55},{-37,-90},{37,-90},{37,-55},{33,-55},{33,-86},{
-                  -33,-86},{-33,-55},{-37,-55}},
-              lineColor={192,192,192},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
+                  -33,-86},{-33,-55},{-37,-55}}, 
+              lineColor={192,192,192}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
             Rectangle(
-              extent={{-100,10},{-20,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{-100,10},{-20,-10}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Rectangle(
-              extent={{-20,60},{20,-60}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{-20,60},{20,-60}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Rectangle(
-              extent={{20,10},{100,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{20,10},{100,-10}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Polygon(
-              points={{40,-40},{70,-30},{70,-50},{40,-40}},
-              lineColor={0,0,127},
-              fillColor={0,0,127},
-              fillPattern=FillPattern.Solid),
+              points={{40,-40},{70,-30},{70,-50},{40,-40}}, 
+              lineColor={0,0,127}, 
+              fillColor={0,0,127}, 
+              fillPattern=FillPattern.Solid), 
             Rectangle(
-              extent={{30,-25},{40,-55}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
+              extent={{30,-25},{40,-55}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
             Polygon(
-              points={{-40,-40},{-70,-30},{-70,-50},{-40,-40}},
-              lineColor={0,0,127},
-              fillColor={0,0,127},
-              fillPattern=FillPattern.Solid),
+              points={{-40,-40},{-70,-30},{-70,-50},{-40,-40}}, 
+              lineColor={0,0,127}, 
+              fillColor={0,0,127}, 
+              fillPattern=FillPattern.Solid), 
             Rectangle(
-              extent={{-40,-25},{-30,-55}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Line(points={{0,90},{80,70},{80,-40},{70,-40}}, color={0,0,127}),
-            Line(points={{0,90},{-80,70},{-80,-40},{-70,-40}}, color={0,0,127}),
-            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}),
-            Line(points={{-10,-120},{10,-100}}, color={0,0,0}),
-            Line(points={{10,-120},{30,-100}}, color={0,0,0}),
-            Line(points={{-30,-100},{30,-100}}, color={0,0,0}),
-            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}),
+              extent={{-40,-25},{-30,-55}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{0,90},{80,70},{80,-40},{70,-40}}, color={0,0,127}), 
+            Line(points={{0,90},{-80,70},{-80,-40},{-70,-40}}, color={0,0,127}), 
+              
+            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}), 
+            Line(points={{-10,-120},{10,-100}}, color={0,0,0}), 
+            Line(points={{10,-120},{30,-100}}, color={0,0,0}), 
+            Line(points={{-30,-100},{30,-100}}, color={0,0,0}), 
+            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}), 
             Line(points={{0,-90},{0,-100}}, color={0,0,0})}));
       
       Rotational.Components.Brake brake(
@@ -6387,62 +5537,62 @@ and the support is automatically fixed to ground.
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
-              extent={{-40,20},{-20,-20}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{-40,20},{-20,-20}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Rectangle(
-              extent={{-40,100},{-20,20}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{-40,100},{-20,20}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Rectangle(
-              extent={{20,80},{40,39}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{20,80},{40,39}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Rectangle(
-              extent={{20,40},{40,-40}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{20,40},{40,-40}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Rectangle(
-              extent={{40,10},{100,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{40,10},{100,-10}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Rectangle(
-              extent={{-20,70},{20,50}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{-20,70},{20,50}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Rectangle(
-              extent={{-100,10},{-40,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{-100,10},{-40,-10}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Text(
-              extent={{-153,145},{147,105}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Line(points={{-80,20},{-60,20}}, color={0,0,0}),
-            Line(points={{-80,-20},{-60,-20}}, color={0,0,0}),
-            Line(points={{-70,-20},{-70,-85}}, color={0,0,0}),
-            Line(points={{0,40},{0,-100}}, color={0,0,0}),
-            Line(points={{-10,40},{10,40}}, color={0,0,0}),
-            Line(points={{-10,80},{10,80}}, color={0,0,0}),
-            Line(points={{60,-20},{80,-20}}, color={0,0,0}),
-            Line(points={{60,20},{80,20}}, color={0,0,0}),
-            Line(points={{70,-20},{70,-85}}, color={0,0,0}),
-            Line(points={{70,-85},{-70,-85}}, color={0,0,0}),
+              extent={{-153,145},{147,105}}, 
+              lineColor={0,0,255}, 
+              textString="%name"), 
+            Line(points={{-80,20},{-60,20}}, color={0,0,0}), 
+            Line(points={{-80,-20},{-60,-20}}, color={0,0,0}), 
+            Line(points={{-70,-20},{-70,-85}}, color={0,0,0}), 
+            Line(points={{0,40},{0,-100}}, color={0,0,0}), 
+            Line(points={{-10,40},{10,40}}, color={0,0,0}), 
+            Line(points={{-10,80},{10,80}}, color={0,0,0}), 
+            Line(points={{60,-20},{80,-20}}, color={0,0,0}), 
+            Line(points={{60,20},{80,20}}, color={0,0,0}), 
+            Line(points={{70,-20},{70,-85}}, color={0,0,0}), 
+            Line(points={{70,-85},{-70,-85}}, color={0,0,0}), 
             Text(
-              extent={{-146,-49},{154,-79}},
-              lineColor={0,0,0},
-              textString="ratio=%ratio"),
-            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}),
-            Line(points={{-10,-120},{10,-100}}, color={0,0,0}),
-            Line(points={{10,-120},{30,-100}}, color={0,0,0}),
-            Line(points={{-30,-100},{30,-100}}, color={0,0,0}),
+              extent={{-146,-49},{154,-79}}, 
+              lineColor={0,0,0}, 
+              textString="ratio=%ratio"), 
+            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}), 
+            Line(points={{-10,-120},{10,-100}}, color={0,0,0}), 
+            Line(points={{10,-120},{30,-100}}, color={0,0,0}), 
+            Line(points={{-30,-100},{30,-100}}, color={0,0,0}), 
             Line(points={{-50,-120},{-30,-100}}, color={0,0,0})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -6493,68 +5643,68 @@ and the support is automatically fixed to ground.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
-              extent={{-40,20},{-20,-20}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{-40,20},{-20,-20}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Rectangle(
-              extent={{40,10},{100,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{40,10},{100,-10}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Rectangle(
-              extent={{-100,10},{-40,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{-100,10},{-40,-10}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Polygon(
               points={{-109,40},{-80,40},{-80,80},{-90,80},{-70,100},{-50,80},{
-                  -60,80},{-60,20},{-109,20},{-109,40}},
-              lineColor={0,0,0},
-              fillColor={255,0,0},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-80,20},{-60,20}}, color={0,0,0}),
-            Line(points={{-80,-20},{-60,-20}}, color={0,0,0}),
-            Line(points={{-70,-20},{-70,-84}}, color={0,0,0}),
-            Line(points={{60,20},{80,20}}, color={0,0,0}),
-            Line(points={{60,-20},{80,-20}}, color={0,0,0}),
-            Line(points={{70,-20},{70,-85}}, color={0,0,0}),
+                  -60,80},{-60,20},{-109,20},{-109,40}}, 
+              lineColor={0,0,0}, 
+              fillColor={255,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-80,20},{-60,20}}, color={0,0,0}), 
+            Line(points={{-80,-20},{-60,-20}}, color={0,0,0}), 
+            Line(points={{-70,-20},{-70,-84}}, color={0,0,0}), 
+            Line(points={{60,20},{80,20}}, color={0,0,0}), 
+            Line(points={{60,-20},{80,-20}}, color={0,0,0}), 
+            Line(points={{70,-20},{70,-85}}, color={0,0,0}), 
             Text(
-              extent={{-148,145},{152,105}},
-              lineColor={0,0,255},
-              textString="%name"),
+              extent={{-148,145},{152,105}}, 
+              lineColor={0,0,255}, 
+              textString="%name"), 
             Rectangle(
-              extent={{-40,100},{-20,20}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{-40,100},{-20,20}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Rectangle(
-              extent={{-20,70},{20,50}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Line(points={{-10,80},{10,80}}, color={0,0,0}),
-            Line(points={{-10,40},{10,40}}, color={0,0,0}),
-            Line(points={{0,40},{0,-100}}, color={0,0,0}),
+              extent={{-20,70},{20,50}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Line(points={{-10,80},{10,80}}, color={0,0,0}), 
+            Line(points={{-10,40},{10,40}}, color={0,0,0}), 
+            Line(points={{0,40},{0,-100}}, color={0,0,0}), 
             Rectangle(
-              extent={{20,80},{40,39}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{20,80},{40,39}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Rectangle(
-              extent={{20,40},{40,-40}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{20,40},{40,-40}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Text(
-              extent={{-146,-49},{154,-79}},
-              lineColor={0,0,0},
-              textString="i=%i"),
-            Line(points={{70,-85},{-70,-85}}, color={0,0,0}),
-            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}),
-            Line(points={{-10,-120},{10,-100}}, color={0,0,0}),
-            Line(points={{10,-120},{30,-100}}, color={0,0,0}),
-            Line(points={{-30,-100},{30,-100}}, color={0,0,0}),
+              extent={{-146,-49},{154,-79}}, 
+              lineColor={0,0,0}, 
+              textString="i=%i"), 
+            Line(points={{70,-85},{-70,-85}}, color={0,0,0}), 
+            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}), 
+            Line(points={{-10,-120},{10,-100}}, color={0,0,0}), 
+            Line(points={{10,-120},{30,-100}}, color={0,0,0}), 
+            Line(points={{-30,-100},{30,-100}}, color={0,0,0}), 
             Line(points={{-50,-120},{-30,-100}}, color={0,0,0})}));
       Rotational.Components.LossyGear lossyGear(        i=i, lossTable=
             lossTable) 
@@ -6605,51 +5755,52 @@ and the support is automatically fixed to ground.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
-              extent={{-100,10},{-60,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{-100,10},{-60,-10}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Rectangle(
-              extent={{60,10},{100,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{60,10},{100,-10}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Rectangle(
-              extent={{-40,60},{40,-60}},
-              lineColor={0,0,0},
-              pattern=LinePattern.Solid,
-              lineThickness=1,
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
+              extent={{-40,60},{40,-60}}, 
+              lineColor={0,0,0}, 
+              pattern=LinePattern.Solid, 
+              lineThickness=1, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
             Polygon(
-              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={128,128,128}),
+              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}}, 
+                
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={128,128,128}), 
             Polygon(
-              points={{60,20},{40,40},{40,-40},{60,-20},{60,20}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
+              points={{60,20},{40,40},{40,-40},{60,-20},{60,20}}, 
+              lineColor={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{-150,150},{150,110}},
-              lineColor={0,0,255},
-              textString="%name"),
+              extent={{-150,150},{150,110}}, 
+              lineColor={0,0,255}, 
+              textString="%name"), 
             Text(
-              extent={{-150,70},{150,100}},
-              lineColor={0,0,0},
-              textString="i=%i, c=%c"),
+              extent={{-150,70},{150,100}}, 
+              lineColor={0,0,0}, 
+              textString="i=%i, c=%c"), 
             Polygon(
               points={{-60,-80},{-46,-80},{-20,-20},{20,-20},{46,-80},{60,-80},
-                  {60,-90},{-60,-90},{-60,-80}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}),
-            Line(points={{-10,-120},{10,-100}}, color={0,0,0}),
-            Line(points={{10,-120},{30,-100}}, color={0,0,0}),
-            Line(points={{-30,-100},{30,-100}}, color={0,0,0}),
-            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}),
+                  {60,-90},{-60,-90},{-60,-80}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}), 
+            Line(points={{-10,-120},{10,-100}}, color={0,0,0}), 
+            Line(points={{10,-120},{30,-100}}, color={0,0,0}), 
+            Line(points={{-30,-100},{30,-100}}, color={0,0,0}), 
+            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}), 
             Line(points={{0,-90},{0,-100}}, color={0,0,0})}));
       
       Rotational.Components.Gearbox gearbox(
@@ -6695,33 +5846,33 @@ and the support is automatically fixed to ground.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
-              extent={{-100,20},{100,-20}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
-            Line(points={{0,52},{0,32}}, color={0,0,0}),
-            Line(points={{-29,32},{30,32}}, color={0,0,0}),
-            Line(points={{0,-32},{0,-100}}, color={0,0,0}),
-            Line(points={{30,-42},{20,-52}}, color={0,0,0}),
-            Line(points={{30,-32},{10,-52}}, color={0,0,0}),
-            Line(points={{20,-32},{0,-52}}, color={0,0,0}),
-            Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
-            Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
-            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
-            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
+              extent={{-100,20},{100,-20}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Line(points={{-30,-32},{30,-32}}, color={0,0,0}), 
+            Line(points={{0,52},{0,32}}, color={0,0,0}), 
+            Line(points={{-29,32},{30,32}}, color={0,0,0}), 
+            Line(points={{0,-32},{0,-100}}, color={0,0,0}), 
+            Line(points={{30,-42},{20,-52}}, color={0,0,0}), 
+            Line(points={{30,-32},{10,-52}}, color={0,0,0}), 
+            Line(points={{20,-32},{0,-52}}, color={0,0,0}), 
+            Line(points={{10,-32},{-10,-52}}, color={0,0,0}), 
+            Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
+            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
+            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}), 
             Text(
-              extent={{150,60},{-150,100}},
-              textString="%name",
-              lineColor={0,0,255}),
+              extent={{150,60},{-150,100}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Text(
-              extent={{-56,-56},{-172,-90}},
-              lineColor={0,0,0},
-              textString="phi_ref"),
-            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}),
-            Line(points={{-10,-120},{10,-100}}, color={0,0,0}),
-            Line(points={{10,-120},{30,-100}}, color={0,0,0}),
-            Line(points={{-30,-100},{30,-100}}, color={0,0,0}),
+              extent={{-56,-56},{-172,-90}}, 
+              lineColor={0,0,0}, 
+              textString="phi_ref"), 
+            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}), 
+            Line(points={{-10,-120},{10,-100}}, color={0,0,0}), 
+            Line(points={{10,-120},{30,-100}}, color={0,0,0}), 
+            Line(points={{-30,-100},{30,-100}}, color={0,0,0}), 
             Line(points={{-50,-120},{-30,-100}}, color={0,0,0})}));
       Interfaces.Flange_b flange "Flange of shaft" 
         annotation (Placement(transformation(extent={{110,-10},{90,10}})));
@@ -6768,33 +5919,33 @@ and the support is automatically fixed to ground.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
-              extent={{-100,20},{100,-20}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
-            Line(points={{0,52},{0,32}}, color={0,0,0}),
-            Line(points={{-29,32},{30,32}}, color={0,0,0}),
-            Line(points={{0,-32},{0,-100}}, color={0,0,0}),
-            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
-            Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
-            Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
-            Line(points={{20,-32},{0,-52}}, color={0,0,0}),
-            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
-            Line(points={{30,-32},{10,-52}}, color={0,0,0}),
-            Line(points={{30,-42},{20,-52}}, color={0,0,0}),
+              extent={{-100,20},{100,-20}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Line(points={{-30,-32},{30,-32}}, color={0,0,0}), 
+            Line(points={{0,52},{0,32}}, color={0,0,0}), 
+            Line(points={{-29,32},{30,32}}, color={0,0,0}), 
+            Line(points={{0,-32},{0,-100}}, color={0,0,0}), 
+            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
+            Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
+            Line(points={{10,-32},{-10,-52}}, color={0,0,0}), 
+            Line(points={{20,-32},{0,-52}}, color={0,0,0}), 
+            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}), 
+            Line(points={{30,-32},{10,-52}}, color={0,0,0}), 
+            Line(points={{30,-42},{20,-52}}, color={0,0,0}), 
             Text(
-              extent={{0,120},{0,60}},
-              textString="%name",
-              lineColor={0,0,255}),
+              extent={{0,120},{0,60}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Text(
-              extent={{-54,-44},{-158,-78}},
-              lineColor={0,0,0},
-              textString="w_ref"),
-            Line(points={{-32,-120},{-12,-100}}, color={0,0,0}),
-            Line(points={{-12,-120},{8,-100}}, color={0,0,0}),
-            Line(points={{8,-120},{28,-100}}, color={0,0,0}),
-            Line(points={{-32,-100},{28,-100}}, color={0,0,0}),
+              extent={{-54,-44},{-158,-78}}, 
+              lineColor={0,0,0}, 
+              textString="w_ref"), 
+            Line(points={{-32,-120},{-12,-100}}, color={0,0,0}), 
+            Line(points={{-12,-120},{8,-100}}, color={0,0,0}), 
+            Line(points={{8,-120},{28,-100}}, color={0,0,0}), 
+            Line(points={{-32,-100},{28,-100}}, color={0,0,0}), 
             Line(points={{-52,-120},{-32,-100}}, color={0,0,0})}));
       Rotational.Sources.Speed speed(           exact=exact, f_crit=f_crit) 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
@@ -6838,33 +5989,33 @@ and the support is automatically fixed to ground.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
-              extent={{-100,20},{100,-20}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
-            Line(points={{0,52},{0,32}}, color={0,0,0}),
-            Line(points={{-29,32},{30,32}}, color={0,0,0}),
-            Line(points={{0,-32},{0,-100}}, color={0,0,0}),
-            Line(points={{30,-42},{20,-52}}, color={0,0,0}),
-            Line(points={{30,-32},{10,-52}}, color={0,0,0}),
-            Line(points={{20,-32},{0,-52}}, color={0,0,0}),
-            Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
-            Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
-            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
-            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
+              extent={{-100,20},{100,-20}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Line(points={{-30,-32},{30,-32}}, color={0,0,0}), 
+            Line(points={{0,52},{0,32}}, color={0,0,0}), 
+            Line(points={{-29,32},{30,32}}, color={0,0,0}), 
+            Line(points={{0,-32},{0,-100}}, color={0,0,0}), 
+            Line(points={{30,-42},{20,-52}}, color={0,0,0}), 
+            Line(points={{30,-32},{10,-52}}, color={0,0,0}), 
+            Line(points={{20,-32},{0,-52}}, color={0,0,0}), 
+            Line(points={{10,-32},{-10,-52}}, color={0,0,0}), 
+            Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
+            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
+            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}), 
             Text(
-              extent={{-150,100},{150,60}},
-              textString="%name",
-              lineColor={0,0,255}),
+              extent={{-150,100},{150,60}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Text(
-              extent={{-84,-48},{-144,-86}},
-              lineColor={0,0,0},
-              textString="a"),
-            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}),
-            Line(points={{-10,-120},{10,-100}}, color={0,0,0}),
-            Line(points={{10,-120},{30,-100}}, color={0,0,0}),
-            Line(points={{-30,-100},{30,-100}}, color={0,0,0}),
+              extent={{-84,-48},{-144,-86}}, 
+              lineColor={0,0,0}, 
+              textString="a"), 
+            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}), 
+            Line(points={{-10,-120},{10,-100}}, color={0,0,0}), 
+            Line(points={{10,-120},{30,-100}}, color={0,0,0}), 
+            Line(points={{-30,-100},{30,-100}}, color={0,0,0}), 
             Line(points={{-50,-120},{-30,-100}}, color={0,0,0})}));
       Rotational.Sources.Accelerate accelerate(           phi_start=phi_start,
           w_start=w_start) 
@@ -6906,33 +6057,33 @@ and the support is automatically fixed to ground.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
-              extent={{-80,-60},{-80,-100}},
-              lineColor={0,0,0},
-              textString="phi,w,a"),
+              extent={{-80,-60},{-80,-100}}, 
+              lineColor={0,0,0}, 
+              textString="phi,w,a"), 
             Rectangle(
-              extent={{-100,20},{100,-20}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
-            Line(points={{0,52},{0,32}}, color={0,0,0}),
-            Line(points={{-29,32},{30,32}}, color={0,0,0}),
-            Line(points={{0,-32},{0,-100}}, color={0,0,0}),
-            Line(points={{30,-42},{20,-52}}, color={0,0,0}),
-            Line(points={{30,-32},{10,-52}}, color={0,0,0}),
-            Line(points={{20,-32},{0,-52}}, color={0,0,0}),
-            Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
-            Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
-            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
-            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
+              extent={{-100,20},{100,-20}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.HorizontalCylinder, 
+              fillColor={192,192,192}), 
+            Line(points={{-30,-32},{30,-32}}, color={0,0,0}), 
+            Line(points={{0,52},{0,32}}, color={0,0,0}), 
+            Line(points={{-29,32},{30,32}}, color={0,0,0}), 
+            Line(points={{0,-32},{0,-100}}, color={0,0,0}), 
+            Line(points={{30,-42},{20,-52}}, color={0,0,0}), 
+            Line(points={{30,-32},{10,-52}}, color={0,0,0}), 
+            Line(points={{20,-32},{0,-52}}, color={0,0,0}), 
+            Line(points={{10,-32},{-10,-52}}, color={0,0,0}), 
+            Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
+            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
+            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}), 
             Text(
-              extent={{-150,100},{150,60}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}),
-            Line(points={{-10,-120},{10,-100}}, color={0,0,0}),
-            Line(points={{10,-120},{30,-100}}, color={0,0,0}),
-            Line(points={{-30,-100},{30,-100}}, color={0,0,0}),
+              extent={{-150,100},{150,60}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
+            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}), 
+            Line(points={{-10,-120},{10,-100}}, color={0,0,0}), 
+            Line(points={{10,-120},{30,-100}}, color={0,0,0}), 
+            Line(points={{-30,-100},{30,-100}}, color={0,0,0}), 
             Line(points={{-50,-120},{-30,-100}}, color={0,0,0})}));
       Rotational.Sources.Move move 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
@@ -6974,43 +6125,43 @@ and the support is automatically fixed to ground.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
-              extent={{-150,110},{150,70}},
-              textString="%name",
-              lineColor={0,0,255}),
+              extent={{-150,110},{150,70}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Line(
               points={{-88,0},{-64,30},{-36,52},{-2,62},{28,56},{48,44},{64,28},
-                  {76,14},{86,0}},
-              color={0,0,0},
-              thickness=2),
+                  {76,14},{86,0}}, 
+              color={0,0,0}, 
+              thickness=2), 
             Polygon(
-              points={{86,0},{66,58},{37,27},{86,0}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-30,-30},{30,-30}}, color={0,0,0}),
-            Line(points={{0,-30},{0,-100}}, color={0,0,0}),
-            Line(points={{-30,-50},{-10,-30}}, color={0,0,0}),
-            Line(points={{-10,-50},{10,-30}}, color={0,0,0}),
-            Line(points={{10,-50},{30,-30}}, color={0,0,0}),
+              points={{86,0},{66,58},{37,27},{86,0}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-30,-30},{30,-30}}, color={0,0,0}), 
+            Line(points={{0,-30},{0,-100}}, color={0,0,0}), 
+            Line(points={{-30,-50},{-10,-30}}, color={0,0,0}), 
+            Line(points={{-10,-50},{10,-30}}, color={0,0,0}), 
+            Line(points={{10,-50},{30,-30}}, color={0,0,0}), 
             Text(
-              extent={{-62,-29},{-141,-70}},
-              lineColor={0,0,0},
-              textString="tau"),
-            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}),
-            Line(points={{-10,-120},{10,-100}}, color={0,0,0}),
-            Line(points={{10,-120},{30,-100}}, color={0,0,0}),
-            Line(points={{-30,-100},{30,-100}}, color={0,0,0}),
-            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}),
+              extent={{-62,-29},{-141,-70}}, 
+              lineColor={0,0,0}, 
+              textString="tau"), 
+            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}), 
+            Line(points={{-10,-120},{10,-100}}, color={0,0,0}), 
+            Line(points={{10,-120},{30,-100}}, color={0,0,0}), 
+            Line(points={{-30,-100},{30,-100}}, color={0,0,0}), 
+            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}), 
             Line(
               points={{-54,-34},{-38,-20},{-16,-8},{4,-6},{22,-10},{36,-18},{48,
-                  -28},{56,-38},{64,-50}},
-              color={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
+                  -28},{56,-38},{64,-50}}, 
+              color={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
             Polygon(
-              points={{-61,-58},{-44,-34},{-58,-28},{-61,-58}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
+              points={{-61,-58},{-44,-34},{-58,-28},{-61,-58}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
               fillPattern=FillPattern.Solid)}));
       Rotational.Components.Fixed fixed 
         annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
@@ -7055,8 +6206,8 @@ and the support is automatically fixed to ground.
                 -100},{100,100}}), graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Text(
-              extent={{-150,140},{150,100}},
-              lineColor={0,0,255},
+              extent={{-150,140},{150,100}}, 
+              lineColor={0,0,255}, 
               textString="%name"), Line(points={{-100,-100},{100,100}}, color={
                   0,0,255})}));
       Rotational.Sources.LinearSpeedDependentTorque linearSpeedDependentTorque(
@@ -7097,8 +6248,8 @@ and the support is automatically fixed to ground.
                 -100},{100,100}}), graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Text(
-              extent={{-150,140},{150,100}},
-              lineColor={0,0,255},
+              extent={{-150,140},{150,100}}, 
+              lineColor={0,0,255}, 
               textString="%name"), Line(points={{-100,-100},{-80,-98},{-60,-92},
                   {-40,-82},{-20,-68},{0,-50},{20,-28},{40,-2},{60,28},{80,62},
                   {100,100}}, color={0,0,255})}));
@@ -7137,8 +6288,8 @@ and the support is automatically fixed to ground.
                 -100},{100,100}}), graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Text(
-              extent={{-152,140},{148,100}},
-              lineColor={0,0,255},
+              extent={{-152,140},{148,100}}, 
+              lineColor={0,0,255}, 
               textString="%name"), Line(points={{-100,0},{98,0}}, color={0,0,
                   255})}));
       Rotational.Sources.ConstantTorque constantTorque(final tau_constant=
@@ -7172,11 +6323,11 @@ and the support is automatically fixed to ground.
                 -100},{100,100}}), graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
-            Line(points={{0,-70},{0,-100}}, color={0,0,0}),
+            Line(points={{0,-70},{0,-100}}, color={0,0,0}), 
             Text(
-              extent={{-150,140},{150,100}},
-              lineColor={0,0,255},
-              textString="%name"),
+              extent={{-150,140},{150,100}}, 
+              lineColor={0,0,255}, 
+              textString="%name"), 
             Line(points={{0,-100},{0,100}}, color={0,0,255})}));
       Rotational.Sources.ConstantSpeed constantSpeed(final w_fixed=
                      w_fixed) 
@@ -7214,13 +6365,13 @@ and the support is automatically fixed to ground.
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
-              extent={{-150,140},{150,100}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Line(points={{-80,-60},{0,-60},{0,60},{80,60}}, color={0,0,255}),
+              extent={{-150,140},{150,100}}, 
+              lineColor={0,0,255}, 
+              textString="%name"), 
+            Line(points={{-80,-60},{0,-60},{0,60},{80,60}}, color={0,0,255}), 
             Text(
-              extent={{0,-40},{100,-60}},
-              lineColor={0,0,255},
+              extent={{0,-40},{100,-60}}, 
+              lineColor={0,0,255}, 
               textString="time")}));
       Rotational.Sources.TorqueStep torqueStep(
         final stepTorque=stepTorque,
@@ -7263,5 +6414,857 @@ or on a multi-body system).
           Line(points={{-54,-62},{-34,-42}}, color={0,0,0}), 
           Line(points={{-4,-22},{-4,-42}}, color={0,0,0})}));
   end Grounded;
+
+  package Interfaces 
+    "Connectors and partial models for 1D rotational mechanical components" 
+    
+    extends Modelica.Icons.Library;
+    
+    annotation(preferedView="info", Window(
+        x=0.07,
+        y=0.13,
+        width=0.43,
+        height=0.52,
+        library=1,
+        autolayout=1), Documentation(info="<html>
+<p>
+This package contains connectors and partial models for 1-dim.
+rotational mechanical components. The components of this package can
+only be used as basic building elements for models.
+</p>
+ 
+</html>
+"));
+    connector Flange_a 
+      "1-dim. rotational flange of a shaft (filled square icon)" 
+      SI.Angle phi "Absolute rotation angle of flange";
+      flow SI.Torque tau "Cut torque in the flange";
+      annotation(defaultComponentName = "flange_a",
+        Window(
+          x=0.23,
+          y=0.02,
+          width=0.56,
+          height=0.68),
+        Documentation(info="<HTML>
+<p>
+This is a connector for 1-dim. rotational mechanical systems and models
+the mechanical flange of a shaft. The following variables are defined in this connector:
+</p>
+<pre>
+   <b>phi</b>: Absolute rotation angle of the flange in [rad].
+   <b>tau</b>: Cut-torque in the flange in [Nm].
+</pre>
+<p>
+There is a second connector for flanges: Flange_b. The connectors
+Flange_a and Flange_b are completely identical. There is only a difference
+in the icons, in order to easier identify a flange variable in a diagram.
+For a discussion on the actual direction of the cut-torque tau and
+of the rotation angle, see the information text of package Rotational
+(section 4. Sign conventions).
+</p>
+<p>
+If needed, the absolute angular velocity w and the
+absolute angular acceleration a of the flange can be determined by
+differentiation of the flange angle phi:
+</p>
+<pre>
+     w = der(phi);    a = der(w)
+</pre>
+ 
+</HTML>
+"),     Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics={Ellipse(
+              extent={{-100,100},{100,-100}}, 
+              lineColor={0,0,0}, 
+              fillColor={95,95,95}, 
+              fillPattern=FillPattern.Solid)}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics={Text(
+              extent={{-160,90},{40,50}}, 
+              lineColor={0,0,0}, 
+              textString="%name"), Ellipse(
+              extent={{-40,40},{40,-40}}, 
+              lineColor={0,0,0}, 
+              fillColor={135,135,135}, 
+              fillPattern=FillPattern.Solid)}),
+        Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=0,
+                fillColor=10),
+            lineColor={0,0,255})));
+    end Flange_a;
+    
+    connector Flange_b 
+      "1-dim. rotational flange of a shaft (non-filled square icon)" 
+      SI.Angle phi "Absolute rotation angle of flange";
+      flow SI.Torque tau "Cut torque in the flange";
+      annotation(defaultComponentName = "flange_b",
+        Window(
+          x=0.21,
+          y=0.05,
+          width=0.48,
+          height=0.65),
+        Documentation(info="<HTML>
+<p>
+This is a connector for 1-dim. rotational mechanical systems and models
+the mechanical flange of a shaft. The following variables are defined in this connector:
+</p>
+<pre>
+   <b>phi</b>: Absolute rotation angle of the flange in [rad].
+   <b>tau</b>: Cut-torque in the flange in [Nm].
+</pre>
+<p>
+There is a second connector for flanges: Flange_a. The connectors
+Flange_a and Flange_b are completely identical. There is only a difference
+in the icons, in order to easier identify a flange variable in a diagram.
+For a discussion on the actual direction of the cut-torque tau and
+of the rotation angle, see the information text of package Rotational
+(section 4. Sign conventions).
+</p>
+<p>
+If needed, the absolute angular velocity w and the
+absolute angular acceleration a of the flange can be determined by
+differentiation of the flange angle phi:
+</p>
+<pre>
+     w = der(phi);    a = der(w)
+</pre>
+ 
+</HTML>
+"),     Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics={Ellipse(
+              extent={{-98,100},{102,-100}}, 
+              lineColor={0,0,0}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid)}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics={Ellipse(
+              extent={{-40,40},{40,-40}}, 
+              lineColor={0,0,0}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), Text(
+              extent={{-40,90},{160,50}}, 
+              lineColor={0,0,0}, 
+              textString="%name")}),
+        Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=0,
+                fillColor=7),
+            lineColor={0,0,255})));
+    end Flange_b;
+    
+    connector Support "Support/housing of a 1-dim. rotational shaft" 
+      
+      SI.Angle phi 
+        "Absolute rotation angle of shaft with respect to the support";
+      flow SI.Torque tau "Reaction torque in the support";
+      
+      annotation (Documentation(info="<html>
+<p>
+This is a connector for 1-dim. rotational mechanical systems and models
+the support or housing of a shaft. The following variables are defined in this connector:
+</p>
+<pre>
+   <b>phi</b>: Absolute rotation angle of the shaft 
+        with respect to the support in [rad].
+   <b>tau</b>: Reaction torque in the support in [Nm].
+</pre>
+ 
+<p>
+It is required that a support connector is always connected since
+a not connected support leads to the equation that the support torque
+is zero (= standard Modelica semantic of not-connected connectors),
+which is not physical. In current Modelica it is not possible to
+express the property \"must always be connected\".
+Therefore, whenever a support is used, an assert has to be defined that
+guarantees that it is connected.
+</p>
+</html>"),     Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2},
+            initialScale=0.1), graphics={
+            Ellipse(
+              extent={{-100,100},{100,-100}}, 
+              lineColor={0,0,0}, 
+              fillColor={95,95,95}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{-150,150},{150,-150}}, 
+              lineColor={192,192,192}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{-100,100},{100,-100}}, 
+              lineColor={0,0,0}, 
+              fillColor={95,95,95}, 
+              fillPattern=FillPattern.Solid)}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2},
+            initialScale=0.1), graphics={
+            Rectangle(
+              extent={{-60,60},{60,-60}}, 
+              lineColor={192,192,192}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-160,100},{40,60}}, 
+              lineColor={0,0,0}, 
+              textString="%name"), 
+            Ellipse(
+              extent={{-40,40},{40,-40}}, 
+              lineColor={0,0,0}, 
+              fillColor={135,135,135}, 
+              fillPattern=FillPattern.Solid)}),
+        Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=0,
+                fillColor=10),
+            lineColor={0,0,255})));
+    end Support;
+    
+    partial model PartialRigid 
+      "Base model for a rigid shaft with a left and a right shaft flange" 
+      parameter SI.Angle deltaPhi=0 
+        "rotation of component from left flange to right flange (= flange_b.phi - flange_a.phi)";
+      SI.Angle phi 
+        "Absolute rotation angle of component (= flange_a.phi = flange_b.phi)";
+      
+      Flange_a flange_a "Left flange of shaft" 
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+              rotation=0)));
+      Flange_b flange_b "Right flange of shaft" 
+        annotation (Placement(transformation(extent={{90,-10},{110,10}},
+              rotation=0)));
+      annotation (
+        Documentation(info="<html>
+<p>
+This is a 1-dim. rotational component with one shaft. The left and right
+(rigidly connected) shaft flanges are the two connectors of the component,
+i.e., flange_a.phi = flange_b.phi. It is used e.g. to built up components
+with inertia.
+</p>
+ 
+</HTML>
+"),     Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics),
+        Window(
+          x=0.18,
+          y=0.3,
+          width=0.61,
+          height=0.66));
+    equation 
+      flange_a.phi = phi - deltaPhi/2;
+      flange_b.phi = phi + deltaPhi/2;
+    end PartialRigid;
+    
+    partial model PartialCompliant 
+      "Base model for the compliant connection of two rotational 1-dim. shaft flanges" 
+      
+      SI.Angle phi_rel(start=0) 
+        "Relative rotation angle (= flange_b.phi - flange_a.phi)";
+      SI.Torque tau "Torque between flanges (= flange_b.tau)";
+      Flange_a flange_a "Left flange of compliant 1-dim. rotational component" 
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+              rotation=0)));
+      Flange_b flange_b "Right flange of compliant 1-dim. rotational component"
+        annotation (Placement(transformation(extent={{90,-10},{110,10}},
+              rotation=0)));
+      annotation (
+        Window(
+          x=0.32,
+          y=0.01,
+          width=0.6,
+          height=0.6),
+        Documentation(info="<html>
+<p>
+This is a 1D rotational component with a compliant connection of two
+rotational 1D flanges where inertial effects between the two
+flanges are neglected. The basic assumption is that the cut-torques
+of the two flanges sum-up to zero, i.e., they have the same absolute value
+but opposite sign: flange_a.tau + flange_b.tau = 0. This base class
+is used to built up force elements such as springs, dampers, friction.
+</p>
+ 
+</HTML>
+"),     Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics));
+    equation 
+      phi_rel = flange_b.phi - flange_a.phi;
+      flange_b.tau = tau;
+      flange_a.tau = -tau;
+    end PartialCompliant;
+    
+    partial model PartialCompliantWithRelativeStates 
+      "Base model for the compliant connection of two rotational 1-dim. shaft flanges where the relative angle and relative angular velocities are used as states" 
+      
+      parameter StateSelect stateSelect=StateSelect.prefer 
+        "Priority to use relative angle phi_rel and relative speed w_rel as states"
+      annotation(Hide=true, Dialog(tab="Advanced"));
+      parameter SI.Angle phi_nominal=1e-4 
+        "Nominal value of phi_rel (used for scaling)" annotation(Dialog(tab="Advanced"));
+      
+      SI.Angle phi_rel(start=0) 
+        "Relative rotation angle (= flange_b.phi - flange_a.phi)";
+      SI.Angle phi_rel_scaled(stateSelect=stateSelect) 
+        "Relative rotationa angle scaled with phi_nominal";
+      SI.AngularVelocity w_rel(start=0, stateSelect=stateSelect) 
+        "Relative angular velocity (= der(phi_rel))";
+      SI.AngularAcceleration a_rel(start=0) 
+        "Relative angular acceleration (= der(w_rel))";
+      
+      SI.Torque tau "Torque between flanges (= flange_b.tau)";
+      Flange_a flange_a "Left flange of compliant 1-dim. rotational component" 
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+              rotation=0)));
+      Flange_b flange_b "Right flange of compliant 1-dim. rotational component"
+        annotation (Placement(transformation(extent={{90,-10},{110,10}},
+              rotation=0)));
+      annotation (
+        Window(
+          x=0.32,
+          y=0.01,
+          width=0.6,
+          height=0.6),
+        Documentation(info="<html>
+<p>
+This is a 1-dim. rotational component with a compliant connection of two
+rotational 1-dim. flanges where inertial effects between the two
+flanges are neglected. The basic assumption is that the cut-torques
+of the two flanges sum-up to zero, i.e., they have the same absolute value
+but opposite sign: flange_a.tau + flange_b.tau = 0. This base class
+is used to built up force elements such as springs, dampers, friction.
+</p>
+ 
+<p>
+The difference to base classe \"PartialCompliant\" is that the relative
+angle and the relative angular velocity are defined as preferred states.
+The reason is that for a large class of drive trains, such as drive 
+trains in vehicles, the absolute angle is quickly increasing during operation.
+Numerically, it is better to use relative angles between drive train components
+because they remain in a limited size. For this reason, StateSelect.prefer
+is set for the relative angle of this component.
+</p>
+ 
+<p>
+In order to improve the numerics, a nominal value for the relative angle
+should be set, since drive train angles are in the order of 1e-4 rad and 
+then step size control of the integrator is practically switched off for
+such a variable. A default nominal value of phi_nominal = 1e-4 is defined.
+This nominal value might also be computed from other values, such
+as \"phi_nominal = tau_nominal / c\" for a rotational spring, if tau_nominal
+and c have more meaningful values for the user.
+</p>
+ 
+</html>
+"),     Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics));
+    equation 
+      phi_rel = flange_b.phi - flange_a.phi;
+      phi_rel_scaled = phi_rel/phi_nominal;
+      w_rel = phi_nominal*der(phi_rel_scaled);
+      a_rel = der(w_rel);
+      flange_b.tau = tau;
+      flange_a.tau = -tau;
+    end PartialCompliantWithRelativeStates;
+    
+    partial model PartialGear 
+      "Base model for 1-dim. rotationalgear consisting of the flange of an input shaft, the flange of an output shaft and the support" 
+      
+      Flange_a flange_a "Flange of left shaft" annotation (Placement(transformation(extent={{-110,-10},
+                {-90,10}}, rotation=0)));
+      Flange_b flange_b "Flange of right shaft" 
+                        annotation (Placement(transformation(extent={{90,-10},{
+                110,10}}, rotation=0)));
+      Support support 
+        "Support/housing of component (is required to be connected)" 
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+      
+      Modelica.SIunits.Angle phi_a 
+        "Angle between left shaft flange and support";
+      Modelica.SIunits.Angle phi_b 
+        "Angle between right shaft flange and support";
+      
+      annotation (Documentation(info="<html>
+<p>
+This is a 1-dim. rotational component with two flanges and an additional support.
+It is used e.g. to build up elementary ideal gear components. The component
+contains the torque balance, i.e., the sum of the torques of the connectors
+is zero (therefore, components that are based on PartialGear cannot have
+inertia). The support connector needs to be connected
+to avoid the unphysical behavior that the
+support torque is required to be zero (= the default value, if the
+connector is not connected).
+</p>
+ 
+</HTML>
+"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),graphics));
+    equation 
+      assert(cardinality(support) > 0, "The support connector is required to be connected");
+      
+      phi_a = flange_a.phi - support.phi;
+      phi_b = flange_b.phi - support.phi;
+      
+      // torque balance
+      0 = flange_a.tau + flange_b.tau + support.tau;
+    end PartialGear;
+    
+    partial model PartialSource 
+      "Base model for a component with a rotational 1-dim. shaft flange and a support to define either a predefined motion or a predefined torque" 
+      Flange_b flange "Flange of shaft" 
+                        annotation (Placement(transformation(extent={{90,-10},{
+                110,10}}, rotation=0)));
+      Support support 
+        "Support/housing of component (is required to be connected)" 
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+      
+      annotation (
+        Documentation(info="<html>
+<p>
+This is a 1-dim. rotational component with one shaft flange
+and one support. It is used to build up \"source\" components,
+e.g., driving a shaft with a predefined motion or with a 
+predefined torque. The support connector needs to be connected
+to avoid the unphysical behavior that the
+support torque is required to be zero (= the default value, if the
+connector is not connected).
+</p>
+ 
+</HTML>
+"),     Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics),
+        Window(
+          x=0.37,
+          y=0.05,
+          width=0.6,
+          height=0.6),
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics));
+    equation 
+      assert(cardinality(support) > 0, "The support connector is required to be connected");
+      
+      // torque balance
+      0 = flange.tau + support.tau;
+    end PartialSource;
+    
+    partial model PartialTwoFlanges 
+      "Base model for a component with two rotational 1-dim. shaft flanges" 
+      Flange_a flange_a "Flange of left shaft" 
+                        annotation (Placement(transformation(extent={{-110,-10},
+                {-90,10}}, rotation=0)));
+      Flange_b flange_b "Flange of right shaft" 
+                        annotation (Placement(transformation(extent={{90,-10},{
+                110,10}}, rotation=0)));
+      annotation (
+        Documentation(info="<html>
+<p>
+This is a 1-dim. rotational component with two flanges.
+It is used e.g. to build up parts of a drive train consisting
+of several components. There are specialized versions of this
+base class for rigidly connected flanges (Interfaces.PartialRigid),
+for a compliant connection of flanges (Interfaces.PartialCompliant)
+and for an elementary gear (Interfaces.PartialIdealGear).
+</p>
+ 
+</HTML>
+"),     Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics),
+        Window(
+          x=0.37,
+          y=0.05,
+          width=0.6,
+          height=0.6));
+    end PartialTwoFlanges;
+    
+    partial model PartialTwoFlangesAndSupport 
+      "Base model for a component with two rotational 1-dim. shaft flanges and a support" 
+      Flange_a flange_a "Flange of left shaft" 
+                        annotation (Placement(transformation(extent={{-110,-10},
+                {-90,10}}, rotation=0)));
+      Flange_b flange_b "Flange of right shaft" 
+                        annotation (Placement(transformation(extent={{90,-10},{
+                110,10}}, rotation=0)));
+      Support support 
+        "Support/housing of component (is required to be connected)" 
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+      annotation (
+        Documentation(info="<html>
+<p>
+This is a 1-dim. rotational component with two flanges and a support.
+It is used e.g. to build up parts of a drive train consisting
+of several components. The support connector needs to be connected
+to avoid the unphysical behavior that the
+support torque is required to be zero (= the default value, if the
+connector is not connected).
+</p>
+ 
+<p>
+There are specialized versions of this
+base class for rigidly connected flanges (Interfaces.PartialRigid),
+for a compliant connection of flanges (Interfaces.PartialCompliant)
+and for an elementary gear (Interfaces.PartialIdealGear).
+</p>
+ 
+</HTML>
+"),     Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics),
+        Window(
+          x=0.37,
+          y=0.05,
+          width=0.6,
+          height=0.6));
+    equation 
+      assert(cardinality(support) > 0, "The support connector is required to be connected");
+    end PartialTwoFlangesAndSupport;
+    
+    partial model PartialFriction "Base model of Coulomb friction elements" 
+      
+      annotation (Documentation(info="<html>
+<p>
+Basic model for Coulomb friction that models the stuck phase in a reliable way.
+</p>
+</html>"));
+      // parameter SI.AngularVelocity w_small=1 "Relative angular velocity near to zero (see model info text)";
+      parameter SI.AngularVelocity w_small=1e10 
+        "Relative angular velocity near to zero if jumps due to a reinit(..) of the velocity can occur (set to low value only if such impulses can occur)"
+         annotation(Dialog(tab="Advanced"));
+    // Equations to define the following variables have to be defined in subclasses
+      SI.AngularVelocity w_relfric 
+        "Relative angular velocity between frictional surfaces";
+      SI.AngularAcceleration a_relfric 
+        "Relative angular acceleration between frictional surfaces";
+      SI.Torque tau 
+        "Friction torque (positive, if directed in opposite direction of w_rel)";
+      SI.Torque tau0 "Friction torque for w=0 and forward sliding";
+      SI.Torque tau0_max "Maximum friction torque for w=0 and locked";
+      Boolean free "true, if frictional element is not active";
+    // Equations to define the following variables are given in this class
+      Real sa(final unit="1") 
+        "Path parameter of friction characteristic tau = f(a_relfric)";
+      Boolean startForward(start=false, fixed=true) 
+        "true, if w_rel=0 and start of forward sliding or w_rel > w_small";
+      Boolean startBackward(start=false, fixed=true) 
+        "true, if w_rel=0 and start of backward sliding or w_rel < -w_small";
+      Boolean locked(start=false) "true, if w_rel=0 and not sliding";
+      constant Integer Unknown=3 "Value of mode is not known";
+      constant Integer Free=2 "Element is not active";
+      constant Integer Forward=1 "w_rel > 0 (forward sliding)";
+      constant Integer Stuck=0 
+        "w_rel = 0 (forward sliding, locked or backward sliding)";
+      constant Integer Backward=-1 "w_rel < 0 (backward sliding)";
+      Integer mode(
+        final min=Backward,
+        final max=Unknown,
+        start=Unknown, fixed=true);
+    protected 
+      constant SI.AngularAcceleration unitAngularAcceleration = 1 annotation(Hide=true);
+      constant SI.Torque unitTorque = 1 annotation(Hide=true);
+    equation 
+    /* Friction characteristic
+   locked is introduced to help the Modelica translator determining
+   the different structural configurations, 
+   if for each configuration special code shall be generated)
+*/
+      startForward  = pre(mode) == Stuck and 
+        (pre(startForward)  or sa >  tau0_max/unitTorque and sa >  tau0/unitTorque) or 
+        pre(mode) == Backward and w_relfric >  w_small or initial() and w_relfric > 0;
+      startBackward = pre(mode) == Stuck and 
+        (pre(startBackward) or sa < -tau0_max/unitTorque and sa < -tau0/unitTorque) or 
+        pre(mode) == Forward  and w_relfric < -w_small or initial() and w_relfric < 0;
+      locked = not free and 
+        not (pre(mode) == Forward or startForward or pre(mode) == Backward or startBackward);
+      a_relfric/unitAngularAcceleration = if locked then               0 else 
+                                          if free then                 sa else 
+                                          if startForward then         sa - tau0/unitTorque else 
+                                          if startBackward then        sa + tau0/unitTorque else 
+                                          if pre(mode) == Forward then sa - tau0/unitTorque else 
+                                                                       sa + tau0/unitTorque;
+    /* Friction torque has to be defined in a subclass. Example for a clutch:
+   tau = if locked then sa else 
+         if free then   0 else 
+         cgeo*fn*(if startForward then          Math.tempInterpol1( w_relfric, mue_pos, 2) else
+                  if startBackward then        -Math.tempInterpol1(-w_relfric, mue_pos, 2) else
+                  if pre(mode) == Forward then  Math.tempInterpol1( w_relfric, mue_pos, 2) else 
+                                               -Math.tempInterpol1(-w_relfric, mue_pos, 2));
+*/
+    // finite state machine to determine configuration
+      mode = if free then Free else 
+        (if (pre(mode) == Forward  or pre(mode) == Free or startForward)  and w_relfric > 0 then 
+           Forward else 
+         if (pre(mode) == Backward or pre(mode) == Free or startBackward) and w_relfric < 0 then 
+           Backward else 
+           Stuck);
+    end PartialFriction;
+    
+    partial model PartialAbsoluteSensor 
+      "Base model to measure a single absolute flange variable" 
+      
+      Flange_a flange 
+        "Flange of shaft from which sensor information shall be measured" 
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+              rotation=0)));
+      annotation (
+        Window(
+          x=0.39,
+          y=0.05,
+          width=0.6,
+          height=0.6),
+        Documentation(info="<html>
+<p>
+This is the base class of a 1-dim. rotational component with one flange of a shaft 
+in order to measure an absolute kinematic quantity in the flange
+and to provide the measured signal as output signal for further processing
+with the blocks of package Modelica.Blocks.
+</p>
+ 
+</html>
+"),     Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={
+            Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
+            Line(points={{70,0},{100,0}}, color={0,0,127}), 
+            Text(
+              extent={{150,80},{-150,120}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
+            Ellipse(
+              extent={{-70,70},{70,-70}}, 
+              lineColor={0,0,0}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{0,70},{0,40}}, color={0,0,0}), 
+            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}), 
+            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}), 
+            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}), 
+            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}), 
+            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}), 
+            Polygon(
+              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{-5,5},{5,-5}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid)}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics));
+    equation 
+      0 = flange.tau;
+    end PartialAbsoluteSensor;
+    
+    partial model PartialRelativeSensor 
+      "Base model to measure a single relative variable between two flanges" 
+      
+      Flange_a flange_a "Left flange of shaft" 
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+              rotation=0)));
+      Flange_b flange_b "Right flange of shaft" 
+        annotation (Placement(transformation(extent={{90,-10},{110,10}},
+              rotation=0)));
+      annotation (
+        Window(
+          x=0.37,
+          y=0.02,
+          width=0.6,
+          height=0.65),
+        Documentation(info="<html>
+<p>
+This is a base class for 1-dim. rotational components with two rigidly connected
+flanges in order to measure relative kinematic quantities
+between the two flanges or the cut-torque in the flange and
+to provide the measured signal as output signal for further processing
+with the blocks of package Modelica.Blocks.
+</p>
+ 
+</html>
+"),     Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={
+            Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
+            Line(points={{70,0},{90,0}}, color={0,0,0}), 
+            Text(
+              extent={{-150,73},{150,113}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
+            Ellipse(
+              extent={{-70,70},{70,-70}}, 
+              lineColor={0,0,0}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{0,70},{0,40}}, color={0,0,0}), 
+            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}), 
+            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}), 
+            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}), 
+            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}), 
+            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}), 
+            Polygon(
+              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Ellipse(
+              extent={{-5,5},{5,-5}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid)}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics));
+    equation 
+      0 = flange_a.tau + flange_b.tau;
+    end PartialRelativeSensor;
+    
+    partial model PartialSpeedDependentTorque 
+      "Partial model of a torque acting at the flange (accelerates the flange)" 
+      Rotational.Interfaces.Flange_b flange "Flange on which torque is acting" 
+        annotation (Placement(transformation(extent={{110,-10},{90,10}},
+              rotation=0)));
+      Rotational.Interfaces.Support support 
+        "Support/housing at which the reaction torque (= -flange.tau) is acting (is required to be connected)"
+           annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
+              rotation=0)));
+      
+      Modelica.SIunits.Angle phi 
+        "Angle of flange with respect to support (= flange.phi - support.phi)";
+      Modelica.SIunits.AngularVelocity w 
+        "Angular velocity of flange with respect to support (= der(phi))";
+      Modelica.SIunits.Torque tau 
+        "Accelerating torque acting at flange (= flange.tau)";
+      
+      annotation (
+        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
+                {100,100}}),
+                graphics),
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                100,100}}), graphics={
+            Rectangle(
+              extent={{-96,96},{96,-96}}, 
+              lineColor={255,255,255}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-30,-70},{30,-70}}, color={0,0,0}), 
+            Line(points={{-30,-90},{-10,-70}}, color={0,0,0}), 
+            Line(points={{-10,-90},{10,-70}}, color={0,0,0}), 
+            Line(points={{10,-90},{30,-70}}, color={0,0,0}), 
+            Line(points={{0,-70},{0,-110}}, color={0,0,0}), 
+            Line(points={{-92,0},{-76,36},{-54,62},{-30,80},{-14,88},{10,92},{
+                  26,90},{46,80},{64,62}}, color={0,0,0}), 
+            Text(
+              extent={{-150,140},{150,100}}, 
+              lineColor={0,0,255}, 
+              textString="%name"), 
+            Polygon(
+              points={{94,16},{80,74},{50,52},{94,16}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{-60,-68},{-44,-54},{-22,-42},{-2,-40},{16,-44},{30,-52},
+                  {42,-62},{50,-72},{58,-84}}, 
+              color={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{-67,-92},{-50,-68},{-64,-62},{-67,-92}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid)}),
+        Documentation(info="<HTML>
+<p>
+Partial model of torque dependent on speed that accelerates the flange.
+</p>
+</HTML>"));
+    equation 
+      assert(cardinality(support) > 0, "The support connector is required to be connected");
+      phi = flange.phi - support.phi;
+      w = der(phi);
+      tau = flange.tau;
+      0 = flange.tau + support.tau;
+    end PartialSpeedDependentTorque;
+    
+    partial model PartialSpeedDependentTorqueGrounded 
+      "Partial model of a torque acting at the flange (accelerates the flange)" 
+      Rotational.Interfaces.Flange_b flange "Flange on which torque is acting" 
+        annotation (Placement(transformation(extent={{110,-10},{90,10}},
+              rotation=0)));
+      
+      annotation (
+        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
+                {100,100}}),
+                graphics),
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                100,100}}), graphics={
+            Rectangle(
+              extent={{-96,96},{96,-96}}, 
+              lineColor={255,255,255}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-30,-70},{30,-70}}, color={0,0,0}), 
+            Line(points={{-30,-90},{-10,-70}}, color={0,0,0}), 
+            Line(points={{-10,-90},{10,-70}}, color={0,0,0}), 
+            Line(points={{10,-90},{30,-70}}, color={0,0,0}), 
+            Line(points={{0,-70},{0,-100}}, color={0,0,0}), 
+            Line(points={{-92,0},{-76,36},{-54,62},{-30,80},{-14,88},{10,92},{
+                  26,90},{46,80},{64,62}}, color={0,0,0}), 
+            Text(
+              extent={{-150,140},{150,100}}, 
+              lineColor={0,0,255}, 
+              textString="%name"), 
+            Polygon(
+              points={{94,16},{80,74},{50,52},{94,16}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{-60,-68},{-44,-54},{-22,-42},{-2,-40},{16,-44},{30,-52},
+                  {42,-62},{50,-72},{58,-84}}, 
+              color={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{-67,-92},{-50,-68},{-64,-62},{-67,-92}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-30,-100},{30,-100}}, color={0,0,0}), 
+            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}), 
+            Line(points={{-10,-120},{10,-100}}, color={0,0,0}), 
+            Line(points={{10,-120},{30,-100}}, color={0,0,0}), 
+            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}), 
+            Line(points={{0,-70},{0,-100}}, color={0,0,0}), 
+            Line(points={{-50,-90},{-30,-70}}, color={0,0,0})}),
+        Documentation(info="<HTML>
+<p>
+Partial model of torque dependent on speed that accelerates the flange.
+</p>
+</HTML>"));
+      Rotational.Components.Fixed fixed 
+        annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
+    end PartialSpeedDependentTorqueGrounded;
+  end Interfaces;
   
 end Rotational;

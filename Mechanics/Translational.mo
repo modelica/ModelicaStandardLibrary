@@ -1272,9 +1272,9 @@ mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
     extends Modelica.Icons.Library2;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(
-            extent={{-67,-66},{44,-6}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.Sphere,
+            extent={{-67,-66},{44,-6}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.Sphere, 
             fillColor={255,255,255})}),                     Documentation(info="<html>
 <p>
 This package contains basic components 1D mechanical translational drive trains.
@@ -2727,683 +2727,6 @@ provided via a signal bus.
     end InitializeFlange;
   end Components;
   
-  package Interfaces 
-    "Interfaces for 1-dim. translational mechanical components" 
-      extends Modelica.Icons.Library;
-    
-    annotation (Documentation(info="<html>
-<p>
-This package contains connectors and partial models for 1-dim.
-translational mechanical components. The components of this package can
-only be used as basic building elements for models.
-</p>
- 
-</html>
-"));
-    
-    connector Flange_a 
-      "(left) 1D translational flange (flange axis directed INTO cut plane, e. g. from left to right)" 
-      
-      annotation(defaultComponentName = "flange_a",
-        Window(
-          x=0.27,
-          y=0.05,
-          width=0.39,
-          height=0.83),
-        Documentation(info="<html>
-This is a flange for 1D translational mechanical systems. In the cut plane of
-the flange a unit vector n, called flange axis, is defined which is directed
-INTO the cut plane, i. e. from left to right. All vectors in the cut plane are
-resolved with respect to
-this unit vector. E.g. force f characterizes a vector which is directed in
-the direction of n with value equal to f. When this flange is connected to
-other 1D translational flanges, this means that the axes vectors of the connected
-flanges are identical.
-</p>
-<p>
-The following variables are transported through this connector:
-<pre>
-  s: Absolute position of the flange in [m]. A positive translation
-     means that the flange is translated along the flange axis.
-  f: Cut-force in direction of the flange axis in [N].
-</pre>
-</HTML>
-"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Rectangle(
-              extent={{-100,-100},{100,100}},
-              lineColor={0,127,0},
-              fillColor={0,127,0},
-              fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Rectangle(
-              extent={{-40,-40},{40,40}},
-              lineColor={0,127,0},
-              fillColor={0,127,0},
-              fillPattern=FillPattern.Solid), Text(
-              extent={{-160,110},{40,50}},
-              lineColor={0,127,0},
-              textString="%name")}),
-        Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=58,
-                fillColor=58),
-            lineColor={0,0,255})));
-      
-      SI.Position s "absolute position of flange";
-      flow SI.Force f "cut force directed into flange";
-    end Flange_a;
-    
-    connector Flange_b 
-      "right 1D translational flange (flange axis directed OUT OF cut plane)" 
-      
-      SI.Position s "absolute position of flange";
-      flow SI.Force f "cut force directed into flange";
-      annotation(defaultComponentName = "flange_b",
-        Window(
-          x=0.27,
-          y=0.05,
-          width=0.39,
-          height=0.83),
-        Documentation(info="<html>
-This is a flange for 1D translational mechanical systems. In the cut plane of
-the flange a unit vector n, called flange axis, is defined which is directed
-OUT OF the cut plane. All vectors in the cut plane are resolved with respect to
-this unit vector. E.g. force f characterizes a vector which is directed in
-the direction of n with value equal to f. When this flange is connected to
-other 1D translational flanges, this means that the axes vectors of the connected
-flanges are identical.
-</p>
-<p>
-The following variables are transported through this connector:
-<pre>
-  s: Absolute position of the flange in [m]. A positive translation
-     means that the flange is translated along the flange axis.
-  f: Cut-force in direction of the flange axis in [N].
-</pre>
-</HTML>
-"),     Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Rectangle(
-              extent={{-100,-100},{100,100}}, 
-              lineColor={0,127,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Rectangle(
-              extent={{-40,-40},{40,40}}, 
-              lineColor={0,127,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), Text(
-              extent={{-40,110},{160,50}}, 
-              lineColor={0,127,0}, 
-              textString="%name")}),
-        Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=58),
-            lineColor={0,0,255})));
-    end Flange_b;
-    
-    connector Support "Support/housing 1D translational flange" 
-      
-      SI.Position s "absolute position of flange";
-      flow SI.Force f "cut force directed into flange";
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={
-            Rectangle(
-              extent={{-60,60},{60,-60}}, 
-              lineColor={0,127,0}, 
-              fillColor={175,175,175}, 
-              fillPattern=FillPattern.Solid), 
-            Text(
-              extent={{-160,110},{40,50}}, 
-              lineColor={0,127,0}, 
-              textString="%name"), 
-            Rectangle(
-              extent={{-40,-40},{40,40}}, 
-              lineColor={0,127,0}, 
-              fillColor={0,127,0}, 
-              fillPattern=FillPattern.Solid)}), Icon(coordinateSystem(
-              preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
-            graphics={Rectangle(
-              extent={{-150,150},{150,-150}}, 
-              lineColor={0,127,0}, 
-              fillColor={175,175,175}, 
-              fillPattern=FillPattern.Solid), Rectangle(
-              extent={{-100,-100},{100,100}}, 
-              lineColor={0,127,0}, 
-              fillColor={0,127,0}, 
-              fillPattern=FillPattern.Solid)}));
-    end Support;
-    
-    partial model PartialRigid 
-      "Rigid connection of two translational 1D flanges " 
-      SI.Position s 
-        "absolute position of center of component (s = flange_a.s + L/2 = flange_b.s - L/2)";
-      parameter SI.Length L(start=0) 
-        "length of component from left flange to right flange (= flange_b.s - flange_a.s)";
-      Flange_a flange_a 
-        "(left) driving flange (flange axis directed in to cut plane, i. e. from left to right)"
-         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
-      Flange_b flange_b 
-        "(right) driven flange (flange axis directed out of cut plane, i. e. from right to left)"
-         annotation (Placement(transformation(extent={{90,-10},{110,10}},
-              rotation=0)));
-      annotation (
-        Documentation(info="<html>
-<p>
-This is a 1D translational component with two <i>rigidly</i> connected flanges.
-The distance between the left and the right flange is always constant, i. e. L.
-The forces at the right and left flange can be different.
-It is used e.g. to built up sliding masses.
-</p>
-</HTML>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
-        Window(
-          x=0.14,
-          y=0.05,
-          width=0.71,
-          height=0.58));
-    equation 
-      flange_a.s = s - L/2;
-      flange_b.s = s + L/2;
-    end PartialRigid;
-    
-    partial model PartialCompliant 
-      "Compliant connection of two translational 1D flanges" 
-      
-      Flange_a flange_a 
-        "(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)"
-         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
-      Flange_b flange_b 
-        "(right) driven flange (flange axis directed out of cut plane)" 
-        annotation (Placement(transformation(extent={{90,-10},{110,10}},
-              rotation=0)));
-      SI.Distance s_rel(start=0) 
-        "relative distance (= flange_b.s - flange_a.s)";
-      SI.Force f 
-        "force between flanges (positive in direction of flange axis R)";
-      annotation (
-        Window(
-          x=0.17,
-          y=0.09,
-          width=0.6,
-          height=0.6),
-        Documentation(info="<html>
-<p>
-This is a 1D translational component with a <i>compliant </i>connection of two
-translational 1D flanges where inertial effects between the two
-flanges are not included. The absolute value of the force at the left and the right
-flange is the same. It is used to built up springs, dampers etc.
-</p>
- 
-</HTML>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Polygon(
-              points={{50,-90},{20,-80},{20,-100},{50,-90}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid), Line(points={{-60,-90},{20,-90}},
-                color={0,0,0})}));
-    equation 
-      s_rel = flange_b.s - flange_a.s;
-      flange_b.f = f;
-      flange_a.f = -f;
-    end PartialCompliant;
-    
-    partial model PartialGear 
-      "Base model for 1-dim. translational gear consisting of input and output flange and the support" 
-      
-      Flange_a flange_a "Flange of left shaft" annotation (Placement(transformation(extent={{-110,-10},
-                {-90,10}}, rotation=0)));
-      Flange_b flange_b "Flange of right shaft" 
-                        annotation (Placement(transformation(extent={{90,-10},{
-                110,10}}, rotation=0)));
-      Support support 
-        "Support/housing of component (is required to be connected)" 
-        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-      
-      SI.Distance s_a "Distance between left flange and support";
-      SI.Distance s_b "Distance between right flange and support";
-      
-      annotation (Documentation(info="<html>
-<p>
-This is a 1-dim. translational component with two flanges and an additional support.
-It is used e.g. to build up elementary ideal gear components. The component
-contains the force balance, i.e., the sum of the forces of the connectors
-is zero (therefore, components that are based on PartialGear cannot have
-a mass). The support connector needs to be connected
-to avoid the unphysical behavior that the
-support force is required to be zero (= the default value, if the
-connector is not connected).
-</p>
- 
-</HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}),graphics));
-    equation 
-      assert(cardinality(support) > 0, "The support connector is required to be connected");
-      
-      s_a = flange_a.s - support.s;
-      s_b = flange_b.s - support.s;
-      
-      // force balance
-      0 = flange_a.f + flange_b.f + support.f;
-    end PartialGear;
-    
-    partial model PartialSource 
-      "Base model for a component with a translational 1D shaft flange and a support to define either a predefined motion or a predefined force" 
-      
-      Flange_b flange 
-        annotation (Placement(transformation(extent={{90,-10},{110,10}},
-              rotation=0)));
-      Support support 
-        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-      annotation (
-        Window(
-          x=0.17,
-          y=0.09,
-          width=0.6,
-          height=0.6),
-        Documentation(info="<html>
-<p>
-This is a 1-dim. translational component with one flange and one support. 
-It is used to build up \"source\" components, e.g., driving with a predefined motion or with a predefined force. 
-The support connector needs to be connected to avoid the unphysical behavior that the support force is required to be zero 
-(= the default value, if the connector is not connected). 
-</p>
- 
-</HTML>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics));
-    equation 
-      assert(cardinality(support) > 0, "The support connector is required to be connected");
-      
-      // force balance
-      0 = flange.f + support.f;
-    end PartialSource;
-    
-    partial model PartialTwoFlanges 
-      "Component with two translational 1D flanges " 
-      Flange_a flange_a 
-        "(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)"
-         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
-      Flange_b flange_b 
-        "(right) driven flange (flange axis directed out of cut plane)" 
-        annotation (Placement(transformation(extent={{90,-10},{110,10}},
-              rotation=0)));
-      annotation (
-        Documentation(info="<html>
-<p>
-This is a 1D translational component with two flanges.
-It is used e.g. to built up parts of a drive train consisting
-of several base components.
-</p>
- 
-</HTML>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
-        Window(
-          x=0.08,
-          y=0.18,
-          width=0.6,
-          height=0.6));
-    end PartialTwoFlanges;
-    
-    partial model PartialTwoFlangesAndSupport 
-      "Component with two translational 1D flanges and support" 
-      Flange_a flange_a 
-        "(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)"
-         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
-      Flange_b flange_b 
-        "(right) driven flange (flange axis directed out of cut plane)" 
-        annotation (Placement(transformation(extent={{90,-10},{110,10}},
-              rotation=0)));
-      Support support 
-        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-      annotation (
-        Documentation(info="<html>
-<p>
-This is a 1D translational component with two flanges.
-It is used e.g. to built up parts of a drive train consisting
-of several base components.
-</p>
- 
-</HTML>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
-        Window(
-          x=0.08,
-          y=0.18,
-          width=0.6,
-          height=0.6));
-    end PartialTwoFlangesAndSupport;
-    
-    partial model PartialFrictionWithStop 
-      "Base model of Coulomb friction elements with stop" 
-      
-      annotation (Documentation(info="<html>
-<p>
-Basic model for Coulomb friction that models the stuck phase in a reliable way.<br>
-Additionally, a left and right stop are handled.
-</p>  
-</html>
-"));
-    //extends Translational.Interfaces.PartialRigid;
-      parameter SI.Length len(start=0) 
-        "length of component from left flange to right flange (= flange_b.s - flange_a.s)";
-      parameter SI.Position smax(start= 25) 
-        "right stop for (right end of) sliding mass";
-      parameter SI.Position smin(start=-25) 
-        "left stop for (left end of) sliding mass";
-      input SI.Position pos;
-      parameter SI.Velocity v_small=1e-3 
-        "Relative velocity near to zero (see model info text)" 
-         annotation(Dialog(tab="Advanced"));
-    // Equations to define the following variables have to be defined in subclasses
-      SI.Velocity v_relfric "Relative velocity between frictional surfaces";
-      SI.Acceleration a_relfric 
-        "Relative acceleration between frictional surfaces";
-      SI.Force f 
-        "Friction force (positive, if directed in opposite direction of v_rel)";
-      SI.Force f0 "Friction force for v=0 and forward sliding";
-      SI.Force f0_max "Maximum friction force for v=0 and locked";
-      Boolean free "true, if frictional element is not active";
-    // Equations to define the following variables are given in this class
-      Real sa(unit="1") 
-        "Path parameter of friction characteristic f = f(a_relfric)";
-      Boolean startForward(start=false, fixed=true) 
-        "true, if v_rel=0 and start of forward sliding or v_rel > v_small";
-      Boolean startBackward(start=false, fixed=true) 
-        "true, if v_rel=0 and start of backward sliding or v_rel < -v_small";
-      Boolean locked(start=false) "true, if v_rel=0 and not sliding";
-      constant Integer Unknown=3 "Value of mode is not known";
-      constant Integer Free=2 "Element is not active";
-      constant Integer Forward=1 "v_rel > 0 (forward sliding)";
-      constant Integer Stuck=0 
-        "v_rel = 0 (forward sliding, locked or backward sliding)";
-      constant Integer Backward=-1 "v_rel < 0 (backward sliding)";
-      Integer mode(
-        final min=Backward,
-        final max=Unknown,
-        start=Unknown, fixed=true);
-    protected 
-      constant SI.Acceleration unitAcceleration = 1 annotation(Hide=true);
-      constant SI.Force unitForce = 1 annotation(Hide=true);
-    equation 
-    /* Friction characteristic
-   (locked is introduced to help the Modelica translator determining
-   the different structural configurations, 
-   if for each configuration special code shall be generated)
-*/
-      startForward  = pre(mode) == Stuck and 
-        (pre(startForward)  or sa >  f0_max/unitForce and sa >  f0/unitForce and pos < (smax - len/2)) or 
-        pre(mode) == Backward and v_relfric >  v_small or initial() and v_relfric > 0;
-      startBackward = pre(mode) == Stuck and 
-        (pre(startBackward) or sa < -f0_max/unitForce and sa < -f0/unitForce and pos > (smin + len/2)) or 
-        pre(mode) == Forward  and v_relfric < -v_small or initial() and v_relfric < 0;
-      locked = not free and 
-        not (pre(mode) == Forward or startForward or pre(mode) == Backward or startBackward);
-      a_relfric/unitAcceleration = if locked then               0 else 
-                                   if free then                 sa else 
-                                   if startForward then         sa - f0/unitForce else 
-                                   if startBackward then        sa + f0/unitForce else 
-                                   if pre(mode) == Forward then sa - f0/unitForce else 
-                                                                sa + f0/unitForce;
-    /* Friction torque has to be defined in a subclass. Example for a clutch:
-   f = if locked then sa else 
-       if free then   0 else 
-       cgeo*fn*(if startForward then          Math.tempInterpol1( v_relfric, mue_pos, 2) else 
-                if startBackward then        -Math.tempInterpol1(-v_relfric, mue_pos, 2) else 
-                if pre(mode) == Forward then  Math.tempInterpol1( v_relfric, mue_pos, 2) else 
-                                             -Math.tempInterpol1(-v_relfric, mue_pos, 2));
-*/
-    // finite state machine to determine configuration
-      mode = if free then Free else 
-        (if (pre(mode) == Forward  or pre(mode) == Free or startForward)  and v_relfric > 0 and pos < (smax - len/2) then 
-           Forward else 
-         if (pre(mode) == Backward or pre(mode) == Free or startBackward) and v_relfric < 0 and pos > (smin + len/2) then 
-           Backward else 
-           Stuck);
-    end PartialFrictionWithStop;
-    
-    partial model PartialFriction "Base model of Coulomb friction elements" 
-      
-      annotation (Documentation(info="<html>
-<p>
-Basic model for Coulomb friction that models the stuck phase in a reliable way.
-</p>  
-</html>"));
-      extends PartialFrictionWithStop(final len=0, final smax=1, final smin=-1, final pos=0);
-    end PartialFriction;
-    
-    partial model PartialAbsoluteSensor 
-      "Device to measure a single absolute flange variable" 
-      
-      extends Modelica.Icons.TranslationalSensor;
-      
-      Interfaces.Flange_a flange 
-        "flange to be measured (flange axis directed in to cut plane, e. g. from left to right)"
-         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
-      annotation (
-        Window(
-          x=0.36,
-          y=0.04,
-          width=0.6,
-          height=0.6),
-        Documentation(info="<html>
-<p>
-This is the superclass of a 1D translational component with one flange and one
-output signal in order to measure an absolute kinematic quantity in the flange
-and to provide the measured signal as output signal for further processing
-with the Modelica.Blocks blocks.
-</p>
-</HTML>
-"),     Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Line(points={{-100,-90},{-20,-90}}, color={0,0,0}),
-            Polygon(
-              points={{10,-90},{-20,-80},{-20,-100},{10,-90}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
-            Line(points={{70,0},{100,0}}, color={0,0,127}),
-            Text(
-              extent={{-118,99},{118,40}},
-              textString="%name",
-              lineColor={0,0,255})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
-    equation 
-      0 = flange.f;
-    end PartialAbsoluteSensor;
-    
-    partial model PartialRelativeSensor 
-      "Device to measure a single relative variable between two flanges" 
-      
-      extends Modelica.Icons.TranslationalSensor;
-      
-      Interfaces.Flange_a flange_a 
-        "(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)"
-         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
-      Interfaces.Flange_b flange_b 
-        "(right) driven flange (flange axis directed out of cut plane)" 
-        annotation (Placement(transformation(extent={{90,-10},{110,10}},
-              rotation=0)));
-      annotation (
-        Window(
-          x=0.04,
-          y=0.05,
-          width=0.6,
-          height=0.6),
-        Documentation(info="<html>
-<p>
-This is a superclass for 1D translational components with two rigidly connected
-flanges and one output signal in order to measure relative kinematic quantities
-between the two flanges or the cut-force in the flange and
-to provide the measured signal as output signal for further processing
-with the Modelica.Blocks blocks.
-</p>
-</HTML>
-"),     Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Line(points={{-51,34},{29,34}}, color={0,0,0}),
-            Polygon(
-              points={{59,34},{29,44},{29,24},{59,34}},
-              lineColor={0,0,0},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
-            Line(points={{70,0},{90,0}}, color={0,0,0}),
-            Text(
-              extent={{-117,116},{115,52}},
-              textString="%name",
-              lineColor={0,0,255})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
-    equation 
-      0 = flange_a.f + flange_b.f;
-    end PartialRelativeSensor;
-    
-  partial model PartialSpeedDependentForce 
-      "Partial model of a force acting at the flange (accelerates the flange)" 
-    Translational.Interfaces.Flange_b flange "Flange on which force is acting" 
-      annotation (Placement(transformation(extent={{110,-10},{90,10}},
-            rotation=0)));
-    Translational.Interfaces.Support support 
-        "Support/housing at which the reaction force (= -flange.f) is acting (is required to be connected)"
-         annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
-            rotation=0)));
-      
-    Modelica.SIunits.Length s 
-        "distance between flange and support (= flange.s - support.s)";
-    Modelica.SIunits.Velocity v 
-        "velocity of flange with respect to support (= der(s))";
-    Modelica.SIunits.Force f "Accelerating force acting at flange (= flange.f)";
-      
-    annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-                100,100}}),
-              graphics),
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                100}}), graphics={
-            Rectangle(
-              extent={{-96,96},{96,-96}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-30,-70},{30,-70}}, color={0,0,0}),
-            Line(points={{-30,-90},{-10,-70}}, color={0,0,0}),
-            Line(points={{-10,-90},{10,-70}}, color={0,0,0}),
-            Line(points={{10,-90},{30,-70}}, color={0,0,0}),
-            Line(points={{0,-70},{0,-110}}, color={0,0,0}),
-            Text(
-              extent={{-150,140},{150,100}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Line(points={{-78,80},{51,80}}, color={0,0,0}),
-            Polygon(
-              points={{81,80},{51,90},{51,70},{81,80}},
-              lineColor={0,0,0},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-52,-60},{77,-60}}, color={0,0,0}),
-            Polygon(
-              points={{-82,-60},{-51,-50},{-51,-70},{-82,-60}},
-              lineColor={0,0,0},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid)}),
-      Documentation(info="<HTML>
-<p>
-Partial model of force dependent on speed that accelerates the flange.
-</p>
-</HTML>"));
-  equation 
-    assert(cardinality(support) > 0, "The support connector is required to be connected");
-    s = flange.s - support.s;
-    v = der(s);
-    f = flange.f;
-    0 = flange.f + support.f;
-  end PartialSpeedDependentForce;
-    
-  partial model PartialSpeedDependentForceGrounded 
-      "Partial model of a force acting at the flange (accelerates the flange)" 
-    Translational.Interfaces.Flange_b flange "Flange on which force is acting" 
-      annotation (Placement(transformation(extent={{110,-10},{90,10}},
-            rotation=0)));
-      
-    annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-                100,100}}),
-              graphics),
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                100}}), graphics={
-            Rectangle(
-              extent={{-96,96},{96,-96}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-30,-70},{30,-70}}, color={0,0,0}),
-            Line(points={{-30,-90},{-10,-70}}, color={0,0,0}),
-            Line(points={{-10,-90},{10,-70}}, color={0,0,0}),
-            Line(points={{10,-90},{30,-70}}, color={0,0,0}),
-            Line(points={{0,-70},{0,-100}}, color={0,0,0}),
-            Text(
-              extent={{-150,140},{150,100}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Line(points={{-78,80},{51,80}}, color={0,0,0}),
-            Polygon(
-              points={{81,80},{51,90},{51,70},{81,80}},
-              lineColor={0,0,0},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-52,-60},{77,-60}}, color={0,0,0}),
-            Polygon(
-              points={{-82,-60},{-51,-50},{-51,-70},{-82,-60}},
-              lineColor={0,0,0},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Line(points={{0,-70},{0,-100}}, color={0,0,0}),
-            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}),
-            Line(points={{-10,-120},{10,-100}}, color={0,0,0}),
-            Line(points={{10,-120},{30,-100}}, color={0,0,0}),
-            Line(points={{-30,-100},{30,-100}}, color={0,0,0}),
-            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}),
-            Line(points={{-50,-90},{-30,-70}}, color={0,0,0})}),
-      Documentation(info="<HTML>
-<p>
-Partial model of force dependent on speed that accelerates the flange.
-</p>
-</HTML>"));
-    Translational.Components.Fixed fixed 
-      annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
-  end PartialSpeedDependentForceGrounded;
-  end Interfaces;
   
   package Sensors "Sensors for 1-dim. translational mechanical quantities" 
     
@@ -3420,22 +2743,22 @@ Partial model of force dependent on speed that accelerates the flange.
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
-            extent={{-76,-81},{64,-1}},
-            lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
+            extent={{-76,-81},{64,-1}}, 
+            lineColor={0,0,0}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
           Polygon(
-            points={{-6,-61},{-16,-37},{4,-37},{-6,-61}},
-            lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-6,-21},{-6,-37}}, color={0,0,0}),
-          Line(points={{-76,-21},{-6,-21}}, color={0,0,0}),
-          Line(points={{-56,-61},{-56,-81}}, color={0,0,0}),
-          Line(points={{-36,-61},{-36,-81}}, color={0,0,0}),
-          Line(points={{-16,-61},{-16,-81}}, color={0,0,0}),
-          Line(points={{4,-61},{4,-81}}, color={0,0,0}),
-          Line(points={{24,-61},{24,-81}}, color={0,0,0}),
+            points={{-6,-61},{-16,-37},{4,-37},{-6,-61}}, 
+            lineColor={0,0,0}, 
+            fillColor={0,0,0}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-6,-21},{-6,-37}}, color={0,0,0}), 
+          Line(points={{-76,-21},{-6,-21}}, color={0,0,0}), 
+          Line(points={{-56,-61},{-56,-81}}, color={0,0,0}), 
+          Line(points={{-36,-61},{-36,-81}}, color={0,0,0}), 
+          Line(points={{-16,-61},{-16,-81}}, color={0,0,0}), 
+          Line(points={{4,-61},{4,-81}}, color={0,0,0}), 
+          Line(points={{24,-61},{24,-81}}, color={0,0,0}), 
           Line(points={{44,-61},{44,-81}}, color={0,0,0})}),
       Documentation(info="<html>
 <p>
@@ -3784,9 +3107,9 @@ and provides the result as output signal <b>power</b>
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Polygon(
             points={{-100,-32},{10,-32},{10,-1},{80,-42},{10,-83},{10,-52},{-100,
-                -52},{-100,-32}},
-            lineColor={0,127,0},
-            fillColor={0,127,0},
+                -52},{-100,-32}}, 
+            lineColor={0,127,0}, 
+            fillColor={0,127,0}, 
             fillPattern=FillPattern.Solid)}),               Documentation(info="<html>
 <p>
 This package contains ideal sources to drive 1D mechanical translational drive trains.
@@ -4867,11 +4190,11 @@ or on a multi-body system).
 
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
               {100,100}}), graphics={
-          Line(points={{-34,-42},{26,-42}}, color={0,0,0}),
-          Line(points={{-4,-22},{-4,-42}}, color={0,0,0}),
-          Line(points={{-54,-62},{-34,-42}}, color={0,0,0}),
-          Line(points={{-34,-62},{-14,-42}}, color={0,0,0}),
-          Line(points={{-14,-62},{6,-42}}, color={0,0,0}),
+          Line(points={{-34,-42},{26,-42}}, color={0,0,0}), 
+          Line(points={{-4,-22},{-4,-42}}, color={0,0,0}), 
+          Line(points={{-54,-62},{-34,-42}}, color={0,0,0}), 
+          Line(points={{-34,-62},{-14,-42}}, color={0,0,0}), 
+          Line(points={{-14,-62},{6,-42}}, color={0,0,0}), 
           Line(points={{6,-62},{26,-42}}, color={0,0,0})}));
     
     model Speed "Forced movement of a flange according to a reference speed" 
@@ -5390,5 +4713,683 @@ Positive force acts accelerating.
           smooth=Smooth.None));
     end ForceStep;
   end Grounded;
+
+  package Interfaces 
+    "Interfaces for 1-dim. translational mechanical components" 
+      extends Modelica.Icons.Library;
+    
+    annotation (Documentation(info="<html>
+<p>
+This package contains connectors and partial models for 1-dim.
+translational mechanical components. The components of this package can
+only be used as basic building elements for models.
+</p>
+ 
+</html>
+"));
+    
+    connector Flange_a 
+      "(left) 1D translational flange (flange axis directed INTO cut plane, e. g. from left to right)" 
+      
+      annotation(defaultComponentName = "flange_a",
+        Window(
+          x=0.27,
+          y=0.05,
+          width=0.39,
+          height=0.83),
+        Documentation(info="<html>
+This is a flange for 1D translational mechanical systems. In the cut plane of
+the flange a unit vector n, called flange axis, is defined which is directed
+INTO the cut plane, i. e. from left to right. All vectors in the cut plane are
+resolved with respect to
+this unit vector. E.g. force f characterizes a vector which is directed in
+the direction of n with value equal to f. When this flange is connected to
+other 1D translational flanges, this means that the axes vectors of the connected
+flanges are identical.
+</p>
+<p>
+The following variables are transported through this connector:
+<pre>
+  s: Absolute position of the flange in [m]. A positive translation
+     means that the flange is translated along the flange axis.
+  f: Cut-force in direction of the flange axis in [N].
+</pre>
+</HTML>
+"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                100,100}}), graphics={Rectangle(
+              extent={{-100,-100},{100,100}}, 
+              lineColor={0,127,0}, 
+              fillColor={0,127,0}, 
+              fillPattern=FillPattern.Solid)}),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics={Rectangle(
+              extent={{-40,-40},{40,40}}, 
+              lineColor={0,127,0}, 
+              fillColor={0,127,0}, 
+              fillPattern=FillPattern.Solid), Text(
+              extent={{-160,110},{40,50}}, 
+              lineColor={0,127,0}, 
+              textString="%name")}),
+        Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=58,
+                fillColor=58),
+            lineColor={0,0,255})));
+      
+      SI.Position s "absolute position of flange";
+      flow SI.Force f "cut force directed into flange";
+    end Flange_a;
+    
+    connector Flange_b 
+      "right 1D translational flange (flange axis directed OUT OF cut plane)" 
+      
+      SI.Position s "absolute position of flange";
+      flow SI.Force f "cut force directed into flange";
+      annotation(defaultComponentName = "flange_b",
+        Window(
+          x=0.27,
+          y=0.05,
+          width=0.39,
+          height=0.83),
+        Documentation(info="<html>
+This is a flange for 1D translational mechanical systems. In the cut plane of
+the flange a unit vector n, called flange axis, is defined which is directed
+OUT OF the cut plane. All vectors in the cut plane are resolved with respect to
+this unit vector. E.g. force f characterizes a vector which is directed in
+the direction of n with value equal to f. When this flange is connected to
+other 1D translational flanges, this means that the axes vectors of the connected
+flanges are identical.
+</p>
+<p>
+The following variables are transported through this connector:
+<pre>
+  s: Absolute position of the flange in [m]. A positive translation
+     means that the flange is translated along the flange axis.
+  f: Cut-force in direction of the flange axis in [N].
+</pre>
+</HTML>
+"),     Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics={Rectangle(
+              extent={{-100,-100},{100,100}}, 
+              lineColor={0,127,0}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid)}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics={Rectangle(
+              extent={{-40,-40},{40,40}}, 
+              lineColor={0,127,0}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), Text(
+              extent={{-40,110},{160,50}}, 
+              lineColor={0,127,0}, 
+              textString="%name")}),
+        Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=58),
+            lineColor={0,0,255})));
+    end Flange_b;
+    
+    connector Support "Support/housing 1D translational flange" 
+      
+      SI.Position s "absolute position of flange";
+      flow SI.Force f "cut force directed into flange";
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={
+            Rectangle(
+              extent={{-60,60},{60,-60}}, 
+              lineColor={0,127,0}, 
+              fillColor={175,175,175}, 
+              fillPattern=FillPattern.Solid), 
+            Text(
+              extent={{-160,110},{40,50}}, 
+              lineColor={0,127,0}, 
+              textString="%name"), 
+            Rectangle(
+              extent={{-40,-40},{40,40}}, 
+              lineColor={0,127,0}, 
+              fillColor={0,127,0}, 
+              fillPattern=FillPattern.Solid)}), Icon(coordinateSystem(
+              preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
+            graphics={Rectangle(
+              extent={{-150,150},{150,-150}}, 
+              lineColor={0,127,0}, 
+              fillColor={175,175,175}, 
+              fillPattern=FillPattern.Solid), Rectangle(
+              extent={{-100,-100},{100,100}}, 
+              lineColor={0,127,0}, 
+              fillColor={0,127,0}, 
+              fillPattern=FillPattern.Solid)}));
+    end Support;
+    
+    partial model PartialRigid 
+      "Rigid connection of two translational 1D flanges " 
+      SI.Position s 
+        "absolute position of center of component (s = flange_a.s + L/2 = flange_b.s - L/2)";
+      parameter SI.Length L(start=0) 
+        "length of component from left flange to right flange (= flange_b.s - flange_a.s)";
+      Flange_a flange_a 
+        "(left) driving flange (flange axis directed in to cut plane, i. e. from left to right)"
+         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+              rotation=0)));
+      Flange_b flange_b 
+        "(right) driven flange (flange axis directed out of cut plane, i. e. from right to left)"
+         annotation (Placement(transformation(extent={{90,-10},{110,10}},
+              rotation=0)));
+      annotation (
+        Documentation(info="<html>
+<p>
+This is a 1D translational component with two <i>rigidly</i> connected flanges.
+The distance between the left and the right flange is always constant, i. e. L.
+The forces at the right and left flange can be different.
+It is used e.g. to built up sliding masses.
+</p>
+</HTML>
+"),     Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics),
+        Window(
+          x=0.14,
+          y=0.05,
+          width=0.71,
+          height=0.58));
+    equation 
+      flange_a.s = s - L/2;
+      flange_b.s = s + L/2;
+    end PartialRigid;
+    
+    partial model PartialCompliant 
+      "Compliant connection of two translational 1D flanges" 
+      
+      Flange_a flange_a 
+        "(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)"
+         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+              rotation=0)));
+      Flange_b flange_b 
+        "(right) driven flange (flange axis directed out of cut plane)" 
+        annotation (Placement(transformation(extent={{90,-10},{110,10}},
+              rotation=0)));
+      SI.Distance s_rel(start=0) 
+        "relative distance (= flange_b.s - flange_a.s)";
+      SI.Force f 
+        "force between flanges (positive in direction of flange axis R)";
+      annotation (
+        Window(
+          x=0.17,
+          y=0.09,
+          width=0.6,
+          height=0.6),
+        Documentation(info="<html>
+<p>
+This is a 1D translational component with a <i>compliant </i>connection of two
+translational 1D flanges where inertial effects between the two
+flanges are not included. The absolute value of the force at the left and the right
+flange is the same. It is used to built up springs, dampers etc.
+</p>
+ 
+</HTML>
+"),     Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics={Polygon(
+              points={{50,-90},{20,-80},{20,-100},{50,-90}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid), Line(points={{-60,-90},{20,-90}},
+                color={0,0,0})}));
+    equation 
+      s_rel = flange_b.s - flange_a.s;
+      flange_b.f = f;
+      flange_a.f = -f;
+    end PartialCompliant;
+    
+    partial model PartialGear 
+      "Base model for 1-dim. translational gear consisting of input and output flange and the support" 
+      
+      Flange_a flange_a "Flange of left shaft" annotation (Placement(transformation(extent={{-110,-10},
+                {-90,10}}, rotation=0)));
+      Flange_b flange_b "Flange of right shaft" 
+                        annotation (Placement(transformation(extent={{90,-10},{
+                110,10}}, rotation=0)));
+      Support support 
+        "Support/housing of component (is required to be connected)" 
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+      
+      SI.Distance s_a "Distance between left flange and support";
+      SI.Distance s_b "Distance between right flange and support";
+      
+      annotation (Documentation(info="<html>
+<p>
+This is a 1-dim. translational component with two flanges and an additional support.
+It is used e.g. to build up elementary ideal gear components. The component
+contains the force balance, i.e., the sum of the forces of the connectors
+is zero (therefore, components that are based on PartialGear cannot have
+a mass). The support connector needs to be connected
+to avoid the unphysical behavior that the
+support force is required to be zero (= the default value, if the
+connector is not connected).
+</p>
+ 
+</HTML>
+"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),graphics));
+    equation 
+      assert(cardinality(support) > 0, "The support connector is required to be connected");
+      
+      s_a = flange_a.s - support.s;
+      s_b = flange_b.s - support.s;
+      
+      // force balance
+      0 = flange_a.f + flange_b.f + support.f;
+    end PartialGear;
+    
+    partial model PartialSource 
+      "Base model for a component with a translational 1D shaft flange and a support to define either a predefined motion or a predefined force" 
+      
+      Flange_b flange 
+        annotation (Placement(transformation(extent={{90,-10},{110,10}},
+              rotation=0)));
+      Support support 
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+      annotation (
+        Window(
+          x=0.17,
+          y=0.09,
+          width=0.6,
+          height=0.6),
+        Documentation(info="<html>
+<p>
+This is a 1-dim. translational component with one flange and one support. 
+It is used to build up \"source\" components, e.g., driving with a predefined motion or with a predefined force. 
+The support connector needs to be connected to avoid the unphysical behavior that the support force is required to be zero 
+(= the default value, if the connector is not connected). 
+</p>
+ 
+</HTML>
+"),     Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics));
+    equation 
+      assert(cardinality(support) > 0, "The support connector is required to be connected");
+      
+      // force balance
+      0 = flange.f + support.f;
+    end PartialSource;
+    
+    partial model PartialTwoFlanges 
+      "Component with two translational 1D flanges " 
+      Flange_a flange_a 
+        "(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)"
+         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+              rotation=0)));
+      Flange_b flange_b 
+        "(right) driven flange (flange axis directed out of cut plane)" 
+        annotation (Placement(transformation(extent={{90,-10},{110,10}},
+              rotation=0)));
+      annotation (
+        Documentation(info="<html>
+<p>
+This is a 1D translational component with two flanges.
+It is used e.g. to built up parts of a drive train consisting
+of several base components.
+</p>
+ 
+</HTML>
+"),     Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics),
+        Window(
+          x=0.08,
+          y=0.18,
+          width=0.6,
+          height=0.6));
+    end PartialTwoFlanges;
+    
+    partial model PartialTwoFlangesAndSupport 
+      "Component with two translational 1D flanges and support" 
+      Flange_a flange_a 
+        "(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)"
+         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+              rotation=0)));
+      Flange_b flange_b 
+        "(right) driven flange (flange axis directed out of cut plane)" 
+        annotation (Placement(transformation(extent={{90,-10},{110,10}},
+              rotation=0)));
+      Support support 
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+      annotation (
+        Documentation(info="<html>
+<p>
+This is a 1D translational component with two flanges.
+It is used e.g. to built up parts of a drive train consisting
+of several base components.
+</p>
+ 
+</HTML>
+"),     Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics),
+        Window(
+          x=0.08,
+          y=0.18,
+          width=0.6,
+          height=0.6));
+    end PartialTwoFlangesAndSupport;
+    
+    partial model PartialFrictionWithStop 
+      "Base model of Coulomb friction elements with stop" 
+      
+      annotation (Documentation(info="<html>
+<p>
+Basic model for Coulomb friction that models the stuck phase in a reliable way.<br>
+Additionally, a left and right stop are handled.
+</p>  
+</html>
+"));
+    //extends Translational.Interfaces.PartialRigid;
+      parameter SI.Length len(start=0) 
+        "length of component from left flange to right flange (= flange_b.s - flange_a.s)";
+      parameter SI.Position smax(start= 25) 
+        "right stop for (right end of) sliding mass";
+      parameter SI.Position smin(start=-25) 
+        "left stop for (left end of) sliding mass";
+      input SI.Position pos;
+      parameter SI.Velocity v_small=1e-3 
+        "Relative velocity near to zero (see model info text)" 
+         annotation(Dialog(tab="Advanced"));
+    // Equations to define the following variables have to be defined in subclasses
+      SI.Velocity v_relfric "Relative velocity between frictional surfaces";
+      SI.Acceleration a_relfric 
+        "Relative acceleration between frictional surfaces";
+      SI.Force f 
+        "Friction force (positive, if directed in opposite direction of v_rel)";
+      SI.Force f0 "Friction force for v=0 and forward sliding";
+      SI.Force f0_max "Maximum friction force for v=0 and locked";
+      Boolean free "true, if frictional element is not active";
+    // Equations to define the following variables are given in this class
+      Real sa(unit="1") 
+        "Path parameter of friction characteristic f = f(a_relfric)";
+      Boolean startForward(start=false, fixed=true) 
+        "true, if v_rel=0 and start of forward sliding or v_rel > v_small";
+      Boolean startBackward(start=false, fixed=true) 
+        "true, if v_rel=0 and start of backward sliding or v_rel < -v_small";
+      Boolean locked(start=false) "true, if v_rel=0 and not sliding";
+      constant Integer Unknown=3 "Value of mode is not known";
+      constant Integer Free=2 "Element is not active";
+      constant Integer Forward=1 "v_rel > 0 (forward sliding)";
+      constant Integer Stuck=0 
+        "v_rel = 0 (forward sliding, locked or backward sliding)";
+      constant Integer Backward=-1 "v_rel < 0 (backward sliding)";
+      Integer mode(
+        final min=Backward,
+        final max=Unknown,
+        start=Unknown, fixed=true);
+    protected 
+      constant SI.Acceleration unitAcceleration = 1 annotation(Hide=true);
+      constant SI.Force unitForce = 1 annotation(Hide=true);
+    equation 
+    /* Friction characteristic
+   (locked is introduced to help the Modelica translator determining
+   the different structural configurations, 
+   if for each configuration special code shall be generated)
+*/
+      startForward  = pre(mode) == Stuck and 
+        (pre(startForward)  or sa >  f0_max/unitForce and sa >  f0/unitForce and pos < (smax - len/2)) or 
+        pre(mode) == Backward and v_relfric >  v_small or initial() and v_relfric > 0;
+      startBackward = pre(mode) == Stuck and 
+        (pre(startBackward) or sa < -f0_max/unitForce and sa < -f0/unitForce and pos > (smin + len/2)) or 
+        pre(mode) == Forward  and v_relfric < -v_small or initial() and v_relfric < 0;
+      locked = not free and 
+        not (pre(mode) == Forward or startForward or pre(mode) == Backward or startBackward);
+      a_relfric/unitAcceleration = if locked then               0 else 
+                                   if free then                 sa else 
+                                   if startForward then         sa - f0/unitForce else 
+                                   if startBackward then        sa + f0/unitForce else 
+                                   if pre(mode) == Forward then sa - f0/unitForce else 
+                                                                sa + f0/unitForce;
+    /* Friction torque has to be defined in a subclass. Example for a clutch:
+   f = if locked then sa else 
+       if free then   0 else 
+       cgeo*fn*(if startForward then          Math.tempInterpol1( v_relfric, mue_pos, 2) else 
+                if startBackward then        -Math.tempInterpol1(-v_relfric, mue_pos, 2) else 
+                if pre(mode) == Forward then  Math.tempInterpol1( v_relfric, mue_pos, 2) else 
+                                             -Math.tempInterpol1(-v_relfric, mue_pos, 2));
+*/
+    // finite state machine to determine configuration
+      mode = if free then Free else 
+        (if (pre(mode) == Forward  or pre(mode) == Free or startForward)  and v_relfric > 0 and pos < (smax - len/2) then 
+           Forward else 
+         if (pre(mode) == Backward or pre(mode) == Free or startBackward) and v_relfric < 0 and pos > (smin + len/2) then 
+           Backward else 
+           Stuck);
+    end PartialFrictionWithStop;
+    
+    partial model PartialFriction "Base model of Coulomb friction elements" 
+      
+      annotation (Documentation(info="<html>
+<p>
+Basic model for Coulomb friction that models the stuck phase in a reliable way.
+</p>  
+</html>"));
+      extends PartialFrictionWithStop(final len=0, final smax=1, final smin=-1, final pos=0);
+    end PartialFriction;
+    
+    partial model PartialAbsoluteSensor 
+      "Device to measure a single absolute flange variable" 
+      
+      extends Modelica.Icons.TranslationalSensor;
+      
+      Interfaces.Flange_a flange 
+        "flange to be measured (flange axis directed in to cut plane, e. g. from left to right)"
+         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+              rotation=0)));
+      annotation (
+        Window(
+          x=0.36,
+          y=0.04,
+          width=0.6,
+          height=0.6),
+        Documentation(info="<html>
+<p>
+This is the superclass of a 1D translational component with one flange and one
+output signal in order to measure an absolute kinematic quantity in the flange
+and to provide the measured signal as output signal for further processing
+with the Modelica.Blocks blocks.
+</p>
+</HTML>
+"),     Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={
+            Line(points={{-100,-90},{-20,-90}}, color={0,0,0}), 
+            Polygon(
+              points={{10,-90},{-20,-80},{-20,-100},{10,-90}}, 
+              lineColor={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
+            Line(points={{70,0},{100,0}}, color={0,0,127}), 
+            Text(
+              extent={{-118,99},{118,40}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics));
+    equation 
+      0 = flange.f;
+    end PartialAbsoluteSensor;
+    
+    partial model PartialRelativeSensor 
+      "Device to measure a single relative variable between two flanges" 
+      
+      extends Modelica.Icons.TranslationalSensor;
+      
+      Interfaces.Flange_a flange_a 
+        "(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)"
+         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+              rotation=0)));
+      Interfaces.Flange_b flange_b 
+        "(right) driven flange (flange axis directed out of cut plane)" 
+        annotation (Placement(transformation(extent={{90,-10},{110,10}},
+              rotation=0)));
+      annotation (
+        Window(
+          x=0.04,
+          y=0.05,
+          width=0.6,
+          height=0.6),
+        Documentation(info="<html>
+<p>
+This is a superclass for 1D translational components with two rigidly connected
+flanges and one output signal in order to measure relative kinematic quantities
+between the two flanges or the cut-force in the flange and
+to provide the measured signal as output signal for further processing
+with the Modelica.Blocks blocks.
+</p>
+</HTML>
+"),     Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={
+            Line(points={{-51,34},{29,34}}, color={0,0,0}), 
+            Polygon(
+              points={{59,34},{29,44},{29,24},{59,34}}, 
+              lineColor={0,0,0}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
+            Line(points={{70,0},{90,0}}, color={0,0,0}), 
+            Text(
+              extent={{-117,116},{115,52}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics));
+    equation 
+      0 = flange_a.f + flange_b.f;
+    end PartialRelativeSensor;
+    
+  partial model PartialSpeedDependentForce 
+      "Partial model of a force acting at the flange (accelerates the flange)" 
+    Translational.Interfaces.Flange_b flange "Flange on which force is acting" 
+      annotation (Placement(transformation(extent={{110,-10},{90,10}},
+            rotation=0)));
+    Translational.Interfaces.Support support 
+        "Support/housing at which the reaction force (= -flange.f) is acting (is required to be connected)"
+         annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
+            rotation=0)));
+      
+    Modelica.SIunits.Length s 
+        "distance between flange and support (= flange.s - support.s)";
+    Modelica.SIunits.Velocity v 
+        "velocity of flange with respect to support (= der(s))";
+    Modelica.SIunits.Force f "Accelerating force acting at flange (= flange.f)";
+      
+    annotation (
+      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
+                100,100}}),
+              graphics),
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+                100}}), graphics={
+            Rectangle(
+              extent={{-96,96},{96,-96}}, 
+              lineColor={255,255,255}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-30,-70},{30,-70}}, color={0,0,0}), 
+            Line(points={{-30,-90},{-10,-70}}, color={0,0,0}), 
+            Line(points={{-10,-90},{10,-70}}, color={0,0,0}), 
+            Line(points={{10,-90},{30,-70}}, color={0,0,0}), 
+            Line(points={{0,-70},{0,-110}}, color={0,0,0}), 
+            Text(
+              extent={{-150,140},{150,100}}, 
+              lineColor={0,0,255}, 
+              textString="%name"), 
+            Line(points={{-78,80},{51,80}}, color={0,0,0}), 
+            Polygon(
+              points={{81,80},{51,90},{51,70},{81,80}}, 
+              lineColor={0,0,0}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-52,-60},{77,-60}}, color={0,0,0}), 
+            Polygon(
+              points={{-82,-60},{-51,-50},{-51,-70},{-82,-60}}, 
+              lineColor={0,0,0}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid)}),
+      Documentation(info="<HTML>
+<p>
+Partial model of force dependent on speed that accelerates the flange.
+</p>
+</HTML>"));
+  equation 
+    assert(cardinality(support) > 0, "The support connector is required to be connected");
+    s = flange.s - support.s;
+    v = der(s);
+    f = flange.f;
+    0 = flange.f + support.f;
+  end PartialSpeedDependentForce;
+    
+  partial model PartialSpeedDependentForceGrounded 
+      "Partial model of a force acting at the flange (accelerates the flange)" 
+    Translational.Interfaces.Flange_b flange "Flange on which force is acting" 
+      annotation (Placement(transformation(extent={{110,-10},{90,10}},
+            rotation=0)));
+      
+    annotation (
+      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
+                100,100}}),
+              graphics),
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+                100}}), graphics={
+            Rectangle(
+              extent={{-96,96},{96,-96}}, 
+              lineColor={255,255,255}, 
+              fillColor={255,255,255}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-30,-70},{30,-70}}, color={0,0,0}), 
+            Line(points={{-30,-90},{-10,-70}}, color={0,0,0}), 
+            Line(points={{-10,-90},{10,-70}}, color={0,0,0}), 
+            Line(points={{10,-90},{30,-70}}, color={0,0,0}), 
+            Line(points={{0,-70},{0,-100}}, color={0,0,0}), 
+            Text(
+              extent={{-150,140},{150,100}}, 
+              lineColor={0,0,255}, 
+              textString="%name"), 
+            Line(points={{-78,80},{51,80}}, color={0,0,0}), 
+            Polygon(
+              points={{81,80},{51,90},{51,70},{81,80}}, 
+              lineColor={0,0,0}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-52,-60},{77,-60}}, color={0,0,0}), 
+            Polygon(
+              points={{-82,-60},{-51,-50},{-51,-70},{-82,-60}}, 
+              lineColor={0,0,0}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{0,-70},{0,-100}}, color={0,0,0}), 
+            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}), 
+            Line(points={{-10,-120},{10,-100}}, color={0,0,0}), 
+            Line(points={{10,-120},{30,-100}}, color={0,0,0}), 
+            Line(points={{-30,-100},{30,-100}}, color={0,0,0}), 
+            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}), 
+            Line(points={{-50,-90},{-30,-70}}, color={0,0,0})}),
+      Documentation(info="<HTML>
+<p>
+Partial model of force dependent on speed that accelerates the flange.
+</p>
+</HTML>"));
+    Translational.Components.Fixed fixed 
+      annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
+  end PartialSpeedDependentForceGrounded;
+  end Interfaces;
   
 end Translational;
