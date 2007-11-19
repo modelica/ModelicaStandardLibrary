@@ -1045,9 +1045,13 @@ have been <b style=\"color:blue\">changed</b> in a
       <td valign=\"top\"> Moved components to structured sub-packages (Sources, Components)</td> </tr>
   <tr><td valign=\"top\"> </td>
       <td valign=\"top\"> Adaptions correspondig to Rotational</td> </tr>
-  <tr><td valign=\"top\"> Interfaces.FrictionBase</td>
-      <td valign=\"top\"> Renamed to PartialFrictionWithStop<br>
-                        Based on that, additionally PartialFriction (without stop, as in Rotational) is available.</td> </tr>
+  <tr><td valign=\"top\"> Stop<br>Interfaces.FrictionBase</td>
+      <td valign=\"top\"> Renamed to Grounded.MassWithStopAndFriction; based on:<br>
+                        Renamed to encapsulated Grounded.MassWithStopAndFriction.PartialFrictionWithStop<br>
+                        Instead of FrictionBase, Interfaces.PartialFriction (without stop, as in Rotational) is available.<br>
+                        Grounded.MassWithStopAndFriction is not available with a support connector, 
+                        since the reaction force can't be modeled in a meaningful way due to reinit of velocity v.<br>
+                        Until a sound implementation of a hard stop is available, the old model may be used.</td> </tr>
   <tr><td valign=\"top\"> Stop</td>
       <td valign=\"top\"> Renamed to Components.SlidingMassWithFrictionAndStop to be more concise</td> </tr>
 

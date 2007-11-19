@@ -572,9 +572,6 @@ problems.
       Translational.Components.Fixed fixed 
         annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
     equation 
-      connect(constantAcc.y, accelerate.a) 
-                                          annotation (Line(points={{-79,30},{
-              -42,30}}, color={0,0,127}));
       connect(accelerate.flange, mass.flange_a)    annotation (Line(
           points={{-20,30},{40,30}},
           color={0,127,0},
@@ -587,6 +584,10 @@ problems.
           smooth=Smooth.None,
           fillColor={0,127,0},
           fillPattern=FillPattern.Solid));
+      connect(constantAcc.y, accelerate.a_ref) annotation (Line(
+          points={{-79,30},{-42,30}},
+          color={0,0,127},
+          smooth=Smooth.None));
     end Accelerate;
     
     model Damper "Use of damper models." 
@@ -911,16 +912,16 @@ to see the difference.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-56,-88},{62,-100}},
-              textString="simulate 5 s",
-              lineColor={0,0,255}),
+              extent={{-56,-88},{62,-100}}, 
+              textString="simulate 5 s", 
+              lineColor={0,0,255}), 
             Text(
-              extent={{-100,80},{-80,60}},
-              textString="1)",
-              lineColor={0,0,255}),
+              extent={{-100,80},{-80,60}}, 
+              textString="1)", 
+              lineColor={0,0,255}), 
             Text(
-              extent={{-100,20},{-80,0}},
-              textString="2)",
+              extent={{-100,20},{-80,0}}, 
+              textString="2)", 
               lineColor={0,0,255})}),
         Window(
           x=0.45,
@@ -1539,16 +1540,16 @@ a coupling of the sliding mass with the housing via a spring.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
-            Line(points={{-60,-90},{20,-90}}, color={0,0,0}),
+            Line(points={{-60,-90},{20,-90}}, color={0,0,0}), 
             Polygon(
-              points={{50,-90},{20,-80},{20,-100},{50,-90}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
+              points={{50,-90},{20,-80},{20,-100},{50,-90}}, 
+              lineColor={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
             Text(
-              extent={{0,110},{0,50}},
-              textString="%name",
-              lineColor={0,0,255}),
+              extent={{0,110},{0,50}}, 
+              textString="%name", 
+              lineColor={0,0,255}), 
             Line(points={{-86,0},{-60,0},{-44,-30},{-16,30},{14,-30},{44,30},{
                   60,0},{84,0}}, color={0,0,0})}),
         Diagram(coordinateSystem(
@@ -1844,297 +1845,6 @@ the contact of a sliding mass with the housing.
       contact = s_rel < s_rel0;
       f = if contact then (c*(s_rel - s_rel0) + d*v_rel) else 0;
     end ElastoGap;
-    
-    model MassWithStopAndFriction 
-      "Sliding mass with hard stop and Stribeck friction" 
-      extends Translational.Interfaces.PartialRigid(s(start=0, stateSelect = StateSelect.always));
-      SI.Velocity v(start=0, stateSelect = StateSelect.always) 
-        "Absolute velocity of flange_a and flange_b";
-      SI.Acceleration a(start=0) 
-        "Absolute acceleration of flange_a and flange_b";
-      extends 
-        Modelica.Mechanics.Translational.Interfaces.PartialFrictionWithStop(      final len=L, final pos=s);
-      parameter Modelica.SIunits.Mass m(start=1) "mass";
-      parameter Real F_prop(final unit="N.s/m", final min=0, start = 1) 
-        "velocity dependent friction";
-      parameter Modelica.SIunits.Force F_Coulomb(start=5) 
-        "constant friction: Coulomb force";
-      parameter Modelica.SIunits.Force F_Stribeck(start=10) "Stribeck effect";
-      parameter Real fexp(final unit="s/m", final min=0, start = 2) 
-        "exponential decay";
-      annotation (
-        Documentation(info="
-<HTML>
-<P>This element describes the <i>Stribeck friction characteristics</i> of a sliding mass,
-i. e. the frictional force acting between the sliding mass and the support. Included is a
-<i>hard stop</i> for the position. <BR>
-The surface is fixed and there is friction between sliding mass and surface.
-The frictional force f is given for positive velocity v by:</P>
-<i><uL>
-f = F_Coulomb + F_prop * v + F_Stribeck * exp (-fexp * v)</i> </ul><br>
-<IMG SRC=../Images/Stribeck.png>
-<br><br>
-The distance between the left and the right connector is given by parameter L.
-The position of the center of gravity, coordinate s, is in the middle between
-the two flanges. </p>
-<p>
-There are hard stops at smax and smin, i. e. if <i><uL>
-flange_a.s &gt;= smin
-<ul>    and </ul>
-flange_b.s &lt;= xmax </ul></i>
-the sliding mass can move freely.</p>
-<p>When the absolute velocity becomes zero, the sliding mass becomes stuck, i.e., the absolute position remains constant. In this phase the
-friction force is calculated from a force balance due to the requirement that the
-absolute acceleration shall be zero. The elements begin to slide when the friction
-force exceeds a threshold value, called the maximum static friction force, computed via: </P>
-<i><uL>
-   maximum_static_friction =  F_Coulomb + F_Stribeck
-</i> </ul>
-<font color=\"#ff0000\"> <b>This requires the states Stop.s and Stop.v</b> </font>. If these states are eliminated during the index reduction
-the model will not work. To avoid this any inertias should be connected via springs
-to the Stop element, other sliding masses, dampers or hydraulic chambers must be avoided. </p>
-<p>For more details of the used friction model see the following reference: <br> <br>
-Beater P. (1999): <DD><a href=\"http://www.springer.de/cgi-bin/search_book.pl?isbn=3-540-65444-5\">
-Entwurf hydraulischer Maschinen</a>. Springer Verlag Berlin Heidelberg New York.</DL></P>
-<P>The friction model is implemented in a \"clean\" way by state events and leads to
-continuous/discrete systems of equations which have to be solved by appropriate
-numerical methods. The method is described in: </P>
- 
-<dl>
-Otter M., Elmqvist H., and Mattsson S.E. (1999):
-<i><DD>Hybrid Modeling in Modelica based on the Synchronous Data Flow Principle</i>. CACSD'99, Aug. 22.-26, Hawaii. </DD>
-</DL>
-<P>More precise friction models take into account the elasticity of the material when
-the two elements are \"stuck\", as well as other effects, like hysteresis. This has
-the advantage that the friction element can be completely described by a differential
-equation without events. The drawback is that the system becomes stiff (about 10-20 times
-slower simulation) and that more material constants have to be supplied which requires more
-sophisticated identification. For more details, see the following references, especially
-(Armstrong and Canudas de Witt 1996): </P>
-<dl>
-<dt>
-Armstrong B. (1991):</dt>
-<DD><i>Control of Machines with Friction</i>. Kluwer Academic Press, Boston MA.<BR>
-</DD>
-<DT>Armstrong B., and Canudas de Wit C. (1996): </DT>
-<DD><i>Friction Modeling and Compensation.</i> The Control Handbook, edited by W.S.Levine, CRC Press, pp. 1369-1382.<BR>
-</DD>
-<DT>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995): </DT>
-<DD>A<i> new model for control of systems with friction.</i> IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<BR>
-</DD>
-</DL>
- 
-</HTML>
-",   revisions="<html>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>First Version from December 7, 1999 by P. Beater (based on Rotational.BearingFriction)</i> </li>
-<li><i>July 14, 2001 by P. Beater, assert on initialization added, diagram modified </i> </li>
-<li><i>October 11, 2001, by Hans Olsson, Dynasim, modified assert to handle start at stops,
-modified event logic such if you have friction parameters equal to zero you do not get events
-between the stops.</i> </li>
-<li><i>June 10, 2002 by P. Beater, StateSelect.always for variables s and v (instead of fixed=true). </i> </li>
-</ul>
-</html>"),
-        Window(
-          x=0.45,
-          y=0.01,
-          width=0.56,
-          height=0.83),
-        Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Polygon(
-              points={{50,-80},{20,-70},{20,-90},{50,-80}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-60,-80},{20,-80}}, color={0,0,0}),
-            Rectangle(
-              extent={{-30,30},{35,-35}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.Sphere,
-              fillColor={255,255,255}),
-            Line(points={{-90,0},{-30,0}}, color={0,127,0}),
-            Rectangle(
-              extent={{-70,-45},{74,-60}},
-              lineColor={0,0,0},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{-63,-15},{-55,-45}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{60,-16},{69,-45}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Line(points={{35,0},{90,0}}, color={0,127,0}),
-            Text(
-              extent={{0,100},{0,40}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Line(points={{0,-60},{0,-100}}, color={0,0,0})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Polygon(
-              points={{50,-75},{20,-65},{20,-85},{50,-75}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-60,-75},{20,-75}}, color={0,0,0}),
-            Rectangle(
-              extent={{-30,26},{35,-9}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.Sphere,
-              fillColor={255,255,255}),
-            Line(points={{-90,0},{-30,0}}, color={0,127,0}),
-            Line(points={{35,0},{90,0}}, color={0,127,0}),
-            Rectangle(
-              extent={{-68,-14},{76,-29}},
-              lineColor={0,0,0},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{-119,43},{-111,17}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Line(
-              points={{-111,43},{-111,50}},
-              color={0,0,0},
-              pattern=LinePattern.Solid,
-              thickness=1,
-              arrow={Arrow.None,Arrow.None}),
-            Line(
-              points={{-151,49},{-113,49}},
-              color={0,0,0},
-              pattern=LinePattern.Solid,
-              thickness=1,
-              arrow={Arrow.None,Arrow.None}),
-            Text(
-              extent={{-149,51},{-126,60}},
-              textString="s min",
-              lineColor={0,0,255}),
-            Polygon(
-              points={{-121,52},{-111,49},{-121,46},{-121,52}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{124,42},{132,17}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Line(
-              points={{124,39},{124,87}},
-              color={0,0,0},
-              pattern=LinePattern.Solid,
-              thickness=1,
-              arrow={Arrow.None,Arrow.None}),
-            Line(
-              points={{-19,78},{121,78}},
-              color={0,0,0},
-              pattern=LinePattern.Solid,
-              thickness=1,
-              arrow={Arrow.None,Arrow.None}),
-            Text(
-              extent={{-17,83},{6,92}},
-              textString="s max",
-              lineColor={0,0,255}),
-            Polygon(
-              points={{114,81},{124,78},{114,75},{114,81}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Line(
-              points={{5,26},{5,63}},
-              color={0,0,0},
-              pattern=LinePattern.Solid,
-              thickness=1,
-              arrow={Arrow.None,Arrow.None}),
-            Line(
-              points={{-77,58},{-1,58}},
-              color={0,0,0},
-              pattern=LinePattern.Solid,
-              thickness=1,
-              arrow={Arrow.None,Arrow.None}),
-            Text(
-              extent={{-75,60},{-38,71}},
-              textString="Position s",
-              lineColor={0,0,255}),
-            Polygon(
-              points={{-5,61},{5,58},{-5,55},{-5,61}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-100,-10},{-100,-60}}, color={0,0,0}),
-            Line(points={{100,-10},{100,-60}}, color={0,0,0}),
-            Polygon(
-              points={{90,-47},{100,-50},{90,-53},{90,-47}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{-90,-47},{-90,-53},{-100,-50},{-90,-47}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-90,-50},{92,-50}}, color={0,0,0}),
-            Text(
-              extent={{-11,-46},{26,-36}},
-              textString="Length L",
-              lineColor={0,0,255})}));
-      Interfaces.Support support 
-        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-    equation 
-      // Constant auxiliary variables
-      f0 = (F_Coulomb + F_Stribeck);
-      f0_max = f0*1.001;
-      free = f0 <= 0 and F_prop <= 0 and s > smin + L/2 and s < smax - L/2;
-      // Velocity and acceleration of flanges
-      v = der(s);
-      a = der(v);
-      v_relfric = v;
-      a_relfric = a;
-    // Equilibrium of forces
-      0 = flange_a.f + flange_b.f - f - m*der(v);
-      support.f = - f;
-    // Friction force
-      f = if locked then sa*unitForce else 
-          if free then   0 else 
-                        (if startForward then         F_prop*v + F_Coulomb + F_Stribeck else 
-                         if startBackward then        F_prop*v - F_Coulomb - F_Stribeck else 
-                         if pre(mode) == Forward then F_prop*v + F_Coulomb + F_Stribeck*exp(-fexp*abs(v)) else 
-                                                      F_prop*v - F_Coulomb - F_Stribeck*exp(-fexp*abs(v)));
-    // Define events for hard stops and reinitiliaze the state variables velocity v and position s
-    algorithm 
-      when (initial()) then
-        assert(s > smin + L/2 or s >= smin + L/2 and v >= 0,
-          "Error in initialization of hard stop. (s - L/2) must be >= smin ");
-        assert(s < smax - L/2 or s <= smax - L/2 and v <= 0,
-          "Error in initialization of hard stop. (s + L/2) must be <= smax ");
-      end when;
-      
-      when not (s < smax - L/2) then
-        reinit(s, smax - L/2);
-        if (not initial() or v>0) then
-          reinit(v, 0);
-        end if;
-      end when;
-      
-      when not (s > smin + L/2) then
-        reinit(s, smin + L/2);
-        if (not initial() or v<0) then
-          reinit(v, 0);
-        end if;
-      end when;
-    end MassWithStopAndFriction;
     
     model SupportFriction "Coulomb friction in support" 
       
@@ -2842,28 +2552,28 @@ The following variables are transported through this connector:
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
-              extent={{-60,60},{60,-60}}, 
-              lineColor={0,127,0}, 
-              fillColor={175,175,175}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-60,60},{60,-60}},
+              lineColor={0,127,0},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-160,110},{40,50}}, 
-              lineColor={0,127,0}, 
-              textString="%name"), 
+              extent={{-160,110},{40,50}},
+              lineColor={0,127,0},
+              textString="%name"),
             Rectangle(
-              extent={{-40,-40},{40,40}}, 
-              lineColor={0,127,0}, 
-              fillColor={0,127,0}, 
+              extent={{-40,-40},{40,40}},
+              lineColor={0,127,0},
+              fillColor={0,127,0},
               fillPattern=FillPattern.Solid)}), Icon(coordinateSystem(
-              preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
+              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={Rectangle(
-              extent={{-150,150},{150,-150}}, 
-              lineColor={0,127,0}, 
-              fillColor={175,175,175}, 
+              extent={{-150,150},{150,-150}},
+              lineColor={0,127,0},
+              fillColor={175,175,175},
               fillPattern=FillPattern.Solid), Rectangle(
-              extent={{-100,-100},{100,100}}, 
-              lineColor={0,127,0}, 
-              fillColor={0,127,0}, 
+              extent={{-100,-100},{100,100}},
+              lineColor={0,127,0},
+              fillColor={0,127,0},
               fillPattern=FillPattern.Solid)}));
     end Support;
     
@@ -3129,7 +2839,7 @@ The support connector needs to be connected to avoid the unphysical behavior tha
 "),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics), 
+            grid={2,2}), graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -3149,7 +2859,7 @@ The support connector needs to be connected to avoid the unphysical behavior tha
       v = der(s);
       a = der(v);
     end PartialSourceGrounded;
-
+    
     partial model PartialTwoFlanges 
       "Component with two translational 1D flanges " 
       Flange_a flange_a 
@@ -3212,24 +2922,15 @@ of several base components.
           height=0.6));
     end PartialTwoFlangesAndSupport;
     
-    partial model PartialFrictionWithStop 
-      "Base model of Coulomb friction elements with stop" 
+    partial model PartialFriction "Base model of Coulomb friction elements" 
       
       annotation (Documentation(info="<html>
 <p>
-Basic model for Coulomb friction that models the stuck phase in a reliable way.<br>
-Additionally, a left and right stop are handled.
+Basic model for Coulomb friction that models the stuck phase in a reliable way.
 </p>  
 </html>
 "));
     //extends Translational.Interfaces.PartialRigid;
-      parameter SI.Length len(start=0) 
-        "length of component from left flange to right flange (= flange_b.s - flange_a.s)";
-      parameter SI.Position smax(start= 25) 
-        "right stop for (right end of) sliding mass";
-      parameter SI.Position smin(start=-25) 
-        "left stop for (left end of) sliding mass";
-      input SI.Position pos;
       parameter SI.Velocity v_small=1e-3 
         "Relative velocity near to zero (see model info text)" 
          annotation(Dialog(tab="Advanced"));
@@ -3270,10 +2971,10 @@ Additionally, a left and right stop are handled.
    if for each configuration special code shall be generated)
 */
       startForward  = pre(mode) == Stuck and 
-        (pre(startForward)  or sa >  f0_max/unitForce and sa >  f0/unitForce and pos < (smax - len/2)) or 
+        (pre(startForward)  or sa >  f0_max/unitForce and sa >  f0/unitForce) or 
         pre(mode) == Backward and v_relfric >  v_small or initial() and v_relfric > 0;
       startBackward = pre(mode) == Stuck and 
-        (pre(startBackward) or sa < -f0_max/unitForce and sa < -f0/unitForce and pos > (smin + len/2)) or 
+        (pre(startBackward) or sa < -f0_max/unitForce and sa < -f0/unitForce) or 
         pre(mode) == Forward  and v_relfric < -v_small or initial() and v_relfric < 0;
       locked = not free and 
         not (pre(mode) == Forward or startForward or pre(mode) == Backward or startBackward);
@@ -3293,21 +2994,11 @@ Additionally, a left and right stop are handled.
 */
     // finite state machine to determine configuration
       mode = if free then Free else 
-        (if (pre(mode) == Forward  or pre(mode) == Free or startForward)  and v_relfric > 0 and pos < (smax - len/2) then 
+        (if (pre(mode) == Forward  or pre(mode) == Free or startForward)  and v_relfric > 0 then 
            Forward else 
-         if (pre(mode) == Backward or pre(mode) == Free or startBackward) and v_relfric < 0 and pos > (smin + len/2) then 
+         if (pre(mode) == Backward or pre(mode) == Free or startBackward) and v_relfric < 0 then 
            Backward else 
            Stuck);
-    end PartialFrictionWithStop;
-    
-    partial model PartialFriction "Base model of Coulomb friction elements" 
-      
-      annotation (Documentation(info="<html>
-<p>
-Basic model for Coulomb friction that models the stuck phase in a reliable way.
-</p>  
-</html>"));
-      extends PartialFrictionWithStop(final len=0, final smax=1, final smin=-1, final pos=0);
     end PartialFriction;
     
     partial model PartialAbsoluteSensor 
@@ -3337,17 +3028,17 @@ with the Modelica.Blocks blocks.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
-            Line(points={{-100,-90},{-20,-90}}, color={0,0,0}), 
+            Line(points={{-100,-90},{-20,-90}}, color={0,0,0}),
             Polygon(
-              points={{10,-90},{-20,-80},{-20,-100},{10,-90}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-            Line(points={{70,0},{100,0}}, color={0,0,127}), 
+              points={{10,-90},{-20,-80},{-20,-100},{10,-90}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            Line(points={{70,0},{100,0}}, color={0,0,127}),
             Text(
-              extent={{-118,99},{118,40}}, 
-              textString="%name", 
+              extent={{-118,99},{118,40}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -3389,17 +3080,17 @@ with the Modelica.Blocks blocks.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
-            Line(points={{-51,34},{29,34}}, color={0,0,0}), 
+            Line(points={{-51,34},{29,34}}, color={0,0,0}),
             Polygon(
-              points={{59,34},{29,44},{29,24},{59,34}}, 
-              lineColor={0,0,0}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-            Line(points={{70,0},{90,0}}, color={0,0,0}), 
+              points={{59,34},{29,44},{29,24},{59,34}},
+              lineColor={0,0,0},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            Line(points={{70,0},{90,0}}, color={0,0,0}),
             Text(
-              extent={{-117,116},{115,52}}, 
-              textString="%name", 
+              extent={{-117,116},{115,52}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -3432,30 +3123,30 @@ with the Modelica.Blocks blocks.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
             Rectangle(
-              extent={{-96,96},{96,-96}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-30,-70},{30,-70}}, color={0,0,0}), 
-            Line(points={{-30,-90},{-10,-70}}, color={0,0,0}), 
-            Line(points={{-10,-90},{10,-70}}, color={0,0,0}), 
-            Line(points={{10,-90},{30,-70}}, color={0,0,0}), 
-            Line(points={{0,-70},{0,-110}}, color={0,0,0}), 
+              extent={{-96,96},{96,-96}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-30,-70},{30,-70}}, color={0,0,0}),
+            Line(points={{-30,-90},{-10,-70}}, color={0,0,0}),
+            Line(points={{-10,-90},{10,-70}}, color={0,0,0}),
+            Line(points={{10,-90},{30,-70}}, color={0,0,0}),
+            Line(points={{0,-70},{0,-110}}, color={0,0,0}),
             Text(
-              extent={{-150,140},{150,100}}, 
-              lineColor={0,0,255}, 
-              textString="%name"), 
-            Line(points={{-78,80},{51,80}}, color={0,0,0}), 
+              extent={{-150,140},{150,100}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Line(points={{-78,80},{51,80}}, color={0,0,0}),
             Polygon(
-              points={{81,80},{51,90},{51,70},{81,80}}, 
-              lineColor={0,0,0}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-52,-60},{77,-60}}, color={0,0,0}), 
+              points={{81,80},{51,90},{51,70},{81,80}},
+              lineColor={0,0,0},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-52,-60},{77,-60}}, color={0,0,0}),
             Polygon(
-              points={{-82,-60},{-51,-50},{-51,-70},{-82,-60}}, 
-              lineColor={0,0,0}, 
-              fillColor={128,128,128}, 
+              points={{-82,-60},{-51,-50},{-51,-70},{-82,-60}},
+              lineColor={0,0,0},
+              fillColor={128,128,128},
               fillPattern=FillPattern.Solid)}),
       Documentation(info="<HTML>
 <p>
@@ -3969,28 +3660,28 @@ blocks of the block library Modelica.Blocks.Sources.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-40,-40},{-126,-78}}, 
-              lineColor={0,0,0}, 
-              textString="s_ref"), 
+              extent={{-40,-40},{-126,-78}},
+              lineColor={0,0,0},
+              textString="s_ref"),
             Rectangle(
-              extent={{-100,20},{100,-20}}, 
-              lineColor={0,127,0}, 
-              fillColor={215,215,215}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,20},{100,-20}},
+              lineColor={0,127,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{150,60},{-150,100}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
-            Line(points={{0,52},{0,32}}, color={0,0,0}), 
-            Line(points={{-29,32},{30,32}}, color={0,0,0}), 
-            Line(points={{-30,-32},{30,-32}}, color={0,0,0}), 
-            Line(points={{0,-32},{0,-86}}, color={0,0,0}), 
-            Line(points={{30,-42},{20,-52}}, color={0,0,0}), 
-            Line(points={{30,-32},{10,-52}}, color={0,0,0}), 
-            Line(points={{20,-32},{0,-52}}, color={0,0,0}), 
-            Line(points={{10,-32},{-10,-52}}, color={0,0,0}), 
-            Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
-            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
+              extent={{150,60},{-150,100}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{0,52},{0,32}}, color={0,0,0}),
+            Line(points={{-29,32},{30,32}}, color={0,0,0}),
+            Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
+            Line(points={{0,-32},{0,-86}}, color={0,0,0}),
+            Line(points={{30,-42},{20,-52}}, color={0,0,0}),
+            Line(points={{30,-32},{10,-52}}, color={0,0,0}),
+            Line(points={{20,-32},{0,-52}}, color={0,0,0}),
+            Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
+            Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
+            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
             Line(points={{-20,-32},{-30,-42}}, color={0,0,0})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -4059,28 +3750,28 @@ blocks of the block library Modelica.Blocks.Sources.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-40,-40},{-126,-78}}, 
-              lineColor={0,0,0}, 
-              textString="v_ref"), 
-            Line(points={{-30,-32},{30,-32}}, color={0,0,0}), 
-            Line(points={{0,-32},{0,-86}}, color={0,0,0}), 
-            Line(points={{30,-42},{20,-52}}, color={0,0,0}), 
-            Line(points={{30,-32},{10,-52}}, color={0,0,0}), 
-            Line(points={{20,-32},{0,-52}}, color={0,0,0}), 
-            Line(points={{10,-32},{-10,-52}}, color={0,0,0}), 
-            Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
-            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
-            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}), 
+              extent={{-40,-40},{-126,-78}},
+              lineColor={0,0,0},
+              textString="v_ref"),
+            Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
+            Line(points={{0,-32},{0,-86}}, color={0,0,0}),
+            Line(points={{30,-42},{20,-52}}, color={0,0,0}),
+            Line(points={{30,-32},{10,-52}}, color={0,0,0}),
+            Line(points={{20,-32},{0,-52}}, color={0,0,0}),
+            Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
+            Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
+            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
+            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
             Rectangle(
-              extent={{-100,20},{100,-20}}, 
-              lineColor={0,127,0}, 
-              fillColor={215,215,215}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-29,32},{30,32}}, color={0,0,0}), 
-            Line(points={{0,52},{0,32}}, color={0,0,0}), 
+              extent={{-100,20},{100,-20}},
+              lineColor={0,127,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-29,32},{30,32}}, color={0,0,0}),
+            Line(points={{0,52},{0,32}}, color={0,0,0}),
             Text(
-              extent={{150,60},{-150,100}}, 
-              textString="%name", 
+              extent={{150,60},{-150,100}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -4134,28 +3825,28 @@ blocks of the block library Modelica.Blocks.Source.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-75,-18},{-124,-58}}, 
-              lineColor={0,0,0}, 
-              textString="a_ref"), 
-            Line(points={{-30,-32},{30,-32}}, color={0,0,0}), 
-            Line(points={{0,-32},{0,-86}}, color={0,0,0}), 
-            Line(points={{30,-42},{20,-52}}, color={0,0,0}), 
-            Line(points={{30,-32},{10,-52}}, color={0,0,0}), 
-            Line(points={{20,-32},{0,-52}}, color={0,0,0}), 
-            Line(points={{10,-32},{-10,-52}}, color={0,0,0}), 
-            Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
-            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
-            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}), 
+              extent={{-75,-18},{-124,-58}},
+              lineColor={0,0,0},
+              textString="a_ref"),
+            Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
+            Line(points={{0,-32},{0,-86}}, color={0,0,0}),
+            Line(points={{30,-42},{20,-52}}, color={0,0,0}),
+            Line(points={{30,-32},{10,-52}}, color={0,0,0}),
+            Line(points={{20,-32},{0,-52}}, color={0,0,0}),
+            Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
+            Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
+            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
+            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
             Rectangle(
-              extent={{-100,20},{100,-20}}, 
-              lineColor={0,127,0}, 
-              fillColor={215,215,215}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-29,32},{30,32}}, color={0,0,0}), 
-            Line(points={{0,52},{0,32}}, color={0,0,0}), 
+              extent={{-100,20},{100,-20}},
+              lineColor={0,127,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-29,32},{30,32}}, color={0,0,0}),
+            Line(points={{0,52},{0,32}}, color={0,0,0}),
             Text(
-              extent={{150,60},{-150,100}}, 
-              textString="%name", 
+              extent={{150,60},{-150,100}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -4207,28 +3898,28 @@ blocks of the block library Modelica.Blocks.Sources.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-140,-62},{20,-100}}, 
-              lineColor={0,0,0}, 
-              textString="s,v,a"), 
-            Line(points={{-30,-32},{30,-32}}, color={0,0,0}), 
-            Line(points={{0,-32},{0,-86}}, color={0,0,0}), 
-            Line(points={{30,-42},{20,-52}}, color={0,0,0}), 
-            Line(points={{30,-32},{10,-52}}, color={0,0,0}), 
-            Line(points={{20,-32},{0,-52}}, color={0,0,0}), 
-            Line(points={{10,-32},{-10,-52}}, color={0,0,0}), 
-            Line(points={{0,-32},{-20,-52}}, color={0,0,0}), 
-            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}), 
-            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}), 
+              extent={{-140,-62},{20,-100}},
+              lineColor={0,0,0},
+              textString="s,v,a"),
+            Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
+            Line(points={{0,-32},{0,-86}}, color={0,0,0}),
+            Line(points={{30,-42},{20,-52}}, color={0,0,0}),
+            Line(points={{30,-32},{10,-52}}, color={0,0,0}),
+            Line(points={{20,-32},{0,-52}}, color={0,0,0}),
+            Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
+            Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
+            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
+            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
             Rectangle(
-              extent={{-100,20},{100,-20}}, 
-              lineColor={0,127,0}, 
-              fillColor={215,215,215}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{0,52},{0,32}}, color={0,0,0}), 
-            Line(points={{-29,32},{30,32}}, color={0,0,0}), 
+              extent={{-100,20},{100,-20}},
+              lineColor={0,127,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,52},{0,32}}, color={0,0,0}),
+            Line(points={{-29,32},{30,32}}, color={0,0,0}),
             Text(
-              extent={{150,60},{-150,100}}, 
-              textString="%name", 
+              extent={{150,60},{-150,100}},
+              textString="%name",
               lineColor={0,0,255})}),
         Window(
           x=0.27,
@@ -4306,29 +3997,29 @@ blocks of Modelica.Blocks.Source.
             grid={2,2}), graphics={
             Polygon(
               points={{-100,10},{20,10},{20,41},{90,0},{20,-41},{20,-10},{-100,
-                  -10},{-100,10}}, 
-              lineColor={0,127,0}, 
-              fillColor={215,215,215}, 
-              fillPattern=FillPattern.Solid), 
+                  -10},{-100,10}},
+              lineColor={0,127,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-100,-40},{-47,-88}}, 
-              lineColor={0,0,0}, 
-              textString="f"), 
+              extent={{-100,-40},{-47,-88}},
+              lineColor={0,0,0},
+              textString="f"),
             Text(
-              extent={{0,109},{0,49}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
-            Line(points={{-30,-60},{30,-60}}, color={0,0,0}), 
-            Line(points={{0,-60},{0,-85}}, color={0,0,0}), 
-            Line(points={{-30,-80},{-10,-60}}, color={0,0,0}), 
-            Line(points={{-10,-80},{10,-60}}, color={0,0,0}), 
-            Line(points={{10,-80},{30,-60}}, color={0,0,0}), 
+              extent={{0,109},{0,49}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{-30,-60},{30,-60}}, color={0,0,0}),
+            Line(points={{0,-60},{0,-85}}, color={0,0,0}),
+            Line(points={{-30,-80},{-10,-60}}, color={0,0,0}),
+            Line(points={{-10,-80},{10,-60}}, color={0,0,0}),
+            Line(points={{10,-80},{30,-60}}, color={0,0,0}),
             Polygon(
-              points={{-61,-50},{-30,-40},{-30,-60},{-61,-50}}, 
-              lineColor={0,0,0}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-31,-50},{50,-50}}, color={0,0,0}), 
+              points={{-61,-50},{-30,-40},{-30,-60},{-61,-50}},
+              lineColor={0,0,0},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-31,-50},{50,-50}}, color={0,0,0}),
             Line(points={{-50,-80},{-30,-60}}, color={0,0,0})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -4370,22 +4061,22 @@ blocks of Modelica.Blocks.Source.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{0,-40},{0,-100}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{0,-40},{0,-100}},
+              textString="%name",
+              lineColor={0,0,255}),
             Polygon(
               points={{90,0},{60,-30},{60,-10},{10,-10},{10,10},{60,10},{60,31},
-                  {90,0}}, 
-              lineColor={0,127,0}, 
-              smooth=Smooth.None, 
-              fillColor={215,215,215}, 
-              fillPattern=FillPattern.Solid), 
+                  {90,0}},
+              lineColor={0,127,0},
+              smooth=Smooth.None,
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
             Polygon(
               points={{-90,0},{-60,30},{-60,10},{-10,10},{-10,-10},{-60,-10},{-60,
-                  -30},{-90,0}}, 
-              lineColor={0,127,0}, 
-              smooth=Smooth.None, 
-              fillColor={215,215,215}, 
+                  -30},{-90,0}},
+              lineColor={0,127,0},
+              smooth=Smooth.None,
+              fillColor={215,215,215},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -4405,7 +4096,7 @@ blocks of Modelica.Blocks.Source.
       parameter Modelica.SIunits.Velocity v_nominal(min=Modelica.Constants.eps) 
         "Nominal speed";
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}}, 
+                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}},
                 color={0,0,255})}), Documentation(info="<HTML>
 <p>
 Model of force, linearly dependent on velocity of flange.<br>
@@ -4451,7 +4142,7 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
       parameter Modelica.SIunits.Force f_constant 
         "Nominal force (if negative, force is acting as load)";
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{-100,0},{98,0}}, 
+                -100},{100,100}}), graphics={Line(points={{-100,0},{98,0}},
                 color={0,0,255})}),
                                Documentation(info="<HTML>
 <p>
@@ -4468,7 +4159,7 @@ Positive force acts accelerating.
       parameter Modelica.SIunits.Velocity v_fixed 
         "Fixed speed (if negative, force is acting as load)";
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{0,-100},{0,100}}, 
+                -100},{100,100}}), graphics={Line(points={{0,-100},{0,100}},
                 color={0,0,255})}), Documentation(info="<HTML>
 <p>
 Model of <b>fixed</b> verlocity of flange, not dependent on force.
@@ -4488,8 +4179,8 @@ Model of <b>fixed</b> verlocity of flange, not dependent on force.
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-80,-60},{0,-60},{0,
                   60},{80,60}}, color={0,0,255}), Text(
-              extent={{0,-40},{100,-60}}, 
-              lineColor={0,0,255}, 
+              extent={{0,-40},{100,-60}},
+              lineColor={0,0,255},
               textString="time")}), Documentation(info="<HTML>
 <p>
 Model of a force step at time .<br>
@@ -4546,25 +4237,25 @@ velocity of model mass1 or of model mass2 as state variables.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Ellipse(
-              extent={{-40,40},{40,-40}}, 
-              lineColor={0,255,255}, 
-              fillColor={0,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-40,40},{40,-40}},
+              lineColor={0,255,255},
+              fillColor={0,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-40,40},{40,-40}}, 
-              textString="S", 
-              lineColor={0,0,255}), 
+              extent={{-40,40},{40,-40}},
+              textString="S",
+              lineColor={0,0,255}),
             Line(
-              points={{-92,0},{-42,0}}, 
-              color={0,0,0}, 
-              pattern=LinePattern.Dot), 
+              points={{-92,0},{-42,0}},
+              color={0,0,0},
+              pattern=LinePattern.Dot),
             Line(
-              points={{40,0},{90,0}}, 
-              color={0,0,0}, 
-              pattern=LinePattern.Dot), 
+              points={{40,0},{90,0}},
+              color={0,0,0},
+              pattern=LinePattern.Dot),
             Text(
-              extent={{0,110},{0,50}}, 
-              textString="%name", 
+              extent={{0,110},{0,50}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -4622,22 +4313,12 @@ velocity of model mass1 or of model mass2 as state variables.
   extends Modelica.Icons.Library2;
     
     model MassWithStopAndFriction 
-      "Sliding mass with hard stop and Stribeck friction (support is fixed to ground)" 
-      extends Translational.Interfaces.PartialTwoFlanges;
-      SI.Position s(start=0)=massWithStopAndFriction.s 
-        "absolute position of center of component (s = flange_a.s + L/2 = flange_b.s - L/2)";
-      SI.Velocity v(start=0)=massWithStopAndFriction.v 
+      "Sliding mass with hard stop and Stribeck friction" 
+      extends PartialFrictionWithStop;
+      SI.Velocity v(start=0, stateSelect = StateSelect.always) 
         "Absolute velocity of flange_a and flange_b";
-      SI.Acceleration a(start=0)=massWithStopAndFriction.a 
+      SI.Acceleration a(start=0) 
         "Absolute acceleration of flange_a and flange_b";
-      SI.Force f=massWithStopAndFriction.f 
-        "Friction force (positive, if directed in opposite direction of v_rel)";
-      parameter SI.Length L(start=0) 
-        "length of component from left flange to right flange (= flange_b.s - flange_a.s)";
-      parameter SI.Position smax(start= 25) 
-        "right stop for (right end of) sliding mass";
-      parameter SI.Position smin(start=-25) 
-        "left stop for (left end of) sliding mass";
       parameter Modelica.SIunits.Mass m(start=1) "mass";
       parameter Real F_prop(final unit="N.s/m", final min=0, start = 1) 
         "velocity dependent friction";
@@ -4646,31 +4327,106 @@ velocity of model mass1 or of model mass2 as state variables.
       parameter Modelica.SIunits.Force F_Stribeck(start=10) "Stribeck effect";
       parameter Real fexp(final unit="s/m", final min=0, start = 2) 
         "exponential decay";
-      annotation (Documentation(info="<html>
+      annotation (
+        Documentation(info="
+<HTML>
+<P>This element describes the <i>Stribeck friction characteristics</i> of a sliding mass,
+i. e. the frictional force acting between the sliding mass and the support. Included is a
+<i>hard stop</i> for the position. <BR>
+The surface is fixed and there is friction between sliding mass and surface.
+The frictional force f is given for positive velocity v by:</P>
+<i><uL>
+f = F_Coulomb + F_prop * v + F_Stribeck * exp (-fexp * v)</i> </ul><br>
+<IMG SRC=../Images/Stribeck.png>
+<br><br>
+The distance between the left and the right connector is given by parameter L.
+The position of the center of gravity, coordinate s, is in the middle between
+the two flanges. </p>
 <p>
-Identical to
-<a href=\"Modelica://Modelica.Mechanics.Translational.Components.MassWithStopAndFriction\">Translational.Components.MassWithStopAndFriction</a>,
-and the support is automatically fixed to ground.
-</p>
-</html>"),     Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                -100},{100,100}}), graphics={
-            Line(points={{0,-60},{0,-100}}, color={0,0,0}), 
-            Line(points={{-50,-120},{-30,-100}}, color={0,0,0}), 
-            Line(points={{-30,-120},{-10,-100}}, color={0,0,0}), 
-            Line(points={{-10,-120},{10,-100}}, color={0,0,0}), 
-            Line(points={{10,-120},{30,-100}}, color={0,0,0}), 
-            Line(points={{-30,-100},{30,-100}}, color={0,0,0}), 
-            Text(
-              extent={{0,100},{0,40}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
-            Line(points={{-90,0},{-30,0}}, color={0,127,0}), 
+There are hard stops at smax and smin, i. e. if <i><uL>
+flange_a.s &gt;= smin
+<ul>    and </ul>
+flange_b.s &lt;= xmax </ul></i>
+the sliding mass can move freely.</p>
+<p>When the absolute velocity becomes zero, the sliding mass becomes stuck, i.e., the absolute position remains constant. In this phase the
+friction force is calculated from a force balance due to the requirement that the
+absolute acceleration shall be zero. The elements begin to slide when the friction
+force exceeds a threshold value, called the maximum static friction force, computed via: </P>
+<i><uL>
+   maximum_static_friction =  F_Coulomb + F_Stribeck
+</i> </ul>
+<font color=\"#ff0000\"> <b>This requires the states Stop.s and Stop.v</b> </font>. If these states are eliminated during the index reduction
+the model will not work. To avoid this any inertias should be connected via springs
+to the Stop element, other sliding masses, dampers or hydraulic chambers must be avoided. </p>
+<p>For more details of the used friction model see the following reference: <br> <br>
+Beater P. (1999): <DD><a href=\"http://www.springer.de/cgi-bin/search_book.pl?isbn=3-540-65444-5\">
+Entwurf hydraulischer Maschinen</a>. Springer Verlag Berlin Heidelberg New York.</DL></P>
+<P>The friction model is implemented in a \"clean\" way by state events and leads to
+continuous/discrete systems of equations which have to be solved by appropriate
+numerical methods. The method is described in: </P>
+ 
+<dl>
+Otter M., Elmqvist H., and Mattsson S.E. (1999):
+<i><DD>Hybrid Modeling in Modelica based on the Synchronous Data Flow Principle</i>. CACSD'99, Aug. 22.-26, Hawaii. </DD>
+</DL>
+<P>More precise friction models take into account the elasticity of the material when
+the two elements are \"stuck\", as well as other effects, like hysteresis. This has
+the advantage that the friction element can be completely described by a differential
+equation without events. The drawback is that the system becomes stiff (about 10-20 times
+slower simulation) and that more material constants have to be supplied which requires more
+sophisticated identification. For more details, see the following references, especially
+(Armstrong and Canudas de Witt 1996): </P>
+<dl>
+<dt>
+Armstrong B. (1991):</dt>
+<DD><i>Control of Machines with Friction</i>. Kluwer Academic Press, Boston MA.<BR>
+</DD>
+<DT>Armstrong B., and Canudas de Wit C. (1996): </DT>
+<DD><i>Friction Modeling and Compensation.</i> The Control Handbook, edited by W.S.Levine, CRC Press, pp. 1369-1382.<BR>
+</DD>
+<DT>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995): </DT>
+<DD>A<i> new model for control of systems with friction.</i> IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<BR>
+</DD>
+</DL>
+ 
+</HTML>
+",   revisions="<html>
+<p><b>Release Notes:</b></p>
+<ul>
+<li><i>First Version from December 7, 1999 by P. Beater (based on Rotational.BearingFriction)</i> </li>
+<li><i>July 14, 2001 by P. Beater, assert on initialization added, diagram modified </i> </li>
+<li><i>October 11, 2001, by Hans Olsson, Dynasim, modified assert to handle start at stops,
+modified event logic such if you have friction parameters equal to zero you do not get events
+between the stops.</i> </li>
+<li><i>June 10, 2002 by P. Beater, StateSelect.always for variables s and v (instead of fixed=true). </i> </li>
+</ul>
+</html>"),
+        Window(
+          x=0.45,
+          y=0.01,
+          width=0.56,
+          height=0.83),
+        Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={
+            Polygon(
+              points={{50,-80},{20,-70},{20,-90},{50,-80}}, 
+              lineColor={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-60,-80},{20,-80}}, color={0,0,0}), 
             Rectangle(
               extent={{-30,30},{35,-35}}, 
               lineColor={0,0,0}, 
               fillPattern=FillPattern.Sphere, 
               fillColor={255,255,255}), 
-            Line(points={{35,0},{90,0}}, color={0,127,0}), 
+            Line(points={{-90,0},{-30,0}}, color={0,127,0}), 
+            Rectangle(
+              extent={{-70,-45},{74,-60}}, 
+              lineColor={0,0,0}, 
+              fillColor={192,192,192}, 
+              fillPattern=FillPattern.Solid), 
             Rectangle(
               extent={{-63,-15},{-55,-45}}, 
               lineColor={0,0,0}, 
@@ -4681,44 +4437,250 @@ and the support is automatically fixed to ground.
               lineColor={0,0,0}, 
               fillColor={0,0,0}, 
               fillPattern=FillPattern.Solid), 
+            Line(points={{35,0},{90,0}}, color={0,127,0}), 
+            Text(
+              extent={{0,100},{0,40}}, 
+              textString="%name", 
+              lineColor={0,0,255})}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={
+            Polygon(
+              points={{50,-75},{20,-65},{20,-85},{50,-75}}, 
+              lineColor={128,128,128}, 
+              fillColor={128,128,128}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-60,-75},{20,-75}}, color={0,0,0}), 
             Rectangle(
-              extent={{-70,-45},{74,-60}}, 
+              extent={{-30,26},{35,-9}}, 
+              lineColor={0,0,0}, 
+              fillPattern=FillPattern.Sphere, 
+              fillColor={255,255,255}), 
+            Line(points={{-90,0},{-30,0}}, color={0,127,0}), 
+            Line(points={{35,0},{90,0}}, color={0,127,0}), 
+            Rectangle(
+              extent={{-68,-14},{76,-29}}, 
               lineColor={0,0,0}, 
               fillColor={192,192,192}, 
               fillPattern=FillPattern.Solid), 
-            Line(points={{-60,-80},{20,-80}}, color={0,0,0}), 
+            Rectangle(
+              extent={{-119,43},{-111,17}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{-111,43},{-111,50}}, 
+              color={0,0,0}, 
+              pattern=LinePattern.Solid, 
+              thickness=1, 
+              arrow={Arrow.None,Arrow.None}), 
+            Line(
+              points={{-151,49},{-113,49}}, 
+              color={0,0,0}, 
+              pattern=LinePattern.Solid, 
+              thickness=1, 
+              arrow={Arrow.None,Arrow.None}), 
+            Text(
+              extent={{-149,51},{-126,60}}, 
+              textString="s min", 
+              lineColor={0,0,255}), 
             Polygon(
-              points={{50,-80},{20,-70},{20,-90},{50,-80}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics));
-      Translational.Components.Fixed fixed 
-        annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
-      Translational.Components.MassWithStopAndFriction massWithStopAndFriction(
-        final L=L,
-        final smax=smax,
-        final smin=smin,
-        final m=m,
-        final F_prop=F_prop,
-        final F_Coulomb=F_Coulomb,
-        final F_Stribeck=F_Stribeck,
-        final fexp=fexp) 
-        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+              points={{-121,52},{-111,49},{-121,46},{-121,52}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Rectangle(
+              extent={{124,42},{132,17}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{124,39},{124,87}}, 
+              color={0,0,0}, 
+              pattern=LinePattern.Solid, 
+              thickness=1, 
+              arrow={Arrow.None,Arrow.None}), 
+            Line(
+              points={{-19,78},{121,78}}, 
+              color={0,0,0}, 
+              pattern=LinePattern.Solid, 
+              thickness=1, 
+              arrow={Arrow.None,Arrow.None}), 
+            Text(
+              extent={{-17,83},{6,92}}, 
+              textString="s max", 
+              lineColor={0,0,255}), 
+            Polygon(
+              points={{114,81},{124,78},{114,75},{114,81}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Line(
+              points={{5,26},{5,63}}, 
+              color={0,0,0}, 
+              pattern=LinePattern.Solid, 
+              thickness=1, 
+              arrow={Arrow.None,Arrow.None}), 
+            Line(
+              points={{-77,58},{-1,58}}, 
+              color={0,0,0}, 
+              pattern=LinePattern.Solid, 
+              thickness=1, 
+              arrow={Arrow.None,Arrow.None}), 
+            Text(
+              extent={{-75,60},{-38,71}}, 
+              textString="Position s", 
+              lineColor={0,0,255}), 
+            Polygon(
+              points={{-5,61},{5,58},{-5,55},{-5,61}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-100,-10},{-100,-60}}, color={0,0,0}), 
+            Line(points={{100,-10},{100,-60}}, color={0,0,0}), 
+            Polygon(
+              points={{90,-47},{100,-50},{90,-53},{90,-47}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Polygon(
+              points={{-90,-47},{-90,-53},{-100,-50},{-90,-47}}, 
+              lineColor={0,0,0}, 
+              fillColor={0,0,0}, 
+              fillPattern=FillPattern.Solid), 
+            Line(points={{-90,-50},{92,-50}}, color={0,0,0}), 
+            Text(
+              extent={{-11,-46},{26,-36}}, 
+              textString="Length L", 
+              lineColor={0,0,255})}));
+    encapsulated partial model PartialFrictionWithStop 
+        "Base model of Coulomb friction elements with stop" 
+        
+      annotation (Documentation(info="<html>
+<p>
+Basic model for Coulomb friction that models the stuck phase in a reliable way.<br>
+Additionally, a left and right stop are handled.
+</p>  
+</html>
+"));
+      import SI = Modelica.SIunits;
+      import Modelica.Mechanics.Translational.Interfaces.PartialRigid;
+      extends PartialRigid(s(start=0, stateSelect = StateSelect.always));
+      parameter SI.Position smax(start= 25) 
+          "right stop for (right end of) sliding mass";
+      parameter SI.Position smin(start=-25) 
+          "left stop for (left end of) sliding mass";
+      parameter SI.Velocity v_small=1e-3 
+          "Relative velocity near to zero (see model info text)" 
+         annotation(Dialog(tab="Advanced"));
+    // Equations to define the following variables have to be defined in subclasses
+      SI.Velocity v_relfric "Relative velocity between frictional surfaces";
+      SI.Acceleration a_relfric 
+          "Relative acceleration between frictional surfaces";
+      SI.Force f 
+          "Friction force (positive, if directed in opposite direction of v_rel)";
+      SI.Force f0 "Friction force for v=0 and forward sliding";
+      SI.Force f0_max "Maximum friction force for v=0 and locked";
+      Boolean free "true, if frictional element is not active";
+    // Equations to define the following variables are given in this class
+      Real sa(unit="1") 
+          "Path parameter of friction characteristic f = f(a_relfric)";
+      Boolean startForward(start=false, fixed=true) 
+          "true, if v_rel=0 and start of forward sliding or v_rel > v_small";
+      Boolean startBackward(start=false, fixed=true) 
+          "true, if v_rel=0 and start of backward sliding or v_rel < -v_small";
+      Boolean locked(start=false) "true, if v_rel=0 and not sliding";
+      constant Integer Unknown=3 "Value of mode is not known";
+      constant Integer Free=2 "Element is not active";
+      constant Integer Forward=1 "v_rel > 0 (forward sliding)";
+      constant Integer Stuck=0 
+          "v_rel = 0 (forward sliding, locked or backward sliding)";
+      constant Integer Backward=-1 "v_rel < 0 (backward sliding)";
+      Integer mode(
+        final min=Backward,
+        final max=Unknown,
+        start=Unknown, fixed=true);
+      protected 
+      constant SI.Acceleration unitAcceleration = 1 annotation(Hide=true);
+      constant SI.Force unitForce = 1 annotation(Hide=true);
     equation 
-      connect(flange_a, massWithStopAndFriction.flange_a) annotation (Line(
-          points={{-100,0},{-10,0}},
-          color={0,127,0},
-          smooth=Smooth.None));
-      connect(massWithStopAndFriction.flange_b, flange_b) annotation (Line(
-          points={{10,0},{100,0}},
-          color={0,127,0},
-          smooth=Smooth.None));
-      connect(massWithStopAndFriction.support, fixed.flange) annotation (Line(
-          points={{0,-10},{0,-30}},
-          color={0,127,0},
-          smooth=Smooth.None));
+    /* Friction characteristic
+   (locked is introduced to help the Modelica translator determining
+   the different structural configurations, 
+   if for each configuration special code shall be generated)
+*/
+      startForward  = pre(mode) == Stuck and 
+        (pre(startForward)  or sa >  f0_max/unitForce and sa >  f0/unitForce and s < (smax - L/2)) or 
+        pre(mode) == Backward and v_relfric >  v_small or initial() and v_relfric > 0;
+      startBackward = pre(mode) == Stuck and 
+        (pre(startBackward) or sa < -f0_max/unitForce and sa < -f0/unitForce and s > (smin + L/2)) or 
+        pre(mode) == Forward  and v_relfric < -v_small or initial() and v_relfric < 0;
+      locked = not free and 
+        not (pre(mode) == Forward or startForward or pre(mode) == Backward or startBackward);
+      a_relfric/unitAcceleration = if locked then               0 else 
+                                   if free then                 sa else 
+                                   if startForward then         sa - f0/unitForce else 
+                                   if startBackward then        sa + f0/unitForce else 
+                                   if pre(mode) == Forward then sa - f0/unitForce else 
+                                                                sa + f0/unitForce;
+    /* Friction torque has to be defined in a subclass. Example for a clutch:
+   f = if locked then sa else 
+       if free then   0 else 
+       cgeo*fn*(if startForward then          Math.tempInterpol1( v_relfric, mue_pos, 2) else 
+                if startBackward then        -Math.tempInterpol1(-v_relfric, mue_pos, 2) else 
+                if pre(mode) == Forward then  Math.tempInterpol1( v_relfric, mue_pos, 2) else 
+                                             -Math.tempInterpol1(-v_relfric, mue_pos, 2));
+*/
+    // finite state machine to determine configuration
+      mode = if free then Free else 
+        (if (pre(mode) == Forward  or pre(mode) == Free or startForward)  and v_relfric > 0 and s < (smax - L/2) then 
+           Forward else 
+         if (pre(mode) == Backward or pre(mode) == Free or startBackward) and v_relfric < 0 and s > (smin + L/2) then 
+           Backward else 
+           Stuck);
+    end PartialFrictionWithStop;
+    equation 
+      // Constant auxiliary variables
+      f0 = (F_Coulomb + F_Stribeck);
+      f0_max = f0*1.001;
+      free = f0 <= 0 and F_prop <= 0 and s > smin + L/2 and s < smax - L/2;
+      // Velocity and acceleration of flanges
+      v = der(s);
+      a = der(v);
+      v_relfric = v;
+      a_relfric = a;
+    // Equilibrium of forces
+      0 = flange_a.f + flange_b.f - f - m*der(v);
+    // Friction force
+      f = if locked then sa*unitForce else 
+          if free then   0 else 
+                        (if startForward then         F_prop*v + F_Coulomb + F_Stribeck else 
+                         if startBackward then        F_prop*v - F_Coulomb - F_Stribeck else 
+                         if pre(mode) == Forward then F_prop*v + F_Coulomb + F_Stribeck*exp(-fexp*abs(v)) else 
+                                                      F_prop*v - F_Coulomb - F_Stribeck*exp(-fexp*abs(v)));
+    // Define events for hard stops and reinitiliaze the state variables velocity v and position s
+    algorithm 
+      when (initial()) then
+        assert(s > smin + L/2 or s >= smin + L/2 and v >= 0,
+          "Error in initialization of hard stop. (s - L/2) must be >= smin ");
+        assert(s < smax - L/2 or s <= smax - L/2 and v <= 0,
+          "Error in initialization of hard stop. (s + L/2) must be <= smax ");
+      end when;
+      
+      when not (s < smax - L/2) then
+        reinit(s, smax - L/2);
+        if (not initial() or v>0) then
+          reinit(v, 0);
+        end if;
+      end when;
+      
+      when not (s > smin + L/2) then
+        reinit(s, smin + L/2);
+        if (not initial() or v<0) then
+          reinit(v, 0);
+        end if;
+      end when;
     end MassWithStopAndFriction;
     
     model SupportFriction 
@@ -5011,12 +4973,12 @@ and the support is automatically fixed to ground.
           fillColor={0,127,0},
           fillPattern=FillPattern.Solid));
       connect(position.support, fixed.flange) annotation (Line(
-          points={{0,-10},{0,-20}}, 
-          color={0,127,0}, 
+          points={{0,-10},{0,-20}},
+          color={0,127,0},
           smooth=Smooth.None));
       connect(position.flange, flange) annotation (Line(
-          points={{10,0},{100,0}}, 
-          color={0,127,0}, 
+          points={{10,0},{100,0}},
+          color={0,127,0},
           smooth=Smooth.None));
     end Position;
     annotation (Documentation(info="<html>
@@ -5105,12 +5067,12 @@ and the support is automatically fixed to ground.
           fillColor={0,127,0},
           fillPattern=FillPattern.Solid));
       connect(fixed.flange, speed.support) annotation (Line(
-          points={{0,-20},{0,-10}}, 
-          color={0,127,0}, 
+          points={{0,-20},{0,-10}},
+          color={0,127,0},
           smooth=Smooth.None));
       connect(speed.flange, flange) annotation (Line(
-          points={{10,0},{100,0}}, 
-          color={0,127,0}, 
+          points={{10,0},{100,0}},
+          color={0,127,0},
           smooth=Smooth.None));
     end Speed;
     
@@ -5161,21 +5123,21 @@ and the support is automatically fixed to ground.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
-      Translational.Sources.Accelerate accelerate(s(fixed=false), v(fixed=false))
+      Translational.Sources.Accelerate accelerate(s(fixed=false), v(fixed=false)) 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     equation 
       
       connect(fixed.flange, accelerate.support) annotation (Line(
-          points={{0,-20},{0,-10}}, 
-          color={0,127,0}, 
+          points={{0,-20},{0,-10}},
+          color={0,127,0},
           smooth=Smooth.None));
       connect(accelerate.flange, flange) annotation (Line(
-          points={{10,0},{100,0}}, 
-          color={0,127,0}, 
+          points={{10,0},{100,0}},
+          color={0,127,0},
           smooth=Smooth.None));
       connect(a_ref, accelerate.a_ref) annotation (Line(
-          points={{-120,0},{-12,0}}, 
-          color={0,0,127}, 
+          points={{-120,0},{-12,0}},
+          color={0,0,127},
           smooth=Smooth.None));
     end Accelerate;
     
@@ -5236,12 +5198,12 @@ and the support is automatically fixed to ground.
           fillColor={0,127,0},
           fillPattern=FillPattern.Solid));
       connect(fixed.flange, move.support) annotation (Line(
-          points={{0,-20},{0,-10}}, 
-          color={0,127,0}, 
+          points={{0,-20},{0,-10}},
+          color={0,127,0},
           smooth=Smooth.None));
       connect(move.flange, flange) annotation (Line(
-          points={{10,0},{100,0}}, 
-          color={0,127,0}, 
+          points={{10,0},{100,0}},
+          color={0,127,0},
           smooth=Smooth.None));
     end Move;
     
@@ -5303,12 +5265,12 @@ and the support is automatically fixed to ground.
           fillColor={0,127,0},
           fillPattern=FillPattern.Solid));
       connect(fixed.flange, force.support) annotation (Line(
-          points={{0,-20},{0,-10}}, 
-          color={0,127,0}, 
+          points={{0,-20},{0,-10}},
+          color={0,127,0},
           smooth=Smooth.None));
       connect(force.flange, flange) annotation (Line(
-          points={{10,0},{100,0}}, 
-          color={0,127,0}, 
+          points={{10,0},{100,0}},
+          color={0,127,0},
           smooth=Smooth.None));
     end Force;
     
