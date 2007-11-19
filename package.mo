@@ -1,5 +1,5 @@
 within ;
-package Modelica "Modelica Standard Library"
+package Modelica "Modelica Standard Library (Version 3.0 RC 1)"
 extends Icons.Library;
 
 
@@ -11,20 +11,14 @@ annotation(preferedView="info",
     height=0.57,
     library=1,
     autolayout=1),
-  version="3.0-development",
-  versionBuild="608",
-  versionDate="2007-08-22",
+  version="3.0 RC 1",
+  versionBuild="846",
+  versionDate="2007-11-19",
   conversion(
-    from(version="1.6",
-         ModelicaAdditions(version="1.5"),
-         MultiBody(version="1.0.1"),
-         MultiBody(version="1.0"),
-         Matrices(version="0.8"),
-         script="Scripts/ConvertModelica_from_1.6_to_2.1.mos"),
-    from(version="2.1 Beta1", script="Scripts/ConvertModelica_from_2.1Beta1_to_2.1.mos"),
-    noneFromVersion="2.1",
-    noneFromVersion="2.2",
-    noneFromVersion="2.2.1"),
+    from(version="2.1", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
+    from(version="2.2", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
+    from(version="2.2.1", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
+    from(version="2.2.2", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos")),
   Settings(NewStateSelection=true),
   Documentation(info="<HTML>
 <p>
