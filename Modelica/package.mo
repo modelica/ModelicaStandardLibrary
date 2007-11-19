@@ -1179,6 +1179,13 @@ that can lead to wrong simulation results):
                         to better behavior. The nominal value of the state phi_rel
                         is computed from the nominal torque. </td> 
   </tr>
+  <tr><td valign=\"top\"> Position<br>Speed<br>Accelerate<br>Move</td>
+      <td valign=\"top\"> The movement of the flange was wrongly defined as absolute;
+                        this is corrected as relative to support.<br>
+                        For Accelerate, it was necessary to rename
+                        RealInput a to a_ref, as well as the start values
+                        phi_start to phi.start and w_start to w.start</td> 
+  </tr>
 </table>
  
  
