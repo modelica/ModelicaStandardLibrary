@@ -1067,6 +1067,9 @@ convertClass  ("Modelica.Mechanics.Rotational.InitializeFlange",               "
 convertElement({"Modelica.Mechanics.Rotational.IdealGearR2T"}, "flange_a", "flangeR");
 convertElement({"Modelica.Mechanics.Rotational.IdealGearR2T"}, "flange_b", "flangeT");
 convertElement({"Modelica.Mechanics.Rotational.IdealGearR2T"}, "bearingT", "supportT");
+convertElement({"Modelica.Mechanics.Rotational.Accelerate"}, "a", "a_ref");
+convertModifiers("Modelica.Mechanics.Rotational.Accelerate", {"phi_start"}, {"phi.start=%phi_start%"});
+convertModifiers("Modelica.Mechanics.Rotational.Accelerate", {"w_start"},   {"w.start=%w_start%");
 
 
 // End Convert Rotational (MSL 3.0)
