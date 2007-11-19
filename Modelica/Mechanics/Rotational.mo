@@ -5,7 +5,7 @@ package Rotational
   "Library to model 1-dimensional, rotational mechanical systems" 
   extends Modelica.Icons.Library2;
   import SI = Modelica.SIunits;
-
+  
   annotation(preferedView="info",
     Window(
       x=0.05,
@@ -4686,7 +4686,7 @@ blocks of the block library Modelica.Blocks.Sources.
       bearing.tau = tau_support;
     end if;
     
-    phi = flange_b.phi;
+    phi = flange_b.phi - support.phi;
     w = der(phi);
     a = der(w);
     
@@ -4827,7 +4827,7 @@ blocks of the block library Modelica.Blocks.Sources.
     end if;
     
     der(phi_ref) = w_ref;
-    phi = flange_b.phi;
+    phi = flange_b.phi - support.phi;
     w = der(phi);
     a = der(w);
     
@@ -4939,7 +4939,7 @@ blocks of the block library Modelica.Blocks.Sources.
       bearing.tau = tau_support;
     end if;
     
-    phi = flange_b.phi;
+    phi = flange_b.phi - support.phi;
     w = der(phi);
     a = der(w);
   end Accelerate;
@@ -5089,7 +5089,7 @@ blocks of the block library Modelica.Blocks.Sources.
       bearing.tau = tau_support;
     end if;
     
-    phi = flange_b.phi;
+    phi = flange_b.phi - support.phi;
     phi = position(u,time);
     w = der(phi);
     a = der(w);
