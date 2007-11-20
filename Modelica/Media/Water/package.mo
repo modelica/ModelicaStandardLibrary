@@ -858,7 +858,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     state := ThermodynamicState(
       d=d,
       T=T,
-      phase=IF97_Utilities.phase_dT(d,T),
+      phase=0,
       h=specificEnthalpy_dT(d,T),
       p=pressure_dT(d,T));
   end setState_dTX;
@@ -868,7 +868,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     state := ThermodynamicState(
       d=density_ph(p,h),
       T=temperature_ph(p,h),
-      phase=IF97_Utilities.phase_ph(p,h),
+      phase=0,
       h=h,
       p=p);
   end setState_phX;
@@ -878,7 +878,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     state := ThermodynamicState(
       d=density_ps(p,s),
       T=temperature_ps(p,s),
-      phase=IF97_Utilities.phase_ps(p,s),
+      phase=0,
       h=specificEnthalpy_ps(p,s),
       p=p);
   end setState_psX;
