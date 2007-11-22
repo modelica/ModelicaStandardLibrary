@@ -703,9 +703,7 @@ convertElement({"Modelica.Mechanics.Rotational.Fixed",
 
 
 //-------- Electrical ------------------------------------------------------------
-convertClass("Modelica.Electrical.Analog.Basic.EMF",
-             "Modelica.Electrical.Analog.Basic.GroundedEMF");
-
+convertElement({"Modelica.Electrical.Analog.Basic.EMF"}, "flange_b", "shaft");
 
 
 //-------- Machines ------------------------------------------------------------

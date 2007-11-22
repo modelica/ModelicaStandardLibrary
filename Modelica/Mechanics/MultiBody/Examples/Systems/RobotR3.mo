@@ -1033,7 +1033,7 @@ the definition of initial values considerably.
                0)));
       Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction(
                                                                     tau_pos=[0,
-             Rv0/unitTorque; 1, (Rv0 + Rv1*unitAngularVelocity)/unitTorque], 
+             Rv0/unitTorque; 1, (Rv0 + Rv1*unitAngularVelocity)/unitTorque],
           useSupport=false)                                                  annotation (Placement(
             transformation(extent={{-60,-10},{-40,10}}, rotation=0)));
     equation 
@@ -1142,7 +1142,7 @@ Default values for all parameters are given for joint 4.
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction(
                                                                     tau_pos=[0,
-             Rv0/unitTorque; 1, (Rv0 + Rv1*unitAngularVelocity)/unitTorque], peak=peak, 
+             Rv0/unitTorque; 1, (Rv0 + Rv1*unitAngularVelocity)/unitTorque], peak=peak,
         useSupport=false) 
         annotation (Placement(transformation(extent={{30,-10},{50,10}},
               rotation=0)));
@@ -1216,7 +1216,7 @@ produced by the motor).
       Modelica.Electrical.Analog.Ideal.IdealOpAmp power 
         annotation (Placement(transformation(extent={{16,15},{36,35}}, rotation=
                0)));
-      Electrical.Analog.Basic.GroundedEMF emf( k=k) 
+      Electrical.Analog.Basic.EMF emf( k=k, useSupport=false) 
         annotation (Placement(transformation(extent={{46,-10},{66,10}},
               rotation=0)));
       Modelica.Electrical.Analog.Basic.Inductor La(L=(250/(2*D*w))) 
@@ -1314,7 +1314,7 @@ produced by the motor).
       der(C.v) = 0;
       der(La.i) = 0;
     equation 
-      connect(La.n, emf.p) annotation (Line(points={{56,20},{56,10}}));
+      connect(La.n, emf.p) annotation (Line(points={{56,20},{56,15},{56,10}}));
       connect(Ra.n, La.p) annotation (Line(points={{56,50},{56,40}}));
       connect(Rd2.n, diff.n1) annotation (Line(points={{-71,30},{-64,30}}));
       connect(C.n, OpI.p2) annotation (Line(points={{6,46},{6,20}}));
@@ -1347,19 +1347,14 @@ produced by the motor).
         annotation (Line(points={{56,-10},{56,-24},{16,-24},{16,-40}}));
       connect(hall1.n, g4.p) annotation (Line(points={{16,-60},{16,-62},{16,-62},
               {16,-64}}));
-      connect(emf.flange_b, phi.flange) 
+      connect(emf.shaft, phi.flange) 
         annotation (Line(points={{66,0},{66,-30},{76,-30}}, pattern=LinePattern.Dot));
-      connect(emf.flange_b, speed.flange) 
+      connect(emf.shaft, speed.flange) 
         annotation (Line(points={{66,0},{66,-30},{55,-30}}, pattern=LinePattern.Dot));
       connect(OpI.n2, power.n2) 
         annotation (Line(points={{-4,10},{-4,4},{26,4},{26,15}}));
       connect(OpI.p1, OpI.n2) annotation (Line(points={{-14,15},{-14,10},{-4,10}}));
       connect(OpI.p1, diff.n2) annotation (Line(points={{-14,15},{-54,15}}));
-      connect(Jmotor.flange_a, emf.flange_b) 
-        annotation (Line(
-          points={{70,0},{66,0}},
-          color={128,128,128},
-          thickness=2));
       connect(Jmotor.flange_b, flange_motor) 
         annotation (Line(
           points={{90,0},{100,0}},
@@ -1383,6 +1378,10 @@ produced by the motor).
               {80,-95},{80,-100}}, color={0,0,127}));
       connect(convert2.y, Vs.v) annotation (Line(points={{-42.6,-95},{-108,-95},
               {-108,1.28588e-015},{-97,1.28588e-015}}, color={0,0,127}));
+      connect(emf.shaft, Jmotor.flange_a) annotation (Line(
+          points={{66,0},{70,0}},
+          color={0,0,0},
+          smooth=Smooth.None));
     end Motor;
     
     model Controller "P-PI cascade controller for one axis" 
