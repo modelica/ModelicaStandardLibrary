@@ -1292,27 +1292,26 @@ also that the damping torque does not lead to unphysical pulling torques
     
     model RollingWheel "Demonstrate coupling Rotational - Translational" 
       extends Modelica.Icons.Example;
-      Rotational.Components.IdealRollingWheel idealRollingWheel(radius=1) 
+      Rotational.Components.IdealRollingWheel idealRollingWheel(radius=1, 
+        useHubSupport=false, 
+        useWheelSupport=false) 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       Rotational.Components.Inertia inertia(J=1) 
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
       Rotational.Sources.TorqueStep torqueStep(
         stepTorque=10,
         offsetTorque=0,
-        startTime=0.1, 
+        startTime=0.1,
         useSupport=false) 
         annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
-      Rotational.Components.Fixed fixed 
-        annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
-      Translational.Components.Fixed fixed1 
-        annotation (Placement(transformation(extent={{0,-30},{20,-10}})));
       Translational.Components.Mass mass(L=0, m=1) 
         annotation (Placement(transformation(extent={{20,-10},{40,10}})));
-      Translational.Grounded.QuadraticSpeedDependentForce 
+      Translational.Sources.QuadraticSpeedDependentForce 
         quadraticSpeedDependentForce(
         f_nominal=-10,
         ForceDirection=false,
-        v_nominal=5) 
+        v_nominal=5, 
+        useSupport=false) 
         annotation (Placement(transformation(extent={{72,-10},{52,10}})));
     equation 
       
@@ -1332,17 +1331,9 @@ Du to a speed dependent force (like driving resistance), we find an eqilibrium a
           points={{-50,0},{-40,0}},
           color={0,0,0},
           smooth=Smooth.None));
-      connect(idealRollingWheel.hubSupport, fixed.flange) annotation (Line(
-          points={{-10,-10.2},{-10,-20}},
-          color={0,0,0},
-          smooth=Smooth.None));
       connect(inertia.flange_b, idealRollingWheel.hubFlange) annotation (Line(
           points={{-20,0},{-10,0}},
           color={0,0,0},
-          smooth=Smooth.None));
-      connect(idealRollingWheel.wheelSupport, fixed1.flange) annotation (Line(
-          points={{10,-10},{10,-20}},
-          color={0,127,0},
           smooth=Smooth.None));
       connect(idealRollingWheel.wheelFlange, mass.flange_a) annotation (Line(
           points={{10,0},{20,0}},
@@ -3424,89 +3415,89 @@ in the flanges, are along the axis vector displayed in the icon.
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
-              extent={{50,100},{10,-100}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{50,100},{10,-100}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{-10,45},{-50,85}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{-10,45},{-50,85}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{-10,30},{-50,-30}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{-10,30},{-50,-30}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{-50,10},{-100,-10}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{-50,10},{-100,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{100,10},{50,-10}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{100,10},{50,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{50,100},{-50,105}}, 
-              lineColor={160,160,164}, 
-              fillColor={160,160,164}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{50,100},{-50,105}},
+              lineColor={160,160,164},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{50,-100},{-50,-105}}, 
-              lineColor={160,160,164}, 
-              fillColor={160,160,164}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{50,-100},{-50,-105}},
+              lineColor={160,160,164},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-80,70},{-50,60}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
-            Line(points={{-90,40},{-70,40}}, color={0,0,0}), 
-            Line(points={{-80,50},{-60,50}}, color={0,0,0}), 
-            Line(points={{-70,50},{-70,40}}, color={0,0,0}), 
-            Line(points={{-80,80},{-59,80}}, color={0,0,0}), 
-            Line(points={{-70,90},{-70,80}}, color={0,0,0}), 
+              extent={{-80,70},{-50,60}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Line(points={{-90,40},{-70,40}}, color={0,0,0}),
+            Line(points={{-80,50},{-60,50}}, color={0,0,0}),
+            Line(points={{-70,50},{-70,40}}, color={0,0,0}),
+            Line(points={{-80,80},{-59,80}}, color={0,0,0}),
+            Line(points={{-70,90},{-70,80}}, color={0,0,0}),
             Line(
-              points={{-26,-42},{-32,-2}}, 
-              pattern=LinePattern.Dot, 
-              color={0,0,255}), 
+              points={{-26,-42},{-32,-2}},
+              pattern=LinePattern.Dot,
+              color={0,0,255}),
             Line(
-              points={{36,-26},{64,-60}}, 
-              pattern=LinePattern.Dot, 
-              color={0,0,255}), 
+              points={{36,-26},{64,-60}},
+              pattern=LinePattern.Dot,
+              color={0,0,255}),
             Text(
-              extent={{58,-66},{98,-78}}, 
-              textString="ring gear", 
-              lineColor={0,0,255}), 
+              extent={{58,-66},{98,-78}},
+              textString="ring gear",
+              lineColor={0,0,255}),
             Text(
-              extent={{-112,111},{-56,87}}, 
-              textString="planet carrier ", 
-              lineColor={0,0,255}), 
+              extent={{-112,111},{-56,87}},
+              textString="planet carrier ",
+              lineColor={0,0,255}),
             Text(
-              extent={{-47,-42},{-3,-56}}, 
-              textString="sun gear", 
-              lineColor={0,0,255}), 
+              extent={{-47,-42},{-3,-56}},
+              textString="sun gear",
+              lineColor={0,0,255}),
             Polygon(
-              points={{58,130},{28,140},{28,120},{58,130}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-52,130},{28,130}}, color={0,0,0}), 
+              points={{58,130},{28,140},{28,120},{58,130}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-52,130},{28,130}}, color={0,0,0}),
             Line(
-              points={{-92,93},{-70,80}}, 
-              pattern=LinePattern.Dot, 
-              color={0,0,255}), 
+              points={{-92,93},{-70,80}},
+              pattern=LinePattern.Dot,
+              color={0,0,255}),
             Polygon(
-              points={{-7,-86},{-27,-81},{-27,-91},{-7,-86}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-97,-86},{-26,-86}}, color={128,128,128}), 
+              points={{-7,-86},{-27,-81},{-27,-91},{-7,-86}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-97,-86},{-26,-86}}, color={128,128,128}),
             Text(
-              extent={{-96,-71},{-28,-84}}, 
-              lineColor={128,128,128}, 
+              extent={{-96,-71},{-28,-84}},
+              lineColor={128,128,128},
               textString="rotation axis")}));
     equation 
       (1 + ratio)*carrier.phi = sun.phi + ratio*ring.phi;
@@ -3604,7 +3595,7 @@ GearNew.</p>
                 {100,100}}),
                         graphics));
       
-      Rotational.Components.LossyGear lossyGear(final i=i, final lossTable=lossTable, 
+      Rotational.Components.LossyGear lossyGear(final i=i, final lossTable=lossTable,
         final useSupport=true) 
         annotation (Placement(transformation(extent={{-60,-20},{-20,20}},
               rotation=0)));
@@ -3622,15 +3613,20 @@ GearNew.</p>
       connect(elastoBacklash.flange_b, flange_b) 
         annotation (Line(points={{60,0},{100,0}}, color={0,0,0}));
       connect(lossyGear.support, internalSupport) annotation (Line(
-          points={{-40,-20},{-40,-80},{0,-80}}, 
-          color={0,0,0}, 
+          points={{-40,-20},{-40,-80},{0,-80}},
+          color={0,0,0},
           smooth=Smooth.None));
     end Gearbox;
     
     model IdealGearR2T 
       "Gearbox transforming rotational into translational motion" 
       import SI = Modelica.SIunits;
-      
+      parameter Boolean useSupportR=false 
+        "= true, if rotational support flange enabled, otherwise implicitly grounded"
+          annotation(Evaluate=true, Hide=true);
+      parameter Boolean useSupportT=false 
+        "= true, if translational support flange enabled, otherwise implicitly grounded"
+          annotation(Evaluate=true, Hide=true);
       parameter Real ratio(final unit="rad/m", start=1) 
         "Transmission ratio (flange_a.phi/flange_b.s)";
       
@@ -3706,63 +3702,91 @@ connected with corresponding elements.
               color={0,0,0}, 
               smooth=Smooth.None), 
             Line(
-              points={{-100,-16},{-100,-84}}, 
+              points={{-100,-16},{-100,-100}}, 
+              color={0,0,0}, 
+              smooth=Smooth.None), 
+            Line(
+              visible=not useSupportT, 
+              points={{76,-110},{85,-100}}, 
+              color={0,0,0}), 
+            Line(
+              visible=not useSupportT, 
+              points={{85,-110},{95,-100}}, 
+              color={0,0,0}), 
+            Line(
+              visible=not useSupportT, 
+              points={{95,-110},{105,-100}}, 
+              color={0,0,0}), 
+            Line(
+              visible=not useSupportT, 
+              points={{105,-110},{115,-100}}, 
+              color={0,0,0}), 
+            Line(
+              visible=not useSupportT, 
+              points={{85,-100},{115,-100}}, 
+              color={0,0,0}), 
+            Line(
+              visible=not useSupportR, 
+              points={{-124,-110},{-115,-100}}, 
+              color={0,0,0}), 
+            Line(
+              visible=not useSupportR, 
+              points={{-115,-110},{-105,-100}}, 
+              color={0,0,0}), 
+            Line(
+              visible=not useSupportR, 
+              points={{-105,-110},{-95,-100}}, 
+              color={0,0,0}), 
+            Line(
+              visible=not useSupportR, 
+              points={{-95,-110},{-85,-100}}, 
+              color={0,0,0}), 
+            Line(
+              visible=not useSupportR, 
+              points={{-115,-100},{-85,-100}}, 
+              color={0,0,0}), 
+            Line(
+              points={{100,-80},{100,-100}}, 
               color={0,0,0}, 
               smooth=Smooth.None)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Ellipse(
-              extent={{-70,40},{10,-40}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Ellipse(
-              extent={{-40,10},{-20,-10}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{-100,10},{-69,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{-74,-60},{106,-80}},
-              lineColor={0,0,0},
-              fillColor={160,160,164},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{95,-10},{106,-60}},
-              lineColor={0,0,0},
-              fillColor={160,160,164},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-100,80},{100,50}},
-              textString="transform rotation into translation",
-              lineColor={0,0,255}),
-            Polygon(
-              points={{-74,-60},{-54,-40},{-34,-60},{-14,-40},{6,-60},{26,-40},
-                  {46,-60},{66,-40},{86,-60},{-74,-60}},
-              lineColor={0,0,0},
-              fillColor={160,160,164},
-              fillPattern=FillPattern.Solid)}));
-      Rotational.Interfaces.Support supportR 
-                                   annotation (Placement(transformation(extent={{-110,
-                -110},{-90,-90}},     rotation=0)));
-      Translational.Interfaces.Support supportT 
+            grid={1,1}), graphics={Text(
+              extent={{-100,80},{100,50}}, 
+              textString="transform rotation into translation", 
+              lineColor={0,0,255})}));
+      Rotational.Interfaces.Support supportR if useSupportR 
+        annotation (Placement(transformation(extent={{-110,-110},{-90,-90}},     rotation=0), 
+            iconTransformation(extent={{-110,-110},{-90,-90}})));
+      Translational.Interfaces.Support supportT if useSupportT 
         annotation (Placement(transformation(extent={{90,-110},{110,-90}},
-              rotation=0)));
+              rotation=0), iconTransformation(extent={{90,-110},{110,-90}})));
+      Rotational.Interfaces.InternalSupport internalSupportR(final useSupport=useSupportR) 
+        annotation (Placement(transformation(extent={{-110,-90},{-90,-70}})));
+      Translational.Interfaces.InternalSupport internalSupportT(final 
+          useSupport=
+            useSupportT) 
+        annotation (Placement(transformation(extent={{90,-91},{110,-71}})));
     equation 
-      assert(cardinality(supportR) > 0, "The rotational support connector is required to be connected");
-      assert(cardinality(supportT) > 0, "The translational support connector is required to be connected");
       
-      (flangeR.phi - supportR.phi) = ratio*(flangeT.s - supportT.s);
+      (flangeR.phi - internalSupportR.flange.phi) = ratio*(flangeT.s - internalSupportT.flange.s);
       0 = ratio*flangeR.tau + flangeT.f;
       
-      0 = flangeR.tau + supportR.tau;
-      0 = flangeT.f + supportT.f;
+      0 = flangeR.tau + internalSupportR.tau;
+      0 = flangeT.f + internalSupportT.f;
+      connect(internalSupportR.flange, supportR) annotation (Line(
+          points={{-100,-80},{-100,-100}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(internalSupportT.flange, supportT) annotation (Line(
+          points={{100,-81},{100,-100}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(supportT, supportT) annotation (Line(
+          points={{100,-100},{100,-91.5},{100,-91.5},{100,-100}}, 
+          color={0,127,0}, 
+          smooth=Smooth.None));
     end IdealGearR2T;
     
     model IdealRollingWheel 
@@ -3773,12 +3797,23 @@ connected with corresponding elements.
       Modelica.Mechanics.Translational.Interfaces.Flange_b wheelFlange 
         "Translational movement of wheel center" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}},   rotation=0)));
-      Rotational.Interfaces.Support hubSupport "Support of wheel shaft" 
+      Rotational.Interfaces.Support hubSupport if useHubSupport 
+        "Support of wheel shaft" 
         annotation (Placement(transformation(extent={{-110,-112},{-90,-92}})));
-      Translational.Interfaces.Support wheelSupport 
+      Translational.Interfaces.Support wheelSupport if useWheelSupport 
         "Support of translational movement" 
         annotation (Placement(transformation(extent={{90,-110},{110,-90}})));
-      
+      Interfaces.InternalSupport internalHubSupport(final useSupport=useHubSupport) 
+        annotation (Placement(transformation(extent={{-110,-90},{-90,-70}})));
+      Translational.Interfaces.InternalSupport internalWheelSupport(final 
+          useSupport=useWheelSupport) 
+        annotation (Placement(transformation(extent={{90,-91},{110,-71}})));
+      parameter Boolean useHubSupport=true 
+        "= true, if rotational support flange enabled, otherwise implicitly grounded"
+          annotation(Evaluate=true, Hide=true);
+      parameter Boolean useWheelSupport=true 
+        "= true, if translational support flange enabled, otherwise implicitly grounded"
+          annotation(Evaluate=true, Hide=true);
       parameter Modelica.SIunits.Distance radius(start=0.3) "Wheel radius";
       
      annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
@@ -3838,7 +3873,7 @@ connected with corresponding elements.
               color={0,0,0}, 
               smooth=Smooth.None), 
             Line(
-              points={{-100,-20},{-100,-88}}, 
+              points={{-100,-20},{-100,-100}}, 
               color={0,0,0}, 
               smooth=Smooth.None), 
             Line(
@@ -3872,7 +3907,47 @@ connected with corresponding elements.
             Line(
               points={{80,-86},{60,-100}}, 
               color={0,127,0}, 
-              smooth=Smooth.None)}),
+              smooth=Smooth.None), 
+            Line(
+              visible=not useWheelSupport, 
+              points={{76,-110},{85,-100}}, 
+              color={0,0,0}), 
+            Line(
+              visible=not useWheelSupport, 
+              points={{85,-110},{95,-100}}, 
+              color={0,0,0}), 
+            Line(
+              visible=not useWheelSupport, 
+              points={{95,-110},{105,-100}}, 
+              color={0,0,0}), 
+            Line(
+              visible=not useWheelSupport, 
+              points={{105,-110},{115,-100}}, 
+              color={0,0,0}), 
+            Line(
+              visible=not useHubSupport, 
+              points={{-124,-110},{-115,-100}}, 
+              color={0,0,0}), 
+            Line(
+              visible=not useHubSupport, 
+              points={{-115,-110},{-105,-100}}, 
+              color={0,0,0}), 
+            Line(
+              visible=not useHubSupport, 
+              points={{-105,-110},{-95,-100}}, 
+              color={0,0,0}), 
+            Line(
+              visible=not useHubSupport, 
+              points={{-95,-110},{-85,-100}}, 
+              color={0,0,0}), 
+            Line(
+              visible=not useHubSupport, 
+              points={{-115,-100},{-85,-100}}, 
+              color={0,0,0}), 
+            Line(
+              visible=not useWheelSupport, 
+              points={{85,-100},{115,-100}}, 
+              color={0,0,0})}),
           Documentation(info="<html>
 <p>
 A simple kinematic model of a rolling wheel which has no inertia and
@@ -3888,14 +3963,19 @@ no rolling resistance. This component defines the kinematic constraint:
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
                 {100,100}}),graphics));
     equation 
-      assert(cardinality(hubSupport) > 0, "The hub support connector is required to be connected");
-      assert(cardinality(wheelSupport) > 0, "The wheel support connector is required to be connected");
-      
-      (hubFlange.phi - hubSupport.phi)*radius = (wheelFlange.s - wheelSupport.s);
+      (hubFlange.phi - internalHubSupport.flange.phi)*radius = (wheelFlange.s - internalWheelSupport.flange.s);
       0 = radius*wheelFlange.f + hubFlange.tau;
       
-      0 = hubFlange.tau + hubSupport.tau;
-      0 = wheelFlange.f + wheelSupport.f;
+      0 = hubFlange.tau + internalHubSupport.tau;
+      0 = wheelFlange.f + internalWheelSupport.f;
+      connect(internalHubSupport.flange, hubSupport) annotation (Line(
+          points={{-100,-80},{-100,-102}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(internalWheelSupport.flange, wheelSupport) annotation (Line(
+          points={{100,-81},{100,-100}},
+          color={0,127,0},
+          smooth=Smooth.None));
     end IdealRollingWheel;
     
     model InitializeFlange 
@@ -4301,9 +4381,8 @@ guarantees that it is connected.
       parameter Boolean useSupport=true 
         "= true, if support flange enabled, otherwise implicitly grounded" 
           annotation(Evaluate=true, Hide=true);
-      connector InputSupportTorque = input SI.Torque;
       InputSupportTorque tau "External Support torque";
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange 
+      Flange_a flange 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics), Icon(coordinateSystem(
@@ -4319,12 +4398,14 @@ guarantees that it is connected.
               fillPattern=FillPattern.Solid, 
               textString="%name")}),
         Documentation(info="<html>
-This is an ddapter model to utilize a conditional support connector:<br>
+This is an adapter model to utilize a conditional support connector:<br>
 If <i>useSupport = true</i>, the flange has to be connected to the conditional support connector.<br>
 If <i>useSupport = false</i>, the flange is internally fixed.<br>
-In both cases the support angle can be accessed as inetrnalSupport.flange.phi, 
+In both cases the support angle can be accessed as internalSupport.flange.phi, 
 the support torque can be accessed as internalSupport.tau.
 </html>"));
+    protected 
+      connector InputSupportTorque = input SI.Torque;
     equation 
       if useSupport then
          flange.tau = tau;
@@ -4332,7 +4413,7 @@ the support torque can be accessed as internalSupport.tau.
          flange.phi = 0;
       end if;
     end InternalSupport;
-
+    
     partial model PartialRigid 
       "Base model for a rigid shaft with a left and a right shaft flange" 
       parameter SI.Angle deltaPhi=0 
@@ -4620,7 +4701,6 @@ the support is internally fixed.
           smooth=Smooth.None));
     end PartialSource;
     
-    
     partial model PartialTwoFlanges 
       "Base model for a component with two rotational 1-dim. shaft flanges" 
       Flange_a flange_a "Flange of left shaft" 
@@ -4692,7 +4772,7 @@ and for an elementary gear (Interfaces.PartialGear).
           x=0.37,
           y=0.05,
           width=0.6,
-          height=0.6), 
+          height=0.6),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -5158,8 +5238,8 @@ blocks of the Modelica.Blocks library).
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
-              extent={{70,-30},{120,-70}},
-              lineColor={0,0,0},
+              extent={{70,-30},{120,-70}}, 
+              lineColor={0,0,0}, 
               textString="a")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -5199,8 +5279,8 @@ in an ideal way and provides the result as output signal <b>phi_rel</b>
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
-              extent={{20,-84},{160,-114}},
-              lineColor={0,0,0},
+              extent={{20,-84},{160,-114}}, 
+              lineColor={0,0,0}, 
               textString="phi_rel"), Line(points={{0,-100},{0,-70}}, color={0,0,
                   127})}),
         Diagram(coordinateSystem(
@@ -5291,8 +5371,8 @@ in an ideal way and provides the result as output signal <b>a_rel</b>
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
-              extent={{20,-86},{160,-116}},
-              lineColor={0,0,0},
+              extent={{20,-86},{160,-116}}, 
+              lineColor={0,0,0}, 
               textString="a_rel"), Line(points={{0,-100},{0,-70}}, color={0,0,
                   127})}),
         Diagram(coordinateSystem(
@@ -5375,8 +5455,8 @@ and provides the result as output signal <b>power</b>
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
-              extent={{-50,-80},{100,-120}},
-              lineColor={0,0,0},
+              extent={{-50,-80},{100,-120}}, 
+              lineColor={0,0,0}, 
               textString="power"), Line(points={{-80,-100},{-80,0}}, color={0,0,
                   127})}),
         Diagram(coordinateSystem(
@@ -6061,8 +6141,8 @@ Positive torque acts accelerating.
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics={Text(
-              extent={{-136,-39},{164,-69}}, 
-              lineColor={0,0,0}, 
+              extent={{-136,-39},{164,-69}},
+              lineColor={0,0,0},
               textString="ratio=%ratio")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{0,-100},{0,100}}, color={0,
@@ -6176,43 +6256,43 @@ velocity of model inertia1 or of model inertia2 as state variables.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Ellipse(
-              extent={{-40,40},{40,-40}}, 
-              lineColor={0,255,255}, 
-              fillColor={0,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-40,40},{40,-40}},
+              lineColor={0,255,255},
+              fillColor={0,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-40,40},{40,-40}}, 
-              textString="S", 
-              lineColor={0,0,255}), 
+              extent={{-40,40},{40,-40}},
+              textString="S",
+              lineColor={0,0,255}),
             Line(
-              points={{40,0},{96,0}}, 
-              color={0,0,0}, 
-              pattern=LinePattern.Dash), 
-            Line(points={{-100,-10},{-100,-80}}, color={160,160,164}), 
-            Line(points={{100,-10},{100,-80}}, color={160,160,164}), 
+              points={{40,0},{96,0}},
+              color={0,0,0},
+              pattern=LinePattern.Dash),
+            Line(points={{-100,-10},{-100,-80}}, color={160,160,164}),
+            Line(points={{100,-10},{100,-80}}, color={160,160,164}),
             Polygon(
-              points={{80,-65},{80,-55},{100,-60},{80,-65}}, 
-              lineColor={160,160,164}, 
-              fillColor={160,160,164}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-100,-60},{80,-60}}, color={160,160,164}), 
+              points={{80,-65},{80,-55},{100,-60},{80,-65}},
+              lineColor={160,160,164},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-100,-60},{80,-60}}, color={160,160,164}),
             Text(
-              extent={{-30,-70},{30,-90}}, 
-              textString="w_rel", 
-              lineColor={0,0,255}), 
-            Line(points={{-76,80},{-5,80}}, color={128,128,128}), 
+              extent={{-30,-70},{30,-90}},
+              textString="w_rel",
+              lineColor={0,0,255}),
+            Line(points={{-76,80},{-5,80}}, color={128,128,128}),
             Polygon(
-              points={{14,80},{-6,85},{-6,75},{14,80}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              points={{14,80},{-6,85},{-6,75},{14,80}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{18,87},{86,74}}, 
-              lineColor={128,128,128}, 
-              textString="rotation axis"), 
+              extent={{18,87},{86,74}},
+              lineColor={128,128,128},
+              textString="rotation axis"),
             Line(
-              points={{-96,0},{-40,0}}, 
-              color={0,0,0}, 
+              points={{-96,0},{-40,0}},
+              color={0,0,0},
               pattern=LinePattern.Dash)}));
     equation 
       phi_rel = flange_b.phi - flange_a.phi;
@@ -6222,6 +6302,5 @@ velocity of model inertia1 or of model inertia2 as state variables.
       flange_b.tau = 0;
     end RelativeStates;
   end Sources;
-  
   
 end Rotational;
