@@ -780,7 +780,7 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
   model EMF "Electromotoric force (electric/mechanic transformer)" 
     parameter Boolean useSupport=false 
       "= true, if support flange enabled, otherwise implicitly grounded" 
-        annotation(Evaluate=true, Hide=true);
+        annotation(Evaluate=true, Hide=true, choices(checkBox=true));
     parameter Real k(final unit="N.m/A", start=1) "Transformation coefficient";
     SI.Voltage v "Voltage drop between the two pins";
     SI.Current i "Current flowing from positive to negative pin";
@@ -795,14 +795,11 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
           origin={0,-100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica.Mechanics.Rotational.Interfaces.Flange_b shaft    annotation (Placement(
-          transformation(extent={{90,-10},{110,10}}, rotation=0)));
+    Modelica.Mechanics.Rotational.Interfaces.Flange_b shaft 
+      annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
     Mechanics.Rotational.Interfaces.Support support if useSupport 
       "Support/housing of emf shaft" 
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-    Mechanics.Rotational.Interfaces.InternalSupport internalSupport(final 
-        useSupport=useSupport) 
-      annotation (Placement(transformation(extent={{-89,-10},{-69,10}})));
     annotation (
       defaultComponentName="emf",
       Icon(
@@ -907,6 +904,11 @@ shaft.phi is the angle at the rotational connection.
        </li>
 </ul>
 </html>"));
+  protected 
+    Mechanics.Rotational.Components.Fixed fixed if not useSupport 
+      annotation (Placement(transformation(extent={{-90,-20},{-70,0}})));
+    Mechanics.Rotational.Interfaces.InternalSupport internalSupport 
+      annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
   equation 
     v = p.v - n.v;
     0 = p.i + n.i;
@@ -918,7 +920,11 @@ shaft.phi is the angle at the rotational connection.
     shaft.tau = -k*i;
     0 = shaft.tau + internalSupport.tau;
     connect(internalSupport.flange, support) annotation (Line(
-        points={{-79,0},{-100,0}},
+        points={{-80,0},{-100,0}},
+        color={0,0,0},
+        smooth=Smooth.None));
+    connect(internalSupport.flange,fixed. flange) annotation (Line(
+        points={{-80,0},{-80,-10}},
         color={0,0,0},
         smooth=Smooth.None));
   end EMF;
