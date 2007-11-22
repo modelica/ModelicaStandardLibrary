@@ -4686,7 +4686,7 @@ blocks of the block library Modelica.Blocks.Sources.
       bearing.tau = tau_support;
     end if;
     
-    phi = flange_b.phi - support.phi;
+    phi = flange_b.phi;
     w = der(phi);
     a = der(w);
     
@@ -4827,7 +4827,7 @@ blocks of the block library Modelica.Blocks.Sources.
     end if;
     
     der(phi_ref) = w_ref;
-    phi = flange_b.phi - support.phi;
+    phi = flange_b.phi;
     w = der(phi);
     a = der(w);
     
@@ -4939,7 +4939,7 @@ blocks of the block library Modelica.Blocks.Sources.
       bearing.tau = tau_support;
     end if;
     
-    phi = flange_b.phi - support.phi;
+    phi = flange_b.phi;
     w = der(phi);
     a = der(w);
   end Accelerate;
@@ -5089,7 +5089,7 @@ blocks of the block library Modelica.Blocks.Sources.
       bearing.tau = tau_support;
     end if;
     
-    phi = flange_b.phi - support.phi;
+    phi = flange_b.phi;
     phi = position(u,time);
     w = der(phi);
     a = der(w);
