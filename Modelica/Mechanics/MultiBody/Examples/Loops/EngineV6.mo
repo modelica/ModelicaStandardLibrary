@@ -66,9 +66,11 @@ model EngineV6
       fixed=true),
     stateSelect=StateSelect.always)    annotation (Placement(transformation(
           extent={{-44,-30},{-24,-10}}, rotation=0)));
-  Modelica.Mechanics.Rotational.Grounded.QuadraticSpeedDependentTorque load2(
+  Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque load2(
                                                  tau_nominal=-100, w_nominal=
-        200) annotation (Placement(transformation(extent={{6,-30},{-14,-10}},
+        200, 
+    useSupport=false) 
+             annotation (Placement(transformation(extent={{6,-30},{-14,-10}},
           rotation=0)));
   Rotational.Sensors.TorqueSensor torqueSensor 
     annotation (Placement(transformation(extent={{-72,-30},{-52,-10}}, rotation=
