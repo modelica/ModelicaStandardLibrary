@@ -59,13 +59,13 @@ at least one ground object.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{-60,50},{60,50}}, color={0,0,255}),
-          Line(points={{-40,30},{40,30}}, color={0,0,255}),
-          Line(points={{-20,10},{20,10}}, color={0,0,255}),
-          Line(points={{0,90},{0,50}}, color={0,0,255}),
+          Line(points={{-60,50},{60,50}}, color={0,0,255}), 
+          Line(points={{-40,30},{40,30}}, color={0,0,255}), 
+          Line(points={{-20,10},{20,10}}, color={0,0,255}), 
+          Line(points={{0,90},{0,50}}, color={0,0,255}), 
           Text(
-            extent={{-144,-60},{138,0}},
-            textString="%name",
+            extent={{-144,-60},{138,0}}, 
+            textString="%name", 
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -125,19 +125,19 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(
-            extent={{-70,30},{70,-30}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,0},{-70,0}}, color={0,0,255}),
-          Line(points={{70,0},{90,0}}, color={0,0,255}),
+            extent={{-70,30},{70,-30}}, 
+            lineColor={0,0,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-90,0},{-70,0}}, color={0,0,255}), 
+          Line(points={{70,0},{90,0}}, color={0,0,255}), 
           Text(
-            extent={{-144,-60},{144,-100}},
-            lineColor={0,0,0},
-            textString="R=%R"),
+            extent={{-144,-60},{144,-100}}, 
+            lineColor={0,0,0}, 
+            textString="R=%R"), 
           Text(
-            extent={{-144,40},{144,100}},
-            textString="%name",
+            extent={{-144,40},{144,100}}, 
+            textString="%name", 
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -208,22 +208,22 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Text(
-            extent={{-142,60},{143,118}},
-            textString="%name",
-            lineColor={0,0,255}),
-          Line(points={{-90,0},{-70,0}}, color={0,0,255}),
-          Line(points={{70,0},{90,0}}, color={0,0,255}),
+            extent={{-142,60},{143,118}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
+          Line(points={{-90,0},{-70,0}}, color={0,0,255}), 
+          Line(points={{70,0},{90,0}}, color={0,0,255}), 
           Rectangle(
-            extent={{-70,30},{70,-30}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{0,-30},{0,-91}}, color={191,0,0}),
-          Line(points={{-52,-50},{48,50}}, color={0,0,255}),
+            extent={{-70,30},{70,-30}}, 
+            lineColor={0,0,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{0,-30},{0,-91}}, color={191,0,0}), 
+          Line(points={{-52,-50},{48,50}}, color={0,0,255}), 
           Polygon(
-            points={{40,52},{50,42},{54,56},{40,52}},
-            lineColor={0,0,255},
-            fillColor={0,0,255},
+            points={{40,52},{50,42},{54,56},{40,52}}, 
+            lineColor={0,0,255}, 
+            fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid)}),
         Documentation(info="<HTML>
 <p>This is a model for an electrical resistor where the generated heat
@@ -283,21 +283,21 @@ The Conductance <i>G</i> is allowed to be positive, zero, or negative.
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(
-            extent={{-70,30},{70,-30}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Rectangle(extent={{-70,30},{70,-30}}, lineColor={0,0,255}),
-          Line(points={{-90,0},{-70,0}}, color={0,0,255}),
-          Line(points={{70,0},{90,0}}, color={0,0,255}),
+            extent={{-70,30},{70,-30}}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Rectangle(extent={{-70,30},{70,-30}}, lineColor={0,0,255}), 
+          Line(points={{-90,0},{-70,0}}, color={0,0,255}), 
+          Line(points={{70,0},{90,0}}, color={0,0,255}), 
           Text(
-            extent={{-138,-60},{140,-100}},
-            lineColor={0,0,0},
-            pattern=LinePattern.None,
-            textString="G=%G"),
+            extent={{-138,-60},{140,-100}}, 
+            lineColor={0,0,0}, 
+            pattern=LinePattern.None, 
+            textString="G=%G"), 
           Text(
-            extent={{-140,40},{142,100}},
-            textString="%name",
+            extent={{-140,40},{142,100}}, 
+            textString="%name", 
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -345,22 +345,22 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Line(
-            points={{-14,28},{-14,-28}},
-            thickness=2,
-            color={0,0,255}),
+            points={{-14,28},{-14,-28}}, 
+            thickness=2, 
+            color={0,0,255}), 
           Line(
-            points={{14,28},{14,-28}},
-            thickness=2,
-            color={0,0,255}),
-          Line(points={{-90,0},{-14,0}}, color={0,0,255}),
-          Line(points={{14,0},{90,0}}, color={0,0,255}),
+            points={{14,28},{14,-28}}, 
+            thickness=2, 
+            color={0,0,255}), 
+          Line(points={{-90,0},{-14,0}}, color={0,0,255}), 
+          Line(points={{14,0},{90,0}}, color={0,0,255}), 
           Text(
-            extent={{-136,-60},{136,-100}},
-            lineColor={0,0,0},
-            textString="C=%C"),
+            extent={{-136,-60},{136,-100}}, 
+            lineColor={0,0,0}, 
+            textString="C=%C"), 
           Text(
-            extent={{-142,40},{140,100}},
-            textString="%name",
+            extent={{-142,40},{140,100}}, 
+            textString="%name", 
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -404,24 +404,24 @@ The Inductance <i>L</i> is allowed to be positive, zero, or negative.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),
+          Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}), 
+          Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}), 
+          Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}), 
+          Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}), 
           Rectangle(
-            extent={{-60,-30},{60,0}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{60,0},{90,0}}, color={0,0,255}),
-          Line(points={{-90,0},{-60,0}}, color={0,0,255}),
+            extent={{-60,-30},{60,0}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{60,0},{90,0}}, color={0,0,255}), 
+          Line(points={{-90,0},{-60,0}}, color={0,0,255}), 
           Text(
-            extent={{-138,-60},{144,-102}},
-            lineColor={0,0,0},
-            textString="L=%L"),
+            extent={{-138,-60},{144,-102}}, 
+            lineColor={0,0,0}, 
+            textString="L=%L"), 
           Text(
-            extent={{-146,38},{148,100}},
-            textString="%name",
+            extent={{-146,38},{148,100}}, 
+            textString="%name", 
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -462,29 +462,29 @@ The Inductance <i>L</i> is allowed to be positive, zero, or negative.
     parameter Modelica.SIunits.Current Ipar(start=Inom/10, fixed=false);
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
-          Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),
+          Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}), 
+          Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}), 
+          Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}), 
+          Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}), 
           Rectangle(
-            extent={{-60,-20},{62,0}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{60,0},{90,0}}, color={0,0,255}),
-          Line(points={{-90,0},{-60,0}}, color={0,0,255}),
+            extent={{-60,-20},{62,0}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{60,0},{90,0}}, color={0,0,255}), 
+          Line(points={{-90,0},{-60,0}}, color={0,0,255}), 
           Rectangle(
-            extent={{-60,-10},{60,-20}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.Sphere,
-            fillColor={0,0,255}),
+            extent={{-60,-10},{60,-20}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.Sphere, 
+            fillColor={0,0,255}), 
           Text(
-            extent={{-142,40},{148,102}},
-            textString="%name",
-            lineColor={0,0,255}),
+            extent={{-142,40},{148,102}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
-            extent={{-150,-48},{150,-92}},
-            lineColor={0,0,0},
+            extent={{-150,-48},{150,-92}}, 
+            lineColor={0,0,0}, 
             textString="Lnom=%Lnom")}),                     Documentation(info="<HTML>
 <p>
 This model approximates the behaviour of an inductor with the influence of saturation,
@@ -578,42 +578,42 @@ relation:</p>
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{-100,128},{100,70}},
-            textString="%name",
-            lineColor={0,0,255}),
-          Ellipse(extent={{-45,-50},{-20,-25}}, lineColor={0,0,255}),
-          Ellipse(extent={{-45,-25},{-20,0}}, lineColor={0,0,255}),
-          Ellipse(extent={{-45,0},{-20,25}}, lineColor={0,0,255}),
-          Ellipse(extent={{-45,25},{-20,50}}, lineColor={0,0,255}),
+            extent={{-100,128},{100,70}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
+          Ellipse(extent={{-45,-50},{-20,-25}}, lineColor={0,0,255}), 
+          Ellipse(extent={{-45,-25},{-20,0}}, lineColor={0,0,255}), 
+          Ellipse(extent={{-45,0},{-20,25}}, lineColor={0,0,255}), 
+          Ellipse(extent={{-45,25},{-20,50}}, lineColor={0,0,255}), 
           Rectangle(
-            extent={{-72,-60},{-33,60}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,50},{-32,50}}, color={0,0,255}),
-          Line(points={{-90,-50},{-32,-50}}, color={0,0,255}),
-          Ellipse(extent={{20,-50},{45,-25}}, lineColor={0,0,255}),
-          Ellipse(extent={{20,-25},{45,0}}, lineColor={0,0,255}),
-          Ellipse(extent={{20,0},{45,25}}, lineColor={0,0,255}),
-          Ellipse(extent={{20,25},{45,50}}, lineColor={0,0,255}),
+            extent={{-72,-60},{-33,60}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-90,50},{-32,50}}, color={0,0,255}), 
+          Line(points={{-90,-50},{-32,-50}}, color={0,0,255}), 
+          Ellipse(extent={{20,-50},{45,-25}}, lineColor={0,0,255}), 
+          Ellipse(extent={{20,-25},{45,0}}, lineColor={0,0,255}), 
+          Ellipse(extent={{20,0},{45,25}}, lineColor={0,0,255}), 
+          Ellipse(extent={{20,25},{45,50}}, lineColor={0,0,255}), 
           Rectangle(
-            extent={{33,-60},{72,60}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{32,50},{90,50}}, color={0,0,255}),
-          Line(points={{32,-50},{90,-50}}, color={0,0,255}),
+            extent={{33,-60},{72,60}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{32,50},{90,50}}, color={0,0,255}), 
+          Line(points={{32,-50},{90,-50}}, color={0,0,255}), 
           Text(
-            extent={{-89,18},{-60,-10}},
-            textString="L1",
-            lineColor={0,0,255}),
+            extent={{-89,18},{-60,-10}}, 
+            textString="L1", 
+            lineColor={0,0,255}), 
           Text(
-            extent={{64,18},{90,-10}},
-            textString="L2",
-            lineColor={0,0,255}),
+            extent={{64,18},{90,-10}}, 
+            textString="L2", 
+            lineColor={0,0,255}), 
           Text(
-            extent={{-18,-70},{20,-98}},
-            textString="M",
+            extent={{-18,-70},{20,-98}}, 
+            textString="M", 
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -682,49 +682,49 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-60,60},{60,-60}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{-90,50},{-60,50}}, color={0,0,255}),
-          Line(points={{-90,-50},{-60,-50}}, color={0,0,255}),
-          Line(points={{60,50},{90,50}}, color={0,0,255}),
-          Line(points={{60,-50},{90,-50}}, color={0,0,255}),
-          Line(points={{-40,30},{40,30}}, color={0,0,255}),
-          Line(points={{-20,-20},{20,-20}}, color={0,0,255}),
+            extent={{-60,60},{60,-60}}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{-90,50},{-60,50}}, color={0,0,255}), 
+          Line(points={{-90,-50},{-60,-50}}, color={0,0,255}), 
+          Line(points={{60,50},{90,50}}, color={0,0,255}), 
+          Line(points={{60,-50},{90,-50}}, color={0,0,255}), 
+          Line(points={{-40,30},{40,30}}, color={0,0,255}), 
+          Line(points={{-20,-20},{20,-20}}, color={0,0,255}), 
           Polygon(
-            points={{30,34},{40,30},{30,26},{30,34}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
+            points={{30,34},{40,30},{30,26},{30,34}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Polygon(
-            points={{-26,-19},{-16,-15},{-16,-23},{-26,-19}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
+            points={{-26,-19},{-16,-15},{-16,-23},{-26,-19}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Line(
-            points={{-5,10},{-10,-10}},
-            thickness=2,
-            color={0,0,255}),
+            points={{-5,10},{-10,-10}}, 
+            thickness=2, 
+            color={0,0,255}), 
           Line(
-            points={{9,10},{4,-9}},
-            thickness=2,
-            color={0,0,255}),
+            points={{9,10},{4,-9}}, 
+            thickness=2, 
+            color={0,0,255}), 
           Line(
-            points={{-14,9},{16,10}},
-            thickness=2,
-            color={0,0,255}),
+            points={{-14,9},{16,10}}, 
+            thickness=2, 
+            color={0,0,255}), 
           Text(
-            extent={{-100,130},{100,69}},
-            textString="%name",
-            lineColor={0,0,255}),
+            extent={{-100,130},{100,69}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
-            extent={{-29,59},{30,30}},
-            textString="G1",
-            lineColor={0,0,255}),
+            extent={{-29,59},{30,30}}, 
+            textString="G1", 
+            lineColor={0,0,255}), 
           Text(
-            extent={{-29,-29},{29,-58}},
-            textString="G2",
+            extent={{-29,-29},{29,-58}}, 
+            textString="G2", 
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -778,9 +778,14 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
   end Gyrator;
   
   model EMF "Electromotoric force (electric/mechanic transformer)" 
+    parameter Boolean useSupport=false 
+      "= true, if support flange enabled, otherwise implicitly grounded" 
+        annotation(Evaluate=true, Hide=true);
     parameter Real k(final unit="N.m/A", start=1) "Transformation coefficient";
     SI.Voltage v "Voltage drop between the two pins";
     SI.Current i "Current flowing from positive to negative pin";
+    SI.Angle phi 
+      "Angle of shaft flange with respect to support (= shaft.phi - support.phi)";
     SI.AngularVelocity w "Angular velocity of flange_b";
     Interfaces.PositivePin p annotation (Placement(transformation(
           origin={0,100},
@@ -790,9 +795,15 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
           origin={0,-100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b annotation (Placement(
+    Modelica.Mechanics.Rotational.Interfaces.Flange_b shaft    annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
-                                                                     annotation (
+    Mechanics.Rotational.Interfaces.Support support if useSupport 
+      "Support/housing of emf shaft" 
+      annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+    Mechanics.Rotational.Interfaces.InternalSupport internalSupport(final 
+        useSupport=useSupport) 
+      annotation (Placement(transformation(extent={{-89,-10},{-69,10}})));
+    annotation (
       defaultComponentName="emf",
       Icon(
           coordinateSystem(
@@ -800,72 +811,79 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-85,10},{-36,-10}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
-          Line(points={{0,90},{0,40}}, color={0,0,255}),
+            extent={{-85,10},{-36,-10}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
+          Line(points={{0,90},{0,40}}, color={0,0,255}), 
           Rectangle(
-            extent={{35,10},{100,-10}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
+            extent={{35,10},{100,-10}}, 
+            lineColor={0,0,0}, 
+            fillPattern=FillPattern.HorizontalCylinder, 
+            fillColor={192,192,192}), 
           Ellipse(
-            extent={{-40,40},{40,-40}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{0,-90},{0,-40}}, color={0,0,255}),
+            extent={{-40,40},{40,-40}}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{0,-90},{0,-40}}, color={0,0,255}), 
           Text(
-            extent={{20,-40},{100,-100}},
-            textString="%name",
-            lineColor={0,0,255}),
+            extent={{20,-40},{100,-100}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Text(
-            extent={{0,80},{148,44}},
-            lineColor={160,160,164},
-            textString="k=%k")}),
+            extent={{0,80},{148,44}}, 
+            lineColor={160,160,164}, 
+            textString="k=%k"), 
+          Line(
+            visible=not useSupport, 
+            points={{-100,-30},{-40,-30}}, 
+            color={0,0,0}), 
+          Line(
+            visible=not useSupport, 
+            points={{-100,-50},{-80,-30}}, 
+            color={0,0,0}), 
+          Line(
+            visible=not useSupport, 
+            points={{-80,-50},{-60,-30}}, 
+            color={0,0,0}), 
+          Line(
+            visible=not useSupport, 
+            points={{-60,-50},{-40,-30}}, 
+            color={0,0,0}), 
+          Line(
+            visible=not useSupport, 
+            points={{-70,-30},{-70,-10}}, 
+            color={0,0,0})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Polygon(
-            points={{-17,95},{-20,85},{-23,95},{-17,95}},
-            lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-20,110},{-20,85}}, color={160,160,164}),
+            points={{-17,95},{-20,85},{-23,95},{-17,95}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{-20,110},{-20,85}}, color={160,160,164}), 
           Text(
-            extent={{-40,110},{-30,90}},
-            lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
-            textString="i"),
-          Line(points={{9,75},{19,75}}, color={192,192,192}),
-          Line(points={{0,96},{0,40}}, color={0,0,255}),
-          Ellipse(extent={{-40,40},{40,-40}}, lineColor={0,0,255}),
-          Rectangle(
-            extent={{39,10},{100,-10}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
-          Line(points={{-20,-110},{-20,-85}}, color={160,160,164}),
+            extent={{-40,110},{-30,90}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid, 
+            textString="i"), 
+          Line(points={{9,75},{19,75}}, color={192,192,192}), 
+          Line(points={{-20,-110},{-20,-85}}, color={160,160,164}), 
           Polygon(
-            points={{-17,-100},{-20,-110},{-23,-100},{-17,-100}},
-            lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid),
+            points={{-17,-100},{-20,-110},{-23,-100},{-17,-100}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
           Text(
-            extent={{-40,-110},{-30,-90}},
-            lineColor={160,160,164},
-            textString="i"),
-          Line(points={{8,-79},{18,-79}}, color={192,192,192}),
-          Line(points={{0,-96},{0,-40}}, color={0,0,255}),
-          Line(points={{14,80},{14,70}}, color={192,192,192}),
-          Rectangle(
-            extent={{-94,10},{-39,-10}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192})}),
+            extent={{-40,-110},{-30,-90}}, 
+            lineColor={160,160,164}, 
+            textString="i"), 
+          Line(points={{8,-79},{18,-79}}, color={192,192,192}), 
+          Line(points={{14,80},{14,70}}, color={192,192,192})}),
       Window(
         x=0.21,
         y=0,
@@ -875,9 +893,9 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
 <p>
 EMF transforms electrical energy into rotational mechanical energy.
 It is used as basic building block of an electrical motor. The mechanical
-connector flange_b can be connected to elements of the
-Modelica.Mechanics.Rotational library. flange_b.tau is the cut-torque,
-flange_b.phi is the angle at the rotational connection.
+connector shaft can be connected to elements of the
+Modelica.Mechanics.Rotational library. shaft.tau is the cut-torque,
+shaft.phi is the angle at the rotational connection.
 </p>
 </HTML>
 ", revisions="<html>
@@ -889,138 +907,21 @@ flange_b.phi is the angle at the rotational connection.
        </li>
 </ul>
 </html>"));
-    Mechanics.Rotational.Interfaces.Support support 
-      "Support/housing of emf shaft" 
-      annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-    SI.Angle phi 
-      "Angle of shaft flange with respect to support (= flange_b.phi - support.phi)";
   equation 
     v = p.v - n.v;
     0 = p.i + n.i;
     i = p.i;
     
-    phi = flange_b.phi - support.phi;
+    phi = shaft.phi - internalSupport.flange.phi;
     w = der(phi);
     k*w = v;
-    flange_b.tau = -k*i;
-    0 = flange_b.tau + support.tau;
+    shaft.tau = -k*i;
+    0 = shaft.tau + internalSupport.tau;
+    connect(internalSupport.flange, support) annotation (Line(
+        points={{-79,0},{-100,0}},
+        color={0,0,0},
+        smooth=Smooth.None));
   end EMF;
-  
-  model GroundedEMF "Electromotoric force (electric/mechanic transformer)" 
-    parameter Real k(final unit="N.m/A", start=1) "Transformation coefficient";
-    Interfaces.PositivePin p annotation (Placement(transformation(
-          origin={0,100},
-          extent={{-10,-10},{10,10}},
-          rotation=90)));
-    Interfaces.NegativePin n annotation (Placement(transformation(
-          origin={0,-100},
-          extent={{-10,-10},{10,10}},
-          rotation=90)));
-    Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b annotation (Placement(
-          transformation(extent={{90,-10},{110,10}}, rotation=0)));
-                                                                     annotation (defaultComponentName="emf",
-      Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
-          Rectangle(
-            extent={{-100,10},{-36,-10}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
-          Line(points={{0,90},{0,40}}, color={0,0,255}),
-          Rectangle(
-            extent={{35,10},{100,-10}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
-          Ellipse(
-            extent={{-40,40},{40,-40}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{0,-90},{0,-40}}, color={0,0,255}),
-          Text(
-            extent={{20,-40},{100,-100}},
-            textString="%name",
-            lineColor={0,0,255}),
-          Text(
-            extent={{0,80},{148,44}},
-            lineColor={160,160,164},
-            textString="k=%k"),
-          Line(
-            points={{-10,-10},{10,10}},
-            color={0,0,0},
-            origin={-110,0},
-            rotation=180),
-          Line(
-            points={{-10,-10},{10,10}},
-            color={0,0,0},
-            origin={-110,-20},
-            rotation=180),
-          Line(
-            points={{-10,-10},{10,10}},
-            color={0,0,0},
-            origin={-110,-40},
-            rotation=180),
-          Line(
-            points={{24,-44},{24,16}},
-            color={0,0,0},
-            origin={-76,-14},
-            rotation=180),
-          Line(
-            points={{-10,-10},{10,10}},
-            color={0,0,0},
-            origin={-110,20},
-            rotation=180)}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics),
-      Window(
-        x=0.21,
-        y=0,
-        width=0.65,
-        height=0.66),
-      Documentation(info="<HTML>
-<p>
-Identical to
-<a href=\"Modelica://Modelica.Electrical.Analog.Basic.EMF\">Electrical.Analog.Basic.EMF</a>,
-and the support is automatically fixed to ground.
-</p>
-</HTML>
-", revisions="<html>
-<ul>
-<li><i>  </i>
-       </li>
-<li><i> 1998   </i>
-       by Martin Otter<br> initially implemented<br>
-       </li>
-</ul>
-</html>"));
-    
-    EMF emf(k=k) 
-      annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-    Modelica.Mechanics.Rotational.Components.Fixed fixed 
-      annotation (Placement(transformation(extent={{-50,-20},{-30,0}})));
-  equation 
-    connect(emf.flange_b, flange_b) annotation (Line(
-        points={{10,0},{100,0}},
-        color={0,0,0},
-        smooth=Smooth.None));
-    connect(emf.n, n) annotation (Line(
-        points={{0,-10},{0,-100}},
-        color={0,0,255},
-        smooth=Smooth.None));
-    connect(emf.p, p) annotation (Line(
-        points={{0,10},{0,100}},
-        color={0,0,255},
-        smooth=Smooth.None));
-    connect(fixed.flange, emf.support) annotation (Line(
-        points={{-40,-10},{-40,0},{-10,0}},
-        color={0,0,0},
-        smooth=Smooth.None));
-  end GroundedEMF;
   
   model VCV "Linear voltage-controlled voltage source" 
     extends Interfaces.TwoPort;
@@ -1058,23 +959,23 @@ The left port current is zero. Any voltage gain can be chosen.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-70,70},{70,-70}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
+            extent={{-70,70},{70,-70}}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Text(
-            extent={{-99,-79},{100,-129}},
-            textString="%name",
-            lineColor={0,0,255}),
-          Line(points={{-90,50},{-30,50}}, color={0,0,255}),
-          Line(points={{-30,-50},{-90,-50}}, color={0,0,255}),
-          Line(points={{100,50},{30,50},{30,-50},{100,-50}}, color={0,0,255}),
-          Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
-          Line(points={{-20,60},{20,60}}, color={0,0,255}),
+            extent={{-99,-79},{100,-129}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
+          Line(points={{-90,50},{-30,50}}, color={0,0,255}), 
+          Line(points={{-30,-50},{-90,-50}}, color={0,0,255}), 
+          Line(points={{100,50},{30,50},{30,-50},{100,-50}}, color={0,0,255}), 
+          Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}), 
+          Line(points={{-20,60},{20,60}}, color={0,0,255}), 
           Polygon(
-            points={{20,60},{10,63},{10,57},{20,60}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
+            points={{20,60},{10,63},{10,57},{20,60}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid, 
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1127,25 +1028,25 @@ The left port current is zero. Any transConductance can be chosen.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-70,70},{70,-70}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
+            extent={{-70,70},{70,-70}}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Text(
-            extent={{-99,-80},{100,-129}},
-            textString="%name",
-            lineColor={0,0,255}),
-          Line(points={{-90,50},{-30,50}}, color={0,0,255}),
-          Line(points={{-30,-50},{-90,-50}}, color={0,0,255}),
-          Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
-          Line(points={{-20,60},{20,60}}, color={0,0,255}),
+            extent={{-99,-80},{100,-129}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
+          Line(points={{-90,50},{-30,50}}, color={0,0,255}), 
+          Line(points={{-30,-50},{-90,-50}}, color={0,0,255}), 
+          Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}), 
+          Line(points={{-20,60},{20,60}}, color={0,0,255}), 
           Polygon(
-            points={{20,60},{10,63},{10,57},{20,60}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{90,50},{30,50},{30,20}}, color={0,0,255}),
-          Line(points={{91,-50},{30,-50},{30,-20}}, color={0,0,255}),
+            points={{20,60},{10,63},{10,57},{20,60}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{90,50},{30,50},{30,20}}, color={0,0,255}), 
+          Line(points={{91,-50},{30,-50},{30,-20}}, color={0,0,255}), 
           Line(points={{10,0},{50,0}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1206,22 +1107,22 @@ The left port voltage is zero. Any transResistance can be chosen.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-70,70},{70,-70}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
+            extent={{-70,70},{70,-70}}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Text(
-            extent={{-99,-80},{100,-130}},
-            textString="%name",
-            lineColor={0,0,255}),
-          Line(points={{100,50},{30,50},{30,-50},{100,-50}}, color={0,0,255}),
-          Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
-          Line(points={{-20,60},{20,60}}, color={0,0,255}),
+            extent={{-99,-80},{100,-130}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
+          Line(points={{100,50},{30,50},{30,-50},{100,-50}}, color={0,0,255}), 
+          Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}), 
+          Line(points={{-20,60},{20,60}}, color={0,0,255}), 
           Polygon(
-            points={{20,60},{10,63},{10,57},{20,60}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
+            points={{20,60},{10,63},{10,57},{20,60}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Line(points={{-90,50},{-20,50},{-20,-50},{-90,-50}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1278,24 +1179,25 @@ The left port voltage is zero. Any current gain can be chosen.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-70,70},{70,-70}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
+            extent={{-70,70},{70,-70}}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Text(
-            extent={{-104,-76},{97,-127}},
-            textString="%name",
-            lineColor={0,0,255}),
-          Line(points={{-100,50},{-30,50},{-30,-50},{-100,-50}}, color={0,0,255}),
-          Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
-          Line(points={{-20,60},{20,60}}, color={0,0,255}),
+            extent={{-104,-76},{97,-127}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
+          Line(points={{-100,50},{-30,50},{-30,-50},{-100,-50}}, color={0,0,255}), 
+            
+          Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}), 
+          Line(points={{-20,60},{20,60}}, color={0,0,255}), 
           Polygon(
-            points={{20,60},{10,63},{10,57},{20,60}},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{90,50},{30,50},{30,20}}, color={0,0,255}),
-          Line(points={{91,-50},{30,-50},{30,-20}}, color={0,0,255}),
+            points={{20,60},{10,63},{10,57},{20,60}}, 
+            fillColor={0,0,255}, 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
+          Line(points={{90,50},{30,50},{30,20}}, color={0,0,255}), 
+          Line(points={{91,-50},{30,-50},{30,-20}}, color={0,0,255}), 
           Line(points={{10,0},{50,0}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1370,23 +1272,23 @@ value of Slope is taken into calculation.)
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{-95,88},{115,146}},
-            textString="%name",
-            lineColor={0,0,255}),
+            extent={{-95,88},{115,146}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
           Polygon(
-            points={{60,0},{-60,70},{-60,-70},{60,0}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
+            points={{60,0},{-60,70},{-60,-70},{60,0}}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid, 
+            lineColor={0,0,255}), 
           Line(points={{-45,-10},{-20,-10},{-14,-9},{-11,-7},{-9,7},{-6,9},{0,
-                10},{20,10}}, color={0,0,255}),
-          Line(points={{0,35},{0,80}}, color={0,0,255}),
-          Line(points={{0,-35},{0,-80}}, color={0,0,255}),
-          Line(points={{-90,50},{-60,50}}, color={0,0,255}),
-          Line(points={{-90,-50},{-60,-50}}, color={0,0,255}),
-          Line(points={{60,0},{90,0}}, color={0,0,255}),
-          Line(points={{-48,32},{-28,32}}, color={0,0,255}),
-          Line(points={{-39,-20},{-39,-41}}, color={0,0,255}),
+                10},{20,10}}, color={0,0,255}), 
+          Line(points={{0,35},{0,80}}, color={0,0,255}), 
+          Line(points={{0,-35},{0,-80}}, color={0,0,255}), 
+          Line(points={{-90,50},{-60,50}}, color={0,0,255}), 
+          Line(points={{-90,-50},{-60,-50}}, color={0,0,255}), 
+          Line(points={{60,0},{90,0}}, color={0,0,255}), 
+          Line(points={{-48,32},{-28,32}}, color={0,0,255}), 
+          Line(points={{-39,-20},{-39,-41}}, color={0,0,255}), 
           Line(points={{-50,-31},{-28,-31}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1496,16 +1398,16 @@ The Resistance <i>R</i> is given as input signal.
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Text(
-            extent={{-148,-100},{144,-40}},
-            textString="%name",
-            lineColor={0,0,255}),
-          Line(points={{-90,0},{-70,0}}, color={0,0,255}),
+            extent={{-148,-100},{144,-40}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
+          Line(points={{-90,0},{-70,0}}, color={0,0,255}), 
           Rectangle(
-            extent={{-70,30},{70,-30}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{70,0},{90,0}}, color={0,0,255}),
+            extent={{-70,30},{70,-30}}, 
+            lineColor={0,0,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{70,0},{90,0}}, color={0,0,255}), 
           Line(points={{0,90},{0,30}}, color={0,0,255})}),
             Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1559,16 +1461,16 @@ The Conductance <i>G</i> is given as input signal.
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Text(
-            extent={{-144,-102},{142,-40}},
-            textString="%name",
-            lineColor={0,0,255}),
-          Line(points={{-90,0},{-70,0}}, color={0,0,255}),
+            extent={{-144,-102},{142,-40}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
+          Line(points={{-90,0},{-70,0}}, color={0,0,255}), 
           Rectangle(
-            extent={{-70,30},{70,-30}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{70,0},{90,0}}, color={0,0,255}),
+            extent={{-70,30},{70,-30}}, 
+            lineColor={0,0,255}, 
+            fillColor={255,255,255}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{70,0},{90,0}}, color={0,0,255}), 
           Line(points={{0,90},{0,30}}, color={0,0,255})}),
             Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1626,19 +1528,19 @@ Cmin is a parameter with default value Modelica.Constants.eps.
 </html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Text(
-            extent={{-134,-100},{136,-40}},
-            textString="%name",
-            lineColor={0,0,255}),
-          Line(points={{-90,0},{-14,0}}, color={0,0,255}),
-          Line(points={{14,0},{90,0}}, color={0,0,255}),
-          Line(points={{0,90},{0,30}}, color={0,0,255}),
+            extent={{-134,-100},{136,-40}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
+          Line(points={{-90,0},{-14,0}}, color={0,0,255}), 
+          Line(points={{14,0},{90,0}}, color={0,0,255}), 
+          Line(points={{0,90},{0,30}}, color={0,0,255}), 
           Line(
-            points={{-14,28},{-14,-28}},
-            thickness=2,
-            color={0,0,255}),
+            points={{-14,28},{-14,-28}}, 
+            thickness=2, 
+            color={0,0,255}), 
           Line(
-            points={{14,28},{14,-28}},
-            thickness=2,
+            points={{14,28},{14,-28}}, 
+            thickness=2, 
             color={0,0,255})}),
             Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
@@ -1702,20 +1604,20 @@ Lmin is a parameter with default value Modelica.Constants.eps.
 </html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Text(
-            extent={{-138,-100},{136,-40}},
-            textString="%name",
-            lineColor={0,0,255}),
-          Line(points={{-90,0},{-60,0}}, color={0,0,255}),
-          Line(points={{60,0},{90,0}}, color={0,0,255}),
-          Line(points={{0,90},{0,8}}, color={0,0,255}),
-          Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),
+            extent={{-138,-100},{136,-40}}, 
+            textString="%name", 
+            lineColor={0,0,255}), 
+          Line(points={{-90,0},{-60,0}}, color={0,0,255}), 
+          Line(points={{60,0},{90,0}}, color={0,0,255}), 
+          Line(points={{0,90},{0,8}}, color={0,0,255}), 
+          Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}), 
+          Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}), 
+          Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}), 
+          Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}), 
           Rectangle(
-            extent={{-60,-30},{60,0}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
+            extent={{-60,-30},{60,0}}, 
+            lineColor={255,255,255}, 
+            fillColor={255,255,255}, 
             fillPattern=FillPattern.Solid)}),
             Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
