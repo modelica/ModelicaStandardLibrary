@@ -1111,9 +1111,9 @@ convertElement({"Modelica.Mechanics.Translational.Move"},                    "fl
 convertElement({"Modelica.Mechanics.Translational.Fixed"},                   "flange_b", "flange");
 convertElement({"Modelica.Mechanics.Translational.Force"},                   "flange_b", "flange");
 convertClass  ("Modelica.Mechanics.Translational.Stop",                      
-               "Modelica.Mechanics.Translational.Grounded.MassWithStopAndFriction");
+               "Modelica.Mechanics.Translational.Components.MassWithStopAndFriction");
 convertClass  ("Modelica.Mechanics.Translational.Interfaces.FrictionBase",   
-               "Modelica.Mechanics.Translational.Grounded.MassWithStopAndFriction.PartialFrictionWithStop");
+               "Modelica.Mechanics.Translational.Components.MassWithStopAndFriction.PartialFrictionWithStop");
 
 // End Convert Translational to 1.1.0 (MSL 3.0)
 //-------- Translational ------------------------------------------------------------
