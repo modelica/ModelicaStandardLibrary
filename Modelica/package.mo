@@ -1,5 +1,5 @@
 within ;
-package Modelica "Modelica Standard Library (Version 3.0 RC 1)"
+package Modelica "Modelica Standard Library (Version 3.0)"
 extends Icons.Library;
 
 
@@ -11,9 +11,9 @@ annotation(preferedView="info",
     height=0.57,
     library=1,
     autolayout=1),
-  version="3.0 RC 1",
+  version="3.0",
   versionBuild="846",
-  versionDate="2007-11-19",
+  versionDate="2007-11-23",
   conversion(
     from(version="2.1", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
     from(version="2.2", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
@@ -748,7 +748,7 @@ more of the following changes.
 </html>
 "));
     
-  class Version_3_0 "Version 3.0 (under development)" 
+  class Version_3_0 "Version 3.0 (Nov. 23, 2007)" 
       
       annotation (Documentation(info="<html>
 <p>
