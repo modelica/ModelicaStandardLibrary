@@ -12,7 +12,7 @@ annotation(preferedView="info",
     library=1,
     autolayout=1),
   version="3.0",
-  versionBuild="868",
+  versionBuild="869",
   versionDate="2007-11-23",
   conversion(
     from(version="2.1", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
