@@ -914,7 +914,7 @@ shaft.phi is the angle at the rotational connection.
     0 = p.i + n.i;
     i = p.i;
     
-    phi = shaft.phi - internalSupport.flange.phi;
+    phi = shaft.phi - internalSupport.phi;
     w = der(phi);
     k*w = v;
     shaft.tau = -k*i;
