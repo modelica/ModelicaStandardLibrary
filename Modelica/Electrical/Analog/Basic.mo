@@ -160,7 +160,7 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
     
       parameter SI.Resistance R_ref(start=1) "Resistance at temperature T_ref";
       parameter SI.Temperature T_ref=300 "Reference temperature";
-      parameter Real alpha(unit="1/K",start=0) 
+      parameter SI.LinearTemperatureCoefficient alpha(start=0) 
       "Temperature coefficient of resistance";
     
       SI.Resistance R "Resistance = R_ref*(1 + alpha*(heatPort.T - T_ref));";
@@ -172,38 +172,38 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
-          Line(points={{-110,20},{-85,20}}, color={160,160,164}),
+          Line(points={{-110,20},{-85,20}}, color={160,160,164}), 
           Polygon(
-            points={{-95,23},{-85,20},{-95,17},{-95,23}},
-            lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid),
-          Line(points={{90,20},{115,20}}, color={160,160,164}),
-          Line(points={{-125,0},{-115,0}}, color={160,160,164}),
-          Line(points={{-120,-5},{-120,5}}, color={160,160,164}),
+            points={{-95,23},{-85,20},{-95,17},{-95,23}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{90,20},{115,20}}, color={160,160,164}), 
+          Line(points={{-125,0},{-115,0}}, color={160,160,164}), 
+          Line(points={{-120,-5},{-120,5}}, color={160,160,164}), 
           Text(
-            extent={{-110,25},{-90,45}},
-            lineColor={160,160,164},
-            textString="i"),
+            extent={{-110,25},{-90,45}}, 
+            lineColor={160,160,164}, 
+            textString="i"), 
           Polygon(
-            points={{105,23},{115,20},{105,17},{105,23}},
-            lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid),
-          Line(points={{115,0},{125,0}}, color={160,160,164}),
+            points={{105,23},{115,20},{105,17},{105,23}}, 
+            lineColor={160,160,164}, 
+            fillColor={160,160,164}, 
+            fillPattern=FillPattern.Solid), 
+          Line(points={{115,0},{125,0}}, color={160,160,164}), 
           Text(
-            extent={{90,45},{110,25}},
-            lineColor={160,160,164},
-            textString="i"),
-          Rectangle(extent={{-70,30},{70,-30}}, lineColor={0,0,255}),
-          Line(points={{-96,0},{-70,0}}, color={0,0,255}),
-          Line(points={{70,0},{96,0}}, color={0,0,255}),
-          Line(points={{0,-30},{0,-90}}, color={191,0,0}),
-          Line(points={{-52,-50},{48,50}}, color={0,0,255}),
+            extent={{90,45},{110,25}}, 
+            lineColor={160,160,164}, 
+            textString="i"), 
+          Rectangle(extent={{-70,30},{70,-30}}, lineColor={0,0,255}), 
+          Line(points={{-96,0},{-70,0}}, color={0,0,255}), 
+          Line(points={{70,0},{96,0}}, color={0,0,255}), 
+          Line(points={{0,-30},{0,-90}}, color={191,0,0}), 
+          Line(points={{-52,-50},{48,50}}, color={0,0,255}), 
           Polygon(
-            points={{40,52},{50,42},{54,56},{40,52}},
-            lineColor={0,0,255},
-            fillColor={0,0,255},
+            points={{40,52},{50,42},{54,56},{40,52}}, 
+            lineColor={0,0,255}, 
+            fillColor={0,0,255}, 
             fillPattern=FillPattern.Solid)}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
@@ -781,7 +781,8 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
     parameter Boolean useSupport=false 
       "= true, if support flange enabled, otherwise implicitly grounded" 
         annotation(Evaluate=true, Hide=true, choices(checkBox=true));
-    parameter Real k(final unit="N.m/A", start=1) "Transformation coefficient";
+    parameter SI.ElectricalTorqueConstant k(start=1) 
+      "Transformation coefficient";
     SI.Voltage v "Voltage drop between the two pins";
     SI.Current i "Current flowing from positive to negative pin";
     SI.Angle phi 

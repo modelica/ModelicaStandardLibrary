@@ -1,4 +1,4 @@
-within Modelica.Thermal; 
+within Modelica.Thermal;
 
 
 package HeatTransfer 
@@ -629,19 +629,19 @@ constitutive equations for many types of heat transfer components.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
-              extent={{-129,121},{131,70}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{-129,121},{131,70}},
+              textString="%name",
+              lineColor={0,0,255}),
             Polygon(
               points={{0,67},{-20,63},{-40,57},{-52,43},{-58,35},{-68,25},{-72,
                   13},{-76,-1},{-78,-15},{-76,-31},{-76,-43},{-76,-53},{-70,-65},
                   {-64,-73},{-48,-77},{-30,-83},{-18,-83},{-2,-85},{8,-89},{22,
                   -89},{32,-87},{42,-81},{54,-75},{56,-73},{66,-61},{68,-53},{
                   70,-51},{72,-35},{76,-21},{78,-13},{78,3},{74,15},{66,25},{54,
-                  33},{44,41},{36,57},{26,65},{0,67}}, 
-              lineColor={160,160,164}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+                  33},{44,41},{36,57},{26,65},{0,67}},
+              lineColor={160,160,164},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Polygon(
               points={{-58,35},{-68,25},{-72,13},{-76,-1},{-78,-15},{-76,-31},{
                   -76,-43},{-76,-53},{-70,-65},{-64,-73},{-48,-77},{-30,-83},{-18,
@@ -649,13 +649,13 @@ constitutive equations for many types of heat transfer components.
                   -77},{40,-77},{30,-79},{20,-81},{18,-81},{10,-81},{2,-77},{-12,
                   -73},{-22,-73},{-30,-71},{-40,-65},{-50,-55},{-56,-43},{-58,-35},
                   {-58,-25},{-60,-13},{-60,-5},{-60,7},{-58,17},{-56,19},{-52,
-                  27},{-48,35},{-44,45},{-40,57},{-58,35}}, 
-              lineColor={0,0,0}, 
-              fillColor={160,160,164}, 
-              fillPattern=FillPattern.Solid), 
+                  27},{-48,35},{-44,45},{-40,57},{-58,35}},
+              lineColor={0,0,0},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-69,7},{71,-24}}, 
-              lineColor={0,0,0}, 
+              extent={{-69,7},{71,-24}},
+              lineColor={0,0,0},
               textString="%C")}),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}),graphics(
@@ -761,26 +761,26 @@ compute C:
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
-              extent={{-90,70},{90,-70}}, 
-              lineColor={0,0,0}, 
-              pattern=LinePattern.None, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Backward), 
+              extent={{-90,70},{90,-70}},
+              lineColor={0,0,0},
+              pattern=LinePattern.None,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Backward),
             Line(
-              points={{-90,70},{-90,-70}}, 
-              color={0,0,0}, 
-              thickness=2), 
+              points={{-90,70},{-90,-70}},
+              color={0,0,0},
+              thickness=2),
             Line(
-              points={{90,70},{90,-70}}, 
-              color={0,0,0}, 
-              thickness=2), 
+              points={{90,70},{90,-70}},
+              color={0,0,0},
+              thickness=2),
             Text(
-              extent={{-139,134},{141,74}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{-139,134},{141,74}},
+              textString="%name",
+              lineColor={0,0,255}),
             Text(
-              extent={{-115,-76},{113,-116}}, 
-              lineColor={0,0,0}, 
+              extent={{-115,-76},{113,-116}},
+              lineColor={0,0,0},
               textString="G=%G")}),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}),graphics(
@@ -857,37 +857,37 @@ e.g., with one of the following equations:
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
-              extent={{-62,80},{98,-80}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-62,80},{98,-80}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-90,80},{-60,-80}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Backward), 
+              extent={{-90,80},{-60,-80}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Backward),
             Text(
-              extent={{-117,-88},{124,-128}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
-            Line(points={{100,0},{100,0}}, color={0,127,255}), 
-            Line(points={{-60,20},{76,20}}, color={191,0,0}), 
-            Line(points={{-60,-20},{76,-20}}, color={191,0,0}), 
-            Line(points={{-34,80},{-34,-80}}, color={0,127,255}), 
-            Line(points={{6,80},{6,-80}}, color={0,127,255}), 
-            Line(points={{40,80},{40,-80}}, color={0,127,255}), 
-            Line(points={{76,80},{76,-80}}, color={0,127,255}), 
-            Line(points={{-34,-80},{-44,-60}}, color={0,127,255}), 
-            Line(points={{-34,-80},{-24,-60}}, color={0,127,255}), 
-            Line(points={{6,-80},{-4,-60}}, color={0,127,255}), 
-            Line(points={{6,-80},{16,-60}}, color={0,127,255}), 
-            Line(points={{40,-80},{30,-60}}, color={0,127,255}), 
-            Line(points={{40,-80},{50,-60}}, color={0,127,255}), 
-            Line(points={{76,-80},{66,-60}}, color={0,127,255}), 
-            Line(points={{76,-80},{86,-60}}, color={0,127,255}), 
-            Line(points={{56,-30},{76,-20}}, color={191,0,0}), 
-            Line(points={{56,-10},{76,-20}}, color={191,0,0}), 
-            Line(points={{56,10},{76,20}}, color={191,0,0}), 
+              extent={{-117,-88},{124,-128}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{100,0},{100,0}}, color={0,127,255}),
+            Line(points={{-60,20},{76,20}}, color={191,0,0}),
+            Line(points={{-60,-20},{76,-20}}, color={191,0,0}),
+            Line(points={{-34,80},{-34,-80}}, color={0,127,255}),
+            Line(points={{6,80},{6,-80}}, color={0,127,255}),
+            Line(points={{40,80},{40,-80}}, color={0,127,255}),
+            Line(points={{76,80},{76,-80}}, color={0,127,255}),
+            Line(points={{-34,-80},{-44,-60}}, color={0,127,255}),
+            Line(points={{-34,-80},{-24,-60}}, color={0,127,255}),
+            Line(points={{6,-80},{-4,-60}}, color={0,127,255}),
+            Line(points={{6,-80},{16,-60}}, color={0,127,255}),
+            Line(points={{40,-80},{30,-60}}, color={0,127,255}),
+            Line(points={{40,-80},{50,-60}}, color={0,127,255}),
+            Line(points={{76,-80},{66,-60}}, color={0,127,255}),
+            Line(points={{76,-80},{86,-60}}, color={0,127,255}),
+            Line(points={{56,-30},{76,-20}}, color={191,0,0}),
+            Line(points={{56,-10},{76,-20}}, color={191,0,0}),
+            Line(points={{56,10},{76,20}}, color={191,0,0}),
             Line(points={{56,30},{76,20}}, color={191,0,0})}),
         Documentation(info="<HTML>
 <p>
@@ -1009,44 +1009,44 @@ McGraw-Hill, 1997, p.270):
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
-              extent={{50,80},{90,-80}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Backward), 
+              extent={{50,80},{90,-80}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Backward),
             Rectangle(
-              extent={{-90,80},{-50,-80}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Backward), 
-            Line(points={{-36,10},{36,10}}, color={191,0,0}), 
-            Line(points={{-36,10},{-26,16}}, color={191,0,0}), 
-            Line(points={{-36,10},{-26,4}}, color={191,0,0}), 
-            Line(points={{-36,-10},{36,-10}}, color={191,0,0}), 
-            Line(points={{26,-16},{36,-10}}, color={191,0,0}), 
-            Line(points={{26,-4},{36,-10}}, color={191,0,0}), 
-            Line(points={{-36,-30},{36,-30}}, color={191,0,0}), 
-            Line(points={{-36,-30},{-26,-24}}, color={191,0,0}), 
-            Line(points={{-36,-30},{-26,-36}}, color={191,0,0}), 
-            Line(points={{-36,30},{36,30}}, color={191,0,0}), 
-            Line(points={{26,24},{36,30}}, color={191,0,0}), 
-            Line(points={{26,36},{36,30}}, color={191,0,0}), 
+              extent={{-90,80},{-50,-80}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Backward),
+            Line(points={{-36,10},{36,10}}, color={191,0,0}),
+            Line(points={{-36,10},{-26,16}}, color={191,0,0}),
+            Line(points={{-36,10},{-26,4}}, color={191,0,0}),
+            Line(points={{-36,-10},{36,-10}}, color={191,0,0}),
+            Line(points={{26,-16},{36,-10}}, color={191,0,0}),
+            Line(points={{26,-4},{36,-10}}, color={191,0,0}),
+            Line(points={{-36,-30},{36,-30}}, color={191,0,0}),
+            Line(points={{-36,-30},{-26,-24}}, color={191,0,0}),
+            Line(points={{-36,-30},{-26,-36}}, color={191,0,0}),
+            Line(points={{-36,30},{36,30}}, color={191,0,0}),
+            Line(points={{26,24},{36,30}}, color={191,0,0}),
+            Line(points={{26,36},{36,30}}, color={191,0,0}),
             Text(
-              extent={{-132,144},{108,84}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{-132,144},{108,84}},
+              textString="%name",
+              lineColor={0,0,255}),
             Text(
-              extent={{-119,-86},{117,-125}}, 
-              lineColor={0,0,0}, 
-              textString="G=%G"), 
+              extent={{-119,-86},{117,-125}},
+              lineColor={0,0,0},
+              textString="G=%G"),
             Rectangle(
-              extent={{-50,80},{-44,-80}}, 
-              lineColor={191,0,0}, 
-              fillColor={191,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-50,80},{-44,-80}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{45,80},{50,-80}}, 
-              lineColor={191,0,0}, 
-              fillColor={191,0,0}, 
+              extent={{45,80},{50,-80}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<HTML>
 <p>
@@ -1148,7 +1148,7 @@ place from the inner to the outer cylinder):
       Q_flow = Gr*Modelica.Constants.sigma*(port_a.T^4 - port_b.T^4);
     end BodyRadiation;
   end Components;
-
+  
   package Sensors "Thermal sensors" 
   extends Modelica.Icons.Library2;
     
@@ -1233,41 +1233,41 @@ place from the inner to the outer cylinder):
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
-              extent={{-20,-98},{20,-60}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={191,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-20,-98},{20,-60}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-12,40},{12,-68}}, 
-              lineColor={191,0,0}, 
-              fillColor={191,0,0}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{12,0},{90,0}}, color={0,0,255}), 
-            Line(points={{-90,0},{-12,0}}, color={191,0,0}), 
+              extent={{-12,40},{12,-68}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{12,0},{90,0}}, color={0,0,255}),
+            Line(points={{-90,0},{-12,0}}, color={191,0,0}),
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
-                  {12,80},{12,40},{-12,40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2), 
+                  {12,80},{12,40},{-12,40}},
+              lineColor={0,0,0},
+              lineThickness=2),
             Line(
-              points={{-12,40},{-12,-64}}, 
-              color={0,0,0}, 
-              thickness=2), 
+              points={{-12,40},{-12,-64}},
+              color={0,0,0},
+              thickness=2),
             Line(
-              points={{12,40},{12,-64}}, 
-              color={0,0,0}, 
-              thickness=2), 
-            Line(points={{-40,-20},{-12,-20}}, color={0,0,0}), 
-            Line(points={{-40,20},{-12,20}}, color={0,0,0}), 
-            Line(points={{-40,60},{-12,60}}, color={0,0,0}), 
+              points={{12,40},{12,-64}},
+              color={0,0,0},
+              thickness=2),
+            Line(points={{-40,-20},{-12,-20}}, color={0,0,0}),
+            Line(points={{-40,20},{-12,20}}, color={0,0,0}),
+            Line(points={{-40,60},{-12,60}}, color={0,0,0}),
             Text(
-              extent={{126,-20},{26,-120}}, 
-              lineColor={0,0,0}, 
-              textString="K"), 
+              extent={{126,-20},{26,-120}},
+              lineColor={0,0,0},
+              textString="K"),
             Text(
-              extent={{-132,144},{108,84}}, 
-              textString="%name", 
+              extent={{-132,144},{108,84}},
+              textString="%name",
               lineColor={0,0,255})}),
         Documentation(info="<HTML>
 <p>
@@ -1294,17 +1294,17 @@ sensor model.
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
-            Line(points={{-90,0},{-70,0},{-70,0}}, color={191,0,0}), 
-            Line(points={{-90,0},{-70,0},{-70,0}}, color={191,0,0}), 
-            Line(points={{70,0},{90,0},{90,0}}, color={191,0,0}), 
-            Line(points={{0,-30},{0,-80}}, color={0,0,255}), 
+            Line(points={{-90,0},{-70,0},{-70,0}}, color={191,0,0}),
+            Line(points={{-90,0},{-70,0},{-70,0}}, color={191,0,0}),
+            Line(points={{70,0},{90,0},{90,0}}, color={191,0,0}),
+            Line(points={{0,-30},{0,-80}}, color={0,0,255}),
             Text(
-              extent={{-140,94},{144,34}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{-140,94},{144,34}},
+              textString="%name",
+              lineColor={0,0,255}),
             Text(
-              extent={{92,-62},{34,-122}}, 
-              lineColor={0,0,0}, 
+              extent={{92,-62},{34,-122}},
+              lineColor={0,0,0},
               textString="K")}),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics(
@@ -1355,15 +1355,15 @@ the two ports of this component and is provided as output signal in Kelvin.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
-              extent={{33,-58},{88,-116}}, 
-              lineColor={0,0,0}, 
-              textString="Q_flow"), 
-            Line(points={{-70,0},{-90,0}}, color={191,0,0}), 
-            Line(points={{69,0},{90,0}}, color={191,0,0}), 
-            Line(points={{0,-70},{0,-90}}, color={0,0,255}), 
+              extent={{33,-58},{88,-116}},
+              lineColor={0,0,0},
+              textString="Q_flow"),
+            Line(points={{-70,0},{-90,0}}, color={191,0,0}),
+            Line(points={{69,0},{90,0}}, color={191,0,0}),
+            Line(points={{0,-70},{0,-90}}, color={0,0,255}),
             Text(
-              extent={{-132,144},{108,84}}, 
-              textString="%name", 
+              extent={{-132,144},{108,84}},
+              textString="%name",
               lineColor={0,0,255})}),
         Documentation(info="<HTML>
 <p>
@@ -1387,7 +1387,7 @@ to port_b.
       Q_flow = port_a.Q_flow;
     end HeatFlowSensor;
   end Sensors;
-
+  
   package Sources "Thermal sources" 
   extends Modelica.Icons.Library2;
     
@@ -1556,7 +1556,7 @@ as required to keep the temperature at the specified value.
         "Fixed heat flow rate at port";
       parameter Modelica.SIunits.Temperature T_ref=293.15 
         "Reference temperature";
-      parameter Real alpha(unit="1/K") = 0 
+      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0 
         "Temperature coefficient of heat flow rate";
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
@@ -1593,7 +1593,7 @@ as required to keep the temperature at the specified value.
               fillColor={191,0,0}, 
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}),graphics(
+                {100,100}}),graphics={
             Text(
               extent={{-100,40},{0,-36}},
               lineColor={0,0,0},
@@ -1615,7 +1615,7 @@ as required to keep the temperature at the specified value.
               points={{60,-40},{60,0},{90,-20},{60,-40}},
               lineColor={191,0,0},
               fillColor={191,0,0},
-              fillPattern=FillPattern.Solid))),
+              fillPattern=FillPattern.Solid)}),
         Documentation(info="<HTML>
 <p>
 This model allows a specified amount of heat flow rate to be \"injected\"
@@ -1639,7 +1639,7 @@ in order to simulate temperature dependent losses (which are given an reference 
     model PrescribedHeatFlow "Prescribed heat flow boundary condition" 
       parameter Modelica.SIunits.Temperature T_ref=293.15 
         "Reference temperature";
-      parameter Real alpha(unit="1/K") = 0 
+      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0 
         "Temperature coefficient of heat flow rate";
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
@@ -1692,8 +1692,8 @@ If parameter alpha is > 0, the heat flow is mulitplied by (1 + alpha*(port.T - T
 in order to simulate temperature dependent losses (which are given an reference temperature T_ref).
 </p>
 </HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics(
+"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),graphics={
             Line(
               points={{-60,-20},{68,-20}},
               color={191,0,0},
@@ -1719,7 +1719,7 @@ in order to simulate temperature dependent losses (which are given an reference 
               points={{60,-40},{60,0},{90,-20},{60,-40}},
               lineColor={191,0,0},
               fillColor={191,0,0},
-              fillPattern=FillPattern.Solid))));
+              fillPattern=FillPattern.Solid)}));
       Modelica.Blocks.Interfaces.RealInput Q_flow 
             annotation (Placement(transformation(
             origin={-100,0},
@@ -1731,16 +1731,6 @@ in order to simulate temperature dependent losses (which are given an reference 
       port.Q_flow = -Q_flow*(1 + alpha*(port.T - T_ref));
     end PrescribedHeatFlow;
   end Sources;
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   package Celsius "Components with Celsius input and/or output" 
     
@@ -1770,25 +1760,25 @@ in order to simulate temperature dependent losses (which are given an reference 
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
-              extent={{-40,40},{40,-40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-40,40},{40,-40}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{112,-40},{32,-120}}, 
-              lineColor={0,0,0}, 
-              textString="K"), 
+              extent={{112,-40},{32,-120}},
+              lineColor={0,0,0},
+              textString="K"),
             Text(
-              extent={{-31,-39},{-111,-119}}, 
-              lineColor={0,0,0}, 
-              lineThickness=4, 
-              textString="°C"), 
-            Line(points={{-41,0},{-100,0}}, color={0,0,255}), 
-            Line(points={{100,0},{40,0}}, color={0,0,255}), 
+              extent={{-31,-39},{-111,-119}},
+              lineColor={0,0,0},
+              lineThickness=4,
+              textString="°C"),
+            Line(points={{-41,0},{-100,0}}, color={0,0,255}),
+            Line(points={{100,0},{40,0}}, color={0,0,255}),
             Text(
-              extent={{-137,99},{132,49}}, 
-              textString="%name", 
+              extent={{-137,99},{132,49}},
+              textString="%name",
               lineColor={0,0,255})}),
         Documentation(info="<HTML>
 <p>
@@ -1812,25 +1802,25 @@ and provide is as output signal.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
-              extent={{-137,99},{132,49}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{-137,99},{132,49}},
+              textString="%name",
+              lineColor={0,0,255}),
             Ellipse(
-              extent={{-40,40},{40,-40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-40,40},{40,-40}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-34,-42},{-114,-122}}, 
-              lineColor={0,0,0}, 
-              lineThickness=4, 
-              textString="K"), 
+              extent={{-34,-42},{-114,-122}},
+              lineColor={0,0,0},
+              lineThickness=4,
+              textString="K"),
             Text(
-              extent={{110,-39},{30,-119}}, 
-              lineColor={0,0,0}, 
-              textString="°C"), 
-            Line(points={{-40,0},{-100,0}}, color={0,0,255}), 
+              extent={{110,-39},{30,-119}},
+              lineColor={0,0,0},
+              textString="°C"),
+            Line(points={{-40,0},{-100,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics={
@@ -1876,31 +1866,31 @@ and provides is as output signal.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
-              extent={{-118,165},{122,105}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{-118,165},{122,105}},
+              textString="%name",
+              lineColor={0,0,255}),
             Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              pattern=LinePattern.None, 
-              fillColor={159,159,223}, 
-              fillPattern=FillPattern.Backward), 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              pattern=LinePattern.None,
+              fillColor={159,159,223},
+              fillPattern=FillPattern.Backward),
             Text(
-              extent={{0,0},{-100,-100}}, 
-              lineColor={0,0,0}, 
-              textString="°C"), 
+              extent={{0,0},{-100,-100}},
+              lineColor={0,0,0},
+              textString="°C"),
             Polygon(
-              points={{52,-20},{52,20},{90,0},{52,-20}}, 
-              lineColor={191,0,0}, 
-              fillColor={191,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{52,-20},{52,20},{90,0},{52,-20}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-145,-102},{135,-151}}, 
-              lineColor={0,0,0}, 
-              textString="T=%T"), 
+              extent={{-145,-102},{135,-151}},
+              lineColor={0,0,0},
+              textString="T=%T"),
             Line(
-              points={{-42,0},{66,0}}, 
-              color={191,0,0}, 
+              points={{-42,0},{66,0}},
+              color={191,0,0},
               thickness=2)}),
         Documentation(info="<HTML>
 <p>
@@ -1942,31 +1932,31 @@ i.e., it defines a fixed temperature as a boundary condition.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              pattern=LinePattern.None, 
-              fillColor={159,159,223}, 
-              fillPattern=FillPattern.Backward), 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              pattern=LinePattern.None,
+              fillColor={159,159,223},
+              fillPattern=FillPattern.Backward),
             Line(
-              points={{-102,0},{64,0}}, 
-              color={191,0,0}, 
-              thickness=2), 
+              points={{-102,0},{64,0}},
+              color={191,0,0},
+              thickness=2),
             Text(
-              extent={{0,0},{-100,-100}}, 
-              lineColor={0,0,0}, 
-              textString="°C"), 
+              extent={{0,0},{-100,-100}},
+              lineColor={0,0,0},
+              textString="°C"),
             Text(
-              extent={{-122,163},{118,103}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{-122,163},{118,103}},
+              textString="%name",
+              lineColor={0,0,255}),
             Line(
-              points={{-102,0},{64,0}}, 
-              color={191,0,0}, 
-              thickness=2), 
+              points={{-102,0},{64,0}},
+              color={191,0,0},
+              thickness=2),
             Polygon(
-              points={{52,-20},{52,20},{90,0},{52,-20}}, 
-              lineColor={191,0,0}, 
-              fillColor={191,0,0}, 
+              points={{52,-20},{52,20},{90,0},{52,-20}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<HTML>
 <p>
@@ -2070,41 +2060,41 @@ Example:
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
-              extent={{-20,-98},{20,-60}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={191,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-20,-98},{20,-60}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-12,40},{12,-68}}, 
-              lineColor={191,0,0}, 
-              fillColor={191,0,0}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{12,0},{90,0}}, color={0,0,255}), 
-            Line(points={{-90,0},{-12,0}}, color={191,0,0}), 
+              extent={{-12,40},{12,-68}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{12,0},{90,0}}, color={0,0,255}),
+            Line(points={{-90,0},{-12,0}}, color={191,0,0}),
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
-                  {12,80},{12,40},{-12,40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2), 
+                  {12,80},{12,40},{-12,40}},
+              lineColor={0,0,0},
+              lineThickness=2),
             Line(
-              points={{-12,40},{-12,-64}}, 
-              color={0,0,0}, 
-              thickness=2), 
+              points={{-12,40},{-12,-64}},
+              color={0,0,0},
+              thickness=2),
             Line(
-              points={{12,40},{12,-64}}, 
-              color={0,0,0}, 
-              thickness=2), 
-            Line(points={{-40,-20},{-12,-20}}, color={0,0,0}), 
-            Line(points={{-40,20},{-12,20}}, color={0,0,0}), 
-            Line(points={{-40,60},{-12,60}}, color={0,0,0}), 
+              points={{12,40},{12,-64}},
+              color={0,0,0},
+              thickness=2),
+            Line(points={{-40,-20},{-12,-20}}, color={0,0,0}),
+            Line(points={{-40,20},{-12,20}}, color={0,0,0}),
+            Line(points={{-40,60},{-12,60}}, color={0,0,0}),
             Text(
-              extent={{126,-20},{26,-120}}, 
-              lineColor={0,0,0}, 
-              textString="°C"), 
+              extent={{126,-20},{26,-120}},
+              lineColor={0,0,0},
+              textString="°C"),
             Text(
-              extent={{-132,144},{108,84}}, 
-              textString="%name", 
+              extent={{-132,144},{108,84}},
+              textString="%name",
               lineColor={0,0,255})}),
         Documentation(info="<HTML>
 <p>
@@ -2154,25 +2144,25 @@ sensor model.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
-              extent={{-40,40},{40,-40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-40,40},{40,-40}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{112,-40},{32,-120}}, 
-              lineColor={0,0,0}, 
-              textString="K"), 
+              extent={{112,-40},{32,-120}},
+              lineColor={0,0,0},
+              textString="K"),
             Text(
-              extent={{-31,-39},{-111,-119}}, 
-              lineColor={0,0,0}, 
-              lineThickness=4, 
-              textString="°F"), 
-            Line(points={{-41,0},{-100,0}}, color={0,0,255}), 
-            Line(points={{100,0},{40,0}}, color={0,0,255}), 
+              extent={{-31,-39},{-111,-119}},
+              lineColor={0,0,0},
+              lineThickness=4,
+              textString="°F"),
+            Line(points={{-41,0},{-100,0}}, color={0,0,255}),
+            Line(points={{100,0},{40,0}}, color={0,0,255}),
             Text(
-              extent={{-137,99},{132,49}}, 
-              textString="%name", 
+              extent={{-137,99},{132,49}},
+              textString="%name",
               lineColor={0,0,255})}),
         Documentation(info="<HTML>
 <p>
@@ -2196,25 +2186,25 @@ and provides is as output signal.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
-              extent={{-137,99},{132,49}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{-137,99},{132,49}},
+              textString="%name",
+              lineColor={0,0,255}),
             Ellipse(
-              extent={{-40,40},{40,-40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-40,40},{40,-40}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-34,-42},{-114,-122}}, 
-              lineColor={0,0,0}, 
-              lineThickness=4, 
-              textString="K"), 
+              extent={{-34,-42},{-114,-122}},
+              lineColor={0,0,0},
+              lineThickness=4,
+              textString="K"),
             Text(
-              extent={{110,-39},{30,-119}}, 
-              lineColor={0,0,0}, 
-              textString="°F"), 
-            Line(points={{-40,0},{-100,0}}, color={0,0,255}), 
+              extent={{110,-39},{30,-119}},
+              lineColor={0,0,0},
+              textString="°F"),
+            Line(points={{-40,0},{-100,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
         Diagram(graphics={
             Ellipse(
@@ -2259,31 +2249,31 @@ and provides them as output signals.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
-              extent={{-118,165},{122,105}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{-118,165},{122,105}},
+              textString="%name",
+              lineColor={0,0,255}),
             Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              pattern=LinePattern.None, 
-              fillColor={159,159,223}, 
-              fillPattern=FillPattern.Backward), 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              pattern=LinePattern.None,
+              fillColor={159,159,223},
+              fillPattern=FillPattern.Backward),
             Text(
-              extent={{0,0},{-100,-100}}, 
-              lineColor={0,0,0}, 
-              textString="°F"), 
+              extent={{0,0},{-100,-100}},
+              lineColor={0,0,0},
+              textString="°F"),
             Polygon(
-              points={{52,-20},{52,20},{90,0},{52,-20}}, 
-              lineColor={191,0,0}, 
-              fillColor={191,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{52,-20},{52,20},{90,0},{52,-20}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-145,-102},{135,-151}}, 
-              lineColor={0,0,0}, 
-              textString="T=%T"), 
+              extent={{-145,-102},{135,-151}},
+              lineColor={0,0,0},
+              textString="T=%T"),
             Line(
-              points={{-42,0},{66,0}}, 
-              color={191,0,0}, 
+              points={{-42,0},{66,0}},
+              color={191,0,0},
               thickness=2)}),
         Documentation(info="<HTML>
 <p>
@@ -2325,31 +2315,31 @@ i.e., it defines a fixed temperature as a boundary condition.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              pattern=LinePattern.None, 
-              fillColor={159,159,223}, 
-              fillPattern=FillPattern.Backward), 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              pattern=LinePattern.None,
+              fillColor={159,159,223},
+              fillPattern=FillPattern.Backward),
             Line(
-              points={{-102,0},{64,0}}, 
-              color={191,0,0}, 
-              thickness=2), 
+              points={{-102,0},{64,0}},
+              color={191,0,0},
+              thickness=2),
             Text(
-              extent={{0,0},{-100,-100}}, 
-              lineColor={0,0,0}, 
-              textString="°F"), 
+              extent={{0,0},{-100,-100}},
+              lineColor={0,0,0},
+              textString="°F"),
             Text(
-              extent={{-122,163},{118,103}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{-122,163},{118,103}},
+              textString="%name",
+              lineColor={0,0,255}),
             Line(
-              points={{-102,0},{64,0}}, 
-              color={191,0,0}, 
-              thickness=2), 
+              points={{-102,0},{64,0}},
+              color={191,0,0},
+              thickness=2),
             Polygon(
-              points={{52,-20},{52,20},{90,0},{52,-20}}, 
-              lineColor={191,0,0}, 
-              fillColor={191,0,0}, 
+              points={{52,-20},{52,20},{90,0},{52,-20}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<HTML>
 <p>
@@ -2452,41 +2442,41 @@ Example:
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
-              extent={{-20,-98},{20,-60}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={191,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-20,-98},{20,-60}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-12,40},{12,-68}}, 
-              lineColor={191,0,0}, 
-              fillColor={191,0,0}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{12,0},{90,0}}, color={0,0,255}), 
-            Line(points={{-90,0},{-12,0}}, color={191,0,0}), 
+              extent={{-12,40},{12,-68}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{12,0},{90,0}}, color={0,0,255}),
+            Line(points={{-90,0},{-12,0}}, color={191,0,0}),
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
-                  {12,80},{12,40},{-12,40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2), 
+                  {12,80},{12,40},{-12,40}},
+              lineColor={0,0,0},
+              lineThickness=2),
             Line(
-              points={{-12,40},{-12,-64}}, 
-              color={0,0,0}, 
-              thickness=2), 
+              points={{-12,40},{-12,-64}},
+              color={0,0,0},
+              thickness=2),
             Line(
-              points={{12,40},{12,-64}}, 
-              color={0,0,0}, 
-              thickness=2), 
-            Line(points={{-40,-20},{-12,-20}}, color={0,0,0}), 
-            Line(points={{-40,20},{-12,20}}, color={0,0,0}), 
-            Line(points={{-40,60},{-12,60}}, color={0,0,0}), 
+              points={{12,40},{12,-64}},
+              color={0,0,0},
+              thickness=2),
+            Line(points={{-40,-20},{-12,-20}}, color={0,0,0}),
+            Line(points={{-40,20},{-12,20}}, color={0,0,0}),
+            Line(points={{-40,60},{-12,60}}, color={0,0,0}),
             Text(
-              extent={{126,-20},{26,-120}}, 
-              lineColor={0,0,0}, 
-              textString="°F"), 
+              extent={{126,-20},{26,-120}},
+              lineColor={0,0,0},
+              textString="°F"),
             Text(
-              extent={{-132,144},{108,84}}, 
-              textString="%name", 
+              extent={{-132,144},{108,84}},
+              textString="%name",
               lineColor={0,0,255})}),
         Documentation(info="<HTML>
 <p>
@@ -2537,25 +2527,25 @@ sensor model.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
-              extent={{-40,40},{40,-40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-40,40},{40,-40}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{112,-40},{32,-120}}, 
-              lineColor={0,0,0}, 
-              textString="K"), 
+              extent={{112,-40},{32,-120}},
+              lineColor={0,0,0},
+              textString="K"),
             Text(
-              extent={{-31,-39},{-111,-119}}, 
-              lineColor={0,0,0}, 
-              lineThickness=4, 
-              textString="°Rk"), 
-            Line(points={{-41,0},{-100,0}}, color={0,0,255}), 
-            Line(points={{100,0},{40,0}}, color={0,0,255}), 
+              extent={{-31,-39},{-111,-119}},
+              lineColor={0,0,0},
+              lineThickness=4,
+              textString="°Rk"),
+            Line(points={{-41,0},{-100,0}}, color={0,0,255}),
+            Line(points={{100,0},{40,0}}, color={0,0,255}),
             Text(
-              extent={{-137,99},{132,49}}, 
-              textString="%name", 
+              extent={{-137,99},{132,49}},
+              textString="%name",
               lineColor={0,0,255})}),
         Documentation(info="<HTML>
 <p>
@@ -2580,25 +2570,25 @@ and provides them as output signals.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
-              extent={{-137,99},{132,49}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{-137,99},{132,49}},
+              textString="%name",
+              lineColor={0,0,255}),
             Ellipse(
-              extent={{-40,40},{40,-40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-40,40},{40,-40}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-34,-42},{-114,-122}}, 
-              lineColor={0,0,0}, 
-              lineThickness=4, 
-              textString="K"), 
+              extent={{-34,-42},{-114,-122}},
+              lineColor={0,0,0},
+              lineThickness=4,
+              textString="K"),
             Text(
-              extent={{110,-39},{30,-119}}, 
-              lineColor={0,0,0}, 
-              textString="°Rk"), 
-            Line(points={{-40,0},{-100,0}}, color={0,0,255}), 
+              extent={{110,-39},{30,-119}},
+              lineColor={0,0,0},
+              textString="°Rk"),
+            Line(points={{-40,0},{-100,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
         Diagram(graphics={
             Ellipse(
@@ -2643,31 +2633,31 @@ and provides them as output signals.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
-              extent={{-118,165},{122,105}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{-118,165},{122,105}},
+              textString="%name",
+              lineColor={0,0,255}),
             Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              pattern=LinePattern.None, 
-              fillColor={159,159,223}, 
-              fillPattern=FillPattern.Backward), 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              pattern=LinePattern.None,
+              fillColor={159,159,223},
+              fillPattern=FillPattern.Backward),
             Text(
-              extent={{0,0},{-100,-100}}, 
-              lineColor={0,0,0}, 
-              textString="°Rk"), 
+              extent={{0,0},{-100,-100}},
+              lineColor={0,0,0},
+              textString="°Rk"),
             Polygon(
-              points={{52,-20},{52,20},{90,0},{52,-20}}, 
-              lineColor={191,0,0}, 
-              fillColor={191,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{52,-20},{52,20},{90,0},{52,-20}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-145,-102},{135,-151}}, 
-              lineColor={0,0,0}, 
-              textString="T=%T"), 
+              extent={{-145,-102},{135,-151}},
+              lineColor={0,0,0},
+              textString="T=%T"),
             Line(
-              points={{-42,0},{66,0}}, 
-              color={191,0,0}, 
+              points={{-42,0},{66,0}},
+              color={191,0,0},
               thickness=2)}),
         Documentation(info="<HTML>
 <p>
@@ -2709,31 +2699,31 @@ This model defines a fixed temperature T at its port in degree Rankine,
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              pattern=LinePattern.None, 
-              fillColor={159,159,223}, 
-              fillPattern=FillPattern.Backward), 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              pattern=LinePattern.None,
+              fillColor={159,159,223},
+              fillPattern=FillPattern.Backward),
             Line(
-              points={{-102,0},{64,0}}, 
-              color={191,0,0}, 
-              thickness=2), 
+              points={{-102,0},{64,0}},
+              color={191,0,0},
+              thickness=2),
             Text(
-              extent={{0,0},{-100,-100}}, 
-              lineColor={0,0,0}, 
-              textString="°Rk"), 
+              extent={{0,0},{-100,-100}},
+              lineColor={0,0,0},
+              textString="°Rk"),
             Text(
-              extent={{-122,163},{118,103}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{-122,163},{118,103}},
+              textString="%name",
+              lineColor={0,0,255}),
             Line(
-              points={{-102,0},{64,0}}, 
-              color={191,0,0}, 
-              thickness=2), 
+              points={{-102,0},{64,0}},
+              color={191,0,0},
+              thickness=2),
             Polygon(
-              points={{52,-20},{52,20},{90,0},{52,-20}}, 
-              lineColor={191,0,0}, 
-              fillColor={191,0,0}, 
+              points={{52,-20},{52,20},{90,0},{52,-20}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<HTML>
 <p>
@@ -2835,41 +2825,41 @@ Example:
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
-              extent={{-20,-98},{20,-60}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2, 
-              fillColor={191,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-20,-98},{20,-60}},
+              lineColor={0,0,0},
+              lineThickness=2,
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-12,40},{12,-68}}, 
-              lineColor={191,0,0}, 
-              fillColor={191,0,0}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{12,0},{90,0}}, color={0,0,255}), 
-            Line(points={{-90,0},{-12,0}}, color={191,0,0}), 
+              extent={{-12,40},{12,-68}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{12,0},{90,0}}, color={0,0,255}),
+            Line(points={{-90,0},{-12,0}}, color={191,0,0}),
             Polygon(
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
-                  {12,80},{12,40},{-12,40}}, 
-              lineColor={0,0,0}, 
-              lineThickness=2), 
+                  {12,80},{12,40},{-12,40}},
+              lineColor={0,0,0},
+              lineThickness=2),
             Line(
-              points={{-12,40},{-12,-64}}, 
-              color={0,0,0}, 
-              thickness=2), 
+              points={{-12,40},{-12,-64}},
+              color={0,0,0},
+              thickness=2),
             Line(
-              points={{12,40},{12,-64}}, 
-              color={0,0,0}, 
-              thickness=2), 
-            Line(points={{-40,-20},{-12,-20}}, color={0,0,0}), 
-            Line(points={{-40,20},{-12,20}}, color={0,0,0}), 
-            Line(points={{-40,60},{-12,60}}, color={0,0,0}), 
+              points={{12,40},{12,-64}},
+              color={0,0,0},
+              thickness=2),
+            Line(points={{-40,-20},{-12,-20}}, color={0,0,0}),
+            Line(points={{-40,20},{-12,20}}, color={0,0,0}),
+            Line(points={{-40,60},{-12,60}}, color={0,0,0}),
             Text(
-              extent={{126,-20},{26,-120}}, 
-              lineColor={0,0,0}, 
-              textString="°Rk"), 
+              extent={{126,-20},{26,-120}},
+              lineColor={0,0,0},
+              textString="°Rk"),
             Text(
-              extent={{-132,144},{108,84}}, 
-              textString="%name", 
+              extent={{-132,144},{108,84}},
+              textString="%name",
               lineColor={0,0,255})}),
         Documentation(info="<HTML>
 <p>
