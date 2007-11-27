@@ -1418,22 +1418,27 @@ at an angle phi0 in the <b>housing</b>. May be used:
     equation 
       flange.phi = phi0;
     end Fixed;
-    
-    model Inertia "1D-rotational component with inertia" 
+
+    model Inertia "1D-rotational component with inertia"
       import SI = Modelica.SIunits;
+
+      Interfaces.Flange_a flange_a "Left flange of shaft" 
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+              rotation=0)));
+      Interfaces.Flange_b flange_b "Right flange of shaft" 
+        annotation (Placement(transformation(extent={{90,-10},{110,10}},
+              rotation=0)));
+
       parameter SI.Inertia J(min=0, start=1) "Moment of inertia";
-      parameter SI.Angle deltaPhi=0 
-        "Fixed rotation of left flange with respect to right flange (= flange_b.phi - flange_a.phi)"
-      annotation(Dialog(tab="Advanced"));
-      extends Rotational.Interfaces.PartialRigid(phi(start=0, stateSelect=stateSelect));
-      
-      parameter StateSelect stateSelect=StateSelect.default 
+      parameter StateSelect stateSelect=StateSelect.default
         "Priority to use phi and w as states" annotation(Hide=true,Dialog(tab="Advanced"));
-      SI.AngularVelocity w(start=0, stateSelect=stateSelect) 
+      SI.Angle phi(start=0, stateSelect=stateSelect)
+        "Absolute rotation angle of component";
+      SI.AngularVelocity w(start=0, stateSelect=stateSelect)
         "Absolute angular velocity of component (= der(phi))";
-      SI.AngularAcceleration a(start=0) 
+      SI.AngularAcceleration a(start=0)
         "Absolute angular acceleration of component (= der(w))";
-      
+
       annotation (
         Window(
           x=0.28,
@@ -1449,53 +1454,65 @@ Rotational component with <b>inertia</b> and two rigidly connected flanges.
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            grid={1,1}), graphics(
             Rectangle(
-              extent={{-100,10},{-50,-10}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{-100,10},{-50,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{50,10},{100,-10}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
-            Line(points={{-80,-25},{-60,-25}}, color={0,0,0}), 
-            Line(points={{60,-25},{80,-25}}, color={0,0,0}), 
-            Line(points={{-70,-25},{-70,-70}}, color={0,0,0}), 
-            Line(points={{70,-25},{70,-70}}, color={0,0,0}), 
-            Line(points={{-80,25},{-60,25}}, color={0,0,0}), 
-            Line(points={{60,25},{80,25}}, color={0,0,0}), 
-            Line(points={{-70,45},{-70,25}}, color={0,0,0}), 
-            Line(points={{70,45},{70,25}}, color={0,0,0}), 
-            Line(points={{-70,-70},{70,-70}}, color={0,0,0}), 
+              extent={{50,10},{100,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Line(points={{-80,-25},{-60,-25}}, color={0,0,0}),
+            Line(points={{60,-25},{80,-25}}, color={0,0,0}),
+            Line(points={{-70,-25},{-70,-70}}, color={0,0,0}),
+            Line(points={{70,-25},{70,-70}}, color={0,0,0}),
+            Line(points={{-80,25},{-60,25}}, color={0,0,0}),
+            Line(points={{60,25},{80,25}}, color={0,0,0}),
+            Line(points={{-70,45},{-70,25}}, color={0,0,0}),
+            Line(points={{70,45},{70,25}}, color={0,0,0}),
+            Line(points={{-70,-70},{70,-70}}, color={0,0,0}),
             Rectangle(
-              extent={{-50,50},{50,-50}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{-50,50},{50,-50}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Text(
-              extent={{-150,100},{150,60}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{-150,100},{150,60}},
+              textString="%name",
+              lineColor={0,0,255}),
             Text(
-              extent={{-150,-80},{150,-120}}, 
-              lineColor={0,0,0}, 
-              textString="J=%J")}),
+              extent={{-150,-80},{150,-120}},
+              lineColor={0,0,0},
+              textString="J=%J"))),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
-    equation 
+    equation
+      flange_a.phi = phi;
+      flange_b.phi = phi;
       w = der(phi);
       a = der(w);
       J*a = flange_a.tau + flange_b.tau;
     end Inertia;
-    
-    model Disc 
-      "1-dim. rotational rigid component without inertia, where right flange is rotated by a fixed angle with respect to left flange" 
+
+    model Disc
+      "1-dim. rotational rigid component without inertia, where right flange is rotated by a fixed angle with respect to left flange"
       import SI = Modelica.SIunits;
-      extends Rotational.Interfaces.PartialRigid;
+
+      Interfaces.Flange_a flange_a "Left flange of shaft" 
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+              rotation=0)));
+      Interfaces.Flange_b flange_b "Right flange of shaft" 
+        annotation (Placement(transformation(extent={{90,-10},{110,10}},
+              rotation=0)));
+      parameter SI.Angle deltaPhi=0
+        "Fixed rotation of left flange with respect to right flange (= flange_b.phi - flange_a.phi)";
+      SI.Angle phi "Absolute rotation angle of component";
+
       annotation (
         Window(
           x=0.28,
@@ -1505,45 +1522,49 @@ Rotational component with <b>inertia</b> and two rigidly connected flanges.
         Documentation(info="<html>
 <p>
 Rotational component with two rigidly connected flanges without <b>inertia</b>.
+The right flange is rotated by the fixed angle \"deltaPhi\" with respect to the left 
+flange.
 </p>
  
 </HTML>
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
+            grid={1,1}), graphics(
             Rectangle(
-              extent={{-100,10},{99,-10}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{-100,10},{99,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{-10,50},{10,-50}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{-10,50},{10,-50}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Text(
-              extent={{-150,100},{150,60}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{-150,100},{150,60}},
+              textString="%name",
+              lineColor={0,0,255}),
             Rectangle(
-              extent={{-30,50},{-10,10}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{-30,50},{-10,10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{10,-10},{30,-50}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192})}),
+              extent={{10,-10},{30,-50}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}))),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
-    equation 
+    equation
+      flange_a.phi = phi - deltaPhi/2;
+      flange_b.phi = phi + deltaPhi/2;
       0 = flange_a.tau + flange_b.tau;
     end Disc;
-    
+
     model Spring "Linear 1D rotational spring" 
       extends Modelica.Mechanics.Rotational.Interfaces.PartialCompliant;
       parameter Real c(final unit="N.m/rad", final min=0, start=1.0e5) 
@@ -5652,27 +5673,22 @@ the support torque can be accessed as internalSupport.tau.
       phi = flange.phi;
     end InternalSupport;
     
-    partial model PartialRigid 
-      "Base model for a rigid shaft with a left and a right shaft flange" 
-      
+    partial model PartialRigid
+      "Base model for a rigid shaft with a left and a right shaft flange"
+
       Flange_a flange_a "Left flange of shaft" 
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
       Flange_b flange_b "Right flange of shaft" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
-      parameter SI.Angle deltaPhi=0 
-        "Fixed rotation of left flange with respect to right flange (= flange_b.phi - flange_a.phi)";
       SI.Angle phi "Absolute rotation angle of component";
-      
+
       annotation (
         Documentation(info="<html>
 <p>
 This is a 1-dim. rotational component with one shaft. The left and right
 (rigidly connected) shaft flanges are the two connectors of the component.
-By default, they are identical, i.e., flange_a.phi = flange_b.phi. 
-With parameter \"deltaPhi\" in the \"Advanced\" menu, a fixed rotation between
-the two angles can be defined, i.e., flange_b.phi = flange_a.phi + deltaPhi;
 It is used e.g. to built up components with inertia.
 </p>
  
@@ -5686,9 +5702,9 @@ It is used e.g. to built up components with inertia.
           y=0.3,
           width=0.61,
           height=0.66));
-    equation 
-      flange_a.phi = phi - deltaPhi/2;
-      flange_b.phi = phi + deltaPhi/2;
+    equation
+      flange_a.phi = phi;
+      flange_b.phi = phi;
     end PartialRigid;
     
     partial model PartialCompliant 
