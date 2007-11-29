@@ -2,17 +2,22 @@ within Modelica.Electrical.Analog.Examples;
 model ShowSaturatingInductor 
   "Simple demo to show behaviour of SaturatingInductor component" 
   extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.Inductance Lzer=2;
-  parameter Modelica.SIunits.Inductance Lnom=1;
-  parameter Modelica.SIunits.Current Inom=1;
-  parameter Modelica.SIunits.Inductance Linf=0.5;
-  parameter Modelica.SIunits.Voltage U=1.25;
-  parameter Modelica.SIunits.Frequency f=1/(2*Modelica.Constants.pi);
-  parameter Modelica.SIunits.Angle phase=Modelica.Constants.pi/2;
-  output Modelica.SIunits.Voltage v;
-  output Modelica.SIunits.Current i;
+  parameter Modelica.SIunits.Inductance Lzer=2 "Inductance near current=0";
+  parameter Modelica.SIunits.Inductance Lnom=1 
+    "Nominal inductance at Nominal current";
+  parameter Modelica.SIunits.Current Inom=1 "Nominal current";
+  parameter Modelica.SIunits.Inductance Linf=0.5 "Inductance at large currents";
+  parameter Modelica.SIunits.Voltage U=1.25 "source voltage (peak)";
+  parameter Modelica.SIunits.Frequency f=1/(2*Modelica.Constants.pi) 
+    "source frequency";
+  parameter Modelica.SIunits.Angle phase=Modelica.Constants.pi/2 
+    "source voltage phase shift";
+  output Modelica.SIunits.Voltage v "voltage drop over saturating inductor";
+  output Modelica.SIunits.Current i "current across saturating inductor";
   annotation (
-    Diagram(graphics),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+            100,100}}),
+            graphics),
     experiment(StopTime=6.2832, Interval=0.01),
     Documentation(info="<html>
   
@@ -42,8 +47,8 @@ equation
   i=SaturatingInductance1.i;
   connect(SineVoltage1.n, Ground1.p) annotation (Line(points={{-20,-10},{-20,
           -10}}, color={0,0,255}));
-  connect(SineVoltage1.n, SaturatingInductance1.n) annotation (Line(points={{
-          -20,-10},{22,-10},{22,-4}}, color={0,0,255}));
-  connect(SaturatingInductance1.p, SineVoltage1.p) annotation (Line(points={{22,
-          16},{22,26},{-20,26},{-20,10}}, color={0,0,255}));
+  connect(SineVoltage1.n, SaturatingInductance1.n) annotation (Line(points={{-20,-10},
+          {22,-10},{22,-4}},          color={0,0,255}));
+  connect(SaturatingInductance1.p, SineVoltage1.p) annotation (Line(points={{22,16},
+          {22,26},{-20,26},{-20,10}},     color={0,0,255}));
 end ShowSaturatingInductor;
