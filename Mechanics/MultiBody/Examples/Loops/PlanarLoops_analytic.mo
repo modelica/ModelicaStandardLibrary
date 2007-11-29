@@ -1,23 +1,29 @@
 within Modelica.Mechanics.MultiBody.Examples.Loops;
-model PlanarLoops_analytic 
-  "Mechanism with three planar kinematic loops and one degree-of-freedom with analytic loop handling (with JointRRR joints)" 
-  
+model PlanarLoops_analytic
+  "Mechanism with three planar kinematic loops and one degree-of-freedom with analytic loop handling (with JointRRR joints)"
+
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
-  parameter SI.Length rh[3]={0.5,0,0} 
+  parameter SI.Length rh[3]={0.5,0,0}
     "Position vector from 'lower left' revolute to 'lower right' revolute joint for all the 3 loops";
-  parameter SI.Length rv[3]={0,0.5,0} 
-    "Position vector from 'lower left' revolute to 'upper left' revolute joint";
-  
-  parameter SI.Length r1b[3]={0.1,0.5,0};
-  parameter SI.Length r1a[3]=r1b + rh - rv;
-  
-  parameter SI.Length r2b[3]={0.1,0.6,0};
-  parameter SI.Length r2a[3]=r2b + rh - r1b;
-  
-  parameter SI.Length r3b[3]={0,0.55,0};
-  parameter SI.Length r3a[3]=r3b + rh - r2b;
-  
+  parameter SI.Length rv[3]={0,0.5,0}
+    "Position vector from 'lower left' revolute to 'upper left' revolute joint in the first loop";
+
+  parameter SI.Length r1b[3]={0.1,0.5,0}
+    "Position vector from 'lower right' revolute to 'upper right' revolute joint in the first loop";
+  final parameter SI.Length r1a[3]=r1b + rh - rv
+    "Position vector from 'upper left' revolute to 'upper right' revolute joint in the first loop";
+
+  parameter SI.Length r2b[3]={0.1,0.6,0}
+    "Position vector from 'lower right' revolute to 'upper right' revolute joint in the second loop";
+  final parameter SI.Length r2a[3]=r2b + rh - r1b
+    "Position vector from 'upper left' revolute to 'upper right' revolute joint in the second loop";
+
+  parameter SI.Length r3b[3]={0,0.55,0}
+    "Position vector from 'lower right' revolute to 'upper right' revolute joint in the third loop";
+  final parameter SI.Length r3a[3]=r3b + rh - r2b
+    "Position vector from 'upper left' revolute to 'upper right' revolute joint in the third loop";
+
   annotation (
     experiment(StopTime=5),
     Documentation(info="<html>
@@ -30,15 +36,22 @@ For more details, see
 <a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">
 MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>. 
 </p>
-<p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Examples/Loops/PlanarLoops.png\" ALT=\"model Examples.Loops.PlanarLoops\">
+
+<p>
+In the following figure the parameter vectors of this example are visualized in the 
+animation view.
 </p>
+
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Examples/Loops/PlanarLoops2.png\" ALT=\"model Examples.Loops.PlanarLoops2\">
+</p>
+
 </html>"),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={1,1}), graphics));
-  
+
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
         transformation(extent={{-94,-90},{-74,-70}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR jointRRR1(
@@ -110,7 +123,7 @@ MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
         rotation=90)));
   Parts.Mounting1D mounting1D 
     annotation (Placement(transformation(extent={{-100,-50},{-80,-30}})));
-equation 
+equation
   connect(world.frame_b, rev.frame_a) annotation (Line(
       points={{-74,-80},{-56,-80},{-56,-20}},
       color={95,95,95},

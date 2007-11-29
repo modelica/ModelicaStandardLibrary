@@ -1,24 +1,24 @@
 within Modelica.Mechanics.MultiBody.Examples.Loops;
-package Utilities "Utility models for Examples.Loops" 
+package Utilities "Utility models for Examples.Loops"
   extends Modelica.Icons.Library;
-  
-  model Cylinder 
+
+  model Cylinder "Cylinder with rod and crank of a combustion engine"
     import SI = Modelica.SIunits;
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter SI.Length cylinderTopPosition=0.42 
+    parameter SI.Length cylinderTopPosition=0.42
       "Length from crank shaft to end of cylinder.";
     parameter SI.Length pistonLength=0.1 "Length of cylinder";
     parameter SI.Length rodLength=0.2 "Length of rod";
     parameter SI.Length crankLength=0.2 "Length of crank shaft in x direction";
-    parameter SI.Length crankPinOffset=0.1 
+    parameter SI.Length crankPinOffset=0.1
       "Offset of crank pin from center axis";
-    parameter SI.Length crankPinLength=0.1 
+    parameter SI.Length crankPinLength=0.1
       "Offset of crank pin from center axis";
     parameter SI.Angle cylinderInclination=0 "Inclination of cylinder";
     parameter SI.Angle crankAngleOffset=0 "Offset for crank angle";
     parameter SI.Length cylinderLength=cylinderTopPosition - (pistonLength +
         rodLength - crankPinOffset) "Maximum length of cylinder volume";
-    
+
     Modelica.Mechanics.MultiBody.Parts.BodyCylinder Piston(
       diameter=0.1,
       r={0,pistonLength,0},
@@ -135,7 +135,7 @@ package Utilities "Utility models for Examples.Loops"
               -116,-106},{-84,-74}}, rotation=0)));
     Interfaces.Frame_a crank_b annotation (Placement(transformation(extent={{84,
               -106},{116,-74}}, rotation=0)));
-  equation 
+  equation
     connect(B1.frame_a, Mid.frame_b) annotation (Line(
         points={{4,-17},{-6,-17},{-6,-29},{22,-29},{22,-36},{14,-36}},
         color={95,95,95},
@@ -270,25 +270,27 @@ package Utilities "Utility models for Examples.Loops"
         points={{80,-90},{100,-90}},
         color={95,95,95},
         thickness=2));
-    
+
   end Cylinder;
-  
-  model GasForce 
+
+  model GasForce "Simple gas force computation for combustion engine"
     import SI = Modelica.SIunits;
-    
+
     extends Modelica.Mechanics.Translational.Interfaces.PartialCompliant;
     parameter SI.Length L "Length of cylinder";
     parameter SI.Diameter d "Diameter of cylinder";
-    parameter SIunits.Volume k0=0.01;
-    parameter SIunits.Volume k1=1;
-    parameter SIunits.HeatCapacity k=1;
+    parameter SIunits.Volume k0=0.01
+      "Volume V = k0 + k1*(1-x), with x = 1 + s_rel/L";
+    parameter SIunits.Volume k1=1
+      "Volume V = k0 + k1*(1-x), with x = 1 + s_rel/L";
+    parameter SIunits.HeatCapacity k=1 "Gas constant (p*V = k*T)";
     constant Real pi=Modelica.Constants.pi;
-    constant Real PI=Modelica.Constants.pi;
+
     // Only for compatibility reasons
     Real x "Normalized position of cylinder";
     Real y "Normalized relative movement (= -s_rel/L)";
     SI.Density dens;
-    Modelica.SIunits.Conversions.NonSIunits.Pressure_bar press 
+    Modelica.SIunits.Conversions.NonSIunits.Pressure_bar press
       "cylinder pressure";
     SI.Volume V;
     SI.Temperature T;
@@ -347,39 +349,46 @@ package Utilities "Utility models for Examples.Loops"
             extent={{-100,120},{100,60}},
             textString="%name",
             lineColor={0,0,255})}));
-  protected 
+  protected
     constant SI.Mass unitMass=1;
     Modelica.SIunits.Pressure p;
-  equation 
+  equation
     y = -s_rel/L;
     x = 1 + s_rel/L;
     v_rel = der(s_rel);
-    
+
     press = p/1e5;
     p = (if v_rel < 0 then (if x < 0.987 then 177.4132*x^4 - 287.2189*x^3 +
       151.8252*x^2 - 24.9973*x + 2.4 else 2836360*x^4 - 10569296*x^3 + 14761814
       *x^2 - 9158505*x + 2129670) else (if x > 0.93 then -3929704*x^4 +
       14748765*x^3 - 20747000*x^2 + 12964477*x - 3036495 else 145.930*x^4 -
       131.707*x^3 + 17.3438*x^2 + 17.9272*x + 2.4))*1e5;
-    
+
     f = -1.0E5*press*pi*d^2/4;
-    
+
     V = k0 + k1*(1 - x);
     dens = unitMass/V;
     (p/1e5)*V = k*T;
   end GasForce;
-  
-  model GasForce2 "Rough approximation of gas force in a cylinder" 
+
+  model GasForce2 "Rough approximation of gas force in a cylinder"
     import SI = Modelica.SIunits;
-    
+
     extends Modelica.Mechanics.Translational.Interfaces.PartialCompliant;
     parameter SI.Length L "Length of cylinder";
     parameter SI.Length d "diameter of cylinder";
-    parameter Real k0=0.01;
-    parameter Real k1=1;
-    parameter Real k=1;
+    parameter SIunits.Volume k0=0.01
+      "Volume V = k0 + k1*(1-x), with x = 1 - s_rel/L";
+    parameter SIunits.Volume k1=1
+      "Volume V = k0 + k1*(1-x), with x = 1 - s_rel/L";
+    parameter SIunits.HeatCapacity k=1 "Gas constant (p*V = k*T)";
+
+  /*
+  parameter Real k0=0.01;
+  parameter Real k1=1;
+  parameter Real k=1;
+*/
     constant Real pi=Modelica.Constants.pi;
-    constant Real PI=Modelica.Constants.pi;
     Real x "Normalized position of cylinder (= 1 - s_rel/L)";
     SI.Density dens;
     Modelica.SIunits.AbsolutePressure press "Cylinder pressure";
@@ -458,25 +467,25 @@ where the parameter L is the length
 of the cylinder. If this assumption is not fulfilled, an error occurs.
 </p>
 </html>"));
-    
-  protected 
+
+  protected
     Modelica.SIunits.SpecificHeatCapacity R_air = Modelica.Constants.R/0.0289651159;
-  equation 
+  equation
     x = 1 - s_rel/L;
     v_rel = der(s_rel);
-    
+
     press = 1.0E5*(if v_rel < 0 then (if x < 0.987 then 177.4132*x^4 - 287.2189*x^3 +
       151.8252*x^2 - 24.9973*x + 2.4 else 2836360*x^4 - 10569296*x^3 + 14761814
       *x^2 - 9158505*x + 2129670) else (if x > 0.93 then -3929704*x^4 +
       14748765*x^3 - 20747000*x^2 + 12964477*x - 3036495 else 145.930*x^4 -
       131.707*x^3 + 17.3438*x^2 + 17.9272*x + 2.4));
-    
+
     f = -press*pi*d^2/4;
-    
+
     V = k0 + k1*(1 - x);
     dens = press/(R_air*T);
     press*V = k*T;
-    
+
     assert(s_rel >= -1.e-12, "flange_b.s - flange_a.s (= " + String(s_rel) +
                              ") >= 0 required for GasForce component.\n" +
                              "Most likely, the component has to be flipped.");
@@ -484,59 +493,59 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
                                 " <= L (" + String(L) + ") required for GasForce component.\n" +
                                 "Most likely, parameter L is not correct.");
   end GasForce2;
-  
-  model CylinderBase "One cylinder with analytic handling of kinematic loop" 
+
+  model CylinderBase "One cylinder with analytic handling of kinematic loop"
     import SI = Modelica.SIunits;
     import Cv = Modelica.SIunits.Conversions;
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter SI.Length cylinderTopPosition=0.42 
+    parameter SI.Length cylinderTopPosition=0.42
       "Length from crank shaft to end of cylinder.";
     parameter SI.Length crankLength=0.14 "Length of crank shaft in x direction";
-    parameter SI.Length crankPinOffset=0.05 
+    parameter SI.Length crankPinOffset=0.05
       "Offset of crank pin from center axis";
-    parameter SI.Length crankPinLength=0.1 
+    parameter SI.Length crankPinLength=0.1
       "Offset of crank pin from center axis";
-    parameter Cv.NonSIunits.Angle_deg cylinderInclination=0 
+    parameter Cv.NonSIunits.Angle_deg cylinderInclination=0
       "Inclination of cylinder";
-    parameter Cv.NonSIunits.Angle_deg crankAngleOffset=0 
+    parameter Cv.NonSIunits.Angle_deg crankAngleOffset=0
       "Offset for crank angle";
     parameter SI.Length pistonLength=0.1 " Length of cylinder" 
       annotation (Dialog(group="Piston"));
-    parameter SI.Length pistonCenterOfMass=pistonLength/2 
+    parameter SI.Length pistonCenterOfMass=pistonLength/2
       " Distance from frame_a to center of mass of piston" 
       annotation (Dialog(group="Piston"));
     parameter SI.Mass pistonMass(min=0) = 6 " Mass of piston" 
       annotation (Dialog(group="Piston"));
-    parameter SI.Inertia pistonInertia_11(min=0) = 0.0088 
+    parameter SI.Inertia pistonInertia_11(min=0) = 0.0088
       " Inertia 11 of piston with respect to center of mass frame, parallel to frame_a"
       annotation (Dialog(group="Piston"));
-    parameter SI.Inertia pistonInertia_22(min=0) = 0.0076 
+    parameter SI.Inertia pistonInertia_22(min=0) = 0.0076
       " Inertia 22 of piston with respect to center of mass frame, parallel to frame_a"
       annotation (Dialog(group="Piston"));
-    parameter SI.Inertia pistonInertia_33(min=0) = 0.0088 
+    parameter SI.Inertia pistonInertia_33(min=0) = 0.0088
       " Inertia 33 of piston with respect to center of mass frame, parallel to frame_a"
       annotation (Dialog(group="Piston"));
-    
+
     parameter SI.Length rodLength=0.175 " Length of rod" 
       annotation (Dialog(group="Rod"));
-    parameter SI.Length rodCenterOfMass=rodLength/2 
+    parameter SI.Length rodCenterOfMass=rodLength/2
       " Distance from frame_a to center of mass of piston" 
       annotation (Dialog(group="Rod"));
     parameter SI.Mass rodMass(min=0) = 1 " Mass of rod" 
       annotation (Dialog(group="Rod"));
-    parameter SI.Inertia rodInertia_11(min=0) = 0.006 
+    parameter SI.Inertia rodInertia_11(min=0) = 0.006
       " Inertia 11 of rod with respect to center of mass frame, parallel to frame_a"
       annotation (Dialog(group="Rod"));
-    parameter SI.Inertia rodInertia_22(min=0) = 0.0005 
+    parameter SI.Inertia rodInertia_22(min=0) = 0.0005
       " Inertia 22 of rod with respect to center of mass frame, parallel to frame_a"
       annotation (Dialog(group="Rod"));
-    parameter SI.Inertia rodInertia_33(min=0) = 0.006 
+    parameter SI.Inertia rodInertia_33(min=0) = 0.006
       " Inertia 33 of rod with respect to center of mass frame, parallel to frame_a"
       annotation (Dialog(group="Rod"));
     final parameter SI.Length cylinderLength=cylinderTopPosition - (
-        pistonLength + rodLength - crankPinOffset) 
+        pistonLength + rodLength - crankPinOffset)
       "Maximum length of cylinder volume";
-    
+
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mid(animation=false, r={crankLength -
           crankPinLength/2,crankPinOffset,0}) 
       annotation (Placement(transformation(extent={{-44,-30},{-24,-10}},
@@ -673,7 +682,7 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
             points={{-100,-99},{100,-100}},
             color={0,0,0},
             thickness=2)}));
-    
+
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation Crank(animation=false, r={crankLength,0,0}) 
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
             rotation=0)));
@@ -685,8 +694,8 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
               -116,-116},{-84,-84}}, rotation=0)));
     Interfaces.Frame_a crank_b annotation (Placement(transformation(extent={{84,
               -116},{116,-84}}, rotation=0)));
-  equation 
-    
+  equation
+
     connect(jointRRP.frame_ia, Rod.frame_a) annotation (Line(
         points={{20,-4},{49,-4},{49,-1}},
         color={95,95,95},
@@ -736,8 +745,8 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
         color={95,95,95},
         thickness=2));
   end CylinderBase;
-  
-  model Cylinder_analytic_CAD 
+
+  model Cylinder_analytic_CAD
     extends CylinderBase;
     Visualizers.FixedShape CrankShape(
       animation=animation,
@@ -753,8 +762,8 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
           origin={-10,-70},
           extent={{10,10},{-10,-10}},
           rotation=180)));
-  equation 
-    
+  equation
+
     annotation (                                           Diagram(
           coordinateSystem(
           preserveAspectRatio=true,
@@ -766,20 +775,20 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
         color={95,95,95},
         thickness=2));
   end Cylinder_analytic_CAD;
-  
-  model EngineV6_analytic "V6 engine with analytic loop handling" 
+
+  model EngineV6_analytic "V6 engine with analytic loop handling"
     import SI = Modelica.SIunits;
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    replaceable model Cylinder = Cylinder_analytic_CAD constrainedby 
+    replaceable model Cylinder = Cylinder_analytic_CAD constrainedby
       CylinderBase "Cylinder type" 
          annotation (choices(choice(redeclare model Cylinder = 
             Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CAD
             "Analytic loop handling + CAD animation"),
-                                                     choice(redeclare model 
+                                                     choice(redeclare model
             Cylinder = 
               Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic
             "Analytic loop handling + standard animation")));
-    
+
     Cylinder cylinder1(
       crankAngleOffset=-30,
       cylinderInclination=-30,
@@ -835,7 +844,7 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
           origin={0,-101},
           extent={{-16,-16},{16,16}},
           rotation=270)));
-  equation 
+  equation
     connect(cylinder1.crank_b, cylinder2.crank_a) 
       annotation (Line(
         points={{-70,-10},{-60,-10}},
@@ -921,8 +930,8 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
         color={95,95,95},
         thickness=2));
   end EngineV6_analytic;
-  
-  partial model Engine1bBase "Model of one cylinder engine with gas force" 
+
+  partial model Engine1bBase "Model of one cylinder engine with gas force"
     import SI = Modelica.SIunits;
     extends Modelica.Icons.Example;
     annotation (
@@ -1022,7 +1031,7 @@ An animation of this example is shown in the figure below.
           origin={119,97},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-  equation 
+  equation
     connect(world.frame_b, Bearing.frame_a) 
       annotation (Line(
         points={{-70,-90},{-50,-90}},

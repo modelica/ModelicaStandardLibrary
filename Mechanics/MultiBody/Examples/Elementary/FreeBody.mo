@@ -1,5 +1,5 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
-model FreeBody "Free flying body attached by two springs to environment" 
+model FreeBody "Free flying body attached by two springs to environment"
   extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
   annotation (
@@ -57,8 +57,7 @@ ALT=\"model Examples.Elementary.FreeBody\">
     v_0(fixed=true),
     angles_fixed=true,
     w_0_fixed=true,
-    angles_start=((({0.174532925199433,0.174532925199433,0.174532925199433})*
-        Modelica.Constants.D2R)*Modelica.Constants.D2R)*Modelica.Constants.D2R) 
+    angles_start={0.174532925199433,0.174532925199433,0.174532925199433}) 
     annotation (Placement(transformation(extent={{0,-40},{20,-20}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Forces.Spring spring2(
     c=20,
@@ -69,7 +68,7 @@ ALT=\"model Examples.Elementary.FreeBody\">
         origin={40,6},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-equation 
+equation
   connect(bar2.frame_a, world.frame_b) 
     annotation (Line(
       points={{0,30},{-40,30}},

@@ -1,5 +1,5 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
-model SpringDamperSystem "Simple spring/damper/mass system" 
+model SpringDamperSystem "Simple spring/damper/mass system"
   extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
   annotation (
@@ -47,8 +47,7 @@ ALT=\"model Examples.Elementary.SpringDamperSystem\">
     v_0(fixed=true),
     angles_fixed=true,
     w_0_fixed=true,
-    w_0_start=((({0,0,2})*Modelica.Constants.D2R)*Modelica.Constants.D2R)*
-        Modelica.Constants.D2R) 
+    w_0_start(displayUnit="deg/s") = {0,0,0.03490658503988659}) 
               annotation (Placement(transformation(
         origin={-20,-50},
         extent={{-10,10},{10,-10}},
@@ -70,8 +69,9 @@ ALT=\"model Examples.Elementary.SpringDamperSystem\">
     animation=animation,
     boxWidth=0.05,
     stateSelect=StateSelect.always,
-    s(fixed=true, start=0.2),
-    v(fixed=true)) annotation (Placement(transformation(
+    v(fixed=true),
+    s(fixed=true, start=0.1)) 
+                   annotation (Placement(transformation(
         origin={50,-10},
         extent={{-10,-10},{10,10}},
         rotation=270)));
@@ -97,7 +97,7 @@ ALT=\"model Examples.Elementary.SpringDamperSystem\">
         origin={-30,-10},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-equation 
+equation
   connect(world.frame_b, bar1.frame_a) 
     annotation (Line(
       points={{-60,30},{-46,30}},
