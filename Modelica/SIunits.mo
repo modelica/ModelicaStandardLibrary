@@ -222,7 +222,7 @@ in the declaration as in the example at the beginning.
 end UsersGuide;
   extends Modelica.Icons.Library2;
   
-  annotation(preferedView="info",
+  annotation(
     Window(
       x=0.08,
       y=0.04,
@@ -357,7 +357,7 @@ and the accompanying <b>disclaimer</b>
     
     extends Modelica.Icons.Library2;
     
-    annotation(preferedView="info", Icon(coordinateSystem(preserveAspectRatio=true,
+    annotation( Icon(coordinateSystem(preserveAspectRatio=true,
                      extent={{-100,-100},{100,100}}), graphics={
           Text(
             extent={{-33,-7},{-92,-67}}, 
@@ -437,7 +437,7 @@ argument):</p>
       type MassFlowRate_gps = Real (final quantity="MassFlowRate", final unit=
               "g/s") "Mass flow rate in gramm per second";
       
-      annotation(preferedView="info", Documentation(info="<HTML>
+      annotation( Documentation(info="<HTML>
 <p>
 This package provides predefined types, such as <b>Angle_deg</b> (angle in
 degree), <b>AngularVelocity_rpm</b> (angular velocity in revolutions per

@@ -6,7 +6,7 @@ package Machines "Library for electric machines"
   annotation (
   version="2.0.0", versionDate="2007-10-16",
   Settings(NewStateSelection=true, Evaluate=true),
-  preferedView="info", Documentation(info="<HTML>
+   Documentation(info="<HTML>
 This package contains components to model electrical machines:
 <ul>
 <li>Examples: test examples</li>
@@ -230,8 +230,6 @@ This package contains test examples of electric machines.
                 {100,100}}),
                 graphics),
         experiment(StopTime=1.5, Interval=0.001),
-        experimentSetupOutput(
-          doublePrecision=true),
         Documentation(info="<HTML>
 <b>1st Test example: Asynchronous induction machine with squirrel cage - direct on line starting</b><br>
 At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage;
@@ -351,8 +349,6 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
                 {100,100}}),
                 graphics),
         experiment(StopTime=2.5, Interval=0.001),
-        experimentSetupOutput(
-          doublePrecision=true),
         Documentation(info="<HTML>
 <b>2nd Test example: Asynchronous induction machine with squirrel cage - Y-D starting</b><br>
 At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage, first star-connected, then delta-connetced; the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
@@ -473,8 +469,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
                 {100,100}}),
                 graphics),
         experiment(StopTime=1.5, Interval=0.001),
-        experimentSetupOutput(
-          doublePrecision=true),
+
         Documentation(info="<HTML>
 <b>3rd Test example: Asynchronous induction machine with slipring rotor - resistance starting</b><br>
 At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with sliprings;
@@ -639,8 +634,7 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
                 {100,100}}),
                 graphics),
         experiment(StopTime=1.5, Interval=0.001),
-        experimentSetupOutput(
-          doublePrecision=true),
+
         Documentation(info="<HTML>
 <b>4th Test example: Asynchronous induction machine with squirrel cage fed by an ideal inverter</b><br>
 An ideal frequency inverter is modeled by using a VfController and a threephase SignalVoltage.<br>
@@ -748,8 +742,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
                 {100,100}}),
                 graphics),
         experiment(StopTime=1.5, Interval=0.001),
-        experimentSetupOutput(
-          doublePrecision=true),
+
         Documentation(info="<HTML>
 <b>5th Test example: Synchronous induction machine with reluctance rotor fed by an ideal inverter</b><br>
 An ideal frequency inverter is modeled by using a VfController and a threephase SignalVoltage.<br>
@@ -869,8 +862,7 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
                 {100,100}}),
                 graphics),
         experiment(StopTime=1.5, Interval=0.001),
-        experimentSetupOutput(
-          doublePrecision=true),
+
         Documentation(info="<HTML>
 <b>6th Test example: Permanent magnet synchronous induction machine fed by an ideal inverter</b><br>
 An ideal frequency inverter is modeled by using a VfController and a threephase SignalVoltage.<br>
@@ -996,7 +988,6 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
                 {100,100}}),
                 graphics),
         experiment(StopTime=30, Interval=0.005),
-        experimentSetupOutput(doublePrecision=true),
         Documentation(info="<HTML>
 <b>7th Test example: Electrical excited synchronous induction machine as generator</b><br>
 An electrically excited synchronous generator is connected to the grid and driven with constant speed. 
@@ -1147,8 +1138,7 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
                 {100,100}}),
                 graphics),
         experiment(StopTime=2, Interval=0.001),
-        experimentSetupOutput(
-          doublePrecision=true),
+
         Documentation(info="<HTML>
 <b>8th Test example: Permanent magnet DC machine started with an armature voltage ramp</b><br>
 A voltage ramp is applied to the armature, causing the DC machine to start, 
@@ -1218,8 +1208,7 @@ Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
                 {100,100}}),
                 graphics),
         experiment(StopTime=2, Interval=0.001),
-        experimentSetupOutput(
-          doublePrecision=true),
+
         Documentation(info="<HTML>
 <b>9th Test example: Electrically separate excited DC machine started with an armature voltage ramp</b><br>
 A voltage ramp is applied to the armature, causing the DC machine to start, 
@@ -1307,8 +1296,7 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
                 {100,100}}),
                 graphics),
         experiment(StopTime=2, Interval=0.001),
-        experimentSetupOutput(
-          doublePrecision=true),
+
         Documentation(info="<HTML>
 <b>10th Test example: Series excited DC machine started with an armature voltage ramp</b><br>
 A voltage ramp is applied to the armature, causing the DC machine to start, 
@@ -1381,8 +1369,7 @@ even though the source's or load's starpoint are grounded; you may use a reasona
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}),
                 graphics),
-        experiment(StopTime=0.1),
-        experimentSetupOutput);
+        experiment(StopTime=0.1));
       Modelica.Electrical.MultiPhase.Sources.SineVoltage source(freqHz=fill(50, 3),
           V=fill(sqrt(2/3)*100, 3)) 
         annotation (Placement(transformation(
@@ -1534,8 +1521,7 @@ neglecting initial transient.
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}),
                    graphics),
-        experiment(StopTime=0.1),
-        experimentSetupOutput);
+        experiment(StopTime=0.1));
       Modelica.Electrical.MultiPhase.Sources.SineVoltage source(
         m=m,
         V=fill(V, m),
@@ -1652,8 +1638,7 @@ neglecting initial transient.
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}),
                    graphics),
-        experiment(StopTime=0.1),
-        experimentSetupOutput);
+        experiment(StopTime=0.1));
       Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode3(m=m) 
         annotation (Placement(transformation(
             origin={-20,-20},
@@ -1727,8 +1712,7 @@ neglecting initial transient.
                 {100,100}}),
                 graphics),
         experiment(StopTime=1.5, Interval=0.001),
-        experimentSetupOutput(
-          doublePrecision=true),
+
         Documentation(info="<HTML>
 <b>Asynchronous induction machine with squirrel cage - Steinmetz-connection</b><br>
 At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
@@ -3552,7 +3536,7 @@ ve = voltage drop of series excitation
       extends Modelica.Icons.Library2;
       annotation (
       version="1.0.0", versionDate="2006-11-20",
-      preferedView="info", Documentation(info="<HTML>
+       Documentation(info="<HTML>
 This package contains components to model technical threephase transformers:
 <ul>
 <li>Transformer: transformer model to choose connection / vector group</li>

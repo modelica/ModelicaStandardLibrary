@@ -3,7 +3,7 @@ package Systems "Examples of complete system models including 3-dimensional mech
 extends Modelica.Icons.Library;
 
 
-annotation (preferedView="info", Documentation(info="<html>
+annotation ( Documentation(info="<html>
 <p>
 This package contains complete <b>system models</b> where components
 from different domains are used, including 3-dimensional mechanics.

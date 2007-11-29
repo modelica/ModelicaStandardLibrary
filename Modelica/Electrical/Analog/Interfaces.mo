@@ -2,7 +2,7 @@ within Modelica.Electrical.Analog;
 package Interfaces 
   "Connectors and partial models for Analog electrical components" 
   extends Modelica.Icons.Library;
-  annotation(preferedView="info", Window(
+  annotation( Window(
       x=0.03,
       y=0.04,
       width=0.21,

@@ -3,7 +3,7 @@ package Forces "Components that exert forces and/or torques between frames"
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Library;
   
-  annotation (preferedView="info", Documentation(info="<HTML>
+  annotation ( Documentation(info="<HTML>
 <p>
 This package contains components that exert forces and torques
 between two frame connectors, e.g., between two parts.

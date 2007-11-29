@@ -3,7 +3,7 @@ package Frames "Functions to transform rotational frame quantities"
   
   extends Modelica.Icons.Library;
   
-  annotation (preferedView="info", Documentation(info="<HTML>
+  annotation ( Documentation(info="<HTML>
 <p>
 Package <b>Frames</b> contains type definitions and
 functions to transform rotational frame quantities. The basic idea is to
@@ -909,7 +909,7 @@ is not possible or too difficult to compute, use function from_T2(..).
     "Functions to transform rotational frame quantities based on quaternions (also called Euler parameters)" 
     extends Modelica.Icons.Library;
     
-    annotation (preferedView="info", Documentation(info="<HTML>
+    annotation ( Documentation(info="<HTML>
 <p>
 Package <b>Frames.Quaternions</b> contains type definitions and
 functions to transform rotational frame quantities with quaternions.
@@ -1020,7 +1020,7 @@ The used variables have the following declaration:
       "Orientation type defining rotation from a frame 1 into a frame 2 with quaternions {p1,p2,p3,p0}" 
       
       extends Internal.QuaternionBase;
-      annotation (preferedView="info", Documentation(info="<html>
+      annotation ( Documentation(info="<html>
 <p>
 This type describes the <b>rotation</b> to rotate a frame 1 into
 a frame 2 using quaternions (also called <b>Euler parameters</b>)

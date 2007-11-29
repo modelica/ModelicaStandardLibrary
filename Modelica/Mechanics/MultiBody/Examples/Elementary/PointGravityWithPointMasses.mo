@@ -59,8 +59,7 @@ a default value, when the physical system does not provide the equations.
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Examples/Elementary/PointGravityWithPointMasses.png\">
 </p>
-</HTML>"),
-    experimentSetupOutput);
+</HTML>"));
   connect(spring.frame_a, body3.frame_a) annotation (Line(
       points={{0,70},{-10,70}},
       color={95,95,95},

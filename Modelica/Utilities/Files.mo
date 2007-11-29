@@ -113,7 +113,7 @@ algorithm
      Streams.error("Cannot list file or directory \"" + name + "\"\n" +
                    "since it does not exist");
   end if;
-  annotation (preferedView="info",Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Files.<b>list</b>(name);
@@ -133,7 +133,7 @@ end list;
     annotation (
   version="0.8",
   versionDate="2004-08-24",
-  preferedView="info",
+  
 Documentation(info="<HTML>
 <p>
 This package contains functions to work with files and directories.
@@ -271,7 +271,7 @@ algorithm
      end if;
      Internal.copyFile(oldName2, newName2);
   end if;
-  annotation (preferedView="info",Documentation(info="<HTML>
+  annotation (Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
 Files.<b>copy</b>(oldName, newName);
@@ -321,7 +321,7 @@ algorithm
      Files.copy(oldName, newName, replace);
      Files.remove(oldName);
   end if;
-  annotation (preferedView="info",Documentation(info="<HTML>
+  annotation (Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
 Files.<b>move</b>(oldName, newName);
@@ -391,7 +391,7 @@ algorithm
   elseif fileType == Types.FileType.Directory then
      removeDirectory(fullName);
   end if;
-  annotation (preferedView="info",Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Files.<b>remove</b>(name);
@@ -424,7 +424,7 @@ algorithm
      Streams.error("File \"" + fileName + "\" should be removed.\n" +
                    "This is not possible, because it is a special file (pipe, device, etc.)");
   end if;
-  annotation (preferedView="info",Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Files.<b>removeFile</b>(fileName);
@@ -537,7 +537,7 @@ algorithm
            end if;
         end while;
   end if;
-  annotation (preferedView="info",Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Files.<b>createDirectory</b>(directoryName);
@@ -566,7 +566,7 @@ function exist "Inquire whether file or directory exists"
   output Boolean result "= true, if file or directory exists";
 algorithm 
   result := Internal.stat(name) > Types.FileType.NoFile;
-  annotation (preferedView="info",Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 result = Files.<b>exist</b>(name);
@@ -594,7 +594,7 @@ algorithm
   elseif fileType == Types.FileType.SpecialFile then
      Streams.error("A special file (pipe, device, etc.) \"" + name + "\" already exists.\n" + message);
   end if;
-  annotation (preferedView="info",Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Files.<b>assertNew</b>(name);
@@ -618,7 +618,7 @@ function fullPathName "Get full path name of file or directory name"
   input String name "Absolute or relative file or directory name";
   output String fullName "Full path of 'name'";
 external "C" fullName = ModelicaInternal_fullPathName(name);
-  annotation (preferedView="info",Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 fullName = Files.<b>fullPathName</b>(name);
@@ -637,7 +637,7 @@ function splitPathName
   output String directory "Name of the directory including a trailing '/'";
   output String name "Name of the file without the extension";
   output String extension "Extension of the file name. Starts with '.'";
-  annotation (preferedView="info",Documentation(info="<HTML>
+  annotation (Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
 (directory, name, extension) = Files.<b>splitPathName</b>(pathName);
@@ -706,7 +706,7 @@ function temporaryFileName
   extends Modelica.Icons.Function;
   output String fileName "Full path name of temporary file";
   external "C" fileName=ModelicaInternal_temporaryFileName(0);
-  annotation (preferedView="info",Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 fileName = Files.<b>temporaryFileName</b>();

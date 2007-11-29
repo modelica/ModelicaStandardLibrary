@@ -2,7 +2,7 @@ within Modelica.Blocks;
 package Types 
   "Library of constants and types with choices, especially to build menus" 
   extends Modelica.Icons.Library;
-  annotation (preferedView="info", Documentation(info="<HTML>
+  annotation ( Documentation(info="<HTML>
 <p>
 In this package <b>types</b> and <b>constants</b> are defined that are used
 in library Modelica.Blocks. The types have additional annotation choices

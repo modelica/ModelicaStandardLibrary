@@ -357,8 +357,7 @@ The multiplexer converts a parallel 4 bit signal in a sequential
           y=0.06,
           width=0.62,
           height=0.69),
-        experiment(StopTime=250),
-        experimentSetupOutput);
+        experiment(StopTime=250));
       D.Sources.Clock CLK(period=20)  annotation (Placement(transformation(
               extent={{-80,-56},{-60,-36}}, rotation=0)));
       D.Sources.Table D0(
@@ -463,8 +462,7 @@ Pulse-triggered master-slave flip-flop.
           y=0.06,
           width=0.62,
           height=0.69),
-        experiment(StopTime=250),
-        experimentSetupOutput);
+        experiment(StopTime=250));
       D.Examples.Utilities.JKFF FF 
                      annotation (Placement(transformation(extent={{-10,-40},{70,
                 40}}, rotation=0)));
@@ -559,8 +557,7 @@ The simulation stop time should be 5 seconds.
           y=0.06,
           width=0.62,
           height=0.69),
-        experiment(StopTime=5),
-        experimentSetupOutput);
+        experiment(StopTime=5));
       
       Sources.Table a(
         t={1,2,3,4},
@@ -647,11 +644,7 @@ The simulation stop time should be 10 seconds.
           y=0.06,
           width=0.62,
           height=0.69),
-        experiment(StopTime=10),
-        experimentSetupOutput(
-          states=false,
-          derivatives=false,
-          inputs=false));
+        experiment(StopTime=10));
       
       Digital.Examples.Utilities.FullAdder Adder1            annotation (Placement(
             transformation(extent={{0,-30},{60,30}}, rotation=0)));
@@ -744,11 +737,7 @@ The simulation stop time has to be 5s.
           y=0.06,
           width=0.62,
           height=0.69),
-        experiment(StopTime=5),
-        experimentSetupOutput(
-          states=false,
-          derivatives=false,
-          inputs=false));
+        experiment(StopTime=5));
       
       Digital.Sources.Table b4(
         y0=3,
@@ -894,11 +883,7 @@ The simulation stop time has to be 5s.
           y=0.06,
           width=0.62,
           height=0.69),
-        experiment(StopTime=10),
-        experimentSetupOutput(
-          states=false,
-          derivatives=false,
-          inputs=false));
+        experiment(StopTime=10));
       D.Sources.Step Enable       annotation (Placement(transformation(extent={
                 {-90,8},{-50,48}}, rotation=0)));
       D.Sources.Clock Clock       annotation (Placement(transformation(extent={
@@ -943,11 +928,7 @@ The simulation stop time has to be 5s.
           y=0.06,
           width=0.62,
           height=0.69),
-        experiment(StopTime=100),
-        experimentSetupOutput(
-          states=false,
-          derivatives=false,
-          inputs=false));
+        experiment(StopTime=100));
       D.Sources.Step Enable       annotation (Placement(transformation(extent={
                 {-90,8},{-50,48}}, rotation=0)));
       D.Sources.Clock Clock       annotation (Placement(transformation(extent={

@@ -3,7 +3,7 @@ package Mechanics "Library of 1-dim. and 3-dim. mechanical components (multi-bod
 extends Modelica.Icons.Library2;
 
 
-annotation(preferedView="info",
+annotation(
   Window(
     x=0.03,
     y=0.05,

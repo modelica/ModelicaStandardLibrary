@@ -7,7 +7,7 @@ package HeatTransfer
   extends Modelica.Icons.Library2;
   annotation (
     version="1.1.1", versionDate="2007-11-13",
-    preferedView="info", Icon(coordinateSystem(preserveAspectRatio=false,
+     Icon(coordinateSystem(preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
         Polygon(
           points={{-54,-6},{-61,-7},{-75,-15},{-79,-24},{-80,-34},{-78,-42},{-73,
@@ -195,8 +195,7 @@ mass1.T, mass2.T, T_final_K or <br>
 Tsensor1.T, Tsensor2.T, T_final_degC
 </p>
 </HTML>
-"),     experiment(StopTime=5),
-        experimentSetupOutput);
+"));
       HeatTransfer.Celsius.TemperatureSensor Tsensor1 annotation (Placement(
             transformation(extent={{-60,-80},{-20,-40}}, rotation=0)));
       HeatTransfer.Celsius.TemperatureSensor Tsensor2 annotation (Placement(
@@ -241,8 +240,7 @@ An approppriate simulating time would be 10 seconds.
 "), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}),
             graphics),
-        experiment(StopTime=10),
-        experimentSetupOutput);
+        experiment(StopTime=10));
       Modelica.Electrical.Analog.Basic.Ground ground 
                                   annotation (Placement(transformation(extent={
                 {-100,-100},{-80,-80}}, rotation=0)));
@@ -353,7 +351,7 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
 </p>
 </HTML>
 "),     experiment(StopTime=7200),
-        experimentSetupOutput,
+        
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}),
                 graphics));

@@ -4,7 +4,7 @@ package Semiconductors
   extends Modelica.Icons.Library;
   import Modelica.SIunits;
   
-  annotation(preferedView="info",
+  annotation(
     Window(
       x=0.03,
       y=0.04,

@@ -131,8 +131,7 @@ to plot variables.
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Examples/Systems/r3_fullRobot.png\" ALT=\"model Examples.Loops.Systems.RobotR3.fullRobot\">
 </p>
-</HTML>"),
-      experimentSetupOutput);
+</HTML>"));
 
     import SI = Modelica.SIunits;
 
@@ -2089,7 +2088,7 @@ utilized by a user.
   end Components;
 
   annotation (
-    preferedView="info",
+    
     Documentation(info="<HTML>
 <p>
 This package contains models of the robot r3 of the company Manutec.

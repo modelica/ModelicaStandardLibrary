@@ -3,7 +3,7 @@ package Sources "Time-dependend and controlled voltage and current sources"
   
   extends Modelica.Icons.Library;
   
-  annotation(preferedView="info",
+  annotation(
     Window(
       x=0.03,
       y=0.04,

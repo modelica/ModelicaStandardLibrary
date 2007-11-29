@@ -2,7 +2,7 @@ within Modelica.Blocks;
 package Logical "Library of components with Boolean input and output signals"
     extends Modelica.Icons.Library;
 
-  annotation(preferedView="info",Documentation(info="<html>
+  annotation(Documentation(info="<html>
 <p>
 This package provides blocks with Boolean input and output signals
 to describe logical networks. A typical example for a logical

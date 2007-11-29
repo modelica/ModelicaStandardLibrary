@@ -1,7 +1,7 @@
 within Modelica.Mechanics.MultiBody;
 package Types "Constants and types with choices, especially to build menus" 
   extends Modelica.Icons.Library;
-  annotation (preferedView="info", Documentation(info="<HTML>
+  annotation ( Documentation(info="<HTML>
 <p>
 In this package <b>types</b> and <b>constants</b> are defined that are used in the
 MultiBody library. The types have additional annotation choices
@@ -41,7 +41,7 @@ user interface when the type is used as parameter in a declaration.
   
   type Color = Modelica.Icons.TypeInteger[3] (each min=0, each max=255) 
     "RGB representation of color (will be improved with a color editor)" 
-    annotation (preferedView="info",
+    annotation (
       Dialog(colorSelector),
       choices(
         choice={0,0,0} "{0,0,0}       \"black\"",
@@ -69,7 +69,7 @@ Note, r g, b are given in the range 0 .. 255.
 </html>"));
   type SpecularCoefficient = Modelica.Icons.TypeReal 
     "Reflection of ambient light (= 0: light is completely absorbed)" 
-       annotation (preferedView="info", min=0,
+       annotation ( min=0,
          choices(choice=0 "\"0.0 (dull)\"",choice=0.7 "\"0.7 (medium)\"", choice=1 
         "\"1.0 (glossy)\""),
     Documentation(info="<html>
@@ -89,7 +89,7 @@ are shown for a cylinder:
 </html>"));
   type ShapeType = Modelica.Icons.TypeString 
     "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring, dxf-file)"
-     annotation (preferedView="info", choices(
+     annotation ( choices(
       choice="box" "\"box\"",
       choice="sphere" "\"sphere\"",
       choice="cylinder" "\"cylinder\"",
@@ -135,7 +135,7 @@ that references the DXF file.
 </html>"));
   type ShapeExtra = Modelica.Icons.TypeReal 
     "Reflection of ambient light (= 0: light is completely absorbed)" 
-       annotation (preferedView="info", min=0,
+       annotation ( min=0,
     Documentation(info="<html>
 <p>
 This type is used in shapes of visual objects to define
@@ -271,7 +271,7 @@ type Init = enumeration(
       PositionVelocityAcceleration);
   
   package Defaults "Default settings of the MultiBody library via constants" 
-    annotation (preferedView="info", Documentation(info="<html>
+    annotation ( Documentation(info="<html>
 <p>
 This package contains constants used as default setting
 in the MultiBody library.

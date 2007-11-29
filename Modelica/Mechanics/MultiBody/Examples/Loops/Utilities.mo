@@ -747,6 +747,7 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
   end CylinderBase;
 
   model Cylinder_analytic_CAD
+    "One cylinder with analytic handling of kinematic loop and CAD visualization"
     extends CylinderBase;
     Visualizers.FixedShape CrankShape(
       animation=animation,

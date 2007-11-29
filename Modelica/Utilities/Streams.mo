@@ -3,7 +3,7 @@ package Streams "Read from files and write to files"
   extends Modelica.Icons.Library;
   
   annotation (
-  preferedView="info",
+  
     Documentation(info="<HTML>
 <h4>Library content</h4>
 <p>
@@ -79,7 +79,7 @@ Example:
                  annotation(Dialog(__Dymola_saveSelector(filter="Text files (*.txt)",
                         caption="Text file to store the output of print(..)")));
   external "C" ModelicaInternal_print(string, fileName);
-    annotation (  preferedView="info",
+    annotation (  
   Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -121,7 +121,7 @@ After every call of \"print(..)\" a \"new line\" is printed automatically.
                         caption="Open text file for reading")));
     output String stringVector[countLines(fileName)] "Content of file";
     
-    annotation (preferedView="info", Documentation(info="<html>
+    annotation ( Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 stringVector = Streams.<b>readFile</b>(fileName)
@@ -151,7 +151,7 @@ content, closes the file and returns the content as a vector of strings. Lines a
     output Boolean endOfFile 
       "If true, end-of-file was reached when trying to read line";
    external "C" string=  ModelicaInternal_readLine(fileName,lineNumber,endOfFile);
-    annotation (preferedView="info",Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 (string, endOfFile) = Streams.<b>readLine</b>(fileName, lineNumber)
@@ -179,7 +179,7 @@ and endOfFile=true. Otherwise endOfFile=false.
     
     output Integer numberOfLines "Number of lines in file";
   external "C" numberOfLines=  ModelicaInternal_countLines(fileName);
-    annotation (preferedView="info",Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 numberOfLines = Streams.<b>countLines</b>(fileName)
@@ -197,7 +197,7 @@ separated by LF or CR-LF.
     extends Modelica.Icons.Function;
     input String string "String to be printed to error message window";
     external "C" ModelicaError(string);
-    annotation (  preferedView="info",
+    annotation (  
   Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -228,7 +228,7 @@ by \"\\n\" in the string.
                  annotation(Dialog(__Dymola_loadSelector(filter="Text files (*.txt)",
                         caption="Close text file")));
     external "C" ModelicaStreams_closeFile(fileName);
-    annotation (preferedView="info",Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Streams.<b>close</b>(fileName)

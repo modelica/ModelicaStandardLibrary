@@ -6,7 +6,7 @@ package FluidHeatFlow
   extends Modelica.Icons.Library2;
   annotation (
     version="1.6.6", versionDate="2007-11-12",
-    preferedView="info",Documentation(info="<HTML>
+    Documentation(info="<HTML>
 This package contains very simple-to-use components to model coolant flows as needed to simulate cooling e.g. of electric machines:
 <ul>
 <li>Components: components like different types of pipe models</li>
@@ -239,8 +239,7 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
 </table>
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics),
-        experiment(StopTime=1.0),
-        experimentSetupOutput);
+        experiment(StopTime=1.0));
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
         "Cooling medium" 
         annotation(choicesAllMatching=true);
@@ -379,8 +378,7 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
 </table>
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics),
-        experiment(StopTime=1.0),
-        experimentSetupOutput);
+        experiment(StopTime=1.0));
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
         "Cooling medium" 
         annotation(choicesAllMatching=true);
@@ -570,8 +568,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
 </table>
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics),
-        experiment(StopTime=1.5),
-        experimentSetupOutput);
+        experiment(StopTime=1.5));
       parameter FluidHeatFlow.Media.Medium outerMedium=FluidHeatFlow.Media.Medium() 
         "Outer medium" 
         annotation(choicesAllMatching=true);
@@ -745,8 +742,7 @@ You may try to:
 </ul>
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics),
-        experiment(StopTime=2),
-        experimentSetupOutput);
+        experiment(StopTime=2));
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
         "Cooling medium" 
         annotation(choicesAllMatching=true);
@@ -864,8 +860,7 @@ The pump is running for 0.2 s, then shut down (using a ramp of 0.2 s) for 0.2 s,
 then started again (using a ramp of 0.2 s).
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics),
-        experiment(StopTime=2),
-        experimentSetupOutput);
+        experiment(StopTime=2));
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
         "Cooling medium" 
         annotation(choicesAllMatching=true);
@@ -956,8 +951,7 @@ The pump is running for 0.2 s, then shut down (using a ramp of 0.2 s) for 0.2 s,
 then started again (using a ramp of 0.2 s).
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics),
-        experiment(StopTime=2, Algorithm="Lsodar"),
-        experimentSetupOutput);
+        experiment(StopTime=2));
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
         "Cooling medium" 
         annotation(choicesAllMatching=true);
@@ -1109,8 +1103,7 @@ Different inital temperatures of thermal capacity and pipe's coolant get ambient
 the time behaviour depending on coolant flow.
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics),
-        experiment(StopTime=1.0),
-        experimentSetupOutput);
+        experiment(StopTime=1.0));
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
         "Cooling medium" 
         annotation(choicesAllMatching=true);
@@ -1188,8 +1181,7 @@ Different inital temperatures of thermal capacities and pipe's coolants get ambi
 the time behaviour depending on coolant flow.
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics),
-        experiment(StopTime=1.0),
-        experimentSetupOutput);
+        experiment(StopTime=1.0));
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium() 
         "Cooling medium" 
         annotation(choicesAllMatching=true);

@@ -6,7 +6,7 @@ package Math "Library of mathematical functions (e.g., sin, cos) and of function
 extends Modelica.Icons.Library2;
 
 
-annotation(preferedView="info",
+annotation(
     Window(
       x=0.04,
       y=0.05,
@@ -112,7 +112,7 @@ This library provides functions operating on vectors:
     output Boolean result 
       "= true, if vectors have the same length and the same elements";
     
-    annotation (preferedView="info", Documentation(info="<HTML>
+    annotation ( Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
 Vectors.<b>isEqual</b>(v1, v2);
@@ -167,7 +167,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
       "Type of p-norm (often used: 1, 2, or Modelica.Constants.inf)";
     output Real result "p-norm of vector v";
     
-    annotation (preferedView="info", Documentation(info="<HTML>
+    annotation ( Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
 Vectors.<b>norm</b>(v);
@@ -314,7 +314,7 @@ possible.
     input Real v[:] "Vector";
     output Real result[size(v, 1)] "Elements of vector v in reversed order";
     
-    annotation (preferedView="info", Documentation(info="<html>
+    annotation ( Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Vectors.<b>reverse</b>(v);
@@ -341,7 +341,7 @@ vector elements in reverse order.
     output Real sorted_v[size(v,1)] = v "Sorted vector";
     output Integer indices[size(v,1)] = 1:size(v,1) "sorted_v = v[indices]";
     
-    annotation (preferedView="info",Documentation(info="<HTML>
+    annotation (Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
            sorted_v = Vectors.<b>sort</b>(v);
@@ -419,7 +419,7 @@ package Matrices "Library of functions operating on matrices"
   
   extends Modelica.Icons.Library;
   
-  annotation (preferedView="info",
+  annotation (
     version="0.8.1",
     versionDate="2004-08-21",
     Window(
@@ -540,7 +540,7 @@ The details of this library are described in:
     output Boolean result 
       "= true, if matrices have the same size and the same elements";
     
-    annotation (preferedView="info", Documentation(info="<HTML>
+    annotation ( Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
 Matrices.<b>isEqual</b>(M1, M2);
@@ -603,7 +603,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
       "Type of p-norm (only allowed: 1, 2 or Modelica.Constants.inf)";
     output Real result=0.0 "p-norm of matrix A";
     
-    annotation (preferedView="info", Documentation(info="<HTML>
+    annotation ( Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
 Matrices.<b>norm</b>(A);
@@ -665,7 +665,7 @@ Vectors.<b>norm</b>(A*v,p) &le; Matrices.<b>norm</b>(A,p)*Vectors.<b>norm</b>(A,
     output Integer indices[if sortRows then size(M,1) else size(M,2)] 
       "sorted_M = if sortRows then M[indices,:] else M[:,indices]";
     
-    annotation (preferedView="info",Documentation(info="<HTML>
+    annotation (Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
            sorted_M = Matrices.<b>sort</b>(M);
@@ -804,7 +804,7 @@ to the original matrix are given, such that
     input Real b[size(A, 1)] "Vector b of A*x = b";
     output Real x[size(b, 1)] "Vector x such that A*x = b";
     
-    annotation (preferedView="info",
+    annotation (
       Window(
         x=0.4,
         y=0.4,
@@ -864,7 +864,7 @@ no or infinitely many solutions (A is singular).");
     input Real B[size(A, 1),:] "Matrix B of A*X = B";
     output Real X[size(B, 1), size(B,2)] "Matrix X such that A*X = B";
     
-    annotation (preferedView="info",
+    annotation (
       Window(
         x=0.4,
         y=0.4,
@@ -930,7 +930,7 @@ no or infinitely many solutions (A is singular).");
     output Real x[size(A, 2)] 
       "Vector x such that min|A*x-b|^2 if size(A,1) >= size(A,2) or min|x|^2 and A*x=b, if size(A,1) < size(A,2)";
     
-    annotation (preferedView="info",
+    annotation (
       Window(
         x=0.4,
         y=0.4,
@@ -981,7 +981,7 @@ equations with function \"Matrices.leastSquares\" failed.");
     input Real b[size(B,1)];
     output Real x[size(A,2)] "solution vector";
     
-    annotation (preferedView="info",
+    annotation (
       Window(
         x=0.4,
         y=0.4,
@@ -1046,7 +1046,7 @@ with function \"Matrices.equalityLeastSquares\" failed.");
     external "FORTRAN 77" dgetrf(size(A, 1), size(A, 2), LU, size(A, 1), pivots, info) 
       annotation (Library="Lapack");
     
-    annotation (preferedView="info", Documentation(info="<HTML>
+    annotation ( Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
 (LU, pivots)       = Matrices.<b>LU</b>(A);
@@ -1132,7 +1132,7 @@ matrix A was interchanged with row pivots[i].
     input Real b[size(LU, 1)] "Right hand side vector of P*L*U*x=b";
     output Real x[size(b, 1)] "Solution vector such that P*L*U*x = b";
     
-    annotation (preferedView="info", Documentation(info="<HTML>
+    annotation ( Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
 Matrices.<b>LU_solve</b>(LU, pivots, b);
@@ -1216,7 +1216,7 @@ is singular, i.e., no unique solution exists.");
     output Real X[size(B, 1), size(B,2)] 
       "Solution matrix such that P*L*U*X = B";
     
-    annotation (preferedView="info", Documentation(info="<HTML>
+    annotation ( Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
 Matrices.<b>LU_solve</b>(LU, pivots, B);
@@ -1310,7 +1310,7 @@ is singular, i.e., no unique solution exists.");
     output Real R[size(A, 2), size(A, 2)] "Square upper triangular matrix";
     output Integer p[size(A, 2)] "Column permutation vector";
     
-    annotation (preferedView="info", Documentation(info="<HTML>
+    annotation ( Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
 (Q,R,p) = Matrices.<b>QR</b>(A);
@@ -1406,7 +1406,7 @@ This is not allowed when calling Modelica.Matrices.QR(A).");
     output Real eigenvectors[size(A,1), size(A,2)] 
       "Real-valued eigenvector matrix";
     
-    annotation (preferedView="info",
+    annotation (
       Window(
         x=0.4,
         y=0.4,
@@ -1490,7 +1490,7 @@ numerical algorithm does not converge.");
     output Real J[size(eigenValues, 1), size(eigenValues, 1)] 
       "Real valued block diagonal matrix with eigen values (Re: 1x1 block, Im: 2x2 block)";
     
-    annotation (preferedView="info",
+    annotation (
       Window(
         x=0.4,
         y=0.4,
@@ -1556,7 +1556,7 @@ are used to construct a 2 by 2 diagonal block of <b>J</b>:
     output Real VT[size(A, 2), size(A, 2)]=zeros(size(A, 2), size(A, 2)) 
       "Transposed right orthogonal matrix ";
     
-    annotation (preferedView="info", Documentation(info="<HTML>
+    annotation ( Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
          sigma = Matrices.<b>singularValues</b>(A);
@@ -1617,7 +1617,7 @@ singular value decomposition did not converge");
     Real LU[size(A,1),size(A,1)];
     Integer pivots[size(A,1)];
     
-    annotation (preferedView="info", Documentation(info="<HTML>
+    annotation ( Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
 Matrices.<b>det</b>(A);

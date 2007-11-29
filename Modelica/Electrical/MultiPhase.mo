@@ -5,7 +5,7 @@ package MultiPhase "Library for electrical components with 2, 3 or more phases"
   extends Modelica.Icons.Library2;
   annotation (
     version="1.3.2", versionDate="2007-08-24",
-    preferedView="info", Documentation(info="<HTML>
+     Documentation(info="<HTML>
 <p>
 This package contains packages for electrical multiphase components, based on Modelica.Electrical.Analog:
 <ul>
