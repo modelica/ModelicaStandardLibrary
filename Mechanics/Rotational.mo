@@ -3502,13 +3502,10 @@ in the flanges, are along the axis vector displayed in the icon.
       parameter Real lossTable[:, 5]=[0, 1, 1, 0, 0] 
         "Array for mesh efficiencies and bearing friction depending on speed (see docu of LossyGear)";
       
-      parameter Real c(
-        final unit="N.m/rad",
-        final min=Modelica.Constants.small, start=1.0e5) 
+      parameter SI.RotationalSpringConstant c(final min=Modelica.Constants.small, start=1.0e5) 
         "Gear elasticity (spring constant)";
-      parameter Real d(
-        final unit="N.m.s/rad",
-        final min=0, start=0) "(relative) gear damping";
+      parameter SI.RotationalDampingConstant d(final min=0, start=0) 
+        "(relative) gear damping";
       parameter SI.Angle b(final min=0) = 0 "Total backlash";
       
       annotation (
@@ -5631,16 +5628,16 @@ guarantees that it is connected.
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics), Icon(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={Ellipse(
-              extent={{-20,20},{20,-20}}, 
-              lineColor={135,135,135}, 
-              fillColor={175,175,175}, 
+              extent={{-20,20},{20,-20}},
+              lineColor={135,135,135},
+              fillColor={175,175,175},
               fillPattern=FillPattern.Solid), Text(
-              extent={{-200,80},{200,40}}, 
-              lineColor={0,0,255}, 
-              fillColor={175,175,175}, 
-              fillPattern=FillPattern.Solid, 
+              extent={{-200,80},{200,40}},
+              lineColor={0,0,255},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid,
               textString="%name")}),
         Documentation(info="<html>
 This is an adapter model to utilize a conditional support connector:<br>
@@ -5924,24 +5921,24 @@ the support is internally fixed.
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
-              visible=not useSupport, 
-              points={{-50,-120},{-30,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{-50,-120},{-30,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{-30,-120},{-10,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{-30,-120},{-10,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{-10,-120},{10,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{-10,-120},{10,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{10,-120},{30,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{10,-120},{30,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{-30,-100},{30,-100}}, 
+              visible=not useSupport,
+              points={{-30,-100},{30,-100}},
               color={0,0,0})}));
     protected 
       Rotational.Components.Fixed fixed if not useSupport 
@@ -5985,52 +5982,52 @@ the support is internally fixed.
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
-              extent={{-96,96},{96,-96}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{0,-46},{0,-100}}, color={0,0,0}), 
+              extent={{-96,96},{96,-96}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,-46},{0,-100}}, color={0,0,0}),
             Line(points={{-92,0},{-76,36},{-54,62},{-30,80},{-14,88},{10,92},{
-                  26,90},{46,80},{64,62}}, color={0,0,0}), 
+                  26,90},{46,80},{64,62}}, color={0,0,0}),
             Text(
-              extent={{-150,140},{150,100}}, 
-              lineColor={0,0,255}, 
-              textString="%name"), 
+              extent={{-150,140},{150,100}},
+              lineColor={0,0,255},
+              textString="%name"),
             Polygon(
-              points={{94,16},{80,74},{50,52},{94,16}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{94,16},{80,74},{50,52},{94,16}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Line(
               points={{-60,-68},{-44,-54},{-22,-42},{-2,-40},{16,-44},{30,-52},
-                  {42,-62},{50,-72},{58,-84}}, 
-              color={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+                  {42,-62},{50,-72},{58,-84}},
+              color={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{-67,-92},{-50,-68},{-64,-62},{-67,-92}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-67,-92},{-50,-68},{-64,-62},{-67,-92}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Line(
-              visible=not useSupport, 
-              points={{-50,-120},{-30,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{-50,-120},{-30,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{-30,-120},{-10,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{-30,-120},{-10,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{-10,-120},{10,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{-10,-120},{10,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{10,-120},{30,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{10,-120},{30,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{-30,-100},{30,-100}}, 
+              visible=not useSupport,
+              points={{-30,-100},{30,-100}},
               color={0,0,0})}),
         Documentation(info="<HTML>
 <p>
@@ -6273,32 +6270,32 @@ with the blocks of package Modelica.Blocks.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-            Line(points={{70,0},{100,0}}, color={0,0,127}), 
+            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            Line(points={{70,0},{100,0}}, color={0,0,127}),
             Text(
-              extent={{150,80},{-150,120}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{150,80},{-150,120}},
+              textString="%name",
+              lineColor={0,0,255}),
             Ellipse(
-              extent={{-70,70},{70,-70}}, 
-              lineColor={0,0,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{0,70},{0,40}}, color={0,0,0}), 
-            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}), 
-            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}), 
-            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}), 
-            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}), 
-            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}), 
+              extent={{-70,70},{70,-70}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,70},{0,40}}, color={0,0,0}),
+            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
+            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
+            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
+            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
+            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
             Polygon(
-              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-5,5},{5,-5}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
+              extent={{-5,5},{5,-5}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -6337,32 +6334,32 @@ with the blocks of package Modelica.Blocks.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-            Line(points={{70,0},{90,0}}, color={0,0,0}), 
+            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            Line(points={{70,0},{90,0}}, color={0,0,0}),
             Text(
-              extent={{-150,73},{150,113}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{-150,73},{150,113}},
+              textString="%name",
+              lineColor={0,0,255}),
             Ellipse(
-              extent={{-70,70},{70,-70}}, 
-              lineColor={0,0,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{0,70},{0,40}}, color={0,0,0}), 
-            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}), 
-            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}), 
-            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}), 
-            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}), 
-            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}), 
+              extent={{-70,70},{70,-70}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,70},{0,40}}, color={0,0,0}),
+            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
+            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
+            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
+            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
+            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
             Polygon(
-              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-5,5},{5,-5}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
+              extent={{-5,5},{5,-5}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
