@@ -4,7 +4,7 @@ package Nonlinear
   import Modelica.Blocks.Interfaces;
       extends Modelica.Icons.Library;
   
-      annotation(preferedView="info",
+      annotation(
         Window(
           x=0.05,
           y=0.1,

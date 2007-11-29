@@ -1,11 +1,11 @@
 within Modelica.Mechanics.MultiBody;
-package Parts 
-  "Rigid components such as bodies with mass and inertia and massless rods" 
-  
+package Parts
+  "Rigid components such as bodies with mass and inertia and massless rods"
+
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Library;
-  
-  annotation (preferedView="info", Documentation(info="<HTML>
+
+  annotation ( Documentation(info="<HTML>
 <p>
 Package <b>Parts</b> contains <b>rigid components</b> of a
 multi-body system. These components may be used to build up 
@@ -105,47 +105,47 @@ definition of the colors used in the MultiBody library
 </p>
 </HTML>
 "));
-  
-  model Fixed "Frame fixed in the world frame at a given position" 
+
+  model Fixed "Frame fixed in the world frame at a given position"
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
-    
+
     Interfaces.Frame_b frame_b "Coordinate system fixed in the world frame" 
       annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation=
              0)));
-    
+
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter SI.Position r[3]={0,0,0} 
+    parameter SI.Position r[3]={0,0,0}
       "Position vector from world frame to frame_b, resolved in world frame";
     parameter Types.ShapeType shapeType="cylinder" " Type of shape" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Position r_shape[3]={0,0,0} 
+    parameter SI.Position r_shape[3]={0,0,0}
       " Vector from world frame to shape origin, resolved in world frame" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Position lengthDirection[3]=r - r_shape 
+    parameter SI.Position lengthDirection[3]=r - r_shape
       " Vector in length direction of shape, resolved in world frame" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Position widthDirection[3]={0,1,0} 
+    parameter SI.Position widthDirection[3]={0,1,0}
       " Vector in width direction of shape, resolved in world frame" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Length length=Modelica.Math.Vectors.length(
                                              r - r_shape) " Length of shape" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance width=length/world.defaultWidthFraction 
+    parameter SI.Distance width=length/world.defaultWidthFraction
       " Width of shape" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Distance height=width " Height of shape" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Types.ShapeExtra extra=0.0 
+    parameter Types.ShapeExtra extra=0.0
       " Additional parameter for cone, pipe etc. (see docu of Visualizers.Advanced.Shape)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
+    input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
       " Color of shape" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    
+
     annotation (
       Window(
         x=0.27,
@@ -157,23 +157,23 @@ definition of the colors used in the MultiBody library
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-90,90},{90,-90}}, 
-            lineColor={255,255,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-90,90},{90,-90}},
+            lineColor={255,255,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{150,170},{-142,106}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
-          Line(points={{0,100},{0,-100}}, color={0,0,0}), 
-          Line(points={{0,-80},{-100,-20}}, color={0,0,0}), 
-          Line(points={{0,-40},{-100,20}}, color={0,0,0}), 
-          Line(points={{0,0},{-100,60}}, color={0,0,0}), 
-          Line(points={{0,40},{-100,100}}, color={0,0,0}), 
-          Line(points={{0,0},{100,0}}, color={0,0,0}), 
+            extent={{150,170},{-142,106}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(points={{0,100},{0,-100}}, color={0,0,0}),
+          Line(points={{0,-80},{-100,-20}}, color={0,0,0}),
+          Line(points={{0,-40},{-100,20}}, color={0,0,0}),
+          Line(points={{0,0},{-100,60}}, color={0,0,0}),
+          Line(points={{0,40},{-100,100}}, color={0,0,0}),
+          Line(points={{0,0},{100,0}}, color={0,0,0}),
           Text(
-            extent={{-146,-104},{154,-148}}, 
-            lineColor={0,0,0}, 
+            extent={{-146,-104},{154,-148}},
+            lineColor={0,0,0},
             textString="r=%r")}),
       Documentation(info="<html>
 <p>
@@ -196,14 +196,14 @@ animation = <b>false</b>.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{0,100},{0,-100}}, color={0,0,0}), 
-          Line(points={{0,-80},{-100,-20}}, color={0,0,0}), 
-          Line(points={{0,-40},{-100,20}}, color={0,0,0}), 
-          Line(points={{0,0},{-100,60}}, color={0,0,0}), 
-          Line(points={{0,40},{-100,100}}, color={0,0,0}), 
+          Line(points={{0,100},{0,-100}}, color={0,0,0}),
+          Line(points={{0,-80},{-100,-20}}, color={0,0,0}),
+          Line(points={{0,-40},{-100,20}}, color={0,0,0}),
+          Line(points={{0,0},{-100,60}}, color={0,0,0}),
+          Line(points={{0,40},{-100,100}}, color={0,0,0}),
           Line(points={{0,0},{100,0}}, color={0,0,0})}));
-    
-  protected 
+
+  protected
     outer Modelica.Mechanics.MultiBody.World world;
     Visualizers.Advanced.Shape shape(
       shapeType=shapeType,
@@ -218,59 +218,59 @@ animation = <b>false</b>.
       r_shape=r_shape,
       r=zeros(3),
       R=Frames.nullRotation()) if world.enableAnimation and animation;
-  equation 
+  equation
     defineRoot(frame_b.R);
     frame_b.r_0 = r;
     frame_b.R = Frames.nullRotation();
   end Fixed;
-  
-  model FixedTranslation "Fixed translation of frame_b with respect to frame_a" 
-    
+
+  model FixedTranslation "Fixed translation of frame_b with respect to frame_a"
+
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
-    Interfaces.Frame_a frame_a 
+    Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
                                annotation (Placement(transformation(extent={{
               -116,-16},{-84,16}}, rotation=0)));
-    Interfaces.Frame_b frame_b 
+    Interfaces.Frame_b frame_b
       "Coordinate system fixed to the component with one cut-force and cut-torque"
                                annotation (Placement(transformation(extent={{84,
               -16},{116,16}}, rotation=0)));
-    
+
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter SI.Position r[3](start={0,0,0}) 
+    parameter SI.Position r[3](start={0,0,0})
       "Vector from frame_a to frame_b resolved in frame_a";
     parameter Types.ShapeType shapeType="cylinder" " Type of shape" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Position r_shape[3]={0,0,0} 
+    parameter SI.Position r_shape[3]={0,0,0}
       " Vector from frame_a to shape origin, resolved in frame_a" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Types.Axis lengthDirection=r - r_shape 
+    parameter Types.Axis lengthDirection=r - r_shape
       " Vector in length direction of shape, resolved in frame_a" 
       annotation (Evaluate=true, Dialog(tab="Animation", group=
             "if animation = true", enable=animation));
-    parameter Types.Axis widthDirection={0,1,0} 
+    parameter Types.Axis widthDirection={0,1,0}
       " Vector in width direction of shape, resolved in frame_a" 
       annotation (Evaluate=true, Dialog(tab="Animation", group=
             "if animation = true", enable=animation));
     parameter SI.Length length=Modelica.Math.Vectors.length(
                                              r - r_shape) " Length of shape" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance width=length/world.defaultWidthFraction 
+    parameter SI.Distance width=length/world.defaultWidthFraction
       " Width of shape" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Distance height=width " Height of shape." 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Types.ShapeExtra extra=0.0 
+    parameter Types.ShapeExtra extra=0.0
       " Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape)."
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
+    input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
       " Color of shape" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    
+
     annotation (
       Window(
         x=0.25,
@@ -282,78 +282,78 @@ animation = <b>false</b>.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-99,5},{101,-5}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-99,5},{101,-5}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-131,101},{129,41}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-131,101},{129,41}},
+            textString="%name",
+            lineColor={0,0,255}),
           Text(
-            extent={{127,-72},{-133,-22}}, 
-            lineColor={0,0,0}, 
-            textString="%=r"), 
+            extent={{127,-72},{-133,-22}},
+            lineColor={0,0,0},
+            textString="%=r"),
           Text(
-            extent={{-89,38},{-53,13}}, 
-            lineColor={128,128,128}, 
-            textString="a"), 
+            extent={{-89,38},{-53,13}},
+            lineColor={128,128,128},
+            textString="a"),
           Text(
-            extent={{57,39},{93,14}}, 
-            lineColor={128,128,128}, 
+            extent={{57,39},{93,14}},
+            lineColor={128,128,128},
             textString="b")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-100,5},{100,-5}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-100,5},{100,-5}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Line(
-            points={{-95,20},{-58,20}}, 
-            color={128,128,128}, 
-            arrow={Arrow.None,Arrow.Filled}), 
+            points={{-95,20},{-58,20}},
+            color={128,128,128},
+            arrow={Arrow.None,Arrow.Filled}),
           Line(
-            points={{-94,18},{-94,50}}, 
-            color={128,128,128}, 
-            arrow={Arrow.None,Arrow.Filled}), 
+            points={{-94,18},{-94,50}},
+            color={128,128,128},
+            arrow={Arrow.None,Arrow.Filled}),
           Text(
-            extent={{-72,35},{-58,24}}, 
-            lineColor={128,128,128}, 
-            textString="x"), 
+            extent={{-72,35},{-58,24}},
+            lineColor={128,128,128},
+            textString="x"),
           Text(
-            extent={{-113,57},{-98,45}}, 
-            lineColor={128,128,128}, 
-            textString="y"), 
-          Line(points={{-100,-4},{-100,-69}}, color={128,128,128}), 
-          Line(points={{-100,-63},{90,-63}}, color={128,128,128}), 
+            extent={{-113,57},{-98,45}},
+            lineColor={128,128,128},
+            textString="y"),
+          Line(points={{-100,-4},{-100,-69}}, color={128,128,128}),
+          Line(points={{-100,-63},{90,-63}}, color={128,128,128}),
           Text(
-            extent={{-22,-39},{16,-63}}, 
-            lineColor={128,128,128}, 
-            textString="r"), 
+            extent={{-22,-39},{16,-63}},
+            lineColor={128,128,128},
+            textString="r"),
           Polygon(
-            points={{88,-59},{88,-68},{100,-63},{88,-59}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{100,-3},{100,-68}}, color={128,128,128}), 
+            points={{88,-59},{88,-68},{100,-63},{88,-59}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
+          Line(points={{100,-3},{100,-68}}, color={128,128,128}),
           Line(
-            points={{69,20},{106,20}}, 
-            color={128,128,128}, 
-            arrow={Arrow.None,Arrow.Filled}), 
+            points={{69,20},{106,20}},
+            color={128,128,128},
+            arrow={Arrow.None,Arrow.Filled}),
           Line(
-            points={{70,18},{70,50}}, 
-            color={128,128,128}, 
-            arrow={Arrow.None,Arrow.Filled}), 
+            points={{70,18},{70,50}},
+            color={128,128,128},
+            arrow={Arrow.None,Arrow.Filled}),
           Text(
-            extent={{92,35},{106,24}}, 
-            lineColor={128,128,128}, 
-            textString="x"), 
+            extent={{92,35},{106,24}},
+            lineColor={128,128,128},
+            textString="x"),
           Text(
-            extent={{51,57},{66,45}}, 
-            lineColor={128,128,128}, 
+            extent={{51,57},{66,45}},
+            lineColor={128,128,128},
             textString="y")}),
       Documentation(info="<HTML>
 <p>
@@ -369,7 +369,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
 </p>
 <IMG SRC=\"../Images/MultiBody/FixedTranslation.png\" ALT=\"Parts.FixedTranslation\">
 </HTML>"));
-  protected 
+  protected
     outer Modelica.Mechanics.MultiBody.World world;
     Visualizers.Advanced.Shape shape(
       shapeType=shapeType,
@@ -384,92 +384,92 @@ the animation may be switched off via parameter animation = <b>false</b>.
       extra=extra,
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation;
-  equation 
+  equation
     defineBranch(frame_a.R, frame_b.R);
     assert(cardinality(frame_a) > 0 or cardinality(frame_b) > 0,
       "Neither connector frame_a nor frame_b of FixedTranslation object is connected");
-    
+
     frame_b.r_0 = frame_a.r_0 + Frames.resolve1(frame_a.R, r);
     frame_b.R = frame_a.R;
-    
+
     /* Force and torque balance */
     zeros(3) = frame_a.f + frame_b.f;
     zeros(3) = frame_a.t + frame_b.t + cross(r, frame_b.f);
   end FixedTranslation;
-  
-  model FixedRotation 
-    "Fixed translation followed by a fixed rotation of frame_b with respect to frame_a" 
-    
+
+  model FixedRotation
+    "Fixed translation followed by a fixed rotation of frame_b with respect to frame_a"
+
     import Modelica.Mechanics.MultiBody.Frames;
     import Modelica.Mechanics.MultiBody.Types;
     import SI = Modelica.SIunits;
     import Cv = Modelica.SIunits.Conversions;
-    Interfaces.Frame_a frame_a 
+    Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
                                annotation (Placement(transformation(extent={{
               -116,-16},{-84,16}}, rotation=0)));
-    Interfaces.Frame_b frame_b 
+    Interfaces.Frame_b frame_b
       "Coordinate system fixed to the component with one cut-force and cut-torque"
                                annotation (Placement(transformation(extent={{84,
               -16},{116,16}}, rotation=0)));
-    
+
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter SI.Position r[3]={0,0,0} 
+    parameter SI.Position r[3]={0,0,0}
       "Vector from frame_a to frame_b resolved in frame_a";
     parameter Modelica.Mechanics.MultiBody.Types.RotationTypes rotationType=
-              Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis 
+              Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis
       "Type of rotation description" 
       annotation (Evaluate=true);
-    parameter Types.Axis n={1,0,0} 
+    parameter Types.Axis n={1,0,0}
       " Axis of rotation in frame_a (= same as in frame_b)" 
       annotation (Evaluate=true, Dialog(group="if rotationType = RotationAxis",
                   enable=rotationType==Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis));
-    parameter Cv.NonSIunits.Angle_deg angle=0 
+    parameter Cv.NonSIunits.Angle_deg angle=0
       " Angle to rotate frame_a around axis n into frame_b" 
       annotation (Dialog(group="if rotationType = RotationAxis",
                   enable=rotationType==Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis));
-    
-    parameter Types.Axis n_x={1,0,0} 
+
+    parameter Types.Axis n_x={1,0,0}
       " Vector along x-axis of frame_b resolved in frame_a" 
       annotation (Evaluate=true, Dialog(group="if rotationType = TwoAxesVectors",
                   enable=rotationType==Types.RotationTypes.TwoAxesVectors));
-    parameter Types.Axis n_y={0,1,0} 
+    parameter Types.Axis n_y={0,1,0}
       " Vector along y-axis of frame_b resolved in frame_a" 
       annotation (Evaluate=true, Dialog(group="if rotationType = TwoAxesVectors",
                   enable=rotationType==Types.RotationTypes.TwoAxesVectors));
-    
+
     parameter Types.RotationSequence sequence(
       min={1,1,1},
       max={3,3,3}) = {1,2,3} " Sequence of rotations" 
       annotation (Evaluate=true, Dialog(group=
                   "if rotationType = PlanarRotationSequence",
                   enable=rotationType==Types.RotationTypes.PlanarRotationSequence));
-    parameter Cv.NonSIunits.Angle_deg angles[3]={0,0,0} 
+    parameter Cv.NonSIunits.Angle_deg angles[3]={0,0,0}
       " Rotation angles around the axes defined in 'sequence'" 
       annotation (Dialog(group="if rotationType = PlanarRotationSequence",
                   enable=rotationType==Types.RotationTypes.PlanarRotationSequence));
     parameter Types.ShapeType shapeType="cylinder" " Type of shape" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Position r_shape[3]={0,0,0} 
+    parameter SI.Position r_shape[3]={0,0,0}
       " Vector from frame_a to shape origin, resolved in frame_a" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Types.Axis lengthDirection=r - r_shape 
+    parameter Types.Axis lengthDirection=r - r_shape
       " Vector in length direction of shape, resolved in frame_a" 
       annotation (Evaluate=true, Dialog(tab="Animation", group=
             "if animation = true", enable=animation));
-    parameter Types.Axis widthDirection={0,1,0} 
+    parameter Types.Axis widthDirection={0,1,0}
       " Vector in width direction of shape, resolved in frame_a" 
       annotation (Evaluate=true, Dialog(tab="Animation", group=
             "if animation = true", enable=animation));
     parameter SI.Length length=Modelica.Math.Vectors.length(
                                              r - r_shape) " Length of shape" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance width=length/world.defaultWidthFraction 
+    parameter SI.Distance width=length/world.defaultWidthFraction
       " Width of shape" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Distance height=width " Height of shape." 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Types.ShapeExtra extra=0.0 
+    parameter Types.ShapeExtra extra=0.0
       " Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape)."
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
   /*
@@ -477,26 +477,26 @@ the animation may be switched off via parameter animation = <b>false</b>.
     "= true, if total power flowing into this component shall be determined (must be zero)"
     annotation (Dialog(tab="Advanced"));
 */
-    
-    input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
+
+    input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
       " Color of shape" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     final parameter Frames.Orientation R_rel=if rotationType == 1 then 
         Frames.planarRotation(Modelica.Math.Vectors.normalize(
                                                n), Cv.from_deg(angle), 0) else 
         if rotationType == 2 then Frames.from_nxy(n_x, n_y) else 
-        Frames.axesRotations(sequence, Cv.from_deg(angles), zeros(3)) 
+        Frames.axesRotations(sequence, Cv.from_deg(angles), zeros(3))
       "Fixed rotation object from frame_a to frame_b";
   /*
   SI.Power totalPower 
     "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
 */
-  protected 
+  protected
     outer Modelica.Mechanics.MultiBody.World world;
-    
+
     /*
   parameter Frames.Orientation R_rel_inv=
       Frames.inverseRotation(R_rel) 
@@ -564,97 +564,97 @@ the animation may be switched off via parameter animation = <b>false</b>.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{-136,79},{132,139}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-136,79},{132,139}},
+            textString="%name",
+            lineColor={0,0,255}),
           Rectangle(
-            extent={{-100,5},{100,-4}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{80,20},{129,50}}, color={0,0,0}), 
-          Line(points={{80,20},{57,59}}, color={0,0,0}), 
+            extent={{-100,5},{100,-4}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
+          Line(points={{80,20},{129,50}}, color={0,0,0}),
+          Line(points={{80,20},{57,59}}, color={0,0,0}),
           Polygon(
-            points={{144,60},{117,59},{132,37},{144,60}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+            points={{144,60},{117,59},{132,37},{144,60}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Polygon(
-            points={{43,80},{46,50},{68,65},{43,80}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+            points={{43,80},{46,50},{68,65},{43,80}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-144,-52},{143,-89}}, 
-            lineColor={0,0,0}, 
-            textString="r=%r"), 
+            extent={{-144,-52},{143,-89}},
+            lineColor={0,0,0},
+            textString="r=%r"),
           Text(
-            extent={{-117,51},{-81,26}}, 
-            lineColor={128,128,128}, 
-            textString="a"), 
+            extent={{-117,51},{-81,26}},
+            lineColor={128,128,128},
+            textString="a"),
           Text(
-            extent={{84,-24},{120,-49}}, 
-            lineColor={128,128,128}, 
+            extent={{84,-24},{120,-49}},
+            lineColor={128,128,128},
             textString="b")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-100,-1},{-100,-66}}, color={128,128,128}), 
-          Line(points={{100,0},{100,-65}}, color={128,128,128}), 
-          Line(points={{-100,-60},{89,-60}}, color={128,128,128}), 
+          Line(points={{-100,-1},{-100,-66}}, color={128,128,128}),
+          Line(points={{100,0},{100,-65}}, color={128,128,128}),
+          Line(points={{-100,-60},{89,-60}}, color={128,128,128}),
           Text(
-            extent={{-22,-36},{16,-60}}, 
-            lineColor={128,128,128}, 
-            textString="r"), 
+            extent={{-22,-36},{16,-60}},
+            lineColor={128,128,128},
+            textString="r"),
           Rectangle(
-            extent={{-100,5},{100,-5}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-100,5},{100,-5}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Line(
-            points={{69,29},{97,45}}, 
-            color={128,128,128}, 
-            arrow={Arrow.None,Arrow.Filled}), 
+            points={{69,29},{97,45}},
+            color={128,128,128},
+            arrow={Arrow.None,Arrow.Filled}),
           Line(
-            points={{70,27},{55,54}}, 
-            color={128,128,128}, 
-            arrow={Arrow.None,Arrow.Filled}), 
+            points={{70,27},{55,54}},
+            color={128,128,128},
+            arrow={Arrow.None,Arrow.Filled}),
           Text(
-            extent={{95,42},{109,31}}, 
-            lineColor={128,128,128}, 
-            textString="x"), 
+            extent={{95,42},{109,31}},
+            lineColor={128,128,128},
+            textString="x"),
           Text(
-            extent={{42,70},{57,58}}, 
-            lineColor={128,128,128}, 
-            textString="y"), 
+            extent={{42,70},{57,58}},
+            lineColor={128,128,128},
+            textString="y"),
           Line(
-            points={{-95,22},{-58,22}}, 
-            color={128,128,128}, 
-            arrow={Arrow.None,Arrow.Filled}), 
+            points={{-95,22},{-58,22}},
+            color={128,128,128},
+            arrow={Arrow.None,Arrow.Filled}),
           Line(
-            points={{-94,20},{-94,52}}, 
-            color={128,128,128}, 
-            arrow={Arrow.None,Arrow.Filled}), 
+            points={{-94,20},{-94,52}},
+            color={128,128,128},
+            arrow={Arrow.None,Arrow.Filled}),
           Text(
-            extent={{-72,37},{-58,26}}, 
-            lineColor={128,128,128}, 
-            textString="x"), 
+            extent={{-72,37},{-58,26}},
+            lineColor={128,128,128},
+            textString="x"),
           Text(
-            extent={{-113,59},{-98,47}}, 
-            lineColor={128,128,128}, 
-            textString="y"), 
+            extent={{-113,59},{-98,47}},
+            lineColor={128,128,128},
+            textString="y"),
           Polygon(
-            points={{88,-56},{88,-65},{100,-60},{88,-56}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
+            points={{88,-56},{88,-65},{100,-60},{88,-56}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
             fillPattern=FillPattern.Solid)}));
-  equation 
-    
+  equation
+
     defineBranch(frame_a.R, frame_b.R);
     assert(cardinality(frame_a) > 0 or cardinality(frame_b) > 0,
       "Neither connector frame_a nor frame_b of FixedRotation object is connected");
-    
+
     /* Relationships between quantities of frame_a and frame_b */
     frame_b.r_0 = frame_a.r_0 + Frames.resolve1(frame_a.R, r);
     if rooted(frame_a.R) then
@@ -666,7 +666,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
       zeros(3) = frame_b.f + Frames.resolve1(R_rel_inv, frame_a.f);
       zeros(3) = frame_b.t + Frames.resolve1(R_rel_inv, frame_a.t) + cross(Frames.resolve1(R_rel_inv,r), frame_b.f);
     end if;
-    
+
   /*
   if checkTotalPower then
     totalPower = frame_a.f*Frames.resolve2(frame_a.R, der(frame_a.r_0)) +
@@ -678,10 +678,10 @@ the animation may be switched off via parameter animation = <b>false</b>.
   end if;
 */
   end FixedRotation;
-  
-  model Body 
-    "Rigid body with mass, inertia tensor and one frame connector (12 potential states)" 
-    
+
+  model Body
+    "Rigid body with mass, inertia tensor and one frame connector (12 potential states)"
+
     import SI = Modelica.SIunits;
     import C = Modelica.Constants;
     import Modelica.Math.*;
@@ -690,9 +690,9 @@ the animation may be switched off via parameter animation = <b>false</b>.
     Interfaces.Frame_a frame_a "Coordinate system fixed at body" 
       annotation (Placement(transformation(extent={{-116,-16},{-84,16}},
             rotation=0)));
-    parameter Boolean animation=true 
+    parameter Boolean animation=true
       "= true, if animation shall be enabled (show cylinder and sphere)";
-    parameter SI.Position r_CM[3](start={0,0,0}) 
+    parameter SI.Position r_CM[3](start={0,0,0})
       "Vector from frame_a to center of mass, resolved in frame_a";
     parameter SI.Mass m(min=0, start = 1) "Mass of rigid body";
     parameter SI.Inertia I_11(min=0) = 0.001 " (1,1) element of inertia tensor"
@@ -713,49 +713,49 @@ the animation may be switched off via parameter animation = <b>false</b>.
     parameter SI.Inertia I_32(min=-C.inf)=0 " (3,2) element of inertia tensor" annotation (
         Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    
+
     SI.Position r_0[3](start={0,0,0}, stateSelect=if enforceStates then 
-                StateSelect.always else StateSelect.avoid) 
+                StateSelect.always else StateSelect.avoid)
       "Position vector from origin of world frame to origin of frame_a" 
       annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
     SI.Velocity v_0[3](start={0,0,0}, stateSelect=if enforceStates then StateSelect.always else 
-                StateSelect.avoid) 
+                StateSelect.avoid)
       "Absolute velocity of frame_a, resolved in world frame (= der(r_0))" 
       annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
-    SI.Acceleration a_0[3](start={0,0,0}) 
+    SI.Acceleration a_0[3](start={0,0,0})
       "Absolute acceleration of frame_a resolved in world frame (= der(v_0))" 
       annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
-    
-    parameter Boolean angles_fixed = false 
+
+    parameter Boolean angles_fixed = false
       "= true, if angles_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
-    parameter SI.Angle angles_start[3]={0,0,0} 
+      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+    parameter SI.Angle angles_start[3]={0,0,0}
       "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
       annotation (Dialog(tab="Initialization"));
-    parameter Types.RotationSequence sequence_start={1,2,3} 
+    parameter Types.RotationSequence sequence_start={1,2,3}
       "Sequence of rotations to rotate frame_a into frame_b at initial time" 
       annotation (Evaluate=true, Dialog(tab="Initialization"));
-    
-    parameter Boolean w_0_fixed = false 
+
+    parameter Boolean w_0_fixed = false
       "= true, if w_0_start are used as initial values, else as guess values" 
-      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
-    parameter SI.AngularVelocity w_0_start[3]={0,0,0} 
+      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+    parameter SI.AngularVelocity w_0_start[3]={0,0,0}
       "Initial or guess values of angular velocity of frame_a resolved in world frame"
       annotation (Dialog(tab="Initialization"));
-    
-    parameter Boolean z_0_fixed = false 
+
+    parameter Boolean z_0_fixed = false
       "= true, if z_0_start are used as initial values, else as guess values" 
-      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
-    parameter SI.AngularAcceleration z_0_start[3]={0,0,0} 
+      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+    parameter SI.AngularAcceleration z_0_start[3]={0,0,0}
       "Initial values of angular acceleration z_0 = der(w_0)" 
       annotation (Dialog(tab="Initialization"));
-    
-    parameter SI.Diameter sphereDiameter=world.defaultBodyDiameter 
+
+    parameter SI.Diameter sphereDiameter=world.defaultBodyDiameter
       "Diameter of sphere" annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
-    input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor 
+    input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
       "Color of sphere" annotation (Dialog(
         tab="Animation",
         group="if animation = true",
@@ -771,36 +771,37 @@ the animation may be switched off via parameter animation = <b>false</b>.
         tab="Animation",
         group="if animation = true",
         enable=animation));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
-    parameter Boolean enforceStates=false 
+    parameter Boolean enforceStates=false
       " = true, if absolute variables of body object shall be used as states (StateSelect.always)"
       annotation (Evaluate=true,Dialog(tab="Advanced"));
-    parameter Boolean useQuaternions=true 
+    parameter Boolean useQuaternions=true
       " = true, if quaternions shall be used as potential states otherwise use 3 angles as potential states"
       annotation (Evaluate=true,Dialog(tab="Advanced"));
-    parameter Types.RotationSequence sequence_angleStates={1,2,3} 
+    parameter Types.RotationSequence sequence_angleStates={1,2,3}
       " Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states"
        annotation (Evaluate=true, Dialog(tab="Advanced", enable=not 
             useQuaternions));
-    
+
     final parameter SI.Inertia I[3, 3]=[I_11, I_21, I_31; I_21, I_22, I_32;
         I_31, I_32, I_33] "inertia tensor";
     final parameter Frames.Orientation R_start=Modelica.Mechanics.MultiBody.Frames.axesRotations(
-        sequence_start, angles_start, zeros(3)) 
+        sequence_start, angles_start, zeros(3))
       "Orientation object from world frame to frame_a at initial time";
-    final parameter SI.AngularAcceleration z_a_start[3]=Frames.resolve2(R_start, z_0_start);
-    
+    final parameter SI.AngularAcceleration z_a_start[3]=Frames.resolve2(R_start, z_0_start)
+      "Initial values of angular acceleration z_a = der(w_a), i.e., time derivative of angular velocity resolved in frame_a";
+
     SI.AngularVelocity w_a[3](start=Frames.resolve2(R_start, w_0_start),
                               fixed=fill(w_0_fixed,3),
                               stateSelect=if enforceStates then (if useQuaternions then 
-                              StateSelect.always else StateSelect.never) else StateSelect.avoid) 
+                              StateSelect.always else StateSelect.never) else StateSelect.avoid)
       "Absolute angular velocity of frame_a resolved in frame_a";
-    SI.AngularAcceleration z_a[3](start=Frames.resolve2(R_start, z_0_start),fixed=fill(z_0_fixed,3)) 
+    SI.AngularAcceleration z_a[3](start=Frames.resolve2(R_start, z_0_start),fixed=fill(z_0_fixed,3))
       "Absolute angular acceleration of frame_a resolved in frame_a";
     SI.Acceleration g_0[3] "Gravity acceleration resolved in world frame";
     annotation (
@@ -820,22 +821,22 @@ drag Modelica.Mechanics.MultiBody.World into the top level of your model.",
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-100,30},{-3,-31}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={0,127,255}), 
+            extent={{-100,30},{-3,-31}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={0,127,255}),
           Text(
-            extent={{131,-123},{-129,-73}}, 
-            lineColor={0,0,0}, 
-            textString="m=%m"), 
+            extent={{131,-123},{-129,-73}},
+            lineColor={0,0,0},
+            textString="m=%m"),
           Text(
-            extent={{-128,132},{132,72}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-128,132},{132,72}},
+            textString="%name",
+            lineColor={0,0,255}),
           Ellipse(
-            extent={{-20,60},{100,-60}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Sphere, 
+            extent={{-20,60},{100,-60}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.Sphere,
             fillColor={0,127,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -925,33 +926,33 @@ to the setting of parameters \"useQuaternions\" and
 \"sequence_angleStates\".
 </p>
 </HTML>"));
-    
-  protected 
+
+  protected
     outer Modelica.Mechanics.MultiBody.World world;
-    
+
     // Declarations for quaternions (dummies, if quaternions are not used)
-    parameter Frames.Quaternions.Orientation Q_start=Frames.to_Q(R_start) 
+    parameter Frames.Quaternions.Orientation Q_start=Frames.to_Q(R_start)
       "Quaternion orientation object from world frame to frame_a at initial time";
     Frames.Quaternions.Orientation Q(start=Q_start, stateSelect=if 
           enforceStates then (if useQuaternions then StateSelect.prefer else 
-          StateSelect.never) else StateSelect.avoid) 
+          StateSelect.never) else StateSelect.avoid)
       "Quaternion orientation object from world frame to frame_a (dummy value, if quaternions are not used as states)";
-    
+
     // Declaration for 3 angles
     parameter SI.Angle phi_start[3]=if sequence_start[1] ==
         sequence_angleStates[1] and sequence_start[2] == sequence_angleStates[2]
          and sequence_start[3] == sequence_angleStates[3] then angles_start else 
-         Frames.axesRotationsAngles(R_start, sequence_angleStates) 
+         Frames.axesRotationsAngles(R_start, sequence_angleStates)
       "Potential angle states at initial time";
     SI.Angle phi[3](start=phi_start, stateSelect=if enforceStates then (if 
           useQuaternions then StateSelect.never else StateSelect.always) else 
-          StateSelect.avoid) 
+          StateSelect.avoid)
       "Dummy or 3 angles to rotate world frame into frame_a of body";
     SI.AngularVelocity phi_d[3](stateSelect=if enforceStates then (if 
           useQuaternions then StateSelect.never else StateSelect.always) else 
           StateSelect.avoid) "= der(phi)";
     SI.AngularAcceleration phi_dd[3] "= der(phi_d)";
-    
+
     // Declarations for animation
     Visualizers.Advanced.Shape cylinder(
       shapeType="cylinder",
@@ -978,7 +979,7 @@ to the setting of parameters \"useQuaternions\" and
       r_shape=r_CM - {1,0,0}*sphereDiameter/2,
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation and sphereDiameter > 0;
-  initial equation 
+  initial equation
     if angles_fixed then
       // Initialize positional variables
       if not isRoot(frame_a.R) then
@@ -992,15 +993,15 @@ to the setting of parameters \"useQuaternions\" and
         phi = phi_start;
       end if;
     end if;
-    
-  equation 
+
+  equation
     if enforceStates then
       defineRoot(frame_a.R);
     else
       definePotentialRoot(frame_a.R);
     end if;
     r_0 = frame_a.r_0;
-    
+
     if not isRoot(frame_a.R) then
       // Body does not have states
       // Dummies
@@ -1012,7 +1013,7 @@ to the setting of parameters \"useQuaternions\" and
       // Use Quaternions as states (with dynamic state selection)
       frame_a.R = Frames.from_Q(Q, Frames.Quaternions.angularVelocity2(Q, der(Q)));
       {0} = Frames.Quaternions.orientationConstraint(Q);
-      
+
       // Dummies
       phi = zeros(3);
       phi_d = zeros(3);
@@ -1022,23 +1023,23 @@ to the setting of parameters \"useQuaternions\" and
       phi_d = der(phi);
       phi_dd = der(phi_d);
       frame_a.R = Frames.axesRotations(sequence_angleStates, phi, phi_d);
-      
+
       // Dummies
       Q = {0,0,0,1};
     end if;
-    
+
     // gravity acceleration at center of mass resolved in world frame
     g_0 = world.gravityAcceleration(frame_a.r_0 + Frames.resolve1(frame_a.R,
       r_CM));
-    
+
     // translational kinematic differential equations
     v_0 = der(frame_a.r_0);
     a_0 = der(v_0);
-    
+
     // rotational kinematic differential equations
     w_a = Frames.angularVelocity2(frame_a.R);
     z_a = der(w_a);
-    
+
     /* Newton/Euler equations with respect to center of mass 
             a_CM = a_a + cross(z_a, r_CM) + cross(w_a, cross(w_a, r_CM));
             f_CM = m*(a_CM - g_a);
@@ -1051,30 +1052,30 @@ to the setting of parameters \"useQuaternions\" and
       cross(w_a, cross(w_a, r_CM)));
     frame_a.t = I*z_a + cross(w_a, I*w_a) + cross(r_CM, frame_a.f);
   end Body;
-  
-  model BodyShape 
-    "Rigid body with mass, inertia tensor, different shapes for animation, and two frame connectors (12 potential states)" 
-    
+
+  model BodyShape
+    "Rigid body with mass, inertia tensor, different shapes for animation, and two frame connectors (12 potential states)"
+
     import SI = Modelica.SIunits;
     import C = Modelica.Constants;
     import Modelica.Mechanics.MultiBody.Types;
-    
-    Interfaces.Frame_a frame_a 
+
+    Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
                                annotation (Placement(transformation(extent={{
               -116,-16},{-84,16}}, rotation=0)));
-    Interfaces.Frame_b frame_b 
+    Interfaces.Frame_b frame_b
       "Coordinate system fixed to the component with one cut-force and cut-torque"
                                annotation (Placement(transformation(extent={{84,
               -16},{116,16}}, rotation=0)));
-    
-    parameter Boolean animation=true 
+
+    parameter Boolean animation=true
       "= true, if animation shall be enabled (show shape between frame_a and frame_b and optionally a sphere at the center of mass)";
-    parameter Boolean animateSphere=true 
+    parameter Boolean animateSphere=true
       "= true, if mass shall be animated as sphere provided animation=true";
-    parameter SI.Position r[3](start={0,0,0}) 
+    parameter SI.Position r[3](start={0,0,0})
       "Vector from frame_a to frame_b resolved in frame_a";
-    parameter SI.Position r_CM[3](start={0,0,0}) 
+    parameter SI.Position r_CM[3](start={0,0,0})
       "Vector from frame_a to center of mass, resolved in frame_a";
     parameter SI.Mass m(min=0, start = 1) "Mass of rigid body";
     parameter SI.Inertia I_11(min=0) = 0.001 " (1,1) element of inertia tensor"
@@ -1086,80 +1087,80 @@ to the setting of parameters \"useQuaternions\" and
     parameter SI.Inertia I_33(min=0) = 0.001 " (3,3) element of inertia tensor"
       annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter SI.Inertia I_21(min=-C.inf) = 0 
+    parameter SI.Inertia I_21(min=-C.inf) = 0
       " (2,1) element of inertia tensor" 
       annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter SI.Inertia I_31(min=-C.inf) = 0 
+    parameter SI.Inertia I_31(min=-C.inf) = 0
       " (3,1) element of inertia tensor" 
       annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    parameter SI.Inertia I_32(min=-C.inf) = 0 
+    parameter SI.Inertia I_32(min=-C.inf) = 0
       " (3,2) element of inertia tensor" 
       annotation (Dialog(group=
             "Inertia tensor (resolved in center of mass, parallel to frame_a)"));
-    
+
     SI.Position r_0[3](start={0,0,0}, stateSelect=if enforceStates then 
-                StateSelect.always else StateSelect.avoid) 
+                StateSelect.always else StateSelect.avoid)
       "Position vector from origin of world frame to origin of frame_a" 
       annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
     SI.Velocity v_0[3](start={0,0,0}, stateSelect=if enforceStates then StateSelect.always else 
-                StateSelect.avoid) 
+                StateSelect.avoid)
       "Absolute velocity of frame_a, resolved in world frame (= der(r_0))" 
       annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
-    SI.Acceleration a_0[3](start={0,0,0}) 
+    SI.Acceleration a_0[3](start={0,0,0})
       "Absolute acceleration of frame_a resolved in world frame (= der(v_0))" 
       annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
-    
-    parameter Boolean angles_fixed = false 
+
+    parameter Boolean angles_fixed = false
       "= true, if angles_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
-    parameter SI.Angle angles_start[3]={0,0,0} 
+      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+    parameter SI.Angle angles_start[3]={0,0,0}
       "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
       annotation (Dialog(tab="Initialization"));
-    parameter Types.RotationSequence sequence_start={1,2,3} 
+    parameter Types.RotationSequence sequence_start={1,2,3}
       "Sequence of rotations to rotate frame_a into frame_b at initial time" 
       annotation (Evaluate=true, Dialog(tab="Initialization"));
-    
-    parameter Boolean w_0_fixed = false 
+
+    parameter Boolean w_0_fixed = false
       "= true, if w_0_start are used as initial values, else as guess values" 
-      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
-    parameter SI.AngularVelocity w_0_start[3]={0,0,0} 
+      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+    parameter SI.AngularVelocity w_0_start[3]={0,0,0}
       "Initial or guess values of angular velocity of frame_a resolved in world frame"
       annotation (Dialog(tab="Initialization"));
-    
-    parameter Boolean z_0_fixed = false 
+
+    parameter Boolean z_0_fixed = false
       "= true, if z_0_start are used as initial values, else as guess values" 
-      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
-    parameter SI.AngularAcceleration z_0_start[3]={0,0,0} 
+      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+    parameter SI.AngularAcceleration z_0_start[3]={0,0,0}
       "Initial values of angular acceleration z_0 = der(w_0)" 
       annotation (Dialog(tab="Initialization"));
-    
+
     parameter Types.ShapeType shapeType="cylinder" " Type of shape" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Position r_shape[3]={0,0,0} 
+    parameter SI.Position r_shape[3]={0,0,0}
       " Vector from frame_a to shape origin, resolved in frame_a" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Types.Axis lengthDirection=r - r_shape 
+    parameter Types.Axis lengthDirection=r - r_shape
       " Vector in length direction of shape, resolved in frame_a" 
       annotation (Evaluate=true, Dialog(tab="Animation", group=
             "if animation = true", enable=animation));
-    parameter Types.Axis widthDirection={0,1,0} 
+    parameter Types.Axis widthDirection={0,1,0}
       " Vector in width direction of shape, resolved in frame_a" 
       annotation (Evaluate=true, Dialog(tab="Animation", group=
             "if animation = true", enable=animation));
     parameter SI.Length length=Modelica.Math.Vectors.length(
                                              r - r_shape) " Length of shape" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance width=length/world.defaultWidthFraction 
+    parameter SI.Distance width=length/world.defaultWidthFraction
       " Width of shape" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Distance height=width " Height of shape." 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Types.ShapeExtra extra=0.0 
+    parameter Types.ShapeExtra extra=0.0
       " Additional parameter depending on shapeType (see docu of Visualizers.Advanced.Shape)."
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor 
+    input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
       " Color of shape" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Diameter sphereDiameter=2*width " Diameter of sphere" 
@@ -1169,17 +1170,17 @@ to the setting of parameters \"useQuaternions\" and
     input Types.Color sphereColor=color " Color of sphere of mass" 
       annotation (Dialog(tab="Animation", group=
             "if animation = true and animateSphere = true", enable=animation and animateSphere));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(tab="Animation", group=
             "if animation = true", enable=animation));
-    parameter Boolean enforceStates=false 
+    parameter Boolean enforceStates=false
       " = true, if absolute variables of body object shall be used as states (StateSelect.always)"
       annotation (Dialog(tab="Advanced"));
-    parameter Boolean useQuaternions=true 
+    parameter Boolean useQuaternions=true
       " = true, if quaternions shall be used as potential states otherwise use 3 angles as potential states"
       annotation (Dialog(tab="Advanced"));
-    parameter Types.RotationSequence sequence_angleStates={1,2,3} 
+    parameter Types.RotationSequence sequence_angleStates={1,2,3}
       " Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states"
        annotation (Evaluate=true, Dialog(tab="Advanced", enable=not 
             useQuaternions));
@@ -1224,64 +1225,64 @@ states and of the \"Advanced\" menu parameters, see model
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{-134,126},{126,66}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-134,126},{126,66}},
+            textString="%name",
+            lineColor={0,0,255}),
           Text(
-            extent={{122,-123},{-138,-73}}, 
-            lineColor={0,0,0}, 
-            textString="%=r"), 
+            extent={{122,-123},{-138,-73}},
+            lineColor={0,0,0},
+            textString="%=r"),
           Rectangle(
-            extent={{-100,31},{101,-30}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={0,127,255}), 
+            extent={{-100,31},{101,-30}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={0,127,255}),
           Ellipse(
-            extent={{-60,60},{60,-60}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Sphere, 
-            fillColor={0,127,255}), 
+            extent={{-60,60},{60,-60}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.Sphere,
+            fillColor={0,127,255}),
           Text(
-            extent={{-50,24},{55,-27}}, 
-            lineColor={0,0,0}, 
-            textString="%m"), 
+            extent={{-50,24},{55,-27}},
+            lineColor={0,0,0},
+            textString="%m"),
           Text(
-            extent={{55,12},{91,-13}}, 
-            lineColor={0,0,0}, 
-            textString="b"), 
+            extent={{55,12},{91,-13}},
+            lineColor={0,0,0},
+            textString="b"),
           Text(
-            extent={{-92,13},{-56,-12}}, 
-            lineColor={0,0,0}, 
+            extent={{-92,13},{-56,-12}},
+            lineColor={0,0,0},
             textString="a")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-100,9},{-100,43}}, color={128,128,128}), 
-          Line(points={{100,0},{100,44}}, color={128,128,128}), 
-          Line(points={{-100,40},{90,40}}, color={135,135,135}), 
+          Line(points={{-100,9},{-100,43}}, color={128,128,128}),
+          Line(points={{100,0},{100,44}}, color={128,128,128}),
+          Line(points={{-100,40},{90,40}}, color={135,135,135}),
           Polygon(
-            points={{90,44},{90,36},{100,40},{90,44}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+            points={{90,44},{90,36},{100,40},{90,44}},
+            lineColor={128,128,128},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-22,68},{20,40}}, 
-            lineColor={128,128,128}, 
-            textString="r"), 
-          Line(points={{-100,-10},{-100,-90}}, color={128,128,128}), 
-          Line(points={{-100,-84},{-10,-84}}, color={128,128,128}), 
+            extent={{-22,68},{20,40}},
+            lineColor={128,128,128},
+            textString="r"),
+          Line(points={{-100,-10},{-100,-90}}, color={128,128,128}),
+          Line(points={{-100,-84},{-10,-84}}, color={128,128,128}),
           Polygon(
-            points={{-10,-80},{-10,-88},{0,-84},{-10,-80}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+            points={{-10,-80},{-10,-88},{0,-84},{-10,-80}},
+            lineColor={128,128,128},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-82,-66},{-56,-84}}, 
-            lineColor={128,128,128}, 
-            textString="r_CM"), 
+            extent={{-82,-66},{-56,-84}},
+            lineColor={128,128,128},
+            textString="r_CM"),
           Line(points={{0,-46},{0,-90}}, color={128,128,128})}));
-    
+
     FixedTranslation frameTranslation(r=r, animation=false) 
       annotation (Placement(transformation(extent={{-20,-20},{20,20}}, rotation=
              0)));
@@ -1307,7 +1308,7 @@ states and of the \"Advanced\" menu parameters, see model
       sequence_angleStates=sequence_angleStates) 
       annotation (Placement(transformation(extent={{-27.3333,-70.3333},{13,-30}},
             rotation=0)));
-  protected 
+  protected
     outer Modelica.Mechanics.MultiBody.World world;
     Visualizers.Advanced.Shape shape1(
       shapeType=shapeType,
@@ -1334,7 +1335,7 @@ states and of the \"Advanced\" menu parameters, see model
       r_shape=r_CM - {1,0,0}*sphereDiameter/2,
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation and animateSphere;
-  equation 
+  equation
     r_0 = frame_a.r_0;
     v_0 = der(r_0);
     a_0 = der(v_0);
@@ -1355,111 +1356,114 @@ states and of the \"Advanced\" menu parameters, see model
         fillColor={0,0,0},
         fillPattern=FillPattern.Solid));
   end BodyShape;
-  
-  model BodyBox 
-    "Rigid body with box shape. Mass and animation properties are computed from box data and density (12 potential states)" 
-    
+
+  model BodyBox
+    "Rigid body with box shape. Mass and animation properties are computed from box data and density (12 potential states)"
+
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
-    
-    Interfaces.Frame_a frame_a 
+
+    Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
                                annotation (Placement(transformation(extent={{
               -116,-16},{-84,16}}, rotation=0)));
-    Interfaces.Frame_b frame_b 
+    Interfaces.Frame_b frame_b
       "Coordinate system fixed to the component with one cut-force and cut-torque"
                                annotation (Placement(transformation(extent={{84,
               -16},{116,16}}, rotation=0)));
-    parameter Boolean animation=true 
+    parameter Boolean animation=true
       "= true, if animation shall be enabled (show box between frame_a and frame_b)";
-    parameter SI.Position r[3](start={0.1,0,0}) 
+    parameter SI.Position r[3](start={0.1,0,0})
       "Vector from frame_a to frame_b resolved in frame_a";
-    parameter SI.Position r_shape[3]={0,0,0} 
+    parameter SI.Position r_shape[3]={0,0,0}
       "Vector from frame_a to box origin, resolved in frame_a";
-    parameter Modelica.Mechanics.MultiBody.Types.Axis lengthDirection=r - r_shape 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis lengthDirection=r - r_shape
       "Vector in length direction of box, resolved in frame_a" 
       annotation (Evaluate=true);
-    parameter Modelica.Mechanics.MultiBody.Types.Axis widthDirection={0,1,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis widthDirection={0,1,0}
       "Vector in width direction of box, resolved in frame_a" 
       annotation (Evaluate=true);
     parameter SI.Length length=Modelica.Math.Vectors.length(
                                              r - r_shape) "Length of box";
-    parameter SI.Distance width=length/world.defaultWidthFraction 
+    parameter SI.Distance width=length/world.defaultWidthFraction
       "Width of box";
     parameter SI.Distance height=width "Height of box";
-    parameter SI.Distance innerWidth=0 
+    parameter SI.Distance innerWidth=0
       "Width of inner box surface (0 <= innerWidth <= width)";
-    parameter SI.Distance innerHeight=innerWidth 
+    parameter SI.Distance innerHeight=innerWidth
       "Height of inner box surface (0 <= innerHeight <= height)";
-    parameter SI.Density density = 7700 
+    parameter SI.Density density = 7700
       "Density of cylinder (e.g., steel: 7700 .. 7900, wood : 400 .. 800)";
-    input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor 
+    input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
       "Color of box" 
       annotation (Dialog(enable=animation));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(enable=animation));
-    
+
     SI.Position r_0[3](start={0,0,0}, stateSelect=if enforceStates then 
-                StateSelect.always else StateSelect.avoid) 
+                StateSelect.always else StateSelect.avoid)
       "Position vector from origin of world frame to origin of frame_a" 
       annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
     SI.Velocity v_0[3](start={0,0,0}, stateSelect=if enforceStates then StateSelect.always else 
-                StateSelect.avoid) 
+                StateSelect.avoid)
       "Absolute velocity of frame_a, resolved in world frame (= der(r_0))" 
       annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
-    SI.Acceleration a_0[3](start={0,0,0}) 
+    SI.Acceleration a_0[3](start={0,0,0})
       "Absolute acceleration of frame_a resolved in world frame (= der(v_0))" 
       annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
-    
-    parameter Boolean angles_fixed = false 
+
+    parameter Boolean angles_fixed = false
       "= true, if angles_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
-    parameter SI.Angle angles_start[3]={0,0,0} 
+      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+    parameter SI.Angle angles_start[3]={0,0,0}
       "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
       annotation (Dialog(tab="Initialization"));
-    parameter Types.RotationSequence sequence_start={1,2,3} 
+    parameter Types.RotationSequence sequence_start={1,2,3}
       "Sequence of rotations to rotate frame_a into frame_b at initial time" 
       annotation (Evaluate=true, Dialog(tab="Initialization"));
-    
-    parameter Boolean w_0_fixed = false 
+
+    parameter Boolean w_0_fixed = false
       "= true, if w_0_start are used as initial values, else as guess values" 
-      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
-    parameter SI.AngularVelocity w_0_start[3]={0,0,0} 
+      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+    parameter SI.AngularVelocity w_0_start[3]={0,0,0}
       "Initial or guess values of angular velocity of frame_a resolved in world frame"
       annotation (Dialog(tab="Initialization"));
-    
-    parameter Boolean z_0_fixed = false 
+
+    parameter Boolean z_0_fixed = false
       "= true, if z_0_start are used as initial values, else as guess values" 
-      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
-    parameter SI.AngularAcceleration z_0_start[3]={0,0,0} 
+      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+    parameter SI.AngularAcceleration z_0_start[3]={0,0,0}
       "Initial values of angular acceleration z_0 = der(w_0)" 
       annotation (Dialog(tab="Initialization"));
-    
-    parameter Boolean enforceStates=false 
+
+    parameter Boolean enforceStates=false
       " = true, if absolute variables of body object shall be used as states (StateSelect.always)"
       annotation (Dialog(tab="Advanced"));
-    parameter Boolean useQuaternions=true 
+    parameter Boolean useQuaternions=true
       " = true, if quaternions shall be used as potential states otherwise use 3 angles as potential states"
       annotation (Dialog(tab="Advanced"));
-    parameter Types.RotationSequence sequence_angleStates={1,2,3} 
+    parameter Types.RotationSequence sequence_angleStates={1,2,3}
       " Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states"
        annotation (Evaluate=true, Dialog(tab="Advanced", enable=not 
             useQuaternions));
-    
-    final parameter SI.Mass mo(min=0)=density*length*width*height 
+
+    final parameter SI.Mass mo(min=0)=density*length*width*height
       "Mass of box without hole";
-    final parameter SI.Mass mi(min=0)=density*length*innerWidth*innerHeight 
+    final parameter SI.Mass mi(min=0)=density*length*innerWidth*innerHeight
       "Mass of hole of box";
     final parameter SI.Mass m(min=0)=mo - mi "Mass of box";
-    final parameter Frames.Orientation R=Frames.from_nxy(r, widthDirection);
+    final parameter Frames.Orientation R=Frames.from_nxy(r, widthDirection)
+      "Orientation object from frame_a to coordinates system spanned by r and widthDirection";
     final parameter SI.Position r_CM[3]=Modelica.Math.Vectors.normalize(
-                                                         r)*length/2;
+                                                         r)*length/2
+      "Position vector from origin of frame_a to center of mass, resolved in frame_a";
     final parameter SI.Inertia I[3, 3]=Frames.resolveDyade1(R, diagonal({mo*(
         width*width + height*height) - mi*(innerWidth*innerWidth + innerHeight*
         innerHeight),mo*(length*length + height*height) - mi*(length*length +
         innerHeight*innerHeight),mo*(length*length + width*width) - mi*(length*
-        length + innerWidth*innerWidth)}/12));
+        length + innerWidth*innerWidth)}/12))
+      "Inertia tensor of body box with respect to center of mass, parallel to frame_a";
     Body body(
       animation=false,
       r_CM=r_CM,
@@ -1525,49 +1529,49 @@ states and of the \"Advanced\" menu parameters, see model
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Polygon(
-            points={{100,40},{100,-30},{90,-40},{90,30},{100,40}}, 
-            lineColor={0,95,191}, 
-            fillColor={0,95,191}, 
-            fillPattern=FillPattern.Solid), 
+            points={{100,40},{100,-30},{90,-40},{90,30},{100,40}},
+            lineColor={0,95,191},
+            fillColor={0,95,191},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-100,30},{90,-40}}, 
-            lineColor={0,127,255}, 
-            pattern=LinePattern.None, 
-            fillColor={0,127,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-100,30},{90,-40}},
+            lineColor={0,127,255},
+            pattern=LinePattern.None,
+            fillColor={0,127,255},
+            fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-100,30},{-90,40},{100,40},{90,30},{-100,30}}, 
-            lineColor={0,95,191}, 
-            fillColor={0,95,191}, 
-            fillPattern=FillPattern.Solid), 
+            points={{-100,30},{-90,40},{100,40},{90,30},{-100,30}},
+            lineColor={0,95,191},
+            fillColor={0,95,191},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-129,100},{131,40}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-129,100},{131,40}},
+            textString="%name",
+            lineColor={0,0,255}),
           Text(
-            extent={{130,-98},{-130,-48}}, 
-            lineColor={0,0,0}, 
-            textString="%=r"), 
+            extent={{130,-98},{-130,-48}},
+            lineColor={0,0,0},
+            textString="%=r"),
           Text(
-            extent={{52,8},{88,-17}}, 
-            lineColor={0,0,0}, 
-            textString="b"), 
+            extent={{52,8},{88,-17}},
+            lineColor={0,0,0},
+            textString="b"),
           Text(
-            extent={{-87,12},{-51,-13}}, 
-            lineColor={0,0,0}, 
+            extent={{-87,12},{-51,-13}},
+            lineColor={0,0,0},
             textString="a")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics));
-    
-  protected 
+
+  protected
     outer Modelica.Mechanics.MultiBody.World world;
-  equation 
+  equation
     r_0 = frame_a.r_0;
     v_0 = der(r_0);
     a_0 = der(v_0);
-    
+
     assert(innerWidth <= width,
       "parameter innerWidth is greater as parameter width");
     assert(innerHeight <= height,
@@ -1585,107 +1589,112 @@ states and of the \"Advanced\" menu parameters, see model
         color={95,95,95},
         thickness=2));
   end BodyBox;
-  
-  model BodyCylinder 
-    "Rigid body with cylinder shape. Mass and animation properties are computed from cylinder data and density (12 potential states)" 
-    
+
+  model BodyCylinder
+    "Rigid body with cylinder shape. Mass and animation properties are computed from cylinder data and density (12 potential states)"
+
     import SI = Modelica.SIunits;
     import NonSI = Modelica.SIunits.Conversions.NonSIunits;
     import Modelica.Mechanics.MultiBody.Types;
-    Interfaces.Frame_a frame_a 
+    Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
                                annotation (Placement(transformation(extent={{
               -116,-16},{-84,16}}, rotation=0)));
-    Interfaces.Frame_b frame_b 
+    Interfaces.Frame_b frame_b
       "Coordinate system fixed to the component with one cut-force and cut-torque"
                                annotation (Placement(transformation(extent={{84,
               -16},{116,16}}, rotation=0)));
-    parameter Boolean animation=true 
+    parameter Boolean animation=true
       "= true, if animation shall be enabled (show cylinder between frame_a and frame_b)";
-    parameter SI.Position r[3](start={0.1,0,0}) 
+    parameter SI.Position r[3](start={0.1,0,0})
       "Vector from frame_a to frame_b, resolved in frame_a";
-    parameter SI.Position r_shape[3]={0,0,0} 
+    parameter SI.Position r_shape[3]={0,0,0}
       "Vector from frame_a to cylinder origin, resolved in frame_a";
-    parameter Modelica.Mechanics.MultiBody.Types.Axis lengthDirection=r - r_shape 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis lengthDirection=r - r_shape
       "Vector in length direction of cylinder, resolved in frame_a" 
       annotation (Evaluate=true);
     parameter SI.Length length=Modelica.Math.Vectors.length(
                                              r - r_shape) "Length of cylinder";
-    parameter SI.Distance diameter=length/world.defaultWidthFraction 
+    parameter SI.Distance diameter=length/world.defaultWidthFraction
       "Diameter of cylinder";
-    parameter SI.Distance innerDiameter=0 
+    parameter SI.Distance innerDiameter=0
       "Inner diameter of cylinder (0 <= innerDiameter <= Diameter)";
-    parameter SI.Density density = 7700 
+    parameter SI.Density density = 7700
       "Density of cylinder (e.g., steel: 7700 .. 7900, wood : 400 .. 800)";
-    input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor 
+    input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
       "Color of cylinder" annotation (Dialog(enable=animation));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(enable=animation));
-    
+
     SI.Position r_0[3](start={0,0,0}, stateSelect=if enforceStates then 
-                StateSelect.always else StateSelect.avoid) 
+                StateSelect.always else StateSelect.avoid)
       "Position vector from origin of world frame to origin of frame_a" 
       annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
     SI.Velocity v_0[3](start={0,0,0}, stateSelect=if enforceStates then StateSelect.always else 
-                StateSelect.avoid) 
+                StateSelect.avoid)
       "Absolute velocity of frame_a, resolved in world frame (= der(r_0))" 
       annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
-    SI.Acceleration a_0[3](start={0,0,0}) 
+    SI.Acceleration a_0[3](start={0,0,0})
       "Absolute acceleration of frame_a resolved in world frame (= der(v_0))" 
       annotation(Dialog(tab="Initialization", __Dymola_initialDialog=true));
-    
-    parameter Boolean angles_fixed = false 
+
+    parameter Boolean angles_fixed = false
       "= true, if angles_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
-    parameter SI.Angle angles_start[3]={0,0,0} 
+      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+    parameter SI.Angle angles_start[3]={0,0,0}
       "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
       annotation (Dialog(tab="Initialization"));
-    parameter Types.RotationSequence sequence_start={1,2,3} 
+    parameter Types.RotationSequence sequence_start={1,2,3}
       "Sequence of rotations to rotate frame_a into frame_b at initial time" 
       annotation (Evaluate=true, Dialog(tab="Initialization"));
-    
-    parameter Boolean w_0_fixed = false 
+
+    parameter Boolean w_0_fixed = false
       "= true, if w_0_start are used as initial values, else as guess values" 
-      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
-    parameter SI.AngularVelocity w_0_start[3]={0,0,0} 
+      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+    parameter SI.AngularVelocity w_0_start[3]={0,0,0}
       "Initial or guess values of angular velocity of frame_a resolved in world frame"
       annotation (Dialog(tab="Initialization"));
-    
-    parameter Boolean z_0_fixed = false 
+
+    parameter Boolean z_0_fixed = false
       "= true, if z_0_start are used as initial values, else as guess values" 
-      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
-    parameter SI.AngularAcceleration z_0_start[3]={0,0,0} 
+      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+    parameter SI.AngularAcceleration z_0_start[3]={0,0,0}
       "Initial values of angular acceleration z_0 = der(w_0)" 
       annotation (Dialog(tab="Initialization"));
-    
-    parameter Boolean enforceStates=false 
+
+    parameter Boolean enforceStates=false
       " = true, if absolute variables of body object shall be used as states (StateSelect.always)"
       annotation (Dialog(tab="Advanced"));
-    parameter Boolean useQuaternions=true 
+    parameter Boolean useQuaternions=true
       " = true, if quaternions shall be used as potential states otherwise use 3 angles as potential states"
       annotation (Dialog(tab="Advanced"));
-    parameter Types.RotationSequence sequence_angleStates={1,2,3} 
+    parameter Types.RotationSequence sequence_angleStates={1,2,3}
       " Sequence of rotations to rotate world frame into frame_a around the 3 angles used as potential states"
        annotation (Evaluate=true, Dialog(tab="Advanced", enable=not 
             useQuaternions));
-    
+
     constant Real pi=Modelica.Constants.pi;
-    final parameter SI.Distance radius=diameter/2;
-    final parameter SI.Distance innerRadius=innerDiameter/2;
-    final parameter SI.Mass mo(min=0)=density*pi*length*radius*radius 
+    final parameter SI.Distance radius=diameter/2 "Radius of cylinder";
+    final parameter SI.Distance innerRadius=innerDiameter/2
+      "Inner-Radius of cylinder";
+    final parameter SI.Mass mo(min=0)=density*pi*length*radius*radius
       "Mass of cylinder without hole";
-    final parameter SI.Mass mi(min=0)=density*pi*length*innerRadius*innerRadius 
+    final parameter SI.Mass mi(min=0)=density*pi*length*innerRadius*innerRadius
       "Mass of hole of cylinder";
     final parameter SI.Inertia I22=(mo*(length*length + 3*radius*radius) - mi*(
-        length*length + 3*innerRadius*innerRadius))/12;
+        length*length + 3*innerRadius*innerRadius))/12
+      "Inertia with respect to axis through center of mass, perpendicular to cylinder axis";
     final parameter SI.Mass m(min=0)=mo - mi "Mass of cylinder";
-    final parameter Frames.Orientation R=Frames.from_nxy(r, {0,1,0});
+    final parameter Frames.Orientation R=Frames.from_nxy(r, {0,1,0})
+      "Orientation object from frame_a to frame spanned by cylinder axis and axis perpendicular to cylinder axis";
     final parameter SI.Position r_CM[3]=Modelica.Math.Vectors.normalize(
-                                                         r)*length/2;
+                                                         r)*length/2
+      "Position vector from frame_a to center of mass, resolved in frame_a";
     final parameter SI.Inertia I[3, 3]=Frames.resolveDyade1(R, diagonal({(mo*
-        radius*radius - mi*innerRadius*innerRadius)/2,I22,I22}));
-    
+        radius*radius - mi*innerRadius*innerRadius)/2,I22,I22}))
+      "Inertia tensor of cylinder with respect to center of mass, resolved in frame parallel to frame_a";
+
     Body body(
       r_CM=r_CM,
       m=m,
@@ -1750,38 +1759,38 @@ states and of the \"Advanced\" menu parameters, see model
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{-129,100},{131,40}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-129,100},{131,40}},
+            textString="%name",
+            lineColor={0,0,255}),
           Text(
-            extent={{130,-98},{-130,-48}}, 
-            lineColor={0,0,0}, 
-            textString="%=r"), 
+            extent={{130,-98},{-130,-48}},
+            lineColor={0,0,0},
+            textString="%=r"),
           Rectangle(
-            extent={{-100,40},{100,-40}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={0,127,255}), 
+            extent={{-100,40},{100,-40}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={0,127,255}),
           Text(
-            extent={{-87,13},{-51,-12}}, 
-            lineColor={0,0,0}, 
-            textString="a"), 
+            extent={{-87,13},{-51,-12}},
+            lineColor={0,0,0},
+            textString="a"),
           Text(
-            extent={{51,12},{87,-13}}, 
-            lineColor={0,0,0}, 
+            extent={{51,12},{87,-13}},
+            lineColor={0,0,0},
             textString="b")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics));
-    
-  protected 
+
+  protected
     outer Modelica.Mechanics.MultiBody.World world;
-  equation 
+  equation
     r_0 = frame_a.r_0;
     v_0 = der(r_0);
     a_0 = der(v_0);
-    
+
     assert(innerDiameter < diameter,
       "parameter innerDiameter is greater as parameter diameter.");
     connect(frameTranslation.frame_a, frame_a) annotation (Line(
@@ -1797,45 +1806,45 @@ states and of the \"Advanced\" menu parameters, see model
         color={95,95,95},
         thickness=2));
   end BodyCylinder;
-  
-  model PointMass 
-    "Rigid body where body rotation and inertia tensor is neglected (6 potential states)" 
-    
+
+  model PointMass
+    "Rigid body where body rotation and inertia tensor is neglected (6 potential states)"
+
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
-    Interfaces.Frame_a frame_a 
+    Interfaces.Frame_a frame_a
       "Coordinate system fixed at center of mass point" 
       annotation (Placement(transformation(extent={{-16,-16},{16,16}}, rotation=
              0)));
-    parameter Boolean animation=true 
+    parameter Boolean animation=true
       "= true, if animation shall be enabled (show sphere)";
     parameter SI.Mass m(min=0) "Mass of mass point";
-    input SI.Diameter sphereDiameter=world.defaultBodyDiameter 
+    input SI.Diameter sphereDiameter=world.defaultBodyDiameter
       "Diameter of sphere" annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
-    input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor 
+    input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
       "Color of sphere" annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(
         tab="Animation",
         group="if animation = true",
         enable=animation));
-    parameter StateSelect stateSelect=StateSelect.avoid 
+    parameter StateSelect stateSelect=StateSelect.avoid
       "Priority to use frame_a.r_0, v_0 (= der(frame_a.r_0)) as states" annotation(Dialog(tab="Advanced"));
-    
-    SI.Position r_0[3](start={0,0,0}, stateSelect=stateSelect) 
+
+    SI.Position r_0[3](start={0,0,0}, stateSelect=stateSelect)
       "Position vector from origin of world frame to origin of frame_a, resolved in world frame"
       annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
-    SI.Velocity v_0[3](start={0,0,0}, stateSelect=stateSelect) 
+    SI.Velocity v_0[3](start={0,0,0}, stateSelect=stateSelect)
       "Absolute velocity of frame_a, resolved in world frame (= der(r_0))" 
       annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
-    SI.Acceleration a_0[3](start={0,0,0}) 
+    SI.Acceleration a_0[3](start={0,0,0})
       "Absolute acceleration of frame_a resolved in world frame (= der(v_0))" 
       annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
     annotation (
@@ -1855,17 +1864,17 @@ drag Modelica.Mechanics.MultiBody.World into the top level of your model.",
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{132,-102},{-129,-56}}, 
-            lineColor={0,0,0}, 
-            textString="m=%m"), 
+            extent={{132,-102},{-129,-56}},
+            lineColor={0,0,0},
+            textString="m=%m"),
           Text(
-            extent={{-128,110},{132,55}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-128,110},{132,55}},
+            textString="%name",
+            lineColor={0,0,255}),
           Ellipse(
-            extent={{-50,50},{50,-50}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Sphere, 
+            extent={{-50,50},{50,-50}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.Sphere,
             fillColor={0,127,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1902,10 +1911,10 @@ then PointMass variables frame_a.r_0 and der(frame_a.r_0)
 are forced to be used as states.
 </p>
 </HTML>"));
-    
-  protected 
+
+  protected
     outer Modelica.Mechanics.MultiBody.World world;
-    
+
     // Declarations for animation
     Visualizers.Advanced.Shape sphere(
       shapeType="sphere",
@@ -1919,10 +1928,10 @@ are forced to be used as states.
       r_shape= - {1,0,0}*sphereDiameter/2,
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation;
-  equation 
+  equation
     // If any possible, do not use the connector as root
     definePotentialRoot(frame_a.R, 10000);
-    
+
     if isRoot(frame_a.R) then
        assert(cardinality(frame_a)==0, "
 A Modelica.Mechanics.MultiBody.Parts.PointMass model is connected in
@@ -1941,24 +1950,24 @@ the only case where this is done.
     else
        frame_a.t = zeros(3);
     end if;
-    
+
     // Newton equation: f = m*(a-g)
     r_0 = frame_a.r_0;
     v_0 = der(r_0);
     a_0 = der(v_0);
     frame_a.f = m*Frames.resolve2(frame_a.R, a_0 - world.gravityAcceleration(r_0));
   end PointMass;
-  
-  model Mounting1D 
-    "Propagate 1-dim. support torque to 3-dim. system (provided world.driveTrainMechanics3D=true; default=false)" 
+
+  model Mounting1D
+    "Propagate 1-dim. support torque to 3-dim. system (provided world.driveTrainMechanics3D=true; default=false)"
     parameter Modelica.SIunits.Angle phi0=0 "Fixed offset angle of housing";
-    parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0}
       "Axis of rotation = axis of support torque (resolved in frame_a)";
-    
-    Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b 
+
+    Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b
       "(right) flange fixed in housing" annotation (Placement(transformation(
             extent={{110,10},{90,-10}}, rotation=0)));
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a if world.driveTrainMechanics3D 
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a if world.driveTrainMechanics3D
       "Frame in which housing is fixed (connector is removed, if world.driveTrainMechanics3D=false)"
       annotation (Placement(transformation(
           origin={0,-100},
@@ -1968,19 +1977,19 @@ the only case where this is done.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
-            extent={{-80,-60},{80,-100}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-80,-60},{80,-100}},
+            lineColor={0,0,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-146,76},{154,36}}, 
-            textString="%name=%phi0", 
-            lineColor={0,0,255}), 
-          Line(points={{80,-60},{40,-100}}, color={0,0,0}), 
-          Line(points={{40,-60},{0,-100}}, color={0,0,0}), 
-          Line(points={{0,-60},{-40,-100}}, color={0,0,0}), 
-          Line(points={{-40,-60},{-80,-100}}, color={0,0,0}), 
-          Line(points={{0,-60},{0,0}}, color={0,0,0}), 
+            extent={{-146,76},{154,36}},
+            textString="%name=%phi0",
+            lineColor={0,0,255}),
+          Line(points={{80,-60},{40,-100}}, color={0,0,0}),
+          Line(points={{40,-60},{0,-100}}, color={0,0,0}),
+          Line(points={{0,-60},{-40,-100}}, color={0,0,0}),
+          Line(points={{-40,-60},{-80,-100}}, color={0,0,0}),
+          Line(points={{0,-60},{0,0}}, color={0,0,0}),
           Line(points={{0,0},{90,0}}, color={0,0,0})}),
       Documentation(info="<html>
 <p>This component is used to acquire support torques from a 1-dim.-rotational
@@ -2007,10 +2016,10 @@ November 3-4, 2003, pp. 149-158</p>
 "),   Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics),
       uses(Modelica(version="3.0-development")));
-  protected 
+  protected
     outer Modelica.Mechanics.MultiBody.World world;
-    
-    encapsulated model Housing 
+
+    encapsulated model Housing
       import Modelica;
       input Modelica.SIunits.Torque t[3];
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a 
@@ -2027,14 +2036,14 @@ November 3-4, 2003, pp. 149-158</p>
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid,
               textString="%name")}));
-    equation 
+    equation
       frame_a.f=zeros(3);
       frame_a.t=t;
     end Housing;
     Housing housing(t=-n*flange_b.tau) if world.driveTrainMechanics3D 
                     annotation (Placement(transformation(extent={{20,-60},{40,-40}},
             rotation=0)));
-  equation 
+  equation
     flange_b.phi = phi0;
     connect(housing.frame_a, frame_a) annotation (Line(
         points={{20,-50},{0,-50},{0,-100}},
@@ -2042,56 +2051,56 @@ November 3-4, 2003, pp. 149-158</p>
         thickness=2,
         smooth=Smooth.None));
   end Mounting1D;
-  
-  model Rotor1D 
-    "1D inertia attachable on 3-dim. bodies (3D dynamic effects are taken into account if world.driveTrainMechanics3D=true; default=false)" 
-    
+
+  model Rotor1D
+    "1D inertia attachable on 3-dim. bodies (3D dynamic effects are taken into account if world.driveTrainMechanics3D=true; default=false)"
+
     import SI = Modelica.SIunits;
     import Cv = Modelica.SIunits.Conversions;
-    
-    parameter Boolean animation=true 
+
+    parameter Boolean animation=true
       "= true, if animation shall be enabled (show rotor as cylinder)";
-    parameter SI.Inertia J(min=0,start=1) 
+    parameter SI.Inertia J(min=0,start=1)
       "Moment of inertia of rotor around its axis of rotation";
-    parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0}
       "Axis of rotation resolved in frame_a";
-    parameter SI.Position r_center[3]=zeros(3) 
+    parameter SI.Position r_center[3]=zeros(3)
       "Position vector from origin of frame_a to center of cylinder" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance cylinderLength=2*world.defaultJointLength 
+    parameter SI.Distance cylinderLength=2*world.defaultJointLength
       "Length of cylinder representing the rotor" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance cylinderDiameter=2*world.defaultJointWidth 
+    parameter SI.Distance cylinderDiameter=2*world.defaultJointWidth
       "Diameter of cylinder representing the rotor" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
+    input Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
       "Color of cylinder representing the rotor" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient 
-      specularCoefficient=world.defaultSpecularCoefficient 
+    input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
+      specularCoefficient=world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter StateSelect stateSelect=StateSelect.default 
+    parameter StateSelect stateSelect=StateSelect.default
       "Priority to use rotor angle (phi) and rotor speed (w) as states" annotation(Dialog(tab="Advanced"));
-    parameter Boolean exact=true 
+    parameter Boolean exact=true
       "= true, if exact calculations; false if influence of bearing on rotor acceleration is neglected to avoid an algebraic loop"
       annotation (Dialog(tab="Advanced"));
-    
-    SI.Angle phi(start=0, stateSelect=stateSelect) 
+
+    SI.Angle phi(start=0, stateSelect=stateSelect)
       "Rotation angle of rotor with respect to frame_a (= flange_a.phi = flange_b.phi)";
-    SI.AngularVelocity w(start=0, stateSelect=stateSelect) 
+    SI.AngularVelocity w(start=0, stateSelect=stateSelect)
       "Angular velocity of rotor with respect to frame_a";
-    SI.AngularAcceleration a(start=0) 
+    SI.AngularAcceleration a(start=0)
       "Angular acceleration of rotor with respect to frame_a";
-    
-    Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a 
+
+    Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a
       "(left) driving flange (flange axis directed INTO cut plane)" 
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
              0)));
-    Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b 
+    Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b
       "(right) driven flange (flange axis directed OUT OF cut plane)" 
       annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a if world.driveTrainMechanics3D 
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a if world.driveTrainMechanics3D
       "Frame in which rotor housing is fixed (connector is removed, if world.driveTrainMechanics3D=false)"
       annotation (Placement(transformation(
           origin={0,-100},
@@ -2129,102 +2138,102 @@ November 3-4, 2003, pp. 149-158</p>
 </HTML>
 "),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{-80,-25},{-60,-25}}, color={0,0,0}), 
-          Line(points={{60,-25},{80,-25}}, color={0,0,0}), 
-          Line(points={{-70,-25},{-70,-70}}, color={0,0,0}), 
-          Line(points={{70,-25},{70,-70}}, color={0,0,0}), 
-          Line(points={{-80,25},{-60,25}}, color={0,0,0}), 
-          Line(points={{60,25},{80,25}}, color={0,0,0}), 
-          Line(points={{-70,45},{-70,25}}, color={0,0,0}), 
-          Line(points={{70,45},{70,25}}, color={0,0,0}), 
-          Line(points={{-70,-70},{70,-70}}, color={0,0,0}), 
+          Line(points={{-80,-25},{-60,-25}}, color={0,0,0}),
+          Line(points={{60,-25},{80,-25}}, color={0,0,0}),
+          Line(points={{-70,-25},{-70,-70}}, color={0,0,0}),
+          Line(points={{70,-25},{70,-70}}, color={0,0,0}),
+          Line(points={{-80,25},{-60,25}}, color={0,0,0}),
+          Line(points={{60,25},{80,25}}, color={0,0,0}),
+          Line(points={{-70,45},{-70,25}}, color={0,0,0}),
+          Line(points={{70,45},{70,25}}, color={0,0,0}),
+          Line(points={{-70,-70},{70,-70}}, color={0,0,0}),
           Rectangle(
-            extent={{-50,50},{50,-50}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{-50,50},{50,-50}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Rectangle(
-            extent={{-100,10},{-50,-10}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{-100,10},{-50,-10}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Rectangle(
-            extent={{50,10},{100,-10}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{50,10},{100,-10}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Text(
-            extent={{-148,112},{152,72}}, 
-            textString="%name=%J", 
-            lineColor={0,0,255}), 
+            extent={{-148,112},{152,72}},
+            textString="%name=%J",
+            lineColor={0,0,255}),
           Line(points={{0,-70},{0,-100}}, color={0,0,0})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics),
       uses(Modelica(version="3.0-development")));
-    
-  encapsulated model RotorWith3DEffects 
-      "1D inertia attachable on 3-dim. bodies (3D dynamic effects are taken into account)" 
-      
+
+  encapsulated model RotorWith3DEffects
+      "1D inertia attachable on 3-dim. bodies (3D dynamic effects are taken into account)"
+
     import Modelica;
     import Modelica.Mechanics.MultiBody.Frames;
     import Modelica.Mechanics.MultiBody.Types;
     import SI = Modelica.SIunits;
     import Cv = Modelica.SIunits.Conversions;
-      
-    parameter Boolean animation=true 
+
+    parameter Boolean animation=true
         "= true, if animation shall be enabled (show rotor as cylinder)";
-    parameter SI.Inertia J(min=0)=1 
+    parameter SI.Inertia J(min=0)=1
         "Moment of inertia of rotor around its axis of rotation";
     parameter Types.Axis n={1,0,0} "Axis of rotation resolved in frame_a";
-    parameter SI.Position r_center[3]=zeros(3) 
+    parameter SI.Position r_center[3]=zeros(3)
         "Position vector from origin of frame_a to center of cylinder" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance cylinderLength=2*world.defaultJointLength 
+    parameter SI.Distance cylinderLength=2*world.defaultJointLength
         "Length of cylinder representing the rotor" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance cylinderDiameter=2*world.defaultJointWidth 
+    parameter SI.Distance cylinderDiameter=2*world.defaultJointWidth
         "Diameter of cylinder representing the rotor" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
+    input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
         "Color of cylinder representing the rotor" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.SpecularCoefficient specularCoefficient =                              world.defaultSpecularCoefficient 
+    input Types.SpecularCoefficient specularCoefficient =                              world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter StateSelect stateSelect=StateSelect.default 
+    parameter StateSelect stateSelect=StateSelect.default
         "Priority to use rotor angle (phi) and rotor speed (w) as states" 
                                                                         annotation(Dialog(tab="Advanced"));
-    parameter Boolean exact=true 
+    parameter Boolean exact=true
         "= true, if exact calculations; false if influence of bearing on rotor acceleration is neglected to avoid an algebraic loop"
       annotation (Dialog(tab="Advanced"));
-      
-    SI.AngularVelocity w_a[3] 
+
+    SI.AngularVelocity w_a[3]
         "Angular velocity of frame_a, resolved in frame_a";
-    SI.Angle phi(start=0, final stateSelect=stateSelect) 
+    SI.Angle phi(start=0, final stateSelect=stateSelect)
         "Rotation angle of rotor with respect to frame_a (= flange_a.phi = flange_b.phi)"
       annotation(Dialog(initialDialog=true));
-      
-    SI.AngularVelocity w(start=0, stateSelect=stateSelect) 
+
+    SI.AngularVelocity w(start=0, stateSelect=stateSelect)
         "Angular velocity of rotor with respect to frame_a" 
       annotation(Dialog(initialDialog=true));
-    SI.AngularAcceleration a(start=0) 
+    SI.AngularAcceleration a(start=0)
         "Angular acceleration of rotor with respect to frame_a" 
       annotation(Dialog(initialDialog=true));
-      
-    Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a 
+
+    Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a
         "(left) driving flange (flange axis directed INTO cut plane)" 
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
                0)));
-    Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b 
+    Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b
         "(right) driven flange (flange axis directed OUT OF cut plane)" 
       annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a 
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
         "Frame in which rotor housing is fixed" 
       annotation (Placement(transformation(
             origin={0,-100},
             extent={{-20,-20},{20,20}},
             rotation=90)));
-      
+
     annotation (
       Documentation(info="<html>
 <p>
@@ -2258,43 +2267,43 @@ November 3-4, 2003, pp. 149-158</p>
 </HTML>
 "),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
-            Line(points={{-80,-25},{-60,-25}}, color={0,0,0}), 
-            Line(points={{60,-25},{80,-25}}, color={0,0,0}), 
-            Line(points={{-70,-25},{-70,-70}}, color={0,0,0}), 
-            Line(points={{70,-25},{70,-70}}, color={0,0,0}), 
-            Line(points={{-80,25},{-60,25}}, color={0,0,0}), 
-            Line(points={{60,25},{80,25}}, color={0,0,0}), 
-            Line(points={{-70,45},{-70,25}}, color={0,0,0}), 
-            Line(points={{70,45},{70,25}}, color={0,0,0}), 
-            Line(points={{-70,-70},{70,-70}}, color={0,0,0}), 
+            Line(points={{-80,-25},{-60,-25}}, color={0,0,0}),
+            Line(points={{60,-25},{80,-25}}, color={0,0,0}),
+            Line(points={{-70,-25},{-70,-70}}, color={0,0,0}),
+            Line(points={{70,-25},{70,-70}}, color={0,0,0}),
+            Line(points={{-80,25},{-60,25}}, color={0,0,0}),
+            Line(points={{60,25},{80,25}}, color={0,0,0}),
+            Line(points={{-70,45},{-70,25}}, color={0,0,0}),
+            Line(points={{70,45},{70,25}}, color={0,0,0}),
+            Line(points={{-70,-70},{70,-70}}, color={0,0,0}),
             Rectangle(
-              extent={{-50,50},{50,-50}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{-50,50},{50,-50}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{-100,10},{-50,-10}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{-100,10},{-50,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{50,10},{100,-10}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{50,10},{100,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Text(
-              extent={{-148,112},{152,72}}, 
-              textString="%name=%J", 
-              lineColor={0,0,255}), 
+              extent={{-148,112},{152,72}},
+              textString="%name=%J",
+              lineColor={0,0,255}),
             Line(points={{0,-70},{0,-100}}, color={0,0,0})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}),
                           graphics));
-      
-    protected 
+
+    protected
     outer Modelica.Mechanics.MultiBody.World world;
     parameter Real e[3]=Modelica.Math.Vectors.normalize(
-                                         n) 
+                                         n)
         "Unit vector in direction of rotor axis, resolved in frame_a";
     parameter SI.Inertia nJ[3]=J*e;
     Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape cylinder(
@@ -2311,27 +2320,27 @@ November 3-4, 2003, pp. 149-158</p>
       r=frame_a.r_0,
       R=Frames.absoluteRotation(frame_a.R, Frames.planarRotation(e, phi, 0))) if 
          world.enableAnimation and animation;
-  equation 
+  equation
     phi = flange_a.phi;
     phi = flange_b.phi;
     w = der(phi);
     a = der(w);
-      
+
     w_a = Modelica.Mechanics.MultiBody.Frames.angularVelocity2(frame_a.R);
     if exact then
       J*a = flange_a.tau + flange_b.tau - nJ*der(w_a);
     else
       J*a = flange_a.tau + flange_b.tau;
     end if;
-      
+
     frame_a.f = zeros(3);
     frame_a.t = nJ*a + cross(w_a, nJ*w);
   end RotorWith3DEffects;
-    
-  protected 
+
+  protected
     outer Modelica.Mechanics.MultiBody.World world;
     parameter Real e[3]=Modelica.Math.Vectors.normalize(
-                                         n) 
+                                         n)
       "Unit vector in direction of rotor axis, resolved in frame_a";
     Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape cylinder(
       shapeType="cylinder",
@@ -2349,7 +2358,7 @@ November 3-4, 2003, pp. 149-158</p>
           e,
           phi,
           0)) if world.enableAnimation and animation and not world.driveTrainMechanics3D;
-    
+
     Modelica.Mechanics.Rotational.Components.Inertia inertia(
       J=J) if 
           not world.driveTrainMechanics3D 
@@ -2365,11 +2374,11 @@ November 3-4, 2003, pp. 149-158</p>
       specularCoefficient=specularCoefficient,
       exact=exact) if world.driveTrainMechanics3D annotation (Placement(
           transformation(extent={{-20,-80},{20,-40}}, rotation=0)));
-  equation 
+  equation
     phi = flange_a.phi;
     w = der(phi);
     a = der(w);
-    
+
     connect(inertia.flange_a, flange_a) annotation (Line(
         points={{-20,0},{-100,0}},
         color={0,0,0},
@@ -2392,72 +2401,72 @@ November 3-4, 2003, pp. 149-158</p>
         thickness=2,
         smooth=Smooth.None));
   end Rotor1D;
-  
-  model BevelGear1D 
-    "1D gearbox with arbitrary shaft directions and 3-dim. bearing frame (3D dynamic effects are taken into account provided world.driveTrainMechanics3D=true; default=false)" 
+
+  model BevelGear1D
+    "1D gearbox with arbitrary shaft directions and 3-dim. bearing frame (3D dynamic effects are taken into account provided world.driveTrainMechanics3D=true; default=false)"
     extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
-    
+
     parameter Real ratio(start=1) "Gear speed ratio";
-    parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={1,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={1,0,0}
       "Axis of rotation of flange_a, resolved in frame_a";
-    parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={1,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={1,0,0}
       "Axis of rotation of flange_b, resolved in frame_a";
-    
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a if world.driveTrainMechanics3D 
+
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a if world.driveTrainMechanics3D
       "Bearing frame" 
       annotation (Placement(transformation(
           origin={0,-100},
           extent={{-20,-20},{20,20}},
           rotation=90)));
-    
+
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Rectangle(
-            extent={{-40,20},{-20,-20}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{-40,20},{-20,-20}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Rectangle(
-            extent={{-40,140},{-20,20}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{-40,140},{-20,20}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Rectangle(
-            extent={{20,100},{40,60}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{20,100},{40,60}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Rectangle(
-            extent={{20,60},{40,-60}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{20,60},{40,-60}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Rectangle(
-            extent={{40,10},{100,-10}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{40,10},{100,-10}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Rectangle(
-            extent={{-20,90},{20,70}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{-20,90},{20,70}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Rectangle(
-            extent={{-100,10},{-40,-10}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{-100,10},{-40,-10}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Text(
-            extent={{-150,178},{150,138}}, 
-            textString="%name=%ratio", 
-            lineColor={0,0,255}), 
-          Line(points={{-80,20},{-60,20}}, color={0,0,0}), 
-          Line(points={{-80,-20},{-60,-20}}, color={0,0,0}), 
-          Line(points={{-10,100},{10,100}}, color={0,0,0}), 
-          Line(points={{-10,60},{10,60}}, color={0,0,0}), 
-          Line(points={{60,20},{80,20}}, color={0,0,0}), 
-          Line(points={{60,-20},{80,-20}}, color={0,0,0}), 
-          Line(points={{-70,-20},{-70,-70},{70,-70},{70,-20}}, color={0,0,0}), 
+            extent={{-150,178},{150,138}},
+            textString="%name=%ratio",
+            lineColor={0,0,255}),
+          Line(points={{-80,20},{-60,20}}, color={0,0,0}),
+          Line(points={{-80,-20},{-60,-20}}, color={0,0,0}),
+          Line(points={{-10,100},{10,100}}, color={0,0,0}),
+          Line(points={{-10,60},{10,60}}, color={0,0,0}),
+          Line(points={{60,20},{80,20}}, color={0,0,0}),
+          Line(points={{60,-20},{80,-20}}, color={0,0,0}),
+          Line(points={{-70,-20},{-70,-70},{70,-70},{70,-20}}, color={0,0,0}),
           Line(points={{0,60},{0,-70},{0,-100}}, color={0,0,0})}),
         Documentation(
           info="<html>
@@ -2479,14 +2488,14 @@ November 3-4, 2003, pp. 149-158</p>
 </html>"),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics));
-    
-  protected 
+
+  protected
     outer World world;
-    parameter Real e_a[3]=Modelica.Math.Vectors.normalize(              n_a) 
+    parameter Real e_a[3]=Modelica.Math.Vectors.normalize(              n_a)
       "Unit vector in direction of flange_a rotation axis";
-    parameter Real e_b[3]=Modelica.Math.Vectors.normalize(              n_b) 
+    parameter Real e_b[3]=Modelica.Math.Vectors.normalize(              n_b)
       "Unit vector in direction of flange_b rotation axis";
-    encapsulated model Housing 
+    encapsulated model Housing
       import Modelica;
       input Modelica.SIunits.Torque t[3];
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a 
@@ -2494,24 +2503,24 @@ November 3-4, 2003, pp. 149-158</p>
                 -116,-16},{-84,16}}, rotation=0)));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              fillColor={255,255,255}, 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
               fillPattern=FillPattern.Solid), Text(
-              extent={{-150,110},{150,150}}, 
-              lineColor={0,0,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid, 
+              extent={{-150,110},{150,150}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
               textString="%name")}));
-    equation 
+    equation
       frame_a.f=zeros(3);
       frame_a.t=t;
     end Housing;
     Housing housing(t=-flange_a.tau*e_a - flange_b.tau*e_b) if world.driveTrainMechanics3D 
                     annotation (Placement(transformation(extent={{20,-60},{40,-40}},
             rotation=0)));
-    
-  equation 
+
+  equation
     flange_a.phi = ratio*flange_b.phi;
     0 = ratio*flange_a.tau + flange_b.tau;
     connect(housing.frame_a, frame_a) annotation (Line(

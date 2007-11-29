@@ -2,7 +2,7 @@ within Modelica.Mechanics.MultiBody;
 package Visualizers "3-dimensional visual objects used for animation" 
   extends Modelica.Icons.Library;
   
-  annotation (preferedView="info", Documentation(info="<HTML>
+  annotation ( Documentation(info="<HTML>
 <p>
 Package <b>Visualizers</b> contains components to visualize
 3-dimensional shapes. These components are the basis for the
@@ -825,7 +825,7 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
     "Visualizers that require basic knowledge about Modelica in order to use them" 
     
     extends Modelica.Icons.Library;
-    annotation (preferedView="info", Documentation(info="<HTML>
+    annotation ( Documentation(info="<HTML>
 <p>
 Package <b>Visualizers.Advanced</b> contains components to visualize
 3-dimensional shapes with dynamical sizes. None of the components

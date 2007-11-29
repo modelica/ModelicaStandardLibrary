@@ -6,7 +6,7 @@ package Utilities "Library of utility functions dedicated to scripting (operatin
     annotation (
   version="1.0",
   versionDate="2004-10-01",
-  preferedView="info",
+  
 Documentation(info="<html>
 <p>
 This package contains Modelica <b>functions</b> that are
@@ -215,7 +215,7 @@ protected
 
 package Internal "Internal package as interface to the operating system" 
  extends Modelica.Icons.Library;
-  annotation (  preferedView="info",
+  annotation (  
 Documentation(info="<html>
 <p>
 Package <b>Internal</b> is an internal package that contains 

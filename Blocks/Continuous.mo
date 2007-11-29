@@ -5,7 +5,7 @@ package Continuous "Library of continuous control blocks with internal states"
   import Modelica.SIunits;
   extends Modelica.Icons.Library;
   
-  annotation(preferedView="info",
+  annotation(
     Window(
       x=0.05,
       y=0.09,

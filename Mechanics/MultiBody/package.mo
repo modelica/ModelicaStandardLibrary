@@ -9,7 +9,7 @@ annotation (
     from(version="0.98", script="Scripts/ConvertTo_1.0.mos"),
     from(version="0.99", script="Scripts/ConvertTo_1.0.mos"),
     from(version="0.99 Beta", script="Scripts/ConvertTo_1.0.mos")),
-  preferedView="info",
+  
 Window(
     x=0,
     y=0.01,
@@ -1270,7 +1270,7 @@ model World
             -16},{116,16}}, rotation=0)));
   
   annotation (
-    preferedView="info",
+    
     defaultComponentName="world",
     defaultComponentPrefixes="inner",
     missingInnerMessage="No \"world\" component is defined. A default world

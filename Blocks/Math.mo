@@ -5,7 +5,7 @@ package Math "Library of mathematical functions as input/output blocks"
   extends Modelica.Icons.Library;
   
   annotation (
-    preferedView="info",
+    
     Window(
       x=0.05,
       y=0.09,

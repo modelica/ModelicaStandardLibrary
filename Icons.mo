@@ -1,7 +1,7 @@
 within Modelica;
 package Icons "Library of icons" 
   
-  annotation(preferedView="info",
+  annotation(
     Window(
       x=0.08,
       y=0.08,

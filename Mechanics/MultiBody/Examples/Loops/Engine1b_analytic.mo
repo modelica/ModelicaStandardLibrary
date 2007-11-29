@@ -28,8 +28,7 @@ An animation of this example is shown in the figure below.
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Examples/Loops/Engine.png\" ALT=\"model Examples.Loops.Engine\">
 </p>
-</html>"),
-    experimentSetupOutput);
+</html>"));
   Joints.Assemblies.JointRRP jointRRP(
     n_a={1,0,0},
     n_b={0,-1,0},

@@ -10,7 +10,7 @@ package Interfaces
       width=0.38,
       height=0.26,
       library=1,
-      autolayout=1), preferedView="info", Documentation(info="<html>
+      autolayout=1),  Documentation(info="<html>
 <p>
 This package contains connectors and partial models (i.e. models
 that are only used to build other models) of the MultiBody library.

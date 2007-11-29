@@ -3,7 +3,7 @@ package Sensors "Potential, voltage, current, and power sensors"
   
   extends Modelica.Icons.Library;
   
-  annotation(preferedView="info",
+  annotation(
     Window(
       x=0.03,
       y=0.04,

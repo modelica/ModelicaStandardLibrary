@@ -1,7 +1,7 @@
 within Modelica.Media.IdealGases.Common;
 package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients" 
   extends Modelica.Icons.Library;
-  annotation (preferedView="info", Documentation(info="<HTML>
+  annotation ( Documentation(info="<HTML>
 <p>This package contains ideal gas models for the 1241 ideal gases from </p>
 <blockquote>
   <p>McBride B.J., Zehe M.J., and Gordon S. (2002): <b>NASA Glenn Coefficients 

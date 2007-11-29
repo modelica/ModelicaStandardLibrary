@@ -1,7 +1,7 @@
 within Modelica.Utilities;
-package Examples 
-  "Examples to demonstrate the usage of package Modelica.Utilities" 
-  annotation (preferedView="info",Documentation(info="<html>
+package Examples
+  "Examples to demonstrate the usage of package Modelica.Utilities"
+  annotation (Documentation(info="<html>
 <p>
 This package contains quite involved examples that demonstrate how to
 use the functions of package Modelica.Utilities. In particular
@@ -27,14 +27,14 @@ the following examples are present.
      </li>
 </ul>
 </html>"));
-  
-  function calculator 
-    "Interpreter to evaluate simple expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi" 
+
+  function calculator
+    "Interpreter to evaluate simple expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi"
     import Modelica.Utilities.Strings.*;
     extends Modelica.Icons.Function;
     input String string "Expression that is evaluated";
     output Real result "Value of expression";
-    
+
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -66,33 +66,33 @@ The following operations are supported (pi=3.14.. is a predefined constant):
   calculator(\"sin(pi/6)\");  // returns 0.5
 </pre></blockquote>
 </html>"));
-    
-  protected 
+
+  protected
     Integer nextIndex;
-  algorithm 
+  algorithm
     (result,nextIndex) := expression(string, 1);
     Strings.scanNoToken(string,nextIndex);
-    
+
   end calculator;
-  
-  function expression 
-    "Expression interpreter that returns with the position after the expression (expression may consist of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi" 
+
+  function expression
+    "Expression interpreter that returns with the position after the expression (expression may consist of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi"
     import Modelica.Utilities.Types;
     import Modelica.Utilities.Strings;
     import Modelica.Utilities.Examples.expression.primary;
     import Modelica.Math;
     import Modelica.Constants;
-    
+
     extends Modelica.Icons.Function;
     input String string "Expression that is evaluated";
-    input Integer startIndex=1 
+    input Integer startIndex=1
       "Start scanning of expression at character startIndex";
-    input String message="" 
+    input String message=""
       "Message used in error message if scan is not successful";
     output Real result "Value of expression";
     output Integer nextIndex "Index after the scanned expression";
-    
-    annotation (preferedView="info",Documentation(info="<html>
+
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
              result = <b>expression</b>(string);
@@ -164,20 +164,20 @@ function can be used as part of another scan operation.
   expression(\"sin(pi/6)\");  // returns 0.5
 </pre></blockquote>
 </html>"));
-    
-  protected 
-  function term "Evaluate term of an expression" 
+
+  protected
+  function term "Evaluate term of an expression"
     extends Modelica.Icons.Function;
     input String string;
     input Integer startIndex;
     input String message="";
     output Real result;
     output Integer nextIndex;
-    protected 
+    protected
     Real result2;
     Boolean scanning=true;
     String operator;
-  algorithm 
+  algorithm
     // scan for "primary * primary" or "primary / primary"
     (result, nextIndex) := primary(string, startIndex, message);
     while scanning loop
@@ -191,33 +191,33 @@ function can be used as part of another scan operation.
       end if;
     end while;
   end term;
-    
-  function primary "Evaluate primary of an expression" 
+
+  function primary "Evaluate primary of an expression"
     extends Modelica.Icons.Function;
-      
+
     input String string;
     input Integer startIndex;
     input String message="";
     output Real result;
     output Integer nextIndex;
-    protected 
+    protected
     Types.TokenValue token;
     Real result2;
     String delimiter;
     String functionName;
     Real pi = Constants.pi;
-  algorithm 
+  algorithm
     (token,nextIndex) := Strings.scanToken(string, startIndex,unsigned=true);
     if token.tokenType == Types.TokenType.DelimiterToken and token.string == "(" then
       (result,nextIndex) := expression(string, nextIndex,message);
       (delimiter,nextIndex) := Strings.scanDelimiter(string,nextIndex,{")"}, message);
-        
+
     elseif token.tokenType == Types.TokenType.RealToken then
       result := token.real;
-        
+
     elseif token.tokenType == Types.TokenType.IntegerToken then
       result := token.integer;
-        
+
     elseif token.tokenType == Types.TokenType.IdentifierToken then
       if token.string == "pi" then
          result := pi;
@@ -243,27 +243,27 @@ function can be used as part of another scan operation.
                                            message);
          end if;
       end if;
-        
+
     else
       Strings.syntaxError(string, startIndex, "Invalid primary of expression.\n" + message);
     end if;
   end primary;
-    
+
     Real result2;
     String signOfNumber;
     Boolean scanning=true;
     String operator;
-  algorithm 
+  algorithm
     // scan for optional leading "+" or "-" sign
     (signOfNumber, nextIndex) :=Strings.scanDelimiter(
                                      string, startIndex, {"+","-",""}, message);
-    
+
     // scan for "term + term" or "term - term"
     (result, nextIndex) := term(string, nextIndex, message);
     if signOfNumber == "-" then
        result := -result;
     end if;
-    
+
     while scanning loop
       (operator, nextIndex) := Strings.scanDelimiter(
                                       string, nextIndex, {"+","-",""}, message);
@@ -274,10 +274,10 @@ function can be used as part of another scan operation.
          result := if operator == "+" then result+result2 else result-result2;
       end if;
     end while;
-    
+
   end expression;
-  
-  function readRealParameter "Read the value of a Real parameter from file" 
+
+  function readRealParameter "Read the value of a Real parameter from file"
     import Modelica.Utilities.*;
     extends Modelica.Icons.Function;
     input String fileName "Name of file"       annotation(Dialog(
@@ -285,7 +285,7 @@ function can be used as part of another scan operation.
                            caption="Open file in which Real parameters are present")));
     input String name "Name of parameter";
     output Real result "Actual value of parameter on file";
-    
+
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -326,8 +326,8 @@ The function returns the value \"3.0\" when called as:
 readRealParameter(\"test.txt\", \"w_rel0\")
 </pre></blockquote>
 </html>"));
-    
-  protected 
+
+  protected
     String line;
     String identifier;
     String delimiter;
@@ -338,9 +338,9 @@ readRealParameter(\"test.txt\", \"w_rel0\")
     String message2;
     Boolean found = false;
     Boolean endOfFile=false;
-  algorithm 
+  algorithm
    (line, endOfFile) :=Streams.readLine(fileName, iline);
-    
+
     while not found and not endOfFile loop
       (token, nextIndex) := Strings.scanToken(line);
        if token.tokenType == Types.TokenType.NoToken then
@@ -363,30 +363,33 @@ readRealParameter(\"test.txt\", \"w_rel0\")
           // wrong token
           Strings.syntaxError(line, nextIndex, "Expected identifier " + message + String(iline));
        end if;
-      
+
        // read next line
        (line, endOfFile) :=Streams.readLine(fileName, iline);
     end while;
-    
+
     if not found then
        Streams.error("Parameter \"" + name + "\" not found in file \"" + fileName + "\"");
     end if;
-    
+
   end readRealParameter;
-  
-  model readRealParameterModel 
-    "Demonstrate usage of Examples.readRealParameter/.expression" 
+
+  model readRealParameterModel
+    "Demonstrate usage of Examples.readRealParameter/.expression"
     import SI = Modelica.SIunits;
     extends Modelica.Icons.Example;
-    
-    parameter String file = "Modelica/Utilities/data/Examples_readRealParameters.txt" 
+
+    parameter String file = "Modelica/Utilities/data/Examples_readRealParameters.txt"
       "File on which data is present" 
           annotation(Dialog(__Dymola_loadSelector(filter="Text files (*.txt)",
                         caption="Open text file to read parameters of the form \"name = value\"")));
-    parameter SI.Inertia J =              readRealParameter(file, "J");
-    parameter SI.Angle phi_rel0 =         readRealParameter(file, "phi_rel0");
-    parameter SI.AngularVelocity w_rel0 = readRealParameter(file, "w_rel0");
-    
+    parameter SI.Inertia J =              readRealParameter(file, "J")
+      "Inertia";
+    parameter SI.Angle phi_rel0 =         readRealParameter(file, "phi_rel0")
+      "Relative angle";
+    parameter SI.AngularVelocity w_rel0 = readRealParameter(file, "w_rel0")
+      "Relative angular velocity";
+
     annotation (Documentation(info="<html>
 <p>
 Model that shows the usage of Examples.readRealParameter and Examples.expression.

@@ -169,7 +169,7 @@ end Rp;
           textString="CauerLowPassSC", 
           lineColor={0,0,255})}),
     experiment(StopTime=60, NumberOfIntervals=1500),
-    experimentSetupOutput,
+    
     Documentation(revisions="<html>
 <ul>
 <li><i>January 13, 2006</i> 

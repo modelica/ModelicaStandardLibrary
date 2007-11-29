@@ -37,7 +37,7 @@ package Air "Medium models for air"
      mediumName="Air",
      data=IdealGases.Common.SingleGasesData.Air,
      fluidConstants={IdealGases.Common.FluidData.N2});
-    annotation (preferedView="info", Documentation(info="<HTML>
+    annotation ( Documentation(info="<HTML>
       <IMG SRC=\"../Images/Media/IdealGases/SingleGases/Air.png\"></HTML>"));
     
     import Cv = Modelica.SIunits.Conversions;

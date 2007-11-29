@@ -2,7 +2,7 @@ within Modelica.Electrical.Analog;
 package Lines 
   "Lossy and lossless segmented transmission lines, and LC distributed line models" 
   extends Modelica.Icons.Library;
-  annotation(preferedView="info",
+  annotation(
     Window(
       x=0.03,
       y=0.04,

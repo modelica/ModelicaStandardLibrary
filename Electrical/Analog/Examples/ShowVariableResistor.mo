@@ -44,8 +44,7 @@ Simulate until T=1 s.
     Diagram(graphics={Text(
           extent={{-100,112},{80,40}}, 
           lineColor={0,0,255}, 
-          textString="Example VariableResistor")}),
-    experimentSetupOutput);
+          textString="Example VariableResistor")}));
   
 annotation(Diagram);
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1 

@@ -6,7 +6,7 @@ package Blocks "Library of basic input/output control blocks (continuous, discre
 extends Modelica.Icons.Library2;
 
 
-annotation(preferedView="info",
+annotation(
   Window(
     x=0.03,
     y=0.05,
@@ -144,7 +144,7 @@ package Examples
             lineColor={255,0,0}, 
             textString="plant (simple drive train)")}),
       experiment(StopTime=4),
-      experimentSetupOutput,
+      
       Documentation(info="<html>
 
 <p>
@@ -281,7 +281,7 @@ is forced back to its limit after a transient phase.
           transformation(extent={{-60,-20},{-40,0}}, rotation=0)));
        annotation(Diagram(graphics),
       experiment(StopTime=10),
-      experimentSetupOutput,
+      
       Documentation(info="<html>
 <p>
 This simple example demonstrates the logical sources in 
@@ -313,7 +313,7 @@ model.
     
     annotation(Diagram(graphics),
         experiment(StopTime=10),
-        experimentSetupOutput,
+        
       Documentation(info="<html>
 <p>
 This example demonstrates a network of logical blocks. Note, that
@@ -471,8 +471,7 @@ just potential signals. The user might still add different signal names.
 </html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}),
                    graphics),
-      experiment(StopTime=2),
-      experimentSetupOutput);
+      experiment(StopTime=2));
   public 
     Modelica.Blocks.Sources.IntegerStep integerStep(
       height=1,
@@ -525,7 +524,7 @@ just potential signals. The user might still add different signal names.
   
   package BusUsage_Utilities 
     "Utility models and connectors for the demonstration example Modelica.Blocks.Examples.BusUsage" 
-    annotation (preferedView="info",Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>
 This package contains utility models and bus definitions needed for the
 <a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.

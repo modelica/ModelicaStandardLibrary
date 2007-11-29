@@ -170,7 +170,7 @@ Variable <b>y</b> is both a variable and a connector.
   import Modelica.SIunits;
       extends Modelica.Icons.Library;
   
-      annotation(preferedView="info",
+      annotation(
         Window(
           x=0.06,
           y=0.1,

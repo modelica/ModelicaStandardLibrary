@@ -48,7 +48,7 @@ model PointGravityWithPointMasses2
             -100},{100,100}}),
                       graphics),
     experiment(StopTime=3, Tolerance=1e-006),
-    experimentSetupOutput,
+    
     Documentation(info="<html>
 <p>
 This model demonstrates the usage of model Parts.PointMass in a 

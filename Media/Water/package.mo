@@ -236,9 +236,9 @@ extends Modelica.Icons.Library;
      each molarMass=0.018015268);
 
 
-package ConstantPropertyLiquidWater 
-  "Water: Simple liquid water medium (incompressible, constant data)" 
-  
+package ConstantPropertyLiquidWater
+  "Water: Simple liquid water medium (incompressible, constant data)"
+
   import Cv = Modelica.SIunits.Conversions;
   extends Interfaces.PartialSimpleMedium(
      mediumName="SimpleLiquidWater",
@@ -253,20 +253,20 @@ package ConstantPropertyLiquidWater
      T0=273.15,
      MM_const=0.018015268,
      fluidConstants = simpleWaterConstants);
-  
+
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={Text(
-          extent={{-90,88},{90,18}}, 
-          lineColor={0,0,0}, 
-          fillColor={255,255,255}, 
-          fillPattern=FillPattern.Solid, 
+          extent={{-90,88},{90,18}},
+          lineColor={0,0,0},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
           textString="liquid"), Text(
-          extent={{-90,-22},{90,-90}}, 
-          lineColor={0,0,0}, 
-          fillColor={255,255,255}, 
-          fillPattern=FillPattern.Solid, 
+          extent={{-90,-22},{90,-90}},
+          lineColor={0,0,0},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
           textString="water")}),
-                            Diagram(coordinateSystem(preserveAspectRatio=false, 
+                            Diagram(coordinateSystem(preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}),
                                     graphics),
     Documentation(info="<html>
@@ -275,7 +275,7 @@ package ConstantPropertyLiquidWater
 end ConstantPropertyLiquidWater;
 
 
-package IdealSteam "Water: Steam as ideal gas from NASA source" 
+package IdealSteam "Water: Steam as ideal gas from NASA source"
   extends IdealGases.SingleGases.H2O(
   fluidConstants = waterConstants);
   annotation (Documentation(info="<html>
@@ -284,16 +284,16 @@ package IdealSteam "Water: Steam as ideal gas from NASA source"
 end IdealSteam;
 
 
-package StandardWater = WaterIF97_ph 
+package StandardWater = WaterIF97_ph
   "Water using the IF97 standard, explicit in p and h. Recommended for most applications";
 
 
-package StandardWaterOnePhase = WaterIF97_pT 
+package StandardWaterOnePhase = WaterIF97_pT
   "Water using the IF97 standard, explicit in p and T. Recommended for one-phase applications";
 
 
-package WaterIF97OnePhase_ph 
-  "Water using the IF97 standard, explicit in p and h, and only valid outside the two-phase dome" 
+package WaterIF97OnePhase_ph
+  "Water using the IF97 standard, explicit in p and h, and only valid outside the two-phase dome"
   extends WaterIF97_base(
     final ph_explicit=true,
     final dT_explicit=false,
@@ -306,7 +306,7 @@ package WaterIF97OnePhase_ph
 end WaterIF97OnePhase_ph;
 
 
-package WaterIF97_pT "Water using the IF97 standard, explicit in p and T" 
+package WaterIF97_pT "Water using the IF97 standard, explicit in p and T"
   extends WaterIF97_base(
     final ph_explicit=false,
     final dT_explicit=false,
@@ -316,7 +316,7 @@ package WaterIF97_pT "Water using the IF97 standard, explicit in p and T"
 end WaterIF97_pT;
 
 
-package WaterIF97_ph "Water using the IF97 standard, explicit in p and h" 
+package WaterIF97_ph "Water using the IF97 standard, explicit in p and h"
   extends WaterIF97_base(
     final ph_explicit=true,
     final dT_explicit=false,
@@ -329,16 +329,16 @@ package WaterIF97_ph "Water using the IF97 standard, explicit in p and h"
 end WaterIF97_ph;
 
 
-partial package WaterIF97_base 
-  "Water: Steam properties as defined by IAPWS/IF97 standard" 
-  
+partial package WaterIF97_base
+  "Water: Steam properties as defined by IAPWS/IF97 standard"
+
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={Text(
-          extent={{-94,84},{94,40}}, 
-          lineColor={127,191,255}, 
+          extent={{-94,84},{94,40}},
+          lineColor={127,191,255},
           textString="IF97"), Text(
-          extent={{-94,20},{94,-24}}, 
-          lineColor={127,191,255}, 
+          extent={{-94,20},{94,-24}},
+          lineColor={127,191,255},
           textString="water")}),
                           Documentation(info="<HTML>
 <p>
@@ -401,30 +401,30 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
      smoothModel=false,
      onePhase=false,
      fluidConstants = waterConstants);
-  
-  redeclare record extends ThermodynamicState "thermodynamic state" 
+
+  redeclare record extends ThermodynamicState "thermodynamic state"
     SpecificEnthalpy h "specific enthalpy";
     Density d "density";
     Temperature T "temperature";
     AbsolutePressure p "pressure";
   end ThermodynamicState;
-  
-  constant Boolean ph_explicit 
+
+  constant Boolean ph_explicit
     "true if explicit in pressure and specific enthalpy";
   constant Boolean dT_explicit "true if explicit in density and temperature";
   constant Boolean pT_explicit "true if explicit in pressure and temperature";
-  
+
   redeclare replaceable model extends BaseProperties(
     h(stateSelect=if ph_explicit and preferredMediumStates then StateSelect.prefer else StateSelect.default),
     d(stateSelect=if dT_explicit and preferredMediumStates then StateSelect.prefer else StateSelect.default),
     T(stateSelect=if (pT_explicit or dT_explicit) and preferredMediumStates then StateSelect.prefer else StateSelect.default),
-    p(stateSelect=if (pT_explicit or ph_explicit) and preferredMediumStates then StateSelect.prefer else StateSelect.default)) 
-    "Base properties of water" 
-    Integer phase(min=0, max=2, start=1,fixed=false) 
+    p(stateSelect=if (pT_explicit or ph_explicit) and preferredMediumStates then StateSelect.prefer else StateSelect.default))
+    "Base properties of water"
+    Integer phase(min=0, max=2, start=1,fixed=false)
       "2 for two-phase, 1 for one-phase, 0 if not known";
-    SaturationProperties sat(Tsat(start=300.0), psat(start=1.0e5)) 
+    SaturationProperties sat(Tsat(start=300.0), psat(start=1.0e5))
       "saturation temperature and pressure";
-  equation 
+  equation
     X = reference_X;
     MM = fluidConstants[1].molarMass;
     if smoothModel then
@@ -484,109 +484,109 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     d = state.d;
     phase = state.phase;
   end BaseProperties;
-  
-  redeclare function density_ph 
-    "Computes density as a function of pressure and specific enthalpy" 
+
+  redeclare function density_ph
+    "Computes density as a function of pressure and specific enthalpy"
     extends Modelica.Icons.Function;
     input AbsolutePressure p "Pressure";
     input SpecificEnthalpy h "Specific enthalpy";
     input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
     output Density d "Density";
-  algorithm 
+  algorithm
     d := IF97_Utilities.rho_ph(p, h, phase);
   end density_ph;
-  
-  redeclare function temperature_ph 
-    "Computes temperature as a function of pressure and specific enthalpy" 
+
+  redeclare function temperature_ph
+    "Computes temperature as a function of pressure and specific enthalpy"
     extends Modelica.Icons.Function;
     input AbsolutePressure p "Pressure";
     input SpecificEnthalpy h "Specific enthalpy";
     input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
     output Temperature T "Temperature";
-  algorithm 
+  algorithm
     T := IF97_Utilities.T_ph(p, h, phase);
   end temperature_ph;
-  
-  redeclare function temperature_ps 
-    "Compute temperature from pressure and specific enthalpy" 
+
+  redeclare function temperature_ps
+    "Compute temperature from pressure and specific enthalpy"
     extends Modelica.Icons.Function;
     input AbsolutePressure p "Pressure";
     input SpecificEntropy s "Specific entropy";
     input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
     output Temperature T "Temperature";
-  algorithm 
+  algorithm
     T := IF97_Utilities.T_ps(p, s, phase);
   end temperature_ps;
-  
-  redeclare function density_ps 
-    "Computes density as a function of pressure and specific enthalpy" 
+
+  redeclare function density_ps
+    "Computes density as a function of pressure and specific enthalpy"
       extends Modelica.Icons.Function;
     input AbsolutePressure p "Pressure";
     input SpecificEntropy s "Specific entropy";
     input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
     output Density d "density";
-  algorithm 
+  algorithm
     d := IF97_Utilities.rho_ps(p, s, phase);
   end density_ps;
-  
-  redeclare function pressure_dT 
-    "Computes pressure as a function of density and temperature" 
+
+  redeclare function pressure_dT
+    "Computes pressure as a function of density and temperature"
     extends Modelica.Icons.Function;
     input Density d "Density";
     input Temperature T "Temperature";
     input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
     output AbsolutePressure p "Pressure";
-  algorithm 
+  algorithm
     p := IF97_Utilities.p_dT(d, T, phase);
   end pressure_dT;
-  
-  redeclare function specificEnthalpy_dT 
-    "Computes specific enthalpy as a function of density and temperature" 
+
+  redeclare function specificEnthalpy_dT
+    "Computes specific enthalpy as a function of density and temperature"
     extends Modelica.Icons.Function;
     input Density d "Density";
     input Temperature T "Temperature";
     input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
     output SpecificEnthalpy h "specific enthalpy";
-  algorithm 
+  algorithm
     h := IF97_Utilities.h_dT(d, T, phase);
   end specificEnthalpy_dT;
-  
-  redeclare function specificEnthalpy_pT 
-    "Computes specific enthalpy as a function of pressure and temperature" 
+
+  redeclare function specificEnthalpy_pT
+    "Computes specific enthalpy as a function of pressure and temperature"
     extends Modelica.Icons.Function;
     input AbsolutePressure p "Pressure";
     input Temperature T "Temperature";
     input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
     output SpecificEnthalpy h "specific enthalpy";
-  algorithm 
+  algorithm
     h := IF97_Utilities.h_pT(p, T);
   end specificEnthalpy_pT;
-  
-  redeclare function specificEnthalpy_ps 
-    "Computes specific enthalpy as a function of pressure and temperature" 
+
+  redeclare function specificEnthalpy_ps
+    "Computes specific enthalpy as a function of pressure and temperature"
       extends Modelica.Icons.Function;
     input AbsolutePressure p "Pressure";
     input SpecificEntropy s "Specific entropy";
     input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
     output SpecificEnthalpy h "specific enthalpy";
-  algorithm 
+  algorithm
     h := IF97_Utilities.h_ps(p, s, phase);
   end specificEnthalpy_ps;
-  
-  redeclare function density_pT 
-    "Computes density as a function of pressure and temperature" 
+
+  redeclare function density_pT
+    "Computes density as a function of pressure and temperature"
     extends Modelica.Icons.Function;
     input AbsolutePressure p "Pressure";
     input Temperature T "Temperature";
     input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
     output Density d "Density";
-  algorithm 
+  algorithm
     d := IF97_Utilities.rho_pT(p, T);
   end density_pT;
-  
-  redeclare function extends setDewState 
-    "set the thermodynamic state on the dew line" 
-  algorithm 
+
+  redeclare function extends setDewState
+    "set the thermodynamic state on the dew line"
+  algorithm
     state := ThermodynamicState(
        phase=  phase,
        p=  sat.psat,
@@ -594,10 +594,10 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
        h=  dewEnthalpy(sat),
        d=  dewDensity(sat));
   end setDewState;
-  
-  redeclare function extends setBubbleState 
-    "set the thermodynamic state on the bubble line" 
-  algorithm 
+
+  redeclare function extends setBubbleState
+    "set the thermodynamic state on the bubble line"
+  algorithm
     state := ThermodynamicState(
        phase=  phase,
        p=  sat.psat,
@@ -605,69 +605,69 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
        h=  bubbleEnthalpy(sat),
        d=  bubbleDensity(sat));
   end setBubbleState;
-  
-  redeclare function extends dynamicViscosity "Dynamic viscosity of water" 
-  algorithm 
+
+  redeclare function extends dynamicViscosity "Dynamic viscosity of water"
+  algorithm
     eta := IF97_Utilities.dynamicViscosity(state.d, state.T, state.p, state.
       phase);
   end dynamicViscosity;
-  
-  redeclare function extends thermalConductivity 
-    "Thermal conductivity of water" 
-  algorithm 
+
+  redeclare function extends thermalConductivity
+    "Thermal conductivity of water"
+  algorithm
     lambda := IF97_Utilities.thermalConductivity(state.d, state.T, state.p,
       state.phase);
   end thermalConductivity;
-  
-  redeclare function extends surfaceTension 
-    "Surface tension in two phase region of water" 
-  algorithm 
+
+  redeclare function extends surfaceTension
+    "Surface tension in two phase region of water"
+  algorithm
     sigma := IF97_Utilities.surfaceTension(sat.Tsat);
   end surfaceTension;
-  
-  redeclare function extends pressure "return pressure of ideal gas" 
-  algorithm 
+
+  redeclare function extends pressure "return pressure of ideal gas"
+  algorithm
     p := state.p;
   end pressure;
-  
-  redeclare function extends temperature "return temperature of ideal gas" 
-  algorithm 
+
+  redeclare function extends temperature "return temperature of ideal gas"
+  algorithm
     T := state.T;
   end temperature;
-  
-  redeclare function extends density "return density of ideal gas" 
-  algorithm 
+
+  redeclare function extends density "return density of ideal gas"
+  algorithm
     d := state.d;
   end density;
-  
-  redeclare function extends specificEnthalpy "Return specific enthalpy" 
+
+  redeclare function extends specificEnthalpy "Return specific enthalpy"
     extends Modelica.Icons.Function;
-  algorithm 
+  algorithm
     h := state.h;
   end specificEnthalpy;
-  
-  redeclare function extends specificInternalEnergy 
-    "Return specific internal energy" 
+
+  redeclare function extends specificInternalEnergy
+    "Return specific internal energy"
     extends Modelica.Icons.Function;
-  algorithm 
+  algorithm
     u := state.h  - state.p/state.d;
   end specificInternalEnergy;
-  
-  redeclare function extends specificGibbsEnergy "Return specific Gibbs energy" 
+
+  redeclare function extends specificGibbsEnergy "Return specific Gibbs energy"
     extends Modelica.Icons.Function;
-  algorithm 
+  algorithm
     g := state.h - state.T*specificEntropy(state);
   end specificGibbsEnergy;
-  
-  redeclare function extends specificHelmholtzEnergy 
-    "Return specific Helmholtz energy" 
+
+  redeclare function extends specificHelmholtzEnergy
+    "Return specific Helmholtz energy"
     extends Modelica.Icons.Function;
-  algorithm 
+  algorithm
     f := state.h - state.p/state.d - state.T*specificEntropy(state);
   end specificHelmholtzEnergy;
-  
-  redeclare function extends specificEntropy "specific entropy of water" 
-  algorithm 
+
+  redeclare function extends specificEntropy "specific entropy of water"
+  algorithm
     if dT_explicit then
       s := IF97_Utilities.s_dT(state.d, state.T, state.phase);
     elseif pT_explicit then
@@ -676,15 +676,15 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       s := IF97_Utilities.s_ph(state.p, state.h, state.phase);
     end if;
   end specificEntropy;
-  
-  redeclare function extends specificHeatCapacityCp 
-    "specific heat capacity at constant pressure of water" 
-    
+
+  redeclare function extends specificHeatCapacityCp
+    "specific heat capacity at constant pressure of water"
+
       annotation (Documentation(info="<html>
                                 <p>In the two phase region this function returns the interpolated heat capacity between the
                                 liquid and vapour state heat capacities.</p>
                           <html>"));
-  algorithm 
+  algorithm
     if dT_explicit then
       cp := IF97_Utilities.cp_dT(state.d, state.T, state.phase);
     elseif pT_explicit then
@@ -693,10 +693,10 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       cp := IF97_Utilities.cp_ph(state.p, state.h, state.phase);
     end if;
   end specificHeatCapacityCp;
-  
-  redeclare function extends specificHeatCapacityCv 
-    "specific heat capacity at constant volume of water" 
-  algorithm 
+
+  redeclare function extends specificHeatCapacityCv
+    "specific heat capacity at constant volume of water"
+  algorithm
     if dT_explicit then
       cv := IF97_Utilities.cv_dT(state.d, state.T, state.phase);
     elseif pT_explicit then
@@ -705,9 +705,9 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       cv := IF97_Utilities.cv_ph(state.p, state.h, state.phase);
     end if;
   end specificHeatCapacityCv;
-  
-  redeclare function extends isentropicExponent "Return isentropic exponent" 
-  algorithm 
+
+  redeclare function extends isentropicExponent "Return isentropic exponent"
+  algorithm
     if dT_explicit then
       gamma := IF97_Utilities.isentropicExponent_dT(state.d, state.T, state.
         phase);
@@ -718,10 +718,10 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         phase);
     end if;
   end isentropicExponent;
-  
-  redeclare function extends isothermalCompressibility 
-    "Isothermal compressibility of water" 
-  algorithm 
+
+  redeclare function extends isothermalCompressibility
+    "Isothermal compressibility of water"
+  algorithm
     if dT_explicit then
       kappa := IF97_Utilities.kappa_dT(state.d, state.T, state.phase);
     elseif pT_explicit then
@@ -730,10 +730,10 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       kappa := IF97_Utilities.kappa_ph(state.p, state.h, state.phase);
     end if;
   end isothermalCompressibility;
-  
-  redeclare function extends isobaricExpansionCoefficient 
-    "isobaric expansion coefficient of water" 
-  algorithm 
+
+  redeclare function extends isobaricExpansionCoefficient
+    "isobaric expansion coefficient of water"
+  algorithm
     if dT_explicit then
       beta := IF97_Utilities.beta_dT(state.d, state.T, state.phase);
     elseif pT_explicit then
@@ -742,9 +742,10 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       beta := IF97_Utilities.beta_ph(state.p, state.h, state.phase);
     end if;
   end isobaricExpansionCoefficient;
-  
-  redeclare function extends velocityOfSound 
-  algorithm 
+
+  redeclare function extends velocityOfSound
+    "Return velocity of sound as a function of the thermodynamic state record"
+  algorithm
     if dT_explicit then
       a := IF97_Utilities.velocityOfSound_dT(state.d, state.T, state.phase);
     elseif pT_explicit then
@@ -753,108 +754,109 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       a := IF97_Utilities.velocityOfSound_ph(state.p, state.h, state.phase);
     end if;
   end velocityOfSound;
-  
-  redeclare function extends isentropicEnthalpy "compute h(p,s)" 
-  algorithm 
+
+  redeclare function extends isentropicEnthalpy "compute h(p,s)"
+  algorithm
     h_is := IF97_Utilities.isentropicEnthalpy(p_downstream, specificEntropy(
       refState), 0);
   end isentropicEnthalpy;
-  
-  redeclare function extends density_derh_p 
-    "density derivative by specific enthalpy" 
-  algorithm 
+
+  redeclare function extends density_derh_p
+    "density derivative by specific enthalpy"
+  algorithm
     ddhp := IF97_Utilities.ddhp(state.p, state.h, state.phase);
   end density_derh_p;
-  
-  redeclare function extends density_derp_h "density derivative by pressure" 
-  algorithm 
+
+  redeclare function extends density_derp_h "density derivative by pressure"
+  algorithm
     ddph := IF97_Utilities.ddph(state.p, state.h, state.phase);
   end density_derp_h;
-  
-  redeclare function extends bubbleEnthalpy 
-    "boiling curve specific enthalpy of water" 
-  algorithm 
+
+  redeclare function extends bubbleEnthalpy
+    "boiling curve specific enthalpy of water"
+  algorithm
     hl := IF97_Utilities.BaseIF97.Regions.hl_p(sat.psat);
   end bubbleEnthalpy;
-  
-  redeclare function extends dewEnthalpy "dew curve specific enthalpy of water" 
-  algorithm 
+
+  redeclare function extends dewEnthalpy "dew curve specific enthalpy of water"
+  algorithm
     hv := IF97_Utilities.BaseIF97.Regions.hv_p(sat.psat);
   end dewEnthalpy;
-  
-  redeclare function extends bubbleEntropy 
-    "boiling curve specific entropy of water" 
-  algorithm 
+
+  redeclare function extends bubbleEntropy
+    "boiling curve specific entropy of water"
+  algorithm
     sl := IF97_Utilities.BaseIF97.Regions.sl_p(sat.psat);
   end bubbleEntropy;
-  
-  redeclare function extends dewEntropy "dew curve specific entropy of water" 
-  algorithm 
+
+  redeclare function extends dewEntropy "dew curve specific entropy of water"
+  algorithm
     sv := IF97_Utilities.BaseIF97.Regions.sv_p(sat.psat);
   end dewEntropy;
-  
-  redeclare function extends bubbleDensity 
-    "boiling curve specific density of water" 
-  algorithm 
+
+  redeclare function extends bubbleDensity
+    "boiling curve specific density of water"
+  algorithm
     if ph_explicit or pT_explicit then
       dl := IF97_Utilities.BaseIF97.Regions.rhol_p(sat.psat);
     else
       dl := IF97_Utilities.BaseIF97.Regions.rhol_T(sat.Tsat);
     end if;
   end bubbleDensity;
-  
-  redeclare function extends dewDensity "dew curve specific density of water" 
-  algorithm 
+
+  redeclare function extends dewDensity "dew curve specific density of water"
+  algorithm
     if ph_explicit or pT_explicit then
       dv := IF97_Utilities.BaseIF97.Regions.rhov_p(sat.psat);
     else
       dv := IF97_Utilities.BaseIF97.Regions.rhov_T(sat.Tsat);
     end if;
   end dewDensity;
-  
-  redeclare function extends saturationTemperature 
-    "saturation temperature of water" 
-  algorithm 
+
+  redeclare function extends saturationTemperature
+    "saturation temperature of water"
+  algorithm
     T := IF97_Utilities.BaseIF97.Basic.tsat(p);
   end saturationTemperature;
-  
-  redeclare function extends saturationTemperature_derp 
-    "derivative of saturation temperature w.r.t. pressure" 
-  algorithm 
+
+  redeclare function extends saturationTemperature_derp
+    "derivative of saturation temperature w.r.t. pressure"
+  algorithm
     dTp := IF97_Utilities.BaseIF97.Basic.dtsatofp(p);
   end saturationTemperature_derp;
-  
-  redeclare function extends saturationPressure "saturation pressure of water" 
-  algorithm 
+
+  redeclare function extends saturationPressure "saturation pressure of water"
+  algorithm
     p := IF97_Utilities.BaseIF97.Basic.psat(T);
   end saturationPressure;
-  
-  redeclare function extends dBubbleDensity_dPressure 
-    "bubble point density derivative" 
-  algorithm 
+
+  redeclare function extends dBubbleDensity_dPressure
+    "bubble point density derivative"
+  algorithm
     ddldp := IF97_Utilities.BaseIF97.Regions.drhol_dp(sat.psat);
   end dBubbleDensity_dPressure;
-  
-  redeclare function extends dDewDensity_dPressure 
-    "dew point density derivative" 
-  algorithm 
+
+  redeclare function extends dDewDensity_dPressure
+    "dew point density derivative"
+  algorithm
     ddvdp := IF97_Utilities.BaseIF97.Regions.drhov_dp(sat.psat);
   end dDewDensity_dPressure;
-  
-  redeclare function extends dBubbleEnthalpy_dPressure 
-    "bubble point specific enthalpy derivative" 
-  algorithm 
+
+  redeclare function extends dBubbleEnthalpy_dPressure
+    "bubble point specific enthalpy derivative"
+  algorithm
     dhldp := IF97_Utilities.BaseIF97.Regions.dhl_dp(sat.psat);
   end dBubbleEnthalpy_dPressure;
-  
-  redeclare function extends dDewEnthalpy_dPressure 
-    "dew point specific enthalpy derivative" 
-  algorithm 
+
+  redeclare function extends dDewEnthalpy_dPressure
+    "dew point specific enthalpy derivative"
+  algorithm
     dhvdp := IF97_Utilities.BaseIF97.Regions.dhv_dp(sat.psat);
   end dDewEnthalpy_dPressure;
-  
-  redeclare function extends setState_dTX 
-  algorithm 
+
+  redeclare function extends setState_dTX
+    "Return thermodynamic state of water as function of d and T"
+  algorithm
     state := ThermodynamicState(
       d=d,
       T=T,
@@ -862,9 +864,10 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       h=specificEnthalpy_dT(d,T),
       p=pressure_dT(d,T));
   end setState_dTX;
-  
-  redeclare function extends setState_phX 
-  algorithm 
+
+  redeclare function extends setState_phX
+    "Return thermodynamic state of water as function of p and h"
+  algorithm
     state := ThermodynamicState(
       d=density_ph(p,h),
       T=temperature_ph(p,h),
@@ -872,9 +875,10 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       h=h,
       p=p);
   end setState_phX;
-  
-  redeclare function extends setState_psX 
-  algorithm 
+
+  redeclare function extends setState_psX
+    "Return thermodynamic state of water as function of p and s"
+  algorithm
     state := ThermodynamicState(
       d=density_ps(p,s),
       T=temperature_ps(p,s),
@@ -882,9 +886,10 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       h=specificEnthalpy_ps(p,s),
       p=p);
   end setState_psX;
-  
-  redeclare function extends setState_pTX 
-  algorithm 
+
+  redeclare function extends setState_pTX
+    "Return thermodynamic state of water as function of p and T"
+  algorithm
     state := ThermodynamicState(
       d=density_pT(p,T),
       T=T,
@@ -895,16 +900,16 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 end WaterIF97_base;
 
 
-partial package WaterIF97_fixedregion 
-  "Water: Steam properties as defined by IAPWS/IF97 standard" 
-  
+partial package WaterIF97_fixedregion
+  "Water: Steam properties as defined by IAPWS/IF97 standard"
+
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={Text(
-          extent={{-94,84},{94,40}}, 
-          lineColor={127,191,255}, 
+          extent={{-94,84},{94,40}},
+          lineColor={127,191,255},
           textString="IF97"), Text(
-          extent={{-94,20},{94,-24}}, 
-          lineColor={127,191,255}, 
+          extent={{-94,20},{94,-24}},
+          lineColor={127,191,255},
           textString="water")}),
                           Documentation(info="<HTML>
 <p>
@@ -968,31 +973,31 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
      smoothModel=false,
      onePhase=false,
      fluidConstants = waterConstants);
-  
-  redeclare record extends ThermodynamicState "thermodynamic state" 
+
+  redeclare record extends ThermodynamicState "thermodynamic state"
     SpecificEnthalpy h "specific enthalpy";
     Density d "density";
     Temperature T "temperature";
     AbsolutePressure p "pressure";
   end ThermodynamicState;
-  
+
   constant Integer Region "region of IF97, if known";
-  constant Boolean ph_explicit 
+  constant Boolean ph_explicit
     "true if explicit in pressure and specific enthalpy";
   constant Boolean dT_explicit "true if explicit in density and temperature";
   constant Boolean pT_explicit "true if explicit in pressure and temperature";
-  
+
   redeclare replaceable model extends BaseProperties(
     h(stateSelect=if ph_explicit then StateSelect.prefer else StateSelect.default),
     d(stateSelect=if dT_explicit then StateSelect.prefer else StateSelect.default),
     T(stateSelect=if (pT_explicit or dT_explicit) then StateSelect.prefer else StateSelect.default),
-    p(stateSelect=if (pT_explicit or ph_explicit) then StateSelect.prefer else StateSelect.default)) 
-    "Base properties of water" 
-    Integer phase(min=0, max=2) 
+    p(stateSelect=if (pT_explicit or ph_explicit) then StateSelect.prefer else StateSelect.default))
+    "Base properties of water"
+    Integer phase(min=0, max=2)
       "2 for two-phase, 1 for one-phase, 0 if not known";
-    SaturationProperties sat(Tsat(start=300.0), psat(start=1.0e5)) 
+    SaturationProperties sat(Tsat(start=300.0), psat(start=1.0e5))
       "saturation temperature and pressure";
-  equation 
+  equation
     X = reference_X;
     MM = fluidConstants[1].molarMass;
     if smoothModel then
@@ -1046,206 +1051,206 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     d = state.d;
     phase = state.phase;
   end BaseProperties;
-  
-  redeclare function density_ph 
-    "Computes density as a function of pressure and specific enthalpy" 
+
+  redeclare function density_ph
+    "Computes density as a function of pressure and specific enthalpy"
     extends Modelica.Icons.Function;
     input AbsolutePressure p "Pressure";
     input SpecificEnthalpy h "Specific enthalpy";
     input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region=0 
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output Density d "Density";
-  algorithm 
+  algorithm
     d := IF97_Utilities.rho_ph(p, h, phase, region);
   end density_ph;
-  
-  redeclare function temperature_ph 
-    "Computes temperature as a function of pressure and specific enthalpy" 
+
+  redeclare function temperature_ph
+    "Computes temperature as a function of pressure and specific enthalpy"
     extends Modelica.Icons.Function;
     input AbsolutePressure p "Pressure";
     input SpecificEnthalpy h "Specific enthalpy";
     input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region=0 
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output Temperature T "Temperature";
-  algorithm 
+  algorithm
     T := IF97_Utilities.T_ph(p, h, phase, region);
   end temperature_ph;
-  
-  redeclare function temperature_ps 
-    "Compute temperature from pressure and specific enthalpy" 
+
+  redeclare function temperature_ps
+    "Compute temperature from pressure and specific enthalpy"
     extends Modelica.Icons.Function;
     input AbsolutePressure p "Pressure";
     input SpecificEntropy s "Specific entropy";
     input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region=0 
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output Temperature T "Temperature";
-  algorithm 
+  algorithm
     T := IF97_Utilities.T_ps(p, s, phase,region);
   end temperature_ps;
-  
-  redeclare function density_ps 
-    "Computes density as a function of pressure and specific enthalpy" 
+
+  redeclare function density_ps
+    "Computes density as a function of pressure and specific enthalpy"
     extends Modelica.Icons.Function;
     input AbsolutePressure p "Pressure";
     input SpecificEntropy s "Specific entropy";
     input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region=0 
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output Density d "density";
-  algorithm 
+  algorithm
     d := IF97_Utilities.rho_ps(p, s, phase, region);
   end density_ps;
-  
-  redeclare function pressure_dT 
-    "Computes pressure as a function of density and temperature" 
+
+  redeclare function pressure_dT
+    "Computes pressure as a function of density and temperature"
     extends Modelica.Icons.Function;
     input Density d "Density";
     input Temperature T "Temperature";
     input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region=0 
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output AbsolutePressure p "Pressure";
-  algorithm 
+  algorithm
     p := IF97_Utilities.p_dT(d, T, phase, region);
   end pressure_dT;
-  
-  redeclare function specificEnthalpy_dT 
-    "Computes specific enthalpy as a function of density and temperature" 
+
+  redeclare function specificEnthalpy_dT
+    "Computes specific enthalpy as a function of density and temperature"
     extends Modelica.Icons.Function;
     input Density d "Density";
     input Temperature T "Temperature";
     input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region=0 
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SpecificEnthalpy h "specific enthalpy";
-  algorithm 
+  algorithm
     h := IF97_Utilities.h_dT(d, T, phase, region);
   end specificEnthalpy_dT;
-  
-  redeclare function specificEnthalpy_pT 
-    "Computes specific enthalpy as a function of pressure and temperature" 
+
+  redeclare function specificEnthalpy_pT
+    "Computes specific enthalpy as a function of pressure and temperature"
     extends Modelica.Icons.Function;
     input AbsolutePressure p "Pressure";
     input Temperature T "Temperature";
     input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region=0 
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SpecificEnthalpy h "specific enthalpy";
-  algorithm 
+  algorithm
     h := IF97_Utilities.h_pT(p, T, region);
   end specificEnthalpy_pT;
-  
-  redeclare function specificEnthalpy_ps 
-    "Computes specific enthalpy as a function of pressure and temperature" 
+
+  redeclare function specificEnthalpy_ps
+    "Computes specific enthalpy as a function of pressure and temperature"
     extends Modelica.Icons.Function;
     input AbsolutePressure p "Pressure";
     input SpecificEntropy s "Specific entropy";
     input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region=0 
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output SpecificEnthalpy h "specific enthalpy";
-  algorithm 
+  algorithm
     h := IF97_Utilities.h_ps(p, s, phase, region);
   end specificEnthalpy_ps;
-  
-  redeclare function density_pT 
-    "Computes density as a function of pressure and temperature" 
+
+  redeclare function density_pT
+    "Computes density as a function of pressure and temperature"
     extends Modelica.Icons.Function;
     input AbsolutePressure p "Pressure";
     input Temperature T "Temperature";
     input FixedPhase phase=0 "2 for two-phase, 1 for one-phase, 0 if not known";
-    input Integer region=0 
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
     output Density d "Density";
-  algorithm 
+  algorithm
     d := IF97_Utilities.rho_pT(p, T, region);
   end density_pT;
-  
-  redeclare function extends setDewState 
-    "set the thermodynamic state on the dew line" 
-  algorithm 
+
+  redeclare function extends setDewState
+    "set the thermodynamic state on the dew line"
+  algorithm
     state.phase := phase;
     state.p := sat.psat;
     state.T := sat.Tsat;
     state.h := dewEnthalpy(sat);
     state.d := dewDensity(sat);
   end setDewState;
-  
-  redeclare function extends setBubbleState 
-    "set the thermodynamic state on the bubble line" 
-  algorithm 
+
+  redeclare function extends setBubbleState
+    "set the thermodynamic state on the bubble line"
+  algorithm
     state.phase := phase;
     state.p := sat.psat;
     state.T := sat.Tsat;
     state.h := bubbleEnthalpy(sat);
     state.d := bubbleDensity(sat);
   end setBubbleState;
-  
-  redeclare function extends dynamicViscosity "Dynamic viscosity of water" 
-  algorithm 
+
+  redeclare function extends dynamicViscosity "Dynamic viscosity of water"
+  algorithm
     eta := IF97_Utilities.dynamicViscosity(state.d, state.T, state.p, state.
       phase);
   end dynamicViscosity;
-  
-  redeclare function extends thermalConductivity 
-    "Thermal conductivity of water" 
-  algorithm 
+
+  redeclare function extends thermalConductivity
+    "Thermal conductivity of water"
+  algorithm
     lambda := IF97_Utilities.thermalConductivity(state.d, state.T, state.p,
       state.phase);
   end thermalConductivity;
-  
-  redeclare function extends surfaceTension 
-    "Surface tension in two phase region of water" 
-  algorithm 
+
+  redeclare function extends surfaceTension
+    "Surface tension in two phase region of water"
+  algorithm
     sigma := IF97_Utilities.surfaceTension(sat.Tsat);
   end surfaceTension;
-  
-  redeclare function extends pressure "return pressure of ideal gas" 
-  algorithm 
+
+  redeclare function extends pressure "return pressure of ideal gas"
+  algorithm
     p := state.p;
   end pressure;
-  
-  redeclare function extends temperature "return temperature of ideal gas" 
-  algorithm 
+
+  redeclare function extends temperature "return temperature of ideal gas"
+  algorithm
     T := state.T;
   end temperature;
-  
-  redeclare function extends density "return density of ideal gas" 
-  algorithm 
+
+  redeclare function extends density "return density of ideal gas"
+  algorithm
     d := state.d;
   end density;
-  
-  redeclare function extends specificEnthalpy "Return specific enthalpy" 
+
+  redeclare function extends specificEnthalpy "Return specific enthalpy"
     extends Modelica.Icons.Function;
-  algorithm 
+  algorithm
     h := state.h;
   end specificEnthalpy;
-  
-  redeclare function extends specificInternalEnergy 
-    "Return specific internal energy" 
+
+  redeclare function extends specificInternalEnergy
+    "Return specific internal energy"
     extends Modelica.Icons.Function;
-  algorithm 
+  algorithm
     u := state.h  - state.p/state.d;
   end specificInternalEnergy;
-  
-  redeclare function extends specificGibbsEnergy "Return specific Gibbs energy" 
+
+  redeclare function extends specificGibbsEnergy "Return specific Gibbs energy"
     extends Modelica.Icons.Function;
-  algorithm 
+  algorithm
     g := state.h - state.T*specificEntropy(state);
   end specificGibbsEnergy;
-  
-  redeclare function extends specificHelmholtzEnergy 
-    "Return specific Helmholtz energy" 
+
+  redeclare function extends specificHelmholtzEnergy
+    "Return specific Helmholtz energy"
     extends Modelica.Icons.Function;
-  algorithm 
+  algorithm
     f := state.h - state.p/state.d - state.T*specificEntropy(state);
   end specificHelmholtzEnergy;
-  
-  redeclare function extends specificEntropy "specific entropy of water" 
-  algorithm 
+
+  redeclare function extends specificEntropy "specific entropy of water"
+  algorithm
     if dT_explicit then
       s := IF97_Utilities.s_dT(state.d, state.T, state.phase, Region);
     elseif pT_explicit then
@@ -1254,10 +1259,10 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       s := IF97_Utilities.s_ph(state.p, state.h, state.phase, Region);
     end if;
   end specificEntropy;
-  
-  redeclare function extends specificHeatCapacityCp 
-    "specific heat capacity at constant pressure of water" 
-  algorithm 
+
+  redeclare function extends specificHeatCapacityCp
+    "specific heat capacity at constant pressure of water"
+  algorithm
     if dT_explicit then
       cp := IF97_Utilities.cp_dT(state.d, state.T, Region);
     elseif pT_explicit then
@@ -1266,10 +1271,10 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       cp := IF97_Utilities.cp_ph(state.p, state.h, Region);
     end if;
   end specificHeatCapacityCp;
-  
-  redeclare function extends specificHeatCapacityCv 
-    "specific heat capacity at constant volume of water" 
-  algorithm 
+
+  redeclare function extends specificHeatCapacityCv
+    "specific heat capacity at constant volume of water"
+  algorithm
     if dT_explicit then
       cv := IF97_Utilities.cv_dT(state.d, state.T, state.phase, Region);
     elseif pT_explicit then
@@ -1278,9 +1283,9 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       cv := IF97_Utilities.cv_ph(state.p, state.h, state.phase, Region);
     end if;
   end specificHeatCapacityCv;
-  
-  redeclare function extends isentropicExponent "Return isentropic exponent" 
-  algorithm 
+
+  redeclare function extends isentropicExponent "Return isentropic exponent"
+  algorithm
     if dT_explicit then
       gamma := IF97_Utilities.isentropicExponent_dT(state.d, state.T,
           state.phase, Region);
@@ -1291,10 +1296,10 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           state.phase, Region);
     end if;
   end isentropicExponent;
-  
-  redeclare function extends isothermalCompressibility 
-    "Isothermal compressibility of water" 
-  algorithm 
+
+  redeclare function extends isothermalCompressibility
+    "Isothermal compressibility of water"
+  algorithm
     //    assert(state.phase <> 2, "isothermal compressibility can not be computed with 2-phase inputs!");
     if dT_explicit then
       kappa := IF97_Utilities.kappa_dT(state.d, state.T, state.phase, Region);
@@ -1304,10 +1309,10 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       kappa := IF97_Utilities.kappa_ph(state.p, state.h, state.phase, Region);
     end if;
   end isothermalCompressibility;
-  
-  redeclare function extends isobaricExpansionCoefficient 
-    "isobaric expansion coefficient of water" 
-  algorithm 
+
+  redeclare function extends isobaricExpansionCoefficient
+    "isobaric expansion coefficient of water"
+  algorithm
     //    assert(state.phase <> 2, "the isobaric expansion coefficient can not be computed with 2-phase inputs!");
     if dT_explicit then
       beta := IF97_Utilities.beta_dT(state.d, state.T, state.phase, Region);
@@ -1317,9 +1322,10 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       beta := IF97_Utilities.beta_ph(state.p, state.h, state.phase, Region);
     end if;
   end isobaricExpansionCoefficient;
-  
-  redeclare function extends velocityOfSound 
-  algorithm 
+
+  redeclare function extends velocityOfSound
+    "Return velocity of sound as a function of the thermodynamic state record"
+  algorithm
     if dT_explicit then
       a := IF97_Utilities.velocityOfSound_dT(state.d, state.T, state.phase,
         Region);
@@ -1330,110 +1336,111 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         Region);
     end if;
   end velocityOfSound;
-  
-  redeclare function extends isentropicEnthalpy "compute h(s,p)" 
-  algorithm 
+
+  redeclare function extends isentropicEnthalpy "compute h(s,p)"
+  algorithm
     h_is := IF97_Utilities.isentropicEnthalpy(p_downstream, specificEntropy(
       refState), 0);
   end isentropicEnthalpy;
-  
-  redeclare function extends density_derh_p 
-    "density derivative by specific enthalpy" 
-  algorithm 
+
+  redeclare function extends density_derh_p
+    "density derivative by specific enthalpy"
+  algorithm
     ddhp := IF97_Utilities.ddhp(state.p, state.h, state.phase, Region);
   end density_derh_p;
-  
-  redeclare function extends density_derp_h "density derivative by pressure" 
-  algorithm 
+
+  redeclare function extends density_derp_h "density derivative by pressure"
+  algorithm
     ddph := IF97_Utilities.ddph(state.p, state.h, state.phase, Region);
   end density_derp_h;
-  
-  redeclare function extends bubbleEnthalpy 
-    "boiling curve specific enthalpy of water" 
-  algorithm 
+
+  redeclare function extends bubbleEnthalpy
+    "boiling curve specific enthalpy of water"
+  algorithm
     hl := IF97_Utilities.BaseIF97.Regions.hl_p(sat.psat);
   end bubbleEnthalpy;
-  
-  redeclare function extends dewEnthalpy "dew curve specific enthalpy of water" 
-  algorithm 
+
+  redeclare function extends dewEnthalpy "dew curve specific enthalpy of water"
+  algorithm
     hv := IF97_Utilities.BaseIF97.Regions.hv_p(sat.psat);
   end dewEnthalpy;
-  
-  redeclare function extends bubbleEntropy 
-    "boiling curve specific entropy of water" 
-  algorithm 
+
+  redeclare function extends bubbleEntropy
+    "boiling curve specific entropy of water"
+  algorithm
     sl := IF97_Utilities.BaseIF97.Regions.sl_p(sat.psat);
   end bubbleEntropy;
-  
-  redeclare function extends dewEntropy "dew curve specific entropy of water" 
-  algorithm 
+
+  redeclare function extends dewEntropy "dew curve specific entropy of water"
+  algorithm
     sv := IF97_Utilities.BaseIF97.Regions.sv_p(sat.psat);
   end dewEntropy;
-  
-  redeclare function extends bubbleDensity 
-    "boiling curve specific density of water" 
-  algorithm 
+
+  redeclare function extends bubbleDensity
+    "boiling curve specific density of water"
+  algorithm
     if ph_explicit or pT_explicit then
       dl := IF97_Utilities.BaseIF97.Regions.rhol_p(sat.psat);
     else
       dl := IF97_Utilities.BaseIF97.Regions.rhol_T(sat.Tsat);
     end if;
   end bubbleDensity;
-  
-  redeclare function extends dewDensity "dew curve specific density of water" 
-  algorithm 
+
+  redeclare function extends dewDensity "dew curve specific density of water"
+  algorithm
     if ph_explicit or pT_explicit then
       dv := IF97_Utilities.BaseIF97.Regions.rhov_p(sat.psat);
     else
       dv := IF97_Utilities.BaseIF97.Regions.rhov_T(sat.Tsat);
     end if;
   end dewDensity;
-  
-  redeclare function extends saturationTemperature 
-    "saturation temperature of water" 
-  algorithm 
+
+  redeclare function extends saturationTemperature
+    "saturation temperature of water"
+  algorithm
     T := IF97_Utilities.BaseIF97.Basic.tsat(p);
   end saturationTemperature;
-  
-  redeclare function extends saturationTemperature_derp 
-    "derivative of saturation temperature w.r.t. pressure" 
-  algorithm 
+
+  redeclare function extends saturationTemperature_derp
+    "derivative of saturation temperature w.r.t. pressure"
+  algorithm
     dTp := IF97_Utilities.BaseIF97.Basic.dtsatofp(p);
   end saturationTemperature_derp;
-  
-  redeclare function extends saturationPressure "saturation pressure of water" 
-  algorithm 
+
+  redeclare function extends saturationPressure "saturation pressure of water"
+  algorithm
     p := IF97_Utilities.BaseIF97.Basic.psat(T);
   end saturationPressure;
-  
-  redeclare function extends dBubbleDensity_dPressure 
-    "bubble point density derivative" 
-  algorithm 
+
+  redeclare function extends dBubbleDensity_dPressure
+    "bubble point density derivative"
+  algorithm
     ddldp := IF97_Utilities.BaseIF97.Regions.drhol_dp(sat.psat);
   end dBubbleDensity_dPressure;
-  
-  redeclare function extends dDewDensity_dPressure 
-    "dew point density derivative" 
-  algorithm 
+
+  redeclare function extends dDewDensity_dPressure
+    "dew point density derivative"
+  algorithm
     ddvdp := IF97_Utilities.BaseIF97.Regions.drhov_dp(sat.psat);
   end dDewDensity_dPressure;
-  
-  redeclare function extends dBubbleEnthalpy_dPressure 
-    "bubble point specific enthalpy derivative" 
-  algorithm 
+
+  redeclare function extends dBubbleEnthalpy_dPressure
+    "bubble point specific enthalpy derivative"
+  algorithm
     dhldp := IF97_Utilities.BaseIF97.Regions.dhl_dp(sat.psat);
   end dBubbleEnthalpy_dPressure;
-  
-  redeclare function extends dDewEnthalpy_dPressure 
-    "dew point specific enthalpy derivative" 
-  algorithm 
+
+  redeclare function extends dDewEnthalpy_dPressure
+    "dew point specific enthalpy derivative"
+  algorithm
     dhvdp := IF97_Utilities.BaseIF97.Regions.dhv_dp(sat.psat);
   end dDewEnthalpy_dPressure;
-  
-  redeclare function extends setState_dTX 
-    input Integer region=0 
+
+  redeclare function extends setState_dTX
+    "Return thermodynamic state of water as function of d, T, and optional region"
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
-  algorithm 
+  algorithm
     state := ThermodynamicState(
       d=d,
       T=T,
@@ -1441,11 +1448,12 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       h=specificEnthalpy_dT(d,T,region=region),
       p=pressure_dT(d,T,region=region));
   end setState_dTX;
-  
-  redeclare function extends setState_phX 
-    input Integer region=0 
+
+  redeclare function extends setState_phX
+    "Return thermodynamic state of water as function of p, h, and optional region"
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
-  algorithm 
+  algorithm
     state := ThermodynamicState(
       d=density_ph(p,h,region=region),
       T=temperature_ph(p,h,region=region),
@@ -1453,11 +1461,12 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       h=h,
       p=p);
   end setState_phX;
-  
-  redeclare function extends setState_psX 
-    input Integer region=0 
+
+  redeclare function extends setState_psX
+    "Return thermodynamic state of water as function of p, s, and optional region"
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
-  algorithm 
+  algorithm
     state := ThermodynamicState(
       d=density_ps(p,s,region=region),
       T=temperature_ps(p,s,region=region),
@@ -1465,11 +1474,12 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       h=specificEnthalpy_ps(p,s,region=region),
       p=p);
   end setState_psX;
-  
-  redeclare function extends setState_pTX 
-    input Integer region=0 
+
+  redeclare function extends setState_pTX
+    "Return thermodynamic state of water as function of p, T, and optional region"
+    input Integer region=0
       "if 0, region is unknown, otherwise known and this input";
-  algorithm 
+  algorithm
     state := ThermodynamicState(
       d=density_pT(p,T,region=region),
       T=T,
@@ -1477,11 +1487,11 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       h=specificEnthalpy_pT(p,T,region=region),
       p=p);
   end setState_pTX;
-  
+
 end WaterIF97_fixedregion;
 
 
-package WaterIF97_R1ph "region 1 (liquid) water according to IF97 standard" 
+package WaterIF97_R1ph "region 1 (liquid) water according to IF97 standard"
   extends WaterIF97_fixedregion(
     final Region=1,
     final ph_explicit=true,
@@ -1495,7 +1505,7 @@ package WaterIF97_R1ph "region 1 (liquid) water according to IF97 standard"
 end WaterIF97_R1ph;
 
 
-package WaterIF97_R2ph "region 2 (steam) water according to IF97 standard" 
+package WaterIF97_R2ph "region 2 (steam) water according to IF97 standard"
   extends WaterIF97_fixedregion(
     final Region=2,
     final ph_explicit=true,
@@ -1509,7 +1519,7 @@ package WaterIF97_R2ph "region 2 (steam) water according to IF97 standard"
 end WaterIF97_R2ph;
 
 
-package WaterIF97_R3ph "region 3 water according to IF97 standard" 
+package WaterIF97_R3ph "region 3 water according to IF97 standard"
   extends WaterIF97_fixedregion(
     final Region=3,
     final ph_explicit=true,
@@ -1523,7 +1533,7 @@ package WaterIF97_R3ph "region 3 water according to IF97 standard"
 end WaterIF97_R3ph;
 
 
-package WaterIF97_R4ph "region 4 water according to IF97 standard" 
+package WaterIF97_R4ph "region 4 water according to IF97 standard"
   extends WaterIF97_fixedregion(
     final Region=4,
     final ph_explicit=true,
@@ -1537,7 +1547,7 @@ package WaterIF97_R4ph "region 4 water according to IF97 standard"
 end WaterIF97_R4ph;
 
 
-package WaterIF97_R5ph "region 5 water according to IF97 standard" 
+package WaterIF97_R5ph "region 5 water according to IF97 standard"
   extends WaterIF97_fixedregion(
     final Region=5,
     final ph_explicit=true,
@@ -1551,7 +1561,7 @@ package WaterIF97_R5ph "region 5 water according to IF97 standard"
 end WaterIF97_R5ph;
 
 
-package WaterIF97_R1pT "region 1 (liquid) water according to IF97 standard" 
+package WaterIF97_R1pT "region 1 (liquid) water according to IF97 standard"
   extends WaterIF97_fixedregion(
     final Region=1,
     final ph_explicit=false,
@@ -1565,7 +1575,7 @@ package WaterIF97_R1pT "region 1 (liquid) water according to IF97 standard"
 end WaterIF97_R1pT;
 
 
-package WaterIF97_R2pT "region 2 (steam) water according to IF97 standard" 
+package WaterIF97_R2pT "region 2 (steam) water according to IF97 standard"
   extends WaterIF97_fixedregion(
     final Region=2,
     final ph_explicit=false,

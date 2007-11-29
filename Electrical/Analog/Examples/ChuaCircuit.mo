@@ -54,8 +54,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
       y=0.17,
       width=0.6,
       height=0.6),
-    experiment(StopTime=1),
-    experimentSetupOutput);
+    experiment(StopTime=1));
   Basic.Inductor L(L=18) annotation (Placement(transformation(
         origin={-75,50},
         extent={{-25,-25},{25,25}},

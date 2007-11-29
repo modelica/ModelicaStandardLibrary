@@ -1,13 +1,13 @@
 within Modelica;
-package StateGraph 
-  "Library of hierarchical state machine components to model discrete event and reactive systems" 
-  
+package StateGraph
+  "Library of hierarchical state machine components to model discrete event and reactive systems"
+
 extends Modelica.Icons.Library2;
-  
+
 annotation (
   version="0.87",
   versionDate="2004-06-23",
-  preferedView="info",
+  
   Documentation(info="<html>
 <p>
 Library <b>StateGraph</b> is a <b>free</b> Modelica package providing
@@ -92,24 +92,24 @@ and the accompanying <b>disclaimer</b>
     autolayout=1),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
-        Rectangle(extent={{-88,-20},{-50,-54}}, lineColor={0,0,0}), 
-        Line(points={{-50,-38},{-24,-38}}, color={0,0,0}), 
+        Rectangle(extent={{-88,-20},{-50,-54}}, lineColor={0,0,0}),
+        Line(points={{-50,-38},{-24,-38}}, color={0,0,0}),
         Polygon(
-          points={{-24,-32},{-12,-38},{-24,-44},{-24,-32}}, 
-          lineColor={0,0,0}, 
-          fillColor={0,0,0}, 
-          fillPattern=FillPattern.Solid), 
-        Line(points={{-12,-6},{-12,-76}}, color={0,0,0}), 
-        Line(points={{-12,-38},{14,-38}}, color={0,0,0}), 
+          points={{-24,-32},{-12,-38},{-24,-44},{-24,-32}},
+          lineColor={0,0,0},
+          fillColor={0,0,0},
+          fillPattern=FillPattern.Solid),
+        Line(points={{-12,-6},{-12,-76}}, color={0,0,0}),
+        Line(points={{-12,-38},{14,-38}}, color={0,0,0}),
         Polygon(
-          points={{14,-32},{26,-38},{14,-44},{14,-32}}, 
-          lineColor={0,0,0}, 
-          fillColor={0,0,0}, 
-          fillPattern=FillPattern.Solid), 
+          points={{14,-32},{26,-38},{14,-44},{14,-32}},
+          lineColor={0,0,0},
+          fillColor={0,0,0},
+          fillPattern=FillPattern.Solid),
         Rectangle(extent={{26,-22},{64,-56}}, lineColor={0,0,0})}));
-  
-package UsersGuide "User's Guide of StateGraph Library" 
-    
+
+package UsersGuide "User's Guide of StateGraph Library"
+
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 Library <b>StateGraph</b> is a <b>free</b> Modelica package providing
@@ -136,9 +136,9 @@ the library and has the following content:
     acknowledgments.</li>
 </ol>
 </html>"));
-    
-  class OverView "Overview of library" 
-      
+
+  class OverView "Overview of library"
+
     annotation (Documentation(info="<html>
 <p>
 In this section, an overview of the most important features
@@ -465,9 +465,9 @@ be aborted due to different transitions).
 </html>
 "));
   end OverView;
-    
-  class FirstExample "A first example" 
-      
+
+  class FirstExample "A first example"
+
     annotation (Documentation(info="<html>
 <p>
 A first example will be given here (not yet done).
@@ -475,9 +475,9 @@ A first example will be given here (not yet done).
 </html>
 "));
   end FirstExample;
-    
-  class ApplicationExample "An application example" 
-      
+
+  class ApplicationExample "An application example"
+
     annotation (Documentation(info="<html>
 <p>
 In this section a more realistic, still simple, application example
@@ -581,9 +581,9 @@ step \"emptyTanks\" is active. Otherwise, valve2 is closed.
 </html>
 "));
   end ApplicationExample;
-    
-  class ReleaseNotes "Release notes" 
-      
+
+  class ReleaseNotes "Release notes"
+
     annotation (Documentation(info="<html>
 <h4>Version 0.87, 2004-06-23</h4>
 <ul>
@@ -640,12 +640,12 @@ Implemented a first version that is provided to other people.
 </p>
 </html>
 "));
-  equation 
-      
+  equation
+
   end ReleaseNotes;
-    
-  class Literature "Literature" 
-      
+
+  class Literature "Literature"
+
     annotation (Documentation(info="<html>
 <p>
 The StateGraph library is based on the following references:
@@ -673,11 +673,11 @@ The StateGraph library is based on the following references:
 </dl>
 </html>
 "));
-      
+
   end Literature;
-    
-  class Contact "Contact" 
-      
+
+  class Contact "Contact"
+
     annotation (Documentation(info="<html>
 <dl>
 <dt><b>Main Author:</b>
@@ -714,15 +714,15 @@ The StateGraph library is based on the following references:
 </ul>
 </html>
 "));
-      
+
   end Contact;
-    
+
 end UsersGuide;
-  
-package Examples 
-    "Examples to demonstrate the usage of the components of the StateGraph library" 
-    
-  model FirstExample "A first simple StateGraph example" 
+
+package Examples
+    "Examples to demonstrate the usage of the components of the StateGraph library"
+
+  model FirstExample "A first simple StateGraph example"
     extends Modelica.Icons.Example;
     InitialStep initialStep annotation (Placement(transformation(extent={{-48,0},
                 {-28,20}}, rotation=0)));
@@ -732,12 +732,12 @@ package Examples
               rotation=0)));
     Transition transition2(enableTimer=true, waitTime=1) 
       annotation (Placement(transformation(extent={{40,0},{60,20}}, rotation=0)));
-  equation 
-      
+  equation
+
     annotation (
       Diagram(graphics),
       experiment(StopTime=5),
-      experimentSetupOutput,
+      
         Documentation(info="<html>
   
 </html>"));
@@ -751,9 +751,9 @@ package Examples
              {{51.5,10},{70,10},{70,32},{-62,32},{-62,10},{-49,10}}, color={0,0,
               0}));
   end FirstExample;
-    
-  model FirstExample_Variant2 
-      "A variant of the first simple StateGraph example" 
+
+  model FirstExample_Variant2
+      "A variant of the first simple StateGraph example"
     extends Modelica.Icons.Example;
     InitialStep initialStep annotation (Placement(transformation(extent={{-70,0},
                 {-50,20}}, rotation=0)));
@@ -770,12 +770,12 @@ package Examples
     Modelica.Blocks.Logical.GreaterEqualThreshold greaterEqual(threshold=1) 
       annotation (Placement(transformation(extent={{36,-40},{56,-20}}, rotation=
                0)));
-  equation 
-      
+  equation
+
     annotation (
       Diagram(graphics),
       experiment(StopTime=5),
-      experimentSetupOutput,
+      
         Documentation(info="<html>
   
 </html>"));
@@ -795,9 +795,9 @@ package Examples
              {{63.5,10},{82,10},{82,32},{-80,32},{-80,10},{-71,10}}, color={0,0,
               0}));
   end FirstExample_Variant2;
-    
-  model FirstExample_Variant3 
-      "A variant of the first simple StateGraph example" 
+
+  model FirstExample_Variant3
+      "A variant of the first simple StateGraph example"
     extends Modelica.Icons.Example;
     InitialStep initialStep annotation (Placement(transformation(extent={{-70,0},
                 {-50,20}}, rotation=0)));
@@ -817,12 +817,12 @@ package Examples
             transformation(extent={{28,-40},{60,-20}}, rotation=0)));
     Modelica.Blocks.Sources.BooleanExpression SetBoolean2(y=step.active) annotation (Placement(
             transformation(extent={{-68,-40},{-36,-20}}, rotation=0)));
-  equation 
-      
+  equation
+
     annotation (
       Diagram(graphics),
       experiment(StopTime=5),
-      experimentSetupOutput,
+      
         Documentation(info="<html>
   
 </html>"));
@@ -840,14 +840,14 @@ package Examples
     connect(SetBoolean1.y, transition2.condition) annotation (Line(points={{
               61.6,-30},{66,-30},{66,-2}}, color={255,0,255}));
   end FirstExample_Variant3;
-    
+
   extends Modelica.Icons.Library;
-    
-  model ExecutionPaths 
-      "Example to demonstrate parallel and alternative execution paths" 
-      
+
+  model ExecutionPaths
+      "Example to demonstrate parallel and alternative execution paths"
+
     extends Modelica.Icons.Example;
-      
+
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -868,9 +868,8 @@ has a higher priority to fire as alternative.split[2]).
             preserveAspectRatio=true,
             extent={{-160,-160},{160,160}},
             grid={2,2}), graphics),
-      experiment(StopTime=15),
-      experimentSetupOutput);
-      
+      experiment(StopTime=15));
+
     InitialStep step0 annotation (
           Placement(transformation(extent={{-140,-100},{-120,-80}}, rotation=0)));
     Transition transition1(enableTimer=true, waitTime=1) 
@@ -926,7 +925,7 @@ has a higher priority to fire as alternative.split[2]).
               extent={{-70,-10},{72,110}}, rotation=0)));
     Parallel Parallel1 annotation (Placement(transformation(extent={{-154,-50},
                 {152,120}}, rotation=0)));
-  equation 
+  equation
     connect(transition3.outPort, step3.inPort[1]) 
       annotation (Line(points={{-30.5,90},{-9,90}}, color={0,0,0}));
     connect(step3.outPort[1], transition5.inPort) 
@@ -986,12 +985,12 @@ has a higher priority to fire as alternative.split[2]).
     connect(Parallel1.split[2], step1.inPort[1]) annotation (Line(points={{
               -119.575,-7.5},{-118,-8},{-118,-30},{-11,-30}}, color={0,0,0}));
   end ExecutionPaths;
-    
-  model ShowCompositeStep 
-      "Example to demonstrate parallel activities described by a StateGraph" 
-      
+
+  model ShowCompositeStep
+      "Example to demonstrate parallel activities described by a StateGraph"
+
     extends Modelica.Icons.Example;
-      
+
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -1003,9 +1002,8 @@ is that the alternative paths are included in a \"CompositeStep\".
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics),
-      experiment(StopTime=15),
-      experimentSetupOutput);
-      
+      experiment(StopTime=15));
+
     Utilities.CompositeStep compositeStep 
                                      annotation (Placement(transformation(
               extent={{-10,5},{20,35}}, rotation=0)));
@@ -1028,7 +1026,7 @@ is that the alternative paths are included in a \"CompositeStep\".
     Modelica.Blocks.Sources.BooleanExpression setCondition(y=time > 7) 
       annotation (Placement(transformation(extent={{-40,-90},{-10,-70}},
               rotation=0)));
-  equation 
+  equation
     connect(step0.outPort[1], transition1.inPort) 
       annotation (Line(points={{-68.5,0},{-53,0}}, color={0,0,0}));
     connect(transition7.outPort, step0.inPort[1]) annotation (Line(points={{
@@ -1040,29 +1038,29 @@ is that the alternative paths are included in a \"CompositeStep\".
           color={0,0,0},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid));
-    connect(transition1.outPort, Parallel1.inPort) annotation (Line(points={{
-              -47.5,0},{-30.99,0}}, color={0,0,0}));
-    connect(Parallel1.outPort, transition2.inPort) annotation (Line(points={{
-              36.66,0},{51,0}}, color={0,0,0}));
+    connect(transition1.outPort, Parallel1.inPort) annotation (Line(points={{-47.5,0},
+              {-30.99,0}},          color={0,0,0}));
+    connect(Parallel1.outPort, transition2.inPort) annotation (Line(points={{36.66,0},
+              {51,0}},          color={0,0,0}));
     connect(compositeStep.inPort, Parallel1.split[1]) 
-                                                 annotation (Line(points={{-11,
-              20},{-22.575,20}}, color={0,0,0}));
+                                                 annotation (Line(points={{-11,20},
+              {-22.575,20}},     color={0,0,0}));
     connect(compositeStep.outPort, Parallel1.join[1]) 
-                                                 annotation (Line(points={{20.5,
-              20},{28.575,20}}, color={0,0,0}));
-    connect(step1.inPort[1], Parallel1.split[2]) annotation (Line(points={{-5,
-              -20},{-22.575,-20}}, color={0,0,0}));
+                                                 annotation (Line(points={{20.5,20},
+              {28.575,20}},     color={0,0,0}));
+    connect(step1.inPort[1], Parallel1.split[2]) annotation (Line(points={{-5,-20},
+              {-22.575,-20}},      color={0,0,0}));
     connect(step1.outPort[1], Parallel1.join[2]) annotation (Line(points={{16.5,
               -20},{28.575,-20}}, color={0,0,0}));
     connect(setCondition.y, transition7.condition) annotation (Line(points={{
               -8.5,-80},{0,-80},{0,-72}}, color={255,0,255}));
   end ShowCompositeStep;
-    
-  model ShowExceptions 
-      "Example to demonstrate how a hierarchically structured StateGraph can suspend and resume actions on different levels" 
-      
+
+  model ShowExceptions
+      "Example to demonstrate how a hierarchically structured StateGraph can suspend and resume actions on different levels"
+
     extends Modelica.Icons.Example;
-      
+
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -1078,9 +1076,8 @@ according to their setting before leaving the \"compositeStep\" via its
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics),
-      experiment(StopTime=20),
-      experimentSetupOutput);
-      
+      experiment(StopTime=20));
+
     Utilities.CompositeStep1 compositeStep 
                                 annotation (Placement(transformation(extent={{
                 -20,25},{10,55}}, rotation=0)));
@@ -1101,8 +1098,8 @@ according to their setting before leaving the \"compositeStep\" via its
     Transition transition4(enableTimer=true, waitTime=1) 
       annotation (                                             Placement(
             transformation(extent={{10,-30},{30,-10}}, rotation=0)));
-  equation 
-      
+  equation
+
     connect(transition1.outPort, compositeStep.inPort) 
       annotation (Line(points={{-38.5,40},{-21,40}}, color={0,0,0}));
     connect(initialStep.outPort[1], transition1.inPort) 
@@ -1113,19 +1110,20 @@ according to their setting before leaving the \"compositeStep\" via its
              {{31.5,40},{46,40},{46,80},{-90,80},{-90,40},{-81,40}}, color={0,0,
               0}));
     connect(compositeStep.suspend[1], transition3.inPort) 
-                                                  annotation (Line(points={{-13,
-              24.5},{-13,10},{-60,10},{-60,-20},{-49,-20}}, color={0,0,0}));
+                                                  annotation (Line(points={{-12.5,
+              24.5},{-12.5,10},{-60,10},{-60,-20},{-49,-20}},
+                                                            color={0,0,0}));
     connect(transition3.outPort, step1.inPort[1]) annotation (Line(points={{
               -43.5,-20},{-25,-20}}, color={0,0,0}));
     connect(step1.outPort[1], transition4.inPort) 
       annotation (Line(points={{-3.5,-20},{16,-20}}, color={0,0,0}));
     connect(transition4.outPort, compositeStep.resume[1]) 
-                                                  annotation (Line(points={{
-              21.5,-20},{40,-20},{40,10},{3,10},{3,24}}, color={0,0,0}));
+                                                  annotation (Line(points={{21.5,
+              -20},{40,-20},{40,10},{2.5,10},{2.5,24}},  color={0,0,0}));
   end ShowExceptions;
-    
-  model ControlledTanks 
-      "Demonstrating the controller of a tank filling/emptying system" 
+
+  model ControlledTanks
+      "Demonstrating the controller of a tank filling/emptying system"
     extends Modelica.Icons.Example;
     Utilities.TankController tankController 
       annotation (Placement(transformation(extent={{-50,-20},{-10,20}},
@@ -1148,7 +1146,7 @@ according to their setting before leaving the \"compositeStep\" via its
             extent={{-100,-100},{100,100}},
             grid={0.5,0.5}), graphics),
       experiment(StopTime=100),
-      experimentSetupOutput,
+      
       Documentation(info="<html>
 <p>
 With this example the controller of a tank filling/emptying system
@@ -1206,7 +1204,7 @@ buttons:
             origin={73.5,-77},
             extent={{-7,-8},{7,8}},
             rotation=270)));
-  equation 
+  equation
     connect(tank1.outflow1, valve2.outflow1) annotation (Line(
           points={{50,33.75},{50,26.875},{46.5,26.875},{46.5,16.5}},
           color={0,0,0},
@@ -1244,20 +1242,20 @@ buttons:
               {41.25,-40},{-18,-40},{-18,-22}}, color={0,0,255}));
     connect(tankController.valve1, valve1.valveControl) annotation (Line(points=
              {{-9,12},{10,12},{10,72},{18.1,72}}, color={255,0,255}));
-    connect(tankController.valve2, valve2.valveControl) annotation (Line(points=
-             {{-9,0},{30,0},{30,13},{40.1,13}}, color={255,0,255}));
+    connect(tankController.valve2, valve2.valveControl) annotation (Line(points={{-9,0},{
+              30,0},{30,13},{40.1,13}},         color={255,0,255}));
     connect(tankController.valve3, valve3.valveControl) annotation (Line(points=
              {{-9,-12},{23,-12},{23,-77},{67.1,-77}}, color={255,0,255}));
-      
+
     connect(source.outflow1, valve1.outflow1) annotation (Line(
           points={{22.5,85.5},{22.5,74.75}},
           color={0,0,0},
           thickness=2));
-      
+
   end ControlledTanks;
-    
-  package Utilities "Utility components for the examples" 
-    model TankController "Controller for tank system" 
+
+  package Utilities "Utility components for the examples"
+    model TankController "Controller for tank system"
       extends StateGraph.Interfaces.PartialStateGraphIcon;
       parameter Temporary.SetRealParameter limit=0.98 "Limit level of tank 1" 
         annotation (Placement(transformation(extent={{-64,76},{-44,96}},
@@ -1265,7 +1263,7 @@ buttons:
       parameter Temporary.SetRealParameter waitTime=3 "Wait time" 
         annotation (Placement(transformation(extent={{-91,76},{-71,96}},
                 rotation=0)));
-        
+
       InitialStep s1(nIn=2) 
                      annotation (Placement(transformation(extent={{-72,30},{-52,
                   50}}, rotation=0)));
@@ -1334,65 +1332,65 @@ buttons:
       Modelica.Blocks.Sources.BooleanExpression setValve3(y=makeProduct.emptyTank2.active or emptyTanks.active) 
         annotation (Placement(transformation(extent={{-26,-100},{80,-80}},
                 rotation=0)));
-    equation 
-        
+    equation
+
       annotation (
         Diagram(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},
-              grid={1,1}), graphics={Rectangle(extent={{-100,100},{100,-100}}, 
+              grid={1,1}), graphics={Rectangle(extent={{-100,100},{100,-100}},
                   lineColor={0,0,0})}),
         Icon(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},
               grid={1,1}), graphics={
               Text(
-                extent={{-100,68},{-32,54}}, 
-                lineColor={0,0,0}, 
-                fillColor={0,0,0}, 
-                fillPattern=FillPattern.Solid, 
-                textString="start"), 
+                extent={{-100,68},{-32,54}},
+                lineColor={0,0,0},
+                fillColor={0,0,0},
+                fillPattern=FillPattern.Solid,
+                textString="start"),
               Text(
-                extent={{-100,6},{-32,-8}}, 
-                lineColor={0,0,0}, 
-                fillColor={0,0,0}, 
-                fillPattern=FillPattern.Solid, 
-                textString="stop"), 
+                extent={{-100,6},{-32,-8}},
+                lineColor={0,0,0},
+                fillColor={0,0,0},
+                fillPattern=FillPattern.Solid,
+                textString="stop"),
               Text(
-                extent={{-100,-54},{-32,-68}}, 
-                lineColor={0,0,0}, 
-                fillColor={0,0,0}, 
-                fillPattern=FillPattern.Solid, 
-                textString="shut"), 
+                extent={{-100,-54},{-32,-68}},
+                lineColor={0,0,0},
+                fillColor={0,0,0},
+                fillPattern=FillPattern.Solid,
+                textString="shut"),
               Text(
-                extent={{-94,-82},{-18,-96}}, 
-                lineColor={0,0,0}, 
-                fillColor={0,0,0}, 
-                fillPattern=FillPattern.Solid, 
-                textString="level1"), 
+                extent={{-94,-82},{-18,-96}},
+                lineColor={0,0,0},
+                fillColor={0,0,0},
+                fillPattern=FillPattern.Solid,
+                textString="level1"),
               Text(
-                extent={{24,-84},{96,-98}}, 
-                lineColor={0,0,0}, 
-                fillColor={0,0,0}, 
-                fillPattern=FillPattern.Solid, 
-                textString="level2"), 
+                extent={{24,-84},{96,-98}},
+                lineColor={0,0,0},
+                fillColor={0,0,0},
+                fillPattern=FillPattern.Solid,
+                textString="level2"),
               Text(
-                extent={{31,68},{99,54}}, 
-                lineColor={0,0,0}, 
-                fillColor={0,0,0}, 
-                fillPattern=FillPattern.Solid, 
-                textString="valve1"), 
+                extent={{31,68},{99,54}},
+                lineColor={0,0,0},
+                fillColor={0,0,0},
+                fillPattern=FillPattern.Solid,
+                textString="valve1"),
               Text(
-                extent={{33,9},{101,-5}}, 
-                lineColor={0,0,0}, 
-                fillColor={0,0,0}, 
-                fillPattern=FillPattern.Solid, 
-                textString="valve2"), 
+                extent={{33,9},{101,-5}},
+                lineColor={0,0,0},
+                fillColor={0,0,0},
+                fillPattern=FillPattern.Solid,
+                textString="valve2"),
               Text(
-                extent={{34,-53},{102,-67}}, 
-                lineColor={0,0,0}, 
-                fillColor={0,0,0}, 
-                fillPattern=FillPattern.Solid, 
+                extent={{34,-53},{102,-67}},
+                lineColor={0,0,0},
+                fillColor={0,0,0},
+                fillPattern=FillPattern.Solid,
                 textString="valve3")}));
       connect(s1.outPort[1], T1.inPort) 
                                      annotation (Line(
@@ -1453,21 +1451,24 @@ buttons:
                 -50},{70,70},{-84,70},{-84,40},{-74,40},{-73,39.5}}, color={0,0,
                 0}));
     end TankController;
-      
-    model MakeProduct 
+
+    model MakeProduct
+        "State machine defining the time instants when to fill or empty a tank"
       extends StateGraph.PartialCompositeStep;
-      parameter StateGraph.Temporary.SetRealParameter limit=0.98 
+      parameter StateGraph.Temporary.SetRealParameter limit=0.98
           "Limit level of tank 1" 
         annotation (Placement(transformation(extent={{-60,40},{-20,60}},
                 rotation=0)));
       parameter StateGraph.Temporary.SetRealParameter waitTime=3 "Wait time" 
         annotation (Placement(transformation(extent={{-120,40},{-80,60}},
                 rotation=0)));
-        
+
       Modelica.Blocks.Interfaces.RealInput level1 
         annotation (Placement(transformation(extent={{-190,-140},{-150,-100}},
                 rotation=0)));
-      annotation (Diagram(graphics));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-150,
+                  -150},{150,150}}),
+                          graphics));
       Step fillTank1 annotation (Placement(transformation(extent={{-140,-10},{
                   -120,10}}, rotation=0)));
       Transition T1(condition=level1 > limit) 
@@ -1490,7 +1491,7 @@ buttons:
       Transition T4(enableTimer=true, waitTime=waitTime) 
         annotation (Placement(transformation(extent={{82,-10},{102,10}},
                 rotation=0)));
-    equation 
+    equation
       connect(fillTank1.inPort[1], inPort) 
                                         annotation (Line(
             points={{-141,0},{-160,0}},
@@ -1533,39 +1534,41 @@ buttons:
                                              annotation (Line(points={{93.5,0},
                 {119,0}}, color={0,0,0}));
     end MakeProduct;
-      
-    connector inflow 
-        "Inflow connector (this is a copy from Isolde Dressler's master thesis project)" 
-        
+
+    connector inflow
+        "Inflow connector (this is a copy from Isolde Dressler's master thesis project)"
+
         import Units = Modelica.SIunits;
-        
+
       Units.VolumeFlowRate Fi "inflow";
-      annotation (Icon(graphics={Polygon(
-                points={{-100,-100},{0,100},{100,-100},{-100,-100}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
+                  -100,-100},{100,100}}), graphics={Polygon(
+                points={{-100,-100},{0,100},{100,-100},{-100,-100}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
                 fillPattern=FillPattern.Solid)}));
     end inflow;
-      
-    connector outflow 
-        "Outflow connector (this is a copy from Isolde Dressler's master thesis project)" 
-        
+
+    connector outflow
+        "Outflow connector (this is a copy from Isolde Dressler's master thesis project)"
+
         import Units = Modelica.SIunits;
-        
+
       Units.VolumeFlowRate Fo "outflow";
       Boolean open "valve open";
-      annotation (Icon(graphics={Polygon(
-                points={{-100,100},{0,-100},{100,100},{-100,100}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
+                  -100,-100},{100,100}}), graphics={Polygon(
+                points={{-100,100},{0,-100},{100,100},{-100,100}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
                 fillPattern=FillPattern.Solid)}));
     end outflow;
-      
-    model valve 
-        "Simple valve model (this is a copy from Isolde Dressler's master thesis project)" 
-        
+
+    model valve
+        "Simple valve model (this is a copy from Isolde Dressler's master thesis project)"
+
       annotation (
         Diagram(coordinateSystem(
               preserveAspectRatio=true,
@@ -1577,15 +1580,15 @@ buttons:
               extent={{-100,-100},{100,100}},
               grid={1,1}), graphics={
               Line(
-                points={{20,20},{20,20}}, 
-                color={0,0,0}, 
-                thickness=2), 
+                points={{20,20},{20,20}},
+                color={0,0,0},
+                thickness=2),
               Text(
-                extent={{-131,125},{136,67}}, 
-                lineColor={0,0,255}, 
-                fillColor={191,0,95}, 
-                fillPattern=FillPattern.Solid, 
-                textString="%name"), 
+                extent={{-131,125},{136,67}},
+                lineColor={0,0,255},
+                fillColor={191,0,95},
+                fillPattern=FillPattern.Solid,
+                textString="%name"),
               Line(points={{0,0},{0,-60}}, color={255,0,255})}));
       Modelica.Blocks.Interfaces.BooleanInput valveControl 
         annotation (Placement(transformation(
@@ -1600,18 +1603,18 @@ buttons:
               origin={-50,0},
               extent={{-50,-50},{50,50}},
               rotation=90)));
-    equation 
+    equation
       outflow1.Fo = inflow1.Fi;
       outflow1.open = valveControl;
     end valve;
-      
-    model Tank 
-        "Simple tank model (this is a copy from Isolde Dressler's master thesis project)" 
-        
+
+    model Tank
+        "Simple tank model (this is a copy from Isolde Dressler's master thesis project)"
+
       Modelica.Blocks.Interfaces.RealOutput levelSensor 
         annotation (Placement(transformation(extent={{-61,-30},{-81,-10}},
                 rotation=0)));
-        
+
       inflow inflow1 annotation (Placement(transformation(extent={{-55,60},{-45,
                   70}}, rotation=0)));
       outflow outflow1 annotation (Placement(transformation(extent={{55,-50},{
@@ -1626,30 +1629,30 @@ buttons:
               extent={{-100,-100},{100,100}},
               grid={1,1}), graphics={
               Text(
-                extent={{-122,-82},{88,-42}}, 
-                fillColor={191,0,95}, 
-                fillPattern=FillPattern.Solid, 
-                textString="%name", 
-                lineColor={0,0,255}), 
+                extent={{-122,-82},{88,-42}},
+                fillColor={191,0,95},
+                fillPattern=FillPattern.Solid,
+                textString="%name",
+                lineColor={0,0,255}),
               Rectangle(
-                extent={{-60,60},{80,-40}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{-60,60},{80,-40}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
               Rectangle(
                 extent=DynamicSelect({{-60,-40},{-60,-40}}, {{-60,-40},{80,(-40
-                     + level*100)}}), 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillPattern=FillPattern.HorizontalCylinder, 
+                     + level*100)}}),
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={191,0,95})}));
       Real level "Tank level in % of max height";
       parameter Real A=1 "ground area of tank in m²";
       parameter Real a=0.2 "area of drain hole in m²";
       parameter Real hmax=1 "max height of tank in m";
       constant Real g=Modelica.Constants.g_n;
-    equation 
+    equation
       der(level) = (inflow1.Fi - outflow1.Fo)/(hmax*A);
       if outflow1.open then
         outflow1.Fo = sqrt(2*g*hmax*level)*a;
@@ -1657,37 +1660,41 @@ buttons:
         outflow1.Fo = 0;
       end if;
       levelSensor = level;
-        
+
     end Tank;
-      
-    model Source 
-        "Simple source model (this is a copy from Isolde Dressler's master thesis project)" 
-        
+
+    model Source
+        "Simple source model (this is a copy from Isolde Dressler's master thesis project)"
+
       outflow outflow1 annotation (Placement(transformation(extent={{-10,-60},{
                   10,-40}}, rotation=0)));
       parameter Real maxflow=1 "maximal flow out of source";
-      annotation (Icon(graphics={Rectangle(
-                extent={{-80,40},{80,-40}}, 
-                lineColor={0,0,0}, 
-                lineThickness=2, 
-                fillColor={255,255,255}, 
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
+                  -100,-100},{100,100}}), graphics={Rectangle(
+                extent={{-80,40},{80,-40}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
                 fillPattern=FillPattern.Solid), Text(
-                extent={{-144,54},{152,114}}, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid, 
-                textString="%name", 
+                extent={{-144,54},{152,114}},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
+                textString="%name",
                 lineColor={0,0,255})}));
-    equation 
+    equation
       if outflow1.open then
         outflow1.Fo = maxflow;
       else
         outflow1.Fo = 0;
       end if;
     end Source;
-      
-    model CompositeStep 
+
+    model CompositeStep
+        "State machine demonstrating a composite step (used in StateGraph.Examples.ShowCompositeStep)"
       extends StateGraph.PartialCompositeStep;
-      annotation (Diagram(graphics));
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-150,
+                  -150},{150,150}}),
+                          graphics));
       Transition transition3(enableTimer=true, waitTime=1) 
         annotation (                                            Placement(
               transformation(extent={{-64,50},{-44,70}}, rotation=0)));
@@ -1718,7 +1725,7 @@ buttons:
                   10}}, rotation=0)));
       Alternative Alternative1(nBranches=3) annotation (Placement(
               transformation(extent={{-100,-90},{96,90}}, rotation=0)));
-    equation 
+    equation
       connect(transition3.outPort, step3.inPort[1]) 
         annotation (Line(points={{-52.5,60},{-11,60}}, color={0,0,0}));
       connect(step3.outPort[1], transition5.inPort) 
@@ -1740,24 +1747,25 @@ buttons:
       connect(Alternative1.outPort, exitStep.inPort[1]) 
         annotation (Line(points={{97.96,0},{119,0}}, color={0,0,0}));
       connect(transition3.inPort, Alternative1.split[1]) annotation (Line(
-              points={{-58,60},{-77.95,60}}, color={0,0,0}));
+              points={{-58,60},{-79.42,60}}, color={0,0,0}));
       connect(transition4.inPort, Alternative1.split[2]) annotation (Line(
-              points={{-58,0},{-67.975,0},{-67.975,-7.10543e-015},{-77.95,
+              points={{-58,0},{-67.975,0},{-67.975,-7.10543e-015},{-79.42,
                 -7.10543e-015}}, color={0,0,0}));
       connect(transition4a.inPort, Alternative1.split[3]) annotation (Line(
-              points={{-58,-60},{-67.975,-60},{-67.975,-60},{-77.95,-60}},
+              points={{-58,-60},{-67.975,-60},{-67.975,-60},{-79.42,-60}},
               color={0,0,0}));
       connect(transition5.outPort, Alternative1.join[1]) annotation (Line(
-              points={{47.5,60},{73.95,60}}, color={0,0,0}));
+              points={{47.5,60},{75.42,60}}, color={0,0,0}));
       connect(transition6.outPort, Alternative1.join[2]) annotation (Line(
-              points={{47.5,0},{60.725,0},{60.725,-7.10543e-015},{73.95,
+              points={{47.5,0},{60.725,0},{60.725,-7.10543e-015},{75.42,
                 -7.10543e-015}}, color={0,0,0}));
       connect(transition6a.outPort, Alternative1.join[3]) annotation (Line(
-              points={{47.5,-60},{60.725,-60},{60.725,-60},{73.95,-60}}, color=
+              points={{47.5,-60},{60.725,-60},{60.725,-60},{75.42,-60}}, color=
                 {0,0,0}));
     end CompositeStep;
-      
-    model CompositeStep1 
+
+    model CompositeStep1
+        "Composite step used to demonstrate exceptions (in StateGraph.Examples.ShowExceptions)"
       extends PartialCompositeStep;
       Transition transition1(
         enableTimer=false,
@@ -1793,7 +1801,7 @@ buttons:
               transformation(extent={{29,-40},{49,-20}}, rotation=0)));
       Alternative Alternative1 annotation (Placement(transformation(extent={{
                   -100,-60},{89,60}}, rotation=0)));
-    equation 
+    equation
       connect(exitStep.outPort[1], outPort) 
         annotation (Line(points={{130.5,0},{155,0}}, color={0,0,0}));
       connect(initStep.inPort[1], inPort) 
@@ -1813,16 +1821,17 @@ buttons:
       connect(Alternative1.outPort, exitStep.inPort[1]) 
         annotation (Line(points={{90.89,0},{109,0}}, color={0,0,0}));
       connect(transition1.inPort, Alternative1.split[1]) annotation (Line(
-              points={{-54,30},{-78.7375,30}}, color={0,0,0}));
+              points={{-54,30},{-80.155,30}},  color={0,0,0}));
       connect(transition2.inPort, Alternative1.split[2]) annotation (Line(
-              points={{-55,-30},{-78.7375,-30}}, color={0,0,0}));
+              points={{-55,-30},{-80.155,-30}},  color={0,0,0}));
       connect(transition3.outPort, Alternative1.join[1]) annotation (Line(
-              points={{40.5,30},{67.7375,30}}, color={0,0,0}));
+              points={{40.5,30},{69.155,30}},  color={0,0,0}));
       connect(transition4.outPort, Alternative1.join[2]) annotation (Line(
-              points={{40.5,-30},{67.7375,-30}}, color={0,0,0}));
+              points={{40.5,-30},{69.155,-30}},  color={0,0,0}));
     end CompositeStep1;
-      
-    model CompositeStep2 
+
+    model CompositeStep2
+        "Composite step used to demonstrate exceptions (in StateGraph.Examples.ShowExceptions)"
       extends PartialCompositeStep;
       Transition transition(enableTimer=true, waitTime=waitTime) 
         annotation (                                            Placement(
@@ -1835,11 +1844,11 @@ buttons:
               preserveAspectRatio=true,
               extent={{-150,-150},{150,150}},
               grid={1,1}), graphics));
-      parameter Temporary.SetRealParameter waitTime=2 
+      parameter Temporary.SetRealParameter waitTime=2
           "waiting time in this composite step" 
                                             annotation (Placement(
               transformation(extent={{-80,30},{-50,50}}, rotation=0)));
-    equation 
+    equation
       connect(exitStep.outPort[1], outPort) 
         annotation (Line(points={{130.5,0},{155,0}}, color={0,0,0}));
       connect(initStep.inPort[1], inPort) 
@@ -1849,17 +1858,17 @@ buttons:
       connect(transition.outPort, exitStep.inPort[1]) 
         annotation (Line(points={{-18.5,0},{109,0}}, color={0,0,0}));
     end CompositeStep2;
-      
+
   end Utilities;
     annotation (Documentation(info="<html>
   
 </html>"));
 end Examples;
-  
-package Interfaces "Connectors and partial models" 
+
+package Interfaces "Connectors and partial models"
   extends Modelica.Icons.Library;
-    
-  connector Step_in "Input port of a step" 
+
+  connector Step_in "Input port of a step"
     output Boolean occupied "true, if step is active" annotation (Hide=true);
     input Boolean set "true, if transition fires and step is activated" 
       annotation (Hide=true);
@@ -1868,185 +1877,185 @@ package Interfaces "Connectors and partial models"
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Polygon(
-              points={{-100,100},{100,0},{-100,-100},{-100,100}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
+              points={{-100,100},{100,0},{-100,-100},{-100,100}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
                                             Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Polygon(
-              points={{0,50},{100,0},{0,-50},{0,50}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
+              points={{0,50},{100,0},{0,-50},{0,50}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
               fillPattern=FillPattern.Solid), Text(
-              extent={{-141,100},{100,60}}, 
-              lineColor={0,0,0}, 
+              extent={{-141,100},{100,60}},
+              lineColor={0,0,0},
               textString="%name")}),
         Documentation(info="<html>
  
 </html>"));
   end Step_in;
-    
-  connector Step_out "Output port of a step" 
+
+  connector Step_out "Output port of a step"
     output Boolean available "true, if step is active" annotation (Hide=true);
-      
+
     input Boolean reset "true, if transition fires and step is deactivated" 
       annotation (Hide=true);
-      
+
     annotation (Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              fillColor={255,255,255}, 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
                               Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Rectangle(
-              extent={{-100,50},{0,-50}}, 
-              lineColor={0,0,0}, 
-              fillColor={255,255,255}, 
+              extent={{-100,50},{0,-50}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
               fillPattern=FillPattern.Solid), Text(
-              extent={{-100,100},{186,58}}, 
-              lineColor={0,0,0}, 
+              extent={{-100,100},{186,58}},
+              lineColor={0,0,0},
               textString="%name")}),
         Documentation(info="<html>
  
 </html>"));
   end Step_out;
-    
-  connector Transition_in "Input port of a transition" 
-    input Boolean available 
+
+  connector Transition_in "Input port of a transition"
+    input Boolean available
         "true, if step connected to the transition input is active" 
       annotation (Hide=true);
-    output Boolean reset 
+    output Boolean reset
         "true, if transition fires and the step connected to the transition input is deactivated"
       annotation (Hide=true);
-      
+
     annotation (Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Polygon(
-              points={{-100,100},{100,0},{-100,-100},{-100,100}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
+              points={{-100,100},{100,0},{-100,-100},{-100,100}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
                                             Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Polygon(
-              points={{0,50},{100,0},{0,-50},{0,50}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
+              points={{0,50},{100,0},{0,-50},{0,50}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
               fillPattern=FillPattern.Solid), Text(
-              extent={{-141,100},{100,60}}, 
-              lineColor={0,0,0}, 
+              extent={{-141,100},{100,60}},
+              lineColor={0,0,0},
               textString="%name")}),
         Documentation(info="<html>
  
 </html>"));
   end Transition_in;
-    
-  connector Transition_out "Output port of a transition" 
-    input Boolean occupied 
+
+  connector Transition_out "Output port of a transition"
+    input Boolean occupied
         "true, if step connected to the transition output is active" 
       annotation (Hide=true);
-    output Boolean set 
+    output Boolean set
         "true, if transition fires and step connected to the transition output becomes active"
       annotation (Hide=true);
-      
+
     annotation (Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              fillColor={255,255,255}, 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
                               Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
-              extent={{-100,100},{146,60}}, 
-              lineColor={0,0,0}, 
+              extent={{-100,100},{146,60}},
+              lineColor={0,0,0},
               textString="%name"), Rectangle(
-              extent={{-100,50},{0,-50}}, 
-              lineColor={0,0,0}, 
-              fillColor={255,255,255}, 
+              extent={{-100,50},{0,-50}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
  
 </html>"));
   end Transition_out;
-    
-  connector CompositeStep_resume 
-      "Input port of a step (used for resume connector of a CompositeStep)" 
+
+  connector CompositeStep_resume
+      "Input port of a step (used for resume connector of a CompositeStep)"
     output Boolean occupied "true, if step is active" annotation (Hide=true);
     input Boolean set "true, if transition fires and step is activated" 
       annotation (Hide=true);
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
-              points={{-100,100},{100,0},{-100,-100},{-100,100}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
+              points={{-100,100},{100,0},{-100,-100},{-100,100}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
                                             Diagram(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={Rectangle(
-              extent={{0,0},{0,0}}, 
-              lineColor={255,255,255}, 
+              extent={{0,0},{0,0}},
+              lineColor={255,255,255},
               pattern=LinePattern.None)}),
         Documentation(info="<html>
   
 </html>"));
   end CompositeStep_resume;
-    
-  connector CompositeStep_suspend 
-      "Output port of a step (used for suspend connector of a CompositeStep)" 
-      
+
+  connector CompositeStep_suspend
+      "Output port of a step (used for suspend connector of a CompositeStep)"
+
     output Boolean available "true, if step is active" annotation (Hide=true);
-      
+
     input Boolean reset "true, if transition fires and step is deactived" 
       annotation (Hide=true);
-      
+
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              fillColor={255,255,255}, 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
-                              Diagram(coordinateSystem(preserveAspectRatio=
-                false, extent={{-100,-100},{100,100}}), graphics={Rectangle(
-              extent={{0,0},{0,0}}, 
-              lineColor={255,255,255}, 
+                              Diagram(coordinateSystem(preserveAspectRatio=false,
+                       extent={{-100,-100},{100,100}}), graphics={Rectangle(
+              extent={{0,0},{0,0}},
+              lineColor={255,255,255},
               pattern=LinePattern.None)}),
         Documentation(info="<html>
   
 </html>"));
   end CompositeStep_suspend;
-    
-  connector CompositeStepStatePort_in 
-      "Communication port between a CompositeStep and the ordinary steps within the CompositeStep (suspend/resume are inputs)" 
-      
+
+  connector CompositeStepStatePort_in
+      "Communication port between a CompositeStep and the ordinary steps within the CompositeStep (suspend/resume are inputs)"
+
     annotation(Documentation(info="<html>
   
 </html>"));
-    input Boolean suspend 
+    input Boolean suspend
         "= true, if suspend transition of CompositeStep fires";
     input Boolean resume "= true, if resume transition of CompositeStep fires";
     flow output Real activeSteps "Number of active steps in the CompositeStep";
   end CompositeStepStatePort_in;
-    
-  connector CompositeStepStatePort_out 
-      "Communication port between a CompositeStep and the ordinary steps within the CompositeStep (suspend/resume are outputs)" 
-      
+
+  connector CompositeStepStatePort_out
+      "Communication port between a CompositeStep and the ordinary steps within the CompositeStep (suspend/resume are outputs)"
+
     annotation(Documentation(info="<html>
  
 </html>"));
-    output Boolean suspend 
+    output Boolean suspend
         "= true, if suspend transition of CompositeStep fires";
     output Boolean resume "= true, if resume transition of CompositeStep fires";
     flow input Real activeSteps "Number of active steps in the CompositeStep";
@@ -2055,21 +2064,21 @@ package Interfaces "Connectors and partial models"
                      graphics),
                       Diagram(graphics));
   end CompositeStepStatePort_out;
-    
-  partial block PartialStep 
-      "Partial step with one input and one output transition port" 
-      
+
+  partial block PartialStep
+      "Partial step with one input and one output transition port"
+
     annotation(Documentation(info="<html>
  
 </html>"));
     parameter Integer nIn(min=0) = 1 "Number of input connections";
     parameter Integer nOut(min=0) = 1 "Number of output connections";
-      
+
     /* localActive is introduced since component 'Step' has Boolean variable 'active'
      and component 'StepWithSignal' has connector instance 'active' defined
      and both components inherit from PartialStep
   */
-    output Boolean localActive 
+    output Boolean localActive
         "= true if step is active, otherwise the step is not active" 
       annotation (Hide=true);
     Interfaces.Step_in inPort[nIn] "Vector of step input connectors" 
@@ -2078,33 +2087,33 @@ package Interfaces "Connectors and partial models"
     Interfaces.Step_out outPort[nOut] "Vector of step output connectors" 
       annotation (Placement(transformation(extent={{100,5},{110,-5}}, rotation=
                 0)));
-    protected 
+    protected
     outer Interfaces.CompositeStepState stateGraphRoot;
     CompositeStepStatePort_in subgraphStatePort;
     Boolean newActive "Value of active in the next iteration" 
       annotation (Hide=true);
     Boolean oldActive "Value of active when CompositeStep was aborted";
-  initial equation 
+  initial equation
     pre(newActive) = pre(localActive);
     pre(oldActive) = pre(localActive);
-  equation 
+  equation
     connect(subgraphStatePort, stateGraphRoot.subgraphStatePort);
-      
+
     // Check that connections to the connector are correct
     for i in 1:nIn loop
-        
+
     assert(cardinality(inPort[i]) <= 1,
   "Connector inPort[" + String(i) + "] of the step is connected 
 to more than one transition");
     end for;
-      
+
     for i in 1:nOut loop
-        
+
     assert(cardinality(outPort[i]) <= 1,
   "Connector outPort[" + String(i) + "] of the step is connected 
 to more than one transition");
     end for;
-      
+
     // set active state
     localActive = pre(newActive);
     newActive = if subgraphStatePort.resume then 
@@ -2113,35 +2122,35 @@ to more than one transition");
                           localActive
                        and not StateGraph.Temporary.anyTrue(outPort.reset))
                      and not subgraphStatePort.suspend;
-      
+
     // Remember state for suspend action
     when subgraphStatePort.suspend then
       oldActive = localActive;
     end when;
-      
+
     // Report state to CompositeStep
     subgraphStatePort.activeSteps = if localActive then 1.0 else 0.0;
-      
+
     // Report state to input and output transitions
     for i in 1:nIn loop
       inPort[i].occupied = if i == 1 then localActive else 
                                           inPort[i-1].occupied or 
                                           inPort[i-1].set;
     end for;
-      
+
     for i in 1:nOut loop
        outPort[i].available = if i == 1 then localActive else 
                                              outPort[i-1].available and not 
                                              outPort[i-1].reset;
     end for;
-      
+
     // Default setting, if an inPort or an outPort is not connected
     for i in 1:nIn loop
       if cardinality(inPort[i]) == 0 then
         inPort[i].set = false;
       end if;
     end for;
-      
+
     for i in 1:nOut loop
       if cardinality(outPort[i]) == 0 then
         outPort[i].reset = false;
@@ -2155,41 +2164,41 @@ to more than one transition");
            graphics),
       Coordsys(grid=[1,1], component=[20,20]));
   end PartialStep;
-    
-  partial block PartialTransition 
-      "Partial transition with input and output connections" 
+
+  partial block PartialTransition
+      "Partial transition with input and output connections"
     input Boolean localCondition "= true, if transition may fire" 
       annotation (Hide=true);
     parameter Boolean enableTimer=false "= true, if timer is enabled" 
       annotation (Evaluate=true, Dialog(group="Timer"));
-    parameter Modelica.SIunits.Time waitTime(min=0) = 0 
+    parameter Modelica.SIunits.Time waitTime(min=0) = 0
         "Wait time before transition fires" 
       annotation (Dialog(group="Timer", enable=enableTimer));
-    output Modelica.SIunits.Time t 
+    output Modelica.SIunits.Time t
         "= actual waiting time (transition will fire when t > waitTime)";
     output Boolean enableFire "= true, if all firing conditions are true";
     output Boolean fire "= true, if transition fires" annotation (Hide=true);
-      
-    StateGraph.Interfaces.Transition_in inPort 
+
+    StateGraph.Interfaces.Transition_in inPort
         "Vector of transition input connectors" 
       annotation (Placement(transformation(extent={{-50,-10},{-30,10}},
               rotation=0)));
-    StateGraph.Interfaces.Transition_out outPort 
+    StateGraph.Interfaces.Transition_out outPort
         "Vector of transition output connectors" 
       annotation (Placement(transformation(extent={{10,-5},{20,5}}, rotation=0)));
-    protected 
-    Modelica.SIunits.Time t_start 
+    protected
+    Modelica.SIunits.Time t_start
         "Time instant at which the transition would fire, if waitTime would be zero";
     Real t_dummy;
-  initial equation 
-      
+  initial equation
+
     pre(enableFire) = false;
-  equation 
+  equation
     assert(cardinality(inPort) == 1,
       "Connector inPort is not connected to exactly one other connector");
     assert(cardinality(outPort) == 1,
       "Connector outPort is not connected to exactly one other connector");
-      
+
     // Handling of Timer
     if enableTimer then
       when enableFire then
@@ -2204,7 +2213,7 @@ to more than one transition");
       t = 0;
       fire = enableFire;
     end if;
-      
+
     // Determine fire setting and report it to the connected step
     enableFire = localCondition and inPort.available and not outPort.occupied;
     inPort.reset = fire;
@@ -2221,28 +2230,28 @@ to more than one transition");
  
 </html>"));
   end PartialTransition;
-    
-  partial block PartialStateGraphIcon "Icon for a StateGraph object" 
-      
+
+  partial block PartialStateGraphIcon "Icon for a StateGraph object"
+
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              fillColor={255,255,255}, 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
               fillPattern=FillPattern.Solid), Text(
-              extent={{160,110},{-160,150}}, 
-              textString="%name", 
+              extent={{160,110},{-160,150}},
+              textString="%name",
               lineColor={0,0,255})}),
           Documentation(info="<html>
  
 </html>"));
-  equation 
-      
+  equation
+
   end PartialStateGraphIcon;
-    
-  block CompositeStepState 
-      "Communication channel between CompositeSteps and steps in the CompositeStep" 
-      
+
+  block CompositeStepState
+      "Communication channel between CompositeSteps and steps in the CompositeStep"
+
     output Boolean suspend = false;
     output Boolean resume =  false;
     StateGraph.Interfaces.CompositeStepStatePort_out subgraphStatePort;
@@ -2253,14 +2262,14 @@ to more than one transition");
         Documentation(info="<html>
  
 </html>"));
-      
+
   /*
     missingInnerMessage="No \"stateGraphRoot\" component is defined on highest level
 of the StateGraph. A stateGraphRoot component is automatically introduced.
 In order to get rid of this message, drag StateGraph.StateGraphRoot into the
 top level your model.");
 */
-  equation 
+  equation
     suspend = subgraphStatePort.suspend;
     resume  = subgraphStatePort.resume;
   end CompositeStepState;
@@ -2268,14 +2277,14 @@ top level your model.");
  
 </html>"));
 end Interfaces;
-  
-block InitialStep "Initial step (= step that is active when simulation starts)" 
-    
-  output Boolean active 
+
+block InitialStep "Initial step (= step that is active when simulation starts)"
+
+  output Boolean active
       "= true if step is active, otherwise the step is not active";
-    
+
   extends Interfaces.PartialStep;
-    
+
   annotation (
     Window(
       x=0.21,
@@ -2287,84 +2296,84 @@ block InitialStep "Initial step (= step that is active when simulation starts)"
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{-200,110},{200,150}}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-200,110},{200,150}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            textString="%name",
+            lineColor={0,0,255}),
           Rectangle(
-            extent={{-100,100},{100,-100}}, 
+            extent={{-100,100},{100,-100}},
             fillColor=DynamicSelect({255,255,255}, if active > 0.5 then {0,255,
-                0} else {255,255,255}), 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+                0} else {255,255,255}),
+            lineColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Rectangle(extent={{-80,80},{80,-80}}, lineColor={0,0,0})}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Rectangle(extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}), Rectangle(extent={{-80,80},{80,-80}}, 
+          grid={1,1}), graphics={Rectangle(extent={{-100,100},{100,-100}},
+              lineColor={0,0,0}), Rectangle(extent={{-80,80},{80,-80}},
               lineColor={0,0,0})}),
       Documentation(info="<html>
   
 </html>"));
-    
-initial equation 
+
+initial equation
   active = true;
-equation 
+equation
   active = localActive;
 end InitialStep;
-  
-block InitialStepWithSignal 
-    "Initial step (= step that is active when simulation starts). Connector 'active' is true when the step is active" 
-    
+
+block InitialStepWithSignal
+    "Initial step (= step that is active when simulation starts). Connector 'active' is true when the step is active"
+
   extends Interfaces.PartialStep;
-    
+
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={Rectangle(extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}), Rectangle(extent={{-80,80},{80,-80}}, 
+              -100},{100,100}}), graphics={Rectangle(extent={{-100,100},{100,-100}},
+              lineColor={0,0,0}), Rectangle(extent={{-80,80},{80,-80}},
               lineColor={0,0,0})}),
-       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={
+       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+              100}}), graphics={
           Text(
-            extent={{-200,110},{200,150}}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-200,110},{200,150}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            textString="%name",
+            lineColor={0,0,255}),
           Rectangle(
-            extent={{-100,100},{100,-100}}, 
+            extent={{-100,100},{100,-100}},
             fillColor=DynamicSelect({255,255,255}, if active > 0.5 then {0,255,
-                0} else {255,255,255}), 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+                0} else {255,255,255}),
+            lineColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-92,-50},{94,-68}}, 
-            lineColor={0,0,0}, 
-            textString="active"), 
+            extent={{-92,-50},{94,-68}},
+            lineColor={0,0,0},
+            textString="active"),
           Rectangle(extent={{-80,80},{80,-80}}, lineColor={0,0,0})}),
       Documentation(info="<html>
   
 </html>"));
-    
+
   Modelica.Blocks.Interfaces.BooleanOutput active 
     annotation (Placement(transformation(
           origin={0,-110},
           extent={{-10,-10},{10,10}},
           rotation=270)));
-initial equation 
+initial equation
   active = true;
-equation 
+equation
   active = localActive;
 end InitialStepWithSignal;
-  
-block Step "Ordinary step (= step that is not active when simulation starts)" 
-    
-  output Boolean active 
+
+block Step "Ordinary step (= step that is not active when simulation starts)"
+
+  output Boolean active
       "= true if step is active, otherwise the step is not active";
-    
+
   extends Interfaces.PartialStep;
-    
+
   annotation (
     Window(
       x=0.21,
@@ -2375,80 +2384,80 @@ block Step "Ordinary step (= step that is not active when simulation starts)"
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={Text(
-            extent={{-200,110},{200,150}}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid, 
-            textString="%name", 
+            extent={{-200,110},{200,150}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            textString="%name",
             lineColor={0,0,255}), Rectangle(
-            extent={{-100,100},{100,-100}}, 
+            extent={{-100,100},{100,-100}},
             fillColor=DynamicSelect({255,255,255}, if active > 0.5 then {0,255,
-                0} else {255,255,255}), 
-            lineColor={0,0,0}, 
+                0} else {255,255,255}),
+            lineColor={0,0,0},
             fillPattern=FillPattern.Solid)}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Rectangle(extent={{-100,100},{100,-100}}, 
+          grid={1,1}), graphics={Rectangle(extent={{-100,100},{100,-100}},
               lineColor={0,0,0})}),
       Documentation(info="<html>
   
 </html>"));
-initial equation 
+initial equation
   active = false;
-equation 
+equation
   active = localActive;
 end Step;
-  
-block StepWithSignal 
-    "Ordinary step (= step that is not active when simulation starts). Connector 'active' is true when the step is active" 
-    
+
+block StepWithSignal
+    "Ordinary step (= step that is not active when simulation starts). Connector 'active' is true when the step is active"
+
   extends Interfaces.PartialStep;
-    
+
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={Rectangle(extent={{-100,100},{100,-100}}, 
+              -100},{100,100}}), graphics={Rectangle(extent={{-100,100},{100,-100}},
               lineColor={0,0,0})}),
-       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={
+       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+              100}}), graphics={
           Text(
-            extent={{-200,110},{200,150}}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-200,110},{200,150}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            textString="%name",
+            lineColor={0,0,255}),
           Rectangle(
-            extent={{-100,100},{100,-100}}, 
+            extent={{-100,100},{100,-100}},
             fillColor=DynamicSelect({255,255,255}, if active > 0.5 then {0,255,
-                0} else {255,255,255}), 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+                0} else {255,255,255}),
+            lineColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-92,-74},{94,-92}}, 
-            lineColor={0,0,0}, 
+            extent={{-92,-74},{94,-92}},
+            lineColor={0,0,0},
             textString="active")}),
       Documentation(info="<html>
   
 </html>"));
-    
+
   Modelica.Blocks.Interfaces.BooleanOutput active 
     annotation (Placement(transformation(
           origin={0,-110},
           extent={{-10,-10},{10,10}},
           rotation=270)));
-initial equation 
+initial equation
   active = false;
-equation 
+equation
   active = localActive;
 end StepWithSignal;
-  
-block Transition 
-    "Transition where the fire condition is set by a modification of variable condition" 
-    
-  input Boolean condition=true 
+
+block Transition
+    "Transition where the fire condition is set by a modification of variable condition"
+
+  input Boolean condition=true
       "= true, if transition may fire (time varying expression)" 
     annotation (Dialog(group="Fire condition"));
-    
+
   extends Interfaces.PartialTransition(final localCondition=condition);
-    
+
   annotation (
     Window(
       x=0.26,
@@ -2460,52 +2469,52 @@ block Transition
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-10,100},{10,-100}}, 
+            extent={{-10,100},{10,-100}},
             fillColor=DynamicSelect({0,0,0}, if enableFire > 0.5 then {0,255,0}
-                 else {0,0,0}), 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-30,0},{-10,0}}, color={0,0,0}), 
+                 else {0,0,0}),
+            lineColor={0,0,0},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-30,0},{-10,0}}, color={0,0,0}),
           Text(
-            extent={{200,110},{-200,150}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{200,110},{-200,150}},
+            textString="%name",
+            lineColor={0,0,255}),
           Text(
-            extent={{20,20},{200,45}}, 
+            extent={{20,20},{200,45}},
             lineColor=DynamicSelect({0,0,0}, if enableTimer < 0.5 then {255,255,
-                255} else {0,0,0}), 
-            textString="%waitTime"), 
+                255} else {0,0,0}),
+            textString="%waitTime"),
           Text(
-            extent={{-200,-120},{200,-145}}, 
+            extent={{-200,-120},{200,-145}},
             lineColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0}
-                 else {0,0,0}), 
+                 else {0,0,0}),
             textString="%condition")}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-31,0},{-11,0}}, color={0,0,0}), 
+          grid={1,1}), graphics={Line(points={{-31,0},{-11,0}}, color={0,0,0}),
             Rectangle(
-            extent={{-10,100},{10,-100}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
+            extent={{-10,100},{10,-100}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
   
 </html>"));
-    
+
 end Transition;
-  
-block TransitionWithSignal 
-    "Transition where the fire condition is set by a Boolean input signal" 
-    
+
+block TransitionWithSignal
+    "Transition where the fire condition is set by a Boolean input signal"
+
   Modelica.Blocks.Interfaces.BooleanInput condition 
     annotation (Placement(transformation(
           origin={0,-120},
           extent={{-20,-20},{20,20}},
           rotation=90)));
-    
+
   extends Interfaces.PartialTransition(final localCondition=condition);
-    
+
   annotation (
     Window(
       x=0.26,
@@ -2517,65 +2526,65 @@ block TransitionWithSignal
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{20,20},{200,45}}, 
+            extent={{20,20},{200,45}},
             lineColor=DynamicSelect({0,0,0}, if enableTimer < 0.5 then {255,255,
-                255} else {0,0,0}), 
-            textString="%waitTime"), 
+                255} else {0,0,0}),
+            textString="%waitTime"),
           Rectangle(
-            extent={{-10,100},{10,-100}}, 
+            extent={{-10,100},{10,-100}},
             fillColor=DynamicSelect({0,0,0}, if enableFire > 0.5 then {0,255,0}
-                 else {0,0,0}), 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-30,0},{-10,0}}, color={0,0,0}), 
+                 else {0,0,0}),
+            lineColor={0,0,0},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-30,0},{-10,0}}, color={0,0,0}),
           Text(
-            extent={{200,110},{-200,150}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{200,110},{-200,150}},
+            textString="%name",
+            lineColor={0,0,255}),
           Ellipse(
-            extent={{7,-81},{-7,-95}}, 
+            extent={{7,-81},{-7,-95}},
             lineColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0}
-                 else {0,0,0}), 
+                 else {0,0,0}),
             fillColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0}
-                 else {0,0,0}), 
+                 else {0,0,0}),
             fillPattern=FillPattern.Solid)}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-31,0},{-11,0}}, color={0,0,0}), 
+          grid={1,1}), graphics={Line(points={{-31,0},{-11,0}}, color={0,0,0}),
             Rectangle(
-            extent={{-10,100},{10,-100}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
+            extent={{-10,100},{10,-100}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
   
 </html>"));
-    
+
 end TransitionWithSignal;
-  
-block Alternative 
-    "Alternative splitting of execution path (use component between two steps)" 
-    
+
+block Alternative
+    "Alternative splitting of execution path (use component between two steps)"
+
   annotation (
     Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(
-            points={{-80,100},{80,100}}, 
-            color={0,0,0}, 
-            pattern=LinePattern.Dot), 
+            points={{-80,100},{80,100}},
+            color={0,0,0},
+            pattern=LinePattern.Dot),
           Line(
-            points={{-80,-100},{80,-100}}, 
-            color={0,0,0}, 
-            pattern=LinePattern.Dot), 
-          Line(points={{-100,0},{-80,0}}, color={0,0,0}), 
+            points={{-80,-100},{80,-100}},
+            color={0,0,0},
+            pattern=LinePattern.Dot),
+          Line(points={{-100,0},{-80,0}}, color={0,0,0}),
           Line(points={{80,0},{100,0}}, color={0,0,0})}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-100,0},{-80,0}}, color={0,0,0}), 
+          grid={1,1}), graphics={Line(points={{-100,0},{-80,0}}, color={0,0,0}),
             Line(points={{80,0},{100,0}}, color={0,0,0})}),
       Documentation(info="<html>
   
@@ -2593,118 +2602,118 @@ block Alternative
   Step_out_forAlternative split[nBranches] 
                                       annotation (Placement(transformation(
             extent={{-78,100},{-80,-100}}, rotation=0)));
-    
-  protected 
-connector Step_in_forAlternative 
-      "Input port of a step (has special icon for usage in component 'Alternative')" 
-      
+
+  protected
+connector Step_in_forAlternative
+      "Input port of a step (has special icon for usage in component 'Alternative')"
+
   output Boolean occupied "true, if step is active" 
     annotation (Hide=true);
   input Boolean set "true, if transition fires and step is activated" 
     annotation (Hide=true);
-      
+
   annotation (Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              fillColor={175,175,175}, 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              fillColor={175,175,175},
               fillPattern=FillPattern.Solid)}),
                                           Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              fillColor={175,175,175}, 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              fillColor={175,175,175},
               fillPattern=FillPattern.Solid)}));
 end Step_in_forAlternative;
-    
-connector Step_out_forAlternative 
-      "Output port of a step (has special icon for usage in component 'Alternative')" 
-      
+
+connector Step_out_forAlternative
+      "Output port of a step (has special icon for usage in component 'Alternative')"
+
   output Boolean available "true, if step is active" 
     annotation (Hide=true);
   input Boolean reset "true, if transition fires and step is deactivated" 
     annotation (Hide=true);
-      
+
   annotation (Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              fillColor={175,175,175}, 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              fillColor={175,175,175},
               fillPattern=FillPattern.Solid)}),
                             Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              fillColor={175,175,175}, 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              fillColor={175,175,175},
               fillPattern=FillPattern.Solid)}));
 end Step_out_forAlternative;
-    
-equation 
+
+equation
   // Check connections of connectors
-    
+
   assert(cardinality(inPort) == 1,
     "Connector inPort is not connected to exactly one other connector");
-    
+
   assert(cardinality(outPort) == 1,
     "Connector outPort is not connected to exactly one other connector");
-    
+
   for i in 1:nBranches loop
-      
+
      assert(cardinality(split[i]) == 1,
        "Connector split[" + String(i) + "] is not connected to exactly one other connector");
-      
+
      assert(cardinality(join[i]) == 1,
        "Connector join[" + String(i) + "] is not connected to exactly one other connector");
-      
+
   end for;
-    
+
   // Propagate flags between the connectors
-    
+
   for i in 1:nBranches loop
      split[i].available = if i==1 then inPort.available else 
                                        split[i-1].available and not split[i-1].reset;
-      
+
   end for;
   join.occupied = fill(outPort.occupied, nBranches);
   inPort.reset  = StateGraph.Temporary.anyTrue(split.reset);
   outPort.set   = StateGraph.Temporary.anyTrue(join.set);
 end Alternative;
-  
-block Parallel 
-    "Parallel splitting of execution path (use component between two transitions)" 
-    
+
+block Parallel
+    "Parallel splitting of execution path (use component between two transitions)"
+
   annotation (
     Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-100,0},{-80,0}}, color={0,0,0}), 
-          Line(points={{80,0},{100,0}}, color={0,0,0}), 
+          Line(points={{-100,0},{-80,0}}, color={0,0,0}),
+          Line(points={{80,0},{100,0}}, color={0,0,0}),
           Line(
-            points={{-80,100},{80,100}}, 
-            color={0,0,0}, 
-            pattern=LinePattern.Dot), 
+            points={{-80,100},{80,100}},
+            color={0,0,0},
+            pattern=LinePattern.Dot),
           Line(
-            points={{-80,-100},{80,-100}}, 
-            color={0,0,0}, 
+            points={{-80,-100},{80,-100}},
+            color={0,0,0},
             pattern=LinePattern.Dot)}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-100,0},{-80,0}}, color={0,0,0}), 
+          grid={1,1}), graphics={Line(points={{-100,0},{-80,0}}, color={0,0,0}),
             Line(points={{80,0},{100,0}}, color={0,0,0})}),
       Documentation(info="<html>
   
 </html>"));
-  parameter Integer nBranches(min=1)=2 
+  parameter Integer nBranches(min=1)=2
       "Number of parallel branches that are executed in parallel";
   Interfaces.Step_in inPort annotation (Placement(transformation(extent={{-106,
               -3},{-100,3}}, rotation=0)));
@@ -2716,150 +2725,150 @@ block Parallel
   Transition_out_forParallel split[nBranches] 
                                       annotation (Placement(transformation(
             extent={{-75,100},{-80,-100}}, rotation=0)));
-    
-  protected 
-connector Transition_in_forParallel 
-      "Input port of a transition (has special icon for usage in component 'Parallel')" 
-      
-  input Boolean available 
+
+  protected
+connector Transition_in_forParallel
+      "Input port of a transition (has special icon for usage in component 'Parallel')"
+
+  input Boolean available
         "true, if step connected to the transition input is active" 
     annotation (Hide=true);
-  output Boolean reset 
+  output Boolean reset
         "true, if transition fires and the step connected to the transition input is deactivated"
     annotation (Hide=true);
-      
+
   annotation (Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,100},{100,-100}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{-100,100},{-100,-100}}, 
-              color={0,0,0}, 
-              thickness=2), 
+              points={{-100,100},{-100,-100}},
+              color={0,0,0},
+              thickness=2),
             Line(
-              points={{100,100},{100,-100}}, 
-              color={0,0,0}, 
+              points={{100,100},{100,-100}},
+              color={0,0,0},
               thickness=2)}),             Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,100},{100,-100}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{-100,100},{-100,-100}}, 
-              color={0,0,0}, 
-              thickness=2), 
+              points={{-100,100},{-100,-100}},
+              color={0,0,0},
+              thickness=2),
             Line(
-              points={{100,100},{100,-100}}, 
-              color={0,0,0}, 
+              points={{100,100},{100,-100}},
+              color={0,0,0},
               thickness=2)}));
 end Transition_in_forParallel;
-    
-connector Transition_out_forParallel 
-      "Output port of a transition (has special icon for usage in component 'Parallel')" 
-      
-  input Boolean occupied 
+
+connector Transition_out_forParallel
+      "Output port of a transition (has special icon for usage in component 'Parallel')"
+
+  input Boolean occupied
         "true, if step connected to the transition output is active" 
     annotation (Hide=true);
-  output Boolean set 
+  output Boolean set
         "true, if transition fires and step connected to the transition output becomes active"
     annotation (Hide=true);
-      
+
   annotation (Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={0,0,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,100},{100,-100}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,100},{100,-100}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{-100,100},{-100,-100}}, 
-              color={0,0,0}, 
-              thickness=2), 
+              points={{-100,100},{-100,-100}},
+              color={0,0,0},
+              thickness=2),
             Line(
-              points={{100,100},{100,-100}}, 
-              color={0,0,0}, 
+              points={{100,100},{100,-100}},
+              color={0,0,0},
               thickness=2)}),
                             Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,100},{100,-100}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{-100,100},{-100,-100}}, 
-              color={0,0,0}, 
-              thickness=2), 
+              points={{-100,100},{-100,-100}},
+              color={0,0,0},
+              thickness=2),
             Line(
-              points={{100,100},{100,-100}}, 
-              color={0,0,0}, 
+              points={{100,100},{100,-100}},
+              color={0,0,0},
               thickness=2)}));
 end Transition_out_forParallel;
-    
-equation 
+
+equation
   // Check connections of connectors
-    
+
   assert(cardinality(inPort) == 1,
     "Connector inPort is not connected to exactly one other connector");
-    
+
   assert(cardinality(outPort) == 1,
     "Connector outPort is not connected to exactly one other connector");
-    
+
   for i in 1:nBranches loop
-      
+
      assert(cardinality(split[i]) == 1,
        "Connector split[" + String(i) + "] is not connected to exactly one other connector");
-      
+
      assert(cardinality(join[i]) == 1,
        "Connector join[" + String(i) + "] is not connected to exactly one other connector");
-      
+
   end for;
-    
+
   // Propagate flags between the connectors
   split.set  = fill(inPort.set, nBranches);
   join.reset = fill(outPort.reset, nBranches);
   inPort.occupied   = StateGraph.Temporary.anyTrue(split.occupied);
   outPort.available = StateGraph.Temporary.allTrue(join.available);
 end Parallel;
-  
-partial block PartialCompositeStep 
-    "Superclass of a subgraph, i.e., a composite step that has internally a StateGraph" 
-    
+
+partial block PartialCompositeStep
+    "Superclass of a subgraph, i.e., a composite step that has internally a StateGraph"
+
   parameter Integer nSuspend = 1 "Number of suspend ports" annotation(Dialog(group="Exception connections"));
   parameter Integer nResume = 1 "Number of resume ports" annotation(Dialog(group="Exception connections"));
-    
+
   /* The modification of stateGraphRoot is with respect to the "inner"
      definition, i.e., it is reported to all components that are
      within the CompositeStep
   */
   inner outer StateGraph.Interfaces.CompositeStepState stateGraphRoot(
                   suspend = StateGraph.Temporary.anyTrue(suspend.reset) or outerState.subgraphStatePort.suspend,
-                  resume =  StateGraph.Temporary.anyTrue(resume.set) or outerState.subgraphStatePort.resume) 
+                  resume =  StateGraph.Temporary.anyTrue(resume.set) or outerState.subgraphStatePort.resume)
       "Communication port between the CompositeStep and the steps within the CompositeStep";
-  output Boolean active 
+  output Boolean active
       "= true if step is active, otherwise the step is not active";
   StateGraph.Interfaces.Step_in inPort annotation (Placement(transformation(
             extent={{-170,10},{-150,-10}}, rotation=0)));
@@ -2875,7 +2884,7 @@ partial block PartialCompositeStep
           origin={75,-160},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    
+
   annotation (
     Window(
       x=0.21,
@@ -2887,61 +2896,62 @@ partial block PartialCompositeStep
           extent={{-150,-150},{150,150}},
           grid={1,1}), graphics={
           Text(
-            extent={{-250,160},{250,200}}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-250,160},{250,200}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            textString="%name",
+            lineColor={0,0,255}),
           Rectangle(
-            extent={{-150,150},{150,-150}}, 
+            extent={{-150,150},{150,-150}},
             fillColor=DynamicSelect({255,255,255}, if active > 0.5 then {0,255,
-                0} else {255,255,255}), 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+                0} else {255,255,255}),
+            lineColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{4,-115},{145,-130}}, 
-            lineColor={0,0,0}, 
-            textString="resume"), 
+            extent={{4,-115},{145,-130}},
+            lineColor={0,0,0},
+            textString="resume"),
           Text(
-            extent={{-144,-114},{-3,-129}}, 
-            lineColor={0,0,0}, 
+            extent={{-144,-114},{-3,-129}},
+            lineColor={0,0,0},
             textString="suspend")}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-150,-150},{150,150}},
-          grid={1,1}), graphics={Rectangle(extent={{-150,150},{150,-150}}, 
+          grid={1,1}), graphics={Rectangle(extent={{-150,150},{150,-150}},
               lineColor={0,0,0})}),
       Documentation(info="<html>
   
 </html>"));
-  block OuterState 
-    Interfaces.CompositeStepStatePort_in subgraphStatePort 
-        "port connected to outer stateGraphRoot";
+  block OuterState
+      "Block containing the port that is connected to the outer stateGraphRoot"
+    Interfaces.CompositeStepStatePort_in subgraphStatePort
+        "Port connected to outer stateGraphRoot";
   end OuterState;
   OuterState outerState;
-    
-  protected 
-  model InnerState 
+
+  protected
+  model InnerState
     outer Interfaces.CompositeStepState stateGraphRoot;
   end InnerState;
   InnerState innerState;
-    
+
   Boolean newActive "Value of active in the next iteration" 
     annotation (Hide=true);
   Integer activeSteps "Number of active steps within the CompositeStep";
-initial equation 
-    
+initial equation
+
   pre(newActive) = pre(active);
-equation 
+equation
   // connect to outer CompositeStep
-    
+
   connect(outerState.subgraphStatePort, stateGraphRoot.subgraphStatePort);
   outerState.subgraphStatePort.activeSteps = if active then 1.0 else 0.0;
-    
+
   // set active flag  of CompositeStep
   activeSteps = -integer(innerState.stateGraphRoot.subgraphStatePort.activeSteps);
   active = pre(newActive);
-    
+
   /* The CompositeStep is active if
      - at least one step within the CompositeStep is active, and
      - the suspend transition does not fire, and
@@ -2954,127 +2964,127 @@ equation
   newActive = activeSteps > 0 and not StateGraph.Temporary.anyTrue(suspend.reset) and not 
               outerState.subgraphStatePort.suspend or 
               StateGraph.Temporary.anyTrue(resume.set) or outerState.subgraphStatePort.resume;
-    
+
   // Report state to suspend and resume transitions
-    
+
   for i in 1:nResume loop
     resume[i].occupied = if i == 1 then active else 
                                         resume[i-1].occupied or 
                                         resume[i-1].set;
-      
+
   end for;
-    
+
   for i in 1:nSuspend loop
      suspend[i].available = if i == 1 then active else 
                                            suspend[i-1].available and not 
                                            suspend[i-1].reset;
-      
+
   end for;
-    
+
   /* Check that connections to the connectors are correct
      and set appropriate defaults if necessary
   */
-    
+
   for i in 1:nSuspend loop
-      
+
   assert(cardinality(suspend[i]) <= 1,
 "Connector suspend[" + String(i) + "] of the CompositeStep is connected 
 to more than one transition");
-      
+
     if cardinality(suspend[i]) == 0 then
       suspend[i].reset = false;
-        
+
     end if;
-      
+
   end for;
-    
+
   for i in 1:nResume loop
-      
+
   assert(cardinality(resume[i]) <= 1,
 "Connector resume[" + String(i) + "] of the CompositeStep is connected 
 to more than one transition");
-      
+
     if cardinality(resume[i]) == 0 then
       resume[i].set = false;
-        
+
     end if;
-      
+
   end for;
-    
+
   /* Zero sized connectors are not yet fully supported in
      Dymola. This requires to set the dimension of the connector
      to 1, if it should have a dimension of zero. This requires
      to set the connector variables to a default value in this case
   */
-    
+
   if cardinality(inPort) < 2 then
     inPort.occupied = false;
     inPort.set = false;
-      
+
   end if;
-    
+
   if cardinality(outPort) < 2 then
     outPort.available = false;
     outPort.reset = false;
-      
+
   end if;
-    
+
   // Check inPort/outPort connections
-    
+
   assert(cardinality(inPort) <= 2,
 "Connector inPort of the CompositeStep has more than 2 connections.
 It should have only one connection from the outside to the
 inPort and one connection to a step inside the CompositeStep.");
-    
+
   assert(cardinality(outPort) <= 2,
 "Connector outPort of the CompositeStep has more than 2 connections.
 It should have only one connection from the outPort to the 
 outside to the CompositeStep and one connection from a step 
 inside the CompositeStep to the outPort connector.");
-    
+
 end PartialCompositeStep;
-  
-block StateGraphRoot 
-    "Root of a StateGraph (has to be present on the highest level of a StateGraph)" 
-    
+
+block StateGraphRoot
+    "Root of a StateGraph (has to be present on the highest level of a StateGraph)"
+
   extends StateGraph.Interfaces.CompositeStepState;
   output Integer activeSteps "Number of active steps within the stategraph";
-    
+
   annotation (
     defaultComponentName="stateGraphRoot",
     defaultComponentPrefixes="inner",
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Text(
-            extent={{-200,110},{200,150}}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-200,110},{200,150}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            textString="%name",
+            lineColor={0,0,255}),
           Rectangle(
-            extent={{-100,100},{100,-100}}, 
+            extent={{-100,100},{100,-100}},
             fillColor=DynamicSelect({255,255,255}, if active > 0.5 then {0,255,
-                0} else {255,255,255}), 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+                0} else {255,255,255}),
+            lineColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-92,78},{96,34}}, 
-            lineColor={0,0,0}, 
-            textString="root"), 
-          Rectangle(extent={{-82,-6},{-44,-40}}, lineColor={0,0,0}), 
-          Line(points={{0,10},{0,-60}}, color={0,0,0}), 
-          Rectangle(extent={{48,-6},{86,-40}}, lineColor={0,0,0}), 
+            extent={{-92,78},{96,34}},
+            lineColor={0,0,0},
+            textString="root"),
+          Rectangle(extent={{-82,-6},{-44,-40}}, lineColor={0,0,0}),
+          Line(points={{0,10},{0,-60}}, color={0,0,0}),
+          Rectangle(extent={{48,-6},{86,-40}}, lineColor={0,0,0}),
           Polygon(
-            points={{-12,-16},{0,-22},{-12,-28},{-12,-16}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-44,-22},{-12,-22}}, color={0,0,0}), 
+            points={{-12,-16},{0,-22},{-12,-28},{-12,-16}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-44,-22},{-12,-22}}, color={0,0,0}),
           Polygon(
-            points={{36,-16},{48,-22},{36,-28},{36,-16}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+            points={{36,-16},{48,-22},{36,-28},{36,-16}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Line(points={{0,-22},{36,-22}}, color={0,0,0})}),
     Documentation(info="<html>
 <p>
@@ -3093,13 +3103,13 @@ on highest level a corresponding \"inner\" definition is needed
 and is provided by the StateGraphRoot object.
 </p>
 </html>"));
-    
-equation 
+
+equation
   activeSteps = -integer(subgraphStatePort.activeSteps);
 end StateGraphRoot;
-  
-package Temporary 
-    "Components that will be provided by other libraries in the future" 
+
+package Temporary
+    "Components that will be provided by other libraries in the future"
 type SetRealParameter = Real "Define Real parameter (GUI not yet satisfactory)"
   annotation (
   Dialog,
@@ -3162,16 +3172,16 @@ effect. Changing parameter properties, such as the default
 value, still requires to go in to the text layer.
 </p>
 </html>"));
-    
+
   extends Modelica.Icons.Library;
-    
-  function anyTrue 
-      "Returns true, if at least on element of the Boolean input vector is true" 
-      
+
+  function anyTrue
+      "Returns true, if at least on element of the Boolean input vector is true"
+
     extends Modelica.Icons.Function;
     input Boolean b[:];
     output Boolean result;
-  algorithm 
+  algorithm
     result := false;
     for i in 1:size(b,1) loop
        result := result or b[i];
@@ -3180,13 +3190,13 @@ value, still requires to go in to the text layer.
   
 </html>"));
   end anyTrue;
-    
-  function allTrue 
-      "Returns true, if all elements of the Boolean input vector are true" 
+
+  function allTrue
+      "Returns true, if all elements of the Boolean input vector are true"
     extends Modelica.Icons.Function;
     input Boolean b[:];
     output Boolean result;
-  algorithm 
+  algorithm
     result := true;
     for i in 1:size(b,1) loop
        result := result and b[i];
@@ -3195,29 +3205,29 @@ value, still requires to go in to the text layer.
   
 </html>"));
   end allTrue;
-    
-  block RadioButton 
-      "Button that sets its output to true when pressed and is reset when an element of 'reset' becomes true" 
-      
-    parameter Modelica.SIunits.Time buttonTimeTable[:]={0} 
+
+  block RadioButton
+      "Button that sets its output to true when pressed and is reset when an element of 'reset' becomes true"
+
+    parameter Modelica.SIunits.Time buttonTimeTable[:]={0}
         "Time instants where button is pressend and released";
-    input Boolean reset[:]={false} 
+    input Boolean reset[:]={false}
         "Reset button to false, if an element of reset becomes true" 
       annotation (Dialog(group="Time varying expressions"));
-      
+
     annotation (Icon(
           coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                100}}), 
+                100}}),
           graphics={Rectangle(
-              extent={{-100,-100},{100,100}}, 
+              extent={{-100,-100},{100,100}},
               fillColor=DynamicSelect({192,192,192}, if on > 0.5 then {0,255,0}
-                   else {192,192,192}), 
-              fillPattern=DynamicSelect(FillPattern.Solid, if on > 0.5 then 
-                  FillPattern.Solid else FillPattern.Solid), 
-              lineColor={128,128,128}, 
+                   else {192,192,192}),
+              fillPattern=DynamicSelect(FillPattern.Solid, if on > 0.5 then
+                  FillPattern.Solid else FillPattern.Solid),
+              lineColor={128,128,128},
               lineThickness=2), Text(
-              extent={{-80,-40},{80,40}}, 
-              lineColor={0,0,0}, 
+              extent={{-80,-40},{80,40}},
+              lineColor={0,0,0},
               textString="%name")},
                             interaction={OnMouseDownSetBoolean(
                             on, true)}),
@@ -3230,33 +3240,33 @@ value, still requires to go in to the text layer.
     Modelica.Blocks.Interfaces.BooleanOutput on 
       annotation (                                            Placement(
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
-    protected 
+    protected
     Modelica.Blocks.Sources.BooleanTable table(table=buttonTimeTable);
-  algorithm 
+  algorithm
     on := table.y;
     when pre(reset) then
       on := false;
     end when;
   end RadioButton;
-    
-  model NumericValue "Show value of Real input signal dynamically" 
-    parameter Integer precision(min=0) = 3 
+
+  model NumericValue "Show value of Real input signal dynamically"
+    parameter Integer precision(min=0) = 3
         "Number of significant digits to be shown";
-    parameter Boolean hideConnector=false 
+    parameter Boolean hideConnector=false
         "= true, if connector is not shown in the dynamic object diagram";
-      
+
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
-              extent={{100,50},{-100,-50}}, 
-              lineColor={0,0,255}, 
-              fillColor={236,233,216}, 
-              fillPattern=FillPattern.Solid, 
+              extent={{100,50},{-100,-50}},
+              lineColor={0,0,255},
+              fillColor={236,233,216},
+              fillPattern=FillPattern.Solid,
               borderPattern=BorderPattern.Raised), Text(
-              extent={{-90,-46},{90,34}}, 
+              extent={{-90,-46},{90,34}},
               textString=DynamicSelect(" ", realString(
-                    Value, 
-                    1, 
-                    integer(precision))), 
+                    Value,
+                    1,
+                    integer(precision))),
               lineColor={0,0,255})}),
         Diagram(graphics),
         Documentation(info="<html>
@@ -3267,33 +3277,33 @@ value, still requires to go in to the text layer.
       Dialog(enable=hideConnector),
       visible=not boolean(hideConnector),
         Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
-      
+
   end NumericValue;
-    
-  model IndicatorLamp 
-      "Dynamically show Boolean input signal (false/true = white/green color)" 
-      
+
+  model IndicatorLamp
+      "Dynamically show Boolean input signal (false/true = white/green color)"
+
     Modelica.Blocks.Interfaces.BooleanInput u 
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
-      
+
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Ellipse(
-              extent={{-100,-100},{100,100}}, 
-              fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0}
-                   else {235,235,235}), 
-              lineColor={0,0,0}, 
-              pattern=LinePattern.None, 
+              extent={{-100,-100},{100,100}},
+              fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0} else 
+                        {235,235,235}),
+              lineColor={0,0,0},
+              pattern=LinePattern.None,
               fillPattern=FillPattern.Sphere), Text(
-              extent={{-150,150},{150,110}}, 
-              textString="%name", 
+              extent={{-150,150},{150,110}},
+              textString="%name",
               lineColor={0,0,255})}),                        Diagram(graphics),
         Documentation(info="<html>
   
 </html>"));
-      
+
   end IndicatorLamp;
-    
+
   annotation (Documentation(info="<html>
 <p>
 This library is just temporarily present. The components of
@@ -3302,6 +3312,6 @@ standard library (with the new block connectors) and in the
 UserInteraction library that is currently under development.
 </p>
 </html>"));
-    
+
 end Temporary;
 end StateGraph;

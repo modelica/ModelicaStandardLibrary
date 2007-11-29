@@ -39,12 +39,6 @@ annotation (
           lineColor={0,0,0}, 
           textString="uDC")}),
   experiment(StopTime=0.1, Interval=1e-005),
-  experimentSetupOutput(
-    doublePrecision=true,
-    states=false,
-    derivatives=false,
-    inputs=false,
-    auxiliaries=false),
   Documentation(info="<HTML>
 <P>
 The rectifier example shows a B6 diode bridge fed by a three phase sinusoidal voltage, loaded by a DC current.<br>

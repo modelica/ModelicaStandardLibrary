@@ -4,7 +4,7 @@ package Discrete
   
   extends Modelica.Icons.Library;
   
-  annotation(preferedView="info", Documentation(info="<html>
+  annotation( Documentation(info="<html>
 <p>
 This package contains <b>discrete control blocks</b>
 with <b>fixed sample period</b>.

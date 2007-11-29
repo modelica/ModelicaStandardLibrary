@@ -9,7 +9,7 @@ model CauerLowPassOPV "Cauer low pass filter with operational amplifiers"
           textString="CauerLowPassOPV", 
           lineColor={0,0,255})}),
     experiment(StopTime=60),
-    experimentSetupOutput,
+    
     Documentation(revisions="<html>
 <ul>
 <li><i>January 13, 2006</i> 

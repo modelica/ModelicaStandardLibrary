@@ -3,7 +3,7 @@ package Joints "Components that constrain the motion between two frames"
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Library;
   
-  annotation (preferedView="info", Documentation(info="<HTML>
+  annotation ( Documentation(info="<HTML>
 <p>
 This package contains <b>joint components</b>,
 that is, idealized, massless elements that constrain
@@ -1267,7 +1267,7 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
     
     parameter Boolean angles_fixed = false 
       "= true, if angles_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
+      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
     parameter SI.Angle angles_start[3]={0,0,0} 
       "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
       annotation (Dialog(tab="Initialization"));
@@ -1277,14 +1277,14 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
     
     parameter Boolean w_rel_a_fixed = false 
       "= true, if w_rel_a_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
+      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
     parameter SI.AngularVelocity w_rel_a_start[3]={0,0,0} 
       "Initial values of angular velocity of frame_b with respect to frame_a, resolved in frame_a"
       annotation (Dialog(tab="Initialization"));
     
     parameter Boolean z_rel_a_fixed = false 
       "= true, if z_rel_a_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
+      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
     parameter SI.AngularAcceleration z_rel_a_start[3]={0,0,0} 
       "Initial values of angular acceleration z_rel_a = der(w_rel_a)" 
       annotation (Dialog(tab="Initialization"));
@@ -1585,7 +1585,7 @@ frame_b of the joint.
     
     parameter Boolean angles_fixed = false 
       "= true, if angles_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(checkBox=true), Dialog(group="Initialization"));
+      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(group="Initialization"));
     parameter SI.Angle angles_start[3]={0,0,0} 
       "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
       annotation (Dialog(group="Initialization"));
@@ -1595,14 +1595,14 @@ frame_b of the joint.
     
     parameter Boolean w_rel_a_fixed = false 
       "= true, if w_rel_a_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(checkBox=true), Dialog(group="Initialization"));
+      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(group="Initialization"));
     parameter SI.AngularVelocity w_rel_a_start[3]={0,0,0} 
       "Initial values of angular velocity of frame_b with respect to frame_a, resolved in frame_a"
       annotation (Dialog(group="Initialization"));
     
     parameter Boolean z_rel_a_fixed = false 
       "= true, if z_rel_a_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(checkBox=true), Dialog(group="Initialization"));
+      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(group="Initialization"));
     parameter SI.AngularAcceleration z_rel_a_start[3]={0,0,0} 
       "Initial values of angular acceleration z_rel_a = der(w_rel_a)" 
       annotation (Dialog(group="Initialization"));
@@ -3069,7 +3069,7 @@ November 3-4, 2003, pp. 149-158</p>
     import SI = Modelica.SIunits;
     extends Modelica.Icons.Library;
     
-    annotation (preferedView="info", Documentation(info="<HTML>
+    annotation ( Documentation(info="<HTML>
 <p>
 The joints in this package are mainly designed to be used
 in <b>kinematic loop</b> structures. Every component consists of
