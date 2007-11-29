@@ -1069,7 +1069,7 @@ convertElement({"Modelica.Mechanics.Rotational.IdealGearR2T"}, "flange_b", "flan
 convertElement({"Modelica.Mechanics.Rotational.IdealGearR2T"}, "bearingT", "supportT");
 convertElement({"Modelica.Mechanics.Rotational.Accelerate"}, "a", "a_ref");
 convertModifiers("Modelica.Mechanics.Rotational.Accelerate", {"phi_start"}, {"phi.start=%phi_start%"});
-convertModifiers("Modelica.Mechanics.Rotational.Accelerate", {"w_start"},   {"w.start=%w_start%");
+convertModifiers("Modelica.Mechanics.Rotational.Accelerate", {"w_start"},   {"w.start=%w_start%"});
 convertElement({"Modelica.Mechanics.Rotational.LossyGear"}, "i", "ratio");
 convertElement({"Modelica.Mechanics.Rotational.GearBox"},   "i", "ratio");
 
