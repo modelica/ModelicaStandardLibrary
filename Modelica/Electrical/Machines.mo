@@ -283,7 +283,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         quadraticLoadTorque(
         w_nominal=wLoad,
         TorqueDirection=false,
-        tau_nominal=-TLoad, 
+        tau_nominal=-TLoad,
         useSupport=false) 
         annotation (Placement(transformation(extent={{90,-50},{70,-30}},
               rotation=0)));
@@ -408,7 +408,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         quadraticLoadTorque(
         w_nominal=wLoad,
         TorqueDirection=false,
-        tau_nominal=-TLoad, 
+        tau_nominal=-TLoad,
         useSupport=false) 
         annotation (Placement(transformation(extent={{90,-50},{70,-30}},
               rotation=0)));
@@ -469,7 +469,6 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
                 {100,100}}),
                 graphics),
         experiment(StopTime=1.5, Interval=0.001),
-
         Documentation(info="<HTML>
 <b>3rd Test example: Asynchronous induction machine with slipring rotor - resistance starting</b><br>
 At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with sliprings;
@@ -483,6 +482,7 @@ Simulate for 1.5 seconds and plot (versus time):
 </ul>
 Default machine parameters of model <i>AIM_SlipRing</i> are used.
 </HTML>"));
+      
       Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing aims 
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
               rotation=0)));
@@ -549,7 +549,7 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
         quadraticLoadTorque(
         w_nominal=wLoad,
         TorqueDirection=false,
-        tau_nominal=-TLoad, 
+        tau_nominal=-TLoad,
         useSupport=false) 
         annotation (Placement(transformation(extent={{90,-50},{70,-30}},
               rotation=0)));
@@ -634,7 +634,6 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
                 {100,100}}),
                 graphics),
         experiment(StopTime=1.5, Interval=0.001),
-
         Documentation(info="<HTML>
 <b>4th Test example: Asynchronous induction machine with squirrel cage fed by an ideal inverter</b><br>
 An ideal frequency inverter is modeled by using a VfController and a threephase SignalVoltage.<br>
@@ -648,6 +647,7 @@ Simulate for 1.5 seconds and plot (versus time):
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 </HTML>"));
+      
       Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage 
         aimc 
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
@@ -685,7 +685,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
               rotation=0)));
       Modelica.Mechanics.Rotational.Sources.TorqueStep loadTorqueStep(
                                                               startTime=tStep,
-          stepTorque=-TLoad, 
+          stepTorque=-TLoad,
         useSupport=false) 
                     annotation (Placement(transformation(extent={{90,-50},{70,
                 -30}}, rotation=0)));
@@ -742,7 +742,6 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
                 {100,100}}),
                 graphics),
         experiment(StopTime=1.5, Interval=0.001),
-
         Documentation(info="<HTML>
 <b>5th Test example: Synchronous induction machine with reluctance rotor fed by an ideal inverter</b><br>
 An ideal frequency inverter is modeled by using a VfController and a threephase SignalVoltage.<br>
@@ -757,6 +756,7 @@ Simulate for 1.5 seconds and plot (versus time):
 </ul>
 Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
 </HTML>"));
+      
       Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor 
         smr 
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
@@ -799,7 +799,7 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
               rotation=0)));
       Modelica.Mechanics.Rotational.Sources.TorqueStep loadTorqueStep(
                                                               startTime=tStep,
-          stepTorque=-TLoad, 
+          stepTorque=-TLoad,
         useSupport=false) 
                     annotation (Placement(transformation(extent={{90,-50},{70,
                 -30}}, rotation=0)));
@@ -862,7 +862,6 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
                 {100,100}}),
                 graphics),
         experiment(StopTime=1.5, Interval=0.001),
-
         Documentation(info="<HTML>
 <b>6th Test example: Permanent magnet synchronous induction machine fed by an ideal inverter</b><br>
 An ideal frequency inverter is modeled by using a VfController and a threephase SignalVoltage.<br>
@@ -880,6 +879,7 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
 <b>In practice it is nearly impossible to drive a PMSMD without current controller.</b>
 </p>
 </HTML>"));
+      
       Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet 
         smpm 
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
@@ -924,7 +924,7 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
               rotation=0)));
       Modelica.Mechanics.Rotational.Sources.TorqueStep loadTorqueStep(
                                                               startTime=tStep,
-          stepTorque=-TLoad, 
+          stepTorque=-TLoad,
         useSupport=false) 
                     annotation (Placement(transformation(extent={{90,-50},{70,
                 -30}}, rotation=0)));
@@ -1138,7 +1138,6 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
                 {100,100}}),
                 graphics),
         experiment(StopTime=2, Interval=0.001),
-
         Documentation(info="<HTML>
 <b>8th Test example: Permanent magnet DC machine started with an armature voltage ramp</b><br>
 A voltage ramp is applied to the armature, causing the DC machine to start, 
@@ -1151,6 +1150,7 @@ Simulate for 2 seconds and plot (versus time):
 </ul>
 Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
 </HTML>"));
+      
       Machines.BasicMachines.DCMachines.DC_PermanentMagnet dcpm 
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
               rotation=0)));
@@ -1174,7 +1174,7 @@ Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
               rotation=0)));
       Modelica.Mechanics.Rotational.Sources.TorqueStep loadTorqueStep(
                                                               startTime=tStep,
-          stepTorque=-TLoad, 
+          stepTorque=-TLoad,
         useSupport=false) 
                     annotation (Placement(transformation(extent={{90,-50},{70,
                 -30}}, rotation=0)));
@@ -1208,7 +1208,6 @@ Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
                 {100,100}}),
                 graphics),
         experiment(StopTime=2, Interval=0.001),
-
         Documentation(info="<HTML>
 <b>9th Test example: Electrically separate excited DC machine started with an armature voltage ramp</b><br>
 A voltage ramp is applied to the armature, causing the DC machine to start, 
@@ -1222,6 +1221,7 @@ Simulate for 2 seconds and plot (versus time):
 </ul>
 Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
 </HTML>"));
+      
       Machines.BasicMachines.DCMachines.DC_ElectricalExcited dcee 
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
               rotation=0)));
@@ -1255,7 +1255,7 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
               rotation=0)));
       Modelica.Mechanics.Rotational.Sources.TorqueStep loadTorqueStep(
                                                               startTime=tStep,
-          stepTorque=-TLoad, 
+          stepTorque=-TLoad,
         useSupport=false) 
                     annotation (Placement(transformation(extent={{90,-50},{70,
                 -30}}, rotation=0)));
@@ -1296,7 +1296,6 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
                 {100,100}}),
                 graphics),
         experiment(StopTime=2, Interval=0.001),
-
         Documentation(info="<HTML>
 <b>10th Test example: Series excited DC machine started with an armature voltage ramp</b><br>
 A voltage ramp is applied to the armature, causing the DC machine to start, 
@@ -1309,6 +1308,7 @@ Simulate for 2 seconds and plot (versus time):
 </ul>
 Default machine parameters of model <i>DC_SeriesExcited</i> are used.
 </HTML>"));
+      
       Machines.BasicMachines.DCMachines.DC_SeriesExcited dcse 
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
               rotation=0)));
@@ -1334,7 +1334,7 @@ Default machine parameters of model <i>DC_SeriesExcited</i> are used.
         quadraticLoadTorque(
         w_nominal=wLoad,
         TorqueDirection=false,
-        tau_nominal=-TLoad, 
+        tau_nominal=-TLoad,
         useSupport=false) 
         annotation (Placement(transformation(extent={{90,-50},{70,-30}},
               rotation=0)));
@@ -1712,13 +1712,13 @@ neglecting initial transient.
                 {100,100}}),
                 graphics),
         experiment(StopTime=1.5, Interval=0.001),
-
         Documentation(info="<HTML>
 <b>Asynchronous induction machine with squirrel cage - Steinmetz-connection</b><br>
 At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 </HTML>"));
+      
       Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage 
         aimc(useSupport=true) 
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
@@ -2486,15 +2486,15 @@ These models use package SpacePhasors.
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
-                extent={{-130,10},{-100,-10}}, 
-                lineColor={0,0,0}, 
-                fillColor={0,255,0}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{-130,10},{-100,-10}},
+                lineColor={0,0,0},
+                fillColor={0,255,0},
+                fillPattern=FillPattern.Solid),
               Rectangle(
-                extent={{-100,10},{-70,-10}}, 
-                lineColor={0,0,0}, 
-                fillColor={255,0,0}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{-100,10},{-70,-10}},
+                lineColor={0,0,0},
+                fillColor={255,0,0},
+                fillPattern=FillPattern.Solid),
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255})}),
           Documentation(info="<HTML>
 <b>Model of a three phase permanent magnet synchronous induction machine.</b><br>
@@ -2727,15 +2727,15 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
                   graphics),
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={
-              Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255}), 
+              Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255}),
               Line(points={{-100,50},{-100,20},{-130,20},{-130,-4}}, color={0,0,
-                    255}), 
+                    255}),
               Line(points={{-130,-4},{-129,1},{-125,5},{-120,6},{-115,5},{-111,
-                    1},{-110,-4}}, color={0,0,255}), 
+                    1},{-110,-4}}, color={0,0,255}),
               Line(points={{-110,-4},{-109,1},{-105,5},{-100,6},{-95,5},{-91,1},
-                    {-90,-4}}, color={0,0,255}), 
+                    {-90,-4}}, color={0,0,255}),
               Line(points={{-90,-4},{-89,1},{-85,5},{-80,6},{-75,5},{-71,1},{-70,
-                    -4}}, color={0,0,255}), 
+                    -4}}, color={0,0,255}),
               Line(points={{-100,-50},{-100,-20},{-70,-20},{-70,-2}}, color={0,
                     0,255})}),
           Documentation(info="<HTML>
@@ -2953,15 +2953,15 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
-                extent={{-130,10},{-100,-10}}, 
-                lineColor={0,0,0}, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{-130,10},{-100,-10}},
+                lineColor={0,0,0},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
               Rectangle(
-                extent={{-100,10},{-70,-10}}, 
-                lineColor={0,0,0}, 
-                fillColor={255,255,255}, 
-                fillPattern=FillPattern.Solid), 
+                extent={{-100,10},{-70,-10}},
+                lineColor={0,0,0},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255})}),
           Documentation(info="<HTML>
 <b>Model of a three phase synchronous induction machine with reluctance rotor and damper cage.</b><br>
@@ -3162,13 +3162,13 @@ This package contains models of DC machines:
                   graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={Rectangle(
-                extent={{-130,10},{-100,-10}}, 
-                lineColor={0,0,0}, 
-                fillColor={0,255,0}, 
+                extent={{-130,10},{-100,-10}},
+                lineColor={0,0,0},
+                fillColor={0,255,0},
                 fillPattern=FillPattern.Solid), Rectangle(
-                extent={{-100,10},{-70,-10}}, 
-                lineColor={0,0,0}, 
-                fillColor={255,0,0}, 
+                extent={{-100,10},{-70,-10}},
+                lineColor={0,0,0},
+                fillColor={255,0,0},
                 fillPattern=FillPattern.Solid)}),
           Documentation(info="<HTML>
 <b>Model of a DC Machine with Permanent magnet.</b><br>
@@ -3288,13 +3288,13 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Line(points={{-130,-4},{-129,1},{-125,5},{-120,6},{-115,5},{-111,
-                    1},{-110,-4}}, color={0,0,255}), 
+                    1},{-110,-4}}, color={0,0,255}),
               Line(points={{-110,-4},{-109,1},{-105,5},{-100,6},{-95,5},{-91,1},
-                    {-90,-4}}, color={0,0,255}), 
+                    {-90,-4}}, color={0,0,255}),
               Line(points={{-90,-4},{-89,1},{-85,5},{-80,6},{-75,5},{-71,1},{-70,
-                    -4}}, color={0,0,255}), 
+                    -4}}, color={0,0,255}),
               Line(points={{-100,-50},{-100,-20},{-70,-20},{-70,-2}}, color={0,
-                    0,255}), 
+                    0,255}),
               Line(points={{-100,50},{-100,20},{-130,20},{-130,-4}}, color={0,0,
                     255})}),
           Documentation(info="<HTML>
@@ -3433,12 +3433,12 @@ Armature current does not cover excitation current of a shunt excitation; in thi
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Line(points={{-100,-10},{-105,-9},{-109,-5},{-110,0},{-109,5},{-105,
-                    9},{-100,10}}, color={0,0,255}), 
+                    9},{-100,10}}, color={0,0,255}),
               Line(points={{-100,-30},{-105,-29},{-109,-25},{-110,-20},{-109,-15},
-                    {-105,-11},{-100,-10}}, color={0,0,255}), 
+                    {-105,-11},{-100,-10}}, color={0,0,255}),
               Line(points={{-100,10},{-105,11},{-109,15},{-110,20},{-109,25},{-105,
-                    29},{-100,30}}, color={0,0,255}), 
-              Line(points={{-100,50},{-100,30}}, color={0,0,255}), 
+                    29},{-100,30}}, color={0,0,255}),
+              Line(points={{-100,50},{-100,30}}, color={0,0,255}),
               Line(points={{-100,-30},{-100,-50}}, color={0,0,255})}),
           Documentation(info="<HTML>
 <b>Model of a DC Machine with Series excitation.</b><br>
@@ -6046,19 +6046,19 @@ Induced armature voltage is calculated from flux times angular velocity.
                             graphics),
                              Icon(coordinateSystem(preserveAspectRatio=false,
                 extent={{-100,-100},{100,100}}), graphics={
-              Ellipse(extent={{-90,60},{30,-60}}, lineColor={0,0,255}), 
-              Ellipse(extent={{-30,60},{90,-60}}, lineColor={0,0,255}), 
+              Ellipse(extent={{-90,60},{30,-60}}, lineColor={0,0,255}),
+              Ellipse(extent={{-30,60},{90,-60}}, lineColor={0,0,255}),
               Text(
-                extent={{0,100},{0,60}}, 
-                lineColor={0,0,255}, 
-                textString="%name"), 
+                extent={{0,100},{0,60}},
+                lineColor={0,0,255},
+                textString="%name"),
               Text(
-                extent={{0,40},{0,-40}}, 
-                lineColor={0,0,255}, 
-                textString="%VectorGroup"), 
+                extent={{0,40},{0,-40}},
+                lineColor={0,0,255},
+                textString="%VectorGroup"),
               Text(
-                extent={{0,-60},{0,-100}}, 
-                lineColor={0,0,255}, 
+                extent={{0,-60},{0,-100}},
+                lineColor={0,0,255},
                 textString="n=%n")}),
           Documentation(info="<html>
 Partialmodel of a threephase transformer, containing primary and secondary resistances and stray inductances, as well as the iron core. 
@@ -6267,32 +6267,32 @@ This package contains sensors that are usefull when modelling machines.
                            Icon(coordinateSystem(preserveAspectRatio=false,
               extent={{-100,-100},{100,100}}), graphics={
             Ellipse(
-              extent={{-70,70},{70,-70}}, 
-              lineColor={0,0,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{0,70},{0,40}}, color={0,0,0}), 
-            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}), 
-            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}), 
-            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}), 
-            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}), 
-            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}), 
+              extent={{-70,70},{70,-70}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,70},{0,40}}, color={0,0,0}),
+            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
+            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
+            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
+            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
+            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
             Polygon(
-              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-5,5},{5,-5}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-90,0},{-70,0}}, color={0,0,255}), 
-            Line(points={{70,0},{90,0}}, color={0,0,255}), 
-            Line(points={{0,-70},{0,-100}}, color={0,0,255}), 
+              extent={{-5,5},{5,-5}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-90,0},{-70,0}}, color={0,0,255}),
+            Line(points={{70,0},{90,0}}, color={0,0,255}),
+            Line(points={{0,-70},{0,-100}}, color={0,0,255}),
             Text(
-              extent={{-40,-20},{40,-60}}, 
-              lineColor={0,0,255}, 
+              extent={{-40,-20},{40,-60}},
+              lineColor={0,0,255},
               textString="V RMS")}),
         Documentation(info="<HTML>
 Measured 3-phase instantaneous voltages are transformed to the corresponding space phasor; <br>
@@ -6351,32 +6351,32 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
                            Icon(coordinateSystem(preserveAspectRatio=false,
               extent={{-100,-100},{100,100}}), graphics={
             Ellipse(
-              extent={{-70,70},{70,-70}}, 
-              lineColor={0,0,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{0,70},{0,40}}, color={0,0,0}), 
-            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}), 
-            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}), 
-            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}), 
-            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}), 
-            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}), 
+              extent={{-70,70},{70,-70}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,70},{0,40}}, color={0,0,0}),
+            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
+            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
+            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
+            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
+            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
             Polygon(
-              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-5,5},{5,-5}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-90,0},{-70,0}}, color={0,0,255}), 
-            Line(points={{70,0},{90,0}}, color={0,0,255}), 
-            Line(points={{0,-70},{0,-100}}, color={0,0,255}), 
+              extent={{-5,5},{5,-5}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-90,0},{-70,0}}, color={0,0,255}),
+            Line(points={{70,0},{90,0}}, color={0,0,255}),
+            Line(points={{0,-70},{0,-100}}, color={0,0,255}),
             Text(
-              extent={{-40,-20},{40,-60}}, 
-              lineColor={0,0,255}, 
+              extent={{-40,-20},{40,-60}},
+              lineColor={0,0,255},
               textString="A RMS")}),
         Documentation(info="<HTML>
 Measured 3-phase instantaneous currents are transformed to the corresponding space phasor; <br>
@@ -6422,35 +6422,34 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Ellipse(
-              extent={{-70,70},{70,-70}}, 
-              lineColor={0,0,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{0,70},{0,40}}, color={0,0,0}), 
-            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}), 
-            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}), 
-            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}), 
-            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}), 
-            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}), 
+              extent={{-70,70},{70,-70}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,70},{0,40}}, color={0,0,0}),
+            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
+            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
+            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
+            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
+            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
             Polygon(
-              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-5,5},{5,-5}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-90,0},{-70,0}}, color={0,0,255}), 
-            Line(points={{70,0},{90,0}}, color={0,0,255}), 
+              extent={{-5,5},{5,-5}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-90,0},{-70,0}}, color={0,0,255}),
+            Line(points={{70,0},{90,0}}, color={0,0,255}),
             Text(
-              extent={{-40,-20},{40,-60}}, 
-              lineColor={0,0,255}, 
-              textString="P Q"), 
-            Line(points={{0,-70},{0,-90}}, color={0,0,255}), 
-            Line(points={{-10,70},{-10,80},{-50,80},{-50,100}}, color={0,0,255}), 
-              
+              extent={{-40,-20},{40,-60}},
+              lineColor={0,0,255},
+              textString="P Q"),
+            Line(points={{0,-70},{0,-90}}, color={0,0,255}),
+            Line(points={{-10,70},{-10,80},{-50,80},{-50,100}}, color={0,0,255}),
             Line(points={{10,70},{10,80},{50,80},{50,100}}, color={0,0,255})}),
           Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}),
@@ -6487,62 +6486,62 @@ Q = giving in stationary state reactive power.<br>
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Ellipse(
-              extent={{-70,70},{70,-70}}, 
-              lineColor={0,0,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{0,70},{0,40}}, color={0,0,0}), 
-            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}), 
-            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}), 
-            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}), 
-            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}), 
-            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}), 
+              extent={{-70,70},{70,-70}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,70},{0,40}}, color={0,0,0}),
+            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
+            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
+            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
+            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
+            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
             Polygon(
-              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-5,5},{5,-5}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-            Line(points={{70,0},{90,0}}, color={0,0,0}), 
-            Line(points={{0,70},{0,100}}, color={0,0,255}), 
+              extent={{-5,5},{5,-5}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            Line(points={{70,0},{90,0}}, color={0,0,0}),
+            Line(points={{0,70},{0,100}}, color={0,0,255}),
             Text(
-              extent={{-40,-20},{40,-60}}, 
-              lineColor={0,0,255}, 
-              textString="Pmech"), 
+              extent={{-40,-20},{40,-60}},
+              lineColor={0,0,255},
+              textString="Pmech"),
             Rectangle(
-              extent={{-20,-80},{20,-120}}, 
-              lineColor={192,192,192}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-20,-80},{20,-120}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Line(
-              visible=not useSupport, 
-              points={{-20,-100},{20,-100}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None), 
+              visible=not useSupport,
+              points={{-20,-100},{20,-100}},
+              color={0,0,0},
+              smooth=Smooth.None),
             Line(
-              visible=not useSupport, 
-              points={{-10,-100},{-20,-120}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None), 
+              visible=not useSupport,
+              points={{-10,-100},{-20,-120}},
+              color={0,0,0},
+              smooth=Smooth.None),
             Line(
-              visible=not useSupport, 
-              points={{0,-100},{-10,-120}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None), 
+              visible=not useSupport,
+              points={{0,-100},{-10,-120}},
+              color={0,0,0},
+              smooth=Smooth.None),
             Line(
-              visible=not useSupport, 
-              points={{10,-100},{0,-120}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None), 
+              visible=not useSupport,
+              points={{10,-100},{0,-120}},
+              color={0,0,0},
+              smooth=Smooth.None),
             Line(
-              visible=not useSupport, 
-              points={{20,-100},{10,-120}}, 
-              color={0,0,0}, 
+              visible=not useSupport,
+              points={{20,-100},{10,-120}},
+              color={0,0,0},
               smooth=Smooth.None)}),
                               Diagram(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}),
@@ -6662,71 +6661,71 @@ Calculates (mechanical) power from torque times angular speed.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
-              extent={{-60,80},{60,40}}, 
-              lineColor={0,255,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-60,80},{60,40}},
+              lineColor={0,255,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-60,-40},{60,-80}}, 
-              lineColor={0,255,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-60,-40},{60,-80}},
+              lineColor={0,255,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-60,60},{60,40}}, 
-              lineColor={0,255,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-60,60},{60,40}},
+              lineColor={0,255,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-60,-40},{60,-60}}, 
-              lineColor={0,255,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-60,-40},{60,-60}},
+              lineColor={0,255,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-40,40},{40,-40}}, 
-              lineColor={0,255,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{0,0},{-80,80}}, color={0,0,255}), 
+              extent={{-40,40},{40,-40}},
+              lineColor={0,255,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,0},{-80,80}}, color={0,0,255}),
             Polygon(
-              points={{-80,80},{-68,76},{-76,68},{-80,80}}, 
-              lineColor={0,0,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{0,0},{0,80}}, color={0,255,0}), 
+              points={{-80,80},{-68,76},{-76,68},{-80,80}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,0},{0,80}}, color={0,255,0}),
             Polygon(
-              points={{0,84},{4,72},{-4,72},{0,84}}, 
-              lineColor={0,255,0}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              points={{0,84},{4,72},{-4,72},{0,84}},
+              lineColor={0,255,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{80,120},{120,80}}, 
-              lineColor={192,192,192}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{80,120},{120,80}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Line(
-              visible=not useSupport, 
-              points={{80,100},{120,100}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None), 
+              visible=not useSupport,
+              points={{80,100},{120,100}},
+              color={0,0,0},
+              smooth=Smooth.None),
             Line(
-              visible=not useSupport, 
-              points={{90,120},{80,100}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None), 
+              visible=not useSupport,
+              points={{90,120},{80,100}},
+              color={0,0,0},
+              smooth=Smooth.None),
             Line(
-              visible=not useSupport, 
-              points={{100,120},{90,100}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None), 
+              visible=not useSupport,
+              points={{100,120},{90,100}},
+              color={0,0,0},
+              smooth=Smooth.None),
             Line(
-              visible=not useSupport, 
-              points={{110,120},{100,100}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None), 
+              visible=not useSupport,
+              points={{110,120},{100,100}},
+              color={0,0,0},
+              smooth=Smooth.None),
             Line(
-              visible=not useSupport, 
-              points={{120,120},{110,100}}, 
-              color={0,0,0}, 
+              visible=not useSupport,
+              points={{120,120},{110,100}},
+              color={0,0,0},
               smooth=Smooth.None)}),
         Documentation(info="<HTML>
 Calculates rotor lagging angle by measuring the stator phase voltages, transforming them to the correspondig space phasor in stator-fixed coordinate system, <br>
@@ -7496,66 +7495,66 @@ Connector for Space Phasors:
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
-              extent={{-40,60},{80,-60}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={0,128,255}), 
+              extent={{-40,60},{80,-60}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={0,128,255}),
             Rectangle(
-              extent={{-40,60},{-60,-60}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={128,128,128}), 
+              extent={{-40,60},{-60,-60}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={128,128,128}),
             Rectangle(
-              extent={{80,10},{100,-10}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={95,95,95}), 
+              extent={{80,10},{100,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={95,95,95}),
             Rectangle(
-              extent={{-40,70},{40,50}}, 
-              lineColor={95,95,95}, 
-              fillColor={95,95,95}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-40,70},{40,50}},
+              lineColor={95,95,95},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid),
             Polygon(
               points={{-50,-90},{-40,-90},{-10,-20},{40,-20},{70,-90},{80,-90},
-                  {80,-100},{-50,-100},{-50,-90}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+                  {80,-100},{-50,-100},{-50,-90}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-150,-120},{150,-180}}, 
-              lineColor={0,0,255}, 
-              fillColor={95,95,95}, 
-              fillPattern=FillPattern.Solid, 
-              textString="%name"), 
+              extent={{-150,-120},{150,-180}},
+              lineColor={0,0,255},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid,
+              textString="%name"),
             Rectangle(
-              extent={{80,-80},{120,-120}}, 
-              lineColor={192,192,192}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{80,-80},{120,-120}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Line(
-              visible=not useSupport, 
-              points={{80,-100},{120,-100}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None), 
+              visible=not useSupport,
+              points={{80,-100},{120,-100}},
+              color={0,0,0},
+              smooth=Smooth.None),
             Line(
-              visible=not useSupport, 
-              points={{90,-100},{80,-120}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None), 
+              visible=not useSupport,
+              points={{90,-100},{80,-120}},
+              color={0,0,0},
+              smooth=Smooth.None),
             Line(
-              visible=not useSupport, 
-              points={{100,-100},{90,-120}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None), 
+              visible=not useSupport,
+              points={{100,-100},{90,-120}},
+              color={0,0,0},
+              smooth=Smooth.None),
             Line(
-              visible=not useSupport, 
-              points={{110,-100},{100,-120}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None), 
+              visible=not useSupport,
+              points={{110,-100},{100,-120}},
+              color={0,0,0},
+              smooth=Smooth.None),
             Line(
-              visible=not useSupport, 
-              points={{120,-100},{110,-120}}, 
-              color={0,0,0}, 
+              visible=not useSupport,
+              points={{120,-100},{110,-120}},
+              color={0,0,0},
               smooth=Smooth.None)}),
         Documentation(info="<HTML>
 Base partial model DC machines:
@@ -7640,8 +7639,8 @@ Partial model for induction machine models
                 {100,100}}),
                 graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}}, 
-                color={0,0,255}), Line(points={{50,100},{20,100},{20,70}}, 
+                100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}},
+                color={0,0,255}), Line(points={{50,100},{20,100},{20,70}},
                 color={0,0,255})}));
     equation 
       connect(plug_sp, rs.plug_p) annotation (Line(
@@ -7695,8 +7694,8 @@ Partial model for DC machine models.
                 {100,100}}),
                 graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}}, 
-                color={0,0,255}), Line(points={{50,100},{20,100},{20,70}}, 
+                100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}},
+                color={0,0,255}), Line(points={{50,100},{20,100},{20,70}},
                 color={0,0,255})}));
       Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap 
         annotation (Placement(transformation(extent={{50,110},{70,90}},
@@ -7951,18 +7950,24 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
     parameter Real n = V1/V2 
         "primary voltage (line-to-line) / secondary voltage (line-to-line)" 
       annotation(Dialog(tab="Result", enable = false));
-    final parameter Modelica.SIunits.Voltage V1ph = V1/(if C1=="D" then 1 else sqrt(3));
-    final parameter Modelica.SIunits.Current I1ph = SNominal/(3*V1ph);
-    final parameter Modelica.SIunits.Voltage V2ph = V2/(if C2=="d" then 1 else sqrt(3));
-    final parameter Modelica.SIunits.Current I2ph = SNominal/(3*V2ph);
-    final parameter Modelica.SIunits.Impedance Z1ph = 0.5*v_sc*V1ph/I1ph;
+    final parameter Modelica.SIunits.Voltage V1ph = V1/(if C1=="D" then 1 else sqrt(3)) 
+        "primary phase voltage (RMS)";
+    final parameter Modelica.SIunits.Current I1ph = SNominal/(3*V1ph) 
+        "primary phase current (RMS)";
+    final parameter Modelica.SIunits.Voltage V2ph = V2/(if C2=="d" then 1 else sqrt(3)) 
+        "secondary phase voltage (RMS)";
+    final parameter Modelica.SIunits.Current I2ph = SNominal/(3*V2ph) 
+        "secondary phase current (RMS)";
+    final parameter Modelica.SIunits.Impedance Z1ph = 0.5*v_sc*V1ph/I1ph 
+        "primary impedance per phase";
     parameter Modelica.SIunits.Resistance R1= 0.5*P_sc/(3*I1ph^2) 
         "warm primary resistance per phase" 
       annotation(Dialog(tab="Result", enable = false));
     parameter Modelica.SIunits.Inductance L1sigma= sqrt(Z1ph^2-R1^2)/(2*Modelica.Constants.pi*f) 
         "primary stray inductance per phase" 
       annotation(Dialog(tab="Result", enable = false));
-    final parameter Modelica.SIunits.Impedance Z2ph = 0.5*v_sc*V2ph/I2ph;
+    final parameter Modelica.SIunits.Impedance Z2ph = 0.5*v_sc*V2ph/I2ph 
+        "secondary impedance per phase";
     parameter Modelica.SIunits.Resistance R2= 0.5*P_sc/(3*I2ph^2) 
         "warm secondary resistance per phase" 
       annotation(Dialog(tab="Result", enable = false));
