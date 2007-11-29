@@ -1072,6 +1072,8 @@ still kept in Modelica.SIunits.</p>
       final quantity="ThermodynamicTemperature",
       final unit="K") annotation(__Dymola_absoluteValue=false);
   type Temp_C = Modelica.SIunits.Conversions.NonSIunits.Temperature_degC;
+  type TemperatureSlope = Real (final quantity="TemperatureSlope",
+      final unit="K/s");
   type LinearTemperatureCoefficient = Real(final quantity = "LinearTemperatureCoefficient", final unit
         =                                                                                              "1/K");
   type QuadraticTemperatureCoefficient = Real(final quantity = "QuadraticTemperatureCoefficient", final unit
@@ -1143,7 +1145,7 @@ still kept in Modelica.SIunits.</p>
   // Electricity and Magnetism (chapter 5 of ISO 31-1992)
   type ElectricCurrent = Real (final quantity="ElectricCurrent", final unit="A");
   type Current = ElectricCurrent;
-  type CurrentRise = Real(final quantity="CurrentRise", final unit="A/s");
+  type CurrentSlope = Real(final quantity="CurrentSlope", final unit="A/s");
   type ElectricCharge = Real (final quantity="ElectricCharge", final unit="C");
   type Charge = ElectricCharge;
   type VolumeDensityOfCharge = Real (
@@ -1161,7 +1163,7 @@ still kept in Modelica.SIunits.</p>
   type Voltage = ElectricPotential;
   type PotentialDifference = ElectricPotential;
   type ElectromotiveForce = ElectricPotential;
-  type VoltageRise = Real(final quantity="VoltageRise", final unit="V/s");
+  type VoltageSlope = Real(final quantity="VoltageSlope", final unit="V/s");
   type ElectricFluxDensity = Real (final quantity="ElectricFluxDensity", final unit
         =    "C/m2");
   type ElectricFlux = Real (final quantity="ElectricFlux", final unit="C");
