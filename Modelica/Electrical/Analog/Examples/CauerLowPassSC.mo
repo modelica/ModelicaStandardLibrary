@@ -1,17 +1,19 @@
 within Modelica.Electrical.Analog.Examples;
 model CauerLowPassSC 
   "Cauer low-pass filter with operational amplifiers and switched capacitors" 
-model Rn 
-    
-  parameter Modelica.SIunits.Time clock=1;
+model Rn "negative resistance" 
+  parameter Modelica.SIunits.Time clock=1 "clock";
   parameter Modelica.SIunits.Resistance R(min=Modelica.Constants.eps)=1 
       "Resistance";
   Modelica.Blocks.Sources.BooleanPulse BooleanPulse1(period=clock) 
     annotation (Placement(transformation(extent={{-10,50},{10,70}}, rotation=0)));
   annotation (
     uses(Modelica(version="2.2")),
-    Diagram(graphics),
-    Icon(graphics={
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}),
+            graphics),
+    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
           Bitmap(extent={{-62,6},{-62,14}}, fileName=""), 
           Rectangle(
             extent={{-80,32},{80,-30}}, 
@@ -84,10 +86,13 @@ equation
         fillPattern=FillPattern.Solid));
 end Rn;
   
-model Rp 
+model Rp "positive resistance" 
     
-  annotation (uses(Modelica(version="2.2")), Diagram(graphics),
-    Icon(graphics={
+  annotation (uses(Modelica(version="2.2")), Diagram(coordinateSystem(
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+                                                     graphics),
+    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
           Bitmap(extent={{-62,4},{-62,12}}, fileName=""), 
           Rectangle(
             extent={{-80,30},{80,-32}}, 
@@ -115,7 +120,7 @@ model Rp
             lineColor={0,0,255}, 
             fillPattern=FillPattern.Solid, 
             textString="%name")}));
-  parameter Modelica.SIunits.Time clock=1;
+  parameter Modelica.SIunits.Time clock=1 "clock";
   parameter Modelica.SIunits.Resistance R(min=Modelica.Constants.eps)=1 
       "Resistance";
   Modelica.Blocks.Sources.BooleanPulse BooleanPulse1(period=clock) 
@@ -169,7 +174,6 @@ end Rp;
           textString="CauerLowPassSC", 
           lineColor={0,0,255})}),
     experiment(StopTime=60, NumberOfIntervals=1500),
-    
     Documentation(revisions="<html>
 <ul>
 <li><i>January 13, 2006</i> 
@@ -222,13 +226,16 @@ Due to the recharging of the capacitances after switching the performance of sim
           extent={{-120,132},{120,73}}, 
           lineColor={255,0,0}, 
           textString="%name")}));
-  parameter Modelica.SIunits.Capacitance l1=1.304;
-  parameter Modelica.SIunits.Capacitance l2=0.8586;
-  parameter Modelica.SIunits.Capacitance c1=1.072;
-  parameter Modelica.SIunits.Capacitance c2=1/(1.704992^2*l1);
-  parameter Modelica.SIunits.Capacitance c3=1.682;
-  parameter Modelica.SIunits.Capacitance c4=1/(1.179945^2*l2);
-  parameter Modelica.SIunits.Capacitance c5=0.7262;
+  
+  parameter Modelica.SIunits.Capacitance l1=1.304 "filter coefficient i1";
+  parameter Modelica.SIunits.Capacitance l2=0.8586 "filter coefficient i2";
+  parameter Modelica.SIunits.Capacitance c1=1.072 "filter coefficient c1";
+  parameter Modelica.SIunits.Capacitance c2=1/(1.704992^2*l1) 
+    "filter coefficient c2";
+  parameter Modelica.SIunits.Capacitance c3=1.682 "filter coefficient c3";
+  parameter Modelica.SIunits.Capacitance c4=1/(1.179945^2*l2) 
+    "filter coefficient c4";
+  parameter Modelica.SIunits.Capacitance c5=0.7262 "filter coefficient c5";
   Modelica.Electrical.Analog.Basic.Capacitor C1(C=c1 + c2) 
     annotation (Placement(transformation(extent={{-193,30},{-173,50}}, rotation=
            0)));

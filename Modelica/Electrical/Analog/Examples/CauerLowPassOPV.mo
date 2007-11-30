@@ -9,7 +9,6 @@ model CauerLowPassOPV "Cauer low pass filter with operational amplifiers"
           textString="CauerLowPassOPV", 
           lineColor={0,0,255})}),
     experiment(StopTime=60),
-    
     Documentation(revisions="<html>
 <ul>
 <li><i>January 13, 2006</i> 
@@ -58,13 +57,16 @@ Do not worry about it. The negative values are o.k.
           extent={{-120,152},{120,93}}, 
           lineColor={255,0,0}, 
           textString="%name")}));
-  parameter Modelica.SIunits.Capacitance l1=1.304;
-  parameter Modelica.SIunits.Capacitance l2=0.8586;
-  parameter Modelica.SIunits.Capacitance c1=1.072;
-  parameter Modelica.SIunits.Capacitance c2=1/(1.704992^2*l1);
-  parameter Modelica.SIunits.Capacitance c3=1.682;
-  parameter Modelica.SIunits.Capacitance c4=1/(1.179945^2*l2);
-  parameter Modelica.SIunits.Capacitance c5=0.7262;
+  
+  parameter Modelica.SIunits.Capacitance l1=1.304 "filter coefficient i1";
+  parameter Modelica.SIunits.Capacitance l2=0.8586 "filter coefficient i2";
+  parameter Modelica.SIunits.Capacitance c1=1.072 "filter coefficient c1";
+  parameter Modelica.SIunits.Capacitance c2=1/(1.704992^2*l1) 
+    "filter coefficient c2";
+  parameter Modelica.SIunits.Capacitance c3=1.682 "filter coefficient c3";
+  parameter Modelica.SIunits.Capacitance c4=1/(1.179945^2*l2) 
+    "filter coefficient c4";
+  parameter Modelica.SIunits.Capacitance c5=0.7262 "filter coefficient c5";
   Modelica.Electrical.Analog.Basic.Capacitor C1(C=c1 + c2) 
     annotation (Placement(transformation(extent={{-192,10},{-172,30}}, rotation=
            0)));

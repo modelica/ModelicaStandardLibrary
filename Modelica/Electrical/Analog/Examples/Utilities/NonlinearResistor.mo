@@ -40,9 +40,9 @@ model NonlinearResistor "Chua's resistor"
     Documentation(info="<html>
   
 </html>"));
-  parameter SI.Conductance Ga;
-  parameter SI.Conductance Gb;
-  parameter SI.Voltage Ve;
+  parameter SI.Conductance Ga "conductance in inner voltage range";
+  parameter SI.Conductance Gb "conductance in outer voltage range";
+  parameter SI.Voltage Ve "inner voltage range limit";
 equation 
   i = if (v < -Ve) then Gb*(v + Ve) - Ga*Ve else if (v > Ve) then Gb*(v - Ve)
      + Ga*Ve else Ga*v;

@@ -38,7 +38,6 @@ model CauerLowPassAnalog "Cauer low pass filter with analog components"
           textString="CauerLowPassAnalog", 
           lineColor={0,0,255})}),
     experiment(StopTime=60),
-    
     Documentation(revisions="<html>
 <ul>
 <li><i>January 13, 2006</i> 
@@ -83,13 +82,16 @@ The simulation end time should be 60. Please plot both V.p.v (input voltage) and
           extent={{-100,142},{140,83}}, 
           lineColor={255,0,0}, 
           textString="%name")}));
-  parameter Modelica.SIunits.Inductance l1=1.304;
-  parameter Modelica.SIunits.Inductance l2=0.8586;
-  parameter Modelica.SIunits.Capacitance c1=1.072;
-  parameter Modelica.SIunits.Capacitance c2=1/(1.704992^2*l1);
-  parameter Modelica.SIunits.Capacitance c3=1.682;
-  parameter Modelica.SIunits.Capacitance c4=1/(1.179945^2*l2);
-  parameter Modelica.SIunits.Capacitance c5=0.7262;
+  
+  parameter Modelica.SIunits.Inductance l1=1.304 "filter coefficient I1";
+  parameter Modelica.SIunits.Inductance l2=0.8586 "filter coefficient I2";
+  parameter Modelica.SIunits.Capacitance c1=1.072 "filter coefficient c1";
+  parameter Modelica.SIunits.Capacitance c2=1/(1.704992^2*l1) 
+    "filter coefficient c2";
+  parameter Modelica.SIunits.Capacitance c3=1.682 "filter coefficient c3";
+  parameter Modelica.SIunits.Capacitance c4=1/(1.179945^2*l2) 
+    "filter coefficient c4";
+  parameter Modelica.SIunits.Capacitance c5=0.7262 "filter coefficient c5";
   Modelica.Electrical.Analog.Basic.Ground G 
     annotation (Placement(transformation(extent={{-10,-90},{10,-70}}, rotation=
             0)));
