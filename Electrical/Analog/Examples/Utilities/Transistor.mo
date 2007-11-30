@@ -1,5 +1,5 @@
 within Modelica.Electrical.Analog.Examples.Utilities;
-model Transistor 
+model Transistor "transistor with resistance an capacitance" 
   
   annotation (
     Icon(coordinateSystem(
