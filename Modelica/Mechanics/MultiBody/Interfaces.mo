@@ -201,8 +201,7 @@ end Frame_resolve;
           Rectangle(
             extent={{-20,1},{20,-1}},
             lineColor={135,135,135},
-            lineThickness=2,
-            fillPattern=FillPattern.Solid),
+            lineThickness=2),
           Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={255,255,255},

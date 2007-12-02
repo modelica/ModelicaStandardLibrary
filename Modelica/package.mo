@@ -3,7 +3,7 @@ package Modelica "Modelica Standard Library (Version 3.0)"
 extends Icons.Library;
 
 
-annotation(
+annotation (
   preferredView="info",
   Window(
     x=0.02,
@@ -78,8 +78,8 @@ and the accompanying <b>disclaimer</b>
 "));
 
 
-package UsersGuide "User's Guide of Modelica library" 
-  
+package UsersGuide "User's Guide of Modelica library"
+
   annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 Package <b>Modelica</b> is a <b>standardized</b> and <b>pre-defined</b> package
@@ -133,9 +133,9 @@ User's Guides that can be accessed by the following links:
 </table>
 
 </html>"));
-  
-  class Overview "Overview of Modelica Library" 
-    
+
+  class Overview "Overview of Modelica Library"
+
     annotation (Documentation(info="<html>
 <p>
 The Modelica Standard Library consists of the following
@@ -293,9 +293,9 @@ main sub-libraries:
 </html>
 "));
   end Overview;
-  
-  class Connectors "Connectors" 
-    
+
+  class Connectors "Connectors"
+
     annotation (Documentation(info="<html>
 
 <p>
@@ -472,9 +472,9 @@ a Plug connector, such as \"connect(resistor.p, plug.phase)\".
 </html>
 "));
   end Connectors;
-  
-  class Conventions "Conventions" 
-    
+
+  class Conventions "Conventions"
+
     annotation (Documentation(info="<html>
 
 <p>
@@ -534,9 +534,9 @@ In the Modelica package the following conventions are used:
 </html>
 "));
   end Conventions;
-  
-  class ParameterDefaults "Parameter defaults" 
-    
+
+  class ParameterDefaults "Parameter defaults"
+
     annotation (Documentation(info="<html>
 
 <p>
@@ -631,9 +631,9 @@ instead of a warning.
 </html>
 "));
   end ParameterDefaults;
-  
-  package ReleaseNotes "Release notes" 
-    
+
+  package ReleaseNotes "Release notes"
+
     annotation (Documentation(info="<html>
 
 <p>
@@ -748,9 +748,9 @@ more of the following changes.
 </ul>
 </html>
 "));
-    
-  class Version_3_0 "Version 3.0 (Nov. 23, 2007)" 
-      
+
+  class Version_3_0 "Version 3.0 (Nov. 23, 2007)"
+
       annotation (Documentation(info="<html>
 <p>
 Version 3.0 is <b>not</b> backward compatible to previous versions.
@@ -1228,9 +1228,9 @@ units are wrong or errors in documentation):
                                
 </html>"));
   end Version_3_0;
-    
-  class Version_2_2_2 "Version 2.2.2 (Aug. 31, 2007)" 
-      
+
+  class Version_2_2_2 "Version 2.2.2 (Aug. 31, 2007)"
+
       annotation (Documentation(info="<html>
 <p>
 Version 2.2.2 is backward compatible to version 2.2.1 and 2.2 with 
@@ -2223,9 +2223,9 @@ units are wrong or errors in documentation):
                                
 </html>"));
   end Version_2_2_2;
-    
-  class Version_2_2_1 "Version 2.2.1 (March 24, 2006)" 
-      
+
+  class Version_2_2_1 "Version 2.2.1 (March 24, 2006)"
+
       annotation (Documentation(info="<html>
 
 <p>
@@ -2601,9 +2601,9 @@ The following <b>errors</b> have been fixed:
 </html>
 "));
   end Version_2_2_1;
-    
-  class Version_2_2 "Version 2.2 (April 6, 2005)" 
-      
+
+  class Version_2_2 "Version 2.2 (April 6, 2005)"
+
       annotation (Documentation(info="<html>
 
 <p>
@@ -2665,9 +2665,9 @@ The following <b>changes</b> have been performed in the
 </html>
 "));
   end Version_2_2;
-    
-  class Version_2_1 "Version 2.1 (Nov. 11, 2004)" 
-      
+
+  class Version_2_1 "Version 2.1 (Nov. 11, 2004)"
+
       annotation (Documentation(info="<html>
 
 <p> This is a major change with respect to previous versions of the
@@ -2858,9 +2858,9 @@ Other changes:
 </html>
 "));
   end Version_2_1;
-    
-  class Version_1_6 "Version 1.6 (June 21, 2004)" 
-      
+
+  class Version_1_6 "Version 1.6 (June 21, 2004)"
+
       annotation (Documentation(info="<html>
 
 <p> Added 1 new library (Electrical.MultiPhase), 17 new components, 
@@ -2937,9 +2937,9 @@ ShowVariableResistor
 </html>
 "));
   end Version_1_6;
-    
-  class Version_1_5 "Version 1.5 (Dec. 16, 2002)" 
-      
+
+  class Version_1_5 "Version 1.5 (Dec. 16, 2002)"
+
       annotation (Documentation(info="<html>
 
 <p> Added 55 new components. In particular, added new package
@@ -3142,9 +3142,9 @@ filled with white and not transparent any more.</p>
 </html>
 "));
   end Version_1_5;
-    
-  class Version_1_4 "Version 1.4 (June 28, 2001)" 
-      
+
+  class Version_1_4 "Version 1.4 (June 28, 2001)"
+
   annotation (Documentation(info="<html>
 
 <ul>
@@ -3208,9 +3208,9 @@ First official release of the library.
 "));
   end Version_1_4;
   end ReleaseNotes;
-  
-  class Contact "Contact" 
-    
+
+  class Contact "Contact"
+
     annotation (Documentation(info="<html>
 
 <dl>
@@ -3366,11 +3366,11 @@ In particular, the following people have directly contributed
 </table>
 </html>
 "));
-    
+
   end Contact;
-  
-  class ModelicaLicense "Modelica License (Version 1.1 of June 30, 2000)" 
-    
+
+  class ModelicaLicense "Modelica License (Version 1.1 of June 30, 2000)"
+
     annotation (Documentation(info="<html>
 
 <p>Redistribution and use in source and binary forms, with or without
@@ -3407,7 +3407,7 @@ even if advised of the possibility of such damage.
 </p>
 </html>
 "));
-    
+
   end ModelicaLicense;
 end UsersGuide;
 end Modelica;

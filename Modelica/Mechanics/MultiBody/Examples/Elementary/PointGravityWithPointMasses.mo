@@ -1,6 +1,6 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
-model PointGravityWithPointMasses 
-  "Two point masses in a point gravity field (rotation of bodies is neglected)" 
+model PointGravityWithPointMasses
+  "Two point masses in a point gravity field (rotation of bodies is neglected)"
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
   inner Modelica.Mechanics.MultiBody.World world(
@@ -35,8 +35,8 @@ model PointGravityWithPointMasses
     annotation (Placement(transformation(extent={{20,60},{40,80}}, rotation=0)));
   Forces.Spring spring(showMass=false, c=10) annotation (Placement(
         transformation(extent={{0,60},{20,80}}, rotation=0)));
-equation 
-  
+equation
+
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}),

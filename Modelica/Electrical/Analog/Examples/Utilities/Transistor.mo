@@ -1,18 +1,18 @@
 within Modelica.Electrical.Analog.Examples.Utilities;
-model Transistor "transistor with resistance an capacitance" 
-  
+model Transistor "transistor with resistance an capacitance"
+
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Rectangle(extent={{-80,80},{80,-80}}, lineColor={0,0,255}), 
-        Line(points={{80,60},{100,60}}, color={0,0,255}), 
-        Line(points={{80,-60},{100,-60}}, color={0,0,255}), 
-        Line(points={{-100,0},{-80,0}}, color={0,0,255}), 
-        Line(points={{-60,0},{-10,0}}, color={0,0,255}), 
-        Line(points={{-10,40},{-10,-40}}, color={0,0,255}), 
-        Line(points={{60,60},{40,60},{-10,10}}, color={0,0,255}), 
+        Rectangle(extent={{-80,80},{80,-80}}, lineColor={0,0,255}),
+        Line(points={{80,60},{100,60}}, color={0,0,255}),
+        Line(points={{80,-60},{100,-60}}, color={0,0,255}),
+        Line(points={{-100,0},{-80,0}}, color={0,0,255}),
+        Line(points={{-60,0},{-10,0}}, color={0,0,255}),
+        Line(points={{-10,40},{-10,-40}}, color={0,0,255}),
+        Line(points={{60,60},{40,60},{-10,10}}, color={0,0,255}),
         Line(points={{-10,-10},{40,-60},{60,-60}}, color={0,0,255})}),
     Window(
       x=0.25,
@@ -56,7 +56,7 @@ model Transistor "transistor with resistance an capacitance"
             10}}, rotation=0)));
   Interfaces.Pin e annotation (Placement(transformation(extent={{90,-70},{110,
             -50}}, rotation=0)));
-equation 
+equation
   connect(rtb.n, Tr.B) annotation (Line(points={{-60,0},{-20,0}}));
   connect(rtb.n, ct.p) annotation (Line(points={{-60,0},{-40,0},{-40,-20}}));
   connect(ct.n, Ground1.p) annotation (Line(points={{-40,-40},{-40,-60}}));

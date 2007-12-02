@@ -1,5 +1,5 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
-model ThreeSprings "3-dim. springs in series and parallel connection" 
+model ThreeSprings "3-dim. springs in series and parallel connection"
   extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
   annotation (
@@ -80,7 +80,7 @@ ALT=\"model Examples.Elementary.ThreeSprings\">
     c=20,
     animation=animation) annotation (Placement(transformation(extent={{-20,-42},
             {0,-22}}, rotation=0)));
-equation 
+equation
   connect(world.frame_b, bar1.frame_a) 
     annotation (Line(
       points={{-40,30},{-20,30}},

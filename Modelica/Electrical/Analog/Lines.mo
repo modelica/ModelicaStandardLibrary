@@ -1,8 +1,8 @@
 within Modelica.Electrical.Analog;
-package Lines 
-  "Lossy and lossless segmented transmission lines, and LC distributed line models" 
+package Lines
+  "Lossy and lossless segmented transmission lines, and LC distributed line models"
   extends Modelica.Icons.Library;
-  annotation(
+  annotation (
     Window(
       x=0.03,
       y=0.04,
@@ -44,8 +44,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
 </html>"));
-  
-  model OLine "Lossy Transmission Line" 
+
+  model OLine "Lossy Transmission Line"
     //extends Interfaces.ThreePol;
     Interfaces.Pin p1 annotation (Placement(transformation(extent={{-110,-10},{
               -90,10}}, rotation=0)));
@@ -69,10 +69,10 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     parameter Real c(
       final min=Modelica.Constants.small,
       unit="F/m", start=1) "Capacitance per meter";
-    parameter SI.Length length(final min=Modelica.Constants.small, start=1) 
+    parameter SI.Length length(final min=Modelica.Constants.small, start=1)
       "Length of line";
     parameter Integer N(final min=1, start=1) "Number of lumped segments";
-  protected 
+  protected
     Basic.Resistor R[N + 1](R=fill(r*length/(N + 1), N + 1));
     Basic.Inductor L[N + 1](L=fill(l*length/(N + 1), N + 1));
     Basic.Capacitor C[N](C=fill(c*length/(N), N));
@@ -114,37 +114,37 @@ Lossy Transmission Line.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-60,60},{60,-60}}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
-          Line(points={{0,-60},{0,-90}}, color={0,0,255}), 
-          Line(points={{60,0},{90,0}}, color={0,0,255}), 
-          Line(points={{-60,0},{-90,0}}, color={0,0,255}), 
-          Line(points={{30,30},{-30,30}}, color={0,0,255}), 
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}), 
-          Line(points={{30,40},{30,20}}, color={0,0,255}), 
+            extent={{-60,60},{60,-60}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Line(points={{0,-60},{0,-90}}, color={0,0,255}),
+          Line(points={{60,0},{90,0}}, color={0,0,255}),
+          Line(points={{-60,0},{-90,0}}, color={0,0,255}),
+          Line(points={{30,30},{-30,30}}, color={0,0,255}),
+          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
+          Line(points={{30,40},{30,20}}, color={0,0,255}),
           Text(
-            extent={{-100,100},{100,70}}, 
-            textString="%name", 
+            extent={{-100,100},{100,70}},
+            textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
-          Line(points={{0,-60},{0,-96}}, color={0,0,255}), 
-          Line(points={{60,0},{96,0}}, color={0,0,255}), 
-          Line(points={{-60,0},{-96,0}}, color={0,0,255}), 
-          Line(points={{30,30},{-30,30}}, color={0,0,255}), 
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}), 
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
+          Line(points={{0,-60},{0,-96}}, color={0,0,255}),
+          Line(points={{60,0},{96,0}}, color={0,0,255}),
+          Line(points={{-60,0},{-96,0}}, color={0,0,255}),
+          Line(points={{30,30},{-30,30}}, color={0,0,255}),
+          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
           Line(points={{30,40},{30,20}}, color={0,0,255})}),
       Window(
         x=0.24,
         y=0.07,
         width=0.6,
         height=0.6));
-  equation 
+  equation
     v13 = p1.v - p3.v;
     v23 = p2.v - p3.v;
     i1 = p1.i;
@@ -161,8 +161,8 @@ Lossy Transmission Line.
     connect(R[N + 1].n, L[N + 1].p);
     connect(L[N + 1].n, p2);
   end OLine;
-  
-  model ULine "Lossy RC Line" 
+
+  model ULine "Lossy RC Line"
     //extends Interfaces.ThreePol;
     Interfaces.Pin p1 annotation (Placement(transformation(extent={{-110,-10},{
               -90,10}}, rotation=0)));
@@ -180,10 +180,10 @@ Lossy Transmission Line.
     parameter Real c(
       final min=Modelica.Constants.small,
       unit="F/m", start=1) "Capacitance per meter";
-    parameter SI.Length length(final min=Modelica.Constants.small, start=1) 
+    parameter SI.Length length(final min=Modelica.Constants.small, start=1)
       "Length of line";
     parameter Integer N(final min=1, start=1) "Number of lumped segments";
-  protected 
+  protected
     Basic.Resistor R[N + 1](R=fill(r*length/(N + 1), N + 1));
     Basic.Capacitor C[N](C=fill(c*length/(N), N));
     annotation (
@@ -227,32 +227,32 @@ lumped segments.
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(
-            extent={{-60,60},{60,-60}}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
-          Line(points={{0,-60},{0,-90}}, color={0,0,255}), 
-          Line(points={{60,0},{90,0}}, color={0,0,255}), 
-          Line(points={{-60,0},{-90,0}}, color={0,0,255}), 
-          Line(points={{30,30},{-30,30}}, color={0,0,255}), 
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}), 
-          Line(points={{30,40},{30,20}}, color={0,0,255}), 
+            extent={{-60,60},{60,-60}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Line(points={{0,-60},{0,-90}}, color={0,0,255}),
+          Line(points={{60,0},{90,0}}, color={0,0,255}),
+          Line(points={{-60,0},{-90,0}}, color={0,0,255}),
+          Line(points={{30,30},{-30,30}}, color={0,0,255}),
+          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
+          Line(points={{30,40},{30,20}}, color={0,0,255}),
           Text(
-            extent={{-100,100},{100,70}}, 
-            textString="%name", 
+            extent={{-100,100},{100,70}},
+            textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
-          Line(points={{0,-60},{0,-96}}, color={0,0,255}), 
-          Line(points={{60,0},{96,0}}, color={0,0,255}), 
-          Line(points={{-60,0},{-96,0}}, color={0,0,255}), 
-          Line(points={{30,30},{-30,30}}, color={0,0,255}), 
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}), 
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
+          Line(points={{0,-60},{0,-96}}, color={0,0,255}),
+          Line(points={{60,0},{96,0}}, color={0,0,255}),
+          Line(points={{-60,0},{-96,0}}, color={0,0,255}),
+          Line(points={{30,30},{-30,30}}, color={0,0,255}),
+          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
           Line(points={{30,40},{30,20}}, color={0,0,255})}));
-  equation 
+  equation
     v13 = p1.v - p3.v;
     v23 = p2.v - p3.v;
     i1 = p1.i;
@@ -269,15 +269,15 @@ lumped segments.
     end for;
     connect(R[N + 1].n, p2);
   end ULine;
-  
-   model TLine1 
-    "Lossless transmission line with characteristic impedance Z0 and transmission delay TD" 
-    
+
+   model TLine1
+    "Lossless transmission line with characteristic impedance Z0 and transmission delay TD"
+
      extends Modelica.Electrical.Analog.Interfaces.TwoPort;
-     parameter Modelica.SIunits.Resistance Z0(start=1) 
+     parameter Modelica.SIunits.Resistance Z0(start=1)
       "Characteristic impedance";
      parameter Modelica.SIunits.Time TD(start=1) "Transmission delay";
-  protected 
+  protected
      Modelica.SIunits.Voltage er;
      Modelica.SIunits.Voltage es;
     annotation (
@@ -322,48 +322,48 @@ Lossless transmission line with characteristic impedance Z0 and transmission del
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
-          Line(points={{60,-50},{90,-50}}, color={0,0,255}), 
-          Line(points={{60,50},{90,50}}, color={0,0,255}), 
-          Line(points={{-60,50},{-90,50}}, color={0,0,255}), 
-          Line(points={{-60,-50},{-90,-50}}, color={0,0,255}), 
-          Line(points={{30,30},{-30,30}}, color={0,0,255}), 
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}), 
-          Line(points={{30,40},{30,20}}, color={0,0,255}), 
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
+          Line(points={{60,-50},{90,-50}}, color={0,0,255}),
+          Line(points={{60,50},{90,50}}, color={0,0,255}),
+          Line(points={{-60,50},{-90,50}}, color={0,0,255}),
+          Line(points={{-60,-50},{-90,-50}}, color={0,0,255}),
+          Line(points={{30,30},{-30,30}}, color={0,0,255}),
+          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
+          Line(points={{30,40},{30,20}}, color={0,0,255}),
           Text(
-            extent={{-100,100},{100,70}}, 
-            textString="TLine1", 
-            lineColor={0,0,255}), 
+            extent={{-100,100},{100,70}},
+            textString="TLine1",
+            lineColor={0,0,255}),
           Text(
-            extent={{-30,10},{30,-20}}, 
-            textString="TLine1", 
+            extent={{-30,10},{30,-20}},
+            textString="TLine1",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
-          Line(points={{60,-50},{96,-50}}, color={0,0,255}), 
-          Line(points={{60,50},{96,50}}, color={0,0,255}), 
-          Line(points={{-60,50},{-96,50}}, color={0,0,255}), 
-          Line(points={{-60,-50},{-96,-50}}, color={0,0,255}), 
-          Line(points={{30,30},{-30,30}}, color={0,0,255}), 
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}), 
-          Line(points={{30,40},{30,20}}, color={0,0,255}), 
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
+          Line(points={{60,-50},{96,-50}}, color={0,0,255}),
+          Line(points={{60,50},{96,50}}, color={0,0,255}),
+          Line(points={{-60,50},{-96,50}}, color={0,0,255}),
+          Line(points={{-60,-50},{-96,-50}}, color={0,0,255}),
+          Line(points={{30,30},{-30,30}}, color={0,0,255}),
+          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
+          Line(points={{30,40},{30,20}}, color={0,0,255}),
           Text(
-            extent={{-100,100},{100,70}}, 
-            textString="TLine1", 
-            lineColor={0,0,255}), 
+            extent={{-100,100},{100,70}},
+            textString="TLine1",
+            lineColor={0,0,255}),
           Text(
-            extent={{-30,0},{31,-31}}, 
-            textString="TLine1", 
+            extent={{-30,0},{31,-31}},
+            textString="TLine1",
             lineColor={0,0,255})}),
       Window(
         x=0.45,
         y=0.01,
         width=0.51,
         height=0.83));
-   equation 
+   equation
      assert(Z0 > 0, "Z0 has to be positive");
      assert(TD > 0, "TD has to be positive");
      i1 = (v1 - es)/Z0;
@@ -371,16 +371,16 @@ Lossless transmission line with characteristic impedance Z0 and transmission del
      es = 2*delay(v2, TD) - delay(er, TD);
      er = 2*delay(v1, TD) - delay(es, TD);
    end TLine1;
-  
-  model TLine2 
-    "Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL" 
-    
+
+  model TLine2
+    "Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL"
+
     extends Modelica.Electrical.Analog.Interfaces.TwoPort;
-    parameter Modelica.SIunits.Resistance Z0(start=1) 
+    parameter Modelica.SIunits.Resistance Z0(start=1)
       "Characteristic impedance";
     parameter Modelica.SIunits.Frequency F(start=1) "Frequency";
     parameter Real NL(start=1) "Normalized length";
-  protected 
+  protected
     Modelica.SIunits.Voltage er;
     Modelica.SIunits.Voltage es;
     Modelica.SIunits.Time TD;
@@ -429,44 +429,44 @@ Lossless transmission line with characteristic impedance Z0, frequency F and nor
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
-          Line(points={{60,-50},{90,-50}}, color={0,0,255}), 
-          Line(points={{60,50},{90,50}}, color={0,0,255}), 
-          Line(points={{-60,50},{-90,50}}, color={0,0,255}), 
-          Line(points={{-60,-50},{-90,-50}}, color={0,0,255}), 
-          Line(points={{30,30},{-30,30}}, color={0,0,255}), 
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}), 
-          Line(points={{30,40},{30,20}}, color={0,0,255}), 
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
+          Line(points={{60,-50},{90,-50}}, color={0,0,255}),
+          Line(points={{60,50},{90,50}}, color={0,0,255}),
+          Line(points={{-60,50},{-90,50}}, color={0,0,255}),
+          Line(points={{-60,-50},{-90,-50}}, color={0,0,255}),
+          Line(points={{30,30},{-30,30}}, color={0,0,255}),
+          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
+          Line(points={{30,40},{30,20}}, color={0,0,255}),
           Text(
-            extent={{-100,100},{100,70}}, 
-            textString="TLine2", 
-            lineColor={0,0,255}), 
+            extent={{-100,100},{100,70}},
+            textString="TLine2",
+            lineColor={0,0,255}),
           Text(
-            extent={{-30,10},{30,-20}}, 
-            textString="TLine2", 
+            extent={{-30,10},{30,-20}},
+            textString="TLine2",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
-          Line(points={{60,-50},{96,-50}}, color={0,0,255}), 
-          Line(points={{60,50},{96,50}}, color={0,0,255}), 
-          Line(points={{-60,50},{-96,50}}, color={0,0,255}), 
-          Line(points={{-60,-50},{-96,-50}}, color={0,0,255}), 
-          Line(points={{30,30},{-30,30}}, color={0,0,255}), 
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}), 
-          Line(points={{30,40},{30,20}}, color={0,0,255}), 
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
+          Line(points={{60,-50},{96,-50}}, color={0,0,255}),
+          Line(points={{60,50},{96,50}}, color={0,0,255}),
+          Line(points={{-60,50},{-96,50}}, color={0,0,255}),
+          Line(points={{-60,-50},{-96,-50}}, color={0,0,255}),
+          Line(points={{30,30},{-30,30}}, color={0,0,255}),
+          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
+          Line(points={{30,40},{30,20}}, color={0,0,255}),
           Text(
-            extent={{-100,100},{100,70}}, 
-            textString="TLine2", 
+            extent={{-100,100},{100,70}},
+            textString="TLine2",
             lineColor={0,0,255})}),
       Window(
         x=0.01,
         y=0.03,
         width=0.78,
         height=0.89));
-  equation 
+  equation
     assert(Z0 > 0, "Z0 has to be positive");
     assert(NL > 0, "NL has to be positive");
     assert(F > 0, "F  has to be positive");
@@ -476,13 +476,13 @@ Lossless transmission line with characteristic impedance Z0, frequency F and nor
     es = 2*delay(v2, TD) - delay(er, TD);
     er = 2*delay(v1, TD) - delay(es, TD);
   end TLine2;
-  
-  model TLine3 
-    "Lossless transmission line with characteristic impedance Z0 and frequency F" 
+
+  model TLine3
+    "Lossless transmission line with characteristic impedance Z0 and frequency F"
     extends Modelica.Electrical.Analog.Interfaces.TwoPort;
     parameter Modelica.SIunits.Resistance Z0(start=1) "Natural impedance";
     parameter Modelica.SIunits.Frequency F(start=1) "Frequency";
-  protected 
+  protected
     Modelica.SIunits.Voltage er;
     Modelica.SIunits.Voltage es;
     Modelica.SIunits.Time TD;
@@ -532,44 +532,44 @@ Lossless transmission line with characteristic impedance Z0 and frequency F
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
-          Line(points={{60,-50},{90,-50}}, color={0,0,255}), 
-          Line(points={{60,50},{90,50}}, color={0,0,255}), 
-          Line(points={{-60,50},{-90,50}}, color={0,0,255}), 
-          Line(points={{-60,-50},{-90,-50}}, color={0,0,255}), 
-          Line(points={{30,30},{-30,30}}, color={0,0,255}), 
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}), 
-          Line(points={{30,40},{30,20}}, color={0,0,255}), 
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
+          Line(points={{60,-50},{90,-50}}, color={0,0,255}),
+          Line(points={{60,50},{90,50}}, color={0,0,255}),
+          Line(points={{-60,50},{-90,50}}, color={0,0,255}),
+          Line(points={{-60,-50},{-90,-50}}, color={0,0,255}),
+          Line(points={{30,30},{-30,30}}, color={0,0,255}),
+          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
+          Line(points={{30,40},{30,20}}, color={0,0,255}),
           Text(
-            extent={{-100,100},{100,70}}, 
-            textString="TLine3", 
-            lineColor={0,0,255}), 
+            extent={{-100,100},{100,70}},
+            textString="TLine3",
+            lineColor={0,0,255}),
           Text(
-            extent={{-29,-1},{30,-31}}, 
-            textString="TLine3", 
+            extent={{-29,-1},{30,-31}},
+            textString="TLine3",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
-          Line(points={{60,-50},{96,-50}}, color={0,0,255}), 
-          Line(points={{60,50},{96,50}}, color={0,0,255}), 
-          Line(points={{-60,50},{-96,50}}, color={0,0,255}), 
-          Line(points={{-60,-50},{-96,-50}}, color={0,0,255}), 
-          Line(points={{30,30},{-30,30}}, color={0,0,255}), 
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}), 
-          Line(points={{30,40},{30,20}}, color={0,0,255}), 
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
+          Line(points={{60,-50},{96,-50}}, color={0,0,255}),
+          Line(points={{60,50},{96,50}}, color={0,0,255}),
+          Line(points={{-60,50},{-96,50}}, color={0,0,255}),
+          Line(points={{-60,-50},{-96,-50}}, color={0,0,255}),
+          Line(points={{30,30},{-30,30}}, color={0,0,255}),
+          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
+          Line(points={{30,40},{30,20}}, color={0,0,255}),
           Text(
-            extent={{-100,100},{100,70}}, 
-            textString="TLine3", 
+            extent={{-100,100},{100,70}},
+            textString="TLine3",
             lineColor={0,0,255})}),
       Window(
         x=0,
         y=0,
         width=0.7,
         height=0.92));
-  equation 
+  equation
     assert(Z0 > 0, "Z0 has to be positive");
     assert(F > 0, "F  has to be positive");
     TD = 1/F/4;

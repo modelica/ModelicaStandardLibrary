@@ -1,5 +1,5 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
-model PointGravity "Two point masses in a point gravity field" 
+model PointGravity "Two point masses in a point gravity field"
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
   inner Modelica.Mechanics.MultiBody.World world(
@@ -30,8 +30,8 @@ model PointGravity "Two point masses in a point gravity field"
     angles_fixed=true,
     w_0_fixed=true) 
     annotation (Placement(transformation(extent={{20,20},{40,40}}, rotation=0)));
-equation 
-  
+equation
+
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}),

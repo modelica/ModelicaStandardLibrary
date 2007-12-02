@@ -1,13 +1,13 @@
 within Modelica.Blocks;
-package Sources 
-  "Library of signal source blocks generating Real and Boolean signals" 
-  block RealExpression "Set output signal to a time varying Real expression" 
-    
+package Sources
+  "Library of signal source blocks generating Real and Boolean signals"
+  block RealExpression "Set output signal to a time varying Real expression"
+
     Blocks.Interfaces.RealOutput y=0.0 "Value of Real output" 
       annotation (                            Dialog(group=
             "Time varying output signal"), Placement(transformation(extent={{
               100,-10},{120,10}}, rotation=0)));
-    
+
     annotation (
       Window(
         x=0.29,
@@ -19,20 +19,20 @@ package Sources
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(
-            extent={{-100,40},{100,-40}}, 
-            lineColor={0,0,0}, 
-            fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid, 
-            borderPattern=BorderPattern.Raised), 
+            extent={{-100,40},{100,-40}},
+            lineColor={0,0,0},
+            fillColor={235,235,235},
+            fillPattern=FillPattern.Solid,
+            borderPattern=BorderPattern.Raised),
           Text(
-            extent={{-96,15},{96,-15}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,255,0}, 
-            fillPattern=FillPattern.Solid, 
-            textString="%y"), 
+            extent={{-96,15},{96,-15}},
+            lineColor={0,0,0},
+            fillColor={0,255,0},
+            fillPattern=FillPattern.Solid,
+            textString="%y"),
           Text(
-            extent={{-150,90},{140,50}}, 
-            textString="%name", 
+            extent={{-150,90},{140,50}},
+            textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -50,17 +50,17 @@ accessible and represents the \"model time\" and that
 Variable <b>y</b> is both a variable and a connector.
 </p>
 </html>"));
-    
+
   end RealExpression;
-  
-  block IntegerExpression 
-    "Set output signal to a time varying Integer expression" 
-    
+
+  block IntegerExpression
+    "Set output signal to a time varying Integer expression"
+
     Blocks.Interfaces.IntegerOutput y=0 "Value of Integer output" 
       annotation (                            Dialog(group=
             "Time varying output signal"), Placement(transformation(extent={{
               100,-10},{120,10}}, rotation=0)));
-    
+
     annotation (
       Window(
         x=0.29,
@@ -72,20 +72,20 @@ Variable <b>y</b> is both a variable and a connector.
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(
-            extent={{-100,40},{100,-40}}, 
-            lineColor={0,0,0}, 
-            fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid, 
-            borderPattern=BorderPattern.Raised), 
+            extent={{-100,40},{100,-40}},
+            lineColor={0,0,0},
+            fillColor={235,235,235},
+            fillPattern=FillPattern.Solid,
+            borderPattern=BorderPattern.Raised),
           Text(
-            extent={{-96,15},{96,-15}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,255,0}, 
-            fillPattern=FillPattern.Solid, 
-            textString="%y"), 
+            extent={{-96,15},{96,-15}},
+            lineColor={0,0,0},
+            fillColor={0,255,0},
+            fillPattern=FillPattern.Solid,
+            textString="%y"),
           Text(
-            extent={{-150,90},{140,50}}, 
-            textString="%name", 
+            extent={{-150,90},{140,50}},
+            textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -103,17 +103,17 @@ accessible and represents the \"model time\" and that
 Variable <b>y</b> is both a variable and a connector.
 </p>
 </html>"));
-    
+
   end IntegerExpression;
-  
-  block BooleanExpression 
-    "Set output signal to a time varying Boolean expression" 
-    
+
+  block BooleanExpression
+    "Set output signal to a time varying Boolean expression"
+
     Blocks.Interfaces.BooleanOutput y=false "Value of Boolean output" 
       annotation (                            Dialog(group=
             "Time varying output signal"), Placement(transformation(extent={{
               100,-10},{120,10}}, rotation=0)));
-    
+
     annotation (
       Window(
         x=0.29,
@@ -125,27 +125,27 @@ Variable <b>y</b> is both a variable and a connector.
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(
-            extent={{-100,40},{100,-40}}, 
-            lineColor={0,0,0}, 
-            fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid, 
-            borderPattern=BorderPattern.Raised), 
+            extent={{-100,40},{100,-40}},
+            lineColor={0,0,0},
+            fillColor={235,235,235},
+            fillPattern=FillPattern.Solid,
+            borderPattern=BorderPattern.Raised),
           Text(
-            extent={{-96,15},{96,-15}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,255,0}, 
-            fillPattern=FillPattern.Solid, 
-            textString="%y"), 
+            extent={{-96,15},{96,-15}},
+            lineColor={0,0,0},
+            fillColor={0,255,0},
+            fillPattern=FillPattern.Solid,
+            textString="%y"),
           Text(
-            extent={{-150,90},{140,50}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-150,90},{140,50}},
+            textString="%name",
+            lineColor={0,0,255}),
           Polygon(
-            points={{100,10},{120,0},{100,-10},{100,10}}, 
+            points={{100,10},{120,0},{100,-10},{100,10}},
             lineColor=DynamicSelect({255,0,255}, if y > 0.5 then {0,255,0}
-                 else {255,0,255}), 
+                 else {255,0,255}),
             fillColor=DynamicSelect({255,255,255}, if y > 0.5 then {0,255,0}
-                 else {255,255,255}), 
+                 else {255,255,255}),
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -164,13 +164,13 @@ accessible and represents the \"model time\" and that
 Variable <b>y</b> is both a variable and a connector.
 </p>
 </html>"));
-    
+
   end BooleanExpression;
   import Modelica.Blocks.Interfaces;
   import Modelica.SIunits;
       extends Modelica.Icons.Library;
-  
-      annotation(
+
+      annotation (
         Window(
           x=0.06,
           y=0.1,
@@ -233,12 +233,12 @@ usually requires a trimming calculation.
        of Dieter Moormann and Hilding Elmqvist.</li>
 </ul>
 </html>"));
-      block Clock "Generate actual time signal " 
+      block Clock "Generate actual time signal "
         parameter Modelica.SIunits.Time offset=0 "Offset of output signal";
-        parameter Modelica.SIunits.Time startTime=0 
+        parameter Modelica.SIunits.Time startTime=0
       "Output = offset for time < startTime";
         extends Interfaces.SO;
-    
+
         annotation (
           Window(
             x=0.26,
@@ -249,30 +249,30 @@ usually requires a trimming calculation.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Ellipse(extent={{-80,80},{80,-80}}, lineColor={160,160,164}), 
-          Line(points={{0,80},{0,60}}, color={160,160,164}), 
-          Line(points={{80,0},{60,0}}, color={160,160,164}), 
-          Line(points={{0,-80},{0,-60}}, color={160,160,164}), 
-          Line(points={{-80,0},{-60,0}}, color={160,160,164}), 
-          Line(points={{37,70},{26,50}}, color={160,160,164}), 
-          Line(points={{70,38},{49,26}}, color={160,160,164}), 
-          Line(points={{71,-37},{52,-27}}, color={160,160,164}), 
-          Line(points={{39,-70},{29,-51}}, color={160,160,164}), 
-          Line(points={{-39,-70},{-29,-52}}, color={160,160,164}), 
-          Line(points={{-71,-37},{-50,-26}}, color={160,160,164}), 
-          Line(points={{-71,37},{-54,28}}, color={160,160,164}), 
-          Line(points={{-38,70},{-28,51}}, color={160,160,164}), 
+          Ellipse(extent={{-80,80},{80,-80}}, lineColor={160,160,164}),
+          Line(points={{0,80},{0,60}}, color={160,160,164}),
+          Line(points={{80,0},{60,0}}, color={160,160,164}),
+          Line(points={{0,-80},{0,-60}}, color={160,160,164}),
+          Line(points={{-80,0},{-60,0}}, color={160,160,164}),
+          Line(points={{37,70},{26,50}}, color={160,160,164}),
+          Line(points={{70,38},{49,26}}, color={160,160,164}),
+          Line(points={{71,-37},{52,-27}}, color={160,160,164}),
+          Line(points={{39,-70},{29,-51}}, color={160,160,164}),
+          Line(points={{-39,-70},{-29,-52}}, color={160,160,164}),
+          Line(points={{-71,-37},{-50,-26}}, color={160,160,164}),
+          Line(points={{-71,37},{-54,28}}, color={160,160,164}),
+          Line(points={{-38,70},{-28,51}}, color={160,160,164}),
           Line(
-            points={{0,0},{-50,50}}, 
-            color={0,0,0}, 
-            thickness=2), 
+            points={{0,0},{-50,50}},
+            color={0,0,0},
+            thickness=2),
           Line(
-            points={{0,0},{40,0}}, 
-            color={0,0,0}, 
-            thickness=2), 
+            points={{0,0},{40,0}},
+            color={0,0,0},
+            thickness=2),
           Text(
-            extent={{-150,-150},{150,-110}}, 
-            lineColor={0,0,0}, 
+            extent={{-150,-150},{150,-110}},
+            lineColor={0,0,0},
             textString="startTime=%startTime")}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -353,15 +353,15 @@ The Real output y is a clock signal:
 <img src=\"../Images/Blocks/Sources/Clock.png\">
 </p>
 </html>"));
-    
-      equation 
+
+      equation
         y = offset + (if time < startTime then 0 else time - startTime);
       end Clock;
-  
-      block Constant "Generate constant signal of type Real" 
+
+      block Constant "Generate constant signal of type Real"
         parameter Real k(start=1) "Constant output value";
         extends Interfaces.SO;
-    
+
         annotation (defaultComponentName="const",
           Window(
             x=0.29,
@@ -372,22 +372,22 @@ The Real output y is a clock signal:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
           Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,-70},{82,-70}}, color={192,192,192}), 
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
           Polygon(
-            points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-80,0},{80,0}}, color={0,0,0}), 
+            points={{90,-70},{68,-62},{68,-78},{90,-70}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-80,0},{80,0}}, color={0,0,0}),
           Text(
-            extent={{-150,-150},{150,-110}}, 
-            lineColor={0,0,0}, 
+            extent={{-150,-150},{150,-110}},
+            lineColor={0,0,0},
             textString="k=%k")}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -436,11 +436,11 @@ The Real output y is a constant signal:
 <img src=\"../Images/Blocks/Sources/Constant.png\">
 </p>
 </html>"));
-      equation 
+      equation
         y = k;
       end Constant;
-  
-      block Step "Generate step signal of type Real" 
+
+      block Step "Generate step signal of type Real"
         parameter Real height=1 "Height of step";
         extends Interfaces.SignalSource;
         annotation (
@@ -453,22 +453,22 @@ The Real output y is a constant signal:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
           Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,-70},{82,-70}}, color={192,192,192}), 
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
           Polygon(
-            points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-80,-70},{0,-70},{0,50},{80,50}}, color={0,0,0}), 
+            points={{90,-70},{68,-62},{68,-78},{90,-70}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-80,-70},{0,-70},{0,50},{80,50}}, color={0,0,0}),
           Text(
-            extent={{-150,-150},{150,-110}}, 
-            lineColor={0,0,0}, 
+            extent={{-150,-150},{150,-110}},
+            lineColor={0,0,0},
             textString="startTime=%startTime")}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -558,20 +558,20 @@ The Real output y is a step signal:
 </p>
 
 </html>"));
-    
-      equation 
+
+      equation
         y = offset + (if time < startTime then 0 else height);
       end Step;
-  
-      block Ramp "Generate ramp signal" 
+
+      block Ramp "Generate ramp signal"
         parameter Real height=1 "Height of ramps";
-        parameter Modelica.SIunits.Time duration(min=Modelica.Constants.small, start = 2) 
+        parameter Modelica.SIunits.Time duration(min=Modelica.Constants.small, start = 2)
       "Durations of ramp";
         parameter Real offset=0 "Offset of output signal";
-        parameter Modelica.SIunits.Time startTime=0 
+        parameter Modelica.SIunits.Time startTime=0
       "Output = offset for time < startTime";
         extends Interfaces.SO;
-    
+
         annotation (
           Window(
             x=0.19,
@@ -582,23 +582,23 @@ The Real output y is a step signal:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
           Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,-70},{82,-70}}, color={192,192,192}), 
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
           Polygon(
-            points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-80,-70},{-40,-70},{31,38}}, color={0,0,0}), 
+            points={{90,-70},{68,-62},{68,-78},{90,-70}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-80,-70},{-40,-70},{31,38}}, color={0,0,0}),
           Text(
-            extent={{-150,-150},{150,-110}}, 
-            lineColor={0,0,0}, 
-            textString="duration=%duration"), 
+            extent={{-150,-150},{150,-110}},
+            lineColor={0,0,0},
+            textString="duration=%duration"),
           Line(points={{31,38},{86,38}}, color={0,0,0})}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -715,20 +715,20 @@ The Real output y is a ramp signal:
 <img src=\"../Images/Blocks/Sources/Ramp.png\">
 </p>
 </html>"));
-      equation 
+      equation
         y = offset + (if time < startTime then 0 else if time < (startTime +
           duration) then (time - startTime)*height/duration else height);
       end Ramp;
-  
-      block Sine "Generate sine signal" 
+
+      block Sine "Generate sine signal"
         parameter Real amplitude=1 "Amplitude of sine wave";
         parameter SIunits.Frequency freqHz(start=1) "Frequency of sine wave";
         parameter SIunits.Angle phase=0 "Phase of sine wave";
         parameter Real offset=0 "Offset of output signal";
-        parameter SIunits.Time startTime=0 
+        parameter SIunits.Time startTime=0
       "Output = offset for time < startTime";
         extends Interfaces.SO;
-  protected 
+  protected
         constant Real pi=Modelica.Constants.pi;
         annotation (
           Window(
@@ -740,26 +740,26 @@ The Real output y is a ramp signal:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
           Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,0},{68,0}}, color={192,192,192}), 
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,0},{68,0}}, color={192,192,192}),
           Polygon(
-            points={{90,0},{68,8},{68,-8},{90,0}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            points={{90,0},{68,8},{68,-8},{90,0}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Line(points={{-80,0},{-68.7,34.2},{-61.5,53.1},{-55.1,66.4},{-49.4,
                 74.6},{-43.8,79.1},{-38.2,79.8},{-32.6,76.6},{-26.9,69.7},{-21.3,
                 59.4},{-14.9,44.1},{-6.83,21.2},{10.1,-30.8},{17.3,-50.2},{23.7,
                 -64.2},{29.3,-73.1},{35,-78.4},{40.6,-80},{46.2,-77.6},{51.9,-71.5},
-                {57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, color={0,0,0}), 
+                {57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, color={0,0,0}),
           Text(
-            extent={{-147,-152},{153,-112}}, 
-            lineColor={0,0,0}, 
+            extent={{-147,-152},{153,-112}},
+            lineColor={0,0,0},
             textString="freqHz=%freqHz")}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -842,22 +842,22 @@ The Real output y is a sine signal:
 <img src=\"../Images/Blocks/Sources/Sine.png\">
 </p>
 </html>"));
-      equation 
+      equation
         y = offset + (if time < startTime then 0 else amplitude*
           Modelica.Math.sin(2*pi*freqHz*(time - startTime) + phase));
       end Sine;
-  
-      block ExpSine "Generate exponentially damped sine signal" 
+
+      block ExpSine "Generate exponentially damped sine signal"
         parameter Real amplitude=1 "Amplitude of sine wave";
         parameter SIunits.Frequency freqHz(start=2) "Frequency of sine wave";
         parameter SIunits.Angle phase=0 "Phase of sine wave";
-        parameter SIunits.Damping damping(start=1) 
+        parameter SIunits.Damping damping(start=1)
       "Damping coefficient of sine wave";
         parameter Real offset=0 "Offset of output signal";
-        parameter SIunits.Time startTime=0 
+        parameter SIunits.Time startTime=0
       "Output = offset for time < startTime";
         extends Interfaces.SO;
-  protected 
+  protected
         constant Real pi=Modelica.Constants.pi;
         annotation (
           Window(
@@ -869,28 +869,28 @@ The Real output y is a sine signal:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
           Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,0},{68,0}}, color={192,192,192}), 
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,0},{68,0}}, color={192,192,192}),
           Polygon(
-            points={{90,0},{68,8},{68,-8},{90,0}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            points={{90,0},{68,8},{68,-8},{90,0}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Line(points={{-80,0},{-75.2,32.3},{-72,50.3},{-68.7,64.5},{-65.5,74.2},
                 {-62.3,79.3},{-59.1,79.6},{-55.9,75.3},{-52.7,67.1},{-48.6,52.2},
                 {-43,25.8},{-35,-13.9},{-30.2,-33.7},{-26.1,-45.9},{-22.1,-53.2},
                 {-18.1,-55.3},{-14.1,-52.5},{-10.1,-45.3},{-5.23,-32.1},{8.44,
                 13.7},{13.3,26.4},{18.1,34.8},{22.1,38},{26.9,37.2},{31.8,31.8},
                 {38.2,19.4},{51.1,-10.5},{57.5,-21.2},{63.1,-25.9},{68.7,-25.9},
-                {75.2,-20.5},{80,-13.8}}, color={0,0,0}), 
+                {75.2,-20.5},{80,-13.8}}, color={0,0,0}),
           Text(
-            extent={{-147,-152},{153,-112}}, 
-            lineColor={0,0,0}, 
+            extent={{-147,-152},{153,-112}},
+            lineColor={0,0,0},
             textString="freqHz=%freqHz")}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -996,25 +996,25 @@ The Real output y is a sine signal with exponentially changing amplitude:
 <img src=\"../Images/Blocks/Sources/ExpSine.png\">
 </p>
 </html>"));
-      equation 
+      equation
         y = offset + (if time < startTime then 0 else amplitude*
           Modelica.Math.exp(-(time - startTime)*damping)*Modelica.Math.sin(2*pi
           *freqHz*(time - startTime) + phase));
       end ExpSine;
-  
-      model Exponentials "Generate a rising and falling exponential signal" 
-    
+
+      model Exponentials "Generate a rising and falling exponential signal"
+
         parameter Real outMax=1 "Height of output for infinite riseTime";
         parameter SIunits.Time riseTime(min=0,start = 0.5) "Rise time";
-        parameter SIunits.Time riseTimeConst(min=Modelica.Constants.small)=0.1 
+        parameter SIunits.Time riseTimeConst(min=Modelica.Constants.small)=0.1
       "Rise time constant; rising is defined as outMax*(1-exp(-riseTime/riseTimeConst))";
         parameter SIunits.Time fallTimeConst(min=Modelica.Constants.small)=
           riseTimeConst "Fall time constant";
         parameter Real offset=0 "Offset of output signal";
-        parameter SIunits.Time startTime=0 
+        parameter SIunits.Time startTime=0
       "Output = offset for time < startTime";
         extends Interfaces.SO;
-  protected 
+  protected
         Real y_riseTime;
         annotation (
           Window(
@@ -1026,28 +1026,28 @@ The Real output y is a sine signal with exponentially changing amplitude:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-90,-70},{68,-70}}, color={192,192,192}), 
+          Line(points={{-90,-70},{68,-70}}, color={192,192,192}),
           Polygon(
-            points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            points={{90,-70},{68,-62},{68,-78},{90,-70}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Line(points={{-80,-70},{-77.2,-55.3},{-74.3,-42.1},{-70.8,-27.6},{-67.3,
                 -15},{-63.7,-4.08},{-59.5,7.18},{-55.3,16.7},{-50.3,26},{-44.6,
                 34.5},{-38.3,42.1},{-31.2,48.6},{-22.7,54.3},{-12.1,59.2},{-10,
                 60},{-7.88,47.5},{-5.05,32.7},{-2.22,19.8},{0.606,8.45},{4.14,-3.7},
                 {7.68,-14},{11.9,-24.2},{16.2,-32.6},{21.1,-40.5},{26.8,-47.4},
                 {33.1,-53.3},{40.9,-58.5},{50.8,-62.8},{60,-65.4}}, color={0,0,
-                0}), 
+                0}),
           Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
           Text(
-            extent={{-150,-150},{150,-110}}, 
-            lineColor={0,0,0}, 
+            extent={{-150,-150},{150,-110}},
+            lineColor={0,0,0},
             textString="riseTime=%riseTime")}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1141,24 +1141,24 @@ by a falling exponential signal:
 <img src=\"../Images/Blocks/Sources/Exponentials.png\">
 </p>
 </html>"));
-      equation 
+      equation
         y_riseTime = outMax*(1 - Modelica.Math.exp(-riseTime/riseTimeConst));
         y = offset + (if (time < startTime) then 0 else if (time < (startTime
            + riseTime)) then outMax*(1 - Modelica.Math.exp(-(time - startTime)/riseTimeConst)) else 
                 y_riseTime*Modelica.Math.exp(-(time - startTime - riseTime)/
           fallTimeConst));
-    
+
       end Exponentials;
-  
-      block Pulse "Generate pulse signal of type Real" 
+
+      block Pulse "Generate pulse signal of type Real"
         parameter Real amplitude=1 "Amplitude of pulse";
         parameter Real width(
           final min=Modelica.Constants.small,
           final max=100) = 50 "Width of pulse in % of period";
-        parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small,start=1) 
+        parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small,start=1)
       "Time for one period";
         parameter Real offset=0 "Offset of output signals";
-        parameter Modelica.SIunits.Time startTime=0 
+        parameter Modelica.SIunits.Time startTime=0
       "Output = offset for time < startTime";
         extends Modelica.Blocks.Interfaces.SO;
         annotation (
@@ -1171,23 +1171,23 @@ by a falling exponential signal:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
           Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,-70},{82,-70}}, color={192,192,192}), 
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
           Polygon(
-            points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            points={{90,-70},{68,-62},{68,-78},{90,-70}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Line(points={{-80,-70},{-40,-70},{-40,44},{0,44},{0,-70},{40,-70},{40,
-                44},{79,44}}, color={0,0,0}), 
+                44},{79,44}}, color={0,0,0}),
           Text(
-            extent={{-147,-152},{153,-112}}, 
-            lineColor={0,0,0}, 
+            extent={{-147,-152},{153,-112}},
+            lineColor={0,0,0},
             textString="period=%period")}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1314,27 +1314,27 @@ The Real output y is a pulse signal:
 <img src=\"../Images/Blocks/Sources/Pulse.png\">
 </p>
 </html>"));
-  protected 
-        Modelica.SIunits.Time T0(final start=startTime) 
+  protected
+        Modelica.SIunits.Time T0(final start=startTime)
       "Start time of current period";
         Modelica.SIunits.Time T_width = period*width/100;
-      equation 
+      equation
         when sample(startTime, period) then
           T0 = time;
         end when;
         y = offset + (if time < startTime or time >= T0 + T_width then 0 else 
           amplitude);
       end Pulse;
-  
-      block SawTooth "Generate saw tooth signal" 
+
+      block SawTooth "Generate saw tooth signal"
         parameter Real amplitude=1 "Amplitude of saw tooth";
-        parameter SIunits.Time period(final min=Modelica.Constants.small,start = 1) 
+        parameter SIunits.Time period(final min=Modelica.Constants.small,start = 1)
       "Time for one period";
         parameter Real offset=0 "Offset of output signals";
-        parameter SIunits.Time startTime=0 
+        parameter SIunits.Time startTime=0
       "Output = offset for time < startTime";
         extends Interfaces.SO;
-  protected 
+  protected
         SIunits.Time T0(final start=startTime) "Start time of current period";
         annotation (
           Window(
@@ -1346,23 +1346,23 @@ The Real output y is a pulse signal:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
           Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,-70},{82,-70}}, color={192,192,192}), 
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
           Polygon(
-            points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-80,-70},{-60,-70},{0,40},{0,-70},{60,41},{60,-70}}, 
-              color={0,0,0}), 
+            points={{90,-70},{68,-62},{68,-78},{90,-70}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-80,-70},{-60,-70},{0,40},{0,-70},{60,41},{60,-70}},
+              color={0,0,0}),
           Text(
-            extent={{-147,-152},{153,-112}}, 
-            lineColor={0,0,0}, 
+            extent={{-147,-152},{153,-112}},
+            lineColor={0,0,0},
             textString="period=%period")}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1466,36 +1466,36 @@ The Real output y is a saw tooth signal:
 <img src=\"../Images/Blocks/Sources/SawTooth.png\">
 </p>
 </html>"));
-      equation 
+      equation
         when sample(startTime, period) then
           T0 = time;
         end when;
         y = offset + (if time < startTime then 0 else (amplitude/period)*(time
            - T0));
       end SawTooth;
-  
-      block Trapezoid "Generate trapezoidal signal of type Real" 
+
+      block Trapezoid "Generate trapezoidal signal of type Real"
         parameter Real amplitude=1 "Amplitude of trapezoid";
-        parameter SIunits.Time rising(final min=0) = 0 
+        parameter SIunits.Time rising(final min=0) = 0
       "Rising duration of trapezoid";
-        parameter SIunits.Time width(final min=0) = 0.5 
+        parameter SIunits.Time width(final min=0) = 0.5
       "Width duration of trapezoid";
-        parameter SIunits.Time falling(final min=0) = 0 
+        parameter SIunits.Time falling(final min=0) = 0
       "Falling duration of trapezoid";
-        parameter SIunits.Time period(final min=Modelica.Constants.small, start= 1) 
+        parameter SIunits.Time period(final min=Modelica.Constants.small, start= 1)
       "Time for one period";
-        parameter Integer nperiod=-1 
+        parameter Integer nperiod=-1
       "Number of periods (< 0 means infinite number of periods)";
         parameter Real offset=0 "Offset of output signal";
-        parameter SIunits.Time startTime=0 
+        parameter SIunits.Time startTime=0
       "Output = offset for time < startTime";
         extends Interfaces.SO;
-  protected 
-        parameter SIunits.Time T_rising=rising 
+  protected
+        parameter SIunits.Time T_rising=rising
       "End time of rising phase within one period";
-        parameter SIunits.Time T_width=T_rising + width 
+        parameter SIunits.Time T_width=T_rising + width
       "End time of width phase within one period";
-        parameter SIunits.Time T_falling=T_width + falling 
+        parameter SIunits.Time T_falling=T_width + falling
       "End time of falling phase within one period";
         SIunits.Time T0(final start=startTime) "Start time of current period";
         Integer counter(start=nperiod) "Period counter";
@@ -1510,22 +1510,22 @@ The Real output y is a saw tooth signal:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
           Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,-70},{82,-70}}, color={192,192,192}), 
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
           Polygon(
-            points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            points={{90,-70},{68,-62},{68,-78},{90,-70}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-147,-152},{153,-112}}, 
-            lineColor={0,0,0}, 
-            textString="period=%period"), 
+            extent={{-147,-152},{153,-112}},
+            lineColor={0,0,0},
+            textString="period=%period"),
           Line(points={{-81,-70},{-60,-70},{-30,40},{9,40},{39,-70},{61,-70},{
                 90,40}}, color={0,0,0})}),
           Diagram(coordinateSystem(
@@ -1708,7 +1708,7 @@ The Real output y is a trapezoid signal:
 <img src=\"../Images/Blocks/Sources/Trapezoid.png\">
 </p>
 </html>"));
-      equation 
+      equation
         when pre(counter2) <> 0 and sample(startTime, period) then
           T0 = time;
           counter2 = pre(counter);
@@ -1719,22 +1719,22 @@ The Real output y is a trapezoid signal:
           amplitude/T_rising else if (time < T0 + T_width) then amplitude else 
           (T0 + T_falling - time)*amplitude/(T_falling - T_width));
       end Trapezoid;
-  
-      block KinematicPTP 
-    "Move as fast as possible along a distance within given kinematic constraints" 
-    
+
+      block KinematicPTP
+    "Move as fast as possible along a distance within given kinematic constraints"
+
         parameter Real deltaq[:] "Distance to move";
-        parameter Real qd_max[:](final min=Modelica.Constants.small) 
+        parameter Real qd_max[:](final min=Modelica.Constants.small)
       "Maximum velocities der(q)";
-        parameter Real qdd_max[:](final min=Modelica.Constants.small) 
+        parameter Real qdd_max[:](final min=Modelica.Constants.small)
       "Maximum accelerations der(qd)";
-        parameter SIunits.Time startTime=0 
+        parameter SIunits.Time startTime=0
       "Time instant at which movement starts";
-    
+
         extends Interfaces.MO(final nout=max([size(deltaq, 1); size(qd_max, 1);
                size(qdd_max, 1)]));
-    
-  protected 
+
+  protected
         parameter Real p_deltaq[nout]=(if size(deltaq, 1) == 1 then ones(nout)*
             deltaq[1] else deltaq);
         parameter Real p_qd_max[nout]=(if size(qd_max, 1) == 1 then ones(nout)*
@@ -1761,30 +1761,30 @@ The Real output y is a trapezoid signal:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-80,78},{-80,-82}}, color={192,192,192}), 
+          Line(points={{-80,78},{-80,-82}}, color={192,192,192}),
           Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,88},{-80,90}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,0},{82,0}}, color={192,192,192}), 
+            points={{-80,90},{-88,68},{-72,68},{-80,88},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,0},{82,0}}, color={192,192,192}),
           Polygon(
-            points={{90,0},{68,8},{68,-8},{90,0}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            points={{90,0},{68,8},{68,-8},{90,0}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Line(
             points={{-80,0},{-70,0},{-70,70},{-30,70},{-30,0},{20,0},{20,-70},{
-                60,-70},{60,0},{68,0}}, 
-            color={0,0,0}, 
-            thickness=1), 
+                60,-70},{60,0},{68,0}},
+            color={0,0,0},
+            thickness=1),
           Text(
-            extent={{2,80},{80,20}}, 
-            lineColor={192,192,192}, 
-            textString="acc"), 
+            extent={{2,80},{80,20}},
+            lineColor={192,192,192},
+            textString="acc"),
           Text(
-            extent={{-150,-150},{150,-110}}, 
-            lineColor={0,0,0}, 
+            extent={{-150,-150},{150,-110}},
+            lineColor={0,0,0},
             textString="deltaq=%deltaq")}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1870,65 +1870,65 @@ a flange according to a given acceleration.
        realized.</li>
 </ul>
 </html>"));
-      equation 
+      equation
         for i in 1:nout loop
           aux1[i] = p_deltaq[i]/p_qd_max[i];
           aux2[i] = p_deltaq[i]/p_qdd_max[i];
         end for;
         sd_max = 1/max(abs(aux1));
         sdd_max = 1/max(abs(aux2));
-    
+
         Ta1 = sqrt(1/sdd_max);
         Ta2 = sd_max/sdd_max;
         noWphase = Ta2 >= Ta1;
         Tv = if noWphase then Ta1 else 1/sd_max;
         Te = if noWphase then Ta1 + Ta1 else Tv + Ta2;
-    
+
         // path-acceleration
         sdd = if time < startTime then 0 else ((if noWphase then (if time < Ta1
            + startTime then sdd_max else (if time < Te + startTime then -
           sdd_max else 0)) else (if time < Ta2 + startTime then sdd_max else (
           if time < Tv + startTime then 0 else (if time < Te + startTime then -
           sdd_max else 0)))));
-    
+
         // acceleration
         y = p_deltaq*sdd;
       end KinematicPTP;
-  
-  block KinematicPTP2 
-    "Move as fast as possible from start to end position within given kinematic constraints with output signals q, qd=der(q), qdd=der(qd)" 
-    
+
+  block KinematicPTP2
+    "Move as fast as possible from start to end position within given kinematic constraints with output signals q, qd=der(q), qdd=der(qd)"
+
     parameter Real q_begin[:] = {0} "Start position";
     parameter Real q_end[:] "End position";
-    parameter Real qd_max[:](final min=Modelica.Constants.small) 
+    parameter Real qd_max[:](final min=Modelica.Constants.small)
       "Maximum velocities der(q)";
-    parameter Real qdd_max[:](final min=Modelica.Constants.small) 
+    parameter Real qdd_max[:](final min=Modelica.Constants.small)
       "Maximum accelerations der(qd)";
     parameter SI.Time startTime=0 "Time instant at which movement starts";
-    
+
     extends Modelica.Blocks.Interfaces.BlockIcon;
     final parameter Integer nout=max([size(q_begin, 1); size(q_end, 1); size(
-        qd_max, 1); size(qdd_max, 1)]) 
+        qd_max, 1); size(qdd_max, 1)])
       "Number of output signals (= dimension of q, qd, qdd, moving)";
     output SI.Time endTime "Time instant at which movement stops";
-    
-    Modelica.Blocks.Interfaces.RealOutput q[nout] 
+
+    Modelica.Blocks.Interfaces.RealOutput q[nout]
       "Reference position of path planning" 
       annotation (Placement(transformation(extent={{100,70},{120,90}}, rotation=
              0)));
-    Modelica.Blocks.Interfaces.RealOutput qd[nout] 
+    Modelica.Blocks.Interfaces.RealOutput qd[nout]
       "Reference speed of path planning" 
       annotation (Placement(transformation(extent={{100,20},{120,40}}, rotation=
              0)));
-    Modelica.Blocks.Interfaces.RealOutput qdd[nout] 
+    Modelica.Blocks.Interfaces.RealOutput qdd[nout]
       "Reference acceleration of path planning" 
       annotation (Placement(transformation(extent={{100,-40},{120,-20}},
             rotation=0)));
-    Modelica.Blocks.Interfaces.BooleanOutput moving[nout] 
+    Modelica.Blocks.Interfaces.BooleanOutput moving[nout]
       "= true, if end position not yet reached; = false, if end position reached or axis is completely at rest"
       annotation (Placement(transformation(extent={{100,-90},{120,-70}},
             rotation=0)));
-    
+
     annotation (defaultComponentName="kinematicPTP",
       Window(
         x=0.17,
@@ -1939,41 +1939,41 @@ a flange according to a given acceleration.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{-80,78},{-80,-82}}, color={192,192,192}), 
+          Line(points={{-80,78},{-80,-82}}, color={192,192,192}),
           Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,88},{-80,90}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,0},{17,0}}, color={192,192,192}), 
+            points={{-80,90},{-88,68},{-72,68},{-80,88},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,0},{17,0}}, color={192,192,192}),
           Line(
             points={{-80,0},{-70,0},{-70,70},{-50,70},{-50,0},{-15,0},{-15,-70},
-                {5,-70},{5,0},{18,0}}, 
-            color={0,0,0}, 
-            thickness=1), 
+                {5,-70},{5,0},{18,0}},
+            color={0,0,0},
+            thickness=1),
           Text(
-            extent={{34,96},{94,66}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid, 
-            textString="q"), 
+            extent={{34,96},{94,66}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid,
+            textString="q"),
           Text(
-            extent={{40,44},{96,14}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid, 
-            textString="qd"), 
+            extent={{40,44},{96,14}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid,
+            textString="qd"),
           Text(
-            extent={{32,-18},{99,-44}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid, 
-            textString="qdd"), 
+            extent={{32,-18},{99,-44}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid,
+            textString="qdd"),
           Text(
-            extent={{-32,-74},{97,-96}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid, 
+            extent={{-32,-74},{97,-96}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid,
             textString="moving")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -2059,7 +2059,7 @@ a flange according to a given acceleration.
        realized.</li>
 </ul>
 </html>"));
-  protected 
+  protected
     parameter Real p_q_begin[nout]=(if size(q_begin, 1) == 1 then ones(nout)*
         q_begin[1] else q_begin);
     parameter Real p_q_end[nout]=(if size(q_end, 1) == 1 then ones(nout)*
@@ -2096,52 +2096,52 @@ a flange according to a given acceleration.
     Real r_s;
     Real r_sd;
     Real r_sdd;
-    
-    function position 
-       input Real q_qd_qdd[3] 
+
+    function position
+       input Real q_qd_qdd[3]
         "Required values for position, speed, acceleration";
-       input Real dummy 
+       input Real dummy
         "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
        output Real q;
       annotation (derivative(noDerivative=q_qd_qdd) = position_der,
           InlineAfterIndexReduction=true);
-    algorithm 
+    algorithm
       q :=q_qd_qdd[1];
     end position;
-    
-    function position_der 
-       input Real q_qd_qdd[3] 
+
+    function position_der
+       input Real q_qd_qdd[3]
         "Required values for position, speed, acceleration";
-       input Real dummy 
+       input Real dummy
         "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
        input Real dummy_der;
        output Real qd;
       annotation (derivative(noDerivative=q_qd_qdd) = position_der2,
           InlineAfterIndexReduction=true);
-    algorithm 
+    algorithm
       qd :=q_qd_qdd[2];
     end position_der;
-    
-    function position_der2 
-       input Real q_qd_qdd[3] 
+
+    function position_der2
+       input Real q_qd_qdd[3]
         "Required values for position, speed, acceleration";
-       input Real dummy 
+       input Real dummy
         "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
        input Real dummy_der;
        input Real dummy_der2;
        output Real qdd;
-    algorithm 
+    algorithm
       qdd :=q_qd_qdd[3];
     end position_der2;
-  equation 
+  equation
     for i in 1:nout loop
       aux1[i] = p_deltaq[i]/p_qd_max[i];
       aux2[i] = p_deltaq[i]/p_qdd_max[i];
     end for;
-    
+
     sd_max_inv = max(abs(aux1));
     sdd_max_inv = max(abs(aux2));
-    
+
     if sd_max_inv <= eps or sdd_max_inv <= eps then
       sd_max = 0;
       sdd_max = 0;
@@ -2178,7 +2178,7 @@ a flange according to a given acceleration.
       s2 = s1 + (if noWphase then sd_max2*(Te - Ta1) - (sdd_max/2)*(Te - Ta1)
         ^2 else sd_max*(Tv - Ta2));
       s3 = s2 + sd_max*(Te - Tv) - (sdd_max/2)*(Te - Tv)*(Te - Tv);
-      
+
       if time < startTime then
         r_sdd = 0;
         r_sd = 0;
@@ -2215,37 +2215,37 @@ a flange according to a given acceleration.
         r_sd = 0;
         r_s = s3;
       end if;
-      
+
     end if;
-    
+
     // acceleration
     qdd = p_deltaq*sdd;
     qd = p_deltaq*sd;
     q = p_q_begin + p_deltaq*s;
     endTime = Tes;
-    
+
     s = position({r_s, r_sd, r_sdd}, time);
     sd = der(s);
     sdd = der(sd);
-    
+
     // report when axis is moving
     motion_ref = time <= endTime;
     for i in 1:nout loop
       moving[i] = if abs(q_begin[i] - q_end[i]) > eps then motion_ref else false;
     end for;
-    
+
   end KinematicPTP2;
-  
-      block TimeTable 
-    "Generate a (possibly discontinuous) signal by linear interpolation in a table" 
-    
-        parameter Real table[:, 2] 
+
+      block TimeTable
+    "Generate a (possibly discontinuous) signal by linear interpolation in a table"
+
+        parameter Real table[:, 2]
       "Table matrix (time = first column; e.g. table=[0, 0; 1, 1; 2, 4])";
         parameter Real offset=0 "Offset of output signal";
-        parameter SIunits.Time startTime=0 
+        parameter SIunits.Time startTime=0
       "Output = offset for time < startTime";
         extends Interfaces.SO;
-  protected 
+  protected
         Real a "Interpolation coefficients a of actual interval (y=a*x+b)";
         Real b "Interpolation coefficients b of actual interval (y=a*x+b)";
         Integer last(start=1) "Last used lower grid index";
@@ -2260,98 +2260,98 @@ a flange according to a given acceleration.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
           Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,-70},{82,-70}}, color={192,192,192}), 
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
           Polygon(
-            points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            points={{90,-70},{68,-62},{68,-78},{90,-70}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-48,70},{2,-50}}, 
-            lineColor={255,255,255}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-48,70},{2,-50}},
+            lineColor={255,255,255},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Line(points={{-48,-50},{-48,70},{52,70},{52,-50},{-48,-50},{-48,-20},
                 {52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-51}}, 
-              color={0,0,0}), 
+              color={0,0,0}),
           Text(
-            extent={{-150,-150},{150,-110}}, 
-            lineColor={0,0,0}, 
+            extent={{-150,-150},{150,-110}},
+            lineColor={0,0,0},
             textString="offset=%offset")}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Polygon(
-            points={{-80,90},{-85,68},{-74,68},{-80,90}}, 
-            lineColor={95,95,95}, 
-            fillColor={95,95,95}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-80,68},{-80,-80}}, color={95,95,95}), 
-          Line(points={{-90,-70},{82,-70}}, color={95,95,95}), 
+            points={{-80,90},{-85,68},{-74,68},{-80,90}},
+            lineColor={95,95,95},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-80,68},{-80,-80}}, color={95,95,95}),
+          Line(points={{-90,-70},{82,-70}}, color={95,95,95}),
           Polygon(
-            points={{88,-70},{68,-65},{68,-74},{88,-70}}, 
-            lineColor={95,95,95}, 
-            fillColor={95,95,95}, 
-            fillPattern=FillPattern.Solid), 
+            points={{88,-70},{68,-65},{68,-74},{88,-70}},
+            lineColor={95,95,95},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-20,90},{30,-30}}, 
-            lineColor={255,255,255}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-20,90},{30,-30}},
+            lineColor={255,255,255},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Line(points={{-20,-30},{-20,90},{80,90},{80,-30},{-20,-30},{-20,0},{
                 80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{30,90},{30,-31}}, 
-              color={0,0,0}), 
+              color={0,0,0}),
           Text(
-            extent={{-70,-42},{-32,-54}}, 
-            lineColor={0,0,0}, 
-            fillColor={95,95,95}, 
-            fillPattern=FillPattern.Solid, 
-            textString="offset"), 
+            extent={{-70,-42},{-32,-54}},
+            lineColor={0,0,0},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid,
+            textString="offset"),
           Polygon(
-            points={{-31,-30},{-33,-40},{-28,-40},{-31,-30}}, 
-            lineColor={95,95,95}, 
-            fillColor={95,95,95}, 
-            fillPattern=FillPattern.Solid), 
+            points={{-31,-30},{-33,-40},{-28,-40},{-31,-30}},
+            lineColor={95,95,95},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-31,-70},{-34,-60},{-29,-60},{-31,-70},{-31,-70}}, 
-            lineColor={95,95,95}, 
-            fillColor={95,95,95}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-31,-32},{-31,-70}}, color={95,95,95}), 
-          Line(points={{-20,-30},{-20,-70}}, color={95,95,95}), 
+            points={{-31,-70},{-34,-60},{-29,-60},{-31,-70},{-31,-70}},
+            lineColor={95,95,95},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-31,-32},{-31,-70}}, color={95,95,95}),
+          Line(points={{-20,-30},{-20,-70}}, color={95,95,95}),
           Text(
-            extent={{-38,-73},{8,-83}}, 
-            lineColor={0,0,0}, 
-            fillColor={95,95,95}, 
-            fillPattern=FillPattern.Solid, 
-            textString="startTime"), 
-          Line(points={{-20,-30},{-80,-30}}, color={95,95,95}), 
+            extent={{-38,-73},{8,-83}},
+            lineColor={0,0,0},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid,
+            textString="startTime"),
+          Line(points={{-20,-30},{-80,-30}}, color={95,95,95}),
           Text(
-            extent={{-76,93},{-44,75}}, 
-            lineColor={0,0,0}, 
-            fillColor={95,95,95}, 
-            fillPattern=FillPattern.Solid, 
-            textString="y"), 
+            extent={{-76,93},{-44,75}},
+            lineColor={0,0,0},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid,
+            textString="y"),
           Text(
-            extent={{66,-78},{90,-88}}, 
-            lineColor={0,0,0}, 
-            fillColor={95,95,95}, 
-            fillPattern=FillPattern.Solid, 
-            textString="time"), 
+            extent={{66,-78},{90,-88}},
+            lineColor={0,0,0},
+            fillColor={95,95,95},
+            fillPattern=FillPattern.Solid,
+            textString="time"),
           Text(
-            extent={{-15,83},{24,68}}, 
-            lineColor={0,0,0}, 
-            textString="time"), 
+            extent={{-15,83},{24,68}},
+            lineColor={0,0,0},
+            textString="time"),
           Text(
-            extent={{33,83},{76,67}}, 
-            lineColor={0,0,0}, 
+            extent={{33,83},{76,67}},
+            lineColor={0,0,0},
             textString="y")}),
           Documentation(info="<HTML>
 <p>
@@ -2421,32 +2421,32 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
        Realized.</li>
 </ul>
 </html>"));
-        function getInterpolationCoefficients 
-      "Determine interpolation coefficients and next time event" 
+        function getInterpolationCoefficients
+      "Determine interpolation coefficients and next time event"
           input Real table[:, 2] "Table for interpolation";
           input Real offset "y-offset";
           input Real startTime "time-offset";
           input Real t "Actual time instant";
           input Integer last "Last used lower grid index";
-          input Real TimeEps 
+          input Real TimeEps
         "Relative epsilon to check for identical time instants";
           output Real a "Interpolation coefficients a (y=a*x + b)";
           output Real b "Interpolation coefficients b (y=a*x + b)";
           output Real nextEvent "Next event instant";
           output Integer next "New lower grid index";
-    protected 
+    protected
           Integer columns=2 "Column to be interpolated";
           Integer ncol=2 "Number of columns to be interpolated";
           Integer nrow=size(table, 1) "Number of table rows";
           Integer next0;
           Real tp;
           Real dt;
-        algorithm 
+        algorithm
           next := last;
           nextEvent := t - TimeEps*abs(t);
           // in case there are no more time events
           tp := t + TimeEps*abs(t) - startTime;
-      
+
           if tp < 0.0 then
             // First event not yet reached
             nextEvent := startTime;
@@ -2457,18 +2457,18 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
             a := 0;
             b := offset + table[1, columns];
           else
-        
+
               // Find next time event instant. Note, that two consecutive time instants
             // in the table may be identical due to a discontinuous point.
             while next < nrow and tp >= table[next, 1] loop
               next := next + 1;
             end while;
-        
+
             // Define next time event, if last table entry not reached
             if next < nrow then
               nextEvent := startTime + table[next, 1];
             end if;
-        
+
             // Determine interpolation coefficients
             next0 := next - 1;
             dt := table[next, 1] - table[next0, 1];
@@ -2484,38 +2484,38 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
           // Take into account startTime "a*(time - startTime) + b"
           b := b - a*startTime;
         end getInterpolationCoefficients;
-      algorithm 
+      algorithm
         when {time >= pre(nextEvent),initial()} then
           (a,b,nextEvent,last) := getInterpolationCoefficients(table, offset,
             startTime, time, last, 100*Modelica.Constants.eps);
         end when;
-      equation 
+      equation
         y = a*time + b;
       end TimeTable;
-  
-  model CombiTimeTable 
-    "Table look-up with respect to time and linear/perodic extrapolation methods (data from matrix/file)" 
-    
-    parameter Boolean tableOnFile=false 
+
+  model CombiTimeTable
+    "Table look-up with respect to time and linear/perodic extrapolation methods (data from matrix/file)"
+
+    parameter Boolean tableOnFile=false
       "= true, if table is defined on file or in function usertab" 
       annotation(Dialog(group="table data definition"));
-    parameter Real table[:, :] = fill(0.0,0,2) 
+    parameter Real table[:, :] = fill(0.0,0,2)
       "Table matrix (time = first column; e.g. table=[0,2])" 
          annotation(Dialog(group="table data definition", enable = not tableOnFile));
-    parameter String tableName="NoName" 
+    parameter String tableName="NoName"
       "Table name on file or in function usertab (see docu)" 
          annotation(Dialog(group="table data definition", enable = tableOnFile));
     parameter String fileName="NoName" "File where matrix is stored" 
          annotation(Dialog(group="table data definition", enable = tableOnFile,
                            __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
                            caption="Open file in which table is present")));
-    parameter Integer columns[:]=2:size(table, 2) 
+    parameter Integer columns[:]=2:size(table, 2)
       "Columns of table to be interpolated" 
     annotation(Dialog(group="table data interpretation"));
-    parameter Blocks.Types.Smoothness smoothness=Blocks.Types.Smoothness.LinearSegments 
+    parameter Blocks.Types.Smoothness smoothness=Blocks.Types.Smoothness.LinearSegments
       "Smoothness of table interpolation" 
     annotation(Dialog(group="table data interpretation"));
-    parameter Blocks.Types.Extrapolation extrapolation=Blocks.Types.Extrapolation.LastTwoPoints 
+    parameter Blocks.Types.Extrapolation extrapolation=Blocks.Types.Extrapolation.LastTwoPoints
       "Extrapolation of data outside the definition range" 
     annotation(Dialog(group="table data interpretation"));
     parameter Real offset[:]={0} "Offsets of output signals" 
@@ -2523,18 +2523,18 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     parameter SI.Time startTime=0 "Output = offset for time < startTime" 
     annotation(Dialog(group="table data interpretation"));
     extends Modelica.Blocks.Interfaces.MO(final nout=max([size(columns, 1); size(offset, 1)]));
-    final parameter Real t_min(fixed=false) 
+    final parameter Real t_min(fixed=false)
       "Minimum abscissa value defined in table";
-    final parameter Real t_max(fixed=false) 
+    final parameter Real t_max(fixed=false)
       "Maximum abscissa value defined in table";
-    
-  protected 
+
+  protected
     final parameter Real p_offset[nout]=(if size(offset, 1) == 1 then ones(nout)
          *offset[1] else offset);
-    
+
     Integer tableID;
-    
-    function tableTimeInit 
+
+    function tableTimeInit
       input Real timeIn;
       input Real startTime;
       input Integer ipoType;
@@ -2548,22 +2548,22 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
         expoType, tableName, fileName, table, size(table, 1), size(table, 2),
         colWise);
     end tableTimeInit;
-    
-    function tableTimeIpo 
+
+    function tableTimeIpo
       input Integer tableID;
       input Integer icol;
       input Real timeIn;
       output Real value;
     external "C" value = dymTableTimeIpo2(tableID, icol, timeIn);
     end tableTimeIpo;
-    
-    function tableTimeTmin 
+
+    function tableTimeTmin
       input Integer tableID;
       output Real Tmin "minimum time value in table";
     external "C" Tmin = dymTableTimeTmin(tableID);
     end tableTimeTmin;
-    
-    function tableTimeTmax 
+
+    function tableTimeTmax
       input Integer tableID;
       output Real Tmax "maximum time value in table";
     external "C" Tmax = dymTableTimeTmax(tableID);
@@ -2720,22 +2720,22 @@ Several matrices may be defined one after another.
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
-          Line(points={{-90,-70},{82,-70}}, color={192,192,192}), 
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
+          Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
           Polygon(
-            points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            points={{90,-70},{68,-62},{68,-78},{90,-70}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-48,70},{2,-50}}, 
-            lineColor={255,255,255}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-48,70},{2,-50}},
+            lineColor={255,255,255},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
           Line(points={{-48,-50},{-48,70},{52,70},{52,-50},{-48,-50},{-48,-20},
                 {52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-51}}, 
               color={0,0,0})}),
@@ -2759,7 +2759,7 @@ Several matrices may be defined one after another.
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-20,-30},{-20,90},{80,90},{80,-30},{-20,-30},{-20,0},{
-                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{20,90},{20,-30}},
+                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{20,90},{20,-30}}, 
               color={0,0,0}),
           Text(
             extent={{-71,-42},{-32,-54}},
@@ -2816,7 +2816,7 @@ Several matrices may be defined one after another.
             extent={{51,82},{80,68}},
             lineColor={0,0,0},
             textString="y[2]")}));
-  equation 
+  equation
     if tableOnFile then
       assert(tableName<>"NoName", "tableOnFile = true and no table name given");
     end if;
@@ -2831,12 +2831,12 @@ Several matrices may be defined one after another.
         extrapolation-1, (if not tableOnFile then "NoName" else tableName),
                          (if not tableOnFile then "NoName" else fileName), table, 0);
     end when;
-  initial equation 
+  initial equation
       t_min=tableTimeTmin(tableID);
       t_max=tableTimeTmax(tableID);
   end CombiTimeTable;
-  
-    block BooleanConstant "Generate constant signal of type Boolean" 
+
+    block BooleanConstant "Generate constant signal of type Boolean"
       parameter Boolean k=true "Constant output value";
       extends Interfaces.partialBooleanSource;
       annotation (
@@ -2848,10 +2848,10 @@ Several matrices may be defined one after another.
         Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={Line(points={{-80,0},{80,0}}, color={0,0,0}), 
+          grid={2,2}), graphics={Line(points={{-80,0},{80,0}}, color={0,0,0}),
             Text(
-            extent={{-150,-140},{150,-110}}, 
-            lineColor={0,0,0}, 
+            extent={{-150,-140},{150,-110}},
+            lineColor={0,0,0},
             textString="%k")}),
         Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -2888,20 +2888,20 @@ The Boolean output y is a constant signal:
 <img src=\"../Images/Blocks/Sources/BooleanConstant.png\">
 </p>
 </html>"));
-    equation 
+    equation
       y = k;
     end BooleanConstant;
-  
-    block BooleanStep "Generate step signal of type Boolean" 
+
+    block BooleanStep "Generate step signal of type Boolean"
       parameter Modelica.SIunits.Time startTime=0 "Time instant of step start";
       parameter Boolean startValue = false "Output before startTime";
-    
+
       extends Interfaces.partialBooleanSource;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Line(points={{-80,-70},{0,-70},{0,50},
                 {80,50}}, color={0,0,0}), Text(
-            extent={{-150,-140},{150,-110}}, 
-            lineColor={0,0,0}, 
+            extent={{-150,-140},{150,-110}},
+            lineColor={0,0,0},
             textString="%startTime")}),
                               Diagram(coordinateSystem(preserveAspectRatio=
               false, extent={{-100,-100},{100,100}}), graphics={
@@ -2941,16 +2941,16 @@ The Boolean output y is a step signal:
 <img src=\"../Images/Blocks/Sources/BooleanStep.png\">
 </p>
 </html>"));
-    equation 
+    equation
      y = if time >= startTime then not startValue else startValue;
     end BooleanStep;
-  
-    block BooleanPulse "Generate pulse signal of type Boolean" 
-    
+
+    block BooleanPulse "Generate pulse signal of type Boolean"
+
       parameter Real width(
         final min=Modelica.Constants.small,
         final max=100) = 50 "Width of pulse in % of period";
-      parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small,start=1) 
+      parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small,start=1)
       "Time for one period";
       parameter Modelica.SIunits.Time startTime=0 "Time instant of first pulse";
       extends Modelica.Blocks.Interfaces.partialBooleanSource;
@@ -2964,8 +2964,8 @@ The Boolean output y is a step signal:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={Text(
-            extent={{-150,-140},{150,-110}}, 
-            lineColor={0,0,0}, 
+            extent={{-150,-140},{150,-110}},
+            lineColor={0,0,0},
             textString="%period"), Line(points={{-80,-70},{-40,-70},{-40,44},{0,
                 44},{0,-70},{40,-70},{40,44},{79,44}}, color={0,0,0})}),
         Diagram(coordinateSystem(
@@ -3042,27 +3042,27 @@ The Boolean output y is a pulse signal:
 <img src=\"../Images/Blocks/Sources/Pulse.png\">
 </p>
 </html>"));
-  protected 
-      parameter Modelica.SIunits.Time Twidth=period*width/100 
+  protected
+      parameter Modelica.SIunits.Time Twidth=period*width/100
       "width of one pulse"                                              annotation(Hide=true);
       discrete Modelica.SIunits.Time pulsStart "Start time of pulse" 
                                                  annotation(Hide=true);
-    initial equation 
+    initial equation
       pulsStart = startTime;
-    equation 
+    equation
         when sample(startTime, period) then
           pulsStart = time;
         end when;
         y = time >= pulsStart and time < pulsStart + Twidth;
     end BooleanPulse;
-  
-    block SampleTrigger "Generate sample trigger signal" 
-      parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small,start=0.01) 
+
+    block SampleTrigger "Generate sample trigger signal"
+      parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small,start=0.01)
       "Sample period";
-      parameter Modelica.SIunits.Time startTime=0 
+      parameter Modelica.SIunits.Time startTime=0
       "Time instant of first sample trigger";
       extends Interfaces.partialBooleanSource;
-    
+
       annotation (
         Window(
           x=0.22,
@@ -3073,13 +3073,13 @@ The Boolean output y is a pulse signal:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-60,-70},{-60,70}}, color={0,0,0}), 
-          Line(points={{-20,-70},{-20,70}}, color={0,0,0}), 
-          Line(points={{20,-70},{20,70}}, color={0,0,0}), 
-          Line(points={{60,-70},{60,70}}, color={0,0,0}), 
+          Line(points={{-60,-70},{-60,70}}, color={0,0,0}),
+          Line(points={{-20,-70},{-20,70}}, color={0,0,0}),
+          Line(points={{20,-70},{20,70}}, color={0,0,0}),
+          Line(points={{60,-70},{60,70}}, color={0,0,0}),
           Text(
-            extent={{-150,-140},{150,-110}}, 
-            lineColor={0,0,0}, 
+            extent={{-150,-140},{150,-110}},
+            lineColor={0,0,0},
             textString="%period")}),
         Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -3150,24 +3150,24 @@ at sample times (defined by parameter <b>period</b>) and is otherwise
 <img src=\"../Images/Blocks/Sources/SampleTrigger.png\">
 </p>
 </html>"));
-    equation 
+    equation
       y = sample(startTime, period);
     end SampleTrigger;
-  
-    block BooleanTable 
-    "Generate a Boolean output signal based on a vector of time instants" 
-    
-      parameter Boolean startValue = false 
+
+    block BooleanTable
+    "Generate a Boolean output signal based on a vector of time instants"
+
+      parameter Boolean startValue = false
       "Start value of y. At time = table[1], y changes to 'not startValue'";
-      parameter Modelica.SIunits.Time table[:] 
+      parameter Modelica.SIunits.Time table[:]
       "Vector of time points. At every time point, the output y gets its opposite value (e.g. table={0,1})";
       extends Interfaces.partialBooleanSource;
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Rectangle(
-            extent={{-18,70},{32,-50}}, 
-            lineColor={255,255,255}, 
-            fillColor={192,192,192}, 
+            extent={{-18,70},{32,-50}},
+            lineColor={255,255,255},
+            fillColor={192,192,192},
             fillPattern=FillPattern.Solid), Line(points={{-18,-50},{-18,70},{32,
                 70},{32,-50},{-18,-50},{-18,-20},{32,-20},{32,10},{-18,10},{-18,
                 40},{32,40},{32,70},{32,70},{32,-51}}, color={0,0,0})}),
@@ -3179,7 +3179,7 @@ at sample times (defined by parameter <b>period</b>) and is otherwise
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-34,-54},{-34,66},{16,66},{16,-54},{-34,-54},{-34,-24},
-                {16,-24},{16,6},{-34,6},{-34,36},{16,36},{16,66},{16,66},{16,-55}},
+                {16,-24},{16,6},{-34,6},{-34,36},{16,36},{16,66},{16,66},{16,-55}}, 
               color={0,0,0}),
           Text(
             extent={{-29,59},{10,44}},
@@ -3196,20 +3196,20 @@ changes its value to the negated value of the previous one.
 <img src=\"../Images/Blocks/Sources/BooleanTable.png\">
 </p>
 </html>"));
-    
-  protected 
-      function getFirstIndex "Get first index of table and check table" 
+
+  protected
+      function getFirstIndex "Get first index of table and check table"
         input Real table[:] "Vector of time instants";
         input Modelica.SIunits.Time simulationStartTime "Simulation start time";
         input Boolean startValue "Value of y for y < table[1]";
         output Integer index "First index to be used";
         output Modelica.SIunits.Time nextTime "Time instant of first event";
         output Boolean y "Value of y at simulationStartTime";
-    protected 
+    protected
         Modelica.SIunits.Time t_last;
         Integer j;
         Integer n=size(table,1) "Number of table points";
-      algorithm 
+      algorithm
         if size(table,1) == 0 then
            index :=0;
            nextTime :=-Modelica.Constants.inf;
@@ -3224,7 +3224,7 @@ changes its value to the negated value of the previous one.
               y        :=startValue;
            end if;
         else
-        
+
         // Check whether time values are strict monotonically increasing
           t_last :=table[1];
           for i in 2:n loop
@@ -3233,7 +3233,7 @@ changes its value to the negated value of the previous one.
                String(i-1) + "] = " + String(table[i-1]) + "table[" + String(i)   +
                "] = " + String(table[i]));
           end for;
-        
+
           // Determine first index in table
           j := 1;
           y := startValue;
@@ -3241,7 +3241,7 @@ changes its value to the negated value of the previous one.
             y :=not  y;
             j := j + 1;
           end while;
-        
+
           if j == 1 then
              nextTime := table[1];
              y        := startValue;
@@ -3251,17 +3251,17 @@ changes its value to the negated value of the previous one.
           else
              nextTime := table[j];
           end if;
-        
+
           index := j;
         end if;
       end getFirstIndex;
-    
+
       parameter Integer n = size(table,1) "Number of table points";
       Modelica.SIunits.Time nextTime;
       Integer index "Index of actual table entry";
-    initial algorithm 
+    initial algorithm
       (index, nextTime, y) :=getFirstIndex(table, time, startValue);
-    algorithm 
+    algorithm
       when time >= pre(nextTime) and n > 0 then
          if index < n then
             index    := index + 1;
@@ -3273,29 +3273,29 @@ changes its value to the negated value of the previous one.
          end if;
       end when;
     end BooleanTable;
-  
-  block IntegerConstant "Generate constant signal of type Integer" 
+
+  block IntegerConstant "Generate constant signal of type Integer"
     parameter Integer k(start=1) "Constant output value";
     extends Interfaces.IntegerSO;
-    
+
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
-          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
           Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,-70},{82,-70}}, color={192,192,192}), 
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
           Polygon(
-            points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-80,0},{80,0}}, color={0,0,0}), 
+            points={{90,-70},{68,-62},{68,-78},{90,-70}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-80,0},{80,0}}, color={0,0,0}),
           Text(
-            extent={{-150,-150},{150,-110}}, 
-            lineColor={0,0,0}, 
+            extent={{-150,-150},{150,-110}},
+            lineColor={0,0,0},
             textString="k=%k")}),
                             Diagram(coordinateSystem(preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}), graphics={
@@ -3342,31 +3342,31 @@ The Integer output y is a constant signal:
 <img src=\"../Images/Blocks/Sources/IntegerConstant.png\">
 </p>
 </html>"));
-  equation 
+  equation
     y = k;
   end IntegerConstant;
-  
-  block IntegerStep "Generate step signal of type Integer" 
+
+  block IntegerStep "Generate step signal of type Integer"
     parameter Integer height=1 "Height of step";
     extends Interfaces.IntegerSignalSource;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
-          Line(points={{-80,68},{-80,-80}}, color={192,192,192}), 
+          Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
           Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,-70},{82,-70}}, color={192,192,192}), 
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
           Polygon(
-            points={{90,-70},{68,-62},{68,-78},{90,-70}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-80,-70},{0,-70},{0,50},{80,50}}, color={0,0,0}), 
+            points={{90,-70},{68,-62},{68,-78},{90,-70}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-80,-70},{0,-70},{0,50},{80,50}}, color={0,0,0}),
           Text(
-            extent={{-150,-150},{150,-110}}, 
-            lineColor={0,0,0}, 
+            extent={{-150,-150},{150,-110}},
+            lineColor={0,0,0},
             textString="startTime=%startTime")}),
                             Diagram(coordinateSystem(preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}), graphics={
@@ -3453,8 +3453,8 @@ The Integer output y is a step signal:
 <img src=\"../Images/Blocks/Sources/IntegerStep.png\">
 </p>
 </html>"));
-  equation 
+  equation
     y = offset + (if time < startTime then 0 else height);
   end IntegerStep;
-  
+
 end Sources;

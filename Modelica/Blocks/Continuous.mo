@@ -1,11 +1,11 @@
 within Modelica.Blocks;
-package Continuous "Library of continuous control blocks with internal states" 
-  
+package Continuous "Library of continuous control blocks with internal states"
+
   import Modelica.Blocks.Interfaces;
   import Modelica.SIunits;
   extends Modelica.Icons.Library;
-  
-  annotation(
+
+  annotation (
     Window(
       x=0.05,
       y=0.09,
@@ -99,20 +99,20 @@ for a 1-dim. rotational inertia controlled by a PI controller are that
 
 </html>
 "));
-  block Integrator "Output the integral of the input signal" 
+  block Integrator "Output the integral of the input signal"
     import Modelica.Blocks.Types.Init;
     parameter Real k=1 "Integrator gain";
-    
+
     /* InitialState is the default, because it was the default in Modelica 2.2
      and therefore this setting is backward compatible
   */
-    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.InitialState 
+    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.InitialState
       "Type of initialization (InitialState and InitialOutput are identical)"         annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real y_start=0 "Initial or guess value of output (= state)" 
       annotation (Dialog(group="Initialization"));
     extends Interfaces.SISO(y(start=y_start));
-    
+
     annotation (
       Window(
         x=0.29,
@@ -142,26 +142,26 @@ This is discussed in the description of package
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{-80,78},{-80,-90}}, color={192,192,192}), 
+          Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
           Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,-80},{82,-80}}, color={192,192,192}), 
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
           Polygon(
-            points={{90,-80},{68,-72},{68,-88},{90,-80}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            points={{90,-80},{68,-72},{68,-88},{90,-80}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{0,-10},{60,-70}}, 
-            lineColor={192,192,192}, 
-            textString="I"), 
+            extent={{0,-10},{60,-70}},
+            lineColor={192,192,192},
+            textString="I"),
           Text(
-            extent={{-150,-150},{150,-110}}, 
-            lineColor={0,0,0}, 
-            textString="k=%k"), 
+            extent={{-150,-150},{150,-110}},
+            lineColor={0,0,0},
+            textString="k=%k"),
           Line(points={{-80,-80},{80,80}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -179,29 +179,29 @@ This is discussed in the description of package
             lineColor={0,0,0},
             textString="s"),
           Line(points={{-46,0},{46,0}}, color={0,0,0})}));
-  initial equation 
+  initial equation
     if initType == Init.SteadyState then
        der(y) = 0;
     elseif initType == Init.InitialState or 
            initType == Init.InitialOutput then
       y = y_start;
     end if;
-  equation 
+  equation
     der(y) = k*u;
   end Integrator;
-  
-  block LimIntegrator "Integrator with limited value of the output" 
+
+  block LimIntegrator "Integrator with limited value of the output"
     import Modelica.Blocks.Types.Init;
     parameter Real k=1 "Integrator gain";
     parameter Real outMax(start=1) "Upper limit of output";
     parameter Real outMin=-outMax "Lower limit of output";
-    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.InitialState 
+    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.InitialState
       "Type of initialization" 
       annotation(Evaluate=true, Dialog(group="Initialization"));
-    parameter Boolean limitsAtInit = true 
+    parameter Boolean limitsAtInit = true
       "= false, if limits are ignored during initializiation (i.e., der(y)=k*u)"
       annotation(Evaluate=true, Dialog(group="Initialization"));
-    parameter Real y_start=0 
+    parameter Real y_start=0
       "Initial or guess value of output (must be in the limits outMin .. outMax)"
       annotation (Dialog(group="Initialization"));
     extends Interfaces.SISO(y(start=y_start));
@@ -241,26 +241,26 @@ to use <b>limitAtInit</b> = <b>false</b>.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{-80,78},{-80,-90}}, color={192,192,192}), 
+          Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
           Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,-80},{82,-80}}, color={192,192,192}), 
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
           Polygon(
-            points={{90,-80},{68,-72},{68,-88},{90,-80}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-80,-80},{20,20},{80,20}}, color={0,0,127}), 
+            points={{90,-80},{68,-72},{68,-88},{90,-80}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-80,-80},{20,20},{80,20}}, color={0,0,127}),
           Text(
-            extent={{0,-10},{60,-70}}, 
-            lineColor={192,192,192}, 
-            textString="I"), 
+            extent={{0,-10},{60,-70}},
+            lineColor={192,192,192},
+            textString="I"),
           Text(
-            extent={{-150,-150},{150,-110}}, 
-            lineColor={0,0,0}, 
+            extent={{-150,-150},{150,-110}},
+            lineColor={0,0,0},
             textString="k=%k")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -282,14 +282,14 @@ to use <b>limitAtInit</b> = <b>false</b>.
             lineColor={0,0,0},
             textString="s"),
           Line(points={{4,0},{46,0}}, color={0,0,0})}));
-  initial equation 
+  initial equation
     if initType == Init.SteadyState then
        der(y) = 0;
     elseif initType == Init.InitialState or 
            initType == Init.InitialOutput then
       y = y_start;
     end if;
-  equation 
+  equation
     if initial() and not limitsAtInit then
        der(y) = k*u;
        assert(y >= outMin - 0.01*abs(outMin) and 
@@ -301,13 +301,13 @@ to use <b>limitAtInit</b> = <b>false</b>.
        der(y) = if y < outMin and u < 0 or y > outMax and u > 0 then 0 else k*u;
     end if;
   end LimIntegrator;
-  
-  block Derivative "Approximated derivative block" 
+
+  block Derivative "Approximated derivative block"
     import Modelica.Blocks.Types.Init;
     parameter Real k=1 "Gains";
-    parameter SIunits.Time T(min=Modelica.Constants.small) = 0.01 
+    parameter SIunits.Time T(min=Modelica.Constants.small) = 0.01
       "Time constants (T>0 required; T=0 is ideal derivative block)";
-    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit 
+    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
       "Type of initialization"                                                        annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real x_start=0 "Initial or guess value of state" 
@@ -316,9 +316,9 @@ to use <b>limitAtInit</b> = <b>false</b>.
       annotation(Dialog(enable=initType == Init.InitialOutput, group=
             "Initialization"));
     extends Interfaces.SISO;
-    
+
     output Real x(start=x_start) "State of block";
-    
+
     annotation (
       Documentation(info="
 <HTML>
@@ -348,29 +348,29 @@ If k=0, the block reduces to y=0.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{-80,78},{-80,-90}}, color={192,192,192}), 
+          Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
           Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,-80},{82,-80}}, color={192,192,192}), 
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
           Polygon(
-            points={{90,-80},{68,-72},{68,-88},{90,-80}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            points={{90,-80},{68,-72},{68,-88},{90,-80}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Line(points={{-80,-80},{-80,60},{-70,17.95},{-60,-11.46},{-50,-32.05},
                 {-40,-46.45},{-30,-56.53},{-20,-63.58},{-10,-68.51},{0,-71.96},
                 {10,-74.37},{20,-76.06},{30,-77.25},{40,-78.07},{50,-78.65},{60,
-                -79.06}}, color={0,0,127}), 
+                -79.06}}, color={0,0,127}),
           Text(
-            extent={{-30,14},{86,60}}, 
-            lineColor={192,192,192}, 
-            textString="DT1"), 
+            extent={{-30,14},{86,60}},
+            lineColor={192,192,192},
+            textString="DT1"),
           Text(
-            extent={{-150,-150},{150,-110}}, 
-            lineColor={0,0,0}, 
+            extent={{-150,-150},{150,-110}},
+            lineColor={0,0,0},
             textString="k=%k")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -393,9 +393,9 @@ If k=0, the block reduces to y=0.
         y=0.03,
         width=0.5,
         height=0.61));
-  protected 
+  protected
     parameter Boolean zeroGain = abs(k) < Modelica.Constants.eps;
-  initial equation 
+  initial equation
     if initType == Init.SteadyState then
       der(x) = 0;
     elseif initType == Init.InitialState then
@@ -407,23 +407,23 @@ If k=0, the block reduces to y=0.
          y = y_start;
       end if;
     end if;
-  equation 
+  equation
     der(x) = if zeroGain then 0 else (u - x)/T;
     y = if zeroGain then 0 else (k/T)*(u - x);
   end Derivative;
-  
-  block FirstOrder "First order transfer function block (= 1 pole)" 
+
+  block FirstOrder "First order transfer function block (= 1 pole)"
     import Modelica.Blocks.Types.Init;
     parameter Real k=1 "Gain";
     parameter SIunits.Time T(start=1) "Time Constant";
-    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit 
+    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
       "Type of initialization (InitialState and InitialOutput are identical)"         annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real y_start=0 "Initial or guess value of output (= state)" 
       annotation (Dialog(group="Initialization"));
-    
+
     extends Interfaces.SISO(y(start=y_start));
-    
+
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -456,29 +456,29 @@ Example:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{-80,78},{-80,-90}}, color={192,192,192}), 
+          Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
           Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,88},{-80,90}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,-80},{82,-80}}, color={192,192,192}), 
+            points={{-80,90},{-88,68},{-72,68},{-80,88},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
           Polygon(
-            points={{90,-80},{68,-72},{68,-88},{90,-80}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            points={{90,-80},{68,-72},{68,-88},{90,-80}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Line(points={{-80,-80},{-70,-45.11},{-60,-19.58},{-50,-0.9087},{-40,
                 12.75},{-30,22.75},{-20,30.06},{-10,35.41},{0,39.33},{10,42.19},
                 {20,44.29},{30,45.82},{40,46.94},{50,47.76},{60,48.36},{70,48.8},
-                {80,49.12}}, color={0,0,127}), 
+                {80,49.12}}, color={0,0,127}),
           Text(
-            extent={{0,0},{60,-60}}, 
-            lineColor={192,192,192}, 
-            textString="PT1"), 
+            extent={{0,0},{60,-60}},
+            lineColor={192,192,192},
+            textString="PT1"),
           Text(
-            extent={{-150,-150},{150,-110}}, 
-            lineColor={0,0,0}, 
+            extent={{-150,-150},{150,-110}},
+            lineColor={0,0,0},
             textString="T=%T")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -501,30 +501,30 @@ Example:
         y=0.04,
         width=0.52,
         height=0.55));
-  initial equation 
+  initial equation
     if initType == Init.SteadyState then
       der(y) = 0;
     elseif initType == Init.InitialState or initType == Init.InitialOutput then
       y = y_start;
     end if;
-  equation 
+  equation
     der(y) = (k*u - y)/T;
   end FirstOrder;
-  
-  block SecondOrder "Second order transfer function block (= 2 poles)" 
+
+  block SecondOrder "Second order transfer function block (= 2 poles)"
     import Modelica.Blocks.Types.Init;
     parameter Real k=1 "Gain";
     parameter Real w(start=1) "Angular frequency";
     parameter Real D(start=1) "Damping";
-    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit 
+    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
       "Type of initialization (InitialState and InitialOutput are identical)"         annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real y_start=0 "Initial or guess value of output (= state)" 
       annotation (Dialog(group="Initialization"));
-    parameter Real yd_start=0 
+    parameter Real yd_start=0
       "Initial or guess value of derivative of output (= state)" 
       annotation (Dialog(group="Initialization"));
-    
+
     extends Interfaces.SISO(y(start=y_start));
     output Real yd(start=yd_start) "Derivative of y";
     annotation (
@@ -565,30 +565,30 @@ Example:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{-80,78},{-80,-90}}, color={192,192,192}), 
+          Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
           Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,88},{-80,90}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,-80},{82,-80}}, color={192,192,192}), 
+            points={{-80,90},{-88,68},{-72,68},{-80,88},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
           Polygon(
-            points={{90,-80},{68,-72},{68,-88},{90,-80}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            points={{90,-80},{68,-72},{68,-88},{90,-80}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Line(points={{-80,-80},{-72,-68.53},{-64,-39.5},{-56,-2.522},{-48,
                 32.75},{-40,58.8},{-32,71.51},{-24,70.49},{-16,58.45},{-8,40.06},
                 {0,20.55},{8,4.459},{16,-5.271},{24,-7.629},{32,-3.428},{40,
-                5.21},{48,15.56},{56,25.03},{64,31.66},{72,34.5},{80,33.61}}, 
-              color={0,0,127}), 
+                5.21},{48,15.56},{56,25.03},{64,31.66},{72,34.5},{80,33.61}},
+              color={0,0,127}),
           Text(
-            extent={{0,-10},{60,-70}}, 
-            lineColor={192,192,192}, 
-            textString="PT2"), 
+            extent={{0,-10},{60,-70}},
+            lineColor={192,192,192},
+            textString="PT2"),
           Text(
-            extent={{-150,-150},{150,-110}}, 
-            lineColor={0,0,0}, 
+            extent={{-150,-150},{150,-110}},
+            lineColor={0,0,0},
             textString="w=%w")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -636,7 +636,7 @@ Example:
             extent={{30,2},{58,-42}},
             lineColor={0,0,0},
             textString="+1")}));
-  initial equation 
+  initial equation
     if initType == Init.SteadyState then
       der(y) = 0;
       der(yd) = 0;
@@ -644,17 +644,17 @@ Example:
       y = y_start;
       yd = yd_start;
     end if;
-  equation 
+  equation
     der(y) = yd;
     der(yd) = w*(w*(k*u - y) - 2*D*yd);
   end SecondOrder;
-  
-  block PI "Proportional-Integral controller" 
+
+  block PI "Proportional-Integral controller"
     import Modelica.Blocks.Types.Init;
     parameter Real k=1 "Gain";
-    parameter SIunits.Time T(start=1,min=Modelica.Constants.small) 
+    parameter SIunits.Time T(start=1,min=Modelica.Constants.small)
       "Time Constant (T>0 required)";
-    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit 
+    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
       "Type of initialization (SteadyState and InitialOutput are identical)"  annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real x_start=0 "Initial or guess value of state" 
@@ -662,10 +662,10 @@ Example:
     parameter Real y_start=0 "Initial value of output" 
       annotation(Dialog(enable=initType == Init.SteadyState or initType == Init.InitialOutput, group=
             "Initialization"));
-    
+
     extends Interfaces.SISO;
     output Real x(start=x_start) "State of block";
-    
+
     annotation (defaultComponentName="PI",
       Window(
         x=0.24,
@@ -716,26 +716,26 @@ This is discussed in the description of package
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{-80,78},{-80,-90}}, color={192,192,192}), 
+          Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
           Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,88},{-80,90}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,-80},{82,-80}}, color={192,192,192}), 
+            points={{-80,90},{-88,68},{-72,68},{-80,88},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
           Polygon(
-            points={{90,-80},{68,-72},{68,-88},{90,-80}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-80,-80},{-80,-20},{60,80}}, color={0,0,127}), 
+            points={{90,-80},{68,-72},{68,-88},{90,-80}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-80,-80},{-80,-20},{60,80}}, color={0,0,127}),
           Text(
-            extent={{0,6},{60,-56}}, 
-            lineColor={192,192,192}, 
-            textString="PI"), 
+            extent={{0,6},{60,-56}},
+            lineColor={192,192,192},
+            textString="PI"),
           Text(
-            extent={{-150,-150},{150,-110}}, 
-            lineColor={0,0,0}, 
+            extent={{-150,-150},{150,-110}},
+            lineColor={0,0,0},
             textString="T=%T")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -757,7 +757,7 @@ This is discussed in the description of package
           Line(points={{-24,0},{54,0}}, color={0,0,0}),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{62,0},{100,0}}, color={0,0,255})}));
-  initial equation 
+  initial equation
     if initType == Init.SteadyState then
       der(x) = 0;
     elseif initType == Init.InitialState then
@@ -765,35 +765,35 @@ This is discussed in the description of package
     elseif initType == Init.InitialOutput then
       y = y_start;
     end if;
-  equation 
+  equation
     der(x) = u/T;
     y = k*(x + u);
   end PI;
-  
-  block PID "PID-controller in additive description form" 
+
+  block PID "PID-controller in additive description form"
     import Modelica.Blocks.Types.InitPID;
     extends Interfaces.SISO;
-    
+
     parameter Real k=1 "Gain";
-    parameter SIunits.Time Ti(min=Modelica.Constants.small, start=0.5) 
+    parameter SIunits.Time Ti(min=Modelica.Constants.small, start=0.5)
       "Time Constant of Integrator";
-    parameter SIunits.Time Td(min=0, start=0.1) 
+    parameter SIunits.Time Td(min=0, start=0.1)
       "Time Constant of Derivative block";
-    parameter Real Nd(min=Modelica.Constants.small) = 10 
+    parameter Real Nd(min=Modelica.Constants.small) = 10
       "The higher Nd, the more ideal the derivative block";
-    parameter Modelica.Blocks.Types.InitPID initType= Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState 
+    parameter Modelica.Blocks.Types.InitPID initType= Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState
       "Type of initialization"         annotation(Evaluate=true,
         Dialog(group="Initialization"));
-    parameter Real xi_start=0 
+    parameter Real xi_start=0
       "Initial or guess value value for integrator output (= integrator state)"
       annotation (Dialog(group="Initialization"));
-    parameter Real xd_start=0 
+    parameter Real xd_start=0
       "Initial or guess value for state of derivative block" 
       annotation (Dialog(group="Initialization"));
     parameter Real y_start=0 "Initial value of output" 
       annotation(Dialog(enable=initType == Init.InitialOutput, group=
             "Initialization"));
-    
+
     annotation (defaultComponentName="PID",
       Window(
         x=0.15,
@@ -804,27 +804,27 @@ This is discussed in the description of package
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{-80,78},{-80,-90}}, color={192,192,192}), 
+          Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
           Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,-80},{82,-80}}, color={192,192,192}), 
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
           Polygon(
-            points={{90,-80},{68,-72},{68,-88},{90,-80}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            points={{90,-80},{68,-72},{68,-88},{90,-80}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Line(points={{-80,-80},{-80,50},{-80,-20},{60,80}}, color={0,0,127}), 
-            
+
           Text(
-            extent={{-20,-20},{80,-60}}, 
-            lineColor={192,192,192}, 
-            textString="PID"), 
+            extent={{-20,-20},{80,-60}},
+            lineColor={192,192,192},
+            textString="PID"),
           Text(
-            extent={{-150,-150},{150,-110}}, 
-            lineColor={0,0,0}, 
+            extent={{-150,-150},{150,-110}},
+            lineColor={0,0,0},
             textString="Ti=%Ti")}),
       Documentation(info="<HTML>
 <p>
@@ -910,7 +910,7 @@ to compute u by an algebraic equation.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics));
-    
+
     Blocks.Math.Gain P "Proportional part of PID controller" 
       annotation (Placement(transformation(extent={{-60,60},{-20,100}},
             rotation=0)));
@@ -919,7 +919,7 @@ to compute u by an algebraic equation.
                   InitPID.SteadyState else 
                if initType==InitPID.InitialState or 
                   initType==InitPID.DoNotUse_InitialIntegratorState then 
-                  InitPID.InitialState else InitPID.NoInit) 
+                  InitPID.InitialState else InitPID.NoInit)
       "Integral part of PID controller" 
       annotation (Placement(transformation(extent={{-60,-20},{-20,20}},
             rotation=0)));
@@ -936,12 +936,12 @@ to compute u by an algebraic equation.
               0)));
     Blocks.Math.Add3 Add annotation (Placement(transformation(extent={{20,-10},
               {40,10}}, rotation=0)));
-  initial equation 
+  initial equation
     if initType==InitPID.InitialOutput then
        y = y_start;
     end if;
-    
-  equation 
+
+  equation
     connect(u, P.u) annotation (Line(points={{-120,0},{-80,0},{-80,80},{-64,80}},
           color={0,0,127}));
     connect(u, I.u) 
@@ -959,55 +959,55 @@ to compute u by an algebraic equation.
     connect(Gain.y, y) 
       annotation (Line(points={{81,0},{110,0}}, color={0,0,127}));
   end PID;
-  
-  block LimPID 
-    "P, PI, PD, and PID controller with limited output, anti-windup compensation and setpoint weighting" 
+
+  block LimPID
+    "P, PI, PD, and PID controller with limited output, anti-windup compensation and setpoint weighting"
     import Modelica.Blocks.Types.InitPID;
     import Modelica.Blocks.Types.SimpleController;
     extends Interfaces.SVcontrol;
-    output Real controlError = u_s - u_m 
+    output Real controlError = u_s - u_m
       "Control error (set point - measurement)";
-    
+
     parameter Modelica.Blocks.Types.SimpleController controllerType=
            Modelica.Blocks.Types.SimpleController.PID "Type of controller";
     parameter Real k(min=0) = 1 "Gain of controller";
-    parameter SIunits.Time Ti(min=Modelica.Constants.small, start=0.5) 
+    parameter SIunits.Time Ti(min=Modelica.Constants.small, start=0.5)
       "Time constant of Integrator block" 
        annotation(Dialog(enable=controllerType==SimpleController.PI or 
                                 controllerType==SimpleController.PID));
-    parameter SIunits.Time Td(min=0, start= 0.1) 
+    parameter SIunits.Time Td(min=0, start= 0.1)
       "Time constant of Derivative block" 
          annotation(Dialog(enable=controllerType==SimpleController.PD or 
                                   controllerType==SimpleController.PID));
     parameter Real yMax(start=1) "Upper limit of output";
     parameter Real yMin=-yMax "Lower limit of output";
-    parameter Real wp(min=0) = 1 
+    parameter Real wp(min=0) = 1
       "Set-point weight for Proportional block (0..1)";
     parameter Real wd(min=0) = 0 "Set-point weight for Derivative block (0..1)"
          annotation(Dialog(enable=controllerType==SimpleController.PD or 
                                   controllerType==SimpleController.PID));
-    parameter Real Ni(min=100*Modelica.Constants.eps) = 0.9 
+    parameter Real Ni(min=100*Modelica.Constants.eps) = 0.9
       "Ni*Ti is time constant of anti-windup compensation" 
        annotation(Dialog(enable=controllerType==SimpleController.PI or 
                                 controllerType==SimpleController.PID));
-    parameter Real Nd(min=100*Modelica.Constants.eps) = 10 
+    parameter Real Nd(min=100*Modelica.Constants.eps) = 10
       "The higher Nd, the more ideal the derivative block" 
          annotation(Dialog(enable=controllerType==SimpleController.PD or 
                                   controllerType==SimpleController.PID));
-    parameter Modelica.Blocks.Types.InitPID initType= Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState 
+    parameter Modelica.Blocks.Types.InitPID initType= Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState
       "Type of initialization"         annotation(Evaluate=true,
         Dialog(group="Initialization"));
-    parameter Boolean limitsAtInit = true 
+    parameter Boolean limitsAtInit = true
       "= false, if limits are ignored during initializiation" 
       annotation(Evaluate=true, Dialog(group="Initialization",
                          enable=controllerType==SimpleController.PI or 
                                 controllerType==SimpleController.PID));
-    parameter Real xi_start=0 
+    parameter Real xi_start=0
       "Initial or guess value value for integrator output (= integrator state)"
       annotation (Dialog(group="Initialization",
                   enable=controllerType==SimpleController.PI or 
                          controllerType==SimpleController.PID));
-    parameter Real xd_start=0 
+    parameter Real xd_start=0
       "Initial or guess value for state of derivative block" 
       annotation (Dialog(group="Initialization",
                            enable=controllerType==SimpleController.PD or 
@@ -1015,7 +1015,7 @@ to compute u by an algebraic equation.
     parameter Real y_start=0 "Initial value of output" 
       annotation(Dialog(enable=initType == InitPID.InitialOutput, group=
             "Initialization"));
-    
+
     annotation (defaultComponentName="PID",
       Window(
         x=0.22,
@@ -1026,23 +1026,23 @@ to compute u by an algebraic equation.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-80,78},{-80,-90}}, color={192,192,192}), 
+          Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
           Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,-80},{82,-80}}, color={192,192,192}), 
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
           Polygon(
-            points={{90,-80},{68,-72},{68,-88},{90,-80}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            points={{90,-80},{68,-72},{68,-88},{90,-80}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Line(points={{-80,-80},{-80,50},{-80,-20},{30,60},{80,60}}, color={0,
-                0,127}), 
+                0,127}),
           Text(
-            extent={{-20,-20},{80,-60}}, 
-            lineColor={192,192,192}, 
+            extent={{-20,-20},{80,-60}},
+            lineColor={192,192,192},
             textString="PID")}),
       Documentation(info="<HTML>
 <p>
@@ -1245,23 +1245,23 @@ to use <b>limitAtInit</b> = <b>false</b>.
     Blocks.Nonlinear.Limiter limiter(uMax=yMax, uMin=yMin, limitsAtInit=limitsAtInit) 
       annotation (Placement(transformation(extent={{70,-10},{90,10}}, rotation=
               0)));
-  protected 
+  protected
     parameter Boolean with_I = controllerType==SimpleController.PI or 
                                controllerType==SimpleController.PID annotation(Evaluate=true, Hide=true);
     parameter Boolean with_D = controllerType==SimpleController.PD or 
                                controllerType==SimpleController.PID annotation(Evaluate=true, Hide=true);
-  public 
+  public
     Sources.Constant Dzero(k=0) if not with_D 
       annotation (Placement(transformation(extent={{-30,20},{-20,30}}, rotation=
              0)));
     Sources.Constant Izero(k=0) if not with_I 
       annotation (Placement(transformation(extent={{10,-55},{0,-45}}, rotation=
               0)));
-  initial equation 
+  initial equation
     if initType==InitPID.InitialOutput then
        y = y_start;
     end if;
-  equation 
+  equation
     assert(yMax >= yMin, "LimPID: Limits must be consistent. However, yMax (=" + String(yMax) +
                          ") < yMin (=" + String(yMin) + ")");
     if initType == InitPID.InitialOutput and (y_start < yMin or y_start > yMax) then
@@ -1272,7 +1272,7 @@ to use <b>limitAtInit</b> = <b>false</b>.
            "LimPID: During initialization the limits have been switched off.\n" +
            "After initialization, the output y (=" + String(y) +
            ") is outside of the limits of yMin (=" + String(yMin) +") and yMax (=" + String(yMax) + ")");
-    
+
     connect(u_s, addP.u1) annotation (Line(points={{-120,0},{-96,0},{-96,56},{
             -82,56}}, color={0,0,127}));
     connect(u_s, addD.u1) annotation (Line(points={{-120,0},{-96,0},{-96,6},{
@@ -1322,28 +1322,28 @@ to use <b>limitAtInit</b> = <b>false</b>.
     connect(Izero.y, addPID.u3) annotation (Line(points={{-0.5,-50},{-10,-50},{
             -10,-8},{-2,-8}}, color={0,0,127}));
   end LimPID;
-  
-  block TransferFunction "Linear transfer function" 
+
+  block TransferFunction "Linear transfer function"
     import Modelica.Blocks.Types.Init;
     extends Interfaces.SISO;
-    
+
     parameter Real b[:]={1} "Numerator coefficients of transfer function" 
       annotation(Dialog(group="y = (2*s+3)/(4*s^2+5*s+6)*u is defined as b={2,3}, a={4,5,6}"));
     parameter Real a[:] "Denominator coefficients of transfer function" 
       annotation(Dialog(group="y = (2*s+3)/(4*s^2+5*s+6)*u is defined as b={2,3}, a={4,5,6}"));
-    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit 
+    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
       "Type of initialization"         annotation(Evaluate=true, Dialog(group=
             "Initialization"));
-    parameter Real x_start[size(a, 1) - 1]=zeros(nx) 
+    parameter Real x_start[size(a, 1) - 1]=zeros(nx)
       "Initial or guess values of states" 
       annotation (Dialog(group="Initialization"));
-    parameter Real y_start=0 
+    parameter Real y_start=0
       "Initial value of output (derivatives of y are zero upto nx-1-th derivative)"
       annotation(Dialog(enable=initType == Init.InitialOutput, group=
             "Initialization"));
-    output Real x[size(a, 1) - 1](start=x_start) 
+    output Real x[size(a, 1) - 1](start=x_start)
       "State of transfer function from controller canonical form";
-  protected 
+  protected
     parameter Integer na=size(a, 1) "Size of Denominator of transfer function.";
     parameter Integer nb=size(b, 1) "Size of Numerator of transfer function.";
     parameter Integer nx=size(a, 1) - 1;
@@ -1391,32 +1391,32 @@ results in the following transfer function:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{-80,0},{80,0}}, color={0,0,127}), 
+          Line(points={{-80,0},{80,0}}, color={0,0,127}),
           Text(
-            extent={{-90,10},{90,90}}, 
-            textString="b(s)", 
-            lineColor={0,0,127}), 
+            extent={{-90,10},{90,90}},
+            textString="b(s)",
+            lineColor={0,0,127}),
           Text(
-            extent={{-90,-10},{90,-90}}, 
-            textString="a(s)", 
+            extent={{-90,-10},{90,-90}},
+            textString="a(s)",
             lineColor={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{40,0},{-40,0}}, color={0,0,0}), 
+          Line(points={{40,0},{-40,0}}, color={0,0,0}),
           Text(
-            extent={{-55,55},{55,5}}, 
-            lineColor={0,0,0}, 
-            textString="b(s)"), 
+            extent={{-55,55},{55,5}},
+            lineColor={0,0,0},
+            textString="b(s)"),
           Text(
-            extent={{-55,-5},{55,-55}}, 
-            lineColor={0,0,0}, 
-            textString="a(s)"), 
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
+            extent={{-55,-5},{55,-55}},
+            lineColor={0,0,0},
+            textString="a(s)"),
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
+          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255})}));
-  initial equation 
+  initial equation
     if initType == Init.SteadyState then
       der(x_scaled) = zeros(nx);
     elseif initType == Init.InitialState then
@@ -1425,7 +1425,7 @@ results in the following transfer function:
       y = y_start;
       der(x_scaled[2:nx]) = zeros(nx-1);
     end if;
-  equation 
+  equation
     assert(size(b,1) <= size(a,1), "Transfer function is not proper");
     if nx == 0 then
        y = d*u;
@@ -1436,27 +1436,27 @@ results in the following transfer function:
        x = x_scaled/a_end;
     end if;
   end TransferFunction;
-  
-  block StateSpace "Linear state space system" 
+
+  block StateSpace "Linear state space system"
     import Modelica.Blocks.Types.Init;
-    parameter Real A[:, size(A, 1)] 
+    parameter Real A[:, size(A, 1)]
       "Matrix A of state space model (e.g. A=[1, 0; 0, 1])";
-    parameter Real B[size(A, 1), :] 
+    parameter Real B[size(A, 1), :]
       "Matrix B of state space model (e.g. B=[1; 1])";
-    parameter Real C[:, size(A, 1)] 
+    parameter Real C[:, size(A, 1)]
       "Matrix C of state space model (e.g. C=[1, 1])";
-    parameter Real D[size(C, 1), size(B, 2)]=zeros(size(C, 1), size(B, 2)) 
+    parameter Real D[size(C, 1), size(B, 2)]=zeros(size(C, 1), size(B, 2))
       "Matrix D of state space model";
-    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit 
+    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
       "Type of initialization"                                                        annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real x_start[nx]=zeros(nx) "Initial or guess values of states" 
       annotation (Dialog(group="Initialization"));
-    parameter Real y_start[ny]=zeros(ny) 
+    parameter Real y_start[ny]=zeros(ny)
       "Initial values of outputs (remaining states are in steady state if possible)"
       annotation(Dialog(enable=initType == Init.InitialOutput, group=
             "Initialization"));
-    
+
     extends Interfaces.MIMO(final nin=size(B, 2), final nout=size(C, 1));
     output Real x[size(A, 1)](start=x_start) "State vector";
     annotation (
@@ -1508,22 +1508,22 @@ results in the following equations:
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Text(
-            extent={{-90,10},{-10,90}}, 
-            textString="A", 
-            lineColor={0,0,127}), 
+            extent={{-90,10},{-10,90}},
+            textString="A",
+            lineColor={0,0,127}),
           Text(
-            extent={{10,10},{90,90}}, 
-            textString="B", 
-            lineColor={0,0,127}), 
+            extent={{10,10},{90,90}},
+            textString="B",
+            lineColor={0,0,127}),
           Text(
-            extent={{-90,-10},{-10,-90}}, 
-            textString="C", 
-            lineColor={0,0,127}), 
+            extent={{-90,-10},{-10,-90}},
+            textString="C",
+            lineColor={0,0,127}),
           Text(
-            extent={{10,-10},{90,-90}}, 
-            textString="D", 
-            lineColor={0,0,127}), 
-          Line(points={{0,-90},{0,90}}, color={192,192,192}), 
+            extent={{10,-10},{90,-90}},
+            textString="D",
+            lineColor={0,0,127}),
+          Line(points={{0,-90},{0,90}}, color={192,192,192}),
           Line(points={{-90,0},{90,0}}, color={192,192,192})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1540,10 +1540,10 @@ results in the following equations:
             textString=" y=Cx+Du"),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255})}));
-  protected 
+  protected
     parameter Integer nx = size(A, 1) "number of states";
     parameter Integer ny = size(C, 1) "number of outputs";
-  initial equation 
+  initial equation
     if initType == Init.SteadyState then
       der(x) = zeros(nx);
     elseif initType == Init.InitialState then
@@ -1551,19 +1551,19 @@ results in the following equations:
     elseif initType == Init.InitialOutput then
       x = Modelica.Math.Matrices.equalityLeastSquares(A, -B*u, C, y_start - D*u);
     end if;
-  equation 
+  equation
     der(x) = A*x + B*u;
     y = C*x + D*u;
   end StateSpace;
-  
-  block Der "Derivative of input (= analytic differentations)" 
+
+  block Der "Derivative of input (= analytic differentations)"
       extends Interfaces.SISO;
-    
+
       annotation (defaultComponentName="der1",
    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={Text(
-            extent={{-80,76},{80,-82}}, 
-            textString="der()", 
+            extent={{-80,76},{80,-82}},
+            textString="der()",
             lineColor={0,0,127})}),
           Documentation(info="<HTML>
 <p>
@@ -1575,75 +1575,75 @@ by the Modelica translator, if this derivative is not yet present in
 the model.
 </p>
 </HTML>"));
-  equation 
+  equation
     y = der(u);
   end Der;
-  
-  block LowpassButterworth 
-    "Output the input signal filtered with a low pass Butterworth filter of any order" 
-    
+
+  block LowpassButterworth
+    "Output the input signal filtered with a low pass Butterworth filter of any order"
+
     import Modelica.Math.*;
     import Modelica.Blocks.Types.Init;
-    
+
     extends Modelica.Blocks.Interfaces.SISO;
-    
+
     parameter Integer n(min=1) = 2 "Order of filter";
     parameter SI.Frequency f(start=1) "Cut-off frequency";
-    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit 
+    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
       "Type of initialization"                                                        annotation(Evaluate=true,
         Dialog(group="Initialization"));
-    parameter Real x1_start[m]=zeros(m) 
+    parameter Real x1_start[m]=zeros(m)
       "Initial or guess values of states 1 (der(x1)=x2))" 
       annotation (Dialog(group="Initialization"));
     parameter Real x2_start[m]=zeros(m) "Initial or guess values of states 2" 
       annotation (Dialog(group="Initialization"));
-    parameter Real xr_start=0.0 
+    parameter Real xr_start=0.0
       "Initial or guess value of real pole for uneven order otherwise dummy" 
       annotation (Dialog(group="Initialization"));
-    parameter Real y_start=0.0 
+    parameter Real y_start=0.0
       "Initial value of output (states are initialized in steady state if possible)"
        annotation(Dialog(enable=initType == Init.InitialOutput, group=
             "Initialization"));
-    
-    output Real x1[m](start=x1_start) 
+
+    output Real x1[m](start=x1_start)
       "states 1 of second order filters (der(x1) = x2)";
     output Real x2[m](start=x2_start) "states 2 of second order filters";
-    output Real xr(start=xr_start) 
+    output Real xr(start=xr_start)
       "state of real pole for uneven order otherwise dummy";
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
-          Line(points={{-80,78},{-80,-90}}, color={192,192,192}), 
+          Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
           Polygon(
             points={{-79.5584,91.817},{-87.5584,69.817},{-71.5584,69.817},{-79.5584,
-                89.817},{-79.5584,91.817}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+                89.817},{-79.5584,91.817}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Line(points={{-80,-80},{-72,-68.53},{-64,-39.5},{-56,-2.522},{-48,
                 32.75},{-40,58.8},{-32,71.51},{-24,70.49},{-16,58.45},{-8,40.06},
                 {0,20.55},{8,4.459},{16,-5.271},{24,-7.629},{32,-3.428},{40,
-                5.21},{48,15.56},{56,25.03},{64,31.66},{72,34.5},{80,33.61}}, 
-              color={0,0,127}), 
+                5.21},{48,15.56},{56,25.03},{64,31.66},{72,34.5},{80,33.61}},
+              color={0,0,127}),
           Line(points={{-90.9779,-80.7697},{81.0221,-80.7697}}, color={192,192,
-                192}), 
+                192}),
           Polygon(
             points={{91.3375,-79.8233},{69.3375,-71.8233},{69.3375,-87.8233},{
-                91.3375,-79.8233}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+                91.3375,-79.8233}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-45.1735,-11.47},{92,-68}}, 
-            lineColor={192,192,192}, 
-            textString="LowpassButterworthFilter"), 
+            extent={{-45.1735,-11.47},{92,-68}},
+            lineColor={192,192,192},
+            textString="LowpassButterworthFilter"),
           Text(
-            extent={{8,-106},{8,-146}}, 
-            lineColor={0,0,0}, 
-            textString="f=%f"), 
+            extent={{8,-106},{8,-146}},
+            lineColor={0,0,0},
+            textString="f=%f"),
           Text(
-            extent={{-2,94},{94,48}}, 
-            lineColor={192,192,192}, 
+            extent={{-2,94},{94,48}},
+            lineColor={192,192,192},
             textString="%n")}),
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}), graphics={
@@ -1674,7 +1674,7 @@ with zeros.</p>
  
 </HTML>
 "));
-  protected 
+  protected
     constant Real pi=Modelica.Constants.pi;
     parameter Integer m=integer(n/2);
     parameter Boolean evenOrder = 2*m == n;
@@ -1688,7 +1688,7 @@ with zeros.</p>
     Real w0[m];
     Real k1;
     Real T;
-  initial equation 
+  initial equation
     if initType == Init.SteadyState then
       der(x1) = zeros(m);
       der(x2) = zeros(m);
@@ -1712,11 +1712,11 @@ with zeros.</p>
         der(x1) = zeros(m);
       end if;
     end if;
-  equation 
+  equation
     k2 = ones(m);
     k1 = 1;
     z[1] = u;
-    
+
     // calculate filter parameters
     for i in 1:m loop
       // poles of prototype lowpass
@@ -1728,14 +1728,14 @@ with zeros.</p>
     end for;
     realpol = 1*w;
     T = 1/realpol;
-    
+
     // calculate second order filters
     for i in 1:m loop
       der(x1[i]) = x2[i];
       der(x2[i]) = k2[i]*w0[i]^2*z[i] - 2*D[i]*w0[i]*x2[i] - w0[i]^2*x1[i];
       z[i + 1] = x1[i];
     end for;
-    
+
     // calculate first order filter if necessary
     if evenOrder then
       // even order
@@ -1747,59 +1747,59 @@ with zeros.</p>
       y = xr;
     end if;
   end LowpassButterworth;
-  
-  block CriticalDamping 
-    "Output the input signal filtered with an n-th order filter with critical damping" 
-    
+
+  block CriticalDamping
+    "Output the input signal filtered with an n-th order filter with critical damping"
+
     import Modelica.Blocks.Types.Init;
     extends Modelica.Blocks.Interfaces.SISO;
-    
+
     parameter Integer n=2 "Order of filter";
     parameter Modelica.SIunits.Frequency f(start=1) "Cut-off frequency";
-    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit 
+    parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
       "Type of initialization"                                                        annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real x_start[n]=zeros(n) "Initial or guess values of states" 
       annotation (Dialog(group="Initialization"));
-    parameter Real y_start=0.0 
+    parameter Real y_start=0.0
       "Initial value of output (remaining states are in steady state)" 
       annotation(Dialog(enable=initType == Init.InitialOutput, group=
             "Initialization"));
-    
+
     output Real x[n](start=x_start) "Filter states";
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{-80.6897,77.6256},{-80.6897,-90.3744}}, color={192,192,
-                192}), 
+                192}),
           Polygon(
             points={{-79.7044,90.6305},{-87.7044,68.6305},{-71.7044,68.6305},{-79.7044,
-                88.6305},{-79.7044,90.6305}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,-80},{82,-80}}, color={192,192,192}), 
+                88.6305},{-79.7044,90.6305}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,-80},{82,-80}}, color={192,192,192}),
           Polygon(
-            points={{90,-80},{68,-72},{68,-88},{90,-80}}, 
-            lineColor={192,192,192}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            points={{90,-80},{68,-72},{68,-88},{90,-80}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{0,0},{60,-60}}, 
-            lineColor={192,192,192}, 
-            textString="PTn"), 
+            extent={{0,0},{60,-60}},
+            lineColor={192,192,192},
+            textString="PTn"),
           Line(points={{-80.7599,-80.5082},{-70.7599,-74.5082},{-56,-60},{-48,-42},
                 {-42,-18},{-36,4},{-26,20},{-10.7599,34.9018},{-0.759907,
                 38.8218},{9.24009,41.6818},{19.2401,43.7818},{29.2401,45.3118},
                 {39.2401,46.4318},{49.2401,47.2518},{59.2401,47.8518},{69.2401,
-                48.2918},{79.2401,48.6118}}, color={0,0,127}), 
+                48.2918},{79.2401,48.6118}}, color={0,0,127}),
           Text(
-            extent={{-70,94},{26,48}}, 
-            lineColor={192,192,192}, 
-            textString="%n"), 
+            extent={{-70,94},{26,48}},
+            lineColor={192,192,192},
+            textString="%n"),
           Text(
-            extent={{8,-106},{8,-146}}, 
-            lineColor={0,0,0}, 
+            extent={{8,-106},{8,-146}},
+            lineColor={0,0,0},
             textString="f=%f")}),
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}), graphics={
@@ -1836,9 +1836,9 @@ the input.</p>
  
 </HTML>
 "));
-  protected 
+  protected
     parameter Real w=2*Modelica.Constants.pi*f;
-  initial equation 
+  initial equation
     if initType == Init.SteadyState then
       der(x) = zeros(n);
     elseif initType == Init.InitialState then
@@ -1847,12 +1847,12 @@ the input.</p>
       y = y_start;
       der(x[1:n-1]) = zeros(n-1);
     end if;
-  equation 
+  equation
     der(x[1]) = (u - x[1])*w;
     for i in 2:n loop
       der(x[i]) = (x[i - 1] - x[i])*w;
     end for;
     y = x[n];
   end CriticalDamping;
-  
+
 end Continuous;

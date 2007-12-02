@@ -1,12 +1,12 @@
 within Modelica.Electrical.Analog.Examples;
-model CauerLowPassOPV "Cauer low pass filter with operational amplifiers" 
-  
+model CauerLowPassOPV "Cauer low pass filter with operational amplifiers"
+
   annotation (
     uses(Modelica(version="2.2")),
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-250,-200},{
             250,200}}), graphics={Text(
-          extent={{-130,172},{80,120}}, 
-          textString="CauerLowPassOPV", 
+          extent={{-130,172},{80,120}},
+          textString="CauerLowPassOPV",
           lineColor={0,0,255})}),
     experiment(StopTime=60),
     Documentation(revisions="<html>
@@ -35,36 +35,36 @@ Do not worry about it. The negative values are o.k.
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-250,-200},{250,
             200}}), graphics={
         Rectangle(
-          extent={{-100,-80},{80,70}}, 
-          fillColor={255,255,255}, 
-          fillPattern=FillPattern.Solid, 
-          lineColor={0,0,255}), 
+          extent={{-100,-80},{80,70}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
         Polygon(
-          points={{-100,70},{-80,90},{100,90},{80,70},{-100,70}}, 
-          fillColor={255,255,255}, 
-          fillPattern=FillPattern.Solid, 
-          lineColor={0,0,255}), 
+          points={{-100,70},{-80,90},{100,90},{80,70},{-100,70}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
         Polygon(
-          points={{100,90},{100,-60},{80,-80},{80,70},{100,90}}, 
-          fillColor={255,255,255}, 
-          fillPattern=FillPattern.Solid, 
-          lineColor={0,0,255}), 
+          points={{100,90},{100,-60},{80,-80},{80,70},{100,90}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
         Text(
-          extent={{-96,23},{77,-29}}, 
-          lineColor={0,0,255}, 
-          textString="Example"), 
+          extent={{-96,23},{77,-29}},
+          lineColor={0,0,255},
+          textString="Example"),
         Text(
-          extent={{-120,152},{120,93}}, 
-          lineColor={255,0,0}, 
+          extent={{-120,152},{120,93}},
+          lineColor={255,0,0},
           textString="%name")}));
-  
+
   parameter Modelica.SIunits.Capacitance l1=1.304 "filter coefficient i1";
   parameter Modelica.SIunits.Capacitance l2=0.8586 "filter coefficient i2";
   parameter Modelica.SIunits.Capacitance c1=1.072 "filter coefficient c1";
-  parameter Modelica.SIunits.Capacitance c2=1/(1.704992^2*l1) 
+  parameter Modelica.SIunits.Capacitance c2=1/(1.704992^2*l1)
     "filter coefficient c2";
   parameter Modelica.SIunits.Capacitance c3=1.682 "filter coefficient c3";
-  parameter Modelica.SIunits.Capacitance c4=1/(1.179945^2*l2) 
+  parameter Modelica.SIunits.Capacitance c4=1/(1.179945^2*l2)
     "filter coefficient c4";
   parameter Modelica.SIunits.Capacitance c5=0.7262 "filter coefficient c5";
   Modelica.Electrical.Analog.Basic.Capacitor C1(C=c1 + c2) 
@@ -140,77 +140,77 @@ Do not worry about it. The negative values are o.k.
             0)));
   Modelica.Electrical.Analog.Basic.Resistor R11 
     annotation (Placement(transformation(extent={{209,30},{229,50}}, rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n1 
     annotation (Placement(transformation(extent={{-214,-42},{-210,-38}},
           rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n2 
     annotation (Placement(transformation(extent={{-214,-2},{-210,2}}, rotation=
             0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n3 
     annotation (Placement(transformation(extent={{-214,18},{-210,22}}, rotation=
            0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n4 
     annotation (Placement(transformation(
         origin={-160,20},
         extent={{2,2},{-2,-2}},
         rotation=180)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n5 
     annotation (Placement(transformation(extent={{-114,-52},{-110,-48}},
           rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.PositivePin p1 
     annotation (Placement(transformation(extent={{-154,-142},{-148,-138}},
           rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n6 
     annotation (Placement(transformation(extent={{-62,18},{-58,22}}, rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n7 
     annotation (Placement(transformation(extent={{-6,-52},{-2,-48}}, rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n8 
     annotation (Placement(transformation(extent={{-6,-2},{-2,2}}, rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.PositivePin p2 
     annotation (Placement(transformation(extent={{-6,18},{-2,22}}, rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.PositivePin out1 
     annotation (Placement(transformation(extent={{44,-142},{48,-138}}, rotation=
            0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.PositivePin p3 
     annotation (Placement(transformation(extent={{58,58},{62,62}}, rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n9 
     annotation (Placement(transformation(extent={{86,-2},{90,2}}, rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n10 
     annotation (Placement(transformation(extent={{86,-52},{90,-48}}, rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n11 
     annotation (Placement(transformation(extent={{138,18},{142,22}}, rotation=0)));
-public 
+public
   Modelica.Electrical.Analog.Basic.Ground G2 
     annotation (Placement(transformation(extent={{12,-96},{26,-80}}, rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n12 
     annotation (Placement(transformation(extent={{238,38},{242,42}}, rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n13 
     annotation (Placement(transformation(extent={{238,-2},{242,2}}, rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.PositivePin p4 
     annotation (Placement(transformation(extent={{188,-2},{194,2}}, rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n14 
     annotation (Placement(transformation(extent={{188,-52},{194,-48}}, rotation=
            0)));
-public 
+public
   Modelica.Electrical.Analog.Basic.Ground G3 
     annotation (Placement(transformation(extent={{113,-96},{127,-80}}, rotation=
            0)));
@@ -225,7 +225,7 @@ public
   Modelica.Electrical.Analog.Basic.Ground Ground1 
     annotation (Placement(transformation(extent={{-246,-202},{-234,-190}},
           rotation=0)));
-equation 
+equation
   connect(Op1.in_p, G.p) annotation (Line(points={{-200,-60},{-200,-70},{-180,
           -70},{-180,-80},{-181,-80}}, color={0,0,255}));
   connect(G1.p, Op2.in_p) annotation (Line(points={{-80,-80},{-80,-70},{-100,

@@ -1,7 +1,7 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
-model InitSpringConstant 
-  "Determine spring constant such that system is in steady state at given position" 
-  
+model InitSpringConstant
+  "Determine spring constant such that system is in steady state at given position"
+
   extends Modelica.Icons.Example;
   inner Modelica.Mechanics.MultiBody.World world(gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.
         UniformGravity) annotation (Placement(transformation(extent={{-80,0},{
@@ -29,7 +29,7 @@ model InitSpringConstant
         origin={50,30},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  
+
   annotation (Documentation(info="<html>
 <p>
 This example demonstrates a non-standard type of initialization
@@ -67,8 +67,8 @@ ALT=\"model Examples.Elementary.InitSpringConstant\">
 </p>
 </html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics));
-equation 
-  
+equation
+
   connect(world.frame_b, rev.frame_a) 
     annotation (Line(
       points={{-60,10},{-40,10}},

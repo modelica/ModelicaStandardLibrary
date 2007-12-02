@@ -1,7 +1,7 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
-model DoublePendulum 
-  "Simple double pendulum with two revolute joints and two bodies" 
-  
+model DoublePendulum
+  "Simple double pendulum with two revolute joints and two bodies"
+
   extends Modelica.Icons.Example;
   annotation (
     experiment(StopTime=3),
@@ -45,8 +45,8 @@ ALT=\"model Examples.Elementary.DoublePendulum\">
             52,20}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.BodyBox boxBody2(r={0.5,0,0}, width=0.06) 
     annotation (Placement(transformation(extent={{74,0},{94,20}}, rotation=0)));
-equation 
-  
+equation
+
   connect(damper.flange_b, revolute1.axis) annotation (Line(points={{-28,50},{
           -24,50},{-24,28},{-38,28},{-38,20}}, color={0,0,0}));
   connect(revolute1.bearing, damper.flange_a) annotation (Line(points={{-44,20},

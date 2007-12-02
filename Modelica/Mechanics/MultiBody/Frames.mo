@@ -1,8 +1,8 @@
 within Modelica.Mechanics.MultiBody;
-package Frames "Functions to transform rotational frame quantities" 
-  
+package Frames "Functions to transform rotational frame quantities"
+
   extends Modelica.Icons.Library;
-  
+
   annotation ( Documentation(info="<HTML>
 <p>
 Package <b>Frames</b> contains type definitions and
@@ -175,35 +175,35 @@ The used variables have the following declaration:
   </tr>
 </table>
 </HTML>"));
-  
-  record Orientation 
-    "Orientation object defining rotation from a frame 1 into a frame 2" 
-    
+
+  record Orientation
+    "Orientation object defining rotation from a frame 1 into a frame 2"
+
     import SI = Modelica.SIunits;
     extends Modelica.Icons.Record;
     Real T[3, 3] "Transformation matrix from world frame to local frame";
-    SI.AngularVelocity w[3] 
+    SI.AngularVelocity w[3]
       "Absolute angular velocity of local frame, resolved in local frame";
-    
-    encapsulated function equalityConstraint 
-      "Return the constraint residues to express that two frames have the same orientation" 
-      
+
+    encapsulated function equalityConstraint
+      "Return the constraint residues to express that two frames have the same orientation"
+
       import Modelica;
       import Modelica.Mechanics.MultiBody.Frames;
       extends Modelica.Icons.Function;
-      input Frames.Orientation R1 
+      input Frames.Orientation R1
         "Orientation object to rotate frame 0 into frame 1";
-      input Frames.Orientation R2 
+      input Frames.Orientation R2
         "Orientation object to rotate frame 0 into frame 2";
-      output Real residue[3] 
+      output Real residue[3]
         "The rotation angles around x-, y-, and z-axis of frame 1 to rotate frame 1 into frame 2 for a small rotation (should be zero)";
-    algorithm 
+    algorithm
       residue := {
          Modelica.Math.atan2(cross(R1.T[1, :], R1.T[2, :])*R2.T[2, :],R1.T[1,:]*R2.T[1,:]),
          Modelica.Math.atan2(-cross(R1.T[1, :],R1.T[2, :])*R2.T[1, :],R1.T[2,:]*R2.T[2,:]),
          Modelica.Math.atan2(R1.T[2, :]*R2.T[1, :],R1.T[3,:]*R2.T[3,:])};
     end equalityConstraint;
-    
+
     annotation (Documentation(info="<html>
 <p>
 This object describes the <b>rotation</b> from a <b>frame 1</b> into a <b>frame 2</b>.
@@ -258,67 +258,67 @@ with
 
 </html>
 "));
-    
+
   end Orientation;
-  
-  function orientationConstraint 
-    "Return residues of orientation constraints (shall be zero)" 
+
+  function orientationConstraint
+    "Return residues of orientation constraints (shall be zero)"
     extends Modelica.Icons.Function;
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
-    output Real residue[6] 
+    output Real residue[6]
       "Residues of constraints between elements of orientation object (shall be zero)";
-  algorithm 
+  algorithm
     residue := {R.T[:, 1]*R.T[:, 1] - 1,R.T[:, 2]*R.T[:, 2] - 1,R.T[:, 3]*R.T[:,
        3] - 1,R.T[:, 1]*R.T[:, 2],R.T[:, 1]*R.T[:, 3],R.T[:, 2]*R.T[:, 3]};
   end orientationConstraint;
-  
-  function angularVelocity1 
-    "Return angular velocity resolved in frame 1 from orientation object" 
-    
+
+  function angularVelocity1
+    "Return angular velocity resolved in frame 1 from orientation object"
+
     extends Modelica.Icons.Function;
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
-    output Modelica.SIunits.AngularVelocity w[3] 
+    output Modelica.SIunits.AngularVelocity w[3]
       "Angular velocity of frame 2 with respect to frame 1 resolved in frame 1";
-  algorithm 
+  algorithm
     w := resolve1(R, R.w);
   end angularVelocity1;
-  
-  function angularVelocity2 
-    "Return angular velocity resolved in frame 2 from orientation object" 
-    
+
+  function angularVelocity2
+    "Return angular velocity resolved in frame 2 from orientation object"
+
     extends Modelica.Icons.Function;
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
-    output Modelica.SIunits.AngularVelocity w[3] 
+    output Modelica.SIunits.AngularVelocity w[3]
       "Angular velocity of frame 2 with respect to frame 1 resolved in frame 2";
-  algorithm 
+  algorithm
     w := R.w;
   end angularVelocity2;
-  
-  function resolve1 "Transform vector from frame 2 to frame 1" 
+
+  function resolve1 "Transform vector from frame 2 to frame 1"
     extends Modelica.Icons.Function;
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
     input Real v2[3] "Vector in frame 2";
     output Real v1[3] "Vector in frame 1";
     annotation (derivative(noDerivative=R) = Internal.resolve1_der,
         InlineAfterIndexReduction=true);
-  algorithm 
+  algorithm
     v1 := transpose(R.T)*v2;
   end resolve1;
-  
-  function resolve2 "Transform vector from frame 1 to frame 2" 
+
+  function resolve2 "Transform vector from frame 1 to frame 2"
     extends Modelica.Icons.Function;
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
     input Real v1[3] "Vector in frame 1";
     output Real v2[3] "Vector in frame 2";
     annotation (derivative(noDerivative=R) = Internal.resolve2_der,
         InlineAfterIndexReduction=true);
-  algorithm 
+  algorithm
     v2 := R.T*v1;
   end resolve2;
-  
-  function resolveRelative 
-    "Transform vector from frame 1 to frame 2 using absolute orientation objects of frame 1 and of frame 2" 
-    
+
+  function resolveRelative
+    "Transform vector from frame 1 to frame 2 using absolute orientation objects of frame 1 and of frame 2"
+
     extends Modelica.Icons.Function;
     input Real v1[3] "Vector in frame 1";
     input Orientation R1 "Orientation object to rotate frame 0 into frame 1";
@@ -326,95 +326,95 @@ with
     output Real v2[3] "Vector in frame 2";
     annotation (derivative(noDerivative=R1, noDerivative=R2) = Internal.resolveRelative_der,
         InlineAfterIndexReduction=true);
-  algorithm 
+  algorithm
     v2 := resolve2(R2, resolve1(R1, v1));
   end resolveRelative;
-  
-  function resolveDyade1 
-    "Transform second order tensor from frame 2 to frame 1" 
+
+  function resolveDyade1
+    "Transform second order tensor from frame 2 to frame 1"
     extends Modelica.Icons.Function;
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
     input Real D2[3, 3] "Second order tensor resolved in frame 2";
     output Real D1[3, 3] "Second order tensor resolved in frame 1";
-  algorithm 
+  algorithm
     D1 := transpose(R.T)*D2*R.T;
   end resolveDyade1;
-  
-  function resolveDyade2 
-    "Transform second order tensor from frame 1 to frame 2" 
+
+  function resolveDyade2
+    "Transform second order tensor from frame 1 to frame 2"
     extends Modelica.Icons.Function;
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
     input Real D1[3, 3] "Second order tensor resolved in frame 1";
     output Real D2[3, 3] "Second order tensor resolved in frame 2";
-  algorithm 
+  algorithm
     D2 := R.T*D1*transpose(R.T);
   end resolveDyade2;
-  
-  function nullRotation 
-    "Return orientation object that does not rotate a frame" 
+
+  function nullRotation
+    "Return orientation object that does not rotate a frame"
     extends Modelica.Icons.Function;
-    output Orientation R 
+    output Orientation R
       "Orientation object such that frame 1 and frame 2 are identical";
-  algorithm 
+  algorithm
     R := Orientation(T=identity(3),w= zeros(3));
   end nullRotation;
-  
-  function inverseRotation "Return inverse orientation object" 
+
+  function inverseRotation "Return inverse orientation object"
     extends Modelica.Icons.Function;
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
-    output Orientation R_inv 
+    output Orientation R_inv
       "Orientation object to rotate frame 2 into frame 1";
-  algorithm 
+  algorithm
     R_inv := Orientation(T=transpose(R.T),w= -resolve1(R, R.w));
   end inverseRotation;
-  
-  function relativeRotation "Return relative orientation object" 
+
+  function relativeRotation "Return relative orientation object"
     extends Modelica.Icons.Function;
     input Orientation R1 "Orientation object to rotate frame 0 into frame 1";
     input Orientation R2 "Orientation object to rotate frame 0 into frame 2";
-    output Orientation R_rel 
+    output Orientation R_rel
       "Orientation object to rotate frame 1 into frame 2";
-  algorithm 
+  algorithm
     R_rel := Orientation(T=R2.T*transpose(R1.T),w= R2.w - resolve2(R2, resolve1(
        R1, R1.w)));
   end relativeRotation;
-  
-  function absoluteRotation 
-    "Return absolute orientation object from another absolute and a relative orientation object" 
-    
+
+  function absoluteRotation
+    "Return absolute orientation object from another absolute and a relative orientation object"
+
     extends Modelica.Icons.Function;
     input Orientation R1 "Orientation object to rotate frame 0 into frame 1";
     input Orientation R_rel "Orientation object to rotate frame 1 into frame 2";
     output Orientation R2 "Orientation object to rotate frame 0 into frame 2";
-  algorithm 
+  algorithm
     R2 := Orientation(T=R_rel.T*R1.T,w= resolve2(R_rel, R1.w) + R_rel.w);
   end absoluteRotation;
-  
-  function planarRotation "Return orientation object of a planar rotation" 
+
+  function planarRotation "Return orientation object of a planar rotation"
     import Modelica.Math;
     extends Modelica.Icons.Function;
     input Real e[3] "Normalized axis of rotation (must have length=1)";
-    input Modelica.SIunits.Angle angle 
+    input Modelica.SIunits.Angle angle
       "Rotation angle to rotate frame 1 into frame 2 along axis e";
     input Modelica.SIunits.AngularVelocity der_angle "= der(angle)";
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
-  algorithm 
+  algorithm
     R := Orientation(T=[e]*transpose([e]) + (identity(3) - [e]*transpose([e]))*
       Math.cos(angle) - skew(e)*Math.sin(angle),w= e*der_angle);
-    
+
   end planarRotation;
-  
-  function planarRotationAngle 
-    "Return angle of a planar rotation, given the rotation axis and the representations of a vector in frame 1 and frame 2" 
-    
+
+  function planarRotationAngle
+    "Return angle of a planar rotation, given the rotation axis and the representations of a vector in frame 1 and frame 2"
+
     extends Modelica.Icons.Function;
-    input Real e[3] 
+    input Real e[3]
       "Normalized axis of rotation to rotate frame 1 around e into frame 2 (must have length=1)";
-    input Real v1[3] 
+    input Real v1[3]
       "A vector v resolved in frame 1 (shall not be parallel to e)";
-    input Real v2[3] 
+    input Real v2[3]
       "Vector v resolved in frame 2, i.e., v2 = resolve2(planarRotation(e,angle),v1)";
-    output Modelica.SIunits.Angle angle 
+    output Modelica.SIunits.Angle angle
       "Rotation angle to rotate frame 1 into frame 2 along axis e in the range: -pi <= angle <= pi";
     annotation (Documentation(info="<HTML>
 <p>
@@ -456,7 +456,7 @@ assumptions are violated, a wrong result will be returned
 and/or a division by zero will occur.
 </p>
 </HTML>"));
-  algorithm 
+  algorithm
     /* Vector v is resolved in frame 1 and frame 2 according to:
         (1)  v2 = (e*transpose(e) + (identity(3) - e*transpose(e))*cos(angle) - skew(e)*sin(angle))*v1;
                 = e*(e*v1) + (v1 - e*(e*v1))*cos(angle) - cross(e,v1)*sin(angle)
@@ -484,39 +484,39 @@ and/or a division by zero will occur.
     */
     angle := Modelica.Math.atan2(-cross(e, v1)*v2, v1*v2 - (e*v1)*(e*v2));
   end planarRotationAngle;
-  
-  function axisRotation 
-    "Return rotation object to rotate around an angle along one frame axis" 
-    
+
+  function axisRotation
+    "Return rotation object to rotate around an angle along one frame axis"
+
     import Modelica.Math.*;
     extends Modelica.Icons.Function;
     input Integer axis(min=1, max=3) "Rotate around 'axis' of frame 1";
-    input Modelica.SIunits.Angle angle 
+    input Modelica.SIunits.Angle angle
       "Rotation angle to rotate frame 1 into frame 2 along 'axis' of frame 1";
     input Modelica.SIunits.AngularVelocity der_angle "= der(angle)";
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
-  algorithm 
+  algorithm
     R := Orientation(T=(if axis == 1 then [1, 0, 0; 0, cos(angle), sin(angle);
       0, -sin(angle), cos(angle)] else if axis == 2 then [cos(angle), 0, -sin(
       angle); 0, 1, 0; sin(angle), 0, cos(angle)] else [cos(angle), sin(angle),
        0; -sin(angle), cos(angle), 0; 0, 0, 1]),w= if axis == 1 then {der_angle,
       0,0} else if axis == 2 then {0,der_angle,0} else {0,0,der_angle});
   end axisRotation;
-  
-  function axesRotations 
-    "Return fixed rotation object to rotate in sequence around fixed angles along 3 axes" 
-    
+
+  function axesRotations
+    "Return fixed rotation object to rotate in sequence around fixed angles along 3 axes"
+
     import TM = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
     extends Modelica.Icons.Function;
     input Integer sequence[3](
       min={1,1,1},
-      max={3,3,3}) = {1,2,3} 
+      max={3,3,3}) = {1,2,3}
       "Sequence of rotations from frame 1 to frame 2 along axis sequence[i]";
-    input Modelica.SIunits.Angle angles[3] 
+    input Modelica.SIunits.Angle angles[3]
       "Rotation angles around the axes defined in 'sequence'";
     input Modelica.SIunits.AngularVelocity der_angles[3] "= der(angles)";
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
-  algorithm 
+  algorithm
     /*
   R := absoluteRotation(absoluteRotation(axisRotation(sequence[1], angles[1], 
     der_angles[1]), axisRotation(sequence[2], angles[2], der_angles[2])), 
@@ -529,36 +529,36 @@ and/or a division by zero will occur.
       TM.resolve2(TM.axisRotation(sequence[3], angles[3])*TM.axisRotation(
       sequence[2], angles[2]), Frames.axis(sequence[1])*der_angles[1]));
   end axesRotations;
-  
-  function axesRotationsAngles 
-    "Return the 3 angles to rotate in sequence around 3 axes to construct the given orientation object" 
-    
+
+  function axesRotationsAngles
+    "Return the 3 angles to rotate in sequence around 3 axes to construct the given orientation object"
+
     import SI = Modelica.SIunits;
-    
+
     extends Modelica.Icons.Function;
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
     input Integer sequence[3](
       min={1,1,1},
-      max={3,3,3}) = {1,2,3} 
+      max={3,3,3}) = {1,2,3}
       "Sequence of rotations from frame 1 to frame 2 along axis sequence[i]";
-    input SI.Angle guessAngle1=0 
+    input SI.Angle guessAngle1=0
       "Select angles[1] such that |angles[1] - guessAngle1| is a minimum";
-    output SI.Angle angles[3] 
+    output SI.Angle angles[3]
       "Rotation angles around the axes defined in 'sequence' such that R=Frames.axesRotation(sequence,angles); -pi < angles[i] <= pi";
-  protected 
+  protected
     Real e1_1[3] "First rotation axis, resolved in frame 1";
     Real e2_1a[3] "Second rotation axis, resolved in frame 1a";
     Real e3_1[3] "Third rotation axis, resolved in frame 1";
     Real e3_2[3] "Third rotation axis, resolved in frame 2";
-    Real A 
+    Real A
       "Coefficient A in the equation A*cos(angles[1])+B*sin(angles[1]) = 0";
-    Real B 
+    Real B
       "Coefficient B in the equation A*cos(angles[1])+B*sin(angles[1]) = 0";
     SI.Angle angle_1a "Solution 1 for angles[1]";
     SI.Angle angle_1b "Solution 2 for angles[1]";
-    TransformationMatrices.Orientation T_1a 
+    TransformationMatrices.Orientation T_1a
       "Orientation object to rotate frame 1 into frame 1a";
-  algorithm 
+  algorithm
     /* The rotation object R is constructed by:
      (1) Rotating frame 1 along axis e1 (= axis sequence[1]) with angles[1]
          arriving at frame 1a.
@@ -611,7 +611,7 @@ and/or a division by zero will occur.
     e3_1 := R.T[sequence[3], :];
     e3_2 := if sequence[3] == 1 then {1,0,0} else if sequence[3] == 2 then {0,1,
       0} else {0,0,1};
-    
+
     A := e2_1a*e3_1;
     B := cross(e1_1, e2_1a)*e3_1;
     if abs(A) <= 1.e-12 and abs(B) <= 1.e-12 then
@@ -675,17 +675,17 @@ and sequence[2] &ne; sequence[3]. Often used values are:
 </pre>
 </HTML>"));
   end axesRotationsAngles;
-  
-  function smallRotation 
-    "Return rotation angles valid for a small rotation and optionally residues that should be zero" 
-    
+
+  function smallRotation
+    "Return rotation angles valid for a small rotation and optionally residues that should be zero"
+
     extends Modelica.Icons.Function;
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
-    input Boolean withResidues=false 
+    input Boolean withResidues=false
       "= false/true, if 'angles'/'angles and residues' are returned in phi";
-    output Modelica.SIunits.Angle phi[if withResidues then 6 else 3] 
+    output Modelica.SIunits.Angle phi[if withResidues then 6 else 3]
       "The rotation angles around x-, y-, and z-axis of frame 1 to rotate frame 1 into frame 2 for a small rotation + optionally 3 residues that should be zero";
-  algorithm 
+  algorithm
     /* Planar rotation:
        Trel = [e]*transpose([e]) + (identity(3) - [e]*transpose([e]))*cos(angle) - skew(e)*sin(angle)
             = identity(3) - skew(e)*angle, for small angles
@@ -699,15 +699,15 @@ and sequence[2] &ne; sequence[3]. Often used values are:
        T[2, 2] - 1,R.T[1, 1]*R.T[2, 2] - R.T[2, 1]*R.T[1, 2] - 1} else {R.T[2,
       3],-R.T[1, 3],R.T[1, 2]};
   end smallRotation;
-  
-  function from_nxy "Return fixed orientation object from n_x and n_y vectors" 
+
+  function from_nxy "Return fixed orientation object from n_x and n_y vectors"
     extends Modelica.Icons.Function;
-    input Real n_x[3] 
+    input Real n_x[3]
       "Vector in direction of x-axis of frame 2, resolved in frame 1";
-    input Real n_y[3] 
+    input Real n_y[3]
       "Vector in direction of y-axis of frame 2, resolved in frame 1";
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
-  protected 
+  protected
     Real abs_n_x=sqrt(n_x*n_x);
     Real e_x[3]=if abs_n_x < 1.e-10 then {1,0,0} else n_x/abs_n_x;
     Real n_z_aux[3]=cross(e_x, n_y);
@@ -715,7 +715,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
          > 1.0e-6 then {0,1,0} else {1,0,0});
     Real e_z_aux[3]=cross(e_x, n_y_aux);
     Real e_z[3]=e_z_aux/sqrt(e_z_aux*e_z_aux);
-  algorithm 
+  algorithm
     R := Orientation(T={e_x,cross(e_z, e_x),e_z},w= zeros(3));
     annotation (Documentation(info="<html>
 <p>
@@ -739,15 +739,15 @@ arbitrarily such that e_x and e_y are orthogonal to each other.
 </p>
 </html>"));
   end from_nxy;
-  
-  function from_nxz "Return fixed orientation object from n_x and n_z vectors" 
+
+  function from_nxz "Return fixed orientation object from n_x and n_z vectors"
     extends Modelica.Icons.Function;
-    input Real n_x[3] 
+    input Real n_x[3]
       "Vector in direction of x-axis of frame 2, resolved in frame 1";
-    input Real n_z[3] 
+    input Real n_z[3]
       "Vector in direction of z-axis of frame 2, resolved in frame 1";
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
-  protected 
+  protected
     Real abs_n_x=sqrt(n_x*n_x);
     Real e_x[3]=if abs_n_x < 1.e-10 then {1,0,0} else n_x/abs_n_x;
     Real n_y_aux[3]=cross(n_z, e_x);
@@ -755,7 +755,7 @@ arbitrarily such that e_x and e_y are orthogonal to each other.
          > 1.0e-6 then {0,0,1} else {1,0,0});
     Real e_y_aux[3]=cross(n_z_aux, e_x);
     Real e_y[3]=e_y_aux/sqrt(e_y_aux*e_y_aux);
-  algorithm 
+  algorithm
     R := Orientation(T={e_x,e_y,cross(e_x, e_y)},w= zeros(3));
     annotation (Documentation(info="<html>
 <p>
@@ -779,26 +779,26 @@ arbitrarily such that n_x and e_z are orthogonal to each other.
 </p>
 </html>"));
   end from_nxz;
-  
-  function from_T "Return orientation object R from transformation matrix T" 
+
+  function from_T "Return orientation object R from transformation matrix T"
     extends Modelica.Icons.Function;
-    input Real T[3, 3] 
+    input Real T[3, 3]
       "Transformation matrix to transform vector from frame 1 to frame 2 (v2=T*v1)";
-    input Modelica.SIunits.AngularVelocity w[3] 
+    input Modelica.SIunits.AngularVelocity w[3]
       "Angular velocity from frame 2 with respect to frame 1, resolved in frame 2 (skew(w)=T*der(transpose(T)))";
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
-  algorithm 
+  algorithm
     R := Orientation(T=T,w= w);
   end from_T;
-  
-  function from_T2 
-    "Return orientation object R from transformation matrix T and its derivative der(T)" 
+
+  function from_T2
+    "Return orientation object R from transformation matrix T and its derivative der(T)"
     extends Modelica.Icons.Function;
-    input Real T[3, 3] 
+    input Real T[3, 3]
       "Transformation matrix to transform vector from frame 1 to frame 2 (v2=T*v1)";
     input Real der_T[3,3] "= der(T)";
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
-  algorithm 
+  algorithm
     R := Orientation(T=T,w={T[3, :]*der_T[2, :],-T[3, :]*der_T[1, :],T[2, :]*der_T[1, :]});
     annotation (Documentation(info="<html>
 <p>
@@ -810,30 +810,30 @@ is not possible or too difficult to compute, use function from_T2(..).
 </p>
 </html>"));
   end from_T2;
-  
-  function from_T_inv 
-    "Return orientation object R from inverse transformation matrix T_inv" 
-    
+
+  function from_T_inv
+    "Return orientation object R from inverse transformation matrix T_inv"
+
     extends Modelica.Icons.Function;
-    input Real T_inv[3, 3] 
+    input Real T_inv[3, 3]
       "Inverse transformation matrix to transform vector from frame 2 to frame 1 (v1=T_inv*v2)";
-    input Modelica.SIunits.AngularVelocity w[3] 
+    input Modelica.SIunits.AngularVelocity w[3]
       "Angular velocity from frame 1 with respect to frame 2, resolved in frame 1 (skew(w)=T_inv*der(transpose(T_inv)))";
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
-  algorithm 
+  algorithm
     R := Orientation(T=transpose(T_inv),w= -w);
   end from_T_inv;
-  
-  function from_Q 
-    "Return orientation object R from quaternion orientation object Q" 
-    
+
+  function from_Q
+    "Return orientation object R from quaternion orientation object Q"
+
     extends Modelica.Icons.Function;
-    input Quaternions.Orientation Q 
+    input Quaternions.Orientation Q
       "Quaternions orientation object to rotate frame 1 into frame 2";
-    input Modelica.SIunits.AngularVelocity w[3] 
+    input Modelica.SIunits.AngularVelocity w[3]
       "Angular velocity from frame 2 with respect to frame 1, resolved in frame 2";
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
-  algorithm 
+  algorithm
     /*
   T := (2*Q[4]*Q[4] - 1)*identity(3) + 2*([Q[1:3]]*transpose([Q[1:3]]) - Q[4]*
     skew(Q[1:3]));
@@ -843,72 +843,72 @@ is not possible or too difficult to compute, use function from_T2(..).
       *Q[4]) - 1, 2*(Q[2]*Q[3] + Q[1]*Q[4]); 2*(Q[3]*Q[1] + Q[2]*Q[4]), 2*(Q[3]
       *Q[2] - Q[1]*Q[4]), 2*(Q[3]*Q[3] + Q[4]*Q[4]) - 1],w= w);
   end from_Q;
-  
-  function to_T "Return transformation matrix T from orientation object R" 
+
+  function to_T "Return transformation matrix T from orientation object R"
     extends Modelica.Icons.Function;
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
-    output Real T[3, 3] 
+    output Real T[3, 3]
       "Transformation matrix to transform vector from frame 1 to frame 2 (v2=T*v1)";
-  algorithm 
+  algorithm
     T := R.T;
   end to_T;
-  
-  function to_T_inv 
-    "Return inverse transformation matrix T_inv from orientation object R" 
-    
+
+  function to_T_inv
+    "Return inverse transformation matrix T_inv from orientation object R"
+
     extends Modelica.Icons.Function;
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
-    output Real T_inv[3, 3] 
+    output Real T_inv[3, 3]
       "Inverse transformation matrix to transform vector from frame 2 into frame 1 (v1=T_inv*v2)";
-  algorithm 
+  algorithm
     T_inv := transpose(R.T);
   end to_T_inv;
-  
-  function to_Q 
-    "Return quaternion orientation object Q from orientation object R" 
-    
+
+  function to_Q
+    "Return quaternion orientation object Q from orientation object R"
+
     extends Modelica.Icons.Function;
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
-    input Quaternions.Orientation Q_guess=Quaternions.nullRotation() 
+    input Quaternions.Orientation Q_guess=Quaternions.nullRotation()
       "Guess value for output Q (there are 2 solutions; the one closer to Q_guess is used";
-    output Quaternions.Orientation Q 
+    output Quaternions.Orientation Q
       "Quaternions orientation object to rotate frame 1 into frame 2";
-  algorithm 
+  algorithm
     Q := Quaternions.from_T(R.T, Q_guess);
   end to_Q;
-  
-  function to_vector "Map rotation object into vector" 
+
+  function to_vector "Map rotation object into vector"
     extends Modelica.Icons.Function;
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
     output Real vec[9] "Elements of R in one vector";
-  algorithm 
+  algorithm
     vec := {R.T[1, 1],R.T[2, 1],R.T[3, 1],R.T[1, 2],R.T[2, 2],R.T[3, 2],R.T[1,
       3],R.T[2, 3],R.T[3, 3]};
   end to_vector;
-  
-  function to_exy 
-    "Map rotation object into e_x and e_y vectors of frame 2, resolved in frame 1" 
-    
+
+  function to_exy
+    "Map rotation object into e_x and e_y vectors of frame 2, resolved in frame 1"
+
     extends Modelica.Icons.Function;
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
-    output Real exy[3, 2] 
+    output Real exy[3, 2]
       "= [e_x, e_y] where e_x and e_y are axes unit vectors of frame 2, resolved in frame 1";
-  algorithm 
+  algorithm
     exy := [R.T[1, :], R.T[2, :]];
   end to_exy;
-  
-  function axis "Return unit vector for x-, y-, or z-axis" 
+
+  function axis "Return unit vector for x-, y-, or z-axis"
     extends Modelica.Icons.Function;
     input Integer axis(min=1, max=3) "Axis vector to be returned";
     output Real e[3] "Unit axis vector";
-  algorithm 
+  algorithm
     e := if axis == 1 then {1,0,0} else (if axis == 2 then {0,1,0} else {0,0,1});
   end axis;
-  
-  package Quaternions 
-    "Functions to transform rotational frame quantities based on quaternions (also called Euler parameters)" 
+
+  package Quaternions
+    "Functions to transform rotational frame quantities based on quaternions (also called Euler parameters)"
     extends Modelica.Icons.Library;
-    
+
     annotation ( Documentation(info="<HTML>
 <p>
 Package <b>Frames.Quaternions</b> contains type definitions and
@@ -1015,10 +1015,10 @@ The used variables have the following declaration:
   </tr>
 </table>
 </HTML>"));
-    
-    type Orientation 
-      "Orientation type defining rotation from a frame 1 into a frame 2 with quaternions {p1,p2,p3,p0}" 
-      
+
+    type Orientation
+      "Orientation type defining rotation from a frame 1 into a frame 2 with quaternions {p1,p2,p3,p0}"
+
       extends Internal.QuaternionBase;
       annotation ( Documentation(info="<html>
 <p>
@@ -1047,196 +1047,196 @@ confused with Modelica \"parameters\".
 </p>
 </html>
 "));
-      
-      encapsulated function equalityConstraint 
-        "Return the constraint residues to express that two frames have the same quaternion orientation" 
-        
+
+      encapsulated function equalityConstraint
+        "Return the constraint residues to express that two frames have the same quaternion orientation"
+
         import Modelica;
         import Modelica.Mechanics.MultiBody.Frames.Quaternions;
         extends Modelica.Icons.Function;
-        input Quaternions.Orientation Q1 
+        input Quaternions.Orientation Q1
           "Quaternions orientation object to rotate frame 0 into frame 1";
-        input Quaternions.Orientation Q2 
+        input Quaternions.Orientation Q2
           "Quaternions orientation object to rotate frame 0 into frame 2";
-        output Real residue[3] 
+        output Real residue[3]
           "The half of the rotation angles around x-, y-, and z-axis of frame 1 to rotate frame 1 into frame 2 for a small rotation (shall be zero)";
-      algorithm 
+      algorithm
         residue := [Q1[4], Q1[3], -Q1[2], -Q1[1]; -Q1[3], Q1[4], Q1[1], -Q1[2];
            Q1[2], -Q1[1], Q1[4], -Q1[3]]*Q2;
       end equalityConstraint;
-      
+
     end Orientation;
-    
-    type der_Orientation = Real[4] (each unit="1/s") 
+
+    type der_Orientation = Real[4] (each unit="1/s")
       "First time derivative of Quaternions.Orientation";
-    
-    function orientationConstraint 
-      "Return residues of orientation constraints (shall be zero)" 
+
+    function orientationConstraint
+      "Return residues of orientation constraints (shall be zero)"
       extends Modelica.Icons.Function;
-      input Quaternions.Orientation Q 
+      input Quaternions.Orientation Q
         "Quaternions orientation object to rotate frame 1 into frame 2";
       output Real residue[1] "Residue constraint (shall be zero)";
-    algorithm 
+    algorithm
       residue := {Q*Q - 1};
     end orientationConstraint;
-    
-    function angularVelocity1 
-      "Compute angular velocity resolved in frame 1 from quaternion orientation object and its derivative" 
-      
+
+    function angularVelocity1
+      "Compute angular velocity resolved in frame 1 from quaternion orientation object and its derivative"
+
       extends Modelica.Icons.Function;
-      input Quaternions.Orientation Q 
+      input Quaternions.Orientation Q
         "Quaternions orientation object to rotate frame 1 into frame 2";
       input der_Orientation der_Q "Derivative of Q";
-      output Modelica.SIunits.AngularVelocity w[3] 
+      output Modelica.SIunits.AngularVelocity w[3]
         "Angular velocity resolved in frame 1";
-    algorithm 
+    algorithm
       w := 2*([Q[4], -Q[3], Q[2], -Q[1]; Q[3], Q[4], -Q[1], -Q[2]; -Q[2], Q[1],
          Q[4], -Q[3]]*der_Q);
     end angularVelocity1;
-    
-    function angularVelocity2 
-      "Compute angular velocity resolved in frame 2 from quaternions orientation object and its derivative" 
-      
+
+    function angularVelocity2
+      "Compute angular velocity resolved in frame 2 from quaternions orientation object and its derivative"
+
       extends Modelica.Icons.Function;
-      input Quaternions.Orientation Q 
+      input Quaternions.Orientation Q
         "Quaternions orientation object to rotate frame 1 into frame 2";
       input der_Orientation der_Q "Derivative of Q";
-      output Modelica.SIunits.AngularVelocity w[3] 
+      output Modelica.SIunits.AngularVelocity w[3]
         "Angular velocity of frame 2 with respect to frame 1 resolved in frame 2";
-    algorithm 
+    algorithm
       w := 2*([Q[4], Q[3], -Q[2], -Q[1]; -Q[3], Q[4], Q[1], -Q[2]; Q[2], -Q[1],
          Q[4], -Q[3]]*der_Q);
     end angularVelocity2;
-    
-    function resolve1 "Transform vector from frame 2 to frame 1" 
+
+    function resolve1 "Transform vector from frame 2 to frame 1"
       extends Modelica.Icons.Function;
-      input Quaternions.Orientation Q 
+      input Quaternions.Orientation Q
         "Quaternions orientation object to rotate frame 1 into frame 2";
       input Real v2[3] "Vector in frame 2";
       output Real v1[3] "Vector in frame 1";
-    algorithm 
+    algorithm
       v1 := 2*((Q[4]*Q[4] - 0.5)*v2 + (Q[1:3]*v2)*Q[1:3] + Q[4]*cross(Q[1:3],
         v2));
     end resolve1;
-    
-    function resolve2 "Transform vector from frame 1 to frame 2" 
+
+    function resolve2 "Transform vector from frame 1 to frame 2"
       extends Modelica.Icons.Function;
-      input Quaternions.Orientation Q 
+      input Quaternions.Orientation Q
         "Quaternions orientation object to rotate frame 1 into frame 2";
       input Real v1[3] "Vector in frame 1";
       output Real v2[3] "Vector in frame 2";
-    algorithm 
+    algorithm
       v2 := 2*((Q[4]*Q[4] - 0.5)*v1 + (Q[1:3]*v1)*Q[1:3] - Q[4]*cross(Q[1:3],
         v1));
     end resolve2;
-    
-    function multipleResolve1 
-      "Transform several vectors from frame 2 to frame 1" 
+
+    function multipleResolve1
+      "Transform several vectors from frame 2 to frame 1"
       extends Modelica.Icons.Function;
-      input Quaternions.Orientation Q 
+      input Quaternions.Orientation Q
         "Quaternions orientation object to rotate frame 1 into frame 2";
       input Real v2[3, :] "Vectors in frame 2";
       output Real v1[3, size(v2, 2)] "Vectors in frame 1";
-    algorithm 
+    algorithm
       v1 := ((2*Q[4]*Q[4] - 1)*identity(3) + 2*([Q[1:3]]*transpose([Q[1:3]]) +
         Q[4]*skew(Q[1:3])))*v2;
     end multipleResolve1;
-    
-    function multipleResolve2 
-      "Transform several vectors from frame 1 to frame 2" 
+
+    function multipleResolve2
+      "Transform several vectors from frame 1 to frame 2"
       extends Modelica.Icons.Function;
-      input Quaternions.Orientation Q 
+      input Quaternions.Orientation Q
         "Quaternions orientation object to rotate frame 1 into frame 2";
       input Real v1[3, :] "Vectors in frame 1";
       output Real v2[3, size(v1, 2)] "Vectors in frame 2";
-    algorithm 
+    algorithm
       v2 := ((2*Q[4]*Q[4] - 1)*identity(3) + 2*([Q[1:3]]*transpose([Q[1:3]]) -
         Q[4]*skew(Q[1:3])))*v1;
     end multipleResolve2;
-    
-    function nullRotation 
-      "Return quaternions orientation object that does not rotate a frame" 
-      
+
+    function nullRotation
+      "Return quaternions orientation object that does not rotate a frame"
+
       extends Modelica.Icons.Function;
-      output Quaternions.Orientation Q 
+      output Quaternions.Orientation Q
         "Quaternions orientation object to rotate frame 1 into frame 2";
-    algorithm 
+    algorithm
       Q := {0,0,0,1};
     end nullRotation;
-    
-    function inverseRotation "Return inverse quaternions orientation object" 
+
+    function inverseRotation "Return inverse quaternions orientation object"
       extends Modelica.Icons.Function;
-      input Quaternions.Orientation Q 
+      input Quaternions.Orientation Q
         "Quaternions orientation object to rotate frame 1 into frame 2";
-      output Quaternions.Orientation Q_inv 
+      output Quaternions.Orientation Q_inv
         "Quaternions orientation object to rotate frame 2 into frame 1";
-    algorithm 
+    algorithm
       Q_inv := {-Q[1],-Q[2],-Q[3],Q[4]};
     end inverseRotation;
-    
-    function relativeRotation "Return relative quaternions orientation object" 
+
+    function relativeRotation "Return relative quaternions orientation object"
       extends Modelica.Icons.Function;
-      input Quaternions.Orientation Q1 
+      input Quaternions.Orientation Q1
         "Quaternions orientation object to rotate frame 0 into frame 1";
-      input Quaternions.Orientation Q2 
+      input Quaternions.Orientation Q2
         "Quaternions orientation object to rotate frame 0 into frame 2";
-      output Quaternions.Orientation Q_rel 
+      output Quaternions.Orientation Q_rel
         "Quaternions orientation object to rotate frame 1 into frame 2";
-    algorithm 
+    algorithm
       Q_rel := [Q1[4], Q1[3], -Q1[2], -Q1[1]; -Q1[3], Q1[4], Q1[1], -Q1[2]; Q1[
         2], -Q1[1], Q1[4], -Q1[3]; Q1[1], Q1[2], Q1[3], Q1[4]]*Q2;
     end relativeRotation;
-    
-    function absoluteRotation 
-      "Return absolute quaternions orientation object from another absolute and a relative quaternions orientation object" 
-      
+
+    function absoluteRotation
+      "Return absolute quaternions orientation object from another absolute and a relative quaternions orientation object"
+
       extends Modelica.Icons.Function;
-      input Quaternions.Orientation Q1 
+      input Quaternions.Orientation Q1
         "Quaternions orientation object to rotate frame 0 into frame 1";
-      input Quaternions.Orientation Q_rel 
+      input Quaternions.Orientation Q_rel
         "Quaternions orientation object to rotate frame 1 into frame 2";
-      output Quaternions.Orientation Q2 
+      output Quaternions.Orientation Q2
         "Quaternions orientation object to rotate frame 0 into frame 2";
-    algorithm 
+    algorithm
       Q2 := [Q_rel[4], Q_rel[3], -Q_rel[2], Q_rel[1]; -Q_rel[3], Q_rel[4],
         Q_rel[1], Q_rel[2]; Q_rel[2], -Q_rel[1], Q_rel[4], Q_rel[3]; -Q_rel[1],
          -Q_rel[2], -Q_rel[3], Q_rel[4]]*Q1;
     end absoluteRotation;
-    
-    function planarRotation 
-      "Return quaternions orientation object of a planar rotation" 
+
+    function planarRotation
+      "Return quaternions orientation object of a planar rotation"
       import Modelica.Math;
       extends Modelica.Icons.Function;
       input Real e[3] "Normalized axis of rotation (must have length=1)";
-      input Modelica.SIunits.Angle angle 
+      input Modelica.SIunits.Angle angle
         "Rotation angle to rotate frame 1 into frame 2 along axis e";
-      output Quaternions.Orientation Q 
+      output Quaternions.Orientation Q
         "Quaternions orientation object to rotate frame 1 into frame 2 along axis e";
-    algorithm 
+    algorithm
       Q := vector([e*Math.sin(angle/2); Math.cos(angle/2)]);
     end planarRotation;
-    
-    function smallRotation "Return rotation angles valid for a small rotation" 
+
+    function smallRotation "Return rotation angles valid for a small rotation"
       extends Modelica.Icons.Function;
-      input Quaternions.Orientation Q 
+      input Quaternions.Orientation Q
         "Quaternions orientation object to rotate frame 1 into frame 2";
-      output Modelica.SIunits.Angle phi[3] 
+      output Modelica.SIunits.Angle phi[3]
         "The rotation angles around x-, y-, and z-axis of frame 1 to rotate frame 1 into frame 2 for a small relative rotation";
-    algorithm 
+    algorithm
       phi := 2*{Q[1],Q[2],Q[3]};
     end smallRotation;
-    
-    function from_T 
-      "Return quaternions orientation object Q from transformation matrix T" 
-      
+
+    function from_T
+      "Return quaternions orientation object Q from transformation matrix T"
+
       extends Modelica.Icons.Function;
-      input Real T[3, 3] 
+      input Real T[3, 3]
         "Transformation matrix to transform vector from frame 1 to frame 2 (v2=T*v1)";
-      input Quaternions.Orientation Q_guess=nullRotation() 
+      input Quaternions.Orientation Q_guess=nullRotation()
         "Guess value for Q (there are 2 solutions; the one close to Q_guess is used";
-      output Quaternions.Orientation Q 
+      output Quaternions.Orientation Q
         "Quaternions orientation object to rotate frame 1 into frame 2 (Q and -Q have same transformation matrix)";
-    protected 
+    protected
       Real paux;
       Real paux4;
       Real c1;
@@ -1245,7 +1245,7 @@ confused with Modelica \"parameters\".
       Real c4;
       constant Real p4limit=0.1;
       constant Real c4limit=4*p4limit*p4limit;
-    algorithm 
+    algorithm
       /*
    Note, for quaternions, Q and -Q have the same transformation matrix.
    Calculation of quaternions from transformation matrix T:
@@ -1265,60 +1265,60 @@ confused with Modelica \"parameters\".
       c2 := 1 + T[2, 2] - T[1, 1] - T[3, 3];
       c3 := 1 + T[3, 3] - T[1, 1] - T[2, 2];
       c4 := 1 + T[1, 1] + T[2, 2] + T[3, 3];
-      
+
       if c4 > c4limit or (c4 > c1 and c4 > c2 and c4 > c3) then
         paux := sqrt(c4)/2;
         paux4 := 4*paux;
         Q := {(T[2, 3] - T[3, 2])/paux4,(T[3, 1] - T[1, 3])/paux4,(T[1, 2] - T[
           2, 1])/paux4,paux};
-        
+
       elseif c1 > c2 and c1 > c3 and c1 > c4 then
         paux := sqrt(c1)/2;
         paux4 := 4*paux;
         Q := {paux,(T[1, 2] + T[2, 1])/paux4,(T[1, 3] + T[3, 1])/paux4,(T[2, 3]
            - T[3, 2])/paux4};
-        
+
       elseif c2 > c1 and c2 > c3 and c2 > c4 then
         paux := sqrt(c2)/2;
         paux4 := 4*paux;
         Q := {(T[1, 2] + T[2, 1])/paux4,paux,(T[2, 3] + T[3, 2])/paux4,(T[3, 1]
            - T[1, 3])/paux4};
-        
+
       else
         paux := sqrt(c3)/2;
         paux4 := 4*paux;
         Q := {(T[1, 3] + T[3, 1])/paux4,(T[2, 3] + T[3, 2])/paux4,paux,(T[1, 2]
            - T[2, 1])/paux4};
       end if;
-      
+
       if Q*Q_guess < 0 then
         Q := -Q;
       end if;
     end from_T;
-    
-    function from_T_inv 
-      "Return quaternions orientation object Q from inverse transformation matrix T_inv" 
-      
+
+    function from_T_inv
+      "Return quaternions orientation object Q from inverse transformation matrix T_inv"
+
       extends Modelica.Icons.Function;
-      input Real T_inv[3, 3] 
+      input Real T_inv[3, 3]
         "Inverse transformation matrix to transform vector from frame 2 to frame 1 (v1=T_inv*v2)";
-      input Quaternions.Orientation Q_guess=nullRotation() 
+      input Quaternions.Orientation Q_guess=nullRotation()
         "Guess value for output Q (there are 2 solutions; the one closer to Q_guess is used";
-      output Quaternions.Orientation Q 
+      output Quaternions.Orientation Q
         "Quaternions orientation object to rotate frame 1 into frame 2 (Q and -Q have same transformation matrix)";
-    algorithm 
+    algorithm
       Q := from_T(transpose(T_inv), Q_guess);
     end from_T_inv;
-    
-    function to_T 
-      "Return transformation matrix T from quaternion orientation object Q" 
-      
+
+    function to_T
+      "Return transformation matrix T from quaternion orientation object Q"
+
       extends Modelica.Icons.Function;
-      input Quaternions.Orientation Q 
+      input Quaternions.Orientation Q
         "Quaternions orientation object to rotate frame 1 into frame 2";
-      output Real T[3, 3] 
+      output Real T[3, 3]
         "Transformation matrix to transform vector from frame 1 to frame 2 (v2=T*v1)";
-    algorithm 
+    algorithm
       /*
   T := (2*Q[4]*Q[4] - 1)*identity(3) + 2*([Q[1:3]]*transpose([Q[1:3]]) - Q[4]*
     skew(Q[1:3]));
@@ -1328,16 +1328,16 @@ confused with Modelica \"parameters\".
          - 1, 2*(Q[2]*Q[3] + Q[1]*Q[4]); 2*(Q[3]*Q[1] + Q[2]*Q[4]), 2*(Q[3]*Q[2]
          - Q[1]*Q[4]), 2*(Q[3]*Q[3] + Q[4]*Q[4]) - 1];
     end to_T;
-    
-    function to_T_inv 
-      "Return inverse transformation matrix T_inv from quaternion orientation object Q" 
-      
+
+    function to_T_inv
+      "Return inverse transformation matrix T_inv from quaternion orientation object Q"
+
       extends Modelica.Icons.Function;
-      input Quaternions.Orientation Q 
+      input Quaternions.Orientation Q
         "Quaternions orientation object to rotate frame 1 into frame 2";
-      output Real T_inv[3, 3] 
+      output Real T_inv[3, 3]
         "Transformation matrix to transform vector from frame 2 to frame 1 (v1=T*v2)";
-    algorithm 
+    algorithm
       /*
   T_inv := (2*Q[4]*Q[4] - 1)*identity(3) + 2*([Q[1:3]]*transpose([Q[1:3]]) + Q[
     4]*skew(Q[1:3]));
@@ -1347,14 +1347,14 @@ confused with Modelica \"parameters\".
         4]) - 1, 2*(Q[3]*Q[2] - Q[1]*Q[4]); 2*(Q[1]*Q[3] - Q[2]*Q[4]), 2*(Q[2]*
         Q[3] + Q[1]*Q[4]), 2*(Q[3]*Q[3] + Q[4]*Q[4]) - 1];
     end to_T_inv;
-    
+
   end Quaternions;
-  
-  package TransformationMatrices "Functions for transformation matrices" 
+
+  package TransformationMatrices "Functions for transformation matrices"
     extends Modelica.Icons.Library;
-    type Orientation 
-      "Orientation type defining rotation from a frame 1 into a frame 2 with a transformation matrix" 
-      
+    type Orientation
+      "Orientation type defining rotation from a frame 1 into a frame 2 with a transformation matrix"
+
       extends Internal.TransformationMatrix;
       annotation (Documentation(info="<html>
 <p>
@@ -1393,50 +1393,50 @@ Rotation can be defined by adapting this package correspondingly.
 </p>
 </html>
 "));
-      
-      encapsulated function equalityConstraint 
-        "Return the constraint residues to express that two frames have the same orientation" 
-        
+
+      encapsulated function equalityConstraint
+        "Return the constraint residues to express that two frames have the same orientation"
+
         import Modelica;
         import Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
         extends Modelica.Icons.Function;
-        input TransformationMatrices.Orientation T1 
+        input TransformationMatrices.Orientation T1
           "Orientation object to rotate frame 0 into frame 1";
-        input TransformationMatrices.Orientation T2 
+        input TransformationMatrices.Orientation T2
           "Orientation object to rotate frame 0 into frame 2";
-        output Real residue[3] 
+        output Real residue[3]
           "The rotation angles around x-, y-, and z-axis of frame 1 to rotate frame 1 into frame 2 for a small rotation (should be zero)";
-      algorithm 
+      algorithm
         residue := {cross(T1[1, :], T1[2, :])*T2[2, :],-cross(T1[1, :], T1[2, :])
           *T2[1, :],T1[2, :]*T2[1, :]};
       end equalityConstraint;
     end Orientation;
-    
-    type der_Orientation = Real[3, 3] (each unit="1/s") 
+
+    type der_Orientation = Real[3, 3] (each unit="1/s")
       "New type defining the first time derivative of Orientation";
-    
-    function orientationConstraint 
-      "Return residues of orientation constraints (shall be zero)" 
+
+    function orientationConstraint
+      "Return residues of orientation constraints (shall be zero)"
       extends Modelica.Icons.Function;
-      input TransformationMatrices.Orientation T 
+      input TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
-      output Real residue[6] 
+      output Real residue[6]
         "Residues of constraints between elements of orientation object (shall be zero)";
-    algorithm 
+    algorithm
       residue := {T[:, 1]*T[:, 1] - 1,T[:, 2]*T[:, 2] - 1,T[:, 3]*T[:, 3] - 1,T[
         :, 1]*T[:, 2],T[:, 1]*T[:, 3],T[:, 2]*T[:, 3]};
     end orientationConstraint;
-    
-    function angularVelocity1 
-      "Return angular velocity resolved in frame 1 from orientation object and its derivative" 
-      
+
+    function angularVelocity1
+      "Return angular velocity resolved in frame 1 from orientation object and its derivative"
+
       extends Modelica.Icons.Function;
-      input TransformationMatrices.Orientation T 
+      input TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
       input der_Orientation der_T "Derivative of T";
-      output Modelica.SIunits.AngularVelocity w[3] 
+      output Modelica.SIunits.AngularVelocity w[3]
         "Angular velocity of frame 2 with respect to frame 1 resolved in frame 1";
-    algorithm 
+    algorithm
       /* The angular velocity w of frame 2 with respect to frame 1 resolved in frame 1, 
      is defined as:
         w = vec( der(transpose(T))*T );
@@ -1457,17 +1457,17 @@ Rotation can be defined by adapting this package correspondingly.
   */
       w := {der_T[:, 3]*T[:, 2],-der_T[:, 3]*T[:, 1],der_T[:, 2]*T[:, 1]};
     end angularVelocity1;
-    
-    function angularVelocity2 
-      "Return angular velocity resolved in frame 2 from orientation object and its derivative" 
-      
+
+    function angularVelocity2
+      "Return angular velocity resolved in frame 2 from orientation object and its derivative"
+
       extends Modelica.Icons.Function;
-      input TransformationMatrices.Orientation T 
+      input TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
       input der_Orientation der_T "Derivative of T";
-      output Modelica.SIunits.AngularVelocity w[3] 
+      output Modelica.SIunits.AngularVelocity w[3]
         "Angular velocity of frame 2 with respect to frame 1 resolved in frame 2";
-    algorithm 
+    algorithm
       /* The angular velocity w of frame 2 with respect to frame 1 resolved in frame 2, 
      is defined as:
         w = vec(T*der(transpose(T)));
@@ -1488,142 +1488,142 @@ Rotation can be defined by adapting this package correspondingly.
   */
       w := {T[3, :]*der_T[2, :],-T[3, :]*der_T[1, :],T[2, :]*der_T[1, :]};
     end angularVelocity2;
-    
-    function resolve1 "Transform vector from frame 2 to frame 1" 
+
+    function resolve1 "Transform vector from frame 2 to frame 1"
       extends Modelica.Icons.Function;
-      input TransformationMatrices.Orientation T 
+      input TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
       input Real v2[3] "Vector in frame 2";
       output Real v1[3] "Vector in frame 1";
-    algorithm 
+    algorithm
       v1 := transpose(T)*v2;
     end resolve1;
-    
-    function resolve2 "Transform vector from frame 1 to frame 2" 
+
+    function resolve2 "Transform vector from frame 1 to frame 2"
       extends Modelica.Icons.Function;
-      input TransformationMatrices.Orientation T 
+      input TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
       input Real v1[3] "Vector in frame 1";
       output Real v2[3] "Vector in frame 2";
-    algorithm 
+    algorithm
       v2 := T*v1;
     end resolve2;
-    
-    function multipleResolve1 
-      "Transform several vectors from frame 2 to frame 1" 
-      
+
+    function multipleResolve1
+      "Transform several vectors from frame 2 to frame 1"
+
       extends Modelica.Icons.Function;
-      input TransformationMatrices.Orientation T 
+      input TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
       input Real v2[3, :] "Vectors in frame 2";
       output Real v1[3, size(v2, 2)] "Vectors in frame 1";
-    algorithm 
+    algorithm
       v1 := transpose(T)*v2;
     end multipleResolve1;
-    
-    function multipleResolve2 
-      "Transform several vectors from frame 1 to frame 2" 
-      
+
+    function multipleResolve2
+      "Transform several vectors from frame 1 to frame 2"
+
       extends Modelica.Icons.Function;
-      input TransformationMatrices.Orientation T 
+      input TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
       input Real v1[3, :] "Vectors in frame 1";
       output Real v2[3, size(v1, 2)] "Vectors in frame 2";
-    algorithm 
+    algorithm
       v2 := T*v1;
     end multipleResolve2;
-    
-    function resolveDyade1 
-      "Transform second order tensor from frame 2 to frame 1" 
+
+    function resolveDyade1
+      "Transform second order tensor from frame 2 to frame 1"
       extends Modelica.Icons.Function;
-      input TransformationMatrices.Orientation T 
+      input TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
       input Real D2[3, 3] "Second order tensor resolved in frame 2";
       output Real D1[3, 3] "Second order tensor resolved in frame 1";
-    algorithm 
+    algorithm
       D1 := transpose(T)*D2*T;
     end resolveDyade1;
-    
-    function resolveDyade2 
-      "Transform second order tensor from frame 1 to frame 2" 
+
+    function resolveDyade2
+      "Transform second order tensor from frame 1 to frame 2"
       extends Modelica.Icons.Function;
-      input TransformationMatrices.Orientation T 
+      input TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
       input Real D1[3, 3] "Second order tensor resolved in frame 1";
       output Real D2[3, 3] "Second order tensor resolved in frame 2";
-    algorithm 
+    algorithm
       D2 := T*D1*transpose(T);
     end resolveDyade2;
-    
-    function nullRotation 
-      "Return orientation object that does not rotate a frame" 
+
+    function nullRotation
+      "Return orientation object that does not rotate a frame"
       extends Modelica.Icons.Function;
-      output TransformationMatrices.Orientation T 
+      output TransformationMatrices.Orientation T
         "Orientation object such that frame 1 and frame 2 are identical";
-    algorithm 
+    algorithm
       T := identity(3);
     end nullRotation;
-    
-    function inverseRotation "Return inverse orientation object" 
+
+    function inverseRotation "Return inverse orientation object"
       extends Modelica.Icons.Function;
-      input TransformationMatrices.Orientation T 
+      input TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
-      output TransformationMatrices.Orientation T_inv 
+      output TransformationMatrices.Orientation T_inv
         "Orientation object to rotate frame 2 into frame 1";
-    algorithm 
+    algorithm
       T_inv := transpose(T);
     end inverseRotation;
-    
-    function relativeRotation "Return relative orientation object" 
+
+    function relativeRotation "Return relative orientation object"
       extends Modelica.Icons.Function;
-      input TransformationMatrices.Orientation T1 
+      input TransformationMatrices.Orientation T1
         "Orientation object to rotate frame 0 into frame 1";
-      input TransformationMatrices.Orientation T2 
+      input TransformationMatrices.Orientation T2
         "Orientation object to rotate frame 0 into frame 2";
-      output TransformationMatrices.Orientation T_rel 
+      output TransformationMatrices.Orientation T_rel
         "Orientation object to rotate frame 1 into frame 2";
-    algorithm 
+    algorithm
       T_rel := T2*transpose(T1);
     end relativeRotation;
-    
-    function absoluteRotation 
-      "Return absolute orientation object from another absolute and a relative orientation object" 
-      
+
+    function absoluteRotation
+      "Return absolute orientation object from another absolute and a relative orientation object"
+
       extends Modelica.Icons.Function;
-      input TransformationMatrices.Orientation T1 
+      input TransformationMatrices.Orientation T1
         "Orientation object to rotate frame 0 into frame 1";
-      input TransformationMatrices.Orientation T_rel 
+      input TransformationMatrices.Orientation T_rel
         "Orientation object to rotate frame 1 into frame 2";
-      output TransformationMatrices.Orientation T2 
+      output TransformationMatrices.Orientation T2
         "Orientation object to rotate frame 0 into frame 2";
-    algorithm 
+    algorithm
       T2 := T_rel*T1;
     end absoluteRotation;
-    
-    function planarRotation "Return orientation object of a planar rotation" 
+
+    function planarRotation "Return orientation object of a planar rotation"
       import Modelica.Math;
       extends Modelica.Icons.Function;
       input Real e[3] "Normalized axis of rotation (must have length=1)";
-      input Modelica.SIunits.Angle angle 
+      input Modelica.SIunits.Angle angle
         "Rotation angle to rotate frame 1 into frame 2 along axis e";
-      output TransformationMatrices.Orientation T 
+      output TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
-    algorithm 
+    algorithm
       T := [e]*transpose([e]) + (identity(3) - [e]*transpose([e]))*Math.cos(
         angle) - skew(e)*Math.sin(angle);
     end planarRotation;
-    
-    function planarRotationAngle 
-      "Return angle of a planar rotation, given the rotation axis and the representations of a vector in frame 1 and frame 2" 
-      
+
+    function planarRotationAngle
+      "Return angle of a planar rotation, given the rotation axis and the representations of a vector in frame 1 and frame 2"
+
       extends Modelica.Icons.Function;
-      input Real e[3] 
+      input Real e[3]
         "Normalized axis of rotation to rotate frame 1 around e into frame 2 (must have length=1)";
-      input Real v1[3] 
+      input Real v1[3]
         "A vector v resolved in frame 1 (shall not be parallel to e)";
-      input Real v2[3] 
+      input Real v2[3]
         "Vector v resolved in frame 2, i.e., v2 = resolve2(planarRotation(e,angle),v1)";
-      output Modelica.SIunits.Angle angle 
+      output Modelica.SIunits.Angle angle
         "Rotation angle to rotate frame 1 into frame 2 along axis e in the range: -pi <= angle <= pi";
       annotation (Documentation(info="<HTML>
 <p>
@@ -1665,7 +1665,7 @@ assumptions are violated, a wrong result will be returned
 and/or a division by zero will occur.
 </p>
 </HTML>"));
-    algorithm 
+    algorithm
       /* Vector v is resolved in frame 1 and frame 2 according to:
         (1)  v2 = (e*transpose(e) + (identity(3) - e*transpose(e))*cos(angle) - skew(e)*sin(angle))*v1;
                 = e*(e*v1) + (v1 - e*(e*v1))*cos(angle) - cross(e,v1)*sin(angle)
@@ -1693,70 +1693,70 @@ and/or a division by zero will occur.
     */
       angle := Modelica.Math.atan2(-cross(e, v1)*v2, v1*v2 - (e*v1)*(e*v2));
     end planarRotationAngle;
-    
-    function axisRotation 
-      "Return rotation object to rotate around one frame axis" 
+
+    function axisRotation
+      "Return rotation object to rotate around one frame axis"
       import Modelica.Math.*;
       extends Modelica.Icons.Function;
       input Integer axis(min=1, max=3) "Rotate around 'axis' of frame 1";
-      input Modelica.SIunits.Angle angle 
+      input Modelica.SIunits.Angle angle
         "Rotation angle to rotate frame 1 into frame 2 along 'axis' of frame 1";
-      output TransformationMatrices.Orientation T 
+      output TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
-    algorithm 
+    algorithm
       T := if axis == 1 then [1, 0, 0; 0, cos(angle), sin(angle); 0, -sin(angle),
          cos(angle)] else if axis == 2 then [cos(angle), 0, -sin(angle); 0, 1,
         0; sin(angle), 0, cos(angle)] else [cos(angle), sin(angle), 0; -sin(
         angle), cos(angle), 0; 0, 0, 1];
     end axisRotation;
-    
-    function axesRotations 
-      "Return rotation object to rotate in sequence around 3 axes" 
+
+    function axesRotations
+      "Return rotation object to rotate in sequence around 3 axes"
       extends Modelica.Icons.Function;
       input Integer sequence[3](
         min={1,1,1},
-        max={3,3,3}) = {1,2,3} 
+        max={3,3,3}) = {1,2,3}
         "Sequence of rotations from frame 1 to frame 2 along axis sequence[i]";
-      input Modelica.SIunits.Angle angles[3]={0,0,0} 
+      input Modelica.SIunits.Angle angles[3]={0,0,0}
         "Rotation angles around the axes defined in 'sequence'";
-      output TransformationMatrices.Orientation T 
+      output TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
-    algorithm 
+    algorithm
       T := absoluteRotation(absoluteRotation(axisRotation(sequence[1], angles[1]),
          axisRotation(sequence[2], angles[2])), axisRotation(sequence[3],
         angles[3]));
     end axesRotations;
-    
-    function axesRotationsAngles 
-      "Return the 3 angles to rotate in sequence around 3 axes to construct the given orientation object" 
-      
+
+    function axesRotationsAngles
+      "Return the 3 angles to rotate in sequence around 3 axes to construct the given orientation object"
+
       import SI = Modelica.SIunits;
-      
+
       extends Modelica.Icons.Function;
-      input TransformationMatrices.Orientation T 
+      input TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
       input Integer sequence[3](
         min={1,1,1},
-        max={3,3,3}) = {1,2,3} 
+        max={3,3,3}) = {1,2,3}
         "Sequence of rotations from frame 1 to frame 2 along axis sequence[i]";
-      input SI.Angle guessAngle1=0 
+      input SI.Angle guessAngle1=0
         "Select angles[1] such that |angles[1] - guessAngle1| is a minimum";
-      output SI.Angle angles[3] 
+      output SI.Angle angles[3]
         "Rotation angles around the axes defined in 'sequence' such that T=TransformationMatrices.axesRotation(sequence,angles); -pi < angles[i] <= pi";
-    protected 
+    protected
       Real e1_1[3] "First rotation axis, resolved in frame 1";
       Real e2_1a[3] "Second rotation axis, resolved in frame 1a";
       Real e3_1[3] "Third rotation axis, resolved in frame 1";
       Real e3_2[3] "Third rotation axis, resolved in frame 2";
-      Real A 
+      Real A
         "Coefficient A in the equation A*cos(angles[1])+B*sin(angles[1]) = 0";
-      Real B 
+      Real B
         "Coefficient B in the equation A*cos(angles[1])+B*sin(angles[1]) = 0";
       SI.Angle angle_1a "Solution 1 for angles[1]";
       SI.Angle angle_1b "Solution 2 for angles[1]";
-      TransformationMatrices.Orientation T_1a 
+      TransformationMatrices.Orientation T_1a
         "Orientation object to rotate frame 1 into frame 1a";
-    algorithm 
+    algorithm
       /* The rotation object T is constructed by:
      (1) Rotating frame 1 along axis e1 (= axis sequence[1]) with angles[1]
          arriving at frame 1a.
@@ -1809,7 +1809,7 @@ and/or a division by zero will occur.
       e3_1 := T[sequence[3], :];
       e3_2 := if sequence[3] == 1 then {1,0,0} else if sequence[3] == 2 then {0,
         1,0} else {0,0,1};
-      
+
       A := e2_1a*e3_1;
       B := cross(e1_1, e2_1a)*e3_1;
       if abs(A) <= 1.e-12 and abs(B) <= 1.e-12 then
@@ -1873,18 +1873,18 @@ and sequence[2] &ne; sequence[3]. Often used values are:
 </pre>
 </HTML>"));
     end axesRotationsAngles;
-    
-    function smallRotation 
-      "Return rotation angles valid for a small rotation and optionally residues that should be zero" 
-      
+
+    function smallRotation
+      "Return rotation angles valid for a small rotation and optionally residues that should be zero"
+
       extends Modelica.Icons.Function;
-      input TransformationMatrices.Orientation T 
+      input TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
-      input Boolean withResidues=false 
+      input Boolean withResidues=false
         "= false/true, if 'angles'/'angles and residues' are returned in phi";
-      output Modelica.SIunits.Angle phi[if withResidues then 6 else 3] 
+      output Modelica.SIunits.Angle phi[if withResidues then 6 else 3]
         "The rotation angles around x-, y-, and z-axis of frame 1 to rotate frame 1 into frame 2 for a small rotation + optionally 3 residues that should be zero";
-    algorithm 
+    algorithm
       /* Planar rotation:
        Trel = [e]*transpose([e]) + (identity(3) - [e]*transpose([e]))*cos(angle) - skew(e)*sin(angle)
             = identity(3) - skew(e)*angle, for small angles
@@ -1898,16 +1898,16 @@ and sequence[2] &ne; sequence[3]. Often used values are:
          - 1,T[1, 1]*T[2, 2] - T[2, 1]*T[1, 2] - 1} else {T[2, 3],-T[1, 3],T[1,
          2]};
     end smallRotation;
-    
-    function from_nxy "Return orientation object from n_x and n_y vectors" 
+
+    function from_nxy "Return orientation object from n_x and n_y vectors"
       extends Modelica.Icons.Function;
-      input Real n_x[3] 
+      input Real n_x[3]
         "Vector in direction of x-axis of frame 2, resolved in frame 1";
-      input Real n_y[3] 
+      input Real n_y[3]
         "Vector in direction of y-axis of frame 2, resolved in frame 1";
-      output TransformationMatrices.Orientation T 
+      output TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
-    protected 
+    protected
       Real abs_n_x=sqrt(n_x*n_x);
       Real e_x[3]=if abs_n_x < 1.e-10 then {1,0,0} else n_x/abs_n_x;
       Real n_z_aux[3]=cross(e_x, n_y);
@@ -1915,7 +1915,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
            > 1.0e-6 then {0,1,0} else {1,0,0});
       Real e_z_aux[3]=cross(e_x, n_y_aux);
       Real e_z[3]=e_z_aux/sqrt(e_z_aux*e_z_aux);
-    algorithm 
+    algorithm
       T := {e_x,cross(e_z, e_x),e_z};
       annotation (Documentation(info="<html>
 <p>
@@ -1939,16 +1939,16 @@ arbitrarily such that e_x and e_y are orthogonal to each other.
 </p>
 </html>"));
     end from_nxy;
-    
-    function from_nxz "Return orientation object from n_x and n_z vectors" 
+
+    function from_nxz "Return orientation object from n_x and n_z vectors"
       extends Modelica.Icons.Function;
-      input Real n_x[3] 
+      input Real n_x[3]
         "Vector in direction of x-axis of frame 2, resolved in frame 1";
-      input Real n_z[3] 
+      input Real n_z[3]
         "Vector in direction of z-axis of frame 2, resolved in frame 1";
-      output TransformationMatrices.Orientation T 
+      output TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
-    protected 
+    protected
       Real abs_n_x=sqrt(n_x*n_x);
       Real e_x[3]=if abs_n_x < 1.e-10 then {1,0,0} else n_x/abs_n_x;
       Real n_y_aux[3]=cross(n_z, e_x);
@@ -1956,7 +1956,7 @@ arbitrarily such that e_x and e_y are orthogonal to each other.
            > 1.0e-6 then {0,0,1} else {1,0,0});
       Real e_y_aux[3]=cross(n_z_aux, e_x);
       Real e_y[3]=e_y_aux/sqrt(e_y_aux*e_y_aux);
-    algorithm 
+    algorithm
       T := {e_x,e_y,cross(e_x, e_y)};
       annotation (Documentation(info="<html>
 <p>
@@ -1980,38 +1980,38 @@ arbitrarily such that n_x and e_z are orthogonal to each other.
 </p>
 </html>"));
     end from_nxz;
-    
-    function from_T "Return orientation object R from transformation matrix T" 
+
+    function from_T "Return orientation object R from transformation matrix T"
       extends Modelica.Icons.Function;
-      input Real T[3, 3] 
+      input Real T[3, 3]
         "Transformation matrix to transform vector from frame 1 to frame 2 (v2=T*v1)";
-      output TransformationMatrices.Orientation R 
+      output TransformationMatrices.Orientation R
         "Orientation object to rotate frame 1 into frame 2";
-    algorithm 
+    algorithm
       R := T;
     end from_T;
-    
-    function from_T_inv 
-      "Return orientation object R from inverse transformation matrix T_inv" 
-      
+
+    function from_T_inv
+      "Return orientation object R from inverse transformation matrix T_inv"
+
       extends Modelica.Icons.Function;
-      input Real T_inv[3, 3] 
+      input Real T_inv[3, 3]
         "Inverse transformation matrix to transform vector from frame 2 to frame 1 (v1=T_inv*v2)";
-      output TransformationMatrices.Orientation R 
+      output TransformationMatrices.Orientation R
         "Orientation object to rotate frame 1 into frame 2";
-    algorithm 
+    algorithm
       R := transpose(T_inv);
     end from_T_inv;
-    
-    function from_Q 
-      "Return orientation object T from quaternion orientation object Q" 
-      
+
+    function from_Q
+      "Return orientation object T from quaternion orientation object Q"
+
       extends Modelica.Icons.Function;
-      input Quaternions.Orientation Q 
+      input Quaternions.Orientation Q
         "Quaternions orientation object to rotate frame 1 into frame 2";
-      output TransformationMatrices.Orientation T 
+      output TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
-    algorithm 
+    algorithm
       /*
   T := (2*Q[4]*Q[4] - 1)*identity(3) + 2*([Q[1:3]]*transpose([Q[1:3]]) - Q[4]*
     skew(Q[1:3]));
@@ -2021,62 +2021,62 @@ arbitrarily such that n_x and e_z are orthogonal to each other.
          - 1, 2*(Q[2]*Q[3] + Q[1]*Q[4]); 2*(Q[3]*Q[1] + Q[2]*Q[4]), 2*(Q[3]*Q[2]
          - Q[1]*Q[4]), 2*(Q[3]*Q[3] + Q[4]*Q[4]) - 1];
     end from_Q;
-    
-    function to_T "Return transformation matrix T from orientation object R" 
+
+    function to_T "Return transformation matrix T from orientation object R"
       extends Modelica.Icons.Function;
-      input TransformationMatrices.Orientation R 
+      input TransformationMatrices.Orientation R
         "Orientation object to rotate frame 1 into frame 2";
-      output Real T[3, 3] 
+      output Real T[3, 3]
         "Transformation matrix to transform vector from frame 1 to frame 2 (v2=T*v1)";
-    algorithm 
+    algorithm
       T := R;
     end to_T;
-    
-    function to_T_inv 
-      "Return inverse transformation matrix T_inv from orientation object R" 
-      
+
+    function to_T_inv
+      "Return inverse transformation matrix T_inv from orientation object R"
+
       extends Modelica.Icons.Function;
-      input TransformationMatrices.Orientation R 
+      input TransformationMatrices.Orientation R
         "Orientation object to rotate frame 1 into frame 2";
-      output Real T_inv[3, 3] 
+      output Real T_inv[3, 3]
         "Inverse transformation matrix to transform vector from frame 2 into frame 1 (v1=T_inv*v2)";
-    algorithm 
+    algorithm
       T_inv := transpose(R);
     end to_T_inv;
-    
-    function to_Q 
-      "Return quaternion orientation object Q from orientation object T" 
-      
+
+    function to_Q
+      "Return quaternion orientation object Q from orientation object T"
+
       extends Modelica.Icons.Function;
-      input TransformationMatrices.Orientation T 
+      input TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
-      input Quaternions.Orientation Q_guess=Quaternions.nullRotation() 
+      input Quaternions.Orientation Q_guess=Quaternions.nullRotation()
         "Guess value for output Q (there are 2 solutions; the one closer to Q_guess is used";
-      output Quaternions.Orientation Q 
+      output Quaternions.Orientation Q
         "Quaternions orientation object to rotate frame 1 into frame 2";
-    algorithm 
+    algorithm
       Q := Quaternions.from_T(T, Q_guess);
     end to_Q;
-    
-    function to_vector "Map rotation object into vector" 
+
+    function to_vector "Map rotation object into vector"
       extends Modelica.Icons.Function;
-      input TransformationMatrices.Orientation T 
+      input TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
       output Real vec[9] "Elements of T in one vector";
-    algorithm 
+    algorithm
       vec := {T[1, 1],T[2, 1],T[3, 1],T[1, 2],T[2, 2],T[3, 2],T[1, 3],T[2, 3],T[
         3, 3]};
     end to_vector;
-    
-    function to_exy 
-      "Map rotation object into e_x and e_y vectors of frame 2, resolved in frame 1" 
-      
+
+    function to_exy
+      "Map rotation object into e_x and e_y vectors of frame 2, resolved in frame 1"
+
       extends Modelica.Icons.Function;
-      input TransformationMatrices.Orientation T 
+      input TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
-      output Real exy[3, 2] 
+      output Real exy[3, 2]
         "= [e_x, e_y] where e_x and e_y are axes unit vectors of frame 2, resolved in frame 1";
-    algorithm 
+    algorithm
       exy := [T[1, :], T[2, :]];
     end to_exy;
     annotation (Documentation(info="<HTML>
@@ -2227,17 +2227,17 @@ The used variables have the following declaration:
 </table>
 </HTML>"));
   end TransformationMatrices;
-  
-  package Internal 
-    "Internal definitions that may be removed or changed (do not use)" 
+
+  package Internal
+    "Internal definitions that may be removed or changed (do not use)"
     extends Modelica.Icons.Library;
-    
+
     type TransformationMatrix = Real[3, 3];
     type QuaternionBase = Real[4];
-    
-    function maxWithoutEvent 
-      "maximum of the input arguments, without event and without warning message when differentiating" 
-      
+
+    function maxWithoutEvent
+      "maximum of the input arguments, without event and without warning message when differentiating"
+
       input Real u1;
       input Real u2;
       output Real y;
@@ -2256,15 +2256,15 @@ messages.
 </p>
 </html>"));
       //  annotation (Header="#include \"MultiBody.h\"");
-    protected 
+    protected
       Integer dummy;
-    algorithm 
+    algorithm
       y := if u1 > u2 then u1 else u2;
       dummy := 0;
     end maxWithoutEvent;
-    
-    function maxWithoutEvent_d 
-      "First derivative of function maxWithoutEvent(..)" 
+
+    function maxWithoutEvent_d
+      "First derivative of function maxWithoutEvent(..)"
       input Real u1;
       input Real u2;
       input Real u1_d;
@@ -2272,15 +2272,15 @@ messages.
       output Real y_d;
       annotation (derivative(order=2) = maxWithoutEvent_dd);
       //annotation (Header="#include \"MultiBody.h\"");
-    protected 
+    protected
       Integer dummy;
-    algorithm 
+    algorithm
       y_d := if u1 > u2 then u1_d else u2_d;
       dummy := 0;
     end maxWithoutEvent_d;
-    
-    function maxWithoutEvent_dd 
-      "First derivative of function maxWithoutEvent_d(..)" 
+
+    function maxWithoutEvent_dd
+      "First derivative of function maxWithoutEvent_d(..)"
       input Real u1;
       input Real u2;
       input Real u1_d;
@@ -2288,34 +2288,34 @@ messages.
       input Real u1_dd;
       input Real u2_dd;
       output Real y_dd;
-    algorithm 
+    algorithm
       y_dd := if u1 > u2 then u1_dd else u2_dd;
     end maxWithoutEvent_dd;
-    
-    function resolve1_der "Derivative of function Frames.resolve1(..)" 
+
+    function resolve1_der "Derivative of function Frames.resolve1(..)"
       import Modelica.Mechanics.MultiBody.Frames;
       extends Modelica.Icons.Function;
       input Orientation R "Orientation object to rotate frame 1 into frame 2";
       input Real v2[3] "Vector resolved in frame 2";
       input Real v2_der[3] "= der(v2)";
       output Real v1_der[3] "Derivative of vector v resolved in frame 1";
-    algorithm 
+    algorithm
       v1_der := Frames.resolve1(R, v2_der + cross(R.w, v2));
     end resolve1_der;
-    
-    function resolve2_der "Derivative of function Frames.resolve2(..)" 
+
+    function resolve2_der "Derivative of function Frames.resolve2(..)"
       import Modelica.Mechanics.MultiBody.Frames;
       extends Modelica.Icons.Function;
       input Orientation R "Orientation object to rotate frame 1 into frame 2";
       input Real v1[3] "Vector resolved in frame 1";
       input Real v1_der[3] "= der(v1)";
       output Real v2_der[3] "Derivative of vector v resolved in frame 2";
-    algorithm 
+    algorithm
       v2_der := Frames.resolve2(R, v1_der) - cross(R.w, Frames.resolve2(R, v1));
     end resolve2_der;
-    
-    function resolveRelative_der 
-      "Derivative of function Frames.resolveRelative(..)" 
+
+    function resolveRelative_der
+      "Derivative of function Frames.resolveRelative(..)"
       import Modelica.Mechanics.MultiBody.Frames;
       extends Modelica.Icons.Function;
       input Real v1[3] "Vector in frame 1";
@@ -2326,10 +2326,10 @@ messages.
       annotation (Documentation(info="<html>
  
 </html>"));
-    algorithm 
+    algorithm
       v2_der := Frames.resolveRelative(v1_der+cross(R1.w,v1), R1, R2)
                 - cross(R2.w, Frames.resolveRelative(v1, R1, R2));
-      
+
       /* skew(w) = T*der(T'), -skew(w) = der(T)*T'
  
      v2 = T2*(T1'*v1)
@@ -2340,5 +2340,5 @@ messages.
   */
     end resolveRelative_der;
   end Internal;
-  
+
 end Frames;

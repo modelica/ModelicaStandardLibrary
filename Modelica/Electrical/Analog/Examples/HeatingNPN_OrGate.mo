@@ -1,13 +1,13 @@
 within Modelica.Electrical.Analog.Examples;
-model HeatingNPN_OrGate "Heating NPN Or Gate" 
+model HeatingNPN_OrGate "Heating NPN Or Gate"
   extends Modelica.Icons.Example;
   constant Modelica.SIunits.Capacitance CapVal=0;
   constant Modelica.SIunits.Time tauVal=0;
-  
+
 annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={Text(
-          extent={{-100,100},{-6,72}}, 
-          textString="Heating \"NPN or\" Gate", 
+          extent={{-100,100},{-6,72}},
+          textString="Heating \"NPN or\" Gate",
           lineColor={0,0,255})}),    Documentation(info="<HTML>
 <P>
 The heating \"NPN or\" gate shows a heat flow always if a transistor is leading.
@@ -46,7 +46,7 @@ T1.heatPort.Q_flow and T2.heatPort.Q_flow<br>
         origin={60,-50},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  
+
 annotation (Documentation(info="<HTML>
 <P>
 The heating NPN nand gate shows a heat flow always if a transistor is leading.
@@ -176,7 +176,7 @@ T1.heatPort.Q_flow and T2.heatPort.Q_flow<br>
     vt_t(start=0.01, fixed=false)) 
            annotation (Placement(transformation(extent={{20,-22},{40,-2}},
           rotation=0)));
-equation 
+equation
   connect(Gnd1.p, V1.n) 
                       annotation (Line(points={{-90,-2},{-90,8}}));
   connect(V1.p, R1.p) 

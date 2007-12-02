@@ -1,49 +1,49 @@
 within Modelica;
-package Constants 
-  "Library of mathematical constants and constants of nature (e.g., pi, eps, R, sigma)" 
-  
+package Constants
+  "Library of mathematical constants and constants of nature (e.g., pi, eps, R, sigma)"
+
   import SI = Modelica.SIunits;
   import NonSI = Modelica.SIunits.Conversions.NonSIunits;
-  
+
   extends Modelica.Icons.Library2;
-  
+
   // Mathematical constants
   final constant Real e=Modelica.Math.exp(1.0);
   final constant Real pi=2*Modelica.Math.asin(1.0); // 3.14159265358979;
   final constant Real D2R=pi/180 "Degree to Radian";
   final constant Real R2D=180/pi "Radian to Degree";
-  
+
   // Machine dependent constants
   // (the definition is a temporary fix since not adapted to the
   // machine where the Modelica translator is running)
   final constant Real eps=1.e-15 "Biggest number such that 1.0 + eps = 1.0";
-  final constant Real small=1.e-60 
+  final constant Real small=1.e-60
     "Smallest number such that small and -small are representable on the machine";
-  final constant Real inf=1.e+60 
+  final constant Real inf=1.e+60
     "Biggest Real number such that inf and -inf are representable on the machine";
-  final constant Integer Integer_inf=2147483647 
+  final constant Integer Integer_inf=2147483647
     "Biggest Integer number such that Integer_inf and -Integer_inf are representable on the machine";
-  
+
   // Constants of nature
   // (name, value, description from http://physics.nist.gov/cuu/Constants/)
   final constant SI.Velocity c=299792458 "Speed of light in vacuum";
-  final constant SI.Acceleration g_n=9.80665 
+  final constant SI.Acceleration g_n=9.80665
     "Standard acceleration of gravity on earth";
-  final constant Real G(final unit="m3/(kg.s2)") = 6.6742e-11 
+  final constant Real G(final unit="m3/(kg.s2)") = 6.6742e-11
     "Newtonian constant of gravitation";
   final constant Real h(final unit="J.s") = 6.6260693e-34 "Planck constant";
   final constant Real k(final unit="J/K") = 1.3806505e-23 "Boltzmann constant";
   final constant Real R(final unit="J/(mol.K)") = 8.314472 "Molar gas constant";
-  final constant Real sigma(final unit="W/(m2.K4)") = 5.670400e-8 
+  final constant Real sigma(final unit="W/(m2.K4)") = 5.670400e-8
     "Stefan-Boltzmann constant";
-  final constant Real N_A(final unit="1/mol") = 6.0221415e23 
+  final constant Real N_A(final unit="1/mol") = 6.0221415e23
     "Avogadro constant";
   final constant Real mue_0(final unit="N/A2") = 4*pi*1.e-7 "Magnetic constant";
-  final constant Real epsilon_0(final unit="F/m") = 1/(mue_0*c*c) 
+  final constant Real epsilon_0(final unit="F/m") = 1/(mue_0*c*c)
     "Electric constant";
-  final constant NonSI.Temperature_degC T_zero=-273.15 
+  final constant NonSI.Temperature_degC T_zero=-273.15
     "Absolute zero temperature";
-  
+
   annotation (
     Documentation(info="<html>
 <p>
@@ -112,53 +112,53 @@ and the accompanying <b>disclaimer</b>
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
         Line(
-          points={{-34,-38},{12,-38}}, 
-          color={0,0,0}, 
-          thickness=2), 
+          points={{-34,-38},{12,-38}},
+          color={0,0,0},
+          thickness=2),
         Line(
-          points={{-20,-38},{-24,-48},{-28,-56},{-34,-64}}, 
-          color={0,0,0}, 
-          thickness=2), 
+          points={{-20,-38},{-24,-48},{-28,-56},{-34,-64}},
+          color={0,0,0},
+          thickness=2),
         Line(
-          points={{-2,-38},{2,-46},{8,-56},{14,-64}}, 
-          color={0,0,0}, 
+          points={{-2,-38},{2,-46},{8,-56},{14,-64}},
+          color={0,0,0},
           thickness=2)}),
     Diagram(graphics={
         Rectangle(
-          extent={{200,162},{380,312}}, 
-          fillColor={235,235,235}, 
-          fillPattern=FillPattern.Solid, 
-          lineColor={0,0,255}), 
+          extent={{200,162},{380,312}},
+          fillColor={235,235,235},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
         Polygon(
-          points={{200,312},{220,332},{400,332},{380,312},{200,312}}, 
-          fillColor={235,235,235}, 
-          fillPattern=FillPattern.Solid, 
-          lineColor={0,0,255}), 
+          points={{200,312},{220,332},{400,332},{380,312},{200,312}},
+          fillColor={235,235,235},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
         Polygon(
-          points={{400,332},{400,182},{380,162},{380,312},{400,332}}, 
-          fillColor={235,235,235}, 
-          fillPattern=FillPattern.Solid, 
-          lineColor={0,0,255}), 
+          points={{400,332},{400,182},{380,162},{380,312},{400,332}},
+          fillColor={235,235,235},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
         Text(
-          extent={{210,302},{370,272}}, 
-          lineColor={160,160,164}, 
-          fillColor={0,0,0}, 
-          fillPattern=FillPattern.Solid, 
-          textString="Library"), 
+          extent={{210,302},{370,272}},
+          lineColor={160,160,164},
+          fillColor={0,0,0},
+          fillPattern=FillPattern.Solid,
+          textString="Library"),
         Line(
-          points={{266,224},{312,224}}, 
-          color={0,0,0}, 
-          thickness=4), 
+          points={{266,224},{312,224}},
+          color={0,0,0},
+          thickness=4),
         Line(
-          points={{280,224},{276,214},{272,206},{266,198}}, 
-          color={0,0,0}, 
-          thickness=4), 
+          points={{280,224},{276,214},{272,206},{266,198}},
+          color={0,0,0},
+          thickness=4),
         Line(
-          points={{298,224},{302,216},{308,206},{314,198}}, 
-          color={0,0,0}, 
-          thickness=4), 
+          points={{298,224},{302,216},{308,206},{314,198}},
+          color={0,0,0},
+          thickness=4),
         Text(
-          extent={{152,412},{458,334}}, 
-          lineColor={255,0,0}, 
+          extent={{152,412},{458,334}},
+          lineColor={255,0,0},
           textString="Modelica.Constants")}));
 end Constants;

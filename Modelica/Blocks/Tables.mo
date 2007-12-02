@@ -1,31 +1,31 @@
 within Modelica.Blocks;
-package Tables 
-  "Library of blocks to interpolate in one and two-dimensional tables" 
+package Tables
+  "Library of blocks to interpolate in one and two-dimensional tables"
   extends Icons.Library;
-  model CombiTable1D 
-    "Table look-up in one dimension (matrix/file) with n inputs and n outputs " 
+  model CombiTable1D
+    "Table look-up in one dimension (matrix/file) with n inputs and n outputs "
     import Modelica.Blocks.Types;
-    parameter Boolean tableOnFile=false 
+    parameter Boolean tableOnFile=false
       "true, if table is defined on file or in function usertab" 
       annotation(Dialog(group="table data definition"));
-    parameter Real table[:, :]=fill(0.0,0,2) 
+    parameter Real table[:, :]=fill(0.0,0,2)
       "table matrix (grid = first column; e.g., table=[0,2])" 
          annotation(Dialog(group="table data definition", enable = not tableOnFile));
-    parameter String tableName="NoName" 
+    parameter String tableName="NoName"
       "table name on file or in function usertab (see docu)" 
          annotation(Dialog(group="table data definition", enable = tableOnFile));
     parameter String fileName="NoName" "file where matrix is stored" 
          annotation(Dialog(group="table data definition", enable = tableOnFile,
                            __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
                            caption="Open file in which table is present")));
-    parameter Integer columns[:]=2:size(table, 2) 
+    parameter Integer columns[:]=2:size(table, 2)
       "columns of table to be interpolated" 
     annotation(Dialog(group="table data interpretation"));
-    parameter Blocks.Types.Smoothness smoothness=Types.Smoothness.LinearSegments 
+    parameter Blocks.Types.Smoothness smoothness=Types.Smoothness.LinearSegments
       "smoothness of table interpolation" 
     annotation(Dialog(group="table data interpretation"));
     extends Modelica.Blocks.Interfaces.MIMOs(final n=size(columns, 1));
-  protected 
+  protected
     Real tableID;
     annotation (
       Documentation(info="<html>
@@ -130,90 +130,90 @@ Several matrices may be defined one after another.
           Line(points={{-60,40},{-60,-40},{60,-40},{60,40},{30,40},{30,-40},{-30,
                 -40},{-30,40},{-60,40},{-60,20},{60,20},{60,0},{-60,0},{-60,-20},
                 {60,-20},{60,-40},{-60,-40},{-60,40},{60,40},{60,-40}}, color={
-                0,0,0}), 
-          Line(points={{0,40},{0,-40}}, color={0,0,0}), 
+                0,0,0}),
+          Line(points={{0,40},{0,-40}}, color={0,0,0}),
           Rectangle(
-            extent={{-60,40},{-30,20}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-60,40},{-30,20}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-60,20},{-30,0}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-60,20},{-30,0}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-60,0},{-30,-20}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-60,0},{-30,-20}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-60,-20},{-30,-40}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
+            extent={{-60,-20},{-30,-40}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Rectangle(
-            extent={{-60,60},{60,-60}}, 
-            fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
-          Line(points={{-100,0},{-58,0}}, color={0,0,255}), 
-          Line(points={{60,0},{100,0}}, color={0,0,255}), 
+            extent={{-60,60},{60,-60}},
+            fillColor={235,235,235},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Line(points={{-100,0},{-58,0}}, color={0,0,255}),
+          Line(points={{60,0},{100,0}}, color={0,0,255}),
           Text(
-            extent={{-100,100},{100,64}}, 
-            textString="1 dimensional linear table interpolation", 
-            lineColor={0,0,255}), 
+            extent={{-100,100},{100,64}},
+            textString="1 dimensional linear table interpolation",
+            lineColor={0,0,255}),
           Line(points={{-54,40},{-54,-40},{54,-40},{54,40},{28,40},{28,-40},{-28,
                 -40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,-20},
                 {54,-20},{54,-40},{-54,-40},{-54,40},{54,40},{54,-40}}, color={
-                0,0,0}), 
-          Line(points={{0,40},{0,-40}}, color={0,0,0}), 
+                0,0,0}),
+          Line(points={{0,40},{0,-40}}, color={0,0,0}),
           Rectangle(
-            extent={{-54,40},{-28,20}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-54,40},{-28,20}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-54,20},{-28,0}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-54,20},{-28,0}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-54,0},{-28,-20}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-54,0},{-28,-20}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-54,-20},{-28,-40}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-54,-20},{-28,-40}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-50,54},{-32,42}}, 
-            textString="u[1]/[2]", 
-            lineColor={0,0,255}), 
+            extent={{-50,54},{-32,42}},
+            textString="u[1]/[2]",
+            lineColor={0,0,255}),
           Text(
-            extent={{-24,54},{0,42}}, 
-            textString="y[1]", 
-            lineColor={0,0,255}), 
+            extent={{-24,54},{0,42}},
+            textString="y[1]",
+            lineColor={0,0,255}),
           Text(
-            extent={{-2,-40},{30,-54}}, 
-            textString="columns", 
-            lineColor={0,0,255}), 
+            extent={{-2,-40},{30,-54}},
+            textString="columns",
+            lineColor={0,0,255}),
           Text(
-            extent={{2,54},{26,42}}, 
-            textString="y[2]", 
+            extent={{2,54},{26,42}},
+            textString="y[2]",
             lineColor={0,0,255})}));
-  equation 
+  equation
     if tableOnFile then
       assert(tableName<>"NoName", "tableOnFile = true and no table name given");
     end if;
     if not tableOnFile then
       assert(size(table,1) > 0 and size(table,2) > 0, "tableOnFile = false and parameter table is an empty matrix");
     end if;
-    
+
     for i in 1:n loop
       y[i] = if not tableOnFile and size(table,1)==1 then 
                table[1, columns[i]] else dymTableIpo1(tableID, columns[i], u[i]);
@@ -222,32 +222,32 @@ Several matrices may be defined one after another.
       tableID=dymTableInit(1.0, smoothness-1, if tableOnFile then tableName else "NoName", if tableOnFile then fileName else "NoName", table, 0.0);
     end when;
   end CombiTable1D;
-  
-  model CombiTable1Ds 
-    "Table look-up in one dimension (matrix/file) with one input and n outputs" 
-    
+
+  model CombiTable1Ds
+    "Table look-up in one dimension (matrix/file) with one input and n outputs"
+
     import Modelica.Blocks.Types;
-    parameter Boolean tableOnFile=false 
+    parameter Boolean tableOnFile=false
       "true, if table is defined on file or in function usertab" 
       annotation(Dialog(group="table data definition"));
-    parameter Real table[:, :]=fill(0.0,0,2) 
+    parameter Real table[:, :]=fill(0.0,0,2)
       "table matrix (grid = first column; e.g., table=[0,2])" 
          annotation(Dialog(group="table data definition", enable = not tableOnFile));
-    parameter String tableName="NoName" 
+    parameter String tableName="NoName"
       "table name on file or in function usertab (see docu)" 
          annotation(Dialog(group="table data definition", enable = tableOnFile));
     parameter String fileName="NoName" "file where matrix is stored" 
          annotation(Dialog(group="table data definition", enable = tableOnFile,
                            __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
                            caption="Open file in which table is present")));
-    parameter Integer columns[:]=2:size(table, 2) 
+    parameter Integer columns[:]=2:size(table, 2)
       "columns of table to be interpolated" 
     annotation(Dialog(group="table data interpretation"));
-    parameter Blocks.Types.Smoothness smoothness=Types.Smoothness.LinearSegments 
+    parameter Blocks.Types.Smoothness smoothness=Types.Smoothness.LinearSegments
       "smoothness of table interpolation" 
     annotation(Dialog(group="table data interpretation"));
     extends Modelica.Blocks.Interfaces.SIMO(final nout=size(columns, 1));
-  protected 
+  protected
     Real tableID;
     annotation (
       Documentation(info="<html>
@@ -352,90 +352,90 @@ Several matrices may be defined one after another.
           Line(points={{-60,40},{-60,-40},{60,-40},{60,40},{30,40},{30,-40},{-30,
                 -40},{-30,40},{-60,40},{-60,20},{60,20},{60,0},{-60,0},{-60,-20},
                 {60,-20},{60,-40},{-60,-40},{-60,40},{60,40},{60,-40}}, color={
-                0,0,0}), 
-          Line(points={{0,40},{0,-40}}, color={0,0,0}), 
+                0,0,0}),
+          Line(points={{0,40},{0,-40}}, color={0,0,0}),
           Rectangle(
-            extent={{-60,40},{-30,20}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-60,40},{-30,20}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-60,20},{-30,0}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-60,20},{-30,0}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-60,0},{-30,-20}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-60,0},{-30,-20}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-60,-20},{-30,-40}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
+            extent={{-60,-20},{-30,-40}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Rectangle(
-            extent={{-60,60},{60,-60}}, 
-            fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
-          Line(points={{-100,0},{-58,0}}, color={0,0,255}), 
-          Line(points={{60,0},{100,0}}, color={0,0,255}), 
+            extent={{-60,60},{60,-60}},
+            fillColor={235,235,235},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Line(points={{-100,0},{-58,0}}, color={0,0,255}),
+          Line(points={{60,0},{100,0}}, color={0,0,255}),
           Text(
-            extent={{-100,100},{100,64}}, 
-            textString="1 dimensional linear table interpolation", 
-            lineColor={0,0,255}), 
+            extent={{-100,100},{100,64}},
+            textString="1 dimensional linear table interpolation",
+            lineColor={0,0,255}),
           Line(points={{-54,40},{-54,-40},{54,-40},{54,40},{28,40},{28,-40},{-28,
                 -40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,-20},
                 {54,-20},{54,-40},{-54,-40},{-54,40},{54,40},{54,-40}}, color={
-                0,0,0}), 
-          Line(points={{0,40},{0,-40}}, color={0,0,0}), 
+                0,0,0}),
+          Line(points={{0,40},{0,-40}}, color={0,0,0}),
           Rectangle(
-            extent={{-54,40},{-28,20}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-54,40},{-28,20}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-54,20},{-28,0}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-54,20},{-28,0}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-54,0},{-28,-20}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-54,0},{-28,-20}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-54,-20},{-28,-40}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-54,-20},{-28,-40}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-52,56},{-34,44}}, 
-            textString="u", 
-            lineColor={0,0,255}), 
+            extent={{-52,56},{-34,44}},
+            textString="u",
+            lineColor={0,0,255}),
           Text(
-            extent={{-22,54},{2,42}}, 
-            textString="y[1]", 
-            lineColor={0,0,255}), 
+            extent={{-22,54},{2,42}},
+            textString="y[1]",
+            lineColor={0,0,255}),
           Text(
-            extent={{4,54},{28,42}}, 
-            textString="y[2]", 
-            lineColor={0,0,255}), 
+            extent={{4,54},{28,42}},
+            textString="y[2]",
+            lineColor={0,0,255}),
           Text(
-            extent={{0,-40},{32,-54}}, 
-            textString="columns", 
+            extent={{0,-40},{32,-54}},
+            textString="columns",
             lineColor={0,0,255})}));
-  equation 
+  equation
     if tableOnFile then
       assert(tableName<>"NoName", "tableOnFile = true and no table name given");
     end if;
     if not tableOnFile then
       assert(size(table,1) > 0 and size(table,2) > 0, "tableOnFile = false and parameter table is an empty matrix");
     end if;
-    
+
     for i in 1:nout loop
       y[i] = if not tableOnFile and size(table,1)==1 then 
                table[1, columns[i]] else dymTableIpo1(tableID, columns[i], u);
@@ -444,26 +444,26 @@ Several matrices may be defined one after another.
       tableID=dymTableInit(1.0, smoothness-1, if tableOnFile then tableName else "NoName", if tableOnFile then fileName else "NoName", table, 0.0);
     end when;
   end CombiTable1Ds;
-  
-  model CombiTable2D "Table look-up in two dimensions (matrix/file) " 
-    
+
+  model CombiTable2D "Table look-up in two dimensions (matrix/file) "
+
     import Modelica.Blocks.Types;
     extends Modelica.Blocks.Interfaces.SI2SO;
-    
-    parameter Boolean tableOnFile=false 
+
+    parameter Boolean tableOnFile=false
       "true, if table is defined on file or in function usertab" 
       annotation(Dialog(group="table data definition"));
-    parameter Real table[:, :]=fill(0.0,0,2) 
+    parameter Real table[:, :]=fill(0.0,0,2)
       "table matrix (grid u1 = first column, grid u2 = first row; e.g. table=[0,0;0,1])"
          annotation(Dialog(group="table data definition", enable = not tableOnFile));
-    parameter String tableName="NoName" 
+    parameter String tableName="NoName"
       "table name on file or in function usertab (see docu)" 
          annotation(Dialog(group="table data definition", enable = tableOnFile));
     parameter String fileName="NoName" "file where matrix is stored" 
          annotation(Dialog(group="table data definition", enable = tableOnFile,
                            __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
                            caption="Open file in which table is present")));
-    parameter Blocks.Types.Smoothness smoothness=Types.Smoothness.LinearSegments 
+    parameter Blocks.Types.Smoothness smoothness=Types.Smoothness.LinearSegments
       "smoothness of table interpolation" 
     annotation(Dialog(group="table data interpretation"));
     annotation (
@@ -577,111 +577,111 @@ and the first row \"table2D_1[1,2:]\" contains the u[2] grid points.
           Line(points={{-60,40},{-60,-40},{60,-40},{60,40},{30,40},{30,-40},{-30,
                 -40},{-30,40},{-60,40},{-60,20},{60,20},{60,0},{-60,0},{-60,-20},
                 {60,-20},{60,-40},{-60,-40},{-60,40},{60,40},{60,-40}}, color={
-                0,0,0}), 
-          Line(points={{0,40},{0,-40}}, color={0,0,0}), 
+                0,0,0}),
+          Line(points={{0,40},{0,-40}}, color={0,0,0}),
           Rectangle(
-            extent={{-60,20},{-30,0}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-60,20},{-30,0}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-60,0},{-30,-20}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-60,0},{-30,-20}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-60,-20},{-30,-40}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-60,-20},{-30,-40}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-30,40},{0,20}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-30,40},{0,20}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{0,40},{30,20}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{0,40},{30,20}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{30,40},{60,20}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-60,40},{-30,20}}, color={0,0,0}), 
+            extent={{30,40},{60,20}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-60,40},{-30,20}}, color={0,0,0}),
           Line(points={{-30,40},{-60,20}}, color={0,0,0})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Rectangle(
-            extent={{-60,60},{60,-60}}, 
-            fillColor={235,235,235}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
-          Line(points={{60,0},{100,0}}, color={0,0,255}), 
+            extent={{-60,60},{60,-60}},
+            fillColor={235,235,235},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Line(points={{60,0},{100,0}}, color={0,0,255}),
           Text(
-            extent={{-100,100},{100,64}}, 
-            textString="2 dimensional linear table interpolation", 
-            lineColor={0,0,255}), 
+            extent={{-100,100},{100,64}},
+            textString="2 dimensional linear table interpolation",
+            lineColor={0,0,255}),
           Line(points={{-54,40},{-54,-40},{54,-40},{54,40},{28,40},{28,-40},{-28,
                 -40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,-20},
                 {54,-20},{54,-40},{-54,-40},{-54,40},{54,40},{54,-40}}, color={
-                0,0,0}), 
-          Line(points={{0,40},{0,-40}}, color={0,0,0}), 
+                0,0,0}),
+          Line(points={{0,40},{0,-40}}, color={0,0,0}),
           Rectangle(
-            extent={{-54,20},{-28,0}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-54,20},{-28,0}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-54,0},{-28,-20}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-54,0},{-28,-20}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-54,-20},{-28,-40}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-54,-20},{-28,-40}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-28,40},{0,20}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-28,40},{0,20}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{0,40},{28,20}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{0,40},{28,20}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{28,40},{54,20}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,0}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-54,40},{-28,20}}, color={0,0,0}), 
-          Line(points={{-28,40},{-54,20}}, color={0,0,0}), 
+            extent={{28,40},{54,20}},
+            lineColor={0,0,0},
+            fillColor={255,255,0},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-54,40},{-28,20}}, color={0,0,0}),
+          Line(points={{-28,40},{-54,20}}, color={0,0,0}),
           Text(
-            extent={{-54,-40},{-30,-56}}, 
-            textString="u1", 
-            lineColor={0,0,255}), 
+            extent={{-54,-40},{-30,-56}},
+            textString="u1",
+            lineColor={0,0,255}),
           Text(
-            extent={{28,58},{52,44}}, 
-            textString="u2", 
-            lineColor={0,0,255}), 
+            extent={{28,58},{52,44}},
+            textString="u2",
+            lineColor={0,0,255}),
           Text(
-            extent={{-2,12},{32,-22}}, 
-            textString="y", 
+            extent={{-2,12},{32,-22}},
+            textString="y",
             lineColor={0,0,255})}));
-  protected 
+  protected
     Real tableID;
-  equation 
+  equation
     if tableOnFile then
       assert(tableName<>"NoName", "tableOnFile = true and no table name given");
     end if;
     if not tableOnFile then
       assert(size(table,1) > 0 and size(table,2) > 0, "tableOnFile = false and parameter table is an empty matrix");
     end if;
-    
+
     y = dymTableIpo2(tableID, u1, u2);
     when initial() then
       tableID=dymTableInit(2.0, smoothness-1, if tableOnFile then tableName else "NoName", if tableOnFile then fileName else "NoName", table, 0.0);

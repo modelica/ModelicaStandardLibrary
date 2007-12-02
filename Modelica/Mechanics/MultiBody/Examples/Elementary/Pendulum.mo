@@ -1,5 +1,5 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
-model Pendulum "Simple pendulum with one revolute joint and one body" 
+model Pendulum "Simple pendulum with one revolute joint and one body"
   extends Modelica.Icons.Example;
   annotation (
     experiment(StopTime=5),
@@ -34,7 +34,7 @@ ALT=\"model Examples.Elementary.Pendulum\">
     annotation (Placement(transformation(extent={{-20,40},{0,60}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.Body body(m=1.0, r_CM={0.5,0,0}) 
     annotation (Placement(transformation(extent={{20,0},{40,20}}, rotation=0)));
-equation 
+equation
   connect(world.frame_b, rev.frame_a) 
     annotation (Line(
       points={{-40,10},{-20,10}},

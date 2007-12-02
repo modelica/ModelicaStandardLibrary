@@ -1,9 +1,9 @@
 within Modelica.Electrical.Analog;
-package Sensors "Potential, voltage, current, and power sensors" 
-  
+package Sensors "Potential, voltage, current, and power sensors"
+
   extends Modelica.Icons.Library;
-  
-  annotation(
+
+  annotation (
     Window(
       x=0.03,
       y=0.04,
@@ -42,13 +42,13 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
 </html>"));
-  
-  model PotentialSensor "Sensor to measure the potential" 
+
+  model PotentialSensor "Sensor to measure the potential"
     extends Modelica.Icons.RotationalSensor;
-    
+
     Interfaces.PositivePin p "pin to be measured" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
-    Modelica.Blocks.Interfaces.RealOutput phi 
+    Modelica.Blocks.Interfaces.RealOutput phi
       "Absolute voltage potential as output signal" 
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
@@ -58,14 +58,14 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{-29,-11},{30,-70}}, 
-            lineColor={0,0,0}, 
-            textString="V"), 
-          Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-          Line(points={{100,0},{70,0}}, color={0,0,255}), 
+            extent={{-29,-11},{30,-70}},
+            lineColor={0,0,0},
+            textString="V"),
+          Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+          Line(points={{100,0},{70,0}}, color={0,0,255}),
           Text(
-            extent={{-150,80},{150,120}}, 
-            textString="%name", 
+            extent={{-150,80},{150,120}},
+            textString="%name",
             lineColor={0,0,255})}),
       Window(
         x=0.4,
@@ -86,19 +86,19 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        </li>
 </ul>
 </html>"));
-  equation 
+  equation
     p.i = 0;
     phi = p.v;
   end PotentialSensor;
-  
-  model VoltageSensor "Sensor to measure the voltage between two pins" 
+
+  model VoltageSensor "Sensor to measure the voltage between two pins"
     extends Modelica.Icons.RotationalSensor;
-    
+
     Interfaces.PositivePin p "positive pin" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
     Interfaces.NegativePin n "negative pin" annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
-    Modelica.Blocks.Interfaces.RealOutput v 
+    Modelica.Blocks.Interfaces.RealOutput v
       "Voltage between pin p and n (= p.v - n.v) as output signal" 
        annotation (Placement(transformation(
           origin={0,-100},
@@ -115,22 +115,22 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{-29,-11},{30,-70}}, 
-            lineColor={0,0,0}, 
-            textString="V"), 
-          Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-          Line(points={{70,0},{90,0}}, color={0,0,0}), 
-          Line(points={{0,-90},{0,-70}}, color={0,0,255}), 
+            extent={{-29,-11},{30,-70}},
+            lineColor={0,0,0},
+            textString="V"),
+          Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+          Line(points={{70,0},{90,0}}, color={0,0,0}),
+          Line(points={{0,-90},{0,-70}}, color={0,0,255}),
           Text(
-            extent={{-150,80},{150,120}}, 
-            textString="%name", 
+            extent={{-150,80},{150,120}},
+            textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
-          Line(points={{70,0},{96,0}}, color={0,0,0}), 
+          Line(points={{-70,0},{-96,0}}, color={0,0,0}),
+          Line(points={{70,0},{96,0}}, color={0,0,0}),
           Line(points={{0,-90},{0,-70}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
@@ -141,20 +141,20 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        </li>
 </ul>
 </html>"));
-  equation 
+  equation
     p.i = 0;
     n.i = 0;
     v = p.v - n.v;
   end VoltageSensor;
-  
-  model CurrentSensor "Sensor to measure the current in a branch" 
+
+  model CurrentSensor "Sensor to measure the current in a branch"
     extends Modelica.Icons.RotationalSensor;
-    
+
     Interfaces.PositivePin p "positive pin" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
     Interfaces.NegativePin n "negative pin" annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
-    Modelica.Blocks.Interfaces.RealOutput i 
+    Modelica.Blocks.Interfaces.RealOutput i
       "current in the branch from p to n as output signal" 
        annotation (Placement(transformation(
           origin={0,-100},
@@ -171,26 +171,26 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{-29,-11},{30,-70}}, 
-            lineColor={0,0,0}, 
-            textString="A"), 
-          Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
+            extent={{-29,-11},{30,-70}},
+            lineColor={0,0,0},
+            textString="A"),
+          Line(points={{-70,0},{-90,0}}, color={0,0,0}),
           Text(
-            extent={{-150,80},{150,120}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
-          Line(points={{70,0},{90,0}}, color={0,0,0}), 
+            extent={{-150,80},{150,120}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(points={{70,0},{90,0}}, color={0,0,0}),
           Line(points={{0,-90},{0,-70}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{-153,79},{147,119}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
-          Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
-          Line(points={{70,0},{96,0}}, color={0,0,0}), 
+            extent={{-153,79},{147,119}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(points={{-70,0},{-96,0}}, color={0,0,0}),
+          Line(points={{70,0},{96,0}}, color={0,0,0}),
           Line(points={{0,-90},{0,-70}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
@@ -201,24 +201,24 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        </li>
 </ul>
 </html>"));
-  equation 
+  equation
     p.v = n.v;
     p.i = i;
     n.i = -i;
   end CurrentSensor;
-  
-model PowerSensor "Sensor to measure the power" 
-  Modelica.Electrical.Analog.Interfaces.PositivePin pc 
+
+model PowerSensor "Sensor to measure the power"
+  Modelica.Electrical.Analog.Interfaces.PositivePin pc
       "Positive pin, current path" 
     annotation (Placement(transformation(extent={{-90,-10},{-110,10}}, rotation=
              0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin nc 
+  Modelica.Electrical.Analog.Interfaces.NegativePin nc
       "Negative pin, current path" 
     annotation (Placement(transformation(extent={{110,-10},{90,10}}, rotation=0)));
-  Modelica.Electrical.Analog.Interfaces.PositivePin pv 
+  Modelica.Electrical.Analog.Interfaces.PositivePin pv
       "Positive pin, voltage path" 
     annotation (Placement(transformation(extent={{-10,110},{10,90}}, rotation=0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin nv 
+  Modelica.Electrical.Analog.Interfaces.NegativePin nv
       "Negative pin, voltage path" 
     annotation (Placement(transformation(extent={{10,-110},{-10,-90}}, rotation=
              0)));
@@ -246,37 +246,37 @@ model PowerSensor "Sensor to measure the power"
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Ellipse(
-            extent={{-70,70},{70,-70}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{0,100},{0,70}}, color={0,0,255}), 
-          Line(points={{0,-70},{0,-100}}, color={0,0,255}), 
-          Line(points={{-80,-100},{-80,0}}, color={0,0,255}), 
-          Line(points={{-100,0},{100,0}}, color={0,0,255}), 
+            extent={{-70,70},{70,-70}},
+            lineColor={0,0,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{0,100},{0,70}}, color={0,0,255}),
+          Line(points={{0,-70},{0,-100}}, color={0,0,255}),
+          Line(points={{-80,-100},{-80,0}}, color={0,0,255}),
+          Line(points={{-100,0},{100,0}}, color={0,0,255}),
           Text(
-            extent={{150,120},{-150,160}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
-          Line(points={{0,70},{0,40}}, color={0,0,0}), 
-          Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}), 
-          Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}), 
-          Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}), 
-          Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}), 
-          Line(points={{0,0},{9.02,28.6}}, color={0,0,0}), 
+            extent={{150,120},{-150,160}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(points={{0,70},{0,40}}, color={0,0,0}),
+          Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
+          Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
+          Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
+          Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
+          Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
           Polygon(
-            points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+            points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{-5,5},{5,-5}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-5,5},{5,-5}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-29,-11},{30,-70}}, 
-            lineColor={0,0,0}, 
+            extent={{-29,-11},{30,-70}},
+            lineColor={0,0,0},
             textString="P")}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -294,7 +294,7 @@ This power sensor measures instantaneous electrical power of a singlephase syste
        </li>
 </ul>
 </html>"));
-equation 
+equation
   connect(pv, voltageSensor.p) annotation (Line(points={{0,100},{0,-20},{
             6.12323e-016,-20}}, color={0,0,255}));
   connect(voltageSensor.n, nv) annotation (Line(points={{-6.12323e-016,-40},{

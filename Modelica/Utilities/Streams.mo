@@ -1,9 +1,8 @@
 within Modelica.Utilities;
-package Streams "Read from files and write to files" 
+package Streams "Read from files and write to files"
   extends Modelica.Icons.Library;
-  
+
   annotation (
-  
     Documentation(info="<HTML>
 <h4>Library content</h4>
 <p>
@@ -70,16 +69,16 @@ Example:
 </pre>
 </HTML>
 "));
-  
-  function print "Print string to terminal or file" 
+
+  function print "Print string to terminal or file"
     extends Modelica.Icons.Function;
     input String string="" "String to be printed";
-    input String fileName="" 
+    input String fileName=""
       "File where to print (empty string is the terminal)" 
                  annotation(Dialog(__Dymola_saveSelector(filter="Text files (*.txt)",
                         caption="Text file to store the output of print(..)")));
   external "C" ModelicaInternal_print(string, fileName);
-    annotation (  
+    annotation (
   Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -112,15 +111,15 @@ After every call of \"print(..)\" a \"new line\" is printed automatically.
 </p>
 </HTML>"));
   end print;
-  
-  function readFile 
-    "Read content of a file and return it in a vector of strings" 
+
+  function readFile
+    "Read content of a file and return it in a vector of strings"
     extends Modelica.Icons.Function;
     input String fileName "Name of the file that shall be read" 
                  annotation(Dialog(__Dymola_loadSelector(filter="Text files (*.txt)",
                         caption="Open text file for reading")));
     output String stringVector[countLines(fileName)] "Content of file";
-    
+
     annotation ( Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -132,23 +131,23 @@ Function <b>readFile</b>(..) opens the given file, reads the complete
 content, closes the file and returns the content as a vector of strings. Lines are separated by LF or CR-LF; the returned strings do not contain the line separators. 
 </p>
 </html>"));
-    
-  algorithm 
+
+  algorithm
     for i in 1:size(stringVector, 1) loop
       stringVector[i] := readLine(fileName, i);
     end for;
     Streams.close(fileName);
   end readFile;
-  
-  function readLine 
-    "Reads a line of text from a file and returns it in a string" 
+
+  function readLine
+    "Reads a line of text from a file and returns it in a string"
     extends Modelica.Icons.Function;
     input String fileName "Name of the file that shall be read" 
                         annotation(Dialog(__Dymola_loadSelector(filter="Text files (*.txt)",
                         caption="Open text file for reading")));
     input Integer lineNumber(min=1) "Number of line to read";
     output String string "Line of text";
-    output Boolean endOfFile 
+    output Boolean endOfFile
       "If true, end-of-file was reached when trying to read line";
    external "C" string=  ModelicaInternal_readLine(fileName,lineNumber,endOfFile);
     annotation (Documentation(info="<html>
@@ -170,13 +169,13 @@ and endOfFile=true. Otherwise endOfFile=false.
 </p>
 </html>"));
   end readLine;
-  
-  function countLines "Returns the number of lines in a file" 
+
+  function countLines "Returns the number of lines in a file"
     extends Modelica.Icons.Function;
     input String fileName "Name of the file that shall be read" 
                        annotation(Dialog(__Dymola_loadSelector(filter="Text files (*.txt)",
                         caption="Open text file for coutning lines")));
-    
+
     output Integer numberOfLines "Number of lines in file";
   external "C" numberOfLines=  ModelicaInternal_countLines(fileName);
     annotation (Documentation(info="<html>
@@ -192,12 +191,12 @@ separated by LF or CR-LF.
 </p>
 </html>"));
   end countLines;
-  
-  function error "Print error message and cancel all actions" 
+
+  function error "Print error message and cancel all actions"
     extends Modelica.Icons.Function;
     input String string "String to be printed to error message window";
     external "C" ModelicaError(string);
-    annotation (  
+    annotation (
   Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -221,8 +220,8 @@ by \"\\n\" in the string.
 </p>
 </html>"));
   end error;
-  
-  function close "Close file" 
+
+  function close "Close file"
     extends Modelica.Icons.Function;
     input String fileName "Name of the file that shall be closed" 
                  annotation(Dialog(__Dymola_loadSelector(filter="Text files (*.txt)",

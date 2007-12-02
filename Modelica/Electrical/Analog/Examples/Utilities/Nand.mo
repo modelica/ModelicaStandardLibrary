@@ -1,40 +1,40 @@
 within Modelica.Electrical.Analog.Examples.Utilities;
-model Nand "CMOS NAND Gate (see Tietze/Schenk, page 157)" 
-  
+model Nand "CMOS NAND Gate (see Tietze/Schenk, page 157)"
+
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={1,1}), graphics={
         Rectangle(
-          extent={{-50,70},{50,-70}}, 
-          lineColor={0,0,0}, 
-          fillColor={192,192,192}, 
-          fillPattern=FillPattern.Solid), 
+          extent={{-50,70},{50,-70}},
+          lineColor={0,0,0},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
         Ellipse(
-          extent={{50,5},{60,-5}}, 
-          lineColor={0,0,0}, 
-          pattern=LinePattern.None), 
+          extent={{50,5},{60,-5}},
+          lineColor={0,0,0},
+          pattern=LinePattern.None),
         Text(
-          extent={{-16,50},{14,20}}, 
-          lineColor={0,0,0}, 
-          textString="&"), 
-        Line(points={{60,0},{100,0}}, color={0,0,255}), 
-        Line(points={{0,70},{0,100}}, color={0,0,255}), 
-        Line(points={{-50,50},{-100,50}}, color={0,0,255}), 
-        Line(points={{-50,-50},{-100,-50}}, color={0,0,255}), 
-        Ellipse(extent={{50,5},{60,-5}}, lineColor={0,0,0}), 
+          extent={{-16,50},{14,20}},
+          lineColor={0,0,0},
+          textString="&"),
+        Line(points={{60,0},{100,0}}, color={0,0,255}),
+        Line(points={{0,70},{0,100}}, color={0,0,255}),
+        Line(points={{-50,50},{-100,50}}, color={0,0,255}),
+        Line(points={{-50,-50},{-100,-50}}, color={0,0,255}),
+        Ellipse(extent={{50,5},{60,-5}}, lineColor={0,0,0}),
         Text(
-          extent={{-100,34},{-90,24}}, 
-          textString="x1", 
-          lineColor={0,0,255}), 
+          extent={{-100,34},{-90,24}},
+          textString="x1",
+          lineColor={0,0,255}),
         Text(
-          extent={{-100,-65},{-90,-75}}, 
-          textString="x2", 
-          lineColor={0,0,255}), 
+          extent={{-100,-65},{-90,-75}},
+          textString="x2",
+          lineColor={0,0,255}),
         Text(
-          extent={{90,-15},{100,-25}}, 
-          textString="y", 
+          extent={{90,-15},{100,-25}},
+          textString="y",
           lineColor={0,0,255})}),
     Documentation(info="<html>
 <p>
@@ -152,7 +152,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             110}}, rotation=0)));
   Interfaces.Pin y annotation (Placement(transformation(extent={{90,-10},{110,
             10}}, rotation=0)));
-equation 
+equation
   connect(TN1.S, TN2.D) annotation (Line(points={{30,20},{30,-10}}));
   connect(TN2.B, Gnd.p) annotation (Line(points={{30,-15},{38,-15},{38,-15},{45,
           -15}}));

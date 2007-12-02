@@ -1,14 +1,14 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
-model PointGravityWithPointMasses2 
-  "Rigidly connected point masses in a point gravity field" 
+model PointGravityWithPointMasses2
+  "Rigidly connected point masses in a point gravity field"
   extends Modelica.Icons.Example;
   model PointMass = Modelica.Mechanics.MultiBody.Parts.PointMass (m=1, sphereColor={
           255,0,0}) "Point mass used at all places of this example";
-  
+
   PointMass pointMass1(r_0(start={3,0,0}, fixed=true), v_0(start={0,0,-1},
         fixed=true))   annotation (Placement(transformation(extent={{60,-10},{
             80,10}}, rotation=0)));
-  
+
   PointMass pointMass2 annotation (Placement(transformation(extent={{-60,-10},{
             -40,10}}, rotation=0)));
   PointMass pointMass3(r_0(start={2,1,0}, fixed=true), v_0(start={0,0,-1},
@@ -20,7 +20,7 @@ model PointGravityWithPointMasses2
             100}}, rotation=0)));
   PointMass pointMass6 annotation (Placement(transformation(extent={{0,-100},{
             20,-80}}, rotation=0)));
-  
+
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(r={1,0,0}) 
                   annotation (Placement(transformation(extent={{20,-10},{40,10}},
           rotation=0)));
@@ -43,12 +43,11 @@ model PointGravityWithPointMasses2
         origin={10,-60},
         extent={{10,-10},{-10,10}},
         rotation=90)));
-  
+
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
             -100},{100,100}}),
                       graphics),
     experiment(StopTime=3, Tolerance=1e-006),
-    
     Documentation(info="<html>
 <p>
 This model demonstrates the usage of model Parts.PointMass in a 
@@ -77,18 +76,19 @@ its bodies in \"blue\".
 <IMG SRC=\"../Images/MultiBody/Examples/Elementary/PointGravityWithPointMasses2.png\">
 </p>
 </html>"));
+
   inner World world(                             gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity, mue=
         5) 
     annotation (Placement(transformation(extent={{-80,60},{-60,80}}, rotation=0)));
   Joints.FreeMotion freeMotion annotation (Placement(transformation(extent={{
             -40,60},{-20,80}}, rotation=0)));
-  
-model SystemWithStandardBodies 
-    "For comparison purposes, an equivalent model with Bodies instead of PointMasses" 
+
+model SystemWithStandardBodies
+    "For comparison purposes, an equivalent model with Bodies instead of PointMasses"
   extends Modelica.Icons.Example;
-  model PointMass = Modelica.Mechanics.MultiBody.Parts.Body(m=1,I_11=0,I_22=0,I_33=0) 
+  model PointMass = Modelica.Mechanics.MultiBody.Parts.Body(m=1,I_11=0,I_22=0,I_33=0)
       "Body used all places of the comparision model with zero inertia tensor";
-    
+
   PointMass pointMass1(
       r_0(start={3,0,0}, fixed=true),
       v_0(start={0,0,-1}, fixed=true),
@@ -105,7 +105,7 @@ model SystemWithStandardBodies
               80}}, rotation=0)));
   PointMass pointMass6 annotation (Placement(transformation(extent={{2,-102},{
               22,-82}}, rotation=0)));
-    
+
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation( r={1,0,0}) 
                   annotation (Placement(transformation(extent={{0,-20},{20,0}},
             rotation=0)));
@@ -128,7 +128,7 @@ model SystemWithStandardBodies
           origin={-10,-70},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-    
+
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}),
                       graphics),
@@ -140,8 +140,8 @@ an equivalent system is setup, with the only difference that the
 point masses are replaced by Bodies with zero inertia.
 </p>
 </html>"));
-    
-equation 
+
+equation
   connect(fixedTranslation1.frame_a, fixedTranslation.frame_a) 
                                                          annotation (Line(
         points={{-20,-10},{0,-10}},
@@ -198,10 +198,10 @@ equation
         color={95,95,95},
         thickness=2));
 end SystemWithStandardBodies;
-  
+
   SystemWithStandardBodies referenceSystem annotation (Placement(transformation(
           extent={{60,-60},{80,-40}}, rotation=0)));
-equation 
+equation
   connect(fixedTranslation1.frame_a, fixedTranslation.frame_a) 
                                                          annotation (Line(
       points={{0,0},{20,0}},

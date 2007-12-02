@@ -1,6 +1,6 @@
 within Modelica.Mechanics.MultiBody.Examples.Loops;
-model Engine1b_analytic 
-  "Model of one cylinder engine with gas force and analytic loop handling" 
+model Engine1b_analytic
+  "Model of one cylinder engine with gas force and analytic loop handling"
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
   extends Utilities.Engine1bBase;
@@ -39,7 +39,7 @@ An animation of this example is shown in the figure below.
         origin={30,54},
         extent={{-20,20},{20,-20}},
         rotation=90)));
-equation 
+equation
   connect(Mid.frame_b, jointRRP.frame_a) annotation (Line(
       points={{50,-43},{58,-43},{58,-30},{30,-30},{30,34}},
       color={95,95,95},

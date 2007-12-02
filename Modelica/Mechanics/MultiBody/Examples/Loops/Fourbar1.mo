@@ -1,10 +1,10 @@
 within Modelica.Mechanics.MultiBody.Examples.Loops;
-model Fourbar1 
-  "One kinematic loop with four bars (with only revolute joints; 5 non-linear equations)" 
-  
+model Fourbar1
+  "One kinematic loop with four bars (with only revolute joints; 5 non-linear equations)"
+
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
-  
+
   output SI.Angle j1_phi "angle of revolute joint j1";
   output SI.Position j2_s "distance of prismatic joint j2";
   output SI.AngularVelocity j1_w "axis speed of revolute joint j1";
@@ -29,7 +29,7 @@ of revolute joint j1 is set to 300 deg/s in order to drive this loop.
 "), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}),
             graphics));
-  
+
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
         transformation(extent={{-100,-80},{-80,-60}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Joints.Revolute j1(
@@ -74,7 +74,7 @@ of revolute joint j1 is set to 300 deg/s in order to drive this loop.
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation b0(animation=false, r={1.2,0,0}) 
     annotation (Placement(transformation(extent={{-40,-80},{-20,-60}}, rotation=
            0)));
-equation 
+equation
   connect(j2.frame_b, b2.frame_a) annotation (Line(
       points={{30,-70},{50,-70},{50,-60}},
       color={95,95,95},

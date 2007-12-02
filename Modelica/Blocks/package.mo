@@ -6,7 +6,7 @@ package Blocks "Library of basic input/output control blocks (continuous, discre
 extends Modelica.Icons.Library2;
 
 
-annotation(
+annotation (
   Window(
     x=0.03,
     y=0.05,
@@ -16,19 +16,19 @@ annotation(
     autolayout=1),
   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
       graphics={
-      Rectangle(extent={{-32,-6},{16,-35}}, lineColor={0,0,0}), 
-      Rectangle(extent={{-32,-56},{16,-85}}, lineColor={0,0,0}), 
-      Line(points={{16,-20},{49,-20},{49,-71},{16,-71}}, color={0,0,0}), 
-      Line(points={{-32,-72},{-64,-72},{-64,-21},{-32,-21}}, color={0,0,0}), 
+      Rectangle(extent={{-32,-6},{16,-35}}, lineColor={0,0,0}),
+      Rectangle(extent={{-32,-56},{16,-85}}, lineColor={0,0,0}),
+      Line(points={{16,-20},{49,-20},{49,-71},{16,-71}}, color={0,0,0}),
+      Line(points={{-32,-72},{-64,-72},{-64,-21},{-32,-21}}, color={0,0,0}),
       Polygon(
-        points={{16,-71},{29,-67},{29,-74},{16,-71}}, 
-        lineColor={0,0,0}, 
-        fillColor={0,0,0}, 
-        fillPattern=FillPattern.Solid), 
+        points={{16,-71},{29,-67},{29,-74},{16,-71}},
+        lineColor={0,0,0},
+        fillColor={0,0,0},
+        fillPattern=FillPattern.Solid),
       Polygon(
-        points={{-32,-21},{-46,-17},{-46,-25},{-32,-21}}, 
-        lineColor={0,0,0}, 
-        fillColor={0,0,0}, 
+        points={{-32,-21},{-46,-17},{-46,-25},{-32,-21}},
+        lineColor={0,0,0},
+        fillColor={0,0,0},
         fillPattern=FillPattern.Solid)}),
                           Documentation(info="<html>
 <p>
@@ -97,14 +97,14 @@ and the accompanying <b>disclaimer</b>
 </html>"));
 
 
-package Examples 
-  "Library of examples to demonstrate the usage of package Blocks" 
-  
+package Examples
+  "Library of examples to demonstrate the usage of package Blocks"
+
   extends Icons.Library;
-  
-  model PID_Controller "Demonstrate usage of the Continuous.LimPID controller" 
+
+  model PID_Controller "Demonstrate usage of the Continuous.LimPID controller"
     extends Modelica.Icons.Example;
-    parameter Modelica.SIunits.Angle driveAngle=1.57 
+    parameter Modelica.SIunits.Angle driveAngle=1.57
       "Reference distance to move";
     Modelica.Blocks.Continuous.LimPID PI(
       k=100,
@@ -125,26 +125,25 @@ package Examples
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-99,48},{-32,8}}, lineColor={255,0,0}), 
+          Rectangle(extent={{-99,48},{-32,8}}, lineColor={255,0,0}),
           Text(
-            extent={{-98,59},{-31,51}}, 
-            lineColor={255,0,0}, 
-            textString="reference speed generation"), 
+            extent={{-98,59},{-31,51}},
+            lineColor={255,0,0},
+            textString="reference speed generation"),
           Text(
-            extent={{-98,-46},{-60,-52}}, 
-            lineColor={255,0,0}, 
-            textString="PI controller"), 
+            extent={{-98,-46},{-60,-52}},
+            lineColor={255,0,0},
+            textString="PI controller"),
           Line(
-            points={{-76,-44},{-57,-23}}, 
-            color={255,0,0}, 
-            arrow={Arrow.None,Arrow.Filled}), 
-          Rectangle(extent={{-25,6},{99,-50}}, lineColor={255,0,0}), 
+            points={{-76,-44},{-57,-23}},
+            color={255,0,0},
+            arrow={Arrow.None,Arrow.Filled}),
+          Rectangle(extent={{-25,6},{99,-50}}, lineColor={255,0,0}),
           Text(
-            extent={{4,14},{71,7}}, 
-            lineColor={255,0,0}, 
+            extent={{4,14},{71,7}},
+            lineColor={255,0,0},
             textString="plant (simple drive train)")}),
       experiment(StopTime=4),
-      
       Documentation(info="<html>
 
 <p>
@@ -209,6 +208,7 @@ is forced back to its limit after a transient phase.
 </p>
 
 </html>"));
+
     Modelica.Mechanics.Rotational.Sources.Torque torque 
       annotation (Placement(transformation(extent={{-25,-20},{-5,0}}, rotation=
               0)));
@@ -238,7 +238,7 @@ is forced back to its limit after a transient phase.
               0)));
     Modelica.Mechanics.Rotational.Components.Fixed fixed 
       annotation (Placement(transformation(extent={{68,-35},{88,-15}})));
-  equation 
+  equation
     connect(spring.flange_b,inertia2. flange_a) 
       annotation (Line(points={{52,-10},{60,-10}}, color={0,0,0}));
     connect(inertia1.flange_b, spring.flange_a) 
@@ -266,9 +266,9 @@ is forced back to its limit after a transient phase.
         color={0,0,0},
         smooth=Smooth.None));
   end PID_Controller;
-  
-     model ShowLogicalSources 
-    "Show logical sources and demonstrate their diagram animation" 
+
+     model ShowLogicalSources
+    "Show logical sources and demonstrate their diagram animation"
        extends Modelica.Icons.Example;
        Sources.BooleanTable table(table={2,4,6,8}) 
                                        annotation (Placement(transformation(
@@ -281,7 +281,6 @@ is forced back to its limit after a transient phase.
           transformation(extent={{-60,-20},{-40,0}}, rotation=0)));
        annotation(Diagram(graphics),
       experiment(StopTime=10),
-      
       Documentation(info="<html>
 <p>
 This simple example demonstrates the logical sources in 
@@ -293,6 +292,7 @@ model.
 </p>
 
 </html>"));
+
       Sources.SampleTrigger sample(
                           period=0.5) annotation (Placement(transformation(
             extent={{-60,-60},{-40,-40}}, rotation=0)));
@@ -300,9 +300,9 @@ model.
                                                 y=pulse.y and step.y) 
       annotation (Placement(transformation(extent={{20,20},{80,40}}, rotation=0)));
      end ShowLogicalSources;
-  
-    model LogicalNetwork1 "Example for a network of logical blocks" 
-    
+
+    model LogicalNetwork1 "Example for a network of logical blocks"
+
     extends Modelica.Icons.Example;
     Sources.BooleanTable table2(table={1,3,5,7}) annotation (Placement(
           transformation(extent={{-80,-20},{-60,0}}, rotation=0)));
@@ -310,10 +310,9 @@ model.
           transformation(extent={{-80,20},{-60,40}}, rotation=0)));
     Logical.Not Not1 annotation (Placement(transformation(extent={{-40,-20},{
               -20,0}}, rotation=0)));
-    
+
     annotation(Diagram(graphics),
         experiment(StopTime=10),
-        
       Documentation(info="<html>
 <p>
 This example demonstrates a network of logical blocks. Note, that
@@ -323,14 +322,15 @@ If a \"circle\" is \"white\", the signal is <b>false</b>. It a
 \"circle\" is \"green\", the signal is <b>true</b>.
 </p>
 </html>"));
+
     Logical.And And1 annotation (Placement(transformation(extent={{0,-20},{20,0}},
             rotation=0)));
     Logical.Or Or1 annotation (Placement(transformation(extent={{40,20},{60,40}},
             rotation=0)));
     Logical.Pre Pre1 annotation (Placement(transformation(extent={{-40,-60},{
               -20,-40}}, rotation=0)));
-    equation 
-    
+    equation
+
     connect(table2.y, Not1.u) annotation (Line(points={{-59,-10},{-42,-10}},
           color={255,0,255}));
     connect(And1.y, Or1.u2) annotation (Line(points={{21,-10},{28,-10},{28,22},
@@ -343,9 +343,9 @@ If a \"circle\" is \"white\", the signal is <b>false</b>. It a
             -18},{-2,-18}}, color={255,0,255}));
     connect(Or1.y, Pre1.u) annotation (Line(points={{61,30},{68,30},{68,-70},{
             -60,-70},{-60,-50},{-42,-50}}, color={255,0,255}));
-    
+
     end LogicalNetwork1;
-  
+
   annotation (Documentation(info="<html>
 <p>
 This package contains example models to demonstrate the
@@ -353,10 +353,10 @@ usage of package blocks.
 </p>
 </HTML>
 "));
-  
-  model BusUsage "Demonstration of signal bus usage" 
+
+  model BusUsage "Demonstration of signal bus usage"
     extends Modelica.Icons.Example;
-    
+
     annotation (Documentation(info="<html>
 <p><b>Signal bus concept</b></p>
 <p>
@@ -472,7 +472,7 @@ just potential signals. The user might still add different signal names.
               -100},{100,100}}),
                    graphics),
       experiment(StopTime=2));
-  public 
+  public
     Modelica.Blocks.Sources.IntegerStep integerStep(
       height=1,
       offset=2,
@@ -484,21 +484,21 @@ just potential signals. The user might still add different signal names.
     Modelica.Blocks.Sources.Sine sine 
                                      annotation (Placement(transformation(
             extent={{-60,40},{-40,60}}, rotation=0)));
-    
+
     Modelica.Blocks.Examples.BusUsage_Utilities.Part part 
               annotation (Placement(transformation(extent={{-60,-80},{-40,-60}},
             rotation=0)));
     Modelica.Blocks.Math.Gain gain 
       annotation (Placement(transformation(extent={{-40,70},{-60,90}}, rotation=
              0)));
-  protected 
+  protected
     BusUsage_Utilities.Interfaces.ControlBus controlBus 
       annotation (Placement(transformation(
           origin={30,10},
           extent={{-20,20},{20,-20}},
           rotation=90)));
-  equation 
-    
+  equation
+
     connect(sine.y, controlBus.realSignal1) annotation (Line(
         points={{-39,50},{12,50},{12,14},{30,14},{30,10}},
         color={0,0,127},
@@ -521,21 +521,21 @@ just potential signals. The user might still add different signal names.
         color={0,0,127},
         smooth=Smooth.None));
   end BusUsage;
-  
-  package BusUsage_Utilities 
-    "Utility models and connectors for the demonstration example Modelica.Blocks.Examples.BusUsage" 
+
+  package BusUsage_Utilities
+    "Utility models and connectors for the demonstration example Modelica.Blocks.Examples.BusUsage"
     annotation (Documentation(info="<html>
 <p>
 This package contains utility models and bus definitions needed for the
 <a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
 </p>
 </html>"), Diagram(graphics));
-  package Interfaces "Interfaces specialised for this example" 
-      
-      expandable connector ControlBus 
-        "Empty control bus that is adapted to the signals connected to it" 
+  package Interfaces "Interfaces specialised for this example"
+
+      expandable connector ControlBus
+        "Empty control bus that is adapted to the signals connected to it"
         extends Modelica.Icons.SignalBus;
-        
+
         annotation (
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={Rectangle(
@@ -554,13 +554,13 @@ Note, this connector is \"empty\". When using it, the actual content is
 constructed by the signals connected to this bus.
 </p>
 </html>"));
-        
+
       end ControlBus;
-      
-      expandable connector SubControlBus 
-        "Empty sub-control bus that is adapted to the signals connected to it" 
+
+      expandable connector SubControlBus
+        "Empty sub-control bus that is adapted to the signals connected to it"
         extends Modelica.Icons.SignalSubBus;
-        
+
         annotation (defaultComponentPrefixes="protected",
                     Icon(coordinateSystem(preserveAspectRatio=true, extent={{
                   -100,-100},{100,100}}), graphics={Rectangle(
@@ -576,23 +576,23 @@ Note, this connector is \"empty\". When using it, the actual content is
 constructed by the signals connected to this bus.
 </p>
 </html>"));
-        
+
       end SubControlBus;
-      
-    package InternalConnectors 
-        "Internal definitions that are usually not utilized (only indirectly via the expandable connectors)" 
-        expandable connector StandardControlBus 
-          "Used to build up the standard control bus (do not use this connector)" 
-          extends 
+
+    package InternalConnectors
+        "Internal definitions that are usually not utilized (only indirectly via the expandable connectors)"
+        expandable connector StandardControlBus
+          "Used to build up the standard control bus (do not use this connector)"
+          extends
             Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.ControlBus;
-          
+
           import SI = Modelica.SIunits;
           SI.AngularVelocity realSignal1 "First Real signal (angular velocity)";
           SI.Velocity realSignal2 "Second Real signal";
           Integer integerSignal "Integer signal";
           Boolean booleanSignal "Boolean signal";
           StandardSubControlBus subControlBus "Combined signal";
-          
+
           annotation (
             Icon(graphics={Rectangle(
                   extent={{-20,2},{22,-2}},
@@ -606,17 +606,17 @@ to the
 <a href=\"Modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.ControlBus\">ControlBus</a>.
 </p>
 </html>"));
-          
+
         end StandardControlBus;
-        
-        expandable connector StandardSubControlBus 
-          "Used to build up the standard sub-control bus (do not use this connector)" 
-          extends 
+
+        expandable connector StandardSubControlBus
+          "Used to build up the standard sub-control bus (do not use this connector)"
+          extends
             Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.SubControlBus;
-          
+
           Real myRealSignal;
           Boolean myBooleanSignal;
-          
+
           annotation (defaultComponentPrefixes="protected",
                       Icon(graphics={Rectangle(
                   extent={{-20,2},{22,-2}},
@@ -648,9 +648,9 @@ This package contains the bus definitions needed for the
 </p>
 </html>"));
   end Interfaces;
-    
-   model Part "Component with sub-control bus" 
-      
+
+   model Part "Component with sub-control bus"
+
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{
                 -100,-100},{100,100}}), graphics={Rectangle(
               extent={{-100,60},{100,-60}},
@@ -683,7 +683,7 @@ This model is used to demonstrate the bus usage in example
      Sources.BooleanExpression booleanExpression(y=time > 0.5) 
        annotation (Placement(transformation(extent={{-6,-30},{20,-10}},
               rotation=0)));
-   equation 
+   equation
       connect(realExpression.y, subControlBus.myRealSignal) annotation (Line(
           points={{21.3,10},{88,10},{88,4},{96,4}},
           color={0,0,127},
@@ -694,7 +694,7 @@ This model is used to demonstrate the bus usage in example
           color={255,0,255},
           smooth=Smooth.None));
    end Part;
-    
+
   end BusUsage_Utilities;
 end Examples;
 end Blocks;

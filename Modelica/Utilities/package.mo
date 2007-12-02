@@ -6,7 +6,6 @@ package Utilities "Library of utility functions dedicated to scripting (operatin
     annotation (
   version="1.0",
   versionDate="2004-10-01",
-  
 Documentation(info="<html>
 <p>
 This package contains Modelica <b>functions</b> that are
@@ -54,8 +53,8 @@ and the accompanying <b>disclaimer</b>
 "));
 
 
-package UsersGuide "User's Guide of Utilities Library" 
-  
+package UsersGuide "User's Guide of Utilities Library"
+
   annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
 Library <b>Modelica.Utilities</b> contains Modelica <b>functions</b> that are
@@ -88,9 +87,9 @@ In the near future, an exception handling mechanism will be introduced
 in Modelica that will allow to catch errors at a defined place.
 </p>
 </HTML>"));
-  
-  class ImplementationNotes "Implementation Notes" 
-    
+
+  class ImplementationNotes "Implementation Notes"
+
     annotation (Documentation(info="<html>
 <p>
 Below the major design decisions of this library are summarized.
@@ -166,9 +165,9 @@ Below the major design decisions of this library are summarized.
 </html>
 "));
   end ImplementationNotes;
-  
-  class ReleaseNotes "Release notes" 
-    
+
+  class ReleaseNotes "Release notes"
+
     annotation (Documentation(info="<HTML>
 <h4>Version 1.0, 2004-09-29</h4>
 <p>
@@ -176,12 +175,12 @@ First version implemented.
 </p>
 </HTML>
 "));
-  equation 
-    
+  equation
+
   end ReleaseNotes;
-  
-  class Contact "Contact" 
-    
+
+  class Contact "Contact"
+
     annotation (Documentation(info="<html>
 <dl>
 <dt><b>Responsible for Library:</b>
@@ -208,14 +207,14 @@ First version implemented.
 </html>
 "));
   end Contact;
-  
+
 end UsersGuide;
 
-protected
 
-package Internal "Internal package as interface to the operating system" 
+protected 
+package Internal "Internal package as interface to the operating system"
  extends Modelica.Icons.Library;
-  annotation (  
+  annotation (
 Documentation(info="<html>
 <p>
 Package <b>Internal</b> is an internal package that contains 
@@ -234,67 +233,67 @@ representation of a string is hidden by this interface,
 especially if the operating system supports Unicode characters.
 </p>
 </html>"));
-  
-  function mkdir "Make directory (POSIX: 'mkdir')" 
+
+  function mkdir "Make directory (POSIX: 'mkdir')"
     extends Modelica.Icons.Function;
     input String directoryName "Make a new directory";
   external "C" ModelicaInternal_mkdir(directoryName);
   end mkdir;
-  
-  function rmdir "Remove empty directory (POSIX function 'rmdir')" 
+
+  function rmdir "Remove empty directory (POSIX function 'rmdir')"
     extends Modelica.Icons.Function;
     input String directoryName "Empty directory to be removed";
   external "C" ModelicaInternal_rmdir(directoryName);
   end rmdir;
-  
-  function stat "Inquire file information (POSIX function 'stat')" 
+
+  function stat "Inquire file information (POSIX function 'stat')"
     extends Modelica.Icons.Function;
     input String name "Name of file, directory, pipe etc.";
     output Types.FileType fileType "Type of file";
   external "C" fileType=  ModelicaInternal_stat(name);
   end stat;
-  
-  function rename "Rename existing file or directory (C function 'rename')" 
+
+  function rename "Rename existing file or directory (C function 'rename')"
     extends Modelica.Icons.Function;
     input String oldName "Current name";
     input String newName "New name";
   external "C" ModelicaInternal_rename(oldName, newName);
   end rename;
-  
-  function removeFile "Remove existing file (C function 'remove')" 
+
+  function removeFile "Remove existing file (C function 'remove')"
     extends Modelica.Icons.Function;
     input String fileName "File to be removed";
   external "C" ModelicaInternal_removeFile(fileName);
   end removeFile;
-  
-  function copyFile 
-    "Copy existing file (C functions 'fopen', 'getc', 'putc', 'fclose')" 
+
+  function copyFile
+    "Copy existing file (C functions 'fopen', 'getc', 'putc', 'fclose')"
     extends Modelica.Icons.Function;
     input String fromName "Name of file to be copied";
     input String toName "Name of copy of file";
   external "C" ModelicaInternal_copyFile(fromName, toName);
   end copyFile;
-  
-  function readDirectory 
-    "Read names of a directory (POSIX functions opendir, readdir, closedir)" 
+
+  function readDirectory
+    "Read names of a directory (POSIX functions opendir, readdir, closedir)"
     extends Modelica.Icons.Function;
-    input String directory 
+    input String directory
       "Name of the directory from which information is desired";
-    input Integer nNames 
+    input Integer nNames
       "Number of names that are returned (inquire with getNumberOfFiles)";
-    output String names[nNames] 
+    output String names[nNames]
       "All file and directory names in any order from the desired directory";
     external "C" ModelicaInternal_readDirectory(directory,nNames,names);
   end readDirectory;
-  
-function getNumberOfFiles 
-    "Get number of files and directories in a directory (POSIX functions opendir, readdir, closedir)" 
+
+function getNumberOfFiles
+    "Get number of files and directories in a directory (POSIX functions opendir, readdir, closedir)"
   extends Modelica.Icons.Function;
   input String directory "Directory name";
-  output Integer result 
+  output Integer result
       "Number of files and directories present in 'directory'";
   external "C" result = ModelicaInternal_getNumberOfFiles(directory);
 end getNumberOfFiles;
-  
+
 end Internal;
 end Utilities;

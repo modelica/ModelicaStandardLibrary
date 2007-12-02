@@ -1,5 +1,5 @@
 within Modelica.Mechanics.MultiBody;
-package Types "Constants and types with choices, especially to build menus" 
+package Types "Constants and types with choices, especially to build menus"
   extends Modelica.Icons.Library;
   annotation ( Documentation(info="<HTML>
 <p>
@@ -9,7 +9,7 @@ definitions that define the menus to be built up in the graphical
 user interface when the type is used as parameter in a declaration.
 </p>
 </HTML>"));
-  
+
   type Axis = Modelica.Icons.TypeReal[3] "Axis vector with choices for menus" annotation (
     preferedView="text",
     Evaluate=true,
@@ -22,15 +22,15 @@ user interface when the type is used as parameter in a declaration.
       choice={0,0,-1} "{0,0,-1} \"negative z axis\""),
     Documentation(info="<html>
 </html>"));
-  
-  type AxisLabel = Modelica.Icons.TypeString 
+
+  type AxisLabel = Modelica.Icons.TypeString
     "Label of axis with choices for menus"                                          annotation (
       preferedView="text", choices(
       choice="x" "x",
       choice="y" "y",
       choice="z" "z"));
-  
-  type RotationSequence = Modelica.Icons.TypeInteger[3] (min={1,1,1}, max={3,3,3}) 
+
+  type RotationSequence = Modelica.Icons.TypeInteger[3] (min={1,1,1}, max={3,3,3})
     "Sequence of planar frame rotations with choices for menus" annotation (
     preferedView="text",
     Evaluate=true,
@@ -38,8 +38,8 @@ user interface when the type is used as parameter in a declaration.
       choice={1,2,3} "{1,2,3} \"Cardan/Tait-Bryan angles\"",
       choice={3,1,3} "{3,1,3} \"Euler angles\"",
       choice={3,2,1} "{3,2,1}"));
-  
-  type Color = Modelica.Icons.TypeInteger[3] (each min=0, each max=255) 
+
+  type Color = Modelica.Icons.TypeInteger[3] (each min=0, each max=255)
     "RGB representation of color (will be improved with a color editor)" 
     annotation (
       Dialog(colorSelector),
@@ -67,10 +67,10 @@ Type <b>Color</b> is an Integer vector with 3 elements,
 Note, r g, b are given in the range 0 .. 255.
 </p>
 </html>"));
-  type SpecularCoefficient = Modelica.Icons.TypeReal 
+  type SpecularCoefficient = Modelica.Icons.TypeReal
     "Reflection of ambient light (= 0: light is completely absorbed)" 
        annotation ( min=0,
-         choices(choice=0 "\"0.0 (dull)\"",choice=0.7 "\"0.7 (medium)\"", choice=1 
+         choices(choice=0 "\"0.0 (dull)\"",choice=0.7 "\"0.7 (medium)\"", choice=1
         "\"1.0 (glossy)\""),
     Documentation(info="<html>
 <p>
@@ -87,7 +87,7 @@ are shown for a cylinder:
 <img src=\"../Images/MultiBody/Visualizers/SpecularCoefficient.png\"
 </p> 
 </html>"));
-  type ShapeType = Modelica.Icons.TypeString 
+  type ShapeType = Modelica.Icons.TypeString
     "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring, dxf-file)"
      annotation ( choices(
       choice="box" "\"box\"",
@@ -133,7 +133,7 @@ directory or in the directory where the Shape instance is stored
 that references the DXF file.
 </p>
 </html>"));
-  type ShapeExtra = Modelica.Icons.TypeReal 
+  type ShapeExtra = Modelica.Icons.TypeReal
     "Reflection of ambient light (= 0: light is completely absorbed)" 
        annotation ( min=0,
     Documentation(info="<html>
@@ -173,12 +173,12 @@ variable <b>extra</b> is used as instance name:
 </tr>
 </table>
 </html>"));
-  
+
   type ResolveInFrame1 = enumeration(
-      world "Resolve in world frame", 
-      frame_a "Resolve in frame_a", 
-      frame_resolve 
-        "Resolve in frame_resolve (frame_resolve must be connected)") 
+      world "Resolve in world frame",
+      frame_a "Resolve in frame_a",
+      frame_resolve
+        "Resolve in frame_resolve (frame_resolve must be connected)")
     "Enumeration to define the frame in which an absolute vector is resolved" 
                                                annotation (Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
@@ -194,11 +194,11 @@ variable <b>extra</b> is used as instance name:
 </table>
 </html>"));
   type ResolveInFrame2 = enumeration(
-      world "Resolve in world frame", 
-      frame_a "Resolve in frame_a", 
-      frame_b "Resolve in frame_b", 
-      frame_resolve 
-        "Resolve in frame_resolve (frame_resolve must be connected)") 
+      world "Resolve in world frame",
+      frame_a "Resolve in frame_a",
+      frame_b "Resolve in frame_b",
+      frame_resolve
+        "Resolve in frame_resolve (frame_resolve must be connected)")
     "Enumeration to define the frame in which a relative vector is resolved" 
                                                annotation (Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
@@ -216,11 +216,11 @@ variable <b>extra</b> is used as instance name:
     <td valign=\"top\">Resolve vector in frame_resolve (frame_resolve must be connected)</td></tr>
 </table>
 </html>"));
-  
+
   type RotationTypes = enumeration(
-      RotationAxis "Rotating frame_a around an angle with a fixed axis", 
-      TwoAxesVectors "Resolve two vectors of frame_b in frame_a", 
-      PlanarRotationSequence "Planar rotation sequence") 
+      RotationAxis "Rotating frame_a around an angle with a fixed axis",
+      TwoAxesVectors "Resolve two vectors of frame_b in frame_a",
+      PlanarRotationSequence "Planar rotation sequence")
     "Enumeration defining in which way the fixed orientation of frame_b with respect to frame_a is specified"
       annotation (Evaluate=true,
         Documentation(info="<html>
@@ -239,11 +239,11 @@ variable <b>extra</b> is used as instance name:
         (e.g. Cardan or Euler angle sequence rotation).</td></tr>
 </table>
 </html>"));
-  
+
   type GravityTypes = enumeration(
-      NoGravity "No gravity field", 
-      UniformGravity "Uniform gravity field", 
-      PointGravity "Point gravity field") 
+      NoGravity "No gravity field",
+      UniformGravity "Uniform gravity field",
+      PointGravity "Point gravity field")
     "Enumeration defining the type of the gravity field" 
       annotation (Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
@@ -260,17 +260,17 @@ variable <b>extra</b> is used as instance name:
         r is the distance to the field center.</td></tr>
 </table>
 </html>"));
-  
+
 type Init = enumeration(
-      Free, 
-      PositionVelocity, 
-      SteadyState, 
-      Position, 
-      Velocity, 
-      VelocityAcceleration, 
+      Free,
+      PositionVelocity,
+      SteadyState,
+      Position,
+      Velocity,
+      VelocityAcceleration,
       PositionVelocityAcceleration);
-  
-  package Defaults "Default settings of the MultiBody library via constants" 
+
+  package Defaults "Default settings of the MultiBody library via constants"
     annotation ( Documentation(info="<html>
 <p>
 This package contains constants used as default setting
@@ -278,45 +278,45 @@ in the MultiBody library.
 </p>
 </html>"));
     extends Modelica.Icons.Library;
-    
+
     // Color defaults
-    constant Types.Color BodyColor={0,128,255} 
+    constant Types.Color BodyColor={0,128,255}
       "Default color for body shapes that have mass (light blue)";
-    constant Types.Color RodColor={155,155,155} 
+    constant Types.Color RodColor={155,155,155}
       "Default color for massless rod shapes (grey)";
-    constant Types.Color JointColor={255,0,0} 
+    constant Types.Color JointColor={255,0,0}
       "Default color for elementary joints (red)";
-    constant Types.Color ForceColor={0,128,0} 
+    constant Types.Color ForceColor={0,128,0}
       "Default color for force arrow (dark green)";
-    constant Types.Color TorqueColor={0,128,0} 
+    constant Types.Color TorqueColor={0,128,0}
       "Default color for torque arrow (dark green)";
-    constant Types.Color SpringColor={0,0,255} 
+    constant Types.Color SpringColor={0,0,255}
       "Default color for a spring (blue)";
-    constant Types.Color SensorColor={255,255,0} 
+    constant Types.Color SensorColor={255,255,0}
       "Default color for sensors (yellow)";
-    constant Types.Color FrameColor={0,0,0} 
+    constant Types.Color FrameColor={0,0,0}
       "Default color for frame axes and labels (black)";
-    constant Types.Color ArrowColor={0,0,255} 
+    constant Types.Color ArrowColor={0,0,255}
       "Default color for arrows and double arrows (blue)";
-    
+
     // Arrow and frame defaults
-    constant Real FrameHeadLengthFraction=5.0 
+    constant Real FrameHeadLengthFraction=5.0
       "Frame arrow head length / arrow diameter";
-    constant Real FrameHeadWidthFraction=3.0 
+    constant Real FrameHeadWidthFraction=3.0
       "Frame arrow head width / arrow diameter";
-    constant Real FrameLabelHeightFraction=3.0 
+    constant Real FrameLabelHeightFraction=3.0
       "Height of frame label / arrow diameter";
-    constant Real ArrowHeadLengthFraction=4.0 
+    constant Real ArrowHeadLengthFraction=4.0
       "Arrow head length / arrow diameter";
-    constant Real ArrowHeadWidthFraction=3.0 
+    constant Real ArrowHeadWidthFraction=3.0
       "Arrow head width / arrow diameter";
-    
+
     // Other defaults
-    constant SI.Diameter BodyCylinderDiameterFraction=3 
+    constant SI.Diameter BodyCylinderDiameterFraction=3
       "Default for body cylinder diameter as a fraction of body sphere diameter";
-    constant Real JointRodDiameterFraction=2 
+    constant Real JointRodDiameterFraction=2
       "Default for rod diameter as a fraction of joint sphere diameter attached to rod";
-    
+
     /*
   constant Real N_to_m(unit="N/m") = 1000 
     "Default force arrow scaling (length = force/N_to_m_default)";
@@ -324,5 +324,5 @@ in the MultiBody library.
     "Default torque arrow scaling (length = torque/Nm_to_m_default)";
 */
   end Defaults;
-  
+
 end Types;

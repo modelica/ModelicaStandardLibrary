@@ -1,10 +1,10 @@
 within Modelica.Mechanics.MultiBody.Examples.Loops;
-model Fourbar_analytic 
-  "One kinematic loop with four bars (with JointSSP joint; analytic solution of non-linear algebraic loop)" 
-  
+model Fourbar_analytic
+  "One kinematic loop with four bars (with JointSSP joint; analytic solution of non-linear algebraic loop)"
+
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
-  
+
   output SI.Angle j1_phi "angle of revolute joint j1";
   output SI.Position j2_s "distance of prismatic joint j2";
   output SI.AngularVelocity j1_w "axis speed of revolute joint j1";
@@ -35,7 +35,7 @@ MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}),
             graphics));
-  
+
   inner Modelica.Mechanics.MultiBody.World world(animateGravity=false) 
     annotation (Placement(transformation(extent={{-80,-60},{-60,-40}}, rotation=
            0)));
@@ -72,7 +72,7 @@ MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
         origin={50,10},
         extent={{10,-10},{-10,10}},
         rotation=90)));
-equation 
+equation
   j1_phi = j1.phi;
   j2_s = jointSSP.prismatic.distance;
   j1_w = j1.w;

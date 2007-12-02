@@ -978,7 +978,8 @@ the definition of initial values considerably.
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={192,192,192}),
             Polygon(
-              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
+              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}}, 
+
               lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={128,128,128}),
@@ -1094,7 +1095,8 @@ Default values for all parameters are given for joint 4.
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={192,192,192}),
             Polygon(
-              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
+              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}}, 
+
               lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={128,128,128}),
@@ -1416,7 +1418,8 @@ produced by the motor).
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{-31,-41},{-78,-41},{-78,39},{-30,39}}, color={0,0,255}),
+            Line(points={{-31,-41},{-78,-41},{-78,39},{-30,39}}, color={0,0,255}), 
+
             Rectangle(
               extent={{-30,-26},{30,-56}},
               fillColor={255,255,255},
@@ -2088,7 +2091,6 @@ utilized by a user.
   end Components;
 
   annotation (
-    
     Documentation(info="<HTML>
 <p>
 This package contains models of the robot r3 of the company Manutec.
@@ -2155,4 +2157,5 @@ The reason to use simplified controllers is to have a simpler demo.
 </p>
 </HTML>
 "));
+
 end RobotR3;

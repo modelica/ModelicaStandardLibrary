@@ -1953,7 +1953,6 @@ computed as:
       color=arrowColor,
       specularCoefficient=specularCoefficient) if world.enableAnimation and animation;
     annotation (
-      
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{0,-60},{0,-100}}, color={0,0,255}),
@@ -2013,6 +2012,7 @@ passes through zero. The effect is, that the distance function is continuous and
 differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
 </p>
 </HTML>"));
+
   protected
     SI.Position r_rel_0[3] = frame_b.r_0 - frame_a.r_0
       "Position vector from frame_a to frame_b resolved in world frame";

@@ -1,5 +1,5 @@
 within Modelica.Electrical.Analog.Examples;
-model HeatingMOSInverter "Heating MOS Inverter" 
+model HeatingMOSInverter "Heating MOS Inverter"
   extends Modelica.Icons.Example;
   Modelica.Electrical.Analog.Basic.Ground G 
   annotation (Placement(transformation(extent={{-80,-40},{-60,-20}}, rotation=0)));
@@ -8,11 +8,11 @@ model HeatingMOSInverter "Heating MOS Inverter"
         origin={-70,0},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  
+
 annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={Text(
-          extent={{-100,100},{-6,72}}, 
-          textString="Heating MOS Inverter", 
+          extent={{-100,100},{-6,72}},
+          textString="Heating MOS Inverter",
           lineColor={0,0,255})}),   Documentation(info="<HTML>
 <P>
 The heating MOS inverter shows a heat flow always if a transistor is leading.
@@ -67,7 +67,7 @@ H_PMOS.heatPort.Q_flow and H_NMOS.heatPort.Q_flow<br>
         rotation=180)));
   Modelica.Thermal.HeatTransfer.Components.ThermalConductor TC3(G=0.01) 
   annotation (Placement(transformation(extent={{50,-40},{70,-20}}, rotation=0)));
-equation 
+equation
   connect(Sin.n, G.p) 
   annotation (Line(points={{-70,-10},{-70,-20}}, color={0,0,255}));
   connect(Capacitor1.n, G.p) 
@@ -95,9 +95,9 @@ H_PMOS.heatPort.Q_flow and H_NMOS.heatPort.Q_flow<br>
 "),
   experiment(
      StopTime=5));
-  
   connect(H_NMOS.G, H_PMOS.G) 
   annotation (Line(points={{-40,5},{-40,45}}, color={0,0,255}));
+
   connect(H_NMOS.G, Sin.p) 
   annotation (Line(points={{-40,5},{-40,10},{-70,10}}, color={0,0,255}));
   connect(H_PMOS.S, H_NMOS.D) 
