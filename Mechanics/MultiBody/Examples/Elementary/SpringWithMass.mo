@@ -1,5 +1,5 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
-model SpringWithMass "Point mass hanging on a spring" 
+model SpringWithMass "Point mass hanging on a spring"
   extends Modelica.Icons.Example;
   annotation (experiment(StopTime=5), Documentation(info="<html>
 <p>
@@ -33,7 +33,7 @@ ALT=\"model Examples.Elementary.SpringWithMass\">
         origin={10,-10},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-equation 
+equation
   connect(world.frame_b, spring.frame_a) 
     annotation (Line(
       points={{-20,50},{10,50},{10,40}},

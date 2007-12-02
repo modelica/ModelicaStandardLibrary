@@ -1,8 +1,8 @@
 within Modelica.Electrical.Analog.Examples;
-model CharacteristicThyristors "Characteristic of ideal thyristors" 
-  
+model CharacteristicThyristors "Characteristic of ideal thyristors"
+
   extends Modelica.Icons.Example;
-  
+
   Modelica.Electrical.Analog.Ideal.IdealThyristor IdealThyristor1(
                     Vknee=5) 
                            annotation (Placement(transformation(extent={{-20,0},
@@ -17,10 +17,10 @@ model CharacteristicThyristors "Characteristic of ideal thyristors"
   annotation (Placement(transformation(extent={{-50,-60},{-30,-40}}, rotation=0)));
   Modelica.Electrical.Analog.Basic.Resistor R3(R=1.e-3) 
   annotation (Placement(transformation(extent={{40,0},{60,20}}, rotation=0)));
-  
+
 annotation (Diagram(graphics={Text(
-          extent={{-96,100},{98,60}}, 
-          textString="Characteristic Thyristors", 
+          extent={{-96,100},{98,60}},
+          textString="Characteristic Thyristors",
           lineColor={0,0,255})}),        Documentation(info="<HTML>
 <P>
 Two examples of thyristors are shown:<br><br>
@@ -54,7 +54,7 @@ IdealThyristor1.v and IdealGTOThyristor1.v <br>
             -30},{0,-10}}, rotation=0)));
   Modelica.Electrical.Analog.Basic.Resistor R1(R=1.e-3) 
   annotation (Placement(transformation(extent={{40,-30},{60,-10}}, rotation=0)));
-  
+
 annotation (Documentation(info="<HTML>
 <P>
 Two examples of thyristors are shown:<br><br>
@@ -79,7 +79,7 @@ IdealThyristor1.v and IdealGTOThyristor1.v <br>
 "),
   experiment(
      StopTime=2));
-equation 
+equation
   connect(IdealThyristor1.n, R3.p) 
   annotation (Line(points={{0,10},{40,10}}, color={0,0,255}));
   connect(Ground1.p, SineVoltage1.n) 

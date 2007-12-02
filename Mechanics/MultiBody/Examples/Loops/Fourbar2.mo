@@ -1,10 +1,10 @@
 within Modelica.Mechanics.MultiBody.Examples.Loops;
-model Fourbar2 
-  "One kinematic loop with four bars (with UniversalSpherical joint; 1 non-linear equation)" 
-  
+model Fourbar2
+  "One kinematic loop with four bars (with UniversalSpherical joint; 1 non-linear equation)"
+
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
-  
+
   output SI.Angle j1_phi "angle of revolute joint j1";
   output SI.Position j2_s "distance of prismatic joint j2";
   output SI.AngularVelocity j1_w "axis speed of revolute joint j1";
@@ -54,7 +54,7 @@ for rodLength:
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}),
             graphics));
-  
+
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
         transformation(extent={{-80,-80},{-60,-60}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute j1(
@@ -94,7 +94,7 @@ for rodLength:
         origin={-6,70},
         extent={{-10,-10},{10,10}},
         rotation=90)));
-equation 
+equation
   j1_phi = j1.phi;
   j2_s = j2.s;
   j1_w = j1.w;

@@ -1,7 +1,7 @@
 within Modelica.Mechanics.MultiBody;
-package Visualizers "3-dimensional visual objects used for animation" 
+package Visualizers "3-dimensional visual objects used for animation"
   extends Modelica.Icons.Library;
-  
+
   annotation ( Documentation(info="<HTML>
 <p>
 Package <b>Visualizers</b> contains components to visualize
@@ -51,23 +51,23 @@ Note, r g, b are given as Integer[3] in the ranges 0 .. 255,
 respectively. 
 </p>
 </HTML>"));
-  
-  model FixedShape 
-    "Animation shape of a part with fixed shape type and dynamically varying shape definition" 
+
+  model FixedShape
+    "Animation shape of a part with fixed shape type and dynamically varying shape definition"
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
-    
+
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Types.ShapeType shapeType="box" "Type of shape" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Position r_shape[3]={0,0,0} 
+    input SI.Position r_shape[3]={0,0,0}
       "Vector from frame_a to shape origin, resolved in frame_a" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Axis lengthDirection={1,0,0} 
+    input Types.Axis lengthDirection={1,0,0}
       "Vector in length direction of shape, resolved in frame_a" 
       annotation (Evaluate=true, Dialog(group="if animation = true", enable=animation));
-    input Types.Axis widthDirection={0,1,0} 
+    input Types.Axis widthDirection={0,1,0}
       "Vector in width direction of shape, resolved in frame_a" 
       annotation (Evaluate=true, Dialog(group="if animation = true", enable=animation));
     input SI.Distance length(start=1) "Length of shape" 
@@ -76,13 +76,13 @@ respectively.
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Distance height(start=0.1) "Height of shape" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Modelica.Mechanics.MultiBody.Types.Color color={0,128,255} 
+    input Modelica.Mechanics.MultiBody.Types.Color color={0,128,255}
       "Color of shape" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.ShapeExtra extra=0.0 
+    input Types.ShapeExtra extra=0.0
       "Additional data for cylinder, cone, pipe, gearwheel and spring" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(group="if animation = true", enable=animation));
     annotation (
@@ -169,35 +169,35 @@ definition of the colors used in the MultiBody library
           grid={1,1}), graphics={
           Polygon(
             points={{-100,33},{-100,-61},{-10,-41},{50,-61},{50,33},{-10,11},{-100,
-                33}}, 
-            lineColor={0,127,255}, 
-            fillColor={0,127,255}, 
-            fillPattern=FillPattern.Solid), 
+                33}},
+            lineColor={0,127,255},
+            fillColor={0,127,255},
+            fillPattern=FillPattern.Solid),
           Polygon(
             points={{-98,34},{-64,46},{0,30},{74,56},{50,32},{-10,12},{-98,34}}, 
-              
-            lineColor={255,255,255}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
+
+            lineColor={255,255,255},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid),
           Polygon(
-            points={{72,54},{50,32},{50,-60},{72,-32},{72,54}}, 
-            lineColor={255,255,255}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
+            points={{72,54},{50,32},{50,-60},{72,-32},{72,54}},
+            lineColor={255,255,255},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-131,-65},{134,-104}}, 
-            lineColor={0,0,0}, 
-            textString="%shapeType"), 
+            extent={{-131,-65},{134,-104}},
+            lineColor={0,0,0},
+            textString="%shapeType"),
           Text(
-            extent={{-131,118},{129,58}}, 
-            textString="%name", 
+            extent={{-131,118},{129,58}},
+            textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics));
-    
-  protected 
+
+  protected
     Advanced.Shape vis(
       shapeType=shapeType,
       r_shape=r_shape,
@@ -211,39 +211,39 @@ definition of the colors used in the MultiBody library
       specularCoefficient=specularCoefficient,
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation;
-  equation 
+  equation
     // No forces and torques
     frame_a.f = zeros(3);
     frame_a.t = zeros(3);
   end FixedShape;
-  
-  model FixedShape2 
-    "Animation shape of a part with fixed shape type and dynamically varying shape definition with two frames" 
-    
+
+  model FixedShape2
+    "Animation shape of a part with fixed shape type and dynamically varying shape definition with two frames"
+
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Frames;
     import Modelica.Mechanics.MultiBody.Types;
-    
-    Interfaces.Frame_a frame_a 
+
+    Interfaces.Frame_a frame_a
       "Coordinate system a (all shape definition vectors are resolved in this frame)"
        annotation (Placement(transformation(extent={{-116,-16},{-84,16}},
             rotation=0)));
     Interfaces.Frame_b frame_b "Coordinate system b" 
        annotation (Placement(transformation(extent={{84,-16},{116,16}},
             rotation=0)));
-    
+
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Types.ShapeType shapeType="box" "Type of shape" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Position r[3]={1,0,0} 
+    input SI.Position r[3]={1,0,0}
       "Vector from frame_a to frame_b resolved in frame_a";
-    input SI.Position r_shape[3]={0,0,0} 
+    input SI.Position r_shape[3]={0,0,0}
       "Vector from frame_a to shape origin, resolved in frame_a" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Axis lengthDirection=r - r_shape 
+    input Types.Axis lengthDirection=r - r_shape
       "Vector in length direction of shape, resolved in frame_a" 
       annotation (Evaluate=true, Dialog(group="if animation = true", enable=animation));
-    input Types.Axis widthDirection={0,1,0} 
+    input Types.Axis widthDirection={0,1,0}
       "Vector in width direction of shape, resolved in frame_a" 
       annotation (Evaluate=true, Dialog(group="if animation = true", enable=animation));
     input SI.Length length=Modelica.Math.Vectors.length(
@@ -253,15 +253,15 @@ definition of the colors used in the MultiBody library
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Distance height=width "Height of shape" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.ShapeExtra extra=0.0 
+    input Types.ShapeExtra extra=0.0
       "Additional data for cylinder, cone, pipe, gearwheel and spring" 
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color color={0,128,255} "Color of shape" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    
+
     annotation (
       Window(
         x=0.25,
@@ -273,37 +273,37 @@ definition of the colors used in the MultiBody library
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{-123,128},{137,68}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-123,128},{137,68}},
+            textString="%name",
+            lineColor={0,0,255}),
           Text(
-            extent={{129,-106},{-131,-56}}, 
-            lineColor={0,0,0}, 
-            textString="%=r"), 
+            extent={{129,-106},{-131,-56}},
+            lineColor={0,0,0},
+            textString="%=r"),
           Polygon(
             points={{-100,50},{-100,-44},{-10,-24},{79,-43},{80,49},{-10,28},{-100,
-                50}}, 
-            lineColor={0,127,255}, 
-            fillColor={0,127,255}, 
-            fillPattern=FillPattern.Solid), 
+                50}},
+            lineColor={0,127,255},
+            fillColor={0,127,255},
+            fillPattern=FillPattern.Solid),
           Polygon(
             points={{-101,50},{-65,62},{-1,46},{100,70},{79,49},{-11,28},{-101,
-                50}}, 
-            lineColor={255,255,255}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
+                50}},
+            lineColor={255,255,255},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-86,15},{-50,-10}}, 
-            lineColor={0,0,0}, 
-            textString="a"), 
+            extent={{-86,15},{-50,-10}},
+            lineColor={0,0,0},
+            textString="a"),
           Text(
-            extent={{37,15},{73,-10}}, 
-            lineColor={0,0,0}, 
-            textString="b"), 
+            extent={{37,15},{73,-10}},
+            lineColor={0,0,0},
+            textString="b"),
           Polygon(
-            points={{100,70},{78,48},{78,-44},{100,-16},{100,70}}, 
-            lineColor={255,255,255}, 
-            fillColor={160,160,164}, 
+            points={{100,70},{78,48},{78,-44},{100,-16},{100,70}},
+            lineColor={255,255,255},
+            fillColor={160,160,164},
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -393,8 +393,8 @@ vector <b>r</b>.
 <IMG SRC=\"../Images/MultiBody/FixedTranslation.png\" ALT=\"Parts.FixedTranslation\">
 </HTML>
 "));
-    
-  protected 
+
+  protected
     outer MultiBody.World world;
     Advanced.Shape shape(
       shapeType=shapeType,
@@ -409,22 +409,22 @@ vector <b>r</b>.
       specularCoefficient = specularCoefficient,
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation;
-  equation 
+  equation
     defineBranch(frame_a.R, frame_b.R);
     assert(cardinality(frame_a) > 0 or cardinality(frame_b) > 0, "Neither connector frame_a nor frame_b of 
 MultiBody.Visualizers.FixedShape2 object is connected");
-    
+
     frame_b.r_0 = frame_a.r_0 + Frames.resolve1(frame_a.R, r);
     frame_b.R = frame_a.R;
-    
+
     /* Force and torque balance */
     zeros(3) = frame_a.f + frame_b.f;
     zeros(3) = frame_a.t + frame_b.t + cross(r, frame_b.f);
   end FixedShape2;
-  
-  model FixedFrame 
-    "Visualizing a coordinate system including axes labels (visualization data may vary dynamically)" 
-    
+
+  model FixedFrame
+    "Visualizing a coordinate system including axes labels (visualization data may vary dynamically)"
+
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
@@ -433,7 +433,7 @@ MultiBody.Visualizers.FixedShape2 object is connected");
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Distance length=0.5 "Length of axes arrows" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Distance diameter=length/world.defaultFrameDiameterFraction 
+    input SI.Distance diameter=length/world.defaultFrameDiameterFraction
       "Diameter of axes arrows" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color color_x=Modelica.Mechanics.MultiBody.Types.Defaults.
         FrameColor "Color of x-arrow" 
@@ -442,23 +442,23 @@ MultiBody.Visualizers.FixedShape2 object is connected");
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color color_z=color_x "Color of z-arrow" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(group="if animation = true", enable=animation));
-  protected 
+  protected
     parameter Boolean animation2 = world.enableAnimation and animation;
     parameter Boolean showLabels2= world.enableAnimation and animation and showLabels;
-    
+
     // Parameters to define axes
     SI.Length headLength=min(length, diameter*Types.Defaults.FrameHeadLengthFraction);
     SI.Length headWidth=diameter*Types.Defaults.FrameHeadWidthFraction;
     SI.Length lineLength=max(0, length - headLength);
     SI.Length lineWidth=diameter;
-    
+
     // Parameters to define axes labels
     SI.Length scaledLabel=Modelica.Mechanics.MultiBody.Types.Defaults.FrameLabelHeightFraction*diameter;
     SI.Length labelStart=1.05*length;
-    
+
     // x-axis
     Visualizers.Advanced.Shape x_arrowLine(
       shapeType="cylinder",
@@ -492,7 +492,7 @@ MultiBody.Visualizers.FixedShape2 object is connected");
       n_y={0,1,0},
       r=frame_a.r_0,
       R=frame_a.R) if showLabels2;
-    
+
     // y-axis
     Visualizers.Advanced.Shape y_arrowLine(
       shapeType="cylinder",
@@ -526,7 +526,7 @@ MultiBody.Visualizers.FixedShape2 object is connected");
       n_y={-1,0,0},
       r=frame_a.r_0,
       R=frame_a.R) if showLabels2;
-    
+
     // z-axis
     Visualizers.Advanced.Shape z_arrowLine(
       shapeType="cylinder",
@@ -560,7 +560,7 @@ MultiBody.Visualizers.FixedShape2 object is connected");
       n_y={0,1,0},
       r=frame_a.r_0,
       R=frame_a.R) if showLabels2;
-  equation 
+  equation
     frame_a.f = zeros(3);
     frame_a.t = zeros(3);
     annotation (
@@ -569,55 +569,53 @@ MultiBody.Visualizers.FixedShape2 object is connected");
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-100,100},{100,-100}}, 
-            lineColor={0,127,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-100,100},{100,-100}},
+            lineColor={0,127,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-2,92},{-14,52},{12,52},{-2,92},{-2,92}}, 
-            lineColor={0,191,0}, 
-            fillColor={0,191,0}, 
-            fillPattern=FillPattern.Solid), 
+            points={{-2,92},{-14,52},{12,52},{-2,92},{-2,92}},
+            lineColor={0,191,0},
+            fillColor={0,191,0},
+            fillPattern=FillPattern.Solid),
           Line(
-            points={{-2,-18},{-2,52}}, 
-            color={0,191,0}, 
-            thickness=2), 
+            points={{-2,-18},{-2,52}},
+            color={0,191,0},
+            thickness=2),
           Text(
-            extent={{16,93},{67,43}}, 
-            lineColor={0,191,0}, 
-            fillColor={0,191,0}, 
-            fillPattern=FillPattern.Solid, 
-            textString="y"), 
+            extent={{16,93},{67,43}},
+            lineColor={0,191,0},
+            fillColor={0,191,0},
+            fillPattern=FillPattern.Solid,
+            textString="y"),
           Text(
-            extent={{43,11},{92,-38}}, 
-            lineColor={0,0,0}, 
-            textString="x"), 
+            extent={{43,11},{92,-38}},
+            lineColor={0,0,0},
+            textString="x"),
           Polygon(
-            points={{98,-70},{74,-44},{64,-60},{98,-70}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+            points={{98,-70},{74,-44},{64,-60},{98,-70}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Line(
-            points={{-2,-18},{72,-54}}, 
-            color={0,0,0}, 
-            thickness=2), 
+            points={{-2,-18},{72,-54}},
+            color={0,0,0},
+            thickness=2),
           Line(
-            points={{-72,-54},{-2,-18}}, 
-            thickness=2, 
-            color={0,0,255}), 
-          Polygon(
-            points={{-98,-68},{-66,-60},{-78,-46},{-98,-68}}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
+            points={{-72,-54},{-2,-18}},
+            thickness=2,
+            color={0,0,255}),
+          Polygon(points={{-98,-68},{-66,-60},{-78,-46},{-98,-68}}, lineColor={
+                0,0,255}),
           Text(
-            extent={{-87,13},{-38,-36}}, 
-            textString="z", 
-            lineColor={0,0,255}), 
+            extent={{-87,13},{-38,-36}},
+            textString="z",
+            lineColor={0,0,255}),
           Text(
-            extent={{-138,164},{146,102}}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid, 
-            textString="%name", 
+            extent={{-138,164},{146,102}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            textString="%name",
             lineColor={0,0,255})}),
       Documentation(info="<HTML>
 <p>
@@ -639,32 +637,32 @@ parameter menu.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics));
-    
+
   end FixedFrame;
-  
-  model FixedArrow 
-    "Visualizing an arrow with dynamically varying size in frame_a" 
-    
+
+  model FixedArrow
+    "Visualizing an arrow with dynamically varying size in frame_a"
+
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    input SI.Position r_tail[3]={0,0,0} 
+    input SI.Position r_tail[3]={0,0,0}
       " Vector from frame_a to arrow tail, resolved in frame_a" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Axis n={1,0,0} 
+    input Types.Axis n={1,0,0}
       " Vector in arrow direction, resolved in frame_a" 
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Length length=0.1 " Length of complete arrow" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter diameter=world.defaultArrowDiameter 
+    input SI.Diameter diameter=world.defaultArrowDiameter
       " Diameter of arrow line" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color color={0,0,255} " Color of arrow" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(group="if animation = true", enable=animation));
-  protected 
+  protected
     SI.Length headLength=min(length, diameter*Types.Defaults.
         ArrowHeadLengthFraction);
     SI.Length headWidth=diameter*Types.Defaults.
@@ -695,27 +693,27 @@ parameter menu.
                                         n)*lineLength,
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation;
-    
+
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
-            extent={{-100,28},{20,-30}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-100,28},{20,-30}},
+            lineColor={128,128,128},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid),
           Polygon(
-            points={{20,60},{100,0},{20,-60},{20,60}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+            points={{20,60},{100,0},{20,-60},{20,60}},
+            lineColor={128,128,128},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-146,124},{142,62}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-146,124},{142,62}},
+            textString="%name",
+            lineColor={0,0,255}),
           Text(
-            extent={{-118,-74},{120,-112}}, 
-            lineColor={0,0,0}, 
+            extent={{-118,-74},{120,-112}},
+            lineColor={0,0,0},
             textString="%length")}),
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}),
@@ -736,35 +734,35 @@ providing appropriate expressions in the input fields of the
 parameter menu.
 </p>
 </html>"));
-    
-  equation 
+
+  equation
     frame_a.f = zeros(3);
     frame_a.t = zeros(3);
-    
+
   end FixedArrow;
-  
-  model SignalArrow 
-    "Visualizing an arrow with dynamically varying size in frame_a based on input signal" 
-    
+
+  model SignalArrow
+    "Visualizing an arrow with dynamically varying size in frame_a based on input signal"
+
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
-    
+
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    input SI.Position r_tail[3]={0,0,0} 
+    input SI.Position r_tail[3]={0,0,0}
       "Vector from frame_a to arrow tail, resolved in frame_a" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Diameter diameter=world.defaultArrowDiameter 
+    input SI.Diameter diameter=world.defaultArrowDiameter
       "Diameter of arrow line" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Modelica.Mechanics.MultiBody.Types.Color color={0,0,255} 
+    input Modelica.Mechanics.MultiBody.Types.Color color={0,0,255}
       "Color of arrow" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    
-    Modelica.Blocks.Interfaces.RealInput r_head[3] 
+
+    Modelica.Blocks.Interfaces.RealInput r_head[3]
       "Position vector from origin of frame_a to head of arrow, resolved in frame_a"
       annotation (Placement(transformation(
           origin={0,-120},
@@ -774,19 +772,19 @@ parameter menu.
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
-            extent={{-100,28},{20,-30}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-100,28},{20,-30}},
+            lineColor={128,128,128},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid),
           Polygon(
-            points={{20,60},{100,0},{20,-60},{20,60}}, 
-            lineColor={128,128,128}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.Solid), 
+            points={{20,60},{100,0},{20,-60},{20,60}},
+            lineColor={128,128,128},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-146,124},{142,62}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-146,124},{142,62}},
+            textString="%name",
+            lineColor={0,0,255}),
           Line(points={{0,-102},{0,-30}}, color={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}),
@@ -805,8 +803,8 @@ The tail of the arrow is defined with parameter <b>r_tail</b>
 with respect to frame_a (vector from the origin of frame_a to the arrow tail).
 </p>
 </HTML>"));
-    
-  protected 
+
+  protected
     Visualizers.Advanced.Arrow arrow(
       R=frame_a.R,
       r=frame_a.r_0,
@@ -815,15 +813,15 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
       diameter=diameter,
       color=color,
       specularCoefficient=specularCoefficient) if world.enableAnimation and animation;
-  equation 
+  equation
     frame_a.f = zeros(3);
     frame_a.t = zeros(3);
-    
+
   end SignalArrow;
-  
-  package Advanced 
-    "Visualizers that require basic knowledge about Modelica in order to use them" 
-    
+
+  package Advanced
+    "Visualizers that require basic knowledge about Modelica in order to use them"
+
     extends Modelica.Icons.Library;
     annotation ( Documentation(info="<HTML>
 <p>
@@ -857,32 +855,32 @@ since they all have frame connectors).
   </tr>
 </table>
 </HTML>"));
-    model Arrow 
-      "Visualizing an arrow with variable size; all data have to be set as modifiers (see info layer)" 
-      
+    model Arrow
+      "Visualizing an arrow with variable size; all data have to be set as modifiers (see info layer)"
+
       import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody.Types;
       import Modelica.Mechanics.MultiBody.Frames;
-      
-      input Frames.Orientation R=Frames.nullRotation() 
+
+      input Frames.Orientation R=Frames.nullRotation()
         "Orientation object to rotate the world frame into the arrow frame." annotation(Dialog);
-      input SI.Position r[3]={0,0,0} 
+      input SI.Position r[3]={0,0,0}
         "Position vector from origin of world frame to origin of arrow frame, resolved in world frame"
                                                                                                        annotation(Dialog);
-      input SI.Position r_tail[3]={0,0,0} 
+      input SI.Position r_tail[3]={0,0,0}
         "Position vector from origin of arrow frame to arrow tail, resolved in arrow frame"
                                                                                             annotation(Dialog);
-      input SI.Position r_head[3]={0,0,0} 
+      input SI.Position r_head[3]={0,0,0}
         "Position vector from arrow tail to the head of the arrow, resolved in arrow frame"
                                                                                             annotation(Dialog);
-      input SI.Diameter diameter=world.defaultArrowDiameter 
+      input SI.Diameter diameter=world.defaultArrowDiameter
         "Diameter of arrow line" annotation(Dialog);
-      input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor 
+      input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor
         "Color of arrow" annotation(Dialog);
-      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
                                                                                                             annotation(Dialog);
-      
+
       annotation (
         Documentation(info="<HTML>
 <p>
@@ -914,23 +912,23 @@ library (will be replaced by a color editor).
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
-              extent={{-100,28},{20,-30}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,28},{20,-30}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{20,60},{100,0},{20,-60},{20,60}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              points={{20,60},{100,0},{20,-60},{20,60}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-146,124},{142,62}}, 
-              textString="%name", 
+              extent={{-146,124},{142,62}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}),
                 graphics));
-    protected 
+    protected
       outer Modelica.Mechanics.MultiBody.World world;
       SI.Length length=Modelica.Math.Vectors.length(
                                      r_head) "Length of arrow";
@@ -961,55 +959,55 @@ library (will be replaced by a color editor).
         specularCoefficient=specularCoefficient,
         r=arrowLine.rvisobj + arrowLine.rxvisobj*arrowLine.length,
         R=R) if world.enableAnimation;
-      
+
     end Arrow;
-    
-    model DoubleArrow 
-      "Visualizing a double arrow with variable size; all data have to be set as modifiers (see info layer)" 
-      
+
+    model DoubleArrow
+      "Visualizing a double arrow with variable size; all data have to be set as modifiers (see info layer)"
+
       import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody.Types;
       import Modelica.Mechanics.MultiBody.Frames;
-      input Frames.Orientation R=Frames.nullRotation() 
+      input Frames.Orientation R=Frames.nullRotation()
         "Orientation object to rotate the world frame into the arrow frame." annotation(Dialog);
-      input SI.Position r[3]={0,0,0} 
+      input SI.Position r[3]={0,0,0}
         "Position vector from origin of world frame to origin of arrow frame, resolved in world frame"
                                                                                                        annotation(Dialog);
-      input SI.Position r_tail[3]={0,0,0} 
+      input SI.Position r_tail[3]={0,0,0}
         "Position vector from origin of arrow frame to double arrow tail, resolved in arrow frame"
                                                                                                    annotation(Dialog);
-      input SI.Position r_head[3]={0,0,0} 
+      input SI.Position r_head[3]={0,0,0}
         "Position vector from double arrow tail to the head of the double arrow, resolved in arrow frame"
                                                                                                           annotation(Dialog);
-      input SI.Diameter diameter=world.defaultArrowDiameter 
+      input SI.Diameter diameter=world.defaultArrowDiameter
         "Diameter of arrow line" annotation(Dialog);
-      input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor 
+      input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor
         "Color of double arrow" annotation(Dialog);
-      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
                                                                                                             annotation(Dialog);
-      
+
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
-              extent={{-100,28},{0,-28}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,28},{0,-28}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{40,60},{100,0},{40,-60},{40,60}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              points={{40,60},{100,0},{40,-60},{40,60}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-146,124},{142,62}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{-146,124},{142,62}},
+              textString="%name",
+              lineColor={0,0,255}),
             Polygon(
-              points={{0,60},{60,0},{0,-60},{0,60}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
+              points={{0,60},{60,0},{0,-60},{0,60}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}),
@@ -1040,8 +1038,8 @@ a menu definition of the colors used in the MultiBody
 library (will be replaced by a color editor).
 </p>
 </HTML>"));
-      
-    protected 
+
+    protected
       outer Modelica.Mechanics.MultiBody.World world;
       SI.Length length=Modelica.Math.Vectors.length(
                                      r_head) "Length of arrow";
@@ -1085,41 +1083,41 @@ library (will be replaced by a color editor).
         r=arrowLine.rvisobj + arrowLine.rxvisobj*(arrowLine.length + 0.5*
             arrowHead1.length),
         R=R) if world.enableAnimation;
-      
+
     end DoubleArrow;
-    
-    model Shape 
-      "Different visual shapes with variable size; all data have to be set as modifiers (see info layer)" 
-      
+
+    model Shape
+      "Different visual shapes with variable size; all data have to be set as modifiers (see info layer)"
+
       import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
       import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody.Frames;
       import Modelica.Mechanics.MultiBody.Types;
-      
-      parameter Types.ShapeType shapeType="box" 
+
+      parameter Types.ShapeType shapeType="box"
         "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring)";
-      input Frames.Orientation R=Frames.nullRotation() 
+      input Frames.Orientation R=Frames.nullRotation()
         "Orientation object to rotate the world frame into the object frame"  annotation(Dialog);
-      input SI.Position r[3]={0,0,0} 
+      input SI.Position r[3]={0,0,0}
         "Position vector from origin of world frame to origin of object frame, resolved in world frame"
                                                                                                         annotation(Dialog);
-      input SI.Position r_shape[3]={0,0,0} 
+      input SI.Position r_shape[3]={0,0,0}
         "Position vector from origin of object frame to shape origin, resolved in object frame"
                                                                                                 annotation(Dialog);
-      input Real lengthDirection[3]={1,0,0} 
+      input Real lengthDirection[3]={1,0,0}
         "Vector in length direction, resolved in object frame"  annotation(Dialog);
-      input Real widthDirection[3]={0,1,0} 
+      input Real widthDirection[3]={0,1,0}
         "Vector in width direction, resolved in object frame"  annotation(Dialog);
       input SI.Length length=0 "Length of visual object"  annotation(Dialog);
       input SI.Length width=0 "Width of visual object"  annotation(Dialog);
       input SI.Length height=0 "Height of visual object"  annotation(Dialog);
-      input Types.ShapeExtra extra=0.0 
+      input Types.ShapeExtra extra=0.0
         "Additional size data for some of the shape types"                                 annotation(Dialog);
       input Real color[3]={255,0,0} "Color of shape"            annotation(Dialog);
-      input Types.SpecularCoefficient specularCoefficient = 0.7 
+      input Types.SpecularCoefficient specularCoefficient = 0.7
         "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog);
       // Real rxry[3, 2];
-    protected 
+    protected
       Real abs_n_x=Modelica.Math.Vectors.length(
                                  lengthDirection) annotation (Hide=true);
       Real e_x[3]=noEvent(if abs_n_x < 1.e-10 then {1,0,0} else lengthDirection
@@ -1130,17 +1128,17 @@ library (will be replaced by a color editor).
            > 1.0e-6 then widthDirection else (if abs(e_x[1]) > 1.0e-6 then {0,1,
           0} else {1,0,0}))), e_x)) annotation (Hide=true);
       output Real Form annotation (Hide=false);
-    public 
-      output Real rxvisobj[3] 
+    public
+      output Real rxvisobj[3]
         "x-axis unit vector of shape, resolved in world frame" 
         annotation (Hide=false);
-      output Real ryvisobj[3] 
+      output Real ryvisobj[3]
         "y-axis unit vector of shape, resolved in world frame" 
         annotation (Hide=false);
-      output SI.Position rvisobj[3] 
+      output SI.Position rvisobj[3]
         "position vector from world frame to shape frame, resolved in world frame"
         annotation (Hide=false);
-    protected 
+    protected
       output SI.Length size[3] "{length,width,height} of shape" 
         annotation (Hide=false);
       output Real Material annotation (Hide=false);
@@ -1151,27 +1149,27 @@ library (will be replaced by a color editor).
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Rectangle(
-              extent={{-100,-100},{80,60}}, 
-              lineColor={0,0,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,-100},{80,60}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{-100,60},{-80,100},{100,100},{80,60},{-100,60}}, 
-              lineColor={0,0,255}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-100,60},{-80,100},{100,100},{80,60},{-100,60}},
+              lineColor={0,0,255},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{100,100},{100,-60},{80,-100},{80,60},{100,100}}, 
-              lineColor={0,0,255}, 
-              fillColor={160,160,164}, 
-              fillPattern=FillPattern.Solid), 
+              points={{100,100},{100,-60},{80,-100},{80,60},{100,100}},
+              lineColor={0,0,255},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-100,-100},{80,60}}, 
-              lineColor={0,0,0}, 
-              textString="%shapeType"), 
+              extent={{-100,-100},{80,60}},
+              lineColor={0,0,0},
+              textString="%shapeType"),
             Text(
-              extent={{-132,160},{128,100}}, 
-              textString="%name", 
+              extent={{-132,160},{128,100}},
+              textString="%name",
               lineColor={0,0,255})}),
         Window(
           x=0.28,
@@ -1268,7 +1266,7 @@ model where a <b>Shape</b> instance is used, e.g., in the form
 </pre>
 </HTML>
 "));
-    equation 
+    equation
       /* Outputs to file. */
       Form = (987000 + PackShape(shapeType))*1E20;
       /*
@@ -1286,78 +1284,78 @@ model where a <b>Shape</b> instance is used, e.g., in the form
         specularCoefficient);
       Extra = extra;
     end Shape;
-    
+
   end Advanced;
-  
-  package Internal 
-    "Visualizers that will be replaced by improved versions in the future (don't use them)" 
-    
+
+  package Internal
+    "Visualizers that will be replaced by improved versions in the future (don't use them)"
+
     extends Modelica.Icons.Library;
-    
-    model FixedLines 
-      "Visualizing a set of lines as cylinders (e.g., used to display characters)" 
-      
+
+    model FixedLines
+      "Visualizing a set of lines as cylinders (e.g., used to display characters)"
+
       import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody;
       import Modelica.Mechanics.MultiBody.Types;
       extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
-      
+
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      input Real scale(min=0) = 1 
+      input Real scale(min=0) = 1
         "The 'lines' are visualized 'scale' times bigger" 
         annotation (Dialog(group="if animation = true", enable=animation));
-      input SI.Position lines[:,2,2]={[0,0; 1,1],[0,1; 1,0]} 
+      input SI.Position lines[:,2,2]={[0,0; 1,1],[0,1; 1,0]}
         "List of start and end points of cylinders resolved along n_x and n_y" 
         annotation (Dialog(group="if animation = true", enable=animation));
-      input SI.Distance diameter(min=0) = 0.05 
+      input SI.Distance diameter(min=0) = 0.05
         "Diameter of the cylinders defined by lines" 
         annotation (Dialog(group="if animation = true", enable=animation));
-      input SI.Position r_lines[3]={0,0,0} 
+      input SI.Position r_lines[3]={0,0,0}
         "Position vector from origin of frame_a to the origin of the 'lines' frame, resolved in frame_a"
         annotation (Dialog(group="if animation = true", enable=animation));
-      input Real n_x[3]={1,0,0} 
+      input Real n_x[3]={1,0,0}
         "Vector in direction of x-axis of 'lines' frame, resolved in frame_a." 
         annotation (Dialog(group="if animation = true", enable=animation));
-      input Real n_y[3]={0,1,0} 
+      input Real n_y[3]={0,1,0}
         "Vector in direction of y-axis of 'lines' frame, resolved in frame_a." 
         annotation (Dialog(group="if animation = true", enable=animation));
       input MultiBody.Types.Color color={0,128,255} " Color of cylinders" 
         annotation (Dialog(group="if animation = true", enable=animation));
-      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)" 
         annotation (Dialog(group="if animation = true", enable=animation));
-      
+
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={128,128,128}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,100},{100,-100}},
+              lineColor={128,128,128},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-140,164},{148,102}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{-140,164},{148,102}},
+              textString="%name",
+              lineColor={0,0,255}),
             Polygon(
-              points={{-82,-24},{-20,46},{-10,38},{-72,-32},{-82,-24}}, 
-              lineColor={0,127,255}, 
-              fillColor={0,127,255}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-82,-24},{-20,46},{-10,38},{-72,-32},{-82,-24}},
+              lineColor={0,127,255},
+              fillColor={0,127,255},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{-24,-34},{-82,40},{-72,46},{-14,-26},{-24,-34}}, 
-              lineColor={0,127,255}, 
-              fillColor={0,127,255}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-24,-34},{-82,40},{-72,46},{-14,-26},{-24,-34}},
+              lineColor={0,127,255},
+              fillColor={0,127,255},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{42,-18},{10,40},{20,48},{50,-6},{42,-18}}, 
-              lineColor={0,127,255}, 
-              fillColor={0,127,255}, 
-              fillPattern=FillPattern.Solid), 
+              points={{42,-18},{10,40},{20,48},{50,-6},{42,-18}},
+              lineColor={0,127,255},
+              fillColor={0,127,255},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{10,-68},{84,48},{96,42},{24,-72},{10,-68}}, 
-              lineColor={0,127,255}, 
-              fillColor={0,127,255}, 
+              points={{10,-68},{84,48},{96,42},{24,-72},{10,-68}},
+              lineColor={0,127,255},
+              fillColor={0,127,255},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}),
@@ -1386,8 +1384,8 @@ coordinate system is defined. The points defined with parameter
 The diameter and color of all line cylinders are identical.
 </p>
 </HTML>"));
-      
-    protected 
+
+    protected
       Lines x_label(
         lines=scale*lines,
         diameter=scale*diameter,
@@ -1398,46 +1396,46 @@ The diameter and color of all line cylinders are identical.
         n_y=n_y,
         r=frame_a.r_0,
         R=frame_a.R) if world.enableAnimation and animation;
-    equation 
+    equation
       frame_a.f = zeros(3);
       frame_a.t = zeros(3);
     end FixedLines;
-    
-    model Lines 
-      "Visualizing a set of lines as cylinders with variable size, e.g., used to display characters (no Frame connector)" 
-      
+
+    model Lines
+      "Visualizing a set of lines as cylinders with variable size, e.g., used to display characters (no Frame connector)"
+
       import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody;
       import Modelica.Mechanics.MultiBody.Types;
       import Modelica.Mechanics.MultiBody.Frames;
       import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
-      input Modelica.Mechanics.MultiBody.Frames.Orientation R=Frames.nullRotation() 
+      input Modelica.Mechanics.MultiBody.Frames.Orientation R=Frames.nullRotation()
         "Orientation object to rotate the world frame into the object frame" annotation(Dialog);
-      input SI.Position r[3]={0,0,0} 
+      input SI.Position r[3]={0,0,0}
         "Position vector from origin of world frame to origin of object frame, resolved in world frame"
          annotation(Dialog);
-      input SI.Position r_lines[3]={0,0,0} 
+      input SI.Position r_lines[3]={0,0,0}
         "Position vector from origin of object frame to the origin of 'lines' frame, resolved in object frame"
          annotation(Dialog);
-      input Real n_x[3]={1,0,0} 
+      input Real n_x[3]={1,0,0}
         "Vector in direction of x-axis of 'lines' frame, resolved in object frame"
          annotation(Dialog);
-      input Real n_y[3]={0,1,0} 
+      input Real n_y[3]={0,1,0}
         "Vector in direction of y-axis of 'lines' frame, resolved in object frame"
        annotation(Dialog);
-      input SI.Position lines[:, 2, 2]=zeros(0, 2, 2) 
+      input SI.Position lines[:, 2, 2]=zeros(0, 2, 2)
         "List of start and end points of cylinders resolved in an x-y frame defined by n_x, n_y, e.g., {[0,0;1,1], [0,1;1,0], [2,0; 3,1]}"
       annotation(Dialog);
-      input SI.Length diameter(min=0) = 0.05 
+      input SI.Length diameter(min=0) = 0.05
         "Diameter of the cylinders defined by lines" 
       annotation(Dialog);
-      input Modelica.Mechanics.MultiBody.Types.Color color={0,128,255} 
+      input Modelica.Mechanics.MultiBody.Types.Color color={0,128,255}
         "Color of cylinders" 
       annotation(Dialog);
-      input Types.SpecularCoefficient specularCoefficient = 0.7 
+      input Types.SpecularCoefficient specularCoefficient = 0.7
         "Reflection of ambient light (= 0: light is completely absorbed)" 
         annotation (Dialog);
-    protected 
+    protected
       parameter Integer n=size(lines, 1) "Number of cylinders";
       T.Orientation R_rel=T.from_nxy(n_x, n_y);
       T.Orientation R_lines=T.absoluteRotation(R.T, R_rel);
@@ -1461,33 +1459,33 @@ The diameter and color of all line cylinders are identical.
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
-              extent={{-100,100},{100,-100}}, 
-              lineColor={128,128,128}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,100},{100,-100}},
+              lineColor={128,128,128},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{-24,-34},{-82,40},{-72,46},{-14,-26},{-24,-34}}, 
-              lineColor={0,127,255}, 
-              fillColor={0,127,255}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-24,-34},{-82,40},{-72,46},{-14,-26},{-24,-34}},
+              lineColor={0,127,255},
+              fillColor={0,127,255},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{-82,-24},{-20,46},{-10,38},{-72,-32},{-82,-24}}, 
-              lineColor={0,127,255}, 
-              fillColor={0,127,255}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-82,-24},{-20,46},{-10,38},{-72,-32},{-82,-24}},
+              lineColor={0,127,255},
+              fillColor={0,127,255},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{42,-18},{10,40},{20,48},{50,-6},{42,-18}}, 
-              lineColor={0,127,255}, 
-              fillColor={0,127,255}, 
-              fillPattern=FillPattern.Solid), 
+              points={{42,-18},{10,40},{20,48},{50,-6},{42,-18}},
+              lineColor={0,127,255},
+              fillColor={0,127,255},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{10,-68},{84,48},{96,42},{24,-72},{10,-68}}, 
-              lineColor={0,127,255}, 
-              fillColor={0,127,255}, 
-              fillPattern=FillPattern.Solid), 
+              points={{10,-68},{84,48},{96,42},{24,-72},{10,-68}},
+              lineColor={0,127,255},
+              fillColor={0,127,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-140,164},{148,102}}, 
-              textString="%name", 
+              extent={{-140,164},{148,102}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}),
@@ -1520,9 +1518,9 @@ and are defined by parameters.
  
 </HTML>
 "));
-      
+
     end Lines;
-    
+
     annotation (Documentation(info="<html>
 <p>
 This package contains components to construct 3-dim. fonts

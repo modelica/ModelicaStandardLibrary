@@ -9,7 +9,6 @@ annotation (
     from(version="0.98", script="Scripts/ConvertTo_1.0.mos"),
     from(version="0.99", script="Scripts/ConvertTo_1.0.mos"),
     from(version="0.99 Beta", script="Scripts/ConvertTo_1.0.mos")),
-  
 Window(
     x=0,
     y=0.01,
@@ -48,14 +47,15 @@ and the accompanying <b>disclaimer</b>
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p><br>
 </HTML>"));
+
 import SI = Modelica.SIunits;
 
 
 extends Modelica.Icons.Library;
 
 
-package UsersGuide "User's Guide of MultiBody Library" 
-  
+package UsersGuide "User's Guide of MultiBody Library"
+
   annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
 Library <b>MultiBody</b> is a <b>free</b> Modelica package providing
@@ -89,9 +89,9 @@ gives an introduction into the most important aspects of the library.
 </li>
 </ol>
 </HTML>"));
-  
-  package Tutorial "Tutorial" 
-    
+
+  package Tutorial "Tutorial"
+
     annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
 This tutorial provides an introduction into the
@@ -113,9 +113,9 @@ MultiBody library</a> summarizes the most important aspects.
 </li>
 </ol>
 </HTML>"));
-    
-    class OverView "Overview of MultiBody library" 
-      
+
+    class OverView "Overview of MultiBody library"
+
       annotation (Documentation(info="<HTML>
 <p>
 Library <b>MultiBody</b> is a <b>free</b> Modelica package providing
@@ -241,9 +241,9 @@ The main features of the library are:
 </HTML>
 "));
     end OverView;
-    
-    class FirstExample "A first example" 
-      
+
+    class FirstExample "A first example"
+
       annotation (Documentation(info="<HTML>
 <p>
 As a first example it shall be demonstrated how to build up, simulate
@@ -331,11 +331,11 @@ in the middle of the light blue sphere.
 </HTML>
 "));
     end FirstExample;
-    
-    package LoopStructures "Loop structures" 
-      
-      class Introduction "Introduction" 
-        
+
+    package LoopStructures "Loop structures"
+
+      class Introduction "Introduction"
+
         annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
 In principal, now special action is needed, if
@@ -394,9 +394,9 @@ is described in section
 </p>
 </HTML>"));
       end Introduction;
-      
-      class PlanarLoops "Planar loops" 
-        
+
+      class PlanarLoops "Planar loops"
+
         annotation (Documentation(info="<HTML>
 <p>
 In the figure below, the model of a V6 engine is 
@@ -482,9 +482,9 @@ for such systems.
 </p>
 </HTML>"));
       end PlanarLoops;
-      
-      class AnalyticLoopHandling "Analytic loop handling" 
-        
+
+      class AnalyticLoopHandling "Analytic loop handling"
+
         annotation (Documentation(info="<HTML>
 It is well known that the non-linear 
 algebraic equations of most mechanical loops in technical devices can be 
@@ -765,9 +765,9 @@ analytically. There are the following sub-chapters:
 </HTML>"));
     end LoopStructures;
   end Tutorial;
-  
-  class Upgrade "Upgrade from Former Versions" 
-    
+
+  class Upgrade "Upgrade from Former Versions"
+
     annotation (Documentation(info="<HTML>
 <p>
 If different versions of the MultiBody library are not
@@ -882,12 +882,12 @@ calls in 0.99 should be changed:
 </pre>
 </HTML>
 "));
-  equation 
-    
+  equation
+
   end Upgrade;
-  
-  class ReleaseNotes "Release notes" 
-    
+
+  class ReleaseNotes "Release notes"
+
     annotation (Documentation(info="<HTML>
 <h4>Version 1.1.3, 2005-04-21</h4>
 <p>
@@ -1156,12 +1156,12 @@ This was the first version delivered with Dymola.
 </p>
 </HTML>
 "));
-  equation 
-    
+  equation
+
   end ReleaseNotes;
-  
-  class Literature "Literature" 
-    
+
+  class Literature "Literature"
+
     annotation (Documentation(info="<html>
 <ul>
 <li>
@@ -1211,9 +1211,9 @@ dynamical effects is described in:
 </html>
 "));
   end Literature;
-  
-  class Contact "Contact" 
-    
+
+  class Contact "Contact"
+
     annotation (Documentation(info="<html>
 <dl>
 <dt><b>Main Author:</b>
@@ -1253,24 +1253,23 @@ dynamical effects is described in:
 </html>
 "));
   end Contact;
-  
+
 end UsersGuide;
 
 
-model World 
-  "World coordinate system + gravity field + default animation definition" 
-  
+model World
+  "World coordinate system + gravity field + default animation definition"
+
   import SI = Modelica.SIunits;
   import Modelica.Mechanics.MultiBody.Types.GravityTypes;
   import Modelica.Mechanics.MultiBody.Types;
-  
-    Interfaces.Frame_b frame_b 
+
+    Interfaces.Frame_b frame_b
     "Coordinate system fixed in the origin of the world frame" 
                                annotation (Placement(transformation(extent={{84,
             -16},{116,16}}, rotation=0)));
-  
+
   annotation (
-    
     defaultComponentName="world",
     defaultComponentPrefixes="inner",
     missingInnerMessage="No \"world\" component is defined. A default world
@@ -1287,57 +1286,57 @@ drag Modelica.Mechanics.MultiBody.World into the top level of your model.",
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
         Rectangle(
-          extent={{-100,100},{100,-100}}, 
-          lineColor={0,0,0}, 
-          fillColor={255,255,255}, 
-          fillPattern=FillPattern.Solid), 
+          extent={{-100,100},{100,-100}},
+          lineColor={0,0,0},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
         Line(
-          points={{-100,-118},{-100,61}}, 
-          color={0,0,0}, 
-          thickness=2), 
+          points={{-100,-118},{-100,61}},
+          color={0,0,0},
+          thickness=2),
         Polygon(
-          points={{-100,100},{-120,60},{-80,60},{-100,100},{-100,100}}, 
-          lineColor={0,0,0}, 
-          fillColor={0,0,0}, 
-          fillPattern=FillPattern.Solid), 
+          points={{-100,100},{-120,60},{-80,60},{-100,100},{-100,100}},
+          lineColor={0,0,0},
+          fillColor={0,0,0},
+          fillPattern=FillPattern.Solid),
         Line(
-          points={{-119,-100},{59,-100}}, 
-          color={0,0,0}, 
-          thickness=2), 
+          points={{-119,-100},{59,-100}},
+          color={0,0,0},
+          thickness=2),
         Polygon(
-          points={{99,-100},{59,-80},{59,-120},{99,-100}}, 
-          lineColor={0,0,0}, 
-          fillColor={0,0,0}, 
-          fillPattern=FillPattern.Solid), 
+          points={{99,-100},{59,-80},{59,-120},{99,-100}},
+          lineColor={0,0,0},
+          fillColor={0,0,0},
+          fillPattern=FillPattern.Solid),
         Text(
-          extent={{-140,165},{140,103}}, 
-          textString="%name", 
-          lineColor={0,0,255}), 
+          extent={{-140,165},{140,103}},
+          textString="%name",
+          lineColor={0,0,255}),
         Text(
-          extent={{95,-113},{144,-162}}, 
-          lineColor={0,0,0}, 
-          textString="%label1"), 
+          extent={{95,-113},{144,-162}},
+          lineColor={0,0,0},
+          textString="%label1"),
         Text(
-          extent={{-170,127},{-119,77}}, 
-          lineColor={0,0,0}, 
-          textString="%label2"), 
-        Line(points={{-56,78},{-56,-26}}, color={0,0,255}), 
+          extent={{-170,127},{-119,77}},
+          lineColor={0,0,0},
+          textString="%label2"),
+        Line(points={{-56,78},{-56,-26}}, color={0,0,255}),
         Polygon(
-          points={{-68,-26},{-56,-66},{-44,-26},{-68,-26}}, 
-          fillColor={0,0,255}, 
-          fillPattern=FillPattern.Solid, 
-          lineColor={0,0,255}), 
-        Line(points={{2,78},{2,-26}}, color={0,0,255}), 
+          points={{-68,-26},{-56,-66},{-44,-26},{-68,-26}},
+          fillColor={0,0,255},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Line(points={{2,78},{2,-26}}, color={0,0,255}),
         Polygon(
-          points={{-10,-26},{2,-66},{14,-26},{-10,-26}}, 
-          fillColor={0,0,255}, 
-          fillPattern=FillPattern.Solid, 
-          lineColor={0,0,255}), 
-        Line(points={{66,80},{66,-26}}, color={0,0,255}), 
+          points={{-10,-26},{2,-66},{14,-26},{-10,-26}},
+          fillColor={0,0,255},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
+        Line(points={{66,80},{66,-26}}, color={0,0,255}),
         Polygon(
-          points={{54,-26},{66,-66},{78,-26},{54,-26}}, 
-          fillColor={0,0,255}, 
-          fillPattern=FillPattern.Solid, 
+          points={{54,-26},{66,-66},{78,-26},{54,-26}},
+          fillColor={0,0,255},
+          fillPattern=FillPattern.Solid,
           lineColor={0,0,255})}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -1402,49 +1401,49 @@ of these axes can be set via parameters.
 </p>
 </HTML>
 "));
-  
-  parameter Boolean enableAnimation=true 
+
+  parameter Boolean enableAnimation=true
     "= true, if animation of all components is enabled";
-  parameter Boolean animateWorld=true 
+  parameter Boolean animateWorld=true
     "= true, if world coordinate system shall be visualized" annotation(Dialog(enable=enableAnimation));
-  parameter Boolean animateGravity=true 
+  parameter Boolean animateGravity=true
     "= true, if gravity field shall be visualized (acceleration vector or field center)"
                                                                                           annotation(Dialog(enable=enableAnimation));
   parameter Types.AxisLabel label1="x" "Label of horizontal axis in icon";
   parameter Types.AxisLabel label2="y" "Label of vertical axis in icon";
-  parameter Types.GravityTypes gravityType=GravityTypes.UniformGravity 
+  parameter Types.GravityTypes gravityType=GravityTypes.UniformGravity
     "Type of gravity field"                                                                                                     annotation (Evaluate=true);
   parameter SI.Acceleration g=9.81 "Constant gravity acceleration" 
     annotation (Dialog(enable=gravityType == GravityTypes.UniformGravity));
-  parameter Types.Axis n={0,-1,0} 
+  parameter Types.Axis n={0,-1,0}
     "Direction of gravity resolved in world frame (gravity = g*n/length(n))" 
     annotation (Evaluate=true, Dialog(enable=gravityType == Modelica.Mechanics.
           MultiBody.Types.GravityTypes.UniformGravity));
   parameter Real mue(
     unit="m3/s2",
-    min=0) = 3.986e14 
+    min=0) = 3.986e14
     "Gravity field constant (default = field constant of earth)" 
     annotation (Dialog(enable=gravityType == Types.GravityTypes.PointGravity));
-  parameter Boolean driveTrainMechanics3D=false 
+  parameter Boolean driveTrainMechanics3D=false
     "= true, if 3-dim. mechanical effects of Parts.Mounting1D/Rotor1D/BevelGear1D shall be taken into account";
-  
-  parameter SI.Distance axisLength=nominalLength/2 
+
+  parameter SI.Distance axisLength=nominalLength/2
     "Length of world axes arrows" 
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
-  parameter SI.Distance axisDiameter=axisLength/defaultFrameDiameterFraction 
+  parameter SI.Distance axisDiameter=axisLength/defaultFrameDiameterFraction
     "Diameter of world axes arrows" 
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
   parameter Boolean axisShowLabels=true "= true, if labels shall be shown" 
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
-  input Types.Color axisColor_x=Modelica.Mechanics.MultiBody.Types.Defaults.FrameColor 
+  input Types.Color axisColor_x=Modelica.Mechanics.MultiBody.Types.Defaults.FrameColor
     "Color of x-arrow" 
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
   input Types.Color axisColor_y=axisColor_x 
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
   input Types.Color axisColor_z=axisColor_x "Color of z-arrow" 
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
-  
-  parameter SI.Position gravityArrowTail[3]={0,0,0} 
+
+  parameter SI.Position gravityArrowTail[3]={0,0,0}
     "Position vector from origin of world frame to arrow tail, resolved in world frame"
     annotation (Dialog(tab="Animation", group=
           "if animateGravity = true and gravityType = UniformGravity",
@@ -1462,7 +1461,7 @@ of these axes can be set via parameters.
     annotation (Dialog(tab="Animation", group=
           "if animateGravity = true and gravityType = UniformGravity",
           enable=enableAnimation and animateGravity and gravityType == GravityTypes.UniformGravity));
-  parameter SI.Diameter gravitySphereDiameter=12742000 
+  parameter SI.Diameter gravitySphereDiameter=12742000
     "Diameter of sphere representing gravity center (default = mean diameter of earth)"
     annotation (Dialog(tab="Animation", group=
           "if animateGravity = true and gravityType = PointGravity",
@@ -1471,57 +1470,57 @@ of these axes can be set via parameters.
     annotation (Dialog(tab="Animation", group=
           "if animateGravity = true and gravityType = PointGravity",
           enable=enableAnimation and animateGravity and gravityType == GravityTypes.PointGravity));
-  
+
   parameter SI.Length nominalLength=1 "\"Nominal\" length of multi-body system"
     annotation (Dialog(tab="Defaults"));
-  parameter SI.Length defaultAxisLength=nominalLength/5 
+  parameter SI.Length defaultAxisLength=nominalLength/5
     "Default for length of a frame axis (but not world frame)" 
     annotation (Dialog(tab="Defaults"));
-  parameter SI.Length defaultJointLength=nominalLength/10 
+  parameter SI.Length defaultJointLength=nominalLength/10
     "Default for the fixed length of a shape representing a joint" 
     annotation (Dialog(tab="Defaults"));
-  parameter SI.Length defaultJointWidth=nominalLength/20 
+  parameter SI.Length defaultJointWidth=nominalLength/20
     "Default for the fixed width of a shape representing a joint" 
     annotation (Dialog(tab="Defaults"));
-  parameter SI.Length defaultForceLength=nominalLength/10 
+  parameter SI.Length defaultForceLength=nominalLength/10
     "Default for the fixed length of a shape representing a force (e.g. damper)"
     annotation (Dialog(tab="Defaults"));
-  parameter SI.Length defaultForceWidth=nominalLength/20 
+  parameter SI.Length defaultForceWidth=nominalLength/20
     "Default for the fixed width of a shape represening a force (e.g. spring, bushing)"
     annotation (Dialog(tab="Defaults"));
-  parameter SI.Length defaultBodyDiameter=nominalLength/9 
+  parameter SI.Length defaultBodyDiameter=nominalLength/9
     "Default for diameter of sphere representing the center of mass of a body" 
     annotation (Dialog(tab="Defaults"));
-  parameter Real defaultWidthFraction=20 
+  parameter Real defaultWidthFraction=20
     "Default for shape width as a fraction of shape length (e.g., for Parts.FixedTranslation)"
     annotation (Dialog(tab="Defaults"));
-  parameter SI.Length defaultArrowDiameter=nominalLength/40 
+  parameter SI.Length defaultArrowDiameter=nominalLength/40
     "Default for arrow diameter (e.g., of forces, torques, sensors)" 
     annotation (Dialog(tab="Defaults"));
-  parameter Real defaultFrameDiameterFraction=40 
+  parameter Real defaultFrameDiameterFraction=40
     "Default for arrow diameter of a coordinate system as a fraction of axis length"
     annotation (Dialog(tab="Defaults"));
-  parameter Real defaultSpecularCoefficient(min=0) = 0.7 
+  parameter Real defaultSpecularCoefficient(min=0) = 0.7
     "Default reflection of ambient light (= 0: light is completely absorbed)" 
     annotation (Dialog(tab="Defaults"));
-  parameter Real defaultN_to_m(unit="N/m", min=0) = 1000 
+  parameter Real defaultN_to_m(unit="N/m", min=0) = 1000
     "Default scaling of force arrows (length = force/defaultN_to_m)" 
     annotation (Dialog(tab="Defaults"));
-  parameter Real defaultNm_to_m(unit="N.m/m", min=0) = 1000 
+  parameter Real defaultNm_to_m(unit="N.m/m", min=0) = 1000
     "Default scaling of torque arrows (length = torque/defaultNm_to_m)" 
     annotation (Dialog(tab="Defaults"));
-  
+
   /* The World object can only use the Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape model, but no
      other models in package Modelica.Mechanics.MultiBody.Visualizers, since the other models access
      data of the "outer Modelica.Mechanics.MultiBody.World world" object, i.e., there are
      mutually dependent classes. For this reason, the higher level visualization
      objects cannot be used.
   */
-protected 
+protected
   parameter Integer ndim=if enableAnimation and animateWorld then 1 else 0;
   parameter Integer ndim2=if enableAnimation and animateWorld and 
       axisShowLabels then 1 else 0;
-  
+
   // Parameters to define axes
   parameter SI.Length headLength=min(axisLength, axisDiameter*Types.Defaults.
       FrameHeadLengthFraction);
@@ -1529,12 +1528,12 @@ protected
       FrameHeadWidthFraction;
   parameter SI.Length lineLength=max(0, axisLength - headLength);
   parameter SI.Length lineWidth=axisDiameter;
-  
+
   // Parameters to define axes labels
   parameter SI.Length scaledLabel=Modelica.Mechanics.MultiBody.Types.Defaults.FrameLabelHeightFraction*
       axisDiameter;
   parameter SI.Length labelStart=1.05*axisLength;
-  
+
   // x-axis
   Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape x_arrowLine(
     shapeType="cylinder",
@@ -1563,7 +1562,7 @@ protected
     n_x={1,0,0},
     n_y={0,1,0},
     specularCoefficient=0) if enableAnimation and animateWorld and axisShowLabels;
-  
+
   // y-axis
   Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape y_arrowLine(
     shapeType="cylinder",
@@ -1592,7 +1591,7 @@ protected
     n_x={0,1,0},
     n_y={-1,0,0},
     specularCoefficient=0) if enableAnimation and animateWorld and axisShowLabels;
-  
+
   // z-axis
   Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape z_arrowLine(
     shapeType="cylinder",
@@ -1621,7 +1620,7 @@ protected
     n_x={0,0,1},
     n_y={0,1,0},
     specularCoefficient=0) if enableAnimation and animateWorld and axisShowLabels;
-  
+
   // Uniform gravity visualization
   parameter SI.Length gravityHeadLength=min(gravityArrowLength,
       gravityArrowDiameter*Types.Defaults.ArrowHeadLengthFraction);
@@ -1648,7 +1647,7 @@ protected
     r_shape=gravityArrowTail + Modelica.Math.Vectors.normalize(
                                                 n)*gravityLineLength,
     specularCoefficient=0) if enableAnimation and animateGravity and gravityType == GravityTypes.UniformGravity;
-  
+
   // Point gravity visualization
   parameter Integer ndim_pointGravity=if enableAnimation and animateGravity
        and gravityType == 2 then 1 else 0;
@@ -1661,37 +1660,37 @@ protected
     height=gravitySphereDiameter,
     color=gravitySphereColor,
     specularCoefficient=0) if enableAnimation and animateGravity and gravityType == GravityTypes.PointGravity;
-  
+
   function gravityAcceleration = gravityAccelerationTypes (
       gravityType=gravityType,
       g=g*Modelica.Math.Vectors.normalize(
                                      n),
       mue=mue);
-  
-protected 
-  function gravityAccelerationTypes 
-    "Gravity field acceleration depending on field type and position" 
+
+protected
+  function gravityAccelerationTypes
+    "Gravity field acceleration depending on field type and position"
     import Modelica.Mechanics.MultiBody.Types.GravityTypes;
     extends Modelica.Icons.Function;
-    input SI.Position r[3] 
+    input SI.Position r[3]
       "Position vector from world frame to actual point, resolved in world frame";
     input GravityTypes gravityType "Type of gravity field";
-    input SI.Acceleration g[3] 
+    input SI.Acceleration g[3]
       "Constant gravity acceleration, resolved in world frame, if gravityType=1";
-    input Real mue(unit="m3/s2") 
+    input Real mue(unit="m3/s2")
       "Field constant of point gravity field, if gravityType=2";
-    output SI.Acceleration gravity[3] 
+    output SI.Acceleration gravity[3]
       "Gravity acceleration at point r, resolved in world frame";
-  algorithm 
+  algorithm
     gravity := if gravityType == GravityTypes.UniformGravity then g else 
                if gravityType == GravityTypes.PointGravity then 
                   -(mue/(r*r))*(r/Modelica.Math.Vectors.length(
                                                 r)) else 
                     zeros(3);
   end gravityAccelerationTypes;
-equation 
+equation
   defineRoot(frame_b.R);
-  
+
   assert(Modelica.Math.Vectors.length(
                        n) > 1.e-10,
     "Parameter n of World object is wrong (lenght(n) > 0 required)");

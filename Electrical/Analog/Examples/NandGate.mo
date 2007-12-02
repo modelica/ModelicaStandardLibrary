@@ -1,11 +1,11 @@
 within Modelica.Electrical.Analog.Examples;
-encapsulated model NandGate "CMOS NAND Gate (see Tietze/Schenk, page 157)" 
+encapsulated model NandGate "CMOS NAND Gate (see Tietze/Schenk, page 157)"
   import Modelica.Electrical.Analog.Basic;
   import Modelica.Electrical.Analog.Sources;
   import Modelica.Electrical.Analog.Examples.Utilities;
   import Modelica.Icons;
   extends Icons.Example;
-  
+
   annotation (
     Icon(graphics),
     Documentation(info="<html>
@@ -90,7 +90,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             -45}}, rotation=0)));
   Utilities.Nand Nand annotation (Placement(transformation(extent={{-40,-45},{
             40,55}}, rotation=0)));
-equation 
+equation
   connect(VDD.n, Gnd1.p) annotation (Line(points={{50,60},{50,53}}));
   connect(VIN1.n, Gnd4.p) annotation (Line(points={{-70,10},{-70,5}}));
   connect(VIN2.n, Gnd5.p) annotation (Line(points={{-70,-40},{-70,-45}}));

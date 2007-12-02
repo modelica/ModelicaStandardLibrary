@@ -2339,7 +2339,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Line(points={{0,90},{80,70},{80,-40},{70,-40}}, color={0,0,127}),
-            Line(points={{0,90},{-80,70},{-80,-40},{-70,-40}}, color={0,0,127}),
+            Line(points={{0,90},{-80,70},{-80,-40},{-70,-40}}, color={0,0,127}), 
+
             Text(
               extent={{-150,-180},{150,-140}},
               textString="%name",
@@ -3493,9 +3494,9 @@ in the flanges, are along the axis vector displayed in the icon.
         "transmission ratio (flange_a.phi/flange_b.phi)";
       parameter Real lossTable[:, 5]=[0, 1, 1, 0, 0]
         "Array for mesh efficiencies and bearing friction depending on speed (see docu of LossyGear)";
-      parameter SI.RotationalSpringConstant c(final min=Modelica.Constants.small, start=1.0e5) 
+      parameter SI.RotationalSpringConstant c(final min=Modelica.Constants.small, start=1.0e5)
         "Gear elasticity (spring constant)";
-      parameter SI.RotationalDampingConstant d(final min=0, start=0) 
+      parameter SI.RotationalDampingConstant d(final min=0, start=0)
         "(relative) gear damping";
       parameter SI.Angle b(final min=0) = 0 "Total backlash";
 
@@ -3542,7 +3543,8 @@ GearNew.</p>
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={192,192,192}),
             Polygon(
-              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
+              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}}, 
+
               lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={128,128,128}),

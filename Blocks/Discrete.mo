@@ -1,10 +1,10 @@
 within Modelica.Blocks;
-package Discrete 
-  "Library of discrete input/output blocks with fixed sample period" 
-  
+package Discrete
+  "Library of discrete input/output blocks with fixed sample period"
+
   extends Modelica.Icons.Library;
-  
-  annotation( Documentation(info="<html>
+
+  annotation (Documentation(info="<html>
 <p>
 This package contains <b>discrete control blocks</b>
 with <b>fixed sample period</b>.
@@ -36,40 +36,40 @@ as the components of packages <b>Modelica.Blocks.Math</b>,
        Hilding Elmqvist.</li>
 </ul>
 </html>"));
-  
-  block Sampler "Ideal sampling of continuous signals" 
+
+  block Sampler "Ideal sampling of continuous signals"
     extends Interfaces.DiscreteSISO;
-    
+
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Ellipse(
-            extent={{-25,-10},{-45,10}}, 
-            lineColor={0,0,127}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-25,-10},{-45,10}},
+            lineColor={0,0,127},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{45,-10},{25,10}}, 
-            lineColor={0,0,127}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-100,0},{-45,0}}, color={0,0,127}), 
-          Line(points={{45,0},{100,0}}, color={0,0,127}), 
+            extent={{45,-10},{25,10}},
+            lineColor={0,0,127},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-100,0},{-45,0}}, color={0,0,127}),
+          Line(points={{45,0},{100,0}}, color={0,0,127}),
           Line(points={{-35,0},{30,35}}, color={0,0,127})}),
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}), graphics={
           Ellipse(
-            extent={{-25,-10},{-45,10}}, 
-            lineColor={0,0,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-25,-10},{-45,10}},
+            lineColor={0,0,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{45,-10},{25,10}}, 
-            lineColor={0,0,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-100,0},{-45,0}}, color={0,0,255}), 
-          Line(points={{45,0},{100,0}}, color={0,0,255}), 
+            extent={{45,-10},{25,10}},
+            lineColor={0,0,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-100,0},{-45,0}}, color={0,0,255}),
+          Line(points={{45,0},{100,0}}, color={0,0,255}),
           Line(points={{-35,0},{30,35}}, color={0,0,255})}),
       Documentation(info="<HTML>
 <p>
@@ -78,13 +78,13 @@ via parameter <b>samplePeriod</b>.
 </p>
 </HTML>
 "));
-  equation 
+  equation
     when {sampleTrigger, initial()} then
       y = u;
     end when;
   end Sampler;
-  
-  block ZeroOrderHold "Zero order hold of a sampled-data system" 
+
+  block ZeroOrderHold "Zero order hold of a sampled-data system"
     extends Interfaces.DiscreteSISO;
     output Real ySample(start=0, fixed=true);
     annotation (
@@ -107,7 +107,7 @@ sample instant during the sample points.
 </p>
 </HTML>
 "));
-  equation 
+  equation
     when {sampleTrigger, initial()} then
       ySample = u;
     end when;
@@ -117,10 +117,10 @@ sample instant during the sample points.
     */
     y = pre(ySample);
   end ZeroOrderHold;
-  
-  block FirstOrderHold "First order hold of a sampled-data system" 
+
+  block FirstOrderHold "First order hold of a sampled-data system"
     extends Interfaces.DiscreteSISO;
-  protected 
+  protected
     Real ySample;
     Modelica.SIunits.Time tSample;
     Real c;
@@ -143,7 +143,7 @@ values of the last two sampled input signals.
 </p>
 </HTML>
 "));
-  equation 
+  equation
     when sampleTrigger then
       ySample = u;
       tSample = time;
@@ -155,11 +155,11 @@ values of the last two sampled input signals.
     */
     y = pre(ySample) + pre(c)*(time - tSample);
   end FirstOrderHold;
-  
-  block UnitDelay "Unit Delay Block" 
+
+  block UnitDelay "Unit Delay Block"
     parameter Real y_start=0 "Initial value of output signal";
     extends Interfaces.DiscreteSISO;
-    
+
     annotation (
       Window(
         x=0.24,
@@ -186,55 +186,55 @@ the output y is identical to parameter yStart.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{-30,0},{30,0}}, color={0,0,127}), 
+          Line(points={{-30,0},{30,0}}, color={0,0,127}),
           Text(
-            extent={{-90,10},{90,90}}, 
-            textString="1", 
-            lineColor={0,0,127}), 
+            extent={{-90,10},{90,90}},
+            textString="1",
+            lineColor={0,0,127}),
           Text(
-            extent={{-90,-10},{90,-90}}, 
-            textString="z", 
+            extent={{-90,-10},{90,-90}},
+            textString="z",
             lineColor={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}), 
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Text(
-            extent={{-160,10},{-140,-10}}, 
-            textString="u", 
-            lineColor={0,0,255}), 
+            extent={{-160,10},{-140,-10}},
+            textString="u",
+            lineColor={0,0,255}),
           Text(
-            extent={{115,10},{135,-10}}, 
-            textString="y", 
-            lineColor={0,0,255}), 
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
-          Line(points={{60,0},{100,0}}, color={0,0,255}), 
-          Line(points={{40,0},{-40,0}}, color={0,0,0}), 
+            extent={{115,10},{135,-10}},
+            textString="y",
+            lineColor={0,0,255}),
+          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
+          Line(points={{60,0},{100,0}}, color={0,0,255}),
+          Line(points={{40,0},{-40,0}}, color={0,0,0}),
           Text(
-            extent={{-55,55},{55,5}}, 
-            lineColor={0,0,0}, 
-            textString="1"), 
+            extent={{-55,55},{55,5}},
+            lineColor={0,0,0},
+            textString="1"),
           Text(
-            extent={{-55,-5},{55,-55}}, 
-            lineColor={0,0,0}, 
+            extent={{-55,-5},{55,-55}},
+            lineColor={0,0,0},
             textString="z")}));
-  equation 
+  equation
     when sampleTrigger then
       y = pre(u);
     end when;
-    
-  initial equation 
+
+  initial equation
       y = y_start;
   end UnitDelay;
-  
-  block TransferFunction "Discrete Transfer Function block" 
+
+  block TransferFunction "Discrete Transfer Function block"
     parameter Real b[:]={1} "Numerator coefficients of transfer function.";
     parameter Real a[:]={1,1} "Denominator coefficients of transfer function.";
     extends Interfaces.DiscreteSISO;
-    output Real x[size(a, 1) - 1](start=zeros(size(a, 1) - 1), fixed=fill(true,size(a, 1) - 1)) 
+    output Real x[size(a, 1) - 1](start=zeros(size(a, 1) - 1), fixed=fill(true,size(a, 1) - 1))
       "State of transfer function from controller canonical form";
-  protected 
+  protected
     parameter Integer nb=size(b, 1) "Size of Numerator of transfer function";
     parameter Integer na=size(a, 1) "Size of Denominator of transfer function";
     Real x1;
@@ -284,38 +284,35 @@ states can be set as start values of <b>x</b>.<p>
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{82,0},{-84,0}}, color={0,0,127}), 
+          Line(points={{82,0},{-84,0}}, color={0,0,127}),
           Text(
-            extent={{-92,92},{86,12}}, 
-            lineColor={0,0,127}, 
-            textString="b(z)"), 
+            extent={{-92,92},{86,12}},
+            lineColor={0,0,127},
+            textString="b(z)"),
           Text(
-            extent={{-90,-12},{90,-90}}, 
-            lineColor={0,0,127}, 
+            extent={{-90,-12},{90,-90}},
+            lineColor={0,0,127},
             textString="a(z)")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Rectangle(
-            extent={{-60,60},{60,-60}}, 
-            fillPattern=FillPattern.None, 
-            lineColor={0,0,255}), 
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Line(
-            points={{40,0},{-44,0}}, 
-            color={0,0,0}, 
-            thickness=2), 
+            points={{40,0},{-44,0}},
+            color={0,0,0},
+            thickness=2),
           Text(
-            extent={{-54,54},{54,4}}, 
-            lineColor={0,0,0}, 
-            textString="b(z)"), 
+            extent={{-54,54},{54,4}},
+            lineColor={0,0,0},
+            textString="b(z)"),
           Text(
-            extent={{-54,-6},{56,-56}}, 
-            lineColor={0,0,0}, 
-            textString="a(z)"), 
-          Line(points={{-100,0},{-60,0}}, color={0,0,255}), 
+            extent={{-54,-6},{56,-56}},
+            lineColor={0,0,0},
+            textString="a(z)"),
+          Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255})}));
-  equation 
+  equation
     when sampleTrigger then
       /* State variables x are defined according to
        controller canonical form. */
@@ -338,18 +335,18 @@ states can be set as start values of <b>x</b>.<p>
      end when;
 */
   end TransferFunction;
-  
-  block StateSpace "Discrete State Space block" 
-    parameter Real A[:, size(A, 1)]=[1, 0; 0, 1] 
+
+  block StateSpace "Discrete State Space block"
+    parameter Real A[:, size(A, 1)]=[1, 0; 0, 1]
       "Matrix A of state space model";
     parameter Real B[size(A, 1), :]=[1; 1] "Matrix B of state space model";
     parameter Real C[:, size(A, 1)]=[1, 1] "Matrix C of state space model";
-    parameter Real D[size(C, 1), size(B, 2)]=zeros(size(C, 1), size(B, 2)) 
+    parameter Real D[size(C, 1), size(B, 2)]=zeros(size(C, 1), size(B, 2))
       "Matrix D of state space model";
-    
+
     extends Interfaces.DiscreteMIMO(final nin=size(B, 2), final nout=size(C, 1));
     output Real x[size(A, 1)] "State vector";
-    
+
     annotation (
       Window(
         x=0.25,
@@ -401,90 +398,87 @@ results in the following equations:
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Text(
-            extent={{-90,15},{-15,90}}, 
-            textString="A", 
-            lineColor={0,0,127}), 
+            extent={{-90,15},{-15,90}},
+            textString="A",
+            lineColor={0,0,127}),
           Text(
-            extent={{15,15},{90,90}}, 
-            textString="B", 
-            lineColor={0,0,127}), 
+            extent={{15,15},{90,90}},
+            textString="B",
+            lineColor={0,0,127}),
           Text(
-            extent={{-52,28},{54,-20}}, 
-            textString="z", 
-            lineColor={0,0,127}), 
+            extent={{-52,28},{54,-20}},
+            textString="z",
+            lineColor={0,0,127}),
           Text(
-            extent={{-90,-15},{-15,-90}}, 
-            textString="C", 
-            lineColor={0,0,127}), 
+            extent={{-90,-15},{-15,-90}},
+            textString="C",
+            lineColor={0,0,127}),
           Text(
-            extent={{15,-15},{90,-90}}, 
-            textString="D", 
+            extent={{15,-15},{90,-90}},
+            textString="D",
             lineColor={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Rectangle(
-            extent={{-60,60},{60,-60}}, 
-            fillPattern=FillPattern.None, 
-            lineColor={0,0,255}), 
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Text(
-            extent={{-54,50},{52,-10}}, 
-            lineColor={0,0,0}, 
-            fillColor={128,128,128}, 
-            fillPattern=FillPattern.None, 
-            textString="zx=Ax+Bu"), 
+            extent={{-54,50},{52,-10}},
+            lineColor={0,0,0},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.None,
+            textString="zx=Ax+Bu"),
           Text(
-            extent={{-56,14},{54,-50}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid, 
-            textString="  y=Cx+Du"), 
-          Line(points={{-102,0},{-60,0}}, color={0,0,255}), 
+            extent={{-56,14},{54,-50}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid,
+            textString="  y=Cx+Du"),
+          Line(points={{-102,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255})}));
-  equation 
+  equation
     when sampleTrigger then
       x = A*pre(x) + B*u;
       y = C*pre(x) + D*u;
     end when;
   end StateSpace;
-  
-  block TriggeredSampler "Triggered sampling of continuous signals" 
+
+  block TriggeredSampler "Triggered sampling of continuous signals"
     extends Interfaces.DiscreteBlockIcon;
     parameter Real y_start=0 "initial value of output signal";
-    
+
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Ellipse(
-            extent={{-25,-10},{-45,10}}, 
-            lineColor={0,0,127}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-25,-10},{-45,10}},
+            lineColor={0,0,127},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{45,-10},{25,10}}, 
-            lineColor={0,0,127}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-100,0},{-45,0}}, color={0,0,127}), 
-          Line(points={{45,0},{100,0}}, color={0,0,127}), 
-          Line(points={{0,-100},{0,-26}}, color={255,0,255}), 
+            extent={{45,-10},{25,10}},
+            lineColor={0,0,127},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-100,0},{-45,0}}, color={0,0,127}),
+          Line(points={{45,0},{100,0}}, color={0,0,127}),
+          Line(points={{0,-100},{0,-26}}, color={255,0,255}),
           Line(points={{-35,0},{28,-48}}, color={0,0,127})}),
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}), graphics={
           Ellipse(
-            extent={{-25,-10},{-45,10}}, 
-            lineColor={0,0,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-25,-10},{-45,10}},
+            lineColor={0,0,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{45,-10},{25,10}}, 
-            lineColor={0,0,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-100,0},{-45,0}}, color={0,0,255}), 
-          Line(points={{45,0},{100,0}}, color={0,0,255}), 
-          Line(points={{-35,0},{28,-48}}, color={0,0,255}), 
+            extent={{45,-10},{25,10}},
+            lineColor={0,0,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-100,0},{-45,0}}, color={0,0,255}),
+          Line(points={{45,0},{100,0}}, color={0,0,255}),
+          Line(points={{-35,0},{28,-48}}, color={0,0,255}),
           Line(points={{0,-100},{0,-26}}, color={255,0,255})}),
       Documentation(info="<HTML>
 <p>
@@ -499,7 +493,7 @@ the initial value defined via parameter <b>y0</b>.
     Modelica.Blocks.Interfaces.RealInput u "Connector with a Real input signal"
                                                           annotation (Placement(
           transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
-    Modelica.Blocks.Interfaces.RealOutput y 
+    Modelica.Blocks.Interfaces.RealOutput y
       "Connector with a Real output signal"                annotation (Placement(
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
     Modelica.Blocks.Interfaces.BooleanInput trigger annotation (Placement(
@@ -507,54 +501,54 @@ the initial value defined via parameter <b>y0</b>.
           origin={0,-118},
           extent={{-20,-20},{20,20}},
           rotation=90)));
-  equation 
+  equation
     when trigger then
       y = u;
     end when;
-  initial equation 
+  initial equation
     y = y_start;
   end TriggeredSampler;
-  
-  block TriggeredMax 
-    "Compute maximum, absolute value of continuous signal at trigger instants" 
-    
+
+  block TriggeredMax
+    "Compute maximum, absolute value of continuous signal at trigger instants"
+
     extends Interfaces.DiscreteBlockIcon;
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Ellipse(
-            extent={{-25,-10},{-45,10}}, 
-            lineColor={0,0,127}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-25,-10},{-45,10}},
+            lineColor={0,0,127},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{45,-10},{25,10}}, 
-            lineColor={0,0,127}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-100,0},{-45,0}}, color={0,0,127}), 
-          Line(points={{45,0},{100,0}}, color={0,0,127}), 
-          Line(points={{0,-100},{0,-26}}, color={255,0,255}), 
-          Line(points={{-35,0},{28,-48}}, color={0,0,127}), 
+            extent={{45,-10},{25,10}},
+            lineColor={0,0,127},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-100,0},{-45,0}}, color={0,0,127}),
+          Line(points={{45,0},{100,0}}, color={0,0,127}),
+          Line(points={{0,-100},{0,-26}}, color={255,0,255}),
+          Line(points={{-35,0},{28,-48}}, color={0,0,127}),
           Text(
-            extent={{-86,82},{82,24}}, 
-            lineColor={0,0,0}, 
+            extent={{-86,82},{82,24}},
+            lineColor={0,0,0},
             textString="max")}),
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}), graphics={
           Ellipse(
-            extent={{-25,-10},{-45,10}}, 
-            lineColor={0,0,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-25,-10},{-45,10}},
+            lineColor={0,0,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{45,-10},{25,10}}, 
-            lineColor={0,0,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-100,0},{-45,0}}, color={0,0,255}), 
-          Line(points={{45,0},{100,0}}, color={0,0,255}), 
-          Line(points={{-35,0},{28,-48}}, color={0,0,255}), 
+            extent={{45,-10},{25,10}},
+            lineColor={0,0,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-100,0},{-45,0}}, color={0,0,255}),
+          Line(points={{45,0},{100,0}}, color={0,0,255}),
+          Line(points={{-35,0},{28,-48}}, color={0,0,255}),
           Line(points={{0,-100},{0,-26}}, color={255,0,255})}),
       Documentation(info="<HTML>
 <p>
@@ -568,7 +562,7 @@ at the sampling point is provided as output signal.
     Modelica.Blocks.Interfaces.RealInput u "Connector with a Real input signal"
                                            annotation (Placement(transformation(
             extent={{-140,-20},{-100,20}}, rotation=0)));
-    Modelica.Blocks.Interfaces.RealOutput y 
+    Modelica.Blocks.Interfaces.RealOutput y
       "Connector with a Real output signal" annotation (Placement(
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
     Modelica.Blocks.Interfaces.BooleanInput trigger annotation (Placement(
@@ -576,11 +570,11 @@ at the sampling point is provided as output signal.
           origin={0,-118},
           extent={{-20,-20},{20,20}},
           rotation=90)));
-  equation 
+  equation
     when trigger then
        y = max(pre(y), abs(u));
     end when;
-  initial equation 
+  initial equation
     y = 0;
   end TriggeredMax;
 end Discrete;

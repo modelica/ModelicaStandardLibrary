@@ -1,10 +1,10 @@
 within Modelica.Media.IdealGases.Common;
-package FluidData "Critical data, dipole moments and related data" 
+package FluidData "Critical data, dipole moments and related data"
   extends Modelica.Icons.Library;
-  
+
   import Modelica.Media.Interfaces.PartialMedium;
   import Modelica.Media.IdealGases.Common.SingleGasesData;
-  
+
   constant SingleGasNasa.FluidConstants N2(
                        chemicalFormula =        "N2",
                        iupacName =              "unknown",
@@ -22,7 +22,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants O2(
                        chemicalFormula =        "O2",
                        iupacName =              "unknown",
@@ -40,7 +40,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants CL2(
                        chemicalFormula =        "CL2",
                        iupacName =              "unknown",
@@ -58,7 +58,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants F2(
                        chemicalFormula =        "F2",
                        iupacName =              "unknown",
@@ -76,7 +76,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants CO2(
                        chemicalFormula =        "CO2",
                        iupacName =              "unknown",
@@ -94,7 +94,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true); // does not exist!
-  
+
   constant SingleGasNasa.FluidConstants CO(
                        chemicalFormula =        "CO",
                        iupacName =              "unknown",
@@ -112,7 +112,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants H2(
                        chemicalFormula =        "H2",
                        iupacName =              "unknown",
@@ -130,7 +130,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants H2O(
                        chemicalFormula =        "H2O",
                        iupacName =              "unknown",
@@ -148,7 +148,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants N2O(
                        chemicalFormula =        "N2O",
                        iupacName =              "unknown",
@@ -166,7 +166,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants NO(
                        chemicalFormula =        "NO",
                        iupacName =              "unknown",
@@ -184,7 +184,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants NO2(
                        chemicalFormula =        "NO2",
                        iupacName =              "unknown",
@@ -202,7 +202,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants NH3(
                        chemicalFormula =        "NH3",
                        iupacName =              "unknown",
@@ -220,7 +220,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants SO2(
                        chemicalFormula =        "SO2",
                        iupacName =              "unknown",
@@ -238,7 +238,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants SO3(
                        chemicalFormula =        "SO3",
                        iupacName =              "unknown",
@@ -256,7 +256,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants Ar(
                        chemicalFormula =        "Ar",
                        iupacName =              "unknown",
@@ -274,7 +274,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants He(
                        chemicalFormula =        "He",
                        iupacName =              "unknown",
@@ -292,7 +292,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
  constant SingleGasNasa.FluidConstants Ne(
                        chemicalFormula =        "Ne",
                        iupacName =              "unknown",
@@ -310,7 +310,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants CH4(
                        chemicalFormula =        "CH4",
                        iupacName =              "unknown",
@@ -328,7 +328,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants C2H6(
                        chemicalFormula =        "C2H6",
                        iupacName =              "unknown",
@@ -346,7 +346,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants C3H8(
                        chemicalFormula =        "C3H8",
                        iupacName =              "unknown",
@@ -364,7 +364,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants C4H10_n_butane(
                        chemicalFormula =        "C4H10",
                        iupacName =              "unknown",
@@ -382,7 +382,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants C5H12_n_pentane(
                        chemicalFormula =        "C5H12",
                        iupacName =              "unknown",
@@ -400,7 +400,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants C6H14_n_hexane(
                        chemicalFormula =        "C6H14",
                        iupacName =              "unknown",
@@ -418,7 +418,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants C7H16_n_heptane(
                        chemicalFormula =        "C7H16",
                        iupacName =              "unknown",
@@ -436,7 +436,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants C2H4(
                        chemicalFormula =        "C2H4",
                        iupacName =              "unknown",
@@ -454,7 +454,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants C3H6_propylene(
                        chemicalFormula =        "C3H6",
                        iupacName =              "unknown",
@@ -472,7 +472,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants C4H8_1_butene(
                        chemicalFormula =        "C4H8",
                        iupacName =              "unknown",
@@ -490,7 +490,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants C5H10_1_pentene(
                        chemicalFormula =        "C5H10",
                        iupacName =              "unknown",
@@ -508,7 +508,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants C6H12_1_hexene(
                        chemicalFormula =        "C6H12",
                        iupacName =              "unknown",
@@ -526,7 +526,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants C7H14_1_heptene(
                        chemicalFormula =        "C7H14",
                        iupacName =              "unknown",
@@ -544,7 +544,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants C2H2_vinylidene(
                        chemicalFormula =        "C2H2",
                        iupacName =              "unknown",
@@ -562,7 +562,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants C6H6(
                        chemicalFormula =        "C6H6",
                        iupacName =              "unknown",
@@ -580,7 +580,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants C8H18_n_octane(
                        chemicalFormula =        "C8H18",
                        iupacName =              "unknown",
@@ -598,7 +598,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants C8H10_ethylbenz(
                        chemicalFormula =        "C8H10",
                        iupacName =              "unknown",
@@ -616,7 +616,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants CH3OH(
                        chemicalFormula =        "CH3OH",
                        iupacName =              "unknown",
@@ -634,7 +634,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants C2H5OH(
                        chemicalFormula =        "C2H5OH",
                        iupacName =              "unknown",
@@ -652,7 +652,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants C3H7OH(
                        chemicalFormula =        "C3H7OH",
                        iupacName =              "unknown",
@@ -670,7 +670,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   constant SingleGasNasa.FluidConstants C4H9OH(
                        chemicalFormula =        "C4H9OH",
                        iupacName =              "unknown",
@@ -688,7 +688,7 @@ package FluidData "Critical data, dipole moments and related data"
                        hasIdealGasHeatCapacity=true,
                        hasCriticalData =       true,
                        hasAcentricFactor =     true);
-  
+
   annotation (Documentation(info="<html>
 <p>
 This package contains FluidConstants data records for the following 37 gases

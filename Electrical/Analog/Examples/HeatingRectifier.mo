@@ -1,5 +1,5 @@
 within Modelica.Electrical.Analog.Examples;
-model HeatingRectifier "Heating rectifier" 
+model HeatingRectifier "Heating rectifier"
   extends Modelica.Icons.Example;
   Modelica.Electrical.Analog.Semiconductors.HeatingDiode HeatingDiode1 
                 annotation (Placement(transformation(extent={{-20,40},{0,60}},
@@ -11,11 +11,11 @@ model HeatingRectifier "Heating rectifier"
         origin={-70,40},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  
+
 annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={Text(
-          extent={{-94,102},{0,74}}, 
-          textString="HeatingRectifier", 
+          extent={{-94,102},{0,74}},
+          textString="HeatingRectifier",
           lineColor={0,0,255})}),
                                 Documentation(info="<HTML>
 <P>
@@ -54,7 +54,7 @@ HeatingDiode1.heatPort.Q_flow<br>
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Resistor R(R=1) 
   annotation (Placement(transformation(extent={{20,70},{40,90}}, rotation=0)));
-equation 
+equation
   connect(SineVoltage1.p, HeatingDiode1.p) 
   annotation (Line(points={{-70,50},{-20,50}}, color={0,0,255}));
   connect(SineVoltage1.n, G.p) 
@@ -97,5 +97,5 @@ HeatingDiode1.heatPort.Q_flow<br>
 "),
   experiment(
      StopTime=5));
-  
+
 end HeatingRectifier;

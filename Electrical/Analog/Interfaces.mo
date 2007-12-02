@@ -1,8 +1,8 @@
 within Modelica.Electrical.Analog;
-package Interfaces 
-  "Connectors and partial models for Analog electrical components" 
+package Interfaces
+  "Connectors and partial models for Analog electrical components"
   extends Modelica.Icons.Library;
-  annotation( Window(
+  annotation (Window(
       x=0.03,
       y=0.04,
       width=0.21,
@@ -49,25 +49,25 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        </li>
 </ul>
 </html>"));
-  
-  connector Pin "Pin of an electrical component" 
+
+  connector Pin "Pin of an electrical component"
     SI.Voltage v "Potential at the pin";
     flow SI.Current i "Current flowing into the pin";
     annotation (defaultComponentName="pin",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Rectangle(
-            extent={{-100,100},{100,-100}}, 
-            lineColor={0,0,255}, 
-            fillColor={0,0,255}, 
+            extent={{-100,100},{100,-100}},
+            lineColor={0,0,255},
+            fillColor={0,0,255},
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Rectangle(
-            extent={{-40,40},{40,-40}}, 
-            lineColor={0,0,255}, 
-            fillColor={0,0,255}, 
+            extent={{-40,40},{40,-40}},
+            lineColor={0,0,255},
+            fillColor={0,0,255},
             fillPattern=FillPattern.Solid), Text(
-            extent={{-160,110},{40,50}}, 
-            lineColor={0,0,255}, 
+            extent={{-160,110},{40,50}},
+            lineColor={0,0,255},
             textString="%name")}),
       Documentation(revisions="<html>
 <ul>
@@ -79,8 +79,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 </ul>
 </html>"));
   end Pin;
-  
-  connector PositivePin "Positive pin of an electric component" 
+
+  connector PositivePin "Positive pin of an electric component"
     SI.Voltage v "Potential at the pin";
     flow SI.Current i "Current flowing into the pin";
     annotation (defaultComponentName="pin_p",
@@ -101,22 +101,22 @@ component.</p></html>", revisions="<html>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Rectangle(
-            extent={{-100,100},{100,-100}}, 
-            lineColor={0,0,255}, 
-            fillColor={0,0,255}, 
+            extent={{-100,100},{100,-100}},
+            lineColor={0,0,255},
+            fillColor={0,0,255},
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Rectangle(
-            extent={{-40,40},{40,-40}}, 
-            lineColor={0,0,255}, 
-            fillColor={0,0,255}, 
+            extent={{-40,40},{40,-40}},
+            lineColor={0,0,255},
+            fillColor={0,0,255},
             fillPattern=FillPattern.Solid), Text(
-            extent={{-160,110},{40,50}}, 
-            lineColor={0,0,255}, 
+            extent={{-160,110},{40,50}},
+            lineColor={0,0,255},
             textString="%name")}));
   end PositivePin;
-  
-  connector NegativePin "Negative pin of an electric component" 
+
+  connector NegativePin "Negative pin of an electric component"
     SI.Voltage v "Potential at the pin";
     flow SI.Current i "Current flowing into the pin";
     annotation (defaultComponentName="pin_n",
@@ -137,26 +137,26 @@ component.</p></html>", revisions="<html>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Rectangle(
-            extent={{-100,100},{100,-100}}, 
-            lineColor={0,0,255}, 
-            fillColor={255,255,255}, 
+            extent={{-100,100},{100,-100}},
+            lineColor={0,0,255},
+            fillColor={255,255,255},
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Rectangle(
-            extent={{-40,40},{40,-40}}, 
-            lineColor={0,0,255}, 
-            fillColor={255,255,255}, 
+            extent={{-40,40},{40,-40}},
+            lineColor={0,0,255},
+            fillColor={255,255,255},
             fillPattern=FillPattern.Solid), Text(
-            extent={{-40,110},{160,50}}, 
-            textString="%name", 
+            extent={{-40,110},{160,50}},
+            textString="%name",
             lineColor={0,0,255})}),
-      Terminal(Rectangle(extent=[-100, 100; 100, -100], style(color=3), 
+      Terminal(Rectangle(extent=[-100, 100; 100, -100], style(color=3),
           lineColor={0,0,255})));
   end NegativePin;
-  
-  partial model TwoPin "Component with one electrical port" 
+
+  partial model TwoPin "Component with one electrical port"
     SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
-    PositivePin p 
+    PositivePin p
       "Positive pin Positive pin (potential p.v > n.v for positive voltage drop v)"
                                                                                                 annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
@@ -168,28 +168,28 @@ component.</p></html>", revisions="<html>
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Polygon(
-            points={{-120,3},{-110,0},{-120,-3},{-120,3}}, 
-            lineColor={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-136,0},{-111,0}}, color={160,160,164}), 
+            points={{-120,3},{-110,0},{-120,-3},{-120,3}},
+            lineColor={160,160,164},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-136,0},{-111,0}}, color={160,160,164}),
           Text(
-            extent={{-134,5},{-117,20}}, 
-            lineColor={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid, 
-            textString="p.i"), 
-          Line(points={{110,0},{135,0}}, color={160,160,164}), 
+            extent={{-134,5},{-117,20}},
+            lineColor={160,160,164},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid,
+            textString="p.i"),
+          Line(points={{110,0},{135,0}}, color={160,160,164}),
           Polygon(
-            points={{120,3},{110,0},{120,-3},{120,3}}, 
-            lineColor={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
+            points={{120,3},{110,0},{120,-3},{120,3}},
+            lineColor={160,160,164},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{117,3},{134,18}}, 
-            lineColor={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid, 
+            extent={{117,3},{134,18}},
+            lineColor={160,160,164},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid,
             textString="n.i")}),
       Window(
         x=0.11,
@@ -205,16 +205,16 @@ component.</p></html>", revisions="<html>
        </li>
 </ul>
 </html>"));
-  equation 
+  equation
     v = p.v - n.v;
   end TwoPin;
-  
-  partial model OnePort 
-    "Component with two electrical pins p and n and current i from p to n" 
-    
+
+  partial model OnePort
+    "Component with two electrical pins p and n and current i from p to n"
+
     SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
     SI.Current i "Current flowing from pin p to pin n";
-    PositivePin p 
+    PositivePin p
       "Positive pin (potential p.v > n.v for positive voltage drop v)"             annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
     NegativePin n "Negative pin" annotation (Placement(transformation(extent={{
@@ -242,53 +242,53 @@ This current is provided explicitly as current i.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{-110,20},{-85,20}}, color={160,160,164}), 
+          Line(points={{-110,20},{-85,20}}, color={160,160,164}),
           Polygon(
-            points={{-95,23},{-85,20},{-95,17},{-95,23}}, 
-            lineColor={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{90,20},{115,20}}, color={160,160,164}), 
-          Line(points={{-125,0},{-115,0}}, color={160,160,164}), 
-          Line(points={{-120,-5},{-120,5}}, color={160,160,164}), 
+            points={{-95,23},{-85,20},{-95,17},{-95,23}},
+            lineColor={160,160,164},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid),
+          Line(points={{90,20},{115,20}}, color={160,160,164}),
+          Line(points={{-125,0},{-115,0}}, color={160,160,164}),
+          Line(points={{-120,-5},{-120,5}}, color={160,160,164}),
           Text(
-            extent={{-110,25},{-90,45}}, 
-            lineColor={160,160,164}, 
-            textString="i"), 
+            extent={{-110,25},{-90,45}},
+            lineColor={160,160,164},
+            textString="i"),
           Polygon(
-            points={{105,23},{115,20},{105,17},{105,23}}, 
-            lineColor={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{115,0},{125,0}}, color={160,160,164}), 
+            points={{105,23},{115,20},{105,17},{105,23}},
+            lineColor={160,160,164},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid),
+          Line(points={{115,0},{125,0}}, color={160,160,164}),
           Text(
-            extent={{90,45},{110,25}}, 
-            lineColor={160,160,164}, 
+            extent={{90,45},{110,25}},
+            lineColor={160,160,164},
             textString="i")}),
       Window(
         x=0.33,
         y=0.04,
         width=0.63,
         height=0.67));
-  equation 
+  equation
     v = p.v - n.v;
     0 = p.i + n.i;
     i = p.i;
   end OnePort;
-  
-  partial model TwoPort 
-    "Component with two electrical ports, including current" 
+
+  partial model TwoPort
+    "Component with two electrical ports, including current"
     SI.Voltage v1 "Voltage drop over the left port";
     SI.Voltage v2 "Voltage drop over the right port";
     SI.Current i1 "Current flowing from pos. to neg. pin of the left port";
     SI.Current i2 "Current flowing from pos. to neg. pin of the right port";
-    PositivePin p1 
+    PositivePin p1
       "Positive pin of the left port (potential p1.v > n1.v for positive voltage drop v1)"
                                                                                                         annotation (Placement(
           transformation(extent={{-110,40},{-90,60}}, rotation=0)));
     NegativePin n1 "Negative pin of the left port" annotation (Placement(
           transformation(extent={{-90,-60},{-110,-40}}, rotation=0)));
-    PositivePin p2 
+    PositivePin p2
       "Positive pin of the right port (potential p2.v > n2.v for positive voltage drop v2)"
                                                                                                          annotation (Placement(
           transformation(extent={{110,40},{90,60}}, rotation=0)));
@@ -300,52 +300,52 @@ This current is provided explicitly as current i.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Polygon(
-            points={{-120,53},{-110,50},{-120,47},{-120,53}}, 
-            lineColor={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-136,50},{-111,50}}, color={160,160,164}), 
+            points={{-120,53},{-110,50},{-120,47},{-120,53}},
+            lineColor={160,160,164},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-136,50},{-111,50}}, color={160,160,164}),
           Polygon(
-            points={{127,-47},{137,-50},{127,-53},{127,-47}}, 
-            lineColor={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{111,-50},{136,-50}}, color={160,160,164}), 
+            points={{127,-47},{137,-50},{127,-53},{127,-47}},
+            lineColor={160,160,164},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid),
+          Line(points={{111,-50},{136,-50}}, color={160,160,164}),
           Text(
-            extent={{112,-44},{128,-29}}, 
-            lineColor={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid, 
-            textString="i2"), 
+            extent={{112,-44},{128,-29}},
+            lineColor={160,160,164},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid,
+            textString="i2"),
           Text(
-            extent={{118,52},{135,67}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={160,160,164}, 
-            textString="i2"), 
+            extent={{118,52},{135,67}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={160,160,164},
+            textString="i2"),
           Polygon(
-            points={{120,53},{110,50},{120,47},{120,53}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={160,160,164}), 
-          Line(points={{111,50},{136,50}}, color={0,0,0}), 
-          Line(points={{-136,-49},{-111,-49}}, color={160,160,164}), 
+            points={{120,53},{110,50},{120,47},{120,53}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={160,160,164}),
+          Line(points={{111,50},{136,50}}, color={0,0,0}),
+          Line(points={{-136,-49},{-111,-49}}, color={160,160,164}),
           Polygon(
-            points={{-126,-46},{-136,-49},{-126,-52},{-126,-46}}, 
-            lineColor={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
+            points={{-126,-46},{-136,-49},{-126,-52},{-126,-46}},
+            lineColor={160,160,164},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-127,-46},{-110,-31}}, 
-            lineColor={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid, 
-            textString="i1"), 
+            extent={{-127,-46},{-110,-31}},
+            lineColor={160,160,164},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid,
+            textString="i1"),
           Text(
-            extent={{-136,53},{-119,68}}, 
-            lineColor={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid, 
+            extent={{-136,53},{-119,68}},
+            lineColor={160,160,164},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid,
             textString="i1")}),
       Window(
         x=0.16,
@@ -363,7 +363,7 @@ This current is provided explicitly as current i.
 </html>", info="<html>
  
 </html>"));
-  equation 
+  equation
     v1 = p1.v - n1.v;
     v2 = p2.v - n2.v;
     0 = p1.i + n1.i;
@@ -371,14 +371,14 @@ This current is provided explicitly as current i.
     i1 = p1.i;
     i2 = p2.i;
   end TwoPort;
-  
-  partial model AbsoluteSensor 
-    "Base class to measure the absolute value of a pin variable" 
+
+  partial model AbsoluteSensor
+    "Base class to measure the absolute value of a pin variable"
     extends Modelica.Icons.RotationalSensor;
-    
+
     Interfaces.PositivePin p "Pin to be measured" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
-    Modelica.Blocks.Interfaces.RealOutput y 
+    Modelica.Blocks.Interfaces.RealOutput y
       "Measured quantity as Real output signal"                                       annotation (Placement(
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
     annotation (
@@ -391,11 +391,11 @@ This current is provided explicitly as current i.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-          Line(points={{70,0},{100,0}}, color={0,0,255}), 
+          Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+          Line(points={{70,0},{100,0}}, color={0,0,255}),
           Text(
-            extent={{-150,80},{150,120}}, 
-            textString="%name", 
+            extent={{-150,80},{150,120}},
+            textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -412,16 +412,16 @@ This current is provided explicitly as current i.
 </ul>
 </html>"));
   end AbsoluteSensor;
-  
-  partial model RelativeSensor 
-    "Base class to measure a relative variable between two pins" 
+
+  partial model RelativeSensor
+    "Base class to measure a relative variable between two pins"
     extends Modelica.Icons.RotationalSensor;
-    
+
     Interfaces.PositivePin p "Positive pin" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
     Interfaces.NegativePin n "Negative pin" annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
-    Modelica.Blocks.Interfaces.RealOutput y 
+    Modelica.Blocks.Interfaces.RealOutput y
       "Measured quantity as Real output signal"                                       annotation (Placement(
           transformation(
           origin={0,-100},
@@ -432,19 +432,19 @@ This current is provided explicitly as current i.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-          Line(points={{70,0},{90,0}}, color={0,0,0}), 
-          Line(points={{0,-90},{0,-70}}, color={0,0,255}), 
+          Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+          Line(points={{70,0},{90,0}}, color={0,0,0}),
+          Line(points={{0,-90},{0,-70}}, color={0,0,255}),
           Text(
-            extent={{-150,80},{150,120}}, 
-            textString="%name", 
+            extent={{-150,80},{150,120}},
+            textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
-          Line(points={{0,-90},{0,-70}}, color={0,0,255}), 
+          Line(points={{-70,0},{-96,0}}, color={0,0,0}),
+          Line(points={{0,-90},{0,-70}}, color={0,0,255}),
           Line(points={{70,0},{96,0}}, color={0,0,0})}),
       Documentation(revisions="<html>
 <ul>
@@ -456,10 +456,10 @@ This current is provided explicitly as current i.
 </ul>
 </html>"));
   end RelativeSensor;
-  
-  partial model VoltageSource "Interface for voltage sources" 
+
+  partial model VoltageSource "Interface for voltage sources"
     extends OnePort;
-    
+
     parameter SI.Voltage offset=0 "Voltage offset";
     parameter SI.Time startTime=0 "Time offset";
     replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
@@ -471,22 +471,22 @@ This current is provided explicitly as current i.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Ellipse(
-            extent={{-50,50},{50,-50}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-50,50},{50,-50}},
+            lineColor={0,0,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-150,80},{150,120}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
-          Line(points={{-90,0},{90,0}}, color={0,0,0}), 
+            extent={{-150,80},{150,120}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(points={{-90,0},{90,0}}, color={0,0,0}),
           Text(
-            extent={{-120,50},{-20,0}}, 
-            lineColor={0,0,255}, 
-            textString="+"), 
+            extent={{-120,50},{-20,0}},
+            lineColor={0,0,255},
+            textString="+"),
           Text(
-            extent={{20,50},{120,0}}, 
-            lineColor={0,0,255}, 
+            extent={{20,50},{120,0}},
+            lineColor={0,0,255},
             textString="-")}),
       Window(
         x=0.31,
@@ -502,11 +502,11 @@ This current is provided explicitly as current i.
        </li>
 </ul>
 </html>"));
-  equation 
+  equation
     v = signalSource.y;
   end VoltageSource;
-  
-  partial model CurrentSource "Interface for current sources" 
+
+  partial model CurrentSource "Interface for current sources"
     extends OnePort;
     parameter SI.Current offset=0 "Current offset";
     parameter SI.Time startTime=0 "Time offset";
@@ -519,21 +519,21 @@ This current is provided explicitly as current i.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Ellipse(
-            extent={{-50,50},{50,-50}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,0},{-50,0}}, color={0,0,0}), 
-          Line(points={{50,0},{90,0}}, color={0,0,0}), 
-          Line(points={{0,-50},{0,50}}, color={0,0,0}), 
+            extent={{-50,50},{50,-50}},
+            lineColor={0,0,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,0},{-50,0}}, color={0,0,0}),
+          Line(points={{50,0},{90,0}}, color={0,0,0}),
+          Line(points={{0,-50},{0,50}}, color={0,0,0}),
           Text(
-            extent={{-150,120},{150,80}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-150,120},{150,80}},
+            textString="%name",
+            lineColor={0,0,255}),
           Polygon(
-            points={{90,0},{60,10},{60,-10},{90,0}}, 
-            lineColor={0,0,255}, 
-            fillColor={0,0,255}, 
+            points={{90,0},{60,10},{60,-10},{90,0}},
+            lineColor={0,0,255},
+            fillColor={0,0,255},
             fillPattern=FillPattern.Solid)}),
       Window(
         x=0.33,
@@ -549,7 +549,7 @@ This current is provided explicitly as current i.
        </li>
 </ul>
 </html>"));
-  equation 
+  equation
     i = signalSource.y;
   end CurrentSource;
 end Interfaces;

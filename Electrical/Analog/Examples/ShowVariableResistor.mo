@@ -1,7 +1,7 @@
 within Modelica.Electrical.Analog.Examples;
-model ShowVariableResistor "Simple demo of a VariableResistor model" 
+model ShowVariableResistor "Simple demo of a VariableResistor model"
    extends Modelica.Icons.Example;
-  
+
   Modelica.Electrical.Analog.Basic.VariableResistor VariableResistor 
                     annotation (Placement(transformation(extent={{-20,-20},{0,0}},
           rotation=0)));
@@ -20,7 +20,7 @@ model ShowVariableResistor "Simple demo of a VariableResistor model"
   annotation (Placement(transformation(extent={{-60,-20},{-40,0}}, rotation=0)));
   Modelica.Electrical.Analog.Basic.Resistor R5 
   annotation (Placement(transformation(extent={{20,-20},{40,0}}, rotation=0)));
-  
+
 annotation (Documentation(info="<HTML>
 <P>
 It is a simple test circuit for the VariableResistor. The VariableResistor
@@ -42,10 +42,10 @@ Simulate until T=1 s.
 </html>"),
   experiment(StopTime=1),
     Diagram(graphics={Text(
-          extent={{-100,112},{80,40}}, 
-          lineColor={0,0,255}, 
+          extent={{-100,112},{80,40}},
+          lineColor={0,0,255},
           textString="Example VariableResistor")}));
-  
+
 annotation(Diagram);
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1 
   annotation (Placement(transformation(
@@ -57,7 +57,7 @@ annotation(Diagram);
         origin={-10,20},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-equation 
+equation
   connect(R1.n, R2.p)             annotation (Line(points={{-40,50},{-20,50}},
         color={0,0,255}));
   connect(R2.n, R3.p)             annotation (Line(points={{0,50},{20,50}},

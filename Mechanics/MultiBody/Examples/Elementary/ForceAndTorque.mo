@@ -1,5 +1,5 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
-model ForceAndTorque "Demonstrate usage of ForceAndTorque element" 
+model ForceAndTorque "Demonstrate usage of ForceAndTorque element"
   extends Modelica.Icons.Example;
   inner World world(animateGravity=false) annotation (Placement(transformation(
           extent={{-90,30},{-70,50}}, rotation=0)));
@@ -55,7 +55,7 @@ forceAndTorque component):
             0)));
   Parts.Fixed fixed2(width=0.03, r={1.5,0.25,0}) 
     annotation (Placement(transformation(extent={{100,30},{80,50}}, rotation=0)));
-equation 
+equation
   connect(revolute2.frame_b, body.frame_a) annotation (Line(
       points={{-20,30},{-20,40},{0,40}},
       color={95,95,95},

@@ -28,7 +28,7 @@ Returns the number of characters of \"string\".
       "String containing substring string[startIndex:endIndex]";
   external "C" result = 
                       ModelicaStrings_substring(string,startIndex,endIndex);
-    annotation (  
+    annotation (
   Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -57,7 +57,7 @@ if endIndex &gt; length(string), an assert is triggered.
     input Integer n(min=0) = 1 "Number of occurences";
     input String string=" " "String that is repeated";
     output String repeatedString "String containing n concatenated strings";
-    annotation (  
+    annotation (
   Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -118,7 +118,7 @@ e.g., \"a\" &lt; \"b\";
     input Boolean caseSensitive=true
       "= false, if lower and upper case are ignored for the comparison";
     output Boolean identical "True, if string1 is identical to string2";
-    annotation (  
+    annotation (
   Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -139,7 +139,6 @@ optionally ignoring case.
   annotation (
   version="1.0",
   versionDate="2004-10-01",
-  
     Documentation(info="<HTML>
 <h4>Library content</h4>
 <p>
@@ -214,7 +213,7 @@ into account whether a character is upper or lower case.
     input Boolean caseSensitive=true
       "= false, if lower and upper case are ignored for count";
     output Integer result "Number of occurrences of 'searchString' in 'string'";
-    annotation (  
+    annotation (
   Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -254,7 +253,7 @@ or lower case.
       "= false, if lower and upper case are ignored for the search";
      output Integer index
       "Index of the beginning of the first occurrence of 'searchString' within 'string', or zero if not present";
-    annotation (  
+    annotation (
   Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -301,7 +300,7 @@ If \"searchString\" is not found, a value of \"0\" is returned.
       "= false, if lower and upper case are ignored for the search";
     output Integer index
       "Index of the beginning of the last occurrence of 'searchString' within 'string', or zero if not present";
-    annotation (  
+    annotation (
   Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -353,7 +352,7 @@ If \"searchString\" is not found, a value of \"0\" is returned.
     input Boolean caseSensitive=true
       "= false, if lower and upper case are ignored when searching for searchString";
     output String result "Resultant string of replacement operation";
-    annotation (  
+    annotation (
   Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>

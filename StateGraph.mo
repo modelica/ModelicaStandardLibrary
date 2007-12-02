@@ -7,7 +7,6 @@ extends Modelica.Icons.Library2;
 annotation (
   version="0.87",
   versionDate="2004-06-23",
-  
   Documentation(info="<html>
 <p>
 Library <b>StateGraph</b> is a <b>free</b> Modelica package providing
@@ -737,12 +736,12 @@ package Examples
     annotation (
       Diagram(graphics),
       experiment(StopTime=5),
-      
         Documentation(info="<html>
   
 </html>"));
     connect(initialStep.outPort[1], transition1.inPort) 
       annotation (Line(points={{-27.5,10},{-14,10}}, color={0,0,0}));
+
     connect(transition1.outPort, step.inPort[1]) 
       annotation (Line(points={{-8.5,10},{9,10}}, color={0,0,0}));
     connect(step.outPort[1], transition2.inPort) 
@@ -775,12 +774,12 @@ package Examples
     annotation (
       Diagram(graphics),
       experiment(StopTime=5),
-      
         Documentation(info="<html>
   
 </html>"));
     connect(initialStep.outPort[1], transition1.inPort) 
       annotation (Line(points={{-49.5,10},{-36,10}}, color={0,0,0}));
+
     connect(transition1.outPort, step.inPort[1]) 
       annotation (Line(points={{-30.5,10},{-15,10}}, color={0,0,0}));
     connect(step.active, timer.u) annotation (Line(points={{-4,-1},{-4,-30},{4,
@@ -822,12 +821,12 @@ package Examples
     annotation (
       Diagram(graphics),
       experiment(StopTime=5),
-      
         Documentation(info="<html>
   
 </html>"));
     connect(initialStep.outPort[1], transition1.inPort) 
       annotation (Line(points={{-49.5,10},{-36,10}}, color={0,0,0}));
+
     connect(transition1.outPort, step.inPort[1]) 
       annotation (Line(points={{-30.5,10},{-15,10}}, color={0,0,0}));
     connect(step.active, timer.u) annotation (Line(points={{-4,-1},{-4,-9.5},{
@@ -1146,7 +1145,6 @@ according to their setting before leaving the \"compositeStep\" via its
             extent={{-100,-100},{100,100}},
             grid={0.5,0.5}), graphics),
       experiment(StopTime=100),
-      
       Documentation(info="<html>
 <p>
 With this example the controller of a tank filling/emptying system
@@ -1184,6 +1182,7 @@ buttons:
 </ul> 
      
 </html>"));
+
     Utilities.Tank tank1 annotation (Placement(transformation(extent={{10,20},{
                 60,70}}, rotation=0)));
     Utilities.Tank tank2 annotation (Placement(transformation(extent={{34,-60},
@@ -2330,7 +2329,7 @@ block InitialStepWithSignal
   extends Interfaces.PartialStep;
 
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={Rectangle(extent={{-100,100},{100,-100}},
+              -100},{100,100}}), graphics={Rectangle(extent={{-100,100},{100,-100}}, 
               lineColor={0,0,0}), Rectangle(extent={{-80,80},{80,-80}},
               lineColor={0,0,0})}),
        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -2414,7 +2413,7 @@ block StepWithSignal
   extends Interfaces.PartialStep;
 
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={Rectangle(extent={{-100,100},{100,-100}},
+              -100},{100,100}}), graphics={Rectangle(extent={{-100,100},{100,-100}}, 
               lineColor={0,0,0})}),
        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
@@ -2492,7 +2491,7 @@ block Transition
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-31,0},{-11,0}}, color={0,0,0}),
+          grid={1,1}), graphics={Line(points={{-31,0},{-11,0}}, color={0,0,0}), 
             Rectangle(
             extent={{-10,100},{10,-100}},
             lineColor={0,0,0},
@@ -2551,7 +2550,7 @@ block TransitionWithSignal
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-31,0},{-11,0}}, color={0,0,0}),
+          grid={1,1}), graphics={Line(points={{-31,0},{-11,0}}, color={0,0,0}), 
             Rectangle(
             extent={{-10,100},{10,-100}},
             lineColor={0,0,0},
@@ -2584,7 +2583,7 @@ block Alternative
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-100,0},{-80,0}}, color={0,0,0}),
+          grid={1,1}), graphics={Line(points={{-100,0},{-80,0}}, color={0,0,0}), 
             Line(points={{80,0},{100,0}}, color={0,0,0})}),
       Documentation(info="<html>
   
@@ -2708,7 +2707,7 @@ block Parallel
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-100,0},{-80,0}}, color={0,0,0}),
+          grid={1,1}), graphics={Line(points={{-100,0},{-80,0}}, color={0,0,0}), 
             Line(points={{80,0},{100,0}}, color={0,0,0})}),
       Documentation(info="<html>
   
@@ -3264,8 +3263,8 @@ value, still requires to go in to the text layer.
               borderPattern=BorderPattern.Raised), Text(
               extent={{-90,-46},{90,34}},
               textString=DynamicSelect(" ", realString(
-                    Value,
-                    1,
+                    Value, 
+                    1, 
                     integer(precision))),
               lineColor={0,0,255})}),
         Diagram(graphics),
@@ -3290,8 +3289,8 @@ value, still requires to go in to the text layer.
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Ellipse(
               extent={{-100,-100},{100,100}},
-              fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0} else 
-                        {235,235,235}),
+              fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0}
+                   else {235,235,235}),
               lineColor={0,0,0},
               pattern=LinePattern.None,
               fillPattern=FillPattern.Sphere), Text(

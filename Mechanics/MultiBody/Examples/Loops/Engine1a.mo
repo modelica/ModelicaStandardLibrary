@@ -1,5 +1,5 @@
 within Modelica.Mechanics.MultiBody.Examples.Loops;
-model Engine1a "Model of one cylinder engine" 
+model Engine1a "Model of one cylinder engine"
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
   annotation (
@@ -107,7 +107,7 @@ An animation of this example is shown in the figure below.
         0.45,0}) 
     annotation (Placement(transformation(extent={{-0.5,100},{19.5,120}},
           rotation=0)));
-equation 
+equation
   connect(world.frame_b, Bearing.frame_a) 
     annotation (Line(
       points={{-30,-90},{-10,-90}},

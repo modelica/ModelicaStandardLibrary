@@ -1,6 +1,6 @@
 within Modelica.Mechanics.MultiBody.Examples.Loops;
-model Engine1b 
-  "Model of one cylinder engine with gas force and preparation for assembly joint JointRRP" 
+model Engine1b
+  "Model of one cylinder engine with gas force and preparation for assembly joint JointRRP"
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
   extends Utilities.Engine1bBase;
@@ -74,7 +74,7 @@ An animation of this example is shown in the figure below.
         origin={50,58},
         extent={{10,-10},{-10,10}},
         rotation=90)));
-equation 
+equation
   connect(B1.frame_b, Rod1.frame_a) annotation (Line(
       points={{60,-10},{70,-10},{70,0}},
       color={95,95,95},

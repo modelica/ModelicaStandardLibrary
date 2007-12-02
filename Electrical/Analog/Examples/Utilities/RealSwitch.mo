@@ -1,6 +1,6 @@
 within Modelica.Electrical.Analog.Examples.Utilities;
-model RealSwitch "ideal switch with resistance" 
-  
+model RealSwitch "ideal switch with resistance"
+
   Ideal.ControlledIdealCommutingSwitch S(level=2.5) annotation (Placement(
         transformation(extent={{11.3333,18},{58,64.6667}}, rotation=0)));
   Basic.Resistor R(R=0.01) annotation (Placement(transformation(extent={{-66,16},
@@ -13,7 +13,7 @@ model RealSwitch "ideal switch with resistance"
           rotation=0)));
   Interfaces.Pin control annotation (Placement(transformation(extent={{24,90},{
             44,110}}, rotation=0)));
-equation 
+equation
   connect(p, R.p) annotation (Line(points={{-100,40},{-66,39.3333}}));
   connect(R.n, S.p) annotation (Line(points={{-19.3333,39.3333},{11.3333,
           41.3334}}));

@@ -1,7 +1,7 @@
 within Modelica.Electrical.Analog.Examples;
-model CharacteristicIdealDiodes "Characteristic of ideal diodes" 
+model CharacteristicIdealDiodes "Characteristic of ideal diodes"
   extends Modelica.Icons.Example;
-  
+
   Modelica.Electrical.Analog.Ideal.IdealDiode Ideal(
     Ron=0, Goff=0) 
     annotation (Placement(transformation(extent={{0,40},{20,60}}, rotation=0)));
@@ -22,10 +22,10 @@ model CharacteristicIdealDiodes "Characteristic of ideal diodes"
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground Ground1 
   annotation (Placement(transformation(extent={{-50,-80},{-30,-60}}, rotation=0)));
-  
+
   annotation (Diagram(graphics={Text(
-          extent={{-88,102},{92,48}}, 
-          textString="Characteristic Ideal Diodes", 
+          extent={{-88,102},{92,48}},
+          textString="Characteristic Ideal Diodes",
           lineColor={0,0,255})}),          Documentation(info="<HTML>
 <P>
 Three examples of ideal diodes are shown:<br><br>
@@ -75,7 +75,7 @@ With_Ron_Goff_Vknee.i versus With_Ron_Goff_Vknee.v<br>
         origin={-20,-40},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  
+
 annotation (Documentation(info="<HTML>
 <P>
 Three examples of ideal diodes are shown:<br><br>
@@ -105,7 +105,7 @@ With_Ron_Goff_Vknee.i versus With_Ron_Goff_Vknee.v<br>
 "),
   experiment(
      StopTime=1));
-equation 
+equation
   connect(Ground1.p, SineVoltage1.n) 
   annotation (Line(points={{-40,-60},{-40,-10}}, color={0,0,255}));
   connect(Ideal.n, R1.p) 

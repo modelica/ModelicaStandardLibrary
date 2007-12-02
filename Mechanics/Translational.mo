@@ -7,7 +7,6 @@ package Translational
   import SI = Modelica.SIunits;
   annotation (
   version="1.1.1", versionDate="2007-11-22",
-  
     Window(
       x=0.05,
       y=0.09,
@@ -152,7 +151,7 @@ and the accompanying <b>disclaimer</b>
 
     extends Modelica.Icons.Library;
 
-    annotation(
+    annotation (
       Window(
         x=0.07,
         y=0.14,
@@ -325,7 +324,6 @@ combination). In this case the system is not at rest.
  
 </html>
 "),     experiment(StopTime=5),
-        
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                         graphics));
@@ -599,9 +597,9 @@ problems.
   
 </html>"),
         experiment(StopTime=1),
-        
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics));
+
       Translational.Components.Mass mass1(
         L=1,
         s(start=3, fixed=true),
@@ -976,7 +974,8 @@ to see the difference.
             grid={2,2}), graphics={
             Text(
               extent={{-98,-68},{102,-94}},
-              textString="positive force => spool moves in positive direction ",
+              textString="positive force => spool moves in positive direction ", 
+
               lineColor={0,0,255}),
             Text(
               extent={{-32,-46},{38,-62}},
@@ -3352,7 +3351,7 @@ blocks of Modelica.Blocks.Source.
         "Velocity of flange with respect to support (= der(s))";
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}},
+                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}}, 
                 color={0,0,255})}), Documentation(info="<HTML>
 <p>
 Model of force, linearly dependent on velocity of flange.<br>
@@ -3635,7 +3634,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
               Text(
               extent={{80,-28},{114,-62}},
               lineColor={0,0,0},
@@ -3671,7 +3670,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
               Text(
               extent={{80,-28},{111,-61}},
               lineColor={0,0,0},
@@ -3709,7 +3708,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
               Text(
               extent={{80,-28},{115,-60}},
               lineColor={0,0,0},

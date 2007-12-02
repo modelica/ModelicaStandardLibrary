@@ -1,14 +1,14 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
-model LineForceWithTwoMasses 
-  "Demonstrate line force with two point masses using a JointUPS and alternatively a LineForceWithTwoMasses component" 
-  
+model LineForceWithTwoMasses
+  "Demonstrate line force with two point masses using a JointUPS and alternatively a LineForceWithTwoMasses component"
+
   import SI = Modelica.SIunits;
-  
+
   extends Modelica.Icons.Example;
   parameter Modelica.SIunits.Mass m=1 "Mass of point masses";
-  SI.Force rod_f_diff[3]=rod1.frame_b.f - rod3.frame_b.f 
+  SI.Force rod_f_diff[3]=rod1.frame_b.f - rod3.frame_b.f
     "Difference of cut-forces in rod1 and rod3";
-  SI.Force body_f_diff[3]=bodyBox1.frame_b.f - bodyBox2.frame_b.f 
+  SI.Force body_f_diff[3]=bodyBox1.frame_b.f - bodyBox2.frame_b.f
     "Difference of cut-forces in bodyBox1 and bodyBox2";
   annotation (
     experiment(StopTime=3),
@@ -64,7 +64,7 @@ side in the back is the animation with the JointUPS component.
 <IMG SRC=\"../Images/MultiBody/Examples/Elementary/LineForceWithTwoMasses2.png\">
 </p>
 </html>"));
-  
+
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
         transformation(extent={{-80,60},{-60,80}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Joints.Revolute revolute1(phi(fixed=true), w(
@@ -133,7 +133,7 @@ side in the back is the animation with the JointUPS component.
   Modelica.Mechanics.Translational.Components.Damper damper2(
                                                   d=3) 
     annotation (Placement(transformation(extent={{0,-76},{20,-96}}, rotation=0)));
-  Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses 
+  Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses
     lineForceWithTwoMasses(
     L_a=0.2,
     L_b=0.2,
@@ -143,7 +143,7 @@ side in the back is the animation with the JointUPS component.
     m_a=m,
     m_b=m) annotation (Placement(transformation(extent={{0,-50},{20,-70}},
           rotation=0)));
-equation 
+equation
   connect(jointUPS.bearing, damper1.flange_a) 
     annotation (Line(points={{6,30},{6,20},{0,20},{0,14}}, color={0,191,0}));
   connect(jointUPS.axis, damper1.flange_b) 

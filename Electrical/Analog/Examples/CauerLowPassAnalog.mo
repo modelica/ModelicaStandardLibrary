@@ -1,41 +1,41 @@
 within Modelica.Electrical.Analog.Examples;
-model CauerLowPassAnalog "Cauer low pass filter with analog components" 
-  
+model CauerLowPassAnalog "Cauer low pass filter with analog components"
+
   annotation (uses(Modelica(version="2.2")), Diagram(coordinateSystem(
           preserveAspectRatio=true, extent={{-200,-100},{200,100}}), graphics={
         Rectangle(
-          extent={{-62,32},{-58,28}}, 
-          lineColor={0,0,255}, 
-          fillColor={85,85,255}, 
-          fillPattern=FillPattern.Solid), 
+          extent={{-62,32},{-58,28}},
+          lineColor={0,0,255},
+          fillColor={85,85,255},
+          fillPattern=FillPattern.Solid),
         Rectangle(
-          extent={{-2,28},{2,32}}, 
-          lineColor={0,0,255}, 
-          fillColor={85,85,255}, 
-          fillPattern=FillPattern.Solid), 
+          extent={{-2,28},{2,32}},
+          lineColor={0,0,255},
+          fillColor={85,85,255},
+          fillPattern=FillPattern.Solid),
         Rectangle(
-          extent={{58,32},{62,28}}, 
-          lineColor={0,0,255}, 
-          fillColor={85,85,255}, 
-          fillPattern=FillPattern.Solid), 
+          extent={{58,32},{62,28}},
+          lineColor={0,0,255},
+          fillColor={85,85,255},
+          fillPattern=FillPattern.Solid),
         Rectangle(
-          extent={{58,-48},{62,-52}}, 
-          lineColor={0,0,255}, 
-          fillColor={85,85,255}, 
-          fillPattern=FillPattern.Solid), 
+          extent={{58,-48},{62,-52}},
+          lineColor={0,0,255},
+          fillColor={85,85,255},
+          fillPattern=FillPattern.Solid),
         Rectangle(
-          extent={{-2,-48},{2,-52}}, 
-          lineColor={0,0,255}, 
-          fillColor={85,85,255}, 
-          fillPattern=FillPattern.Solid), 
+          extent={{-2,-48},{2,-52}},
+          lineColor={0,0,255},
+          fillColor={85,85,255},
+          fillPattern=FillPattern.Solid),
         Rectangle(
-          extent={{-62,-48},{-58,-52}}, 
-          lineColor={0,0,255}, 
-          fillColor={85,85,255}, 
-          fillPattern=FillPattern.Solid), 
+          extent={{-62,-48},{-58,-52}},
+          lineColor={0,0,255},
+          fillColor={85,85,255},
+          fillPattern=FillPattern.Solid),
         Text(
-          extent={{-110,116},{100,64}}, 
-          textString="CauerLowPassAnalog", 
+          extent={{-110,116},{100,64}},
+          textString="CauerLowPassAnalog",
           lineColor={0,0,255})}),
     experiment(StopTime=60),
     Documentation(revisions="<html>
@@ -60,36 +60,36 @@ The simulation end time should be 60. Please plot both V.p.v (input voltage) and
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-200,-100},{200,
             100}}), graphics={
         Rectangle(
-          extent={{-80,-90},{100,60}}, 
-          fillColor={255,255,255}, 
-          fillPattern=FillPattern.Solid, 
-          lineColor={0,0,255}), 
+          extent={{-80,-90},{100,60}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
         Polygon(
-          points={{-80,60},{-60,80},{120,80},{100,60},{-80,60}}, 
-          fillColor={255,255,255}, 
-          fillPattern=FillPattern.Solid, 
-          lineColor={0,0,255}), 
+          points={{-80,60},{-60,80},{120,80},{100,60},{-80,60}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
         Polygon(
-          points={{120,80},{120,-70},{100,-90},{100,60},{120,80}}, 
-          fillColor={255,255,255}, 
-          fillPattern=FillPattern.Solid, 
-          lineColor={0,0,255}), 
+          points={{120,80},{120,-70},{100,-90},{100,60},{120,80}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
         Text(
-          extent={{-76,13},{97,-39}}, 
-          lineColor={0,0,255}, 
-          textString="Example"), 
+          extent={{-76,13},{97,-39}},
+          lineColor={0,0,255},
+          textString="Example"),
         Text(
-          extent={{-100,142},{140,83}}, 
-          lineColor={255,0,0}, 
+          extent={{-100,142},{140,83}},
+          lineColor={255,0,0},
           textString="%name")}));
-  
+
   parameter Modelica.SIunits.Inductance l1=1.304 "filter coefficient I1";
   parameter Modelica.SIunits.Inductance l2=0.8586 "filter coefficient I2";
   parameter Modelica.SIunits.Capacitance c1=1.072 "filter coefficient c1";
-  parameter Modelica.SIunits.Capacitance c2=1/(1.704992^2*l1) 
+  parameter Modelica.SIunits.Capacitance c2=1/(1.704992^2*l1)
     "filter coefficient c2";
   parameter Modelica.SIunits.Capacitance c3=1.682 "filter coefficient c3";
-  parameter Modelica.SIunits.Capacitance c4=1/(1.179945^2*l2) 
+  parameter Modelica.SIunits.Capacitance c4=1/(1.179945^2*l2)
     "filter coefficient c4";
   parameter Modelica.SIunits.Capacitance c5=0.7262 "filter coefficient c5";
   Modelica.Electrical.Analog.Basic.Ground G 
@@ -131,7 +131,7 @@ The simulation end time should be 60. Please plot both V.p.v (input voltage) and
         origin={-100,-10},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-equation 
+equation
   connect(R1.n,C1. p) annotation (Line(points={{-80,30},{-60,30},{-60,-10}},
         color={0,0,255}));
   connect(C1.n,G. p) annotation (Line(points={{-60,-30},{-60,-50},{0,-50},{0,

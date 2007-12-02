@@ -1,9 +1,9 @@
 within Modelica.Electrical.Analog;
-package Basic 
-  "Basic electrical components such as resistor, capacitor, transformer" 
-  
+package Basic
+  "Basic electrical components such as resistor, capacitor, transformer"
+
   extends Modelica.Icons.Library;
-  
+
   annotation (Window(
        x=0.03,
        y=0.04,
@@ -33,7 +33,7 @@ This package contains basic analog electrical components.
 <p>
 </dl>
 </html>"));
-  model Ground "Ground node" 
+  model Ground "Ground node"
     Interfaces.Pin p annotation (Placement(transformation(
           origin={0,100},
           extent={{10,-10},{-10,10}},
@@ -59,13 +59,13 @@ at least one ground object.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Line(points={{-60,50},{60,50}}, color={0,0,255}), 
-          Line(points={{-40,30},{40,30}}, color={0,0,255}), 
-          Line(points={{-20,10},{20,10}}, color={0,0,255}), 
-          Line(points={{0,90},{0,50}}, color={0,0,255}), 
+          Line(points={{-60,50},{60,50}}, color={0,0,255}),
+          Line(points={{-40,30},{40,30}}, color={0,0,255}),
+          Line(points={{-20,10},{20,10}}, color={0,0,255}),
+          Line(points={{0,90},{0,50}}, color={0,0,255}),
           Text(
-            extent={{-144,-60},{138,0}}, 
-            textString="%name", 
+            extent={{-144,-60},{138,0}},
+            textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -96,11 +96,11 @@ at least one ground object.
         y=0.23,
         width=0.59,
         height=0.63));
-  equation 
+  equation
     p.v = 0;
   end Ground;
-  
-  model Resistor "Ideal linear electrical resistor" 
+
+  model Resistor "Ideal linear electrical resistor"
     extends Interfaces.OnePort;
     parameter SI.Resistance R(start=1) "Resistance";
     annotation (
@@ -125,19 +125,19 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(
-            extent={{-70,30},{70,-30}}, 
-            lineColor={0,0,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,0},{-70,0}}, color={0,0,255}), 
-          Line(points={{70,0},{90,0}}, color={0,0,255}), 
+            extent={{-70,30},{70,-30}},
+            lineColor={0,0,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,0},{-70,0}}, color={0,0,255}),
+          Line(points={{70,0},{90,0}}, color={0,0,255}),
           Text(
-            extent={{-144,-60},{144,-100}}, 
-            lineColor={0,0,0}, 
-            textString="R=%R"), 
+            extent={{-144,-60},{144,-100}},
+            lineColor={0,0,0},
+            textString="R=%R"),
           Text(
-            extent={{-144,40},{144,100}}, 
-            textString="%name", 
+            extent={{-144,40},{144,100}},
+            textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -151,18 +151,18 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
         y=0.06,
         width=0.62,
         height=0.69));
-  equation 
+  equation
     R*i = v;
   end Resistor;
-  
-    model HeatingResistor "Temperature dependent electrical resistor" 
+
+    model HeatingResistor "Temperature dependent electrical resistor"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    
+
       parameter SI.Resistance R_ref(start=1) "Resistance at temperature T_ref";
       parameter SI.Temperature T_ref(start=300) "Reference temperature";
-      parameter SI.LinearTemperatureCoefficient alpha(start=0) 
+      parameter SI.LinearTemperatureCoefficient alpha(start=0)
       "Temperature coefficient of resistance";
-    
+
       SI.Resistance R "Resistance = R_ref*(1 + alpha*(heatPort.T - T_ref));";
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort annotation (Placement(
           transformation(
@@ -208,22 +208,22 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Text(
-            extent={{-142,60},{143,118}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
-          Line(points={{-90,0},{-70,0}}, color={0,0,255}), 
-          Line(points={{70,0},{90,0}}, color={0,0,255}), 
+            extent={{-142,60},{143,118}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(points={{-90,0},{-70,0}}, color={0,0,255}),
+          Line(points={{70,0},{90,0}}, color={0,0,255}),
           Rectangle(
-            extent={{-70,30},{70,-30}}, 
-            lineColor={0,0,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{0,-30},{0,-91}}, color={191,0,0}), 
-          Line(points={{-52,-50},{48,50}}, color={0,0,255}), 
+            extent={{-70,30},{70,-30}},
+            lineColor={0,0,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{0,-30},{0,-91}}, color={191,0,0}),
+          Line(points={{-52,-50},{48,50}}, color={0,0,255}),
           Polygon(
-            points={{40,52},{50,42},{54,56},{40,52}}, 
-            lineColor={0,0,255}, 
-            fillColor={0,0,255}, 
+            points={{40,52},{50,42},{54,56},{40,52}},
+            lineColor={0,0,255},
+            fillColor={0,0,255},
             fillPattern=FillPattern.Solid)}),
         Documentation(info="<HTML>
 <p>This is a model for an electrical resistor where the generated heat
@@ -250,15 +250,15 @@ If connector <b>heatPort</b> should not be used, please choose component <b>heat
        </li>
 </ul>
 </html>"));
-    equation 
+    equation
       assert(cardinality(heatPort) > 0, "The heatPort connector is required to be connected");
       v = R*i;
-    
+
       R = R_ref*(1 + alpha*(heatPort.T - T_ref));
       heatPort.Q_flow = -v*i;
     end HeatingResistor;
-  
-  model Conductor "Ideal linear electrical conductor" 
+
+  model Conductor "Ideal linear electrical conductor"
     extends Interfaces.OnePort;
     parameter SI.Conductance G(start=1) "Conductance";
     annotation (
@@ -283,21 +283,21 @@ The Conductance <i>G</i> is allowed to be positive, zero, or negative.
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(
-            extent={{-70,30},{70,-30}}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
-          Rectangle(extent={{-70,30},{70,-30}}, lineColor={0,0,255}), 
-          Line(points={{-90,0},{-70,0}}, color={0,0,255}), 
-          Line(points={{70,0},{90,0}}, color={0,0,255}), 
+            extent={{-70,30},{70,-30}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Rectangle(extent={{-70,30},{70,-30}}, lineColor={0,0,255}),
+          Line(points={{-90,0},{-70,0}}, color={0,0,255}),
+          Line(points={{70,0},{90,0}}, color={0,0,255}),
           Text(
-            extent={{-138,-60},{140,-100}}, 
-            lineColor={0,0,0}, 
-            pattern=LinePattern.None, 
-            textString="G=%G"), 
+            extent={{-138,-60},{140,-100}},
+            lineColor={0,0,0},
+            pattern=LinePattern.None,
+            textString="G=%G"),
           Text(
-            extent={{-140,40},{142,100}}, 
-            textString="%name", 
+            extent={{-140,40},{142,100}},
+            textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -311,11 +311,11 @@ The Conductance <i>G</i> is allowed to be positive, zero, or negative.
         y=0.2,
         width=0.63,
         height=0.68));
-  equation 
+  equation
     i = G*v;
   end Conductor;
-  
-  model Capacitor "Ideal linear electrical capacitor" 
+
+  model Capacitor "Ideal linear electrical capacitor"
     extends Interfaces.OnePort;
     parameter SI.Capacitance C(start=1) "Capacitance";
     annotation (
@@ -345,22 +345,22 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Line(
-            points={{-14,28},{-14,-28}}, 
-            thickness=2, 
-            color={0,0,255}), 
+            points={{-14,28},{-14,-28}},
+            thickness=2,
+            color={0,0,255}),
           Line(
-            points={{14,28},{14,-28}}, 
-            thickness=2, 
-            color={0,0,255}), 
-          Line(points={{-90,0},{-14,0}}, color={0,0,255}), 
-          Line(points={{14,0},{90,0}}, color={0,0,255}), 
+            points={{14,28},{14,-28}},
+            thickness=2,
+            color={0,0,255}),
+          Line(points={{-90,0},{-14,0}}, color={0,0,255}),
+          Line(points={{14,0},{90,0}}, color={0,0,255}),
           Text(
-            extent={{-136,-60},{136,-100}}, 
-            lineColor={0,0,0}, 
-            textString="C=%C"), 
+            extent={{-136,-60},{136,-100}},
+            lineColor={0,0,0},
+            textString="C=%C"),
           Text(
-            extent={{-142,40},{140,100}}, 
-            textString="%name", 
+            extent={{-142,40},{140,100}},
+            textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -376,11 +376,11 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
             color={0,0,255}),
           Line(points={{-96,0},{-20,0}}, color={0,0,255}),
           Line(points={{20,0},{96,0}}, color={0,0,255})}));
-  equation 
+  equation
     i = C*der(v);
   end Capacitor;
-  
-  model Inductor "Ideal linear electrical inductor" 
+
+  model Inductor "Ideal linear electrical inductor"
     extends Interfaces.OnePort;
     parameter SI.Inductance L(start=1) "Inductance";
     annotation (
@@ -404,24 +404,24 @@ The Inductance <i>L</i> is allowed to be positive, zero, or negative.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}), 
-          Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}), 
-          Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}), 
-          Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}), 
+          Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
+          Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
+          Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
+          Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),
           Rectangle(
-            extent={{-60,-30},{60,0}}, 
-            lineColor={255,255,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{60,0},{90,0}}, color={0,0,255}), 
-          Line(points={{-90,0},{-60,0}}, color={0,0,255}), 
+            extent={{-60,-30},{60,0}},
+            lineColor={255,255,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{60,0},{90,0}}, color={0,0,255}),
+          Line(points={{-90,0},{-60,0}}, color={0,0,255}),
           Text(
-            extent={{-138,-60},{144,-102}}, 
-            lineColor={0,0,0}, 
-            textString="L=%L"), 
+            extent={{-138,-60},{144,-102}},
+            lineColor={0,0,0},
+            textString="L=%L"),
           Text(
-            extent={{-146,38},{148,100}}, 
-            textString="%name", 
+            extent={{-146,38},{148,100}},
+            textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -443,48 +443,48 @@ The Inductance <i>L</i> is allowed to be positive, zero, or negative.
         y=0.12,
         width=0.6,
         height=0.6));
-  equation 
+  equation
     L*der(i) = v;
   end Inductor;
-  
-  model SaturatingInductor "Simple model of an inductor with saturation" 
+
+  model SaturatingInductor "Simple model of an inductor with saturation"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     parameter Modelica.SIunits.Current Inom(start=1) "Nominal current";
-    parameter Modelica.SIunits.Inductance Lnom(start=1) 
+    parameter Modelica.SIunits.Inductance Lnom(start=1)
       "Nominal inductance at Nominal current";
-    parameter Modelica.SIunits.Inductance Lzer(start=2*Lnom) 
+    parameter Modelica.SIunits.Inductance Lzer(start=2*Lnom)
       "Inductance near current=0";
-    parameter Modelica.SIunits.Inductance Linf(start=Lnom/2) 
+    parameter Modelica.SIunits.Inductance Linf(start=Lnom/2)
       "Inductance at large currents";
     Modelica.SIunits.Inductance Lact(start=Lzer);
     Modelica.SIunits.MagneticFlux Psi;
-  protected 
+  protected
     parameter Modelica.SIunits.Current Ipar(start=Inom/10, fixed=false);
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
-          Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}), 
-          Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}), 
-          Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}), 
-          Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}), 
+          Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
+          Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
+          Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
+          Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),
           Rectangle(
-            extent={{-60,-20},{62,0}}, 
-            lineColor={255,255,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{60,0},{90,0}}, color={0,0,255}), 
-          Line(points={{-90,0},{-60,0}}, color={0,0,255}), 
+            extent={{-60,-20},{62,0}},
+            lineColor={255,255,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{60,0},{90,0}}, color={0,0,255}),
+          Line(points={{-90,0},{-60,0}}, color={0,0,255}),
           Rectangle(
-            extent={{-60,-10},{60,-20}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Sphere, 
-            fillColor={0,0,255}), 
+            extent={{-60,-10},{60,-20}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.Sphere,
+            fillColor={0,0,255}),
           Text(
-            extent={{-142,40},{148,102}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-142,40},{148,102}},
+            textString="%name",
+            lineColor={0,0,255}),
           Text(
-            extent={{-150,-48},{150,-92}}, 
-            lineColor={0,0,0}, 
+            extent={{-150,-48},{150,-92}},
+            lineColor={0,0,0},
             textString="Lnom=%Lnom")}),                     Documentation(info="<HTML>
 <p>
 This model approximates the behaviour of an inductor with the influence of saturation,
@@ -521,25 +521,25 @@ The parameters are:
 </html>"),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
-          Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}), 
-          Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}), 
-          Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}), 
-          Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}), 
+          Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
+          Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
+          Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
+          Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),
           Rectangle(
-            extent={{-60,-20},{62,0}}, 
-            lineColor={255,255,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{60,0},{96,0}}, color={0,0,255}), 
-          Line(points={{-96,0},{-60,0}}, color={0,0,255}), 
+            extent={{-60,-20},{62,0}},
+            lineColor={255,255,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{60,0},{96,0}}, color={0,0,255}),
+          Line(points={{-96,0},{-60,0}}, color={0,0,255}),
           Rectangle(
-            extent={{-60,-10},{60,-20}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Sphere, 
+            extent={{-60,-10},{60,-20}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.Sphere,
             fillColor={0,0,255})}));
-  initial equation 
+  initial equation
     (Lnom - Linf) = (Lzer - Linf)*Ipar/Inom*(Modelica.Constants.pi/2-arctan(Ipar/Inom));
-  equation 
+  equation
     assert(Lzer > Lnom+Modelica.Constants.eps,
            "Lzer (= " + String(Lzer) + ") has to be > Lnom (= " + String(Lnom) + ")");
     assert(Linf < Lnom-Modelica.Constants.eps,
@@ -548,8 +548,8 @@ The parameters are:
     Psi = Lact*i;
     v = der(Psi);
   end SaturatingInductor;
-  
-  model Transformer "Transformer with two ports" 
+
+  model Transformer "Transformer with two ports"
     extends Interfaces.TwoPort;
     parameter SI.Inductance L1(start=1) "Primary inductance";
     parameter SI.Inductance L2(start=1) "Secondary inductance";
@@ -578,42 +578,42 @@ relation:</p>
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{-100,128},{100,70}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
-          Ellipse(extent={{-45,-50},{-20,-25}}, lineColor={0,0,255}), 
-          Ellipse(extent={{-45,-25},{-20,0}}, lineColor={0,0,255}), 
-          Ellipse(extent={{-45,0},{-20,25}}, lineColor={0,0,255}), 
-          Ellipse(extent={{-45,25},{-20,50}}, lineColor={0,0,255}), 
+            extent={{-100,128},{100,70}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Ellipse(extent={{-45,-50},{-20,-25}}, lineColor={0,0,255}),
+          Ellipse(extent={{-45,-25},{-20,0}}, lineColor={0,0,255}),
+          Ellipse(extent={{-45,0},{-20,25}}, lineColor={0,0,255}),
+          Ellipse(extent={{-45,25},{-20,50}}, lineColor={0,0,255}),
           Rectangle(
-            extent={{-72,-60},{-33,60}}, 
-            lineColor={255,255,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-90,50},{-32,50}}, color={0,0,255}), 
-          Line(points={{-90,-50},{-32,-50}}, color={0,0,255}), 
-          Ellipse(extent={{20,-50},{45,-25}}, lineColor={0,0,255}), 
-          Ellipse(extent={{20,-25},{45,0}}, lineColor={0,0,255}), 
-          Ellipse(extent={{20,0},{45,25}}, lineColor={0,0,255}), 
-          Ellipse(extent={{20,25},{45,50}}, lineColor={0,0,255}), 
+            extent={{-72,-60},{-33,60}},
+            lineColor={255,255,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,50},{-32,50}}, color={0,0,255}),
+          Line(points={{-90,-50},{-32,-50}}, color={0,0,255}),
+          Ellipse(extent={{20,-50},{45,-25}}, lineColor={0,0,255}),
+          Ellipse(extent={{20,-25},{45,0}}, lineColor={0,0,255}),
+          Ellipse(extent={{20,0},{45,25}}, lineColor={0,0,255}),
+          Ellipse(extent={{20,25},{45,50}}, lineColor={0,0,255}),
           Rectangle(
-            extent={{33,-60},{72,60}}, 
-            lineColor={255,255,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{32,50},{90,50}}, color={0,0,255}), 
-          Line(points={{32,-50},{90,-50}}, color={0,0,255}), 
+            extent={{33,-60},{72,60}},
+            lineColor={255,255,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{32,50},{90,50}}, color={0,0,255}),
+          Line(points={{32,-50},{90,-50}}, color={0,0,255}),
           Text(
-            extent={{-89,18},{-60,-10}}, 
-            textString="L1", 
-            lineColor={0,0,255}), 
+            extent={{-89,18},{-60,-10}},
+            textString="L1",
+            lineColor={0,0,255}),
           Text(
-            extent={{64,18},{90,-10}}, 
-            textString="L2", 
-            lineColor={0,0,255}), 
+            extent={{64,18},{90,-10}},
+            textString="L2",
+            lineColor={0,0,255}),
           Text(
-            extent={{-18,-70},{20,-98}}, 
-            textString="M", 
+            extent={{-18,-70},{20,-98}},
+            textString="M",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -646,12 +646,12 @@ relation:</p>
         y=0.43,
         width=0.6,
         height=0.6));
-  equation 
+  equation
     v1 = L1*der(i1) + M*der(i2);
     v2 = M*der(i1) + L2*der(i2);
   end Transformer;
-  
-  model Gyrator "Gyrator" 
+
+  model Gyrator "Gyrator"
     extends Interfaces.TwoPort;
     parameter SI.Conductance G1(start=1) "Gyration conductance";
     parameter SI.Conductance G2(start=1) "Gyration conductance";
@@ -682,49 +682,49 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-60,60},{60,-60}}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
-          Line(points={{-90,50},{-60,50}}, color={0,0,255}), 
-          Line(points={{-90,-50},{-60,-50}}, color={0,0,255}), 
-          Line(points={{60,50},{90,50}}, color={0,0,255}), 
-          Line(points={{60,-50},{90,-50}}, color={0,0,255}), 
-          Line(points={{-40,30},{40,30}}, color={0,0,255}), 
-          Line(points={{-20,-20},{20,-20}}, color={0,0,255}), 
+            extent={{-60,60},{60,-60}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Line(points={{-90,50},{-60,50}}, color={0,0,255}),
+          Line(points={{-90,-50},{-60,-50}}, color={0,0,255}),
+          Line(points={{60,50},{90,50}}, color={0,0,255}),
+          Line(points={{60,-50},{90,-50}}, color={0,0,255}),
+          Line(points={{-40,30},{40,30}}, color={0,0,255}),
+          Line(points={{-20,-20},{20,-20}}, color={0,0,255}),
           Polygon(
-            points={{30,34},{40,30},{30,26},{30,34}}, 
-            fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
+            points={{30,34},{40,30},{30,26},{30,34}},
+            fillColor={0,0,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
           Polygon(
-            points={{-26,-19},{-16,-15},{-16,-23},{-26,-19}}, 
-            fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
+            points={{-26,-19},{-16,-15},{-16,-23},{-26,-19}},
+            fillColor={0,0,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
           Line(
-            points={{-5,10},{-10,-10}}, 
-            thickness=2, 
-            color={0,0,255}), 
+            points={{-5,10},{-10,-10}},
+            thickness=2,
+            color={0,0,255}),
           Line(
-            points={{9,10},{4,-9}}, 
-            thickness=2, 
-            color={0,0,255}), 
+            points={{9,10},{4,-9}},
+            thickness=2,
+            color={0,0,255}),
           Line(
-            points={{-14,9},{16,10}}, 
-            thickness=2, 
-            color={0,0,255}), 
+            points={{-14,9},{16,10}},
+            thickness=2,
+            color={0,0,255}),
           Text(
-            extent={{-100,130},{100,69}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-100,130},{100,69}},
+            textString="%name",
+            lineColor={0,0,255}),
           Text(
-            extent={{-29,59},{30,30}}, 
-            textString="G1", 
-            lineColor={0,0,255}), 
+            extent={{-29,59},{30,30}},
+            textString="G1",
+            lineColor={0,0,255}),
           Text(
-            extent={{-29,-29},{29,-58}}, 
-            textString="G2", 
+            extent={{-29,-29},{29,-58}},
+            textString="G2",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -772,20 +772,20 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
         y=0.4,
         width=0.6,
         height=0.6));
-  equation 
+  equation
     i1 = G2*v2;
     i2 = -G1*v1;
   end Gyrator;
-  
-  model EMF "Electromotoric force (electric/mechanic transformer)" 
-    parameter Boolean useSupport=false 
+
+  model EMF "Electromotoric force (electric/mechanic transformer)"
+    parameter Boolean useSupport=false
       "= true, if support flange enabled, otherwise implicitly grounded" 
         annotation(Evaluate=true, Hide=true, choices(__Dymola_checkBox=true));
-    parameter SI.ElectricalTorqueConstant k(start=1) 
+    parameter SI.ElectricalTorqueConstant k(start=1)
       "Transformation coefficient";
     SI.Voltage v "Voltage drop between the two pins";
     SI.Current i "Current flowing from positive to negative pin";
-    SI.Angle phi 
+    SI.Angle phi
       "Angle of shaft flange with respect to support (= shaft.phi - support.phi)";
     SI.AngularVelocity w "Angular velocity of flange_b";
     Interfaces.PositivePin p annotation (Placement(transformation(
@@ -798,7 +798,7 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
           rotation=90)));
     Modelica.Mechanics.Rotational.Interfaces.Flange_b shaft 
       annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-    Mechanics.Rotational.Interfaces.Support support if useSupport 
+    Mechanics.Rotational.Interfaces.Support support if useSupport
       "Support/housing of emf shaft" 
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
     annotation (
@@ -809,49 +809,49 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-85,10},{-36,-10}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Line(points={{0,90},{0,40}}, color={0,0,255}), 
+            extent={{-85,10},{-36,-10}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
+          Line(points={{0,90},{0,40}}, color={0,0,255}),
           Rectangle(
-            extent={{35,10},{100,-10}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{35,10},{100,-10}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Ellipse(
-            extent={{-40,40},{40,-40}}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
-          Line(points={{0,-90},{0,-40}}, color={0,0,255}), 
+            extent={{-40,40},{40,-40}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Line(points={{0,-90},{0,-40}}, color={0,0,255}),
           Text(
-            extent={{20,-40},{100,-100}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{20,-40},{100,-100}},
+            textString="%name",
+            lineColor={0,0,255}),
           Text(
-            extent={{0,80},{148,44}}, 
-            lineColor={160,160,164}, 
-            textString="k=%k"), 
+            extent={{0,80},{148,44}},
+            lineColor={160,160,164},
+            textString="k=%k"),
           Line(
-            visible=not useSupport, 
-            points={{-100,-30},{-40,-30}}, 
-            color={0,0,0}), 
+            visible=not useSupport,
+            points={{-100,-30},{-40,-30}},
+            color={0,0,0}),
           Line(
-            visible=not useSupport, 
-            points={{-100,-50},{-80,-30}}, 
-            color={0,0,0}), 
+            visible=not useSupport,
+            points={{-100,-50},{-80,-30}},
+            color={0,0,0}),
           Line(
-            visible=not useSupport, 
-            points={{-80,-50},{-60,-30}}, 
-            color={0,0,0}), 
+            visible=not useSupport,
+            points={{-80,-50},{-60,-30}},
+            color={0,0,0}),
           Line(
-            visible=not useSupport, 
-            points={{-60,-50},{-40,-30}}, 
-            color={0,0,0}), 
+            visible=not useSupport,
+            points={{-60,-50},{-40,-30}},
+            color={0,0,0}),
           Line(
-            visible=not useSupport, 
-            points={{-70,-30},{-70,-10}}, 
+            visible=not useSupport,
+            points={{-70,-30},{-70,-10}},
             color={0,0,0})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -905,16 +905,16 @@ shaft.phi is the angle at the rotational connection.
        </li>
 </ul>
 </html>"));
-  protected 
+  protected
     Mechanics.Rotational.Components.Fixed fixed if not useSupport 
       annotation (Placement(transformation(extent={{-90,-20},{-70,0}})));
     Mechanics.Rotational.Interfaces.InternalSupport internalSupport 
       annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
-  equation 
+  equation
     v = p.v - n.v;
     0 = p.i + n.i;
     i = p.i;
-    
+
     phi = shaft.phi - internalSupport.phi;
     w = der(phi);
     k*w = v;
@@ -929,8 +929,8 @@ shaft.phi is the angle at the rotational connection.
         color={0,0,0},
         smooth=Smooth.None));
   end EMF;
-  
-  model VCV "Linear voltage-controlled voltage source" 
+
+  model VCV "Linear voltage-controlled voltage source"
     extends Interfaces.TwoPort;
     parameter Real gain(start=1) "Voltage gain";
     annotation (
@@ -966,23 +966,23 @@ The left port current is zero. Any voltage gain can be chosen.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-70,70},{70,-70}}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
+            extent={{-70,70},{70,-70}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
           Text(
-            extent={{-99,-79},{100,-129}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
-          Line(points={{-90,50},{-30,50}}, color={0,0,255}), 
-          Line(points={{-30,-50},{-90,-50}}, color={0,0,255}), 
-          Line(points={{100,50},{30,50},{30,-50},{100,-50}}, color={0,0,255}), 
-          Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}), 
-          Line(points={{-20,60},{20,60}}, color={0,0,255}), 
+            extent={{-99,-79},{100,-129}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(points={{-90,50},{-30,50}}, color={0,0,255}),
+          Line(points={{-30,-50},{-90,-50}}, color={0,0,255}),
+          Line(points={{100,50},{30,50},{30,-50},{100,-50}}, color={0,0,255}),
+          Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
+          Line(points={{-20,60},{20,60}}, color={0,0,255}),
           Polygon(
-            points={{20,60},{10,63},{10,57},{20,60}}, 
-            fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid, 
+            points={{20,60},{10,63},{10,57},{20,60}},
+            fillColor={0,0,255},
+            fillPattern=FillPattern.Solid,
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -999,12 +999,12 @@ The left port current is zero. Any voltage gain can be chosen.
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255})}));
-  equation 
+  equation
     v2 = v1*gain;
     i1 = 0;
   end VCV;
-  
-  model VCC "Linear voltage-controlled current source" 
+
+  model VCC "Linear voltage-controlled current source"
     extends Interfaces.TwoPort;
     parameter SI.Conductance transConductance(start=1) "Transconductance";
     annotation (
@@ -1035,25 +1035,25 @@ The left port current is zero. Any transConductance can be chosen.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-70,70},{70,-70}}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
+            extent={{-70,70},{70,-70}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
           Text(
-            extent={{-99,-80},{100,-129}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
-          Line(points={{-90,50},{-30,50}}, color={0,0,255}), 
-          Line(points={{-30,-50},{-90,-50}}, color={0,0,255}), 
-          Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}), 
-          Line(points={{-20,60},{20,60}}, color={0,0,255}), 
+            extent={{-99,-80},{100,-129}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(points={{-90,50},{-30,50}}, color={0,0,255}),
+          Line(points={{-30,-50},{-90,-50}}, color={0,0,255}),
+          Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
+          Line(points={{-20,60},{20,60}}, color={0,0,255}),
           Polygon(
-            points={{20,60},{10,63},{10,57},{20,60}}, 
-            fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
-          Line(points={{90,50},{30,50},{30,20}}, color={0,0,255}), 
-          Line(points={{91,-50},{30,-50},{30,-20}}, color={0,0,255}), 
+            points={{20,60},{10,63},{10,57},{20,60}},
+            fillColor={0,0,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Line(points={{90,50},{30,50},{30,20}}, color={0,0,255}),
+          Line(points={{91,-50},{30,-50},{30,-20}}, color={0,0,255}),
           Line(points={{10,0},{50,0}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1077,14 +1077,14 @@ The left port current is zero. Any transConductance can be chosen.
         y=0.05,
         width=0.6,
         height=0.6));
-  equation 
+  equation
     i2 = v1*transConductance;
     i1 = 0;
   end VCC;
-  
-  model CCV "Linear current-controlled voltage source" 
+
+  model CCV "Linear current-controlled voltage source"
     extends Interfaces.TwoPort;
-    
+
     parameter SI.Resistance transResistance(start=1) "Transresistance";
     annotation (
       Documentation(info="<HTML>
@@ -1114,22 +1114,22 @@ The left port voltage is zero. Any transResistance can be chosen.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-70,70},{70,-70}}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
+            extent={{-70,70},{70,-70}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
           Text(
-            extent={{-99,-80},{100,-130}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
-          Line(points={{100,50},{30,50},{30,-50},{100,-50}}, color={0,0,255}), 
-          Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}), 
-          Line(points={{-20,60},{20,60}}, color={0,0,255}), 
+            extent={{-99,-80},{100,-130}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(points={{100,50},{30,50},{30,-50},{100,-50}}, color={0,0,255}),
+          Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
+          Line(points={{-20,60},{20,60}}, color={0,0,255}),
           Polygon(
-            points={{20,60},{10,63},{10,57},{20,60}}, 
-            fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
+            points={{20,60},{10,63},{10,57},{20,60}},
+            fillColor={0,0,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
           Line(points={{-90,50},{-20,50},{-20,-50},{-90,-50}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1150,12 +1150,12 @@ The left port voltage is zero. Any transResistance can be chosen.
         y=0.13,
         width=0.6,
         height=0.6));
-  equation 
+  equation
     v2 = i1*transResistance;
     v1 = 0;
   end CCV;
-  
-  model CCC "Linear current-controlled current source" 
+
+  model CCC "Linear current-controlled current source"
     extends Interfaces.TwoPort;
     parameter Real gain(start=1) "Current gain";
     annotation (
@@ -1186,25 +1186,25 @@ The left port voltage is zero. Any current gain can be chosen.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-70,70},{70,-70}}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
+            extent={{-70,70},{70,-70}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
           Text(
-            extent={{-104,-76},{97,-127}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-104,-76},{97,-127}},
+            textString="%name",
+            lineColor={0,0,255}),
           Line(points={{-100,50},{-30,50},{-30,-50},{-100,-50}}, color={0,0,255}), 
-            
-          Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}), 
-          Line(points={{-20,60},{20,60}}, color={0,0,255}), 
+
+          Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
+          Line(points={{-20,60},{20,60}}, color={0,0,255}),
           Polygon(
-            points={{20,60},{10,63},{10,57},{20,60}}, 
-            fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
-          Line(points={{90,50},{30,50},{30,20}}, color={0,0,255}), 
-          Line(points={{91,-50},{30,-50},{30,-20}}, color={0,0,255}), 
+            points={{20,60},{10,63},{10,57},{20,60}},
+            fillColor={0,0,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Line(points={{90,50},{30,50},{30,20}}, color={0,0,255}),
+          Line(points={{91,-50},{30,-50},{30,-20}}, color={0,0,255}),
           Line(points={{10,0},{50,0}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1227,32 +1227,32 @@ The left port voltage is zero. Any current gain can be chosen.
         y=0.09,
         width=0.6,
         height=0.6));
-    
-  equation 
+
+  equation
     i2 = i1*gain;
     v1 = 0;
   end CCC;
-  
-  model OpAmp "Simple nonideal model of an OpAmp with limitation" 
-    parameter Real Slope(start=1) 
+
+  model OpAmp "Simple nonideal model of an OpAmp with limitation"
+    parameter Real Slope(start=1)
       "Slope of the out.v/vin characteristic at vin=0";
-    Modelica.Electrical.Analog.Interfaces.PositivePin in_p 
+    Modelica.Electrical.Analog.Interfaces.PositivePin in_p
       "Positive pin of the input port" annotation (Placement(transformation(
             extent={{-110,-60},{-90,-40}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.NegativePin in_n 
+    Modelica.Electrical.Analog.Interfaces.NegativePin in_n
       "Negative pin of the input port" annotation (Placement(transformation(
             extent={{-90,40},{-110,60}}, rotation=0)));
     Modelica.Electrical.Analog.Interfaces.PositivePin out "Output pin" 
       annotation (Placement(transformation(extent={{110,-10},{90,10}}, rotation=
              0)));
-    Modelica.Electrical.Analog.Interfaces.PositivePin VMax 
+    Modelica.Electrical.Analog.Interfaces.PositivePin VMax
       "Positive output voltage limitation" annotation (Placement(transformation(
             extent={{-10,60},{10,80}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.NegativePin VMin 
+    Modelica.Electrical.Analog.Interfaces.NegativePin VMin
       "Negative output voltage limitation" annotation (Placement(transformation(
             extent={{-10,-80},{10,-60}}, rotation=0)));
     SI.Voltage vin "input voltagae";
-  protected 
+  protected
     Real f "auxiliary variable";
     Real absSlope;
     annotation (
@@ -1279,23 +1279,23 @@ value of Slope is taken into calculation.)
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{-95,88},{115,146}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-95,88},{115,146}},
+            textString="%name",
+            lineColor={0,0,255}),
           Polygon(
-            points={{60,0},{-60,70},{-60,-70},{60,0}}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
+            points={{60,0},{-60,70},{-60,-70},{60,0}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
           Line(points={{-45,-10},{-20,-10},{-14,-9},{-11,-7},{-9,7},{-6,9},{0,
-                10},{20,10}}, color={0,0,255}), 
-          Line(points={{0,35},{0,80}}, color={0,0,255}), 
-          Line(points={{0,-35},{0,-80}}, color={0,0,255}), 
-          Line(points={{-90,50},{-60,50}}, color={0,0,255}), 
-          Line(points={{-90,-50},{-60,-50}}, color={0,0,255}), 
-          Line(points={{60,0},{90,0}}, color={0,0,255}), 
-          Line(points={{-48,32},{-28,32}}, color={0,0,255}), 
-          Line(points={{-39,-20},{-39,-41}}, color={0,0,255}), 
+                10},{20,10}}, color={0,0,255}),
+          Line(points={{0,35},{0,80}}, color={0,0,255}),
+          Line(points={{0,-35},{0,-80}}, color={0,0,255}),
+          Line(points={{-90,50},{-60,50}}, color={0,0,255}),
+          Line(points={{-90,-50},{-60,-50}}, color={0,0,255}),
+          Line(points={{60,0},{90,0}}, color={0,0,255}),
+          Line(points={{-48,32},{-28,32}}, color={0,0,255}),
+          Line(points={{-39,-20},{-39,-41}}, color={0,0,255}),
           Line(points={{-50,-31},{-28,-31}}, color={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1355,7 +1355,7 @@ value of Slope is taken into calculation.)
         y=0.19,
         width=0.71,
         height=0.59));
-  equation 
+  equation
     in_p.i = 0;
     in_n.i = 0;
     VMax.i = 0;
@@ -1366,9 +1366,9 @@ value of Slope is taken into calculation.)
     out.v = (VMax.v + VMin.v)/2 + absSlope*vin/(1 + absSlope*noEvent(if (f*vin
        < 0) then -f*vin else f*vin));
   end OpAmp;
-  
-        model VariableResistor 
-    "Ideal linear electrical resistor with variable resistance" 
+
+        model VariableResistor
+    "Ideal linear electrical resistor with variable resistance"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
           Modelica.Blocks.Interfaces.RealInput R 
             annotation (Placement(transformation(
@@ -1405,16 +1405,16 @@ The Resistance <i>R</i> is given as input signal.
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Text(
-            extent={{-148,-100},{144,-40}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
-          Line(points={{-90,0},{-70,0}}, color={0,0,255}), 
+            extent={{-148,-100},{144,-40}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(points={{-90,0},{-70,0}}, color={0,0,255}),
           Rectangle(
-            extent={{-70,30},{70,-30}}, 
-            lineColor={0,0,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{70,0},{90,0}}, color={0,0,255}), 
+            extent={{-70,30},{70,-30}},
+            lineColor={0,0,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{70,0},{90,0}}, color={0,0,255}),
           Line(points={{0,90},{0,30}}, color={0,0,255})}),
             Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1428,12 +1428,12 @@ The Resistance <i>R</i> is given as input signal.
           Line(points={{-96,0},{-70,0}}, color={0,0,255}),
           Line(points={{0,90},{0,30}}, color={0,0,255}),
           Line(points={{70,0},{96,0}}, color={0,0,255})}));
-        equation 
+        equation
           v = R*i;
         end VariableResistor;
-  
-        model VariableConductor 
-    "Ideal linear electrical conductor with variable conductance" 
+
+        model VariableConductor
+    "Ideal linear electrical conductor with variable conductance"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
           Modelica.Blocks.Interfaces.RealInput G 
             annotation (Placement(transformation(
@@ -1468,16 +1468,16 @@ The Conductance <i>G</i> is given as input signal.
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Text(
-            extent={{-144,-102},{142,-40}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
-          Line(points={{-90,0},{-70,0}}, color={0,0,255}), 
+            extent={{-144,-102},{142,-40}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(points={{-90,0},{-70,0}}, color={0,0,255}),
           Rectangle(
-            extent={{-70,30},{70,-30}}, 
-            lineColor={0,0,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{70,0},{90,0}}, color={0,0,255}), 
+            extent={{-70,30},{70,-30}},
+            lineColor={0,0,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{70,0},{90,0}}, color={0,0,255}),
           Line(points={{0,90},{0,30}}, color={0,0,255})}),
             Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1491,19 +1491,19 @@ The Conductance <i>G</i> is given as input signal.
             lineColor={0,0,255},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid)}));
-        equation 
+        equation
           i = G*v;
         end VariableConductor;
-  
-        model VariableCapacitor 
-    "Ideal linear electrical capacitor with variable capacitance" 
+
+        model VariableCapacitor
+    "Ideal linear electrical capacitor with variable capacitance"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
           Modelica.Blocks.Interfaces.RealInput C 
             annotation (Placement(transformation(
           origin={0,110},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-          parameter Modelica.SIunits.Capacitance Cmin=Modelica.Constants.eps 
+          parameter Modelica.SIunits.Capacitance Cmin=Modelica.Constants.eps
       "lower bound for variable capacitance";
           Modelica.SIunits.ElectricCharge Q;
           annotation (
@@ -1536,44 +1536,44 @@ Cmin is a parameter with default value Modelica.Constants.eps.
 </html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Text(
-            extent={{-134,-100},{136,-40}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
-          Line(points={{-90,0},{-14,0}}, color={0,0,255}), 
-          Line(points={{14,0},{90,0}}, color={0,0,255}), 
-          Line(points={{0,90},{0,30}}, color={0,0,255}), 
+            extent={{-134,-100},{136,-40}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(points={{-90,0},{-14,0}}, color={0,0,255}),
+          Line(points={{14,0},{90,0}}, color={0,0,255}),
+          Line(points={{0,90},{0,30}}, color={0,0,255}),
           Line(
-            points={{-14,28},{-14,-28}}, 
-            thickness=2, 
-            color={0,0,255}), 
+            points={{-14,28},{-14,-28}},
+            thickness=2,
+            color={0,0,255}),
           Line(
-            points={{14,28},{14,-28}}, 
-            thickness=2, 
+            points={{14,28},{14,-28}},
+            thickness=2,
             color={0,0,255})}),
             Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
-          Line(points={{-96,0},{-14,0}}, color={0,0,255}), 
-          Line(points={{14,0},{96,0}}, color={0,0,255}), 
-          Line(points={{0,90},{0,30}}, color={0,0,255}), 
+          Line(points={{-96,0},{-14,0}}, color={0,0,255}),
+          Line(points={{14,0},{96,0}}, color={0,0,255}),
+          Line(points={{0,90},{0,30}}, color={0,0,255}),
           Line(
-            points={{-14,28},{-14,-28}}, 
-            thickness=2, 
-            color={0,0,255}), 
+            points={{-14,28},{-14,-28}},
+            thickness=2,
+            color={0,0,255}),
           Line(
-            points={{14,28},{14,-28}}, 
-            thickness=2, 
+            points={{14,28},{14,-28}},
+            thickness=2,
             color={0,0,255})}));
-        equation 
+        equation
           assert(C>=0,"Capacitance C (= " +
                  String(C) + ") has to be >= 0!");
           // protect solver from index change
           Q = noEvent(max(C,Cmin))*v;
           i = der(Q);
         end VariableCapacitor;
-  
-        model VariableInductor 
-    "Ideal linear electrical inductor with variable inductance" 
-    
+
+        model VariableInductor
+    "Ideal linear electrical inductor with variable inductance"
+
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
           Modelica.Blocks.Interfaces.RealInput L 
             annotation (Placement(transformation(
@@ -1581,7 +1581,7 @@ Cmin is a parameter with default value Modelica.Constants.eps.
           extent={{-20,-20},{20,20}},
           rotation=270)));
           Modelica.SIunits.MagneticFlux Psi;
-          parameter Modelica.SIunits.Inductance Lmin=Modelica.Constants.eps 
+          parameter Modelica.SIunits.Inductance Lmin=Modelica.Constants.eps
       "lower bound for variable inductance";
           annotation (
             Documentation(info="<HTML>
@@ -1613,41 +1613,41 @@ Lmin is a parameter with default value Modelica.Constants.eps.
 </html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Text(
-            extent={{-138,-100},{136,-40}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
-          Line(points={{-90,0},{-60,0}}, color={0,0,255}), 
-          Line(points={{60,0},{90,0}}, color={0,0,255}), 
-          Line(points={{0,90},{0,8}}, color={0,0,255}), 
-          Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}), 
-          Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}), 
-          Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}), 
-          Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}), 
+            extent={{-138,-100},{136,-40}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(points={{-90,0},{-60,0}}, color={0,0,255}),
+          Line(points={{60,0},{90,0}}, color={0,0,255}),
+          Line(points={{0,90},{0,8}}, color={0,0,255}),
+          Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
+          Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
+          Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
+          Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),
           Rectangle(
-            extent={{-60,-30},{60,0}}, 
-            lineColor={255,255,255}, 
-            fillColor={255,255,255}, 
+            extent={{-60,-30},{60,0}},
+            lineColor={255,255,255},
+            fillColor={255,255,255},
             fillPattern=FillPattern.Solid)}),
             Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
-          Line(points={{-96,0},{-60,0}}, color={0,0,255}), 
-          Line(points={{0,90},{0,8}}, color={0,0,255}), 
-          Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}), 
-          Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}), 
-          Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}), 
-          Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}), 
+          Line(points={{-96,0},{-60,0}}, color={0,0,255}),
+          Line(points={{0,90},{0,8}}, color={0,0,255}),
+          Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
+          Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
+          Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
+          Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),
           Rectangle(
-            extent={{-60,-30},{62,0}}, 
-            lineColor={255,255,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-60,-30},{62,0}},
+            lineColor={255,255,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Line(points={{60,0},{96,0}}, color={0,0,255})}));
-        equation 
+        equation
           assert(L>=0,"Inductance L_ (= " +
                  String(L) + ") has to be >= 0!");
           // protect solver from index change
           Psi = noEvent(max(L,Lmin))*i;
           v = der(Psi);
         end VariableInductor;
-  
+
 end Basic;

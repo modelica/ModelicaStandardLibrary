@@ -1,10 +1,10 @@
 within Modelica.Electrical.Analog.Examples;
-encapsulated model ChuaCircuit "Chua's circuit, ns, V, A" 
+encapsulated model ChuaCircuit "Chua's circuit, ns, V, A"
   import Modelica.Electrical.Analog.Basic;
   import Modelica.Electrical.Analog.Examples.Utilities;
   import Modelica.Icons;
   extends Icons.Example;
-  
+
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -82,7 +82,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         rotation=270)));
   Basic.Ground Gnd annotation (Placement(transformation(extent={{-25,-100},{25,
             -50}}, rotation=0)));
-equation 
+equation
   connect(L.p, G.p) annotation (Line(points={{-75,75},{-25,75}}));
   connect(G.n, Nr.p) annotation (Line(points={{25,75},{75,75},{75,40}}));
   connect(Nr.n, Gnd.p) annotation (Line(points={{75,-10},{75,-50},{0,-50}}));

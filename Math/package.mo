@@ -6,7 +6,7 @@ package Math "Library of mathematical functions (e.g., sin, cos) and of function
 extends Modelica.Icons.Library2;
 
 
-annotation(
+annotation (
     Window(
       x=0.04,
       y=0.05,
@@ -17,8 +17,8 @@ annotation(
   Invisible=true,
   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
       graphics={Text(
-        extent={{-59,-9},{42,-56}}, 
-        lineColor={0,0,0}, 
+        extent={{-59,-9},{42,-56}},
+        lineColor={0,0,0},
         textString="f(x)")}),
   Documentation(info="<HTML>
 <p>
@@ -64,9 +64,9 @@ and the accompanying <b>disclaimer</b>
 </html>"));
 
 
-package Vectors "Library of functions operating on vectors" 
+package Vectors "Library of functions operating on vectors"
   extends Modelica.Icons.Library;
-  
+
   annotation (
     preferedView = "info",
     Documentation(info="<HTML>
@@ -102,16 +102,16 @@ This library provides functions operating on vectors:
 <h4>See also</h4>
 <a href=\"Modelica://Modelica.Math.Matrices\">Matrices</a>
 </HTML>"));
-  
-  function isEqual "Determine if two Real vectors are numerically identical" 
+
+  function isEqual "Determine if two Real vectors are numerically identical"
     extends Modelica.Icons.Function;
     input Real v1[:] "First vector";
     input Real v2[:] "Second vector (may have different length as v1";
-    input Real eps(min=0) = 0 
+    input Real eps(min=0) = 0
       "Two elements e1 and e2 of the two vectors are identical if abs(e1-e2) <= eps";
-    output Boolean result 
+    output Boolean result
       "= true, if vectors have the same length and the same elements";
-    
+
     annotation ( Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -143,10 +143,10 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 <a href=\"Modelica://Modelica.Math.Matrices.isEqual\">Matrices.isEqual</a>, 
 <a href=\"Modelica://Modelica.Utilities.Strings.isEqual\">Strings.isEqual</a>
 </HTML>"));
-  protected 
+  protected
     Integer n=size(v1, 1) "Dimension of vector v1";
     Integer i=1;
-  algorithm 
+  algorithm
     result := false;
     if size(v2, 1) == n then
       result := true;
@@ -159,14 +159,14 @@ can be provided as third argument of the function. Default is \"eps = 0\".
       end while;
     end if;
   end isEqual;
-  
-  function norm "Return the p-norm of a vector" 
+
+  function norm "Return the p-norm of a vector"
     extends Modelica.Icons.Function;
     input Real v[:] "Vector";
-    input Real p(min=1) = 2 
+    input Real p(min=1) = 2
       "Type of p-norm (often used: 1, 2, or Modelica.Constants.inf)";
     output Real result "p-norm of vector v";
-    
+
     annotation ( Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -219,7 +219,7 @@ Note, for any vector norm the following inequality holds:
 <h4>See also</h4>
 <a href=\"Modelica://Modelica.Math.Matrices.norm\">Matrices.norm</a>
 </HTML>"));
-  algorithm 
+  algorithm
     if p == 2 then
       result:=sqrt(v*v);
     elseif p == Modelica.Constants.inf then
@@ -230,15 +230,13 @@ Note, for any vector norm the following inequality holds:
       result:=(sum(abs(v[i])^p for i in 1:size(v, 1)))^(1/p);
     end if;
   end norm;
-  
-  
-  
-  function length 
-    "Return length of a vectorReturn length of a vector (better as norm(), if further symbolic processing is performed)" 
+
+  function length
+    "Return length of a vectorReturn length of a vector (better as norm(), if further symbolic processing is performed)"
     extends Modelica.Icons.Function;
     input Real v[:] "Vector";
     output Real result "Length of vector v";
-    
+
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -262,18 +260,18 @@ not the case with function norm(..).
 <h4>See also</h4>
 <a href=\"Modelica://Modelica.Math.Vectors.norm\">Vectors.norm</a>
 </html>"));
-  algorithm 
+  algorithm
     result := sqrt(v*v);
   end length;
 
-  function normalize 
-    "Return normalized vector such that length = 1Return normalized vector such that length = 1 and prevent zero-division for zero vector" 
+  function normalize
+    "Return normalized vector such that length = 1Return normalized vector such that length = 1 and prevent zero-division for zero vector"
     extends Modelica.Icons.Function;
     input Real v[:] "Vector";
-    input Real eps = 100*Modelica.Constants.eps 
+    input Real eps = 100*Modelica.Constants.eps
       "if |v| < eps then result = v/eps";
     output Real result[size(v, 1)] "Input vector v normalized to length=1";
-    
+
     annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -305,15 +303,15 @@ possible.
 <h4>See also</h4>
 <a href=\"Modelica://Modelica.Math.Vectors.length\">Vectors.length</a>
 </html>"));
-  algorithm 
+  algorithm
     result := smooth(0,if length(v) >= eps then v/length(v) else v/eps);
   end normalize;
 
-  function reverse "Reverse vector elements (e.g. v[1] becomes last element)" 
+  function reverse "Reverse vector elements (e.g. v[1] becomes last element)"
     extends Modelica.Icons.Function;
     input Real v[:] "Vector";
     output Real result[size(v, 1)] "Elements of vector v in reversed order";
-    
+
     annotation ( Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -329,18 +327,18 @@ vector elements in reverse order.
   <b>reverse</b>({1,2,3,4});  // = {4,3,2,1}
 </pre></blockquote>
 </html>"));
-  algorithm 
+  algorithm
     result := {v[end-i+1] for i in 1:size(v,1)};
   end reverse;
-  
-  function sort "Sort elements of vector in ascending or descending order" 
+
+  function sort "Sort elements of vector in ascending or descending order"
     extends Modelica.Icons.Function;
     input Real v[:] "Vector to be sorted";
-    input Boolean ascending = true 
+    input Boolean ascending = true
       "= true if ascending order, otherwise descending order";
     output Real sorted_v[size(v,1)] = v "Sorted vector";
     output Integer indices[size(v,1)] = 1:size(v,1) "sorted_v = v[indices]";
-    
+
     annotation (Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -364,7 +362,7 @@ to the original vector are given, such that sorted_v = v[indices].
 </pre></blockquote>
 </HTML>"));
     /* shellsort algorithm; should be improved later */
-  protected 
+  protected
     Integer gap;
     Integer i;
     Integer j;
@@ -372,9 +370,9 @@ to the original vector are given, such that sorted_v = v[indices].
     Integer wi;
     Integer nv = size(v,1);
     Boolean swap;
-  algorithm 
+  algorithm
     gap := div(nv,2);
-    
+
     while gap > 0 loop
        i := gap;
        while i < nv loop
@@ -388,7 +386,7 @@ to the original vector are given, such that sorted_v = v[indices].
           else
              swap := false;
           end if;
-        
+
           while swap loop
              wv := sorted_v[j+1];
              wi := indices[j+1];
@@ -415,10 +413,10 @@ to the original vector are given, such that sorted_v = v[indices].
 end Vectors;
 
 
-package Matrices "Library of functions operating on matrices" 
-  
+package Matrices "Library of functions operating on matrices"
+
   extends Modelica.Icons.Library;
-  
+
   annotation (
     version="0.8.1",
     versionDate="2004-08-21",
@@ -530,16 +528,16 @@ The details of this library are described in:
 
 </HTML>
 "));
-  
-  function isEqual "Compare whether two Real matrices are identical" 
+
+  function isEqual "Compare whether two Real matrices are identical"
     extends Modelica.Icons.Function;
     input Real M1[:, :] "First matrix";
     input Real M2[:, :] "Second matrix (may have different size as M1";
-    input Real eps(min=0) = 0 
+    input Real eps(min=0) = 0
       "Two elements e1 and e2 of the two matrices are identical if abs(e1-e2) <= eps";
-    output Boolean result 
+    output Boolean result
       "= true, if matrices have the same size and the same elements";
-    
+
     annotation ( Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -571,12 +569,12 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 <a href=\"Modelica://Modelica.Math.Vectors.isEqual\">Vectors.isEqual</a>, 
 <a href=\"Modelica://Modelica.Utilities.Strings.isEqual\">Strings.isEqual</a>
 </HTML>"));
-  protected 
+  protected
     Integer nrow=size(M1, 1) "Number of rows of matrix M1";
     Integer ncol=size(M1, 2) "Number of columns of matrix M1";
     Integer i=1;
     Integer j;
-  algorithm 
+  algorithm
     result := false;
     if size(M2, 1) == nrow and size(M2, 2) == ncol then
       result := true;
@@ -593,16 +591,16 @@ can be provided as third argument of the function. Default is \"eps = 0\".
         i := i + 1;
       end while;
     end if;
-    
+
   end isEqual;
-  
-  function norm "Returns the norm of a matrix" 
+
+  function norm "Returns the norm of a matrix"
     extends Modelica.Icons.Function;
     input Real A[:, :] "Input matrix";
-    input Real p(min=1) = 2 
+    input Real p(min=1) = 2
       "Type of p-norm (only allowed: 1, 2 or Modelica.Constants.inf)";
     output Real result=0.0 "p-norm of matrix A";
-    
+
     annotation ( Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -633,7 +631,7 @@ Note, for any matrix A and vector v the following inequality holds:
 Vectors.<b>norm</b>(A*v,p) &le; Matrices.<b>norm</b>(A,p)*Vectors.<b>norm</b>(A,p)
 </pre></blockquote>
 </HTML>"));
-  algorithm 
+  algorithm
     if p == 1 then
       // column sum norm
       for i in 1:size(A, 2) loop
@@ -652,19 +650,19 @@ Vectors.<b>norm</b>(A*v,p) &le; Matrices.<b>norm</b>(A,p)*Vectors.<b>norm</b>(A,
 1, 2 or Modelica.Constants.inf");
     end if;
   end norm;
-  
-  function sort 
-    "Sort rows or columns of matrix in ascending or descending order" 
+
+  function sort
+    "Sort rows or columns of matrix in ascending or descending order"
     extends Modelica.Icons.Function;
     input Real M[:,:] "Matrix to be sorted";
-    input Boolean sortRows = true 
+    input Boolean sortRows = true
       "= true if rows are sorted, otherwise columns";
-    input Boolean ascending = true 
+    input Boolean ascending = true
       "= true if ascending order, otherwise descending order";
     output Real sorted_M[size(M,1), size(M,2)] = M "Sorted matrix";
-    output Integer indices[if sortRows then size(M,1) else size(M,2)] 
+    output Integer indices[if sortRows then size(M,1) else size(M,2)]
       "sorted_M = if sortRows then M[indices,:] else M[:,indices]";
-    
+
     annotation (Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -695,7 +693,7 @@ to the original matrix are given, such that
 </pre></blockquote>
 </HTML>"));
     /* shellsort algorithm; should be improved later */
-  protected 
+  protected
     Integer gap;
     Integer i;
     Integer j;
@@ -704,18 +702,18 @@ to the original matrix are given, such that
     Integer nM1 = size(M,1);
     Boolean swap;
     Real sorted_MT[size(M,2), size(M,1)];
-    
-  encapsulated function greater "Compare whether vector v1 > v2" 
+
+  encapsulated function greater "Compare whether vector v1 > v2"
       import Modelica;
     extends Modelica.Icons.Function;
       import Modelica.Utilities.Types.Compare;
     input Real v1[:];
     input Real v2[size(v1,1)];
     output Boolean result;
-    protected 
+    protected
     Integer n = size(v1,1);
     Integer i=1;
-  algorithm 
+  algorithm
     result := false;
     while i <= n loop
        if v1[i] > v2[i] then
@@ -727,18 +725,18 @@ to the original matrix are given, such that
        i := i+1;
     end while;
   end greater;
-    
-  encapsulated function less "Compare whether vector v1 < v2" 
+
+  encapsulated function less "Compare whether vector v1 < v2"
       import Modelica;
     extends Modelica.Icons.Function;
       import Modelica.Utilities.Types.Compare;
     input Real v1[:];
     input Real v2[size(v1,1)];
     output Boolean result;
-    protected 
+    protected
     Integer n = size(v1,1);
     Integer i=1;
-  algorithm 
+  algorithm
     result := false;
     while i <= n loop
        if v1[i] < v2[i] then
@@ -750,7 +748,7 @@ to the original matrix are given, such that
        i := i+1;
     end while;
   end less;
-  algorithm 
+  algorithm
     if not sortRows then
         (sorted_MT,indices) := sort(transpose(M), ascending=ascending);
        sorted_M :=transpose(sorted_MT);
@@ -770,7 +768,7 @@ to the original matrix are given, such that
              else
                 swap := false;
              end if;
-          
+
              while swap loop
                 wM2 := sorted_M[j+1,:];
                 wi := indices[j+1];
@@ -795,15 +793,15 @@ to the original matrix are given, such that
        end while;
     end if;
   end sort;
-  
-  function solve 
-    "Solve real system of linear equations A*x=b with a b vector (Gaussian elemination with partial pivoting)" 
-    
+
+  function solve
+    "Solve real system of linear equations A*x=b with a b vector (Gaussian elemination with partial pivoting)"
+
     extends Modelica.Icons.Function;
     input Real A[:, size(A, 1)] "Matrix A of A*x = b";
     input Real b[size(A, 1)] "Vector b of A*x = b";
     output Real x[size(b, 1)] "Vector x such that A*x = b";
-    
+
     annotation (
       Window(
         x=0.4,
@@ -847,23 +845,23 @@ i.e., by Gaussian elemination with partial pivoting.
 <a href=\"Modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a>,
 <a href=\"Modelica://Modelica.Math.Matrices.LU_solve\">Matrices.LU_solve</a>
 </HTML>"));
-  protected 
+  protected
     Integer info;
-  algorithm 
+  algorithm
     (x,info) := LAPACK.dgesv_vec(A, b);
     assert(info == 0, "Solving a linear system of equations with function
 \"Matrices.solve\" is not possible, because the system has either 
 no or infinitely many solutions (A is singular).");
   end solve;
-  
-  function solve2 
-    "Solve real system of linear equations A*X=B with a B matrix (Gaussian elemination with partial pivoting)" 
-    
+
+  function solve2
+    "Solve real system of linear equations A*X=B with a B matrix (Gaussian elemination with partial pivoting)"
+
     extends Modelica.Icons.Function;
     input Real A[:, size(A, 1)] "Matrix A of A*X = B";
     input Real B[size(A, 1),:] "Matrix B of A*X = B";
     output Real X[size(B, 1), size(B,2)] "Matrix X such that A*X = B";
-    
+
     annotation (
       Window(
         x=0.4,
@@ -913,23 +911,23 @@ i.e., by Gaussian elemination with partial pivoting.
 <a href=\"Modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a>,
 <a href=\"Modelica://Modelica.Math.Matrices.LU_solve2\">Matrices.LU_solve2</a>
 </HTML>"));
-  protected 
+  protected
     Integer info;
-  algorithm 
+  algorithm
     (X,info) := LAPACK.dgesv(A, B);
     assert(info == 0, "Solving a linear system of equations with function
 \"Matrices.solve2\" is not possible, because the system has either 
 no or infinitely many solutions (A is singular).");
   end solve2;
-  
-  function leastSquares 
-    "Solve overdetermined or underdetermined real system of linear equations A*x=b in a least squares sense (A may be rank deficient)" 
+
+  function leastSquares
+    "Solve overdetermined or underdetermined real system of linear equations A*x=b in a least squares sense (A may be rank deficient)"
     extends Modelica.Icons.Function;
     input Real A[:, :] "Matrix A";
     input Real b[size(A, 1)] "Vector b";
-    output Real x[size(A, 2)] 
+    output Real x[size(A, 2)]
       "Vector x such that min|A*x-b|^2 if size(A,1) >= size(A,2) or min|x|^2 and A*x=b, if size(A,1) < size(A,2)";
-    
+
     annotation (
       Window(
         x=0.4,
@@ -961,26 +959,26 @@ the solution is not unique and from the infinitely many solutions
 the one is selected that minimizes both |x|^2 and |A*x - b|^2.
 </p>
 </HTML>"));
-  protected 
+  protected
     Integer info;
     Integer rank;
     Real xx[max(size(A,1),size(A,2))];
-  algorithm 
+  algorithm
     (xx,info,rank) := LAPACK.dgelsx_vec(A, b, 100*Modelica.Constants.eps);
     x := xx[1:size(A,2)];
     assert(info == 0, "Solving an overdetermined or underdetermined linear system of 
 equations with function \"Matrices.leastSquares\" failed.");
   end leastSquares;
-  
-  function equalityLeastSquares 
-    "Solve a linear equality constrained least squares problem" 
+
+  function equalityLeastSquares
+    "Solve a linear equality constrained least squares problem"
     extends Modelica.Icons.Function;
     input Real A[:,:] "Minimize |A*x - a|^2";
     input Real a[size(A,1)];
     input Real B[:,size(A,2)] "subject to B*x=b";
     input Real b[size(B,1)];
     output Real x[size(A,2)] "solution vector";
-    
+
     annotation (
       Window(
         x=0.4,
@@ -1020,32 +1018,32 @@ full column rank (= size(A,2)). In this case, the problem
 has a unique solution.
 </p>
 </HTML>"));
-  protected 
+  protected
     Integer info;
-  algorithm 
+  algorithm
     assert(size(A,2) >= size(B,1) and size(A,2) <= size(A,1) + size(B,1),
            "It is required that size(B,1) <= size(A,2) <= size(A,1) + size(B,1)\n" +
            "This relationship is not fulfilled, since the matrices are declared as:\n" +
            "  A[" + String(size(A,1)) + "," + String(size(A,2)) + "], B[" +
            String(size(B,1)) + "," + String(size(B,2)) + "]\n");
-    
+
     (x, info) := LAPACK.dgglse_vec(A, a, B, b);
-    
+
     assert(info == 0, "Solving a linear equality-constrained least squares problem 
 with function \"Matrices.equalityLeastSquares\" failed.");
   end equalityLeastSquares;
-  
-  function LU "LU decomposition of square or rectangular matrix" 
+
+  function LU "LU decomposition of square or rectangular matrix"
     extends Modelica.Icons.Function;
     input Real A[:, :] "Square or rectangular matrix";
-    output Real LU[size(A, 1), size(A,2)] = A 
+    output Real LU[size(A, 1), size(A,2)] = A
       "L,U factors (used with LU_solve(..))";
-    output Integer pivots[min(size(A, 1), size(A,2))] 
+    output Integer pivots[min(size(A, 1), size(A,2))]
       "pivot indices (used with LU_solve(..))";
     output Integer info "Information";
     external "FORTRAN 77" dgetrf(size(A, 1), size(A, 2), LU, size(A, 1), pivots, info) 
       annotation (Library="Lapack");
-    
+
     annotation ( Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -1121,17 +1119,17 @@ matrix A was interchanged with row pivots[i].
 <a href=\"Modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>,
 </HTML>"));
   end LU;
-  
-  function LU_solve 
-    "Solve real system of linear equations P*L*U*x=b with a b vector and an LU decomposition (from LU(..))" 
-    
+
+  function LU_solve
+    "Solve real system of linear equations P*L*U*x=b with a b vector and an LU decomposition (from LU(..))"
+
     extends Modelica.Icons.Function;
-    input Real LU[:, size(LU,1)] 
+    input Real LU[:, size(LU,1)]
       "L,U factors of Matrices.LU(..) for a square matrix";
     input Integer pivots[size(LU, 1)] "Pivots indices of Matrices.LU(..)";
     input Real b[size(LU, 1)] "Right hand side vector of P*L*U*x=b";
     output Real x[size(b, 1)] "Solution vector such that P*L*U*x = b";
-    
+
     annotation ( Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -1196,7 +1194,7 @@ matrix A was interchanged with row pivots[i].
 <a href=\"Modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a>, 
 <a href=\"Modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>,
 </HTML>"));
-  algorithm 
+  algorithm
     for i in 1:size(LU,1) loop
          assert(LU[i,i] <> 0, "Solving a linear system of equations with function
 \"Matrices.LU_solve\" is not possible, since the LU decomposition
@@ -1204,18 +1202,18 @@ is singular, i.e., no unique solution exists.");
     end for;
     x := LAPACK.dgetrs_vec(LU, pivots, b);
   end LU_solve;
-  
-  function LU_solve2 
-    "Solve real system of linear equations P*L*U*X=B with a B matrix and an LU decomposition (from LU(..))" 
-    
+
+  function LU_solve2
+    "Solve real system of linear equations P*L*U*X=B with a B matrix and an LU decomposition (from LU(..))"
+
     extends Modelica.Icons.Function;
-    input Real LU[:, size(LU,1)] 
+    input Real LU[:, size(LU,1)]
       "L,U factors of Matrices.LU(..) for a square matrix";
     input Integer pivots[size(LU, 1)] "Pivots indices of Matrices.LU(..)";
     input Real B[size(LU, 1),:] "Right hand side matrix of P*L*U*X=B";
-    output Real X[size(B, 1), size(B,2)] 
+    output Real X[size(B, 1), size(B,2)]
       "Solution matrix such that P*L*U*X = B";
-    
+
     annotation ( Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -1288,7 +1286,7 @@ matrix A was interchanged with row pivots[i].
 <a href=\"Modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a>, 
 <a href=\"Modelica://Modelica.Math.Matrices.solve2\">Matrices.solve2</a>,
 </HTML>"));
-  algorithm 
+  algorithm
     for i in 1:size(LU,1) loop
          assert(LU[i,i] <> 0, "Solving a linear system of equations with function
 \"Matrices.LU_solve\" is not possible, since the LU decomposition
@@ -1299,17 +1297,17 @@ is singular, i.e., no unique solution exists.");
       pivots,
       B);
   end LU_solve2;
-  
-  function QR 
-    "QR decomposition of a square matrix with column pivoting (A(:,p) = Q*R)" 
-    
+
+  function QR
+    "QR decomposition of a square matrix with column pivoting (A(:,p) = Q*R)"
+
     extends Modelica.Icons.Function;
     input Real A[:, :] "Rectangular matrix with size(A,1) >= size(A,2)";
-    output Real Q[size(A, 1), size(A, 2)] 
+    output Real Q[size(A, 1), size(A, 2)]
       "Rectangular matrix with orthonormal columns such that Q*R=A[:,p]";
     output Real R[size(A, 2), size(A, 2)] "Square upper triangular matrix";
     output Integer p[size(A, 2)] "Column permutation vector";
-    
+
     annotation ( Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -1375,15 +1373,15 @@ called as: <code>(,R,p) = QR(A)</code>.
                                     0     ,  0     ,  0.65..];
 </pre></blockquote>
 </HTML>"));
-  protected 
+  protected
     Integer nrow=size(A, 1);
     Integer ncol=size(A, 2);
     Real tau[ncol];
-  algorithm 
+  algorithm
     assert(nrow >= ncol, "\nInput matrix A[" + String(nrow) + "," + String(ncol) + "] has more columns as rows.
 This is not allowed when calling Modelica.Matrices.QR(A).");
     (Q,tau,p) := LAPACK.dgeqpf(A);
-    
+
     // determine R
     R := zeros(ncol,ncol);
     for i in 1:ncol loop
@@ -1391,21 +1389,21 @@ This is not allowed when calling Modelica.Matrices.QR(A).");
         R[i, j] := Q[i,j];
       end for;
     end for;
-    
+
     // if isPresent(Q) then (not yet supported by Dymola)
     Q := LAPACK.dorgqr(Q, tau);
   end QR;
-  
-  function eigenValues 
-    "Compute eigenvalues and eigenvectors for a real, nonsymmetric matrix" 
-    
+
+  function eigenValues
+    "Compute eigenvalues and eigenvectors for a real, nonsymmetric matrix"
+
     extends Modelica.Icons.Function;
     input Real A[:, size(A, 1)] "Matrix";
-    output Real eigenvalues[size(A, 1), 2] 
+    output Real eigenvalues[size(A, 1), 2]
       "Eigenvalues of matrix A (Re: first column, Im: second column)";
-    output Real eigenvectors[size(A,1), size(A,2)] 
+    output Real eigenvectors[size(A,1), size(A,2)]
       "Real-valued eigenvector matrix";
-    
+
     annotation (
       Window(
         x=0.4,
@@ -1465,11 +1463,11 @@ i.e., matrix A has the 3 real eigenvalues -0.618, 8, 1.618.
 <a href=\"Modelica://Modelica.Math.Matrices.singularValues\">Matrices.singularValues</a>
 </HTML>
 "));
-  protected 
+  protected
     Integer info;
     // replace with "isPresent(..)" if supported by Dymola
     Boolean onlyEigenvalues = false;
-  algorithm 
+  algorithm
     if onlyEigenvalues then
        (eigenvalues[:, 1],eigenvalues[:, 2],info) := LAPACK.dgeev_eigenValues(A);
        eigenvectors :=zeros(size(A, 1), size(A, 1));
@@ -1480,16 +1478,16 @@ i.e., matrix A has the 3 real eigenvalues -0.618, 8, 1.618.
 \"Matrices.eigenvalues\" is not possible, since the
 numerical algorithm does not converge.");
   end eigenValues;
-  
-  function eigenValueMatrix 
-    "Return real valued block diagonal matrix J of eigenvalues of matrix A (A=V*J*Vinv)" 
-    
+
+  function eigenValueMatrix
+    "Return real valued block diagonal matrix J of eigenvalues of matrix A (A=V*J*Vinv)"
+
     extends Modelica.Icons.Function;
-    input Real eigenValues[:, 2] 
+    input Real eigenValues[:, 2]
       "Eigen values from function eigenValues(..) (Re: first column, Im: second column)";
-    output Real J[size(eigenValues, 1), size(eigenValues, 1)] 
+    output Real J[size(eigenValues, 1), size(eigenValues, 1)]
       "Real valued block diagonal matrix with eigen values (Re: 1x1 block, Im: 2x2 block)";
-    
+
     annotation (
       Window(
         x=0.4,
@@ -1526,10 +1524,10 @@ are used to construct a 2 by 2 diagonal block of <b>J</b>:
 <h4>See also</h4>
 <a href=\"Modelica://Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>
 </HTML>"));
-  protected 
+  protected
     Integer n=size(eigenValues, 1);
     Integer i;
-  algorithm 
+  algorithm
     J := zeros(n, n);
     i := 1;
     while i <= n loop
@@ -1545,17 +1543,17 @@ are used to construct a 2 by 2 diagonal block of <b>J</b>:
       end if;
     end while;
   end eigenValueMatrix;
-  
-  function singularValues 
-    "Compute singular values and left and right singular vectors" 
+
+  function singularValues
+    "Compute singular values and left and right singular vectors"
     extends Modelica.Icons.Function;
     input Real A[:, :] "Matrix";
     output Real sigma[min(size(A, 1), size(A, 2))] "Singular values";
-    output Real U[size(A, 1), size(A, 1)]=zeros(size(A, 1), size(A, 1)) 
+    output Real U[size(A, 1), size(A, 1)]=zeros(size(A, 1), size(A, 1))
       "Left orthogonal matrix";
-    output Real VT[size(A, 2), size(A, 2)]=zeros(size(A, 2), size(A, 2)) 
+    output Real VT[size(A, 2), size(A, 2)]=zeros(size(A, 2), size(A, 2))
       "Transposed right orthogonal matrix ";
-    
+
     annotation ( Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -1599,24 +1597,24 @@ matrices <tt>U</tt> and <tt>V</tt>.
 <h4>See also</h4>
 <a href=\"Modelica://Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>
 </HTML>"));
-  protected 
+  protected
     Integer info;
     Integer n=min(size(A, 1), size(A, 2)) "Number of singular values";
-  algorithm 
+  algorithm
     (sigma,U,VT,info) := Matrices.LAPACK.dgesvd(A);
     assert(info == 0, "The numerical algorithm to compute the
 singular value decomposition did not converge");
   end singularValues;
-  
-  function det "Determinant of a matrix (computed by LU decomposition)" 
-    
+
+  function det "Determinant of a matrix (computed by LU decomposition)"
+
     extends Modelica.Icons.Function;
     input Real A[:, size(A, 1)];
     output Real result "Determinant of matrix A";
-  protected 
+  protected
     Real LU[size(A,1),size(A,1)];
     Integer pivots[size(A,1)];
-    
+
     annotation ( Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -1635,46 +1633,46 @@ to compute the rank of a matrix.
 <a href=\"Modelica://Modelica.Math.Matrices.rank\">Matrices.rank</a>,
 <a href=\"Modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>
 </HTML>"));
-  algorithm 
+  algorithm
     (LU,pivots) := Matrices.LU(A);
     result:=product(LU[i,i] for i in 1:size(A,1))*
       product(if pivots[i]==i then 1 else -1 for i in 1:size(pivots,1));
   end det;
-  
-  function inv 
-    "Inverse of a matrix (try to avoid, use function solve(..) instead)" 
+
+  function inv
+    "Inverse of a matrix (try to avoid, use function solve(..) instead)"
     extends Modelica.Icons.Function;
     input Real A[:, size(A, 1)];
     output Real invA[size(A, 1), size(A, 2)] "Inverse of matrix A";
-  protected 
+  protected
     Integer info;
     Integer pivots[size(A, 1)] "Pivot vector";
     Real LU[size(A, 1), size(A, 2)] "LU factors of A";
-  algorithm 
+  algorithm
     (LU,pivots,info) := LAPACK.dgetrf(A);
-    
+
     assert(info == 0, "Calculating an inverse matrix with function
 \"Matrices.inv\" is not possible, since matrix A is singular.");
-    
+
     invA := LAPACK.dgetri(LU, pivots);
-    
+
     annotation (Documentation(info="<html>
   
 </html>"));
   end inv;
-  
-  function rank "Rank of a matrix (computed with singular values)" 
+
+  function rank "Rank of a matrix (computed with singular values)"
     extends Modelica.Icons.Function;
     input Real A[:, :] "Matrix";
-    input Real eps=0 
+    input Real eps=0
       "If eps > 0, the singular values are checked against eps; otherwise eps=max(size(A))*norm(A)*Modelica.Constants.eps is used";
     output Integer result "Rank of matrix A";
-  protected 
+  protected
     Integer n=min(size(A, 1), size(A, 2));
     Integer i=n;
     Real sigma[n]=singularValues(A) "Singular values";
     Real eps2=if eps > 0 then eps else max(size(A))*sigma[1]*Modelica.Constants.eps;
-  algorithm 
+  algorithm
     result := n;
     while i > 0 loop
       if sigma[i] > eps2 then
@@ -1683,20 +1681,20 @@ to compute the rank of a matrix.
       end if;
       i := i - 1;
     end while;
-    
+
     annotation (Documentation(info="<html>
   
 </html>"));
   end rank;
-  
-  function balance "Balancing of matrix A to improve the condition of A" 
+
+  function balance "Balancing of matrix A to improve the condition of A"
     extends Modelica.Icons.Function;
     input Real A[:, size(A, 1)];
     output Real D[size(A, 1)] "diagonal(D)=T is transformation matrix, such that
           T*A*inv(T) has smaller condition as A";
-    output Real B[size(A, 1), size(A, 1)] 
+    output Real B[size(A, 1), size(A, 1)]
       "Balanced matrix (= diagonal(D)*A*inv(diagonal(D)))";
-  protected 
+  protected
     Integer na=size(A, 1);
     Integer radix=2 "Radix of exponent representation must be 'radix'
           or a multiple of 'radix'";
@@ -1710,7 +1708,7 @@ to compute the rank of a matrix.
     Real F;
     Real S;
     /*auxiliary variables*/
-    
+
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -1760,8 +1758,8 @@ which based on the balanc function from EISPACK.
         y=0.13,
         width=0.71,
         height=0.8));
-  algorithm 
-    
+  algorithm
+
     // B = inv(D)*A*D, so that cond(B)<=cond(A)
     D := ones(na);
     B := A;
@@ -1792,15 +1790,15 @@ which based on the balanc function from EISPACK.
       end for;
     end while;
   end balance;
-  
-  function exp 
-    "Compute the exponential of a matrix by adaptive Taylor series expansion with scaling and balancing" 
-    
+
+  function exp
+    "Compute the exponential of a matrix by adaptive Taylor series expansion with scaling and balancing"
+
     extends Modelica.Icons.Function;
     input Real A[:, size(A, 1)];
     input Real T=1;
     output Real phi[size(A, 1), size(A, 1)] "= exp(A*T)";
-    
+
     annotation (
       Window(
         x=0.12,
@@ -1869,7 +1867,7 @@ implementation variant used in this function.
 </li>
 </ul>
 </html>"));
-  protected 
+  protected
     parameter Integer nmax=21;
     /*max number of iterations*/
     parameter Integer na=size(A, 1);
@@ -1885,20 +1883,20 @@ implementation variant used in this function.
     /*M: dummy matrix*/
     Real Diag[na];
     /*diagonal transformation matrix for balancing*/
-    
-  encapsulated function columnNorm "Returns the column norm of a matrix" 
+
+  encapsulated function columnNorm "Returns the column norm of a matrix"
     input Real A[:, :] "Input matrix";
     output Real result=0.0 "1-norm of matrix A";
-  algorithm 
+  algorithm
      for i in 1:size(A, 2) loop
         result := max(result, sum(abs(A[:, i])));
      end for;
   end columnNorm;
-    
-  algorithm 
+
+  algorithm
     // balancing of A
     (Diag,Atransf) := balance(A);
-    
+
     // scaling of T until norm(A)*/(2^k) < 1
     Tscaled := T;
     /*Anorm: column-norm of matrix A*/
@@ -1909,7 +1907,7 @@ implementation variant used in this function.
       Tscaled := Tscaled/2;
       k := k + 1;
     end while;
-    
+
     // Computation of psi by Taylor-series approximation
     M := identity(na);
     D := M;
@@ -1923,12 +1921,12 @@ implementation variant used in this function.
         j := j + 1;
       end if;
     end while;
-    
+
     // re-scaling
     for i in 1:k loop
       D := D*D;
     end for;
-    
+
     // re-balancing: psi := diagonal(Diag)*D*inv(diagonal(Diag));
     for j in 1:na loop
       for k in 1:na loop
@@ -1936,17 +1934,17 @@ implementation variant used in this function.
       end for;
     end for;
   end exp;
-  
-  function integralExp 
-    "Computation of the transition-matrix phi and its integral gamma" 
-    
+
+  function integralExp
+    "Computation of the transition-matrix phi and its integral gamma"
+
     extends Modelica.Icons.Function;
     input Real A[:, size(A, 1)];
     input Real B[size(A, 1), :];
     input Real T=1;
     output Real phi[size(A, 1), size(A, 1)] "= exp(A*T)";
     output Real gamma[size(A, 1), size(B, 2)] "= integral(phi)*B";
-  protected 
+  protected
     parameter Integer nmax=21;
     /*max number of iterations*/
     parameter Integer na=size(A, 1);
@@ -1962,7 +1960,7 @@ implementation variant used in this function.
     /*M: dummy matrix*/
     Real Diag[na];
     /*diagonal transformation matrix for balancing*/
-    
+
     annotation (
       Window(
         x=0.25,
@@ -2050,19 +2048,19 @@ The Algorithm to calculate psi is taken from
 </li>
 </ul>
 </html>"));
-    
-  encapsulated function columnNorm "Returns the column norm of a matrix" 
+
+  encapsulated function columnNorm "Returns the column norm of a matrix"
     input Real A[:, :] "Input matrix";
     output Real result=0.0 "1-norm of matrix A";
-  algorithm 
+  algorithm
      for i in 1:size(A, 2) loop
         result := max(result, sum(abs(A[:, i])));
      end for;
   end columnNorm;
-  algorithm 
+  algorithm
     // balancing of A
     (Diag,Atransf) := balance(A);
-    
+
     // scaling of T until norm(A)*/(2^k) < 0.5
     Tscaled := T;
     /*Anorm: column-norm of matrix A*/
@@ -2074,7 +2072,7 @@ The Algorithm to calculate psi is taken from
       Tscaled := Tscaled/2;
       k := k + 1;
     end while;
-    
+
     // Computation of psi by Taylor-series approximation
     M := identity(na)*Tscaled;
     Psi := M;
@@ -2089,12 +2087,12 @@ The Algorithm to calculate psi is taken from
         j := j + 1;
       end if;
     end while;
-    
+
     // re-scaling
     for j in 1:k loop
       Psi := Atransf*Psi*Psi + 2*Psi;
     end for;
-    
+
     // re-balancing: psi := diagonal(Diag)*D*inv(diagonal(Diag));
     for j in 1:na loop
       for k in 1:na loop
@@ -2103,12 +2101,12 @@ The Algorithm to calculate psi is taken from
     end for;
     gamma := Psi*B;
     phi := A*Psi + identity(na);
-    
+
   end integralExp;
-  
-  function integralExpT 
-    "Computation of the transition-matrix phi and the integral gamma and gamma1" 
-    
+
+  function integralExpT
+    "Computation of the transition-matrix phi and the integral gamma and gamma1"
+
     extends Modelica.Icons.Function;
     input Real A[:, size(A, 1)];
     input Real B[size(A, 1), :];
@@ -2116,7 +2114,7 @@ The Algorithm to calculate psi is taken from
     output Real phi[size(A, 1), size(A, 1)] "= exp(A*T)";
     output Real gamma[size(A, 1), size(B, 2)] "= integral(phi)*B";
     output Real gamma1[size(A, 1), size(B, 2)] "= integral((T-t)*exp(A*t))*B";
-  protected 
+  protected
     Integer nmax=200;
     /*max number of iterations*/
     parameter Integer na=size(A, 1);
@@ -2124,7 +2122,7 @@ The Algorithm to calculate psi is taken from
     Integer j=1;
     Boolean done=false;
     Real F[na + 2*nb, na + 2*nb];
-    
+
     annotation (
       Window(
         x=0.06,
@@ -2171,35 +2169,35 @@ is discribed in
 </li>
 </ul>
 </html>"));
-  algorithm 
+  algorithm
     F := [A, B, zeros(na, nb); zeros(2*nb, na), zeros(2*nb, nb), [identity(nb);
        zeros(nb, nb)]];
     F := exp(F, T);
     phi := F[1:na, 1:na];
     gamma := F[1:na, na + 1:na + nb];
     gamma1 := F[1:na, na + nb + 1:na + 2*nb];
-    
+
   end integralExpT;
-  
-protected 
-  package LAPACK "Interface to LAPACK library" 
+
+protected
+  package LAPACK "Interface to LAPACK library"
     extends Modelica.Icons.Library;
-    
-    function dgeev 
-      "Compute eigenvalues and (right) eigenvectors for real nonsymmetrix matrix A" 
-      
+
+    function dgeev
+      "Compute eigenvalues and (right) eigenvectors for real nonsymmetrix matrix A"
+
       extends Modelica.Icons.Function;
       input Real A[:, size(A, 1)];
       output Real eigenReal[size(A, 1)] "Real part of eigen values";
       output Real eigenImag[size(A, 1)] "Imaginary part of eigen values";
       output Real eigenVectors[size(A, 1), size(A, 1)] "Right eigen vectors";
       output Integer info;
-    protected 
+    protected
       Integer n=size(A, 1);
       Integer lwork=12*n;
       Real Awork[n, n]=A;
       Real work[lwork];
-      
+
       annotation (
         Window(
           x=0.25,
@@ -2286,25 +2284,25 @@ protected
         eigenVectors, n, eigenVectors, n, work, size(work, 1), info) 
         annotation (Library="Lapack");
     end dgeev;
-    
-    function dgeev_eigenValues 
-      "Compute eigenvalues for real nonsymmetrix matrix A" 
-      
+
+    function dgeev_eigenValues
+      "Compute eigenvalues for real nonsymmetrix matrix A"
+
       extends Modelica.Icons.Function;
       input Real A[:, size(A, 1)];
       output Real EigenReal[size(A, 1)];
       output Real EigenImag[size(A, 1)];
-      
+
       /*
       output Real Eigenvectors[size(A, 1), size(A, 1)]=zeros(size(A, 1), size(
           A, 1)); */
       output Integer info;
-    protected 
+    protected
       Integer lwork=8*size(A, 1);
       Real Awork[size(A, 1), size(A, 1)]=A;
       Real work[lwork];
       Real EigenvectorsL[size(A, 1), size(A, 1)]=zeros(size(A, 1), size(A, 1));
-      
+
       annotation (
         Window(
           x=0.25,
@@ -2387,7 +2385,7 @@ protected
                   elements i+1:N of WR and WI contain eigenvalues which   
                   have converged.   
 "));
-      
+
       /*
     external "Fortran 77" dgeev("N", "V", size(A, 1), Awork, size(A, 1), 
         EigenReal, EigenImag, EigenvectorsL, size(EigenvectorsL, 1), 
@@ -2397,20 +2395,20 @@ protected
         EigenReal, EigenImag, EigenvectorsL, size(EigenvectorsL, 1),
         EigenvectorsL, size(EigenvectorsL, 1), work, size(work, 1), info) 
         annotation (Library="Lapack");
-      
+
     end dgeev_eigenValues;
-    
-    function dgegv 
-      "Compute generalized eigenvalues and eigenvectors for a (A,B) system" 
+
+    function dgegv
+      "Compute generalized eigenvalues and eigenvectors for a (A,B) system"
       extends Modelica.Icons.Function;
       input Real A[:, size(A, 1)];
       input Real B[size(A,1), size(A, 1)];
-      output Real alphaReal[size(A, 1)] 
+      output Real alphaReal[size(A, 1)]
         "Real part of alpha (eigenvalue=(alphaReal+i*alphaImag)/beta)";
       output Real alphaImag[size(A, 1)] "Imaginary part of alpha";
       output Real beta[size(A,1)] "Denominator of eigenvalue";
       output Integer info;
-    protected 
+    protected
       Integer n=size(A, 1);
       Integer lwork=12*n;
       Real Awork[n, n]=A;
@@ -2418,7 +2416,7 @@ protected
       Real work[lwork];
       Real dummy1[1,1];
       Real dummy2[1,1];
-      
+
       annotation (Documentation(info="Purpose   
 =======
    
@@ -2568,17 +2566,17 @@ are computed, then only the diagonal blocks will be correct.
                  dummy1, 1, dummy2, 1, work, size(work, 1), info) 
             annotation (Library="Lapack");
     end dgegv;
-    
-    function dgels_vec 
-      "Solves overdetermined or underdetermined real linear equations A*x=b with a b vector" 
-      
+
+    function dgels_vec
+      "Solves overdetermined or underdetermined real linear equations A*x=b with a b vector"
+
       extends Modelica.Icons.Function;
       input Real A[:, :];
       input Real b[size(A,1)];
-      output Real x[nx]= cat(1,b,zeros(nx-nrow)) 
+      output Real x[nx]= cat(1,b,zeros(nx-nrow))
         "solution is in first size(A,2) rows";
       output Integer info;
-    protected 
+    protected
       Integer nrow=size(A,1);
       Integer ncol=size(A,2);
       Integer nx=max(nrow,ncol);
@@ -2587,7 +2585,7 @@ are computed, then only the diagonal blocks will be correct.
       Real Awork[nrow,ncol]=A;
       external "FORTRAN 77" dgels("N", nrow, ncol, 1, Awork, nrow, x,
                                   nx, work, lwork, info) annotation (Library="Lapack");
-      
+
       annotation (
         Window(
           x=0.25,
@@ -2687,19 +2685,19 @@ are computed, then only the diagonal blocks will be correct.
           < 0:  if INFO = -i, the i-th argument had an illegal value      
                                                                           "));
     end dgels_vec;
-    
-    function dgelsx_vec 
-      "Computes the minimum-norm solution to a real linear least squares problem with rank deficient A" 
-      
+
+    function dgelsx_vec
+      "Computes the minimum-norm solution to a real linear least squares problem with rank deficient A"
+
       extends Modelica.Icons.Function;
       input Real A[:, :];
       input Real b[size(A,1)];
       input Real rcond=0.0 "Reciprocal condition number to estimate rank";
-      output Real x[max(nrow,ncol)]= cat(1,b,zeros(max(nrow,ncol)-nrow)) 
+      output Real x[max(nrow,ncol)]= cat(1,b,zeros(max(nrow,ncol)-nrow))
         "solution is in first size(A,2) rows";
       output Integer info;
       output Integer rank "Effective rank of A";
-    protected 
+    protected
       Integer nrow=size(A,1);
       Integer ncol=size(A,2);
       Integer nx=max(nrow,ncol);
@@ -2709,7 +2707,7 @@ are computed, then only the diagonal blocks will be correct.
       Integer jpvt[ncol]=zeros(ncol);
       external "FORTRAN 77" dgelsx(nrow, ncol, 1, Awork, nrow, x, nx, jpvt,
                                   rcond, rank, work, lwork, info) annotation (Library="Lapack");
-      
+
       annotation (
         Window(
           x=0.25,
@@ -2807,18 +2805,18 @@ are computed, then only the diagonal blocks will be correct.
           = 0:  successful exit                                         
           < 0:  if INFO = -i, the i-th argument had an illegal value    "));
     end dgelsx_vec;
-    
-    function dgesv 
-      "Solve real system of linear equations A*X=B with a B matrix" 
+
+    function dgesv
+      "Solve real system of linear equations A*X=B with a B matrix"
       extends Modelica.Icons.Function;
       input Real A[:, size(A, 1)];
       input Real B[size(A, 1), :];
       output Real X[size(A, 1), size(B, 2)]=B;
       output Integer info;
-    protected 
+    protected
       Real Awork[size(A, 1), size(A, 1)]=A;
       Integer ipiv[size(A, 1)];
-      
+
       annotation (
         Documentation(info="Lapack documentation:
     Purpose   
@@ -2867,22 +2865,22 @@ are computed, then only the diagonal blocks will be correct.
           y=0.4,
           width=0.6,
           height=0.6));
-      
+
     external "FORTRAN 77" dgesv(size(A, 1), size(B, 2), Awork, size(A, 1), ipiv,
          X, size(A, 1), info) annotation (Library="Lapack");
     end dgesv;
-    
-    function dgesv_vec 
-      "Solve real system of linear equations A*x=b with a b vector" 
+
+    function dgesv_vec
+      "Solve real system of linear equations A*x=b with a b vector"
       extends Modelica.Icons.Function;
       input Real A[:, size(A, 1)];
       input Real b[size(A, 1)];
       output Real x[size(A, 1)]=b;
       output Integer info;
-    protected 
+    protected
       Real Awork[size(A, 1), size(A, 1)]=A;
       Integer ipiv[size(A, 1)];
-      
+
       annotation (
         Documentation(info="
 Same as function LAPACK.dgesv, but right hand side is a vector and not a matrix.
@@ -2892,14 +2890,14 @@ For details of the arguments, see documentation of dgesv.
           y=0.4,
           width=0.6,
           height=0.6));
-      
+
     external "FORTRAN 77" dgesv(size(A, 1), 1, Awork, size(A, 1), ipiv, x, size(
         A, 1), info) annotation (Library="Lapack");
     end dgesv_vec;
-    
-    function dgesvx 
-      "Solve real system of linear equations A*X=B with a B matrix, error bounds and condition estimate" 
-      
+
+    function dgesvx
+      "Solve real system of linear equations A*X=B with a B matrix, error bounds and condition estimate"
+
       extends Modelica.Icons.Function;
       input Real A[:, size(A, 1)];
       input Real B[size(A, 1), :];
@@ -2908,7 +2906,7 @@ For details of the arguments, see documentation of dgesv.
       output Real FErrBound;
       output Real BErrBound;
       output Integer info;
-    protected 
+    protected
       Real Awork[size(A, 1), size(A, 2)]=A;
       Real Bwork[size(B, 1), size(B, 2)]=B;
       Real AF[size(A, 1), size(A, 2)];
@@ -2918,7 +2916,7 @@ For details of the arguments, see documentation of dgesv.
       Real C[size(A, 1)];
       Real work[4*size(A, 1)];
       Integer iwork[size(A, 1)];
-      
+
       annotation (
         Documentation(info="Lapack documentation:
     Purpose   
@@ -3132,18 +3130,18 @@ For details of the arguments, see documentation of dgesv.
           y=0.06,
           width=0.6,
           height=0.6));
-      
+
     external "FORTRAN 77" dgesvx("E", "N", size(A, 1), size(B, 2), Awork, size(
         A, 1), AF, size(A, 1), ipiv, equed, R, C, Bwork, size(B, 1), X, size(X,
          1), RCond, FErrBound, BErrBound, work, iwork, info) 
         annotation (Library="Lapack");
     end dgesvx;
-    
-    function dgesvx_vec 
-      "Solve real system of linear equations A*x=b with a b vector, error bounds and condition estimate" 
-      
+
+    function dgesvx_vec
+      "Solve real system of linear equations A*x=b with a b vector, error bounds and condition estimate"
+
       extends Modelica.Icons.Function;
-      
+
       input Real A[:, size(A, 1)];
       input Real b[size(A, 1)];
       output Real x[size(A, 1)]=zeros(size(A, 1));
@@ -3151,7 +3149,7 @@ For details of the arguments, see documentation of dgesv.
       output Real FErrBound;
       output Real BErrBound;
       output Integer info;
-    protected 
+    protected
       Real Awork[size(A, 1), size(A, 2)]=A;
       Real Bwork[size(A, 1)]=b;
       Real AF[size(A, 1), size(A, 2)];
@@ -3161,7 +3159,7 @@ For details of the arguments, see documentation of dgesv.
       Real C[size(A, 1)];
       Real work[4*size(A, 1)];
       Integer iwork[size(A, 1)];
-      
+
       annotation (
         Documentation(info="
 Same as function LAPACK.dgesvx, but right hand side is a vector and not a matrix.
@@ -3171,14 +3169,14 @@ For details of the arguments, see documentation of dgesvx.
           y=0.06,
           width=0.6,
           height=0.6));
-      
+
     external "FORTRAN 77" dgesvx("E", "N", size(A, 1), 1, Awork, size(A, 1), AF,
          size(A, 1), ipiv, equed, R, C, Bwork, size(b, 1), x, size(x, 1), RCond,
          FErrBound, BErrBound, work, iwork, info) annotation (Library="Lapack");
     end dgesvx_vec;
-    
-    function dgglse_vec 
-      "Solve a linear equality constrained least squares problem" 
+
+    function dgglse_vec
+      "Solve a linear equality constrained least squares problem"
       extends Modelica.Icons.Function;
       input Real A[:,:] "Minimize |A*x - c|^2";
       input Real c[size(A,1)];
@@ -3186,7 +3184,7 @@ For details of the arguments, see documentation of dgesvx.
       input Real d[size(B,1)];
       output Real x[size(A,2)] "solution vector";
       output Integer info;
-    protected 
+    protected
       Integer nrow_A=size(A,1);
       Integer nrow_B=size(B,1);
       Integer ncol_A=size(A,2) "(min=nrow_B,max=nrow_A+nrow_B) required";
@@ -3199,7 +3197,7 @@ For details of the arguments, see documentation of dgesvx.
       external "FORTRAN 77" dgglse(nrow_A, ncol_A, nrow_B, Awork, nrow_A,
                                    Bwork, nrow_B, cwork, dwork, x,
                                    work, lwork, info)             annotation (Library="Lapack");
-      
+
       annotation (
         Documentation(info="Lapack documentation
  
@@ -3287,10 +3285,10 @@ For details of the arguments, see documentation of dgesvx.
           width=0.6,
           height=0.6));
     end dgglse_vec;
-    
-    function dgtsv 
-      "Solve real system of linear equations A*X=B with B matrix and tridiagonal A" 
-      
+
+    function dgtsv
+      "Solve real system of linear equations A*X=B with B matrix and tridiagonal A"
+
       extends Modelica.Icons.Function;
       input Real superdiag[:];
       input Real diag[size(superdiag, 1) + 1];
@@ -3298,11 +3296,11 @@ For details of the arguments, see documentation of dgesvx.
       input Real B[size(diag, 1), :];
       output Real X[size(B, 1), size(B, 2)]=B;
       output Integer info;
-    protected 
+    protected
       Real superdiagwork[size(superdiag, 1)]=superdiag;
       Real diagwork[size(diag, 1)]=diag;
       Real subdiagwork[size(subdiag, 1)]=subdiag;
-      
+
       annotation (
         Documentation(info="Lapack documentation:
     Purpose   
@@ -3354,15 +3352,15 @@ For details of the arguments, see documentation of dgesvx.
           y=0.4,
           width=0.6,
           height=0.6));
-      
+
     external "FORTRAN 77" dgtsv(size(diag, 1), size(B, 2), subdiagwork,
         diagwork, superdiagwork, X, size(B, 1), info) 
         annotation (Library="Lapack");
     end dgtsv;
-    
-    function dgtsv_vec 
-      "Solve real system of linear equations A*x=b with b vector and tridiagonal A" 
-      
+
+    function dgtsv_vec
+      "Solve real system of linear equations A*x=b with b vector and tridiagonal A"
+
       extends Modelica.Icons.Function;
       input Real superdiag[:];
       input Real diag[size(superdiag, 1) + 1];
@@ -3370,11 +3368,11 @@ For details of the arguments, see documentation of dgesvx.
       input Real b[size(diag, 1)];
       output Real x[size(b, 1)]=b;
       output Integer info;
-    protected 
+    protected
       Real superdiagwork[size(superdiag, 1)]=superdiag;
       Real diagwork[size(diag, 1)]=diag;
       Real subdiagwork[size(subdiag, 1)]=subdiag;
-      
+
       annotation (
         Documentation(info="
 Same as function LAPACK.dgtsv, but right hand side is a vector and not a matrix.
@@ -3384,13 +3382,13 @@ For details of the arguments, see documentation of dgtsv.
           y=0.4,
           width=0.6,
           height=0.6));
-      
+
     external "FORTRAN 77" dgtsv(size(diag, 1), 1, subdiagwork, diagwork,
         superdiagwork, x, size(b, 1), info) annotation (Library="Lapack");
     end dgtsv_vec;
-    
-    function dgbsv 
-      "Solve real system of linear equations A*X=B with a B matrix" 
+
+    function dgbsv
+      "Solve real system of linear equations A*X=B with a B matrix"
       extends Modelica.Icons.Function;
       input Integer n "Number of equations";
       input Integer kLower "Number of lower bands";
@@ -3399,10 +3397,10 @@ For details of the arguments, see documentation of dgtsv.
       input Real B[n, :];
       output Real X[n, size(B, 2)]=B;
       output Integer info;
-    protected 
+    protected
       Real Awork[size(A, 1), size(A, 2)]=A;
       Integer ipiv[n];
-      
+
       annotation (
         Documentation(info="Lapack documentation:  
 Purpose
@@ -3473,13 +3471,13 @@ elements of U because of fill-in resulting from the row interchanges."),
           y=0.4,
           width=0.6,
           height=0.6));
-      
+
     external "FORTRAN 77" dgbsv(n, kLower, kUpper, size(B, 2), Awork, size(
         Awork, 1), ipiv, X, n, info) annotation (Library="Lapack");
     end dgbsv;
-    
-    function dgbsv_vec 
-      "Solve real system of linear equations A*x=b with a b vector" 
+
+    function dgbsv_vec
+      "Solve real system of linear equations A*x=b with a b vector"
       extends Modelica.Icons.Function;
       input Integer n "Number of equations";
       input Integer kLower "Number of lower bands";
@@ -3488,10 +3486,10 @@ elements of U because of fill-in resulting from the row interchanges."),
       input Real b[n];
       output Real x[n]=b;
       output Integer info;
-    protected 
+    protected
       Real Awork[size(A, 1), size(A, 2)]=A;
       Integer ipiv[n];
-      
+
       annotation (
         Documentation(info="Lapack documentation:  
 "),     Window(
@@ -3499,23 +3497,23 @@ elements of U because of fill-in resulting from the row interchanges."),
           y=0.4,
           width=0.6,
           height=0.6));
-      
+
     external "FORTRAN 77" dgbsv(n, kLower, kUpper, 1, Awork, size(Awork, 1),
         ipiv, x, n, info) annotation (Library="Lapack");
     end dgbsv_vec;
-    
-    function dgesvd "Determine singular value decomposition" 
+
+    function dgesvd "Determine singular value decomposition"
       extends Modelica.Icons.Function;
       input Real A[:, :];
       output Real sigma[min(size(A, 1), size(A, 2))];
       output Real U[size(A, 1), size(A, 1)]=zeros(size(A, 1), size(A, 1));
       output Real VT[size(A, 2), size(A, 2)]=zeros(size(A, 2), size(A, 2));
       output Integer info;
-    protected 
+    protected
       Real Awork[size(A, 1), size(A, 2)]=A;
       Integer lwork=5*size(A, 1) + 5*size(A, 2);
       Real work[lwork];
-      
+
       annotation (
         Documentation(info="Lapack documentation:
     Purpose   
@@ -3617,24 +3615,24 @@ elements of U because of fill-in resulting from the row interchanges."),
           y=0.4,
           width=0.6,
           height=0.6));
-      
+
     external "Fortran 77" dgesvd("A", "A", size(A, 1), size(A, 2), Awork, size(
         A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info) 
         annotation (Library="Lapack");
     end dgesvd;
-    
-    function dgesvd_sigma "Determine singular values" 
+
+    function dgesvd_sigma "Determine singular values"
       extends Modelica.Icons.Function;
       input Real A[:, :];
       output Real sigma[min(size(A, 1), size(A, 2))];
       output Integer info;
-    protected 
+    protected
       Real Awork[size(A, 1), size(A, 2)]=A;
       Real U[size(A, 1), size(A, 1)];
       Real VT[size(A, 2), size(A, 2)];
       Integer lwork=5*size(A, 1) + 5*size(A, 2);
       Real work[lwork];
-      
+
       annotation (
         Documentation(info="Lapack documentation:
     Purpose   
@@ -3736,29 +3734,29 @@ elements of U because of fill-in resulting from the row interchanges."),
           y=0.4,
           width=0.6,
           height=0.6));
-      
+
     external "Fortran 77" dgesvd("N", "N", size(A, 1), size(A, 2), Awork, size(
         A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info) 
         annotation (Library="Lapack");
     end dgesvd_sigma;
-    
-    function StringAllocate 
-      "Utility function to provide storage for characters" 
+
+    function StringAllocate
+      "Utility function to provide storage for characters"
       extends Modelica.Icons.Function;
       input Integer n;
       output String s;
     external "C" annotation (doNotDeclare);
     end StringAllocate;
-    
-    function dgetrf 
-      "Compute LU factorization of square or rectangular matrix A (A = P*L*U)" 
-      
+
+    function dgetrf
+      "Compute LU factorization of square or rectangular matrix A (A = P*L*U)"
+
       extends Modelica.Icons.Function;
       input Real A[:, :] "Square or rectangular matrix";
       output Real LU[size(A, 1), size(A, 2)]=A;
       output Integer pivots[min(size(A, 1), size(A, 2))] "Pivot vector";
       output Integer info "Information";
-      
+
       annotation (
         Documentation(info="Lapack documentation:
   SUBROUTINE DGETRF( M, N, A, LDA, IPIV, INFO )
@@ -3810,21 +3808,21 @@ INFO    (output) INTEGER
           y=0.4,
           width=0.6,
           height=0.6));
-      
+
     external "FORTRAN 77" dgetrf(size(A, 1), size(A, 2), LU, size(A, 1), pivots,
          info) annotation (Library="Lapack");
     end dgetrf;
-    
-      function dgetrs 
-      "Solves a system of linear equations with the LU decomposition from dgetrf(..)" 
-      
+
+      function dgetrs
+      "Solves a system of linear equations with the LU decomposition from dgetrf(..)"
+
         extends Modelica.Icons.Function;
-        input Real LU[:, size(LU, 1)] 
+        input Real LU[:, size(LU, 1)]
         "LU factorization of dgetrf of a square matrix";
         input Integer pivots[size(LU, 1)] "Pivot vector of dgetrf";
         input Real B[size(LU, 1),:] "Right hand side matrix B";
         output Real X[size(B, 1), size(B,2)]=B "Solution matrix X";
-      
+
         annotation (
           Documentation(info="Lapack documentation:
   SUBROUTINE DGETRS( TRANS, N, NRHS, A, LDA, IPIV, B, LDB, INFO )
@@ -3879,24 +3877,24 @@ INFO    (output) INTEGER
             y=0.4,
             width=0.6,
             height=0.6));
-      
-    protected 
+
+    protected
         Real work[size(LU, 1), size(LU, 1)]=LU;
         Integer info;
       external "FORTRAN 77" dgetrs("N", size(LU, 1), size(B,2), work, size(LU, 1), pivots,
            X, size(B, 1), info) annotation (Library="Lapack");
       end dgetrs;
-    
-    function dgetrs_vec 
-      "Solves a system of linear equations with the LU decomposition from dgetrf(..)" 
-      
+
+    function dgetrs_vec
+      "Solves a system of linear equations with the LU decomposition from dgetrf(..)"
+
       extends Modelica.Icons.Function;
-      input Real LU[:, size(LU, 1)] 
+      input Real LU[:, size(LU, 1)]
         "LU factorization of dgetrf of a square matrix";
       input Integer pivots[size(LU, 1)] "Pivot vector of dgetrf";
       input Real b[size(LU, 1)] "Right hand side vector b";
       output Real x[size(b, 1)]=b;
-      
+
       annotation (
         Documentation(info="Lapack documentation:
   SUBROUTINE DGETRS( TRANS, N, NRHS, A, LDA, IPIV, B, LDB, INFO )
@@ -3951,23 +3949,23 @@ INFO    (output) INTEGER
           y=0.4,
           width=0.6,
           height=0.6));
-      
-    protected 
+
+    protected
       Real work[size(LU, 1), size(LU, 1)]=LU;
       Integer info;
     external "FORTRAN 77" dgetrs("N", size(LU, 1), 1, work, size(LU, 1), pivots,
          x, size(b, 1), info) annotation (Library="Lapack");
     end dgetrs_vec;
-    
-    function dgetri 
-      "Computes the inverse of a matrix using the LU factorization from dgetrf(..)" 
-      
+
+    function dgetri
+      "Computes the inverse of a matrix using the LU factorization from dgetrf(..)"
+
       extends Modelica.Icons.Function;
-      input Real LU[:, size(LU, 1)] 
+      input Real LU[:, size(LU, 1)]
         "LU factorization of dgetrf of a square matrix";
       input Integer pivots[size(LU, 1)] "Pivot vector of dgetrf";
       output Real inv[size(LU, 1), size(LU, 2)]=LU "Inverse of matrix P*L*U";
-      
+
       annotation (
         Documentation(info="Lapack documentation:
    SUBROUTINE DGETRI( N, A, LDA, IPIV, WORK, LWORK, INFO )
@@ -4017,25 +4015,25 @@ INFO    (output) INTEGER
           y=0.4,
           width=0.6,
           height=0.6));
-    protected 
+    protected
       Integer lwork=min(10, size(LU, 1))*size(LU, 1) "Length of work array";
       Real work[lwork];
       Integer info;
     external "FORTRAN 77" dgetri(size(LU, 1), inv, size(LU, 1), pivots, work,
         lwork, info) annotation (Library="Lapack");
     end dgetri;
-    
-    function dgeqpf 
-      "Compute QR factorization of square or rectangular matrix A with column pivoting (A(:,p) = Q*R)" 
-      
+
+    function dgeqpf
+      "Compute QR factorization of square or rectangular matrix A with column pivoting (A(:,p) = Q*R)"
+
       extends Modelica.Icons.Function;
       input Real A[:, :] "Square or rectangular matrix";
-      output Real QR[size(A, 1), size(A, 2)]=A 
+      output Real QR[size(A, 1), size(A, 2)]=A
         "QR factorization in packed format";
-      output Real tau[min(size(A, 1), size(A, 2))] 
+      output Real tau[min(size(A, 1), size(A, 2))]
         "The scalar factors of the elementary reflectors of Q";
       output Integer p[size(A, 2)]=zeros(size(A, 2)) "Pivot vector";
-      
+
       annotation (
         Documentation(info="Lapack documentation:
    SUBROUTINE DGEQPF( M, N, A, LDA, JPVT, TAU, WORK, INFO )
@@ -4097,23 +4095,23 @@ then the jth column of P is the ith canonical unit vector."),
           y=0.4,
           width=0.6,
           height=0.6));
-    protected 
+    protected
       Integer info;
       Integer ncol=size(A, 2) "Column dimension of A";
       Real work[3*ncol] "work array";
     external "FORTRAN 77" dgeqpf(size(A, 1), ncol, QR, size(A, 1), p, tau, work,
          info) annotation (Library="Lapack");
     end dgeqpf;
-    
-    function dorgqr 
-      "Generates a Real orthogonal matrix Q which is defined as the product of elementary reflectors as returned from dgeqpf" 
-      
+
+    function dorgqr
+      "Generates a Real orthogonal matrix Q which is defined as the product of elementary reflectors as returned from dgeqpf"
+
       extends Modelica.Icons.Function;
       input Real QR[:, :] "QR from dgeqpf";
-      input Real tau[min(size(QR, 1), size(QR, 2))] 
+      input Real tau[min(size(QR, 1), size(QR, 2))]
         "The scalar factors of the elementary reflectors of Q";
       output Real Q[size(QR, 1), size(QR, 2)]=QR "Orthogonal matrix Q";
-      
+
       annotation (
         Documentation(info="Lapack documentation:
    SUBROUTINE DORGQR( M, N, K, A, LDA, TAU, WORK, LWORK, INFO )
@@ -4168,8 +4166,8 @@ INFO    (output) INTEGER
           y=0.4,
           width=0.6,
           height=0.6));
-      
-    protected 
+
+    protected
       Integer info;
       Integer lwork=min(10, size(QR, 2))*size(QR, 2) "Length of work array";
       Real work[lwork];
@@ -4195,15 +4193,15 @@ tasks. The details of LAPACK are described in:
  
 </html>"));
   end LAPACK;
-  
+
 end Matrices;
 
 
-function sin "Sine" 
+function sin "Sine"
   extends baseIcon1;
   input SI.Angle u;
   output Real y;
-  
+
   annotation (
     Window(
       x=0.02,
@@ -4214,20 +4212,20 @@ function sin "Sine"
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(points={{-90,0},{68,0}}, color={192,192,192}), 
+        Line(points={{-90,0},{68,0}}, color={192,192,192}),
         Polygon(
-          points={{90,0},{68,8},{68,-8},{90,0}}, 
-          lineColor={192,192,192}, 
-          fillColor={192,192,192}, 
-          fillPattern=FillPattern.Solid), 
+          points={{90,0},{68,8},{68,-8},{90,0}},
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
         Line(points={{-80,0},{-68.7,34.2},{-61.5,53.1},{-55.1,66.4},{-49.4,74.6},
               {-43.8,79.1},{-38.2,79.8},{-32.6,76.6},{-26.9,69.7},{-21.3,59.4},
               {-14.9,44.1},{-6.83,21.2},{10.1,-30.8},{17.3,-50.2},{23.7,-64.2},
               {29.3,-73.1},{35,-78.4},{40.6,-80},{46.2,-77.6},{51.9,-71.5},{
-              57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, color={0,0,0}), 
+              57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, color={0,0,0}),
         Text(
-          extent={{12,84},{84,36}}, 
-          lineColor={192,192,192}, 
+          extent={{12,84},{84,36}},
+          lineColor={192,192,192},
           textString="sin")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -4286,11 +4284,11 @@ external "C" y = sin(u);
 end sin;
 
 
-function cos "Cosine" 
+function cos "Cosine"
   extends baseIcon1;
   input SI.Angle u;
   output Real y;
-  
+
   annotation (
     Window(
       x=0.28,
@@ -4301,20 +4299,20 @@ function cos "Cosine"
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(points={{-90,0},{68,0}}, color={192,192,192}), 
+        Line(points={{-90,0},{68,0}}, color={192,192,192}),
         Polygon(
-          points={{90,0},{68,8},{68,-8},{90,0}}, 
-          lineColor={192,192,192}, 
-          fillColor={192,192,192}, 
-          fillPattern=FillPattern.Solid), 
+          points={{90,0},{68,8},{68,-8},{90,0}},
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
         Line(points={{-80,80},{-74.4,78.1},{-68.7,72.3},{-63.1,63},{-56.7,48.7},
               {-48.6,26.6},{-29.3,-32.5},{-22.1,-51.7},{-15.7,-65.3},{-10.1,-73.8},
               {-4.42,-78.8},{1.21,-79.9},{6.83,-77.1},{12.5,-70.6},{18.1,-60.6},
               {24.5,-45.7},{32.6,-23},{50.3,31.3},{57.5,50.7},{63.9,64.6},{69.5,
-              73.4},{75.2,78.6},{80,80}}, color={0,0,0}), 
+              73.4},{75.2,78.6},{80,80}}, color={0,0,0}),
         Text(
-          extent={{-36,82},{36,34}}, 
-          lineColor={192,192,192}, 
+          extent={{-36,82},{36,34}},
+          lineColor={192,192,192},
           textString="cos")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -4369,11 +4367,11 @@ external "C" y = cos(u);
 end cos;
 
 
-function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)" 
+function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
   extends baseIcon2;
   input SI.Angle u;
   output Real y;
-  
+
   annotation (
     Window(
       x=0.31,
@@ -4384,19 +4382,19 @@ function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(points={{-90,0},{68,0}}, color={192,192,192}), 
+        Line(points={{-90,0},{68,0}}, color={192,192,192}),
         Polygon(
-          points={{90,0},{68,8},{68,-8},{90,0}}, 
-          lineColor={192,192,192}, 
-          fillColor={192,192,192}, 
-          fillPattern=FillPattern.Solid), 
+          points={{90,0},{68,8},{68,-8},{90,0}},
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
         Line(points={{-80,-80},{-78.4,-68.4},{-76.8,-59.7},{-74.4,-50},{-71.2,-40.9},
               {-67.1,-33},{-60.7,-24.8},{-51.1,-17.2},{-35.8,-9.98},{-4.42,-1.07},
               {33.4,9.12},{49.4,16.2},{59.1,23.2},{65.5,30.6},{70.4,39.1},{73.6,
-              47.4},{76,56.1},{77.6,63.8},{80,80}}, color={0,0,0}), 
+              47.4},{76,56.1},{77.6,63.8},{80,80}}, color={0,0,0}),
         Text(
-          extent={{-90,72},{-18,24}}, 
-          lineColor={192,192,192}, 
+          extent={{-90,72},{-18,24}},
+          lineColor={192,192,192},
           textString="tan")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -4455,11 +4453,11 @@ external "C" y = tan(u);
 end tan;
 
 
-function asin "Inverse sine (-1 <= u <= 1)" 
+function asin "Inverse sine (-1 <= u <= 1)"
   extends baseIcon2;
   input Real u;
   output SI.Angle y;
-  
+
   annotation (
     Window(
       x=0.29,
@@ -4470,18 +4468,18 @@ function asin "Inverse sine (-1 <= u <= 1)"
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(points={{-90,0},{68,0}}, color={192,192,192}), 
+        Line(points={{-90,0},{68,0}}, color={192,192,192}),
         Polygon(
-          points={{90,0},{68,8},{68,-8},{90,0}}, 
-          lineColor={192,192,192}, 
-          fillColor={192,192,192}, 
-          fillPattern=FillPattern.Solid), 
+          points={{90,0},{68,8},{68,-8},{90,0}},
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
         Line(points={{-80,-80},{-79.2,-72.8},{-77.6,-67.5},{-73.6,-59.4},{-66.3,
               -49.8},{-53.5,-37.3},{-30.2,-19.7},{37.4,24.8},{57.5,40.8},{68.7,
-              52.7},{75.2,62.2},{77.6,67.5},{80,80}}, color={0,0,0}), 
+              52.7},{75.2,62.2},{77.6,67.5},{80,80}}, color={0,0,0}),
         Text(
-          extent={{-88,78},{-16,30}}, 
-          lineColor={192,192,192}, 
+          extent={{-88,78},{-16,30}},
+          lineColor={192,192,192},
           textString="asin")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -4542,11 +4540,11 @@ external "C" y = asin(u);
 end asin;
 
 
-function acos "Inverse cosine (-1 <= u <= 1)" 
+function acos "Inverse cosine (-1 <= u <= 1)"
   extends baseIcon2;
   input Real u;
   output SI.Angle y;
-  
+
   annotation (
     Window(
       x=0.37,
@@ -4557,18 +4555,18 @@ function acos "Inverse cosine (-1 <= u <= 1)"
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(points={{-90,-80},{68,-80}}, color={192,192,192}), 
+        Line(points={{-90,-80},{68,-80}}, color={192,192,192}),
         Polygon(
-          points={{90,-80},{68,-72},{68,-88},{90,-80}}, 
-          lineColor={192,192,192}, 
-          fillColor={192,192,192}, 
-          fillPattern=FillPattern.Solid), 
+          points={{90,-80},{68,-72},{68,-88},{90,-80}},
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
         Line(points={{-80,80},{-79.2,72.8},{-77.6,67.5},{-73.6,59.4},{-66.3,
               49.8},{-53.5,37.3},{-30.2,19.7},{37.4,-24.8},{57.5,-40.8},{68.7,-52.7},
-              {75.2,-62.2},{77.6,-67.5},{80,-80}}, color={0,0,0}), 
+              {75.2,-62.2},{77.6,-67.5},{80,-80}}, color={0,0,0}),
         Text(
-          extent={{-86,-14},{-14,-62}}, 
-          lineColor={192,192,192}, 
+          extent={{-86,-14},{-14,-62}},
+          lineColor={192,192,192},
           textString="acos")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -4625,11 +4623,11 @@ external "C" y = acos(u);
 end acos;
 
 
-function atan "Inverse tangent" 
+function atan "Inverse tangent"
   extends baseIcon2;
   input Real u;
   output SI.Angle y;
-  
+
   annotation (
     Window(
       x=0.36,
@@ -4640,19 +4638,19 @@ function atan "Inverse tangent"
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={1,1}), graphics={
-        Line(points={{-90,0},{68,0}}, color={192,192,192}), 
+        Line(points={{-90,0},{68,0}}, color={192,192,192}),
         Polygon(
-          points={{90,0},{68,8},{68,-8},{90,0}}, 
-          lineColor={192,192,192}, 
-          fillColor={192,192,192}, 
-          fillPattern=FillPattern.Solid), 
+          points={{90,0},{68,8},{68,-8},{90,0}},
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
         Line(points={{-80,-80},{-52.7,-75.2},{-37.4,-69.7},{-26.9,-63},{-19.7,-55.2},
               {-14.1,-45.8},{-10.1,-36.4},{-6.03,-23.9},{-1.21,-5.06},{5.23,21},
               {9.25,34.1},{13.3,44.2},{18.1,52.9},{24.5,60.8},{33.4,67.6},{47,
-              73.6},{69.5,78.6},{80,80}}, color={0,0,0}), 
+              73.6},{69.5,78.6},{80,80}}, color={0,0,0}),
         Text(
-          extent={{-86,68},{-14,20}}, 
-          lineColor={192,192,192}, 
+          extent={{-86,68},{-14,20}},
+          lineColor={192,192,192},
           textString="atan")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -4702,12 +4700,12 @@ external "C" y = atan(u);
 end atan;
 
 
-function atan2 "Four quadrant inverse tangent" 
+function atan2 "Four quadrant inverse tangent"
   extends baseIcon2;
   input Real u1;
   input Real u2;
   output SI.Angle y;
-  
+
   annotation (
     Window(
       x=0.36,
@@ -4718,22 +4716,22 @@ function atan2 "Four quadrant inverse tangent"
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(points={{-90,0},{68,0}}, color={192,192,192}), 
+        Line(points={{-90,0},{68,0}}, color={192,192,192}),
         Polygon(
-          points={{90,0},{68,8},{68,-8},{90,0}}, 
-          lineColor={192,192,192}, 
-          fillColor={192,192,192}, 
-          fillPattern=FillPattern.Solid), 
+          points={{90,0},{68,8},{68,-8},{90,0}},
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
         Line(points={{0,-80},{8.93,-67.2},{17.1,-59.3},{27.3,-53.6},{42.1,-49.4},
-              {69.9,-45.8},{80,-45.1}}, color={0,0,0}), 
+              {69.9,-45.8},{80,-45.1}}, color={0,0,0}),
         Line(points={{-80,-34.9},{-46.1,-31.4},{-29.4,-27.1},{-18.3,-21.5},{-10.3,
               -14.5},{-2.03,-3.17},{7.97,11.6},{15.5,19.4},{24.3,25},{39,30},{
-              62.1,33.5},{80,34.9}}, color={0,0,0}), 
+              62.1,33.5},{80,34.9}}, color={0,0,0}),
         Line(points={{-80,45.1},{-45.9,48.7},{-29.1,52.9},{-18.1,58.6},{-10.2,
-              65.8},{-1.82,77.2},{0,80}}, color={0,0,0}), 
+              65.8},{-1.82,77.2},{0,80}}, color={0,0,0}),
         Text(
-          extent={{-90,-46},{-18,-94}}, 
-          lineColor={192,192,192}, 
+          extent={{-90,-46},{-18,-94}},
+          lineColor={192,192,192},
           textString="atan2")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -4810,15 +4808,15 @@ external "C" y = atan2(u1, u2);
 end atan2;
 
 
-function atan3 
-  "Four quadrant inverse tangens (select solution that is closest to given angle y0)" 
+function atan3
+  "Four quadrant inverse tangens (select solution that is closest to given angle y0)"
     import Modelica.Math;
   extends Modelica.Math.baseIcon2;
   input Real u1;
   input Real u2;
   input Modelica.SIunits.Angle y0=0 "y shall be in the range: -pi < y-y0 < pi";
   output Modelica.SIunits.Angle y;
-  
+
   annotation (
     Window(
       x=0.36,
@@ -4829,22 +4827,22 @@ function atan3
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(points={{-90,0},{68,0}}, color={192,192,192}), 
+        Line(points={{-90,0},{68,0}}, color={192,192,192}),
         Polygon(
-          points={{90,0},{68,8},{68,-8},{90,0}}, 
-          lineColor={192,192,192}, 
-          fillColor={192,192,192}, 
-          fillPattern=FillPattern.Solid), 
+          points={{90,0},{68,8},{68,-8},{90,0}},
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
         Line(points={{0,-80},{8.93,-67.2},{17.1,-59.3},{27.3,-53.6},{42.1,-49.4},
-              {69.9,-45.8},{80,-45.1}}, color={0,0,0}), 
+              {69.9,-45.8},{80,-45.1}}, color={0,0,0}),
         Line(points={{-80,-34.9},{-46.1,-31.4},{-29.4,-27.1},{-18.3,-21.5},{-10.3,
               -14.5},{-2.03,-3.17},{7.97,11.6},{15.5,19.4},{24.3,25},{39,30},{
-              62.1,33.5},{80,34.9}}, color={0,0,0}), 
+              62.1,33.5},{80,34.9}}, color={0,0,0}),
         Line(points={{-80,45.1},{-45.9,48.7},{-29.1,52.9},{-18.1,58.6},{-10.2,
-              65.8},{-1.82,77.2},{0,80}}, color={0,0,0}), 
+              65.8},{-1.82,77.2},{0,80}}, color={0,0,0}),
         Text(
-          extent={{-90,-46},{-18,-94}}, 
-          lineColor={192,192,192}, 
+          extent={{-90,-46},{-18,-94}},
+          lineColor={192,192,192},
           textString="atan3")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -4913,20 +4911,20 @@ shall be returned:
 
 </HTML>
 "));
-protected 
+protected
   Real pi = Modelica.Constants.pi;
   Real w;
-algorithm 
+algorithm
   w :=Math.atan2(u1, u2);
   y := w + 2*pi*div(abs(w-y0)+pi,2*pi)*(if y0 > w then +1 else -1);
 end atan3;
 
 
-function sinh "Hyperbolic sine" 
+function sinh "Hyperbolic sine"
   extends baseIcon2;
   input Real u;
   output Real y;
-  
+
   annotation (
     Window(
       x=0.36,
@@ -4937,19 +4935,19 @@ function sinh "Hyperbolic sine"
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(points={{-90,0},{68,0}}, color={192,192,192}), 
+        Line(points={{-90,0},{68,0}}, color={192,192,192}),
         Polygon(
-          points={{90,0},{68,8},{68,-8},{90,0}}, 
-          lineColor={192,192,192}, 
-          fillColor={192,192,192}, 
-          fillPattern=FillPattern.Solid), 
+          points={{90,0},{68,8},{68,-8},{90,0}},
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
         Line(points={{-80,-80},{-76,-65.4},{-71.2,-51.4},{-65.5,-38.8},{-59.1,-28.1},
               {-51.1,-18.7},{-41.4,-11.4},{-27.7,-5.5},{-4.42,-0.653},{24.5,
               4.57},{39,10.1},{49.4,17.2},{57.5,25.9},{63.9,35.8},{69.5,47.4},{
-              74.4,60.4},{78.4,73.8},{80,80}}, color={0,0,0}), 
+              74.4,60.4},{78.4,73.8},{80,80}}, color={0,0,0}),
         Text(
-          extent={{-88,80},{-16,32}}, 
-          lineColor={192,192,192}, 
+          extent={{-88,80},{-16,32}},
+          lineColor={192,192,192},
           textString="sinh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -5011,11 +5009,11 @@ external "C" y = sinh(u);
 end sinh;
 
 
-function cosh "Hyperbolic cosine" 
+function cosh "Hyperbolic cosine"
   extends baseIcon2;
   input Real u;
   output Real y;
-  
+
   annotation (
     Window(
       x=0.4,
@@ -5026,21 +5024,21 @@ function cosh "Hyperbolic cosine"
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(points={{-90,-86.083},{68,-86.083}}, color={192,192,192}), 
+        Line(points={{-90,-86.083},{68,-86.083}}, color={192,192,192}),
         Polygon(
-          points={{90,-86.083},{68,-78.083},{68,-94.083},{90,-86.083}}, 
-          lineColor={192,192,192}, 
-          fillColor={192,192,192}, 
-          fillPattern=FillPattern.Solid), 
+          points={{90,-86.083},{68,-78.083},{68,-94.083},{90,-86.083}},
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
         Line(points={{-80,80},{-77.6,61.1},{-74.4,39.3},{-71.2,20.7},{-67.1,
               1.29},{-63.1,-14.6},{-58.3,-29.8},{-52.7,-43.5},{-46.2,-55.1},{-39,
               -64.3},{-30.2,-71.7},{-18.9,-77.1},{-4.42,-79.9},{10.9,-79.1},{
               23.7,-75.2},{34.2,-68.7},{42.2,-60.6},{48.6,-51.2},{54.3,-40},{
               59.1,-27.5},{63.1,-14.6},{67.1,1.29},{71.2,20.7},{74.4,39.3},{
-              77.6,61.1},{80,80}}, color={0,0,0}), 
+              77.6,61.1},{80,80}}, color={0,0,0}),
         Text(
-          extent={{4,66},{66,20}}, 
-          lineColor={192,192,192}, 
+          extent={{4,66},{66,20}},
+          lineColor={192,192,192},
           textString="cosh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -5100,11 +5098,11 @@ external "C" y = cosh(u);
 end cosh;
 
 
-function tanh "Hyperbolic tangent" 
+function tanh "Hyperbolic tangent"
   extends baseIcon2;
   input Real u;
   output Real y;
-  
+
   annotation (
     Window(
       x=0.36,
@@ -5115,19 +5113,19 @@ function tanh "Hyperbolic tangent"
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={0.5,0.5}), graphics={
-        Line(points={{-90,0},{68,0}}, color={192,192,192}), 
+        Line(points={{-90,0},{68,0}}, color={192,192,192}),
         Polygon(
-          points={{90,0},{68,8},{68,-8},{90,0}}, 
-          lineColor={192,192,192}, 
-          fillColor={192,192,192}, 
-          fillPattern=FillPattern.Solid), 
+          points={{90,0},{68,8},{68,-8},{90,0}},
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
         Line(points={{-80,-80},{-47.8,-78.7},{-35.8,-75.7},{-27.7,-70.6},{-22.1,
               -64.2},{-17.3,-55.9},{-12.5,-44.3},{-7.64,-29.2},{-1.21,-4.82},{
               6.83,26.3},{11.7,42},{16.5,54.2},{21.3,63.1},{26.9,69.9},{34.2,75},
-              {45.4,78.4},{72,79.9},{80,80}}, color={0,0,0}), 
+              {45.4,78.4},{72,79.9},{80,80}}, color={0,0,0}),
         Text(
-          extent={{-88,72},{-16,24}}, 
-          lineColor={192,192,192}, 
+          extent={{-88,72},{-16,24}},
+          lineColor={192,192,192},
           textString="tanh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -5177,11 +5175,11 @@ external "C" y = tanh(u);
 end tanh;
 
 
-function asinh "Inverse of sinh (area hyperbolic sine)" 
+function asinh "Inverse of sinh (area hyperbolic sine)"
   extends Modelica.Math.baseIcon2;
   input Real u;
   output Real y;
-  
+
   annotation (
     Window(
       x=0.36,
@@ -5192,18 +5190,18 @@ function asinh "Inverse of sinh (area hyperbolic sine)"
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(points={{-90,0},{68,0}}, color={192,192,192}), 
+        Line(points={{-90,0},{68,0}}, color={192,192,192}),
         Polygon(
-          points={{90,0},{68,8},{68,-8},{90,0}}, 
-          lineColor={192,192,192}, 
-          fillColor={192,192,192}, 
-          fillPattern=FillPattern.Solid), 
+          points={{90,0},{68,8},{68,-8},{90,0}},
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
         Line(points={{-80,-80},{-56.7,-68.4},{-39.8,-56.8},{-26.9,-44.7},{-17.3,
               -32.4},{-9.25,-19},{9.25,19},{17.3,32.4},{26.9,44.7},{39.8,56.8},
-              {56.7,68.4},{80,80}}, color={0,0,0}), 
+              {56.7,68.4},{80,80}}, color={0,0,0}),
         Text(
-          extent={{-90,80},{-6,26}}, 
-          lineColor={192,192,192}, 
+          extent={{-90,80},{-6,26}},
+          lineColor={192,192,192},
           textString="asinh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -5263,17 +5261,17 @@ asinh(u) (-&infin; &lt; u &lt; &infin;):
 <img src=\"../Images/Math/asinh.png\">
 </p>
 </html>"));
-algorithm 
+algorithm
   y :=Modelica.Math.log(u + sqrt(u*u + 1));
 end asinh;
 
 
-function acosh "Inverse of cosh (area hyperbolic cosine)" 
+function acosh "Inverse of cosh (area hyperbolic cosine)"
     import Modelica.Utilities.Streams.*;
   extends Modelica.Math.baseIcon1;
   input Real u;
   output Real y;
-  
+
   annotation (
     Window(
       x=0.36,
@@ -5284,18 +5282,18 @@ function acosh "Inverse of cosh (area hyperbolic cosine)"
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(points={{-90,-80},{68,-80}}, color={192,192,192}), 
+        Line(points={{-90,-80},{68,-80}}, color={192,192,192}),
         Polygon(
-          points={{90,-80},{68,-72},{68,-88},{90,-80}}, 
-          lineColor={192,192,192}, 
-          fillColor={192,192,192}, 
-          fillPattern=FillPattern.Solid), 
+          points={{90,-80},{68,-72},{68,-88},{90,-80}},
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
         Line(points={{-66,-80},{-65.2,-66},{-64.4,-60.3},{-62.8,-52.2},{-60.4,-43.4},
               {-56.4,-32.4},{-49.9,-19.3},{-41.1,-5.65},{-29,8.8},{-12.9,23.8},
-              {7.97,39.2},{35.3,55},{69.9,70.8},{94,80}}, color={0,0,0}), 
+              {7.97,39.2},{35.3,55},{69.9,70.8},{94,80}}, color={0,0,0}),
         Text(
-          extent={{-14,2},{76,-54}}, 
-          lineColor={192,192,192}, 
+          extent={{-14,2},{76,-54}},
+          lineColor={192,192,192},
           textString="arcosh")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -5364,18 +5362,18 @@ can become close to 1:
 <img src=\"../Images/Math/acosh.png\">
 </p>
 </html>"));
-  
-algorithm 
+
+algorithm
   assert(u>=1.0, "Input argument u (= " + String(u) + ") of acosh(u) must be >= 1.0");
   y :=Modelica.Math.log(u + sqrt(u*u - 1));
 end acosh;
 
 
-function exp "Exponential, base e" 
+function exp "Exponential, base e"
   extends baseIcon2;
   input Real u;
   output Real y;
-  
+
   annotation (
     Window(
       x=0.36,
@@ -5386,18 +5384,18 @@ function exp "Exponential, base e"
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(points={{-90,-80.3976},{68,-80.3976}}, color={192,192,192}), 
+        Line(points={{-90,-80.3976},{68,-80.3976}}, color={192,192,192}),
         Polygon(
-          points={{90,-80.3976},{68,-72.3976},{68,-88.3976},{90,-80.3976}}, 
-          lineColor={192,192,192}, 
-          fillColor={192,192,192}, 
-          fillPattern=FillPattern.Solid), 
+          points={{90,-80.3976},{68,-72.3976},{68,-88.3976},{90,-80.3976}},
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
         Line(points={{-80,-80},{-31,-77.9},{-6.03,-74},{10.9,-68.4},{23.7,-61},
               {34.2,-51.6},{43,-40.3},{50.3,-27.8},{56.7,-13.5},{62.3,2.23},{
-              67.1,18.6},{72,38.2},{76,57.6},{80,80}}, color={0,0,0}), 
+              67.1,18.6},{72,38.2},{76,57.6},{80,80}}, color={0,0,0}),
         Text(
-          extent={{-86,50},{-14,2}}, 
-          lineColor={192,192,192}, 
+          extent={{-86,50},{-14,2}},
+          lineColor={192,192,192},
           textString="exp")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -5458,11 +5456,11 @@ external "C" y = exp(u);
 end exp;
 
 
-function log "Natural (base e) logarithm (u shall be > 0)" 
+function log "Natural (base e) logarithm (u shall be > 0)"
   extends baseIcon1;
   input Real u;
   output Real y;
-  
+
   annotation (
     Window(
       x=0.36,
@@ -5473,19 +5471,19 @@ function log "Natural (base e) logarithm (u shall be > 0)"
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(points={{-90,0},{68,0}}, color={192,192,192}), 
+        Line(points={{-90,0},{68,0}}, color={192,192,192}),
         Polygon(
-          points={{90,0},{68,8},{68,-8},{90,0}}, 
-          lineColor={192,192,192}, 
-          fillColor={192,192,192}, 
-          fillPattern=FillPattern.Solid), 
+          points={{90,0},{68,8},{68,-8},{90,0}},
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
         Line(points={{-80,-80},{-79.2,-50.6},{-78.4,-37},{-77.6,-28},{-76.8,-21.3},
               {-75.2,-11.4},{-72.8,-1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},
               {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}, 
-            color={0,0,0}), 
+            color={0,0,0}),
         Text(
-          extent={{-6,-24},{66,-72}}, 
-          lineColor={192,192,192}, 
+          extent={{-6,-24},{66,-72}},
+          lineColor={192,192,192},
           textString="log")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -5500,7 +5498,8 @@ function log "Natural (base e) logarithm (u shall be > 0)"
         Line(
           points={{-78,-80},{-77.2,-50.6},{-76.4,-37},{-75.6,-28},{-74.8,-21.3},
               {-73.2,-11.4},{-70.8,-1.31},{-67.5,8.08},{-62.7,17.9},{-55.5,28},
-              {-45,38.1},{-29.8,48.1},{-8.1,58},{24.1,68},{70.7,78.1},{82,80}},
+              {-45,38.1},{-29.8,48.1},{-8.1,58},{24.1,68},{70.7,78.1},{82,80}}, 
+
           color={0,0,255},
           thickness=2),
         Text(
@@ -5543,16 +5542,16 @@ with u &gt; 0:
 <img src=\"../Images/Math/log.png\">
 </p>
 </html>"));
-  
+
 external "C" y = log(u);
 end log;
 
 
-function log10 "Base 10 logarithm (u shall be > 0)" 
+function log10 "Base 10 logarithm (u shall be > 0)"
   extends baseIcon1;
   input Real u;
   output Real y;
-  
+
   annotation (
     Window(
       x=0.36,
@@ -5563,19 +5562,19 @@ function log10 "Base 10 logarithm (u shall be > 0)"
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Line(points={{-90,0},{68,0}}, color={192,192,192}), 
+        Line(points={{-90,0},{68,0}}, color={192,192,192}),
         Polygon(
-          points={{90,0},{68,8},{68,-8},{90,0}}, 
-          lineColor={192,192,192}, 
-          fillColor={192,192,192}, 
-          fillPattern=FillPattern.Solid), 
+          points={{90,0},{68,8},{68,-8},{90,0}},
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
         Line(points={{-79.8,-80},{-79.2,-50.6},{-78.4,-37},{-77.6,-28},{-76.8,-21.3},
               {-75.2,-11.4},{-72.8,-1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},
               {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}, 
-            color={0,0,0}), 
+            color={0,0,0}),
         Text(
-          extent={{-30,-22},{60,-70}}, 
-          lineColor={192,192,192}, 
+          extent={{-30,-22},{60,-70}},
+          lineColor={192,192,192},
           textString="log10")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -5590,7 +5589,8 @@ function log10 "Base 10 logarithm (u shall be > 0)"
         Line(
           points={{-77.8,-80},{-77.2,-50.6},{-76.4,-37},{-75.6,-28},{-74.8,-21.3},
               {-73.2,-11.4},{-70.8,-1.31},{-67.5,8.08},{-62.7,17.9},{-55.5,28},
-              {-45,38.1},{-29.8,48.1},{-8.1,58},{24.1,68},{70.7,78.1},{82,80}},
+              {-45,38.1},{-29.8,48.1},{-8.1,58},{24.1,68},{70.7,78.1},{82,80}}, 
+
           color={0,0,255},
           thickness=2),
         Text(
@@ -5633,30 +5633,30 @@ with u &gt; 0:
 <img src=\"../Images/Math/log10.png\">
 </p>
 </html>"));
-  
+
 external "C" y = log10(u);
 end log10;
 
 
-partial function baseIcon1 
-  "Basic icon for mathematical function with y-axis on left side" 
-  
+partial function baseIcon1
+  "Basic icon for mathematical function with y-axis on left side"
+
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={
         Rectangle(
-          extent={{-100,100},{100,-100}}, 
-          lineColor={0,0,0}, 
-          fillColor={255,255,255}, 
-          fillPattern=FillPattern.Solid), 
-        Line(points={{-80,-80},{-80,68}}, color={192,192,192}), 
+          extent={{-100,100},{100,-100}},
+          lineColor={0,0,0},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Line(points={{-80,-80},{-80,68}}, color={192,192,192}),
         Polygon(
-          points={{-80,90},{-88,68},{-72,68},{-80,90}}, 
-          lineColor={192,192,192}, 
-          fillColor={192,192,192}, 
-          fillPattern=FillPattern.Solid), 
+          points={{-80,90},{-88,68},{-72,68},{-80,90}},
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
         Text(
-          extent={{-150,150},{150,110}}, 
-          textString="%name", 
+          extent={{-150,150},{150,110}},
+          textString="%name",
           lineColor={0,0,255})}),                          Diagram(graphics={
         Line(points={{-80,80},{-88,80}}, color={95,95,95}),
         Line(points={{-80,-80},{-88,-80}}, color={95,95,95}),
@@ -5679,25 +5679,25 @@ It is expected, that an x-axis is added and a plot of the function.
 end baseIcon1;
 
 
-partial function baseIcon2 
-  "Basic icon for mathematical function with y-axis in middle" 
-  
+partial function baseIcon2
+  "Basic icon for mathematical function with y-axis in middle"
+
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={
         Rectangle(
-          extent={{-100,100},{100,-100}}, 
-          lineColor={0,0,0}, 
-          fillColor={255,255,255}, 
-          fillPattern=FillPattern.Solid), 
-        Line(points={{0,-80},{0,68}}, color={192,192,192}), 
+          extent={{-100,100},{100,-100}},
+          lineColor={0,0,0},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Line(points={{0,-80},{0,68}}, color={192,192,192}),
         Polygon(
-          points={{0,90},{-8,68},{8,68},{0,90}}, 
-          lineColor={192,192,192}, 
-          fillColor={192,192,192}, 
-          fillPattern=FillPattern.Solid), 
+          points={{0,90},{-8,68},{8,68},{0,90}},
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
         Text(
-          extent={{-150,150},{150,110}}, 
-          textString="%name", 
+          extent={{-150,150},{150,110}},
+          textString="%name",
           lineColor={0,0,255})}),                          Diagram(graphics={
         Line(points={{0,80},{-8,80}}, color={95,95,95}),
         Line(points={{0,-80},{-8,-80}}, color={95,95,95}),
@@ -5722,118 +5722,118 @@ It is expected, that an x-axis is added and a plot of the function.
 end baseIcon2;
 
 
-function tempInterpol1 
-  "Temporary function for linear interpolation (will be removed)" 
+function tempInterpol1
+  "Temporary function for linear interpolation (will be removed)"
   input Real u "input value (first column of table)";
   input Real table[:, :] "table to be interpolated";
   input Integer icol "column of table to be interpolated";
   output Real y "interpolated input value (icol column of table)";
-protected 
+protected
   Integer i;
   Integer n "number of rows of table";
   Real u1;
   Real u2;
   Real y1;
   Real y2;
-algorithm 
+algorithm
   n := size(table, 1);
-  
+
   if n <= 1 then
     y := table[1, icol];
-    
+
   else
     // Search interval
-    
+
     if u <= table[1, 1] then
       i := 1;
-      
+
     else
       i := 2;
       // Supports duplicate table[i, 1] values
       // in the interior to allow discontinuities.
       // Interior means that
       // if table[i, 1] = table[i+1, 1] we require i>1 and i+1<n
-      
+
       while i < n and u >= table[i, 1] loop
         i := i + 1;
-        
+
       end while;
       i := i - 1;
-      
+
     end if;
-    
+
     // Get interpolation data
     u1 := table[i, 1];
     u2 := table[i + 1, 1];
     y1 := table[i, icol];
     y2 := table[i + 1, icol];
-    
+
     assert(u2 > u1, "Table index must be increasing");
     // Interpolate
     y := y1 + (y2 - y1)*(u - u1)/(u2 - u1);
-    
+
   end if;
-  
+
   annotation (Documentation(info="<html>
   
 </html>"));
 end tempInterpol1;
 
 
-function tempInterpol2 
-  "Temporary function for vectorized linear interpolation (will be removed)" 
-  
+function tempInterpol2
+  "Temporary function for vectorized linear interpolation (will be removed)"
+
   input Real u "input value (first column of table)";
   input Real table[:, :] "table to be interpolated";
   input Integer icol[:] "column(s) of table to be interpolated";
-  output Real y[1, size(icol, 1)] 
+  output Real y[1, size(icol, 1)]
     "interpolated input value(s) (column(s) icol of table)";
-protected 
+protected
   Integer i;
   Integer n "number of rows of table";
   Real u1;
   Real u2;
   Real y1[1, size(icol, 1)];
   Real y2[1, size(icol, 1)];
-algorithm 
+algorithm
   n := size(table, 1);
-  
+
   if n <= 1 then
     y := transpose([table[1, icol]]);
-    
+
   else
     // Search interval
-    
+
     if u <= table[1, 1] then
       i := 1;
-      
+
     else
       i := 2;
       // Supports duplicate table[i, 1] values
       // in the interior to allow discontinuities.
       // Interior means that
       // if table[i, 1] = table[i+1, 1] we require i>1 and i+1<n
-      
+
       while i < n and u >= table[i, 1] loop
         i := i + 1;
-        
+
       end while;
       i := i - 1;
-      
+
     end if;
-    
+
     // Get interpolation data
     u1 := table[i, 1];
     u2 := table[i + 1, 1];
     y1 := transpose([table[i, icol]]);
     y2 := transpose([table[i + 1, icol]]);
-    
+
     assert(u2 > u1, "Table index must be increasing");
     // Interpolate
     y := y1 + (y2 - y1)*(u - u1)/(u2 - u1);
-    
+
   end if;
-  
+
   annotation (Documentation(info="<html>
   
 </html>"));

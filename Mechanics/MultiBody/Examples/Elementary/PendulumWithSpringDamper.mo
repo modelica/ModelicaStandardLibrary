@@ -1,5 +1,5 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
-model PendulumWithSpringDamper "Simple spring/damper/mass system" 
+model PendulumWithSpringDamper "Simple spring/damper/mass system"
   extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
   annotation (
@@ -61,7 +61,7 @@ ALT=\"model Examples.Elementary.PendulumWithSpringDamper\">
     s(fixed=true, start=0.5),
     v(fixed=true)) 
     annotation (Placement(transformation(extent={{20,20},{40,40}}, rotation=0)));
-equation 
+equation
   connect(world.frame_b, bar1.frame_a) 
     annotation (Line(
       points={{-60,30},{-46,30}},

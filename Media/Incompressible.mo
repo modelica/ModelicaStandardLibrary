@@ -640,7 +640,6 @@ returned as a vector p[n+1] that has the following definition:
       end derivativeValue_der;
     end Polynomials_Temp;
   annotation (
-    
     Documentation(info="<HTML>
 <h4>Table based media</h4>
 <p>
@@ -667,6 +666,7 @@ data for a useful medium model is thus density and heat capacity. Transport
 properties and vapor pressure are optional, if the data tables are empty the corresponding
 function calls can not be used.
 </HTML>"));
+
   end TableBased;
 
   package Examples "Examples for incompressible media"
@@ -753,7 +753,6 @@ density and heat capacity as functions of temperature.</li>
   end Examples;
 
   annotation (
-    
     Documentation(info="<HTML>
 <h4>Incompressible media package</h4>
 <p>
@@ -810,4 +809,5 @@ usage section</a> of the User's Guide.
 </p>
  
 </HTML>"));
+
 end Incompressible;

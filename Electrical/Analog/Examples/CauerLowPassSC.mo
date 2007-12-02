@@ -1,9 +1,9 @@
 within Modelica.Electrical.Analog.Examples;
-model CauerLowPassSC 
-  "Cauer low-pass filter with operational amplifiers and switched capacitors" 
-model Rn "negative resistance" 
+model CauerLowPassSC
+  "Cauer low-pass filter with operational amplifiers and switched capacitors"
+model Rn "negative resistance"
   parameter Modelica.SIunits.Time clock=1 "clock";
-  parameter Modelica.SIunits.Resistance R(min=Modelica.Constants.eps)=1 
+  parameter Modelica.SIunits.Resistance R(min=Modelica.Constants.eps)=1
       "Resistance";
   Modelica.Blocks.Sources.BooleanPulse BooleanPulse1(period=clock) 
     annotation (Placement(transformation(extent={{-10,50},{10,70}}, rotation=0)));
@@ -14,34 +14,32 @@ model Rn "negative resistance"
             graphics),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
-          Bitmap(extent={{-62,6},{-62,14}}, fileName=""), 
+          Bitmap(extent={{-62,6},{-62,14}}, fileName=""),
           Rectangle(
-            extent={{-80,32},{80,-30}}, 
-            pattern=LinePattern.None, 
-            lineColor={0,0,255}), 
+            extent={{-80,32},{80,-30}},
+            pattern=LinePattern.None,
+            lineColor={0,0,255}),
           Text(
-            extent={{-30,-40},{30,-72}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Solid, 
-            textString="R=%R"), 
-          Line(points={{-74,0},{-80,0},{-60,0}}, color={85,255,85}), 
+            extent={{-30,-40},{30,-72}},
+            lineColor={0,0,0},
+            textString="R=%R"),
+          Line(points={{-74,0},{-80,0},{-60,0}}, color={85,255,85}),
           Line(points={{-80,-20},{-60,-20},{-60,-16},{-40,-8},{-4,-8}}, color={
-                85,255,85}), 
-          Line(points={{80,0},{60,0}}, color={85,255,85}), 
-          Line(points={{-60,2},{-60,-4}}, color={170,255,170}), 
-          Line(points={{-4,2},{-4,-18}}, color={85,255,85}), 
-          Line(points={{4,2},{4,-18}}, color={85,255,85}), 
+                85,255,85}),
+          Line(points={{80,0},{60,0}}, color={85,255,85}),
+          Line(points={{-60,2},{-60,-4}}, color={170,255,170}),
+          Line(points={{-4,2},{-4,-18}}, color={85,255,85}),
+          Line(points={{4,2},{4,-18}}, color={85,255,85}),
           Text(
-            extent={{-60,80},{60,40}}, 
-            lineColor={0,0,255}, 
-            fillPattern=FillPattern.Solid, 
-            textString="%name"), 
-          Line(points={{-92,0},{-80,0}}, color={85,85,255}), 
-          Line(points={{90,0},{80,0},{80,0}}, color={85,85,255}), 
-          Line(points={{4,-8},{40,-8},{60,-4}}, color={85,255,85}), 
-          Line(points={{60,0},{60,-4}}, color={85,255,85}), 
+            extent={{-60,80},{60,40}},
+            lineColor={0,0,255},
+            textString="%name"),
+          Line(points={{-92,0},{-80,0}}, color={85,85,255}),
+          Line(points={{90,0},{80,0},{80,0}}, color={85,85,255}),
+          Line(points={{4,-8},{40,-8},{60,-4}}, color={85,255,85}),
+          Line(points={{60,0},{60,-4}}, color={85,255,85}),
           Line(points={{60,-16},{60,-20},{80,-20}}, color={85,255,85})}));
-    
+
   Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=clock/R) 
     annotation (Placement(transformation(extent={{-20,-20},{20,20}}, rotation=0)));
   Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch IdealCommutingSwitch1 
@@ -61,7 +59,7 @@ model Rn "negative resistance"
              0)));
   Modelica.Electrical.Analog.Interfaces.NegativePin n2 
     annotation (Placement(transformation(extent={{90,-8},{110,12}}, rotation=0)));
-equation 
+equation
   connect(IdealCommutingSwitch1.p,Capacitor1. p) annotation (Line(points={{-40,
             -1.22465e-015},{-42,-1.22465e-015},{-44,0},{-20,0}}, color={0,0,255}));
   connect(Capacitor1.n,IdealCommutingSwitch2. p) 
@@ -85,43 +83,41 @@ equation
         color={0,0,255},
         fillPattern=FillPattern.Solid));
 end Rn;
-  
-model Rp "positive resistance" 
-    
+
+model Rp "positive resistance"
+
   annotation (uses(Modelica(version="2.2")), Diagram(coordinateSystem(
             preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
                                                      graphics),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
-          Bitmap(extent={{-62,4},{-62,12}}, fileName=""), 
+          Bitmap(extent={{-62,4},{-62,12}}, fileName=""),
           Rectangle(
-            extent={{-80,30},{80,-32}}, 
-            pattern=LinePattern.None, 
-            lineColor={0,0,255}), 
-          Line(points={{-92,0},{-80,0}}, color={85,85,255}), 
-          Line(points={{80,0},{92,0}}, color={85,85,255}), 
+            extent={{-80,30},{80,-32}},
+            pattern=LinePattern.None,
+            lineColor={0,0,255}),
+          Line(points={{-92,0},{-80,0}}, color={85,85,255}),
+          Line(points={{80,0},{92,0}}, color={85,85,255}),
           Text(
-            extent={{-40,-40},{32,-72}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Solid, 
-            textString="R=%R"), 
-          Line(points={{-74,0},{-80,0},{-60,0}}, color={85,255,85}), 
+            extent={{-40,-40},{32,-72}},
+            lineColor={0,0,0},
+            textString="R=%R"),
+          Line(points={{-74,0},{-80,0},{-60,0}}, color={85,255,85}),
           Line(points={{-80,-20},{-60,-20},{-60,-16},{-40,-10},{-4,-10}}, color
-              ={85,255,85}), 
+              ={85,255,85}),
           Line(points={{4,-10},{40,-10},{60,-16},{60,-20},{80,-20}}, color={85,
-                255,85}), 
-          Line(points={{80,0},{60,0}}, color={85,255,85}), 
-          Line(points={{60,0},{60,-4}}, color={85,255,85}), 
-          Line(points={{-60,0},{-60,-6}}, color={170,255,170}), 
-          Line(points={{-4,0},{-4,-20}}, color={85,255,85}), 
-          Line(points={{4,0},{4,-20}}, color={85,255,85}), 
+                255,85}),
+          Line(points={{80,0},{60,0}}, color={85,255,85}),
+          Line(points={{60,0},{60,-4}}, color={85,255,85}),
+          Line(points={{-60,0},{-60,-6}}, color={170,255,170}),
+          Line(points={{-4,0},{-4,-20}}, color={85,255,85}),
+          Line(points={{4,0},{4,-20}}, color={85,255,85}),
           Text(
-            extent={{-60,80},{60,40}}, 
-            lineColor={0,0,255}, 
-            fillPattern=FillPattern.Solid, 
+            extent={{-60,80},{60,40}},
+            lineColor={0,0,255},
             textString="%name")}));
   parameter Modelica.SIunits.Time clock=1 "clock";
-  parameter Modelica.SIunits.Resistance R(min=Modelica.Constants.eps)=1 
+  parameter Modelica.SIunits.Resistance R(min=Modelica.Constants.eps)=1
       "Resistance";
   Modelica.Blocks.Sources.BooleanPulse BooleanPulse1(period=clock) 
     annotation (Placement(transformation(extent={{-10,50},{10,70}}, rotation=0)));
@@ -146,7 +142,7 @@ model Rp "positive resistance"
              0)));
   Modelica.Electrical.Analog.Interfaces.NegativePin n2 
     annotation (Placement(transformation(extent={{90,-8},{110,12}}, rotation=0)));
-equation 
+equation
   connect(IdealCommutingSwitch1.p, Capacitor1.p) annotation (Line(points={{-40,
             -1.22465e-015},{-42,-1.22465e-015},{-44,0},{-20,0}}, color={0,0,255}));
   connect(Capacitor1.n, IdealCommutingSwitch2.p) 
@@ -170,8 +166,8 @@ end Rp;
     uses(Modelica(version="2.2")),
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-250,-200},{
             250,200}}), graphics={Text(
-          extent={{-100,180},{94,140}}, 
-          textString="CauerLowPassSC", 
+          extent={{-100,180},{94,140}},
+          textString="CauerLowPassSC",
           lineColor={0,0,255})}),
     experiment(StopTime=60, NumberOfIntervals=1500),
     Documentation(revisions="<html>
@@ -204,36 +200,36 @@ Due to the recharging of the capacitances after switching the performance of sim
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-250,-200},{250,
             200}}), graphics={
         Rectangle(
-          extent={{-100,-100},{80,50}}, 
-          fillColor={255,255,255}, 
-          fillPattern=FillPattern.Solid, 
-          lineColor={0,0,255}), 
+          extent={{-100,-100},{80,50}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
         Polygon(
-          points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}}, 
-          fillColor={255,255,255}, 
-          fillPattern=FillPattern.Solid, 
-          lineColor={0,0,255}), 
+          points={{-100,50},{-80,70},{100,70},{80,50},{-100,50}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
         Polygon(
-          points={{100,70},{100,-80},{80,-100},{80,50},{100,70}}, 
-          fillColor={255,255,255}, 
-          fillPattern=FillPattern.Solid, 
-          lineColor={0,0,255}), 
+          points={{100,70},{100,-80},{80,-100},{80,50},{100,70}},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          lineColor={0,0,255}),
         Text(
-          extent={{-96,3},{77,-49}}, 
-          lineColor={0,0,255}, 
-          textString="Example"), 
+          extent={{-96,3},{77,-49}},
+          lineColor={0,0,255},
+          textString="Example"),
         Text(
-          extent={{-120,132},{120,73}}, 
-          lineColor={255,0,0}, 
+          extent={{-120,132},{120,73}},
+          lineColor={255,0,0},
           textString="%name")}));
-  
+
   parameter Modelica.SIunits.Capacitance l1=1.304 "filter coefficient i1";
   parameter Modelica.SIunits.Capacitance l2=0.8586 "filter coefficient i2";
   parameter Modelica.SIunits.Capacitance c1=1.072 "filter coefficient c1";
-  parameter Modelica.SIunits.Capacitance c2=1/(1.704992^2*l1) 
+  parameter Modelica.SIunits.Capacitance c2=1/(1.704992^2*l1)
     "filter coefficient c2";
   parameter Modelica.SIunits.Capacitance c3=1.682 "filter coefficient c3";
-  parameter Modelica.SIunits.Capacitance c4=1/(1.179945^2*l2) 
+  parameter Modelica.SIunits.Capacitance c4=1/(1.179945^2*l2)
     "filter coefficient c4";
   parameter Modelica.SIunits.Capacitance c5=0.7262 "filter coefficient c5";
   Modelica.Electrical.Analog.Basic.Capacitor C1(C=c1 + c2) 
@@ -278,77 +274,77 @@ Due to the recharging of the capacitances after switching the performance of sim
           rotation=0)));
   Modelica.Electrical.Analog.Basic.Capacitor C9(C=c4 + c5) 
     annotation (Placement(transformation(extent={{207,10},{227,30}}, rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n1 
     annotation (Placement(transformation(extent={{-215,-22},{-211,-18}},
           rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n2 
     annotation (Placement(transformation(extent={{-215,18},{-211,22}}, rotation=
            0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n3 
     annotation (Placement(transformation(extent={{-215,38},{-211,42}}, rotation=
            0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n4 
     annotation (Placement(transformation(
         origin={-161,40},
         extent={{2,2},{-2,-2}},
         rotation=180)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n5 
     annotation (Placement(transformation(extent={{-115,-32},{-111,-28}},
           rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.PositivePin p1 
     annotation (Placement(transformation(extent={{-155,-122},{-149,-118}},
           rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n6 
     annotation (Placement(transformation(extent={{-63,38},{-59,42}}, rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n7 
     annotation (Placement(transformation(extent={{-7,-32},{-3,-28}}, rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n8 
     annotation (Placement(transformation(extent={{-7,18},{-3,22}}, rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.PositivePin p2 
     annotation (Placement(transformation(extent={{-7,38},{-3,42}}, rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.PositivePin out1 
     annotation (Placement(transformation(extent={{43,-122},{47,-118}}, rotation=
            0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.PositivePin p3 
     annotation (Placement(transformation(extent={{57,78},{61,82}}, rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n9 
     annotation (Placement(transformation(extent={{85,18},{89,22}}, rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n10 
     annotation (Placement(transformation(extent={{85,-32},{89,-28}}, rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n11 
     annotation (Placement(transformation(extent={{137,38},{141,42}}, rotation=0)));
-public 
+public
   Modelica.Electrical.Analog.Basic.Ground G2 
     annotation (Placement(transformation(extent={{11,-76},{25,-60}}, rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n12 
     annotation (Placement(transformation(extent={{237,58},{241,62}}, rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n13 
     annotation (Placement(transformation(extent={{237,18},{241,22}}, rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.PositivePin p4 
     annotation (Placement(transformation(extent={{187,18},{193,22}}, rotation=0)));
-protected 
+protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n14 
     annotation (Placement(transformation(extent={{187,-32},{193,-28}}, rotation=
            0)));
-public 
+public
   Modelica.Electrical.Analog.Basic.Ground G3 
     annotation (Placement(transformation(extent={{112,-76},{126,-60}}, rotation=
            0)));
@@ -385,7 +381,7 @@ public
             -20}}, rotation=0)));
   Rp R11(clock=0.1) annotation (Placement(transformation(extent={{208,50},{228,
             70}}, rotation=0)));
-equation 
+equation
   connect(Op1.in_p,G. p) annotation (Line(points={{-201,-40},{-201,-50},{-181,
           -50},{-181,-60},{-182,-60}}, color={0,0,255}));
   connect(G1.p,Op2. in_p) annotation (Line(points={{-81,-60},{-81,-50},{-101,

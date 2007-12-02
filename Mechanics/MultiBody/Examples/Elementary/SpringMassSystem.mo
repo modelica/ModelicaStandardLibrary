@@ -1,5 +1,5 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
-model SpringMassSystem "Mass attached with a spring to the world frame" 
+model SpringMassSystem "Mass attached with a spring to the world frame"
   extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
   annotation (
@@ -91,7 +91,7 @@ ALT=\"model Examples.Elementary.SpringMassSystem\">
         origin={90,-10},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-equation 
+equation
   connect(body1.frame_a, p1.frame_b) 
     annotation (Line(
       points={{-20,-40},{-20,-20},{-20,-20}},

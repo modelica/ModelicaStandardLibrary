@@ -1,5 +1,5 @@
 within Modelica.Electrical.Analog.Examples;
-model Rectifier "B6 diode bridge" 
+model Rectifier "B6 diode bridge"
   extends Modelica.Icons.Example;
   import Modelica.Electrical.Analog.Ideal;
   parameter Modelica.SIunits.Voltage VAC=400 "RMS line-to-line";
@@ -14,29 +14,29 @@ model Rectifier "B6 diode bridge"
   output Modelica.SIunits.Current iAC[3];
   output Modelica.SIunits.Voltage uAC[3];
   output Modelica.SIunits.Power Losses;
-  
+
 annotation (
   Diagram(graphics={
         Text(
-          extent={{-80,90},{80,70}}, 
-          lineColor={0,0,0}, 
-          textString="Rectifier"), 
+          extent={{-80,90},{80,70}},
+          lineColor={0,0,0},
+          textString="Rectifier"),
         Line(points={{-16,18},{-16,2},{-18,6},{-14,6},{-16,2}}, color={0,0,0}), 
-          
-        Line(points={{-30,22},{-26,20},{-30,18},{-30,22}}, color={0,0,0}), 
+
+        Line(points={{-30,22},{-26,20},{-30,18},{-30,22}}, color={0,0,0}),
         Line(points={{32,30},{32,-30},{30,-26},{34,-26},{32,-30}}, color={0,0,0}), 
-          
+
         Text(
-          extent={{-38,16},{-22,8}}, 
-          lineColor={0,0,0}, 
-          textString="iAC"), 
+          extent={{-38,16},{-22,8}},
+          lineColor={0,0,0},
+          textString="iAC"),
         Text(
-          extent={{-14,8},{2,0}}, 
-          lineColor={0,0,0}, 
-          textString="uAC"), 
+          extent={{-14,8},{2,0}},
+          lineColor={0,0,0},
+          textString="uAC"),
         Text(
-          extent={{22,-16},{38,-24}}, 
-          lineColor={0,0,0}, 
+          extent={{22,-16},{38,-24}},
+          lineColor={0,0,0},
           textString="uDC")}),
   experiment(StopTime=0.1, Interval=1e-005),
   Documentation(info="<HTML>
@@ -65,7 +65,7 @@ You may watch Losses (of the whole diode bridge) trying different diode paramete
        </li>
 </ul>
 </html>"));
-  
+
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(freqHz=f,
        V=VAC*sqrt(2/3)) 
                       annotation (Placement(transformation(extent={{-70,10},{
@@ -155,10 +155,10 @@ You may watch Losses (of the whole diode bridge) trying different diode paramete
         rotation=270)));
   Modelica.Blocks.Sources.Constant Constant1(k=IDC) 
   annotation (Placement(transformation(extent={{100,-10},{80,10}}, rotation=0)));
-initial equation 
+initial equation
   Capacitor1.v = VAC*sqrt(2)/2;
   Capacitor2.v = VAC*sqrt(2)/2;
-equation 
+equation
   uDC = Capacitor1.v + Capacitor2.v;
   iAC = {Inductor1.i,Inductor2.i,Inductor3.i};
   uAC[1] = Inductor1.n.v - Inductor2.n.v;

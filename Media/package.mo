@@ -7,7 +7,6 @@ import SI = Modelica.SIunits;
 annotation (
   version="1.0",
   versionDate="2005-03-01",
-  
   Documentation(info="<HTML>
 <p>
 This library contains <a href=\"Modelica://Modelica.Media.Interfaces\">interface</a> 
@@ -2504,11 +2503,11 @@ points, e.g. when an isentropic reference state is computed.
       der(medium.p) = dp;
       der(medium.h) = dh;
       annotation (experiment(StopTime=22, NumberOfIntervals=2500),
-          
         Documentation(info="<html>
 <p> For details see the documentation of the example package TwoPhaseWater</p>
 </html>
 "));
+
     end TestTwoPhaseStates;
   end TwoPhaseWater;
 
@@ -3630,7 +3629,6 @@ Modelica.Media.Common.OneNonLinearEquation.
             String(data.A*Modelica.Math.sin(data.w*x_zero)));
       annotation (
         experiment(StopTime=0),
-        
         Documentation(info="<html>
 <p>
 This models solves the following non-linear equation
@@ -3647,6 +3645,7 @@ output window.
 </p>
  
 </html>"));
+
    end Inverse_sine;
 
    model Inverse_sh_T
@@ -3678,9 +3677,9 @@ output window.
      SI.Temperature Th "Temperature computed from h1";
      SI.Temperature Ts "Temperature computed from s1";
      annotation (experiment(StopTime=1),
-                 
                  Documentation(info="<html>
                                </html>"));
+
     protected
      constant SI.Time timeUnit = 1.0;
 
@@ -3733,10 +3732,10 @@ output window.
      SI.Temperature Th "Temperature computed from h1";
      SI.Temperature Ts "Temperature computed from s1";
      annotation (experiment(StopTime=1),
-                 
                  Documentation(info="<html>
                                
                                </html>"));
+
     protected
      constant SI.Time timeUnit = 1.0;
 
@@ -3791,10 +3790,10 @@ output window.
 
      annotation (
        experiment(StopTime=1),
-       
        Documentation(info="<html>
  
 </html>"));
+
     protected
      constant SI.Time timeUnit = 1.0;
 

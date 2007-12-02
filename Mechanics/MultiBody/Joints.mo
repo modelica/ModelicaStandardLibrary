@@ -1,8 +1,8 @@
 within Modelica.Mechanics.MultiBody;
-package Joints "Components that constrain the motion between two frames" 
+package Joints "Components that constrain the motion between two frames"
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Library;
-  
+
   annotation ( Documentation(info="<HTML>
 <p>
 This package contains <b>joint components</b>,
@@ -77,20 +77,20 @@ solved, i.e., robustly and efficiently).
   </tr>
 </table>
 </HTML>"));
-  
-  model Prismatic 
-    "Prismatic joint (1 translational degree-of-freedom, 2 potential states)" 
-    
+
+  model Prismatic
+    "Prismatic joint (1 translational degree-of-freedom, 2 potential states)"
+
     extends Internal.Prismatic;
-    
+
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Text(
-            extent={{-142,62},{147,101}}, 
-            lineColor={0,0,0}, 
+            extent={{-142,62},{147,101}},
+            lineColor={0,0,0},
             textString="n=%n"), Text(
-            extent={{-135,-117},{141,-60}}, 
-            textString="%name", 
+            extent={{-135,-117},{141,-60}},
+            textString="%name",
             lineColor={0,0,255})}),
       Documentation(info="<HTML>
 <p>
@@ -123,17 +123,17 @@ vector \"n\" defining the translation axis
 "),   Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}),
               graphics));
-    
+
   end Prismatic;
-  
-  model ActuatedPrismatic 
-    "Actuated prismatic joint (1 translational degree-of-freedom, 2 potential states)" 
-    
+
+  model ActuatedPrismatic
+    "Actuated prismatic joint (1 translational degree-of-freedom, 2 potential states)"
+
     extends Internal.Prismatic(final f=axis.f);
-    Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
+    Modelica.Mechanics.Translational.Interfaces.Flange_a axis
       "1-dim. translational flange that drives the joint" 
       annotation (Placement(transformation(extent={{90,50},{70,70}}, rotation=0)));
-    Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
+    Modelica.Mechanics.Translational.Interfaces.Flange_b bearing
       "1-dim. translational flange of the drive bearing" 
       annotation (Placement(transformation(extent={{-30,50},{-50,70}}, rotation=
              0)));
@@ -185,18 +185,18 @@ vector \"n\" defining the translation axis
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{90,30},{100,70}}, 
-            pattern=LinePattern.None, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
+            extent={{90,30},{100,70}},
+            pattern=LinePattern.None,
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
           Text(
-            extent={{-141,-92},{148,-53}}, 
-            lineColor={0,0,0}, 
-            textString="n=%n"), 
+            extent={{-141,-92},{148,-53}},
+            lineColor={0,0,0},
+            textString="n=%n"),
           Text(
-            extent={{-132,-153},{144,-96}}, 
-            textString="%name", 
+            extent={{-132,-153},{144,-96}},
+            textString="%name",
             lineColor={0,0,255})}),
       Documentation(info="<HTML>
 <p>
@@ -237,50 +237,50 @@ vector \"n\" defining the translation axis
 </p>
 </HTML>
 "));
-  equation 
+  equation
     axis.s = s;
     bearing.s = 0;
   end ActuatedPrismatic;
-  
-  model Revolute 
-    "Revolute joint (1 rotational degree-of-freedom, 2 potential states)" 
-    
+
+  model Revolute
+    "Revolute joint (1 rotational degree-of-freedom, 2 potential states)"
+
     extends Internal.Revolute;
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Text(
-            extent={{-146,70},{143,109}}, 
-            lineColor={0,0,0}, 
-            textString="n=%n"), 
+            extent={{-146,70},{143,109}},
+            lineColor={0,0,0},
+            textString="n=%n"),
           Text(
-            extent={{-137,-125},{139,-68}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-137,-125},{139,-68}},
+            textString="%name",
+            lineColor={0,0,255}),
           Rectangle(
-            extent={{-20,10},{20,-10}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-20,10},{20,-10}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-100,-60},{-20,60}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{-100,-60},{-20,60}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Rectangle(
-            extent={{20,-60},{100,60}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Rectangle(extent={{-100,59},{-20,-60}}, lineColor={0,0,0}), 
-          Rectangle(extent={{20,60},{100,-60}}, lineColor={0,0,0}), 
+            extent={{20,-60},{100,60}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
+          Rectangle(extent={{-100,59},{-20,-60}}, lineColor={0,0,0}),
+          Rectangle(extent={{20,60},{100,-60}}, lineColor={0,0,0}),
           Text(
-            extent={{-90,14},{-54,-11}}, 
-            lineColor={128,128,128}, 
-            textString="a"), 
+            extent={{-90,14},{-54,-11}},
+            lineColor={128,128,128},
+            textString="a"),
           Text(
-            extent={{51,11},{87,-14}}, 
-            lineColor={128,128,128}, 
+            extent={{51,11},{87,-14}},
+            lineColor={128,128,128},
             textString="b")}),
       Documentation(info="<HTML>
 <p>
@@ -322,41 +322,41 @@ vector \"n\" defining the translation axis
 <IMG SRC=\"../Images/MultiBody/Joints/Revolute.png\">
 </p>
 </HTML>"));
-    
+
   end Revolute;
-  
-  model RevolutePlanarLoopConstraint 
-    "Revolute joint that is described by 2 positional constraints for usage in a planar loop (the ambiguous cut-force perpendicular to the loop and the ambiguous cut-torques are set arbitrarily to zero)" 
-    
+
+  model RevolutePlanarLoopConstraint
+    "Revolute joint that is described by 2 positional constraints for usage in a planar loop (the ambiguous cut-force perpendicular to the loop and the ambiguous cut-torques are set arbitrarily to zero)"
+
     import SI = Modelica.SIunits;
     import Cv = Modelica.SIunits.Conversions;
     import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
     import Modelica.Mechanics.MultiBody.Types;
-    
-    Interfaces.Frame_a frame_a 
+
+    Interfaces.Frame_a frame_a
       "Coordinate system fixed to the joint with one cut-force and cut-torque" 
       annotation (Placement(transformation(extent={{-116,-16},{-84,16}},
             rotation=0)));
-    Interfaces.Frame_b frame_b 
+    Interfaces.Frame_b frame_b
       "Coordinate system fixed to the joint with one cut-force and cut-torque" 
       annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation=
              0)));
-    
-    parameter Boolean animation=true 
+
+    parameter Boolean animation=true
       "= true, if animation shall be enabled (show axis as cylinder)";
-    parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1}
       "Axis of rotation resolved in frame_a (= same as in frame_b)" 
       annotation (Evaluate=true);
-    parameter SI.Distance cylinderLength=world.defaultJointLength 
+    parameter SI.Distance cylinderLength=world.defaultJointLength
       "Length of cylinder representing the joint axis" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
+    parameter SI.Distance cylinderDiameter=world.defaultJointWidth
       "Diameter of cylinder representing the joint axis" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+    input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
       "Color of cylinder representing the joint axis" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(group="if animation = true", enable=animation));
     annotation (defaultComponentName="revolute",
@@ -370,42 +370,42 @@ vector \"n\" defining the translation axis
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{-146,70},{143,109}}, 
-            lineColor={0,0,0}, 
-            textString="n=%n"), 
+            extent={{-146,70},{143,109}},
+            lineColor={0,0,0},
+            textString="n=%n"),
           Text(
-            extent={{-137,-125},{139,-68}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-137,-125},{139,-68}},
+            textString="%name",
+            lineColor={0,0,255}),
           Rectangle(
-            extent={{-20,10},{20,-10}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-20,10},{20,-10}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-100,-60},{-20,60}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{-100,-60},{-20,60}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Rectangle(
-            extent={{20,-60},{100,60}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Rectangle(extent={{-100,59},{-20,-60}}, lineColor={0,0,0}), 
-          Rectangle(extent={{20,60},{100,-60}}, lineColor={0,0,0}), 
+            extent={{20,-60},{100,60}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
+          Rectangle(extent={{-100,59},{-20,-60}}, lineColor={0,0,0}),
+          Rectangle(extent={{20,60},{100,-60}}, lineColor={0,0,0}),
           Text(
-            extent={{-90,14},{-54,-11}}, 
-            lineColor={128,128,128}, 
-            textString="a"), 
+            extent={{-90,14},{-54,-11}},
+            lineColor={128,128,128},
+            textString="a"),
           Text(
-            extent={{51,11},{87,-14}}, 
-            lineColor={128,128,128}, 
-            textString="b"), 
+            extent={{51,11},{87,-14}},
+            lineColor={128,128,128},
+            textString="b"),
           Line(
-            points={{-91,-76},{-33,15},{30,-49},{87,61}}, 
-            color={255,0,0}, 
-            thickness=2, 
+            points={{-91,-76},{-33,15},{30,-49},{87,61}},
+            color={255,0,0},
+            thickness=2,
             smooth=Smooth.None)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -453,30 +453,30 @@ this force is an unknown quantity).
  
 </HTML>
 "));
-  protected 
+  protected
     outer Modelica.Mechanics.MultiBody.World world;
     parameter Real e[3]=Modelica.Math.Vectors.normalize(
-                                         n) 
+                                         n)
       "Unit vector in direction of rotation axis, resolved in frame_a (= same as in frame_b)";
     parameter Real nnx_a[3]=if abs(e[1]) > 0.1 then {0,1,0} else (if abs(e[2])
-         > 0.1 then {0,0,1} else {1,0,0}) 
+         > 0.1 then {0,0,1} else {1,0,0})
       "Arbitrary vector that is not aligned with rotation axis n" 
       annotation (Evaluate=true);
     parameter Real ey_a[3]=Modelica.Math.Vectors.normalize(
-                                            cross(e, nnx_a)) 
+                                            cross(e, nnx_a))
       "Unit vector orthogonal to axis n of revolute joint, resolved in frame_a"
       annotation (Evaluate=true);
-    parameter Real ex_a[3]=cross(ey_a, e) 
+    parameter Real ex_a[3]=cross(ey_a, e)
       "Unit vector orthogonal to axis n of revolute joint and to ey_a, resolved in frame_a"
       annotation (Evaluate=true);
     Real ey_b[3] "ey_a, resolved in frame_b";
     Real ex_b[3] "ex_a, resolved in frame_b";
-    Frames.Orientation R_rel 
+    Frames.Orientation R_rel
       "Dummy or relative orientation object from frame_a to frame_b";
-    Real r_rel_a[3] 
+    Real r_rel_a[3]
       "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
     SI.Force f_c[2] "Dummy or constraint forces in direction of ex_a, ey_a";
-    
+
     Visualizers.Advanced.Shape cylinder(
       shapeType="cylinder",
       color=cylinderColor,
@@ -489,31 +489,31 @@ this force is an unknown quantity).
       r_shape=-e*(cylinderLength/2),
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation;
-  equation 
+  equation
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of revolute joint is not connected");
     assert(cardinality(frame_b) > 0,
       "Connector frame_b of revolute joint is not connected");
-    
+
     // Determine relative position vector resolved in frame_a
     R_rel = Frames.relativeRotation(frame_a.R, frame_b.R);
     r_rel_a = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
     // r_rel_a = T.resolve1(R_rel.T, T.resolve2(frame_b.R.T, frame_b.r_0 - frame_a.r_0));
-    
+
     // Constraint equations
     0 = ex_a*r_rel_a;
     0 = ey_a*r_rel_a;
-    
+
     /* Transform forces and torques
      (the torques are assumed to be zero by the assumption
       of a planar joint)
   */
     frame_a.t = zeros(3);
     frame_b.t = zeros(3);
-    
+
     frame_a.f = [ex_a, ey_a]*f_c;
     frame_b.f = -Frames.resolve2(R_rel, frame_a.f);
-    
+
     // check that revolute joint is used in planar loop
     ex_b = Frames.resolve2(R_rel, ex_a);
     ey_b = Frames.resolve2(R_rel, ey_a);
@@ -526,16 +526,16 @@ Either use instead joint MultiBody.Joints.Revolute or correct the
 definition of the axes vectors n in the revolute joints of the planar loop.
 ");
   end RevolutePlanarLoopConstraint;
-  
-  model ActuatedRevolute 
-    "Actuated revolute joint (1 rotational degree-of-freedom, 2 potential states)" 
-    
+
+  model ActuatedRevolute
+    "Actuated revolute joint (1 rotational degree-of-freedom, 2 potential states)"
+
     extends Internal.Revolute(final tau=axis.tau);
-    Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
+    Modelica.Mechanics.Rotational.Interfaces.Flange_a axis
       "1-dim. rotational flange that drives the joint" 
       annotation (Placement(transformation(extent={{10,90},{-10,110}}, rotation=
              0)));
-    Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing 
+    Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing
       "1-dim. rotational flange of the drive bearing" 
       annotation (Placement(transformation(extent={{-70,90},{-50,110}},
             rotation=0)));
@@ -550,62 +550,62 @@ definition of the axes vectors n in the revolute joints of the planar loop.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-20,10},{20,-10}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-20,10},{20,-10}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-100,-60},{-30,60}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{-100,-60},{-30,60}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Rectangle(
-            extent={{30,-60},{100,60}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Rectangle(extent={{-100,59},{-30,-60}}, lineColor={0,0,0}), 
-          Rectangle(extent={{30,60},{100,-60}}, lineColor={0,0,0}), 
+            extent={{30,-60},{100,60}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
+          Rectangle(extent={{-100,59},{-30,-60}}, lineColor={0,0,0}),
+          Rectangle(extent={{30,60},{100,-60}}, lineColor={0,0,0}),
           Text(
-            extent={{-90,14},{-54,-11}}, 
-            lineColor={128,128,128}, 
-            textString="a"), 
+            extent={{-90,14},{-54,-11}},
+            lineColor={128,128,128},
+            textString="a"),
           Text(
-            extent={{51,11},{87,-14}}, 
-            lineColor={128,128,128}, 
-            textString="b"), 
-          Line(points={{-20,70},{-60,70}}, color={0,0,0}), 
-          Line(points={{-20,80},{-20,60}}, color={0,0,0}), 
-          Line(points={{20,80},{20,60}}, color={0,0,0}), 
-          Line(points={{20,70},{41,70}}, color={0,0,0}), 
+            extent={{51,11},{87,-14}},
+            lineColor={128,128,128},
+            textString="b"),
+          Line(points={{-20,70},{-60,70}}, color={0,0,0}),
+          Line(points={{-20,80},{-20,60}}, color={0,0,0}),
+          Line(points={{20,80},{20,60}}, color={0,0,0}),
+          Line(points={{20,70},{41,70}}, color={0,0,0}),
           Rectangle(
-            extent={{-10,100},{10,50}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.VerticalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{-10,100},{10,50}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.VerticalCylinder,
+            fillColor={192,192,192}),
           Polygon(
-            points={{-10,30},{10,30},{30,50},{-30,50},{-10,30}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-60,60},{-60,90}}, color={0,0,0}), 
+            points={{-10,30},{10,30},{30,50},{-30,50},{-10,30}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-60,60},{-60,90}}, color={0,0,0}),
           Rectangle(
-            extent={{-30,11},{10,-10}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-30,11},{10,-10}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Polygon(
-            points={{10,30},{30,50},{30,-50},{10,-30},{10,30}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            points={{10,30},{30,50},{30,-50},{10,-30},{10,30}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-141,-116},{148,-77}}, 
-            lineColor={0,0,0}, 
-            textString="n=%n"), 
+            extent={{-141,-116},{148,-77}},
+            lineColor={0,0,0},
+            textString="n=%n"),
           Text(
-            extent={{-140,-172},{136,-115}}, 
-            textString="%name", 
+            extent={{-140,-172},{136,-115}},
+            textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -692,32 +692,32 @@ vector \"n\" defining the translation axis
 <IMG SRC=\"../Images/MultiBody/Joints/Revolute.png\">
 </p>
 </HTML>"));
-  equation 
+  equation
     axis.phi = phi;
     bearing.phi = 0;
   end ActuatedRevolute;
-  
-  model Cylindrical 
-    "Cylindrical joint (2 degrees-of-freedom, 4 potential states)" 
+
+  model Cylindrical
+    "Cylindrical joint (2 degrees-of-freedom, 4 potential states)"
     import SI = Modelica.SIunits;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
-    parameter Boolean animation=true 
+    parameter Boolean animation=true
       "= true, if animation shall be enabled (show cylinder)";
-    parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0}
       "Cylinder axis resolved in frame_a (= same as in frame_b)" 
       annotation (Evaluate=true);
-    parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
+    parameter SI.Distance cylinderDiameter=world.defaultJointWidth
       "Diameter of cylinder" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+    input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
       "Color of cylinder" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter StateSelect stateSelect=StateSelect.prefer 
+    parameter StateSelect stateSelect=StateSelect.prefer
       "Priority to use joint coordinates (phi, s, w, v) as states" annotation(Dialog(tab="Advanced"));
-    
+
     Prismatic prismatic(
       n=n,
       animation=false,
@@ -728,19 +728,19 @@ vector \"n\" defining the translation axis
       animation=false,
       stateSelect=StateSelect.never) annotation (Placement(transformation(extent={{10,-25},{
               65,25}}, rotation=0)));
-    
-    SI.Position s(start=0, stateSelect=stateSelect) 
+
+    SI.Position s(start=0, stateSelect=stateSelect)
       "Relative distance between frame_a and frame_b";
-    SI.Angle phi(start=0, stateSelect=stateSelect) 
+    SI.Angle phi(start=0, stateSelect=stateSelect)
       "Relative rotation angle from frame_a to frame_b";
-    SI.Velocity v(start=0, stateSelect=stateSelect) 
+    SI.Velocity v(start=0, stateSelect=stateSelect)
       "First derivative of s (relative velocity)";
-    SI.AngularVelocity w(start=0, stateSelect=stateSelect) 
+    SI.AngularVelocity w(start=0, stateSelect=stateSelect)
       "First derivative of angle phi (relative angular velocity)";
     SI.Acceleration a(start=0) "Second derivative of s (relative acceleration)";
-    SI.AngularAcceleration wd(start=0) 
+    SI.AngularAcceleration wd(start=0)
       "Second derivative of angle phi (relative angular acceleration)";
-    
+
     annotation (
       Window(
         x=0.33,
@@ -784,26 +784,26 @@ vector \"n\" defining the cylinder axis
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-100,-50},{0,50}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{-100,-50},{0,50}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Rectangle(
-            extent={{0,-30},{100,30}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
-          Line(points={{0,-50},{0,50}}, color={0,0,0}), 
+            extent={{0,-30},{100,30}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
+          Line(points={{0,-50},{0,50}}, color={0,0,0}),
           Text(
-            extent={{-126,116},{134,56}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-126,116},{134,56}},
+            textString="%name",
+            lineColor={0,0,255}),
           Text(
-            extent={{-118,-65},{120,-102}}, 
-            lineColor={0,0,0}, 
+            extent={{-118,-65},{120,-102}},
+            lineColor={0,0,0},
             textString="n=%n")}));
-    
-  protected 
+
+  protected
     Visualizers.Advanced.Shape cylinder(
       shapeType="cylinder",
       color=cylinderColor,
@@ -817,7 +817,7 @@ vector \"n\" defining the cylinder axis
       R=frame_a.R) if world.enableAnimation and animation 
       annotation (Placement(transformation(extent={{-20,40},{0,60}},  rotation=
               0)));
-  equation 
+  equation
     phi = revolute.phi;
     w = der(phi);
     wd = der(w);
@@ -840,32 +840,32 @@ vector \"n\" defining the cylinder axis
         color={95,95,95},
         thickness=2));
   end Cylindrical;
-  
-  model Universal "Universal joint (2 degrees-of-freedom, 4 potential states)" 
+
+  model Universal "Universal joint (2 degrees-of-freedom, 4 potential states)"
     import SI = Modelica.SIunits;
-    
+
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={1,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={1,0,0}
       "Axis of revolute joint 1 resolved in frame_a" annotation (Evaluate=true);
-    parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,1,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,1,0}
       "Axis of revolute joint 2 resolved in frame_b" annotation (Evaluate=true);
-    
-    parameter SI.Distance cylinderLength=world.defaultJointLength 
+
+    parameter SI.Distance cylinderLength=world.defaultJointLength
       "Length of cylinders representing the joint axes" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
+    parameter SI.Distance cylinderDiameter=world.defaultJointWidth
       "Diameter of cylinders representing the joint axes" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+    input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
       "Color of cylinders representing the joint axes" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter StateSelect stateSelect=StateSelect.prefer 
+    parameter StateSelect stateSelect=StateSelect.prefer
       "Priority to use joint coordinates (phi_a, phi_b, w_a, w_b) as states" annotation(Dialog(tab="Advanced"));
-    
+
     Modelica.Mechanics.MultiBody.Joints.Revolute revolute_a(
       n=n_a,
       stateSelect=StateSelect.never,
@@ -887,20 +887,20 @@ vector \"n\" defining the cylinder axis
           origin={35,45},
           extent={{-25,-25},{25,25}},
           rotation=90)));
-    
-    SI.Angle phi_a(start=0, stateSelect=stateSelect) 
+
+    SI.Angle phi_a(start=0, stateSelect=stateSelect)
       "Relative rotation angle from frame_a to intermediate frame";
-    SI.Angle phi_b(start=0, stateSelect=stateSelect) 
+    SI.Angle phi_b(start=0, stateSelect=stateSelect)
       "Relative rotation angle from intermediate frame to frame_b";
-    SI.AngularVelocity w_a(start=0, stateSelect=stateSelect) 
+    SI.AngularVelocity w_a(start=0, stateSelect=stateSelect)
       "First derivative of angle phi_a (relative angular velocity a)";
-    SI.AngularVelocity w_b(start=0, stateSelect=stateSelect) 
+    SI.AngularVelocity w_b(start=0, stateSelect=stateSelect)
       "First derivative of angle phi_b (relative angular velocity b)";
-    SI.AngularAcceleration a_a(start=0) 
+    SI.AngularAcceleration a_a(start=0)
       "Second derivative of angle phi_a (relative angular acceleration a)";
-    SI.AngularAcceleration a_b(start=0) 
+    SI.AngularAcceleration a_b(start=0)
       "Second derivative of angle phi_b (relative angular acceleration b)";
-    
+
     annotation (
       Window(
         x=0.11,
@@ -945,67 +945,67 @@ phi_b.start = 45<sup>o</sup>).
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-100,15},{-65,-15}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={235,235,235}), 
+            extent={{-100,15},{-65,-15}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={235,235,235}),
           Ellipse(
-            extent={{-80,-80},{80,80}}, 
-            lineColor={160,160,164}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-80,-80},{80,80}},
+            lineColor={160,160,164},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{-60,-60},{60,60}}, 
-            lineColor={160,160,164}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-60,-60},{60,60}},
+            lineColor={160,160,164},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-134,-70},{126,-130}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-134,-70},{126,-130}},
+            textString="%name",
+            lineColor={0,0,255}),
           Rectangle(
-            extent={{12,82},{80,-82}}, 
-            lineColor={255,255,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{12,82},{80,-82}},
+            lineColor={255,255,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{56,15},{100,-15}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={235,235,235}), 
+            extent={{56,15},{100,-15}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={235,235,235}),
           Line(
-            points={{12,78},{12,-78}}, 
-            color={0,0,0}, 
-            thickness=2), 
+            points={{12,78},{12,-78}},
+            color={0,0,0},
+            thickness=2),
           Ellipse(
-            extent={{-52,-40},{80,40}}, 
-            lineColor={160,160,164}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-52,-40},{80,40}},
+            lineColor={160,160,164},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{-32,-20},{60,26}}, 
-            lineColor={160,160,164}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-32,-20},{60,26}},
+            lineColor={160,160,164},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-22,-54},{-60,0},{-22,50},{40,52},{-22,-54}}, 
-            pattern=LinePattern.None, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
+            points={{-22,-54},{-60,0},{-22,50},{40,52},{-22,-54}},
+            pattern=LinePattern.None,
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
           Line(
-            points={{12,78},{12,-20}}, 
-            color={0,0,0}, 
-            thickness=2), 
+            points={{12,78},{12,-20}},
+            color={0,0,0},
+            thickness=2),
           Line(
-            points={{32,38},{-12,-36}}, 
-            color={0,0,0}, 
+            points={{32,38},{-12,-36}},
+            color={0,0,0},
             thickness=2)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics));
-  equation 
+  equation
     phi_a = revolute_a.phi;
     phi_b = revolute_b.phi;
     w_a = der(phi_a);
@@ -1026,39 +1026,39 @@ phi_b.start = 45<sup>o</sup>).
         color={95,95,95},
         thickness=2));
   end Universal;
-  
-  model Planar "Planar joint (3 degrees-of-freedom, 6 potential states)" 
+
+  model Planar "Planar joint (3 degrees-of-freedom, 6 potential states)"
     import SI = Modelica.SIunits;
-    
+
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1}
       "Axis orthogonal to unconstrained plane, resolved in frame_a (= same as in frame_b)"
       annotation (Evaluate=true);
-    parameter Modelica.Mechanics.MultiBody.Types.Axis n_x={1,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n_x={1,0,0}
       "Vector in direction of x-axis of plane, resolved in frame_a (n_x shall be orthogonal to n)"
       annotation (Evaluate=true);
-    parameter SI.Distance cylinderLength=world.defaultJointLength 
+    parameter SI.Distance cylinderLength=world.defaultJointLength
       "Length of revolute cylinder" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
+    parameter SI.Distance cylinderDiameter=world.defaultJointWidth
       "Diameter of revolute cylinder" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+    input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
       "Color of revolute cylinder" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance boxWidth=0.3*cylinderDiameter 
+    parameter SI.Distance boxWidth=0.3*cylinderDiameter
       "Width of prismatic joint boxes" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint boxes" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+    input Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
       "Color of prismatic joint boxes" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter StateSelect stateSelect=StateSelect.prefer 
+    parameter StateSelect stateSelect=StateSelect.prefer
       "Priority to use joint coordinates (s_x, s_y, phi, v_x, v_y, w) as states"
                                                                                  annotation(Dialog(tab="Advanced"));
-    
+
     Prismatic prismatic_x(
       stateSelect=StateSelect.never,
       n=(cross(cross(n, n_x), n)),
@@ -1076,26 +1076,26 @@ phi_b.start = 45<sup>o</sup>).
       n=n,
       animation=false) annotation (Placement(transformation(extent={{41,-20},{
               81,20}}, rotation=0)));
-    
-    SI.Position s_x(start=0, stateSelect=stateSelect) 
+
+    SI.Position s_x(start=0, stateSelect=stateSelect)
       "Relative distance along first prismatic joint starting at frame_a";
-    SI.Position s_y(start=0, stateSelect=stateSelect) 
+    SI.Position s_y(start=0, stateSelect=stateSelect)
       "Relative distance along second prismatic joint starting at first prismatic joint";
-    SI.Angle phi(start=0, stateSelect=stateSelect) 
+    SI.Angle phi(start=0, stateSelect=stateSelect)
       "Relative rotation angle from frame_a to frame_b";
-    SI.Velocity v_x(start=0, stateSelect=stateSelect) 
+    SI.Velocity v_x(start=0, stateSelect=stateSelect)
       "First derivative of s_x (relative velocity in s_x direction)";
-    SI.Velocity v_y(start=0, stateSelect=stateSelect) 
+    SI.Velocity v_y(start=0, stateSelect=stateSelect)
       "First derivative of s_y (relative velocity in s_y direction)";
-    SI.AngularVelocity w(start=0, stateSelect=stateSelect) 
+    SI.AngularVelocity w(start=0, stateSelect=stateSelect)
       "First derivative of angle phi (relative angular velocity)";
-    SI.Acceleration a_x(start=0) 
+    SI.Acceleration a_x(start=0)
       "Second derivative of s_x (relative acceleration in s_x direction)";
-    SI.Acceleration a_y(start=0) 
+    SI.Acceleration a_y(start=0)
       "Second derivative of s_y (relative acceleration in s_y direction)";
-    SI.AngularAcceleration wd(start=0) 
+    SI.AngularAcceleration wd(start=0)
       "Second derivative of angle phi (relative angular acceleration)";
-    
+
     annotation (
       Window(
         x=0.17,
@@ -1144,43 +1144,43 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
-            extent={{-30,-60},{-10,60}}, 
-            lineColor={0,0,0}, 
-            pattern=LinePattern.None, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-30,-60},{-10,60}},
+            lineColor={0,0,0},
+            pattern=LinePattern.None,
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{10,-60},{30,60}}, 
-            lineColor={0,0,0}, 
-            pattern=LinePattern.None, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{10,-60},{30,60}},
+            lineColor={0,0,0},
+            pattern=LinePattern.None,
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-100,-10},{-30,10}}, 
-            lineColor={0,0,0}, 
-            pattern=LinePattern.None, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-100,-10},{-30,10}},
+            lineColor={0,0,0},
+            pattern=LinePattern.None,
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{100,-10},{30,10}}, 
-            lineColor={0,0,0}, 
-            pattern=LinePattern.None, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{100,-10},{30,10}},
+            lineColor={0,0,0},
+            pattern=LinePattern.None,
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-131,-74},{133,-112}}, 
-            lineColor={0,0,0}, 
-            textString="n=%n"), 
+            extent={{-131,-74},{133,-112}},
+            lineColor={0,0,0},
+            textString="n=%n"),
           Text(
-            extent={{-124,127},{136,67}}, 
-            textString="%name", 
+            extent={{-124,127},{136,67}},
+            textString="%name",
             lineColor={0,0,255})}));
-    
-  protected 
+
+  protected
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
     parameter Real e[3]=Modelica.Math.Vectors.normalize(
                                          n);
-  protected 
+  protected
     Visualizers.Advanced.Shape box_x[ndim](
       each shapeType="box",
       each color=boxColor,
@@ -1215,7 +1215,7 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
       each r=revolute.frame_b.r_0,
       each R=revolute.frame_b.R) annotation (Placement(transformation(extent={{
               50,30},{70,50}}, rotation=0)));
-  equation 
+  equation
     s_x = prismatic_x.s;
     s_y = prismatic_y.s;
     phi = revolute.phi;
@@ -1225,7 +1225,7 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
     a_x = der(v_x);
     a_y = der(v_y);
     wd  = der(w);
-    
+
     connect(frame_a, prismatic_x.frame_a) 
       annotation (Line(
         points={{-100,0},{-69,0}},
@@ -1245,63 +1245,63 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
         color={95,95,95},
         thickness=2));
   end Planar;
-  
-  model Spherical 
-    "Spherical joint (3 constraints and no potential states, or 3 degrees-of-freedom and 3 states)" 
-    
+
+  model Spherical
+    "Spherical joint (3 constraints and no potential states, or 3 degrees-of-freedom and 3 states)"
+
     import Modelica.Mechanics.MultiBody.Frames;
     import SI = Modelica.SIunits;
-    
+
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
-    parameter Boolean animation=true 
+    parameter Boolean animation=true
       "= true, if animation shall be enabled (show sphere)";
-    parameter SI.Distance sphereDiameter=world.defaultJointLength 
+    parameter SI.Distance sphereDiameter=world.defaultJointLength
       "Diameter of sphere representing the spherical joint" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+    input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
       "Color of sphere representing the spherical joint" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    
-    parameter Boolean angles_fixed = false 
+
+    parameter Boolean angles_fixed = false
       "= true, if angles_start are used as initial values, else as guess values"
       annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
-    parameter SI.Angle angles_start[3]={0,0,0} 
+    parameter SI.Angle angles_start[3]={0,0,0}
       "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
       annotation (Dialog(tab="Initialization"));
-    parameter Types.RotationSequence sequence_start={1,2,3} 
+    parameter Types.RotationSequence sequence_start={1,2,3}
       "Sequence of rotations to rotate frame_a into frame_b at initial time" 
       annotation (Evaluate=true, Dialog(tab="Initialization"));
-    
-    parameter Boolean w_rel_a_fixed = false 
+
+    parameter Boolean w_rel_a_fixed = false
       "= true, if w_rel_a_start are used as initial values, else as guess values"
       annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
-    parameter SI.AngularVelocity w_rel_a_start[3]={0,0,0} 
+    parameter SI.AngularVelocity w_rel_a_start[3]={0,0,0}
       "Initial values of angular velocity of frame_b with respect to frame_a, resolved in frame_a"
       annotation (Dialog(tab="Initialization"));
-    
-    parameter Boolean z_rel_a_fixed = false 
+
+    parameter Boolean z_rel_a_fixed = false
       "= true, if z_rel_a_start are used as initial values, else as guess values"
       annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
-    parameter SI.AngularAcceleration z_rel_a_start[3]={0,0,0} 
+    parameter SI.AngularAcceleration z_rel_a_start[3]={0,0,0}
       "Initial values of angular acceleration z_rel_a = der(w_rel_a)" 
       annotation (Dialog(tab="Initialization"));
-    
-    parameter Boolean enforceStates=false 
+
+    parameter Boolean enforceStates=false
       " = true, if relative variables of spherical joint shall be used as states (StateSelect.always)"
       annotation (Dialog(tab="Advanced"));
-    parameter Boolean useQuaternions=true 
+    parameter Boolean useQuaternions=true
       " = true, if quaternions shall be used as states otherwise use 3 angles as states (provided enforceStates=true)"
       annotation (Dialog(tab="Advanced", enable=enforceStates));
-    parameter Types.RotationSequence sequence_angleStates={1,2,3} 
+    parameter Types.RotationSequence sequence_angleStates={1,2,3}
       " Sequence of rotations to rotate frame_a into frame_b around the 3 angles used as states"
        annotation (Evaluate=true, Dialog(tab="Advanced", enable=enforceStates
              and not useQuaternions));
-    
+
     final parameter Frames.Orientation R_rel_start=
-        Frames.axesRotations(sequence_start, angles_start, zeros(3)) 
+        Frames.axesRotations(sequence_start, angles_start, zeros(3))
       "Orientation object from frame_a to frame_b at initial time";
     annotation (
       Window(
@@ -1362,38 +1362,38 @@ frame_b of the joint.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Ellipse(
-            extent={{-70,-70},{70,70}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Sphere, 
-            fillColor={192,192,192}), 
+            extent={{-70,-70},{70,70}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.Sphere,
+            fillColor={192,192,192}),
           Ellipse(
-            extent={{-49,-50},{51,50}}, 
-            lineColor={128,128,128}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-49,-50},{51,50}},
+            lineColor={128,128,128},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{30,70},{71,-68}}, 
-            lineColor={255,255,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{30,70},{71,-68}},
+            lineColor={255,255,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-100,10},{-68,-10}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{-100,10},{-68,-10}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Rectangle(
-            extent={{23,10},{100,-10}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{23,10},{100,-10}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Ellipse(
-            extent={{-24,25},{26,-25}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Sphere, 
-            fillColor={160,160,164}), 
+            extent={{-24,25},{26,-25}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.Sphere,
+            fillColor={160,160,164}),
           Text(
-            extent={{-100,-132},{100,-72}}, 
-            textString="%name", 
+            extent={{-100,-132},{100,-72}},
+            textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1429,8 +1429,8 @@ frame_b of the joint.
             lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={160,160,164})}));
-    
-  protected 
+
+  protected
     Visualizers.Advanced.Shape sphere(
       shapeType="sphere",
       color=sphereColor,
@@ -1443,41 +1443,41 @@ frame_b of the joint.
       r_shape={-0.5,0,0}*sphereDiameter,
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation;
-    
+
     // Declarations for quaternions (dummies, if quaternions are not used)
     parameter Frames.Quaternions.Orientation Q_start=
-              Modelica.Mechanics.MultiBody.Frames.to_Q(R_rel_start) 
+              Modelica.Mechanics.MultiBody.Frames.to_Q(R_rel_start)
       "Quaternion orientation object from frame_a to frame_b at initial time";
     Frames.Quaternions.Orientation Q(start=Q_start, stateSelect=if 
           enforceStates and useQuaternions then StateSelect.prefer else 
-          StateSelect.never) 
+          StateSelect.never)
       "Quaternion orientation object from frame_a to frame_b (dummy value, if quaternions are not used as states)";
-    
+
     // Declaration for 3 angles
     parameter SI.Angle phi_start[3]=if sequence_start[1] ==
         sequence_angleStates[1] and sequence_start[2] == sequence_angleStates[2]
          and sequence_start[3] == sequence_angleStates[3] then angles_start else 
-         Frames.axesRotationsAngles(R_rel_start, sequence_angleStates) 
+         Frames.axesRotationsAngles(R_rel_start, sequence_angleStates)
       "Potential angle states at initial time";
     SI.Angle phi[3](start=phi_start, stateSelect=if enforceStates and not 
-          useQuaternions then StateSelect.always else StateSelect.never) 
+          useQuaternions then StateSelect.always else StateSelect.never)
       "Dummy or 3 angles to rotate frame_a into frame_b";
     SI.AngularVelocity phi_d[3](stateSelect=if enforceStates and not 
-          useQuaternions then StateSelect.always else StateSelect.never) 
+          useQuaternions then StateSelect.always else StateSelect.never)
       "= der(phi)";
     SI.AngularAcceleration phi_dd[3] "= der(phi_d)";
-    
+
     // Other declarations
     SI.AngularVelocity w_rel[3](start=Frames.resolve2(R_rel_start, w_rel_a_start),
           fixed = fill(w_rel_a_fixed,3), stateSelect=if 
           enforceStates and useQuaternions then StateSelect.always else 
-          StateSelect.never) 
+          StateSelect.never)
       "Dummy or relative angular velocity of frame_b with respect to frame_a, resolved in frame_b";
-    Frames.Orientation R_rel 
+    Frames.Orientation R_rel
       "Dummy or relative orientation object to rotate from frame_a to frame_b";
-    Frames.Orientation R_rel_inv 
+    Frames.Orientation R_rel_inv
       "Dummy or relative orientation object to rotate from frame_b to frame_a";
-  initial equation 
+  initial equation
     if angles_fixed then
       if not enforceStates then
         // no states defined in spherical object
@@ -1490,19 +1490,19 @@ frame_b of the joint.
         phi = phi_start;
       end if;
     end if;
-    
+
     if z_rel_a_fixed then
       // Initialize acceleration variables
       der(w_rel) = Frames.resolve2(R_rel_start, z_rel_a_start);
     end if;
-  equation 
+  equation
     // torque balance
     zeros(3) = frame_a.t;
     zeros(3) = frame_b.t;
-    
+
     if enforceStates then
       defineBranch(frame_a.R, frame_b.R);
-      
+
       frame_b.r_0 = frame_a.r_0;
       if rooted(frame_a.R) then
         R_rel_inv = Frames.nullRotation();
@@ -1513,44 +1513,44 @@ frame_b of the joint.
         frame_a.R = Frames.absoluteRotation(frame_b.R, R_rel_inv);
         zeros(3) = frame_b.f + Frames.resolve2(R_rel, frame_a.f);
       end if;
-      
+
       // Compute relative orientation object
       if useQuaternions then
         // Use Quaternions as states (with dynamic state selection)
         {0} = Frames.Quaternions.orientationConstraint(Q);
         w_rel = Frames.Quaternions.angularVelocity2(Q, der(Q));
         R_rel = Frames.from_Q(Q, w_rel);
-        
+
         // Dummies
         phi = zeros(3);
         phi_d = zeros(3);
         phi_dd = zeros(3);
-        
+
       else
         // Use angles as states
         phi_d = der(phi);
         phi_dd = der(phi_d);
         R_rel = Frames.axesRotations(sequence_angleStates, phi, phi_d);
         w_rel = Frames.angularVelocity2(R_rel);
-        
+
         // Dummies
         Q = zeros(4);
       end if;
-      
+
     else
       // Spherical joint does not have states
       frame_b.r_0 = frame_a.r_0;
       //frame_b.r_0 = transpose(frame_b.R.T)*(frame_b.R.T*(transpose(frame_a.R.T)*(frame_a.R.T*frame_a.r_0)));
-      
+
       zeros(3) = frame_a.f + Frames.resolveRelative(frame_b.f, frame_b.R, frame_a.R);
-      
+
       if w_rel_a_fixed or z_rel_a_fixed then
         w_rel = Frames.angularVelocity2(frame_b.R) - Frames.resolve2(frame_b.R,
            Frames.angularVelocity1(frame_a.R));
       else
         w_rel = zeros(3);
       end if;
-      
+
       // Dummies
       R_rel = Frames.nullRotation();
       R_rel_inv = Frames.nullRotation();
@@ -1560,77 +1560,77 @@ frame_b of the joint.
       phi_dd = zeros(3);
     end if;
   end Spherical;
-  
-  model FreeMotion 
-    "Free motion joint (6 degrees-of-freedom, 12 potential states)" 
-    
+
+  model FreeMotion
+    "Free motion joint (6 degrees-of-freedom, 12 potential states)"
+
     import Modelica.Math.*;
     import SI = Modelica.SIunits;
-    
+
     extends Interfaces.PartialTwoFrames;
-    
-    parameter Boolean animation=true 
+
+    parameter Boolean animation=true
       "= true, if animation shall be enabled (show arrow from frame_a to frame_b)";
-    
+
     SI.Position r_rel_a[3](start={0,0,0}, stateSelect=if enforceStates then 
-                StateSelect.always else StateSelect.prefer) 
+                StateSelect.always else StateSelect.prefer)
       "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a"
       annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
     SI.Velocity v_rel_a[3](start={0,0,0}, stateSelect=if enforceStates then StateSelect.always else 
-                StateSelect.prefer) 
+                StateSelect.prefer)
       "= der(r_rel_a), i.e., velocity of origin of frame_b with respect to origin of frame_a, resolved in frame_a"
       annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
     SI.Acceleration a_rel_a[3](start={0,0,0}) "= der(v_rel_a)" 
       annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
-    
-    parameter Boolean angles_fixed = false 
+
+    parameter Boolean angles_fixed = false
       "= true, if angles_start are used as initial values, else as guess values"
       annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(group="Initialization"));
-    parameter SI.Angle angles_start[3]={0,0,0} 
+    parameter SI.Angle angles_start[3]={0,0,0}
       "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
       annotation (Dialog(group="Initialization"));
-    parameter Types.RotationSequence sequence_start={1,2,3} 
+    parameter Types.RotationSequence sequence_start={1,2,3}
       "Sequence of rotations to rotate frame_a into frame_b at initial time" 
       annotation (Evaluate=true, Dialog(group="Initialization"));
-    
-    parameter Boolean w_rel_a_fixed = false 
+
+    parameter Boolean w_rel_a_fixed = false
       "= true, if w_rel_a_start are used as initial values, else as guess values"
       annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(group="Initialization"));
-    parameter SI.AngularVelocity w_rel_a_start[3]={0,0,0} 
+    parameter SI.AngularVelocity w_rel_a_start[3]={0,0,0}
       "Initial values of angular velocity of frame_b with respect to frame_a, resolved in frame_a"
       annotation (Dialog(group="Initialization"));
-    
-    parameter Boolean z_rel_a_fixed = false 
+
+    parameter Boolean z_rel_a_fixed = false
       "= true, if z_rel_a_start are used as initial values, else as guess values"
       annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(group="Initialization"));
-    parameter SI.AngularAcceleration z_rel_a_start[3]={0,0,0} 
+    parameter SI.AngularAcceleration z_rel_a_start[3]={0,0,0}
       "Initial values of angular acceleration z_rel_a = der(w_rel_a)" 
       annotation (Dialog(group="Initialization"));
-    
-    parameter SI.Length arrowDiameter=world.defaultArrowDiameter 
+
+    parameter SI.Length arrowDiameter=world.defaultArrowDiameter
       "Diameter of arrow from frame_a to frame_b" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor 
+    input Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
       "Color of arrow" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Boolean enforceStates=true 
+    parameter Boolean enforceStates=true
       " = true, if relative variables between frame_a and frame_b shall be used as states"
       annotation (Dialog(tab="Advanced"));
-    parameter Boolean useQuaternions=true 
+    parameter Boolean useQuaternions=true
       " = true, if quaternions shall be used as states otherwise use 3 angles as states"
       annotation (Dialog(tab="Advanced"));
-    parameter Types.RotationSequence sequence_angleStates={1,2,3} 
+    parameter Types.RotationSequence sequence_angleStates={1,2,3}
       " Sequence of rotations to rotate frame_a into frame_b around the 3 angles used as states"
        annotation (Evaluate=true, Dialog(tab="Advanced", enable=not 
             useQuaternions));
-    
+
     final parameter Frames.Orientation R_rel_start=
-        Modelica.Mechanics.MultiBody.Frames.axesRotations(sequence_start, angles_start,zeros(3)) 
+        Modelica.Mechanics.MultiBody.Frames.axesRotations(sequence_start, angles_start,zeros(3))
       "Orientation object from frame_a to frame_b at initial time";
-    
+
     annotation (
       Window(
         x=0.16,
@@ -1725,42 +1725,42 @@ frame_b of the joint.
           grid={1,1}), graphics={
           Line(
             points={{-86,31},{-74,61},{-49,83},{-17,92},{19,88},{40,69},{59,48}}, 
-              
-            color={160,160,164}, 
-            thickness=2), 
+
+            color={160,160,164},
+            thickness=2),
           Polygon(
-            points={{90,0},{50,20},{50,-20},{90,0}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            points={{90,0},{50,20},{50,-20},{90,0}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Polygon(
-            points={{69,58},{49,40},{77,28},{69,58}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            points={{69,58},{49,40},{77,28},{69,58}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{136,-35},{-150,-98}}, 
-            lineColor={0,0,255}, 
-            textString="%name"), 
+            extent={{136,-35},{-150,-98}},
+            lineColor={0,0,255},
+            textString="%name"),
           Rectangle(
-            extent={{-70,-5},{-90,5}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-70,-5},{-90,5}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{50,-5},{30,5}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{50,-5},{30,5}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{11,-5},{-9,5}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{11,-5},{-9,5}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-30,-5},{-50,5}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
+            extent={{-30,-5},{-50,5}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1768,41 +1768,41 @@ frame_b of the joint.
           grid={1,1}), graphics={
           Line(
             points={{-86,31},{-74,61},{-49,83},{-17,92},{19,88},{40,69},{59,48}}, 
-              
-            color={160,160,164}, 
-            thickness=2), 
+
+            color={160,160,164},
+            thickness=2),
           Polygon(
-            points={{90,0},{50,20},{50,-20},{90,0}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            points={{90,0},{50,20},{50,-20},{90,0}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Polygon(
-            points={{69,58},{49,40},{77,28},{69,58}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            points={{69,58},{49,40},{77,28},{69,58}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{50,-5},{30,5}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{50,-5},{30,5}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{11,-5},{-9,5}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{11,-5},{-9,5}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-30,-5},{-50,5}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-30,-5},{-50,5}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-70,-5},{-90,5}}, 
-            lineColor={0,0,0}, 
-            fillColor={192,192,192}, 
+            extent={{-70,-5},{-90,5}},
+            lineColor={0,0,0},
+            fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}));
-    
-  protected 
+
+  protected
     Visualizers.Advanced.Arrow arrow(
       r_head=r_rel_a,
       diameter=arrowDiameter,
@@ -1810,15 +1810,15 @@ frame_b of the joint.
       specularCoefficient=specularCoefficient,
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation;
-    
+
     // Declarations for quaternions (dummies, if quaternions are not used)
-    parameter Frames.Quaternions.Orientation Q_start=Frames.to_Q(R_rel_start) 
+    parameter Frames.Quaternions.Orientation Q_start=Frames.to_Q(R_rel_start)
       "Quaternion orientation object from frame_a to frame_b at initial time";
     Frames.Quaternions.Orientation Q(start=Q_start, stateSelect=if 
           enforceStates then (if useQuaternions then StateSelect.prefer else 
-          StateSelect.never) else StateSelect.default) 
+          StateSelect.never) else StateSelect.default)
       "Quaternion orientation object from frame_a to frame_b (dummy value, if quaternions are not used as states)";
-    
+
     // Declaration for 3 angles
     parameter SI.Angle phi_start[3]=if sequence_start[1] ==
         sequence_angleStates[1] and sequence_start[2] == sequence_angleStates[2]
@@ -1827,26 +1827,26 @@ frame_b of the joint.
         sequence_angleStates) "Potential angle states at initial time";
     SI.Angle phi[3](start=phi_start, stateSelect=if enforceStates then (if 
           useQuaternions then StateSelect.never else StateSelect.always) else 
-          StateSelect.prefer) 
+          StateSelect.prefer)
       "Dummy or 3 angles to rotate frame_a into frame_b";
     SI.AngularVelocity phi_d[3](stateSelect=if enforceStates then (if 
           useQuaternions then StateSelect.never else StateSelect.always) else 
           StateSelect.prefer) "= der(phi)";
     SI.AngularAcceleration phi_dd[3] "= der(phi_d)";
-    
+
     // Other declarations
     SI.AngularVelocity w_rel_b[3](start=Frames.resolve2(R_rel_start, w_rel_a_start),
                                   fixed=fill(w_rel_a_fixed,3),
                                   stateSelect=if enforceStates then 
                                   (if useQuaternions then StateSelect.always else 
-                                  StateSelect.avoid) else StateSelect.prefer) 
+                                  StateSelect.avoid) else StateSelect.prefer)
       "Dummy or relative angular velocity of frame_b with respect to frame_a, resolved in frame_b";
-    Frames.Orientation R_rel 
+    Frames.Orientation R_rel
       "Dummy or relative orientation object to rotate from frame_a to frame_b";
-    Frames.Orientation R_rel_inv 
+    Frames.Orientation R_rel_inv
       "Dummy or relative orientation object to rotate from frame_b to frame_a";
-    
-  initial equation 
+
+  initial equation
     if angles_fixed then
       // Initialize positional variables
       if not enforceStates then
@@ -1860,29 +1860,29 @@ frame_b of the joint.
         phi = phi_start;
       end if;
     end if;
-    
+
     if z_rel_a_fixed then
       // Initialize acceleration variables
       der(w_rel_b) = Frames.resolve2(R_rel_start, z_rel_a_start);
     end if;
-    
-  equation 
+
+  equation
     // Kinematic differential equations for translational motion
     der(r_rel_a) = v_rel_a;
     der(v_rel_a) = a_rel_a;
-    
+
     // Kinematic relationships
     frame_b.r_0 = frame_a.r_0 + Frames.resolve1(frame_a.R, r_rel_a);
-    
+
     // Cut-forces and cut-torques are zero
     frame_a.f = zeros(3);
     frame_a.t = zeros(3);
     frame_b.f = zeros(3);
     frame_b.t = zeros(3);
-    
+
     if enforceStates then
       defineBranch(frame_a.R, frame_b.R);
-      
+
       if rooted(frame_a.R) then
         R_rel_inv = Frames.nullRotation();
         frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
@@ -1890,32 +1890,32 @@ frame_b of the joint.
         R_rel_inv = Frames.inverseRotation(R_rel);
         frame_a.R = Frames.absoluteRotation(frame_b.R, R_rel_inv);
       end if;
-      
+
       // Compute relative orientation object
       if useQuaternions then
         // Use Quaternions as states (with dynamic state selection)
         {0} = Frames.Quaternions.orientationConstraint(Q);
         w_rel_b = Frames.Quaternions.angularVelocity2(Q, der(Q));
         R_rel = Frames.from_Q(Q, w_rel_b);
-        
+
         // Dummies
         phi = zeros(3);
         phi_d = zeros(3);
         phi_dd = zeros(3);
-        
+
       else
         // Use angles as states
         phi_d = der(phi);
         phi_dd = der(phi_d);
         R_rel = Frames.axesRotations(sequence_angleStates, phi, phi_d);
         w_rel_b = Frames.angularVelocity2(R_rel);
-        
+
         // Dummies
         Q = zeros(4);
       end if;
-      
+
     else
-      // Free motion joint does not have states   
+      // Free motion joint does not have states
       if w_rel_a_fixed or z_rel_a_fixed then
         w_rel_b = Frames.angularVelocity2(frame_b.R) - Frames.resolve2(frame_b.
           R, Frames.angularVelocity1(frame_a.R));
@@ -1923,7 +1923,7 @@ frame_b of the joint.
         // dummy
         w_rel_b = zeros(3);
       end if;
-      
+
       // Dummies
       R_rel = Frames.nullRotation();
       R_rel_inv = Frames.nullRotation();
@@ -1933,81 +1933,81 @@ frame_b of the joint.
       phi_dd = zeros(3);
     end if;
   end FreeMotion;
-  
-  model SphericalSpherical 
-    "Spherical - spherical joint aggregation (1 constraint, no potential states) with an optional point mass in the middle" 
-    
+
+  model SphericalSpherical
+    "Spherical - spherical joint aggregation (1 constraint, no potential states) with an optional point mass in the middle"
+
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
     extends Interfaces.PartialTwoFrames;
-    
+
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter Boolean showMass=true 
+    parameter Boolean showMass=true
       "= true, if mass shall be shown (provided animation = true and m > 0)";
-    parameter Boolean computeRodLength=false 
+    parameter Boolean computeRodLength=false
       "= true, if rodLength shall be computed during initialization (see info)";
     parameter SI.Length rodLength(
       min=Modelica.Constants.eps,
-      fixed=not computeRodLength, start = 1) 
+      fixed=not computeRodLength, start = 1)
       "Distance between the origins of frame_a and frame_b (if computeRodLength=true, guess value)";
-    parameter SI.Mass m(min=0)=0 
+    parameter SI.Mass m(min=0)=0
       "Mass of rod (= point mass located in middle of rod)";
-    parameter SI.Diameter sphereDiameter=world.defaultJointLength 
+    parameter SI.Diameter sphereDiameter=world.defaultJointLength
       "Diameter of spheres respresenting the spherical joints" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+    input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
       "Color of spheres respresenting the spherical joints" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Diameter rodDiameter=sphereDiameter/Types.Defaults.JointRodDiameterFraction 
+    parameter SI.Diameter rodDiameter=sphereDiameter/Types.Defaults.JointRodDiameterFraction
       "Diameter of rod connecting the two spherical joint" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
+    input Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
       "Color of rod connecting the two spherical joints" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Diameter massDiameter=sphereDiameter 
+    parameter SI.Diameter massDiameter=sphereDiameter
       "Diameter of sphere representing the mass point" 
       annotation (Dialog(tab=
             "Animation", group="if animation = true and showMass = true and m > 0",
             enable=animation and showMass and m > 0));
-    input Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor 
+    input Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
       "Color of sphere representing the mass point"  annotation (
         Dialog(tab="Animation", group=
             "if animation = true and showMass = true and m > 0",
             enable=animation and showMass and m > 0));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    
-    parameter Boolean kinematicConstraint=true 
+
+    parameter Boolean kinematicConstraint=true
       "= false, if no constraint shall be defined, due to analytically solving a kinematic loop (\"false\" should not be used by user, but only by MultiBody.Joints.Assemblies joints)"
       annotation (Dialog(tab="Advanced"));
-    Real constraintResidue = rRod_0*rRod_0 - rodLength*rodLength 
+    Real constraintResidue = rRod_0*rRod_0 - rodLength*rodLength
       "Constraint equation of joint in residue form: Either length constraint (= default) or equation to compute rod force (for analytic solution of loops in combination with Internal.RevoluteWithLengthConstraint/PrismaticWithLengthConstraint)"
       annotation (Dialog(tab="Advanced", enable=not kinematicConstraint));
-    parameter Boolean checkTotalPower=false 
+    parameter Boolean checkTotalPower=false
       "= true, if total power flowing into this component shall be determined (must be zero)"
       annotation (Dialog(tab="Advanced"));
-    
-    SI.Force f_rod 
+
+    SI.Force f_rod
       "Constraint force in direction of the rod (positive on frame_a, when directed from frame_a to frame_b)";
-    SI.Position rRod_0[3] 
+    SI.Position rRod_0[3]
       "Position vector from frame_a to frame_b resolved in world frame";
-    SI.Position rRod_a[3] 
+    SI.Position rRod_a[3]
       "Position vector from frame_a to frame_b resolved in frame_a";
-    Real eRod_a[3] 
+    Real eRod_a[3]
       "Unit vector in direction from frame_a to frame_b, resolved in frame_a";
-    SI.Position r_CM_0[3] 
+    SI.Position r_CM_0[3]
       "Dummy if m==0, or position vector from world frame to mid-point of rod, resolved in world frame";
     SI.Velocity v_CM_0[3] "First derivative of r_CM_0";
-    SI.Force f_CM_a[3] 
+    SI.Force f_CM_a[3]
       "Dummy if m==0, or inertial force acting at mid-point of rod due to mass oint acceleration, resolved in frame_a";
-    SI.Force f_CM_e[3] 
+    SI.Force f_CM_e[3]
       "Dummy if m==0, or projection of f_CM_a onto eRod_a, resolved in frame_a";
-    SI.Force f_b_a1[3] 
+    SI.Force f_b_a1[3]
       "Force acting at frame_b, but without force in rod, resolved in frame_a";
-    SI.Power totalPower 
+    SI.Power totalPower
       "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
-    
+
     annotation (
       Window(
         x=0.24,
@@ -2019,118 +2019,114 @@ frame_b of the joint.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Ellipse(
-            extent={{-95,-40},{-15,40}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Sphere, 
-            fillColor={192,192,192}), 
+            extent={{-95,-40},{-15,40}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.Sphere,
+            fillColor={192,192,192}),
           Ellipse(
-            extent={{-84,-30},{-24,30}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-84,-30},{-24,30}},
+            lineColor={0,0,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{15,-40},{95,40}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Sphere, 
-            fillColor={192,192,192}), 
+            extent={{15,-40},{95,40}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.Sphere,
+            fillColor={192,192,192}),
           Ellipse(
-            extent={{25,-29},{85,30}}, 
-            lineColor={128,128,128}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{25,-29},{85,30}},
+            lineColor={128,128,128},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-149,111},{141,51}}, 
-            textString="%name", 
-            lineColor={0,0,255}), 
+            extent={{-149,111},{141,51}},
+            textString="%name",
+            lineColor={0,0,255}),
           Rectangle(
-            extent={{-40,40},{41,-41}}, 
-            lineColor={255,255,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-40,40},{41,-41}},
+            lineColor={255,255,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-51,6},{48,-4}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{-51,6},{48,-4}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Ellipse(
-            extent={{-68,15},{-39,-13}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Sphere, 
-            fillColor={192,192,192}), 
+            extent={{-68,15},{-39,-13}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.Sphere,
+            fillColor={192,192,192}),
           Ellipse(
-            extent={{39,14},{68,-14}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Sphere, 
-            fillColor={192,192,192}), 
+            extent={{39,14},{68,-14}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.Sphere,
+            fillColor={192,192,192}),
           Text(
-            extent={{-130,-58},{137,-98}}, 
-            lineColor={0,0,0}, 
+            extent={{-130,-58},{137,-98}},
+            lineColor={0,0,0},
             textString="%rodLength")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Ellipse(
-            extent={{-98,-40},{-18,40}}, 
-            lineColor={0,0,0}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-98,-40},{-18,40}},
+            lineColor={0,0,0},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{-88,-30},{-28,30}}, 
-            lineColor={160,160,164}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-88,-30},{-28,30}},
+            lineColor={160,160,164},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{18,-40},{98,40}}, 
-            lineColor={160,160,164}, 
-            fillColor={160,160,164}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{18,-40},{98,40}},
+            lineColor={160,160,164},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{29,-30},{89,29}}, 
-            lineColor={192,192,192}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-56,-60},{46,-60}}, color={0,0,255}), 
+            extent={{29,-30},{89,29}},
+            lineColor={192,192,192},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-56,-60},{46,-60}}, color={0,0,255}),
           Polygon(
-            points={{56,-60},{41,-54},{41,-66},{56,-60}}, 
-            lineColor={0,0,255}, 
-            fillColor={0,0,255}, 
-            fillPattern=FillPattern.Solid), 
+            points={{56,-60},{41,-54},{41,-66},{56,-60}},
+            lineColor={0,0,255},
+            fillColor={0,0,255},
+            fillPattern=FillPattern.Solid),
           Text(
-            extent={{-37,-63},{33,-79}}, 
-            textString="rodLength", 
-            lineColor={0,0,255}), 
+            extent={{-37,-63},{33,-79}},
+            textString="rodLength",
+            lineColor={0,0,255}),
           Rectangle(
-            extent={{-40,41},{40,-40}}, 
-            lineColor={255,255,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-40,41},{40,-40}},
+            lineColor={255,255,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-51,6},{48,-4}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{-51,6},{48,-4}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Ellipse(
-            extent={{-71,15},{-42,-13}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-71,15},{-42,-13}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{42,14},{71,-14}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-56,-71},{-56,1}}, color={0,0,255}), 
-          Line(points={{56,-72},{56,0}}, color={0,0,255}), 
-          Polygon(
-            points={{11,1},{-1,4},{-1,-2},{11,1}}, 
-            fillPattern=FillPattern.Forward, 
-            lineColor={0,0,255}), 
-          Line(points={{-56,1},{-1,1}}, color={0,0,255}), 
+            extent={{42,14},{71,-14}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-56,-71},{-56,1}}, color={0,0,255}),
+          Line(points={{56,-72},{56,0}}, color={0,0,255}),
+          Polygon(points={{11,1},{-1,4},{-1,-2},{11,1}}, lineColor={0,0,255}),
+          Line(points={{-56,1},{-1,1}}, color={0,0,255}),
           Text(
-            extent={{-32,-4},{4,-29}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.None, 
+            extent={{-32,-4},{4,-29}},
+            lineColor={0,0,0},
             textString="eRod_a")}),
       Documentation(info="<html>
 <p>
@@ -2170,7 +2166,7 @@ the two spherical joints. If this is needed, use instead joint Joints.<b>Univers
 that has this property.
 </p>
 </html>"));
-  protected 
+  protected
     Visualizers.Advanced.Shape shape_rod(
       shapeType="cylinder",
       color=rodColor,
@@ -2218,7 +2214,7 @@ that has this property.
       r_shape=eRod_a*(rodLength/2 - sphereDiameter/2),
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation and showMass and m > 0;
-  equation 
+  equation
     // Determine relative position vector between the two frames
     if kinematicConstraint then
       rRod_0 = transpose(frame_b.R.T)*(frame_b.R.T*frame_b.r_0) - transpose(
@@ -2226,18 +2222,18 @@ that has this property.
     else
       rRod_0 = frame_b.r_0 - frame_a.r_0;
     end if;
-    
+
     //rRod_0 = frame_b.r_0 - frame_a.r_0;
     rRod_a = Frames.resolve2(frame_a.R, rRod_0);
     eRod_a = rRod_a/rodLength;
-    
-    // Constraint equation 
+
+    // Constraint equation
     constraintResidue = 0;
-    
+
     // Cut-torques at frame_a and frame_b
     frame_a.t = zeros(3);
     frame_b.t = zeros(3);
-    
+
     /* Force and torque balance of rod
      - Kinematics for center of mass CM of mass point
        r_CM_0 = frame_a.r_0 + rRod_0/2;
@@ -2259,7 +2255,7 @@ that has this property.
      fb_rod_e = f_CM_e - fa_rod_e;
      fa_rod_e is the unknown computed from loop
   */
-    
+
       // f_b_a1 is needed in aggregation joints to solve kinematic loops analytically
     if m > 0 then
       r_CM_0 = frame_a.r_0 + rRod_0/2;
@@ -2280,7 +2276,7 @@ that has this property.
       frame_a.f = f_rod*eRod_a;
       frame_b.f = -Frames.resolveRelative(frame_a.f, frame_a.R, frame_b.R);
     end if;
-    
+
     if checkTotalPower then
       totalPower = frame_a.f*Frames.resolve2(frame_a.R, der(frame_a.r_0)) +
         frame_b.f*Frames.resolve2(frame_b.R, der(frame_b.r_0)) + (-m)*(der(
@@ -2291,101 +2287,101 @@ that has this property.
       totalPower = 0;
     end if;
   end SphericalSpherical;
-  
-  model UniversalSpherical 
-    "Universal - spherical joint aggregation (1 constraint, no potential states)" 
-    
+
+  model UniversalSpherical
+    "Universal - spherical joint aggregation (1 constraint, no potential states)"
+
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
-    
+
     extends Interfaces.PartialTwoFrames;
-    Interfaces.Frame_a frame_ia 
+    Interfaces.Frame_a frame_ia
       "Coordinate system at the origin of frame_a, fixed at the rod connecting the universal with the spherical joint"
       annotation (Placement(transformation(
           origin={-40,100},
           extent={{-16,-16},{16,16}},
           rotation=270)));
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter Boolean showUniversalAxes=true 
+    parameter Boolean showUniversalAxes=true
       " = true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)";
-    parameter Boolean computeRodLength=false 
+    parameter Boolean computeRodLength=false
       "= true, if distance between frame_a and frame_b shall be computed during initialization (see info)";
-    parameter Modelica.Mechanics.MultiBody.Types.Axis n1_a={0,0,1} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n1_a={0,0,1}
       "Axis 1 of universal joint resolved in frame_a (axis 2 is orthogonal to axis 1 and to rod)"
       annotation (Evaluate=true);
-    parameter SI.Position rRod_ia[3]={1,0,0} 
+    parameter SI.Position rRod_ia[3]={1,0,0}
       "Vector from origin of frame_a to origin of frame_b, resolved in frame_ia (if computeRodLength=true, rRod_ia is only an axis vector along the connecting rod)"
       annotation (Evaluate=true);
-    parameter SI.Diameter sphereDiameter=world.defaultJointLength 
+    parameter SI.Diameter sphereDiameter=world.defaultJointLength
       "Diameter of spheres representing the universal and the spherical joint" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+    input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
       "Color of spheres representing the universal and the spherical joint" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Types.ShapeType rodShapeType="cylinder" 
+    parameter Types.ShapeType rodShapeType="cylinder"
       "Shape type of rod connecting the universal and the spherical joint" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance rodWidth=sphereDiameter/Types.Defaults.JointRodDiameterFraction 
+    parameter SI.Distance rodWidth=sphereDiameter/Types.Defaults.JointRodDiameterFraction
       "Width of rod shape in direction of axis 2 of universal joint." 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance rodHeight=rodWidth 
+    parameter SI.Distance rodHeight=rodWidth
       "Height of rod shape in direction that is orthogonal to rod and to axis 2"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Types.ShapeExtra rodExtra=0.0 
+    parameter Types.ShapeExtra rodExtra=0.0
       "Additional parameter depending on rodShapeType" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
+    input Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
       "Color of rod shape connecting the universal and the spherical joints" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance cylinderLength=world.defaultJointLength 
+    parameter SI.Distance cylinderLength=world.defaultJointLength
       "Length of cylinders representing the two universal joint axes" annotation (
        Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
                                enable=animation and showUniversalAxes));
-    parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
+    parameter SI.Distance cylinderDiameter=world.defaultJointWidth
       "Diameter of cylinders representing the two universal joint axes" 
       annotation (Dialog(tab="Animation", group=
             "if animation = true and showUniversalAxes",
             enable=animation and showUniversalAxes));
-    input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+    input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
       "Color of cylinders representing the two universal joint axes" annotation (
         Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
                                 enable=animation and showUniversalAxes));
-    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    
-    parameter Boolean kinematicConstraint=true 
+
+    parameter Boolean kinematicConstraint=true
       "= false, if no constraint shall be defined, due to analytically solving a kinematic loop"
       annotation (Dialog(tab="Advanced"));
-    Real constraintResidue = rRod_0*rRod_0 - rodLength*rodLength 
+    Real constraintResidue = rRod_0*rRod_0 - rodLength*rodLength
       "Constraint equation of joint in residue form: Either length constraint (= default) or equation to compute rod force (for analytic solution of loops in combination with Internal.RevoluteWithLengthConstraint/PrismaticWithLengthConstraint)"
       annotation (Dialog(tab="Advanced", enable=not kinematicConstraint));
-    parameter Boolean checkTotalPower=false 
+    parameter Boolean checkTotalPower=false
       "= true, if total power flowing into this component shall be determined (must be zero)"
       annotation (Dialog(tab="Advanced"));
-    SI.Force f_rod 
+    SI.Force f_rod
       "Constraint force in direction of the rod (positive, if rod is pressed)";
     final parameter SI.Distance rodLength(fixed=not computeRodLength)=
       Modelica.Math.Vectors.length(
-                    rRod_ia) 
+                    rRod_ia)
       "Length of rod (distance between origin of frame_a and origin of frame_b)";
     final parameter Real eRod_ia[3]=Modelica.Math.Vectors.normalize(
-                                                     rRod_ia) 
+                                                     rRod_ia)
       "Unit vector from origin of frame_a to origin of frame_b, resolved in frame_ia";
     final parameter Real e2_ia[3]=Modelica.Math.Vectors.normalize(
-                                                   cross(n1_a, eRod_ia)) 
+                                                   cross(n1_a, eRod_ia))
       "Unit vector in direction of axis 2 of universal joint, resolved in frame_ia (orthogonal to n1_a and eRod_ia; note: frame_ia is parallel to frame_a when the universal joint angles are zero)";
-    final parameter Real e3_ia[3]=cross(eRod_ia, e2_ia) 
+    final parameter Real e3_ia[3]=cross(eRod_ia, e2_ia)
       "Unit vector perpendicular to eRod_ia and e2_ia, resolved in frame_ia";
-    SI.Power totalPower 
+    SI.Power totalPower
       "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
-    SI.Force f_b_a1[3] 
+    SI.Force f_b_a1[3]
       "frame_b.f without f_rod part, resolved in frame_a (needed for analytic loop handling)";
-    Real eRod_a[3] 
+    Real eRod_a[3]
       "Unit vector in direction of rRod_a, resolved in frame_a (needed for analytic loop handling)";
-    SI.Position rRod_0[3](start=rRod_ia) 
+    SI.Position rRod_0[3](start=rRod_ia)
       "Position vector from origin of frame_a to origin of frame_b resolved in world frame";
-    SI.Position rRod_a[3](start=rRod_ia) 
+    SI.Position rRod_a[3](start=rRod_ia)
       "Position vector from origin of frame_a to origin of frame_b resolved in frame_a";
     annotation (
       Window(
@@ -2488,94 +2484,94 @@ the origin of frame_a to the middle of the rod, this might be defined as:
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{-122,-49},{138,-107}}, 
-            lineColor={0,0,255}, 
-            textString="%name"), 
+            extent={{-122,-49},{138,-107}},
+            lineColor={0,0,255},
+            textString="%name"),
           Ellipse(
-            extent={{-100,-40},{-19,40}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Sphere, 
-            fillColor={192,192,192}), 
+            extent={{-100,-40},{-19,40}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.Sphere,
+            fillColor={192,192,192}),
           Ellipse(
-            extent={{-90,-30},{-29,29}}, 
-            lineColor={160,160,164}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-90,-30},{-29,29}},
+            lineColor={160,160,164},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-60,41},{-9,-44}}, 
-            lineColor={255,255,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-60,41},{-9,-44}},
+            lineColor={255,255,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Line(
-            points={{-60,40},{-60,-40}}, 
-            color={0,0,0}, 
-            thickness=2), 
+            points={{-60,40},{-60,-40}},
+            color={0,0,0},
+            thickness=2),
           Ellipse(
-            extent={{-83,-17},{-34,21}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Sphere, 
-            fillColor={192,192,192}), 
+            extent={{-83,-17},{-34,21}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.Sphere,
+            fillColor={192,192,192}),
           Ellipse(
-            extent={{-74,-12},{-40,15}}, 
-            lineColor={160,160,164}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-74,-12},{-40,15}},
+            lineColor={160,160,164},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-72,-20},{-89,3},{-69,25},{-45,27},{-72,-20}}, 
-            pattern=LinePattern.None, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid, 
-            lineColor={0,0,255}), 
+            points={{-72,-20},{-89,3},{-69,25},{-45,27},{-72,-20}},
+            pattern=LinePattern.None,
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
           Line(
-            points={{-60,40},{-60,-10}}, 
-            color={0,0,0}, 
-            thickness=2), 
+            points={{-60,40},{-60,-10}},
+            color={0,0,0},
+            thickness=2),
           Line(
-            points={{-49,20},{-69,-15}}, 
-            color={0,0,0}, 
-            thickness=2), 
+            points={{-49,20},{-69,-15}},
+            color={0,0,0},
+            thickness=2),
           Ellipse(
-            extent={{44,14},{73,-14}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{44,14},{73,-14}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{20,-40},{100,40}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Sphere, 
-            fillColor={192,192,192}), 
+            extent={{20,-40},{100,40}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.Sphere,
+            fillColor={192,192,192}),
           Ellipse(
-            extent={{30,-30},{90,30}}, 
-            lineColor={192,192,192}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{30,-30},{90,30}},
+            lineColor={192,192,192},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-22,45},{40,-43}}, 
-            lineColor={255,255,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-22,45},{40,-43}},
+            lineColor={255,255,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Ellipse(
-            extent={{46,14},{75,-14}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Sphere, 
-            fillColor={192,192,192}), 
+            extent={{46,14},{75,-14}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.Sphere,
+            fillColor={192,192,192}),
           Rectangle(
-            extent={{-36,-8},{48,8}}, 
-            lineColor={0,0,0}, 
-            pattern=LinePattern.None, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{-36,-8},{48,8}},
+            lineColor={0,0,0},
+            pattern=LinePattern.None,
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Text(
-            extent={{-105,118},{-67,86}}, 
-            lineColor={128,128,128}, 
-            textString="ia"), 
+            extent={{-105,118},{-67,86}},
+            lineColor={128,128,128},
+            textString="ia"),
           Text(
-            extent={{-24,103},{167,64}}, 
-            lineColor={0,0,0}, 
-            textString="%rRod_ia"), 
+            extent={{-24,103},{167,64}},
+            lineColor={0,0,0},
+            textString="%rRod_ia"),
           Line(
-            points={{-40,101},{-40,60},{-60,1}}, 
-            color={128,128,128}, 
+            points={{-40,101},{-40,60},{-60,1}},
+            color={128,128,128},
             thickness=2)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -2634,29 +2630,20 @@ the origin of frame_a to the middle of the rod, this might be defined as:
             points={{-49,20},{-69,-15}},
             color={0,0,0},
             thickness=2),
-          Polygon(
-            points={{7,-1},{-5,2},{-5,-4},{7,-1}},
-            fillPattern=FillPattern.Forward,
-            lineColor={0,0,255}),
+          Polygon(points={{7,-1},{-5,2},{-5,-4},{7,-1}}, lineColor={0,0,255}),
           Line(points={{-50,19},{-30,57}}, color={0,0,255}),
           Text(
             extent={{-34,78},{8,62}},
             lineColor={0,0,0},
-            fillPattern=FillPattern.None,
             textString="e2"),
-          Polygon(
-            points={{-25,64},{-33,56},{-27,53},{-25,64}},
-            fillPattern=FillPattern.Forward,
-            lineColor={0,0,255}),
+          Polygon(points={{-25,64},{-33,56},{-27,53},{-25,64}}, lineColor={0,0,
+                255}),
           Line(points={{-60,41},{-60,65}}, color={0,0,255}),
-          Polygon(
-            points={{-60,75},{-64,63},{-56,63},{-60,75}},
-            fillPattern=FillPattern.Forward,
-            lineColor={0,0,255}),
+          Polygon(points={{-60,75},{-64,63},{-56,63},{-60,75}}, lineColor={0,0,
+                255}),
           Text(
             extent={{-93,82},{-64,62}},
             lineColor={0,0,0},
-            fillPattern=FillPattern.None,
             textString="n1"),
           Line(points={{-60,-40},{-60,-72}}, color={0,0,255}),
           Ellipse(
@@ -2688,13 +2675,9 @@ the origin of frame_a to the middle of the rod, this might be defined as:
           Text(
             extent={{-31,-7},{0,-28}},
             lineColor={0,0,0},
-            fillPattern=FillPattern.None,
             textString="eRod"),
           Line(points={{-60,0},{-5,0}}, color={0,0,255}),
-          Polygon(
-            points={{7,0},{-5,3},{-5,-3},{7,0}},
-            fillPattern=FillPattern.Forward,
-            lineColor={0,0,255}),
+          Polygon(points={{7,0},{-5,3},{-5,-3},{7,0}}, lineColor={0,0,255}),
           Line(points={{60,-1},{60,-72}}, color={0,0,255}),
           Line(
             points={{-40,100},{-40,70},{-60,0}},
@@ -2704,18 +2687,18 @@ the origin of frame_a to the middle of the rod, this might be defined as:
             extent={{-23,30},{26,10}},
             textString=" eRod*e2 = 0;  n1*e2 = 0",
             lineColor={0,0,255})}));
-    
-  protected 
+
+  protected
     SI.Force f_b_a[3] "frame_b.f resolved in frame_a";
     SI.Force f_ia_a[3] "frame_ia.f resolved in frame_a";
     SI.Torque t_ia_a[3] "frame_ia.t resolved in frame_a";
-    Real n2_a[3] 
+    Real n2_a[3]
       "Vector in direction of axis 2 of the universal joint (e2_ia), resolved in frame_a";
     Real length2_n2_a(start=1, unit="m2") "Square of length of vector n2_a";
     SI.Length length_n2_a "Length of vector n2_a";
-    Real e2_a[3] 
+    Real e2_a[3]
       "Unit vector in direction of axis 2 of the universal joint (e2_ia), resolved in frame_a";
-    Real e3_a[3] 
+    Real e3_a[3]
       "Unit vector perpendicular to eRod_ia and e2_a, resolved in frame_a";
     Real der_rRod_a_L[3] "= der(rRod_a)/rodLength";
     SI.AngularVelocity w_rel_ia1[3];
@@ -2723,7 +2706,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
     Frames.Orientation R_rel_ia2;
     // Real T_rel_ia[3, 3];
     Frames.Orientation R_rel_ia "Rotation from frame_a to frame_ia";
-    
+
     Visualizers.Advanced.Shape rodShape(
       shapeType=rodShapeType,
       color=rodColor,
@@ -2783,8 +2766,8 @@ the origin of frame_a to the middle of the rod, this might be defined as:
       r_shape=-e2_ia*(cylinderLength/2),
       r=frame_ia.r_0,
       R=frame_ia.R) if world.enableAnimation and animation and showUniversalAxes;
-    
-  equation 
+
+  equation
     defineBranch(frame_a.R, frame_ia.R);
     if kinematicConstraint then
       rRod_0 = transpose(frame_b.R.T)*(frame_b.R.T*frame_b.r_0) - transpose(
@@ -2794,17 +2777,17 @@ the origin of frame_a to the middle of the rod, this might be defined as:
     end if;
     //rRod_0 = frame_b.r_0 - frame_a.r_0;
     rRod_a = Frames.resolve2(frame_a.R, rRod_0);
-    
+
     // Constraint equation
     constraintResidue = 0;
-    
+
     /* Determine relative Rotation R_rel_ia from frame_a to frame_ia
      and absolute rotation of frame_a.R.
   */
     eRod_a = rRod_a/rodLength;
     n2_a = cross(n1_a, eRod_a);
     length2_n2_a = n2_a*n2_a;
-    
+
     assert(length2_n2_a > 1.e-10, "
 A Modelica.Mechanics.MultiBody.Joints.UniversalSpherical joint (consisting of
 a universal joint and a spherical joint connected together
@@ -2818,11 +2801,11 @@ use instead Modelica.Mechanics.MultiBody.Joints.SphericalSpherical, if this is
 possible, because this joint aggregation does not have a
 singular configuration.
 ");
-    
+
     length_n2_a = sqrt(length2_n2_a);
     e2_a = n2_a/length_n2_a;
     e3_a = cross(eRod_a, e2_a);
-    
+
     /* The statements below are an efficient implementation of the
    original equations:
      T_rel_ia = [eRod_ia, e2_ia, e3_ia]*transpose([eRod_a, e2_a, e3_a]);
@@ -2869,11 +2852,11 @@ singular configuration.
   R_rel_ia = Frames.from_T(T_rel_ia, 
     Frames.TransformationMatrices.angularVelocity2(T_rel_ia, der(T_rel_ia)));
 */
-    
+
     // Compute kinematic quantities of frame_ia
     frame_ia.r_0 = frame_a.r_0;
     frame_ia.R = Frames.absoluteRotation(frame_a.R, R_rel_ia);
-    
+
     /* In the following formulas f_a, f_b, f_ia, t_a, t_b, t_ia are
      the forces and torques at frame_a, frame_b, frame_ia, respectively,
      resolved in frame_a. e_x, e_y, e_z are the unit vectors resolved in frame_a.
@@ -2897,7 +2880,7 @@ singular configuration.
   */
     f_ia_a = Frames.resolve1(R_rel_ia, frame_ia.f);
     t_ia_a = Frames.resolve1(R_rel_ia, frame_ia.t);
-    
+
       // f_b_a1 is needed in aggregation joints to solve kinematic loops analytically
     f_b_a1 = -e2_a*((n1_a*t_ia_a)/(rodLength*(n1_a*e3_a))) + e3_a*((e2_a*t_ia_a)
       /rodLength);
@@ -2906,7 +2889,7 @@ singular configuration.
     frame_b.t = zeros(3);
     zeros(3) = frame_a.f + f_b_a + f_ia_a;
     zeros(3) = frame_a.t + t_ia_a + cross(rRod_a, f_b_a);
-    
+
     // Measure power for test purposes
     if checkTotalPower then
       totalPower = frame_a.f*Frames.resolve2(frame_a.R, der(frame_a.r_0)) +
@@ -2918,81 +2901,81 @@ singular configuration.
       totalPower = 0;
     end if;
   end UniversalSpherical;
-  
-  model GearConstraint "Ideal 3-dim. gearbox (arbitrary shaft directions)" 
+
+  model GearConstraint "Ideal 3-dim. gearbox (arbitrary shaft directions)"
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     Interfaces.Frame_a bearing "Coordinate system fixed in the bearing" 
      annotation (Placement(transformation(
           origin={0,-100},
           extent={{-16,-16},{16,16}},
           rotation=90)));
-    
+
     parameter Real ratio(start=2) "Gear speed ratio";
-    
-    parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={1,0,0} 
+
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={1,0,0}
       "Axis of rotation of shaft a (same coordinates in frame_a, frame_b, bearing)";
-    parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={1,0,0} 
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={1,0,0}
       "Axis of rotation of shaft b (same coordinates in frame_a, frame_b, bearing)";
-    
-    parameter Modelica.SIunits.Position r_a[3]={0,0,0} 
+
+    parameter Modelica.SIunits.Position r_a[3]={0,0,0}
       "Vector from frame bearing to frame_a resolved in bearing";
-    parameter Modelica.SIunits.Position r_b[3]={0,0,0} 
+    parameter Modelica.SIunits.Position r_b[3]={0,0,0}
       "Vector from frame bearing to frame_b resolved in bearing";
-    
+
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
-            extent={{-98,98},{98,-98}}, 
-            lineColor={255,255,255}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-98,98},{98,-98}},
+            lineColor={255,255,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Rectangle(
-            extent={{-40,20},{-20,-20}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{-40,20},{-20,-20}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Rectangle(
-            extent={{-40,140},{-20,20}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{-40,140},{-20,20}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Rectangle(
-            extent={{20,100},{40,60}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{20,100},{40,60}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Rectangle(
-            extent={{20,60},{40,-60}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{20,60},{40,-60}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Rectangle(
-            extent={{40,10},{100,-10}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{40,10},{100,-10}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Rectangle(
-            extent={{-20,90},{20,70}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{-20,90},{20,70}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Rectangle(
-            extent={{-100,10},{-40,-10}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.HorizontalCylinder, 
-            fillColor={192,192,192}), 
+            extent={{-100,10},{-40,-10}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
           Text(
-            extent={{-156,186},{152,130}}, 
-            textString="%name=%ratio", 
-            lineColor={0,0,255}), 
-          Line(points={{-80,20},{-60,20}}, color={0,0,0}), 
-          Line(points={{-80,-20},{-60,-20}}, color={0,0,0}), 
-          Line(points={{-10,60},{10,60}}, color={0,0,0}), 
-          Line(points={{60,20},{80,20}}, color={0,0,0}), 
-          Line(points={{60,-20},{80,-20}}, color={0,0,0}), 
-          Line(points={{-70,-20},{-70,-70},{70,-70},{70,-20}}, color={0,0,0}), 
-          Line(points={{0,60},{0,-70},{0,-100}}, color={0,0,0}), 
+            extent={{-156,186},{152,130}},
+            textString="%name=%ratio",
+            lineColor={0,0,255}),
+          Line(points={{-80,20},{-60,20}}, color={0,0,0}),
+          Line(points={{-80,-20},{-60,-20}}, color={0,0,0}),
+          Line(points={{-10,60},{10,60}}, color={0,0,0}),
+          Line(points={{60,20},{80,20}}, color={0,0,0}),
+          Line(points={{60,-20},{80,-20}}, color={0,0,0}),
+          Line(points={{-70,-20},{-70,-70},{70,-70},{70,-20}}, color={0,0,0}),
+          Line(points={{0,60},{0,-70},{0,-100}}, color={0,0,0}),
           Line(points={{-10,100},{10,100}}, color={0,0,0})}),
       Documentation(info="<html>
 <p>This ideal massless joint provides a gear constraint between
@@ -3027,10 +3010,10 @@ November 3-4, 2003, pp. 149-158</p>
           origin={-20,0},
           extent={{-10,-10},{10,10}},
           rotation=180)));
-  equation 
+  equation
     assert(cardinality(bearing) > 0,
       "Connector bearing of component is not connected");
-    
+
     connect(actuatedRevolute_a.axis, idealGear.flange_a) 
       annotation (Line(points={{-50,10},{-50,40},{-10,40}}, color={0,0,0}));
     connect(idealGear.flange_b, actuatedRevolute_b.axis) 
@@ -3064,11 +3047,11 @@ November 3-4, 2003, pp. 149-158</p>
         color={95,95,95},
         thickness=2));
   end GearConstraint;
-  
-  package Assemblies "Joint aggregations for analytic loop handling" 
+
+  package Assemblies "Joint aggregations for analytic loop handling"
     import SI = Modelica.SIunits;
     extends Modelica.Icons.Library;
-    
+
     annotation ( Documentation(info="<HTML>
 <p>
 The joints in this package are mainly designed to be used
@@ -3179,91 +3162,91 @@ pair of joints\" from Woernle and Hiller is described in:
     Proceedings 7th World Congress Th. Mach. Mech., Sevilla 1987. </dd>
 </dl>
 </HTML>"));
-    
-    model JointUPS 
-      "Universal - prismatic - spherical joint aggregation (no constraints, no potential states)" 
-      
+
+    model JointUPS
+      "Universal - prismatic - spherical joint aggregation (no constraints, no potential states)"
+
       import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody.Types;
       extends Interfaces.PartialTwoFramesDoubleSize;
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia
         "Coordinate system at origin of frame_a fixed at prismatic joint" 
         annotation (Placement(transformation(
             origin={-80,100},
             extent={{-8,-8},{8,8}},
             rotation=270)));
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib
         "Coordinate system at origin of frame_b fixed at prismatic joint" 
         annotation (Placement(transformation(
             origin={80,100},
             extent={{-8,8},{8,-8}},
             rotation=270)));
-      Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
+      Modelica.Mechanics.Translational.Interfaces.Flange_a axis
         "1-dim. translational flange that drives the prismatic joint" 
         annotation (Placement(transformation(extent={{45,95},{35,105}},
               rotation=0)));
-      Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
+      Modelica.Mechanics.Translational.Interfaces.Flange_b bearing
         "1-dim. translational flange of the drive bearing of the prismatic joint"
         annotation (Placement(transformation(extent={{-35,95},{-45,105}},
               rotation=0)));
-      
+
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      parameter Boolean showUniversalAxes=true 
+      parameter Boolean showUniversalAxes=true
         " = true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)";
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n1_a={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n1_a={0,0,1}
         "Axis 1 of universal joint resolved in frame_a (axis 2 is orthogonal to axis 1 and to line from universal to spherical joint)"
         annotation (Evaluate=true);
-      parameter SI.Position nAxis_ia[3]={1,0,0} 
+      parameter SI.Position nAxis_ia[3]={1,0,0}
         "Axis vector along line from origin of frame_a to origin of frame_b, resolved in frame_ia"
         annotation (Evaluate=true);
-      parameter SI.Position s_offset=0 
+      parameter SI.Position s_offset=0
         "Relative distance offset (distance between frame_a and frame_b = s(t) + s_offset)";
-      parameter SI.Diameter sphereDiameter=world.defaultJointLength 
+      parameter SI.Diameter sphereDiameter=world.defaultJointLength
         "Diameter of spheres representing the spherical joints" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+      input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of spheres representing the spherical joints" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter axisDiameter=sphereDiameter/Types.Defaults.
-          JointRodDiameterFraction 
+          JointRodDiameterFraction
         "Diameter of cylinder on the connecting line from frame_a to frame_b" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color axisColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor 
+      input Types.Color axisColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
         "Color of cylinder on the connecting line from frame_a to frame_b" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Distance cylinderLength=world.defaultJointLength 
+      parameter SI.Distance cylinderLength=world.defaultJointLength
         "Length of cylinders representing the two universal joint axes" annotation (
          Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
                 enable=animation and showUniversalAxes));
-      parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
+      parameter SI.Distance cylinderDiameter=world.defaultJointWidth
         "Diameter of cylinders representing the two universal joint axes" 
         annotation (Dialog(tab="Animation", group=
               "if animation = true and showUniversalAxes",
                 enable=animation and showUniversalAxes));
-     input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+     input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of cylinders representing the two universal joint axes" annotation (
           Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
                 enable=animation and showUniversalAxes));
-      
-      parameter Boolean checkTotalPower=false 
+
+      parameter Boolean checkTotalPower=false
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
       final parameter Real eAxis_ia[3]=Modelica.Math.Vectors.normalize(
-                                                        nAxis_ia) 
+                                                        nAxis_ia)
         "Unit vector from origin of frame_a to origin of frame_b, resolved in frame_ia";
       final parameter Real e2_ia[3]=Modelica.Math.Vectors.normalize(
-                                                     cross(n1_a, eAxis_ia)) 
+                                                     cross(n1_a, eAxis_ia))
         "Unit vector in direction of second rotation axis of universal joint, resolved in frame_ia";
-      final parameter Real e3_ia[3]=cross(eAxis_ia, e2_ia) 
+      final parameter Real e3_ia[3]=cross(eAxis_ia, e2_ia)
         "Unit vector perpendicular to eAxis_ia and e2_ia, resolved in frame_ia";
-      SI.Position s 
+      SI.Position s
         "Relative distance between frame_a and frame_b along axis nAxis = s + s_offset";
       SI.Force f "= axis.f (driving force in the axis; = -bearing.f)";
       SI.Length axisLength "Distance between frame_a and frame_b";
-      SI.Power totalPower 
+      SI.Power totalPower
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       annotation (
         Window(
@@ -3350,333 +3333,322 @@ component).
             grid={1,1},
             initialScale=0.2), graphics={
             Text(
-              extent={{-140,-50},{140,-75}}, 
-              lineColor={0,0,255}, 
-              textString="%name"), 
+              extent={{-140,-50},{140,-75}},
+              lineColor={0,0,255},
+              textString="%name"),
             Ellipse(
-              extent={{-100,-40},{-19,40}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={192,192,192}), 
+              extent={{-100,-40},{-19,40}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={192,192,192}),
             Ellipse(
-              extent={{-90,-30},{-29,29}}, 
-              lineColor={160,160,164}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-90,-30},{-29,29}},
+              lineColor={160,160,164},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-60,41},{-9,-44}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-60,41},{-9,-44}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{-60,40},{-60,-40}}, 
-              color={0,0,0}, 
-              thickness=2), 
+              points={{-60,40},{-60,-40}},
+              color={0,0,0},
+              thickness=2),
             Ellipse(
-              extent={{-83,-17},{-34,21}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={192,192,192}), 
+              extent={{-83,-17},{-34,21}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={192,192,192}),
             Ellipse(
-              extent={{-74,-12},{-40,15}}, 
-              lineColor={160,160,164}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-74,-12},{-40,15}},
+              lineColor={160,160,164},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{-72,-20},{-89,3},{-69,25},{-45,27},{-72,-20}}, 
-              pattern=LinePattern.None, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              points={{-72,-20},{-89,3},{-69,25},{-45,27},{-72,-20}},
+              pattern=LinePattern.None,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Line(
-              points={{-60,40},{-60,-10}}, 
-              color={0,0,0}, 
-              thickness=2), 
+              points={{-60,40},{-60,-10}},
+              color={0,0,0},
+              thickness=2),
             Line(
-              points={{-49,20},{-69,-15}}, 
-              color={0,0,0}, 
-              thickness=2), 
+              points={{-49,20},{-69,-15}},
+              color={0,0,0},
+              thickness=2),
             Ellipse(
-              extent={{44,14},{73,-14}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{44,14},{73,-14}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{20,-40},{100,40}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={192,192,192}), 
+              extent={{20,-40},{100,40}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={192,192,192}),
             Ellipse(
-              extent={{30,-30},{90,30}}, 
-              lineColor={192,192,192}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{30,-30},{90,30}},
+              lineColor={192,192,192},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-22,45},{40,-43}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-22,45},{40,-43}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{45,14},{74,-14}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={192,192,192}), 
+              extent={{45,14},{74,-14}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={192,192,192}),
             Text(
-              extent={{-98,84},{-60,65}}, 
-              lineColor={128,128,128}, 
-              textString="ia"), 
+              extent={{-98,84},{-60,65}},
+              lineColor={128,128,128},
+              textString="ia"),
             Line(
-              points={{-40,0},{-40,90},{-80,90},{-80,97}}, 
-              color={95,95,95}, 
-              thickness=2), 
+              points={{-40,0},{-40,90},{-80,90},{-80,97}},
+              color={95,95,95},
+              thickness=2),
             Text(
-              extent={{61,86},{109,64}}, 
-              lineColor={128,128,128}, 
-              textString="ib"), 
+              extent={{61,86},{109,64}},
+              lineColor={128,128,128},
+              textString="ib"),
             Rectangle(
-              extent={{-35,-13},{-6,14}}, 
-              pattern=LinePattern.None, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              extent={{-35,-13},{-6,14}},
+              pattern=LinePattern.None,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Rectangle(
-              extent={{-35,14},{-6,18}}, 
-              pattern=LinePattern.None, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              extent={{-35,14},{-6,18}},
+              pattern=LinePattern.None,
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Rectangle(
-              extent={{-6,-7},{46,6}}, 
-              pattern=LinePattern.None, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              extent={{-6,-7},{46,6}},
+              pattern=LinePattern.None,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Rectangle(
-              extent={{-6,6},{46,10}}, 
-              pattern=LinePattern.None, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
-            Line(points={{-6,-13},{-6,18}}, color={0,0,0}), 
+              extent={{-6,6},{46,10}},
+              pattern=LinePattern.None,
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
+            Line(points={{-6,-13},{-6,18}}, color={0,0,0}),
             Line(
-              points={{60,-1},{60,90},{80,90},{80,97}}, 
-              color={95,95,95}, 
-              thickness=2), 
+              points={{60,-1},{60,90},{80,90},{80,97}},
+              color={95,95,95},
+              thickness=2),
             Line(
-              points={{60,90},{40,90},{40,95}}, 
-              color={95,95,95}, 
-              thickness=2), 
-            Line(points={{-30,70},{10,70}}, color={0,0,0}), 
+              points={{60,90},{40,90},{40,95}},
+              color={95,95,95},
+              thickness=2),
+            Line(points={{-30,70},{10,70}}, color={0,0,0}),
             Polygon(
-              points={{30,70},{10,76},{10,63},{30,70}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              points={{30,70},{10,76},{10,63},{30,70}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{-40,90},{-40,90},{-40,95}}, 
-              color={95,95,95}, 
+              points={{-40,90},{-40,90},{-40,95}},
+              color={95,95,95},
               thickness=2)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1},
             initialScale=0.2), graphics={
-            Line(points={{-60,-70},{46,-70}}, color={0,0,255}), 
+            Line(points={{-60,-70},{46,-70}}, color={0,0,255}),
             Polygon(
-              points={{60,-70},{45,-64},{45,-76},{60,-70}}, 
-              lineColor={0,0,255}, 
-              fillColor={0,0,255}, 
-              fillPattern=FillPattern.Solid), 
+              points={{60,-70},{45,-64},{45,-76},{60,-70}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-62,-73},{65,-90}}, 
-              textString="rAxis", 
-              lineColor={0,0,255}), 
+              extent={{-62,-73},{65,-90}},
+              textString="rAxis",
+              lineColor={0,0,255}),
             Ellipse(
-              extent={{-100,-40},{-19,40}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={192,192,192}), 
+              extent={{-100,-40},{-19,40}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={192,192,192}),
             Ellipse(
-              extent={{-90,-30},{-29,29}}, 
-              lineColor={160,160,164}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-90,-30},{-29,29}},
+              lineColor={160,160,164},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-60,41},{-19,-41}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-60,41},{-19,-41}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{-60,40},{-60,-40}}, 
-              color={0,0,0}, 
-              thickness=2), 
+              points={{-60,40},{-60,-40}},
+              color={0,0,0},
+              thickness=2),
             Ellipse(
-              extent={{-83,-17},{-34,21}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={192,192,192}), 
+              extent={{-83,-17},{-34,21}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={192,192,192}),
             Ellipse(
-              extent={{-74,-12},{-40,15}}, 
-              lineColor={160,160,164}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-74,-12},{-40,15}},
+              lineColor={160,160,164},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{-72,-20},{-89,3},{-69,25},{-45,27},{-72,-20}}, 
-              pattern=LinePattern.None, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              points={{-72,-20},{-89,3},{-69,25},{-45,27},{-72,-20}},
+              pattern=LinePattern.None,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Line(
-              points={{-60,40},{-60,-10}}, 
-              color={0,0,0}, 
-              thickness=2), 
+              points={{-60,40},{-60,-10}},
+              color={0,0,0},
+              thickness=2),
             Line(
-              points={{-49,20},{-69,-15}}, 
-              color={0,0,0}, 
-              thickness=2), 
+              points={{-49,20},{-69,-15}},
+              color={0,0,0},
+              thickness=2),
             Line(
-              points={{-40,0},{-40,90},{-80,90},{-80,99}}, 
-              color={95,95,95}, 
-              thickness=2), 
-            Polygon(
-              points={{7,-1},{-5,2},{-5,-4},{7,-1}}, 
-              fillPattern=FillPattern.Forward, 
-              lineColor={0,0,255}), 
-            Line(points={{-50,19},{-30,57}}, color={0,0,255}), 
+              points={{-40,0},{-40,90},{-80,90},{-80,99}},
+              color={95,95,95},
+              thickness=2),
+            Polygon(points={{7,-1},{-5,2},{-5,-4},{7,-1}}, lineColor={0,0,255}), 
+
+            Line(points={{-50,19},{-30,57}}, color={0,0,255}),
             Text(
-              extent={{-24,74},{7,53}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.None, 
-              textString="e2"), 
-            Polygon(
-              points={{-25,64},{-33,56},{-27,53},{-25,64}}, 
-              fillPattern=FillPattern.Forward, 
-              lineColor={0,0,255}), 
-            Line(points={{-60,41},{-60,65}}, color={0,0,255}), 
-            Polygon(
-              points={{-60,75},{-64,63},{-56,63},{-60,75}}, 
-              fillPattern=FillPattern.Forward, 
-              lineColor={0,0,255}), 
+              extent={{-24,74},{7,53}},
+              lineColor={0,0,0},
+              textString="e2"),
+            Polygon(points={{-25,64},{-33,56},{-27,53},{-25,64}}, lineColor={0,
+                  0,255}),
+            Line(points={{-60,41},{-60,65}}, color={0,0,255}),
+            Polygon(points={{-60,75},{-64,63},{-56,63},{-60,75}}, lineColor={0,
+                  0,255}),
             Text(
-              extent={{-96,82},{-65,61}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.None, 
-              textString="n1"), 
-            Line(points={{-60,-40},{-60,-72}}, color={0,0,255}), 
+              extent={{-96,82},{-65,61}},
+              lineColor={0,0,0},
+              textString="n1"),
+            Line(points={{-60,-40},{-60,-72}}, color={0,0,255}),
             Ellipse(
-              extent={{20,-40},{100,40}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={192,192,192}), 
+              extent={{20,-40},{100,40}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={192,192,192}),
             Ellipse(
-              extent={{30,-30},{90,30}}, 
-              lineColor={192,192,192}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{30,-30},{90,30}},
+              lineColor={192,192,192},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-22,45},{40,-43}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-22,45},{40,-43}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{45,14},{74,-14}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={128,128,128}), 
-            Line(points={{60,0},{60,-74}}, color={0,0,255}), 
+              extent={{45,14},{74,-14}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={128,128,128}),
+            Line(points={{60,0},{60,-74}}, color={0,0,255}),
             Rectangle(
-              extent={{-35,14},{-6,18}}, 
-              pattern=LinePattern.None, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              extent={{-35,14},{-6,18}},
+              pattern=LinePattern.None,
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Rectangle(
-              extent={{-35,-13},{-6,14}}, 
-              pattern=LinePattern.None, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              extent={{-35,-13},{-6,14}},
+              pattern=LinePattern.None,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Rectangle(
-              extent={{-6,6},{46,10}}, 
-              pattern=LinePattern.None, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              extent={{-6,6},{46,10}},
+              pattern=LinePattern.None,
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Rectangle(
-              extent={{-6,-7},{46,6}}, 
-              pattern=LinePattern.None, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
-            Line(points={{-6,-13},{-6,18}}, color={0,0,0}), 
+              extent={{-6,-7},{46,6}},
+              pattern=LinePattern.None,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
+            Line(points={{-6,-13},{-6,18}}, color={0,0,0}),
             Text(
-              extent={{-40,-2},{-1,-16}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.None, 
-              textString="nAxis"), 
-            Line(points={{-61,1},{-2,1}}, color={0,0,255}), 
-            Polygon(
-              points={{10,1},{-2,4},{-2,-2},{10,1}}, 
-              fillPattern=FillPattern.Forward, 
-              lineColor={0,0,255}), 
+              extent={{-40,-2},{-1,-16}},
+              lineColor={0,0,0},
+              textString="nAxis"),
+            Line(points={{-61,1},{-2,1}}, color={0,0,255}),
+            Polygon(points={{10,1},{-2,4},{-2,-2},{10,1}}, lineColor={0,0,255}), 
+
             Line(
-              points={{60,-1},{60,90},{80,90},{80,99}}, 
-              color={95,95,95}, 
-              thickness=2), 
+              points={{60,-1},{60,90},{80,90},{80,99}},
+              color={95,95,95},
+              thickness=2),
             Text(
-              extent={{-24,117},{-9,102}}, 
-              textString="f", 
-              lineColor={0,0,255}), 
+              extent={{-24,117},{-9,102}},
+              textString="f",
+              lineColor={0,0,255}),
             Polygon(
-              points={{-26,103},{-36,100},{-26,97},{-26,103}}, 
-              lineColor={0,0,255}, 
-              fillColor={0,0,255}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-26,103},{-36,100},{-26,97},{-26,103}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{26,103},{36,100},{26,97},{26,103}}, 
-              lineColor={0,0,255}, 
-              fillColor={0,0,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{14,100},{36,100}}, color={0,0,255}), 
+              points={{26,103},{36,100},{26,97},{26,103}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{14,100},{36,100}}, color={0,0,255}),
             Text(
-              extent={{12,116},{27,101}}, 
-              textString="f", 
-              lineColor={0,0,255}), 
+              extent={{12,116},{27,101}},
+              textString="f",
+              lineColor={0,0,255}),
             Polygon(
-              points={{30,93},{40,90},{30,87},{30,93}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-40,90},{40,90}}, color={128,128,128}), 
-            Line(points={{-25,100},{-10,100}}, color={0,0,255}), 
+              points={{30,93},{40,90},{30,87},{30,93}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-40,90},{40,90}}, color={128,128,128}),
+            Line(points={{-25,100},{-10,100}}, color={0,0,255}),
             Text(
-              extent={{-18,90},{19,77}}, 
-              lineColor={128,128,128}, 
-              textString="s"), 
+              extent={{-18,90},{19,77}},
+              lineColor={128,128,128},
+              textString="s"),
             Line(
-              points={{60,90},{40,90},{40,98}}, 
-              color={95,95,95}, 
-              thickness=2), 
+              points={{60,90},{40,90},{40,98}},
+              color={95,95,95},
+              thickness=2),
             Line(
-              points={{-40,90},{-40,96},{-40,98}}, 
-              color={135,135,135}, 
+              points={{-40,90},{-40,96},{-40,98}},
+              color={135,135,135},
               thickness=2)}));
-      
-    protected 
+
+    protected
       SI.Force f_c_a[3] "frame_ia.f resolved in frame_a";
       SI.Torque t_cd_a[3] "frame_ia.t + frame_ib.t resolved in frame_a";
       SI.Force f_bd_a[3] "frame_b.f + frame_ib.f resolved in frame_a";
-      SI.Position rAxis_0[3] 
+      SI.Position rAxis_0[3]
         "Position vector from origin of frame_a to origin of frame_b resolved in world frame";
-      SI.Position rAxis_a[3] 
+      SI.Position rAxis_a[3]
         "Position vector from origin of frame_a to origin of frame_b resolved in frame_a";
-      Real eAxis_a[3] 
+      Real eAxis_a[3]
         "Unit vector in direction of rAxis_a, resolved in frame_a";
-      Real e2_a[3] 
+      Real e2_a[3]
         "Unit vector in direction of second rotation axis of universal joint, resolved in frame_a";
-      Real e3_a[3] 
+      Real e3_a[3]
         "Unit vector perpendicular to eAxis_a and e2_a, resolved in frame_a";
-      Real n2_a[3] 
+      Real n2_a[3]
         "Vector in direction of second rotation axis of universal joint, resolved in frame_a";
       Real length2_n2_a(unit="m2") "Square of length of vector n2_a";
       SI.Length length_n2_a "Length of vector n2_a";
@@ -3686,7 +3658,7 @@ component).
       Frames.Orientation R_ia2_a;
       Frames.Orientation R_ia_a "Rotation from frame_a to frame_ia";
       // Real T_ia_a[3, 3] "Transformation matrix from frame_a to frame_ia";
-      
+
       Visualizers.Advanced.Shape axisCylinder(
         shapeType="cylinder",
         color=axisColor,
@@ -3746,20 +3718,20 @@ component).
         r_shape=-e2_ia*(cylinderLength/2),
         r=frame_ia.r_0,
         R=frame_ia.R) if world.enableAnimation and animation and showUniversalAxes;
-    equation 
+    equation
       defineBranch(frame_a.R, frame_ia.R);
       defineBranch(frame_ia.R, frame_ib.R);
-      
+
       // Translational flanges
       axisLength = s + s_offset;
       bearing.s = 0;
       axis.s = s;
       axis.f = f;
-      
+
       // Position vector rAxis from frame_a to frame_b
       rAxis_0 = frame_b.r_0 - frame_a.r_0;
       rAxis_a = Frames.resolve2(frame_a.R, rAxis_0);
-      
+
       /* Determine relative Rotation R_rel_c from frame_a to frame_ia
      and absolute rotation of frame_a.R.
   */
@@ -3768,7 +3740,7 @@ component).
 Distance between frame_a and frame_b of a JointUPS joint
 became zero. This is not allowed. If this occurs during
 initialization, the initial conditions are probably wrong.");
-      
+
       eAxis_a = rAxis_a/axisLength;
       n2_a = cross(n1_a, eAxis_a);
       length2_n2_a = n2_a*n2_a;
@@ -3783,7 +3755,7 @@ origin of frame_b. You may try to use another \"n1_a\" vector.
       length_n2_a = sqrt(length2_n2_a);
       e2_a = n2_a/length_n2_a;
       e3_a = cross(eAxis_a, e2_a);
-      
+
       /* The statements below are an efficient implementation of the
      original equations:
        T_ia_a = [eAxis_ia, e2_ia, e3_ia]*transpose([eAxis_a, e2_a, e3_a]);
@@ -3830,13 +3802,13 @@ origin of frame_b. You may try to use another \"n1_a\" vector.
   R_ia_a = Frames.from_T(T_ia_a, Frames.TransformationMatrices.angularVelocity2
     (T_ia_a, der(T_ia_a)));
 */
-      
+
       // Compute kinematic quantities of frame_ia and frame_ib
       frame_ia.r_0 = frame_a.r_0;
       frame_ib.r_0 = frame_b.r_0;
       frame_ia.R = Frames.absoluteRotation(frame_a.R, R_ia_a);
       frame_ib.R = frame_ia.R;
-      
+
       /* In the following formulas f_a, f_b, f_ia, f_ib, t_a, t_b, t_ia, t_ib are
      the forces and torques at frame_a, frame_b, frame_ia, frame_ib respectively,
      resolved in frame_a. eAxis, e2, e3 are the unit vectors resolved in frame_a.
@@ -3869,7 +3841,7 @@ origin of frame_b. You may try to use another \"n1_a\" vector.
       zeros(3) = frame_b.t;
       zeros(3) = frame_a.f + f_c_a + f_bd_a;
       zeros(3) = frame_a.t + t_cd_a + cross(rAxis_a, f_bd_a);
-      
+
       // Measure power for test purposes
       if checkTotalPower then
         totalPower = frame_a.f*Frames.resolve2(frame_a.R, der(frame_a.r_0)) +
@@ -3885,124 +3857,124 @@ origin of frame_b. You may try to use another \"n1_a\" vector.
         totalPower = 0;
       end if;
     end JointUPS;
-    
-    model JointUSR 
-      "Universal - spherical - revolute joint aggregation (no constraints, no potential states)" 
-      
+
+    model JointUSR
+      "Universal - spherical - revolute joint aggregation (no constraints, no potential states)"
+
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
       import Modelica.Mechanics.MultiBody.Types;
-      
+
       extends Interfaces.PartialTwoFramesDoubleSize;
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia
         "Coordinate system at origin of frame_a fixed at connecting rod of universal and spherical joint"
         annotation (Placement(transformation(
             origin={-80,100},
             extent={{-8,-8},{8,8}},
             rotation=90)));
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib
         "Coordinate system at origin of frame_b fixed at connecting rod of spherical and revolute joint"
         annotation (Placement(transformation(
             origin={80,100},
             extent={{-8,8},{8,-8}},
             rotation=270)));
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im
         "Coordinate system at origin of spherical joint fixed at connecting rod of spherical and revolute joint"
         annotation (Placement(transformation(
             origin={0,100},
             extent={{8,-8},{-8,8}},
             rotation=270)));
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a axis
         "1-dim. rotational flange that drives the revolute joint" 
         annotation (Placement(transformation(extent={{105,85},{95,75}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing 
+      Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing
         "1-dim. rotational flange of the drive bearing of the revolute joint" 
         annotation (Placement(transformation(extent={{95,45},{105,35}},
               rotation=0)));
-      
+
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      parameter Boolean showUniversalAxes=true 
+      parameter Boolean showUniversalAxes=true
         " = true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)";
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n1_a={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n1_a={0,0,1}
         "Axis 1 of universal joint fixed and resolved in frame_a (axis 2 is orthogonal to axis 1 and to rod 1)"
         annotation (Evaluate=true);
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,0,1}
         "Axis of revolute joint fixed and resolved in frame_b" 
         annotation (Evaluate=true);
-      parameter SI.Position rRod1_ia[3]={1,0,0} 
+      parameter SI.Position rRod1_ia[3]={1,0,0}
         "Vector from origin of frame_a to spherical joint, resolved in frame_ia"
         annotation (Evaluate=true);
-      parameter SI.Position rRod2_ib[3]={-1,0,0} 
+      parameter SI.Position rRod2_ib[3]={-1,0,0}
         "Vector from origin of frame_ib to spherical joint, resolved in frame_ib";
-      parameter Cv.NonSIunits.Angle_deg phi_offset=0 
+      parameter Cv.NonSIunits.Angle_deg phi_offset=0
         "Relative angle offset of revolute joint (angle = phi(t) + from_deg(phi_offset))";
-      parameter Cv.NonSIunits.Angle_deg phi_guess=0 
+      parameter Cv.NonSIunits.Angle_deg phi_guess=0
         "Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)|is minimal";
-      parameter SI.Diameter sphereDiameter=world.defaultJointLength 
+      parameter SI.Diameter sphereDiameter=world.defaultJointLength
         "Diameter of the spheres representing the universal and the spherical joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.
-           JointColor 
+           JointColor
         "Color of the spheres representing the universal and the spherical joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter rod1Diameter=sphereDiameter/Types.Defaults.
-          JointRodDiameterFraction 
+          JointRodDiameterFraction
         "Diameter of rod 1 connecting the universal and the spherical joint" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color rod1Color=Modelica.Mechanics.MultiBody.Types.Defaults.
-          RodColor 
+          RodColor
         "Color of rod 1 connecting the universal and the spherical joint" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      
-      parameter SI.Diameter rod2Diameter=rod1Diameter 
+
+      parameter SI.Diameter rod2Diameter=rod1Diameter
         "Diameter of rod 2 connecting the revolute and the spherical joint" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color rod2Color=rod1Color 
+      input Types.Color rod2Color=rod1Color
         "Color of rod 2 connecting the revolute and the spherical joint" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Diameter revoluteDiameter=world.defaultJointWidth 
+      parameter SI.Diameter revoluteDiameter=world.defaultJointWidth
         "Diameter of cylinder representing the revolute joint" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Distance revoluteLength=world.defaultJointLength 
+      parameter SI.Distance revoluteLength=world.defaultJointLength
         "Length of cylinder representing the revolute joint" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color revoluteColor=Modelica.Mechanics.MultiBody.Types.
-          Defaults.JointColor 
+          Defaults.JointColor
         "Color of cylinder representing the revolute joint" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Distance cylinderLength=world.defaultJointLength 
+      parameter SI.Distance cylinderLength=world.defaultJointLength
         "Length of cylinders representing the two universal joint axes" annotation (
          Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
                 enable=animation and showUniversalAxes));
-      parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
+      parameter SI.Distance cylinderDiameter=world.defaultJointWidth
         "Diameter of cylinders representing the two universal joint axes" 
         annotation (Dialog(tab="Animation", group=
               "if animation = true and showUniversalAxes",
                 enable=animation and showUniversalAxes));
-      input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+      input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of cylinders representing the two universal joint axes" annotation (
           Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
                 enable=animation and showUniversalAxes));
-      parameter Boolean checkTotalPower=false 
+      parameter Boolean checkTotalPower=false
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
-      final parameter Real eRod1_ia[3]=rod1.eRod_ia 
+      final parameter Real eRod1_ia[3]=rod1.eRod_ia
         "Unit vector from origin of frame_a to origin of spherical joint, resolved in frame_ia";
-      final parameter Real e2_ia[3]=rod1.e2_ia 
+      final parameter Real e2_ia[3]=rod1.e2_ia
         "Unit vector in direction of axis 2 of universal joint, resolved in frame_ia";
-      final parameter SI.Distance rod1Length=rod1.rodLength 
+      final parameter SI.Distance rod1Length=rod1.rodLength
         "Length of rod 1 (= distance between universal and spherical joint";
-      SI.Power totalPower 
+      SI.Power totalPower
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
-      SI.Position aux 
+      SI.Position aux
         "Denominator used to compute force in rod connecting universal and spherical joint";
-      SI.Force f_rod 
+      SI.Force f_rod
         "Constraint force in direction of the rod (positive, if rod is pressed)";
-      
+
       annotation (
         Window(
           x=0.19,
@@ -4131,137 +4103,137 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             grid={1,1},
             initialScale=0.2), graphics={
             Text(
-              extent={{-140,-41},{140,-66}}, 
-              lineColor={0,0,255}, 
-              textString="%name"), 
+              extent={{-140,-41},{140,-66}},
+              lineColor={0,0,255},
+              textString="%name"),
             Ellipse(
-              extent={{-100,-30},{-40,30}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={192,192,192}), 
+              extent={{-100,-30},{-40,30}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={192,192,192}),
             Ellipse(
-              extent={{-93,-22},{-48,23}}, 
-              lineColor={160,160,164}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-93,-22},{-48,23}},
+              lineColor={160,160,164},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-70,40},{-39,-33}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-70,40},{-39,-33}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{-70,28},{-70,-30}}, 
-              color={0,0,0}, 
-              thickness=2), 
+              points={{-70,28},{-70,-30}},
+              color={0,0,0},
+              thickness=2),
             Ellipse(
-              extent={{-89,-18},{-48,18}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={192,192,192}), 
+              extent={{-89,-18},{-48,18}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={192,192,192}),
             Ellipse(
-              extent={{-84,-12},{-53,13}}, 
-              lineColor={160,160,164}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-84,-12},{-53,13}},
+              lineColor={160,160,164},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{-81,-17},{-92,-1},{-83,16},{-57,24},{-81,-17}}, 
-              pattern=LinePattern.None, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              points={{-81,-17},{-92,-1},{-83,16},{-57,24},{-81,-17}},
+              pattern=LinePattern.None,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Line(
-              points={{-70,30},{-70,-10}}, 
-              color={0,0,0}, 
-              thickness=2), 
+              points={{-70,30},{-70,-10}},
+              color={0,0,0},
+              thickness=2),
             Line(
-              points={{-61,16},{-79,-15}}, 
-              color={0,0,0}, 
-              thickness=2), 
+              points={{-61,16},{-79,-15}},
+              color={0,0,0},
+              thickness=2),
             Line(
-              points={{-50,0},{-50,80},{-80,80},{-80,100}}, 
-              color={95,95,95}, 
-              thickness=2), 
+              points={{-50,0},{-50,80},{-80,80},{-80,100}},
+              color={95,95,95},
+              thickness=2),
             Ellipse(
-              extent={{-40,-30},{20,30}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={192,192,192}), 
+              extent={{-40,-30},{20,30}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={192,192,192}),
             Ellipse(
-              extent={{-33,-22},{12,23}}, 
-              lineColor={192,192,192}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-33,-22},{12,23}},
+              lineColor={192,192,192},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-44,31},{-14,-30}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-44,31},{-14,-30}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-23,10},{-3,-10}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-23,10},{-3,-10}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{19,6},{61,-6}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{19,6},{61,-6}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{-50,5},{-21,-5}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{-50,5},{-21,-5}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{60,-30},{76,30}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{60,-30},{76,30}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{85,-30},{100,30}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{85,-30},{100,30}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{76,10},{85,-10}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
-            Rectangle(extent={{60,30},{76,-30}}, lineColor={0,0,0}), 
-            Rectangle(extent={{85,30},{100,-30}}, lineColor={0,0,0}), 
+              extent={{76,10},{85,-10}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Rectangle(extent={{60,30},{76,-30}}, lineColor={0,0,0}),
+            Rectangle(extent={{85,30},{100,-30}}, lineColor={0,0,0}),
             Text(
-              extent={{40,109},{77,91}}, 
-              lineColor={128,128,128}, 
-              textString="ib"), 
+              extent={{40,109},{77,91}},
+              lineColor={128,128,128},
+              textString="ib"),
             Text(
-              extent={{-124,109},{-95,92}}, 
-              lineColor={128,128,128}, 
-              textString="ia"), 
+              extent={{-124,109},{-95,92}},
+              lineColor={128,128,128},
+              textString="ia"),
             Line(
-              points={{60,30},{60,80},{80,80},{80,100}}, 
-              color={95,95,95}, 
-              thickness=2), 
+              points={{60,30},{60,80},{80,80},{80,100}},
+              color={95,95,95},
+              thickness=2),
             Text(
-              extent={{-43,108},{-10,92}}, 
-              lineColor={128,128,128}, 
-              textString="im"), 
+              extent={{-43,108},{-10,92}},
+              lineColor={128,128,128},
+              textString="im"),
             Line(
-              points={{19,6},{19,80},{0,80},{0,100}}, 
-              color={95,95,95}, 
-              thickness=2), 
+              points={{19,6},{19,80},{0,80},{0,100}},
+              color={95,95,95},
+              thickness=2),
             Line(
-              points={{80,80},{101,80}}, 
-              color={128,128,128}, 
-              thickness=2), 
+              points={{80,80},{101,80}},
+              color={128,128,128},
+              thickness=2),
             Line(
-              points={{90,30},{90,40},{95,40}}, 
-              color={95,95,95}, 
+              points={{90,30},{90,40},{95,40}},
+              color={95,95,95},
               thickness=2)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1},
             initialScale=0.2), graphics));
-      
+
       Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint
         revolute(
         animation=animation,
@@ -4306,9 +4278,9 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
               rotation=0)));
-    equation 
+    equation
      // defineRoot(frame_ib.R);
-      
+
       /* Compute the unknown force in the rod of the rod1 joint
      by a torque balance at the revolute joint:
        0 = revolute.frame_b.t + frame_ib.t + frame_im.t + cross(rRod2_ib, frame_im.f)
@@ -4339,7 +4311,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         rRod2_ib, frame_im.f) - cross(rRod2_ib, Frames.resolveRelative(rod1.
         f_b_a1, rod1.frame_a.R, rod1.frame_b.R))))/noEvent(if abs(aux) < 1.e-10 then 
               1.e-10 else aux);
-      
+
       // Measure power for test purposes
       if checkTotalPower then
         totalPower = frame_a.f*Frames.resolve2(frame_a.R, der(frame_a.r_0)) +
@@ -4356,7 +4328,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       else
         totalPower = 0;
       end if;
-      
+
       connect(revolute.frame_b, rod2.frame_a) annotation (Line(
           points={{35,0},{15,0}},
           color={95,95,95},
@@ -4423,118 +4395,118 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           color={0,0,127},
           smooth=Smooth.None));
     end JointUSR;
-    
-    model JointUSP 
-      "Universal - spherical - prismatic joint aggregation (no constraints, no potential states)" 
-      
+
+    model JointUSP
+      "Universal - spherical - prismatic joint aggregation (no constraints, no potential states)"
+
       import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody.Types;
-      
+
       extends Interfaces.PartialTwoFramesDoubleSize;
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia
         "Coordinate system at origin of frame_a fixed at connecting rod of universal and spherical joint"
         annotation (Placement(transformation(
             origin={-80,100},
             extent={{-8,-8},{8,8}},
             rotation=90)));
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib
         "Coordinate system at origin of frame_b fixed at connecting rod of spherical and prismatic joint"
         annotation (Placement(transformation(
             origin={80,100},
             extent={{-8,8},{8,-8}},
             rotation=270)));
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im
         "Coordinate system at origin of spherical joint fixed at connecting rod of spherical and prismatic joint"
         annotation (Placement(transformation(
             origin={0,100},
             extent={{8,-8},{-8,8}},
             rotation=270)));
-      Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
+      Modelica.Mechanics.Translational.Interfaces.Flange_a axis
         "1-dim. translational flange that drives the prismatic joint" 
         annotation (Placement(transformation(extent={{95,75},{105,85}},
               rotation=0)));
-      Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
+      Modelica.Mechanics.Translational.Interfaces.Flange_b bearing
         "1-dim. translational flange of the drive bearing of the prismatic joint"
         annotation (Placement(transformation(extent={{105,35},{95,45}},
               rotation=0)));
-      
+
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      parameter Boolean showUniversalAxes=true 
+      parameter Boolean showUniversalAxes=true
         " = true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)";
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n1_a={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n1_a={0,0,1}
         "Axis 1 of universal joint fixed and resolved in frame_a (axis 2 is orthogonal to axis 1 and to rod 1)"
         annotation (Evaluate=true);
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={-1,0,0} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={-1,0,0}
         "Axis of prismatic joint fixed and resolved in frame_b" 
         annotation (Evaluate=true);
-      parameter SI.Position rRod1_ia[3]={1,0,0} 
+      parameter SI.Position rRod1_ia[3]={1,0,0}
         "Vector from origin of frame_a to spherical joint, resolved in frame_ia"
         annotation (Evaluate=true);
-      parameter SI.Position rRod2_ib[3]={-1,0,0} 
+      parameter SI.Position rRod2_ib[3]={-1,0,0}
         "Vector from origin of frame_ib to spherical joint, resolved in frame_ib (frame_ib is parallel to frame_b)"
         annotation (Evaluate=true);
-      parameter SI.Position s_offset=0 
+      parameter SI.Position s_offset=0
         "Relative distance offset of prismatic joint (distance between the prismatic joint frames = s(t) + s_offset)";
-      parameter SI.Position s_guess=0 
+      parameter SI.Position s_guess=0
         "Select the configuration such that at initial time |s(t0)-s_guess|is minimal";
-      parameter SI.Diameter sphereDiameter=world.defaultJointLength 
+      parameter SI.Diameter sphereDiameter=world.defaultJointLength
         "Diameter of the spheres representing the universal and the spherical joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+      input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of the spheres representing the universal and the spherical joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter rod1Diameter=sphereDiameter/Types.Defaults.
-          JointRodDiameterFraction 
+          JointRodDiameterFraction
         "Diameter of rod 1 connecting the universal and the spherical joint" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color rod1Color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
+      input Types.Color rod1Color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
         "Color of rod 1 connecting the universal and the spherical joint" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Diameter rod2Diameter=rod1Diameter 
+      parameter SI.Diameter rod2Diameter=rod1Diameter
         "Diameter of rod 2 connecting the prismatic and the spherical joint" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color rod2Color=rod1Color 
+      input Types.Color rod2Color=rod1Color
         "Color of rod 2 connecting the prismatic and the spherical joint" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter Types.Axis boxWidthDirection={0,1,0} 
+      parameter Types.Axis boxWidthDirection={0,1,0}
         "Vector in width direction of prismatic joint, resolved in frame_b" 
         annotation (Evaluate=true, Dialog(tab="Animation", group=
               "if animation = true", enable=animation));
-      parameter SI.Distance boxWidth=world.defaultJointWidth 
+      parameter SI.Distance boxWidth=world.defaultJointWidth
         "Width of prismatic joint box" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint box" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color boxColor=sphereColor "Color of prismatic joint box" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Distance cylinderLength=world.defaultJointLength 
+      parameter SI.Distance cylinderLength=world.defaultJointLength
         "Length of cylinders representing the two universal joint axes" annotation (
          Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
                 enable=animation and showUniversalAxes));
-      parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
+      parameter SI.Distance cylinderDiameter=world.defaultJointWidth
         "Diameter of cylinders representing the two universal joint axes" 
         annotation (Dialog(tab="Animation", group=
               "if animation = true and showUniversalAxes",
                 enable=animation and showUniversalAxes));
-      input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+      input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of cylinders representing the two universal joint axes" annotation (
           Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
                 enable=animation and showUniversalAxes));
-      parameter Boolean checkTotalPower=false 
+      parameter Boolean checkTotalPower=false
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
-      final parameter Real eRod1_ia[3]=rod1.eRod_ia 
+      final parameter Real eRod1_ia[3]=rod1.eRod_ia
         "Unit vector from origin of frame_a to origin of spherical joint, resolved in frame_ia";
-      final parameter Real e2_ia[3]=rod1.e2_ia 
+      final parameter Real e2_ia[3]=rod1.e2_ia
         "Unit vector in direction of axis 2 of universal joint, resolved in frame_ia";
-      final parameter SI.Distance rod1Length=rod1.rodLength 
+      final parameter SI.Distance rod1Length=rod1.rodLength
         "Length of rod 1 (= distance between universal and spherical joint";
-      SI.Force f_rod 
+      SI.Force f_rod
         "Constraint force in direction of the rod (positive, if rod is pressed)";
-      SI.Power totalPower 
+      SI.Power totalPower
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       annotation (
         Window(
@@ -4671,135 +4643,135 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             grid={1,1},
             initialScale=0.2), graphics={
             Rectangle(
-              extent={{50,20},{80,-20}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{50,20},{80,-20}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{80,30},{100,-30}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{80,30},{100,-30}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-140,-45},{140,-70}}, 
-              lineColor={0,0,255}, 
-              textString="%name"), 
+              extent={{-140,-45},{140,-70}},
+              lineColor={0,0,255},
+              textString="%name"),
             Ellipse(
-              extent={{-100,-30},{-40,30}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={192,192,192}), 
+              extent={{-100,-30},{-40,30}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={192,192,192}),
             Ellipse(
-              extent={{-93,-22},{-48,23}}, 
-              lineColor={160,160,164}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-93,-22},{-48,23}},
+              lineColor={160,160,164},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-70,40},{-39,-33}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-70,40},{-39,-33}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{-70,28},{-70,-30}}, 
-              color={0,0,0}, 
-              thickness=2), 
+              points={{-70,28},{-70,-30}},
+              color={0,0,0},
+              thickness=2),
             Ellipse(
-              extent={{-89,-18},{-48,18}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={192,192,192}), 
+              extent={{-89,-18},{-48,18}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={192,192,192}),
             Ellipse(
-              extent={{-84,-12},{-53,13}}, 
-              lineColor={160,160,164}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-84,-12},{-53,13}},
+              lineColor={160,160,164},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{-81,-17},{-92,-1},{-83,16},{-57,24},{-81,-17}}, 
-              pattern=LinePattern.None, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              points={{-81,-17},{-92,-1},{-83,16},{-57,24},{-81,-17}},
+              pattern=LinePattern.None,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Line(
-              points={{-70,30},{-70,-10}}, 
-              color={0,0,0}, 
-              thickness=2), 
+              points={{-70,30},{-70,-10}},
+              color={0,0,0},
+              thickness=2),
             Line(
-              points={{-61,16},{-79,-15}}, 
-              color={0,0,0}, 
-              thickness=2), 
+              points={{-61,16},{-79,-15}},
+              color={0,0,0},
+              thickness=2),
             Line(
-              points={{-50,0},{-50,80},{-80,80},{-80,100}}, 
-              color={95,95,95}, 
-              thickness=2), 
+              points={{-50,0},{-50,80},{-80,80},{-80,100}},
+              color={95,95,95},
+              thickness=2),
             Ellipse(
-              extent={{-40,-30},{20,30}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={192,192,192}), 
+              extent={{-40,-30},{20,30}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={192,192,192}),
             Ellipse(
-              extent={{-33,-22},{12,23}}, 
-              lineColor={192,192,192}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-33,-22},{12,23}},
+              lineColor={192,192,192},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-44,31},{-14,-30}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-44,31},{-14,-30}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-23,10},{-3,-10}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-23,10},{-3,-10}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{19,6},{50,-6}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{19,6},{50,-6}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{-50,5},{-21,-5}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{-50,5},{-21,-5}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Text(
-              extent={{37,109},{68,90}}, 
-              lineColor={128,128,128}, 
-              textString="ib"), 
+              extent={{37,109},{68,90}},
+              lineColor={128,128,128},
+              textString="ib"),
             Text(
-              extent={{-124,110},{-93,90}}, 
-              lineColor={128,128,128}, 
-              textString="ia"), 
+              extent={{-124,110},{-93,90}},
+              lineColor={128,128,128},
+              textString="ia"),
             Line(
-              points={{50,6},{50,80},{80,80},{80,100}}, 
-              color={95,95,95}, 
-              thickness=2), 
+              points={{50,6},{50,80},{80,80},{80,100}},
+              color={95,95,95},
+              thickness=2),
             Text(
-              extent={{-44,111},{-8,91}}, 
-              lineColor={128,128,128}, 
-              textString="im"), 
+              extent={{-44,111},{-8,91}},
+              lineColor={128,128,128},
+              textString="im"),
             Line(
-              points={{19,6},{19,80},{0,80},{0,100}}, 
-              color={95,95,95}, 
-              thickness=2), 
+              points={{19,6},{19,80},{0,80},{0,100}},
+              color={95,95,95},
+              thickness=2),
             Rectangle(
-              extent={{80,24},{100,30}}, 
-              pattern=LinePattern.None, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              extent={{80,24},{100,30}},
+              pattern=LinePattern.None,
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Rectangle(
-              extent={{50,14},{80,20}}, 
-              pattern=LinePattern.None, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              extent={{50,14},{80,20}},
+              pattern=LinePattern.None,
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Line(
-              points={{95,80},{79,80}}, 
-              color={135,135,135}, 
-              thickness=2), 
+              points={{95,80},{79,80}},
+              color={135,135,135},
+              thickness=2),
             Line(
-              points={{95,40},{90,40},{90,30}}, 
-              color={135,135,135}, 
+              points={{95,40},{90,40},{90,30}},
+              color={135,135,135},
               thickness=2)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -4822,7 +4794,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
               points={{3,30},{-43,30}},
               color={128,128,128},
               arrow={Arrow.None,Arrow.Filled})}));
-      
+
       Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint
         prismatic(
         animation=animation,
@@ -4869,10 +4841,10 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
         annotation (Placement(transformation(extent={{-20,-60},{0,-40}},
               rotation=0)));
-    protected 
-      Real aux 
+    protected
+      Real aux
         "Denominator used to compute force in rod connecting universal and spherical joint";
-    equation 
+    equation
       /* Compute the unknown force in rod1 connecting the universal and
      the spherical joint by a force balance at the prismatic joint
         0 = -prismatic.frame_b.f + frame_ib.f + frame_im.f - rod1.frame_b.f
@@ -4914,7 +4886,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       else
         totalPower = 0;
       end if;
-      
+
       connect(prismatic.frame_b, rod2.frame_a) annotation (Line(
           points={{36,0},{0,0}},
           color={95,95,95},
@@ -4982,92 +4954,92 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
           color={0,0,127},
           smooth=Smooth.None));
     end JointUSP;
-    
-    model JointSSR 
-      "Spherical - spherical - revolute joint aggregation with mass (no constraints, no potential states)" 
-      
+
+    model JointSSR
+      "Spherical - spherical - revolute joint aggregation with mass (no constraints, no potential states)"
+
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
       import Modelica.Mechanics.MultiBody.Types;
-      
+
       extends Interfaces.PartialTwoFramesDoubleSize;
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib
         "Coordinate system at origin of frame_b fixed at connecting rod of spherical and revolute joint"
         annotation (Placement(transformation(
             origin={80,100},
             extent={{-8,8},{8,-8}},
             rotation=270)));
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im
         "Coordinate system at origin of spherical joint in the middle fixed at connecting rod of spherical and revolute joint"
         annotation (Placement(transformation(
             origin={0,100},
             extent={{8,-8},{-8,8}},
             rotation=270)));
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a axis
         "1-dim. rotational flange that drives the revolute joint" 
         annotation (Placement(transformation(extent={{105,85},{95,75}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing 
+      Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing
         "1-dim. rotational flange of the drive bearing of the revolute joint" 
         annotation (Placement(transformation(extent={{95,45},{105,35}},
               rotation=0)));
-      
+
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      parameter Boolean showMass=true 
+      parameter Boolean showMass=true
         "= true, if point mass on rod 1 shall be shown (provided animation = true and rod1Mass > 0)";
-      parameter SI.Length rod1Length(min=Modelica.Constants.eps, start = 1) 
+      parameter SI.Length rod1Length(min=Modelica.Constants.eps, start = 1)
         "Distance between the origins of the two spherical joints ";
-      parameter SI.Mass rod1Mass(min=0)=0 
+      parameter SI.Mass rod1Mass(min=0)=0
         "Mass of rod 1 (= point mass located in middle of rod connecting the two spherical joints)";
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,0,1}
         "Axis of revolute joint fixed and resolved in frame_b";
-      parameter SI.Position rRod2_ib[3]={1,0,0} 
+      parameter SI.Position rRod2_ib[3]={1,0,0}
         "Vector from origin of frame_ib to spherical joint in the middle, resolved in frame_ib";
-      parameter Cv.NonSIunits.Angle_deg phi_offset=0 
+      parameter Cv.NonSIunits.Angle_deg phi_offset=0
         "Relative angle offset of revolute joint (angle = phi(t) + from_deg(phi_offset))";
-      parameter Cv.NonSIunits.Angle_deg phi_guess=0 
+      parameter Cv.NonSIunits.Angle_deg phi_guess=0
         "Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)|is minimal";
-      parameter SI.Diameter sphereDiameter=world.defaultJointLength 
+      parameter SI.Diameter sphereDiameter=world.defaultJointLength
         "Diameter of the spheres representing the two spherical joints" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.
-           JointColor 
+           JointColor
         "Color of the spheres representing the two spherical joints" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter rod1Diameter=sphereDiameter/Types.Defaults.
-          JointRodDiameterFraction 
+          JointRodDiameterFraction
         "Diameter of rod 1 connecting the two spherical joints" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color rod1Color=Modelica.Mechanics.MultiBody.Types.Defaults.
           RodColor "Color of rod 1 connecting the two spherical joint" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Diameter rod2Diameter=rod1Diameter 
+      parameter SI.Diameter rod2Diameter=rod1Diameter
         "Diameter of rod 2 connecting the revolute joint and spherical joint 2"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color rod2Color=rod1Color 
+      input Types.Color rod2Color=rod1Color
         "Color of rod 2 connecting the revolute joint and spherical joint 2" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Diameter revoluteDiameter=world.defaultJointWidth 
+      parameter SI.Diameter revoluteDiameter=world.defaultJointWidth
         "Diameter of cylinder representing the revolute joint" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Distance revoluteLength=world.defaultJointLength 
+      parameter SI.Distance revoluteLength=world.defaultJointLength
         "Length of cylinder representing the revolute joint" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color revoluteColor=Modelica.Mechanics.MultiBody.Types.
-          Defaults.JointColor 
+          Defaults.JointColor
         "Color of cylinder representing the revolute joint" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter Boolean checkTotalPower=false 
+      parameter Boolean checkTotalPower=false
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
-      SI.Position aux 
+      SI.Position aux
         "Denominator used to compute force in rod connecting universal and spherical joint";
-      SI.Force f_rod 
+      SI.Force f_rod
         "Constraint force in direction of the rod (positive, if rod is pressed)";
-      SI.Power totalPower 
+      SI.Power totalPower
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       annotation (
         Window(
@@ -5121,106 +5093,106 @@ component).
             grid={1,1},
             initialScale=0.2), graphics={
             Text(
-              extent={{-141,-41},{139,-66}}, 
-              lineColor={0,0,255}, 
-              textString="%name"), 
+              extent={{-141,-41},{139,-66}},
+              lineColor={0,0,255},
+              textString="%name"),
             Ellipse(
-              extent={{-100,-30},{-40,30}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={192,192,192}), 
+              extent={{-100,-30},{-40,30}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={192,192,192}),
             Ellipse(
-              extent={{-93,-22},{-48,23}}, 
-              lineColor={160,160,164}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-93,-22},{-48,23}},
+              lineColor={160,160,164},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-63,33},{-39,-33}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-63,33},{-39,-33}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-40,-30},{20,30}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={192,192,192}), 
+              extent={{-40,-30},{20,30}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={192,192,192}),
             Ellipse(
-              extent={{-33,-22},{12,23}}, 
-              lineColor={192,192,192}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-33,-22},{12,23}},
+              lineColor={192,192,192},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-44,31},{-19,-30}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-44,31},{-19,-30}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-23,10},{-3,-10}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-23,10},{-3,-10}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{19,6},{61,-6}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{19,6},{61,-6}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{60,-30},{76,30}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{60,-30},{76,30}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{85,-30},{100,30}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{85,-30},{100,30}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{76,10},{85,-10}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
-            Rectangle(extent={{60,30},{76,-30}}, lineColor={0,0,0}), 
-            Rectangle(extent={{85,30},{100,-30}}, lineColor={0,0,0}), 
+              extent={{76,10},{85,-10}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Rectangle(extent={{60,30},{76,-30}}, lineColor={0,0,0}),
+            Rectangle(extent={{85,30},{100,-30}}, lineColor={0,0,0}),
             Text(
-              extent={{88,112},{127,92}}, 
-              lineColor={128,128,128}, 
-              textString="ib"), 
+              extent={{88,112},{127,92}},
+              lineColor={128,128,128},
+              textString="ib"),
             Ellipse(
-              extent={{-80,11},{-60,-9}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-80,11},{-60,-9}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-62,6},{-21,-5}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{-62,6},{-21,-5}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Line(
-              points={{80,80},{100,80}}, 
-              color={95,95,95}, 
-              thickness=2), 
+              points={{80,80},{100,80}},
+              color={95,95,95},
+              thickness=2),
             Line(
-              points={{19,6},{19,80},{0,80},{0,100}}, 
-              color={95,95,95}, 
-              thickness=2), 
+              points={{19,6},{19,80},{0,80},{0,100}},
+              color={95,95,95},
+              thickness=2),
             Text(
-              extent={{-47,111},{-8,92}}, 
-              lineColor={128,128,128}, 
-              textString="im"), 
+              extent={{-47,111},{-8,92}},
+              lineColor={128,128,128},
+              textString="im"),
             Line(
-              points={{68,30},{68,80},{80,80},{80,98}}, 
-              color={95,95,95}, 
-              thickness=2), 
+              points={{68,30},{68,80},{80,80},{80,98}},
+              color={95,95,95},
+              thickness=2),
             Line(
-              points={{90,30},{90,40},{95,40}}, 
-              color={95,95,95}, 
+              points={{90,30},{90,40},{95,40}},
+              color={95,95,95},
               thickness=2)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1},
             initialScale=0.2), graphics));
-      
+
       Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint
         revolute(
         animation=animation,
@@ -5262,7 +5234,7 @@ component).
       Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
               rotation=0)));
-    equation 
+    equation
       /* Compute the unknown force in the rod of the rod1 joint
      by a torque balance at the revolute joint:
        0 = frame_b.t + frame_ib.t + frame_im.t + cross(rRod2_ib, frame_im.f)
@@ -5285,14 +5257,14 @@ component).
                    / (cross(e,rRod2_ib)*Frames.resolve2(rod1.R_rel, rod1.eRod_a)))
      Additionally, a guard against division by zero is introduced
   */
-      
+
       aux = cross(revolute.e, rRod2_ib)*Frames.resolveRelative(rod1.eRod_a,
         rod1.frame_a.R, rod1.frame_b.R);
       f_rod = (-revolute.tau - revolute.e*(frame_ib.t + frame_im.t + cross(
         rRod2_ib, frame_im.f) - cross(rRod2_ib, Frames.resolveRelative(rod1.
         f_b_a1, rod1.frame_a.R, rod1.frame_b.R))))/noEvent(if abs(aux) < 1.e-10 then 
               1.e-10 else aux);
-      
+
       // Measure power for test purposes
       if checkTotalPower then
         totalPower = frame_a.f*Frames.resolve2(frame_a.R, der(frame_a.r_0)) +
@@ -5308,7 +5280,7 @@ component).
       else
         totalPower = 0;
       end if;
-      
+
       connect(revolute.frame_b, rod2.frame_a) annotation (Line(
           points={{35,0},{15,0}},
           color={95,95,95},
@@ -5372,97 +5344,97 @@ component).
           color={0,0,127},
           smooth=Smooth.None));
     end JointSSR;
-    
-    model JointSSP 
-      "Spherical - spherical - prismatic joint aggregation with mass (no constraints, no potential states)" 
-      
+
+    model JointSSP
+      "Spherical - spherical - prismatic joint aggregation with mass (no constraints, no potential states)"
+
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
       import Modelica.Mechanics.MultiBody.Types;
-      
+
       extends Interfaces.PartialTwoFramesDoubleSize;
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib
         "Coordinate system at origin of frame_b fixed at connecting rod of spherical and prismatic joint"
         annotation (Placement(transformation(
             origin={80,100},
             extent={{-8,8},{8,-8}},
             rotation=270)));
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im
         "Coordinate system at origin of spherical joint in the middle fixed at connecting rod of spherical and prismatic joint"
         annotation (Placement(transformation(
             origin={0,100},
             extent={{8,-8},{-8,8}},
             rotation=270)));
-      Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
+      Modelica.Mechanics.Translational.Interfaces.Flange_a axis
         "1-dim. translational flange that drives the prismatic joint" 
         annotation (Placement(transformation(extent={{95,75},{105,85}},
               rotation=0)));
-      Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
+      Modelica.Mechanics.Translational.Interfaces.Flange_b bearing
         "1-dim. translational flange of the drive bearing of the prismatic joint"
         annotation (Placement(transformation(extent={{105,35},{95,45}},
               rotation=0)));
-      
+
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      parameter Boolean showMass=true 
+      parameter Boolean showMass=true
         "= true, if point mass on rod 1 shall be shown (provided animation = true and rod1Mass > 0)";
-      parameter SI.Length rod1Length(min=Modelica.Constants.eps, start = 1) 
+      parameter SI.Length rod1Length(min=Modelica.Constants.eps, start = 1)
         "Distance between the origins of the two spherical joints ";
-      parameter SI.Mass rod1Mass(min=0)=0 
+      parameter SI.Mass rod1Mass(min=0)=0
         "Mass of rod 1 (= point mass located in middle of rod connecting the two spherical joints)";
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={0,0,1}
         "Axis of prismatic joint fixed and resolved in frame_b";
-      parameter SI.Position rRod2_ib[3]={1,0,0} 
+      parameter SI.Position rRod2_ib[3]={1,0,0}
         "Vector from origin of frame_ib to spherical joint in the middle, resolved in frame_ib";
-      parameter SI.Position s_offset=0 
+      parameter SI.Position s_offset=0
         "Relative distance offset of prismatic joint (distance between frame_b and frame_ib = s(t) + s_offset)";
-      parameter SI.Position s_guess=0 
+      parameter SI.Position s_guess=0
         "Select the configuration such that at initial time |s(t0)-s_guess|is minimal";
-      
-      parameter SI.Diameter sphereDiameter=world.defaultJointLength 
+
+      parameter SI.Diameter sphereDiameter=world.defaultJointLength
         "Diameter of the spheres representing the two spherical joints" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.
-           JointColor 
+           JointColor
         "Color of the spheres representing the two spherical joints" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter rod1Diameter=sphereDiameter/Types.Defaults.
-          JointRodDiameterFraction 
+          JointRodDiameterFraction
         "Diameter of rod 1 connecting the two spherical joints" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color rod1Color=Modelica.Mechanics.MultiBody.Types.Defaults.
           RodColor "Color of rod 1 connecting the two spherical joint" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      
-      parameter SI.Diameter rod2Diameter=rod1Diameter 
+
+      parameter SI.Diameter rod2Diameter=rod1Diameter
         "Diameter of rod 2 connecting the revolute joint and spherical joint 2"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color rod2Color=rod1Color 
+      input Types.Color rod2Color=rod1Color
         "Color of rod 2 connecting the revolute joint and spherical joint 2" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      
-      parameter Types.Axis boxWidthDirection={0,1,0} 
+
+      parameter Types.Axis boxWidthDirection={0,1,0}
         "Vector in width direction of prismatic joint box, resolved in frame_b"
         annotation (Evaluate=true, Dialog(tab="Animation", group=
               "if animation = true", enable=animation));
-      parameter SI.Distance boxWidth=world.defaultJointWidth 
+      parameter SI.Distance boxWidth=world.defaultJointWidth
         "Width of prismatic joint box" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint box" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+      input Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of prismatic joint box" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter Boolean checkTotalPower=false 
+      parameter Boolean checkTotalPower=false
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
-      Real aux 
+      Real aux
         "Denominator used to compute force in rod connecting universal and spherical joint";
-      SI.Force f_rod 
+      SI.Force f_rod
         "Constraint force in direction of the rod (positive, if rod is pressed)";
-      SI.Power totalPower 
+      SI.Power totalPower
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       annotation (
         Window(
@@ -5516,111 +5488,111 @@ component).
             grid={1,1},
             initialScale=0.2), graphics={
             Text(
-              extent={{-140,-40},{140,-65}}, 
-              lineColor={0,0,255}, 
-              textString="%name"), 
+              extent={{-140,-40},{140,-65}},
+              lineColor={0,0,255},
+              textString="%name"),
             Ellipse(
-              extent={{-100,-30},{-40,30}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={192,192,192}), 
+              extent={{-100,-30},{-40,30}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={192,192,192}),
             Ellipse(
-              extent={{-93,-22},{-48,23}}, 
-              lineColor={160,160,164}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-93,-22},{-48,23}},
+              lineColor={160,160,164},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-63,33},{-39,-33}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-63,33},{-39,-33}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-40,-30},{20,30}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={192,192,192}), 
+              extent={{-40,-30},{20,30}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={192,192,192}),
             Ellipse(
-              extent={{-33,-22},{12,23}}, 
-              lineColor={192,192,192}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-33,-22},{12,23}},
+              lineColor={192,192,192},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-44,31},{-19,-30}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-44,31},{-19,-30}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-23,10},{-3,-10}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-23,10},{-3,-10}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{19,6},{61,-6}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{19,6},{61,-6}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Text(
-              extent={{89,115},{132,92}}, 
-              lineColor={128,128,128}, 
-              textString="ib"), 
+              extent={{89,115},{132,92}},
+              lineColor={128,128,128},
+              textString="ib"),
             Ellipse(
-              extent={{-80,11},{-60,-9}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-80,11},{-60,-9}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-62,6},{-21,-5}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{-62,6},{-21,-5}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Line(
-              points={{19,6},{19,80},{0,80},{0,100}}, 
-              color={95,95,95}, 
-              thickness=2), 
+              points={{19,6},{19,80},{0,80},{0,100}},
+              color={95,95,95},
+              thickness=2),
             Text(
-              extent={{-49,114},{-11,92}}, 
-              lineColor={128,128,128}, 
-              textString="im"), 
+              extent={{-49,114},{-11,92}},
+              lineColor={128,128,128},
+              textString="im"),
             Rectangle(
-              extent={{50,20},{80,-20}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{50,20},{80,-20}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{80,30},{100,-30}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{80,30},{100,-30}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{50,14},{80,20}}, 
-              pattern=LinePattern.None, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              extent={{50,14},{80,20}},
+              pattern=LinePattern.None,
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Rectangle(
-              extent={{80,24},{100,30}}, 
-              pattern=LinePattern.None, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              extent={{80,24},{100,30}},
+              pattern=LinePattern.None,
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Line(
-              points={{50,6},{50,80},{80,80},{80,100}}, 
-              color={95,95,95}, 
-              thickness=2), 
+              points={{50,6},{50,80},{80,80},{80,100}},
+              color={95,95,95},
+              thickness=2),
             Line(
-              points={{101,80},{80,80}}, 
-              color={95,95,95}, 
-              thickness=2), 
+              points={{101,80},{80,80}},
+              color={95,95,95},
+              thickness=2),
             Line(
-              points={{99,40},{90,40},{90,30}}, 
-              color={95,95,95}, 
+              points={{99,40},{90,40},{90,30}},
+              color={95,95,95},
               thickness=2)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1},
             initialScale=0.2), graphics));
-      
+
       Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint
         prismatic(
         animation=animation,
@@ -5662,7 +5634,7 @@ component).
       Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
               rotation=0)));
-    equation 
+    equation
       /* Compute the unknown force in the rod of the rod1 joint
      by a force balance:
        0 = frame_b.f + frame_ib.f + frame_im.f + 
@@ -5685,7 +5657,7 @@ component).
         rod1.frame_b.R);
       f_rod = (-prismatic.f - prismatic.e*(frame_ib.f + frame_im.f))/
         noEvent(if abs(aux) < 1.e-10 then 1.e-10 else aux);
-      
+
       // Measure power for test purposes
       if checkTotalPower then
         totalPower = frame_a.f*Frames.resolve2(frame_a.R, der(frame_a.r_0)) +
@@ -5701,7 +5673,7 @@ component).
       else
         totalPower = 0;
       end if;
-      
+
       connect(prismatic.frame_b, rod2.frame_a) annotation (Line(
           points={{35,0},{15,0}},
           color={95,95,95},
@@ -5765,91 +5737,91 @@ component).
           color={0,0,127},
           smooth=Smooth.None));
     end JointSSP;
-    
-    model JointRRR 
-      "Planar revolute - revolute - revolute joint aggregation (no constraints, no potential states)" 
-      
+
+    model JointRRR
+      "Planar revolute - revolute - revolute joint aggregation (no constraints, no potential states)"
+
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
       import Modelica.Mechanics.MultiBody.Types;
-      
+
       extends Interfaces.PartialTwoFramesDoubleSize;
-      
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
+
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia
         "Coordinate system at origin of frame_a fixed at connecting rod of left and middle revolute joint"
         annotation (Placement(transformation(
             origin={-80,100},
             extent={{-8,-8},{8,8}},
             rotation=90)));
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib
         "Coordinate system at origin of frame_b fixed at connecting rod of middle and right revolute joint"
         annotation (Placement(transformation(
             origin={80,100},
             extent={{-8,8},{8,-8}},
             rotation=270)));
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im
         "Coordinate system at origin of revolute joint in the middle fixed at connecting rod of middle and right revolute joint"
         annotation (Placement(transformation(
             origin={0,100},
             extent={{8,-8},{-8,8}},
             rotation=270)));
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a axis
         "1-dim. rotational flange that drives the right revolute joint at frame_b"
         annotation (Placement(transformation(extent={{105,85},{95,75}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing 
+      Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing
         "1-dim. rotational flange of the drive bearing of the right revolute joint at frame_b"
         annotation (Placement(transformation(extent={{95,45},{105,35}},
               rotation=0)));
-      
+
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={0,0,1}
         "Axes of revolute joints resolved in frame_a (all axes are parallel to each other)"
         annotation (Evaluate=true);
-      final parameter Real n_b[3](fixed=false) = {0,0,1} 
+      final parameter Real n_b[3](fixed=false) = {0,0,1}
         "Axis of revolute joint fixed and resolved in frame_b" 
         annotation (Evaluate=true);
-      parameter SI.Position rRod1_ia[3]={1,0,0} 
+      parameter SI.Position rRod1_ia[3]={1,0,0}
         "Vector from origin of frame_a to revolute joint in the middle, resolved in frame_ia"
         annotation (Evaluate=true);
-      parameter SI.Position rRod2_ib[3]={-1,0,0} 
+      parameter SI.Position rRod2_ib[3]={-1,0,0}
         "Vector from origin of frame_ib to revolute joint in the middle, resolved in frame_ib";
-      parameter Cv.NonSIunits.Angle_deg phi_offset=0 
+      parameter Cv.NonSIunits.Angle_deg phi_offset=0
         "Relative angle offset of revolute joint at frame_b (angle = phi(t) + from_deg(phi_offset))";
-      parameter Cv.NonSIunits.Angle_deg phi_guess=0 
+      parameter Cv.NonSIunits.Angle_deg phi_guess=0
         "Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)|is minimal";
-      parameter SI.Distance cylinderLength=world.defaultJointLength 
+      parameter SI.Distance cylinderLength=world.defaultJointLength
         "Length of cylinders representing the revolute joints" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
+      parameter SI.Distance cylinderDiameter=world.defaultJointWidth
         "Diameter of cylinders representing the revolute joints" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+      input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of cylinders representing the revolute joints" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Diameter rodDiameter=1.1*cylinderDiameter 
+      parameter SI.Diameter rodDiameter=1.1*cylinderDiameter
         "Diameter of the two rods connecting the revolute joints" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
+      input Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
         "Color of the two rods connecting the revolute joint" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      
-      parameter Boolean checkTotalPower=false 
+
+      parameter Boolean checkTotalPower=false
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
       final parameter Real e_a[3]=Modelica.Math.Vectors.normalize(
-                                                   n_a) 
+                                                   n_a)
         "Unit vector along axes of rotations, resolved in frame_a";
-      final parameter Real e_ia[3]=jointUSR.e2_ia 
+      final parameter Real e_ia[3]=jointUSR.e2_ia
         "Unit vector along axes of rotations, resolved in frame_ia";
-      final parameter Real e_b[3]=jointUSR.revolute.e 
+      final parameter Real e_b[3]=jointUSR.revolute.e
         "Unit vector along axes of rotations, resolved in frame_b, frame_ib and frame_im";
-      SI.Power totalPower=jointUSR.totalPower 
+      SI.Power totalPower=jointUSR.totalPower
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
-      
+
       annotation (
         Window(
           x=0.19,
@@ -5904,101 +5876,101 @@ are connected by rigid rods.
             grid={1,1},
             initialScale=0.2), graphics={
             Rectangle(
-              extent={{-90,90},{90,-90}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-90,90},{90,-90}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-140,-55},{140,-80}}, 
-              lineColor={0,0,255}, 
-              textString="%name"), 
+              extent={{-140,-55},{140,-80}},
+              lineColor={0,0,255},
+              textString="%name"),
             Text(
-              extent={{36,114},{71,92}}, 
-              lineColor={128,128,128}, 
-              textString="ib"), 
+              extent={{36,114},{71,92}},
+              lineColor={128,128,128},
+              textString="ib"),
             Text(
-              extent={{-126,115},{-87,90}}, 
-              lineColor={128,128,128}, 
-              textString="ia"), 
+              extent={{-126,115},{-87,90}},
+              lineColor={128,128,128},
+              textString="ia"),
             Ellipse(
-              extent={{-100,25},{-50,-25}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,25},{-50,-25}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-85,10},{-65,-10}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-85,10},{-65,-10}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{50,25},{100,-25}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{50,25},{100,-25}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{65,10},{85,-10}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{65,10},{85,-10}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-26,80},{24,30}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-26,80},{24,30}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-10,66},{10,46}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-10,66},{10,46}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{-71,9},{-24,45},{-19,39},{-66,3},{-71,9}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-71,9},{-24,45},{-19,39},{-66,3},{-71,9}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{54,12},{5,47},{10,52},{59,18},{54,12}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{54,12},{5,47},{10,52},{59,18},{54,12}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{100,-4},{83,-4},{84,3},{100,3},{100,-4}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{100,-4},{83,-4},{84,3},{100,3},{100,-4}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{80,24},{80,80},{80,80},{80,100}}, 
-              color={95,95,95}, 
-              thickness=2), 
+              points={{80,24},{80,80},{80,80},{80,100}},
+              color={95,95,95},
+              thickness=2),
             Text(
-              extent={{-128,-29},{136,-47}}, 
-              lineColor={0,0,0}, 
-              textString="n_a=%n_a"), 
+              extent={{-128,-29},{136,-47}},
+              lineColor={0,0,0},
+              textString="n_a=%n_a"),
             Line(
-              points={{0,57},{0,86},{0,86},{0,100}}, 
-              color={95,95,95}, 
-              thickness=2), 
+              points={{0,57},{0,86},{0,86},{0,100}},
+              color={95,95,95},
+              thickness=2),
             Text(
-              extent={{-46,114},{-7,91}}, 
-              lineColor={128,128,128}, 
-              textString="im"), 
+              extent={{-46,114},{-7,91}},
+              lineColor={128,128,128},
+              textString="im"),
             Line(
-              points={{-80,100},{-80,8}}, 
-              color={95,95,95}, 
-              thickness=2), 
+              points={{-80,100},{-80,8}},
+              color={95,95,95},
+              thickness=2),
             Line(
-              points={{80,80},{101,80}}, 
-              color={95,95,95}, 
-              thickness=2), 
+              points={{80,80},{101,80}},
+              color={95,95,95},
+              thickness=2),
             Line(
-              points={{100,40},{93,40},{93,3}}, 
-              color={95,95,95}, 
+              points={{100,40},{93,40},{93,3}},
+              color={95,95,95},
               thickness=2)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1},
             initialScale=0.2), graphics));
-      
+
       JointUSR jointUSR(
         animation=false,
         n1_a=n_a,
@@ -6010,8 +5982,8 @@ are connected by rigid rods.
         checkTotalPower=checkTotalPower,
         phi_guess=phi_guess) annotation (Placement(transformation(extent={{-30,
                 -20},{10,20}}, rotation=0)));
-      
-    protected 
+
+    protected
      Visualizers.Advanced.Shape shape_rev1(
         shapeType="cylinder",
         color=cylinderColor,
@@ -6072,9 +6044,9 @@ are connected by rigid rods.
         widthDirection=e_b,
         r=frame_ib.r_0,
         R=frame_ib.R) if world.enableAnimation and animation;
-    initial equation 
+    initial equation
       n_b = Frames.resolve2(frame_b.R, Frames.resolve1(frame_a.R, n_a));
-    equation 
+    equation
       connect(jointUSR.frame_a, frame_a) 
         annotation (Line(
           points={{-30,0},{-100,0}},
@@ -6103,102 +6075,102 @@ are connected by rigid rods.
       connect(jointUSR.bearing, bearing) 
         annotation (Line(points={{10,8},{94,8},{94,40},{100,40}}, color={0,0,0}));
     end JointRRR;
-    
-    model JointRRP 
-      "Planar revolute - revolute - prismatic joint aggregation (no constraints, no potential states)" 
-      
+
+    model JointRRP
+      "Planar revolute - revolute - prismatic joint aggregation (no constraints, no potential states)"
+
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
       import Modelica.Mechanics.MultiBody.Types;
-      
+
       extends Interfaces.PartialTwoFramesDoubleSize;
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia
         "Coordinate system at origin of frame_a fixed at connecting rod of revolute joints"
         annotation (Placement(transformation(
             origin={-80,100},
             extent={{-8,-8},{8,8}},
             rotation=90)));
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_ib
         "Coordinate system at origin of frame_b fixed at connecting rod of revolute and prismatic joint"
         annotation (Placement(transformation(
             origin={80,100},
             extent={{-8,8},{8,-8}},
             rotation=270)));
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_im
         "Coordinate system at origin of revolute joint in the middle fixed at connecting rod of revolute and prismatic joint"
         annotation (Placement(transformation(
             origin={0,100},
             extent={{8,-8},{-8,8}},
             rotation=270)));
-      Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
+      Modelica.Mechanics.Translational.Interfaces.Flange_a axis
         "1-dim. translational flange that drives the prismatic joint" 
         annotation (Placement(transformation(extent={{95,75},{105,85}},
               rotation=0)));
-      Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
+      Modelica.Mechanics.Translational.Interfaces.Flange_b bearing
         "1-dim. translational flange of the drive bearing of the prismatic joint"
         annotation (Placement(transformation(extent={{105,35},{95,45}},
               rotation=0)));
-      
+
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={0,0,1}
         "Axes of the two revolute joints resolved in frame_a (both axes are parallel to each other)"
         annotation (Evaluate=true);
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={-1,0,0} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n_b={-1,0,0}
         "Axis of prismatic joint fixed and resolved in frame_b (must be orthogonal to revolute joint axes)"
         annotation (Evaluate=true);
-      parameter SI.Position rRod1_ia[3]={1,0,0} 
+      parameter SI.Position rRod1_ia[3]={1,0,0}
         "Vector from origin of frame_a to revolute joint in the middle, resolved in frame_ia"
         annotation (Evaluate=true);
-      parameter SI.Position rRod2_ib[3]={-1,0,0} 
+      parameter SI.Position rRod2_ib[3]={-1,0,0}
         "Vector from origin of frame_ib to revolute joint in the middle, resolved in frame_ib (frame_ib is parallel to frame_b)";
-      parameter SI.Position s_offset=0 
+      parameter SI.Position s_offset=0
         "Relative distance offset of prismatic joint (distance between the prismatic joint frames = s(t) + s_offset)";
-      parameter SI.Position s_guess=0 
+      parameter SI.Position s_guess=0
         "Select the configuration such that at initial time |s(t0)-s_guess|is minimal";
-      parameter SI.Distance cylinderLength=world.defaultJointLength 
+      parameter SI.Distance cylinderLength=world.defaultJointLength
         "Length of cylinders representing the revolute joints" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
+      parameter SI.Distance cylinderDiameter=world.defaultJointWidth
         "Diameter of cylinders representing the revolute joints" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+      input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of cylinders representing the revolute joints" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter Types.Axis boxWidthDirection={0,1,0} 
+      parameter Types.Axis boxWidthDirection={0,1,0}
         "Vector in width direction of prismatic joint, resolved in frame_b" 
         annotation (Evaluate=true, Dialog(tab="Animation", group=
               "if animation = true", enable=animation));
-      parameter SI.Distance boxWidth=world.defaultJointWidth 
+      parameter SI.Distance boxWidth=world.defaultJointWidth
         "Width of prismatic joint box" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint box" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color boxColor=cylinderColor "Color of prismatic joint box" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Diameter rodDiameter=1.1*cylinderDiameter 
+      parameter SI.Diameter rodDiameter=1.1*cylinderDiameter
         "Diameter of the two rods connecting the joints" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
+      input Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
         "Color of the two rods connecting the joints" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter Boolean checkTotalPower=false 
+      parameter Boolean checkTotalPower=false
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
       final parameter Real e_a[3]=Modelica.Math.Vectors.normalize(
-                                                   n_a) 
+                                                   n_a)
         "Unit vector along axes of rotations, resolved in frame_a";
-      final parameter Real e_ia[3]=jointUSP.e2_ia 
+      final parameter Real e_ia[3]=jointUSP.e2_ia
         "Unit vector along axes of rotations, resolved in frame_ia";
-      final parameter Real e_im[3](each fixed=false) 
+      final parameter Real e_im[3](each fixed=false)
         "Unit vector along axes of rotations, resolved in frame_im";
-      final parameter Real e_b[3]=jointUSP.prismatic.e 
+      final parameter Real e_b[3]=jointUSP.prismatic.e
         "Unit vector along axes of translation of the prismatic joint, resolved in frame_b and frame_ib";
-      SI.Power totalPower=jointUSP.totalPower 
+      SI.Power totalPower=jointUSP.totalPower
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
-      
+
       annotation (
         Window(
           x=0.19,
@@ -6255,108 +6227,108 @@ and 1 prismatic joint are connected by rigid rods.
             grid={1,1},
             initialScale=0.2), graphics={
             Rectangle(
-              extent={{-90,90},{90,-90}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-90,90},{90,-90}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-139,-53},{141,-78}}, 
-              lineColor={0,0,255}, 
-              textString="%name"), 
+              extent={{-139,-53},{141,-78}},
+              lineColor={0,0,255},
+              textString="%name"),
             Text(
-              extent={{26,124},{68,93}}, 
-              lineColor={128,128,128}, 
-              textString="ib"), 
+              extent={{26,124},{68,93}},
+              lineColor={128,128,128},
+              textString="ib"),
             Text(
-              extent={{-134,128},{-94,94}}, 
-              lineColor={128,128,128}, 
-              textString="ia"), 
+              extent={{-134,128},{-94,94}},
+              lineColor={128,128,128},
+              textString="ia"),
             Ellipse(
-              extent={{-100,25},{-50,-25}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-100,25},{-50,-25}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-85,10},{-65,-10}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-85,10},{-65,-10}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-26,80},{24,30}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-26,80},{24,30}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-10,66},{10,46}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-10,66},{10,46}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{-71,9},{-24,45},{-19,39},{-66,3},{-71,9}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-71,9},{-24,45},{-19,39},{-66,3},{-71,9}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{54,5},{5,47},{8,53},{58,11},{54,5}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{54,5},{5,47},{8,53},{58,11},{54,5}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-128,-29},{139,-47}}, 
-              lineColor={0,0,0}, 
-              textString="n_a=%n_a"), 
+              extent={{-128,-29},{139,-47}},
+              lineColor={0,0,0},
+              textString="n_a=%n_a"),
             Line(
-              points={{0,57},{0,86},{0,86},{0,100}}, 
-              color={95,95,95}, 
-              thickness=2), 
+              points={{0,57},{0,86},{0,86},{0,100}},
+              color={95,95,95},
+              thickness=2),
             Text(
-              extent={{-55,126},{-15,92}}, 
-              lineColor={128,128,128}, 
-              textString="im"), 
+              extent={{-55,126},{-15,92}},
+              lineColor={128,128,128},
+              textString="im"),
             Line(
-              points={{-80,100},{-80,8}}, 
-              color={95,95,95}, 
-              thickness=2), 
+              points={{-80,100},{-80,8}},
+              color={95,95,95},
+              thickness=2),
             Line(
-              points={{80,80},{101,80}}, 
-              color={95,95,95}, 
-              thickness=2), 
+              points={{80,80},{101,80}},
+              color={95,95,95},
+              thickness=2),
             Line(
-              points={{100,40},{93,40},{93,3}}, 
-              color={95,95,95}, 
-              thickness=2), 
+              points={{100,40},{93,40},{93,3}},
+              color={95,95,95},
+              thickness=2),
             Rectangle(
-              extent={{80,15},{100,21}}, 
-              pattern=LinePattern.None, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              extent={{80,15},{100,21}},
+              pattern=LinePattern.None,
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Rectangle(
-              extent={{53,5},{80,11}}, 
-              pattern=LinePattern.None, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              extent={{53,5},{80,11}},
+              pattern=LinePattern.None,
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Rectangle(
-              extent={{53,5},{80,-15}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{53,5},{80,-15}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{80,15},{100,-21}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{80,15},{100,-21}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{80,100},{80,80},{57,11}}, 
-              color={95,95,95}, 
+              points={{80,100},{80,80},{57,11}},
+              color={95,95,95},
               thickness=2)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1},
             initialScale=0.2), graphics));
-      
+
       JointUSP jointUSP(
         animation=false,
         showUniversalAxes=false,
@@ -6368,8 +6340,8 @@ and 1 prismatic joint are connected by rigid rods.
         rRod2_ib=rRod2_ib,
         checkTotalPower=checkTotalPower) annotation (Placement(transformation(
               extent={{-30,-20},{10,20}}, rotation=0)));
-      
-    protected 
+
+    protected
       Visualizers.Advanced.Shape shape_rev1(
         shapeType="cylinder",
         color=cylinderColor,
@@ -6429,9 +6401,9 @@ and 1 prismatic joint are connected by rigid rods.
         widthDirection=e_b,
         r=frame_ib.r_0,
         R=frame_ib.R) if world.enableAnimation and animation;
-    initial equation 
+    initial equation
       e_im = Frames.resolve2(frame_im.R, Frames.resolve1(frame_a.R, e_a));
-    equation 
+    equation
       connect(jointUSP.frame_a, frame_a) 
         annotation (Line(
           points={{-30,0},{-100,0}},
@@ -6461,58 +6433,58 @@ and 1 prismatic joint are connected by rigid rods.
         annotation (Line(points={{10,8},{94,8},{94,40},{100,40}}, color={0,0,0}));
     end JointRRP;
   end Assemblies;
-  
-  package Internal 
-    "Components used for analytic solution of kinematic loops (use only if you know what you are doing)" 
-    
+
+  package Internal
+    "Components used for analytic solution of kinematic loops (use only if you know what you are doing)"
+
     extends Modelica.Icons.Library;
-    model Revolute 
-      "Revolute joint (1 rotational degree-of-freedom, 2 potential states)" 
-      
+    model Revolute
+      "Revolute joint (1 rotational degree-of-freedom, 2 potential states)"
+
       import SI = Modelica.SIunits;
-      
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a 
+
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
         "Coordinate system fixed to the joint with one cut-force and cut-torque"
         annotation (Placement(transformation(extent={{-116,-16},{-84,16}},
               rotation=0)));
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b 
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b
         "Coordinate system fixed to the joint with one cut-force and cut-torque"
         annotation (Placement(transformation(extent={{84,-16},{116,16}},
               rotation=0)));
-      
-      parameter Boolean animation=true 
+
+      parameter Boolean animation=true
         "= true, if animation shall be enabled (show axis as cylinder)";
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1}
         "Axis of rotation resolved in frame_a (= same as in frame_b)" 
         annotation (Evaluate=true);
-      constant SI.Angle phi_offset=0 
+      constant SI.Angle phi_offset=0
         "Relative angle offset (angle = phi_offset + phi)";
-      parameter SI.Distance cylinderLength=world.defaultJointLength 
+      parameter SI.Distance cylinderLength=world.defaultJointLength
         "Length of cylinder representing the joint axis" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
+      parameter SI.Distance cylinderDiameter=world.defaultJointWidth
         "Diameter of cylinder representing the joint axis" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+      input Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of cylinder representing the joint axis" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient 
-        specularCoefficient =                                                            world.defaultSpecularCoefficient 
+      input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
+        specularCoefficient =                                                            world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter StateSelect stateSelect=StateSelect.prefer 
+      parameter StateSelect stateSelect=StateSelect.prefer
         "Priority to use joint angle phi and w=der(phi) as states" annotation(Dialog(tab="Advanced"));
-      
-      SI.Angle phi(start=0, final stateSelect=stateSelect) 
+
+      SI.Angle phi(start=0, final stateSelect=stateSelect)
         "Relative rotation angle from frame_a to frame_b" 
          annotation (unassignedMessage="
 The rotation angle phi of a revolute joint cannot be determined.
 A non-zero mass might be missing on either side of the parts
 connected to the revolute joint.
 ");
-      SI.AngularVelocity w(start=0, stateSelect=stateSelect) 
+      SI.AngularVelocity w(start=0, stateSelect=stateSelect)
         "First derivative of angle phi (relative angular velocity)";
-      SI.AngularAcceleration a(start=0) 
+      SI.AngularAcceleration a(start=0)
         "Second derivative of angle phi (relative angular acceleration)";
       SI.Torque tau=0 "Driving torque in direction of axis of rotation";
       SI.Angle angle "= phi_offset + phi";
@@ -6531,19 +6503,19 @@ connected to the revolute joint.
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
-              extent={{-100,-59},{-20,61}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{-100,-59},{-20,61}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{-20,10},{20,-10}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-20,10},{20,-10}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{20,-60},{100,60}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
+              extent={{20,-60},{100,60}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
               fillColor={192,192,192})}),
         Documentation(info="<HTML>
 <p>
@@ -6574,12 +6546,12 @@ this force is an unknown quantity).
 </p>
 </HTML>
 "));
-    protected 
+    protected
       outer Modelica.Mechanics.MultiBody.World world;
       parameter Real e[3]=Modelica.Math.Vectors.normalize(
-                                           n) 
+                                           n)
         "Unit vector in direction of rotation axis, resolved in frame_a (= same as in frame_b)";
-      Frames.Orientation R_rel 
+      Frames.Orientation R_rel
         "Relative orientation object from frame_a to frame_b or from frame_b to frame_a";
       Visualizers.Advanced.Shape cylinder(
         shapeType="cylinder",
@@ -6593,21 +6565,21 @@ this force is an unknown quantity).
         r_shape=-e*(cylinderLength/2),
         r=frame_a.r_0,
         R=frame_a.R) if world.enableAnimation and animation;
-    equation 
+    equation
       defineBranch(frame_a.R, frame_b.R);
-      
+
       assert(cardinality(frame_a) > 0,
         "Connector frame_a of revolute joint is not connected");
       assert(cardinality(frame_b) > 0,
         "Connector frame_b of revolute joint is not connected");
-      
+
       angle = phi_offset + phi;
       w = der(phi);
       a = der(w);
-      
+
       // relationships between quantities of frame_a and of frame_b
       frame_b.r_0 = frame_a.r_0;
-      
+
       if rooted(frame_a.R) then
         R_rel = Frames.planarRotation(e, phi_offset + phi, w);
         frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
@@ -6619,56 +6591,56 @@ this force is an unknown quantity).
         frame_b.f = -Frames.resolve1(R_rel, frame_a.f);
         frame_b.t = -Frames.resolve1(R_rel, frame_a.t);
       end if;
-      
+
       // d'Alemberts principle
       tau = -frame_b.t*e;
     end Revolute;
-    
-    model Prismatic 
-      "Prismatic joint (1 translational degree-of-freedom, 2 potential states)" 
-      
+
+    model Prismatic
+      "Prismatic joint (1 translational degree-of-freedom, 2 potential states)"
+
       import SI = Modelica.SIunits;
       extends Modelica.Mechanics.MultiBody.Interfaces.PartialElementaryJoint;
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0}
         "Axis of translation resolved in frame_a (= same as in frame_b)" 
         annotation (Evaluate=true);
-      constant SI.Position s_offset=0 
+      constant SI.Position s_offset=0
         "Relative distance offset (distance between frame_a and frame_b = s_offset + s)"
         annotation (Evaluate=false);
-      parameter Types.Axis boxWidthDirection={0,1,0} 
+      parameter Types.Axis boxWidthDirection={0,1,0}
         "Vector in width direction of box, resolved in frame_a" 
         annotation (Evaluate=true, Dialog(tab="Animation", group=
               "if animation = true", enable=animation));
-      parameter SI.Distance boxWidth=world.defaultJointWidth 
+      parameter SI.Distance boxWidth=world.defaultJointWidth
         "Width of prismatic joint box" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint box" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+      input Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of prismatic joint box" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter StateSelect stateSelect=StateSelect.prefer 
+      parameter StateSelect stateSelect=StateSelect.prefer
         "Priority to use distance s and v=der(s) as states" annotation(Dialog(tab="Advanced"));
       final parameter Real e[3]=Modelica.Math.Vectors.normalize(
-                                                 n) 
+                                                 n)
         "Unit vector in direction of prismatic axis n";
-      
-      SI.Position s(start=0, final stateSelect=stateSelect) 
+
+      SI.Position s(start=0, final stateSelect=stateSelect)
         "Relative distance between frame_a and frame_b" 
         annotation (unassignedMessage="
 The relative distance s of a prismatic joint cannot be determined.
 A non-zero mass might be missing on either side of the parts
 connected to the prismatic joint.");
-      
-      SI.Velocity v(start=0,final stateSelect=stateSelect) 
+
+      SI.Velocity v(start=0,final stateSelect=stateSelect)
         "First derivative of s (relative velocity)";
       SI.Acceleration a(start=0);
       SI.Force f=0 "Actuation force in direction of joint axis";
-      
+
       annotation (
         Window(
           x=0.2,
@@ -6680,38 +6652,38 @@ connected to the prismatic joint.");
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
-              extent={{-100,-50},{-30,41}}, 
-              pattern=LinePattern.None, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              extent={{-100,-50},{-30,41}},
+              pattern=LinePattern.None,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Rectangle(
-              extent={{-100,40},{-30,50}}, 
-              pattern=LinePattern.None, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              extent={{-100,40},{-30,50}},
+              pattern=LinePattern.None,
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Rectangle(
-              extent={{-30,-30},{100,20}}, 
-              pattern=LinePattern.None, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              extent={{-30,-30},{100,20}},
+              pattern=LinePattern.None,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Rectangle(
-              extent={{-30,20},{100,30}}, 
-              pattern=LinePattern.None, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
-            Line(points={{-30,-50},{-30,50}}, color={0,0,0}), 
-            Line(points={{100,-30},{100,21}}, color={0,0,0}), 
+              extent={{-30,20},{100,30}},
+              pattern=LinePattern.None,
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
+            Line(points={{-30,-50},{-30,50}}, color={0,0,0}),
+            Line(points={{100,-30},{100,21}}, color={0,0,0}),
             Text(
-              extent={{60,12},{96,-13}}, 
-              lineColor={128,128,128}, 
-              textString="b"), 
+              extent={{60,12},{96,-13}},
+              lineColor={128,128,128},
+              textString="b"),
             Text(
-              extent={{-95,13},{-60,-9}}, 
-              lineColor={128,128,128}, 
+              extent={{-95,13},{-60,-9}},
+              lineColor={128,128,128},
               textString="a")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -6784,8 +6756,8 @@ it might be slightly more efficient, when using the StateSelect.always setting.
  
 </HTML>
 "));
-      
-    protected 
+
+    protected
       Visualizers.Advanced.Shape box(
         shapeType="box",
         color=boxColor,
@@ -6797,81 +6769,81 @@ it might be slightly more efficient, when using the StateSelect.always setting.
         widthDirection=boxWidthDirection,
         r=frame_a.r_0,
         R=frame_a.R) if world.enableAnimation and animation;
-    equation 
+    equation
       v = der(s);
       a = der(v);
-      
+
       // relationships between kinematic quantities of frame_a and of frame_b
       frame_b.r_0 = frame_a.r_0 + Frames.resolve1(frame_a.R, e*(s_offset + s));
       frame_b.R = frame_a.R;
-      
+
       // Force and torque balance
       zeros(3) = frame_a.f + frame_b.f;
       zeros(3) = frame_a.t + frame_b.t + cross(e*(s_offset + s), frame_b.f);
-      
+
       // d'Alemberts principle
       f = -e*frame_b.f;
     end Prismatic;
-    
-    model RevoluteWithLengthConstraint 
-      "Revolute joint where the rotation angle is computed from a length constraint (1 degree-of-freedom, no potential state)" 
-      
+
+    model RevoluteWithLengthConstraint
+      "Revolute joint where the rotation angle is computed from a length constraint (1 degree-of-freedom, no potential state)"
+
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
       extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
-      Modelica.Mechanics.Rotational.Interfaces.Flange_a axis 
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a axis
         "1-dim. rotational flange that drives the joint" 
         annotation (Placement(transformation(extent={{10,90},{-10,110}},
               rotation=0)));
-      Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing 
+      Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing
         "1-dim. rotational flange of the drive bearing" 
         annotation (Placement(transformation(extent={{-50,90},{-70,110}},
               rotation=0)));
-      
-      Modelica.Blocks.Interfaces.RealInput position_a[3] 
+
+      Modelica.Blocks.Interfaces.RealInput position_a[3]
         "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint"
         annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.RealInput position_b[3] 
+      Modelica.Blocks.Interfaces.RealInput position_b[3]
         "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint"
         annotation (Placement(transformation(extent={{140,-80},{100,-40}},
               rotation=0)));
-      
+
       parameter Boolean animation=true "= true, if animation shall be enabled";
-      parameter SI.Position lengthConstraint(start=1) 
+      parameter SI.Position lengthConstraint(start=1)
         "Fixed length of length constraint";
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1}
         "Axis of rotation resolved in frame_a (= same as in frame_b)" 
         annotation (Evaluate=true);
-      parameter Cv.NonSIunits.Angle_deg phi_offset=0 
+      parameter Cv.NonSIunits.Angle_deg phi_offset=0
         "Relative angle offset (angle = phi + from_deg(phi_offset))";
-      parameter Cv.NonSIunits.Angle_deg phi_guess=0 
+      parameter Cv.NonSIunits.Angle_deg phi_guess=0
         "Select the configuration such that at initial time |phi - from_deg(phi_guess)|is minimal";
-      parameter SI.Distance cylinderLength=world.defaultJointLength 
+      parameter SI.Distance cylinderLength=world.defaultJointLength
         "Length of cylinder representing the joint axis" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Distance cylinderDiameter=world.defaultJointWidth 
+      parameter SI.Distance cylinderDiameter=world.defaultJointWidth
         "Diameter of cylinder representing the joint axis" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+      input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of cylinder representing the joint axis" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      
-      final parameter Boolean positiveBranch(fixed=false) 
+
+      final parameter Boolean positiveBranch(fixed=false)
         "Based on phi_guess, selection of one of the two solutions of the non-linear constraint equation";
-      final parameter Real e[3]=Modelica.Math.Vectors.normalize(              n) 
+      final parameter Real e[3]=Modelica.Math.Vectors.normalize(              n)
         "Unit vector in direction of rotation axis, resolved in frame_a";
-      
+
       SI.Angle phi "Rotation angle of revolute joint";
-      Frames.Orientation R_rel 
+      Frames.Orientation R_rel
         "Relative orientation object from frame_a to frame_b";
-      SI.Angle angle 
+      SI.Angle angle
         "= phi + from_deg(phi_offset) (relative rotation angle between frame_a and frame_b)";
       SI.Torque tau "= axis.tau (driving torque in the axis)";
-      
+
       annotation (
         Window(
           x=0.05,
@@ -6883,88 +6855,88 @@ it might be slightly more efficient, when using the StateSelect.always setting.
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
-              extent={{-30,10},{10,-10}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-30,10},{10,-10}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-100,-60},{-30,60}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{-100,-60},{-30,60}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{30,-60},{100,60}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{30,-60},{100,60}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Text(
-              extent={{-139,-168},{137,-111}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
-            Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}), 
-            Rectangle(extent={{30,60},{100,-60}}, lineColor={0,0,0}), 
+              extent={{-139,-168},{137,-111}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}),
+            Rectangle(extent={{30,60},{100,-60}}, lineColor={0,0,0}),
             Text(
-              extent={{-142,-108},{147,-69}}, 
-              lineColor={0,0,0}, 
-              textString="n=%n"), 
-            Line(points={{-60,60},{-60,90}}, color={0,0,0}), 
-            Line(points={{-20,70},{-60,70}}, color={0,0,0}), 
-            Line(points={{-20,80},{-20,60}}, color={0,0,0}), 
-            Line(points={{20,80},{20,60}}, color={0,0,0}), 
-            Line(points={{20,70},{41,70}}, color={0,0,0}), 
+              extent={{-142,-108},{147,-69}},
+              lineColor={0,0,0},
+              textString="n=%n"),
+            Line(points={{-60,60},{-60,90}}, color={0,0,0}),
+            Line(points={{-20,70},{-60,70}}, color={0,0,0}),
+            Line(points={{-20,80},{-20,60}}, color={0,0,0}),
+            Line(points={{20,80},{20,60}}, color={0,0,0}),
+            Line(points={{20,70},{41,70}}, color={0,0,0}),
             Polygon(
-              points={{-9,30},{10,30},{30,50},{-29,50},{-9,30}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-9,30},{10,30},{30,50},{-29,50},{-9,30}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{10,30},{30,50},{30,-51},{10,-31},{10,30}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              points={{10,30},{30,50},{30,-51},{10,-31},{10,30}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-10,90},{10,50}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.VerticalCylinder, 
+              extent={{-10,90},{10,50}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
               fillColor={192,192,192})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
-              extent={{-100,-60},{-30,60}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
+              extent={{-100,-60},{-30,60}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
             Rectangle(
-              extent={{-30,10},{10,-10}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-30,10},{10,-10}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{30,-60},{100,60}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.HorizontalCylinder, 
-              fillColor={192,192,192}), 
-            Line(points={{-60,60},{-60,96}}, color={0,0,0}), 
-            Line(points={{-20,70},{-60,70}}, color={0,0,0}), 
-            Line(points={{-20,80},{-20,60}}, color={0,0,0}), 
-            Line(points={{20,80},{20,60}}, color={0,0,0}), 
-            Line(points={{20,70},{41,70}}, color={0,0,0}), 
+              extent={{30,-60},{100,60}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Line(points={{-60,60},{-60,96}}, color={0,0,0}),
+            Line(points={{-20,70},{-60,70}}, color={0,0,0}),
+            Line(points={{-20,80},{-20,60}}, color={0,0,0}),
+            Line(points={{20,80},{20,60}}, color={0,0,0}),
+            Line(points={{20,70},{41,70}}, color={0,0,0}),
             Polygon(
-              points={{-9,30},{10,30},{30,50},{-29,50},{-9,30}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-9,30},{10,30},{30,50},{-29,50},{-9,30}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{10,30},{30,50},{30,-51},{10,-31},{10,30}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              points={{10,30},{30,50},{30,-51},{10,-31},{10,30}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-10,50},{10,100}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.VerticalCylinder, 
+              extent={{-10,50},{10,100}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.VerticalCylinder,
               fillColor={192,192,192})}),
         Documentation(info="<html>
 <p>
@@ -7012,11 +6984,11 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
  
 </html>
 "));
-      
-    protected 
-      SI.Position r_a[3]=position_a 
+
+    protected
+      SI.Position r_a[3]=position_a
         "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint";
-      SI.Position r_b[3]=position_b 
+      SI.Position r_b[3]=position_b
         "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint";
       Real e_r_a "Projection of r_a on e";
       Real e_r_b "Projection of r_b on e";
@@ -7029,7 +7001,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
       Real k1b;
       Real kcos_angle "= k1*cos(angle)";
       Real ksin_angle "= k1*sin(angle)";
-      
+
       Visualizers.Advanced.Shape cylinder(
         shapeType="cylinder",
         color=cylinderColor,
@@ -7042,22 +7014,22 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
         r_shape=-e*(cylinderLength/2),
         r=frame_a.r_0,
         R=frame_a.R) if world.enableAnimation and animation;
-      
-      function selectBranch 
-        "Determine branch which is closest to initial angle=0" 
-        
+
+      function selectBranch
+        "Determine branch which is closest to initial angle=0"
+
         import Modelica.Math.*;
         input SI.Length L "Length of length constraint";
-        input Real e[3] 
+        input Real e[3]
           "Unit vector along axis of rotation, resolved in frame_a (= same in frame_b)";
-        input SI.Angle angle_guess 
+        input SI.Angle angle_guess
           "Select the configuration such that at initial time |angle-angle_guess|is minimal (angle=0: frame_a and frame_b coincide)";
-        input SI.Position r_a[3] 
+        input SI.Position r_a[3]
           "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint";
-        input SI.Position r_b[3] 
+        input SI.Position r_b[3]
           "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint";
         output Boolean positiveBranch "Branch of the initial solution";
-      protected 
+      protected
         Real e_r_a "Projection of r_a on e";
         Real e_r_b "Projection of r_b on e";
         Real A "Coefficient A of equation: A*cos(phi) + B*sin(phi) + C = 0";
@@ -7071,7 +7043,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
         Real ksin2 "k2*sin(angle2)";
         SI.Angle angle1 "solution 1 of nonlinear equation";
         SI.Angle angle2 "solution 2 of nonlinear equation";
-      algorithm 
+      algorithm
         /* The position vector r_rel from frame_a to frame_b of the length constraint
        element, resolved in frame_b of the revolute joint is given by
        (T_rel is the planar transformation matrix from frame_a to frame_b of
@@ -7117,42 +7089,42 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
         C := r_a*r_a + r_b*r_b - L*L - 2*e_r_b*e_r_a;
         k1 := A*A + B*B;
         k2 := sqrt(k1 - C*C);
-        
+
         kcos1 := -A*C + B*k2;
         ksin1 := -B*C - A*k2;
         angle1 := atan2(ksin1, kcos1);
-        
+
         kcos2 := -A*C - B*k2;
         ksin2 := -B*C + A*k2;
         angle2 := atan2(ksin2, kcos2);
-        
+
         if abs(angle1 - angle_guess) <= abs(angle2 - angle_guess) then
           positiveBranch := true;
         else
           positiveBranch := false;
         end if;
       end selectBranch;
-    initial equation 
+    initial equation
       positiveBranch = selectBranch(lengthConstraint, e, Cv.from_deg(phi_offset
          + phi_guess), r_a, r_b);
-    equation 
+    equation
       defineBranch(frame_a.R, frame_b.R);
       axis.tau = tau;
       axis.phi = phi;
       bearing.phi = 0;
-      
+
       angle = Cv.from_deg(phi_offset) + phi;
-      
+
       // transform kinematic quantities from frame_a to frame_b
       frame_b.r_0 = frame_a.r_0;
-      
+
       R_rel = Frames.planarRotation(e, angle, der(angle));
       frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
-      
+
       // Force and torque balance
       zeros(3) = frame_a.f + Frames.resolve1(R_rel, frame_b.f);
       zeros(3) = frame_a.t + Frames.resolve1(R_rel, frame_b.t);
-      
+
       // Compute rotation angle (details, see function "selectBranch")
       e_r_a = e*r_a;
       e_r_b = e*r_b;
@@ -7161,7 +7133,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
       C = r_a*r_a + r_b*r_b - lengthConstraint*lengthConstraint - 2*e_r_b*e_r_a;
       k1 = A*A + B*B;
       k1a = k1 - C*C;
-      
+
       assert(k1a > 1.e-10, "
 Singular position of loop (either no or two analytic solutions;
 the mechanism has lost one-degree-of freedom in this position).
@@ -7175,75 +7147,75 @@ and rely on dynamic state selection, i.e., during simulation
 the states will be dynamically selected in such a way that in no
 position a degree of freedom is lost.
 ");
-      
+
       k1b = Frames.Internal.maxWithoutEvent(k1a, 1.0e-12);
       k2 = sqrt(k1b);
       kcos_angle = -A*C + (if positiveBranch then B else -B)*k2;
       ksin_angle = -B*C + (if positiveBranch then -A else A)*k2;
-      
+
       angle = Modelica.Math.atan2(ksin_angle, kcos_angle);
     end RevoluteWithLengthConstraint;
-    
-    model PrismaticWithLengthConstraint 
-      "Prismatic joint where the translational distance is computed from a length constraint (1 degree-of-freedom, no potential state)" 
-      
+
+    model PrismaticWithLengthConstraint
+      "Prismatic joint where the translational distance is computed from a length constraint (1 degree-of-freedom, no potential state)"
+
       import SI = Modelica.SIunits;
       import Cv = Modelica.SIunits.Conversions;
       extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
-      Modelica.Mechanics.Translational.Interfaces.Flange_a axis 
+      Modelica.Mechanics.Translational.Interfaces.Flange_a axis
         "1-dim. translational flange that drives the joint" 
         annotation (Placement(transformation(extent={{70,80},{90,60}}, rotation=
                0)));
-      Modelica.Mechanics.Translational.Interfaces.Flange_b bearing 
+      Modelica.Mechanics.Translational.Interfaces.Flange_b bearing
         "1-dim. translational flange of the drive bearing" 
         annotation (Placement(transformation(extent={{-30,80},{-50,60}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.RealInput position_a[3] 
+      Modelica.Blocks.Interfaces.RealInput position_a[3]
         "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint"
         annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.RealInput position_b[3] 
+      Modelica.Blocks.Interfaces.RealInput position_b[3]
         "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint"
         annotation (Placement(transformation(extent={{140,-80},{100,-40}},
               rotation=0)));
-      
+
       parameter Boolean animation=true "= true, if animation shall be enabled";
       parameter SI.Position length(start=1) "Fixed length of length constraint";
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0} 
+      parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0}
         "Axis of translation resolved in frame_a (= same as in frame_b)" 
         annotation (Evaluate=true);
-      parameter SI.Position s_offset=0 
+      parameter SI.Position s_offset=0
         "Relative distance offset (distance between frame_a and frame_b = s(t) + s_offset)";
-      parameter SI.Position s_guess=0 
+      parameter SI.Position s_guess=0
         "Select the configuration such that at initial time |s(t0)-s_guess|is minimal";
-      parameter Types.Axis boxWidthDirection={0,1,0} 
+      parameter Types.Axis boxWidthDirection={0,1,0}
         "Vector in width direction of box, resolved in frame_a" 
         annotation (Evaluate=true, Dialog(tab="Animation", group=
               "if animation = true", enable=animation));
-      parameter SI.Distance boxWidth=world.defaultJointWidth 
+      parameter SI.Distance boxWidth=world.defaultJointWidth
         "Width of prismatic joint box" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint box" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor 
+      input Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of prismatic joint box" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient 
+      input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)" 
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      
-      final parameter Boolean positiveBranch(fixed=false) 
+
+      final parameter Boolean positiveBranch(fixed=false)
         "Selection of one of the two solutions of the non-linear constraint equation";
-      final parameter Real e[3]=Modelica.Math.Vectors.normalize(              n) 
+      final parameter Real e[3]=Modelica.Math.Vectors.normalize(              n)
         "Unit vector in direction of translation axis, resolved in frame_a";
-      SI.Position s 
+      SI.Position s
         "Relative distance between frame_a and frame_b along axis n = s + s_offset)";
-      SI.Position distance 
+      SI.Position distance
         "Relative distance between frame_a and frame_b along axis n";
-      SI.Position r_rel_a[3] 
+      SI.Position r_rel_a[3]
         "Position vector from frame_a to frame_b resolved in frame_a";
       SI.Force f "= axis.f (driving force in the axis)";
-      
+
       annotation (
         Window(
           x=0.05,
@@ -7255,134 +7227,134 @@ position a degree of freedom is lost.
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
-              extent={{-30,-40},{100,30}}, 
-              pattern=LinePattern.None, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
-            Rectangle(extent={{-30,40},{100,-40}}, lineColor={0,0,0}), 
+              extent={{-30,-40},{100,30}},
+              pattern=LinePattern.None,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
+            Rectangle(extent={{-30,40},{100,-40}}, lineColor={0,0,0}),
             Rectangle(
-              extent={{-100,-60},{-30,50}}, 
-              pattern=LinePattern.None, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              extent={{-100,-60},{-30,50}},
+              pattern=LinePattern.None,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Rectangle(
-              extent={{-100,50},{-30,60}}, 
-              pattern=LinePattern.None, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              extent={{-100,50},{-30,60}},
+              pattern=LinePattern.None,
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Rectangle(
-              extent={{-30,30},{100,40}}, 
-              pattern=LinePattern.None, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              extent={{-30,30},{100,40}},
+              pattern=LinePattern.None,
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Text(
-              extent={{-136,-170},{140,-113}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
-            Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}), 
-            Line(points={{100,-40},{100,-60}}, color={0,0,255}), 
+              extent={{-136,-170},{140,-113}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}),
+            Line(points={{100,-40},{100,-60}}, color={0,0,255}),
             Rectangle(
-              extent={{100,40},{90,80}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{100,40},{90,80}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-136,-116},{153,-77}}, 
-              lineColor={0,0,0}, 
+              extent={{-136,-116},{153,-77}},
+              lineColor={0,0,0},
               textString="n=%n")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
-            Line(points={{-30,-50},{-30,50}}, color={0,0,0}), 
-            Line(points={{0,-67},{90,-67}}, color={128,128,128}), 
+            Line(points={{-30,-50},{-30,50}}, color={0,0,0}),
+            Line(points={{0,-67},{90,-67}}, color={128,128,128}),
             Text(
-              extent={{31,-68},{68,-81}}, 
-              lineColor={128,128,128}, 
-              textString="s"), 
-            Line(points={{-100,-67},{0,-67}}, color={128,128,128}), 
+              extent={{31,-68},{68,-81}},
+              lineColor={128,128,128},
+              textString="s"),
+            Line(points={{-100,-67},{0,-67}}, color={128,128,128}),
             Polygon(
-              points={{-39,-64},{-29,-67},{-39,-70},{-39,-64}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-39,-64},{-29,-67},{-39,-70},{-39,-64}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-77,-70},{-43,-85}}, 
-              lineColor={128,128,128}, 
-              textString="s_offset"), 
-            Line(points={{-100,-71},{-100,-51}}, color={128,128,128}), 
-            Line(points={{-30,-73},{-30,-33}}, color={128,128,128}), 
-            Line(points={{100,-70},{100,-30}}, color={128,128,128}), 
+              extent={{-77,-70},{-43,-85}},
+              lineColor={128,128,128},
+              textString="s_offset"),
+            Line(points={{-100,-71},{-100,-51}}, color={128,128,128}),
+            Line(points={{-30,-73},{-30,-33}}, color={128,128,128}),
+            Line(points={{100,-70},{100,-30}}, color={128,128,128}),
             Polygon(
-              points={{90,-64},{100,-67},{90,-70},{90,-64}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              points={{90,-64},{100,-67},{90,-70},{90,-64}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-100,50},{-30,60}}, 
-              pattern=LinePattern.None, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              extent={{-100,50},{-30,60}},
+              pattern=LinePattern.None,
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Rectangle(
-              extent={{-100,-60},{-30,50}}, 
-              pattern=LinePattern.None, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
-            Rectangle(extent={{-30,40},{100,-40}}, lineColor={0,0,0}), 
+              extent={{-100,-60},{-30,50}},
+              pattern=LinePattern.None,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
+            Rectangle(extent={{-30,40},{100,-40}}, lineColor={0,0,0}),
             Rectangle(
-              extent={{-30,-40},{100,30}}, 
-              pattern=LinePattern.None, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
+              extent={{-30,-40},{100,30}},
+              pattern=LinePattern.None,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
             Rectangle(
-              extent={{-30,30},{100,40}}, 
-              pattern=LinePattern.None, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid, 
-              lineColor={0,0,255}), 
-            Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}), 
-            Line(points={{100,-40},{100,-60}}, color={0,0,255}), 
+              extent={{-30,30},{100,40}},
+              pattern=LinePattern.None,
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
+            Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}),
+            Line(points={{100,-40},{100,-60}}, color={0,0,255}),
             Text(
-              extent={{42,91},{57,76}}, 
-              textString="f", 
-              lineColor={0,0,255}), 
-            Line(points={{40,75},{70,75}}, color={0,0,255}), 
+              extent={{42,91},{57,76}},
+              textString="f",
+              lineColor={0,0,255}),
+            Line(points={{40,75},{70,75}}, color={0,0,255}),
             Polygon(
-              points={{-21,78},{-31,75},{-21,72},{-21,78}}, 
-              lineColor={0,0,255}, 
-              fillColor={0,0,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-8,75},{-31,75}}, color={0,0,255}), 
+              points={{-21,78},{-31,75},{-21,72},{-21,78}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-8,75},{-31,75}}, color={0,0,255}),
             Text(
-              extent={{-21,90},{-6,75}}, 
-              textString="f", 
-              lineColor={0,0,255}), 
+              extent={{-21,90},{-6,75}},
+              textString="f",
+              lineColor={0,0,255}),
             Polygon(
-              points={{60,78},{70,75},{60,72},{60,78}}, 
-              lineColor={0,0,255}, 
-              fillColor={0,0,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-30,64},{70,64}}, color={128,128,128}), 
+              points={{60,78},{70,75},{60,72},{60,78}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-30,64},{70,64}}, color={128,128,128}),
             Polygon(
-              points={{60,67},{70,64},{60,61},{60,67}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              points={{60,67},{70,64},{60,61},{60,67}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{0,63},{37,50}}, 
-              lineColor={128,128,128}, 
-              textString="s"), 
+              extent={{0,63},{37,50}},
+              lineColor={128,128,128},
+              textString="s"),
             Rectangle(
-              extent={{100,40},{90,80}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
+              extent={{100,40},{90,80}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<HTML>
 <p>
@@ -7430,11 +7402,11 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
  
 </HTML>
 "));
-      
-    protected 
-      SI.Position r_a[3]=position_a 
+
+    protected
+      SI.Position r_a[3]=position_a
         "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint";
-      SI.Position r_b[3]=position_b 
+      SI.Position r_b[3]=position_b
         "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint";
       Real rbra[3] "= rb - ra";
       Real B "Coefficient B of equation: s*s + B*s + C = 0";
@@ -7443,7 +7415,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
       Real k2 "Constant of quadratic equation solution";
       Real k1a(start=1);
       Real k1b;
-      
+
       Visualizers.Advanced.Shape box(
         shapeType="box",
         color=boxColor,
@@ -7455,21 +7427,21 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
         widthDirection=boxWidthDirection,
         r=frame_a.r_0,
         R=frame_a.R) if world.enableAnimation and animation;
-      
-      function selectBranch 
-        "Determine branch which is closest to initial angle=0" 
+
+      function selectBranch
+        "Determine branch which is closest to initial angle=0"
         import Modelica.Math.*;
         input SI.Length L "Length of length constraint";
-        input Real e[3] 
+        input Real e[3]
           "Unit vector along axis of translation, resolved in frame_a (= same in frame_b)";
-        input SI.Position d_guess 
+        input SI.Position d_guess
           "Select the configuration such that at initial time |d-d_guess|is minimal (d: distance between origin of frame_a and origin of frame_b)";
-        input SI.Position r_a[3] 
+        input SI.Position r_a[3]
           "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of prismatic joint";
-        input SI.Position r_b[3] 
+        input SI.Position r_b[3]
           "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of prismatic joint";
         output Boolean positiveBranch "Branch of the initial solution";
-      protected 
+      protected
         Real rbra[3] "= rb - ra";
         Real B "Coefficient B of equation: d*d + B*d + C = 0";
         Real C "Coefficient C of equation: d*d + B*d + C = 0";
@@ -7477,7 +7449,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
         Real k2 "Constant of quadratic equation solution";
         Real d1 "solution 1 of quadratic equation";
         Real d2 "solution 2 of quadratic equation";
-      algorithm 
+      algorithm
         /* The position vector r_rel from frame_a to frame_b of the length constraint
        element, resolved in frame_b of the prismatic joint (frame_a and frame_b
        of the prismatic joint are parallel to each other) is given by:
@@ -7511,23 +7483,23 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
           positiveBranch := false;
         end if;
       end selectBranch;
-    initial equation 
+    initial equation
       positiveBranch = selectBranch(length, e, s_offset + s_guess, r_a, r_b);
-    equation 
+    equation
       defineBranch(frame_a.R, frame_b.R);
-      
+
       axis.f = f;
       axis.s = s;
       bearing.s = 0;
       distance = s_offset + s;
-      
+
       // relationships of frame_a and frame_b quantities
       r_rel_a = e*distance;
       frame_b.r_0 = frame_a.r_0 + Frames.resolve1(frame_a.R, r_rel_a);
       frame_b.R = frame_a.R;
       zeros(3) = frame_a.f + frame_b.f;
       zeros(3) = frame_a.t + frame_b.t + cross(r_rel_a, frame_b.f);
-      
+
       // Compute translational distance (details, see function "selectBranch")
       rbra = r_b - r_a;
       B = 2*(e*rbra);
@@ -7560,5 +7532,5 @@ Don't use the models of this package.
 </p>
 </HTML>"));
   end Internal;
-  
+
 end Joints;

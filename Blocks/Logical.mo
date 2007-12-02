@@ -362,10 +362,7 @@ the output is <b>false</b>.
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
-          Ellipse(
-            extent={{32,10},{52,-10}},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
+          Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,255}),
           Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,255}),
           Text(
             extent={{-80,-60},{20,60}},
@@ -388,10 +385,7 @@ Real input u2, otherwise the output is <b>false</b>.
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
-          Ellipse(
-            extent={{32,10},{52,-10}},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
+          Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,255}),
           Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,255}),
           Text(
             extent={{-80,-60},{20,60}},
@@ -413,10 +407,7 @@ Real input u2, otherwise the output is <b>false</b>.
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
-          Ellipse(
-            extent={{32,10},{52,-10}},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
+          Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,255}),
           Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,255}),
           Text(
             extent={{-80,-60},{20,60}},
@@ -438,10 +429,7 @@ Real input u2, otherwise the output is <b>false</b>.
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
-          Ellipse(
-            extent={{32,10},{52,-10}},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
+          Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,255}),
           Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,255}),
           Text(
             extent={{-80,-60},{20,60}},
@@ -896,7 +884,7 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
             lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,-68},{-60,-68},{-60,-42},{8,-42},{8,-68},{60,-68}},
+          Line(points={{-80,-68},{-60,-68},{-60,-42},{8,-42},{8,-68},{60,-68}}, 
               color={255,0,255}),
           Line(
             points={{-60,40},{-60,-42}},
@@ -1083,9 +1071,9 @@ handled properly.</p>
             lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,-68},{-60,-68},{-60,-40},{20,-40},{20,-68},{60,-68}},
+          Line(points={{-80,-68},{-60,-68},{-60,-40},{20,-40},{20,-68},{60,-68}}, 
               color={255,0,255}),
-          Line(points={{-80,-20},{-60,-20},{20,60},{20,-20},{60,-20},{60,-20}},
+          Line(points={{-80,-20},{-60,-20},{20,60},{20,-20},{60,-20},{60,-20}}, 
               color={0,0,255}),
           Text(
             extent={{-88,6},{-54,-4}},

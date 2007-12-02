@@ -1,16 +1,16 @@
 within Modelica.Electrical.Analog.Examples;
-model ShowSaturatingInductor 
-  "Simple demo to show behaviour of SaturatingInductor component" 
+model ShowSaturatingInductor
+  "Simple demo to show behaviour of SaturatingInductor component"
   extends Modelica.Icons.Example;
   parameter Modelica.SIunits.Inductance Lzer=2 "Inductance near current=0";
-  parameter Modelica.SIunits.Inductance Lnom=1 
+  parameter Modelica.SIunits.Inductance Lnom=1
     "Nominal inductance at Nominal current";
   parameter Modelica.SIunits.Current Inom=1 "Nominal current";
   parameter Modelica.SIunits.Inductance Linf=0.5 "Inductance at large currents";
   parameter Modelica.SIunits.Voltage U=1.25 "source voltage (peak)";
-  parameter Modelica.SIunits.Frequency f=1/(2*Modelica.Constants.pi) 
+  parameter Modelica.SIunits.Frequency f=1/(2*Modelica.Constants.pi)
     "source frequency";
-  parameter Modelica.SIunits.Angle phase=Modelica.Constants.pi/2 
+  parameter Modelica.SIunits.Angle phase=Modelica.Constants.pi/2
     "source voltage phase shift";
   output Modelica.SIunits.Voltage v "voltage drop over saturating inductor";
   output Modelica.SIunits.Current i "current across saturating inductor";
@@ -42,7 +42,7 @@ model ShowSaturatingInductor
         origin={22,6},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-equation 
+equation
   v=SaturatingInductance1.v;
   i=SaturatingInductance1.i;
   connect(SineVoltage1.n, Ground1.p) annotation (Line(points={{-20,-10},{-20,

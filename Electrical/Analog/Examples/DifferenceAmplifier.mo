@@ -1,12 +1,12 @@
 within Modelica.Electrical.Analog.Examples;
-encapsulated model DifferenceAmplifier 
-  "Simple NPN transistor amplifier circuit" 
+encapsulated model DifferenceAmplifier
+  "Simple NPN transistor amplifier circuit"
   import Modelica.Electrical.Analog.Basic;
   import Modelica.Electrical.Analog.Sources;
   import Modelica.Electrical.Analog.Examples.Utilities;
   import Modelica.Icons;
   extends Icons.Example;
-  
+
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -125,7 +125,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             {{-60,-20},{-40,0}}, rotation=0)));
   Utilities.Transistor Transistor2 annotation (Placement(transformation(extent=
             {{60,-20},{40,0}}, rotation=0)));
-equation 
+equation
   connect(V1.n, Gnd1.p) annotation (Line(points={{-90,-60},{-90,-70}}));
   connect(C1.n, Gnd2.p) annotation (Line(points={{-60,-60},{-60,-70}}));
   connect(I1.n, Gnd7.p) annotation (Line(points={{-10,-60},{-10,-70}}));
