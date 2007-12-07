@@ -568,8 +568,8 @@ in the housing on one side via component Fixed.</p>
       Rotational.Components.Inertia inertia1(        J=Jmotor) 
         annotation (Placement(transformation(extent={{-38,-8},{-22,8}},
               rotation=0)));
-      Rotational.Components.IdealGear idealGear(        ratio=ratio, useSupport
-          =true) 
+      Rotational.Components.IdealGear idealGear(        ratio=ratio, useSupport=
+           true) 
         annotation (Placement(transformation(extent={{-8,-8},{8,8}},  rotation=
                 0)));
       Rotational.Components.Inertia inertia2(        J=2,
@@ -5620,11 +5620,13 @@ guarantees that it is connected.
               fillPattern=FillPattern.Solid,
               textString="%name")}),
         Documentation(info="<html>
+<p>
 This is an adapter model to utilize a conditional support connector:<br>
 If <i>useSupport = true</i>, the flange has to be connected to the conditional support connector.<br>
 If <i>useSupport = false</i>, the flange has to be connected to the conditional fixed.<br>
 In both cases the support angle can be accessed as internalSupport.flange.phi, 
 the support torque can be accessed as internalSupport.tau.
+</p>
 </html>"));
     equation
       flange.tau = tau;

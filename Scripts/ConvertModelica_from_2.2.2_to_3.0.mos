@@ -709,6 +709,7 @@ convertElement({"Modelica.Mechanics.Rotational.Fixed",
                 "Modelica.Mechanics.Rotational.Torque"},
                 "flange_b", "flange");
 
+
 // if bearing is connected, set explicitly useSupport=true
 convertModifiers({"Modelica.Mechanics.Rotational.IdealGear",
                   "Modelica.Mechanics.Rotational.BearingFriction",
@@ -732,6 +733,7 @@ convertModifiers({"Modelica.Mechanics.Rotational.IdealGearR2T"},
 
 convertModifiers({"Modelica.Mechanics.Rotational.IdealGearR2T"},
                  {"cardinality(bearingT)=1"},{"useSupportT=true"});
+
 
 // if bearing is not connected, set explicitly useSupport=false
 convertModifiers({"Modelica.Mechanics.Rotational.IdealGear",
@@ -758,9 +760,13 @@ convertModifiers({"Modelica.Mechanics.Rotational.IdealGearR2T"},
                  {"cardinality(bearingT)=0"},{"useSupportT=false"});
 
 
-
 //-------- Electrical ------------------------------------------------------------
 convertElement({"Modelica.Electrical.Analog.Basic.EMF"}, "flange_b", "shaft");
+
+convertModifiers({"Modelica.Electrical.Analog.Basic.HeatingResistor"},
+                 {"cardinality(heatPort)=1"},{"useHeatPort=true"});
+convertModifiers({"Modelica.Electrical.Analog.Basic.HeatingResistor"},
+                 {"cardinality(heatPort)=0"},{"useHeatPort=false"});
 
 
 //-------- Machines ------------------------------------------------------------
