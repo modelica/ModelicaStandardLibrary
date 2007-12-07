@@ -1422,7 +1422,7 @@ at an angle phi0 in the <b>housing</b>. May be used:
       extends Rotational.Interfaces.PartialRigid(phi(start=0, stateSelect=stateSelect));
       parameter SI.Inertia J(min=0, start=1) "Moment of inertia";
       parameter StateSelect stateSelect=StateSelect.default
-        "Priority to use phi and w as states" annotation(Hide=true,Dialog(tab="Advanced"));
+        "Priority to use phi and w as states" annotation(HideResult=true,Dialog(tab="Advanced"));
       SI.AngularVelocity w(start=0, stateSelect=stateSelect)
         "Absolute angular velocity of component (= der(phi))";
       SI.AngularAcceleration a(start=0)
@@ -3604,10 +3604,10 @@ GearNew.</p>
       import SI = Modelica.SIunits;
       parameter Boolean useSupportR=false
         "= true, if rotational support flange enabled, otherwise implicitly grounded"
-          annotation(Evaluate=true, Hide=true, choices(__Dymola_checkBox=true));
+          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
       parameter Boolean useSupportT=false
         "= true, if translational support flange enabled, otherwise implicitly grounded"
-          annotation(Evaluate=true, Hide=true, choices(__Dymola_checkBox=true));
+          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
       parameter Real ratio(final unit="rad/m", start=1)
         "Transmission ratio (flange_a.phi/flange_b.s)";
       Rotational.Interfaces.Flange_a flangeR 
@@ -3796,10 +3796,10 @@ connected with corresponding elements.
             iconTransformation(extent={{90,-110},{110,-90}})));
       parameter Boolean useHubSupport=false
         "= true, if rotational support flange enabled, otherwise implicitly grounded"
-          annotation(Evaluate=true, Hide=true, choices(__Dymola_checkBox=true));
+          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
       parameter Boolean useWheelSupport=false
         "= true, if translational support flange enabled, otherwise implicitly grounded"
-          annotation(Evaluate=true, Hide=true, choices(__Dymola_checkBox=true));
+          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
       parameter Modelica.SIunits.Distance radius(start=0.3) "Wheel radius";
 
      annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
@@ -4046,7 +4046,7 @@ provided via a signal bus.
         import Modelica;
         extends Modelica.Blocks.Interfaces.BlockIcon;
         Modelica.Blocks.Interfaces.RealInput phi_start "Start angle" 
-          annotation (Hide=true, Placement(transformation(extent={{-140,-20},{
+          annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{
                   -100,20}}, rotation=0)));
 
         annotation (Diagram(graphics));
@@ -4063,7 +4063,7 @@ provided via a signal bus.
         import Modelica;
         extends Modelica.Blocks.Interfaces.BlockIcon;
         Modelica.Blocks.Interfaces.RealInput w_start "Start angular velocity" 
-          annotation (Hide=true, Placement(transformation(extent={{-140,-20},{
+          annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{
                   -100,20}}, rotation=0)));
 
         annotation (Diagram(graphics));
@@ -4081,14 +4081,14 @@ provided via a signal bus.
         extends Modelica.Blocks.Interfaces.BlockIcon;
         Modelica.Blocks.Interfaces.RealInput a_start
           "Start angular acceleration" 
-          annotation (Hide=true, Placement(transformation(extent={{-140,-20},{
+          annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{
                   -100,20}}, rotation=0)));
 
         annotation (Diagram(graphics));
         Modelica.Mechanics.Rotational.Interfaces.Flange_b flange(phi(stateSelect=StateSelect.avoid)) 
                                                                                   annotation (Placement(
               transformation(extent={{90,-10},{110,10}}, rotation=0)));
-        Modelica.SIunits.AngularVelocity w = der(flange.phi) annotation(Hide=true);
+        Modelica.SIunits.AngularVelocity w = der(flange.phi) annotation(HideResult=true);
       initial equation
         der(w) = a_start;
       equation
@@ -5746,7 +5746,7 @@ and c have are more meaningful for the user.
         "Nominal value of phi_rel (used for scaling)" annotation(Dialog(tab="Advanced"));
       parameter StateSelect stateSelect=StateSelect.prefer
         "Priority to use phi_rel and w_rel as states" 
-      annotation(Hide=true, Dialog(tab="Advanced"));
+      annotation(HideResult=true, Dialog(tab="Advanced"));
 
       annotation (
         Window(
@@ -5800,7 +5800,7 @@ and c are more meaningful for the user.
       "Base model for 1-dim. rotationalgear consisting of the flange of an input shaft, the flange of an output shaft and the support"
       parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded" 
-          annotation(Evaluate=true, Hide=true, choices(__Dymola_checkBox=true));
+          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
       Flange_a flange_a "Flange of left shaft" 
         annotation (Placement(transformation(extent={{-110,-10}, {-90,10}}, rotation=0)));
       Flange_b flange_b "Flange of right shaft" 
@@ -5872,7 +5872,7 @@ the support is internally fixed.
       "Base model for a component with a rotational 1-dim. shaft flange and a support to define either a predefined motion or a predefined torque"
       parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded" 
-          annotation(Evaluate=true, Hide=true, choices(__Dymola_checkBox=true));
+          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
       Flange_b flange "Flange of shaft" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Support support if useSupport "Support/housing of component" 
@@ -5946,7 +5946,7 @@ the support is internally fixed.
       "Partial model of a torque acting at the flange (accelerates the flange)"
       parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded" 
-          annotation(Evaluate=true, Hide=true, choices(__Dymola_checkBox=true));
+          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
       Rotational.Interfaces.Flange_b flange "Flange on which torque is acting" 
         annotation (Placement(transformation(extent={{110,-10},{90,10}},
               rotation=0)));
@@ -6074,7 +6074,7 @@ and for an elementary gear (Interfaces.PartialGear).
       "Base model for a component with two rotational 1-dim. shaft flanges and a support"
       parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded" 
-          annotation(Evaluate=true, Hide=true, choices(__Dymola_checkBox=true));
+          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
       Flange_a flange_a "Flange of left shaft" 
         annotation (Placement(transformation(extent={{-110,-10}, {-90,10}}, rotation=0)));
       Flange_b flange_b "Flange of right shaft" 
@@ -6187,8 +6187,8 @@ Basic model for Coulomb friction that models the stuck phase in a reliable way.
         final max=Unknown,
         start=Unknown, fixed=true);
     protected
-      constant SI.AngularAcceleration unitAngularAcceleration = 1 annotation(Hide=true);
-      constant SI.Torque unitTorque = 1 annotation(Hide=true);
+      constant SI.AngularAcceleration unitAngularAcceleration = 1 annotation(HideResult=true);
+      constant SI.Torque unitTorque = 1 annotation(HideResult=true);
     equation
     /* Friction characteristic
    locked is introduced to help the Modelica translator determining

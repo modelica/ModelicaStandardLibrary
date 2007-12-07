@@ -3044,9 +3044,9 @@ The Boolean output y is a pulse signal:
 </html>"));
   protected
       parameter Modelica.SIunits.Time Twidth=period*width/100
-      "width of one pulse"                                              annotation(Hide=true);
+      "width of one pulse"                                              annotation(HideResult=true);
       discrete Modelica.SIunits.Time pulsStart "Start time of pulse" 
-                                                 annotation(Hide=true);
+                                                 annotation(HideResult=true);
     initial equation
       pulsStart = startTime;
     equation

@@ -775,7 +775,7 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
   model EMF "Electromotoric force (electric/mechanic transformer)"
     parameter Boolean useSupport=false
       "= true, if support flange enabled, otherwise implicitly grounded" 
-        annotation(Evaluate=true, Hide=true, choices(__Dymola_checkBox=true));
+        annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
     parameter SI.ElectricalTorqueConstant k(start=1)
       "Transformation coefficient";
     SI.Voltage v "Voltage drop between the two pins";

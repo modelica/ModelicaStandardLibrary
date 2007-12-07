@@ -59,8 +59,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
   protected
             Real s(final unit="1")
       "Auxiliary variable: if on then current, if opened then voltage";
-            constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(Hide=true);
-            constant Modelica.SIunits.Current unitCurrent= 1  annotation(Hide=true);
+            constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
+            constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
             annotation (
               Documentation(info="<html>
 This is an ideal thyristor model which is<br><br>
@@ -201,8 +201,8 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
   protected
             Real s(final unit="1")
       "Auxiliary variable: if on then current, if opened then voltage";
-            constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(Hide=true);
-            constant Modelica.SIunits.Current unitCurrent= 1  annotation(Hide=true);
+            constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
+            constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
             annotation (
               Documentation(info="<html>
 This is an ideal GTO thyristor model which is<br><br>
@@ -345,8 +345,8 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
   protected
     Real s1(final unit="1");
     Real s2(final unit="1") "Auxiliary variables";
-    constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(Hide=true);
-    constant Modelica.SIunits.Current unitCurrent= 1  annotation(Hide=true);
+    constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
+    constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -447,8 +447,8 @@ where a description with zero Ron or zero Goff is not possible.
     Real s2(final unit="1");
     Real s3(final unit="1");
     Real s4(final unit="1") "Auxiliary variables";
-    constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(Hide=true);
-    constant Modelica.SIunits.Current unitCurrent= 1  annotation(Hide=true);
+    constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
+    constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -562,8 +562,8 @@ where a description with zero Ron or zero Goff is not possible.
   protected
     Real s1(final unit="1");
     Real s2(final unit="1") "Auxiliary variables";
-    constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(Hide=true);
-    constant Modelica.SIunits.Current unitCurrent= 1  annotation(Hide=true);
+    constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
+    constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -668,8 +668,8 @@ where a description with zero Ron or zero Goff is not possible.
     Real s2(final unit="1");
     Real s3(final unit="1");
     Real s4(final unit="1") "Auxiliary variables";
-    constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(Hide=true);
-    constant Modelica.SIunits.Current unitCurrent= 1  annotation(Hide=true);
+    constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
+    constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -999,7 +999,7 @@ are possible.
     SI.Voltage vin "input voltage";
   protected
     Real s(final unit="1") "Auxiliary variable";
-    constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(Hide=true);
+    constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -1113,8 +1113,8 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
   protected
           Real s(final unit="1")
       "Auxiliary variable: if on then current, if opened then voltage";
-          constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(Hide=true);
-          constant Modelica.SIunits.Current unitCurrent= 1  annotation(Hide=true);
+          constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
+          constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
           annotation (
             Documentation(info="<html>
 <P>
@@ -1534,8 +1534,8 @@ The model Short is a simple short cut branch.
           rotation=270)));
   protected
    Real s(final unit="1") "Auxiliary variable";
-   constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(Hide=true);
-   constant Modelica.SIunits.Current unitCurrent= 1  annotation(Hide=true);
+   constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
+   constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
     annotation (
       Documentation(info="<HTML>
 <P> 
@@ -1619,8 +1619,8 @@ where a description with zero Ron or zero Goff is not possible.
           rotation=270)));
   protected
       Real s(final unit="1") "Auxiliary variable";
-      constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(Hide=true);
-      constant Modelica.SIunits.Current unitCurrent= 1  annotation(Hide=true);
+      constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
+      constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
       annotation (
         Documentation(info="<HTML>
 <P> 
@@ -1708,8 +1708,8 @@ where a description with zero Ron or zero Goff is not possible.
           rotation=90)));
   protected
     Real s(final unit="1") "Auxiliary variable";
-    constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(Hide=true);
-    constant Modelica.SIunits.Current unitCurrent= 1  annotation(Hide=true);
+    constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
+    constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
     annotation (
       Documentation(info="
 <HTML>
@@ -1798,8 +1798,8 @@ where a description with zero Ron or zero Goff is not possible.
           rotation=90)));
   protected
       Real s(final unit="1") "Auxiliary variable";
-      constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(Hide=true);
-      constant Modelica.SIunits.Current unitCurrent= 1  annotation(Hide=true);
+      constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
+      constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
       annotation (
         Documentation(info="
 <HTML>

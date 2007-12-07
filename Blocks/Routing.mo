@@ -998,10 +998,10 @@ This package contains blocks to combine and extract signals.
     extends Modelica.Blocks.Interfaces.BlockIcon;
 
     Modelica.Blocks.Interfaces.RealInput u "Input signal" 
-      annotation (Hide=true, Placement(transformation(extent={{-140,-20},{-100,
+      annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{-100,
               20}}, rotation=0)));
     Modelica.Blocks.Interfaces.RealOutput y "Output signal" 
-      annotation (Hide=true, Placement(transformation(extent={{100,-10},{120,10}},
+      annotation (HideResult=true, Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={Line(points={{-100,0},{100,0}},

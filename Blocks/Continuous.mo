@@ -1247,9 +1247,9 @@ to use <b>limitAtInit</b> = <b>false</b>.
               0)));
   protected
     parameter Boolean with_I = controllerType==SimpleController.PI or 
-                               controllerType==SimpleController.PID annotation(Evaluate=true, Hide=true);
+                               controllerType==SimpleController.PID annotation(Evaluate=true, HideResult=true);
     parameter Boolean with_D = controllerType==SimpleController.PD or 
-                               controllerType==SimpleController.PID annotation(Evaluate=true, Hide=true);
+                               controllerType==SimpleController.PID annotation(Evaluate=true, HideResult=true);
   public
     Sources.Constant Dzero(k=0) if not with_D 
       annotation (Placement(transformation(extent={{-30,20},{-20,30}}, rotation=
