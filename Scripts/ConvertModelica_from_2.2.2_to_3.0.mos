@@ -763,10 +763,6 @@ convertModifiers({"Modelica.Mechanics.Rotational.IdealGearR2T"},
 //-------- Electrical ------------------------------------------------------------
 convertElement({"Modelica.Electrical.Analog.Basic.EMF"}, "flange_b", "shaft");
 
-convertModifiers({"Modelica.Electrical.Analog.Basic.HeatingResistor"},
-                 {"cardinality(heatPort)=1"},{"useHeatPort=true"});
-convertModifiers({"Modelica.Electrical.Analog.Basic.HeatingResistor"},
-                 {"cardinality(heatPort)=0"},{"useHeatPort=false"});
 
 
 //-------- Machines ------------------------------------------------------------

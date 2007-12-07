@@ -158,17 +158,13 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
     model HeatingResistor "Temperature dependent electrical resistor"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
 
-      parameter Boolean useHeatPort=true
-      "= true, if heatPort connector is enabled, otherwise implicitly connected to fixed temperature source"
-          annotation(Evaluate=true, Hide=true, choices(__Dymola_checkBox=true));
       parameter SI.Resistance R_ref(start=1) "Resistance at temperature T_ref";
       parameter SI.Temperature T_ref(start=300) "Reference temperature";
       parameter SI.LinearTemperatureCoefficient alpha(start=0)
       "Temperature coefficient of resistance (R = R_ref*(1 + alpha*(heatPort.T - T_ref))";
 
       SI.Resistance R "Resistance = R_ref*(1 + alpha*(heatPort.T - T_ref));";
-      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort 
-                                                                   annotation (Placement(
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort annotation (Placement(
           transformation(
           origin={0,-100},
           extent={{10,-10},{-10,10}},
@@ -212,10 +208,7 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
             lineColor={0,0,255},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(
-            visible=useHeatPort,
-            points={{0,-30},{0,-91}},
-            color={191,0,0}),
+          Line(points={{0,-30},{0,-91}}, color={191,0,0}),
           Line(points={{-52,-50},{48,50}}, color={0,0,255}),
           Polygon(
             points={{40,52},{50,42},{54,56},{40,52}},
@@ -253,23 +246,11 @@ If the heatPort connector is enabled, it must be connected.
        </li>
 </ul>
 </html>"));
-  protected
-      Interfaces.InternalHeatPort internalHeatPort 
-        annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
-      Thermal.HeatTransfer.Sources.FixedTemperature fixedTemperature(T=T_ref) if not useHeatPort 
-        annotation (Placement(transformation(extent={{-40,-70},{-20,-50}})));
     equation
-      R = R_ref*(1 + alpha*(internalHeatPort.heatPort.T - T_ref));
+      assert(cardinality(heatPort) > 0, "Connector heatPort of HeatingResistor must be connected");
+      R = R_ref*(1 + alpha*(heatPort.T - T_ref));
       v = R*i;
-      internalHeatPort.Q_flow = -v*i;
-      connect(internalHeatPort.heatPort, heatPort) annotation (Line(
-          points={{0,-60},{0,-100}},
-          color={191,0,0},
-          smooth=Smooth.None));
-      connect(fixedTemperature.port, internalHeatPort.heatPort) annotation (Line(
-          points={{-20,-60},{0,-60}},
-          color={191,0,0},
-          smooth=Smooth.None));
+      heatPort.Q_flow = -v*i;
     end HeatingResistor;
 
   model Conductor "Ideal linear electrical conductor"

@@ -553,34 +553,4 @@ This current is provided explicitly as current i.
     i = signalSource.y;
   end CurrentSource;
 
-  model InternalHeatPort
-    "Adapter model to utilize conditional heatPort connector"
-    connector InputHeatFlowRate = input Modelica.SIunits.HeatFlowRate
-      "Heat flow rate as input signal connector";
-    InputHeatFlowRate Q_flow "External heat flow rate";
-    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort 
-      annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
-          ={Ellipse(
-            extent={{-20,20},{20,-20}},
-            lineColor={135,135,135},
-            fillColor={175,175,175},
-            fillPattern=FillPattern.Solid), Text(
-            extent={{-200,80},{200,40}},
-            lineColor={0,0,255},
-            fillColor={175,175,175},
-            fillPattern=FillPattern.Solid,
-            textString="%name")}),
-      Documentation(info="<html>
-<p>
-This is an adapter model to utilize a conditional heatPort connector:<br>
-If <i>useHeatPort = true</i>, the heatPort has to be connected to the conditional heatPort connector.<br>
-If <i>useHeatPort = false</i>, the heatPort has to be connected to a conditional fixed temperature component.
-</p>
-</html>"));
-  equation
-    heatPort.Q_flow = Q_flow;
-  end InternalHeatPort;
 end Interfaces;
