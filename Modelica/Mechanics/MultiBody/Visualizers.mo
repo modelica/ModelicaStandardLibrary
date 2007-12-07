@@ -1119,30 +1119,30 @@ library (will be replaced by a color editor).
       // Real rxry[3, 2];
     protected
       Real abs_n_x=Modelica.Math.Vectors.length(
-                                 lengthDirection) annotation (Hide=true);
+                                 lengthDirection) annotation (HideResult=true);
       Real e_x[3]=noEvent(if abs_n_x < 1.e-10 then {1,0,0} else lengthDirection
-          /abs_n_x) annotation (Hide=true);
-      Real n_z_aux[3]=cross(e_x, widthDirection) annotation (Hide=true);
+          /abs_n_x) annotation (HideResult=true);
+      Real n_z_aux[3]=cross(e_x, widthDirection) annotation (HideResult=true);
       Real e_y[3]=noEvent(cross(Modelica.Math.Vectors.normalize(
                                                  cross(e_x, if n_z_aux*n_z_aux
            > 1.0e-6 then widthDirection else (if abs(e_x[1]) > 1.0e-6 then {0,1,
-          0} else {1,0,0}))), e_x)) annotation (Hide=true);
-      output Real Form annotation (Hide=false);
+          0} else {1,0,0}))), e_x)) annotation (HideResult=true);
+      output Real Form annotation (HideResult=false);
     public
       output Real rxvisobj[3]
         "x-axis unit vector of shape, resolved in world frame" 
-        annotation (Hide=false);
+        annotation (HideResult=false);
       output Real ryvisobj[3]
         "y-axis unit vector of shape, resolved in world frame" 
-        annotation (Hide=false);
+        annotation (HideResult=false);
       output SI.Position rvisobj[3]
         "position vector from world frame to shape frame, resolved in world frame"
-        annotation (Hide=false);
+        annotation (HideResult=false);
     protected
       output SI.Length size[3] "{length,width,height} of shape" 
-        annotation (Hide=false);
-      output Real Material annotation (Hide=false);
-      output Real Extra annotation (Hide=false);
+        annotation (HideResult=false);
+      output Real Material annotation (HideResult=false);
+      output Real Extra annotation (HideResult=false);
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,

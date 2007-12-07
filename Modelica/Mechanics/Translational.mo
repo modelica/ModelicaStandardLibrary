@@ -2305,7 +2305,7 @@ provided via a signal bus.
         import Modelica;
         extends Modelica.Blocks.Interfaces.BlockIcon;
         Modelica.Blocks.Interfaces.RealInput s_start "Start position" 
-        annotation (Hide=true, Placement(transformation(extent={{-140,-20},{
+        annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{
                 -100,20}}, rotation=0)));
 
       annotation (Diagram(graphics));
@@ -2322,7 +2322,7 @@ provided via a signal bus.
         import Modelica;
         extends Modelica.Blocks.Interfaces.BlockIcon;
         Modelica.Blocks.Interfaces.RealInput v_start "Start velocity" 
-        annotation (Hide=true, Placement(transformation(extent={{-140,-20},{
+        annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{
                 -100,20}}, rotation=0)));
 
       annotation (Diagram(graphics));
@@ -2339,14 +2339,14 @@ provided via a signal bus.
         import Modelica;
         extends Modelica.Blocks.Interfaces.BlockIcon;
         Modelica.Blocks.Interfaces.RealInput a_start "Start acceleration" 
-        annotation (Hide=true, Placement(transformation(extent={{-140,-20},{
+        annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{
                 -100,20}}, rotation=0)));
 
       annotation (Diagram(graphics));
         Modelica.Mechanics.Translational.Interfaces.Flange_b flange(s(stateSelect=StateSelect.avoid)) 
             annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
-        Modelica.SIunits.Velocity v = der(flange.s)        annotation(Hide=true);
+        Modelica.SIunits.Velocity v = der(flange.s)        annotation(HideResult=true);
       initial equation
         der(v) = a_start;
       equation
@@ -2720,8 +2720,8 @@ Additionally, a left and right stop are handled.
         final max=Unknown,
         start=Unknown, fixed=true);
       protected
-      constant SI.Acceleration unitAcceleration = 1 annotation(Hide=true);
-      constant SI.Force unitForce = 1 annotation(Hide=true);
+      constant SI.Acceleration unitAcceleration = 1 annotation(HideResult=true);
+      constant SI.Force unitForce = 1 annotation(HideResult=true);
     equation
     /* Friction characteristic
    (locked is introduced to help the Modelica translator determining
@@ -4209,7 +4209,7 @@ flange is the same. It is used to built up springs, dampers etc.
 
       parameter StateSelect stateSelect=StateSelect.prefer
         "Priority to use phi_rel and w_rel as states" 
-      annotation(Hide=true, Dialog(tab="Advanced"));
+      annotation(HideResult=true, Dialog(tab="Advanced"));
       parameter SI.Distance s_nominal=1e-4
         "Nominal value of s_rel (used for scaling)"   annotation(Dialog(tab="Advanced"));
 
@@ -4281,7 +4281,7 @@ and c have more meaningful values for the user.
       "Base model for 1-dim. translational gear consisting of input and output flange and the support"
       parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded" 
-          annotation(Evaluate=true, Hide=true, choices(__Dymola_checkBox=true));
+          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
       Flange_a flange_a "Flange of left shaft" 
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
       Flange_b flange_b "Flange of right shaft" 
@@ -4358,7 +4358,7 @@ connector is not connected).
       "Base model for a component with a translational 1D shaft flange and a support to define either a predefined motion or a predefined force"
       parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded" 
-          annotation(Evaluate=true, Hide=true, choices(__Dymola_checkBox=true));
+          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
       Modelica.SIunits.Length s
         "distance between flange and support (= flange.s - support.s)";
       Flange_b flange 
@@ -4432,7 +4432,7 @@ The support connector needs to be connected to avoid the unphysical behavior tha
       "Partial model of a force acting at the flange (accelerates the flange)"
     parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded" 
-        annotation(Evaluate=true, Hide=true, choices(__Dymola_checkBox=true));
+        annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
     Translational.Interfaces.Flange_b flange "Flange on which force is acting" 
       annotation (Placement(transformation(extent={{110,-10},{90,10}},
             rotation=0)));
@@ -4549,7 +4549,7 @@ of several base components.
       "Component with two translational 1D flanges and support"
       parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded" 
-          annotation(Evaluate=true, Hide=true, choices(__Dymola_checkBox=true));
+          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
       Flange_a flange_a
         "(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)"
          annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
@@ -4656,8 +4656,8 @@ Basic model for Coulomb friction that models the stuck phase in a reliable way.
         final max=Unknown,
         start=Unknown, fixed=true);
     protected
-      constant SI.Acceleration unitAcceleration = 1 annotation(Hide=true);
-      constant SI.Force unitForce = 1 annotation(Hide=true);
+      constant SI.Acceleration unitAcceleration = 1 annotation(HideResult=true);
+      constant SI.Force unitForce = 1 annotation(HideResult=true);
     equation
     /* Friction characteristic
    (locked is introduced to help the Modelica translator determining
