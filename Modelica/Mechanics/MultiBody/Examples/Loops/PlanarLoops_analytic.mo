@@ -82,7 +82,7 @@ animation view.
         origin={6,60},
         extent={{-10,-10},{10,10}},
         rotation=90)));
-  Modelica.Mechanics.Rotational.Sources.Position position 
+  Modelica.Mechanics.Rotational.Sources.Position position(useSupport=true) 
     annotation (Placement(transformation(extent={{-90,-20},{-70,0}}, rotation=0)));
   Modelica.Blocks.Sources.Sine sine(amplitude=0.7) 
     annotation (Placement(transformation(
