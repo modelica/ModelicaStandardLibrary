@@ -709,6 +709,55 @@ convertElement({"Modelica.Mechanics.Rotational.Fixed",
                 "Modelica.Mechanics.Rotational.Torque"},
                 "flange_b", "flange");
 
+// if bearing is connected, set explicitly useSupport=true
+convertModifiers({"Modelica.Mechanics.Rotational.IdealGear",
+                  "Modelica.Mechanics.Rotational.BearingFriction",
+                  "Modelica.Mechanics.Rotational.Brake",
+                  "Modelica.Mechanics.Rotational.LossyGear",
+                  "Modelica.Mechanics.Rotational.Gear2",
+                  "Modelica.Mechanics.Rotational.Position",
+                  "Modelica.Mechanics.Rotational.Speed",
+                  "Modelica.Mechanics.Rotational.Accelerate",
+                  "Modelica.Mechanics.Rotational.Move",
+                  "Modelica.Mechanics.Rotational.Torque",
+                  "Modelica.Mechanics.Rotational.LinearSpeedDependentTorque",
+                  "Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque",
+                  "Modelica.Mechanics.Rotational.ConstantTorque",
+                  "Modelica.Mechanics.Rotational.ConstantSpeed",
+                  "Modelica.Mechanics.Rotational.TorqueStep"},
+                 {"cardinality(bearing)=1"},{"useSupport=true"});
+
+convertModifiers({"Modelica.Mechanics.Rotational.IdealGearR2T"},
+                 {"cardinality(bearingR)=1"},{"useSupportR=true"});
+
+convertModifiers({"Modelica.Mechanics.Rotational.IdealGearR2T"},
+                 {"cardinality(bearingT)=1"},{"useSupportT=true"});
+
+// if bearing is not connected, set explicitly useSupport=false
+convertModifiers({"Modelica.Mechanics.Rotational.IdealGear",
+                  "Modelica.Mechanics.Rotational.BearingFriction",
+                  "Modelica.Mechanics.Rotational.Brake",
+                  "Modelica.Mechanics.Rotational.LossyGear",
+                  "Modelica.Mechanics.Rotational.Gear2",
+                  "Modelica.Mechanics.Rotational.Position",
+                  "Modelica.Mechanics.Rotational.Speed",
+                  "Modelica.Mechanics.Rotational.Accelerate",
+                  "Modelica.Mechanics.Rotational.Move",
+                  "Modelica.Mechanics.Rotational.Torque",
+                  "Modelica.Mechanics.Rotational.LinearSpeedDependentTorque",
+                  "Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque",
+                  "Modelica.Mechanics.Rotational.ConstantTorque",
+                  "Modelica.Mechanics.Rotational.ConstantSpeed",
+                  "Modelica.Mechanics.Rotational.TorqueStep"},
+                  {"cardinality(bearing)=0"},{"useSupport=false"});
+
+convertModifiers({"Modelica.Mechanics.Rotational.IdealGearR2T"},
+                 {"cardinality(bearingR)=0"},{"useSupportR=false"});
+
+convertModifiers({"Modelica.Mechanics.Rotational.IdealGearR2T"},
+                 {"cardinality(bearingT)=0"},{"useSupportT=false"});
+
+
 
 //-------- Electrical ------------------------------------------------------------
 convertElement({"Modelica.Electrical.Analog.Basic.EMF"}, "flange_b", "shaft");

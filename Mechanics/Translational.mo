@@ -974,8 +974,7 @@ to see the difference.
             grid={2,2}), graphics={
             Text(
               extent={{-98,-68},{102,-94}},
-              textString="positive force => spool moves in positive direction ", 
-
+              textString="positive force => spool moves in positive direction ",
               lineColor={0,0,255}),
             Text(
               extent={{-32,-46},{38,-62}},
@@ -3351,7 +3350,7 @@ blocks of Modelica.Blocks.Source.
         "Velocity of flange with respect to support (= der(s))";
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}}, 
+                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}},
                 color={0,0,255})}), Documentation(info="<HTML>
 <p>
 Model of force, linearly dependent on velocity of flange.<br>
@@ -3634,7 +3633,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
               Text(
               extent={{80,-28},{114,-62}},
               lineColor={0,0,0},
@@ -3670,7 +3669,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
               Text(
               extent={{80,-28},{111,-61}},
               lineColor={0,0,0},
@@ -3708,7 +3707,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
               Text(
               extent={{80,-28},{115,-60}},
               lineColor={0,0,0},
@@ -4068,9 +4067,9 @@ The following variables are transported through this connector:
                 -100},{100,100}}), graphics={
             Rectangle(
               extent={{-60,60},{60,-60}},
-              lineColor={0,127,0},
               fillColor={175,175,175},
-              fillPattern=FillPattern.Solid),
+              fillPattern=FillPattern.Solid,
+              pattern=LinePattern.None),
             Text(
               extent={{-160,110},{40,50}},
               lineColor={0,127,0},
@@ -4083,10 +4082,10 @@ The following variables are transported through this connector:
               preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={Rectangle(
               extent={{-150,150},{150,-150}},
-              lineColor={0,127,0},
               fillColor={175,175,175},
-              fillPattern=FillPattern.Solid), Rectangle(
-              extent={{-100,-100},{100,100}},
+              fillPattern=FillPattern.Solid,
+              pattern=LinePattern.None), Rectangle(
+              extent={{-90,-90},{90,90}},
               lineColor={0,127,0},
               fillColor={0,127,0},
               fillPattern=FillPattern.Solid)}));
@@ -4197,7 +4196,7 @@ flange is the same. It is used to built up springs, dampers etc.
               points={{50,-90},{20,-80},{20,-100},{50,-90}},
               lineColor={128,128,128},
               fillColor={128,128,128},
-              fillPattern=FillPattern.Solid), Line(points={{-60,-90},{20,-90}}, 
+              fillPattern=FillPattern.Solid), Line(points={{-60,-90},{20,-90}},
                 color={0,0,0})}));
     equation
       s_rel = flange_b.s - flange_a.s;

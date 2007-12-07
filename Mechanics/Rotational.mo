@@ -90,7 +90,7 @@ Library <b>Rotational</b> is a <b>free</b> Modelica package providing
 1-dimensional, rotational mechanical components to model in a convenient way
 drive trains with frictional losses.
 </p>
-
+ 
 <p>
 <b>
 Note, the Users Guide has not yet been adapted to the changes of the
@@ -202,13 +202,13 @@ connector offers the possibility to consider, e.g., gearboxes mounted on
 the ground via spring-damper-systems (cf. example <tt>ElasticBearing</tt>). Independently, these components
 provide a variable <tt>tau_support</tt> stating the support torque exerted
 on the bearing.</p>
-
+ 
 <p><IMG SRC=\"../Images/Rotational/bearing.png\" ALT=\"bearing\"></p>
-
+ 
 <p>In general, it is not necessary to connect the bearing flange
 with a fixation, i.e., the two implementations in the following figure give
 identical results.</p>
-
+ 
 <p><IMG SRC=\"../Images/Rotational/bearing2.png\" ALT=\"bearing2\"></p>
  
 </HTML>"));
@@ -562,13 +562,14 @@ in the housing on one side via component Fixed.</p>
       Rotational.Components.Fixed fixed 
                              annotation (Placement(transformation(extent={{38,
                 -48},{54,-32}}, rotation=0)));
-      Rotational.Sources.Torque torque 
+      Rotational.Sources.Torque torque(useSupport=true) 
                                annotation (Placement(transformation(extent={{-68,-8},
                 {-52,8}},         rotation=0)));
       Rotational.Components.Inertia inertia1(        J=Jmotor) 
         annotation (Placement(transformation(extent={{-38,-8},{-22,8}},
               rotation=0)));
-      Rotational.Components.IdealGear idealGear(        ratio=ratio) 
+      Rotational.Components.IdealGear idealGear(        ratio=ratio, useSupport
+          =true) 
         annotation (Placement(transformation(extent={{-8,-8},{8,8}},  rotation=
                 0)));
       Rotational.Components.Inertia inertia2(        J=2,
@@ -735,7 +736,7 @@ values (defined already in the model):</p>
             grid={2,2}), graphics),
         experiment(StopTime=3));
 
-      Rotational.Sources.Torque torque 
+      Rotational.Sources.Torque torque(useSupport=true) 
                                annotation (Placement(transformation(extent={{-90,-10},
                 {-70,10}},        rotation=0)));
       Rotational.Components.Inertia inertia3(
@@ -769,7 +770,7 @@ values (defined already in the model):</p>
         w(start=90, fixed=true)) 
                      annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
-      Rotational.Components.Brake brake(        fn_max=1600) 
+      Rotational.Components.Brake brake(        fn_max=1600, useSupport=true) 
                                           annotation (Placement(transformation(
               extent={{60,-10},{80,10}},
                                        rotation=0)));
@@ -883,7 +884,7 @@ locked, forward sliding.</p>
                      annotation (Placement(transformation(extent={{-70,-10},{
                 -50,10}},
                      rotation=0)));
-      Rotational.Sources.Torque torque 
+      Rotational.Sources.Torque torque(useSupport=true) 
                                annotation (Placement(transformation(extent={{-100,
                 -10},{-80,10}},   rotation=0)));
       Rotational.Components.Clutch clutch1(        peak=1.1, fn_max=20) 
@@ -999,7 +1000,8 @@ gear.mode  :  1 = forward rolling
                 80}}),
             graphics),
         experiment(StopTime=0.5));
-      Rotational.Components.LossyGear gear(ratio=2, lossTable=[0, 0.5, 0.5, 0, 0]) 
+      Rotational.Components.LossyGear gear(ratio=2, lossTable=[0, 0.5, 0.5, 0, 0],
+        useSupport=true) 
         annotation (Placement(transformation(extent={{-10,0},{10,20}}, rotation=
                0)));
       Rotational.Components.Inertia Inertia1 
@@ -1009,10 +1011,10 @@ gear.mode  :  1 = forward rolling
         phi(fixed=true, start=0),
         w(fixed=true))                   annotation (Placement(transformation(
               extent={{20,0},{40,20}}, rotation=0)));
-      Rotational.Sources.Torque torque1 
+      Rotational.Sources.Torque torque1(useSupport=true) 
                                 annotation (Placement(transformation(extent={{
                 -70,0},{-50,20}}, rotation=0)));
-      Rotational.Sources.Torque torque2 
+      Rotational.Sources.Torque torque2(useSupport=true) 
                                 annotation (Placement(transformation(extent={{
                 70,0},{50,20}}, rotation=0)));
       Modelica.Blocks.Sources.Sine DriveSine(amplitude=10, freqHz=1) 
@@ -1091,7 +1093,8 @@ as component LossyGear includes the functionality of component BearingFriction
                 80}}),
             graphics),
         experiment(StopTime=0.5));
-      Rotational.Components.LossyGear gear(ratio=2, lossTable=[0, 0.5, 0.5, 0, 0]) 
+      Rotational.Components.LossyGear gear(ratio=2, lossTable=[0, 0.5, 0.5, 0, 0],
+        useSupport=true) 
         annotation (Placement(transformation(extent={{-20,0},{0,20}}, rotation=
                 0)));
       Rotational.Components.Inertia Inertia1 
@@ -1101,10 +1104,10 @@ as component LossyGear includes the functionality of component BearingFriction
         phi(fixed=true, start=0),
         w(fixed=true))                   annotation (Placement(transformation(
               extent={{10,0},{30,20}}, rotation=0)));
-      Rotational.Sources.Torque torque1 
+      Rotational.Sources.Torque torque1(useSupport=true) 
                                 annotation (Placement(transformation(extent={{-110,0},
                 {-90,20}},        rotation=0)));
-      Rotational.Sources.Torque torque2 
+      Rotational.Sources.Torque torque2(useSupport=true) 
                                 annotation (Placement(transformation(extent={{60,0},{
                 40,20}},        rotation=0)));
       Modelica.Blocks.Sources.Sine DriveSine(amplitude=10, freqHz=1) 
@@ -1115,7 +1118,8 @@ as component LossyGear includes the functionality of component BearingFriction
         duration=2,
         offset=-10) annotation (Placement(transformation(extent={{90,0},{70,20}},
               rotation=0)));
-      Rotational.Components.BearingFriction bearingFriction(        tau_pos=[0, 0.5; 1, 1]) 
+      Rotational.Components.BearingFriction bearingFriction(        tau_pos=[0, 0.5; 1, 1],
+          useSupport=true) 
         annotation (Placement(transformation(extent={{-80,0},{-60,20}},
               rotation=0)));
       Rotational.Components.Fixed fixed 
@@ -1174,7 +1178,7 @@ as component LossyGear includes the functionality of component BearingFriction
             origin={20,-30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Rotational.Sources.Torque torque 
+      Rotational.Sources.Torque torque(useSupport=true) 
         annotation (Placement(transformation(extent={{-50,40},{-30,60}},
               rotation=0)));
       Modelica.Blocks.Sources.Ramp ramp(              duration=5, height=100) 
@@ -1194,7 +1198,8 @@ Simulate for about 10 seconds and plot the angular velocities of the inertias <t
 <tt>shaft.w</tt> and <tt>load.w</tt>.</p>
 </html>
 "));
-      Rotational.Components.IdealGear idealGear(        ratio=3) 
+      Rotational.Components.IdealGear idealGear(        ratio=3, useSupport=
+            true) 
         annotation (Placement(transformation(extent={{10,40},{30,60}}, rotation=
                0)));
       Rotational.Components.Inertia housing(
@@ -2224,11 +2229,10 @@ following references, especially (Armstrong and Canudas de Witt 1996):
               extent={{-150,130},{150,90}},
               textString="%name",
               lineColor={0,0,255}),
-            Line(points={{-10,-90},{0,-80}}, color={0,0,0}),
-            Line(points={{-5,-90},{5,-80}}, color={0,0,0}),
-            Line(points={{0,-90},{10,-80}}, color={0,0,0}),
-            Line(points={{5,-90},{10,-85}}, color={0,0,0}),
-            Line(points={{-10,-85},{-5,-80}}, color={0,0,0})}),
+            Line(
+              points={{0,-80},{0,-100}},
+              color={0,0,0},
+              smooth=Smooth.None)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -3598,10 +3602,10 @@ GearNew.</p>
     model IdealGearR2T
       "Gearbox transforming rotational into translational motion"
       import SI = Modelica.SIunits;
-      parameter Boolean useSupportR=true
+      parameter Boolean useSupportR=false
         "= true, if rotational support flange enabled, otherwise implicitly grounded"
           annotation(Evaluate=true, Hide=true, choices(__Dymola_checkBox=true));
-      parameter Boolean useSupportT=true
+      parameter Boolean useSupportT=false
         "= true, if translational support flange enabled, otherwise implicitly grounded"
           annotation(Evaluate=true, Hide=true, choices(__Dymola_checkBox=true));
       parameter Real ratio(final unit="rad/m", start=1)
@@ -3788,17 +3792,19 @@ connected with corresponding elements.
         annotation (Placement(transformation(extent={{-110,-112},{-90,-92}})));
       Translational.Interfaces.Support wheelSupport if useWheelSupport
         "Support of translational movement" 
-        annotation (Placement(transformation(extent={{90,-110},{110,-90}})));
-      parameter Boolean useHubSupport=true
+        annotation (Placement(transformation(extent={{90,-110},{110,-90}}),
+            iconTransformation(extent={{90,-110},{110,-90}})));
+      parameter Boolean useHubSupport=false
         "= true, if rotational support flange enabled, otherwise implicitly grounded"
           annotation(Evaluate=true, Hide=true, choices(__Dymola_checkBox=true));
-      parameter Boolean useWheelSupport=true
+      parameter Boolean useWheelSupport=false
         "= true, if translational support flange enabled, otherwise implicitly grounded"
           annotation(Evaluate=true, Hide=true, choices(__Dymola_checkBox=true));
       parameter Modelica.SIunits.Distance radius(start=0.3) "Wheel radius";
 
      annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                -100},{100,100}}), graphics={
+                -100},{100,100}},
+            grid={1,1}), graphics={
             Rectangle(
               extent={{-100,10},{-46,-10}},
               lineColor={0,0,0},
@@ -3862,49 +3868,25 @@ connected with corresponding elements.
               color={0,0,0},
               smooth=Smooth.None),
             Line(
-              points={{80,-22},{80,-86}},
-              color={0,127,0},
-              smooth=Smooth.None),
-            Line(
-              points={{100,-86},{-20,-86}},
-              color={0,127,0},
-              smooth=Smooth.None),
-            Line(
-              points={{0,-86},{-20,-100}},
-              color={0,127,0},
-              smooth=Smooth.None),
-            Line(
-              points={{20,-86},{0,-100}},
-              color={0,127,0},
-              smooth=Smooth.None),
-            Line(
-              points={{40,-86},{20,-100}},
-              color={0,127,0},
-              smooth=Smooth.None),
-            Line(
-              points={{60,-86},{40,-100}},
-              color={0,127,0},
-              smooth=Smooth.None),
-            Line(
-              points={{80,-86},{60,-100}},
+              points={{100,-90},{-40,-90}},
               color={0,127,0},
               smooth=Smooth.None),
             Line(
               visible=not useWheelSupport,
               points={{76,-110},{85,-100}},
-              color={0,0,0}),
+              color={0,127,0}),
             Line(
               visible=not useWheelSupport,
               points={{85,-110},{95,-100}},
-              color={0,0,0}),
+              color={0,127,0}),
             Line(
               visible=not useWheelSupport,
               points={{95,-110},{105,-100}},
-              color={0,0,0}),
+              color={0,127,0}),
             Line(
               visible=not useWheelSupport,
               points={{105,-110},{115,-100}},
-              color={0,0,0}),
+              color={0,127,0}),
             Line(
               visible=not useHubSupport,
               points={{-124,-110},{-115,-100}},
@@ -3928,7 +3910,11 @@ connected with corresponding elements.
             Line(
               visible=not useWheelSupport,
               points={{85,-100},{115,-100}},
-              color={0,0,0})}),
+              color={0,127,0}),
+            Line(
+              points={{70,-26},{70,-50},{100,-50},{100,-100}},
+              color={0,127,0},
+              smooth=Smooth.None)}),
           Documentation(info="<html>
 <p>
 A simple kinematic model of a rolling wheel which has no inertia and
@@ -3941,7 +3927,8 @@ no rolling resistance. This component defines the kinematic constraint:
  
 </html>
 "),     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}),graphics));
+                {100,100}},
+            grid={1,1}),    graphics));
     protected
       Rotational.Interfaces.InternalSupport internalHubSupport 
         annotation (Placement(transformation(extent={{-110,-90},{-90,-70}})));
@@ -4345,7 +4332,7 @@ to move relative to flange support according to this reference motion. According
 The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
-
+ 
 </html>
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -5809,7 +5796,7 @@ and c are more meaningful for the user.
 
     partial model PartialGear
       "Base model for 1-dim. rotationalgear consisting of the flange of an input shaft, the flange of an output shaft and the support"
-      parameter Boolean useSupport=true
+      parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded" 
           annotation(Evaluate=true, Hide=true, choices(__Dymola_checkBox=true));
       Flange_a flange_a "Flange of left shaft" 
@@ -5881,7 +5868,7 @@ the support is internally fixed.
 
     partial model PartialSource
       "Base model for a component with a rotational 1-dim. shaft flange and a support to define either a predefined motion or a predefined torque"
-      parameter Boolean useSupport=true
+      parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded" 
           annotation(Evaluate=true, Hide=true, choices(__Dymola_checkBox=true));
       Flange_b flange "Flange of shaft" 
@@ -5955,7 +5942,7 @@ the support is internally fixed.
 
     partial model PartialTorque
       "Partial model of a torque acting at the flange (accelerates the flange)"
-      parameter Boolean useSupport=true
+      parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded" 
           annotation(Evaluate=true, Hide=true, choices(__Dymola_checkBox=true));
       Rotational.Interfaces.Flange_b flange "Flange on which torque is acting" 
@@ -6083,7 +6070,7 @@ and for an elementary gear (Interfaces.PartialGear).
 
     partial model PartialTwoFlangesAndSupport
       "Base model for a component with two rotational 1-dim. shaft flanges and a support"
-      parameter Boolean useSupport=true
+      parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded" 
           annotation(Evaluate=true, Hide=true, choices(__Dymola_checkBox=true));
       Flange_a flange_a "Flange of left shaft" 
