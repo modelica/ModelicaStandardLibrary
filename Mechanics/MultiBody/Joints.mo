@@ -1767,8 +1767,7 @@ frame_b of the joint.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(
-            points={{-86,31},{-74,61},{-49,83},{-17,92},{19,88},{40,69},{59,48}}, 
-
+            points={{-86,31},{-74,61},{-49,83},{-17,92},{19,88},{40,69},{59,48}},
             color={160,160,164},
             thickness=2),
           Polygon(
@@ -3521,8 +3520,7 @@ component).
               points={{-40,0},{-40,90},{-80,90},{-80,99}},
               color={95,95,95},
               thickness=2),
-            Polygon(points={{7,-1},{-5,2},{-5,-4},{7,-1}}, lineColor={0,0,255}), 
-
+            Polygon(points={{7,-1},{-5,2},{-5,-4},{7,-1}}, lineColor={0,0,255}),
             Line(points={{-50,19},{-30,57}}, color={0,0,255}),
             Text(
               extent={{-24,74},{7,53}},
@@ -3589,8 +3587,7 @@ component).
               lineColor={0,0,0},
               textString="nAxis"),
             Line(points={{-61,1},{-2,1}}, color={0,0,255}),
-            Polygon(points={{10,1},{-2,4},{-2,-2},{10,1}}, lineColor={0,0,255}), 
-
+            Polygon(points={{10,1},{-2,4},{-2,-2},{10,1}}, lineColor={0,0,255}),
             Line(
               points={{60,-1},{60,90},{80,90},{80,99}},
               color={95,95,95},
@@ -6638,7 +6635,8 @@ connected to the prismatic joint.");
 
       SI.Velocity v(start=0,final stateSelect=stateSelect)
         "First derivative of s (relative velocity)";
-      SI.Acceleration a(start=0);
+      SI.Acceleration a(start=0)
+        "Second derivative of s (relative acceleration)";
       SI.Force f=0 "Actuation force in direction of joint axis";
 
       annotation (

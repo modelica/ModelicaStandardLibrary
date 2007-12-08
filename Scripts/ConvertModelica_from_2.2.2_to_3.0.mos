@@ -186,6 +186,14 @@ convertModifiers("Modelica.Mechanics.MultiBody.Parts.Rotor1D",{"enforceStates"},
                 {"stateSelect=if (%enforceStates%) then StateSelect.prefer else StateSelect.default"}, true);
 
 
+// --------- initialization of 1-dim. translational systems with start values -----------------------------
+
+// Modelica.Mechanics.Rotational.Inertia
+convertModifiers("Modelica.Mechanics.Translational.Speed"     ,{"s_start"}, {"s.start=%s_start%"});
+convertModifiers("Modelica.Mechanics.Translational.Accelerate",{"s_start"}, {"s.start=%s_start%"});
+convertModifiers("Modelica.Mechanics.Translational.Accelerate",{"v_start"}, {"v.start=%v_start%"});
+
+
 
 // --------- initialization of 3-dim. rotational systems with start values ------------------------------
 
@@ -777,6 +785,20 @@ convertModifiers({"Modelica.Mechanics.Rotational.IdealGearR2T"},
 
 // --------- MultiBody -----------------------------------------------------------
 
+
+// Joints
+convertClassIf("Modelica.Mechanics.MultiBody.Joints.Revolute","planarCutJoint","false",
+               "Modelica.Mechanics.MultiBody.Joints.Revolute");
+convertClassIf("Modelica.Mechanics.MultiBody.Joints.Revolute","planarCutJoint","true",
+               "Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint");
+
+convertClassIf("Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute","planarCutJoint","false",
+               "Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute");
+convertClassIf("Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute","planarCutJoint","true",
+               "Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint");
+
+
+// Sensors
 convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.CutForce"},
                  {"cardinality(frame_resolve)=0", "resolveInFrame_a=true"},
                  {"resolveInFrame = if (%resolveInFrame_a%) then " + 
@@ -1154,7 +1176,8 @@ convertClass  ("Modelica.Mechanics.Rotational.OneWayClutch",                   "
 convertClass  ("Modelica.Mechanics.Rotational.IdealGear",                      "Modelica.Mechanics.Rotational.Components.IdealGear");
 convertClass  ("Modelica.Mechanics.Rotational.LossyGear",                      "Modelica.Mechanics.Rotational.Components.LossyGear");
 convertClass  ("Modelica.Mechanics.Rotational.IdealPlanetary",                 "Modelica.Mechanics.Rotational.Components.IdealPlanetary");
-convertClass  ("Modelica.Mechanics.Rotational.Gearbox",                        "Modelica.Mechanics.Rotational.Components.Gearbox");
+convertClass  ("Modelica.Mechanics.Rotational.Gear",                           "ObsoleteModelica3.Mechanics.Rotational.Gear");
+convertClass  ("Modelica.Mechanics.Rotational.Gear2",                          "Modelica.Mechanics.Rotational.Components.Gearbox");
 convertClass  ("Modelica.Mechanics.Rotational.IdealGearR2T",                   "Modelica.Mechanics.Rotational.Components.IdealGearR2T");
 convertClass  ("Modelica.Mechanics.Rotational.IdealRollingWheel",              "Modelica.Mechanics.Rotational.Components.IdealRollingWheel");
 convertClass  ("Modelica.Mechanics.Rotational.InitializeFlange",               "Modelica.Mechanics.Rotational.Components.InitializeFlange");
