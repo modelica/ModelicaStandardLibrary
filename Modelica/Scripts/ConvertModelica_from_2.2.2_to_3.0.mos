@@ -1130,7 +1130,7 @@ convertElement  ({"Modelica.Thermal.FluidHeatFlow.Sources.PrescribedPressureIncr
 
 convertClass  ("Modelica.Thermal.HeatTransfer.HeatCapacitor",         "Modelica.Thermal.HeatTransfer.Components.HeatCapacitor");
 convertClass  ("Modelica.Thermal.HeatTransfer.ThermalConductor",      "Modelica.Thermal.HeatTransfer.Components.ThermalConductor");
-convertClass  ("Modelica.Thermal.HeatTransfer.ThermalConvection",     "Modelica.Thermal.HeatTransfer.Components.Convection");
+convertClass  ("Modelica.Thermal.HeatTransfer.Convection",            "Modelica.Thermal.HeatTransfer.Components.Convection");
 convertClass  ("Modelica.Thermal.HeatTransfer.BodyRadiation",         "Modelica.Thermal.HeatTransfer.Components.BodyRadiation");
 
 convertClass  ("Modelica.Thermal.HeatTransfer.TemperatureSensor",     "Modelica.Thermal.HeatTransfer.Sensors.TemperatureSensor");
@@ -1188,7 +1188,7 @@ convertElement({"Modelica.Mechanics.Rotational.Accelerate"}, "a", "a_ref");
 convertModifiers("Modelica.Mechanics.Rotational.Accelerate", {"phi_start"}, {"phi.start=%phi_start%"});
 convertModifiers("Modelica.Mechanics.Rotational.Accelerate", {"w_start"},   {"w.start=%w_start%"});
 convertElement({"Modelica.Mechanics.Rotational.LossyGear"}, "i", "ratio");
-convertElement({"Modelica.Mechanics.Rotational.GearBox"},   "i", "ratio");
+convertElement({"Modelica.Mechanics.Rotational.Gear2"},     "i", "ratio");
 
 
 // End Convert Rotational (MSL 3.0)
@@ -1212,7 +1212,7 @@ convertClass  ("Modelica.Mechanics.Translational.Speed",              "Modelica.
 convertClass  ("Modelica.Mechanics.Translational.Accelerate",         "Modelica.Mechanics.Translational.Sources.Accelerate");
 convertClass  ("Modelica.Mechanics.Translational.Move",               "Modelica.Mechanics.Translational.Sources.Move");
 convertClass  ("Modelica.Mechanics.Translational.Force",              "Modelica.Mechanics.Translational.Sources.Force");
-convertClass  ("Modelica.Mechanics.Translational.RelativeStates",     "Modelica.Mechanics.Translational.Sources.RelatvieStates");
+convertClass  ("Modelica.Mechanics.Translational.RelativeStates",     "Modelica.Mechanics.Translational.Sources.RelativeStates");
 convertClass  ("Modelica.Mechanics.Translational.Interfaces.Rigid",          "Modelica.Mechanics.Translational.Interfaces.PartialRigid");
 convertClass  ("Modelica.Mechanics.Translational.Interfaces.Compliant",      "Modelica.Mechanics.Translational.Interfaces.PartialCompliant");
 convertClass  ("Modelica.Mechanics.Translational.Interfaces.TwoFlanges",     "Modelica.Mechanics.Translational.Interfaces.PartialTwoFlanges");
@@ -1225,6 +1225,7 @@ convertElement({"Modelica.Mechanics.Translational.Sensors.AccSensor"},         "
 convertElement({"Modelica.Mechanics.Translational.Position"},                "flange_b", "flange");
 convertElement({"Modelica.Mechanics.Translational.Speed"},                   "flange_b", "flange");
 convertElement({"Modelica.Mechanics.Translational.Accelerate"},              "flange_b", "flange");
+convertElement({"Modelica.Mechanics.Translational.Accelerate"},              "a"       , "a_ref");
 convertElement({"Modelica.Mechanics.Translational.Move"},                    "flange_b", "flange");
 convertElement({"Modelica.Mechanics.Translational.Fixed"},                   "flange_b", "flange");
 convertElement({"Modelica.Mechanics.Translational.Force"},                   "flange_b", "flange");
