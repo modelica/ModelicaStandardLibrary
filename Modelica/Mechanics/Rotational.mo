@@ -2253,7 +2253,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       a_relfric = a;
 
       // Friction torque
-      flange_a.tau + flange_b.tau + tau = 0;
+      flange_a.tau + flange_b.tau - tau = 0;
 
       // Friction torque
       tau = if locked then sa*unitTorque else (if startForward then 
@@ -2455,7 +2455,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       a_relfric = a;
 
       // Friction torque, normal force and friction torque for w_rel=0
-      flange_a.tau + flange_b.tau + tau = 0;
+      flange_a.tau + flange_b.tau - tau = 0;
       fn = fn_max*f_normalized;
       tau0 = mue0*cgeo*fn;
       tau0_max = peak*tau0;
