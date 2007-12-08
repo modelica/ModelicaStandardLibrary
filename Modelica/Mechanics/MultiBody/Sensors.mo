@@ -2073,7 +2073,7 @@ The cut-force acting between the two frames to which this
 model is connected, is determined and provided at the output signal connector 
 <b>force</b> (= frame_a.f). If parameter <b>positiveSign</b> =
 <b>false</b>, the negative cut-force is provided (= frame_b.f).
-
+ 
 <p>
 Via parameter <b>resolveInFrame</b> it is defined, in which frame 
 the force vector is resolved:
@@ -2100,7 +2100,7 @@ If resolveInFrame = Types.ResolveInFrame2.frame_resolve, the conditional connect
 which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
 </p>
-
+ 
 <p>
 In the following figure the animation of a CutForce
 sensor is shown. The dark blue coordinate system is frame_b, 
@@ -2127,7 +2127,7 @@ with negative sign at frame_a.
           positiveSign) 
       annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
     Internal.ZeroPosition zeroPosition if 
-      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve) 
+      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve) 
       annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
   equation
     connect(cutForce.frame_a, frame_a)      annotation (Line(
@@ -2257,7 +2257,7 @@ with negative sign at frame_a.
          positiveSign) 
       annotation (Placement(transformation(extent={{-62,-10},{-42,10}})));
     Internal.ZeroPosition zeroPosition if 
-      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve) 
+      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve) 
       annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
   equation
     connect(cutTorque.frame_a, frame_a) annotation (Line(
@@ -2423,7 +2423,7 @@ with negative sign at frame_a.
          positiveSign) 
       annotation (Placement(transformation(extent={{-2,-10},{18,10}})));
     Internal.ZeroPosition zeroPosition if 
-      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve) 
+      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve) 
       annotation (Placement(transformation(extent={{60,30},{80,50}})));
   equation
     connect(cutForce.frame_a, frame_a) annotation (Line(
@@ -2442,7 +2442,7 @@ with negative sign at frame_a.
         thickness=2,
         smooth=Smooth.None));
     connect(cutForce.force, force) annotation (Line(
-        points={{-58,-11},{-60,-11},{-60,-20},{-80,-20},{-80,-110}},
+        points={{-58,-11},{-58,-20},{-80,-20},{-80,-110}},
         color={0,0,127},
         smooth=Smooth.None));
     connect(cutTorque.torque, torque) annotation (Line(
@@ -3315,17 +3315,18 @@ transformed output vector as \"Real r_out[3]\";
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b
         "Coordinate system b"                                                          annotation (Placement(
             transformation(extent={{84,-16},{116,16}}, rotation=0)));
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve
-        "The output vector is optionally resolved in this frame (cut-force/-torque are set to zero)"
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve if 
+             resolveInFrame==Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve
+        "Output vectors are optionally resolved in this frame (cut-force/-torque are set to zero)"
         annotation (Placement(transformation(
             origin={80,-100},
             extent={{-16,-16},{16,16}},
             rotation=270)));
 
-      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame2
+      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame1
         resolveInFrame=
-      Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_a
-        "Frame in which output vector is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_a
+        "Frame in which output vector(s) is/are resolved (1: world, 2: frame_a, 3: frame_resolve)";
 
       annotation (
         Window(
@@ -3401,10 +3402,10 @@ with the blocks of package Modelica.Blocks.
             extent={{-16,-16},{16,16}},
             rotation=270)));
 
-      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame2
+      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame1
         resolveInFrame=
-      Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_a
-        "Frame in which output vector is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_a
+        "Frame in which output vector is resolved (1: world, 2: frame_a, 3: frame_resolve)";
 
       annotation (
         Window(
@@ -3477,7 +3478,7 @@ with the blocks of package Modelica.Blocks.
       "Measure cut force vector (frame_resolve must be connected)"
 
       import SI = Modelica.SIunits;
-      import Modelica.Mechanics.MultiBody.Types.ResolveInFrame2;
+      import Modelica.Mechanics.MultiBody.Types.ResolveInFrame1;
       import Modelica.Mechanics.MultiBody.Frames;
 
       extends
@@ -3509,13 +3510,11 @@ with the blocks of package Modelica.Blocks.
     protected
       parameter Integer csign=if positiveSign then +1 else -1;
     equation
-       if resolveInFrame == ResolveInFrame2.world then
+       if resolveInFrame == ResolveInFrame1.world then
           force = Frames.resolve1(frame_a.R, frame_a.f)*csign;
-       elseif resolveInFrame == ResolveInFrame2.frame_a then
+       elseif resolveInFrame == ResolveInFrame1.frame_a then
           force = frame_a.f*csign;
-       elseif resolveInFrame == ResolveInFrame2.frame_b then
-          force = frame_b.f*(-csign);
-       elseif resolveInFrame == ResolveInFrame2.frame_resolve then
+       elseif resolveInFrame == ResolveInFrame1.frame_resolve then
           force = Frames.resolveRelative(frame_a.f, frame_a.R, frame_resolve.R)*csign;
        else
           assert(false,"Wrong value for parameter resolveInFrame");
@@ -3527,7 +3526,7 @@ with the blocks of package Modelica.Blocks.
       "Measure cut torque vector (frame_resolve must be connected)"
 
       import SI = Modelica.SIunits;
-      import Modelica.Mechanics.MultiBody.Types.ResolveInFrame2;
+      import Modelica.Mechanics.MultiBody.Types.ResolveInFrame1;
       import Modelica.Mechanics.MultiBody.Frames;
 
       extends
@@ -3558,13 +3557,11 @@ with the blocks of package Modelica.Blocks.
     protected
       parameter Integer csign=if positiveSign then +1 else -1;
     equation
-       if resolveInFrame == ResolveInFrame2.world then
+       if resolveInFrame == ResolveInFrame1.world then
           torque = Frames.resolve1(frame_a.R, frame_a.t)*csign;
-       elseif resolveInFrame == ResolveInFrame2.frame_a then
+       elseif resolveInFrame == ResolveInFrame1.frame_a then
           torque = frame_a.t*csign;
-       elseif resolveInFrame == ResolveInFrame2.frame_b then
-          torque = frame_b.t*(-csign);
-       elseif resolveInFrame == ResolveInFrame2.frame_resolve then
+       elseif resolveInFrame == ResolveInFrame1.frame_resolve then
           torque = Frames.resolveRelative(frame_a.t, frame_a.R, frame_resolve.R)*csign;
        else
           assert(false,"Wrong value for parameter resolveInFrame");
