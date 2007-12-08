@@ -1956,7 +1956,8 @@ November 3-4, 2003, pp. 149-158</p>
     parameter Boolean exact=true 
       "= true, if exact calculations; false if influence of bearing on rotor acceleration is neglected to avoid an algebraic loop"
       annotation (Dialog(tab="Advanced"));
-    
+    SI.AngularVelocity w_a[3] 
+      "Angular velocity of frame_a, resolved in frame_a";
     SI.Angle phi(start=Cv.from_deg(phi_start), stateSelect=if enforceStates then 
                 StateSelect.always else StateSelect.default) 
       "Rotation angle of rotor with respect to frame_a (= flange_a.phi = flange_b.phi)";
@@ -1972,155 +1973,16 @@ November 3-4, 2003, pp. 149-158</p>
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b 
       "(right) driven flange (flange axis directed OUT OF cut plane)" 
       annotation (extent=[90, -10; 110, 10]);
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a if world.driveTrainMechanics3D 
+    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a(
+        r_0=r_0,
+        R=R,
+        f=zeros(3),
+        t=nJ*a + cross(w_a, nJ*w)) if world.driveTrainMechanics3D 
       "Frame in which rotor housing is fixed (connector is removed, if world.driveTrainMechanics3D=false)"
       annotation (extent=[-20, -120; 20, -80], rotation=90);
     annotation (
       Documentation(info="<html>
 <p>This component is used to model the gyroscopic torques exerted by a 1-dim.
-inertia (so called <i>rotor</i>) on its 3-dim. carrier body. Gyroscopic torques
-appear, if the vector of the carrier body's angular velocity is not parallel
-to the vector of the rotor's. The axis of rotation of the rotor is defined by
-the parameter <tt>n</tt>, which has to be given in the local coordinate system
-of <tt>frame_a</tt>. The default animation of this component is
-shown in the figure below. </p>
-      <IMG SRC=\"../Images/MultiBody/Parts/Rotor1D.png\" ALT=\"model Parts.Rotor1D\">
-<p>This component is a replacement for 
-<a href=\"Modelica://Modelica.Mechanics.Rotational.Inertia\">Modelica.Mechanics.Rotational.Inertia</a>
-for the case, that a 1-dim.-rotational mechanical system should be attached with a 3-dim.
-carrier body.</p>
-<p>The Boolean parameter <tt>exact</tt> was introduced due to performance
-reasons. If <tt>exact</tt> is set to true, the influence of the carrier body
-motion on the angular velocity of the rotor is neglected. This influence is usually
-negligible if the 1-dim.-rotational mechanical system accelerates much faster as the base body (this is,
-e.g., the case in vehicle powertrains). The essential advantage is
-that an algebraic loop is removed since then there is only an
-action on acceleration level from the powertrain to the base body
-but not vice versa.</p>
-<p><b>Reference</b><br>
-<span style=\"font-variant:small-caps\">Schweiger</span>, Christian ;
-<span style=\"font-variant:small-caps\">Otter</span>, Martin:
-<a href=\"http://www.modelica.org/Conference2003/papers/h06_Schweiger_powertrains_v5.pdf\">Modelling
-3D Mechanical Effects of 1-dim. Powertrains</a>. In: <i>Proceedings of the 3rd International
-Modelica Conference</i>. Link&ouml;ping : The Modelica Association and Link&ouml;ping University,
-November 3-4, 2003, pp. 149-158</p>
-</HTML>
-"),   Icon(
-        Line(points=[-80, -25; -60, -25], style(color=0)),
-        Line(points=[60, -25; 80, -25], style(color=0)),
-        Line(points=[-70, -25; -70, -70], style(color=0)),
-        Line(points=[70, -25; 70, -70], style(color=0)),
-        Line(points=[-80, 25; -60, 25], style(color=0)),
-        Line(points=[60, 25; 80, 25], style(color=0)),
-        Line(points=[-70, 45; -70, 25], style(color=0)),
-        Line(points=[70, 45; 70, 25], style(color=0)),
-        Line(points=[-70, -70; 70, -70], style(color=0)),
-        Rectangle(extent=[-50, 50; 50, -50], style(
-            color=0,
-            gradient=2,
-            fillColor=8)),
-        Rectangle(extent=[-100,10; -50,-10],  style(
-            color=0,
-            gradient=2,
-            fillColor=8)),
-        Rectangle(extent=[50,10; 100,-10],  style(
-            color=0,
-            gradient=2,
-            fillColor=8)),
-        Text(extent=[-148,112; 152,72],    string="%name=%J"),
-        Line(points=[0, -70; 0, -100], style(color=0))),
-      Diagram);
-    
-  protected 
-    outer Modelica.Mechanics.MultiBody.World world;
-    parameter Real e[3]=Frames.normalize(n) 
-      "Unit vector in direction of rotor axis, resolved in frame_a";
-    Visualizers.Advanced.Shape cylinder(
-      shapeType="cylinder",
-      color=cylinderColor,
-      specularCoefficient=specularCoefficient,
-      length=cylinderLength,
-      width=cylinderDiameter,
-      height=cylinderDiameter,
-      lengthDirection=n,
-      widthDirection={0,1,0},
-      extra=1,
-      r_shape=r_center - e*(cylinderLength/2),
-      r=zeros(3),
-      R=Frames.planarRotation(e, phi, 0)) if  world.enableAnimation and animation and not world.driveTrainMechanics3D;
-    
-  public 
-  encapsulated model RotorWith3DEffects 
-      "1D inertia attachable on 3-dim. bodies (3D dynamic effects are taken into account)" 
-      
-    import Modelica;
-    import Modelica.Mechanics.MultiBody.Frames;
-    import Modelica.Mechanics.MultiBody.Types;
-    import SI = Modelica.SIunits;
-    import Cv = Modelica.SIunits.Conversions;
-      
-    parameter Boolean animation=true 
-        "= true, if animation shall be enabled (show rotor as cylinder)";
-    parameter SI.Inertia J(min=0)=1 
-        "Moment of inertia of rotor around its axis of rotation";
-    parameter Types.Axis n={1,0,0} "Axis of rotation resolved in frame_a";
-    parameter Types.Init.Temp initType=Modelica.Mechanics.MultiBody.Types.Init.Free 
-        "Type of initialization (defines usage of start values below)" 
-      annotation (Dialog(group="Initialization"));
-    parameter Cv.NonSIunits.Angle_deg phi_start=0 
-        "Initial value of rotor rotation angle phi (fixed or guess value)" 
-      annotation (Evaluate=false, Dialog(group="Initialization"));
-    parameter Types.AngularVelocity_degs w_start=0 
-        "Initial value of relative angular velocity w = der(phi)" 
-      annotation (Evaluate=false, Dialog(group="Initialization"));
-    parameter Types.AngularAcceleration_degs2 a_start=
-              0 "Initial value of relative angular acceleration a = der(w)" 
-      annotation (Evaluate=false, Dialog(group="Initialization"));
-    parameter SI.Position r_center[3]=zeros(3) 
-        "Position vector from origin of frame_a to center of cylinder" 
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance cylinderLength=2*world.defaultJointLength 
-        "Length of cylinder representing the rotor" 
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance cylinderDiameter=2*world.defaultJointWidth 
-        "Diameter of cylinder representing the rotor" 
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor 
-        "Color of cylinder representing the rotor" 
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Types.SpecularCoefficient specularCoefficient =                              world.defaultSpecularCoefficient 
-        "Reflection of ambient light (= 0: light is completely absorbed)" 
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter Boolean enforceStates=false 
-        "= true, if rotor angle (phi) and rotor speed (w) shall be used as states"
-      annotation (Dialog(tab="Advanced"));
-    parameter Boolean exact=true 
-        "= true, if exact calculations; false if influence of bearing on rotor acceleration is neglected to avoid an algebraic loop"
-      annotation (Dialog(tab="Advanced"));
-    SI.AngularVelocity w_a[3] 
-        "Angular velocity of frame_a, resolved in frame_a";
-    SI.Angle phi(start=Cv.from_deg(phi_start), stateSelect=if enforceStates then 
-                StateSelect.always else StateSelect.default) 
-        "Rotation angle of rotor with respect to frame_a (= flange_a.phi = flange_b.phi)";
-    SI.AngularVelocity w(stateSelect=if enforceStates then StateSelect.always else 
-                StateSelect.default) 
-        "Angular velocity of rotor with respect to frame_a";
-    SI.AngularAcceleration a 
-        "Angular acceleration of rotor with respect to frame_a";
-      
-    Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a 
-        "(left) driving flange (flange axis directed INTO cut plane)" 
-      annotation (extent=[-110, -10; -90, 10]);
-    Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b 
-        "(right) driven flange (flange axis directed OUT OF cut plane)" 
-      annotation (extent=[90, -10; 110, 10]);
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a 
-        "Frame in which rotor housing is fixed" 
-      annotation (extent=[-20, -120; 20, -80], rotation=90);
-    annotation (
-      Documentation(info="<html>
-<p>
-This component is used to model the gyroscopic torques exerted by a 1-dim.
 inertia (so called <i>rotor</i>) on its 3-dim. carrier body. Gyroscopic torques
 appear, if the vector of the carrier body's angular velocity is not parallel
 to the vector of the rotor's. The axis of rotation of the rotor is defined by
@@ -2206,13 +2068,13 @@ November 3-4, 2003, pp. 149-158</p>
         Line(points=[9, 70; -21, 70], style(color=0, fillColor=0)),
         Text(extent=[25, 77; 77, 65], string="w = der(phi) "),
         Line(points=[0, -70; 0, -100], style(color=0))));
-      
-    protected 
+    
+  protected 
     outer Modelica.Mechanics.MultiBody.World world;
     parameter Real e[3]=Frames.normalize(n) 
-        "Unit vector in direction of rotor axis, resolved in frame_a";
+      "Unit vector in direction of rotor axis, resolved in frame_a";
     parameter SI.Inertia nJ[3]=J*e;
-    Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape cylinder(
+    Visualizers.Advanced.Shape cylinder(
       shapeType="cylinder",
       color=cylinderColor,
       specularCoefficient=specularCoefficient,
@@ -2223,9 +2085,14 @@ November 3-4, 2003, pp. 149-158</p>
       widthDirection={0,1,0},
       extra=1,
       r_shape=r_center - e*(cylinderLength/2),
-      r=frame_a.r_0,
-      R=Frames.absoluteRotation(frame_a.R, Frames.planarRotation(e, phi, 0))) if 
+      r=r_0,
+      R=Frames.absoluteRotation(R, Frames.planarRotation(e, phi, 0))) if 
          world.enableAnimation and animation;
+    
+    SI.Position r_0[3] 
+      "Position vector from world frame to the connector frame origin, resolved in world frame";
+    Frames.Orientation R 
+      "Orientation object to rotate the world frame into the connector frame";
   initial equation 
     if initType == Types.Init.PositionVelocity then
       phi = Cv.from_deg(phi_start);
@@ -2250,69 +2117,19 @@ November 3-4, 2003, pp. 149-158</p>
     phi = flange_b.phi;
     w = der(phi);
     a = der(w);
-      
-    w_a = Modelica.Mechanics.MultiBody.Frames.angularVelocity2(frame_a.R);
+    
+    w_a = Modelica.Mechanics.MultiBody.Frames.angularVelocity2(R);
     if exact then
       J*a = flange_a.tau + flange_b.tau - nJ*der(w_a);
     else
       J*a = flange_a.tau + flange_b.tau;
     end if;
-      
-    frame_a.f = zeros(3);
-    frame_a.t = nJ*a + cross(w_a, nJ*w);
-  end RotorWith3DEffects;
     
-  protected 
-    Rotational.Inertia inertia(
-      J=J,
-      initType=initType,
-      phi_start=phi_start*Modelica.Constants.D2R,
-      w_start=w_start*Modelica.Constants.D2R,
-      a_start=a_start*Modelica.Constants.D2R) if  not world.driveTrainMechanics3D 
-      annotation (extent=[-20,-20; 20,20]);
-    RotorWith3DEffects rotorWith3DEffects(
-      animation=animation,
-      J=J,
-      n=n,
-      initType=initType,
-      phi_start=phi_start,
-      w_start=w_start,
-      a_start=a_start,
-      r_center=r_center,
-      cylinderLength=cylinderLength,
-      cylinderDiameter=cylinderDiameter,
-      cylinderColor=cylinderColor,
-      specularCoefficient=specularCoefficient,
-      exact=exact) if world.driveTrainMechanics3D annotation (extent=[-20,-80; 20,-40]);
-  equation 
-    phi = flange_a.phi;
-    w = der(phi);
-    a = der(w);
-    
-    connect(inertia.flange_a, flange_a) annotation (points=[-20,0; -100,0], style(
-        color=0,
-        rgbcolor={0,0,0},
-        smooth=0));
-    connect(inertia.flange_b, flange_b) annotation (points=[20,0; 100,0], style(
-        color=0,
-        rgbcolor={0,0,0},
-        smooth=0));
-    connect(rotorWith3DEffects.flange_b, flange_b) annotation (points=[20,-60; 60,
-          -60; 60,0; 100,0], style(
-        color=0,
-        rgbcolor={0,0,0},
-        smooth=0));
-    connect(rotorWith3DEffects.flange_a, flange_a) annotation (points=[-20,-60;
-          -60,-60; -60,0; -100,0], style(
-        color=0,
-        rgbcolor={0,0,0},
-        smooth=0));
-    connect(rotorWith3DEffects.frame_a, frame_a) annotation (points=[0,-80; 0,
-          -100], style(
-        color=10,
-        rgbcolor={95,95,95},
-        thickness=2,
-        smooth=0));
+    if not world.driveTrainMechanics3D then
+      r_0 = zeros(3);
+      R.T = identity(3);
+      R.w = zeros(3);
+    end if;
   end Rotor1D;
   
   model BevelGear1D 
