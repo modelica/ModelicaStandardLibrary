@@ -1329,7 +1329,7 @@ to use <b>limitAtInit</b> = <b>false</b>.
 
     parameter Real b[:]={1} "Numerator coefficients of transfer function" 
       annotation(Dialog(group="y = (2*s+3)/(4*s^2+5*s+6)*u is defined as b={2,3}, a={4,5,6}"));
-    parameter Real a[:] "Denominator coefficients of transfer function" 
+    parameter Real a[:]={1,1} "Denominator coefficients of transfer function" 
       annotation(Dialog(group="y = (2*s+3)/(4*s^2+5*s+6)*u is defined as b={2,3}, a={4,5,6}"));
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
       "Type of initialization"         annotation(Evaluate=true, Dialog(group=
@@ -1439,11 +1439,11 @@ results in the following transfer function:
 
   block StateSpace "Linear state space system"
     import Modelica.Blocks.Types.Init;
-    parameter Real A[:, size(A, 1)]
+    parameter Real A[:, size(A, 1)] = [1, 0; 0, 1]
       "Matrix A of state space model (e.g. A=[1, 0; 0, 1])";
-    parameter Real B[size(A, 1), :]
+    parameter Real B[size(A, 1), :]=[1; 1]
       "Matrix B of state space model (e.g. B=[1; 1])";
-    parameter Real C[:, size(A, 1)]
+    parameter Real C[:, size(A, 1)]= [1, 1]
       "Matrix C of state space model (e.g. C=[1, 1])";
     parameter Real D[size(C, 1), size(B, 2)]=zeros(size(C, 1), size(B, 2))
       "Matrix D of state space model";
