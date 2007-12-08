@@ -1426,6 +1426,134 @@ and resolved in the following frame
             y[i6:i6 + 2] = z_rel;
           end if;
         end RelativeSensor;
+
+        model CutForceAndTorque "Measure cut force and cut torque vector"
+
+          import SI = Modelica.SIunits;
+          import Modelica.Mechanics.MultiBody.Types;
+
+          extends
+            ObsoleteModelica3.Mechanics.MultiBody.Interfaces.PartialCutForceSensor;
+          Modelica.Blocks.Interfaces.RealOutput load[6]
+            "Cut force and cut torque resolved in frame_a/frame_b or in frame_resolved, if connected"
+               annotation (Placement(transformation(
+                origin={-80,-110},
+                extent={{10,-10},{-10,10}},
+                rotation=90)));
+
+          parameter Boolean animation=true
+            "= true, if animation shall be enabled (show force and torque arrow)";
+          parameter Boolean positiveSign=true
+            "= true, if force and torque with positive sign is returned (= frame_a.f/.t), otherwise with negative sign (= frame_b.f/.t)";
+          parameter Boolean resolveInFrame_a=true
+            "= true, if force and torque are resolved in frame_a/frame_b, otherwise in the world frame (if connector frame_resolve is connected, the force/torque is resolved in frame_resolve)";
+          input Real N_to_m(unit="N/m") = 1000
+            " Force arrow scaling (length = force/N_to_m)" 
+            annotation (Dialog(group="if animation = true", enable=animation));
+          input Real Nm_to_m(unit="N.m/m") = 1000
+            " Torque arrow scaling (length = torque/Nm_to_m)" 
+            annotation (Dialog(group="if animation = true", enable=animation));
+          input SI.Diameter forceDiameter=world.defaultArrowDiameter
+            " Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
+          input SI.Diameter torqueDiameter=forceDiameter
+            " Diameter of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
+          input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
+            " Color of force arrow" 
+            annotation (Dialog(group="if animation = true", enable=animation));
+          input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
+            " Color of torque arrow" 
+            annotation (Dialog(group="if animation = true", enable=animation));
+          input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+            "Reflection of ambient light (= 0: light is completely absorbed)" 
+            annotation (Dialog(group="if animation = true", enable=animation));
+
+          SI.Force force[3]
+            "Cut force resolved in frame_a/frame_b or in frame_resolved, if connected";
+          SI.Torque torque[3]
+            "Cut torque resolved in frame_a/frame_b or in frame_resolved, if connected";
+          annotation (
+            preferedView="info",
+            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                    {100,100}}), graphics),
+            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                    -100},{100,100}}), graphics),
+            Documentation(info="<HTML>
+<p>
+The cut-force and cut-torque acting at the component to which frame_b is
+connected are determined and provided at the output signal connector 
+<b>load</b>:
+</p>
+<pre>
+  load[1:3] = frame_a.f;
+  load[4:6] = frame_a.t;
+</pre>
+<p>
+If parameter <b>positiveSign</b> =
+<b>false</b>, the negative cut-force and negative
+cut-torque is provided (= frame_b.f and frame_b.t).
+If <b>frame_resolve</b> is connected to another frame, then the
+cut-force and cut-torque are resolved in frame_resolve.
+If <b>frame_resolve</b> is <b>not</b> connected then the
+coordinate system in which the cut-force and cut-torque is resolved
+is defined by parameter <b>resolveInFrame_a</b>.
+If this parameter is <b>true</b>, then the
+cut-force and cut-torque is resolved in frame_a, otherwise it is
+resolved in the world frame.
+</p>
+<p>
+In the following figure the animation of a CutForceAndTorque
+sensor is shown. The dark blue coordinate system is frame_b, 
+and the green arrows are the cut force and the cut torque,
+respectively, acting at frame_b and
+with negative sign at frame_a.
+</p>
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Sensors/CutForceAndTorque.png\">
+</p>
+</HTML>"),  uses(Modelica(version="3.0")));
+        protected
+          outer Modelica.Mechanics.MultiBody.World world;
+          parameter Integer csign=if positiveSign then +1 else -1;
+          SI.Position f_in_m[3]=frame_a.f*csign/N_to_m
+            "Force mapped from N to m for animation";
+          SI.Position t_in_m[3]=frame_a.t*csign/Nm_to_m
+            "Torque mapped from Nm to m for animation";
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow forceArrow(
+            diameter=forceDiameter,
+            color=forceColor,
+            specularCoefficient=specularCoefficient,
+            R=frame_b.R,
+            r=frame_b.r_0,
+            r_tail=f_in_m,
+            r_head=-f_in_m) if world.enableAnimation and animation;
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow
+            torqueArrow(
+            diameter=torqueDiameter,
+            color=torqueColor,
+            specularCoefficient=specularCoefficient,
+            R=frame_b.R,
+            r=frame_b.r_0,
+            r_tail=t_in_m,
+            r_head=-t_in_m) if world.enableAnimation and animation;
+        equation
+          if cardinality(frame_resolve) == 1 then
+            force = Modelica.Mechanics.MultiBody.Frames.resolve2(frame_resolve.R,
+              Modelica.Mechanics.MultiBody.Frames.resolve1(frame_a.R, frame_a.f))*csign;
+            torque = Modelica.Mechanics.MultiBody.Frames.resolve2(frame_resolve.R,
+              Modelica.Mechanics.MultiBody.Frames.resolve1(frame_a.R, frame_a.t))*csign;
+          elseif resolveInFrame_a then
+            force = frame_a.f*csign;
+            torque = frame_a.t*csign;
+          else
+            force = Modelica.Mechanics.MultiBody.Frames.resolve1(frame_a.R, frame_a.f)*
+              csign;
+            torque = Modelica.Mechanics.MultiBody.Frames.resolve1(frame_a.R, frame_a.t)
+              *csign;
+          end if;
+
+          load[1:3] = force;
+          load[4:6] = torque;
+        end CutForceAndTorque;
       end Sensors;
     end MultiBody;
 
@@ -1963,8 +2091,7 @@ to the left and/or the right flange.
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={192,192,192}),
               Polygon(
-                points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}}, 
-
+                points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
                 lineColor={0,0,0},
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={128,128,128}),
