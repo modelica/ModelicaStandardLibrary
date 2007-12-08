@@ -112,6 +112,21 @@ convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyCylinder",{"density"}, 
 
 
 
+// --------- Modelica.Blocks - Change of start values ---------------------------------------------------
+convertModifiers("Modelica.Blocks.Continuous.TransferFunction",{"a={1,1}"}, {"a=%a%"});
+
+convertModifiers("Modelica.Blocks.Continuous.StateSpace",{"A=[1, 0; 0, 1]"}, {"A=%A%"});
+convertModifiers("Modelica.Blocks.Continuous.StateSpace",{"B=[1; 1]"}      , {"B=%B%"});
+convertModifiers("Modelica.Blocks.Continuous.StateSpace",{"C=[1, 1]"}      , {"C=%C%"});
+
+convertModifiers("Modelica.Blocks.Discrete.TransferFunction",{"a={1,1}"}, {"a=%a%"});
+
+convertModifiers("Modelica.Blocks.Discrete.StateSpace",{"A=[1, 0; 0, 1]"}, {"A=%A%"});
+convertModifiers("Modelica.Blocks.Discrete.StateSpace",{"B=[1; 1]"}      , {"B=%B%"});
+convertModifiers("Modelica.Blocks.Discrete.StateSpace",{"C=[1, 1]"}      , {"C=%C%"});
+
+
+
 // --------- initialization of 1-dim. rotational systems with start values ------------------------------
 
 // Modelica.Mechanics.Rotational.Inertia
@@ -760,9 +775,36 @@ convertModifiers({"Modelica.Mechanics.Rotational.IdealGearR2T"},
                  {"cardinality(bearingT)=0"},{"useSupportT=false"});
 
 
+// --------- MultiBody -----------------------------------------------------------
+
+convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.CutForce"},
+                 {"cardinality(frame_resolve)=0", "resolveInFrame_a=true"},
+                 {"resolveInFrame = if (%resolveInFrame_a%) then " + 
+                                    "Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_a else " + 
+                                    "Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.world"}, true);
+convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.CutForce"},
+                 {"cardinality(frame_resolve)=1"},{"resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve"});
+
+convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.CutTorque"},
+                 {"cardinality(frame_resolve)=0", "resolveInFrame_a=true"},
+                 {"resolveInFrame = if (%resolveInFrame_a%) then " + 
+                                    "Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_a else " + 
+                                    "Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.world"}, true);
+convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.CutTorque"},
+                 {"cardinality(frame_resolve)=1"},{"resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve"});
+
+convertClass  ("Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque",
+               "ObsoleteModelica3.Mechanics.MultiBody.Sensors.CutForceAndTorque");
+
+
+
 //-------- Electrical ------------------------------------------------------------
 convertElement({"Modelica.Electrical.Analog.Basic.EMF"}, "flange_b", "shaft");
 
+convertClass  ("Modelica.Electrical.Analog.Basic.HeatingResistor",
+               "ObsoleteModelica3.Electrical.Analog.Basic.HeatingResistor");
+convertClassIf("Modelica.Electrical.Analog.Basic.HeatingResistor", "heatPort", "connect",
+               "Modelica.Electrical.Analog.Basic.HeatingResistor");
 
 
 //-------- Machines ------------------------------------------------------------
@@ -1096,6 +1138,7 @@ convertClass  ("Modelica.Mechanics.Rotational.Torque2",     "Modelica.Mechanics.
 convertClass  ("Modelica.Mechanics.Rotational.LinearSpeedDependentTorque",     "Modelica.Mechanics.Rotational.Sources.LinearSpeedDependentTorque");
 convertClass  ("Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque",  "Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque");
 convertClass  ("Modelica.Mechanics.Rotational.ConstantTorque",                 "Modelica.Mechanics.Rotational.Sources.ConstantTorque");
+convertClass  ("Modelica.Mechanics.Rotational.TorqueStep",                     "Modelica.Mechanics.Rotational.Sources.TorqueStep");
 convertClass  ("Modelica.Mechanics.Rotational.ConstantSpeed",                  "Modelica.Mechanics.Rotational.Sources.ConstantSpeed");
 convertClass  ("Modelica.Mechanics.Rotational.RelativeStates",                 "Modelica.Mechanics.Rotational.Sources.RelativeStates");
 convertClass  ("Modelica.Mechanics.Rotational.Fixed",                          "Modelica.Mechanics.Rotational.Components.Fixed");
