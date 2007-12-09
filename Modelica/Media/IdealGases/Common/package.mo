@@ -919,9 +919,13 @@ required from medium model \""   + mediumName + "\".");
   end specificInternalEnergy;
   
   redeclare function extends specificEntropy "Return specific entropy" 
+  protected 
+    Real[nX] Y(unit="mol/mol")=massToMoleFractions(state.X, data.MM) 
+      "Molar fractions";
   algorithm 
-            s := s_TX(state.T, state.X) - gasConstant(state)*Modelica.Math.log(state.p/reference_p)
-              + MixEntropy(massToMoleFractions(state.X,data.MM));
+  s :=  s_TX(state.T, state.X) - sum(state.X[i]*Modelica.Constants.R/MMX[i]*
+      (if state.X[i]<Modelica.Constants.eps then Y[i] else 
+      Modelica.Math.log(Y[i]*state.p/reference_p)) for i in 1:nX);
   end specificEntropy;
   
   redeclare function extends specificGibbsEnergy "Return specific Gibbs energy" 
@@ -1485,9 +1489,16 @@ end lowPressureThermalConductivity;
       
     redeclare function extends f_nonlinear 
         "note that this function always sees the complete mass fraction vector" 
+      protected 
+    MassFraction[nX] Xfull = if size(X,1) == nX then X else cat(1,X,{1-sum(X)});
+    Real[nX] Y(unit="mol/mol")=massToMoleFractions(if size(X,1) == nX then X else cat(1,X,{1-sum(X)}), data.MM) 
+          "Molar fractions";
     algorithm 
-      y := s_TX(x,X)- data[:].R*X*Modelica.Math.log(p/reference_p)
-        + MixEntropy(massToMoleFractions(X,data[:].MM));
+      y := s_TX(x,Xfull) - sum(Xfull[i]*Modelica.Constants.R/MMX[i]*
+      (if Xfull[i]<Modelica.Constants.eps then Y[i] else 
+      Modelica.Math.log(Y[i]*p/reference_p)) for i in 1:nX);
+        // s_TX(x,X)- data[:].R*X*(Modelica.Math.log(p/reference_p)
+        //       + MixEntropy(massToMoleFractions(X,data[:].MM)));
     end f_nonlinear;
       
     // Dummy definition has to be added for current Dymola
