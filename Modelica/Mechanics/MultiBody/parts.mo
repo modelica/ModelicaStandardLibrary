@@ -2111,7 +2111,7 @@ November 3-4, 2003, pp. 149-158</p>
 <p>This component is used to model the gyroscopic torques exerted by a 1-dim.
 inertia (so called <i>rotor</i>) on its 3-dim. carrier body. Gyroscopic torques
 appear, if the vector of the carrier body's angular velocity is not parallel
-to the vector of the rotor's. The axis of rotation of the rotor is defined by
+to the vector of the rotor's axis. The axis of rotation of the rotor is defined by
 the parameter <tt>n</tt>, which has to be given in the local coordinate system
 of <tt>frame_a</tt>. The default animation of this component is
 shown in the figure below. </p>
@@ -2121,7 +2121,7 @@ shown in the figure below. </p>
 for the case, that a 1-dim.-rotational mechanical system should be attached with a 3-dim.
 carrier body.</p>
 <p>The Boolean parameter <tt>exact</tt> was introduced due to performance
-reasons. If <tt>exact</tt> is set to true, the influence of the carrier body
+reasons. If <tt>exact</tt> is set to <b>false</b>, the influence of the carrier body
 motion on the angular velocity of the rotor is neglected. This influence is usually
 negligible if the 1-dim.-rotational mechanical system accelerates much faster as the base body (this is,
 e.g., the case in vehicle powertrains). The essential advantage is
@@ -2240,7 +2240,7 @@ November 3-4, 2003, pp. 149-158</p>
 This component is used to model the gyroscopic torques exerted by a 1-dim.
 inertia (so called <i>rotor</i>) on its 3-dim. carrier body. Gyroscopic torques
 appear, if the vector of the carrier body's angular velocity is not parallel
-to the vector of the rotor's. The axis of rotation of the rotor is defined by
+to the vector of the rotor's axis. The axis of rotation of the rotor is defined by
 the parameter <tt>n</tt>, which has to be given in the local coordinate system
 of <tt>frame_a</tt>. The default animation of this component is
 shown in the figure below. </p>
@@ -2250,7 +2250,7 @@ shown in the figure below. </p>
 for the case, that a 1-dim.-rotational mechanical system should be attached with a 3-dim.
 carrier body.</p>
 <p>The Boolean parameter <tt>exact</tt> was introduced due to performance
-reasons. If <tt>exact</tt> is set to true, the influence of the carrier body
+reasons. If <tt>exact</tt> is set to <b>false</b>, the influence of the carrier body
 motion on the angular velocity of the rotor is neglected. This influence is usually
 negligible if the 1-dim.-rotational mechanical system accelerates much faster as the base body (this is,
 e.g., the case in vehicle powertrains). The essential advantage is
@@ -2333,8 +2333,18 @@ November 3-4, 2003, pp. 149-158</p>
       J*a = flange_a.tau + flange_b.tau;
     end if;
 
+   /* Reaction torque:
+        t = n*(J*a - flange_a.tau - flange_b.tau) + cross(w_a, nJ*w)
+ 
+     Since
+        J*a = flange_a.tau + flange_b.tau - nJ*der(w_a);
+ 
+     the reaction torque can be simplified to
+        t = n*(- nJ*der(w_a)) + cross(w_a, nJ*w)
+ 
+  */
     frame_a.f = zeros(3);
-    frame_a.t = nJ*a + cross(w_a, nJ*w);
+    frame_a.t = cross(w_a, nJ*w)-e*(nJ*der(w_a));
   end RotorWith3DEffects;
 
   protected
