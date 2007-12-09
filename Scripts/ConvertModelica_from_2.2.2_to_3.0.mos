@@ -1,4 +1,7 @@
 // Convert from Modelica 2.2.2 to Modelica 3.0
+//
+// original  : 3.14159265358979323846
+// changed to: Modelica.Constants.pi
 
 // clear
 convertClear();
@@ -167,9 +170,9 @@ convertElement("Modelica.Mechanics.Rotational.InitializeFlange", "stateSelection
 
 
 // Modelica.Mechanics.MultiBody.Parts.Rotor1D
-convertModifiers("Modelica.Mechanics.MultiBody.Parts.Rotor1D",{"phi_start"}, {"phi.start=%phi_start%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Parts.Rotor1D",{"w_start"}  , {"w.start=%w_start%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Parts.Rotor1D",{"a_start"}  , {"a.start=%a_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.Rotor1D",{"phi_start"}, {"phi.start=%phi_start%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.Rotor1D",{"w_start"}  , {"w.start=%w_start%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.Rotor1D",{"a_start"}  , {"a.start=%a_start%*(Modelica.Constants.pi/180)"}, true);
 convertModifiers("Modelica.Mechanics.MultiBody.Parts.Rotor1D",{"initType"} , 
                  {"phi.fixed=if (%initType%==2 or "+
                                 "%initType%==4 or "+
@@ -198,10 +201,10 @@ convertModifiers("Modelica.Mechanics.Translational.Accelerate",{"v_start"}, {"v.
 // --------- initialization of 3-dim. rotational systems with start values ------------------------------
 
 // Modelica.Mechanics.MultiBody.Joints.Internal.Revolute
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.Internal.Revolute",{"phi_offset"}, {"phi_offset=%phi_offset%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.Internal.Revolute",{"phi_start"}, {"phi.start=%phi_start%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.Internal.Revolute",{"w_start"}  , {"w.start=%w_start%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.Internal.Revolute",{"a_start"}  , {"a.start=%a_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Internal.Revolute",{"phi_offset"}, {"phi_offset=%phi_offset%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Internal.Revolute",{"phi_start"}, {"phi.start=%phi_start%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Internal.Revolute",{"w_start"}  , {"w.start=%w_start%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Internal.Revolute",{"a_start"}  , {"a.start=%a_start%*(Modelica.Constants.pi/180)"}, true);
 convertModifiers("Modelica.Mechanics.MultiBody.Joints.Internal.Revolute",{"initType"} , 
                  {"phi.fixed=if (%initType%==2 or "+
                                 "%initType%==4 or "+
@@ -218,10 +221,10 @@ convertModifiers("Modelica.Mechanics.MultiBody.Joints.Internal.Revolute",{"enfor
                 {"stateSelect=if (%enforceStates%) then StateSelect.always else StateSelect.prefer"}, true);
 
 // Modelica.Mechanics.MultiBody.Joints.Revolute
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.Revolute",{"phi_offset"}, {"phi_offset=%phi_offset%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.Revolute",{"phi_start"}, {"phi.start=%phi_start%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.Revolute",{"w_start"}  , {"w.start=%w_start%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.Revolute",{"a_start"}  , {"a.start=%a_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Revolute",{"phi_offset"}, {"phi_offset=%phi_offset%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Revolute",{"phi_start"}, {"phi.start=%phi_start%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Revolute",{"w_start"}  , {"w.start=%w_start%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Revolute",{"a_start"}  , {"a.start=%a_start%*(Modelica.Constants.pi/180)"}, true);
 convertModifiers("Modelica.Mechanics.MultiBody.Joints.Revolute",{"initType"} , 
                  {"phi.fixed=if (%initType%==2 or "+
                                 "%initType%==4 or "+
@@ -238,10 +241,10 @@ convertModifiers("Modelica.Mechanics.MultiBody.Joints.Revolute",{"enforceStates"
                 {"stateSelect=if (%enforceStates%) then StateSelect.always else StateSelect.prefer"}, true);
 
 // Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute",{"phi_offset"}, {"phi_offset=%phi_offset%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute",{"phi_start"}, {"phi.start=%phi_start%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute",{"w_start"}  , {"w.start=%w_start%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute",{"a_start"}  , {"a.start=%a_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute",{"phi_offset"}, {"phi_offset=%phi_offset%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute",{"phi_start"}, {"phi.start=%phi_start%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute",{"w_start"}  , {"w.start=%w_start%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute",{"a_start"}  , {"a.start=%a_start%*(Modelica.Constants.pi/180)"}, true);
 convertModifiers("Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute",{"initType"} , 
                  {"phi.fixed=if (%initType%==2 or "+
                                 "%initType%==4 or "+
@@ -322,9 +325,9 @@ convertModifiers("Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic",{"enfor
 convertModifiers("Modelica.Mechanics.MultiBody.Joints.Cylindrical",{"s_start"}  , {"s.start=%s_start%"});
 convertModifiers("Modelica.Mechanics.MultiBody.Joints.Cylindrical",{"v_start"}  , {"v.start=%v_start%"});
 convertModifiers("Modelica.Mechanics.MultiBody.Joints.Cylindrical",{"a_start"}  , {"a.start=%a_start%"});
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.Cylindrical",{"phi_start"}, {"phi.start=%phi_start%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.Cylindrical",{"w_start"}  , {"w.start=%w_start%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.Cylindrical",{"wd_start"} , {"wd.start=%wd_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Cylindrical",{"phi_start"}, {"phi.start=%phi_start%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Cylindrical",{"w_start"}  , {"w.start=%w_start%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Cylindrical",{"wd_start"} , {"wd.start=%wd_start%*(Modelica.Constants.pi/180)"}, true);
 convertModifiers("Modelica.Mechanics.MultiBody.Joints.Cylindrical",{"initType"} , 
                  {"s.fixed=if (%initType%==2 or "+
                               "%initType%==4 or "+
@@ -353,12 +356,12 @@ convertModifiers("Modelica.Mechanics.MultiBody.Joints.Cylindrical",{"enforceStat
 
 
 // Modelica.Mechanics.MultiBody.Joints.Universal
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.Universal",{"phi_start_a"}, {"phi_a.start=%phi_start_a%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.Universal",{"w_start_a"}  , {"w_a.start=%w_start_a%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.Universal",{"a_start_a"}  , {"a_a.start=%a_start_a%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.Universal",{"phi_start_b"}, {"phi_b.start=%phi_start_b%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.Universal",{"w_start_b"}  , {"w_b.start=%w_start_b%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.Universal",{"a_start_b"}  , {"a_b.start=%a_start_b%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Universal",{"phi_start_a"}, {"phi_a.start=%phi_start_a%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Universal",{"w_start_a"}  , {"w_a.start=%w_start_a%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Universal",{"a_start_a"}  , {"a_a.start=%a_start_a%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Universal",{"phi_start_b"}, {"phi_b.start=%phi_start_b%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Universal",{"w_start_b"}  , {"w_b.start=%w_start_b%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Universal",{"a_start_b"}  , {"a_b.start=%a_start_b%*(Modelica.Constants.pi/180)"}, true);
 convertModifiers("Modelica.Mechanics.MultiBody.Joints.Universal",{"initType"} , 
                  {"phi_a.fixed=if (%initType%==2 or "+
                                   "%initType%==4 or "+
@@ -392,9 +395,9 @@ convertModifiers("Modelica.Mechanics.MultiBody.Joints.Planar",{"a_start_x"}, {"a
 convertModifiers("Modelica.Mechanics.MultiBody.Joints.Planar",{"s_start_y"}, {"s_y.start=%s_start_y%"});
 convertModifiers("Modelica.Mechanics.MultiBody.Joints.Planar",{"v_start_y"}, {"v_y.start=%v_start_y%"});
 convertModifiers("Modelica.Mechanics.MultiBody.Joints.Planar",{"a_start_y"}, {"a_y.start=%a_start_y%"});
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.Planar",{"phi_start"}, {"phi.start=%phi_start%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.Planar",{"w_start"}  , {"w.start=%w_start%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.Planar",{"wd_start"} , {"wd.start=%wd_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Planar",{"phi_start"}, {"phi.start=%phi_start%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Planar",{"w_start"}  , {"w.start=%w_start%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Planar",{"wd_start"} , {"wd.start=%wd_start%*(Modelica.Constants.pi/180)"}, true);
 convertModifiers("Modelica.Mechanics.MultiBody.Joints.Planar",{"initType"} , 
                  {"s_x.fixed=if (%initType%==2 or "+
                                 "%initType%==4 or "+
@@ -434,9 +437,9 @@ convertModifiers("Modelica.Mechanics.MultiBody.Joints.Planar",{"enforceStates"},
 
 
 // Modelica.Mechanics.MultiBody.Joints.Spherical
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.Spherical",{"angles_start"} , {"angles_start=%angles_start%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.Spherical",{"w_rel_a_start"}, {"w_rel_a_start=%w_rel_a_start%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.Spherical",{"z_rel_a_start"}, {"z_rel_a_start=%z_rel_a_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Spherical",{"angles_start"} , {"angles_start=%angles_start%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Spherical",{"w_rel_a_start"}, {"w_rel_a_start=%w_rel_a_start%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Spherical",{"z_rel_a_start"}, {"z_rel_a_start=%z_rel_a_start%*(Modelica.Constants.pi/180)"}, true);
 convertModifiers("Modelica.Mechanics.MultiBody.Joints.Spherical",{"initType"} , 
                  {"angles_fixed=if (%initType%==2 or "+
                                    "%initType%==4 or "+
@@ -455,9 +458,9 @@ convertModifiers("Modelica.Mechanics.MultiBody.Joints.Spherical",{"initType"} ,
 convertModifiers("Modelica.Mechanics.MultiBody.Joints.FreeMotion",{"r_rel_a_start"}, {"r_rel_a.start=%r_rel_a_start%"});
 convertModifiers("Modelica.Mechanics.MultiBody.Joints.FreeMotion",{"v_rel_a_start"}, {"v_rel_a.start=%v_rel_a_start%"});
 convertModifiers("Modelica.Mechanics.MultiBody.Joints.FreeMotion",{"a_rel_a_start"}, {"a_rel_a.start=%a_rel_a_start%"});
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.FreeMotion",{"angles_start"} , {"angles_start=%angles_start%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.FreeMotion",{"w_rel_a_start"}, {"w_rel_a_start=%w_rel_a_start%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Joints.FreeMotion",{"z_rel_a_start"}, {"z_rel_a_start=%z_rel_a_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.FreeMotion",{"angles_start"} , {"angles_start=%angles_start%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.FreeMotion",{"w_rel_a_start"}, {"w_rel_a_start=%w_rel_a_start%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.FreeMotion",{"z_rel_a_start"}, {"z_rel_a_start=%z_rel_a_start%*(Modelica.Constants.pi/180)"}, true);
 convertModifiers("Modelica.Mechanics.MultiBody.Joints.FreeMotion",{"initType"} , 
                  {"r_rel_a.fixed=if (%initType%==2 or "+
                                     "%initType%==4 or "+
@@ -487,9 +490,9 @@ convertModifiers("Modelica.Mechanics.MultiBody.Joints.FreeMotion",{"initType"} ,
 convertModifiers("Modelica.Mechanics.MultiBody.Parts.Body",{"r_0_start"}, {"r_0.start=%r_0_start%"});
 convertModifiers("Modelica.Mechanics.MultiBody.Parts.Body",{"v_0_start"}, {"v_0.start=%v_0_start%"});
 convertModifiers("Modelica.Mechanics.MultiBody.Parts.Body",{"a_0_start"}, {"a_0.start=%a_0_start%"});
-convertModifiers("Modelica.Mechanics.MultiBody.Parts.Body",{"angles_start"} , {"angles_start=%angles_start%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Parts.Body",{"w_0_start"}, {"w_0_start=%w_0_start%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Parts.Body",{"z_0_start"}, {"z_0_start=%z_0_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.Body",{"angles_start"} , {"angles_start=%angles_start%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.Body",{"w_0_start"}, {"w_0_start=%w_0_start%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.Body",{"z_0_start"}, {"z_0_start=%z_0_start%*(Modelica.Constants.pi/180)"}, true);
 convertModifiers("Modelica.Mechanics.MultiBody.Parts.Body",{"initType"} , 
                  {"r_0.fixed=if (%initType%==2 or "+
                                 "%initType%==4 or "+
@@ -518,9 +521,9 @@ convertModifiers("Modelica.Mechanics.MultiBody.Parts.Body",{"initType"} ,
 convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyShape",{"r_0_start"}, {"r_0.start=%r_0_start%"});
 convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyShape",{"v_0_start"}, {"v_0.start=%v_0_start%"});
 convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyShape",{"a_0_start"}, {"a_0.start=%a_0_start%"});
-convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyShape",{"angles_start"} , {"angles_start=%angles_start%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyShape",{"w_0_start"}, {"w_0_start=%w_0_start%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyShape",{"z_0_start"}, {"z_0_start=%z_0_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyShape",{"angles_start"} , {"angles_start=%angles_start%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyShape",{"w_0_start"}, {"w_0_start=%w_0_start%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyShape",{"z_0_start"}, {"z_0_start=%z_0_start%*(Modelica.Constants.pi/180)"}, true);
 convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyShape",{"initType"} , 
                  {"r_0.fixed=if (%initType%==2 or "+
                                 "%initType%==4 or "+
@@ -549,9 +552,9 @@ convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyShape",{"initType"} ,
 convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyBox",{"r_0_start"}, {"r_0.start=%r_0_start%"});
 convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyBox",{"v_0_start"}, {"v_0.start=%v_0_start%"});
 convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyBox",{"a_0_start"}, {"a_0.start=%a_0_start%"});
-convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyBox",{"angles_start"}, {"angles_start=%angles_start%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyBox",{"w_0_start"}, {"w_0_start=%w_0_start%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyBox",{"z_0_start"}, {"z_0_start=%z_0_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyBox",{"angles_start"}, {"angles_start=%angles_start%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyBox",{"w_0_start"}, {"w_0_start=%w_0_start%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyBox",{"z_0_start"}, {"z_0_start=%z_0_start%*(Modelica.Constants.pi/180)"}, true);
 convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyBox",{"initType"} , 
                  {"r_0.fixed=if (%initType%==2 or "+
                                 "%initType%==4 or "+
@@ -581,9 +584,9 @@ convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyBox",{"initType"} ,
 convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyCylinder",{"r_0_start"}, {"r_0.start=%r_0_start%"});
 convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyCylinder",{"v_0_start"}, {"v_0.start=%v_0_start%"});
 convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyCylinder",{"a_0_start"}, {"a_0.start=%a_0_start%"});
-convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyCylinder",{"angles_start"} , {"angles_start=%angles_start%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyCylinder",{"w_0_start"}, {"w_0_start=%w_0_start%*(3.14159265358979323846/180)"}, true);
-convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyCylinder",{"z_0_start"}, {"z_0_start=%z_0_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyCylinder",{"angles_start"} , {"angles_start=%angles_start%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyCylinder",{"w_0_start"}, {"w_0_start=%w_0_start%*(Modelica.Constants.pi/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyCylinder",{"z_0_start"}, {"z_0_start=%z_0_start%*(Modelica.Constants.pi/180)"}, true);
 convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyCylinder",{"initType"} , 
                  {"r_0.fixed=if (%initType%==2 or "+
                                 "%initType%==4 or "+
@@ -802,18 +805,18 @@ convertClassIf("Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute","planarCut
 convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.CutForce"},
                  {"cardinality(frame_resolve)=0", "resolveInFrame_a=true"},
                  {"resolveInFrame = if (%resolveInFrame_a%) then " + 
-                                    "Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_a else " + 
-                                    "Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.world"}, true);
+                                    "Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_a else " + 
+                                    "Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.world"}, true);
 convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.CutForce"},
-                 {"cardinality(frame_resolve)=1"},{"resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve"});
+                 {"cardinality(frame_resolve)=1"},{"resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve"});
 
 convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.CutTorque"},
                  {"cardinality(frame_resolve)=0", "resolveInFrame_a=true"},
                  {"resolveInFrame = if (%resolveInFrame_a%) then " + 
-                                    "Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_a else " + 
-                                    "Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.world"}, true);
+                                    "Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_a else " + 
+                                    "Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.world"}, true);
 convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.CutTorque"},
-                 {"cardinality(frame_resolve)=1"},{"resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve"});
+                 {"cardinality(frame_resolve)=1"},{"resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve"});
 
 convertClass  ("Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque",
                "ObsoleteModelica3.Mechanics.MultiBody.Sensors.CutForceAndTorque");
