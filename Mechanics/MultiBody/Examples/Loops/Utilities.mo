@@ -88,7 +88,7 @@ package Utilities "Utility models for Examples.Loops"
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mid(r={crankPinLength/2,0,0}, animation=
           false) annotation (Placement(transformation(extent={{-6,-46},{14,-26}},
             rotation=0)));
-    Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic Cylinder(
+    Modelica.Mechanics.MultiBody.Joints.Prismatic Cylinder(useAxisFlange=true,
       s(start=-0.3),
       n={0,-1,0},
       boxWidth=0.02) annotation (Placement(transformation(
@@ -224,7 +224,7 @@ package Utilities "Utility models for Examples.Loops"
         points={{40.5,-84},{40.5,-90},{60,-90}},
         color={95,95,95},
         thickness=2));
-    connect(Cylinder.bearing, gasForce.flange_b) annotation (Line(points={{20,103},
+    connect(Cylinder.support, gasForce.flange_b) annotation (Line(points={{20,103},
             {34,103},{34,117},{50,117}},      color={0,191,0}));
     connect(Cylinder.axis, gasForce.flange_a) 
       annotation (Line(points={{20,91},{50,91},{50,97}}, color={0,191,0}));

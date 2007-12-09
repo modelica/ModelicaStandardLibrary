@@ -106,8 +106,7 @@ load inertia.
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Bitmap(extent={{-75.5,98.25},{87,-96.75}}, fileName=
-                "../../../../Images/MultiBody/Examples/Systems/robot_kr15.bmp"), 
-
+                "../../../../Images/MultiBody/Examples/Systems/robot_kr15.bmp"),
           Text(
             extent={{-111.5,130},{108.5,100}},
             textString="%name",
@@ -978,8 +977,7 @@ the definition of initial values considerably.
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={192,192,192}),
             Polygon(
-              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}}, 
-
+              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
               lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={128,128,128}),
@@ -1095,8 +1093,7 @@ Default values for all parameters are given for joint 4.
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={192,192,192}),
             Polygon(
-              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}}, 
-
+              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
               lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={128,128,128}),
@@ -1418,8 +1415,7 @@ produced by the motor).
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{-31,-41},{-78,-41},{-78,39},{-30,39}}, color={0,0,255}), 
-
+            Line(points={{-31,-41},{-78,-41},{-78,39},{-30,39}}, color={0,0,255}),
             Rectangle(
               extent={{-30,-26},{30,-56}},
               fillColor={255,255,255},

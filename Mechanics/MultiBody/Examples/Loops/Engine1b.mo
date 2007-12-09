@@ -58,7 +58,7 @@ An animation of this example is shown in the figure below.
     cylinderDiameter=0.05) 
                          annotation (Placement(transformation(extent={{40,-20},
             {60,0}}, rotation=0)));
-  Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic Cylinder(
+  Modelica.Mechanics.MultiBody.Joints.Prismatic Cylinder(useAxisFlange=true,
     boxWidth=0.02, n={0,-1,0}) 
                    annotation (Placement(transformation(
         origin={50,97},
@@ -95,7 +95,7 @@ equation
       points={{-20.5,110},{50,110},{50,107}},
       color={95,95,95},
       thickness=2));
-  connect(gasForce.flange_a, Cylinder.bearing) annotation (Line(points={{119,
+  connect(gasForce.flange_a, Cylinder.support) annotation (Line(points={{119,
           107},{119,112},{70,112},{70,101},{56,101}}, color={0,127,0}));
   connect(Cylinder.axis, gasForce.flange_b) annotation (Line(points={{56,89},{
           71,89},{71,80},{119,80},{119,87}}, color={0,127,0}));

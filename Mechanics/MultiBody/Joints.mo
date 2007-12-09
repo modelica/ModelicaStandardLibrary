@@ -1,300 +1,5 @@
 within Modelica.Mechanics.MultiBody;
 package Joints "Components that constrain the motion between two frames"
-  model RevoluteNew
-    "Revolute joint (1 rotational degree-of-freedom, 2 potential states)"
-
-    import SI = Modelica.SIunits;
-
-    Modelica.Mechanics.Rotational.Interfaces.Flange_a axis if useAxisFlange
-      "1-dim. rotational flange that drives the joint" 
-      annotation (Placement(transformation(extent={{10,90},{-10,110}}, rotation=
-             0)));
-    Modelica.Mechanics.Rotational.Interfaces.Flange_b support if useAxisFlange
-      "1-dim. rotational flange of the drive support (assumed to be fixed in the world frame, NOT in the joint)"
-      annotation (Placement(transformation(extent={{-70,90},{-50,110}},
-            rotation=0)));
-
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
-      "Coordinate system fixed to the joint with one cut-force and cut-torque" 
-      annotation (Placement(transformation(extent={{-116,-16},{-84,16}},
-            rotation=0)));
-    Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b
-      "Coordinate system fixed to the joint with one cut-force and cut-torque" 
-      annotation (Placement(transformation(extent={{84,-16},{116,16}},
-            rotation=0)));
-
-    parameter Boolean useAxisFlange=false "= true, if axis flange is enabled" 
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-    parameter Boolean animation=true
-      "= true, if animation shall be enabled (show axis as cylinder)";
-    parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1}
-      "Axis of rotation resolved in frame_a (= same as in frame_b)" 
-      annotation (Evaluate=true);
-    constant SI.Angle phi_offset=0
-      "Relative angle offset (angle = phi_offset + phi)";
-    parameter SI.Distance cylinderLength=world.defaultJointLength
-      "Length of cylinder representing the joint axis" 
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter SI.Distance cylinderDiameter=world.defaultJointWidth
-      "Diameter of cylinder representing the joint axis" 
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
-      "Color of cylinder representing the joint axis" 
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
-      specularCoefficient =                                                            world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    parameter StateSelect stateSelect=StateSelect.prefer
-      "Priority to use joint angle phi and w=der(phi) as states" annotation(Dialog(tab="Advanced"));
-
-    SI.Angle phi(start=0, final stateSelect=stateSelect)
-      "Relative rotation angle from frame_a to frame_b" 
-       annotation (unassignedMessage="
-The rotation angle phi of a revolute joint cannot be determined.
-A non-zero mass might be missing on either side of the parts
-connected to the revolute joint.
-");
-    SI.AngularVelocity w(start=0, stateSelect=stateSelect)
-      "First derivative of angle phi (relative angular velocity)";
-    SI.AngularAcceleration a(start=0)
-      "Second derivative of angle phi (relative angular acceleration)";
-    SI.Torque tau "Driving torque in direction of axis of rotation";
-    SI.Angle angle "= phi_offset + phi";
-    annotation (
-      Window(
-        x=0.05,
-        y=0.09,
-        width=0.65,
-        height=0.69),
-      Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
-          Rectangle(
-            extent={{-100,-60},{-30,60}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
-          Rectangle(
-            extent={{30,-60},{100,60}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={192,192,192}),
-          Rectangle(extent={{-100,59},{-30,-60}}, lineColor={0,0,0}),
-          Rectangle(extent={{30,60},{100,-60}}, lineColor={0,0,0}),
-          Text(
-            extent={{-90,14},{-54,-11}},
-            lineColor={128,128,128},
-            textString="a"),
-          Text(
-            extent={{51,11},{87,-14}},
-            lineColor={128,128,128},
-            textString="b"),
-          Line(
-            visible=useAxisFlange,
-            points={{-20,80},{-20,60}},
-            color={0,0,0}),
-          Line(
-            visible=useAxisFlange,
-            points={{20,80},{20,60}},
-            color={0,0,0}),
-          Rectangle(
-            visible=useAxisFlange,
-            extent={{-10,100},{10,50}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.VerticalCylinder,
-            fillColor={192,192,192}),
-          Polygon(
-            visible=useAxisFlange,
-            points={{-10,30},{10,30},{30,50},{-30,50},{-10,30}},
-            lineColor={0,0,0},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{-30,11},{30,-10}},
-            lineColor={0,0,0},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Polygon(
-            visible=useAxisFlange,
-            points={{10,30},{30,50},{30,-50},{10,-30},{10,30}},
-            lineColor={0,0,0},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{-150,-117},{150,-77}},
-            lineColor={0,0,0},
-            textString="n=%n"),
-          Text(
-            visible=useAxisFlange,
-            extent={{-150,-175},{150,-115}},
-            textString="%name",
-            lineColor={0,0,255}),
-          Line(
-            visible=useAxisFlange,
-            points={{-20,70},{-60,70},{-60,60}},
-            color={0,0,0},
-            smooth=Smooth.None),
-          Line(
-            visible=useAxisFlange,
-            points={{20,70},{50,70},{50,60}},
-            color={0,0,0},
-            smooth=Smooth.None),
-          Line(
-            visible=useAxisFlange,
-            points={{-90,100},{-30,100}},
-            color={0,0,0}),
-          Line(
-            visible=useAxisFlange,
-            points={{-30,100},{-50,80}},
-            color={0,0,0}),
-          Line(
-            visible=useAxisFlange,
-            points={{-49,100},{-70,80}},
-            color={0,0,0}),
-          Line(
-            visible=useAxisFlange,
-            points={{-70,100},{-90,80}},
-            color={0,0,0}),
-          Text(
-            visible=not useAxisFlange,
-            extent={{-150,70},{150,130}},
-            textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics),
-      Documentation(info="<html>
-
-<p>
-Joint where frame_b rotates around axis n which is fixed in frame_a.
-The two frames coincide when the rotation angle \"phi = 0\".
-</p>
-
-<p>
-Optionally, two additional 1-dimensional mechanical flanges
-(flange \"axis\" represents the driving flange and
-flange \"support\" represents the bearing) can be enabled via
-parameter <b>useAxisFlange</b>. The enabled axis flange can be
-driven with elements of the
-<a href=\"Modelica://Modelica.Mechanics.Rotational\">Modelica.Mechanics.Rotational</a>
-library.
-
-</p>
-
-<p>
-In the \"Advanced\" menu it can be defined via parameter <b>stateSelect</b>
-that the rotation angle \"phi\" and its derivative shall be definitely
-used as states by setting stateSelect=StateSelect.always.
-Default is StateSelect.prefer to use the joint angle and its
-derivative as preferred states. The states are usually selected automatically.
-In certain situations, especially when closed kinematic loops are present,
-it might be slightly more efficient, when using the StateSelect.always setting.
-</p>
-<p>
-If a <b>planar loop</b> is present, e.g., consisting of 4 revolute joints
-where the joint axes are all parallel to each other, then there is no
-longer a unique mathematical solution and the symbolic algorithms will
-fail. Usually, an error message will be printed pointing out this
-situation. In this case, one revolute joint of the loop has to be replaced
-by a Joints.RevolutePlanarLoopConstraint joint. The
-effect is that from the 5 constraints of a usual revolute joint,
-3 constraints are removed and replaced by appropriate known
-variables (e.g., the force in the direction of the axis of rotation is
-treated as known with value equal to zero; for standard revolute joints,
-this force is an unknown quantity).
-</p>
-
-<p>
-In the following figure the animation of a revolute
-joint is shown. The light blue coordinate system is
-frame_a and the dark blue coordinate system is 
-frame_b of the joint. The black arrow is parameter
-vector \"n\" defining the translation axis
-(here: n = {0,0,1}, phi.start = 45<sup>o</sup>).
-</p>
-<p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Joints/Revolute.png\">
-</p>
-
-</html>
-"));
-  protected
-    outer Modelica.Mechanics.MultiBody.World world;
-    parameter Real e[3]=Modelica.Math.Vectors.normalize(
-                                         n)
-      "Unit vector in direction of rotation axis, resolved in frame_a (= same as in frame_b)";
-    Frames.Orientation R_rel
-      "Relative orientation object from frame_a to frame_b or from frame_b to frame_a";
-    Visualizers.Advanced.Shape cylinder(
-      shapeType="cylinder",
-      color=cylinderColor,
-      specularCoefficient=specularCoefficient,
-      length=cylinderLength,
-      width=cylinderDiameter,
-      height=cylinderDiameter,
-      lengthDirection=e,
-      widthDirection={0,1,0},
-      r_shape=-e*(cylinderLength/2),
-      r=frame_a.r_0,
-      R=frame_a.R) if world.enableAnimation and animation;
-
-    Modelica.Mechanics.Rotational.Components.Fixed fixed
-      "support flange is fixed to ground" 
-      annotation (Placement(transformation(extent={{-70,70},{-50,90}})));
-    Rotational.Interfaces.InternalSupport internalAxis 
-      annotation (Placement(transformation(extent={{-10,90},{10,70}})));
-    Rotational.Sources.ConstantTorque constantTorque(tau_constant=0) if not useAxisFlange 
-      annotation (Placement(transformation(extent={{40,70},{20,90}})));
-  equation
-    defineBranch(frame_a.R, frame_b.R);
-
-    assert(cardinality(frame_a) > 0,
-      "Connector frame_a of revolute joint is not connected");
-    assert(cardinality(frame_b) > 0,
-      "Connector frame_b of revolute joint is not connected");
-
-    angle = phi_offset + phi;
-    w = der(phi);
-    a = der(w);
-
-    // relationships between quantities of frame_a and of frame_b
-    frame_b.r_0 = frame_a.r_0;
-
-    if rooted(frame_a.R) then
-      R_rel = Frames.planarRotation(e, phi_offset + phi, w);
-      frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
-      frame_a.f = -Frames.resolve1(R_rel, frame_b.f);
-      frame_a.t = -Frames.resolve1(R_rel, frame_b.t);
-    else
-      R_rel = Frames.planarRotation(-e, phi_offset + phi, w);
-      frame_a.R = Frames.absoluteRotation(frame_b.R, R_rel);
-      frame_b.f = -Frames.resolve1(R_rel, frame_a.f);
-      frame_b.t = -Frames.resolve1(R_rel, frame_a.t);
-    end if;
-
-    // d'Alemberts principle
-    tau = -frame_b.t*e;
-
-    // Connection to internal connectors
-    tau = internalAxis.tau;
-    phi = internalAxis.phi;
-
-    connect(fixed.flange, support) annotation (Line(
-        points={{-60,80},{-60,100}},
-        color={0,0,0},
-        smooth=Smooth.None));
-    connect(internalAxis.flange, axis) annotation (Line(
-        points={{0,80},{0,100}},
-        color={0,0,0},
-        smooth=Smooth.None));
-    connect(constantTorque.flange, internalAxis.flange) annotation (Line(
-        points={{20,80},{0,80}},
-        color={0,0,0},
-        smooth=Smooth.None));
-  end RevoluteNew;
   import SI = Modelica.SIunits;
   extends Modelica.Icons.Library;
 
@@ -311,8 +16,7 @@ solved, i.e., robustly and efficiently).
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><b><i>Model</i></b></th><th><b><i>Description</i></b></th></tr>
-  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Prismatic\">Prismatic</a><br>
-<a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic\">ActuatedPrismatic</a></td>
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Prismatic\">Prismatic</a>
       <td valign=\"top\">Prismatic joint and actuated prismatic joint 
           (1 translational degree-of-freedom, 2 potential states)<br>
       <IMG SRC=\"../Images/MultiBody/Joints/Prismatic.png\">
@@ -373,25 +77,146 @@ solved, i.e., robustly and efficiently).
 </HTML>"));
 
   model Prismatic
-    "Prismatic joint (1 translational degree-of-freedom, 2 potential states)"
+    "Prismatic joint (1 translational degree-of-freedom, 2 potential states, optional axis flange)"
 
-    extends Internal.Prismatic;
+    import SI = Modelica.SIunits;
+    extends Modelica.Mechanics.MultiBody.Interfaces.PartialElementaryJoint;
+    Modelica.Mechanics.Translational.Interfaces.Flange_a axis if useAxisFlange
+      "1-dim. translational flange that drives the joint" 
+      annotation (Placement(transformation(extent={{90,50},{70,70}}, rotation=0)));
+    Modelica.Mechanics.Translational.Interfaces.Flange_b support if useAxisFlange
+      "1-dim. translational flange of the drive drive support (assumed to be fixed in the world frame, NOT in the joint)"
+      annotation (Placement(transformation(extent={{-30,50},{-50,70}}, rotation=
+             0)));
+
+    parameter Boolean useAxisFlange=false "= true, if axis flange is enabled" 
+      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+    parameter Boolean animation=true "= true, if animation shall be enabled";
+    parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0}
+      "Axis of translation resolved in frame_a (= same as in frame_b)" 
+      annotation (Evaluate=true);
+    constant SI.Position s_offset=0
+      "Relative distance offset (distance between frame_a and frame_b = s_offset + s)"
+      annotation (Evaluate=false);
+    parameter Types.Axis boxWidthDirection={0,1,0}
+      "Vector in width direction of box, resolved in frame_a" 
+      annotation (Evaluate=true, Dialog(tab="Animation", group=
+            "if animation = true", enable=animation));
+    parameter SI.Distance boxWidth=world.defaultJointWidth
+      "Width of prismatic joint box" 
+      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+    parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint box" 
+      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+    input Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
+      "Color of prismatic joint box" 
+      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+    input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+    parameter StateSelect stateSelect=StateSelect.prefer
+      "Priority to use distance s and v=der(s) as states" annotation(Dialog(tab="Advanced"));
+    final parameter Real e[3]=Modelica.Math.Vectors.normalize(
+                                               n)
+      "Unit vector in direction of prismatic axis n";
+
+    SI.Position s(start=0, final stateSelect=stateSelect)
+      "Relative distance between frame_a and frame_b" 
+      annotation (unassignedMessage="
+The relative distance s of a prismatic joint cannot be determined.
+A non-zero mass might be missing on either side of the parts
+connected to the prismatic joint.");
+
+    SI.Velocity v(start=0,final stateSelect=stateSelect)
+      "First derivative of s (relative velocity)";
+    SI.Acceleration a(start=0) "Second derivative of s (relative acceleration)";
+    SI.Force f "Actuation force in direction of joint axis";
 
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={Text(
-            extent={{-142,62},{147,101}},
+      Window(
+        x=0.2,
+        y=0.01,
+        width=0.67,
+        height=0.79),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Rectangle(
+            extent={{-100,-50},{-30,41}},
+            pattern=LinePattern.None,
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Rectangle(
+            extent={{-100,40},{-30,50}},
+            pattern=LinePattern.None,
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Rectangle(
+            extent={{-30,-30},{100,20}},
+            pattern=LinePattern.None,
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Rectangle(
+            extent={{-30,20},{100,30}},
+            pattern=LinePattern.None,
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Line(points={{-30,-50},{-30,50}}, color={0,0,0}),
+          Line(points={{100,-30},{100,21}}, color={0,0,0}),
+          Text(
+            extent={{60,12},{96,-13}},
+            lineColor={128,128,128},
+            textString="b"),
+          Text(
+            extent={{-95,13},{-60,-9}},
+            lineColor={128,128,128},
+            textString="a"),
+          Text(
+            visible=useAxisFlange,
+            extent={{-150,-155},{150,-95}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Text(
+            extent={{-150,-93},{150,-54}},
             lineColor={0,0,0},
-            textString="n=%n"), Text(
-            extent={{-135,-117},{141,-60}},
+            textString="n=%n"),
+          Rectangle(
+            visible=useAxisFlange,
+            extent={{90,30},{100,70}},
+            pattern=LinePattern.None,
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Text(
+            visible=not useAxisFlange,
+            extent={{-150,55},{150,115}},
             textString="%name",
             lineColor={0,0,255})}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics),
       Documentation(info="<HTML>
 <p>
 Joint where frame_b is translated along axis n which is fixed in frame_a.
 The two frames coincide when the relative distance \"s = 0\".
 </p>
-
+ 
+<p>
+Optionally, two additional 1-dimensional mechanical flanges
+(flange \"axis\" represents the driving flange and
+flange \"support\" represents the bearing) can be enabled via
+parameter <b>useAxisFlange</b>. The enabled axis flange can be
+driven with elements of the
+<a href=\"Modelica://Modelica.Mechanics.Translational\">Modelica.Mechanics.Translational</a>
+library.
+ 
+</p>
+ 
 <p>
 In the \"Advanced\" menu it can be defined via parameter <b>stateSelect</b>
 that the relative distance \"s\" and its derivative shall be definitely
@@ -401,7 +226,7 @@ derivative as preferred states. The states are usually selected automatically.
 In certain situations, especially when closed kinematic loops are present,
 it might be slightly more efficient, when using the StateSelect.always setting.
 </p>
-
+ 
 <p>
 In the following figure the animation of a prismatic
 joint is shown. The light blue coordinate system is
@@ -413,128 +238,61 @@ vector \"n\" defining the translation axis
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Joints/Prismatic.png\">
 </p>
-</HTML>
-"),   Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}),
-              graphics));
-
-  end Prismatic;
-
-  model ActuatedPrismatic
-    "Actuated prismatic joint (1 translational degree-of-freedom, 2 potential states)"
-
-    extends Internal.Prismatic(final f=axis.f);
-    Modelica.Mechanics.Translational.Interfaces.Flange_a axis
-      "1-dim. translational flange that drives the joint" 
-      annotation (Placement(transformation(extent={{90,50},{70,70}}, rotation=0)));
-    Modelica.Mechanics.Translational.Interfaces.Flange_b bearing
-      "1-dim. translational flange of the drive bearing" 
-      annotation (Placement(transformation(extent={{-30,50},{-50,70}}, rotation=
-             0)));
-    annotation (
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
-          Text(
-            extent={{42,81},{57,66}},
-            textString="f",
-            lineColor={0,0,255}),
-          Line(points={{40,65},{70,65}}, color={0,0,255}),
-          Polygon(
-            points={{-20,68},{-30,65},{-20,62},{-20,68}},
-            lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-8,65},{-31,65}}, color={0,0,255}),
-          Text(
-            extent={{-20,80},{-5,65}},
-            textString="f",
-            lineColor={0,0,255}),
-          Polygon(
-            points={{60,68},{70,65},{60,62},{60,68}},
-            lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid),
-          Rectangle(
-            extent={{90,30},{100,70}},
-            pattern=LinePattern.None,
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{-30,54},{70,54}}, color={128,128,128}),
-          Polygon(
-            points={{60,57},{70,54},{60,51},{60,57}},
-            lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{0,53},{37,40}},
-            lineColor={128,128,128},
-            textString="s"),
-          Line(points={{84,60},{90,60}}, color={0,0,0}),
-          Line(points={{-36,60},{-30,60},{-30,50}}, color={0,0,0})}),
-      Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
-          Rectangle(
-            extent={{90,30},{100,70}},
-            pattern=LinePattern.None,
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Text(
-            extent={{-141,-92},{148,-53}},
-            lineColor={0,0,0},
-            textString="n=%n"),
-          Text(
-            extent={{-132,-153},{144,-96}},
-            textString="%name",
-            lineColor={0,0,255})}),
-      Documentation(info="<HTML>
-<p>
-Joint where frame_b is translated along axis n which is fixed in frame_a.
-The two frames coincide when the relative distance \"s = 0\".
-</p>
-
-<p>
-The prismatic joint has two additional 1-dimensional mechanical flanges
-(flange \"axis\" represents the driving flange and
-flange \"bearing\" represents the bearing) where it can be
-driven with elements of the
-<a href=\"Modelica://Modelica.Mechanics.Translational\">Modelica.Mechanics.Translational</a>
-library.
-</p>
-
-<p>
-In the \"Advanced\" menu it can be defined via parameter <b>stateSelect</b>
-that the relative distance \"s\" and its derivative shall be definitely
-used as states by setting stateSelect=StateSelect.always.
-Default is StateSelect.prefer to use the relative distance and its
-derivative as preferred states. The states are usually selected automatically.
-In certain situations, especially when closed kinematic loops are present,
-it might be slightly more efficient, when using the StateSelect.always setting.
-</p>
-
-<p>
-In the following figure the animation of an actuated
-prismatic
-joint is shown. The light blue coordinate system is
-frame_a and the dark blue coordinate system is 
-frame_b of the joint. The black arrow is parameter
-vector \"n\" defining the translation axis
-(here: n = {1,1,0}).
-</p>
-<p align=\"center\">
-<IMG SRC=\"../Images/MultiBody/Joints/Prismatic.png\">
-</p>
+ 
 </HTML>
 "));
+
+  protected
+    Visualizers.Advanced.Shape box(
+      shapeType="box",
+      color=boxColor,
+      specularCoefficient=specularCoefficient,
+      length=if noEvent(abs(s + s_offset) > 1.e-6) then s + s_offset else 1.e-6,
+      width=boxWidth,
+      height=boxHeight,
+      lengthDirection=e,
+      widthDirection=boxWidthDirection,
+      r=frame_a.r_0,
+      R=frame_a.R) if world.enableAnimation and animation;
+    Translational.Components.Fixed fixed 
+      annotation (Placement(transformation(extent={{-50,30},{-30,50}})));
+    Translational.Interfaces.InternalSupport internalAxis 
+      annotation (Placement(transformation(extent={{70,50},{90,30}})));
+    Translational.Sources.ConstantForce constantForce(f_constant=0) if not useAxisFlange 
+      annotation (Placement(transformation(extent={{40,30},{60,50}})));
   equation
-    axis.s = s;
-    bearing.s = 0;
-  end ActuatedPrismatic;
+    v = der(s);
+    a = der(v);
+
+    // relationships between kinematic quantities of frame_a and of frame_b
+    frame_b.r_0 = frame_a.r_0 + Frames.resolve1(frame_a.R, e*(s_offset + s));
+    frame_b.R = frame_a.R;
+
+    // Force and torque balance
+    zeros(3) = frame_a.f + frame_b.f;
+    zeros(3) = frame_a.t + frame_b.t + cross(e*(s_offset + s), frame_b.f);
+
+    // d'Alemberts principle
+    f = -e*frame_b.f;
+
+    // Connection to internal connectors
+    f = internalAxis.f;
+    s = internalAxis.s;
+
+    connect(fixed.flange, support) annotation (Line(
+        points={{-40,40},{-40,60}},
+        color={0,127,0},
+        smooth=Smooth.None));
+    connect(internalAxis.flange, axis)    annotation (Line(
+        points={{80,40},{80,60}},
+        color={0,127,0},
+        smooth=Smooth.None));
+    connect(constantForce.flange, internalAxis.flange)    annotation (Line(
+        points={{60,40},{80,40}},
+        color={0,127,0},
+        smooth=Smooth.None));
+  end Prismatic;
+
 
   model Revolute
     "Revolute joint (1 rotational degree-of-freedom, 2 potential states, optional axis flange)"
@@ -6776,163 +6534,6 @@ and 1 prismatic joint are connected by rigid rods.
     "Components used for analytic solution of kinematic loops (use only if you know what you are doing)"
 
     extends Modelica.Icons.Library;
-    model Revolute
-      "Revolute joint (1 rotational degree-of-freedom, 2 potential states)"
-
-      import SI = Modelica.SIunits;
-
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
-        "Coordinate system fixed to the joint with one cut-force and cut-torque"
-        annotation (Placement(transformation(extent={{-116,-16},{-84,16}},
-              rotation=0)));
-      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b
-        "Coordinate system fixed to the joint with one cut-force and cut-torque"
-        annotation (Placement(transformation(extent={{84,-16},{116,16}},
-              rotation=0)));
-
-      parameter Boolean animation=true
-        "= true, if animation shall be enabled (show axis as cylinder)";
-      parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1}
-        "Axis of rotation resolved in frame_a (= same as in frame_b)" 
-        annotation (Evaluate=true);
-      constant SI.Angle phi_offset=0
-        "Relative angle offset (angle = phi_offset + phi)";
-      parameter SI.Distance cylinderLength=world.defaultJointLength
-        "Length of cylinder representing the joint axis" 
-        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter SI.Distance cylinderDiameter=world.defaultJointWidth
-        "Diameter of cylinder representing the joint axis" 
-        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
-        "Color of cylinder representing the joint axis" 
-        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
-        specularCoefficient =                                                            world.defaultSpecularCoefficient
-        "Reflection of ambient light (= 0: light is completely absorbed)" 
-        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-      parameter StateSelect stateSelect=StateSelect.prefer
-        "Priority to use joint angle phi and w=der(phi) as states" annotation(Dialog(tab="Advanced"));
-
-      SI.Angle phi(start=0, final stateSelect=stateSelect)
-        "Relative rotation angle from frame_a to frame_b" 
-         annotation (unassignedMessage="
-The rotation angle phi of a revolute joint cannot be determined.
-A non-zero mass might be missing on either side of the parts
-connected to the revolute joint.
-");
-      SI.AngularVelocity w(start=0, stateSelect=stateSelect)
-        "First derivative of angle phi (relative angular velocity)";
-      SI.AngularAcceleration a(start=0)
-        "Second derivative of angle phi (relative angular acceleration)";
-      SI.Torque tau=0 "Driving torque in direction of axis of rotation";
-      SI.Angle angle "= phi_offset + phi";
-      annotation (
-        Window(
-          x=0.05,
-          y=0.09,
-          width=0.65,
-          height=0.69),
-        Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Rectangle(
-              extent={{-100,-59},{-20,61}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),
-            Rectangle(
-              extent={{-20,10},{20,-10}},
-              lineColor={0,0,0},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
-            Rectangle(
-              extent={{20,-60},{100,60}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192})}),
-        Documentation(info="<HTML>
-<p>
-Joint where frame_b rotates around axis n which is fixed in frame_a.
-The two frames coincide when the rotation angle \"phi = 0\".
-</p>
-<p>
-In the \"Advanced\" menu it can be defined via parameter <b>stateSelect</b>
-that the rotation angle \"phi\" and its derivative shall be definitely
-used as states by setting stateSelect=StateSelect.always.
-Default is StateSelect.prefer to use the joint angle and its
-derivative as preferred states. The states are usually selected automatically.
-In certain situations, especially when closed kinematic loops are present,
-it might be slightly more efficient, when using the StateSelect.always setting.
-</p>
-<p>
-If a <b>planar loop</b> is present, e.g., consisting of 4 revolute joints
-where the joint axes are all parallel to each other, then there is no
-longer a unique mathematical solution and the symbolic algorithms will
-fail. Usually, an error message will be printed pointing out this
-situation. In this case, one revolute joint of the loop has to be replaced
-by a Joints.RevolutePlanarLoopConstraint joint. The
-effect is that from the 5 constraints of a usual revolute joint,
-3 constraints are removed and replaced by appropriate known
-variables (e.g., the force in the direction of the axis of rotation is
-treated as known with value equal to zero; for standard revolute joints,
-this force is an unknown quantity).
-</p>
-</HTML>
-"));
-    protected
-      outer Modelica.Mechanics.MultiBody.World world;
-      parameter Real e[3]=Modelica.Math.Vectors.normalize(
-                                           n)
-        "Unit vector in direction of rotation axis, resolved in frame_a (= same as in frame_b)";
-      Frames.Orientation R_rel
-        "Relative orientation object from frame_a to frame_b or from frame_b to frame_a";
-      Visualizers.Advanced.Shape cylinder(
-        shapeType="cylinder",
-        color=cylinderColor,
-        specularCoefficient=specularCoefficient,
-        length=cylinderLength,
-        width=cylinderDiameter,
-        height=cylinderDiameter,
-        lengthDirection=e,
-        widthDirection={0,1,0},
-        r_shape=-e*(cylinderLength/2),
-        r=frame_a.r_0,
-        R=frame_a.R) if world.enableAnimation and animation;
-    equation
-      defineBranch(frame_a.R, frame_b.R);
-
-      assert(cardinality(frame_a) > 0,
-        "Connector frame_a of revolute joint is not connected");
-      assert(cardinality(frame_b) > 0,
-        "Connector frame_b of revolute joint is not connected");
-
-      angle = phi_offset + phi;
-      w = der(phi);
-      a = der(w);
-
-      // relationships between quantities of frame_a and of frame_b
-      frame_b.r_0 = frame_a.r_0;
-
-      if rooted(frame_a.R) then
-        R_rel = Frames.planarRotation(e, phi_offset + phi, w);
-        frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
-        frame_a.f = -Frames.resolve1(R_rel, frame_b.f);
-        frame_a.t = -Frames.resolve1(R_rel, frame_b.t);
-      else
-        R_rel = Frames.planarRotation(-e, phi_offset + phi, w);
-        frame_a.R = Frames.absoluteRotation(frame_b.R, R_rel);
-        frame_b.f = -Frames.resolve1(R_rel, frame_a.f);
-        frame_b.t = -Frames.resolve1(R_rel, frame_a.t);
-      end if;
-
-      // d'Alemberts principle
-      tau = -frame_b.t*e;
-    end Revolute;
 
     model Prismatic
       "Prismatic joint (1 translational degree-of-freedom, 2 potential states)"
@@ -7082,7 +6683,7 @@ connected to the prismatic joint.");
 Joint where frame_b is translated along axis n which is fixed in frame_a.
 The two frames coincide when the relative distance \"s = 0\".
 </p>
- 
+
 <p>
 In the \"Advanced\" menu it can be defined via parameter <b>stateSelect</b>
 that the relative distance \"s\" and its derivative shall be definitely
@@ -7091,6 +6692,18 @@ Default is StateSelect.prefer to use the relative distance and its
 derivative as preferred states. The states are usually selected automatically.
 In certain situations, especially when closed kinematic loops are present,
 it might be slightly more efficient, when using the StateSelect.always setting.
+</p>
+
+<p>
+In the following figure the animation of a prismatic
+joint is shown. The light blue coordinate system is
+frame_a and the dark blue coordinate system is 
+frame_b of the joint. The black arrow is parameter
+vector \"n\" defining the translation axis
+(here: n = {1,1,0}).
+</p>
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Joints/Prismatic.png\">
 </p>
  
 </HTML>
