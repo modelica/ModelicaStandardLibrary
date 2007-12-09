@@ -1959,7 +1959,7 @@ the only case where this is done.
   end PointMass;
 
   model Mounting1D
-    "Propagate 1-dim. support torque to 3-dim. system (provided world.driveTrainMechanics3D=true; default=false)"
+    "Propagate 1-dim. support torque to 3-dim. system (provided world.driveTrainMechanics3D=true)"
     parameter Modelica.SIunits.Angle phi0=0 "Fixed offset angle of housing";
     parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0}
       "Axis of rotation = axis of support torque (resolved in frame_a)";
@@ -2053,7 +2053,7 @@ November 3-4, 2003, pp. 149-158</p>
   end Mounting1D;
 
   model Rotor1D
-    "1D inertia attachable on 3-dim. bodies (3D dynamic effects are taken into account if world.driveTrainMechanics3D=true; default=false)"
+    "1D inertia attachable on 3-dim. bodies (3D dynamic effects are taken into account if world.driveTrainMechanics3D=true)"
 
     import SI = Modelica.SIunits;
     import Cv = Modelica.SIunits.Conversions;
@@ -2413,7 +2413,7 @@ November 3-4, 2003, pp. 149-158</p>
   end Rotor1D;
 
   model BevelGear1D
-    "1D gearbox with arbitrary shaft directions and 3-dim. bearing frame (3D dynamic effects are taken into account provided world.driveTrainMechanics3D=true; default=false)"
+    "1D gearbox with arbitrary shaft directions and 3-dim. bearing frame (3D dynamic effects are taken into account provided world.driveTrainMechanics3D=true)"
     extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
 
     parameter Real ratio(start=1) "Gear speed ratio";
