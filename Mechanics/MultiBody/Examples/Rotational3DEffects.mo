@@ -312,7 +312,7 @@ is much faster.
     Parts.Mounting1D mounting1D 
       annotation (Placement(transformation(extent={{4,-56},{24,-36}}, rotation=
               0)));
-    Joints.ActuatedRevolute r1(                             n={0,1,0}) 
+    Joints.Revolute r1(useAxisFlange=true,  n={0,1,0}) 
       annotation (Placement(transformation(extent={{-32,10},{-12,30}}, rotation=
              0)));
     Rotational.Sources.Position position1(useSupport=true) 
@@ -324,7 +324,7 @@ is much faster.
     Parts.Mounting1D mounting1D1 
       annotation (Placement(transformation(extent={{-60,34},{-40,54}}, rotation=
              0)));
-    Joints.ActuatedRevolute r2(                             n={0,1,0}) 
+    Joints.Revolute r2(useAxisFlange=true, n={0,1,0}) 
       annotation (Placement(transformation(extent={{-38,-80},{-18,-60}},
             rotation=0)));
     Rotational.Sources.Position position2(useSupport=true) 

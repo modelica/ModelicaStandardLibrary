@@ -823,7 +823,7 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
       crankAngleOffset=-30) 
                            annotation (Placement(transformation(extent={{60,-10},
               {80,10}}, rotation=0)));
-    Joints.ActuatedRevolute bearing(
+    Joints.Revolute bearing(useAxisFlange=true,
       n={1,0,0},
       cylinderLength=0.02,
       cylinderDiameter=0.06,
@@ -981,7 +981,7 @@ An animation of this example is shown in the figure below.
           origin={120,10},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute Bearing(
+    Modelica.Mechanics.MultiBody.Joints.Revolute Bearing(useAxisFlange=true,
       n={1,0,0},
       cylinderLength=0.02,
       cylinderDiameter=0.05) annotation (Placement(transformation(extent={{-50,

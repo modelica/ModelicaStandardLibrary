@@ -25,7 +25,7 @@ ALT=\"model Examples.Elementary.Pendulum\">
   inner Modelica.Mechanics.MultiBody.World world(gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.
         UniformGravity) annotation (Placement(transformation(extent={{-60,0},{
             -40,20}}, rotation=0)));
-  Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute rev(n={0,0,1},
+  Modelica.Mechanics.MultiBody.Joints.Revolute rev(n={0,0,1},useAxisFlange=true,
     phi(fixed=true),
     w(fixed=true))             annotation (Placement(transformation(extent={{
             -20,0},{0,20}}, rotation=0)));
@@ -42,7 +42,7 @@ equation
       thickness=2));
   connect(damper.flange_b, rev.axis) annotation (Line(points={{0,50},{4,50},{4,
           26},{-10,26},{-10,20}}, color={0,0,0}));
-  connect(rev.bearing, damper.flange_a) annotation (Line(points={{-16,20},{-16,
+  connect(rev.support, damper.flange_a) annotation (Line(points={{-16,20},{-16,
           26},{-28,26},{-28,50},{-20,50}}, color={0,0,0}));
   connect(body.frame_a, rev.frame_b) annotation (Line(
       points={{20,10},{0,10}},
