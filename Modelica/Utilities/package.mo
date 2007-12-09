@@ -213,6 +213,7 @@ end UsersGuide;
 // Temporarily removed "protected" since this gives warning in the
 // newest Dymola release
 // protected 
+
 package Internal "Internal package as interface to the operating system"
  extends Modelica.Icons.Library;
   annotation (

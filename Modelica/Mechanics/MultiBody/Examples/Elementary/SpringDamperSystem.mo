@@ -64,7 +64,7 @@ ALT=\"model Examples.Elementary.SpringDamperSystem\">
         origin={50,-50},
         extent={{-10,10},{10,-10}},
         rotation=270)));
-  Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic p2(
+  Modelica.Mechanics.MultiBody.Joints.Prismatic p2(useAxisFlange=true,
     n={0,-1,0},
     animation=animation,
     boxWidth=0.05,

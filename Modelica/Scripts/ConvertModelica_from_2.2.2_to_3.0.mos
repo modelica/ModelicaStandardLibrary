@@ -807,6 +807,15 @@ convertModifiers({"Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute"},
                  {"cardinality(bearing)=1"},{"useAxisFlange=true"});
 
 
+convertClass     ("Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic",
+                  "Modelica.Mechanics.MultiBody.Joints.Prismatic");
+convertElement  ({"Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic"},
+                  "bearing", "support");
+convertModifiers({"Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic"},
+                 {"cardinality(axis)=1"},{"useAxisFlange=true"});
+convertModifiers({"Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic"},
+                 {"cardinality(bearing)=1"},{"useAxisFlange=true"});
+
 
 // Sensors
 convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.CutForce"},
