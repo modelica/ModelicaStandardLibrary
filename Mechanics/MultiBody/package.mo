@@ -1424,7 +1424,7 @@ of these axes can be set via parameters.
     min=0) = 3.986e14
     "Gravity field constant (default = field constant of earth)" 
     annotation (Dialog(enable=gravityType == Types.GravityTypes.PointGravity));
-  parameter Boolean driveTrainMechanics3D=false
+  parameter Boolean driveTrainMechanics3D=true
     "= true, if 3-dim. mechanical effects of Parts.Mounting1D/Rotor1D/BevelGear1D shall be taken into account";
 
   parameter SI.Distance axisLength=nominalLength/2
