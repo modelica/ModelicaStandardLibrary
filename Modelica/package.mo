@@ -834,6 +834,16 @@ to <b style=\"color:blue\">existing</b> libraries:
   <tr><td colspan=\"2\"><b>Electrical.Machines.(Examples.)Utilities</b></td></tr>
   <tr><td valign=\"top\">TransformerData</td>
       <td valign=\"top\"> A record that calculates required impedances (parameters) from nominal data of transformers.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Examples.Rotational3DEffects</b></td></tr>
+  <tr><td valign=\"top\"> GyroscopicEffects<br>
+                        ActuatedDrive<br> 
+                        MovingActuatedDrive<br>
+                        GearConstraint </td>
+      <td valign=\"top\"> New examples to demonstrate the usage of the Rotational library
+                        in combination with multi-body components. </td> 
+  </tr>
+
   <tr><td colspan=\"2\"><b>Mechanics.Translational.Sensors</b></td></tr>
   <tr><td valign=\"top\">RelPositionSensor<br>RelSpeedSensor<br>RelAccSensor<br>PowerSensor</td>
       <td valign=\"top\"> Relative position sensor, i.e. distance between two flanges<br>
@@ -1171,6 +1181,14 @@ that can lead to wrong simulation results):
 </p>
  
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Parts</b></td></tr>
+  <tr><td valign=\"top\"> Rotor1D </td>
+      <td valign=\"top\"> The 3D reaction torque was not completely correct and gave in 
+                        some situations a wrong result. This bug should not influence the
+                        movement of a multi-body system, but only the constraint torques
+                        are sometimes not correct. </td> 
+  </tr>
+
   <tr><td colspan=\"2\"><b>Mechanics.Rotational.</b></td></tr>
   <tr><td valign=\"top\"> ElastoBacklash </td>
       <td valign=\"top\"> If the damping torque was too large, the reaction torque 
@@ -1181,8 +1199,7 @@ that can lead to wrong simulation results):
                         to reduce numerical errors. The relative angle and relative
                         angular velocities are used as states, if possible
                         (StateSelect.prefer), since relative quantities lead usually
-                        to better behavior. The nominal value of the state phi_rel
-                        is computed from the nominal torque. </td> 
+                        to better behavior.  </td> 
   </tr>
   <tr><td valign=\"top\"> Position<br>Speed<br>Accelerate<br>Move</td>
       <td valign=\"top\"> The movement of the flange was wrongly defined as absolute;
