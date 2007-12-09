@@ -2179,8 +2179,10 @@ is discribed in
 
   end integralExpT;
 
-protected
-  package LAPACK "Interface to LAPACK library"
+//
+// protected
+  package LAPACK
+    "Interface to LAPACK library (should usually not directly be used but only indirectly via Modelica.Math.Matrices)"
     extends Modelica.Icons.Library;
 
     function dgeev
@@ -4179,8 +4181,16 @@ INFO    (output) INTEGER
 This package contains external Modelica functions as interface to the
 LAPACK library 
 (<a href=\"http://www.netlib.org/lapack\">http://www.netlib.org/lapack</a>)
-that provides Fortran subroutines to solve linear algebra
-tasks. The details of LAPACK are described in:
+that provides FORTRAN subroutines to solve linear algebra
+tasks. Usually, these functions are not directly called, but only via
+the much more convenient interface of 
+<a href=\"Modelica://Modelica.Math.Matrices\">Modelica.Math.Matrices</a>.
+The documentation of the LAPACK functions is a copy of the original
+FORTRAN code.
+</p>
+
+<p>
+The details of LAPACK are described in:
 </p>
  
 <dl>
@@ -4190,6 +4200,9 @@ tasks. The details of LAPACK are described in:
      Third Edition, SIAM, 1999.</dd>
 </dl>
  
+<p>
+This package contains a direct interface to the LAPACK subroutines
+</p>
  
 </html>"));
   end LAPACK;
@@ -5498,8 +5511,7 @@ function log "Natural (base e) logarithm (u shall be > 0)"
         Line(
           points={{-78,-80},{-77.2,-50.6},{-76.4,-37},{-75.6,-28},{-74.8,-21.3},
               {-73.2,-11.4},{-70.8,-1.31},{-67.5,8.08},{-62.7,17.9},{-55.5,28},
-              {-45,38.1},{-29.8,48.1},{-8.1,58},{24.1,68},{70.7,78.1},{82,80}}, 
-
+              {-45,38.1},{-29.8,48.1},{-8.1,58},{24.1,68},{70.7,78.1},{82,80}},
           color={0,0,255},
           thickness=2),
         Text(
@@ -5589,8 +5601,7 @@ function log10 "Base 10 logarithm (u shall be > 0)"
         Line(
           points={{-77.8,-80},{-77.2,-50.6},{-76.4,-37},{-75.6,-28},{-74.8,-21.3},
               {-73.2,-11.4},{-70.8,-1.31},{-67.5,8.08},{-62.7,17.9},{-55.5,28},
-              {-45,38.1},{-29.8,48.1},{-8.1,58},{24.1,68},{70.7,78.1},{82,80}}, 
-
+              {-45,38.1},{-29.8,48.1},{-8.1,58},{24.1,68},{70.7,78.1},{82,80}},
           color={0,0,255},
           thickness=2),
         Text(
