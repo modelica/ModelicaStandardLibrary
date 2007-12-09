@@ -594,6 +594,13 @@ that can lead to wrong simulation results):
   <tr><td valign=\"top\"> Model-Name </td>
       <td valign=\"top\"> Description text</td> 
   </tr>
+  <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Parts</b></td></tr>
+  <tr><td valign=\"top\"> Rotor1D </td>
+      <td valign=\"top\"> The 3D reaction torque was not completely correct and gave in 
+                        some situations a wrong result. This bug should not influence the
+                        movement of a multi-body system, but only the constraint torques
+                        are sometimes not correct. </td> 
+  </tr>
   <tr><td colspan=\"2\"><b>Mechanics.Rotational.</b></td></tr>
   <tr><td valign=\"top\"> LinearSpeedDependentTorque<br>
                         QuadraticSpeedDependentTorque<br>

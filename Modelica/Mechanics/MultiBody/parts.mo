@@ -1973,11 +1973,22 @@ November 3-4, 2003, pp. 149-158</p>
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b 
       "(right) driven flange (flange axis directed OUT OF cut plane)" 
       annotation (extent=[90, -10; 110, 10]);
+    
+    /* Reaction torque:
+        t = n*(J*a - flange_a.tau - flange_b.tau) + cross(w_a, nJ*w)
+ 
+     Since
+        J*a = flange_a.tau + flange_b.tau - nJ*der(w_a);
+ 
+     the reaction torque can be simplified to
+        t = n*(- nJ*der(w_a)) + cross(w_a, nJ*w)
+ 
+  */
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a(
         r_0=r_0,
         R=R,
         f=zeros(3),
-        t=nJ*a + cross(w_a, nJ*w)) if world.driveTrainMechanics3D 
+        t=cross(w_a, nJ*w)-e*(nJ*der(w_a))) if   world.driveTrainMechanics3D 
       "Frame in which rotor housing is fixed (connector is removed, if world.driveTrainMechanics3D=false)"
       annotation (extent=[-20, -120; 20, -80], rotation=90);
     annotation (
