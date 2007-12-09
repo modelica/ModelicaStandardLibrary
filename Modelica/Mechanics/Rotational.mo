@@ -4829,27 +4829,6 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
       end if;
     end QuadraticSpeedDependentTorque;
 
-    model ConstantSpeed "Constant speed, not dependent on torque"
-      extends Modelica.Mechanics.Rotational.Interfaces.PartialTorque;
-      Modelica.SIunits.AngularVelocity w
-        "Angular velocity of flange with respect to support (= der(phi))";
-      parameter Modelica.SIunits.AngularVelocity w_fixed "Fixed speed";
-      annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics),
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Line(points={{0,-100},{0,100}}, color={0,
-                  0,255})}),
-        Documentation(info="<HTML>
-<p>
-Model of <b>fixed</b> angular verlocity of flange, not dependent on torque.
-</p>
-</HTML>"));
-    equation
-      w = der(phi);
-      w = w_fixed;
-    end ConstantSpeed;
-
     model ConstantTorque "Constant torque, not dependent on speed"
       extends Rotational.Interfaces.PartialTorque;
       parameter Modelica.SIunits.Torque tau_constant
@@ -4862,7 +4841,10 @@ Model of <b>fixed</b> angular verlocity of flange, not dependent on torque.
                 graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-98,0},{100,0}}, color={0,0,
-                  255})}),
+                  255}), Text(
+              extent={{-124,-16},{120,-40}},
+              lineColor={0,0,0},
+              textString="%tau_constant")}),
         Documentation(info="<HTML>
 <p>
 Model of constant torque, not dependent on angular velocity of flange.<br>
@@ -4872,6 +4854,31 @@ Positive torque acts accelerating.
     equation
       tau = -tau_constant;
     end ConstantTorque;
+
+    model ConstantSpeed "Constant speed, not dependent on torque"
+      extends Modelica.Mechanics.Rotational.Interfaces.PartialTorque;
+      Modelica.SIunits.AngularVelocity w
+        "Angular velocity of flange with respect to support (= der(phi))";
+      parameter Modelica.SIunits.AngularVelocity w_fixed "Fixed speed";
+      annotation (
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics),
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                100,100}}), graphics={Line(points={{0,-100},{0,100}}, color={0,
+                  0,255}), Text(
+              extent={{-116,-16},{128,-40}},
+              lineColor={0,0,0},
+              textString="%w_fixed")}),
+        Documentation(info="<HTML>
+<p>
+Model of <b>fixed</b> angular verlocity of flange, not dependent on torque.
+</p>
+</HTML>"));
+    equation
+      w = der(phi);
+      w = w_fixed;
+    end ConstantSpeed;
+
 
     model TorqueStep "Constant torque, not dependent on speed"
       extends Modelica.Mechanics.Rotational.Interfaces.PartialTorque;
@@ -5968,7 +5975,7 @@ the support is internally fixed.
               lineColor={255,255,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{0,-46},{0,-100}}, color={0,0,0}),
+            Line(points={{0,-62},{0,-100}}, color={0,0,0}),
             Line(points={{-92,0},{-76,36},{-54,62},{-30,80},{-14,88},{10,92},{
                   26,90},{46,80},{64,62}}, color={0,0,0}),
             Text(
@@ -5981,13 +5988,13 @@ the support is internally fixed.
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Line(
-              points={{-60,-68},{-44,-54},{-22,-42},{-2,-40},{16,-44},{30,-52},
-                  {42,-62},{50,-72},{58,-84}},
+              points={{-58,-82},{-42,-68},{-20,-56},{0,-54},{18,-56},{34,-62},{
+                  44,-72},{54,-82},{60,-94}},
               color={0,0,0},
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Polygon(
-              points={{-67,-92},{-50,-68},{-64,-62},{-67,-92}},
+              points={{-65,-98},{-46,-80},{-58,-72},{-65,-98}},
               lineColor={0,0,0},
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid),

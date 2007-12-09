@@ -3350,7 +3350,7 @@ blocks of Modelica.Blocks.Source.
         "Velocity of flange with respect to support (= der(s))";
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}},
+                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}}, 
                 color={0,0,255})}), Documentation(info="<HTML>
 <p>
 Model of force, linearly dependent on velocity of flange.<br>
@@ -3401,7 +3401,10 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
         "Nominal force (if negative, force is acting as load)";
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-100,0},{98,0}},
-                color={0,0,255})}),
+                color={0,0,255}), Text(
+              extent={{-118,58},{126,34}},
+              lineColor={0,0,0},
+              textString="%f_constant")}),
                                Documentation(info="<HTML>
 <p>
 Model of constant force, not dependent on velocity of flange.<br>
@@ -3420,7 +3423,11 @@ Positive force acts accelerating.
         "Velocity of flange with respect to support (= der(s))";
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{0,-100},{0,100}},
-                color={0,0,255})}), Documentation(info="<HTML>
+                color={0,0,255}), Text(
+              extent={{-120,60},{124,36}},
+              lineColor={0,0,0},
+              textString="%v_fixed")}),
+                                    Documentation(info="<HTML>
 <p>
 Model of <b>fixed</b> verlocity of flange, not dependent on force.
 </p>
