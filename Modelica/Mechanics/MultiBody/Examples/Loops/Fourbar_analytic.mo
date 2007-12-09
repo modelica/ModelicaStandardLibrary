@@ -39,7 +39,7 @@ MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
   inner Modelica.Mechanics.MultiBody.World world(animateGravity=false) 
     annotation (Placement(transformation(extent={{-80,-60},{-60,-40}}, rotation=
            0)));
-  Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute j1(
+  Modelica.Mechanics.MultiBody.Joints.Revolute j1(useAxisFlange=true,
     n={1,0,0},
     stateSelect=StateSelect.always,
     phi(fixed=true),

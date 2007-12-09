@@ -57,7 +57,7 @@ for rodLength:
 
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
         transformation(extent={{-80,-80},{-60,-60}}, rotation=0)));
-  Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute j1(
+  Modelica.Mechanics.MultiBody.Joints.Revolute j1(useAxisFlange=true,
     n={1,0,0},
     stateSelect=StateSelect.always,
     phi(fixed=true),

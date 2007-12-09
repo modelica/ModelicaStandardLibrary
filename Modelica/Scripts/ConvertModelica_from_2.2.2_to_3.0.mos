@@ -795,10 +795,17 @@ convertClassIf("Modelica.Mechanics.MultiBody.Joints.Revolute","planarCutJoint","
 convertClassIf("Modelica.Mechanics.MultiBody.Joints.Revolute","planarCutJoint","true",
                "Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint");
 
-convertClassIf("Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute","planarCutJoint","false",
-               "Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute");
+convertElement({"Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute"},
+                "bearing", "support");
+convertClass  ("Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute",
+               "Modelica.Mechanics.MultiBody.Joints.Revolute");
 convertClassIf("Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute","planarCutJoint","true",
                "Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint");
+convertModifiers({"Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute"},
+                 {"cardinality(axis)=1"},{"useAxisFlange=true"});
+convertModifiers({"Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute"},
+                 {"cardinality(bearing)=1"},{"useAxisFlange=true"});
+
 
 
 // Sensors

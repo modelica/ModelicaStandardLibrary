@@ -6,7 +6,7 @@ model InitSpringConstant
   inner Modelica.Mechanics.MultiBody.World world(gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.
         UniformGravity) annotation (Placement(transformation(extent={{-80,0},{
             -60,20}}, rotation=0)));
-  Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute rev(n={0,0,1},
+  Modelica.Mechanics.MultiBody.Joints.Revolute rev(useAxisFlange=true,n={0,0,1},
     phi(fixed=true),
     w(fixed=true),
     a(fixed=true))                         annotation (Placement(transformation(
@@ -76,7 +76,7 @@ equation
       thickness=2));
   connect(damper.flange_b, rev.axis) annotation (Line(points={{-20,50},{-16,50},
           {-16,26},{-30,26},{-30,20}}, color={0,0,0}));
-  connect(rev.bearing, damper.flange_a) annotation (Line(points={{-36,20},{-36,
+  connect(rev.support, damper.flange_a) annotation (Line(points={{-36,20},{-36,
           26},{-48,26},{-48,50},{-40,50}}, color={0,0,0}));
   connect(rev.frame_b, body.frame_a) 
     annotation (Line(

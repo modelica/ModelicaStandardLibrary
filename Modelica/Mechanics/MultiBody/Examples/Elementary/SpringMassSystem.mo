@@ -106,8 +106,6 @@ equation
       points={{-26,30},{-20,30},{-20,0}},
       color={95,95,95},
       thickness=2));
-  connect(p1.bearing, spring1.flange_a) 
-    annotation (Line(points={{-14,-6},{-8,-6},{-8,0},{10,0}}, color={0,191,0}));
   connect(spring1.flange_b, p1.axis) annotation (Line(points={{10,-20},{10,-30},
           {-8,-30},{-8,-18},{-14,-18}}, color={0,191,0}));
   connect(bar1.frame_b, bar2.frame_a) 
@@ -134,4 +132,8 @@ equation
       points={{50,-40},{90,-40},{90,-20}},
       color={95,95,95},
       thickness=2));
+  connect(spring1.flange_a, p1.bearing) annotation (Line(
+      points={{10,0},{-8,0},{-8,-6},{-14,-6}},
+      color={0,127,0},
+      smooth=Smooth.None));
 end SpringMassSystem;

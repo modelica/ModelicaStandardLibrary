@@ -61,7 +61,7 @@ animation view.
         origin={-20,0},
         extent={{-20,-20},{20,20}},
         rotation=270)));
-  Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute rev(w(fixed=true)) 
+  Modelica.Mechanics.MultiBody.Joints.Revolute rev(useAxisFlange=true,w(fixed=true)) 
     annotation (Placement(transformation(
         origin={-56,-10},
         extent={{-10,-10},{10,10}},

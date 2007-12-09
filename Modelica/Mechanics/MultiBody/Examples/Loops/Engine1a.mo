@@ -54,7 +54,7 @@ An animation of this example is shown in the figure below.
     cylinderLength=0.02,
     cylinderDiameter=0.05) annotation (Placement(transformation(extent={{80,22},
             {100,42}}, rotation=0)));
-  Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute Bearing(
+  Modelica.Mechanics.MultiBody.Joints.Revolute Bearing(useAxisFlange=true,
     n={1,0,0},
     cylinderLength=0.02,
     cylinderDiameter=0.05) annotation (Placement(transformation(extent={{-10,

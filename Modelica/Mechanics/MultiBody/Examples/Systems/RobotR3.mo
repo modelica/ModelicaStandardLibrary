@@ -1773,33 +1773,33 @@ This model contains the mechanical components of the r3 robot
         enableAnimation=animation) 
                               annotation (Placement(transformation(extent={{
                 -100,-200},{-80,-180}}, rotation=0)));
-      Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute r1(n={0,1,0},
+      Modelica.Mechanics.MultiBody.Joints.Revolute r1(n={0,1,0},useAxisFlange=true,
           animation=animation) 
         annotation (Placement(transformation(
             origin={-70,-160},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute r2(n={1,0,0},
+      Modelica.Mechanics.MultiBody.Joints.Revolute r2(n={1,0,0},useAxisFlange=true,
           animation=animation) 
         annotation (Placement(transformation(extent={{-50,-110},{-30,-90}},
               rotation=0)));
-      Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute r3(n={1,0,0},
+      Modelica.Mechanics.MultiBody.Joints.Revolute r3(n={1,0,0},useAxisFlange=true,
           animation=animation) 
         annotation (Placement(transformation(
             origin={-50,-36},
             extent={{-10,-10},{10,10}},
             rotation=180)));
-      Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute r4(n={0,1,0},
+      Modelica.Mechanics.MultiBody.Joints.Revolute r4(n={0,1,0},useAxisFlange=true,
           animation=animation) 
         annotation (Placement(transformation(
             origin={-70,10},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute r5(n={1,0,0},
+      Modelica.Mechanics.MultiBody.Joints.Revolute r5(n={1,0,0},useAxisFlange=true,
           animation=animation) 
         annotation (Placement(transformation(extent={{-60,70},{-40,90}},
               rotation=0)));
-      Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute r6(n={0,1,0},
+      Modelica.Mechanics.MultiBody.Joints.Revolute r6(n={0,1,0},useAxisFlange=true,
           animation=animation) 
         annotation (Placement(transformation(
             origin={-60,130},
