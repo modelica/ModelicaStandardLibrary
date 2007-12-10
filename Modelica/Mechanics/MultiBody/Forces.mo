@@ -1049,24 +1049,29 @@ is resolved in the world frame).
   end FrameForceAndTorque;
 
   model Force
-    "Force acting between two frames, defined by 3 input signals and resolved in frame_b or in frame_resolve"
+    "Force acting between two frames, defined by 3 input signals and resolved in world, frame_a, frame_b or frame_resolve"
 
     import SI = Modelica.SIunits;
-    import Modelica.Mechanics.MultiBody.Types;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
-    Interfaces.Frame_resolve frame_resolve
-      "If connected, the input signals are resolved in this frame" 
+    Interfaces.Frame_resolve frame_resolve if 
+         resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve
+      "The input signals are optionally resolved in this frame" 
       annotation (Placement(transformation(
           origin={40,100},
           extent={{-16,-16},{16,16}},
           rotation=90)));
-    Modelica.Blocks.Interfaces.RealInput force[3]
-      "x-, y-, z-coordinates of force resolved in frame_b or frame_resolved (if connected)"
+    Modelica.Blocks.Interfaces.RealInput force[3](each final quantity="Force", each
+        final unit = "N")
+      "x-, y-, z-coordinates of force resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           origin={-60,120},
           extent={{-20,-20},{20,20}},
           rotation=270)));
     parameter Boolean animation=true "= true, if animation shall be enabled";
+    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame2 resolveInFrame
+      =
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_b
+      "Frame in which input force is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
     parameter Real N_to_m(unit="N/m") = world.defaultN_to_m
       " Force arrow scaling (length = force/N_to_m)" 
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -1083,15 +1088,11 @@ is resolved in the world frame).
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    SI.Position r_0[3]
-      "Position vector from origin of frame_a to origin of frame_b resolved in world frame";
-    SI.Force f_b_0[3] "frame_b.f resoved in world frame";
-
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}}),
               graphics),
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
             extent={{-98,99},{99,-98}},
@@ -1126,25 +1127,47 @@ is resolved in the world frame).
             fillPattern=FillPattern.Solid),
           Line(points={{-64,0},{-20,0}}, color={0,0,0}),
           Line(points={{20,0},{65,0}}, color={0,0,0})}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 The <b>3</b> signals of the <b>force</b> connector are interpreted
 as the x-, y- and z-coordinates of a <b>force</b> acting at the frame
-connector to which frame_b of this component is attached. If connector
-<b>frame_resolve</b> is <b>not</b> connected, the force coordinates
-of the inPort connector are with respect to <b>frame_b</b>. If connector
-<b>frame_resolve</b> is connected, the force coordinates of the inPort 
-connector are with respect to <b>frame_resolve</b>. In this case the
-force in connector frame_resolve is set to zero,
-i.e., this connector is solely used to provide the information
-of the coordinate system, in which the force coordinates
-are defined. 
+connector to which frame_b of this component is attached. 
+Via parameter <b>resolveInFrame</b> it is defined, in which frame these
+coordinates shall be resolved:
 </p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><b>Types.ResolveInFrame2.</b></th><th><b>Meaning</b></th></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve input force in world frame</td></tr>
+ 
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve input force in frame_a</td></tr>
+ 
+<tr><td valign=\"top\">frame_b</td>
+    <td valign=\"top\">Resolve input force in frame_b (= default)</td></tr>
+ 
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve input force in frame_resolve (frame_resolve must be connected)</td></tr>
+</table>
+
 <p>
-Note, the cut-torque in frame_b (frame_b.t) is set to zero.
+If resolveInFrame = ResolveInFrame2.frame_resolve, the force coordinates
+are with respect to the frame, that is connected to <b>frame_resolve</b>. 
+<p>
+
+<p>
+If force={100,0,0}, and for all parameters the default setting is used,
+then the interpretation is that a force of 100 N is acting along the positive
+x-axis of frame_b.
+</p>
+
+<p>
+Note, the cut-torque in frame_b (frame_b.t) is always set to zero.
 Additionally, a force and torque acts on frame_a in such a way that
 the force and torque balance between frame_a and frame_b is fulfilled.
 </p>
+
 <p>
 An example how to use this model is given in the 
 following figure:
@@ -1162,38 +1185,8 @@ clarity this is not shown in the animation):
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Forces/Force2.png\">
 </p>
-</HTML>
+</html>
 "));
-    annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
-      Window(
-        x=0.18,
-        y=0.01,
-        width=0.8,
-        height=0.82),
-      Documentation(info="
-An external force element exerts the inport signal
-as negative force on the connector frame (the force vector
-is resolved in the world frame).
-"),   Icon(Text(extent=[-132, 99; 128, 39], string="%name",
-          lineColor={0,0,255}),                              Polygon(points=[-100,
-               10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
-              10], style(
-            color=0,
-            gradient=0,
-            fillColor=0,
-            fillPattern=1),
-          lineColor={0,0,255})),
-      Diagram(Polygon(points=[-90, 10; 40, 10; 40, 31; 91, 0; 40, -31; 40, -10;
-               -90, -10; -90, 10], style(
-            color=0,
-            gradient=0,
-            fillColor=0,
-            fillPattern=1),
-          lineColor={0,0,255})));
 
   protected
     SI.Position f_in_m[3]=frame_b.f/N_to_m
@@ -1208,55 +1201,75 @@ is resolved in the world frame).
       r_head=-f_in_m) if world.enableAnimation and animation;
     Visualizers.Advanced.Shape connectionLine(
       shapeType="cylinder",
-      lengthDirection=r_0,
+      lengthDirection=basicForce.r_0,
       widthDirection={0,1,0},
-      length=Modelica.Math.Vectors.length(
-                           r_0),
+      length=Modelica.Math.Vectors.length(basicForce.r_0),
       width=connectionLineDiameter,
       height=connectionLineDiameter,
       color=connectionLineColor,
       specularCoefficient=specularCoefficient,
       r=frame_a.r_0) if world.enableAnimation and animation;
-  equation
-    if cardinality(frame_resolve) == 0 then
-      f_b_0 = Frames.resolve1(frame_b.R, frame_b.f);
-      frame_b.f = -force;
-      frame_resolve.r_0 = zeros(3);
-      frame_resolve.R = Frames.nullRotation();
-    else
-      f_b_0 = -Frames.resolve1(frame_resolve.R, force);
-      frame_b.f = Frames.resolve2(frame_b.R, f_b_0);
-      frame_resolve.f = zeros(3);
-      frame_resolve.t = zeros(3);
-    end if;
-    frame_b.t = zeros(3);
 
-    // Force and torque balance
-    r_0 = frame_b.r_0 - frame_a.r_0;
-    zeros(3) = frame_a.f + Frames.resolve2(frame_a.R, f_b_0);
-    zeros(3) = frame_a.t + Frames.resolve2(frame_a.R, cross(r_0, f_b_0));
+  public
+    MultiBody.Forces.Internal.BasicForce basicForce(resolveInFrame=resolveInFrame) 
+      annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+  protected
+    MultiBody.Interfaces.ZeroPosition zeroPosition if 
+         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve) 
+      annotation (Placement(transformation(extent={{40,10},{60,30}})));
+  equation
+    connect(basicForce.frame_a, frame_a) annotation (Line(
+        points={{0,0},{-100,0}},
+        color={95,95,95},
+        thickness=2,
+        smooth=Smooth.None));
+    connect(basicForce.frame_b, frame_b) annotation (Line(
+        points={{20,0},{100,0}},
+        color={95,95,95},
+        thickness=2,
+        smooth=Smooth.None));
+    connect(force, basicForce.force) annotation (Line(
+        points={{-60,120},{-60,40},{4,40},{4,12}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(basicForce.frame_resolve, frame_resolve) annotation (Line(
+        points={{14,10},{14,40},{40,40},{40,100}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
+    connect(zeroPosition.frame_resolve, basicForce.frame_resolve) annotation (
+        Line(
+        points={{40,20},{27,20},{27,10},{14,10}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
   end Force;
 
   model Torque
     "Torque acting between two frames, defined by 3 input signals and resolved in frame_b or in frame_resolve"
 
     import SI = Modelica.SIunits;
-    import Modelica.Mechanics.MultiBody.Types;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
-    Interfaces.Frame_resolve frame_resolve
-      "If connected, the input signals are resolved in this frame" 
+    Interfaces.Frame_resolve frame_resolve if 
+         resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve
+      "The input signals are optionally resolved in this frame" 
       annotation (Placement(transformation(
           origin={40,100},
           extent={{-16,-16},{16,16}},
           rotation=90)));
 
-    Modelica.Blocks.Interfaces.RealInput torque[3]
-      "x-, y-, z-coordiantes of torque resolved in frame_b or frame_resolved (if connected)"
+    Modelica.Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each
+        final unit = "N.m")
+      "x-, y-, z-coordiantes of torque resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           origin={-60,120},
           extent={{-20,-20},{20,20}},
           rotation=270)));
     parameter Boolean animation=true "= true, if animation shall be enabled";
+    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame2 resolveInFrame
+      =
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_b
+      "Frame in which input force is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
     parameter Real Nm_to_m(unit="N.m/m") = world.defaultNm_to_m
       " Torque arrow scaling (length = torque/Nm_to_m)" 
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -1273,12 +1286,9 @@ is resolved in the world frame).
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    SI.Position r_0[3]
-      "Position vector from origin of frame_a to origin of frame_b resolved in world frame";
-    SI.Torque t_b_0[3] "frame_b.t resoved in world frame";
 
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}}),
               graphics),
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
@@ -1316,28 +1326,49 @@ is resolved in the world frame).
             pattern=LinePattern.Dot),
           Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,85}},
               color={0,0,0}),
-          Line(points={{77,45},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}},
+          Line(points={{77,45},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}}, 
               color={0,0,0})}),
       Documentation(info="<HTML>
 <p>
 The <b>3</b> signals of the <b>torque</b> connector are interpreted
 as the x-, y- and z-coordinates of a <b>torque</b> acting at the frame
-connector to which frame_b of this component is attached. If connector
-<b>frame_resolve</b> is <b>not</b> connected, the torque coordinates
-of the inPort connector are with respect to <b>frame_b</b>. If connector
-<b>frame_resolve</b> is connected, the torque coordinates of
-the inPort connector
-are with respect to <b>frame_resolve</b>. In this case the
-torque in connector frame_resolve is set to zero,
-i.e., this connector is solely used to provide the information
-of the coordinate system, in which the torque coordinates
-are defined.
+connector to which frame_b of this component is attached. 
+Via parameter <b>resolveInFrame</b> it is defined, in which frame these
+coordinates shall be resolved:
 </p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><b>Types.ResolveInFrame2.</b></th><th><b>Meaning</b></th></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve input torque in world frame</td></tr>
+ 
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve input torque in frame_a</td></tr>
+ 
+<tr><td valign=\"top\">frame_b</td>
+    <td valign=\"top\">Resolve input torque in frame_b (= default)</td></tr>
+ 
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve input torque in frame_resolve (frame_resolve must be connected)</td></tr>
+</table>
+
+<p>
+If resolveInFrame = ResolveInFrame2.frame_resolve, the torque coordinates
+are with respect to the frame, that is connected to <b>frame_resolve</b>. 
+<p>
+
+<p>
+If torque={100,0,0}, and for all parameters the default setting is used,
+then the interpretation is that a torque of 100 N.m is acting along the positive
+x-axis of frame_b.
+</p>
+
 <p>
 Note, the cut-forces in frame_a and frame_b (frame_a.f, frame_b.f) are
-set to zero and the cut-torque at frame_a (frame_a.t) is the same
+always set to zero and the cut-torque at frame_a (frame_a.t) is the same
 as the cut-torque at frame_b (frame_b.t) but with opposite sign.
 </p>
+
 <p>
 An example how to use this model is given in the 
 following figure:
@@ -1357,37 +1388,6 @@ clarity this is not shown in the animation):
 </p>
 </HTML>
 "));
-    annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
-      Window(
-        x=0.18,
-        y=0.01,
-        width=0.8,
-        height=0.82),
-      Documentation(info="
-An external force element exerts the inport signal
-as negative force on the connector frame (the force vector
-is resolved in the world frame).
-"),   Icon(Text(extent=[-132, 99; 128, 39], string="%name",
-          lineColor={0,0,255}),                              Polygon(points=[-100,
-               10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
-              10], style(
-            color=0,
-            gradient=0,
-            fillColor=0,
-            fillPattern=1),
-          lineColor={0,0,255})),
-      Diagram(Polygon(points=[-90, 10; 40, 10; 40, 31; 91, 0; 40, -31; 40, -10;
-               -90, -10; -90, 10], style(
-            color=0,
-            gradient=0,
-            fillColor=0,
-            fillPattern=1),
-          lineColor={0,0,255})));
-
   protected
     SI.Position t_in_m[3]=frame_b.t/Nm_to_m
       "Torque mapped from Nm to m for animation";
@@ -1401,33 +1401,49 @@ is resolved in the world frame).
       r_head=-t_in_m) if world.enableAnimation and animation;
     Visualizers.Advanced.Shape connectionLine(
       shapeType="cylinder",
-      lengthDirection=r_0,
+      lengthDirection=basicTorque.r_0,
       widthDirection={0,1,0},
       length=Modelica.Math.Vectors.length(
-                           r_0),
+                           basicTorque.r_0),
       width=connectionLineDiameter,
       height=connectionLineDiameter,
       color=connectionLineColor,
       specularCoefficient=specularCoefficient,
       r=frame_a.r_0) if world.enableAnimation and animation;
-  equation
-    r_0 = frame_b.r_0 - frame_a.r_0;
-    frame_a.f = zeros(3);
-    frame_b.f = zeros(3);
-    if cardinality(frame_resolve) == 0 then
-      t_b_0 = Frames.resolve1(frame_b.R, frame_b.t);
-      frame_b.t = -torque;
-      frame_resolve.r_0 = zeros(3);
-      frame_resolve.R = Frames.nullRotation();
-    else
-      t_b_0 = -Frames.resolve1(frame_resolve.R, torque);
-      frame_b.t = Frames.resolve2(frame_b.R, t_b_0);
-      frame_resolve.f = zeros(3);
-      frame_resolve.t = zeros(3);
-    end if;
 
-    // torque balance
-    zeros(3) = frame_a.t + Frames.resolve2(frame_a.R, t_b_0);
+  public
+    Internal.BasicTorque basicTorque 
+      annotation (Placement(transformation(extent={{-8,-10},{12,10}})));
+  protected
+    Interfaces.ZeroPosition zeroPosition if 
+         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve) 
+      annotation (Placement(transformation(extent={{34,10},{54,30}})));
+  equation
+    connect(basicTorque.frame_a, frame_a) annotation (Line(
+        points={{-8,0},{-100,0}},
+        color={95,95,95},
+        thickness=2,
+        smooth=Smooth.None));
+    connect(basicTorque.frame_b, frame_b) annotation (Line(
+        points={{12,0},{100,0}},
+        color={95,95,95},
+        thickness=2,
+        smooth=Smooth.None));
+    connect(basicTorque.torque, torque) annotation (Line(
+        points={{-4,12},{-4,60},{-60,60},{-60,120}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(basicTorque.frame_resolve, frame_resolve) annotation (Line(
+        points={{6,10},{6,60},{40,60},{40,100}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
+    connect(zeroPosition.frame_resolve, basicTorque.frame_resolve) annotation (
+        Line(
+        points={{34,20},{20,20},{20,10},{6,10}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
   end Torque;
 
   model ForceAndTorque
@@ -1436,54 +1452,63 @@ is resolved in the world frame).
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
-    Interfaces.Frame_resolve frame_resolve
-      "If connected, the input signals are resolved in this frame" 
+
+    Blocks.Interfaces.RealInput force[3]
+      "x-, y-, z-coordinates of force resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
-          origin={40,100},
+          origin={-80,120},
+          extent={{-20,-20},{20,20}},
+          rotation=270)));
+    Blocks.Interfaces.RealInput torque[         3]
+      "x-, y-, z-coordiantes of torque resolved in frame defined by resolveInFrame"
+      annotation (Placement(transformation(
+          origin={0,120},
+          extent={{-20,-20},{20,20}},
+          rotation=270)));
+    Interfaces.Frame_resolve frame_resolve
+      "The input signals are optionally resolved in this frame" 
+      annotation (Placement(transformation(
+          origin={80,100},
           extent={{-16,-16},{16,16}},
           rotation=90)));
 
-    Modelica.Blocks.Interfaces.RealInput load[6]
-      "[1:6] = x-, y-, z-coordinates of force and x-, y-, z-coordiantes of torque resolved in frame_b or frame_resolved (if connected)"
-      annotation (Placement(transformation(
-          origin={-60,120},
-          extent={{-20,-20},{20,20}},
-          rotation=270)));
     parameter Boolean animation=true "= true, if animation shall be enabled";
+    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame2 resolveInFrame
+      =
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_b
+      "Frame in which input force and torque are resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
     parameter Real N_to_m(unit="N/m") = world.defaultN_to_m
-      " Force arrow scaling (length = force/N_to_m)" 
+      "Force arrow scaling (length = force/N_to_m)" 
       annotation (Dialog(group="if animation = true", enable=animation));
     parameter Real Nm_to_m(unit="N.m/m") = world.defaultNm_to_m
-      " Torque arrow scaling (length = torque/Nm_to_m)" 
+      "Torque arrow scaling (length = torque/Nm_to_m)" 
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter forceDiameter=world.defaultArrowDiameter
-      " Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
+      "Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter torqueDiameter=forceDiameter " Diameter of torque arrow" 
                                   annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter connectionLineDiameter=forceDiameter
-      " Diameter of line connecting frame_a and frame_b" 
+      "Diameter of line connecting frame_a and frame_b" 
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
-      " Color of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
+      "Color of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
-      " Color of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
+      "Color of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color connectionLineColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
-      " Color of line connecting frame_a and frame_b" 
+      "Color of line connecting frame_a and frame_b" 
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    SI.Position r_0[3]
-      "Position vector from origin of frame_a to origin of frame_b resolved in world frame";
-    SI.Force f_b_0[3] "frame_b.f resoved in world frame";
-    SI.Torque t_b_0[3] "frame_b.t resoved in world frame";
 
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}),
+      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
+              100,100}},
+          grid={2,2}),
               graphics),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
+              100}},
+          grid={2,2}), graphics={
           Rectangle(
             extent={{-98,99},{99,-98}},
             lineColor={255,255,255},
@@ -1503,7 +1528,7 @@ is resolved in the world frame).
             fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(
-            points={{40,100},{40,0}},
+            points={{80,100},{80,0}},
             color={95,95,95},
             pattern=LinePattern.Dot),
           Polygon(
@@ -1517,7 +1542,7 @@ is resolved in the world frame).
             fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(
-            points={{-60,100},{40,100}},
+            points={{-80,100},{80,100}},
             color={95,95,95},
             pattern=LinePattern.Dot),
           Polygon(
@@ -1529,32 +1554,58 @@ is resolved in the world frame).
           Line(points={{20,0},{65,0}}, color={0,0,0}),
           Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,85}},
               color={0,0,0}),
-          Line(points={{76,47},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}},
-              color={0,0,0})}),
+          Line(points={{76,47},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}}, 
+              color={0,0,0}),
+          Text(
+            extent={{-144,124},{-106,102}},
+            lineColor={0,0,0},
+            textString="f"),
+          Text(
+            extent={{20,124},{58,102}},
+            lineColor={0,0,0},
+            textString="t")}),
       Documentation(info="<HTML>
-<p>
-The <b>6</b> signals of the <b>load</b> connector are interpreted
-as the x-, y- and z-coordinates of a <b>force</b> and as
-the x-, y-, and z-coordinates of a <b>torque</b> acting at the frame
-connector to which frame_b of this component is attached. If connector
-<b>frame_resolve</b> is <b>not</b> connected, the force and torque coordinates
-are with respect to <b>frame_b</b>. If connector
-<b>frame_resolve</b> is connected, the force and torque coordinates
-are with respect to <b>frame_resolve</b>. In this case the
-force and torque in connector frame_resolve are set to zero,
-i.e., this connector is solely used to provide the information
-of the coordinate system, in which the force/torque coordinates
-are defined. The input signals are mapped to the force
-and torque in the following way:
+The <b>3</b> signals of the <b>force</b> connector and the
+<b>3</b> signals of the <b>torque</b> connector
+are interpreted
+as the x-, y- and z-coordinates of a <b>force</b> and of a 
+<b>torque</b> acting at the frame
+connector to which frame_b of this component is attached. 
+Via parameter <b>resolveInFrame</b> it is defined, in which frame these
+coordinates shall be resolved:
 </p>
-<pre>
-   force  = load[1:3]
-   torque = load[4:6]
-</pre>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><b>Types.ResolveInFrame2.</b></th><th><b>Meaning</b></th></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve input force/torque in world frame</td></tr>
+ 
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve input force/torque in frame_a</td></tr>
+ 
+<tr><td valign=\"top\">frame_b</td>
+    <td valign=\"top\">Resolve input force/torque in frame_b (= default)</td></tr>
+ 
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve input force/torque in frame_resolve (frame_resolve must be connected)</td></tr>
+</table>
+
 <p>
-Additionally, a force and torque acts on frame_a in such a way that
+If resolveInFrame = ResolveInFrame2.frame_resolve, the force and torque coordinates
+are with respect to the frame, that is connected to <b>frame_resolve</b>. 
+<p>
+
+<p>
+If force={100,0,0}, and for all parameters the default setting is used,
+then the interpretation is that a force of 100 N is acting along the positive
+x-axis of frame_b.
+</p>
+
+<p>
+Note, a force and torque acts on frame_a in such a way that
 the force and torque balance between frame_a and frame_b is fulfilled.
 </p>
+
 <p>
 An example how to use this model is given in the 
 following figure:
@@ -1575,36 +1626,6 @@ clarity this is not shown in the animation):
 </p>
 </HTML>
 "));
-    annotation (
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
-      Window(
-        x=0.18,
-        y=0.01,
-        width=0.8,
-        height=0.82),
-      Documentation(info="
-An external force element exerts the inport signal
-as negative force on the connector frame (the force vector
-is resolved in the world frame).
-"),   Icon(Text(extent=[-132, 99; 128, 39], string="%name",
-          lineColor={0,0,255}),                              Polygon(points=[-100,
-               10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
-              10], style(
-            color=0,
-            gradient=0,
-            fillColor=0,
-            fillPattern=1),
-          lineColor={0,0,255})),
-      Diagram(Polygon(points=[-90, 10; 40, 10; 40, 31; 91, 0; 40, -31; 40, -10;
-               -90, -10; -90, 10], style(
-            color=0,
-            gradient=0,
-            fillColor=0,
-            fillPattern=1),
-          lineColor={0,0,255})));
 
   protected
     SI.Position f_in_m[3]=frame_b.f/N_to_m
@@ -1629,36 +1650,76 @@ is resolved in the world frame).
       r_head=-t_in_m) if world.enableAnimation and animation;
     Visualizers.Advanced.Shape connectionLine(
       shapeType="cylinder",
-      lengthDirection=r_0,
+      lengthDirection=basicForce.r_0,
       widthDirection={0,1,0},
       length=Modelica.Math.Vectors.length(
-                           r_0),
+                           basicForce.r_0),
       width=connectionLineDiameter,
       height=connectionLineDiameter,
       color=connectionLineColor,
       specularCoefficient=specularCoefficient,
       r=frame_a.r_0) if world.enableAnimation and animation;
-  equation
-    if cardinality(frame_resolve) == 0 then
-      frame_b.f = -load[1:3];
-      frame_b.t = -load[4:6];
-      f_b_0 = Frames.resolve1(frame_b.R, frame_b.f);
-      t_b_0 = Frames.resolve1(frame_b.R, frame_b.t);
-      frame_resolve.r_0 = zeros(3);
-      frame_resolve.R = Frames.nullRotation();
-    else
-      f_b_0 = -Frames.resolve1(frame_resolve.R, load[1:3]);
-      t_b_0 = -Frames.resolve1(frame_resolve.R, load[4:6]);
-      frame_b.f = Frames.resolve2(frame_b.R, f_b_0);
-      frame_b.t = Frames.resolve2(frame_b.R, t_b_0);
-      frame_resolve.f = zeros(3);
-      frame_resolve.t = zeros(3);
-    end if;
 
-    // Force and torque balance
-    r_0 = frame_b.r_0 - frame_a.r_0;
-    zeros(3) = frame_a.f + Frames.resolve2(frame_a.R, f_b_0);
-    zeros(3) = frame_a.t + Frames.resolve2(frame_a.R, t_b_0 + cross(r_0, f_b_0));
+  public
+    Internal.BasicForce basicForce(resolveInFrame=resolveInFrame) 
+      annotation (Placement(transformation(extent={{-84,-10},{-64,10}})));
+    Internal.BasicTorque basicTorque(resolveInFrame=resolveInFrame) 
+      annotation (Placement(transformation(extent={{-4,10},{16,30}})));
+  protected
+    Interfaces.ZeroPosition zeroPosition if 
+         not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve) 
+      annotation (Placement(transformation(extent={{20,30},{40,50}})));
+  equation
+    connect(basicForce.frame_a, frame_a) annotation (Line(
+        points={{-84,0},{-100,0}},
+        color={95,95,95},
+        thickness=2,
+        smooth=Smooth.None));
+    connect(basicForce.frame_b, frame_b) annotation (Line(
+        points={{-64,0},{100,0}},
+        color={95,95,95},
+        thickness=2,
+        smooth=Smooth.None));
+    connect(basicTorque.frame_b, frame_b) annotation (Line(
+        points={{16,20},{68,20},{68,0},{100,0}},
+        color={95,95,95},
+        thickness=2,
+        smooth=Smooth.None));
+    connect(basicTorque.frame_a, frame_a) annotation (Line(
+        points={{-4,20},{-90,20},{-90,0},{-100,0}},
+        color={95,95,95},
+        thickness=2,
+        smooth=Smooth.None));
+    connect(basicForce.force, force) annotation (Line(
+        points={{-80,12},{-80,120}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(basicTorque.torque, torque) annotation (Line(
+        points={{0,32},{0,120}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(basicTorque.frame_resolve, frame_resolve) annotation (Line(
+        points={{10,30},{10,80},{80,80},{80,100}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
+    connect(basicForce.frame_resolve, frame_resolve) annotation (Line(
+        points={{-70,10},{-70,80},{80,80},{80,100}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
+    connect(zeroPosition.frame_resolve, basicTorque.frame_resolve)  annotation (
+        Line(
+        points={{20,40},{10,40},{10,30}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
+    connect(zeroPosition.frame_resolve, basicForce.frame_resolve) annotation (
+        Line(
+        points={{20,40},{-70,40},{-70,10}},
+        color={95,95,95},
+        pattern=LinePattern.Dot,
+        smooth=Smooth.None));
   end ForceAndTorque;
 
   model LineForceWithMass
@@ -1772,8 +1833,8 @@ is resolved in the world frame).
             fillColor={192,192,192}),
           Line(points={{-56,0},{-56,23},{-30,23},{-30,70},{-60,70},{-60,101}},
               color={0,0,0}),
-          Line(points={{55,-1},{55,20},{30,20},{30,70},{60,70},{60,100}}, color=
-               {0,0,0}),
+          Line(points={{55,-1},{55,20},{30,20},{30,70},{60,70},{60,100}}, color
+              ={0,0,0}),
           Line(
             points={{-56,0},{55,-1}},
             color={0,0,0},
@@ -1846,14 +1907,16 @@ is resolved in the world frame).
             fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(points={{-60,0},{-31,0}}, color={0,0,255}),
-          Polygon(points={{-19,0},{-31,3},{-31,-3},{-19,0}}, lineColor={0,0,255}),
+          Polygon(points={{-19,0},{-31,3},{-31,-3},{-19,0}}, lineColor={0,0,255}), 
+
           Line(points={{-60,16},{0,16}}, color={0,0,255}),
           Line(points={{0,0},{0,20}}, color={0,0,255}),
           Text(
             extent={{-43,-8},{-7,-33}},
             lineColor={0,0,0},
             textString="e_rel_0"),
-          Polygon(points={{0,16},{-12,19},{-12,13},{0,16}}, lineColor={0,0,255}),
+          Polygon(points={{0,16},{-12,19},{-12,13},{0,16}}, lineColor={0,0,255}), 
+
           Text(
             extent={{-50,35},{51,26}},
             lineColor={0,0,0},
@@ -2963,4 +3026,277 @@ force element) and der(s_damper) is the time derivative of s_damper.
     d*der(s_damper) = f;
   end SpringDamperSeries;
 
+  package Internal "Internal package, should not be used by user"
+
+    model BasicForce
+      "Force acting between two frames, defined by 3 input signals"
+
+      import Modelica.Mechanics.MultiBody.Types.ResolveInFrame2;
+      extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
+      Interfaces.Frame_resolve frame_resolve
+        "The input signals are optionally resolved in this frame" 
+        annotation (Placement(transformation(
+            origin={40,100},
+            extent={{-16,-16},{16,16}},
+            rotation=90)));
+      Modelica.Blocks.Interfaces.RealInput force[3]
+        "x-, y-, z-coordinates of force resolved in frame defined by resolveInFrame"
+        annotation (Placement(transformation(
+            origin={-60,120},
+            extent={{-20,-20},{20,20}},
+            rotation=270)));
+      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame2
+        resolveInFrame=
+        Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_b
+        "Frame in which force is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
+
+      Modelica.SIunits.Position r_0[3]
+        "Position vector from origin of frame_a to origin of frame_b resolved in world frame";
+      Modelica.SIunits.Force f_b_0[3] "frame_b.f resoved in world frame";
+
+      annotation (
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics),
+        Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
+                100,100}}), graphics={
+            Rectangle(
+              extent={{-98,99},{99,-98}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-92,61},{87,35}},
+              lineColor={192,192,192},
+              textString="resolve"),
+            Text(
+              extent={{-136,-52},{149,-113}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(
+              points={{40,100},{40,0}},
+              color={95,95,95},
+              pattern=LinePattern.Dot),
+            Polygon(
+              points={{-94,0},{-64,11},{-64,-10},{-94,0}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(
+              points={{-60,100},{40,100}},
+              color={95,95,95},
+              pattern=LinePattern.Dot),
+            Polygon(
+              points={{94,0},{65,12},{65,-11},{94,0}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-64,0},{-20,0}}, color={0,0,0}),
+            Line(points={{20,0},{65,0}}, color={0,0,0})}),
+        Documentation(info="<HTML>
+<p>
+The <b>3</b> signals of the <b>force</b> connector are interpreted
+as the x-, y- and z-coordinates of a <b>force</b> acting at the frame
+connector to which frame_b of this component is attached. 
+Via parameter <b>resolveInFrame</b> it is defined, in which frame these
+coordinates shall be resolved:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><b>Types.ResolveInFrame2.</b></th><th><b>Meaning</b></th></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve input force in world frame</td></tr>
+ 
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve input force in frame_a</td></tr>
+ 
+<tr><td valign=\"top\">frame_b</td>
+    <td valign=\"top\">Resolve input force in frame_b (= default)</td></tr>
+ 
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve input force in frame_resolve (frame_resolve must be connected)</td></tr>
+</table>
+
+<p>
+If resolveInFrame = ResolveInFrame2.frame_resolve, the force coordinates
+are with respect to the frame, that is connected to <b>frame_resolve</b>. 
+<p>
+
+<p>
+If resolveInFrame is not ResolveInFrame2.frame_resolve, then the position
+vector and the orientation object of frame_resolve must be set to constant
+values from the outside in order that the model remains balanced
+(these constant values are ignored).
+</p>
+
+</HTML>
+"));
+    equation
+      assert(cardinality(frame_resolve) > 0, "Connector frame_resolve must be connected at least once");
+      frame_resolve.f = zeros(3);
+      frame_resolve.t = zeros(3);
+
+       if resolveInFrame == ResolveInFrame2.frame_a then
+          f_b_0     = -Frames.resolve1(frame_a.R, force);
+          frame_b.f =  Frames.resolve2(frame_b.R, f_b_0);
+       elseif resolveInFrame == ResolveInFrame2.frame_b then
+          f_b_0     = -Frames.resolve1(frame_b.R, force);
+          frame_b.f = -force;
+       elseif resolveInFrame == ResolveInFrame2.world then
+          f_b_0     = -force;
+          frame_b.f =  Frames.resolve2(frame_b.R, f_b_0);
+       elseif resolveInFrame == ResolveInFrame2.frame_resolve then
+          f_b_0     = -Frames.resolve1(frame_resolve.R, force);
+          frame_b.f = Frames.resolve2(frame_b.R, f_b_0);
+       else
+          assert(false, "Wrong value for parameter resolveInFrame");
+          f_b_0     = zeros(3);
+          frame_b.f = zeros(3);
+       end if;
+       frame_b.t = zeros(3);
+
+       // Force and torque balance
+       r_0 = frame_b.r_0 - frame_a.r_0;
+       zeros(3) = frame_a.f + Frames.resolve2(frame_a.R, f_b_0);
+       zeros(3) = frame_a.t + Frames.resolve2(frame_a.R, cross(r_0, f_b_0));
+    end BasicForce;
+
+    model BasicTorque
+      "Torque acting between two frames, defined by 3 input signals"
+
+      import SI = Modelica.SIunits;
+      import Modelica.Mechanics.MultiBody.Types.ResolveInFrame2;
+      extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
+      Interfaces.Frame_resolve frame_resolve
+        "The input signals are optionally resolved in this frame" 
+        annotation (Placement(transformation(
+            origin={40,100},
+            extent={{-16,-16},{16,16}},
+            rotation=90)));
+
+      Modelica.Blocks.Interfaces.RealInput torque[3]
+        "x-, y-, z-coordiantes of torque resolved in frame defined by resolveInFrame"
+        annotation (Placement(transformation(
+            origin={-60,120},
+            extent={{-20,-20},{20,20}},
+            rotation=270)));
+      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame2
+        resolveInFrame=
+        Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_b
+        "Frame in which torque is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
+
+      SI.Position r_0[3]
+        "Position vector from origin of frame_a to origin of frame_b resolved in world frame";
+      SI.Torque t_b_0[3] "frame_b.t resoved in world frame";
+
+      annotation (
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics),
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Rectangle(
+              extent={{-98,99},{99,-98}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-59,55},{72,30}},
+              lineColor={192,192,192},
+              textString="resolve"),
+            Text(
+              extent={{-139,-27},{146,-88}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Polygon(
+              points={{100,20},{84,52},{69,39},{100,20}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(
+              points={{40,100},{76,46}},
+              color={95,95,95},
+              pattern=LinePattern.Dot),
+            Polygon(
+              points={{-99,20},{-86,53},{-70,42},{-99,20}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(
+              points={{-60,100},{40,100}},
+              color={95,95,95},
+              pattern=LinePattern.Dot),
+            Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,85}}, 
+                color={0,0,0}),
+            Line(points={{77,45},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}}, 
+                color={0,0,0})}),
+        Documentation(info="<HTML>
+<p>
+The <b>3</b> signals of the <b>torque</b> connector are interpreted
+as the x-, y- and z-coordinates of a <b>torque</b> acting at the frame
+connector to which frame_b of this component is attached. 
+Via parameter <b>resolveInFrame</b> it is defined, in which frame these
+coordinates shall be resolved:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><b>Types.ResolveInFrame2.</b></th><th><b>Meaning</b></th></tr>
+<tr><td valign=\"top\">world</td>
+    <td valign=\"top\">Resolve input torque in world frame</td></tr>
+ 
+<tr><td valign=\"top\">frame_a</td>
+    <td valign=\"top\">Resolve input torque in frame_a</td></tr>
+ 
+<tr><td valign=\"top\">frame_b</td>
+    <td valign=\"top\">Resolve input torque in frame_b (= default)</td></tr>
+ 
+<tr><td valign=\"top\">frame_resolve</td>
+    <td valign=\"top\">Resolve input torque in frame_resolve (frame_resolve must be connected)</td></tr>
+</table>
+
+<p>
+If resolveInFrame = ResolveInFrame2.frame_resolve, the torque coordinates
+are with respect to the frame, that is connected to <b>frame_resolve</b>. 
+<p>
+
+<p>
+If resolveInFrame is not ResolveInFrame2.frame_resolve, then the position
+vector and the orientation object of frame_resolve must be set to constant
+values from the outside in order that the model remains balanced
+(these constant values are ignored).
+</p>
+</HTML>
+"));
+
+    equation
+      assert(cardinality(frame_resolve) > 0, "Connector frame_resolve must be connected at least once");
+      frame_resolve.f = zeros(3);
+      frame_resolve.t = zeros(3);
+
+      r_0 = frame_b.r_0 - frame_a.r_0;
+      frame_a.f = zeros(3);
+      frame_b.f = zeros(3);
+
+       if resolveInFrame == ResolveInFrame2.frame_a then
+          t_b_0     = -Frames.resolve1(frame_a.R, torque);
+          frame_b.t =  Frames.resolve2(frame_b.R, t_b_0);
+       elseif resolveInFrame == ResolveInFrame2.frame_b then
+          t_b_0     = -Frames.resolve1(frame_b.R, torque);
+          frame_b.t = -torque;
+       elseif resolveInFrame == ResolveInFrame2.world then
+          t_b_0     = -torque;
+          frame_b.t =  Frames.resolve2(frame_b.R, t_b_0);
+       elseif resolveInFrame == ResolveInFrame2.frame_resolve then
+          t_b_0     = -Frames.resolve1(frame_resolve.R, torque);
+          frame_b.t =  Frames.resolve2(frame_b.R, t_b_0);
+       else
+          assert(false, "Wrong value for parameter resolveInFrame");
+          t_b_0     = zeros(3);
+          frame_b.t = zeros(3);
+       end if;
+
+       // torque balance
+       zeros(3) = frame_a.t + Frames.resolve2(frame_a.R, t_b_0);
+    end BasicTorque;
+  end Internal;
 end Forces;

@@ -182,7 +182,7 @@ variable <b>extra</b> is used as instance name:
     "Enumeration to define the frame in which an absolute vector is resolved" 
                                                annotation (Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>Types.ResolveInFrame.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><b>Types.ResolveInFrame1.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
  
@@ -202,7 +202,7 @@ variable <b>extra</b> is used as instance name:
     "Enumeration to define the frame in which a relative vector is resolved" 
                                                annotation (Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>Types.ResolveInFrame.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><b>Types.ResolveInFrame2.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
  

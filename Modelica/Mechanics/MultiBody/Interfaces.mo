@@ -832,4 +832,21 @@ It is used by inheritance from all visualizer objects.
 </html>"));
   end PartialVisualizer;
 
+  model ZeroPosition
+    "Set absolute position vector of frame_resolve to a zero vector and the orientation object to a null rotation"
+     extends Modelica.Blocks.Interfaces.BlockIcon;
+    Interfaces.Frame_resolve frame_resolve 
+      annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+              -100},{100,100}}), graphics={Text(
+            extent={{-74,24},{80,-20}},
+            lineColor={0,0,0},
+            textString="r = 0")}), Diagram(coordinateSystem(
+            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+          graphics));
+  equation
+    defineRoot(frame_resolve.R);
+    frame_resolve.R = Modelica.Mechanics.MultiBody.Frames.nullRotation();
+    frame_resolve.r_0 = zeros(3);
+  end ZeroPosition;
 end Interfaces;
