@@ -440,8 +440,7 @@ is much faster.
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}), graphics),
-      experiment(StopTime=5),
-      experimentSetupOutput);
+      experiment(StopTime=5));
     Joints.GearConstraint gearConstraint(                             ratio=10) 
       annotation (Placement(transformation(extent={{34,40},{54,60}}, rotation=0)));
     inner World world(                             driveTrainMechanics3D=true,
