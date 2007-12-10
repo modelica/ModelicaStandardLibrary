@@ -1076,7 +1076,7 @@ computed as:
     r = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0);
 </pre>
 </html>"));
-    Internal.ZeroPosition zeroPosition if 
+    Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if 
       not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve) 
       annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
 
@@ -1199,7 +1199,7 @@ computed as:
 </pre>
  
 </html>"));
-    Internal.ZeroPosition zeroPosition if 
+    Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if 
       not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve) 
       annotation (Placement(transformation(extent={{20,-50},{40,-30}})));
 
@@ -1419,7 +1419,7 @@ computed as:
 </pre>
  
 </html>"));
-    Internal.ZeroPosition zeroPosition if 
+    Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if 
       not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve) 
       annotation (Placement(transformation(extent={{40,-40},{60,-20}})));
 
@@ -1529,7 +1529,7 @@ computed as:
     r_rel = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
 </pre>
 </html>"));
-    Internal.ZeroPosition zeroPosition if 
+    Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if 
       not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve) 
       annotation (Placement(transformation(extent={{52,20},{72,40}})));
 
@@ -1647,7 +1647,7 @@ computed as:
 </pre>
  
 </html>"));
-    Internal.ZeroPosition zeroPosition if 
+    Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if 
       not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve) 
       annotation (Placement(transformation(extent={{54,20},{74,40}})));
 
@@ -1673,7 +1673,7 @@ computed as:
         smooth=Smooth.None));
     connect(zeroPosition.frame_resolve, relativePosition.frame_resolve) 
       annotation (Line(
-        points={{54,30},{36,30},{36,8.1},{10,8.1}},
+        points={{54,30},{36,30},{36,8},{10,8},{10,8.1}},
         color={95,95,95},
         pattern=LinePattern.Dot,
         smooth=Smooth.None));
@@ -1879,7 +1879,7 @@ computed as:
 </pre>
  
 </html>"));
-    Internal.ZeroPosition zeroPosition if 
+    Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if 
       not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve) 
       annotation (Placement(transformation(extent={{52,20},{72,40}})));
 
@@ -2126,7 +2126,7 @@ with negative sign at frame_a.
     Internal.BasicCutForce cutForce(resolveInFrame=resolveInFrame, positiveSign=
           positiveSign) 
       annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
-    Internal.ZeroPosition zeroPosition if 
+    Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if 
       not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve) 
       annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
   equation
@@ -2256,7 +2256,7 @@ with negative sign at frame_a.
     Internal.BasicCutTorque cutTorque(resolveInFrame=resolveInFrame, positiveSign=
          positiveSign) 
       annotation (Placement(transformation(extent={{-62,-10},{-42,10}})));
-    Internal.ZeroPosition zeroPosition if 
+    Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if 
       not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve) 
       annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
   equation
@@ -2422,7 +2422,7 @@ with negative sign at frame_a.
     Internal.BasicCutTorque cutTorque(resolveInFrame=resolveInFrame, positiveSign=
          positiveSign) 
       annotation (Placement(transformation(extent={{-2,-10},{18,10}})));
-    Internal.ZeroPosition zeroPosition if 
+    Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if 
       not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve) 
       annotation (Placement(transformation(extent={{60,30},{80,50}})));
   equation
@@ -2607,7 +2607,7 @@ coordinate system defined with parameter \"frame_r_out\" and returns the
 transformed output vector as \"Real r_out[3]\";
 </p>
 </html>"));
-    Internal.ZeroPosition zeroPosition if 
+    Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if 
       not (frame_r_in == Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve or 
            frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve) 
       annotation (Placement(transformation(extent={{40,18},{60,38}})));
@@ -2701,7 +2701,7 @@ coordinate system defined with parameter \"frame_r_out\" and returns the
 transformed output vector as \"Real r_out[3]\";
 </p>
 </html>"));
-    Internal.ZeroPosition zeroPosition if 
+    Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if 
       not (frame_r_in == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve or 
            frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve) 
       annotation (Placement(transformation(extent={{48,10},{68,30}})));
@@ -3037,8 +3037,11 @@ transformed output vector as \"Real r_out[3]\";
           r_rel = Frames.resolve2(frame_b.R, frame_b.r_0 - frame_a.r_0);
        elseif resolveInFrame == ResolveInFrame2.world then
           r_rel = frame_b.r_0 - frame_a.r_0;
-       else
+       elseif resolveInFrame == ResolveInFrame2.frame_resolve then
           r_rel = Frames.resolve2(frame_resolve.R, frame_b.r_0 - frame_a.r_0);
+       else
+          assert(false, "Wrong value for parameter resolveInFrame");
+          r_rel = zeros(3);
        end if;
     end BasicRelativePosition;
 
@@ -3080,8 +3083,11 @@ transformed output vector as \"Real r_out[3]\";
           w_rel = Frames.angularVelocity2(R_rel);
        elseif resolveInFrame == ResolveInFrame2.world then
           w_rel = Frames.resolve1(frame_a.R, Frames.angularVelocity1(R_rel));
-       else
+       elseif resolveInFrame == ResolveInFrame2.frame_resolve then
           w_rel = Frames.resolveRelative(Frames.angularVelocity1(R_rel), frame_a.R, frame_resolve.R);
+       else
+          assert(false, "Wrong value for parameter resolveInFrame");
+          w_rel = zeros(3);
        end if;
     end BasicRelativeAngularVelocity;
 
@@ -3273,23 +3279,6 @@ transformed output vector as \"Real r_out[3]\";
        end if;
     end BasicTransformRelativeVector;
 
-    model ZeroPosition
-      "Set absolute position vector of frame_resolve to a zero vector and the orientation object to a null rotation"
-       extends Modelica.Blocks.Interfaces.BlockIcon;
-      Interfaces.Frame_resolve frame_resolve 
-        annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-              extent={{-74,24},{80,-20}},
-              lineColor={0,0,0},
-              textString="r = 0")}), Diagram(coordinateSystem(
-              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-            graphics));
-    equation
-      defineRoot(frame_resolve.R);
-      frame_resolve.R = Modelica.Mechanics.MultiBody.Frames.nullRotation();
-      frame_resolve.r_0 = zeros(3);
-    end ZeroPosition;
 
     model ZeroForceAndTorque "Set force and torque to zero"
        extends Modelica.Blocks.Interfaces.BlockIcon;
