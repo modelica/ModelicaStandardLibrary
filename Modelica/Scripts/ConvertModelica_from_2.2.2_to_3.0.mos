@@ -840,7 +840,7 @@ convertClass  ("Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque",
 
 
 //-------- Electrical ------------------------------------------------------------
-convertElement({"Modelica.Electrical.Analog.Basic.EMF"}, "flange_b", "shaft");
+convertElement({"Modelica.Electrical.Analog.Basic.EMF"}, "flange_b", "flange");
 
 convertClass  ("Modelica.Electrical.Analog.Basic.HeatingResistor",
                "ObsoleteModelica3.Electrical.Analog.Basic.HeatingResistor");
@@ -975,10 +975,7 @@ convertElement({"Modelica.Electrical.Machines.Interfaces.PartialBasicMachine",
                 "Modelica.Electrical.Machines.BasicMachines.Components.AirGapR",
                 "Modelica.Electrical.Machines.BasicMachines.Components.PartialAirGapDC", 
                 "Modelica.Electrical.Machines.BasicMachines.Components.AirGapDC"}, 
-               "flange_a", "shaft");
-
-convertElement({"Modelica.Electrical.Machines.Sensors.RotorAngle"}, 
-               "flange", "shaft");
+               "flange_a", "flange");
 
 convertElement({"Modelica.Electrical.Machines.Interfaces.PartialBasicMachine", 
                 "Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine", 
