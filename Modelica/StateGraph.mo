@@ -1548,7 +1548,7 @@ buttons:
     equation 
       der(level) = (inflow1.Fi - outflow1.Fo)/(hmax*A);
       if outflow1.open then
-        outflow1.Fo = sqrt(2*g*hmax*level)*a;
+        outflow1.Fo = sqrt(max(0,2*g*hmax*level))*a;
       else
         outflow1.Fo = 0;
       end if;
