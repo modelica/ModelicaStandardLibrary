@@ -9,7 +9,7 @@ package ObsoleteModelica3
       package Adaptors
       model AdaptorReal
           "Completely obsolete adaptor between 'old' and 'new' Real signal connectors (only for backward compatibility)"
-        extends ObsoleteModelica3.Icons.ObsoleteModel;
+        extends ObsoleteModelica3.Icons.ObsoleteBlock;
         Modelica.Blocks.Interfaces.RealSignal newReal
             "Connector of Modelica version 2.1"                annotation (                            Hide=true,
               Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
@@ -62,7 +62,7 @@ This block is only provided for backward compatibility.
 
       model AdaptorBoolean
           "Completely obsolete adaptor between 'old' and 'new' Boolean signal connectors (only for backward compatibility)"
-        extends ObsoleteModelica3.Icons.ObsoleteModel;
+        extends ObsoleteModelica3.Icons.ObsoleteBlock;
         Modelica.Blocks.Interfaces.BooleanSignal newBoolean
             "Connector of Modelica version 2.1" 
           annotation (                            Hide=true, Placement(
@@ -116,7 +116,7 @@ This block is only provided for backward compatibility.
 
       model AdaptorInteger
           "Completely obsolete adaptor between 'old' and 'new' Integer signal connectors (only for backward compatibility)"
-        extends ObsoleteModelica3.Icons.ObsoleteModel;
+        extends ObsoleteModelica3.Icons.ObsoleteBlock;
         Modelica.Blocks.Interfaces.IntegerSignal newInteger
             "Connector of Modelica version 2.1" 
           annotation (                            Hide=true, Placement(
@@ -183,7 +183,7 @@ Internal replaceable block that is used to construct the
 </p>
 </html>"));
           extends ConversionBlock;
-          extends ObsoleteModelica3.Icons.ObsoleteModel;
+          extends ObsoleteModelica3.Icons.ObsoleteBlock;
 
           annotation (
             defaultComponentName="convert",
@@ -217,7 +217,7 @@ The desired conversion can be selected in the parameter menu
       block TwoInputs
         "Change causality of input signals by defining that two input signals are identical (e.g. for inverse models)"
         extends Modelica.Blocks.Interfaces.BlockIcon;
-        extends ObsoleteModelica3.Icons.ObsoleteModel;
+        extends ObsoleteModelica3.Icons.ObsoleteBlock;
             annotation(structurallyIncomplete,
               Window(
                 x=0.15,
@@ -257,7 +257,7 @@ defined as outputs (e.g. useful for inverse model generation).
           block TwoOutputs
         "Change causality of output signals by defining that two output signals are identical (e.g. for inverse models)"
             extends Modelica.Blocks.Interfaces.BlockIcon;
-            extends ObsoleteModelica3.Icons.ObsoleteModel;
+            extends ObsoleteModelica3.Icons.ObsoleteBlock;
             annotation(structurallyIncomplete,
               Window(
                 x=0.21,
@@ -422,6 +422,29 @@ connectors are set to zero.</p>
   end Electrical;
 
   package Icons
+    partial block ObsoleteBlock "Icon for an obsolete model"
+
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Rectangle(
+              extent={{-102,102},{102,-102}},
+              lineColor={255,0,0},
+              pattern=LinePattern.Dash,
+              lineThickness=2)}),        Documentation(info="<html>
+<p>
+This partial class is intended to design a <em>default icon
+for an obsolete class</em> that will be removed from the
+PowerTrain library later on.
+<p>
+</html>",
+        revisions="<html>
+<img src=\"../Extras/Images/dlr_logo.png\"  width=60 >
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <b>      Copyright &copy; 1999-2007, DLR Institute of Robotics and Mechatronics</b>
+</html>"));
+    equation
+
+    end ObsoleteBlock;
+
     partial model ObsoleteModel "Icon for an obsolete model"
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
@@ -2704,8 +2727,7 @@ to the left and/or the right flange.
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={192,192,192}),
               Polygon(
-                points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}}, 
-
+                points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
                 lineColor={0,0,0},
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={128,128,128}),
