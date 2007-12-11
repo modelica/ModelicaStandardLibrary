@@ -43,17 +43,17 @@ package Sensors "Sensors to measure variables"
     extends Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteSensor;
 
     Interfaces.Frame_resolve frame_resolve if 
-          resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve
-      "If resolveInFrame = Types.ResolveInFrame1.frame_resolve, the output signals are resolved in this frame"
+          resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
+      "If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the output signals are resolved in this frame"
        annotation (Placement(transformation(
             extent={{84,-16},{116,16}}),iconTransformation(extent={{84,-16},{116,
               16}})));
 
     parameter Boolean animation=true
       "= true, if animation shall be enabled (show arrow)";
-    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame1 resolveInFrame
+    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame
       =
-      Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_a
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
       "Frame in which vectors are resolved before differentiation (1: world, 2: frame_a, 3: frame_resolve)";
     parameter Boolean get_r=false
       "= true, to measure the absolute position vector of the origin of frame_a"
@@ -92,7 +92,7 @@ package Sensors "Sensors to measure variables"
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
 
-    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame1
+    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA
       resolveInFrameAfterDifferentiation = resolveInFrame
       "Frame in which vectors are resolved after differentiation (1: world, 2: frame_a, 3: frame_resolve)"
       annotation(Dialog(tab="Advanced", group="if get_v or get_a or get_z", enable=get_v or get_a or get_z));
@@ -201,7 +201,7 @@ a vector is resolved (before differentiation):
 </p>
  
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>resolveInFrame =<br>Types.ResolveInFrame1.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><b>resolveInFrame =<br>Types.ResolveInFrameA.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vectors in world frame</td></tr>
  
@@ -213,7 +213,7 @@ a vector is resolved (before differentiation):
 </table>
  
 <p>
-If resolveInFrame = Types.ResolveInFrame1.frame_resolve, the conditional connector
+If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the conditional connector
 \"frame_resolve\" is enabled and the vectors are resolved in the frame, to
 which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
@@ -238,7 +238,7 @@ to resolve the differentiated
 vector in another frame.
 </p>
 <p>
-For example, if resolveInFrame = <b>Types.ResolveInFrame1.frame_a</b>, then
+For example, if resolveInFrame = <b>Types.ResolveInFrameA.frame_a</b>, then
 </p>
 <pre>
    r = resolve2(frame_a.R, frame_a.r0);
@@ -246,7 +246,7 @@ For example, if resolveInFrame = <b>Types.ResolveInFrame1.frame_a</b>, then
 </pre>
 is returned, i.e., he derivative of the absolute distance from the
 world frame to the origin of frame_a, resolved in frame_a. If 
-<b>resolveInFrameAfterDifferentiation</b> = Types.ResolveInFrame1.frame_resolve, then
+<b>resolveInFrameAfterDifferentiation</b> = Types.ResolveInFrameA.frame_resolve, then
 v is additionally transformed to:
 </p>
 <pre>
@@ -327,7 +327,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
           origin={110,-60})));
     Internal.ZeroForceAndTorque zeroForce1 
       annotation (Placement(transformation(extent={{-80,30},{-60,50}})));
-    Internal.ZeroForceAndTorque zeroForce2 if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve 
+    Internal.ZeroForceAndTorque zeroForce2 if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve 
       annotation (Placement(transformation(extent={{70,30},{50,50}})));
 
     Modelica.Mechanics.MultiBody.Sensors.TansformAbsoluteVector
@@ -482,17 +482,17 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     extends Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeSensor;
 
     Interfaces.Frame_resolve frame_resolve if 
-          resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve
-      "If resolveInFrame = Types.ResolveInFrame2.frame_resolve, the output signals are resolved in this frame"
+          resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
+      "If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the output signals are resolved in this frame"
        annotation (Placement(transformation(
             extent={{84,64},{116,96}}), iconTransformation(extent={{84,64},{116,
               96}})));
 
     parameter Boolean animation=true
       "= true, if animation shall be enabled (show arrow)";
-    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame2 resolveInFrame
-      =
-      Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_a
+    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB
+      resolveInFrame=
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
       "Frame in which vectors are resolved before differentiation (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
     parameter Boolean get_r_rel=false
       "= true, to measure the relative position vector from the origin of frame_a to frame_b"
@@ -531,7 +531,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
 
-    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame2
+    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB
       resolveInFrameAfterDifferentiation = resolveInFrame
       "Frame in which vectors are resolved after differentiation (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)"
       annotation(Dialog(tab="Advanced", group="if get_v_rel or get_a_rel or get_z_rel", enable=get_v_rel or get_a_rel or get_z_rel));
@@ -673,7 +673,7 @@ a vector is resolved (before differentiation):
 </p>
  
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>resolveInFrame =<br>Types.ResolveInFrame2.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vectors in world frame</td></tr>
  
@@ -688,7 +688,7 @@ a vector is resolved (before differentiation):
 </table>
  
 <p>
-If resolveInFrame = Types.ResolveInFrame2.frame_resolve, the conditional connector
+If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector
 \"frame_resolve\" is enabled and the vectors are resolved in the frame, to
 which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
@@ -713,7 +713,7 @@ to resolve the differentiated
 vector in another frame.
 </p>
 <p>
-For example, if resolveInFrame = <b>Types.ResolveInFrame2.frame_b</b>, then
+For example, if resolveInFrame = <b>Types.ResolveInFrameAB.frame_b</b>, then
 </p>
 <pre>
    r_rel = resolve2(frame_b.R, frame_b.r_0 - frame_a.r0);
@@ -722,7 +722,7 @@ For example, if resolveInFrame = <b>Types.ResolveInFrame2.frame_b</b>, then
 is returned (r_rel = resolve2(frame_b.R, frame_b.r_0 - frame_a.r0)), i.e.,
 the derivative of the relative distance from frame_a to frame_b, 
 resolved in frame_b. If 
-<b>resolveInFrameAfterDifferentiation</b> = Types.ResolveInFrame2.world, then
+<b>resolveInFrameAfterDifferentiation</b> = Types.ResolveInFrameAB.world, then
 v_rel is additionally transformed to:
 </p>
 <pre>
@@ -799,7 +799,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
       annotation (Placement(transformation(extent={{-81,40},{-61,60}})));
     Internal.ZeroForceAndTorque zeroForce2 
       annotation (Placement(transformation(extent={{70,20},{50,40}})));
-    Internal.ZeroForceAndTorque zeroForce3 if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve 
+    Internal.ZeroForceAndTorque zeroForce3 if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve 
       annotation (Placement(transformation(extent={{70,50},{50,70}})));
 
     Modelica.Mechanics.MultiBody.Sensors.TansformRelativeVector
@@ -994,7 +994,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
           origin={110,0})));
 
     Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve if resolveInFrame ==
-      Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
       "Coordinate system in which output vector r is optionally resolved" 
       annotation (Placement(transformation(extent={{-16,-16},{16,16}},
           rotation=-90,
@@ -1003,9 +1003,9 @@ and sequence[2] &ne; sequence[3]. Often used values are:
           rotation=-90,
           origin={0,-101})));
 
-    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame1 resolveInFrame
+    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame
       =
-    Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_a
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
       "Frame in which output vector r shall be resolved (1: world, 2: frame_a, 3:frame_resolve)";
 
   protected
@@ -1049,7 +1049,7 @@ the position vector is resolved:
 </p>
  
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>resolveInFrame =<br>Types.ResolveInFrame1.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><b>resolveInFrame =<br>Types.ResolveInFrameA.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
  
@@ -1061,14 +1061,14 @@ the position vector is resolved:
 </table>
  
 <p>
-If resolveInFrame = Types.ResolveInFrame1.frame_resolve, the conditional connector
+If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the conditional connector
 \"frame_resolve\" is enabled and r is resolved in the frame, to
 which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
 </p>
  
 <p>
-Example: If resolveInFrame = Types.ResolveInFrame1.frame_a, the output vector is 
+Example: If resolveInFrame = Types.ResolveInFrameA.frame_a, the output vector is 
 computed as:
 </p>
  
@@ -1077,7 +1077,7 @@ computed as:
 </pre>
 </html>"));
     Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if 
-      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve) 
+      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve) 
       annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
 
   equation
@@ -1114,7 +1114,7 @@ computed as:
           origin={110,0})));
 
     Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve if resolveInFrame ==
-      Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
       "Coordinate system in which output vector v is optionally resolved" 
       annotation (Placement(transformation(extent={{-16,-16},{16,16}},
           rotation=-90,
@@ -1123,9 +1123,9 @@ computed as:
           rotation=-90,
           origin={0,-100})));
 
-    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame1 resolveInFrame
+    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame
       =
-    Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_a
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
       "Frame in which output vector v shall be resolved (1: world, 2: frame_a, 3: frame_resolve)";
 
   protected
@@ -1170,7 +1170,7 @@ the velocity vector is resolved:
 </p>
  
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>resolveInFrame =<br>Types.ResolveInFrame1.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><b>resolveInFrame =<br>Types.ResolveInFrameA.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
  
@@ -1182,14 +1182,14 @@ the velocity vector is resolved:
 </table>
  
 <p>
-If resolveInFrame = Types.ResolveInFrame1.frame_resolve, the conditional connector
+If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the conditional connector
 \"frame_resolve\" is enabled and v is resolved in the frame, to
 which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
 </p>
  
 <p>
-Example: If resolveInFrame = Types.ResolveInFrame1.frame_a, the output vector is 
+Example: If resolveInFrame = Types.ResolveInFrameA.frame_a, the output vector is 
 computed as:
 </p>
  
@@ -1200,7 +1200,7 @@ computed as:
  
 </html>"));
     Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if 
-      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve) 
+      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve) 
       annotation (Placement(transformation(extent={{20,-50},{40,-30}})));
 
     Blocks.Continuous.Der der1[3]                           annotation (Placement(transformation(
@@ -1334,7 +1334,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
           origin={110,0})));
 
     Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve if resolveInFrame ==
-      Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
       "Coordinate system in which w is optionally resolved" 
       annotation (Placement(transformation(extent={{-16,-16},{16,16}},
           rotation=-90,
@@ -1343,9 +1343,9 @@ and sequence[2] &ne; sequence[3]. Often used values are:
           rotation=-90,
           origin={0,-101})));
 
-    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame1 resolveInFrame
+    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame
       =
-    Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_a
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
       "Frame in which output vector w shall be resolved (1: world, 2: frame_a, 3: frame_resolve)";
 
   protected
@@ -1391,7 +1391,7 @@ the angular velocity is resolved:
 </p>
  
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>resolveInFrame =<br>Types.ResolveInFrame2.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
  
@@ -1403,14 +1403,14 @@ the angular velocity is resolved:
 </table>
  
 <p>
-If resolveInFrame = Types.ResolveInFrame1.frame_resolve, the conditional connector
+If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the conditional connector
 \"frame_resolve\" is enabled and w is resolved in the frame, to
 which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
 </p>
  
 <p>
-Example: If resolveInFrame = Types.ResolveInFrame1.frame_a, the output vector is 
+Example: If resolveInFrame = Types.ResolveInFrameA.frame_a, the output vector is 
 computed as:
 </p>
  
@@ -1420,7 +1420,7 @@ computed as:
  
 </html>"));
     Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if 
-      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve) 
+      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve) 
       annotation (Placement(transformation(extent={{40,-40},{60,-20}})));
 
   equation
@@ -1457,14 +1457,14 @@ computed as:
           origin={0,-110})));
 
     Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve if resolveInFrame ==
-      Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
       "Coordinate system in which r_rel is optionally resolved" 
       annotation (Placement(transformation(extent={{84,64},{116,96}}),
           iconTransformation(extent={{84,65},{116,97}})));
 
-    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame2 resolveInFrame
-      =
-    Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_a
+    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB
+      resolveInFrame=
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
       "Frame in which output vector r_rel shall be resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
 
   protected
@@ -1499,7 +1499,7 @@ the position vector is resolved:
 </p>
  
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>resolveInFrame =<br>Types.ResolveInFrame2.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
  
@@ -1514,14 +1514,14 @@ the position vector is resolved:
 </table>
  
 <p>
-If resolveInFrame = Types.ResolveInFrame2.frame_resolve, the conditional connector
+If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector
 \"frame_resolve\" is enabled and r_rel is resolved in the frame, to
 which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
 </p>
  
 <p>
-Example: If resolveInFrame = Types.ResolveInFrame2.frame_a, the output vector is 
+Example: If resolveInFrame = Types.ResolveInFrameAB.frame_a, the output vector is 
 computed as:
 </p>
  
@@ -1530,7 +1530,7 @@ computed as:
 </pre>
 </html>"));
     Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if 
-      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve) 
+      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve) 
       annotation (Placement(transformation(extent={{52,20},{72,40}})));
 
   equation
@@ -1572,14 +1572,14 @@ computed as:
           origin={0,-110})));
 
     Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve if resolveInFrame ==
-      Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
       "Coordinate system in which v_rel is optionally resolved" 
       annotation (Placement(transformation(extent={{84,64},{116,96}}),
           iconTransformation(extent={{84,65},{116,97}})));
 
-    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame2 resolveInFrame
-      =
-    Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_a
+    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB
+      resolveInFrame=
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
       "Frame in which output vector v_rel shall be resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
 
   protected
@@ -1615,7 +1615,7 @@ the velocity vector is resolved:
 </p>
  
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>resolveInFrame =<br>Types.ResolveInFrame2.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
  
@@ -1630,14 +1630,14 @@ the velocity vector is resolved:
 </table>
  
 <p>
-If resolveInFrame = Types.ResolveInFrame2.frame_resolve, the conditional connector
+If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector
 \"frame_resolve\" is enabled and v_rel is resolved in the frame, to
 which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
 </p>
  
 <p>
-Example: If resolveInFrame = Types.ResolveInFrame2.frame_a, the output vector is 
+Example: If resolveInFrame = Types.ResolveInFrameAB.frame_a, the output vector is 
 computed as:
 </p>
  
@@ -1648,7 +1648,7 @@ computed as:
  
 </html>"));
     Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if 
-      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve) 
+      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve) 
       annotation (Placement(transformation(extent={{54,20},{74,40}})));
 
     Blocks.Continuous.Der der1[3]                           annotation (Placement(transformation(
@@ -1802,14 +1802,14 @@ and sequence[2] &ne; sequence[3]. Often used values are:
           origin={0,-110})));
 
     Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve if resolveInFrame ==
-      Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
       "Coordinate system in which w_rel is optionally resolved" 
       annotation (Placement(transformation(extent={{84,64},{116,96}}),
           iconTransformation(extent={{84,65},{116,97}})));
 
-    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame2 resolveInFrame
-      =
-    Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_a
+    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB
+      resolveInFrame=
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
       "Frame in which output vector w_rel shall be resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
 
   protected
@@ -1844,7 +1844,7 @@ the angular velocity is resolved:
 </p>
  
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>resolveInFrame =<br>Types.ResolveInFrame2.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
  
@@ -1859,14 +1859,14 @@ the angular velocity is resolved:
 </table>
  
 <p>
-If resolveInFrame = Types.ResolveInFrame2.frame_resolve, the conditional connector
+If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector
 \"frame_resolve\" is enabled and w_rel is resolved in the frame, to
 which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
 </p>
  
 <p>
-Example: If resolveInFrame = Types.ResolveInFrame2.frame_a, the output vector is 
+Example: If resolveInFrame = Types.ResolveInFrameAB.frame_a, the output vector is 
 computed as:
 </p>
  
@@ -1880,7 +1880,7 @@ computed as:
  
 </html>"));
     Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if 
-      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve) 
+      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve) 
       annotation (Placement(transformation(extent={{52,20},{72,40}})));
 
   equation
@@ -2080,7 +2080,7 @@ the force vector is resolved:
 </p>
  
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>resolveInFrame =<br>Types.ResolveInFrame2.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
  
@@ -2095,7 +2095,7 @@ the force vector is resolved:
 </table>
  
 <p>
-If resolveInFrame = Types.ResolveInFrame2.frame_resolve, the conditional connector
+If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector
 \"frame_resolve\" is enabled and output force is resolved in the frame, to
 which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
@@ -2127,7 +2127,7 @@ with negative sign at frame_a.
           positiveSign) 
       annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
     Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if 
-      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve) 
+      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve) 
       annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
   equation
     connect(cutForce.frame_a, frame_a)      annotation (Line(
@@ -2210,7 +2210,7 @@ the torque vector is resolved:
 </p>
  
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>resolveInFrame =<br>Types.ResolveInFrame2.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
  
@@ -2225,7 +2225,7 @@ the torque vector is resolved:
 </table>
  
 <p>
-If resolveInFrame = Types.ResolveInFrame2.frame_resolve, the conditional connector
+If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector
 \"frame_resolve\" is enabled and output torque is resolved in the frame, to
 which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
@@ -2257,7 +2257,7 @@ with negative sign at frame_a.
          positiveSign) 
       annotation (Placement(transformation(extent={{-62,-10},{-42,10}})));
     Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if 
-      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve) 
+      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve) 
       annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
   equation
     connect(cutTorque.frame_a, frame_a) annotation (Line(
@@ -2361,7 +2361,7 @@ the two vectors are resolved:
 </p>
  
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>resolveInFrame =<br>Types.ResolveInFrame2.</b></th><th><b>Meaning</b></th></tr>
+<tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vectors in world frame</td></tr>
  
@@ -2376,7 +2376,7 @@ the two vectors are resolved:
 </table>
  
 <p>
-If resolveInFrame = Types.ResolveInFrame2.frame_resolve, the conditional connector
+If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector
 \"frame_resolve\" is enabled and the output vectors force and torque are resolved in the frame, to
 which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
@@ -2423,7 +2423,7 @@ with negative sign at frame_a.
          positiveSign) 
       annotation (Placement(transformation(extent={{-2,-10},{18,10}})));
     Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if 
-      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve) 
+      not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve) 
       annotation (Placement(transformation(extent={{60,30},{80,50}})));
   equation
     connect(cutForce.frame_a, frame_a) annotation (Line(
@@ -2533,8 +2533,8 @@ coordinate system.
           transformation(extent={{-116,-16},{-84,16}}, rotation=0)));
 
     Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve if 
-     (frame_r_in  == Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve) or 
-     (frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve)
+     (frame_r_in  == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve) or 
+     (frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
       "Coordinate system in which r_in or r_out is optionally resolved" 
       annotation (Placement(transformation(extent={{84,-16},{116,16}}),
           iconTransformation(extent={{84,-15},{116,17}})));
@@ -2550,10 +2550,10 @@ coordinate system.
           rotation=-90,
           origin={0,-110})));
 
-    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame1 frame_r_in=
-    Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_a
+    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA frame_r_in=
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
       "Frame in which vector r_in is resolved (1: world, 2: frame_a, 3: frame_resolve)";
-    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame1 frame_r_out=
+    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA frame_r_out=
                     frame_r_in
       "Frame in which vector r_in shall be resolved and provided as r_out (1: world, 2: frame_a, 3: frame_resolve)";
 
@@ -2608,8 +2608,8 @@ transformed output vector as \"Real r_out[3]\";
 </p>
 </html>"));
     Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if 
-      not (frame_r_in == Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve or 
-           frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve) 
+      not (frame_r_in == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve or 
+           frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve) 
       annotation (Placement(transformation(extent={{40,18},{60,38}})));
 
   equation
@@ -2643,8 +2643,8 @@ transformed output vector as \"Real r_out[3]\";
     extends Internal.PartialRelativeSensor;
 
     Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve if 
-     (frame_r_in  == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve) or 
-     (frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve)
+     (frame_r_in  == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve) or 
+     (frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
       "Coordinate system in which r_in or r_out is optionally resolved" 
       annotation (Placement(transformation(extent={{84,64},{116,96}}),
           iconTransformation(extent={{84,65},{116,97}})));
@@ -2660,10 +2660,10 @@ transformed output vector as \"Real r_out[3]\";
           rotation=-90,
           origin={0,-110})));
 
-    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame2 frame_r_in=
-    Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_a
+    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB frame_r_in=
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
       "Frame in which vector r_in is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
-    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame2 frame_r_out=
+    parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB frame_r_out=
                     frame_r_in
       "Frame in which vector r_in shall be resolved and provided as r_out (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
 
@@ -2702,8 +2702,8 @@ transformed output vector as \"Real r_out[3]\";
 </p>
 </html>"));
     Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if 
-      not (frame_r_in == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve or 
-           frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_resolve) 
+      not (frame_r_in == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve or 
+           frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve) 
       annotation (Placement(transformation(extent={{48,10},{68,30}})));
 
   equation
@@ -2919,7 +2919,8 @@ transformed output vector as \"Real r_out[3]\";
 
     model BasicAbsolutePosition
       "Measure absolute position vector (same as Sensors.AbsolutePosition, but frame_resolve is not conditional and must be connected)"
-      import Modelica.Mechanics.MultiBody.Types.ResolveInFrame1;
+      import ResolveInFrameA =
+        Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
       extends
         Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteBaseSensor;
       Modelica.Blocks.Interfaces.RealOutput r[3](each final quantity="Position", each
@@ -2930,9 +2931,9 @@ transformed output vector as \"Real r_out[3]\";
             extent={{-10,-10},{10,10}},
             rotation=0)));
 
-      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame1
+      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA
         resolveInFrame=
-      Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_a
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
         "Frame in which output vector r is resolved (1: world, 2: frame_a, 3: frame_resolve)";
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -2948,11 +2949,11 @@ transformed output vector as \"Real r_out[3]\";
             grid={1,1}),
             graphics));
     equation
-       if resolveInFrame == ResolveInFrame1.world then
+       if resolveInFrame == ResolveInFrameA.world then
           r = frame_a.r_0;
-       elseif resolveInFrame == ResolveInFrame1.frame_a then
+       elseif resolveInFrame == ResolveInFrameA.frame_a then
           r = Frames.resolve2(frame_a.R, frame_a.r_0);
-       elseif resolveInFrame == ResolveInFrame1.frame_resolve then
+       elseif resolveInFrame == ResolveInFrameA.frame_resolve then
           r = Frames.resolve2(frame_resolve.R, frame_a.r_0);
        else
           assert(false, "Wrong value for parameter resolveInFrame");
@@ -2962,7 +2963,8 @@ transformed output vector as \"Real r_out[3]\";
 
     model BasicAbsoluteAngularVelocity "Measure absolute angular velocity"
       import Modelica.Mechanics.MultiBody.Frames;
-      import Modelica.Mechanics.MultiBody.Types.ResolveInFrame1;
+      import ResolveInFrameA =
+        Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
 
       extends
         Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteBaseSensor;
@@ -2972,9 +2974,9 @@ transformed output vector as \"Real r_out[3]\";
             origin={110,0},
             extent={{-10,-10},{10,10}},
             rotation=0)));
-      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame1
+      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA
         resolveInFrame=
-      Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_a
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
         "Frame in which output vector w is resolved (1: world, 2: frame_a, 3: frame_resolve)";
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -2988,11 +2990,11 @@ transformed output vector as \"Real r_out[3]\";
               preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
             graphics));
     equation
-       if resolveInFrame == ResolveInFrame1.world then
+       if resolveInFrame == ResolveInFrameA.world then
           w = Frames.angularVelocity1(frame_a.R);
-       elseif resolveInFrame == ResolveInFrame1.frame_a then
+       elseif resolveInFrame == ResolveInFrameA.frame_a then
           w = Frames.angularVelocity2(frame_a.R);
-       elseif resolveInFrame == ResolveInFrame1.frame_resolve then
+       elseif resolveInFrame == ResolveInFrameA.frame_resolve then
           w = Frames.resolveRelative(Frames.angularVelocity1(frame_a.R), frame_a.R, frame_resolve.R);
        else
           assert(false, "Wrong value for parameter resolveInFrame");
@@ -3002,7 +3004,8 @@ transformed output vector as \"Real r_out[3]\";
 
     model BasicRelativePosition
       "Measure relative position vector (same as Sensors.RelativePosition, but frame_resolve is not conditional and must be connected)"
-      import Modelica.Mechanics.MultiBody.Types.ResolveInFrame2;
+      import ResolveInFrameAB =
+        Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB;
       extends
         Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeBaseSensor;
       Modelica.Blocks.Interfaces.RealOutput r_rel[3](each final quantity="Position", each
@@ -3013,9 +3016,9 @@ transformed output vector as \"Real r_out[3]\";
             extent={{-10,-10},{10,10}},
             rotation=270)));
 
-      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame2
+      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB
         resolveInFrame=
-      Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_a
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
         "Frame in which output vector r_rel is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -3031,13 +3034,13 @@ transformed output vector as \"Real r_out[3]\";
             grid={1,1}),
             graphics));
     equation
-       if resolveInFrame == ResolveInFrame2.frame_a then
+       if resolveInFrame == ResolveInFrameAB.frame_a then
           r_rel = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
-       elseif resolveInFrame == ResolveInFrame2.frame_b then
+       elseif resolveInFrame == ResolveInFrameAB.frame_b then
           r_rel = Frames.resolve2(frame_b.R, frame_b.r_0 - frame_a.r_0);
-       elseif resolveInFrame == ResolveInFrame2.world then
+       elseif resolveInFrame == ResolveInFrameAB.world then
           r_rel = frame_b.r_0 - frame_a.r_0;
-       elseif resolveInFrame == ResolveInFrame2.frame_resolve then
+       elseif resolveInFrame == ResolveInFrameAB.frame_resolve then
           r_rel = Frames.resolve2(frame_resolve.R, frame_b.r_0 - frame_a.r_0);
        else
           assert(false, "Wrong value for parameter resolveInFrame");
@@ -3047,7 +3050,8 @@ transformed output vector as \"Real r_out[3]\";
 
     model BasicRelativeAngularVelocity "Measure relative angular velocity"
       import Modelica.Mechanics.MultiBody.Frames;
-      import Modelica.Mechanics.MultiBody.Types.ResolveInFrame2;
+      import ResolveInFrameAB =
+        Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB;
 
       extends
         Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeBaseSensor;
@@ -3057,9 +3061,9 @@ transformed output vector as \"Real r_out[3]\";
             origin={0,-110},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame2
+      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB
         resolveInFrame=
-      Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_a
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
         "Frame in which output vector w_rel is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -3077,13 +3081,13 @@ transformed output vector as \"Real r_out[3]\";
         "Relative orientation object from frame_a to frame_b";
     equation
        R_rel = Frames.relativeRotation(frame_a.R, frame_b.R);
-       if resolveInFrame == ResolveInFrame2.frame_a then
+       if resolveInFrame == ResolveInFrameAB.frame_a then
           w_rel = Frames.angularVelocity1(R_rel);
-       elseif resolveInFrame == ResolveInFrame2.frame_b then
+       elseif resolveInFrame == ResolveInFrameAB.frame_b then
           w_rel = Frames.angularVelocity2(R_rel);
-       elseif resolveInFrame == ResolveInFrame2.world then
+       elseif resolveInFrame == ResolveInFrameAB.world then
           w_rel = Frames.resolve1(frame_a.R, Frames.angularVelocity1(R_rel));
-       elseif resolveInFrame == ResolveInFrame2.frame_resolve then
+       elseif resolveInFrame == ResolveInFrameAB.frame_resolve then
           w_rel = Frames.resolveRelative(Frames.angularVelocity1(R_rel), frame_a.R, frame_resolve.R);
        else
           assert(false, "Wrong value for parameter resolveInFrame");
@@ -3094,14 +3098,15 @@ transformed output vector as \"Real r_out[3]\";
     model BasicTransformAbsoluteVector
       "Transform absolute vector in to another frame"
       import Modelica.Mechanics.MultiBody.Frames;
-      import Modelica.Mechanics.MultiBody.Types.ResolveInFrame1;
+      import ResolveInFrameA =
+        Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
 
       extends Modelica.Icons.RotationalSensor;
 
-      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame1 frame_r_in=
-      Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_a
+      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA frame_r_in=
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
         "Frame in which vector r_in is resolved (1: world, 2: frame_a, 3: frame_resolve)";
-      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame1 frame_r_out=
+      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA frame_r_out=
                       frame_r_in
         "Frame in which vector r_out (= r_in in other frame) is resolved (1: world, 2: frame_a, 3: frame_resolve)";
 
@@ -3185,22 +3190,22 @@ transformed output vector as \"Real r_out[3]\";
           r_out = r_in;
           R1 = Frames.nullRotation();
        else
-          if frame_r_in == ResolveInFrame1.world then
+          if frame_r_in == ResolveInFrameA.world then
              R1 = Frames.nullRotation();
-          elseif frame_r_in == ResolveInFrame1.frame_a then
+          elseif frame_r_in == ResolveInFrameA.frame_a then
              R1 = frame_a.R;
-          elseif frame_r_in == ResolveInFrame1.frame_resolve then
+          elseif frame_r_in == ResolveInFrameA.frame_resolve then
              R1 = frame_resolve.R;
           else
              assert(false, "Wrong value for parameter frame_r_in");
              R1 = Frames.nullRotation();
           end if;
 
-          if frame_r_out == ResolveInFrame1.world then
+          if frame_r_out == ResolveInFrameA.world then
              r_out = Frames.resolve1(R1, r_in);
-          elseif frame_r_out == ResolveInFrame1.frame_a then
+          elseif frame_r_out == ResolveInFrameA.frame_a then
              r_out = Frames.resolveRelative(r_in, R1, frame_a.R);
-          elseif frame_r_out == ResolveInFrame1.frame_resolve then
+          elseif frame_r_out == ResolveInFrameA.frame_resolve then
              r_out = Frames.resolveRelative(r_in, R1, frame_resolve.R);
           else
              assert(false, "Wrong value for parameter frame_r_out");
@@ -3212,14 +3217,15 @@ transformed output vector as \"Real r_out[3]\";
     model BasicTransformRelativeVector
       "Transform relative vector in to another frame"
       import Modelica.Mechanics.MultiBody.Frames;
-      import Modelica.Mechanics.MultiBody.Types.ResolveInFrame2;
+      import ResolveInFrameAB =
+        Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB;
       extends
         Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeBaseSensor;
-      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame2 frame_r_in=
-      Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_a
+      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB frame_r_in=
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
         "Frame in which vector r_in is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
-      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame2 frame_r_out=
-                      frame_r_in
+      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB frame_r_out
+        =             frame_r_in
         "Frame in which vector r_out (= r_in in other frame) is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
 
       Blocks.Interfaces.RealInput r_in[3]
@@ -3257,28 +3263,27 @@ transformed output vector as \"Real r_out[3]\";
           r_out = r_in;
           R1 = Frames.nullRotation();
        else
-          if frame_r_in == ResolveInFrame2.world then
+          if frame_r_in == ResolveInFrameAB.world then
              R1 = Frames.nullRotation();
-          elseif frame_r_in == ResolveInFrame2.frame_a then
+          elseif frame_r_in == ResolveInFrameAB.frame_a then
              R1 = frame_a.R;
-          elseif frame_r_in == ResolveInFrame2.frame_b then
+          elseif frame_r_in == ResolveInFrameAB.frame_b then
              R1 = frame_b.R;
           else
              R1 = frame_resolve.R;
           end if;
 
-          if frame_r_out == ResolveInFrame2.world then
+          if frame_r_out == ResolveInFrameAB.world then
              r_out = Frames.resolve1(R1, r_in);
-          elseif frame_r_out == ResolveInFrame2.frame_a then
+          elseif frame_r_out == ResolveInFrameAB.frame_a then
              r_out = Frames.resolveRelative(r_in, R1, frame_a.R);
-          elseif frame_r_out == ResolveInFrame2.frame_b then
+          elseif frame_r_out == ResolveInFrameAB.frame_b then
              r_out = Frames.resolveRelative(r_in, R1, frame_b.R);
           else
              r_out = Frames.resolveRelative(r_in, R1, frame_resolve.R);
           end if;
        end if;
     end BasicTransformRelativeVector;
-
 
     model ZeroForceAndTorque "Set force and torque to zero"
        extends Modelica.Blocks.Interfaces.BlockIcon;
@@ -3305,16 +3310,16 @@ transformed output vector as \"Real r_out[3]\";
         "Coordinate system b"                                                          annotation (Placement(
             transformation(extent={{84,-16},{116,16}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve if 
-             resolveInFrame==Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve
+             resolveInFrame==Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
         "Output vectors are optionally resolved in this frame (cut-force/-torque are set to zero)"
         annotation (Placement(transformation(
             origin={80,-100},
             extent={{-16,-16},{16,16}},
             rotation=270)));
 
-      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame1
+      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA
         resolveInFrame=
-      Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_a
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
         "Frame in which output vector(s) is/are resolved (1: world, 2: frame_a, 3: frame_resolve)";
 
       annotation (
@@ -3391,9 +3396,9 @@ with the blocks of package Modelica.Blocks.
             extent={{-16,-16},{16,16}},
             rotation=270)));
 
-      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrame1
+      parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA
         resolveInFrame=
-      Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_a
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
         "Frame in which output vector is resolved (1: world, 2: frame_a, 3: frame_resolve)";
 
       annotation (
@@ -3467,7 +3472,8 @@ with the blocks of package Modelica.Blocks.
       "Measure cut force vector (frame_resolve must be connected)"
 
       import SI = Modelica.SIunits;
-      import Modelica.Mechanics.MultiBody.Types.ResolveInFrame1;
+      import ResolveInFrameA =
+        Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
       import Modelica.Mechanics.MultiBody.Frames;
 
       extends
@@ -3499,11 +3505,11 @@ with the blocks of package Modelica.Blocks.
     protected
       parameter Integer csign=if positiveSign then +1 else -1;
     equation
-       if resolveInFrame == ResolveInFrame1.world then
+       if resolveInFrame == ResolveInFrameA.world then
           force = Frames.resolve1(frame_a.R, frame_a.f)*csign;
-       elseif resolveInFrame == ResolveInFrame1.frame_a then
+       elseif resolveInFrame == ResolveInFrameA.frame_a then
           force = frame_a.f*csign;
-       elseif resolveInFrame == ResolveInFrame1.frame_resolve then
+       elseif resolveInFrame == ResolveInFrameA.frame_resolve then
           force = Frames.resolveRelative(frame_a.f, frame_a.R, frame_resolve.R)*csign;
        else
           assert(false,"Wrong value for parameter resolveInFrame");
@@ -3515,7 +3521,8 @@ with the blocks of package Modelica.Blocks.
       "Measure cut torque vector (frame_resolve must be connected)"
 
       import SI = Modelica.SIunits;
-      import Modelica.Mechanics.MultiBody.Types.ResolveInFrame1;
+      import ResolveInFrameA =
+        Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
       import Modelica.Mechanics.MultiBody.Frames;
 
       extends
@@ -3546,11 +3553,11 @@ with the blocks of package Modelica.Blocks.
     protected
       parameter Integer csign=if positiveSign then +1 else -1;
     equation
-       if resolveInFrame == ResolveInFrame1.world then
+       if resolveInFrame == ResolveInFrameA.world then
           torque = Frames.resolve1(frame_a.R, frame_a.t)*csign;
-       elseif resolveInFrame == ResolveInFrame1.frame_a then
+       elseif resolveInFrame == ResolveInFrameA.frame_a then
           torque = frame_a.t*csign;
-       elseif resolveInFrame == ResolveInFrame1.frame_resolve then
+       elseif resolveInFrame == ResolveInFrameA.frame_resolve then
           torque = Frames.resolveRelative(frame_a.t, frame_a.R, frame_resolve.R)*csign;
        else
           assert(false,"Wrong value for parameter resolveInFrame");

@@ -467,7 +467,10 @@ needed and if this connector should be connected for a correct model.
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics),
+          grid={1,1}), graphics={Text(
+            extent={{94,-20},{130,-45}},
+            lineColor={128,128,128},
+            textString="b")}),
       Documentation(info="<HTML>
 <p>
 This partial model provides one frame_b connector, access to the world

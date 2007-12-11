@@ -4363,7 +4363,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         specularCoefficient=specularCoefficient,
         r=rRod2_ib) annotation (Placement(transformation(extent={{15,-20},{-25,
                 20}}, rotation=0)));
-      Sensors.RelativePosition relativePosition(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_a) 
+      Sensors.RelativePosition relativePosition(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a) 
         annotation (Placement(transformation(extent={{60,-70},{40,-90}},
               rotation=0)));
       Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
@@ -4928,7 +4928,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         specularCoefficient=specularCoefficient,
         color=rod2Color) annotation (Placement(transformation(extent={{0,20},{
                 -40,-20}}, rotation=0)));
-      Sensors.RelativePosition relativePosition(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_a) 
+      Sensors.RelativePosition relativePosition(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a) 
         annotation (Placement(transformation(extent={{50,-70},{30,-90}},
               rotation=0)));
       Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
@@ -5321,7 +5321,7 @@ component).
         specularCoefficient=specularCoefficient,
         r=rRod2_ib) annotation (Placement(transformation(extent={{15,-20},{-25,
                 20}}, rotation=0)));
-      Sensors.RelativePosition relativePosition(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_a) 
+      Sensors.RelativePosition relativePosition(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a) 
         annotation (Placement(transformation(extent={{60,-70},{40,-90}},
               rotation=0)));
       Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
@@ -5723,7 +5723,7 @@ component).
         color=rod2Color,
         r=rRod2_ib) annotation (Placement(transformation(extent={{15,-20},{-25,
                 20}}, rotation=0)));
-      Sensors.RelativePosition relativePosition(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrame2.frame_a) 
+      Sensors.RelativePosition relativePosition(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a) 
         annotation (Placement(transformation(extent={{60,-70},{40,-90}},
               rotation=0)));
       Modelica.Blocks.Sources.Constant position_b[3](k=rRod2_ib) 
