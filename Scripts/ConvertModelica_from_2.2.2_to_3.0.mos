@@ -689,7 +689,8 @@ convertElement({"Modelica.Mechanics.Rotational.IdealGear",
                 "Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque",
                 "Modelica.Mechanics.Rotational.ConstantTorque",
                 "Modelica.Mechanics.Rotational.ConstantSpeed",
-                "Modelica.Mechanics.Rotational.TorqueStep"},
+                "Modelica.Mechanics.Rotational.TorqueStep",
+                "Modelica.Mechanics.Rotational.Interfaces.PartialSpeedDependentTorque"},
                 "bearing", "support");
 
 // bearingR -> supportR
@@ -746,7 +747,8 @@ convertModifiers({"Modelica.Mechanics.Rotational.IdealGear",
                   "Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque",
                   "Modelica.Mechanics.Rotational.ConstantTorque",
                   "Modelica.Mechanics.Rotational.ConstantSpeed",
-                  "Modelica.Mechanics.Rotational.TorqueStep"},
+                  "Modelica.Mechanics.Rotational.TorqueStep",
+                  "Modelica.Mechanics.Rotational.Interfaces.PartialSpeedDependentTorque"},
                  {"cardinality(bearing)=1"},{"useSupport=true"});
 
 convertModifiers({"Modelica.Mechanics.Rotational.IdealGearR2T"},
@@ -771,7 +773,8 @@ convertModifiers({"Modelica.Mechanics.Rotational.IdealGear",
                   "Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque",
                   "Modelica.Mechanics.Rotational.ConstantTorque",
                   "Modelica.Mechanics.Rotational.ConstantSpeed",
-                  "Modelica.Mechanics.Rotational.TorqueStep"},
+                  "Modelica.Mechanics.Rotational.TorqueStep",
+                  "Modelica.Mechanics.Rotational.Interfaces.PartialSpeedDependentTorque"},
                   {"cardinality(bearing)=0"},{"useSupport=false"});
 
 convertModifiers({"Modelica.Mechanics.Rotational.IdealGearR2T"},
