@@ -472,6 +472,619 @@ This icon is designed for an <b>enumeration</b>
 
   package Mechanics
     package MultiBody
+      package Forces
+        model WorldForceAndTorque
+          "External force and torque acting at frame_b, defined by 6 input signals and resolved in world frame"
+
+          import SI = Modelica.SIunits;
+          import Modelica.Mechanics.MultiBody.Types;
+          extends Modelica.Mechanics.MultiBody.Interfaces.PartialOneFrame_b;
+          extends ObsoleteModelica3.Icons.ObsoleteModel;
+
+          Modelica.Blocks.Interfaces.RealInput load[6]
+            "[1:6] = x-, y-, z-coordinates of force and x-, y-, z-coordiantes of torque resolved in world frame"
+            annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
+                  rotation=0)));
+          parameter Boolean animation=true
+            "= true, if animation shall be enabled";
+          parameter Real N_to_m(unit="N/m") = world.defaultN_to_m
+            " Force arrow scaling (length = force/N_to_m)" 
+            annotation (Dialog(group="if animation = true", enable=animation));
+          parameter Real Nm_to_m(unit="N.m/m") = world.defaultNm_to_m
+            " Torque arrow scaling (length = torque/Nm_to_m)" 
+            annotation (Dialog(group="if animation = true", enable=animation));
+          input SI.Diameter forceDiameter=world.defaultArrowDiameter
+            " Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
+          input SI.Diameter torqueDiameter=forceDiameter
+            " Diameter of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
+          input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
+            " Color of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
+          input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
+            " Color of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
+          input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+            "Reflection of ambient light (= 0: light is completely absorbed)" 
+            annotation (Dialog(group="if animation = true", enable=animation));
+
+          annotation (
+            preferedView="info",
+            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                    -100},{100,100}}), graphics={
+                Polygon(
+                  points={{-100,10},{50,10},{50,31},{97,0},{50,-31},{50,-10},{-100,
+                      -10},{-100,10}},
+                  lineColor={0,0,0},
+                  fillColor={0,0,0},
+                  fillPattern=FillPattern.Solid),
+                Line(
+                  points={{-100,11},{-94,24},{-86,39},{-74,59},{-65,71},{-52,83},
+                      {-35,92},{-22,95},{-8,95},{7,91},{19,84},{32,76},{44,66},
+                      {52,58},{58,51}},
+                  color={0,0,0},
+                  thickness=2),
+                Polygon(
+                  points={{97,18},{72,77},{38,42},{97,18}},
+                  lineColor={0,0,0},
+                  fillColor={0,0,0},
+                  fillPattern=FillPattern.Solid)}),
+            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                    {100,100}}), graphics={
+                Text(
+                  extent={{-74,62},{44,24}},
+                  lineColor={192,192,192},
+                  textString="world"),
+                Polygon(
+                  points={{-100,10},{50,10},{50,31},{94,0},{50,-31},{50,-10},{-100,
+                      -10},{-100,10}},
+                  lineColor={0,0,0},
+                  fillColor={0,0,0},
+                  fillPattern=FillPattern.Solid),
+                Text(extent={{-137,-47},{148,-108}}, textString="%name"),
+                Line(
+                  points={{-98,14},{-92,27},{-84,42},{-72,62},{-63,74},{-50,86},
+                      {-33,95},{-20,98},{-6,98},{9,94},{21,87},{34,79},{46,69},
+                      {54,61},{60,54}},
+                  color={0,0,0},
+                  thickness=2),
+                Polygon(
+                  points={{99,21},{74,80},{40,45},{99,21}},
+                  lineColor={0,0,0},
+                  fillColor={0,0,0},
+                  fillPattern=FillPattern.Solid)}),
+            Documentation(info="<HTML>
+<p>
+The <b>6</b> signals of the <b>load</b> connector are interpreted
+as the x-, y- and z-coordinates of a <b>force</b> and as
+the x-, y-, and z-coordinates of a <b>torque</b> resolved in the
+<b>world frame</b> and acting at the frame connector to which this
+component is attached. The input signals are mapped to the force
+and torque in the following way:
+</p>
+<pre>
+   force  = load[1:3]
+   torque = load[4:6]
+</pre>
+<p>
+The force and torque are by default visualized as an arrow (force)
+and as a double arrow (torque) acting at the connector to which
+they are connected. The diameters
+and colors of the arrows are fixed and can be defined via
+parameters <b>forceDiameter</b>, <b>torqueDiameter</b>,
+<b>forceColor</b> and <b>torqueColor</b>. The arrows
+point in the directions defined by the
+inPort.signal signals. The lengths of the arrows are proportional
+to the length of the force and torque vectors, respectively, using parameters
+<b>N_to_m</b> and <b>Nm_to_m</b> as scaling factors. For example, if N_to_m = 100 N/m,
+then a force of 350 N is displayed as an arrow of length 3.5 m.
+</p>
+<p>
+An example how to use this model is given in the 
+following figure:
+</p>
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Forces/WorldForceAndTorque1.png\">
+</p>
+<p>
+This leads to the following animation
+</p>
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Forces/WorldForceAndTorque2.png\">
+</p>
+</HTML>
+"));
+
+          annotation (
+            Coordsys(
+              extent=[-100, -100; 100, 100],
+              grid=[1, 1],
+              component=[20, 20]),
+            Window(
+              x=0.18,
+              y=0.01,
+              width=0.8,
+              height=0.82),
+            Documentation(info="
+An external force element exerts the inport signal
+as negative force on the connector frame (the force vector
+is resolved in the world frame).
+"),         Icon(Text(extent=[-132, 99; 128, 39], string="%name"), Polygon(points=[-100,
+                     10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
+                    10], style(
+                  color=0,
+                  gradient=0,
+                  fillColor=0,
+                  fillPattern=1))),
+            Diagram(Polygon(points=[-90, 10; 40, 10; 40, 31; 91, 0; 40, -31; 40, -10;
+                     -90, -10; -90, 10], style(
+                  color=0,
+                  gradient=0,
+                  fillColor=0,
+                  fillPattern=1))));
+
+        protected
+          SI.Position f_in_m[3]=frame_b.f/N_to_m
+            "Force mapped from N to m for animation";
+          SI.Position t_in_m[3]=frame_b.t/Nm_to_m
+            "Torque mapped from Nm to m for animation";
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow forceArrow(
+            diameter=forceDiameter,
+            color=forceColor,
+            specularCoefficient=specularCoefficient,
+            R=frame_b.R,
+            r=frame_b.r_0,
+            r_tail=f_in_m,
+            r_head=-f_in_m) if world.enableAnimation and animation;
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow
+            torqueArrow(
+            diameter=torqueDiameter,
+            color=torqueColor,
+            specularCoefficient=specularCoefficient,
+            R=frame_b.R,
+            r=frame_b.r_0,
+            r_tail=t_in_m,
+            r_head=-t_in_m) if world.enableAnimation and animation;
+        equation
+          frame_b.f = -Modelica.Mechanics.MultiBody.Frames.resolve2(frame_b.R, load[1
+            :3]);
+          frame_b.t = -Modelica.Mechanics.MultiBody.Frames.resolve2(frame_b.R, load[4
+            :6]);
+        end WorldForceAndTorque;
+        annotation (uses(Modelica(version="3.0")));
+        model FrameForceAndTorque
+          "External force and torque acting at frame_b, defined by 6 input signals and resolved in frame_b or in frame_resolve"
+
+          import SI = Modelica.SIunits;
+          import Modelica.Mechanics.MultiBody.Types;
+          extends Modelica.Mechanics.MultiBody.Interfaces.PartialOneFrame_b;
+          extends ObsoleteModelica3.Icons.ObsoleteModel;
+          Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve
+            "If connected, the input signals are resolved in this frame" 
+            annotation (Placement(transformation(
+                origin={0,100},
+                extent={{16,-16},{-16,16}},
+                rotation=270)));
+          Modelica.Blocks.Interfaces.RealInput load[6]
+            "[1:6] = x-, y-, z-coordinates of force and x-, y-, z-coordiantes of torque resolved in frame_b or frame_resolved (if connected)"
+            annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
+                  rotation=0)));
+          parameter Boolean animation=true
+            "= true, if animation shall be enabled";
+          parameter Real N_to_m(unit="N/m") = world.defaultN_to_m
+            " Force arrow scaling (length = force/N_to_m)" 
+            annotation (Dialog(group="if animation = true", enable=animation));
+          parameter Real Nm_to_m(unit="N.m/m") = world.defaultNm_to_m
+            " Torque arrow scaling (length = torque/Nm_to_m)" 
+            annotation (Dialog(group="if animation = true", enable=animation));
+          input SI.Diameter forceDiameter=world.defaultArrowDiameter
+            " Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
+          input SI.Diameter torqueDiameter=forceDiameter
+            " Diameter of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
+          input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
+            " Color of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
+          input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
+            " Color of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
+          input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+            "Reflection of ambient light (= 0: light is completely absorbed)" 
+            annotation (Dialog(group="if animation = true", enable=animation));
+          annotation (
+            preferedView="info",
+            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                    -100},{100,100}}), graphics={
+                Polygon(
+                  points={{-100,10},{50,10},{50,31},{97,0},{50,-31},{50,-10},{-100,
+                      -10},{-100,10}},
+                  lineColor={0,0,0},
+                  fillColor={0,0,0},
+                  fillPattern=FillPattern.Solid),
+                Line(points={{-100,11},{-94,24},{-86,39},{-74,59},{-65,71},{-52,
+                      83},{-35,92},{-22,95},{-8,95},{7,91},{19,84},{32,76},{44,
+                      66},{52,58},{58,51}}, color={0,0,0}),
+                Polygon(
+                  points={{97,18},{72,77},{38,42},{97,18}},
+                  lineColor={0,0,0},
+                  fillColor={0,0,0},
+                  fillPattern=FillPattern.Solid),
+                Line(
+                  points={{0,97},{0,10}},
+                  color={95,95,95},
+                  pattern=LinePattern.Dot)}),
+            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                    {100,100}}), graphics={
+                Text(
+                  extent={{-74,62},{44,24}},
+                  lineColor={192,192,192},
+                  textString="resolve"),
+                Polygon(
+                  points={{-100,10},{50,10},{50,31},{94,0},{50,-31},{50,-10},{-100,
+                      -10},{-100,10}},
+                  lineColor={0,0,0},
+                  fillColor={0,0,0},
+                  fillPattern=FillPattern.Solid),
+                Text(extent={{-137,-47},{148,-108}}, textString="%name"),
+                Line(points={{-100,10},{-92,26},{-84,42},{-76,52},{-60,68},{-46,
+                      76},{-31,82},{-17,85},{-2,87},{14,86},{26,82},{37,75},{46,
+                      69},{54,61},{60,54}}, color={0,0,0}),
+                Polygon(
+                  points={{99,21},{74,80},{40,45},{99,21}},
+                  lineColor={0,0,0},
+                  fillColor={0,0,0},
+                  fillPattern=FillPattern.Solid),
+                Line(
+                  points={{0,95},{0,10}},
+                  color={95,95,95},
+                  pattern=LinePattern.Dot)}),
+            Documentation(info="<HTML>
+<p>
+The <b>6</b> signals of the <b>load</b> connector are interpreted
+as the x-, y- and z-coordinates of a <b>force</b> and as
+the x-, y-, and z-coordinates of a <b>torque</b> acting at the frame
+connector to which this component is attached. If connector
+<b>frame_resolve</b> is <b>not</b> connected, the force and torque coordinates
+are with respect to <b>frame_b</b>. If connector
+<b>frame_resolve</b> is connected, the force and torque coordinates
+are with respect to <b>frame_resolve</b>. In this case the
+force and torque in connector frame_resolve are set to zero,
+i.e., this connector is solely used to provide the information
+of the coordinate system, in which the force coordinates
+are defined. The input signals are mapped to the force
+and torque in the following way:
+</p>
+<pre>
+   force  = load[1:3]
+   torque = load[4:6]
+</pre>
+<p>
+The force and torque are by default visualized as an arrow (force)
+and as a double arrow (torque) acting at the connector to which
+they are connected. The diameters
+and colors of the arrows are fixed and can be defined via
+parameters <b>forceDiameter</b>, <b>torqueDiameter</b>,
+<b>forceColor</b> and <b>torqueColor</b>. The arrows
+point in the directions defined by the
+inPort.signal signals. The lengths of the arrows are proportional
+to the length of the force and torque vectors, respectively, using parameters
+<b>N_to_m</b> and <b>Nm_to_m</b> as scaling factors. For example,
+if N_to_m = 100 N/m,
+then a force of 350 N is displayed as an arrow of length 3.5 m.
+</p>
+<p>
+An example how to use this model is given in the 
+following figure:
+</p>
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Forces/FrameForceAndTorque1.png\">
+</p>
+<p>
+This leads to the following animation
+</p>
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Forces/FrameForceAndTorque2.png\">
+</p>
+</HTML>
+"));
+          annotation (
+            Coordsys(
+              extent=[-100, -100; 100, 100],
+              grid=[1, 1],
+              component=[20, 20]),
+            Window(
+              x=0.18,
+              y=0.01,
+              width=0.8,
+              height=0.82),
+            Documentation(info="
+An external force element exerts the inport signal
+as negative force on the connector frame (the force vector
+is resolved in the world frame).
+"),         Icon(Text(extent=[-132, 99; 128, 39], string="%name"), Polygon(points=[-100,
+                     10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
+                    10], style(
+                  color=0,
+                  gradient=0,
+                  fillColor=0,
+                  fillPattern=1))),
+            Diagram(Polygon(points=[-90, 10; 40, 10; 40, 31; 91, 0; 40, -31; 40, -10;
+                     -90, -10; -90, 10], style(
+                  color=0,
+                  gradient=0,
+                  fillColor=0,
+                  fillPattern=1))));
+
+        protected
+          SI.Position f_in_m[3]=frame_b.f/N_to_m
+            "Force mapped from N to m for animation";
+          SI.Position t_in_m[3]=frame_b.t/Nm_to_m
+            "Torque mapped from Nm to m for animation";
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow forceArrow(
+            diameter=forceDiameter,
+            color=forceColor,
+            specularCoefficient=specularCoefficient,
+            R=frame_b.R,
+            r=frame_b.r_0,
+            r_tail=f_in_m,
+            r_head=-f_in_m) if world.enableAnimation and animation;
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow
+            torqueArrow(
+            diameter=torqueDiameter,
+            color=torqueColor,
+            specularCoefficient=specularCoefficient,
+            R=frame_b.R,
+            r=frame_b.r_0,
+            r_tail=t_in_m,
+            r_head=-t_in_m) if world.enableAnimation and animation;
+        equation
+          if cardinality(frame_resolve) == 0 then
+            frame_b.f = -load[1:3];
+            frame_b.t = -load[4:6];
+            frame_resolve.r_0 = zeros(3);
+            frame_resolve.R = Modelica.Mechanics.MultiBody.Frames.nullRotation();
+          else
+            frame_b.f = -Modelica.Mechanics.MultiBody.Frames.resolveRelative(
+                load[1:3],
+                frame_resolve.R,
+                frame_b.R);
+            frame_b.t = -Modelica.Mechanics.MultiBody.Frames.resolveRelative(
+                load[4:6],
+                frame_resolve.R,
+                frame_b.R);
+            frame_resolve.f = zeros(3);
+            frame_resolve.t = zeros(3);
+          end if;
+        end FrameForceAndTorque;
+
+        model ForceAndTorque
+          "Force and torque acting between two frames, defined by 6 input signals and resolved in frame_b or in frame_resolve"
+
+          import SI = Modelica.SIunits;
+          import Modelica.Mechanics.MultiBody.Types;
+          extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
+          extends ObsoleteModelica3.Icons.ObsoleteModel;
+          Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve
+            "If connected, the input signals are resolved in this frame" 
+            annotation (Placement(transformation(
+                origin={40,100},
+                extent={{-16,-16},{16,16}},
+                rotation=90)));
+
+          Modelica.Blocks.Interfaces.RealInput load[6]
+            "[1:6] = x-, y-, z-coordinates of force and x-, y-, z-coordiantes of torque resolved in frame_b or frame_resolved (if connected)"
+            annotation (Placement(transformation(
+                origin={-60,120},
+                extent={{-20,-20},{20,20}},
+                rotation=270)));
+          parameter Boolean animation=true
+            "= true, if animation shall be enabled";
+          parameter Real N_to_m(unit="N/m") = world.defaultN_to_m
+            " Force arrow scaling (length = force/N_to_m)" 
+            annotation (Dialog(group="if animation = true", enable=animation));
+          parameter Real Nm_to_m(unit="N.m/m") = world.defaultNm_to_m
+            " Torque arrow scaling (length = torque/Nm_to_m)" 
+            annotation (Dialog(group="if animation = true", enable=animation));
+          input SI.Diameter forceDiameter=world.defaultArrowDiameter
+            " Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
+          input SI.Diameter torqueDiameter=forceDiameter
+            " Diameter of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
+          input SI.Diameter connectionLineDiameter=forceDiameter
+            " Diameter of line connecting frame_a and frame_b" 
+            annotation (Dialog(group="if animation = true", enable=animation));
+          input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
+            " Color of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
+          input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
+            " Color of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
+          input Types.Color connectionLineColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
+            " Color of line connecting frame_a and frame_b" 
+            annotation (Dialog(group="if animation = true", enable=animation));
+          input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+            "Reflection of ambient light (= 0: light is completely absorbed)" 
+            annotation (Dialog(group="if animation = true", enable=animation));
+          SI.Position r_0[3]
+            "Position vector from origin of frame_a to origin of frame_b resolved in world frame";
+          SI.Force f_b_0[3] "frame_b.f resoved in world frame";
+          SI.Torque t_b_0[3] "frame_b.t resoved in world frame";
+
+          annotation (
+            preferedView="info",
+            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                    -100},{100,100}}),
+                                graphics),
+            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                    {100,100}}), graphics={
+                Rectangle(
+                  extent={{-98,99},{99,-98}},
+                  lineColor={255,255,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),
+                Text(
+                  extent={{-59,55},{72,30}},
+                  lineColor={192,192,192},
+                  textString="resolve"),
+                Text(extent={{-136,-52},{149,-113}}, textString="%name"),
+                Polygon(
+                  points={{100,21},{84,55},{69,39},{100,21}},
+                  lineColor={0,0,0},
+                  fillColor={0,0,0},
+                  fillPattern=FillPattern.Solid),
+                Line(
+                  points={{40,100},{40,0}},
+                  color={95,95,95},
+                  pattern=LinePattern.Dot),
+                Polygon(
+                  points={{-95,1},{-64,11},{-64,-10},{-95,1}},
+                  lineColor={0,0,0},
+                  fillColor={0,0,0},
+                  fillPattern=FillPattern.Solid),
+                Polygon(
+                  points={{-100,20},{-86,53},{-70,42},{-100,20}},
+                  lineColor={0,0,0},
+                  fillColor={0,0,0},
+                  fillPattern=FillPattern.Solid),
+                Line(
+                  points={{-60,100},{40,100}},
+                  color={95,95,95},
+                  pattern=LinePattern.Dot),
+                Polygon(
+                  points={{94,0},{65,12},{65,-11},{94,0}},
+                  lineColor={0,0,0},
+                  fillColor={0,0,0},
+                  fillPattern=FillPattern.Solid),
+                Line(points={{-64,0},{-20,0}}, color={0,0,0}),
+                Line(points={{20,0},{65,0}}, color={0,0,0}),
+                Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,
+                      85}}, color={0,0,0}),
+                Line(points={{76,47},{66,60},{55,69},{49,74},{41,80},{31,84},{
+                      20,85}}, color={0,0,0})}),
+            Documentation(info="<HTML>
+<p>
+The <b>6</b> signals of the <b>load</b> connector are interpreted
+as the x-, y- and z-coordinates of a <b>force</b> and as
+the x-, y-, and z-coordinates of a <b>torque</b> acting at the frame
+connector to which frame_b of this component is attached. If connector
+<b>frame_resolve</b> is <b>not</b> connected, the force and torque coordinates
+are with respect to <b>frame_b</b>. If connector
+<b>frame_resolve</b> is connected, the force and torque coordinates
+are with respect to <b>frame_resolve</b>. In this case the
+force and torque in connector frame_resolve are set to zero,
+i.e., this connector is solely used to provide the information
+of the coordinate system, in which the force/torque coordinates
+are defined. The input signals are mapped to the force
+and torque in the following way:
+</p>
+<pre>
+   force  = load[1:3]
+   torque = load[4:6]
+</pre>
+<p>
+Additionally, a force and torque acts on frame_a in such a way that
+the force and torque balance between frame_a and frame_b is fulfilled.
+</p>
+<p>
+An example how to use this model is given in the 
+following figure:
+</p>
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Forces/ForceAndTorque1.png\">
+</p>
+<p>
+This leads to the following animation (the yellow cylinder
+characterizes the line between frame_a and frame_b of the
+ForceAndTorque component, i.e., the force and torque acts with 
+negative sign
+also on the opposite side of this cylinder, but for
+clarity this is not shown in the animation):
+</p>
+<p align=\"center\">
+<IMG SRC=\"../Images/MultiBody/Forces/ForceAndTorque2.png\">
+</p>
+</HTML>
+"));
+          annotation (
+            Coordsys(
+              extent=[-100, -100; 100, 100],
+              grid=[1, 1],
+              component=[20, 20]),
+            Window(
+              x=0.18,
+              y=0.01,
+              width=0.8,
+              height=0.82),
+            Documentation(info="
+An external force element exerts the inport signal
+as negative force on the connector frame (the force vector
+is resolved in the world frame).
+"),         Icon(Text(extent=[-132, 99; 128, 39], string="%name"), Polygon(points=[-100,
+                     10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
+                    10], style(
+                  color=0,
+                  gradient=0,
+                  fillColor=0,
+                  fillPattern=1))),
+            Diagram(Polygon(points=[-90, 10; 40, 10; 40, 31; 91, 0; 40, -31; 40, -10;
+                     -90, -10; -90, 10], style(
+                  color=0,
+                  gradient=0,
+                  fillColor=0,
+                  fillPattern=1))));
+
+        protected
+          SI.Position f_in_m[3]=frame_b.f/N_to_m
+            "Force mapped from N to m for animation";
+          SI.Position t_in_m[3]=frame_b.t/Nm_to_m
+            "Torque mapped from Nm to m for animation";
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow forceArrow(
+            diameter=forceDiameter,
+            color=forceColor,
+            specularCoefficient=specularCoefficient,
+            R=frame_b.R,
+            r=frame_b.r_0,
+            r_tail=f_in_m,
+            r_head=-f_in_m) if world.enableAnimation and animation;
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow
+            torqueArrow(
+            diameter=torqueDiameter,
+            color=torqueColor,
+            specularCoefficient=specularCoefficient,
+            R=frame_b.R,
+            r=frame_b.r_0,
+            r_tail=t_in_m,
+            r_head=-t_in_m) if world.enableAnimation and animation;
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape
+            connectionLine(
+            shapeType="cylinder",
+            lengthDirection=r_0,
+            widthDirection={0,1,0},
+            length=Modelica.Math.Vectors.length(              r_0),
+            width=connectionLineDiameter,
+            height=connectionLineDiameter,
+            color=connectionLineColor,
+            specularCoefficient=specularCoefficient,
+            r=frame_a.r_0) if world.enableAnimation and animation;
+        equation
+          if cardinality(frame_resolve) == 0 then
+            frame_b.f = -load[1:3];
+            frame_b.t = -load[4:6];
+            f_b_0 = Modelica.Mechanics.MultiBody.Frames.resolve1(frame_b.R, frame_b.f);
+            t_b_0 = Modelica.Mechanics.MultiBody.Frames.resolve1(frame_b.R, frame_b.t);
+            frame_resolve.r_0 = zeros(3);
+            frame_resolve.R = Modelica.Mechanics.MultiBody.Frames.nullRotation();
+          else
+            f_b_0 = -Modelica.Mechanics.MultiBody.Frames.resolve1(frame_resolve.R,
+              load[1:3]);
+            t_b_0 = -Modelica.Mechanics.MultiBody.Frames.resolve1(frame_resolve.R,
+              load[4:6]);
+            frame_b.f = Modelica.Mechanics.MultiBody.Frames.resolve2(frame_b.R, f_b_0);
+            frame_b.t = Modelica.Mechanics.MultiBody.Frames.resolve2(frame_b.R, t_b_0);
+            frame_resolve.f = zeros(3);
+            frame_resolve.t = zeros(3);
+          end if;
+
+          // Force and torque balance
+          r_0 = frame_b.r_0 - frame_a.r_0;
+          zeros(3) = frame_a.f + Modelica.Mechanics.MultiBody.Frames.resolve2(frame_a.R,
+            f_b_0);
+          zeros(3) = frame_a.t + Modelica.Mechanics.MultiBody.Frames.resolve2(frame_a.R,
+            t_b_0 + cross(r_0, f_b_0));
+        end ForceAndTorque;
+      end Forces;
+
       package Interfaces
         partial model PartialCutForceSensor
           "Base model to measure the cut force and/or torque between two frames"
@@ -2091,7 +2704,8 @@ to the left and/or the right flange.
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={192,192,192}),
               Polygon(
-                points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
+                points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}}, 
+
                 lineColor={0,0,0},
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={128,128,128}),
@@ -2121,20 +2735,22 @@ to the left and/or the right flange.
                 fillPattern=FillPattern.Solid),
               Line(points={{-36,25},{-3,25}}, color={128,128,128})}));
 
-        Modelica.Mechanics.Rotational.IdealGear gearRatio(final ratio=ratio) 
+        Modelica.Mechanics.Rotational.Components.IdealGear gearRatio(final
+            ratio =                                                              ratio) 
           annotation (Placement(transformation(extent={{-70,-10},{-50,10}},
                 rotation=0)));
         ObsoleteModelica3.Mechanics.Rotational.GearEfficiency gearEfficiency(
                                       final eta=eta) 
           annotation (Placement(transformation(extent={{-30,-10},{-10,10}},
                 rotation=0)));
-        Modelica.Mechanics.Rotational.ElastoBacklash elastoBacklash(
+        Modelica.Mechanics.Rotational.Components.ElastoBacklash elastoBacklash(
           final b=b,
           final c=c,
           final phi_rel0=0,
           final d=d) annotation (Placement(transformation(extent={{50,-10},{70,10}},
                 rotation=0)));
-        Modelica.Mechanics.Rotational.BearingFriction bearingFriction(final
+        Modelica.Mechanics.Rotational.Components.BearingFriction
+          bearingFriction(                                                       final
             tau_pos=friction_pos, final peak=peak) 
           annotation (Placement(transformation(extent={{10,-10},{30,10}}, rotation=
                   0)));
