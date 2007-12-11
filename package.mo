@@ -12,8 +12,8 @@ annotation (
     height=0.57,
     library=1,
     autolayout=1),
-  version="3.0",
-  versionBuild="$Rev:$",
+  version="3.0", 
+  versionBuild="$Rev$",
   versionDate="$Date:: 2007-12-11 15:33:48$",
   conversion(
     from(version="2.1", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
