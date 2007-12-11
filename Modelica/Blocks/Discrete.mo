@@ -230,7 +230,7 @@ the output y is identical to parameter yStart.
 
   block TransferFunction "Discrete Transfer Function block"
     parameter Real b[:]={1} "Numerator coefficients of transfer function.";
-    parameter Real a[:]={1,1} "Denominator coefficients of transfer function.";
+    parameter Real a[:] "Denominator coefficients of transfer function.";
     extends Interfaces.DiscreteSISO;
     output Real x[size(a, 1) - 1](start=zeros(size(a, 1) - 1), fixed=fill(true,size(a, 1) - 1))
       "State of transfer function from controller canonical form";
@@ -337,10 +337,9 @@ states can be set as start values of <b>x</b>.<p>
   end TransferFunction;
 
   block StateSpace "Discrete State Space block"
-    parameter Real A[:, size(A, 1)]=[1, 0; 0, 1]
-      "Matrix A of state space model";
-    parameter Real B[size(A, 1), :]=[1; 1] "Matrix B of state space model";
-    parameter Real C[:, size(A, 1)]=[1, 1] "Matrix C of state space model";
+    parameter Real A[:, size(A, 1)] "Matrix A of state space model";
+    parameter Real B[size(A, 1), :] "Matrix B of state space model";
+    parameter Real C[:, size(A, 1)] "Matrix C of state space model";
     parameter Real D[size(C, 1), size(B, 2)]=zeros(size(C, 1), size(B, 2))
       "Matrix D of state space model";
 
