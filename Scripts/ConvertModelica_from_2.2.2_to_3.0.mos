@@ -789,6 +789,49 @@ convertModifiers({"Modelica.Mechanics.Rotational.IdealGearR2T"},
 // --------- MultiBody -----------------------------------------------------------
 
 
+// Forces
+convertClass     ("Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque",
+                  "ObsoleteModelica3.Mechanics.MultiBody.Forces.WorldForceAndTorque");
+
+convertClass     ("Modelica.Mechanics.MultiBody.Forces.FrameForce",
+                  "Modelica.Mechanics.MultiBody.Forces.WorldForce");
+convertModifiers({"Modelica.Mechanics.MultiBody.Forces.FrameForce"},
+                 {"cardinality(frame_resolve)=0"},
+                 {"resolveInFrame = Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b"}, true);
+convertModifiers({"Modelica.Mechanics.MultiBody.Forces.FrameForce"},
+                 {"cardinality(frame_resolve)=1"},
+                 {"resolveInFrame = Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve"}, true);
+
+convertClass     ("Modelica.Mechanics.MultiBody.Forces.FrameTorque",
+                  "Modelica.Mechanics.MultiBody.Forces.WorldTorque");
+convertModifiers({"Modelica.Mechanics.MultiBody.Forces.FrameTorque"},
+                 {"cardinality(frame_resolve)=0"},
+                 {"resolveInFrame = Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b"}, true);
+convertModifiers({"Modelica.Mechanics.MultiBody.Forces.FrameTorque"},
+                 {"cardinality(frame_resolve)=1"},
+                 {"resolveInFrame = Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve"}, true);
+
+convertClass     ("Modelica.Mechanics.MultiBody.Forces.FrameForceAndTorque",
+                  "ObsoleteModelica3.Mechanics.MultiBody.Forces.FrameForceAndTorque");
+
+convertModifiers({"Modelica.Mechanics.MultiBody.Forces.Force"},
+                 {"cardinality(frame_resolve)=0"},
+                 {"resolveInFrame = Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b"}, true);
+convertModifiers({"Modelica.Mechanics.MultiBody.Forces.Force"},
+                 {"cardinality(frame_resolve)=1"},
+                 {"resolveInFrame = Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve"}, true);
+
+convertModifiers({"Modelica.Mechanics.MultiBody.Forces.Torque"},
+                 {"cardinality(frame_resolve)=0"},
+                 {"resolveInFrame = Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b"}, true);
+convertModifiers({"Modelica.Mechanics.MultiBody.Forces.Torque"},
+                 {"cardinality(frame_resolve)=1"},
+                 {"resolveInFrame = Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve"}, true);
+
+convertClass     ("Modelica.Mechanics.MultiBody.Forces.ForceAndTorque",
+                  "ObsoleteModelica3.Mechanics.MultiBody.Forces.ForceAndTorque");
+
+
 // Joints
 convertClassIf("Modelica.Mechanics.MultiBody.Joints.Revolute","planarCutJoint","false",
                "Modelica.Mechanics.MultiBody.Joints.Revolute");
@@ -821,18 +864,18 @@ convertModifiers({"Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic"},
 convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.CutForce"},
                  {"cardinality(frame_resolve)=0", "resolveInFrame_a=true"},
                  {"resolveInFrame = if (%resolveInFrame_a%) then " + 
-                                    "Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_a else " + 
-                                    "Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.world"}, true);
+                                    "Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a else " + 
+                                    "Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world"}, true);
 convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.CutForce"},
-                 {"cardinality(frame_resolve)=1"},{"resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve"});
+                 {"cardinality(frame_resolve)=1"},{"resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve"});
 
 convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.CutTorque"},
                  {"cardinality(frame_resolve)=0", "resolveInFrame_a=true"},
                  {"resolveInFrame = if (%resolveInFrame_a%) then " + 
-                                    "Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_a else " + 
-                                    "Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.world"}, true);
+                                    "Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a else " + 
+                                    "Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world"}, true);
 convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.CutTorque"},
-                 {"cardinality(frame_resolve)=1"},{"resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrame1.frame_resolve"});
+                 {"cardinality(frame_resolve)=1"},{"resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve"});
 
 convertClass  ("Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque",
                "ObsoleteModelica3.Mechanics.MultiBody.Sensors.CutForceAndTorque");
