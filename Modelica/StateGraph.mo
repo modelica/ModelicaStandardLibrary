@@ -1540,8 +1540,8 @@ buttons:
         import Units = Modelica.SIunits;
 
       Units.VolumeFlowRate Fi "inflow";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
-                  -100,-100},{100,100}}), graphics={Polygon(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics={Polygon(
                 points={{-100,-100},{0,100},{100,-100},{-100,-100}},
                 lineColor={0,0,0},
                 lineThickness=2,
@@ -1556,8 +1556,8 @@ buttons:
 
       Units.VolumeFlowRate Fo "outflow";
       Boolean open "valve open";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
-                  -100,-100},{100,100}}), graphics={Polygon(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics={Polygon(
                 points={{-100,100},{0,-100},{100,100},{-100,100}},
                 lineColor={0,0,0},
                 lineThickness=2,
@@ -1654,7 +1654,7 @@ buttons:
     equation
       der(level) = (inflow1.Fi - outflow1.Fo)/(hmax*A);
       if outflow1.open then
-        outflow1.Fo = sqrt(2*g*hmax*level)*a;
+        outflow1.Fo = sqrt(max(0,2*g*hmax*level))*a;
       else
         outflow1.Fo = 0;
       end if;
@@ -1668,8 +1668,8 @@ buttons:
       outflow outflow1 annotation (Placement(transformation(extent={{-10,-60},{
                   10,-40}}, rotation=0)));
       parameter Real maxflow=1 "maximal flow out of source";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
-                  -100,-100},{100,100}}), graphics={Rectangle(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics={Rectangle(
                 extent={{-80,40},{80,-40}},
                 lineColor={0,0,0},
                 lineThickness=2,
@@ -2469,8 +2469,8 @@ block Transition
           grid={1,1}), graphics={
           Rectangle(
             extent={{-10,100},{10,-100}},
-            fillColor=DynamicSelect({0,0,0}, if enableFire > 0.5 then {0,255,0} else 
-                      {0,0,0}),
+            fillColor=DynamicSelect({0,0,0}, if enableFire > 0.5 then {0,255,0}
+                 else {0,0,0}),
             lineColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(points={{-30,0},{-10,0}}, color={0,0,0}),
@@ -2485,8 +2485,8 @@ block Transition
             textString="%waitTime"),
           Text(
             extent={{-200,-120},{200,-145}},
-            lineColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0} else 
-                      {0,0,0}),
+            lineColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0}
+                 else {0,0,0}),
             textString="%condition")}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -2531,8 +2531,8 @@ block TransitionWithSignal
             textString="%waitTime"),
           Rectangle(
             extent={{-10,100},{10,-100}},
-            fillColor=DynamicSelect({0,0,0}, if enableFire > 0.5 then {0,255,0} else 
-                      {0,0,0}),
+            fillColor=DynamicSelect({0,0,0}, if enableFire > 0.5 then {0,255,0}
+                 else {0,0,0}),
             lineColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(points={{-30,0},{-10,0}}, color={0,0,0}),
@@ -2542,10 +2542,10 @@ block TransitionWithSignal
             lineColor={0,0,255}),
           Ellipse(
             extent={{7,-81},{-7,-95}},
-            lineColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0} else 
-                      {0,0,0}),
-            fillColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0} else 
-                      {0,0,0}),
+            lineColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0}
+                 else {0,0,0}),
+            fillColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0}
+                 else {0,0,0}),
             fillPattern=FillPattern.Solid)}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
