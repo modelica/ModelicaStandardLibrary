@@ -5824,7 +5824,7 @@ contains the torque balance, i.e., the sum of the torques of the connectors
 is zero (therefore, components that are based on PartialGear cannot have
 inertia). If <i>useSupport=true</i>, the support connector needs to be connected
 to avoid the unphysical behavior that the support torque is required to be zero 
-(= the default value, if the connector is not connected). Otherweise, 
+(= the default value, if the connector is not connected). Otherwise, 
 the support is internally fixed.
 </p>
 </HTML>
@@ -5891,7 +5891,7 @@ and one support. It is used to build up \"source\" components,
 e.g., driving a shaft with a predefined motion or with a 
 predefined torque. If <i>useSupport=true</i>, the support connector needs to be connected
 to avoid the unphysical behavior that the support torque is required to be zero 
-(= the default value, if the connector is not connected). Otherweise, 
+(= the default value, if the connector is not connected). Otherwise, 
 the support is internally fixed.
 </p>
 </HTML>
@@ -6020,7 +6020,7 @@ the support is internally fixed.
 Partial model of torque that accelerates the flange.<br>
 If <i>useSupport=true</i>, the support connector needs to be connected
 to avoid the unphysical behavior that the support torque is required to be zero 
-(= the default value, if the connector is not connected). Otherweise, 
+(= the default value, if the connector is not connected). Otherwise, 
 the support is internally fixed.
 </p>
 </HTML>"));
@@ -6042,6 +6042,25 @@ the support is internally fixed.
           color={0,0,0},
           smooth=Smooth.None));
     end PartialTorque;
+
+    partial model PartialSpeedDependentTorque
+      "Partial model of a torque acting at the flange that depends on the speed (accelerates the flange)"
+      extends PartialTorque;
+      Modelica.SIunits.AngularVelocity w
+        "Angular velocity at flange with respect to support (= der(flange.phi) - der(support.phi))";
+    equation
+      w = der(phi);
+      annotation (Documentation(info="<html>
+<p>
+Partial model of torque that accelerates the flange. The torque depends
+on angle phi (relative to support) and on speed w (relative to support).<br>
+If <i>useSupport=true</i>, the support connector needs to be connected
+to avoid the unphysical behavior that the support torque is required to be zero 
+(= the default value, if the connector is not connected). Otherwise, 
+the support is internally fixed.
+</p>
+</html>"));
+    end PartialSpeedDependentTorque;
 
     partial model PartialTwoFlanges
       "Base model for a component with two rotational 1-dim. shaft flanges"
@@ -6092,7 +6111,7 @@ This is a 1-dim. rotational component with two flanges and a support.
 It is used e.g. to build up parts of a drive train consisting
 of several components.If <i>useSupport=true</i>, the support connector needs to be connected
 to avoid the unphysical behavior that the support torque is required to be zero 
-(= the default value, if the connector is not connected). Otherweise, 
+(= the default value, if the connector is not connected). Otherwise, 
 the support is internally fixed.
 </p>
  
