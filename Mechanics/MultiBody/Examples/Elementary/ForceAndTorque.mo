@@ -38,7 +38,7 @@ forceAndTorque component):
   Parts.FixedRotation fixedRotation(n={0,0,1}, angle=30) 
     annotation (Placement(transformation(extent={{-8,-30},{12,-10}}, rotation=0)));
   Forces.ForceAndTorque forceAndTorque(Nm_to_m=120, N_to_m=1200,
-    resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
+    resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve) 
     annotation (Placement(transformation(extent={{60,50},{40,30}}, rotation=0)));
   Joints.Revolute revolute2(n={0,1,0},
     phi(fixed=true),

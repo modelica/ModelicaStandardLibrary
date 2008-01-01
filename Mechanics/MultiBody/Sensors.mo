@@ -2919,8 +2919,7 @@ transformed output vector as \"Real r_out[3]\";
 
     model BasicAbsolutePosition
       "Measure absolute position vector (same as Sensors.AbsolutePosition, but frame_resolve is not conditional and must be connected)"
-      import ResolveInFrameA =
-        Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
+      import Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
       extends
         Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteBaseSensor;
       Modelica.Blocks.Interfaces.RealOutput r[3](each final quantity="Position", each
@@ -2963,8 +2962,7 @@ transformed output vector as \"Real r_out[3]\";
 
     model BasicAbsoluteAngularVelocity "Measure absolute angular velocity"
       import Modelica.Mechanics.MultiBody.Frames;
-      import ResolveInFrameA =
-        Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
+      import Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
 
       extends
         Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteBaseSensor;
@@ -3004,8 +3002,7 @@ transformed output vector as \"Real r_out[3]\";
 
     model BasicRelativePosition
       "Measure relative position vector (same as Sensors.RelativePosition, but frame_resolve is not conditional and must be connected)"
-      import ResolveInFrameAB =
-        Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB;
+      import Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB;
       extends
         Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeBaseSensor;
       Modelica.Blocks.Interfaces.RealOutput r_rel[3](each final quantity="Position", each
@@ -3050,8 +3047,7 @@ transformed output vector as \"Real r_out[3]\";
 
     model BasicRelativeAngularVelocity "Measure relative angular velocity"
       import Modelica.Mechanics.MultiBody.Frames;
-      import ResolveInFrameAB =
-        Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB;
+      import Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB;
 
       extends
         Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeBaseSensor;
@@ -3098,8 +3094,7 @@ transformed output vector as \"Real r_out[3]\";
     model BasicTransformAbsoluteVector
       "Transform absolute vector in to another frame"
       import Modelica.Mechanics.MultiBody.Frames;
-      import ResolveInFrameA =
-        Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
+      import Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
 
       extends Modelica.Icons.RotationalSensor;
 
@@ -3217,8 +3212,7 @@ transformed output vector as \"Real r_out[3]\";
     model BasicTransformRelativeVector
       "Transform relative vector in to another frame"
       import Modelica.Mechanics.MultiBody.Frames;
-      import ResolveInFrameAB =
-        Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB;
+      import Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB;
       extends
         Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeBaseSensor;
       parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB frame_r_in=
@@ -3472,8 +3466,7 @@ with the blocks of package Modelica.Blocks.
       "Measure cut force vector (frame_resolve must be connected)"
 
       import SI = Modelica.SIunits;
-      import ResolveInFrameA =
-        Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
+      import Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
       import Modelica.Mechanics.MultiBody.Frames;
 
       extends
@@ -3521,8 +3514,7 @@ with the blocks of package Modelica.Blocks.
       "Measure cut torque vector (frame_resolve must be connected)"
 
       import SI = Modelica.SIunits;
-      import ResolveInFrameA =
-        Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
+      import Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
       import Modelica.Mechanics.MultiBody.Frames;
 
       extends

@@ -683,9 +683,6 @@ is resolved in the world frame).
         smooth=Smooth.None));
   end WorldForceAndTorque;
 
-
-
-
   model Force
     "Force acting between two frames, defined by 3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve"
 
@@ -1937,8 +1934,7 @@ for this situation:
             fillPattern=FillPattern.Solid),
           Line(points={{29,3},{29,22}}, color={0,0,255}),
           Line(points={{29,16},{60,16}}, color={0,0,255}),
-          Polygon(points={{29,16},{41,19},{41,13},{29,16}}, lineColor={0,0,255}), 
-
+          Polygon(points={{29,16},{41,19},{41,13},{29,16}}, lineColor={0,0,255}),
           Text(
             extent={{15,36},{32,26}},
             lineColor={0,0,0},

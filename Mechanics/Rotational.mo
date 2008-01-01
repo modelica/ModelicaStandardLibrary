@@ -1,6 +1,4 @@
 within Modelica.Mechanics;
-
-
 package Rotational
   "Library to model 1-dimensional, rotational mechanical systems"
   extends Modelica.Icons.Library2;
@@ -37,11 +35,11 @@ For an introduction, have especially a look at:
 </ul>
  
 <p>
-In version 3.0 of the Modelica Standard Library, the basic structure of the
+In version 3.0 of the Modelica Standard Library, the basic design of the
 library has changed: Previously, bearing connectors could or could not be connected.
-This has been changed: The bearing connector is renamed to \"support\" and this connector
-is enabled via parameter \"useSupport\". If the support connector is enabled, it must be connected,
-and if it is not enabled, it must be not connected.
+In 3.0, the bearing connector is renamed to \"support\" and this connector
+is enabled via parameter \"useSupport\". If the support connector is enabled,
+it must be connected, and if it is not enabled, it must not be connected.
 </p>
  
 <p>
@@ -90,13 +88,7 @@ Library <b>Rotational</b> is a <b>free</b> Modelica package providing
 1-dimensional, rotational mechanical components to model in a convenient way
 drive trains with frictional losses.
 </p>
- 
-<p>
-<b>
-Note, the Users Guide has not yet been adapted to the changes of the
-Rotational library.
-</b>
-</p>
+
 </HTML>"));
 
   class Overview "Overview"
@@ -174,8 +166,8 @@ in order to easier identify a flange variable in a diagram.
 Both connector classes contain the following variables:
 </p>
 <pre>
-   SIunits.Angle       phi  \"absolute rotation angle of flange\";
-   <b>flow</b> SIunits.Torque tau  \"cut-torque in the flange\";
+   Modelica.SIunits.Angle       phi  \"Absolute rotation angle of flange\";
+   <b>flow</b> Modelica.SIunits.Torque tau  \"Cut-torque in the flange\";
 </pre>
 <p>
 If needed, the angular velocity <tt>w</tt> and the
@@ -194,19 +186,22 @@ determined by differentiation of the flange angle <tt>phi</tt>:
     annotation (DocumentationClass=true, Documentation(info="<HTML>
  
 <p>The following figure shows examples of components equipped with
-a bearing flange (framed flange in the lower center), which can be used
+a support flange (framed flange in the lower center), which can be used
 to fix components on the ground or on other rotating elements or to combine
-them with force elements. If the bearing flange is not connected, the
-components are assumed to be mounted on the ground. Otherwise, the bearing
-connector offers the possibility to consider, e.g., gearboxes mounted on
-the ground via spring-damper-systems (cf. example <tt>ElasticBearing</tt>). Independently, these components
-provide a variable <tt>tau_support</tt> stating the support torque exerted
-on the bearing.</p>
+them with force elements. Via Boolean parameter <b>useSupport</b>, the
+support torque is enabled or disabled. If it is enabled, it must be connected.
+If it is disabled, it must not be connected.
+Enabled support flanges offer, e.g., the possibility to model gearboxes mounted on
+the ground via spring-damper-systems (cf. example
+<a href=\"Modelica://Modelica.Mechanics.Rotational.Examples.ElasticBearing\">ElasticBearing</a>).
+</p>
  
 <p><IMG SRC=\"../Images/Rotational/bearing.png\" ALT=\"bearing\"></p>
  
-<p>In general, it is not necessary to connect the bearing flange
-with a fixation, i.e., the two implementations in the following figure give
+<p>
+Depending on the setting of <b>useSupport</b>, the icon of the corresponding
+component is changing, to either show the support flange or a ground mounting.
+For example, the two implementations in the following figure give
 identical results.</p>
  
 <p><IMG SRC=\"../Images/Rotational/bearing2.png\" ALT=\"bearing2\"></p>
@@ -288,19 +283,65 @@ which are defined in sublibrary Interfaces:
 </p>
 <table BORDER=1 CELLSPACING=0 CELLPADDING=2>
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td valign=\"top\"><tt><b>Rigid</b></tt></td><td valign=\"top\">Rigid connection of two rotational 1D flanges (used for elements with inertia).</td></tr>
-<tr><td valign=\"top\"><tt><b>Compliant</b></tt></td><td valign=\"top\">Compliant connection of two rotational 1D flanges (used for force laws such as a spring or a damper).</td></tr>
-<tr><td valign=\"top\"><tt><b>TwoFlanges</b></tt></td><td valign=\"top\">General connection of two rotational 1D flanges (used for gearboxes).</td></tr>
-<tr><td valign=\"top\"><tt><b>AbsoluteSensor</b></tt></td><td valign=\"top\">Measure absolute flange variables.</td></tr>
-<tr><td valign=\"top\"><tt><b>RelativeSensor</b></tt></td><td valign=\"top\">Measure relative flange variables.</td></tr>
+<tr>
+  <td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialRigid\">PartialRigid</a>
+</td>
+  <td valign=\"top\">Rigid connection of two rotational 1-dim. flanges
+                   (used for elements with inertia).
+  </td>
+</tr>
+
+<tr>
+  <td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialCompliant\">PartialCompliant</a>
+  </td>
+  <td valign=\"top\">Compliant connection of two rotational 1-dim. flanges
+                   (used for force laws such as a spring or a damper).</td>
+</tr>
+
+<tr>
+  <td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialGear\">PartialGear</a>
+</td>
+  <td valign=\"top\"> Partial model for a 1-dim. rotational gear consisting of the flange of
+                    an input shaft, the flange of an output shaft and the support.
+  </td>
+</tr>
+
+<tr>
+  <td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTorque\">PartialTorque</a>
+</td>
+  <td valign=\"top\"> Partial model of a torque acting at the flange (accelerates the flange).
+  </td>
+</tr>
+
+<tr>
+  <td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges\">PartialTwoFlanges</a>
+</td>
+  <td valign=\"top\">General connection of two rotational 1-dim. flanges.
+  </td>
+</tr>
+
+<tr>
+  <td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor\">PartialAbsoluteSensor</a>
+</td>
+  <td valign=\"top\">Measure absolute flange variables.
+  </td>
+</tr>
+
+<tr>
+  <td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor\">PartialRelativeSensor</a>
+</td>
+  <td valign=\"top\">Measure relative flange variables.
+  </td>
+</tr>
 </table>
+
 <p>
 The difference between these base classes are the auxiliary
 variables defined in the model and the relations between
 the flange variables already defined in the base class.
-For example, in model <b>Rigid</b> the flanges flange_a and
+For example, in model <b>PartialRigid</b> the flanges flange_a and
 flange_b are rigidly connected, i.e., flange_a.phi = flange_b.phi,
-whereas in model <b>Compliant</b> the cut-torques are the
+whereas in model <b>PartialCompliant</b> the cut-torques are the
 same, i.e., flange_a.tau + flange_b.tau = 0.
 </p>
 <p>
@@ -401,7 +442,7 @@ Clutch components are shown. This does not hurt, because the BearingFriction
 element can lock the relative motion between the element and the housing,
 whereas the clutch element can lock the relative motion between the two
 connected flanges. Contrary, the drive train in the lower part of the figure
-may rise to simulation problems, because the BearingFriction element
+may give rise to simulation problems, because the BearingFriction element
 and the Brake element can lock the relative motion between a flange and
 the housing and these flanges are rigidly connected together, i.e.,
 essentially the same relative motion can be locked. These difficulties
@@ -418,92 +459,35 @@ as possible.
 
   end RequirementsForSimulationTool;
 
-  class ReleaseNotes "Release notes"
-
-    annotation (Documentation(info="<HTML>
-<ul>
-<li><i>November 16, 2007</i> 
-    by <a href=\"http://www.Haumer.at/\">Anton Haumer</a>:<br>
-    Components moved to structured sub-packages</li>
-<li><i>December 12, 2005</i> 
-    by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-    Package documentation split into several parts and provided
-    as User's Guide.</li>
-<li><i>October 27, 2003</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
-       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       Bearing flanges added for mounted components and support torque computation implemented.<br>
-       New component <tt>Torque2</tt> and new example <tt>ElasticBearing</tt>.
-<li><i>October 21, 2002</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
-       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       New components <b>LossyGear</b> (with corresponding examples) and <b>Gear2</b>.<br>
-       Interface <b>FrictionBase</b> adapted to new initialization.</li>
-<li><i>June 19, 2000</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       New elements:<br><!-- silly construction follows as Dymola not able to handle nested lists -->
-       <tt>IdealGearR2T&nbsp;&nbsp;&nbsp;</tt> Ideal gear transforming rotational in translational motion<br>
-       <tt>Position&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt> Forced movement of a flange with a reference angle given as input signal<br>
-       <tt>RelativeStates&nbsp;</tt> Definition of relative state variables<br>
-       Icon of Rotational.Torque changed.
-       Elements Acceleration, Torque, Fixed, Sensors ordered according
-       to the Translational library.</li>
-<li><i>Nov. 4, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Improved documentation and improved graphical layout of the diagram level.
-       Changes according to the Twente meeting introduced. Especially:
-       Alias names, instead of extends. Model Shaft renamed to Inertia.
-       Torque1D renamed to Torque.
-       AccMotion renamed to Accelerate. LockedL, LockedR replaced by Fixed.
-       SpeedSensor splitted into AngleSensor and
-       SpeedSensor. RelSpeedSensor splitted into RelAngleSensor and
-       RelSpeedSensor. Initialization of friction elements improved.
-       Flanges renamed to flange_a, flange_b. MoveAngle renamed to
-       KinematicPTP, vectorized and moved to Blocks.Sources.<br>
-       Advice given from P. Beater, H. Elmqvist, S.E. Mattsson, H. Olsson
-       is appreciated.</li>
-<li><i>July 18, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Documentation and icons improved. Appropriate initial conditions
-       introduced as start values in the demo models. Bearing model
-       replaced by FixedRight and FixedLeft models; sensor elements replaced by
-       TorqueSensor, SpeedSensor, AccSensor; new sensor elements
-       RelSpeedSensor, RelAccSensor to measure relative kinematic quantitites.
-       New elements GearEfficiency and Gear.</li>
-<li><i>June 30, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized a first version based on an existing Dymola library
-       of Martin Otter and Hilding Elmqvist.</li>
-</ul>
- 
-</HTML>
-"));
-  equation
-
-  end ReleaseNotes;
 
   class Contact "Contact"
 
     annotation (Documentation(info="<html>
 <dl>
-<dt><b>Main Authors:</b>
-<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and
-    <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>
-    <br>
+<dt><b>Library Officer</b>
+<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> <br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
-    Institut f&uuml;r Robotik und Mechatronik<br> 
-    Abteilung f&uuml;r Entwurfsorientierte Regelungstechnik<br>
+    Institut f&uuml;r Robotik und Mechatronik (DLR-RM)<br> 
+    Abteilung Systemdynamik und Regelungstechnik<br>
     Postfach 1116<br>
     D-82230 Wessling<br>
     Germany<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A>,
-           <A HREF=\"mailto:Christian.Schweiger@dlr.de\">Christian.Schweiger@dlr.de</A><br><br>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting & Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern, Austria<br>
-  email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
+    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br><br>
 </dl>
- 
+
+<p>
+<b>Contributors to this library:</b>
+</p>
+
+<ul>
+<li> <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> (DLR-RM)</li>
+<li> Christian Schweiger (DLR-RM, until 2006).</li>
+<li> <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+     Technical Consulting & Electrical Engineering<br>
+     A-3423 St.Andrae-Woerdern, Austria<br>
+     email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a></li>
+</ul>
+
 </html>
 "));
   end Contact;
@@ -3256,7 +3240,7 @@ Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</p>
             Text(
               extent={{-146,-49},{154,-79}},
               lineColor={0,0,0},
-              textString="i=%i")}),
+              textString="ratio=%ratio")}),
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
                 {100,100}},
             grid={1,1}), graphics));
@@ -5722,7 +5706,7 @@ the support torque can be accessed as internalSupport.tau.
     end InternalSupport;
 
     partial model PartialRigid
-      "Base model for a rigid shaft with a left and a right shaft flange"
+      "Partial model for a rigid shaft with a left and a right shaft flange"
       Flange_a flange_a "Left flange of shaft" 
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
@@ -5755,7 +5739,7 @@ It is used e.g. to built up components with inertia.
     end PartialRigid;
 
     partial model PartialCompliant
-      "Base model for the compliant connection of two rotational 1-dim. shaft flanges"
+      "Partial model for the compliant connection of two rotational 1-dim. shaft flanges"
 
       Modelica.SIunits.Angle phi_rel(start=0)
         "Relative rotation angle (= flange_b.phi - flange_a.phi)";
@@ -5814,7 +5798,7 @@ and c have are more meaningful for the user.
     end PartialCompliant;
 
     partial model PartialCompliantWithRelativeStates
-      "Base model for the compliant connection of two rotational 1-dim. shaft flanges where the relative angle and speed are used as preferred states"
+      "Partial model for the compliant connection of two rotational 1-dim. shaft flanges where the relative angle and speed are used as preferred states"
 
       Modelica.SIunits.Angle phi_rel(start=0, stateSelect=stateSelect, nominal=phi_nominal)
         "Relative rotation angle (= flange_b.phi - flange_a.phi)";
@@ -5885,7 +5869,7 @@ and c are more meaningful for the user.
     end PartialCompliantWithRelativeStates;
 
     partial model PartialGear
-      "Base model for 1-dim. rotationalgear consisting of the flange of an input shaft, the flange of an output shaft and the support"
+      "Partial model for a 1-dim. rotational gear consisting of the flange of an input shaft, the flange of an output shaft and the support"
       parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded" 
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
@@ -5957,7 +5941,7 @@ the support is internally fixed.
     end PartialGear;
 
     partial model PartialSource
-      "Base model for a component with a rotational 1-dim. shaft flange and a support to define either a predefined motion or a predefined torque"
+      "Partial model for a component with a rotational 1-dim. shaft flange and a support to define either a predefined motion or a predefined torque"
       parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded" 
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
@@ -6147,7 +6131,7 @@ the support is internally fixed.
     end PartialSpeedDependentTorque;
 
     partial model PartialTwoFlanges
-      "Base model for a component with two rotational 1-dim. shaft flanges"
+      "Partial model for a component with two rotational 1-dim. shaft flanges"
       Flange_a flange_a "Flange of left shaft" 
                         annotation (Placement(transformation(extent={{-110,-10},
                 {-90,10}}, rotation=0)));
@@ -6178,7 +6162,7 @@ and for an elementary gear (Interfaces.PartialGear).
     end PartialTwoFlanges;
 
     partial model PartialTwoFlangesAndSupport
-      "Base model for a component with two rotational 1-dim. shaft flanges and a support"
+      "Partial model for a component with two rotational 1-dim. shaft flanges and a support"
       parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded" 
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
@@ -6254,7 +6238,7 @@ and for an elementary gear (Interfaces.PartialGear).
           smooth=Smooth.None));
     end PartialTwoFlangesAndSupport;
 
-    partial model PartialFriction "Base model of Coulomb friction elements"
+    partial model PartialFriction "Partial model of Coulomb friction elements"
 
       annotation (Documentation(info="<html>
 <p>
@@ -6262,7 +6246,7 @@ Basic model for Coulomb friction that models the stuck phase in a reliable way.
 </p>
 </html>"));
       // parameter SI.AngularVelocity w_small=1 "Relative angular velocity near to zero (see model info text)";
-      parameter SI.AngularVelocity w_small=1e10
+      parameter SI.AngularVelocity w_small=1.0e10
         "Relative angular velocity near to zero if jumps due to a reinit(..) of the velocity can occur (set to low value only if such impulses can occur)"
          annotation(Dialog(tab="Advanced"));
     // Equations to define the following variables have to be defined in subclasses
@@ -6334,7 +6318,7 @@ Basic model for Coulomb friction that models the stuck phase in a reliable way.
     end PartialFriction;
 
     partial model PartialAbsoluteSensor
-      "Base model to measure a single absolute flange variable"
+      "Partial model to measure a single absolute flange variable"
 
       Flange_a flange
         "Flange of shaft from which sensor information shall be measured" 
@@ -6395,7 +6379,7 @@ with the blocks of package Modelica.Blocks.
     end PartialAbsoluteSensor;
 
     partial model PartialRelativeSensor
-      "Base model to measure a single relative variable between two flanges"
+      "Partial model to measure a single relative variable between two flanges"
 
       Flange_a flange_a "Left flange of shaft" 
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},

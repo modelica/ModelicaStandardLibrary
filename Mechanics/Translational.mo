@@ -1,6 +1,4 @@
 within Modelica.Mechanics;
-
-
 package Translational
   "Library to model 1-dimensional, translational mechanical systems"
   extends Modelica.Icons.Library2;
@@ -44,7 +42,7 @@ library can be usually connected together in an arbitrary way. E.g. it is
 possible to connect two springs or two sliding masses with inertia directly
 together.
 <p> The only <i>connection restriction</i> is that the Coulomb friction
-elements (Stop) should be only connected
+elements (e.g. MassWithStopAndFriction) should be only connected
 together provided a compliant element, such as a spring, is in between.
 The reason is that otherwise the frictional force is not uniquely
 defined if the elements are stuck at the same time instant (i.e., there
@@ -55,7 +53,7 @@ two connected friction elements into
 one component and resolving the ambiguity of the frictional force in the
 stuck mode.
 </p>
-<p> Another restriction arises if the hard stops in model Stop are used, i. e.
+<p> Another restriction arises if the hard stops in model MassWithStopAndFriction are used, i. e.
 the movement of the mass is limited by a stop at smax or smin.
 <font color=\"#ff0000\"> <b>This requires the states Stop.s and Stop.v</b> </font>. If these states are eliminated during the index reduction
 the model will not work. To avoid this any inertias should be connected via springs
@@ -74,8 +72,8 @@ flange. A flange is described by a Modelica connector containing
 the following variables:
 </p>
 <pre>
-   SIunits.Position s  \"absolute position of flange\";
-   <i>flow</i> Force f        \"cut-force in the flange\";
+   Modelica.SIunits.Position s    \"Absolute position of flange\";
+   <b>flow</b> Modelica.SIunits.Force f  \"Cut-force in the flange\";
 </pre>
  
 <p>
@@ -93,28 +91,42 @@ Modelica translator is able to symbolically differentiate equations
 conditions; even if consistent initial conditions are present, most
 numerical DAE integrators can cope at most with index 2 DAEs).
 </p>
- 
+
 <dl>
-<dt><b>Main Authors:</b></dt>
-<dd>
-    <p>
-    Peter Beater <br>
-    Universit&auml;t Paderborn, Abteilung Soest<br>
-    Fachbereich Maschinenbau/Automatisierungstechnik<br>
-    L&uuml;becker Ring 2 <br>
-    D 59494 Soest <br>
-    Germany <br>
-    email: <A HREF=\"mailto:Beater@mailso.uni-paderborn.de\">Beater@mailso.uni-paderborn.de</A>
-    </p>
-  <p>
-  <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
-  Technical Consulting & Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern, Austria<br>
-  email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
-  </p>
-</dd>
+<dt><b>Library Officer</b>
+<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> <br>
+    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
+    Institut f&uuml;r Robotik und Mechatronik (DLR-RM)<br> 
+    Abteilung Systemdynamik und Regelungstechnik<br>
+    Postfach 1116<br>
+    D-82230 Wessling<br>
+    Germany<br>
+    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br><br>
 </dl>
- 
+
+<p>
+<b>Contributors to this library:</b>
+</p>
+
+<ul>
+<li> Main author until 2006:<br>
+     Peter Beater <br>
+     Universit&auml;t Paderborn, Abteilung Soest<br>
+     Fachbereich Maschinenbau/Automatisierungstechnik<br>
+     L&uuml;becker Ring 2 <br>
+     D 59494 Soest <br>
+     Germany <br>
+     email: <A HREF=\"mailto:Beater@mailso.uni-paderborn.de\">Beater@mailso.uni-paderborn.de</A><br><br>
+     </li>
+
+<li> <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+     Technical Consulting & Electrical Engineering<br>
+     A-3423 St.Andrae-Woerdern, Austria<br>
+     email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br><br></li>
+
+<li> <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> (DLR-RM)</li>
+</ul>
+
 <p>
 Copyright &copy; 1998-2007, Modelica Association, Anton Haumer and Universit&auml;t Paderborn, FB 12.
 </p>
@@ -1833,7 +1845,7 @@ where the different effects are visualized:
 "),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+            grid={2,2}), graphics(
             Line(points={{-100,0},{-50,0}}, color={0,127,0}),
             Line(
               points={{-48,34},{-48,-46}},
@@ -1873,7 +1885,7 @@ where the different effects are visualized:
               points={{100,-60},{95,-61},{95,-59},{100,-60}},
               lineColor={0,0,0},
               fillColor={0,0,0},
-              fillPattern=FillPattern.Solid)}),
+              fillPattern=FillPattern.Solid))),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -3442,7 +3454,7 @@ blocks of Modelica.Blocks.Source.
         "Velocity of flange with respect to support (= der(s))";
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}},
+                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}}, 
                 color={0,0,255})}), Documentation(info="<HTML>
 <p>
 Model of force, linearly dependent on velocity of flange.<br>
@@ -3732,7 +3744,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
               Text(
               extent={{80,-28},{114,-62}},
               lineColor={0,0,0},
@@ -3768,7 +3780,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
               Text(
               extent={{80,-28},{111,-61}},
               lineColor={0,0,0},
@@ -3806,7 +3818,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
               Text(
               extent={{80,-28},{115,-60}},
               lineColor={0,0,0},
