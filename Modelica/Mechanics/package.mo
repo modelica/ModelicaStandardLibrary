@@ -2,7 +2,6 @@ within Modelica;
 package Mechanics "Library of 1-dim. and 3-dim. mechanical components (multi-body, rotational, translational)"
 extends Modelica.Icons.Library2;
 
-
 annotation (
   Window(
     x=0.03,
@@ -41,32 +40,5 @@ of 1-dim. rotational, 1-dim. translational, and
 3-dim. <b>mechanical systems</b>.
 </p>
 </HTML>
-", revisions="<html>
-<ul>
-<li><i>June 23, 2004</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       included the Mechanics.MultiBody library 1.0 and adapted it to the new
-       Blocks connectors.</li>
-<li><i>Oct. 27, 2003</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
-       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       Bearing torque computation added to package <b>Rotational</b>.</li>
-<li><i>Oct. 21, 2002</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
-       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       New components and examples in package <b>Rotational</b>.</li>
-<li><i>Oct. 24, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Changes according to the Twente meeting introduced. Especially,
-       package Rotational1D renamed to Rotational and package
-       Translational1D renamed to Translational. For the particular
-       changes in these packages, see the corresponding package
-       release notes.</li>
-<li><i>June 30, 1999</i>
-       by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Realized a first version for 1-dimensional rotational mechanical
-       systems based on an existing Dymola library of Martin Otter and
-       Hilding Elmqvist.</li>
-</ul>
-</html>"));
+"));
 end Mechanics;

@@ -2174,11 +2174,11 @@ November 3-4, 2003, pp. 149-158</p>
   encapsulated model RotorWith3DEffects
       "1D inertia attachable on 3-dim. bodies (3D dynamic effects are taken into account)"
 
-    import Modelica;
-    import Modelica.Mechanics.MultiBody.Frames;
-    import Modelica.Mechanics.MultiBody.Types;
-    import SI = Modelica.SIunits;
-    import Cv = Modelica.SIunits.Conversions;
+      import Modelica;
+      import Modelica.Mechanics.MultiBody.Frames;
+      import Modelica.Mechanics.MultiBody.Types;
+      import SI = Modelica.SIunits;
+      import Cv = Modelica.SIunits.Conversions;
 
     parameter Boolean animation=true
         "= true, if animation shall be enabled (show rotor as cylinder)";

@@ -1,4 +1,4 @@
-within ; 
+within ;
 package Modelica "Modelica Standard Library (Version 3.0)"
 extends Icons.Library;
 
@@ -12,8 +12,8 @@ annotation (
     height=0.57,
     library=1,
     autolayout=1),
-  version="3.0", 
-  versionBuild="$Rev$",  
+  version="3.0",
+  versionBuild="$Rev$",
   versionDate="$Date::                            $",
   conversion(
     from(version="2.1", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
@@ -261,9 +261,9 @@ main sub-libraries:
     </td>
     <td valign=\"top\">
     <a href=\"Modelica://Modelica.StateGraph\">StateGraph</a><br>
-    Hierarchical state machines with the same modeling power as Statecharts. <br>
+    Hierarchical state machines with a similar modeling power as Statecharts. <br>
     Modelica is used as synchronous action language, i.e. deterministic <br>
-    behavior is guaranteed (not the case for Statecharts)
+    behavior is guaranteed
     </td>
 </tr>
 
@@ -642,6 +642,7 @@ on the Modelica standard library.
 </p>
 
 <ul>
+<li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_0\">Version 3.0</a> (Jan., 2008)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2_2\">Version 2.2.2</a> (Aug. 31, 2007)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2_1\">Version 2.2.1</a> (March 24, 2006)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2\">Version 2.2</a> (April 6, 2005)</li>
@@ -716,13 +717,10 @@ Incorporation of bug fixes (subversion \"commit\") shall be performed in the fol
      description of the bug fix under
      Modelica.UsersGuide.ReleaseNotes.&lt;release-number&gt;_bugFixes.</li>
 <li> Every change to the maintenance branch requires changing the date 
-     of the Modelica library in the version annotation.<br>
-     When including the library in a distribution,
-     the vendor has to add the subversion build number of the corresponding
-     release in the version annotation. Example:<br>
-     <pre>annotation(version=\"2.2.1\", versionBuild=\"436\", versionDate=\"2007-05-13\")</pre>
-     The goal is to include the version build and version date information 
-     automatically from the subversion server, but this is not yet the case.</li>
+     and the subversion build number in the version annotation. This is automatically
+     performed once a committ of file Modelica\\package.mo is performed.
+     Example:<br>
+     <pre>annotation(version=\"3.0\", versionBuild=\"$Rev$\",versionDate=\"$Date::                            $\").</pre></li>
 <li> If time does not permit, a vendor makes the bug fix in its local version
      and then has to include it in the maintenance version. It would be best to make these
      changes at a new branch in order to get a unique release number.</li>
@@ -749,7 +747,7 @@ more of the following changes.
 </html>
 "));
 
-  class Version_3_0 "Version 3.0 (Nov. 23, 2007)"
+  class Version_3_0 "Version 3.0 (Jan., 2008)"
 
       annotation (Documentation(info="<html>
 <p>
@@ -786,6 +784,19 @@ The following changes are present for the whole library:
      If the aspect ratio was not kept when using a component from the Modelica
      Standard Library, it is now resized so that the aspect ratio is maintained.<br>&nbsp; </li>
 
+<li> All non-standard annotations removed by:
+     (1) Removing the annotation since without effect (e.g., \"experimentSetupOutput\" removed).
+     (2) Renaming the annotation to a standard name (e.g., \"Hide\" renamed to \"HideResult\").
+     (3) Renaming the annotation to a vendor specific name 
+         (e.g., \"checkBox\" renamed to \"__Dymola_checkBox\").<br>&nbsp; </li>
+
+<li> All emulated enumerations (defined via packages and constants) have been 
+     replaced by \"real\" enumerations. User models are automatically correctly
+     converted, provided the user models used the package constants previously.
+     Models that use directly literal values for enumerations, might give in 
+     some cases wrong results (if the first constant of the emulated enumeration
+     had value zero, whereas the first value of an enumeration is one).<br>&nbsp; </li>
+
 <li> The operator \"cardinality\" will be removed in one of the next versions of the
      Modelica language, since it is a reflective operator and its usage significantly
      reduces the possibilities of advanced model checks (e.g. to guarantee that a model
@@ -799,9 +810,22 @@ The following changes are present for the whole library:
      language elements are available, the cardinality operator will be removed completely
      from the Modelica Standard Library.<br>
      The changes with respect to the cardinality(..) operator are usually not backward
-     compatible. This is the reason for the changes of:<br>
-     The Rotational library (bearing/support connectors must be connected and the connection
-     is no longer optional).<br>&nbsp;</li>
+     compatible. This is the reason for the changes of the
+     Rotational and Translational library (see below).<br>&nbsp;</li>
+
+<li> The design of the Rotational and Translational libraries have been changed
+     (in order to remove the cardinality(..) operator):
+     Components have a <b>useSupport</b> flag to enable or disable a support flange.
+     If the support flange is enabled, it must be connected. If it is disabled, it must
+     not be connected. The two libraries have been restructured in sublibraries to cope
+     with the growing number of components. Finally, the Translational library has been
+     made as similar as possible to the Rotational library by, e.g., adding missing
+     components.<br>&nbsp;</li>
+
+<li> The initialization of the MultiBody, Rotational and Translational libraries have
+     been signficantly simplified by removing the \"initType\" parameters and only
+     using start/fixed values. This design assumes that a tool has special support
+     for start/fixed values in the parameter menu.<br>&nbsp;</li>
 
 <li> Nearly all parameters defined in the Modelica Standard Library had been
      defined with a default equation, e.g.,
@@ -827,11 +851,12 @@ The following changes are present for the whole library:
 
 <p><br>
 The following <b style=\"color:blue\">new components</b> have been added 
-to <b style=\"color:blue\">existing</b> libraries:
+to <b style=\"color:blue\">existing</b> libraries (note, the names in paranthesis
+are the new sublibrary names that are introduced in version 3.0):
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-  <tr><td colspan=\"2\"><b>Electrical.Machines.(Examples.)Utilities</b></td></tr>
+  <tr><td colspan=\"2\"><b>Electrical.Machines.Utilities</b></td></tr>
   <tr><td valign=\"top\">TransformerData</td>
       <td valign=\"top\"> A record that calculates required impedances (parameters) from nominal data of transformers.</td> </tr>
 
@@ -844,6 +869,29 @@ to <b style=\"color:blue\">existing</b> libraries:
                         in combination with multi-body components. </td> 
   </tr>
 
+  <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Sensors</b></td></tr>
+  <tr><td valign=\"top\"> AbsolutePosition<br>
+                        AbsoluteVelocity<br>
+                        AbsoluteAngles<br>
+                        AbsoluteAngularVelocity<br>
+                        RelativePosition<br>
+                        RelativeVelocity<br>
+                        RelativeAngles<br>
+                        RelativeAngularVelocity</td>
+      <td valign=\"top\"> New sensors to measure one vector. </td> 
+  </tr>
+  <tr><td valign=\"top\"> TransformAbsoluteVector<br>
+                        TransformRelativeVector</td>
+      <td valign=\"top\"> Transform absolute and/or relative vector into another frame. </td> 
+  </tr>
+
+  <tr><td colspan=\"2\"><b>Mechanics.Rotational.(Components)</b></td></tr>
+  <tr><td valign=\"top\"> Disc </td>
+      <td valign=\"top\"> Right flange is rotated by a fixed angle with respect to left flange</td> </tr>
+  <tr><td valign=\"top\"> IdealRollingWheel </td>
+      <td valign=\"top\"> Simple 1-dim. model of an ideal rolling wheel without inertia</td> </tr>
+
+
   <tr><td colspan=\"2\"><b>Mechanics.Translational.Sensors</b></td></tr>
   <tr><td valign=\"top\">RelPositionSensor<br>RelSpeedSensor<br>RelAccSensor<br>PowerSensor</td>
       <td valign=\"top\"> Relative position sensor, i.e. distance between two flanges<br>
@@ -853,7 +901,7 @@ to <b style=\"color:blue\">existing</b> libraries:
   <tr><td colspan=\"2\"><b>Mechanics.Translational(.Components)</b></td></tr>
   <tr><td valign=\"top\">SupportFriction<br>Brake<br>InitializeFlange</td>
       <td valign=\"top\"> Model of friction due to support<br>
-                        Model of a brake, baes on Coulomb friction<br>
+                        Model of a brake, base on Coulomb friction<br>
                         Initializes a flange with pre-defined postion, speed and acceleration .</td> </tr>
   <tr><td colspan=\"2\"><b>Mechanics.Translational(.Sources)</b></td></tr>
   <tr><td valign=\"top\">Force2<br>LinearSpeedDependentForce<br>QuadraticSpeedDependentForce<br>
@@ -864,9 +912,7 @@ to <b style=\"color:blue\">existing</b> libraries:
                         Constant force source<br>
                         Constant speed source<br>
                         Force step</td> </tr>
-  <tr><td colspan=\"2\"><b>Mechanics.TranslationalGrounded</b></td></tr>
-  <tr><td valign=\"top\"> </td>
-      <td valign=\"top\"> All components and sources with internal fixing instead of support connector</td> </tr>
+</tr>
 </table>
 
 
@@ -913,23 +959,11 @@ have been <b style=\"color:blue\">changed</b> in a
       <td valign=\"top\"> The heatPort has to be connected; otherwise the component Resistor (without heatPort) has to be used.<br>
                         cardinality() is only used to check whether the heatPort is connected.</td> </tr>
 
-  <tr><td colspan=\"2\"><b>Electrical.MultiPhase.</b></td></tr>
-  <tr><td valign=\"top\"> </td>
-      <td valign=\"top\"> Changed all default values of parameters to (start=xxx), with the following exceptions:<br>
-                        <tt>parameter Integer m(final min=1) = 3 \"number of phases\";</tt><br>
-                        <tt>parameter Modelica.SIunits.Angle phase[m]=-{(j - 1)/m*2*pi for j in 1:m} \"Phases of sine  waves\";</tt><br>
-                        <tt>parameter Modelica.SIunits.Voltage/Current offset[m]=zeros(m) \"Voltage/Current offsets\";</tt><br>
-                        <tt>parameter Modelica.SIunits.Time startTime[m]=zeros(m) \"Time offsets\";</tt><br>
-                        Removed all <tt>redeclare type SignalType</tt> from <tt>RealInput</tt> and <tt>RealOutput</tt></td> </tr>
-
   <tr><td colspan=\"2\"><b>Electrical.MultiPhase.Examples.</b></td></tr>
   <tr><td valign=\"top\"> </td>
       <td valign=\"top\"> Changed the instance names of components used in the examples to more up-to-date style.</td> </tr>
 
   <tr><td colspan=\"2\"><b>Electrical.Machines.</b></td></tr>
-  <tr><td valign=\"top\"> </td>
-      <td valign=\"top\"> Changed all default values of parameters to (start=xxx)<br>
-                        Removed all <tt>redeclare type SignalType</tt> from <tt>RealInput</tt> and <tt>RealOutput</tt></td></tr>
   <tr><td valign=\"top\"> </td>
       <td valign=\"top\"> Moved package <tt>Machines.Examples.Utilities</tt> to <tt>Machines.Utilities</tt></td> </tr>
   <tr><td valign=\"top\"> </td>
@@ -937,7 +971,7 @@ have been <b style=\"color:blue\">changed</b> in a
                         parameter NonSIunits.AngularVelocity_rpm rpmNominal was replaced by<br>
                         parameter SIunits.AngularVelocity wNominal</td> </tr>
   <tr><td valign=\"top\"> </td>
-      <td valign=\"top\"> Changed the following component resp. variable resp. parameter names to be more concise:<br>
+      <td valign=\"top\"> Changed the following component variable and parameter names to be more concise:<br>
                         Removed suffix \"DamperCage\" from all synchronous induction machines 
                         since the user can choose whether the damper cage is present or not.<br><tt>
                         RotorAngle ... RotorDisplacementAngle<br>
@@ -963,15 +997,36 @@ have been <b style=\"color:blue\">changed</b> in a
   <tr><td valign=\"top\">Sensors.RotorDisplacementAngle<br>Interfaces.PartialBasicMachine</td>
       <td valign=\"top\"> Introduced <tt>parameter Boolean useSupport=false \"enable / disable (=fixed stator) support\"</tt><br>
                         The rotational support connector is only present with <tt>useSupport = true;</tt><br>
-                        otherwise the stator is fixed internally.<br>
-                        The rotational connector <tt>flange_a</tt> has been renamed to <tt>shaft</tt>.</td> </tr>
+                        otherwise the stator is fixed internally.</td> </tr>
 
   <tr><td colspan=\"2\"><b>Electrical.Machines.Examples.</b></td></tr>
   <tr><td valign=\"top\"> </td>
-      <td valign=\"top\"> Changed the names of the examples to be more meaninglful.<br>
+      <td valign=\"top\"> Changed the names of the examples to more meaninglful names.<br>
                         Changed the instance names of components used in the examples to more up-to-date style.</td> </tr>
   <tr><td valign=\"top\">SMEE_Generator</td>
       <td valign=\"top\"> Initialization of <tt>smee.phiMechanical</tt> with <tt>fixed=true</tt></td> </tr>
+
+  <tr><td colspan=\"2\"><b>Mechanics.MultiBody.</b></td></tr>
+  <tr><td valign=\"top\"> World</td>
+      <td valign=\"top\"> Changed default value of parameter driveTrainMechanics3D from false to true.<br>
+                        3-dim. effects in Rotor1D, Mounting1D and BevelGear1D are therefore taken<br>
+                        into account by default (previously this was only the case, if 
+                        world.driveTrainMechanics3D was explicitly set).</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Forces.</b></td></tr>
+  <tr><td valign=\"top\"> FrameForce<br>
+                        FrameTorque<br>
+                        FrameForceAndTorque</td>
+      <td valign=\"top\"> Models removed, since functionality now available via Force, Torque, ForceAndTorque</td> </tr>
+  <tr><td valign=\"top\"> WorldForce<br>
+                        WorldTorque<br>
+                        WorldForceAndTorque<br>
+                        Force<br>
+                        Torque<br>
+                        ForceAndTorque</td>
+      <td valign=\"top\"> Connector frame_resolve is optionally enabled via parameter resolveInFrame<br>.
+                        Forces and torques and be resolved in all meaningful frames defined
+                        by enumeration resolveInFrame.</td> </tr>
 
   <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Frames.</b></td></tr>
   <tr><td valign=\"top\"> length<br>
@@ -1006,7 +1061,18 @@ have been <b style=\"color:blue\">changed</b> in a
                         A new joint \"RevolutePlanarLoopConstraint\" introduced that defines the constraints
                         of a revolute joint<br> as cut-joint in a planar loop.
                         This change was needed in order that the revolute joint can be
-                        properly used<br>in advanced model checking.</td> </tr>
+                        properly used<br>in advanced model checking.<br>
+                        ActuatedRevolute joint removed. Flange connectors of Revolute joint<br>
+                        can be enabled with parameter useAxisFlange.</td> </tr>
+  <tr><td valign=\"top\"> Prismatic<br>
+                        ActuatedPrismatic</td>
+      <td valign=\"top\"> ActuatedPrismatic joint removed. Flange connectors of Prismatic joint<br>
+                        can be enabled with parameter useAxisFlange.</td> </tr>
+  <tr><td valign=\"top\"> Assemblies</td>
+      <td valign=\"top\"> Assembly joint implementation slightly changed, so that
+                        annotation \"structurallyIncomplete\" <br>could be removed
+                        (all Assembly joint models are now \"balanced\").</td> </tr>
+
 
   <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Parts.</b></td></tr>
   <tr><td valign=\"top\"> BodyBox<br>
@@ -1028,11 +1094,24 @@ have been <b style=\"color:blue\">changed</b> in a
                         user and the implementation is much simpler.<br>The conversion script automatically
                         transforms from the \"old\" to the \"new\" form of initialization.</td> </tr>
 
+  <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Sensors.</b></td></tr>
+  <tr><td valign=\"top\"> AbsoluteSensor<br>
+                        RelativeSensor<br>
+                        CutForceAndTorque</td>
+      <td valign=\"top\"> New design of sensor components: Via Boolean parameters<br>
+                        signal connectors for the respective vectors are enabled/disabled.<br>
+                        It is not possible to automatically convert models to this new design.<br>
+                        Instead, references in existing models are changed to ObsoleteModelice3.<br>
+                        This means that these models must be manually adapted.</td> </tr>
+  <tr><td valign=\"top\"> CutForce<br>
+                        CutTorque</td>
+      <td valign=\"top\"> Slightly new design. The force and/or torque component can be
+                        resolved in world, frame_a, or frame_resolved.<br>
+                        Existing models are automatically converted.</td> </tr>
+
   <tr><td colspan=\"2\"><b>Mechanics.Rotational.</b></td></tr>
   <tr><td valign=\"top\"> </td>
       <td valign=\"top\"> Moved components to structured sub-packages (Sources, Components)</td> </tr>
-
-  <tr><td colspan=\"2\"><b>Mechanics.Rotational.</b></td></tr>
   <tr><td valign=\"top\"> Inertia<br>
                         SpringDamper<br>
                         RelativeStates</td>
@@ -1047,25 +1126,34 @@ have been <b style=\"color:blue\">changed</b> in a
                         Introduced the \"stateSelect\" enumeration in \"RelativeStates\".<br>
                         The conversion script automatically
                         transforms from the \"old\" to the \"new\" forms.</td> </tr>
+  <tr><td valign=\"top\"> LossyGear<br>
+                        GearBox</td>
+      <td valign=\"top\"> Renamed gear ratio parameter \"i\" to \"ratio\", in order to have a
+                        consistent naming convention.<br>
+                        Existing models are automatically converted. </td> </tr>
+  <tr><td valign=\"top\"> SpringDamper<br>
+                        ElastoBacklash<br>
+                        Clutch<br>
+                        OneWayClutch</td>
+      <td valign=\"top\"> Relative quantities (phi_rel, w_rel) are used as states, if possible 
+                        (due to StateSelect.prefer). <br>
+                        In most cases, relative states in drive trains are better suited as
+                        absolute states. <br> This change might give changes in the selected states
+                        of existing models.<br>
+                        This might give rise to problems if, e.g., the initialization was not
+                        completely defined in a user model,<br> since the default
+                        initialization heuristic may give different initial values.</td> </tr>
 
   <tr><td colspan=\"2\"><b>Mechanics.Translational.</b></td></tr>
   <tr><td valign=\"top\"> </td>
-      <td valign=\"top\"> Changed all default values of parameters to (start=xxx)<br>
-                        Removed all <tt>redeclare type SignalType</tt> from <tt>RealInput</tt> and <tt>RealOutput</tt></td></tr>
-  <tr><td valign=\"top\"> </td>
       <td valign=\"top\"> Moved components to structured sub-packages (Sources, Components)</td> </tr>
   <tr><td valign=\"top\"> </td>
-      <td valign=\"top\"> Adaptions correspondig to Rotational</td> </tr>
-  <tr><td valign=\"top\"> Stop<br>Interfaces.FrictionBase</td>
-      <td valign=\"top\"> Renamed to Grounded.MassWithStopAndFriction; based on:<br>
-                        Renamed to encapsulated Grounded.MassWithStopAndFriction.PartialFrictionWithStop<br>
-                        Instead of FrictionBase, Interfaces.PartialFriction (without stop, as in Rotational) is available.<br>
-                        Grounded.MassWithStopAndFriction is not available with a support connector, 
+      <td valign=\"top\"> Adaptions corresponding to Rotational</td> </tr>
+  <tr><td valign=\"top\"> Stop</td>
+      <td valign=\"top\"> Renamed to Components.MassWithStopAndFriction to be more concise.<br>
+                        MassWithStopAndFriction is not available with a support connector, <br>
                         since the reaction force can't be modeled in a meaningful way due to reinit of velocity v.<br>
                         Until a sound implementation of a hard stop is available, the old model may be used.</td> </tr>
-  <tr><td valign=\"top\"> Stop</td>
-      <td valign=\"top\"> Renamed to Components.SlidingMassWithFrictionAndStop to be more concise</td> </tr>
-
   <tr><td colspan=\"2\"><b>Media.</b></td></tr>
   <tr><td valign=\"top\"> constant nX <br>
                         constant nXi <br>
@@ -1073,10 +1161,25 @@ have been <b style=\"color:blue\">changed</b> in a
                         BaseProperties</td>
       <td valign=\"top\"> The package constant nX = nS, now always, even for single species media. This also allows to define mixtures with only 1 element. The package constant nXi=if fixedX then 0 else if reducedX or nS==1 then nS - 1 else nS. This required that all BaseProperties for single species media get an additional equation to define the composition X as {1.0} (or reference_X, which is {1.0} for single species). This will also mean that all user defined single species media need to be updated by that equation.</td> </tr>
 
-  <tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.</b></td></tr>
-  <tr><td valign=\"top\"> </td>
-      <td valign=\"top\"> Changed all default values of parameters to (start=xxx)<br>
-                        Removed all <tt>redeclare type SignalType</tt> from <tt>RealInput</tt> and <tt>RealOutput</tt></td> </tr>
+  <tr><td colspan=\"2\"><b>SIunits.</b></td></tr>
+  <tr><td valign=\"top\"> CelsiusTemperature </td>
+      <td valign=\"top\"> Removed, since no SI unit. The conversion script changes references to 
+                        SIunits.Conversions.NonSIunits.Temperature_degC </td> </tr>
+  <tr><td valign=\"top\"> ThermodynamicTemperature <br>
+                        TemperatureDifference</td>
+      <td valign=\"top\"> Added annotation \"__Dymola_absoluteValue=true/false\"
+                        in order that unit checking is possible<br> 
+                        (the unit checker needs to know for a unit that has an offset,
+                        whether it is used as absolute or as a relative number)</td> </tr>
+
+  <tr><td colspan=\"2\"><b>SIunits.Conversions.NonSIunits.</b></td></tr>
+  <tr><td valign=\"top\"> Temperature_degC<br>
+                        Temperature_degF<br>
+                        Temperature_degRk </td>
+      <td valign=\"top\"> Added annotation \"__Dymola_absoluteValue=true\"
+                        in order that unit checking is possible<br> 
+                        (the unit checker needs to know for a unit that has an offset,
+                        whether it is used as absolute or as a relative number)</td> </tr>
 
   <tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.Sensors.</b></td></tr>
   <tr><td valign=\"top\"> <br>
@@ -1103,13 +1206,12 @@ have been <b style=\"color:blue\">changed</b> in a
   <tr><td valign=\"top\"> </td>
       <td valign=\"top\"> Changed the instance names of components used in the examples to more up-to-date style.</td> </tr>
 
-  <tr><td colspan=\"2\"><b>Thermal.HeatTransfer.</b></td></tr>
-  <tr><td valign=\"top\"> </td>
-      <td valign=\"top\"> Removed all <tt>redeclare type SignalType</tt> from <tt>RealInput</tt> and <tt>RealOutput</tt></td> </tr>
+  <tr><td colspan=\"2\"><b>Thermal.HeatTransfer.(Components)</b></td></tr>
+  <tr><td valign=\"top\"> HeatCapacitor</td>
+      <td valign=\"top\"> Initialization changed: SteadyStateStart removed. Instead
+                        start/fixed values for T and der_T<br>(initial temperature and its derivative).</td> </tr>
 
-  <tr><td colspan=\"2\"><b>Thermal.HeatTransfer.</b></td></tr>
-  <tr><td valign=\"top\"> <br><br>
-                        HeatCapacitor<br>ThermalConductor<br>ThermalConvection<br>BodyRadiation<br><br>
+  <tr><td valign=\"top\"> <br><br>HeatCapacitor<br>ThermalConductor<br>ThermalConvection<br>BodyRadiation<br><br>
                         TemperatureSensor<br>RelTemperatureSensor<br>HeatFlowSensor<br><br>
                         FixedTemperature<br>PrescribedTemperature<br>FixedHeatFlow<br>PrescribedHeatFlow</td>
       <td valign=\"top\"> Moved components to sub-packages:<br><br>
@@ -1126,12 +1228,30 @@ have been <b style=\"color:blue\">changed</b> in a
 
 
 <p><br>
-The following <b style=\"color:blue\">existing components</b>
+The following <b s" + "tyle=\"color:blue\">existing components</b>
 have been <b style=\"color:blue\">improved</b> in a
 <b style=\"color:blue\">backward compatible</b> way:
 </p>
  
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>Modelica.</b></td></tr>
+  <tr><td valign=\"top\"> </td>
+      <td valign=\"top\"> Parameter declarations, input and output function arguments without description
+                        strings improved<br> by providing meaningful description texts.
+                        </td> </tr>
+
+  <tr><td colspan=\"2\"><b>Electrical.Analog.Basic.</b></td></tr>
+  <tr><td valign=\"top\"> EMF </td>
+      <td valign=\"top\"> New parameter \"useSupport\" to optionally enable a support connector.</td> </tr>
+
+
+  <tr><td colspan=\"2\"><b>Icons.</b></td></tr>
+  <tr><td valign=\"top\"> TranslationalSensor<br>
+                        RotationalSensor</td>
+      <td valign=\"top\"> Removed drawing from the diagram layer (kept drawing only in 
+                        icon layer),<br> in order that this icon can be used in situations
+                        where components are dragged in the diagram layer.</td> </tr>
+
   <tr><td colspan=\"2\"><b>Math.Vectors.</b></td></tr>
   <tr><td valign=\"top\"> normalize</td>
       <td valign=\"top\"> Implementation changed, so that the result is awalys continuous<br>
@@ -1150,13 +1270,6 @@ have been <b style=\"color:blue\">improved</b> in a
   <tr><td valign=\"top\"> InitializeFlange</td>
       <td valign=\"top\"> Changed implementation so that counting unknowns and
                         equations is possible without actual values of parameters.</td> </tr>
-
-  <tr><td colspan=\"2\"><b>Icons.</b></td></tr>
-  <tr><td valign=\"top\"> TranslationalSensor<br>
-                        RotationalSensor</td>
-      <td valign=\"top\"> Removed drawing fromt the diagram layer (kept drawing only in 
-                        icon layer),<br> in order that this icon can be used in situations
-                        where components are dragged in the diagram layer.</td> </tr>
 
   <tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.Interfaces.Partials.</b></td></tr>
   <tr><td valign=\"top\">TwoPort</td>
@@ -1181,7 +1294,14 @@ that can lead to wrong simulation results):
 </p>
  
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-  <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Parts</b></td></tr>
+  <tr><td colspan=\"2\"><b>Electrical.Analog.Examples.</b></td></tr>
+  <tr><td valign=\"top\"> CauerLowPassSC </td>
+      <td valign=\"top\"> Wrong calculation of Capacitor1 both in Rn and Rp corrected
+                        (C=clock/R instead of C=clock*R) </td> 
+  </tr>
+
+
+  <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Parts.</b></td></tr>
   <tr><td valign=\"top\"> Rotor1D </td>
       <td valign=\"top\"> The 3D reaction torque was not completely correct and gave in 
                         some situations a wrong result. This bug should not influence the
@@ -1208,6 +1328,21 @@ that can lead to wrong simulation results):
                         RealInput a to a_ref, as well as the start values
                         phi_start to phi.start and w_start to w.start</td> 
   </tr>
+  <tr><td colspan=\"2\"><b>Media.Interfaces.</b></td></tr>
+  <tr><td valign=\"top\"> PartialSimpleIdealGasMedium </td>
+      <td valign=\"top\"> Inconsisteny in reference temperature corrected. This may give
+                        different results for functions:<br>
+                        specificEnthalpy, specificInternalEnergy, specificGibbsEnergy,
+                        specificHelmholtzEnergy. </td> 
+  </tr>
+  <tr><td colspan=\"2\"><b>Media.Air.</b></td></tr>
+  <tr><td valign=\"top\"> specificEntropy </td>
+      <td valign=\"top\"> Small bug in entropy computation of ideal gas mixtures corrected.</td> 
+  </tr>
+  <tr><td colspan=\"2\"><b>Media.IdealGases.Common.MixtureGasNasa</b></td></tr>
+  <tr><td valign=\"top\"> specificEntropy </td>
+      <td valign=\"top\"> Small bug in entropy computation of ideal gas mixtures corrected.</td> 
+  </tr>
 </table>
  
  
@@ -1222,6 +1357,27 @@ units are wrong or errors in documentation):
   <tr><td valign=\"top\"> CombiTable2D</td>
       <td valign=\"top\"> Documentation improved.</td> 
   </tr>
+
+  <tr><td colspan=\"2\"><b>Electrica.Digital.Gates</b></td></tr>
+  <tr><td valign=\"top\"> AndGate<br>
+                        NandGate<br>
+                        OrGate<br>
+                        NorGate<br>
+                        XorGate<br>
+                        XnorGate</td>
+      <td valign=\"top\"> The number of inputs was not correctly propagated
+                        to the included base model.<br> 
+                        This gave a translation error, if the number
+                        of inputs was changed (and not the default used).</td> 
+  </tr>
+
+  <tr><td colspan=\"2\"><b>Electrica.Digital.Sources</b></td></tr>
+  <tr><td valign=\"top\"> Pulse </td>
+      <td valign=\"top\"> Model differently implemented, so that 
+                        warning message about \"cannot properly initialize\" is gone.</td> 
+  </tr>
+
+
   <tr><td colspan=\"2\"><b>Mechanics.Rotational.</b></td></tr>
   <tr><td valign=\"top\"> BearingFriction<br>
                         Clutch<br>
@@ -3226,6 +3382,47 @@ First official release of the library.
   end Version_1_4;
   end ReleaseNotes;
 
+  class ModelicaLicense "Modelica License (Version 1.1 of June 30, 2000)"
+
+    annotation (Documentation(info="<html>
+
+<p>Redistribution and use in source and binary forms, with or without
+modification are permitted, provided that the following conditions are met:
+<ol>
+<li>
+The author and copyright notices in the source files, these license conditions
+and the disclaimer below are (a) retained and (b) reproduced in the documentation
+provided with the distribution.</li>
+<li>
+Modifications of the original source files are allowed, provided that a
+prominent notice is inserted in each changed file and the accompanying
+documentation, stating how and when the file was modified, and provided
+that the conditions under (1) are met.</li>
+<li>
+It is not allowed to charge a fee for the original version or a modified
+version of the software, besides a reasonable fee for distribution and support.
+Distribution in aggregate with other (possibly commercial) programs
+as part of a larger (possibly commercial) software distribution is permitted,
+provided that it is not advertised as a product of your own.</li>
+</ol>
+
+<h4>Disclaimer</h4>
+<p>The software (sources, binaries, etc.) in their original or in a modified
+form are provided
+\"as is\" and the copyright holders assume no responsibility for its contents
+what so ever. Any express or implied warranties, including, but not
+limited to, the implied warranties of merchantability and fitness for a
+particular purpose are <b>disclaimed</b>. <b>In no event</b> shall the
+copyright holders, or any party who modify and/or redistribute the package,
+<b>be liable</b> for any direct, indirect, incidental, special, exemplary, or
+consequential damages, arising in any way out of the use of this software,
+even if advised of the possibility of such damage.
+</p>
+</html>
+"));
+
+  end ModelicaLicense;
+
   class Contact "Contact"
 
     annotation (Documentation(info="<html>
@@ -3241,13 +3438,82 @@ First official release of the library.
     Germany<br>
     email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br></dd>
 </dl>
+
 <p>
-This library is developed by several people from
-the Modelica Association, see
-<a href=\"http://www.Modelica.org\">http://www.Modelica.org</a>.
-In particular, the following people have directly contributed
-(many more people have contributed to the design):
+Since end of 2007, the development of the sublibraries of package Modelica
+is organized by personal and/or organizational <b>library officers</b> assigned by the
+Modelica Association. They are responsible for the maintenance and
+for the further organization of the development. Other persons may
+also contribute, but the final decision for library improvements and/or changes
+is performed by the responsible library officer(s). In order that a new
+sublibrary or a new version of a sublibrary is ready to be released,
+the responsible library officers report the changes to the members of
+the Modelica Association and the library is made available for beta testing to
+interested parties before a final decision. A new release of a sublibrary
+is formally decided by voting of the Modelica Association members.
 </p>
+
+<p>
+The following library officers are assigned:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign=\"top\"><b>Sublibrary</b> </td
+      <td valign=\"top\"><b>Library officers</td>
+  </tr>
+
+  <tr><td valign=\"top\"> Blocks <br> Constants </td>
+      <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
+                       (Martin Otter)</td>
+  </tr>
+
+  <tr><td valign=\"top\"> Electrical.Analog, <br> Electrical.Digital </td>
+      <td valign=\"top\"> Fraunhofer Institute for Integrated Circuits, Dresden, Germany<br>
+                        (Christoph Clauss)</td>
+  </tr>
+
+  <tr><td valign=\"top\"> Electrical.Machines<br>
+                        Electrical.MultiPhase </td>
+      <td valign=\"top\"> Anton Haumer, Consultant, St.Andrae-Woerdern, Austria, and<br>
+                        arsenal research, Vienna, Austria (Christian Kral)</td>
+  </tr>
+
+  <tr><td valign=\"top\"> Icons <br>
+                        Math <br>
+                        Mechanics.MultiBody <br>
+                        Mechanics.Rotational </td>
+                        Mechanics.Translational </td>
+      <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
+                        (Martin Otter)</td>
+  </tr>
+
+  <tr><td valign=\"top\"> Media </td>
+      <td valign=\"top\"> Modelon AB, Lund, Sweden (H. Tummescheit) </td>
+  </tr>
+
+  <tr><td valign=\"top\"> SIunits <br>
+                        StateGraph </td>
+      <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
+                        (Martin Otter)</td>
+  </tr>
+
+  <tr><td valign=\"top\"> Thermal.FluidHeatFlow <br>
+                        Thermal.HeatTransfer </td>
+      <td valign=\"top\"> Anton Haumer, Consultant, St.Andrae-Woerdern, Austria, and<br>
+                        arsenal research, Vienna, Austria (Christian Kral)</td>
+
+  <tr><td valign=\"top\"> Utilities </td>
+      <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
+                        (Martin Otter)</td>
+  </tr>
+</table>
+
+
+<p>
+The following people have directly contributed to the implementation
+of the Modelica package (many more people have contributed to the design):
+</p>
+
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td valign=\"top\"><b>Peter Beater</b> </td
       <td valign=\"top\"> University of Paderborn, Germany</td>
@@ -3293,7 +3559,9 @@ In particular, the following people have directly contributed
       <td valign=\"top\"> Modelica.Electrical.Machines<br>
            Modelica.Electrical.Multiphase<br>
            Modelica.Mechanics.Rotational<br>
-           Modelica.Thermal.FluidHeatFlow</td>
+           Modelica.Mechanics.Translational<br>
+           Modelica.Thermal.FluidHeatFlow<br>
+           Conversion from 1.6 to 2.0</td>
   </tr>
 
   <tr><td valign=\"top\"><b>Hans-Dieter Joos</b> </td
@@ -3327,6 +3595,7 @@ In particular, the following people have directly contributed
       <td valign=\"top\"> Modelica.Blocks<br> 
            Modelica.Mechanics.MultiBody<br>
            Modelica.Mechanics.Rotational<br>
+           Modelica.Mechanics.Translational<br>
            Modelica.Math<br>
            Modelica.Media<br>
            Modelica.SIunits<br>
@@ -3334,7 +3603,8 @@ In particular, the following people have directly contributed
            Modelica.Thermal<br>
            Modelica.Utilities<br>
            ModelicaReference<br>
-           Conversion from 1.6 to 2.0</td>
+           Conversion from 1.6 to 2.0<br>
+           Conversion from 2.2 to 3.0</td>
   </tr>
 
   <tr><td valign=\"top\"><b>Katrin Pr&ouml;l&szlig;</b> </td
@@ -3356,7 +3626,8 @@ In particular, the following people have directly contributed
            Modelica.Electrical.Digital</td>
   </tr>
   <tr><td valign=\"top\"><b>Christian Schweiger</b> </td
-      <td valign=\"top\"> Institute of Robotics and Mechatronics,<br>
+      <td valign=\"top\"> Until 2006:<br>
+           Institute of Robotics and Mechatronics,<br>
            DLR, German Aerospace Center,<br> 
            Oberpfaffenhofen, Germany</td>
       <td valign=\"top\"> Modelica.Mechanics.Rotational<br>
@@ -3386,45 +3657,5 @@ In particular, the following people have directly contributed
 
   end Contact;
 
-  class ModelicaLicense "Modelica License (Version 1.1 of June 30, 2000)"
-
-    annotation (Documentation(info="<html>
-
-<p>Redistribution and use in source and binary forms, with or without
-modification are permitted, provided that the following conditions are met:
-<ol>
-<li>
-The author and copyright notices in the source files, these license conditions
-and the disclaimer below are (a) retained and (b) reproduced in the documentation
-provided with the distribution.</li>
-<li>
-Modifications of the original source files are allowed, provided that a
-prominent notice is inserted in each changed file and the accompanying
-documentation, stating how and when the file was modified, and provided
-that the conditions under (1) are met.</li>
-<li>
-It is not allowed to charge a fee for the original version or a modified
-version of the software, besides a reasonable fee for distribution and support.
-Distribution in aggregate with other (possibly commercial) programs
-as part of a larger (possibly commercial) software distribution is permitted,
-provided that it is not advertised as a product of your own.</li>
-</ol>
-
-<h4>Disclaimer</h4>
-<p>The software (sources, binaries, etc.) in their original or in a modified
-form are provided
-\"as is\" and the copyright holders assume no responsibility for its contents
-what so ever. Any express or implied warranties, including, but not
-limited to, the implied warranties of merchantability and fitness for a
-particular purpose are <b>disclaimed</b>. <b>In no event</b> shall the
-copyright holders, or any party who modify and/or redistribute the package,
-<b>be liable</b> for any direct, indirect, incidental, special, exemplary, or
-consequential damages, arising in any way out of the use of this software,
-even if advised of the possibility of such damage.
-</p>
-</html>
-"));
-
-  end ModelicaLicense;
 end UsersGuide;
 end Modelica;
