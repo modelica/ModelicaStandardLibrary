@@ -1736,7 +1736,7 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
       extends Translational.Interfaces.PartialCompliantWithRelativeStates;
       parameter SI.TranslationalSpringConstant c(final min=0, start = 1)
         "Spring constant";
-      parameter SI.TranslationalDampingConstant d(final min=0) = sqrt(c)
+      parameter SI.TranslationalDampingConstant d(final min=0, start = 1)
         "Damping constant";
       parameter SI.Position s_rel0=0 "Unstretched spring length";
 
