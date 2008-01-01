@@ -214,32 +214,35 @@ the two other examples).
         experiment(StopTime=1));
       Translational.Components.Mass mass1(L=1,
         s(fixed=true),
-        v(fixed=true))                            annotation (Placement(
+        v(fixed=true),
+        m=1)                                      annotation (Placement(
             transformation(extent={{40,60},{60,80}}, rotation=0)));
       Translational.Sources.Force force1 
                                  annotation (Placement(transformation(extent={{
                 -4,60},{16,80}}, rotation=0)));
-      Modelica.Blocks.Sources.Constant constant1 
+      Modelica.Blocks.Sources.Constant constant1(k=1) 
                                  annotation (Placement(transformation(extent={{
                 -44,60},{-24,80}}, rotation=0)));
       Translational.Components.Mass mass2(L=1,
         s(fixed=true),
-        v(fixed=true))                            annotation (Placement(
+        v(fixed=true),
+        m=1)                                      annotation (Placement(
             transformation(extent={{40,0},{60,20}}, rotation=0)));
       Translational.Sources.Force force2 
                                  annotation (Placement(transformation(extent={{
                 -4,20},{16,40}}, rotation=0)));
-      Modelica.Blocks.Sources.Constant constant2 
+      Modelica.Blocks.Sources.Constant constant2(k=1) 
                                  annotation (Placement(transformation(extent={{
                 -44,20},{-24,40}}, rotation=0)));
       Translational.Components.Mass mass3(L=1,
         s(fixed=true),
-        v(fixed=true))                            annotation (Placement(
+        v(fixed=true),
+        m=1)                                      annotation (Placement(
             transformation(extent={{-40,-40},{-20,-20}}, rotation=0)));
       Translational.Sources.Force force3(useSupport=true) 
                                  annotation (Placement(transformation(extent={{
                 20,-40},{0,-20}}, rotation=0)));
-      Modelica.Blocks.Sources.Constant constant3 
+      Modelica.Blocks.Sources.Constant constant3(k=1) 
                                  annotation (Placement(transformation(extent={{
                 60,-40},{40,-20}}, rotation=0)));
       Translational.Components.Fixed fixed 
@@ -335,13 +338,15 @@ combination). In this case the system is not at rest.
                                                annotation (Placement(
             transformation(extent={{-60,60},{-40,80}}, rotation=0)));
       Translational.Components.Mass m3(           L=3, s(start=4.5, fixed=true),
-        v(fixed=true))                                annotation (Placement(
+        v(fixed=true),
+        m=1)                                          annotation (Placement(
             transformation(extent={{-20,60},{0,80}}, rotation=0)));
-      Translational.Components.SpringDamper sd2(        s_rel0=4, c=111) 
-                                                      annotation (Placement(
+      Translational.Components.SpringDamper sd2(        s_rel0=4, c=111,
+        d=1)                                          annotation (Placement(
             transformation(extent={{20,60},{40,80}}, rotation=0)));
       Translational.Components.Mass m4(           L=5, s(start=12.5, fixed=true),
-        v(fixed=true))                                 annotation (Placement(
+        v(fixed=true),
+        m=1)                                           annotation (Placement(
             transformation(extent={{60,60},{80,80}}, rotation=0)));
 
       Translational.Components.Fixed fixed1(        s0=-1) 
@@ -353,17 +358,17 @@ combination). In this case the system is not at rest.
         s_rel(start=1, fixed=true)) 
                         annotation (Placement(transformation(extent={{-58,-20},
                 {-38,0}}, rotation=0)));
-      Translational.Components.Mass m1(           L=1, v(fixed=true)) 
-                                        annotation (Placement(transformation(
+      Translational.Components.Mass m1(           L=1, v(fixed=true),
+        m=1)                            annotation (Placement(transformation(
               extent={{-20,-20},{0,0}}, rotation=0)));
       Translational.Components.SpringDamper sd1(
         s_rel0=1,
         c=111,
         s_rel(start=1, fixed=true),
-        v_rel(fixed=true)) 
-                        annotation (Placement(transformation(extent={{20,-20},{
+        v_rel(fixed=true),
+        d=1)            annotation (Placement(transformation(extent={{20,-20},{
                 40,0}}, rotation=0)));
-      Translational.Components.Mass m2(           L=2) 
+      Translational.Components.Mass m2(           L=2, m=1) 
                                         annotation (Placement(transformation(
               extent={{60,-20},{80,0}}, rotation=0)));
     equation
@@ -567,25 +572,28 @@ problems.
               extent={{-40,20},{-20,40}}, rotation=0)));
       Translational.Components.Mass mass(L=1, m=1) 
                                                   annotation (Placement(
-            transformation(extent={{40,20},{60,40}}, rotation=0)));
-      Modelica.Blocks.Sources.Constant constantAcc 
-                                                 annotation (Placement(transformation(extent={{
-                -100,20},{-80,40}}, rotation=0)));
+            transformation(extent={{0,20},{20,40}},  rotation=0)));
+      Modelica.Blocks.Sources.Constant constantAcc(k=1) 
+                                                 annotation (Placement(transformation(extent={{-80,20},
+                {-60,40}},          rotation=0)));
       annotation (Documentation(info="<html>
-  
+<p>
+Demonstrate usage of component Sources.Accelerate by moving a massing
+with a predefined acceleration.
+</p>
 </html>"), Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
                 -100},{100,100}}),
                    graphics),
         experiment(StopTime=1));
     equation
       connect(accelerate.flange, mass.flange_a)    annotation (Line(
-          points={{-20,30},{40,30}},
+          points={{-20,30},{0,30}},
           color={0,127,0},
           smooth=Smooth.None,
           fillColor={0,127,0},
           fillPattern=FillPattern.Solid));
       connect(constantAcc.y, accelerate.a_ref) annotation (Line(
-          points={{-79,30},{-42,30}},
+          points={{-59,30},{-42,30}},
           color={0,0,127},
           smooth=Smooth.None));
     end Accelerate;
@@ -594,7 +602,9 @@ problems.
 
       extends Modelica.Icons.Example;
       annotation (Documentation(info="<html>
-  
+<p>
+Demonstrate usage of damper components in different variants.
+</p>
 </html>"),
         experiment(StopTime=1),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -603,8 +613,8 @@ problems.
       Translational.Components.Mass mass1(
         L=1,
         s(start=3, fixed=true),
-        v(start=10, fixed=true)) 
-                    annotation (Placement(transformation(extent={{-80,60},{-60,
+        v(start=10, fixed=true),
+        m=1)        annotation (Placement(transformation(extent={{-80,60},{-60,
                 80}}, rotation=0)));
       Translational.Components.Damper damper1(        d=25) 
                                          annotation (Placement(transformation(
@@ -615,8 +625,8 @@ problems.
       Translational.Components.Mass mass2(
         L=1,
         s(start=3, fixed=true),
-        v(start=10, fixed=true)) 
-                    annotation (Placement(transformation(extent={{-80,0},{-60,
+        v(start=10, fixed=true),
+        m=1)        annotation (Placement(transformation(extent={{-80,0},{-60,
                 20}}, rotation=0)));
       Translational.Components.Damper damper2(        d=25) 
                                          annotation (Placement(transformation(
@@ -627,17 +637,17 @@ problems.
       Translational.Components.Mass mass3(
         L=1,
         s(start=3, fixed=true),
-        v(start=10, fixed=true)) 
-                    annotation (Placement(transformation(extent={{-80,-60},{-60,
+        v(start=10, fixed=true),
+        m=1)        annotation (Placement(transformation(extent={{-80,-60},{-60,
                 -40}}, rotation=0)));
       Translational.Components.Fixed fixed3(        s0=4.5) 
                                          annotation (Placement(transformation(
               extent={{20,-60},{40,-40}}, rotation=0)));
-      Translational.Components.Spring spring2(        s_rel0=1) 
+      Translational.Components.Spring spring2(        s_rel0=1, c=1) 
                                              annotation (Placement(
             transformation(extent={{-20,-20},{0,0}}, rotation=0)));
-      Translational.Components.SpringDamper springDamper3(        s_rel0=1, d=25) 
-                                                               annotation (Placement(
+      Translational.Components.SpringDamper springDamper3(        s_rel0=1, d=25,
+        c=1)                                                   annotation (Placement(
             transformation(extent={{-20,-60},{0,-40}}, rotation=0)));
     equation
       connect(mass1.flange_b, damper1.flange_a)        annotation (Line(points=
@@ -710,8 +720,8 @@ If damping is added the amplitudes are bounded.
       Translational.Components.Mass mass1(
         L=1,
         s(start=-0.5, fixed=true),
-        v(start=0, fixed=true)) 
-                      annotation (Placement(transformation(extent={{-20,40},{0,
+        v(start=0, fixed=true),
+        m=1)          annotation (Placement(transformation(extent={{-20,40},{0,
                 60}}, rotation=0)));
       Translational.Components.Spring spring1(        s_rel0=1, c=10000) 
                                                       annotation (Placement(
@@ -727,8 +737,8 @@ If damping is added the amplitudes are bounded.
       Translational.Components.Mass mass2(
         L=1,
         s(start=-0.5, fixed=true),
-        v(start=0, fixed=true)) 
-                      annotation (Placement(transformation(extent={{-20,-60},{0,
+        v(start=0, fixed=true),
+        m=1)          annotation (Placement(transformation(extent={{-20,-60},{0,
                 -40}}, rotation=0)));
       Translational.Components.Spring spring2(        s_rel0=1, c=10000) 
                                                       annotation (Placement(
@@ -821,14 +831,15 @@ to see the difference.
       Translational.Sensors.ForceSensor forceSensor  annotation (Placement(
             transformation(extent={{-20,40},{0,60}}, rotation=0)));
       Translational.Sensors.SpeedSensor speedSensor1 annotation (Placement(
-            transformation(extent={{20,-40},{40,-20}}, rotation=0)));
+            transformation(extent={{40,-40},{60,-20}}, rotation=0)));
       Translational.Sensors.PositionSensor positionSensor1 annotation (Placement(
-            transformation(extent={{20,0},{40,20}}, rotation=0)));
+            transformation(extent={{40,0},{60,20}}, rotation=0)));
       Translational.Sensors.AccSensor accSensor1 annotation (Placement(
-            transformation(extent={{20,-80},{40,-60}}, rotation=0)));
+            transformation(extent={{40,-80},{60,-60}}, rotation=0)));
       Translational.Components.Mass mass(L=1,
         s(fixed=true),
-        v(fixed=true))                            annotation (Placement(
+        v(fixed=true),
+        m=1)                                      annotation (Placement(
             transformation(extent={{20,40},{40,60}}, rotation=0)));
       Translational.Sources.Force force 
                                  annotation (Placement(transformation(extent={{
@@ -851,19 +862,19 @@ to see the difference.
           fillColor={0,127,0},
           fillPattern=FillPattern.Solid));
       connect(mass.flange_a, positionSensor1.flange)         annotation (Line(
-          points={{20,50},{20,10}},
+          points={{20,50},{20,10},{40,10}},
           color={0,127,0},
           smooth=Smooth.None,
           fillColor={0,127,0},
           fillPattern=FillPattern.Solid));
       connect(mass.flange_a, speedSensor1.flange)         annotation (Line(
-          points={{20,50},{20,-30}},
+          points={{20,50},{20,-30},{40,-30}},
           color={0,127,0},
           smooth=Smooth.None,
           fillColor={0,127,0},
           fillPattern=FillPattern.Solid));
       connect(mass.flange_a, accSensor1.flange)         annotation (Line(
-          points={{20,50},{20,-70}},
+          points={{20,50},{20,-70},{40,-70}},
           color={0,127,0},
           smooth=Smooth.None,
           fillColor={0,127,0},
@@ -910,11 +921,18 @@ to see the difference.
      to model a stop (see example Preload).</li>
 </ol>
 </html>
-"));
+"),     experiment(StopTime=5));
       Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop1
         (                                      L=1,
         s(fixed=true),
-        v(fixed=true))              annotation (Placement(transformation(extent=
+        v(fixed=true),
+        smax=25,
+        smin=-25,
+        m=1,
+        F_prop=1,
+        F_Coulomb=5,
+        F_Stribeck=10,
+        fexp=2)                     annotation (Placement(transformation(extent=
                {{60,60},{80,80}}, rotation=0)));
       Translational.Sources.Force force 
                                  annotation (Placement(transformation(extent={{20,60},
@@ -930,8 +948,10 @@ to see the difference.
         F_Coulomb=3,
         F_Stribeck=5,
         s(start=0, fixed=true),
-        v(start=-5, fixed=true)) 
-                     annotation (Placement(transformation(extent={{60,0},{80,20}},
+        v(start=-5, fixed=true),
+        m=1,
+        F_prop=1,
+        fexp=2)      annotation (Placement(transformation(extent={{60,0},{80,20}},
               rotation=0)));
       Translational.Components.Spring spring(s_rel0=1, c=500) 
                                                     annotation (Placement(
@@ -1016,7 +1036,8 @@ Spool position s as a function of working force f.
 </p>
 </html>
  
-"));
+"),     experiment(StopTime=100),
+        experimentSetupOutput);
 
       Translational.Components.ElastoGap innerContactA(
         c=1000e3,
@@ -1044,8 +1065,8 @@ Spool position s as a function of working force f.
         m=10e-3,
         L=0.002,
         s(start=-0.093, fixed=true),
-        v(fixed=true))   annotation (Placement(transformation(extent={{-40,60},
-                {-20,80}}, rotation=0)));
+        v(fixed=true))   annotation (Placement(transformation(extent={{-38,60},
+                {-18,80}}, rotation=0)));
       Translational.Components.Mass springPlateB(
         m=10e-3,
         s(start=-0.06925, fixed=true),
@@ -1096,10 +1117,9 @@ Spool position s as a function of working force f.
               rotation=0)));
     equation
       connect(outerContactA.flange_b,springPlateA. flange_a) annotation (Line(
-            points={{-50,70},{-48,70},{-40,70}},
-                                        color={0,191,0}));
-      connect(springPlateA.flange_b,spring. flange_a) annotation (Line(points={{-20,70},
-              {-14,70},{-10,70}},color={0,191,0}));
+            points={{-50,70},{-38,70}}, color={0,191,0}));
+      connect(springPlateA.flange_b,spring. flange_a) annotation (Line(points={{-18,70},
+              {-18,70},{-10,70}},color={0,191,0}));
       connect(spring.flange_b,springPlateB. flange_a) annotation (Line(points={{10,70},
               {20,70}},         color={0,191,0}));
       connect(springPlateB.flange_b,outerContactB. flange_a) annotation (Line(
@@ -1107,8 +1127,8 @@ Spool position s as a function of working force f.
                                       color={0,191,0}));
       connect(outerContactB.flange_b,housing. flange_b) annotation (Line(points={{70,70},
               {70,90},{10,90}},         color={0,191,0}));
-      connect(springPlateA.flange_b,rod1. flange_a) annotation (Line(points={{-20,70},
-              {-20,52},{-40,52},{-40,40}},         color={0,191,0}));
+      connect(springPlateA.flange_b,rod1. flange_a) annotation (Line(points={{-18,70},
+              {-18,52},{-40,52},{-40,40}},         color={0,191,0}));
       connect(innerContactA.flange_a,rod3. flange_a) annotation (Line(points={{-70,30},
               {-80,30},{-80,8},{-40,8}},         color={0,191,0}));
       connect(innerContactA.flange_b,rod1. flange_b) annotation (Line(points={{-50,30},
@@ -1151,11 +1171,13 @@ Spool position s as a function of working force f.
     extends Modelica.Icons.Example;
       annotation (
         Documentation(info="<html>
+<p>
 This model demonstrates the effect of ElastoGaps on eigenfrequency:<br>
 Plot mass1.s and mass2.s as well as mass1.v and mass2.v<br><br>
 mass1 is moved by both spring forces all the time.<br>
 Since elastoGap1 lifts off at s &gt; -0.5 m and elastoGap2 lifts off s &lt; +0.5 m, 
 mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
+</p>
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics),
@@ -1168,15 +1190,15 @@ mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
         annotation (Placement(transformation(extent={{20,-10},{40,10}})));
       Components.SpringDamper springDamper1(
         c=10,
-        d=0.1,
         s_rel0=1,
-        s_rel(fixed=false, start=1)) 
+        s_rel(fixed=false, start=1),
+        d=1.5) 
         annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
       Components.SpringDamper springDamper2(
         c=10,
-        d=0.1,
         s_rel0=1,
-        s_rel(fixed=false, start=1)) 
+        s_rel(fixed=false, start=1),
+        d=1.5) 
         annotation (Placement(transformation(extent={{20,20},{40,40}})));
       Components.Mass mass1(
         s(fixed=true, start=2),
@@ -1186,15 +1208,15 @@ mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
              annotation (Placement(transformation(extent={{-10,20},{10,40}})));
       Components.ElastoGap elastoGap1(
         c=10,
-        d=0.1,
         s_rel(fixed=false, start=1.5),
-        s_rel0=1.5) 
+        s_rel0=1.5,
+        d=1.5) 
         annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
       Components.ElastoGap elastoGap2(
         c=10,
-        d=0.1,
         s_rel(fixed=false, start=1.5),
-        s_rel0=1.5) 
+        s_rel0=1.5,
+        d=1.5) 
         annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
       Components.Mass mass2(
         s(fixed=true, start=2),
@@ -1202,6 +1224,7 @@ mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
         m=1,
         v(fixed=true)) 
              annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
+      parameter SI.TranslationalDampingConstant d=1.5 "damping constant";
     equation
 
       connect(rod1.flange_b, fixed.flange) annotation (Line(
@@ -1213,11 +1236,11 @@ mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
           color={0,127,0},
           smooth=Smooth.None));
       connect(springDamper1.flange_a, rod1.flange_a) annotation (Line(
-          points={{-40,30},{-40,0}},
+          points={{-40,30},{-48,30},{-48,0},{-40,0}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(springDamper2.flange_b, rod2.flange_b) annotation (Line(
-          points={{40,30},{40,0},{40,0}},
+          points={{40,30},{50,30},{50,0},{40,0}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(springDamper1.flange_b, mass1.flange_a) annotation (Line(
@@ -1229,11 +1252,11 @@ mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
           color={0,127,0},
           smooth=Smooth.None));
       connect(rod1.flange_a, elastoGap1.flange_a) annotation (Line(
-          points={{-40,0},{-40,-30}},
+          points={{-40,0},{-48,0},{-48,-30},{-40,-30}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(rod2.flange_b, elastoGap2.flange_b) annotation (Line(
-          points={{40,0},{40,-30}},
+          points={{40,0},{50,0},{50,-30},{40,-30}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(elastoGap1.flange_b, mass2.flange_a) annotation (Line(
@@ -1711,13 +1734,12 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
 
     model ElastoGap "1D translational spring damper combination with gap"
       extends Translational.Interfaces.PartialCompliantWithRelativeStates;
-      parameter SI.Position s_rel0=0 "unstretched spring length";
       parameter SI.TranslationalSpringConstant c(final min=0, start = 1)
-        "spring constant";
-      parameter SI.TranslationalDampingConstant d(final min=0, start = 1)
-        "damping constant";
-      SI.Force f_c "spring force";
-      SI.Force f_d "damping force";
+        "Spring constant";
+      parameter SI.TranslationalDampingConstant d(final min=0) = sqrt(c)
+        "Damping constant";
+      parameter SI.Position s_rel0=0 "Unstretched spring length";
+
       annotation (
         Window(
           x=0.23,
@@ -1726,12 +1748,88 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
           height=0.69),
         Documentation(info="<html>
 <p>
-A <i>linear translational spring damper combination that can lift off</i>.<br>
-The component can be connected between a sliding mass and the housing (model Fixed), 
-to describe the contact of a sliding mass with the housing.<br>
-Please note that there is no hard stop due to the housing.</p>
+A linear spring damper combination that can lift off.
+The component can be connected between a sliding mass and the housing (model 
+<a href=\"Modelica://Modelica.Mechanics.Translational.Components.Fixed\">Fixed</a>), 
+to describe the contact of a sliding mass with the housing.
+</p>
  
-</HTML>
+<p>
+As long as s_rel &gt; s_rel0, no force is exerted (s_rel = flange_b.s - flange_a.s).
+If s_rel &le; s_rel0, the contact force is basically computed with a linear
+spring/damper characteristic:
+</p
+ 
+<pre>
+   desiredContactForce = c*(s_rel - s_rel0) + d*<b>der</b>(s_rel)
+</pre>
+ 
+<p>
+This force law leads to the following difficulties:
+</p>
+ 
+<ol>
+<li> If the damper force becomes larger as the spring force and with opposite sign,
+     the contact force would be \"pulling/sticking\" which is unphysical, since during
+     contact only pushing forces can occur.</li>
+ 
+<li> When contact occurs with a non-zero relative speed (which is the usual 
+     situation), the damping force has a non-zero value and therefore the contact
+     force changes discontinuously at s_rel = s_rel0. Again, this is not physical
+     because the force can only change continuously. (Note, this component is not an
+     idealized model where a steep characteristic is approximated by a discontinuity,
+     but it shall model the steep characteristic.)</li>
+</ol>
+ 
+<p>
+In the literature there are several proposals to fix problem (2). However, there
+seems to be no proposal to avoid sticking. For this reason, the most simple
+approach is used in the ElastoGap model, to fix both problems by slight changes
+to the linear spring/damper characteristic:
+</p>
+     
+<pre>
+    <b>if</b> s_rel &gt; s_rel0 <b>then</b>
+       f_c = 0;          // spring force
+       f_d = 0;          // damper force
+       flange_b.f = 0;
+    <b>else</b>
+       f_c = c*(s_rel - s_rel0);    // spring force
+       f_d = d*<b>der</b>(s_rel);          // damper force
+       flange_b.f = <b>if</b> f_c + f_d &ge; 0 <b>then</b> 0 <b>else</b> f_c + <b>max</b>( f_c, f_d );
+    <b>end if</b>;
+</pre>
+ 
+<p>
+Note, when sticking would occur (f_c + f_d &ge; 0), then the contact force
+is explicitly set to zero. The \"max(f_c, f_d)\" part in the if-expression,
+limits the damping force when it is pushing. This means that at the start of
+the contact (s_rel = s_rel0), the damping force is zero and is continuous.
+The effect of both modifications is that the absolute value of the damping force
+is always limited by the absolute value of the spring force: |f_d| &le; |f_c|.
+</p>
+ 
+<p>
+In the next figure, a typical simulation with the ElastoGap model is shown
+(<a href=\"Modelica://Modelica.Mechanics.Translational.Examples.ElastoGap\">Examples.ElastoGap</a>)
+where the different effects are visualized:
+</p>
+
+<ol>
+<li> Curve 1 (elastoGap1.f) is the unmodified contact force, i.e., the linear spring/damper
+     characteristic. A pulling/sticking force is present at the end of the contact.</li>
+<li> Curve 2 (elastoGap2.f) is the contact force, where the force is explicitly set to
+     zero when pulling/sticking occurs. The contact force is discontinuous at being of
+     the contact.</li>
+<li> Curve 3 (elastoGap3.f) is the ElastoGap model of this library. No discontinuity and no
+     pulling/sticking occurs.</li>
+</ol>
+ 
+<p align=\"center\">
+<img src=\"../Images/Translational/ElastoGap1.png\">
+</p>
+ 
+</html>
 "),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1819,12 +1917,21 @@ Please note that initialization might fail due to the nonlinear spring character
 if a positive force is acting on the element and no other force balances this force
 (e.g. when setting both initial velocity and acceleration to 0)
 */
+    protected
+      SI.Force f_c "Spring force";
+      SI.Force f_d "Unmodified damping force";
     equation
-    //if lifted off (s_rel > s_rel0) then no spring force
-      f_c = if (s_rel < s_rel0) then c*(s_rel - s_rel0) else 0;
-      f_d = d*v_rel;
-    //near lift off, take spring force (going to 0 for s_rel = s_rel0) instead of damping force as damping part to avoid overshoot
-      f = smooth(0, noEvent(if (f_c + f_d) >= 0 then 0 else f_c + max(f_c, f_d)));
+      // Modify contact force, so that it is only "pushing" and not
+      // "pulling/sticking" and that it is continous near lift off
+      if s_rel > s_rel0 then
+         f_c = 0;
+         f_d = 0;
+         f   = 0;
+      else
+         f_c = c*(s_rel - s_rel0);
+         f_d = d*v_rel;
+         f   = smooth(0, noEvent(if (f_c + f_d) >= 0 then 0 else f_c + max(f_c, f_d)));
+      end if;
     end ElastoGap;
 
     model SupportFriction "Coulomb friction in support"
@@ -2419,12 +2526,12 @@ provided via a signal bus.
         "Absolute acceleration of flange_a and flange_b";
       parameter Modelica.SIunits.Mass m(start=1) "mass";
       parameter Real F_prop(final unit="N.s/m", final min=0, start = 1)
-        "velocity dependent friction";
+        "Velocity dependent friction";
       parameter Modelica.SIunits.Force F_Coulomb(start=5)
-        "constant friction: Coulomb force";
+        "Constant friction: Coulomb force";
       parameter Modelica.SIunits.Force F_Stribeck(start=10) "Stribeck effect";
       parameter Real fexp(final unit="s/m", final min=0, start = 2)
-        "exponential decay";
+        "Exponential decay";
       annotation (
         Documentation(info="
 <HTML>
@@ -2509,11 +2616,11 @@ between the stops.</i> </li>
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Polygon(
-              points={{50,-80},{20,-70},{20,-90},{50,-80}},
+              points={{80,-100},{50,-90},{50,-110},{80,-100}},
               lineColor={128,128,128},
               fillColor={128,128,128},
               fillPattern=FillPattern.Solid),
-            Line(points={{-60,-80},{20,-80}}, color={0,0,0}),
+            Line(points={{-30,-100},{50,-100}}, color={0,0,0}),
             Rectangle(
               extent={{-30,30},{35,-35}},
               lineColor={0,0,0},
@@ -2540,26 +2647,11 @@ between the stops.</i> </li>
               extent={{0,100},{0,40}},
               textString="%name",
               lineColor={0,0,255}),
-            Line(
-              points={{-50,-110},{-30,-90}},
-              color={0,0,0},
-              thickness=2),
-            Line(
-              points={{-30,-90},{30,-90}},
-              color={0,0,0},
-              thickness=2),
-            Line(
-              points={{-30,-110},{-10,-90}},
-              color={0,0,0},
-              thickness=2),
-            Line(
-              points={{-10,-110},{10,-90}},
-              color={0,0,0},
-              thickness=2),
-            Line(
-              points={{10,-110},{30,-90}},
-              color={0,0,0},
-              thickness=2)}),
+            Line(points={{-50,-90},{-30,-70}}, color={0,0,0}),
+            Line(points={{-30,-70},{30,-70}}, color={0,0,0}),
+            Line(points={{-30,-90},{-10,-70}}, color={0,0,0}),
+            Line(points={{-10,-90},{10,-70}}, color={0,0,0}),
+            Line(points={{10,-90},{30,-70}}, color={0,0,0})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -2685,9 +2777,9 @@ Additionally, a left and right stop are handled.
         import SI = Modelica.SIunits;
         import Modelica.Mechanics.Translational.Interfaces.PartialRigid;
       parameter SI.Position smax(start= 25)
-          "right stop for (right end of) sliding mass";
+          "Right stop for (right end of) sliding mass";
       parameter SI.Position smin(start=-25)
-          "left stop for (left end of) sliding mass";
+          "Left stop for (left end of) sliding mass";
       parameter SI.Velocity v_small=1e-3
           "Relative velocity near to zero (see model info text)" 
          annotation(Dialog(tab="Advanced"));
@@ -2704,9 +2796,9 @@ Additionally, a left and right stop are handled.
       Real sa(unit="1")
           "Path parameter of friction characteristic f = f(a_relfric)";
       Boolean startForward(start=false, fixed=true)
-          "true, if v_rel=0 and start of forward sliding or v_rel > v_small";
+          "= true, if v_rel=0 and start of forward sliding or v_rel > v_small";
       Boolean startBackward(start=false, fixed=true)
-          "true, if v_rel=0 and start of backward sliding or v_rel < -v_small";
+          "= true, if v_rel=0 and start of backward sliding or v_rel < -v_small";
       Boolean locked(start=false) "true, if v_rel=0 and not sliding";
       extends PartialRigid(s(start=0, stateSelect = StateSelect.always));
       constant Integer Unknown=3 "Value of mode is not known";

@@ -1231,7 +1231,6 @@ Simulate for about 10 seconds and plot the angular velocities of the inertias <t
     end ElasticBearing;
 
     model Backlash "Example to demonstrate backlash"
-      import Modelica.Constants.pi;
       extends Modelica.Icons.Example;
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true,
         extent={{-100,-100},{100,100}}), graphics),
@@ -1249,19 +1248,26 @@ also that the damping torque does not lead to unphysical pulling torques
         phi_nominal(displayUnit="rad") = 1) 
         annotation (Placement(transformation(extent={{-20,50},{0,70}})));
       Rotational.Components.Inertia inertia1(J=5,
-        phi(fixed=true, start=pi/2),
-        w(fixed=true, start=0)) 
+        w(fixed=true, start=0),
+        phi(
+          fixed=true,
+          displayUnit="deg",
+          start=1.570796326794897)) 
         annotation (Placement(transformation(extent={{20,50},{40,70}})));
       Rotational.Components.Fixed fixed2 
         annotation (Placement(transformation(extent={{-50,-50},{-30,-30}})));
       Rotational.Components.ElastoBacklash elastoBacklash(
         c=20E3,
-        b=pi/4,
         d=50,
-        phi_nominal(displayUnit="rad") = 1) 
+        phi_nominal(displayUnit="rad") = 1,
+        b(displayUnit="deg") = 0.7853981633974483) 
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
-      Rotational.Components.Inertia inertia2(J=5, phi(fixed=true, start=pi/2),
-        w(fixed=true, start=0)) 
+      Rotational.Components.Inertia inertia2(J=5,
+        w(fixed=true, start=0),
+        phi(
+          fixed=true,
+          start=1.570796326794897,
+          displayUnit="deg")) 
         annotation (Placement(transformation(extent={{20,-50},{40,-30}})));
     equation
       connect(springDamper.flange_b, inertia1.flange_a) 
@@ -1823,22 +1829,98 @@ can be used to model a gear box with backlash, elasticity and damping.
 </p>
  
 <p>
-The linear spring and damper torques are slightly modified in order that
-the reaction torque only \"pushes\" and cannot \"pull\" (which is unphysical). 
-</p>
- 
-<p>
 During initialization, the backlash characteristic is replaced by a continuous
 approximation in the backlash region, in order to reduce problems during
 initialization, especially for inverse models.
 </p>
  
 <p>
-If the backlash b is smaller as 1e-10 (especially, if b=0),
+If the backlash b is smaller as 1e-10 rad (especially, if b=0),
 then the backlash is ignored and the component reduces to a spring/damper
 element in parallel.
 </p>
  
+<p>
+In the backlash region (-b/2 &le; flange_b.phi - flange_a.phi - phi_rel0 &le; b/2) no torque
+is exerted (flange_b.tau = 0). Outside of this region, contact is present and
+the contact torque is basically computed with a linear 
+spring/damper characteristic:
+</p
+ 
+<pre>
+   desiredContactTorque = c*phi_contact + d*<b>der</b>(phi_contact)
+
+            phi_contact = phi_rel - phi_rel0 - b/2 <b>if</b> phi_rel - phi_rel0 &gt;  b/2
+                        = phi_rel - phi_rel0 + b/2 <b>if</b> phi_rel - phi_rel0 &lt; -b/2
+
+            phi_rel     = flange_b.phi - flange_a.phi;
+</pre>
+ 
+<p>
+This torque characteristic leads to the following difficulties:
+</p>
+ 
+<ol>
+<li> If the damper torque becomes larger as the spring torque and with opposite sign,
+     the contact torque would be \"pulling/sticking\" which is unphysical, since during
+     contact only pushing torques can occur.</li>
+ 
+<li> When contact occurs with a non-zero relative speed (which is the usual 
+     situation), the damping torque has a non-zero value and therefore the contact
+     torque changes discontinuously at phi_rel = phi_rel0. Again, this is not physical
+     because the torque can only change continuously. (Note, this component is not an
+     idealized model where a steep characteristic is approximated by a discontinuity,
+     but it shall model the steep characteristic.)</li>
+</ol>
+ 
+<p>
+In the literature there are several proposals to fix problem (2). However, there
+seems to be no proposal to avoid sticking. For this reason, the most simple
+approach is used in the ElastoBacklash model, to fix both problems by slight changes
+to the linear spring/damper characteristic:
+</p>
+     
+<pre>
+    // Torque characteristic when phi_rel > phi_rel0
+    <b>if</b> phi_rel - phi_rel0 &lt; b/2 <b>then</b>
+       tau_c = 0;          // spring torque
+       tau_d = 0;          // damper torque
+       flange_b.tau = 0;
+    <b>else</b>
+       tau_c = c*(phi_rel - phi_rel0);    // spring torque
+       tau_d = d*<b>der</b>(phi_rel);            // damper torque
+       flange_b.tau = <b>if</b> tau_c + tau_d &le; 0 <b>then</b> 0 <b>else</b> tau_c + <b>min</b>( tau_c, tau_d );
+    <b>end if</b>;
+</pre>
+ 
+<p>
+Note, when sticking would occur (tau_c + tau_d &le; 0), then the contact torque
+is explicitly set to zero. The \"min(tau_c, tau_d)\" part in the if-expression,
+limits the damping torque when it is pushing. This means that at the start of
+the contact (phi_rel - phi_rel0 = b/2), the damping torque is zero and is continuous.
+The effect of both modifications is that the absolute value of the damping torque
+is always limited by the absolute value of the spring torque: |tau_d| &le; |tau_c|.
+</p>
+ 
+<p>
+In the next figure, a typical simulation with the ElastoBacklash model is shown
+(<a href=\"Modelica://Modelica.Mechanics.Rotational.Examples.Backlash\">Examples.Backlash</a>)
+where the different effects are visualized:
+</p>
+
+<ol>
+<li> Curve 1 (elastoBacklash1.tau) is the unmodified contact torque, i.e., the linear spring/damper
+     characteristic. A pulling/sticking torque is present at the end of the contact.</li>
+<li> Curve 2 (elastoBacklash2.tau) is the contact torque, where the torque is explicitly set to
+     zero when pulling/sticking occurs. The contact torque is discontinuous at begin of
+     contact.</li>
+<li> Curve 3 (elastoBacklash3.tau) is the ElastoBacklash model of this library. No discontinuity and no
+     pulling/sticking occurs.</li>
+</ol>
+ 
+<p align=\"center\">
+<img src=\"../Images/Rotational/elastoBacklash1.png\">
+</p>
 </html>
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -2028,14 +2110,14 @@ element in parallel.
       else
      /*    
      if abs(b) <= bEps then
-        tau_c = c*phi_rel;
+        tau_c = c*phi_diff;
         tau_d = d*w_rel;
         tau   = tau_c + tau_d;
-     elseif phi_rel > bMax then
+     elseif phi_diff > bMax then
         tau_c = c*(phi_diff - bMax);
         tau_d = d*w_rel;
         tau   = smooth(0, noEvent(if tau_c + tau_d <= 0 then 0 else tau_c + min(tau_c,tau_d)));
-     elseif phi_rel < bMin then
+     elseif phi_diff < bMin then
         tau_c = c*(phi_diff - bMin);
         tau_d = d*w_rel;
         tau   = smooth(0, noEvent(if tau_c + tau_d >= 0 then 0 else tau_c + max(tau_c,tau_d)));
@@ -2055,9 +2137,9 @@ element in parallel.
                  if phi_diff < bMin then c*(phi_diff - bMin) else 0;
          tau_d = d*w_rel;
          tau   = if abs(b) <= bEps then tau_c + tau_d else 
-                   if phi_rel > bMax then 
+                   if phi_diff > bMax then 
                       smooth(0, noEvent(if tau_c + tau_d <= 0 then 0 else tau_c + min(tau_c,tau_d))) else 
-                   if phi_rel < bMin then 
+                   if phi_diff < bMin then 
                       smooth(0, noEvent(if tau_c + tau_d >= 0 then 0 else tau_c + max(tau_c,tau_d))) else 0;
       end if;
 
@@ -2343,7 +2425,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Line(points={{0,90},{80,70},{80,-40},{70,-40}}, color={0,0,127}),
-            Line(points={{0,90},{-80,70},{-80,-40},{-70,-40}}, color={0,0,127}),
+            Line(points={{0,90},{-80,70},{-80,-40},{-70,-40}}, color={0,0,127}), 
+
             Text(
               extent={{-150,-180},{150,-140}},
               textString="%name",
@@ -3546,7 +3629,8 @@ GearNew.</p>
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={192,192,192}),
             Polygon(
-              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
+              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}}, 
+
               lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={128,128,128}),
