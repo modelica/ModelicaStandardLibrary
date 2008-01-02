@@ -1258,6 +1258,14 @@ have been <b style=\"color:blue\">improved</b> in a
                         (previously, this was not the case for small vectors: normalize(eps,eps)).
                         </td> </tr>
 
+  <tr><td colspan=\"2\"><b>Mechanics.MultiBody.</b></td></tr>
+  <tr><td valign=\"top\"> </td>
+      <td valign=\"top\"> Renamed non-standard keywords defineBranch, defineRoot, definePotentialRoot, 
+                        isRooted to the standard names:<br>
+                        Connections.branch/.root/.potentialRoot/.isRooted.</td> </tr>
+  <tr><td valign=\"top\"> Frames </td>
+      <td valign=\"top\"> Added annotation \"Inline=true\" to all one-line functions
+                        (which should be all inlined).</td> </tr>
   <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Parts.</b></td></tr>
   <tr><td valign=\"top\"> Mounting1D<br>
                         Rotor1D<br>
