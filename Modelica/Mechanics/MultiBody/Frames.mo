@@ -300,7 +300,7 @@ with
     input Real v2[3] "Vector in frame 2";
     output Real v1[3] "Vector in frame 1";
     annotation (derivative(noDerivative=R) = Internal.resolve1_der,
-        InlineAfterIndexReduction=true);
+        __Dymola_InlineAfterIndexReduction=true);
   algorithm
     v1 := transpose(R.T)*v2;
   end resolve1;
@@ -311,7 +311,7 @@ with
     input Real v1[3] "Vector in frame 1";
     output Real v2[3] "Vector in frame 2";
     annotation (derivative(noDerivative=R) = Internal.resolve2_der,
-        InlineAfterIndexReduction=true);
+        __Dymola_InlineAfterIndexReduction=true);
   algorithm
     v2 := R.T*v1;
   end resolve2;
@@ -325,7 +325,7 @@ with
     input Orientation R2 "Orientation object to rotate frame 0 into frame 2";
     output Real v2[3] "Vector in frame 2";
     annotation (derivative(noDerivative=R1, noDerivative=R2) = Internal.resolveRelative_der,
-        InlineAfterIndexReduction=true);
+        __Dymola_InlineAfterIndexReduction=true);
   algorithm
     v2 := resolve2(R2, resolve1(R1, v1));
   end resolveRelative;
