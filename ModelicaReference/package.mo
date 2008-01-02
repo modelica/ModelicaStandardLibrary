@@ -1,9 +1,11 @@
+within ;
 package ModelicaReference "Modelica Reference"
 annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 This package is a reference to Modelica keywords and Modelica builtin 
 operators and is based on the 
-<a href=\"http://www.Modelica.org/Documentation/ModelicaSpec21.pdf\">Modelica Language Specification version 2.1</a>.
+<a href=\"http://www.modelica.org/documents/ModelicaSpec30.pdf\">Modelica Language Specification version 3.0</a> from Sept. 2007.
+
 
 <dl>
 <dt><b>Main Author:</b></dt>
@@ -17,7 +19,7 @@ operators and is based on the
 </dl>
 
 <p>
-<b>Copyright &copy; 2003-2004, Modelica Association and DLR.</b>
+<b>Copyright &copy; 2003-2004, 2008 Modelica Association and DLR.</b>
 </p>
 <p>
 <i>The <b>ModelicaReference</b> package is <b>free</b> software; 
@@ -29,6 +31,10 @@ and the accompanying <b>disclaimer</b>
 </html>", revisions="<html>
 
 <ul>
+<li><i>Jan. 2, 2008</i>
+    by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
+    Adapted to Modelica language version 3.0</li>
+
 <li><i>Sept. 30, 2004</i>
     by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
     Moved the content of \"Functions\" into \"Operators\" and updated
@@ -41,13 +47,13 @@ and the accompanying <b>disclaimer</b>
 </html>"));
 
 
-package Classes "Classes (model, function, ...)" 
-  class Block "block" 
-    
+package Classes "Classes (model, function, ...)"
+  class Block "block"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>block</font></h3>
 <p>
-Define restricted class <i>block</i>
+Define specialized class <i>block</i>
 </p>
 <h3><font color=\"#008000\">Examples</font></h3>
 
@@ -74,14 +80,20 @@ class_specifier :
 <p>See Modelica Language Specification for further details.</p>
 
 <h3><font color=\"#008000\">Description</font></h3>
-<P>The keyword block is used to define fixed causality, input-output blocks.
-Each part of a block interface must either have causality equal to input
-or output. A block may not be used in connections.</P>
+<P>
+A block class is the same as a model class
+with the restriction that each connector component of a block must
+have prefixes input and/or output for all connector variables. 
+The purpose is to model input/output blocks of block diagrams.
+Due to the restrictions on input and output prefixes,
+connections between blocks are only possible according
+to block diagram semantic.
+</P>
 </html>"));
   end Block;
-  
-  class Class "class" 
-    
+
+  class Class "class"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>class</font></h3>
 <p>
@@ -89,11 +101,16 @@ Define class
 </p>
 <h3><font color=\"#008000\">Examples</font></h3>
 
-<pre><b>class</b> Example
-  <b>parameter</b> Boolean A=true;
-  Integer i;
-  Real x;
-<b>end</b> Example;</pre>
+<pre><b>class</b> MyTable
+  <b>extends</b> ExternalObject;
+  <b>function</b> constructor
+     ...
+  <b>end</b> constructor;
+
+  <b>function</b> destructor
+     ...
+  <b>end</b> destructor;
+<b>end</b> MyTable;</pre>
 
 <h3><font color=\"#008000\">Syntax</font></h3>
 <PRE>   [ <B>encapsulated</B> ][ <B>partial </B>] <B>class</B>
@@ -108,18 +125,22 @@ class_specifier :
 
 <h3><font color=\"#008000\">Description</font></h3>
 
-<p>The keyword class is used to define general classes (without any restrictions).
-In most cases, it is recommended to use restricted classes as <b>block</b>,
-<b>connector</b>, <b>model</b>, <b>package</b>, <b>record</b> or <b>type</b>.</p>
+<p>
+The keyword class is used to define general classes (without any restrictions).
+It is identical to the keyword model.
+In most cases, it is recommended to use specialized classes as <b>block</b>,
+<b>connector</b>, <b>model</b>, <b>package</b>, <b>record</b>, <b>function</b>or <b>type</b>.
+\"class\" should only be used to define ExternalObjects.
+</p>
 </html>"));
   end Class;
-  
-  class Connector "connector" 
-    
+
+  class Connector "connector"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>connector</font></h3>
 <p>
-Define restricted class <i>connector</i>
+Define specialized class <i>connector</i>
 </p>
 <h3><font color=\"#008000\">Examples</font></h3>
 
@@ -142,16 +163,19 @@ class_specifier :
 <h3><font color=\"#008000\">Description</font></h3>
 <P>The keyword connector is used to define connectors, which are used
 in connect statements. In connectors, no equations are allowed in the
-definition or in any of its components.</P>
+definition or in any of its components.
+With respect to \"class\", it is enhanced to allow connect(..) to components 
+of connector classes.
+</P>
 </html>"));
   end Connector;
-  
-  class Function "function" 
-    
+
+  class Function "function"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>function</font></h3>
 <p>
-Define restricted class <i>function</i>
+Define specialized class <i>function</i>
 </p>
 <h3><font color=\"#008000\">Examples</font></h3>
 
@@ -177,6 +201,7 @@ class_specifier :
 <p>See Modelica Language Specification for further details.</p>
 
 <h3><font color=\"#008000\">Description</font></h3>
+
 <P>The keyword function is used to define functions as known from programming
 languages. Each part of a function interface must
 either have causality equal to input or output. A function may not be used in connections.
@@ -184,18 +209,96 @@ In functions, no equations or initial algorithm and at most
 one algorithm clause are allowed. Calling a function requires
 either an algorithm clause or an external function interface.</p>
 
-<p>A function can
-not contain calls to the Modelica built-in operators <B>der, initial, terminal,
-sample, pre, edge, change, reinit, delay</B> and <B>cardinality</B>.</P>
+<p>
+The syntax and semantics of a function have many similarities to those of the block 
+specialized class. A function has many of the properties of a general class, 
+e.g. being able to inherit other functions, or to redeclare or modify
+elements of a function declaration.
+</p>
+
+<p> 
+Modelica functions have the following restrictions compared to a 
+general Modelica class:
+</p>
+
+<ul>
+<li> Each input formal parameter of the function must be
+     prefixed by the keyword input, and each result formal parameter
+     by the keyword output. All public variables are formal parameters.</li>
+
+<li> Input formal parameters are read-only after being bound to the 
+     actual arguments or default values, i.e., they may not be assigned
+     values in the body of the function.</li>
+
+<li> A function may not be used in connections, may have no equations,
+     may have no initial algorithm, and can have at most one algorithm
+     section, which, if present, is the body of the function.</li>
+
+<li> A function may have zero or one external function interface, which,
+     if present, is the external definition of the function. </li>
+
+<li> For a function to be called in a simulation model, it must have
+     either an algorithm section or an external function interface as
+     its body, and it may not be partial.</li>
+
+<li> A function cannot contain calls to the Modelica built-in operators 
+     der, initial, terminal, sample, pre, edge, change, reinit, delay,
+     cardinality, to the operators of the built-in package Connections,
+     and is not allowed to contain when-statements.</li>
+
+<li> The dimension sizes not declared with (:) of each array result or
+     array local variable [i.e., a non-input components] of a function must
+     be either given by the input formal parameters, or given by constant
+     or parameter expressions, or by expressions containing combinations
+     of those</li>
+
+<li> The local variables of a function are not automatically initialized to
+     the implicit default values of the data type [(e.g. 0.0 for Real)
+     for performance reasons. It is the responsibility of the user to
+     provide explicit defaults or to define the values of such variables
+     before they are referenced.]</li>
+
+<li> Components of a function will inside the function behave as though
+     they had discrete-time variability.</li>
+</ul>
+
+<p>
+Modelica functions have the following enhancements compared to a general Modelica class: 
+</p>
+
+<ul>
+<li> A function may be called using the conventional positional calling syntax
+     for passing arguments.</li>
+
+<li> A function can be recursive.</li>
+
+<li> A formal parameter or local variable may be initialized
+     through an assignment (:=) of a default value in its declaration.
+     Initialization through an equation is not possible.</li>
+
+<li> A function is dynamically instantiated when it is called rather than
+     being statically instantiated by an instance declaration,
+     which is the case for other kinds of classes. </li>
+
+<li> A function may have an external function interface specifier as its body.</li>
+
+<li> A function may have a return statement in its algorithm section body.</li>
+
+<li> A function allows dimension sizes declared with (:) to be resized
+     for non-input array variables (so the actual dimension need not to be known when
+     the function is translated).</li>.
+</ul>
+
+
 </html>"));
   end Function;
-  
-  class Model "model" 
-    
+
+  class Model "model"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>model</font></h3>
 <p>
-Define restricted class <i>model</i>
+Define specialized class <i>model</i>
 </p>
 <h3><font color=\"#008000\">Examples</font></h3>
 
@@ -223,16 +326,19 @@ class_specifier :
 <p>See Modelica Language Specification for further details.</p>
 
 <h3><font color=\"#008000\">Description</font></h3>
-<P>The keyword model is used to define the restricted class model, which may not be used in connections.</P>
+<P>
+The keyword model is identical to the keyword class, i.e.,
+no restrictions and no enhancements. 
+</P>
 </html>"));
   end Model;
-  
-  class Package "package" 
-    
+
+  class Package "package"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>package</font></h3>
 <p>
-Define restricted class <i>package</i>
+Define specialized class <i>package</i>
 </p>
 <h3><font color=\"#008000\">Examples</font></h3>
 
@@ -263,16 +369,18 @@ class_specifier :
 <p>See Modelica Language Specification for further details.</p>
 
 <h3><font color=\"#008000\">Description</font></h3>
-<P>May only contain declarations of classes and constants.</P>
+<P>May only contain declarations of classes and constants.
+   Enhanced to allow import of elements of packages.</P>
+
 </html>"));
   end Package;
-  
-  class Record "record" 
-    
+
+  class Record "record"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>record</font></h3>
 <p>
-Define restricted class <i>record</i>
+Define specialized class <i>record</i>
 </p>
 <h3><font color=\"#008000\">Examples</font></h3>
 
@@ -308,18 +416,28 @@ class_specifier :
 <p>See Modelica Language Specification for further details.</p>
 
 <h3><font color=\"#008000\">Description</font></h3>
-<P>The keyword record is used to define records which are generally used in
-order to group variables. In records, no equations are allowed in the definition or in any of its components.
-Records may not be used in connections and may not contain protected components.</P>
+
+<p>
+The keyword record is used to define records which are generally used in
+order to group variables. Only public sections are allowed in the definition
+or in any of its components (i.e., equation, algorithm, initial equation,
+initial algorithm and protected sections are not allowed). May not be used in 
+connections. The elements of a record may not have prefixes input, output, inner, outer, 
+or flow.  Enhanced with implicitly available record constructor function. 
+Additionally, record components can be used as component references in
+expressions and in the left hand side of assignments, subject to
+normal type compatibility rules.
+</p>
+
 </html>"));
   end Record;
-  
-  class Type "type" 
-    
+
+  class Type "type"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>type</font></h3>
 <p>
-Define restricted class <i>type</i>
+Define specialized class <i>type</i>
 </p>
 <h3><font color=\"#008000\">Examples</font></h3>
 
@@ -337,16 +455,26 @@ class_specifier :
 <p>See Modelica Language Specification for further details.</p>
 
 <h3><font color=\"#008000\">Description</font></h3>
-<p>The keyword type is used to define types, which may only be extensions to the predefined types, enumerations, records or
-arrays of type.</p>
+<p>The keyword type is used to define types, which may only be extensions to the predefined types, enumerations, array of type, or classes extending from type.
+Enhanced to extend from predefined types [No other specialized class has this property].
+</p>
+
 </html>"));
   end Type;
+  annotation (Documentation(info="<html>
+<p>
+In this package specialized kinds of classes (earlier known as restricted classes) are
+described. They have the properties of a general class, apart from restrictions.
+Moreover, they have additional properties called enhancements.
+</p>
+
+</html>"));
 end Classes;
 
 
-package Operators "Operators (+, der, size, ...)" 
-class ElementaryOperators "Elementary operators (+, >, or, ..)" 
-    
+package Operators "Operators (+, der, size, ...)"
+class ElementaryOperators "Elementary operators (+, >, or, ..)"
+
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Elementary Operators</font></h3>
 <p>
@@ -362,9 +490,11 @@ or arrays.
       <td><i>Example</i></td>
       <td><i>Description</i></tr></td>
       </tr>
-  <tr><td>+, -</td>
-      <td>a + b</td>
+  <tr><td>+, -, .+, .-</td>
+      <td>a + b<br>
+          a .+ b</td>
       <td>addition and subtraction; element-wise on arrays</td></tr>
+
   <tr><td>*</td>
       <td>a * b</td>
       <td>multiplication;<br>
@@ -379,9 +509,16 @@ or arrays.
           division of an array by a scalar is defined element-wise.<br>
           The result is always of real type. In order to get integer <br>
           division with truncation use the function div.</td></tr>
+
   <tr><td>^</td>
       <td>a^b</td>
       <td>scalar power or integer power of a square matrix</td></tr>
+
+  <tr><td>.*, ./, .^</td>
+      <td>a .* b</td>
+      <td>element-wise multiplication, division and exponentation of 
+          scalars and arrays</td></tr>
+
   <tr><td>=</td>
       <td>a * b = c + d</td>
       <td>equal operator of an equation; element-wise on arrays</td></tr>
@@ -435,7 +572,7 @@ or arrays.
   <tr><td><b>not</b></td>
       <td><b>not</b> a</td>
       <td>logical not</td></tr>
-</table
+</table>
 
 &nbsp;
 
@@ -458,7 +595,473 @@ or arrays.
   <tr><td>+</td>
       <td>\"abc\" + \"def\"</td>
       <td>Concatenation of string scalars or arrays</td></tr>
-</table;
+</table>
+
+<p class=\"MsoBodyText\"><span lang=\"EN-US\">Operator
+precedence determines the order
+of evaluation of operators in an expression. An operator with higher
+precedence
+is evaluated before an operator with lower precedence in the same
+expression.</span></p>
+<p class=\"MsoBodyTextIndent\"><span lang=\"EN-US\">The
+following table presents all
+the expression operators in order of precedence from highest to lowest.
+All operators are binary except exponentiation, the postfix
+operators and
+those shown as unary together with <i>expr</i>, the
+conditional operator, the
+array construction operator {} and concatenation operator [ ], and the
+array
+range constructor which is either binary or ternary</span><span
+ lang=\"EN-US\">. Operators with the same precedence occur at
+the same line of the
+table: </span></p>
+
+<table class=\"MsoNormalTable\"
+ style=\"margin-left: 12.5pt; border-collapse: collapse;\"
+ border=\"0\" cellpadding=\"0\" cellspacing=\"0\">
+  <tbody>
+    <tr>
+      <td
+ style=\"border-style: solid none solid solid; border-color: windowtext -moz-use-text-color windowtext windowtext; border-width: 1pt medium 1pt 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
+ valign=\"top\" width=\"180\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><i><span
+ lang=\"EN-US\">Operator Group</span></i></p>
+      </td>
+      <td
+ style=\"border-style: solid none; border-color: windowtext -moz-use-text-color; border-width: 1pt medium; padding: 0pt 5.4pt; width: 152.95pt;\"
+ valign=\"top\" width=\"204\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><i><span
+ lang=\"EN-US\">Operator Syntax</span></i></p>
+      </td>
+      <td
+ style=\"border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0pt 5.4pt; width: 144.75pt;\"
+ valign=\"top\" width=\"193\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><i><span
+ lang=\"EN-US\">Examples</span></i></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
+ valign=\"top\" width=\"180\">
+      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
+ lang=\"EN-US\">postfix array index operator</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
+ valign=\"top\" width=\"204\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">[]</span></span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
+ valign=\"top\" width=\"193\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">arr[index]</span></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
+ valign=\"top\" width=\"180\">
+      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
+ lang=\"EN-US\">postfix access operator</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
+ valign=\"top\" width=\"204\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">. </span></span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
+ valign=\"top\" width=\"193\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">a.b</span></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
+ valign=\"top\" width=\"180\">
+      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
+ lang=\"EN-US\">postfix function call</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
+ valign=\"top\" width=\"204\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><i><span
+ lang=\"EN-US\">funcName</span></i><span
+ lang=\"EN-US\">(<i>function-arguments</i>)</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
+ valign=\"top\" width=\"193\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">sin(4.36)</span></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
+ valign=\"top\" width=\"180\">
+      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
+ lang=\"EN-US\">array construct/concat</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
+ valign=\"top\" width=\"204\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ lang=\"EN-US\">{<i>expressions</i>}&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp; [<i>expressions</i>]&nbsp;&nbsp; [<i>expressions</i></span><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">;</span></span><span lang=\"EN-US\">
+      <i>expressions</i>...]</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
+ valign=\"top\" width=\"193\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">{2,3}&nbsp; [5,6]</span></span></p>
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">[2,3; 7,8]</span></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
+ valign=\"top\" width=\"180\">
+      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
+ lang=\"EN-US\">exponentiation</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
+ valign=\"top\" width=\"204\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">^</span></span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
+ valign=\"top\" width=\"193\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">2^3</span></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
+ valign=\"top\" width=\"180\">
+      <p class=\"MsoBodyText\"
+ style=\"margin-top: 0pt; text-align: left;\" align=\"left\"><span
+ lang=\"EN-US\">multiplicative and array elementwise
+multiplicative</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
+ valign=\"top\" width=\"204\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">*</span></span><span class=\"CODE\"><span
+ style=\"font-size: 9.5pt;\" lang=\"EN-US\">&nbsp;&nbsp;/&nbsp;
+.*&nbsp;&nbsp; ./</span></span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
+ valign=\"top\" width=\"193\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: left; text-indent: 0pt;\" align=\"left\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">2*3&nbsp;&nbsp; 2/3<br>
+[1,2;3,4].*[2,3;5,6]</span></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
+ valign=\"top\" width=\"180\">
+      <p class=\"MsoBodyText\"
+ style=\"margin-top: 0pt; text-align: left;\" align=\"left\"><span
+ lang=\"EN-US\">additive and array elementwise additive</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
+ valign=\"top\" width=\"204\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: left; text-indent: 0pt;\" align=\"left\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">+</span></span><span class=\"CODE\"><span
+ style=\"font-size: 9.5pt;\" lang=\"EN-US\">&nbsp;&nbsp;-</span></span><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">&nbsp;&nbsp;+</span></span><i><span
+ lang=\"EN-US\">expr</span></i><span lang=\"EN-US\">&nbsp;
+      </span><span class=\"CODE\"><span
+ style=\"font-size: 9.5pt;\" lang=\"EN-US\">-</span></span><i><span
+ lang=\"EN-US\">expr<br>
+      </span></i><span lang=\"EN-US\">.+&nbsp;
+.</span><span class=\"CODE\"><span
+ style=\"font-size: 9.5pt;\" lang=\"EN-US\">-</span></span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
+ valign=\"top\" width=\"193\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">a+b</span></span><span
+ lang=\"EN-US\">,</span><span class=\"CODE\"><span
+ style=\"font-size: 9.5pt;\" lang=\"EN-US\">&nbsp;
+a-b, +a, -a</span></span></p>
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">[1,2;3,4].+[2,3;5,6]</span></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
+ valign=\"top\" width=\"180\">
+      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
+ lang=\"EN-US\">relational</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
+ valign=\"top\" width=\"204\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">&lt;</span></span><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">&nbsp;&nbsp;&lt;=</span></span><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">&nbsp;&nbsp;&gt;</span></span><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">&nbsp;&nbsp;&gt;=</span></span><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">&nbsp;&nbsp;==</span></span><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">&nbsp;&nbsp;&lt;&gt;</span></span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
+ valign=\"top\" width=\"193\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">a&lt;b</span></span><span
+ lang=\"EN-US\">,</span><span class=\"CODE\"><span
+ style=\"font-size: 9.5pt;\" lang=\"EN-US\">&nbsp;
+a&lt;=b, a&gt;b, ...</span></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
+ valign=\"top\" width=\"180\">
+      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">...</span></span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
+ valign=\"top\" width=\"204\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
+ valign=\"top\" width=\"193\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
+ valign=\"top\" width=\"180\">
+      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
+ lang=\"EN-US\">unary negation</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
+ valign=\"top\" width=\"204\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">not</span></span><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">&nbsp;</span></span><i><span
+ lang=\"EN-US\">expr</span></i></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
+ valign=\"top\" width=\"193\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">not b1</span></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
+ valign=\"top\" width=\"180\">
+      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
+ lang=\"EN-US\">logical and</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
+ valign=\"top\" width=\"204\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">and</span></span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
+ valign=\"top\" width=\"193\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">b1 and b2</span></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
+ valign=\"top\" width=\"180\">
+      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
+ lang=\"EN-US\">logical or</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
+ valign=\"top\" width=\"204\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">or</span></span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
+ valign=\"top\" width=\"193\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">b1 or&nbsp; b2</span></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
+ valign=\"top\" width=\"180\">
+      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
+ lang=\"EN-US\">array range</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
+ valign=\"top\" width=\"204\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><i><span
+ lang=\"EN-US\">expr</span></i><span lang=\"EN-US\">&nbsp;
+      </span><span class=\"CODE\"><span
+ style=\"font-size: 9.5pt;\" lang=\"EN-US\">:</span></span><span
+ lang=\"EN-US\">&nbsp; <i>expr</i>&nbsp; </span><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">:</span></span><span lang=\"EN-US\">&nbsp;
+      <i>expr</i></span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
+ valign=\"top\" width=\"193\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">1:5</span></span><span
+ lang=\"EN-US\">,</span><span class=\"CODE\"><span
+ style=\"font-size: 9.5pt;\" lang=\"EN-US\">
+start:step:stop</span></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
+ valign=\"top\" width=\"180\">
+      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
+ lang=\"EN-US\">conditional</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
+ valign=\"top\" width=\"204\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">if</span></span><span
+ lang=\"EN-US\">&nbsp;&nbsp;<i>expr</i>&nbsp;
+      </span><span class=\"CODE\"><span
+ style=\"font-size: 9.5pt;\" lang=\"EN-US\">then</span></span><span
+ lang=\"EN-US\">&nbsp;&nbsp;<i>expr</i>&nbsp;
+      </span><span class=\"CODE\"><span
+ style=\"font-size: 9.5pt;\" lang=\"EN-US\">else</span></span><span
+ lang=\"EN-US\">&nbsp;&nbsp;<i>expr</i></span></p>
+      </td>
+      <td
+ style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
+ valign=\"top\" width=\"193\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">if b then 3 else x</span></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style=\"border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
+ valign=\"top\" width=\"180\">
+      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
+ lang=\"EN-US\">named argument</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 152.95pt;\"
+ valign=\"top\" width=\"204\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><i><span
+ lang=\"EN-US\">ident&nbsp; </span></i><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">=</span></span><span lang=\"EN-US\">&nbsp;
+      <i>expr</i>&nbsp; </span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 144.75pt;\"
+ valign=\"top\" width=\"193\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">x = 2.26</span></span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class=\"MsoBodyText\"><span lang=\"EN-US\">The
+conditional operator may also include
+elseif-clauses. Equality </span><span class=\"CODE\"><span
+ style=\"font-size: 9.5pt;\" lang=\"EN-US\">=</span></span><span
+ lang=\"EN-US\"> and assignment </span><span
+ class=\"CODE\"><span style=\"font-size: 9.5pt;\"
+ lang=\"EN-US\">:=</span></span><span
+ lang=\"EN-US\"> are not expression operators since they are
+allowed only in
+equations and in assignment statements respectively. All binary
+expression
+operators are left associative.</span></p>
+
+<p class=\"MsoBodyText\"><span lang=\"EN-US\">
+Note, the unary minus and plus in Modelica
+is slightly different than in Mathematica (Mathematica is a registered trademark
+of Wolfram Research Inc.) and in MATLAB (MATLAB is a registered trademark of MathWorks Inc.),
+since the following expressions are illegal (whereas in
+Mathematica and in MATLAB these are valid expressions):
+</p>
+
+<pre>  2*-2   // = -4 in Mathematica/MATLAB; is illegal in Modelica
+  --2    // =  2 in Mathematica/MATLAB; is illegal in Modelica
+  ++2    // =  2 in Mathematica/MATLAB; is illegal in Modelica
+  2--2   // =  4 in Mathematica/MATLAB; is illegal in Modelica
+</pre>
+
 </html>"));
 end ElementaryOperators;
   annotation (Documentation(info="<html>
@@ -474,12 +1077,15 @@ also on the status of the simulation (such as \"pre(..)\"), or
 the function operates on input arguments of different types
 (such as \"String(..)\"). Neither of these \"functions\"
 can be defined with a \"standard\" Modelica function and are 
-therefore builtin operators of the Modelica language.
+therefore builtin operators of the Modelica language
+(with exception of the basic mathematical functions,
+sin, cos, tan, asin, acos, atan, atan2, sinh, cosh, tanh, exp,
+log, log10 that are provided for convenience as built-in functions).
 </p>
 </html>"));
-  
-  class Abs "abs" 
-    
+
+  class Abs "abs"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>abs</font></h3>
 <p>
@@ -488,46 +1094,68 @@ Absolute value of Real or Integer variable.
 <h3><font color=\"#008000\">Syntax</font></h3>
 <blockquote><pre><b>abs</b>(v)</pre></blockquote>
 <h3><font color=\"#008000\">Description</font></h3>
-<P>Is expanded into &quot;(<B>if </B>v &ge; 0
+<P>Is expanded into &quot;noEvent(<B>if </B>v &ge; 0
 <B>then</B> v <B>else</B> -v)&quot;. Argument v
-needs to be an Integer or Real expression. <I>[Note,
-outside of a when clause state events are triggered].</I></P>
+needs to be an Integer or Real expression. </P>
 <h3><font color=\"#008000\">Examples</font></h3>
 <pre>
   <b>abs</b>({-3, 0, 3})
  = {3, 0, 3}</pre>
 </html>"));
   end Abs;
-  
-  class Assert "assert" 
-    
+
+  class Assert "assert"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>assert</font></h3>
 <p>
 Trigger error and print error message if assertion condition is not fulfilled
 </p>
 <h3><font color=\"#008000\">Syntax</font></h3>
-<blockquote><pre><b>assert</b>(condition, message)</pre></blockquote>
+<blockquote><pre><b>assert</b>(condition, message, level = AssertionLevel.error)</pre></blockquote>
 <h3><font color=\"#008000\">Description</font></h3>
 <p>The boolean expression <i>condition</i> shall be true for successful model evaluations.
 Otherwise, an error occurs using the string expression <i>message</i>
 as error message.</p>
 <P>If the condition of an assert statement is true, message is not
 evaluated and the procedure call is ignored. If the condition
-evaluates to false the current evaluation is aborted. The
-simulation may continue with another evaluation.</P>
-<P>Failed assertions takes precedence over successful termination,
-such that if the model first triggers the end of successful
-analysis by reaching the stop-time or explicitly with terminate(),
-but the evaluation with terminal()=true triggers an assert, the
-analysis failed. <I>[The intent is to perform a test of model
-validity and to report the failed assertion to the user if the
-expression evaluates to false. The means of reporting a failed
-assertion are dependent on the simulation environment. The
-intention is that the current evaluation of the model should stop
-when an assert with a false condition is encountered, but the tool
-should continue the current analysis (e.g. by using a shorter
-stepsize).]</I></P>
+evaluates to false different actions are taken depending on the level input:
+</p>
+
+<ul>
+<li> level = AssertionLevel.error:<br>
+     The current evaluation is aborted. The simulation may 
+     continue with another evaluation [e.g., with a shorter step-size,
+     or by changing the values of iteration variables].
+     If the simulation is aborted, message indicates the cause of the
+     error. Failed assertions takes precedence over successful
+     termination, such that if the model first triggers the
+     end of successful analysis by reaching the stop-time
+     or explicitly with terminate(), but the evaluation with
+     terminal()=true triggers an assert, the analysis failed. </li>
+<li> level = AssertionLevel.warning:<br>
+     The current evaluation is not aborted. message indicates 
+     the cause of the warning [It is recommended to report the 
+     warning only once when the condition becomes false, and it is
+     reported that the condition is no longer violated when the
+     condition returns to true. The assert(..) statement shall
+     have no influence on the behavior of the model.
+     For example, by evaluating the condition and reporting the
+     message only after accepted integrator steps. condition
+     needs to be implicitly treated with noEvent(..) since
+     otherwise events might be triggered that can lead to slightly
+     changed simulation results].</li>
+</ul>
+
+<p>
+The AssertionLevel.error case can be used to avoid evaluating a model outside its limits of validity; for instance, a function to compute the saturated liquid temperature cannot be called with a pressure lower than the triple point value.
+The AssertionLevel.warning case can be used when the boundary of validity is not hard: for instance, a fluid property model based on a polynomial interpolation curve might give accurate results between temperatures of 250 K and 400 K, but still give reasonable results in the range 200 K and 500 K. When the temperature gets out of the smaller interval, but still stays in the largest one, the user should be warned, but the simulation should continue without any further action. The corresponding code would be
+</p>
+<pre>  <b>assert</b>(T &gt; 250 and T &lt; 400, \"Medium model outside full accuracy range\",
+         AssertionLevel.warning);
+  <b>assert</b>(T &gt; 200 and T &lt; 500, \"Medium model outside feasible region\");
+</pre>
+
 <h3><font color=\"#008000\">Examples</font></h3>
 <pre>  <b>parameter</b> Real upperLimit=2;
   <b>parameter</b> Real lowerLimit=-2;
@@ -536,20 +1164,29 @@ stepsize).]</I></P>
 </pre>
 </html>"));
   end Assert;
-  
-  class Cardinality "cardinality" 
-    
+
+  class Cardinality "cardinality"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>cardinality</font></h3>
 <p>
-Number of connectors in connection
+Number of connectors in connection.
+This is a deprecated operator. It should  no longer be used, since it will be removed in one of the next Modelica releases.
 </p>
+
 <h3><font color=\"#008000\">Syntax</font></h3>
 <blockquote><pre><b>cardinality</b>(c)</pre></blockquote>
 <h3><font color=\"#008000\">Description</font></h3>
 <p>Returns the number of (inside and outside) occurrences
 of connector instance c in a connect statement as an Integer number.</p>
 <p><i>[The cardinality operator allows the definition of connection dependent equations in a model.]</i></p>
+
+<p>
+Instead of the cardinality(..) operator, often conditional
+connectors can be used, that are enabled/disabled via Boolean
+parameters.
+</p>
+
 <h3><font color=\"#008000\">Examples</font></h3>
 <PRE><B>connector</B> Pin
   Real      v;
@@ -572,9 +1209,9 @@ of connector instance c in a connect statement as an Integer number.</p>
 <B>end</B> Resistor;</PRE>
 </html>"));
   end Cardinality;
-  
-  class Ceil "ceil" 
-    
+
+  class Ceil "ceil"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>ceil</font></h3>
 <p>
@@ -592,9 +1229,9 @@ triggered when the return value changes discontinuously.]</i></p>
  = {-3.0, 4.0}</pre>
 </html>"));
   end Ceil;
-  
-  class Change "change" 
-    
+
+  class Change "change"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>change</font></h3>
 <p>
@@ -618,8 +1255,26 @@ The same restrictions as for the pre() operator apply.</P>
 <p align=\"center\"><img src=\"../Images/change.png\" width=\"400\" height=\"280\" alt=\"Simulation result\"></p>
 </html>"));
   end Change;
-  
-class Cross "cross" 
+
+  class Cos "cos"
+
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>cos</font></h3>
+<p>
+Trigonometric cosine function
+</p>
+<h3><font color=\"#008000\">Syntax</font></h3>
+<blockquote><pre><b>cos</b>(v)</pre></blockquote>
+<h3><font color=\"#008000\">Description</font></h3>
+<p>Returns the cosine of v.
+Argument v needs to be an Integer or Real expression.</p>
+<h3><font color=\"#008000\">Examples</font></h3>
+<pre><b>cos</b>(3.14159265358979)
+ = -1.0</pre>
+</html>"));
+  end Cos;
+
+class Cross "cross"
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>cross</font></h3>
 <p>
@@ -638,9 +1293,9 @@ Returns the cross product of the 3-vectors x and y, i.e.
 </pre></blockquote>
 </html>"));
 end Cross;
-  
-  class Delay "delay" 
-    
+
+  class Delay "delay"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>delay</font></h3>
 <p>
@@ -685,30 +1340,31 @@ time in order to avoid extrapolation in the delay buffer.]</i></p>
 <p align=\"center\"><img src=\"../Images/delay.png\" width=\"400\" height=\"280\" alt=\"Simulation result\"></p>
 </html>"));
   end Delay;
-  
-  class Der "der" 
-    
+
+  class Der "der"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>der</font></h3>
 <p>
-Time derivative of argument
+Time derivative of expression
 </p>
 <h3><font color=\"#008000\">Syntax</font></h3>
-<blockquote><pre><b>der</b>(x)</pre></blockquote>
+<blockquote><pre><b>der</b>(expr)</pre></blockquote>
 <h3><font color=\"#008000\">Description</font></h3>
-<P>The time derivative of x. Variable x need to be a subtype of Real,
-and may not be a discrete-time variable. If x is an array, the operator
-is applied to all elements of the array. For Real parameters and
+<P>The time derivative of expression expr. 
+If the expression expr is a scalar it needs to be a subtype of Real. The expression and all its subexpressions must be differentiable. If expr is an array, the operator is applied to all elements of the array. For Real parameters and
 constants the result is a zero scalar or array of the same size as the
 variable.</P>
 <h3><font color=\"#008000\">Examples</font></h3>
-<pre>  Real x, xdot;
+<pre>  Real x, xdot1, xdot2;
 <b>equation</b>
-  xdot = <b>der</b>(x);</pre>
+  xdot1 = <b>der</b>(x);
+  xdot2 = <b>der</b>(x*sin(x));
+</pre>
 </html>"));
   end Der;
-  
-class Diagonal "diagonal" 
+
+class Diagonal "diagonal"
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>diagonal</font></h3>
 <p>
@@ -723,9 +1379,9 @@ on the diagonal and all other elements zero.
 </p>
 </html>"));
 end Diagonal;
-  
-  class Div "div" 
-    
+
+  class Div "div"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>div</font></h3>
 <p>
@@ -742,14 +1398,18 @@ implementation-defined, so the standard function
 <TT>div()</TT> must be used.]</I> Result and arguments
 shall have type Real or Integer. If either of the
 arguments is Real the result is Real otherwise Integer.</P>
+
+<p><i>[Note, outside of a when clause state events are triggered
+when the return value changes discontinuously.]</i></p>
+
 <h3><font color=\"#008000\">Examples</font></h3>
 <pre><b>div</b>(13,6)
  = 2</pre>
 </html>"));
   end Div;
-  
-  class Edge "edge" 
-    
+
+  class Edge "edge"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>edge</font></h3>
 <p>
@@ -775,8 +1435,8 @@ classes).</P>
 <p align=\"center\"><img src=\"../Images/edge.png\" width=\"400\" height=\"280\" alt=\"Simulation result\"></p>
 </html>"));
   end Edge;
-  
-class Fill "fill" 
+
+class Fill "fill"
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>fill</font></h3>
 <p>
@@ -801,9 +1461,9 @@ Boolean vb[3]   = fill(true,3);  // = {true, true, true}
 </pre></blockquote>
 </html>"));
 end Fill;
-  
-  class Floor "floor" 
-    
+
+  class Floor "floor"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>floor</font></h3>
 <p>
@@ -821,8 +1481,8 @@ value changes discontinuously.]</i></p>
  = {-4.0, 3.0}</pre>
 </html>"));
   end Floor;
-  
-class Identity "identity" 
+
+class Identity "identity"
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>identity</font></h3>
 <p>
@@ -837,9 +1497,9 @@ on the diagonal and zeros at the other places.
 </p>
 </html>"));
 end Identity;
-  
-  class Initial "initial" 
-    
+
+  class Initial "initial"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>initial</font></h3>
 <p>
@@ -856,9 +1516,30 @@ True during initialization
   off = x &lt; -2 or <b>initial</b>();</pre>
 </html>"));
   end Initial;
-  
-  class Integer "integer" 
-    
+
+  class IntegerUpperCase "Integer"
+
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>integer</font></h3>
+<p>
+Returns ordinal number of enumeration
+</p>
+<h3><font color=\"#008000\">Syntax</font></h3>
+<blockquote><pre><b>Integer</b>(E.e1)</pre></blockquote>
+<h3><font color=\"#008000\">Description</font></h3>
+<p>
+Returns the ordinal number of the enumeration value E.enumvalue, where Integer(E.e1)=1, Integer(E.en)= size(E), for an enumeration type E=enumeration(e1, ...,  en).</p>
+
+<h3><font color=\"#008000\">Examples</font></h3>
+<pre>  <b>type</b> Size = enumeration(small, medium, large, xlarge);
+  <b>Integer</b>(Size.large) = 3</pre>
+
+
+</html>"));
+  end IntegerUpperCase;
+
+  class IntegerLowerCase "integer"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>integer</font></h3>
 <p>
@@ -875,10 +1556,10 @@ when the return value changes discontinuously.]</i></p>
 <pre><b>integer</b>({-3.14, 3.14})
  = {-4, 3}</pre>
 </html>"));
-  end Integer;
-  
-  class IsPresent "isPresent" 
-    
+  end IntegerLowerCase;
+
+  class IsPresent "isPresent"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>isPresent</font></h3>
 <p>
@@ -914,10 +1595,10 @@ list. It can only be used in functions.
 </pre>
 </blockquote>
 </html>"));
-    
+
   end IsPresent;
-  
-class Linspace "linspace" 
+
+class Linspace "linspace"
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>linspace</font></h3>
 <p>
@@ -943,8 +1624,8 @@ Real v[:] = linspace(1,7,2);  // = {1, 3, 5, 7}
 </pre></blockquote>
 </html>"));
 end Linspace;
-  
-class Matrix "matrix" 
+
+class Matrix "matrix"
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>matrix</font></h3>
 <p>
@@ -974,8 +1655,8 @@ C[i_1, ..., i_nA, 1, ..., 1] = A[i_1, ..., i_nA].
 </pre></blockquote>
 </html>"));
 end Matrix;
-  
-class Max "max" 
+
+class Max "max"
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>max</font></h3>
 <p>
@@ -1006,8 +1687,8 @@ combinations of i in u, ..., j in v
 </pre></blockquote>
 </html>"));
 end Max;
-  
-class Min "min" 
+
+class Min "min"
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>min</font></h3>
 <p>
@@ -1038,9 +1719,9 @@ combinations of i in u, ..., j in v
 </pre></blockquote>
 </html>"));
 end Min;
-  
-  class Mod "mod" 
-    
+
+  class Mod "mod"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>mod</font></h3>
 <p>
@@ -1063,8 +1744,8 @@ discontinuously.]</I></P>
  = -1.2</pre>
 </html>"));
   end Mod;
-  
-class Ndims "ndims" 
+
+class Ndims "ndims"
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>ndims</font></h3>
 <p>
@@ -1084,9 +1765,9 @@ Integer n = ndims(A);  // = 3
 </pre></blockquote>
 </html>"));
 end Ndims;
-  
-  class NoEvent "noEvent" 
-    
+
+  class NoEvent "noEvent"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>noEvent</font></h3>
 <p>
@@ -1117,8 +1798,8 @@ discontinuously.]</i></p>
 <pre>der(h)=<B>if noEvent</B>(h&gt;0) <B>then</B> -c*sqrt(h) <B>else</B> 0;</pre>
 </html>"));
   end NoEvent;
-  
-class Ones "ones" 
+
+class Ones "ones"
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>ones</font></h3>
 <p>
@@ -1133,8 +1814,8 @@ elements equal to one (ni >=0 ).
 </p>
 </html>"));
 end Ones;
-  
-class OuterProduct "outerProduct" 
+
+class OuterProduct "outerProduct"
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>outerProduct</font></h3>
 <p>
@@ -1149,9 +1830,9 @@ Returns the outer product of vectors v1 and v2 <br>
 </p>
 </html>"));
 end OuterProduct;
-  
-  class Pre "pre" 
-    
+
+  class Pre "pre"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>pre</font></h3>
 <p>
@@ -1206,8 +1887,8 @@ model equations.]</I></p>
 <p align=\"center\"><img src=\"../Images/pre.png\" width=\"400\" height=\"280\" alt=\"Simulation result\"></p>
 </html>"));
   end Pre;
-  
-class Product "product" 
+
+class Product "product"
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>product</font></h3>
 <p>
@@ -1242,9 +1923,9 @@ u, ..., j <b>in</b> v) is the same as the type of e(i,...j).
 </pre></blockquote>
 </html>"));
 end Product;
-  
-  class Reinit "reinit" 
-    
+
+  class Reinit "reinit"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>reinit</font></h3>
 <p>
@@ -1283,9 +1964,9 @@ because the reinit operator is applied on a non-state variable.]</i></P>
     <B>end when</B>;</PRE>
 </html>"));
   end Reinit;
-  
-  class Rem "rem" 
-    
+
+  class Rem "rem"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>rem</font></h3>
 <p>
@@ -1310,9 +1991,9 @@ the return value changes discontinuously.]</I></P>
  = 0.2</pre>
 </html>"));
   end Rem;
-  
-  class Sample "sample" 
-    
+
+  class Sample "sample"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>sample</font></h3>
 <p>
@@ -1339,8 +2020,8 @@ expressions and need to be a subtype of Real or Integer.
 <p align=\"center\"><img src=\"../Images/sample.png\" width=\"400\" height=\"280\" alt=\"Simulation result\"></p>
 </html>"));
   end Sample;
-  
-class Scalar "scalar" 
+
+class Scalar "scalar"
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>scalar</font></h3>
 <p>
@@ -1360,9 +2041,9 @@ Real e = scalar(A);  // = 3
 </pre></blockquote>
 </html>"));
 end Scalar;
-  
-  class SemiLinear "semiLinear" 
-    
+
+  class SemiLinear "semiLinear"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>semiLinear</font></h3>
 <p>
@@ -1454,9 +2135,9 @@ flow direction.]</i>
 </p>
 </html>"));
   end SemiLinear;
-  
-  class Sign "sign" 
-    
+
+  class Sign "sign"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>sign</font></h3>
 <p>
@@ -1465,7 +2146,7 @@ Signum function of a Real or Integer number
 <h3><font color=\"#008000\">Syntax</font></h3>
 <blockquote><pre><b>sign</b>(v)</pre></blockquote>
 <h3><font color=\"#008000\">Description</font></h3>
-<p>Is expanded into &quot;(<b>if</b> v &gt; 0 <b>then</b> 1 <b>else
+<p>Is expanded into &quot;noEvent(<b>if</b> v &gt; 0 <b>then</b> 1 <b>else
 if</b> v &lt; 0 <b>then</b> -1 <b>else</b> 0)&quot;. Argument v
 needs to be an Integer or Real expression. <i>[Note, outside of a
 when clause state events are triggered.]</i></p>
@@ -1474,8 +2155,26 @@ when clause state events are triggered.]</i></p>
  = {-1, 0, 1}</pre>
 </html>"));
   end Sign;
-  
-class Size "size" 
+
+  class Sin "sin"
+
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>sin</font></h3>
+<p>
+Trigonometric sine function
+</p>
+<h3><font color=\"#008000\">Syntax</font></h3>
+<blockquote><pre><b>sin</b>(v)</pre></blockquote>
+<h3><font color=\"#008000\">Description</font></h3>
+<p>Returns the sine of v.
+Argument v needs to be an Integer or Real expression.</p>
+<h3><font color=\"#008000\">Examples</font></h3>
+<pre><b>sin</b>(3.14159265358979)
+ = 0.0</pre>
+</html>"));
+  end Sin;
+
+class Size "size"
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>size</font></h3>
 <p>
@@ -1503,8 +2202,8 @@ Integer n[:] = size(A);    // = {8,4,5}
 </pre></blockquote>
 </html>"));
 end Size;
-  
-class Skew "skew" 
+
+class Skew "skew"
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>skew</font></h3>
 <p>
@@ -1525,9 +2224,9 @@ Returns the 3 x 3 skew symmetric matrix associated with a
 </pre></blockquote>
 </html>"));
 end Skew;
-  
-  class Smooth "smooth" 
-    
+
+  class Smooth "smooth"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>smooth</font></h3>
 <p>
@@ -1562,9 +2261,9 @@ discontinuously.]</I></p>
   // noEvent is necessary.</PRE>
 </html>"));
   end Smooth;
-  
-  class Sqrt "sqrt" 
-    
+
+  class Sqrt "sqrt"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>sqrt</font></h3>
 <p>
@@ -1580,9 +2279,9 @@ Argument v needs to be an Integer or Real expression.</p>
  = 3.0</pre>
 </html>"));
   end Sqrt;
-  
-  class string "String" 
-    
+
+  class string "String"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>String</font></h3>
 <p>
@@ -1595,6 +2294,7 @@ Convert a scalar Real, Integer or Boolean expression to a String representation
 <b>String</b>(i_expr, minimumLength=0, leftJustified=true)
 <b>String</b>(r_expr, significantDigits=6, minimumLength=0, leftJustified=true)
 <b>String</b>(r_expr, format)
+<b>String</b>(e_expr, minimumLength=0, leftJustified=true)
 </pre>
 </blockquote>
 <h3><font color=\"#008000\">Description</font></h3>
@@ -1612,6 +2312,9 @@ The arguments have the following meaning
 <tr>
   <td> Real r_expr</td>
   <td> Real expression</td></tr>
+<tr>
+  <td> type e_expr = enumeration(..)</td>
+  <td> Enumeration expression</td></tr>
 <tr>
   <td> Integer minimumLength = 0 </td>
   <td> Minimum length of the resulting string. If necessary, <br>
@@ -1667,8 +2370,8 @@ String(123, minimumLength=6, leftJustified=false)  // = \"   123\"
 </blockquote>
 </html>"));
   end string;
-  
-class Sum "sum" 
+
+class Sum "sum"
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>sum</font></h3>
 <p>
@@ -1704,8 +2407,8 @@ u, ..., j <b>in</b> v) is the same as the type of e(i,...j).
 </pre></blockquote>
 </html>"));
 end Sum;
-  
-class Symmetric "symmetric" 
+
+class Symmetric "symmetric"
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>symmetric</font></h3>
 <p>
@@ -1728,9 +2431,9 @@ B := <b>symmetric</b>(A)
 </pre></blockquote>
 </html>"));
 end Symmetric;
-  
-  class Terminal "terminal" 
-    
+
+  class Terminal "terminal"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>terminal</font></h3>
 <p>
@@ -1746,9 +2449,9 @@ True after successful analysis
   a = <b>change</b>(b) or <b>terminal</b>();</pre>
 </html>"));
   end Terminal;
-  
-  class Terminate "terminate" 
-    
+
+  class Terminate "terminate"
+
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>terminate</font></h3>
 <p>
@@ -1775,8 +2478,8 @@ give more complex stopping criteria than a fixed point in time.]</I></P>
 end</B> ThrowingBall;</pre>
 </html>"));
   end Terminate;
-  
-class Transpose "transpose" 
+
+class Transpose "transpose"
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>tranpose</font></h3>
 <p>
@@ -1792,8 +2495,8 @@ It is an error, if array A does not have at least
 </p>
 </html>"));
 end Transpose;
-  
-class Vector "vector" 
+
+class Vector "vector"
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>vector</font></h3>
 <p>
@@ -1814,7 +2517,7 @@ Real v[2] = vector(A);  // = {3,4}
 </html>"));
 end Vector;
 
-class Zeros "zeros" 
+class Zeros "zeros"
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>zero</font></h3>
 <p>
@@ -1831,10 +2534,410 @@ elements equal to zero (ni >= 0).
 end Zeros;
 end Operators;
 
+class BalancedModel "balanced model"
+
+  annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>balanced models</font></h3>
+<p>
+The basic concept to count unknowns and equations.
+</p>
+
+<p>
+Restrictions for model and block classes are present, in order that missing
+or too many equations can be detected and localized by a Modelica
+translator before using the respective model or block class.
+</p>
+
+<h3><font color=\"#008000\">Examples</font></h3>
+
+<pre>   <b>partial model</b> BaseCorrelation
+     <b>input</b> Real x;
+     Real y;
+   <b>end</b> BaseCorrelation;
+
+   <b>model</b> SpecialCorrelation // correct in Modelica 2.2 and 3.0
+      <b>extends</b> BaseCorrelation(x=2);
+   <b>equation</b>
+       y=2/x;
+   <b>end</b> SpecialCorrelation;
+
+   <b>model</b> UseCorrelation // correct according to Modelica 2.2
+                        // not valid according to Modelica 3.0
+      <b>replaceable model</b> Correlation=BaseCorrelation;
+      Correlation correlation;
+   <b>equation</b>
+      correlation.y=time;
+   <b>end</b> UseCorrelation;
+
+   <b>model</b> Broken // after redeclaration, there is 1 equation too much in Modelica 2.2
+      UseCorrelation example(redeclare Correlation=SpecialCorrelation);
+   <b>end</b> Broken;
+</pre>
+
+<p>
+In this case one can argue that both UseCorrelation (adding an acausal equation) and SpecialCorrelation (adding a default to an input) are correct, but still when combined they lead to a model with too many equations - and it is not possible to determine which model is incorrect without strict rules.
+In Modelica 2.2, model Broken will work with some models. However, by just redeclaring it to model SpecialCorrelation, an error will occur and it will be very difficult in a larger model to figure out the source of this error. 
+In Modelica 3.0, model UseCorrelation is no longer allowed and the translator will give an error. In fact, it is guaranteed that a redeclaration cannot lead to an unbalanced model any more.
+</p>
 
 
-class Connect "connect" 
+<h3><font color=\"#008000\">Description</font></h3>
+
+<p>
+The restrictions below apply after flattening \" i.e. inherited components are included \" possibly modified. 
+</p>
+
+<p>
+<b>Definition 1: Local Number of Unknowns</b>
+</p>
+
+<p>
+The local number of unknowns of a model or block class is the sum based on the components:
+</p>
+
+<ul>
+<li> For each declared component of specialized class type (Real, Integer, String, Boolean, enumeration and arrays of those, etc) or record, not declared as outer, it is the \"number of unknown variables\" inside it (i.e., excluding parameters and constants and counting the elements after expanding all records and arrays to a set of scalars of primitive types). </li>
+
+<li> Each declared component  of specialized class type or record declared as outer is ignored [i.e., all variables inside the component are treated as known].</li>
+
+<li> For each declared component of specialized class connector component, it is the \"number of unknown variables\" inside it (i.e., excluding parameters and constants and counting the elements after expanding all records and arrays to a set of scalars of primitive types).</li>
+
+<li> For each declared component of specialized class block or model, it is the \"sum of the number of inputs and flow variables\" in the (top level) public connector components of these components (and counting the elements after expanding all records and arrays to a set of scalars of primitive types).</li>
+</ul>
+
+
+<p>
+<b>Definition 2: Local Equation Size </b>
+</p>
+
+<p>
+The local equation size of a model or block class is the sum of the following numbers: 
+</p>
+
+<ul>
+<li>The number of equations defined locally (i.e. not in any model or block component), including binding equations, and equations generated from connect-equations. This includes the proper count for when-clauses, and algorithms, and is also used for the flat Hybrid DAE formulation.</li>
+
+<li> The number of input and flow-variables present in each (top-level) public connector component. [This represents 
+the number of connection equations that will be provided when the class is used.]</li>
+
+<li> The number of (top level) public input variables that neither are connectors nor have binding equations [i.e., top-level inputs are treated as known variables. This represents the number of binding equations that will be provided when the class is used.].
+[To clarify top-level inputs without binding equation (for non-inherited inputs binding equation is identical to declaration equation, but binding equations also include the case where another model extends M and has a modifier on \"u\" giving the value):
+<pre>  model M
+    input Real u;
+    input Real u2=2;
+  end M;
+</pre>
+Here \"u\" and \"u2\" are top-level inputs and not connectors. The variable u2 has a binding equation, but u does not have a binding equation. In the equation count, it is assumed that an equation for u is supplied when using the model.]</li>
+</ul>
+
+<p>
+<b>Definition 3: Locally Balanced</b>
+</p>
+
+<p>
+A model or block class is \"locally balanced\" if the \"local number of unknowns\" is identical to the \"local equation size\" for all legal values of constants and parameters [respecting final bindings and min/max-restrictions. A tool shall verify the \"locally balanced\" property for the actual values of parameters and constants in the simulation model. It is a quality of implementation  for a tool to verify this property in general, due to arrays of (locally) undefined sizes, conditional declarations, for loops etc].
+</p>
+
+
+<p>
+<b>Definition 4: Globally Balanced</b>
+</p>
+
+<p>
+Similarly as locally balanced, but including all unknowns and equations from all components. The global number of unknowns is computed by expanding all unknowns (i.e. excluding parameters and constants) into a set of scalars of primitive types. This should match the global equation size defined as:
+</p>
+
+<ul>
+<li> The number of equations defined (included in any model or block component), including equations generated from connect-equations.</li>
+<li>The number of input and flow-variables present in each (top-level) public connector component.</li>
+<li> The number of (top level) public input variables that neither are connectors nor have binding equations [i.e., top-level inputs are treated as known variables].</li>
+</ul>
+
+<p>
+The following restrictions hold: 
+</p>
+
+<ul>
+<li>In a non-partial model or block, all non-connector inputs of model or block components must have binding equations. [E.g. if the model contains a component, firstOrder (of specialized class model) and firstOrder has  \"input Real u\" then there must be a binding equation for firstOrder.u.] </li>
+<li>A component declared with the inner or outer prefix shall not be of a class having top-level public connectors containing inputs.</li>
+<li>Modifiers for components shall only contain redeclarations of replaceable elements and binding equations for parameters, constants (that do not yet have binding equations), inputs and variables having a default binding equation.</li>
+<li>All non-partial model and block classes must be locally balanced [this means that the local number of unknowns equals the local equation size].</li>
+</ul>
+
+<p>
+Based on these restrictions, the following strong guarantee can be given for simulation models and blocks:
+</p>
+
+
+<p>
+<b>Proposition 1: All simulation models and blocks are globally balanced.</b><br>
+[Therefore the number of unknowns equal to the number of equations of a simulation model or block, provided that every used non-partial model or block class is locally balanced.] 
+</p>
+
+<pre>Example 1:
+
+connector Pin
+   Real v;
+   flow Real i;
+end Pin;
+
+model Capacitor
+   parameter Real C;
+   Pin  p, n;
+   Real u;
+equation
+   0 = p.i + n.i;
+   u = p.v \" n.v;
+   C*der(u) = p.i;
+end Capacitor;
+</pre>
+
+<p>
+Model Capacitor is a locally balanced model according to the following analysis:
+</p>
+
+<pre>Locally unknown variables: p.i, p.v, n.i, n.v, u
+Local equations:  0 = p.i + n.i;
+                  u = p.v \" n.v;
+                  C*der(u) = p.i;
+                  and 2 equations corresponding to the 
+                  2 flow-variables p.i and n.i.
+</pre>
+
+<p>
+These are 5 equations in 5 unknowns (locally balanced model). A more detailed analysis would reveal that this is structurally non-singular, i.e. that the hybrid DAE will not contain a singularity independent of actual values.
+If the equation \"u = p.v \" n.v\" would be missing in the Capacitor model, there would be 4 equations in 5 unknowns and the model would be locally unbalanced and thus simulation models in which this model is used would be usually  structurally singular and  thus not solvable.
+If the equation \"u = p.v \" n.v\" would be replaced by the equation \"u = 0\" and the equation C*der(u) = p.i would be replaced by the equation \"C*der(u) = 0\", there would be 5 equations in 5 unknowns (locally balanced), but the equations would be singular, regardless of how the equations corresponding to the flow-variables are constructed because the information that \"u\" is constant is given twice in a slightly different form.
+</p>
+
+<pre>Example 2:
+
+connector Pin
+   Real v;
+   flow Real i;
+end Pin;
+
+partial model TwoPin
+   Pin p,n;
+end TwoPin;
+
+model Capacitor
+   parameter Real C;
+   extends TwoPin;
+   Real u;
+equation
+   0 = p.i + n.i;
+   u = p.v \" n.v;
+   C*der(u) = p.i;
+end Capacitor;
+
+model Circuit
+   extends TwoPin;
+   replaceable TwoPin t;
+   Capacitor c(C=12);
+equation
+   connect(p, t.p);
+   connect(t.n, c.p);
+   connect(c.n, n);
+end Circuit;
+</pre>
+
+<p>
+Since t is partial we cannot check whether this is a globally balanced model, but we can check that Circuit is locally balanced.
+Counting on  model Circuit results in the following balance sheet:
+</p>
+
+<pre>Locally unknown variables (8): p.i, p.v, n.i, n.v, and 2 flow variables for t (t.p.i, t.n.i)  
+                                                   and 2 flow variable for c (c.p.i, c.n.i).
+Local equations:     p.v = t.p.v;
+                       0 = p.i-t.p.i;
+                   c.p.v = load.n.v;
+                       0 = c.p.i+load.n.i;
+                     n.v = c.n.v;
+                       0 = n.i-c.n.i;
+                    and 2 equation corresponding to the 
+                    flow variables p.i, n.i
+</pre>
+
+<p>
+In total we have 8 scalar unknowns and 8 scalar equations, i.e., a locally balanced model (and this feature holds for any models used for the replaceable component \"t\"). 
+Some more analysis reveals that this local set of equations and unknowns is structurally non-singular. However, this does not provide any guarantees for the global set of equations, and specific combinations of models that are \"locally non-singular\" may lead to a globally non-singular model.]
+</p>
+
+<pre>Example 3:
+
+import SI = Modelica.SIunits;
+partial model BaseProperties
+   \"Interface of medium model for all type of media\"
+   parameter Boolean preferredMediumStates=false;
+   constant  Integer nXi \"Number of independent mass fractions\";
+   InputAbsolutePressure     p;
+   InputSpecificEnthalpy     h;
+   InputMassFraction         Xi[nXi];
+   SI.Temperature            T;
+   SI.Density                d;
+   SI.SpecificInternalEnergy u;
+
+   connector InputAbsolutePressure = input SI.AbsolutePressure;
+   connector InputSpecificEnthalpy = input SI.SpecificEnthalpy;
+   connector InputMassFraction = input SI.MassFraction;
+end BaseProperties;
+</pre>
+
+<p>
+The use of connector here is a special design pattern. The variables p, h, Xi are marked as input to get correct equation count. Since they are connectors they should neither be given binding equations in derived classes nor when using the model. The design pattern is to give textual equations for them (as below); using connect-statements for these connectors would be possible (and would work) but is not part of the design.
+This partial model defines that T,d,u can be computed from the medium model, provided p,h,Xi are given. Every medium with one or multiple substances and one or multiple phases, including incompressible media, has the property that T,d,u can be computed from p,h,Xi. A particular medium may have different \"independent variables\" from which all other intrinsic thermodynamic variables can be recursively computed. For example, a simple air model could be defined as:
+</p>
+
+<pre>model SimpleAir \"Medium model of simple air. Independent variables: p,T\"
+   extends BaseProperties(nXi = 0, 	
+        p(stateSelect = if preferredMediumStates then StateSelect.prefer 
+                                   else StateSelect.default),
+        T(stateSelect = if preferredMediumStates then StateSelect.prefer 
+                                   else StateSelect.default));
+   constant SI.SpecificHeatCapacity R  = 287;
+   constant SI.SpecificHeatCapacity cp = 1005.45;
+   constant SI.Temperature          T0 = 298.15
+equation
+   d = p/(R*T);
+   h = cp*(T-T0);
+   u = h \" p/d;
+end SimpleAir;
+</pre>
+
+<p>
+The local number of unknowns in model SimpleAir (after flattening) is:
+</p>
+
+<ul>
+<li> 3 (T, d, u: variables defined in BaseProperties and inherited in SimpleAir), plus</li>
+<li> 2+nXi (p, h, Xi: variables inside connectors defined in BaseProperties and inherited in SimpleAir)
+resulting in 5+nXi unknowns.</li>
+</ul>
+
+<p>
+The local equation size is:
+</p>
+
+<ul>
+<li> 3 (equations defined in SimpleAir), plus</li>
+<li> 2+nXi (input variables in the connectors inherited from BaseProperties)</li>
+</ul>
+
+<p>
+Therefore, the model is locally balanced. 
+The generic medium model BaseProperties is used as a replaceable model in different components, like a dynamic volume or a fixed boundary condition:
+</p>
+
+<pre>import SI = Modelica.SIunits
+connector FluidPort
+  replaceable model Medium = BaseProperties;
+ 
+  SI.AbsolutePressure  p;
+  flow SI.MassFlowRate m_flow;
   
+  SI.SpecificEnthalpy      h;
+  flow SI.EnthalpyFlowRate H_flow;
+  
+  SI.MassFraction       Xi     [Medium.nXi] \"Independent mixture mass fractions\";
+  flow SI.MassFlowRate mXi_flow[Medium.nXi] \"Independent subst. mass flow rates\";
+end FluidPort;
+  
+model DynamicVolume
+   parameter SI.Volume V;
+   replaceable model Medium = BaseProperties;
+   FluidPort port(redeclare model Medium = Medium);
+   Medium    medium(preferredMediumStates=true); // No modifier for p,h,Xi
+   SI.InternalEnergy U; 
+   SI.Mass           M; 
+   SI.Mass           MXi[medium.nXi];
+equation 
+   U   = medium.u*M; 
+   M   = medium.d*V; 
+   MXi = medium.Xi*M; 
+   der(U)   = port.H_flow;   // Energy balance
+   der(M)   = port.m_flow;   // Mass balance
+   der(MXi) = port.mXi_flow; // Substance mass balance
+
+// Equations binding to medium (inputs)
+   medium.p  = port.p;
+   medium.h  = port.h;
+   medium.Xi = port.Xi;
+end DynamicVolume;
+</pre>
+
+<p>
+The local number of unknowns of DynamicVolume is:
+</p>
+
+<ul>
+<li> 4+2*nXi (inside the port connector), plus</li>
+<li> 2+nXi (variables U, M and MXi), plus </li>
+<li> 2+nXi (the input variables in the connectors of the medium model)
+</ul>
+
+<p>
+resulting in 8+4*nXi unknowns; the local equation size is 
+</p>
+
+<ul>
+<li> 6+3*nXi from the equation section, plus</li>
+<li> 2+nXi flow variables in the port connector.</li>
+</ul>
+
+<p>
+Therefore, DynamicVolume is a locally balanced model.
+Note, when the DynamicVolume is used and the Medium model is redeclared to \"SimpleAir\", then a tool will try to select p,T as states, since these variables have StateSelect.prefer in the SimpleAir model (this means that the default states U,M are derived quantities). If this state selection is performed, all intrinsic medium variables are computed from medium.p and medium.T, although p and h are the input arguments to the medium model. This demonstrates that in Modelica input/output does not define the computational causality. Instead, it defines that equations have to be provided here for p,h,Xi, in order that the equation count is correct. The actual computational causality can be different as it is demonstrated with the SimpleAir model.
+</p>
+
+<pre>model FixedBoundary_pTX
+   parameter SI.AbsolutePressure p \"Predefined boundary pressure\";
+   parameter SI.Temperature      T \"Predefined boundary temperature\";
+   parameter SI.MassFraction     Xi[medium.nXi] 
+                                   \"Predefined boundary mass fraction\";
+   replaceable model Medium = BaseProperties;
+   FluidPort port(redeclare model Medium = Medium);
+   Medium medium;
+equation
+   port.p        = p;
+   port.H_flow   = semiLinear(port.m_flow, port.h , medium.h);
+   port.MXi_flow = semiLinear(port.m_flow, port.Xi, medium.Xi);
+
+// Equations binding to medium (note: T is not an input).
+   medium.p  = p;
+   medium.T  = T;
+   medium.Xi = Xi;
+end FixedBoundary_pTX;
+</pre>
+
+<p>
+The number of local variables in FixedBoundary_pTX is:
+</p>
+
+<ul>
+<li> 4+2*nXi (inside the port connector), plus</li>
+<li> 2+nXi (the input variables in the connectors of the medium model)</li>
+</ul>
+
+<p>
+resulting in 6+3*nXi unknowns, while the local equation size is
+</p>
+
+<ul>
+<li> 4+2*nXi from the equation section, plus</li>
+<li> 2+nXi flow variables in the port connector.</li>
+</ul>
+
+<p>
+Therefore, FixedBoundary_pTX is a locally balanced model. The predefined boundary variables p and Xi are provided via equations to the input arguments medium.p and medium.Xi, in addition there is an equation for T in the same way \" even though T is not an input. Depending on the flow direction, either the specific enthalpy in the port (port.h) or h is used to compute the enthalpy flow rate H_flow. \"h\" is provided as binding equation to the medium. With the equation \"medium.T = T\", the specific enthalpy \"h\" of the reservoir is indirectly computed via the medium equations. Again, this demonstrates, that an \"input\" just defines the number of equations have to be provided, but that it not necessarily defines the computational causality.
+</p>
+
+</html>"));
+end BalancedModel;
+
+
+class Connect "connect"
+
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>connect</font></h3>
 <p>
@@ -1936,8 +3039,8 @@ connected as a pair of scalar connectors.</P>
 end Connect;
 
 
-class Encapsulated "encapsulated" 
-  
+class Encapsulated "encapsulated"
+
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>encapsulated</font></h3>
 <p>
@@ -1979,8 +3082,8 @@ cannot be redefined at the same level.]</i></p>
 end Encapsulated;
 
 
-class Extends "extends" 
-  
+class Extends "extends"
+
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>extends</font></h3>
 <p>
@@ -2094,12 +3197,517 @@ equivalent to equations in the instantiated parent class are discarded.
 <I>[Note: equations that are mathematically equivalent but not
 syntactically equivalent are not discarded, hence yield an
 overdetermined system of equations.]</I></P>
+
+
+<p class=\"MsoBodyText\"><span lang=\"EN-US\">Since
+specialized classes of different
+kinds have different properties,
+only specialized classes that are \"in some sense
+compatible\" to
+each other can be derived from each other via inheritance. The
+following table
+shows which kind of specialized class can be used in an extends clauses
+of
+another kind of specialized class:</span></p>
+
+<table class=\"MsoNormalTable\"
+ style=\"border: medium none ; margin-left: 23.4pt; border-collapse: collapse;\"
+ border=\"1\" cellpadding=\"0\" cellspacing=\"0\">
+  <tbody>
+    <tr style=\"page-break-inside: avoid; height: 15pt;\">
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 82.6pt; height: 15pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"110\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td colspan=\"7\"
+ style=\"border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0pt 5.4pt; width: 313.4pt; height: 15pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"418\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><b><span
+ lang=\"EN-US\">Base Class</span></b></p>
+      </td>
+    </tr>
+    <tr style=\"page-break-inside: avoid; height: 15pt;\">
+      <td
+ style=\"border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0pt 5.4pt; width: 82.6pt; height: 15pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"110\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><b><span
+ lang=\"EN-US\">Derived Class</span></b></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 49.4pt; height: 15pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"66\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">package</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt; height: 15pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"64\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">function</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 30pt; height: 15pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"40\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">type</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt; height: 15pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"64\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">record</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 54pt; height: 15pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"72\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">connector</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 39.35pt; height: 15pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"52\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">block</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 44.65pt; height: 15pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"60\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">model</span></p>
+      </td>
+    </tr>
+    <tr style=\"page-break-inside: avoid;\">
+      <td
+ style=\"border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0pt 5.4pt; width: 82.6pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"110\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ lang=\"EN-US\">package</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 49.4pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"66\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">yes</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"64\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 30pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"40\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"64\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 54pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"72\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 39.35pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"52\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 44.65pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"60\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+    </tr>
+    <tr style=\"page-break-inside: avoid;\">
+      <td
+ style=\"border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0pt 5.4pt; width: 82.6pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"110\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ lang=\"EN-US\">function</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 49.4pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"66\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"64\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">yes</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 30pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"40\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"64\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 54pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"72\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 39.35pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"52\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 44.65pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"60\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+    </tr>
+    <tr style=\"page-break-inside: avoid;\">
+      <td
+ style=\"border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0pt 5.4pt; width: 82.6pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"110\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ lang=\"EN-US\">type</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 49.4pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"66\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"64\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 30pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"40\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">yes</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"64\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 54pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"72\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 39.35pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"52\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 44.65pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"60\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+    </tr>
+    <tr style=\"page-break-inside: avoid;\">
+      <td
+ style=\"border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0pt 5.4pt; width: 82.6pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"110\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ lang=\"EN-US\">record</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 49.4pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"66\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"64\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 30pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"40\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"64\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">yes</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 54pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"72\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 39.35pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"52\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 44.65pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"60\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+    </tr>
+    <tr style=\"page-break-inside: avoid;\">
+      <td
+ style=\"border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0pt 5.4pt; width: 82.6pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"110\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ lang=\"EN-US\">connector</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 49.4pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"66\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"64\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; background: rgb(230, 230, 230) none repeat scroll 0%; width: 30pt; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"40\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">yes</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; background: rgb(230, 230, 230) none repeat scroll 0%; width: 48pt; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"64\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">yes</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 54pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"72\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;yes</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 39.35pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"52\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 44.65pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"60\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+    </tr>
+    <tr style=\"page-break-inside: avoid;\">
+      <td
+ style=\"border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0pt 5.4pt; width: 82.6pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"110\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ lang=\"EN-US\">block</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 49.4pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"66\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"64\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 30pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"40\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; background: rgb(230, 230, 230) none repeat scroll 0%; width: 48pt; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"64\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">yes</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 54pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"72\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 39.35pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"52\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">yes</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 44.65pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"60\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+    </tr>
+    <tr style=\"page-break-inside: avoid;\">
+      <td
+ style=\"border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0pt 5.4pt; width: 82.6pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"110\">
+      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
+ lang=\"EN-US\">model</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 49.4pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"66\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"64\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 30pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"40\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; background: rgb(230, 230, 230) none repeat scroll 0%; width: 48pt; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"64\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">yes</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 54pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"72\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">&nbsp;</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5"
+           + ".4pt; background: rgb(230, 230, 230) none repeat scroll 0%; width: 39.35pt; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"52\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">yes</span></p>
+      </td>
+      <td
+ style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 44.65pt;\"
+ nowrap=\"nowrap\" valign=\"top\" width=\"60\">
+      <p class=\"MsoBodyTextIndent\"
+ style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
+ lang=\"EN-US\">yes</span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class=\"MsoBodyText\"><span lang=\"EN-US\">The
+specialized classes </span><span class=\"CODE\"><span
+ style=\"font-size: 9.5pt;\" lang=\"EN-US\">package</span></span><span
+ lang=\"EN-US\">, </span><span class=\"CODE\"><span
+ style=\"font-size: 9.5pt;\" lang=\"EN-US\">function</span></span><span
+ lang=\"EN-US\">, </span><span class=\"CODE\"><span
+ style=\"font-size: 9.5pt;\" lang=\"EN-US\">type</span></span><span
+ lang=\"EN-US\"> and record can only be derived from their own
+kind [<i>(e.g. a
+package can only be base class for packages. All other kinds of classes
+can use
+the import statement to use the contents of a package)</i>]<i>.</i></span></p>
+
+
 </html>"));
 end Extends;
 
 
-class Flow "flow" 
-  
+class Flow "flow"
+
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>flow</font></h3>
 <p>
@@ -2186,8 +3794,8 @@ whereas variables without the flow prefix are identical in a connection.</p>
 end Flow;
 
 
-class For "for" 
-  
+class For "for"
+
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>for</font></h3>
 <p>
@@ -2289,8 +3897,8 @@ prepending the reduction-expression with <tt>'function-name('</tt>.</p>
 end For;
 
 
-class If "if" 
-  
+class If "if"
+
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>if</font></h3>
 <p>
@@ -2375,8 +3983,8 @@ type of the if-expression. If-expressions with <B>elseif</B> are defined by repl
 end If;
 
 
-class Import "import" 
-  
+class Import "import"
+
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>import</font></h3>
 <p>
@@ -2449,21 +4057,22 @@ The generated import names are:</p>
 end Import;
 
 
-class Input "input" 
-  
+class Input "input"
+
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>input</font></h3>
 <p>
-Define causality
+Define causality and/or block diagram connection semantic
+(depending on context)
 </p>
 <h3><font color=\"#008000\">Examples</font></h3>
 
-<pre><b>connector</b> InPort = <b>input</b> Real;
-<b>connector</b> OutPort = <b>output</b> Real;
+<pre><b>connector</b> RealInput = <b>input</b> Real;
+<b>connector</b> RealOutput = <b>output</b> Real;
 
 <b>block</b> Integrator
-  InPort u;
-  OutPort y;
+  RealInput  u;
+  RealOutput y;
 <b>protected</b>
   Real x;
 <b>equation</b>
@@ -2520,27 +4129,79 @@ type_prefix :
 
 <h3><font color=\"#008000\">Description</font></h3>
 
-<p>Block diagrams are based on fixed causality. Causality is defined using the input/output prefix.</p>
+<p>
+The prefixes <b>input</b> and <b>output</b> have a slightly different semantic meaning depending on the context where they are used:
+</p>
+
+<ul>
+<li> In functions, these prefixes define the computational causality of the
+     function body, i.e., given the variables declared as input, 
+     the variables declared as output are computed in the function body<br>&nbsp;</li>.
+
+<li> In simulation models and blocks (i.e., on the top level of a model or 
+     block that shall be simulated), these prefixes define the interaction
+     with the environment where the simulation model or block is used. 
+     Especially, the input prefix defines that values for such a variable 
+     have to be provided from the simulation environment and the output 
+     prefix defines that the values of the corresponding variable 
+     can be directly utilized in the simulation environment.<br>&nbsp;</li>
+
+<li> In component models and blocks, the input prefix defines that a 
+     binding equation has to be provided for the corresponding variable 
+     when the component is utilized in order to guarantee a locally
+     balanced model (i.e., the number of local equations is identical
+     to the local number of unknowns). Example:
+<pre>  <b>block</b> FirstOrder
+     <b>input</b> Real u;
+       ...
+  <b>end</b> FirstOrder;
+
+  <b>model</b> UseFirstOrder
+     FirstOrder firstOrder(u=time); // binding equation for u
+      ...
+  <b>end</b> UseFirstOrder;
+</pre>
+     The output prefix does not have a particular effect in a model
+     or block component and is ignored.<br>&nbsp;</li>
+
+<li> In connectors, prefixes input and output define that the 
+     corresponding connectors can only be connected according
+     to block diagram semantics (e.g., a connector with an output
+     variable can only be connected to a connector where the
+     corresponding variable is declared as input). There is the
+     restriction that connectors which have at least one variable
+     declared as input must be externally connected
+     (in order to get a locally balanced model, where the number
+     of local unknowns is identical to the number of unknown equations).
+     Together with the block diagram semantics rule this means,
+     that such connectors must be connected exactly once externally.<br>&nbsp;</li>
+
+<li> In records, prefixes input and output are not allowed,
+     since otherwise a record could not be, e.g., passed as input
+     argument to a function.</li>
+</ul>
+
 </html>"));
 end Input;
 
 
+class Output "output"
 
-class Output "output" 
-  
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>output</font></h3>
 <p>
-Define causality
+Define causality and/or block diagram connection semantic
+(depending on context)
 </p>
+
 <h3><font color=\"#008000\">Examples</font></h3>
 
-<pre><b>connector</b> InPort = <b>input</b> Real;
-<b>connector</b> OutPort = <b>output</b> Real;
+<pre><b>connector</b> RealInput = <b>input</b> Real;
+<b>connector</b> RealOutput = <b>output</b> Real;
 
 <b>block</b> Integrator
-  InPort u;
-  OutPort y;
+  RealInput  u;
+  RealOutput y;
 <b>protected</b>
   Real x;
 <b>equation</b>
@@ -2597,13 +4258,64 @@ type_prefix :
 
 <h3><font color=\"#008000\">Description</font></h3>
 
-<p>Block diagrams are based on fixed causality. Causality is defined using the input/output prefix.</p>
+<p>
+The prefixes <b>input</b> and <b>output</b> have a slightly different semantic meaning depending on the context where they are used:
+</p>
+
+<ul>
+<li> In functions, these prefixes define the computational causality of the
+     function body, i.e., given the variables declared as input, 
+     the variables declared as output are computed in the function body<br>&nbsp;</li>.
+
+<li> In simulation models and blocks (i.e., on the top level of a model or 
+     block that shall be simulated), these prefixes define the interaction
+     with the environment where the simulation model or block is used. 
+     Especially, the input prefix defines that values for such a variable 
+     have to be provided from the simulation environment and the output 
+     prefix defines that the values of the corresponding variable 
+     can be directly utilized in the simulation environment.<br>&nbsp;</li>
+
+<li> In component models and blocks, the input prefix defines that a 
+     binding equation has to be provided for the corresponding variable 
+     when the component is utilized in order to guarantee a locally
+     balanced model (i.e., the number of local equations is identical
+     to the local number of unknowns). Example:
+<pre>  <b>block</b> FirstOrder
+     <b>input</b> Real u;
+       ...
+  <b>end</b> FirstOrder;
+
+  <b>model</b> UseFirstOrder
+     FirstOrder firstOrder(u=time); // binding equation for u
+      ...
+  <b>end</b> UseFirstOrder;
+</pre>
+     The output prefix does not have a particular effect in a model
+     or block component and is ignored.<br>&nbsp;</li>
+
+<li> In connectors, prefixes input and output define that the 
+     corresponding connectors can only be connected according
+     to block diagram semantics (e.g., a connector with an output
+     variable can only be connected to a connector where the
+     corresponding variable is declared as input). There is the
+     restriction that connectors which have at least one variable
+     declared as input must be externally connected
+     (in order to get a locally balanced model, where the number
+     of local unknowns is identical to the number of unknown equations).
+     Together with the block diagram semantics rule this means,
+     that such connectors must be connected exactly once externally.<br>&nbsp;</li>
+
+<li> In records, prefixes input and output are not allowed,
+     since otherwise a record could not be, e.g., passed as input
+     argument to a function.</li>
+</ul>
+
 </html>"));
 end Output;
 
 
-class Partial "partial" 
-  
+class Partial "partial"
+
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>partial</font></h3>
 <p>
@@ -2657,8 +4369,8 @@ class_specifier :
 end Partial;
 
 
-class Time "time" 
-  
+class Time "time"
+
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>time</font></h3>
 <p>
@@ -2693,8 +4405,8 @@ the time instant at which the simulation is started.</P>
 end Time;
 
 
-class When "when" 
-  
+class When "when"
+
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>when</font></h3>
 <p>
@@ -2880,8 +4592,8 @@ parameter variable. The start-values of the special functions
 end When;
 
 
-class While "while" 
-  
+class While "while"
+
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>while</font></h3>
 <p>
