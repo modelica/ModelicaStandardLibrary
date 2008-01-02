@@ -4610,7 +4610,7 @@ blocks of the block library Modelica.Blocks.Sources.
           "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
          output Real q;
         annotation (derivative(noDerivative=q_qd_qdd) = position_der,
-            InlineAfterIndexReduction=true);
+            __Dymola_InlineAfterIndexReduction=true);
       algorithm
         q :=q_qd_qdd[1];
       end position;
@@ -4623,7 +4623,7 @@ blocks of the block library Modelica.Blocks.Sources.
          input Real dummy_der;
          output Real qd;
         annotation (derivative(noDerivative=q_qd_qdd) = position_der2,
-            InlineAfterIndexReduction=true);
+            __Dymola_InlineAfterIndexReduction=true);
       algorithm
         qd :=q_qd_qdd[2];
       end position_der;
