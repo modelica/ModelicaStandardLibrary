@@ -58,8 +58,8 @@ For an introduction, have especially a look at:
 This version of the Modelica Standard Library consists of
 </p>
 <ul>
-<li> <b>739</b> models and blocks, and</li>
-<li> <b>539</b> functions
+<li> <b>777</b> models and blocks, and</li>
+<li> <b>549</b> functions
 </ul>
 <p>
 that are directly usable (= number of public, non-partial classes).
