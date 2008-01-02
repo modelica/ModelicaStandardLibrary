@@ -501,7 +501,7 @@ needed and if this connector should be connected for a correct model.
   protected
     outer Modelica.Mechanics.MultiBody.World world;
   equation
-    defineBranch(frame_a.R, frame_b.R);
+    Connections.branch(frame_a.R, frame_b.R);
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of joint object is not connected");
     assert(cardinality(frame_b) > 0,
@@ -519,7 +519,7 @@ is no constraint between the rotation objects of frame_a and frame_b
 or joint Cylindrical because it is not an elementary joint).
 </p>
 <p>
-This partial model provides two frame connectors, a \"defineBranch\" 
+This partial model provides two frame connectors, a \"Connections.branch\" 
 between frame_a and frame_b, access to the world
 object and an assert to check that both frame connectors are connected.
 </p>
@@ -636,8 +636,8 @@ to which this force element is connected.
   protected
     outer Modelica.Mechanics.MultiBody.World world;
   equation
-    definePotentialRoot(frame_a.R, 100);
-    definePotentialRoot(frame_b.R, 100);
+    Connections.potentialRoot(frame_a.R, 100);
+    Connections.potentialRoot(frame_b.R, 100);
 
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of line force object is not connected");
@@ -656,13 +656,13 @@ to which this force element is connected.
        frame_a.f);
 
     // Additional equations, if direct connections of line forces
-    if isRoot(frame_a.R) then
+    if Connections.isRoot(frame_a.R) then
       frame_a.R = Frames.nullRotation();
     else
       frame_a.t = zeros(3);
     end if;
 
-    if isRoot(frame_b.R) then
+    if Connections.isRoot(frame_b.R) then
       frame_b.R = Frames.nullRotation();
     else
       frame_b.t = zeros(3);
@@ -848,7 +848,7 @@ It is used by inheritance from all visualizer objects.
             preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
           graphics));
   equation
-    defineRoot(frame_resolve.R);
+    Connections.root(frame_resolve.R);
     frame_resolve.R = Modelica.Mechanics.MultiBody.Frames.nullRotation();
     frame_resolve.r_0 = zeros(3);
   end ZeroPosition;

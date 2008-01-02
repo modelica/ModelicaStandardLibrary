@@ -542,7 +542,7 @@ vector \"n\" defining the translation axis
     Rotational.Sources.ConstantTorque constantTorque(tau_constant=0) if not useAxisFlange 
       annotation (Placement(transformation(extent={{40,70},{20,90}})));
   equation
-    defineBranch(frame_a.R, frame_b.R);
+    Connections.branch(frame_a.R, frame_b.R);
 
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of revolute joint is not connected");
@@ -1595,7 +1595,7 @@ frame_b of the joint.
     zeros(3) = frame_b.t;
 
     if enforceStates then
-      defineBranch(frame_a.R, frame_b.R);
+      Connections.branch(frame_a.R, frame_b.R);
 
       frame_b.r_0 = frame_a.r_0;
       if rooted(frame_a.R) then
@@ -1974,7 +1974,7 @@ frame_b of the joint.
     frame_b.t = zeros(3);
 
     if enforceStates then
-      defineBranch(frame_a.R, frame_b.R);
+      Connections.branch(frame_a.R, frame_b.R);
 
       if rooted(frame_a.R) then
         R_rel_inv = Frames.nullRotation();
@@ -2861,7 +2861,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
       R=frame_ia.R) if world.enableAnimation and animation and showUniversalAxes;
 
   equation
-    defineBranch(frame_a.R, frame_ia.R);
+    Connections.branch(frame_a.R, frame_ia.R);
     if kinematicConstraint then
       rRod_0 = transpose(frame_b.R.T)*(frame_b.R.T*frame_b.r_0) - transpose(
         frame_a.R.T)*(frame_a.R.T*frame_a.r_0);
@@ -3810,8 +3810,8 @@ component).
         r=frame_ia.r_0,
         R=frame_ia.R) if world.enableAnimation and animation and showUniversalAxes;
     equation
-      defineBranch(frame_a.R, frame_ia.R);
-      defineBranch(frame_ia.R, frame_ib.R);
+      Connections.branch(frame_a.R, frame_ia.R);
+      Connections.branch(frame_ia.R, frame_ib.R);
 
       // Translational flanges
       axisLength = s + s_offset;
@@ -4370,7 +4370,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
               rotation=0)));
     equation
-     // defineRoot(frame_ib.R);
+     // Connections.root(frame_ib.R);
 
       /* Compute the unknown force in the rod of the rod1 joint
      by a torque balance at the revolute joint:
@@ -6857,7 +6857,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
       positiveBranch = selectBranch(lengthConstraint, e, Cv.from_deg(phi_offset
          + phi_guess), r_a, r_b);
     equation
-      defineBranch(frame_a.R, frame_b.R);
+      Connections.branch(frame_a.R, frame_b.R);
       axis.tau = tau;
       axis.phi = phi;
       bearing.phi = 0;
@@ -7235,7 +7235,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
     initial equation
       positiveBranch = selectBranch(length, e, s_offset + s_guess, r_a, r_b);
     equation
-      defineBranch(frame_a.R, frame_b.R);
+      Connections.branch(frame_a.R, frame_b.R);
 
       axis.f = f;
       axis.s = s;

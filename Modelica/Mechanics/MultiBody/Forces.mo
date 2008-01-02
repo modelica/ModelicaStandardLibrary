@@ -1624,8 +1624,8 @@ in the other flange connector.
       r_shape=e_rel_0*(length*lengthFraction - massDiameter/2),
       r=frame_a.r_0) if world.enableAnimation and animateMass and m > 0;
   equation
-    definePotentialRoot(frame_a.R, 100);
-    definePotentialRoot(frame_b.R, 100);
+    Connections.potentialRoot(frame_a.R, 100);
+    Connections.potentialRoot(frame_b.R, 100);
     assert(noEvent(length > s_small), "
 The distance between the origin of frame_a and the origin of frame_b
 of a LineForceWithMass component became smaller as parameter s_small
@@ -1705,13 +1705,13 @@ for this situation:
     end if;
 
     // Provide appropriate equations, if direct connections of line forces
-    if isRoot(frame_a.R) then
+    if Connections.isRoot(frame_a.R) then
       frame_a.R = Frames.nullRotation();
     else
       frame_a.t = zeros(3);
     end if;
 
-    if isRoot(frame_b.R) then
+    if Connections.isRoot(frame_b.R) then
       frame_b.R = Frames.nullRotation();
     else
       frame_b.t = zeros(3);
@@ -2054,8 +2054,8 @@ in the other flange connector.
       r_shape=-e_rel_0*(L_b - massDiameter/2),
       r=frame_b.r_0) if animateMasses2;
   equation
-    definePotentialRoot(frame_a.R, 100);
-    definePotentialRoot(frame_b.R, 100);
+    Connections.potentialRoot(frame_a.R, 100);
+    Connections.potentialRoot(frame_b.R, 100);
     assert(noEvent(length > s_small), "
 The distance between the origin of frame_a and the origin of frame_b
 of a LineForceWithTwoMasses component became smaller as parameter s_small
@@ -2166,13 +2166,13 @@ for this situation:
     end if;
 
     // Provide appropriate equations, if direct connections of line forces
-    if isRoot(frame_a.R) then
+    if Connections.isRoot(frame_a.R) then
       frame_a.R = Frames.nullRotation();
     else
       frame_a.t = zeros(3);
     end if;
 
-    if isRoot(frame_b.R) then
+    if Connections.isRoot(frame_b.R) then
       frame_b.R = Frames.nullRotation();
     else
       frame_b.t = zeros(3);

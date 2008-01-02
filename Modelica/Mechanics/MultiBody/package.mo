@@ -1416,7 +1416,7 @@ protected
                     zeros(3);
   end gravityAccelerationTypes;
 equation
-  defineRoot(frame_b.R);
+  Connections.root(frame_b.R);
 
   assert(Modelica.Math.Vectors.length(
                        n) > 1.e-10,
