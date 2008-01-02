@@ -409,7 +409,7 @@ vector <b>r</b>.
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation;
   equation
-    defineBranch(frame_a.R, frame_b.R);
+    Connections.branch(frame_a.R, frame_b.R);
     assert(cardinality(frame_a) > 0 or cardinality(frame_b) > 0, "Neither connector frame_a nor frame_b of 
 MultiBody.Visualizers.FixedShape2 object is connected");
 

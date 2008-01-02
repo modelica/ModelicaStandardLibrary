@@ -2506,7 +2506,7 @@ as output signal <b>power</b>.
 </p>
 </HTML>"));
   equation
-    defineBranch(frame_a.R, frame_b.R);
+    Connections.branch(frame_a.R, frame_b.R);
     frame_a.r_0 = frame_b.r_0;
     frame_a.R = frame_b.R;
     zeros(3) = frame_a.f + frame_b.f;
@@ -3445,7 +3445,7 @@ with the blocks of package Modelica.Blocks.
     protected
       outer Modelica.Mechanics.MultiBody.World world;
     equation
-      defineBranch(frame_a.R, frame_b.R);
+      Connections.branch(frame_a.R, frame_b.R);
       assert(cardinality(frame_a) > 0,
         "Connector frame_a of cut-force/-torque sensor object is not connected");
       assert(cardinality(frame_b) > 0,

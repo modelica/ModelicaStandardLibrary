@@ -219,7 +219,7 @@ animation = <b>false</b>.
       r=zeros(3),
       R=Frames.nullRotation()) if world.enableAnimation and animation;
   equation
-    defineRoot(frame_b.R);
+    Connections.root(frame_b.R);
     frame_b.r_0 = r;
     frame_b.R = Frames.nullRotation();
   end Fixed;
@@ -385,7 +385,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation;
   equation
-    defineBranch(frame_a.R, frame_b.R);
+    Connections.branch(frame_a.R, frame_b.R);
     assert(cardinality(frame_a) > 0 or cardinality(frame_b) > 0,
       "Neither connector frame_a nor frame_b of FixedTranslation object is connected");
 
@@ -651,7 +651,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
             fillPattern=FillPattern.Solid)}));
   equation
 
-    defineBranch(frame_a.R, frame_b.R);
+    Connections.branch(frame_a.R, frame_b.R);
     assert(cardinality(frame_a) > 0 or cardinality(frame_b) > 0,
       "Neither connector frame_a nor frame_b of FixedRotation object is connected");
 
@@ -982,7 +982,7 @@ to the setting of parameters \"useQuaternions\" and
   initial equation
     if angles_fixed then
       // Initialize positional variables
-      if not isRoot(frame_a.R) then
+      if not Connections.isRoot(frame_a.R) then
         // frame_a.R is computed somewhere else
         zeros(3) = Frames.Orientation.equalityConstraint(frame_a.R, R_start);
       elseif useQuaternions then
@@ -996,13 +996,13 @@ to the setting of parameters \"useQuaternions\" and
 
   equation
     if enforceStates then
-      defineRoot(frame_a.R);
+      Connections.root(frame_a.R);
     else
-      definePotentialRoot(frame_a.R);
+      Connections.potentialRoot(frame_a.R);
     end if;
     r_0 = frame_a.r_0;
 
-    if not isRoot(frame_a.R) then
+    if not Connections.isRoot(frame_a.R) then
       // Body does not have states
       // Dummies
       Q = {0,0,0,1};
@@ -1930,9 +1930,9 @@ are forced to be used as states.
       R=frame_a.R) if world.enableAnimation and animation;
   equation
     // If any possible, do not use the connector as root
-    definePotentialRoot(frame_a.R, 10000);
+    Connections.potentialRoot(frame_a.R, 10000);
 
-    if isRoot(frame_a.R) then
+    if Connections.isRoot(frame_a.R) then
        assert(cardinality(frame_a)==0, "
 A Modelica.Mechanics.MultiBody.Parts.PointMass model is connected in
 a way, so that no equations are present to compute frame_a.R 
