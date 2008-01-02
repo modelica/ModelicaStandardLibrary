@@ -6,13 +6,11 @@ function list "List content of file or directory"
       "If name is a directory, list directory content. If it is a file, list the file content";
 //..............................................................
   protected
-encapsulated package Local "Local utility functions"
-      import Modelica.Utilities.*;
-      import Modelica.Utilities.Internal;
+  Types.FileType fileType;
 
   function listFile "List content of file"
      input String name;
-      protected
+    protected
      String file[Streams.countLines(name)] =  Streams.readFile(name);
   algorithm
      for i in 1:min(size(file,1), 100) loop
@@ -21,16 +19,16 @@ encapsulated package Local "Local utility functions"
   end listFile;
 
   function sortDirectory
-        "Sort directory in directories and files with alphabetic order"
+      "Sort directory in directories and files with alphabetic order"
      input String directory
-          "Directory that was read (including a trailing '/')";
+        "Directory that was read (including a trailing '/')";
      input String names[:]
-          "File and directory names of a directory in any order";
+        "File and directory names of a directory in any order";
      output String orderedNames[size(names,1)]
-          "Names of directories followed by names of files";
+        "Names of directories followed by names of files";
      output Integer nDirectories
-          "The first nDirectories entries in orderedNames are directories";
-      protected
+        "The first nDirectories entries in orderedNames are directories";
+    protected
      Integer nEntries = size(names,1);
      Integer nFiles;
      Integer lenDirectory = Strings.length(directory);
@@ -66,7 +64,7 @@ encapsulated package Local "Local utility functions"
   function listDirectory "List content of directory"
      input String directoryName;
      input Integer nEntries;
-      protected
+    protected
      String files[nEntries];
      Integer nDirectories;
   algorithm
@@ -95,17 +93,12 @@ encapsulated package Local "Local utility functions"
         Streams.print("... Directory\"" + directoryName + "\" is empty");
      end if;
   end listDirectory;
-end Local;
-
-//..............................................................
-
-  Types.FileType fileType;
 algorithm
   fileType := Internal.stat(name);
   if fileType == Types.FileType.RegularFile then
-     Local.listFile(name);
+     listFile(name);
   elseif fileType == Types.FileType.Directory then
-     Local.listDirectory(name, Internal.getNumberOfFiles(name));
+     listDirectory(name, Internal.getNumberOfFiles(name));
   elseif fileType == Types.FileType.SpecialFile then
      Streams.error("Cannot list file \"" + name + "\"\n" +
                    "since it is not a regular file (pipe, device, ...)");
@@ -209,9 +202,7 @@ function copy "Generate a copy of a file or of a directory"
       "= true, if an existing file may be replaced by the required copy";
 //..............................................................
   protected
-  encapsulated function copyDirectory "Copy a directory"
-      import Modelica.Utilities.*;
-      import Modelica.Utilities.Internal;
+  function copyDirectory "Copy a directory"
      input String oldName
         "Old directory name without trailing '/'; existance is guaranteed";
      input String newName
@@ -361,10 +352,7 @@ function remove "Remove file or directory (ignore call, if it does not exist)"
   input String name "Name of file or directory to be removed";
 //..............................................................
   protected
-  encapsulated function removeDirectory
-      "Remove a directory, even if it is not empty"
-      import Modelica.Utilities.*;
-      import Modelica.Utilities.Internal;
+  function removeDirectory "Remove a directory, even if it is not empty"
      input String name;
     protected
      Integer nNames = Internal.getNumberOfFiles(name);
@@ -448,15 +436,11 @@ function createDirectory
       "Name of directory to be created (if present, ignore call)";
 //..............................................................
   protected
-encapsulated package Local "Local utility functions"
-      import Modelica.Utilities.*;
-      import Modelica.Utilities.Internal;
-
   function existDirectory
-        "Inquire whether directory exists; if present and not a directory, trigger an error"
+      "Inquire whether directory exists; if present and not a directory, trigger an error"
      input String directoryName;
      output Boolean exists "true if directory exists";
-      protected
+    protected
      Types.FileType fileType = Internal.stat(directoryName);
   algorithm
      if fileType == Types.FileType.RegularFile or 
@@ -471,7 +455,7 @@ encapsulated package Local "Local utility functions"
   end existDirectory;
 
   function assertCorrectIndex
-        "Print error, if index to last essential character in directory is wrong"
+      "Print error, if index to last essential character in directory is wrong"
      input Integer index "Index must be > 0";
      input String directoryName "Directory name for error message";
   algorithm
@@ -481,7 +465,7 @@ encapsulated package Local "Local utility functions"
                       "because this directory name is not valid");
      end if;
   end assertCorrectIndex;
-end Local;
+
 //..............................................................
   String fullName;
   Integer index;
@@ -492,14 +476,14 @@ end Local;
   Integer nDirectories = 0 "Number of directories that need to be generated";
 algorithm
   // Ignore call, if directory exists
-  if not Local.existDirectory(directoryName) then
+  if not existDirectory(directoryName) then
      fullName := Files.fullPathName(directoryName);
 
      // Remove a trailing "/"
         index :=Strings.length(fullName);
         if Strings.substring(fullName,index,index) == "/" then
            index :=index - 1;
-           Local.assertCorrectIndex(index,fullName);
+           assertCorrectIndex(index,fullName);
         end if;
         lastIndex := index;
         fullName := Strings.substring(fullName,1,index);
@@ -516,8 +500,8 @@ algorithm
               found := true;
            else
               index := index - 1;
-              Local.assertCorrectIndex(index, fullName);
-              found := Local.existDirectory(Strings.substring(fullName,1,index));
+              assertCorrectIndex(index, fullName);
+              found := existDirectory(Strings.substring(fullName,1,index));
            end if;
         end while;
         index := oldIndex;
