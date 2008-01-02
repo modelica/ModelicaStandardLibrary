@@ -236,8 +236,7 @@ Note, for any vector norm the following inequality holds:
     extends Modelica.Icons.Function;
     input Real v[:] "Vector";
     output Real result "Length of vector v";
-
-    annotation (Documentation(info="<html>
+    annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Vectors.<b>length</b>(v);
@@ -272,7 +271,7 @@ not the case with function norm(..).
       "if |v| < eps then result = v/eps";
     output Real result[size(v, 1)] "Input vector v normalized to length=1";
 
-    annotation (Documentation(info="<html>
+    annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Vectors.<b>normalize</b>(v);
@@ -312,7 +311,7 @@ possible.
     input Real v[:] "Vector";
     output Real result[size(v, 1)] "Elements of vector v in reversed order";
 
-    annotation ( Documentation(info="<html>
+    annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Vectors.<b>reverse</b>(v);
@@ -5492,7 +5491,7 @@ function log "Natural (base e) logarithm (u shall be > 0)"
           fillPattern=FillPattern.Solid),
         Line(points={{-80,-80},{-79.2,-50.6},{-78.4,-37},{-77.6,-28},{-76.8,-21.3},
               {-75.2,-11.4},{-72.8,-1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},
-              {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}},
+              {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}, 
             color={0,0,0}),
         Text(
           extent={{-6,-24},{66,-72}},
@@ -5511,7 +5510,8 @@ function log "Natural (base e) logarithm (u shall be > 0)"
         Line(
           points={{-78,-80},{-77.2,-50.6},{-76.4,-37},{-75.6,-28},{-74.8,-21.3},
               {-73.2,-11.4},{-70.8,-1.31},{-67.5,8.08},{-62.7,17.9},{-55.5,28},
-              {-45,38.1},{-29.8,48.1},{-8.1,58},{24.1,68},{70.7,78.1},{82,80}},
+              {-45,38.1},{-29.8,48.1},{-8.1,58},{24.1,68},{70.7,78.1},{82,80}}, 
+
           color={0,0,255},
           thickness=2),
         Text(
@@ -5582,7 +5582,7 @@ function log10 "Base 10 logarithm (u shall be > 0)"
           fillPattern=FillPattern.Solid),
         Line(points={{-79.8,-80},{-79.2,-50.6},{-78.4,-37},{-77.6,-28},{-76.8,-21.3},
               {-75.2,-11.4},{-72.8,-1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},
-              {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}},
+              {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}, 
             color={0,0,0}),
         Text(
           extent={{-30,-22},{60,-70}},
@@ -5668,7 +5668,9 @@ partial function baseIcon1
         Text(
           extent={{-150,150},{150,110}},
           textString="%name",
-          lineColor={0,0,255})}),                          Diagram(graphics={
+          lineColor={0,0,255})}),                          Diagram(
+        coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+            100}}), graphics={
         Line(points={{-80,80},{-88,80}}, color={95,95,95}),
         Line(points={{-80,-80},{-88,-80}}, color={95,95,95}),
         Line(points={{-80,-90},{-80,84}}, color={95,95,95}),
