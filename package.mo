@@ -3481,7 +3481,7 @@ The following library officers are assigned:
   <tr><td valign=\"top\"> Icons <br>
                         Math <br>
                         Mechanics.MultiBody <br>
-                        Mechanics.Rotational </td>
+                        Mechanics.Rotational <br>
                         Mechanics.Translational </td>
       <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
                         (Martin Otter)</td>
