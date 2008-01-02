@@ -47,9 +47,9 @@ and the accompanying <b>disclaimer</b>
 </html>"));
 
 
-package Classes "Classes (model, function, ...)"
-  class Block "block"
-
+package Classes "Classes (model, function, ...)" 
+  class Block "block" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>block</font></h3>
 <p>
@@ -91,9 +91,9 @@ to block diagram semantic.
 </P>
 </html>"));
   end Block;
-
-  class Class "class"
-
+  
+  class Class "class" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>class</font></h3>
 <p>
@@ -134,9 +134,9 @@ In most cases, it is recommended to use specialized classes as <b>block</b>,
 </p>
 </html>"));
   end Class;
-
-  class Connector "connector"
-
+  
+  class Connector "connector" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>connector</font></h3>
 <p>
@@ -169,9 +169,9 @@ of connector classes.
 </P>
 </html>"));
   end Connector;
-
-  class Function "function"
-
+  
+  class Function "function" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>function</font></h3>
 <p>
@@ -292,9 +292,9 @@ Modelica functions have the following enhancements compared to a general Modelic
 
 </html>"));
   end Function;
-
-  class Model "model"
-
+  
+  class Model "model" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>model</font></h3>
 <p>
@@ -332,9 +332,9 @@ no restrictions and no enhancements.
 </P>
 </html>"));
   end Model;
-
-  class Package "package"
-
+  
+  class Package "package" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>package</font></h3>
 <p>
@@ -374,9 +374,9 @@ class_specifier :
 
 </html>"));
   end Package;
-
-  class Record "record"
-
+  
+  class Record "record" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>record</font></h3>
 <p>
@@ -431,9 +431,9 @@ normal type compatibility rules.
 
 </html>"));
   end Record;
-
-  class Type "type"
-
+  
+  class Type "type" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>type</font></h3>
 <p>
@@ -472,9 +472,9 @@ Moreover, they have additional properties called enhancements.
 end Classes;
 
 
-package Operators "Operators (+, der, size, ...)"
-class ElementaryOperators "Elementary operators (+, >, or, ..)"
-
+package Operators "Operators (+, der, size, ...)" 
+class ElementaryOperators "Elementary operators (+, >, or, ..)" 
+    
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Elementary Operators</font></h3>
 <p>
@@ -1083,9 +1083,9 @@ sin, cos, tan, asin, acos, atan, atan2, sinh, cosh, tanh, exp,
 log, log10 that are provided for convenience as built-in functions).
 </p>
 </html>"));
-
-  class Abs "abs"
-
+  
+  class Abs "abs" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>abs</font></h3>
 <p>
@@ -1103,9 +1103,9 @@ needs to be an Integer or Real expression. </P>
  = {3, 0, 3}</pre>
 </html>"));
   end Abs;
-
-  class Assert "assert"
-
+  
+  class Assert "assert" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>assert</font></h3>
 <p>
@@ -1164,9 +1164,9 @@ The AssertionLevel.warning case can be used when the boundary of validity is not
 </pre>
 </html>"));
   end Assert;
-
-  class Cardinality "cardinality"
-
+  
+  class Cardinality "cardinality" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>cardinality</font></h3>
 <p>
@@ -1209,9 +1209,9 @@ parameters.
 <B>end</B> Resistor;</PRE>
 </html>"));
   end Cardinality;
-
-  class Ceil "ceil"
-
+  
+  class Ceil "ceil" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>ceil</font></h3>
 <p>
@@ -1229,9 +1229,9 @@ triggered when the return value changes discontinuously.]</i></p>
  = {-3.0, 4.0}</pre>
 </html>"));
   end Ceil;
-
-  class Change "change"
-
+  
+  class Change "change" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>change</font></h3>
 <p>
@@ -1255,9 +1255,9 @@ The same restrictions as for the pre() operator apply.</P>
 <p align=\"center\"><img src=\"../Images/change.png\" width=\"400\" height=\"280\" alt=\"Simulation result\"></p>
 </html>"));
   end Change;
-
-  class Cos "cos"
-
+  
+  class Cos "cos" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>cos</font></h3>
 <p>
@@ -1273,8 +1273,8 @@ Argument v needs to be an Integer or Real expression.</p>
  = -1.0</pre>
 </html>"));
   end Cos;
-
-class Cross "cross"
+  
+class Cross "cross" 
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>cross</font></h3>
 <p>
@@ -1293,9 +1293,9 @@ Returns the cross product of the 3-vectors x and y, i.e.
 </pre></blockquote>
 </html>"));
 end Cross;
-
-  class Delay "delay"
-
+  
+  class Delay "delay" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>delay</font></h3>
 <p>
@@ -1340,9 +1340,9 @@ time in order to avoid extrapolation in the delay buffer.]</i></p>
 <p align=\"center\"><img src=\"../Images/delay.png\" width=\"400\" height=\"280\" alt=\"Simulation result\"></p>
 </html>"));
   end Delay;
-
-  class Der "der"
-
+  
+  class Der "der" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>der</font></h3>
 <p>
@@ -1363,8 +1363,8 @@ variable.</P>
 </pre>
 </html>"));
   end Der;
-
-class Diagonal "diagonal"
+  
+class Diagonal "diagonal" 
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>diagonal</font></h3>
 <p>
@@ -1379,9 +1379,9 @@ on the diagonal and all other elements zero.
 </p>
 </html>"));
 end Diagonal;
-
-  class Div "div"
-
+  
+  class Div "div" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>div</font></h3>
 <p>
@@ -1407,9 +1407,9 @@ when the return value changes discontinuously.]</i></p>
  = 2</pre>
 </html>"));
   end Div;
-
-  class Edge "edge"
-
+  
+  class Edge "edge" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>edge</font></h3>
 <p>
@@ -1435,8 +1435,8 @@ classes).</P>
 <p align=\"center\"><img src=\"../Images/edge.png\" width=\"400\" height=\"280\" alt=\"Simulation result\"></p>
 </html>"));
   end Edge;
-
-class Fill "fill"
+  
+class Fill "fill" 
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>fill</font></h3>
 <p>
@@ -1461,9 +1461,9 @@ Boolean vb[3]   = fill(true,3);  // = {true, true, true}
 </pre></blockquote>
 </html>"));
 end Fill;
-
-  class Floor "floor"
-
+  
+  class Floor "floor" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>floor</font></h3>
 <p>
@@ -1481,8 +1481,8 @@ value changes discontinuously.]</i></p>
  = {-4.0, 3.0}</pre>
 </html>"));
   end Floor;
-
-class Identity "identity"
+  
+class Identity "identity" 
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>identity</font></h3>
 <p>
@@ -1497,9 +1497,9 @@ on the diagonal and zeros at the other places.
 </p>
 </html>"));
 end Identity;
-
-  class Initial "initial"
-
+  
+  class Initial "initial" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>initial</font></h3>
 <p>
@@ -1516,9 +1516,9 @@ True during initialization
   off = x &lt; -2 or <b>initial</b>();</pre>
 </html>"));
   end Initial;
-
-  class IntegerUpperCase "Integer"
-
+  
+  class IntegerUpperCase "Integer" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>integer</font></h3>
 <p>
@@ -1537,9 +1537,9 @@ Returns the ordinal number of the enumeration value E.enumvalue, where Integer(E
 
 </html>"));
   end IntegerUpperCase;
-
-  class IntegerLowerCase "integer"
-
+  
+  class IntegerLowerCase "integer" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>integer</font></h3>
 <p>
@@ -1557,9 +1557,9 @@ when the return value changes discontinuously.]</i></p>
  = {-4, 3}</pre>
 </html>"));
   end IntegerLowerCase;
-
-  class IsPresent "isPresent"
-
+  
+  class IsPresent "isPresent" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>isPresent</font></h3>
 <p>
@@ -1595,10 +1595,10 @@ list. It can only be used in functions.
 </pre>
 </blockquote>
 </html>"));
-
+    
   end IsPresent;
-
-class Linspace "linspace"
+  
+class Linspace "linspace" 
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>linspace</font></h3>
 <p>
@@ -1624,8 +1624,8 @@ Real v[:] = linspace(1,7,2);  // = {1, 3, 5, 7}
 </pre></blockquote>
 </html>"));
 end Linspace;
-
-class Matrix "matrix"
+  
+class Matrix "matrix" 
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>matrix</font></h3>
 <p>
@@ -1655,8 +1655,8 @@ C[i_1, ..., i_nA, 1, ..., 1] = A[i_1, ..., i_nA].
 </pre></blockquote>
 </html>"));
 end Matrix;
-
-class Max "max"
+  
+class Max "max" 
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>max</font></h3>
 <p>
@@ -1687,8 +1687,8 @@ combinations of i in u, ..., j in v
 </pre></blockquote>
 </html>"));
 end Max;
-
-class Min "min"
+  
+class Min "min" 
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>min</font></h3>
 <p>
@@ -1719,9 +1719,9 @@ combinations of i in u, ..., j in v
 </pre></blockquote>
 </html>"));
 end Min;
-
-  class Mod "mod"
-
+  
+  class Mod "mod" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>mod</font></h3>
 <p>
@@ -1744,8 +1744,8 @@ discontinuously.]</I></P>
  = -1.2</pre>
 </html>"));
   end Mod;
-
-class Ndims "ndims"
+  
+class Ndims "ndims" 
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>ndims</font></h3>
 <p>
@@ -1765,9 +1765,9 @@ Integer n = ndims(A);  // = 3
 </pre></blockquote>
 </html>"));
 end Ndims;
-
-  class NoEvent "noEvent"
-
+  
+  class NoEvent "noEvent" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>noEvent</font></h3>
 <p>
@@ -1798,8 +1798,8 @@ discontinuously.]</i></p>
 <pre>der(h)=<B>if noEvent</B>(h&gt;0) <B>then</B> -c*sqrt(h) <B>else</B> 0;</pre>
 </html>"));
   end NoEvent;
-
-class Ones "ones"
+  
+class Ones "ones" 
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>ones</font></h3>
 <p>
@@ -1814,8 +1814,8 @@ elements equal to one (ni >=0 ).
 </p>
 </html>"));
 end Ones;
-
-class OuterProduct "outerProduct"
+  
+class OuterProduct "outerProduct" 
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>outerProduct</font></h3>
 <p>
@@ -1830,9 +1830,9 @@ Returns the outer product of vectors v1 and v2 <br>
 </p>
 </html>"));
 end OuterProduct;
-
-  class Pre "pre"
-
+  
+  class Pre "pre" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>pre</font></h3>
 <p>
@@ -1887,8 +1887,8 @@ model equations.]</I></p>
 <p align=\"center\"><img src=\"../Images/pre.png\" width=\"400\" height=\"280\" alt=\"Simulation result\"></p>
 </html>"));
   end Pre;
-
-class Product "product"
+  
+class Product "product" 
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>product</font></h3>
 <p>
@@ -1923,9 +1923,9 @@ u, ..., j <b>in</b> v) is the same as the type of e(i,...j).
 </pre></blockquote>
 </html>"));
 end Product;
-
-  class Reinit "reinit"
-
+  
+  class Reinit "reinit" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>reinit</font></h3>
 <p>
@@ -1964,9 +1964,9 @@ because the reinit operator is applied on a non-state variable.]</i></P>
     <B>end when</B>;</PRE>
 </html>"));
   end Reinit;
-
-  class Rem "rem"
-
+  
+  class Rem "rem" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>rem</font></h3>
 <p>
@@ -1991,9 +1991,9 @@ the return value changes discontinuously.]</I></P>
  = 0.2</pre>
 </html>"));
   end Rem;
-
-  class Sample "sample"
-
+  
+  class Sample "sample" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>sample</font></h3>
 <p>
@@ -2020,8 +2020,8 @@ expressions and need to be a subtype of Real or Integer.
 <p align=\"center\"><img src=\"../Images/sample.png\" width=\"400\" height=\"280\" alt=\"Simulation result\"></p>
 </html>"));
   end Sample;
-
-class Scalar "scalar"
+  
+class Scalar "scalar" 
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>scalar</font></h3>
 <p>
@@ -2041,9 +2041,9 @@ Real e = scalar(A);  // = 3
 </pre></blockquote>
 </html>"));
 end Scalar;
-
-  class SemiLinear "semiLinear"
-
+  
+  class SemiLinear "semiLinear" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>semiLinear</font></h3>
 <p>
@@ -2135,9 +2135,9 @@ flow direction.]</i>
 </p>
 </html>"));
   end SemiLinear;
-
-  class Sign "sign"
-
+  
+  class Sign "sign" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>sign</font></h3>
 <p>
@@ -2155,9 +2155,9 @@ when clause state events are triggered.]</i></p>
  = {-1, 0, 1}</pre>
 </html>"));
   end Sign;
-
-  class Sin "sin"
-
+  
+  class Sin "sin" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>sin</font></h3>
 <p>
@@ -2173,8 +2173,8 @@ Argument v needs to be an Integer or Real expression.</p>
  = 0.0</pre>
 </html>"));
   end Sin;
-
-class Size "size"
+  
+class Size "size" 
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>size</font></h3>
 <p>
@@ -2202,8 +2202,8 @@ Integer n[:] = size(A);    // = {8,4,5}
 </pre></blockquote>
 </html>"));
 end Size;
-
-class Skew "skew"
+  
+class Skew "skew" 
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>skew</font></h3>
 <p>
@@ -2224,9 +2224,9 @@ Returns the 3 x 3 skew symmetric matrix associated with a
 </pre></blockquote>
 </html>"));
 end Skew;
-
-  class Smooth "smooth"
-
+  
+  class Smooth "smooth" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>smooth</font></h3>
 <p>
@@ -2261,9 +2261,9 @@ discontinuously.]</I></p>
   // noEvent is necessary.</PRE>
 </html>"));
   end Smooth;
-
-  class Sqrt "sqrt"
-
+  
+  class Sqrt "sqrt" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>sqrt</font></h3>
 <p>
@@ -2279,9 +2279,9 @@ Argument v needs to be an Integer or Real expression.</p>
  = 3.0</pre>
 </html>"));
   end Sqrt;
-
-  class string "String"
-
+  
+  class string "String" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>String</font></h3>
 <p>
@@ -2370,8 +2370,8 @@ String(123, minimumLength=6, leftJustified=false)  // = \"   123\"
 </blockquote>
 </html>"));
   end string;
-
-class Sum "sum"
+  
+class Sum "sum" 
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>sum</font></h3>
 <p>
@@ -2407,8 +2407,8 @@ u, ..., j <b>in</b> v) is the same as the type of e(i,...j).
 </pre></blockquote>
 </html>"));
 end Sum;
-
-class Symmetric "symmetric"
+  
+class Symmetric "symmetric" 
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>symmetric</font></h3>
 <p>
@@ -2431,9 +2431,9 @@ B := <b>symmetric</b>(A)
 </pre></blockquote>
 </html>"));
 end Symmetric;
-
-  class Terminal "terminal"
-
+  
+  class Terminal "terminal" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>terminal</font></h3>
 <p>
@@ -2449,9 +2449,9 @@ True after successful analysis
   a = <b>change</b>(b) or <b>terminal</b>();</pre>
 </html>"));
   end Terminal;
-
-  class Terminate "terminate"
-
+  
+  class Terminate "terminate" 
+    
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>terminate</font></h3>
 <p>
@@ -2478,8 +2478,8 @@ give more complex stopping criteria than a fixed point in time.]</I></P>
 end</B> ThrowingBall;</pre>
 </html>"));
   end Terminate;
-
-class Transpose "transpose"
+  
+class Transpose "transpose" 
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>tranpose</font></h3>
 <p>
@@ -2495,8 +2495,8 @@ It is an error, if array A does not have at least
 </p>
 </html>"));
 end Transpose;
-
-class Vector "vector"
+  
+class Vector "vector" 
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>vector</font></h3>
 <p>
@@ -2516,8 +2516,8 @@ Real v[2] = vector(A);  // = {3,4}
 </pre></blockquote>
 </html>"));
 end Vector;
-
-class Zeros "zeros"
+  
+class Zeros "zeros" 
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>zero</font></h3>
 <p>
@@ -2534,8 +2534,9 @@ elements equal to zero (ni >= 0).
 end Zeros;
 end Operators;
 
-class BalancedModel "balanced model"
 
+class BalancedModel "balanced model" 
+  
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>balanced models</font></h3>
 <p>
@@ -2687,7 +2688,7 @@ model Capacitor
    Real u;
 equation
    0 = p.i + n.i;
-   u = p.v \" n.v;
+   u = p.v - n.v;
    C*der(u) = p.i;
 end Capacitor;
 </pre>
@@ -2698,7 +2699,7 @@ Model Capacitor is a locally balanced model according to the following analysis:
 
 <pre>Locally unknown variables: p.i, p.v, n.i, n.v, u
 Local equations:  0 = p.i + n.i;
-                  u = p.v \" n.v;
+                  u = p.v - n.v;
                   C*der(u) = p.i;
                   and 2 equations corresponding to the 
                   2 flow-variables p.i and n.i.
@@ -2706,8 +2707,8 @@ Local equations:  0 = p.i + n.i;
 
 <p>
 These are 5 equations in 5 unknowns (locally balanced model). A more detailed analysis would reveal that this is structurally non-singular, i.e. that the hybrid DAE will not contain a singularity independent of actual values.
-If the equation \"u = p.v \" n.v\" would be missing in the Capacitor model, there would be 4 equations in 5 unknowns and the model would be locally unbalanced and thus simulation models in which this model is used would be usually  structurally singular and  thus not solvable.
-If the equation \"u = p.v \" n.v\" would be replaced by the equation \"u = 0\" and the equation C*der(u) = p.i would be replaced by the equation \"C*der(u) = 0\", there would be 5 equations in 5 unknowns (locally balanced), but the equations would be singular, regardless of how the equations corresponding to the flow-variables are constructed because the information that \"u\" is constant is given twice in a slightly different form.
+If the equation \"u = p.v - n.v\" would be missing in the Capacitor model, there would be 4 equations in 5 unknowns and the model would be locally unbalanced and thus simulation models in which this model is used would be usually  structurally singular and  thus not solvable.
+If the equation \"u = p.v - n.v\" would be replaced by the equation \"u = 0\" and the equation C*der(u) = p.i would be replaced by the equation \"C*der(u) = 0\", there would be 5 equations in 5 unknowns (locally balanced), but the equations would be singular, regardless of how the equations corresponding to the flow-variables are constructed because the information that \"u\" is constant is given twice in a slightly different form.
 </p>
 
 <pre>Example 2:
@@ -2750,11 +2751,11 @@ Counting on  model Circuit results in the following balance sheet:
 <pre>Locally unknown variables (8): p.i, p.v, n.i, n.v, and 2 flow variables for t (t.p.i, t.n.i)  
                                                    and 2 flow variable for c (c.p.i, c.n.i).
 Local equations:     p.v = t.p.v;
-                       0 = p.i-t.p.i;
+                       0 = p.i - t.p.i;
                    c.p.v = load.n.v;
                        0 = c.p.i+load.n.i;
                      n.v = c.n.v;
-                       0 = n.i-c.n.i;
+                       0 = n.i - c.n.i;
                     and 2 equation corresponding to the 
                     flow variables p.i, n.i
 </pre>
@@ -2936,8 +2937,8 @@ Therefore, FixedBoundary_pTX is a locally balanced model. The predefined boundar
 end BalancedModel;
 
 
-class Connect "connect"
-
+class Connect "connect" 
+  
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>connect</font></h3>
 <p>
@@ -3039,8 +3040,8 @@ connected as a pair of scalar connectors.</P>
 end Connect;
 
 
-class Encapsulated "encapsulated"
-
+class Encapsulated "encapsulated" 
+  
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>encapsulated</font></h3>
 <p>
@@ -3082,8 +3083,8 @@ cannot be redefined at the same level.]</i></p>
 end Encapsulated;
 
 
-class Extends "extends"
-
+class Extends "extends" 
+  
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>extends</font></h3>
 <p>
@@ -3706,8 +3707,8 @@ the import statement to use the contents of a package)</i>]<i>.</i></span></p>
 end Extends;
 
 
-class Flow "flow"
-
+class Flow "flow" 
+  
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>flow</font></h3>
 <p>
@@ -3794,8 +3795,8 @@ whereas variables without the flow prefix are identical in a connection.</p>
 end Flow;
 
 
-class For "for"
-
+class For "for" 
+  
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>for</font></h3>
 <p>
@@ -3897,8 +3898,8 @@ prepending the reduction-expression with <tt>'function-name('</tt>.</p>
 end For;
 
 
-class If "if"
-
+class If "if" 
+  
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>if</font></h3>
 <p>
@@ -3983,8 +3984,8 @@ type of the if-expression. If-expressions with <B>elseif</B> are defined by repl
 end If;
 
 
-class Import "import"
-
+class Import "import" 
+  
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>import</font></h3>
 <p>
@@ -4057,8 +4058,8 @@ The generated import names are:</p>
 end Import;
 
 
-class Input "input"
-
+class Input "input" 
+  
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>input</font></h3>
 <p>
@@ -4185,8 +4186,8 @@ The prefixes <b>input</b> and <b>output</b> have a slightly different semantic m
 end Input;
 
 
-class Output "output"
-
+class Output "output" 
+  
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>output</font></h3>
 <p>
@@ -4314,8 +4315,8 @@ The prefixes <b>input</b> and <b>output</b> have a slightly different semantic m
 end Output;
 
 
-class Partial "partial"
-
+class Partial "partial" 
+  
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>partial</font></h3>
 <p>
@@ -4369,8 +4370,8 @@ class_specifier :
 end Partial;
 
 
-class Time "time"
-
+class Time "time" 
+  
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>time</font></h3>
 <p>
@@ -4405,8 +4406,8 @@ the time instant at which the simulation is started.</P>
 end Time;
 
 
-class When "when"
-
+class When "when" 
+  
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>when</font></h3>
 <p>
@@ -4592,8 +4593,8 @@ parameter variable. The start-values of the special functions
 end When;
 
 
-class While "while"
-
+class While "while" 
+  
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>while</font></h3>
 <p>
