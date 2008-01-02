@@ -626,14 +626,6 @@ convertModifiers("Modelica.Mechanics.MultiBody.Parts.PointMass",{"initType"} ,
                                 "%initType%==7) then true else false"}, true);
 
 
-// Modelica.Mechanics.MultiBody.Sensors
-convertClass("Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor",
-             "ObsoleteModelica3.Mechanics.MultiBody.Sensors.AbsoluteSensor");
-convertClass("Modelica.Mechanics.MultiBody.Sensors.RelativeSensor",
-             "ObsoleteModelica3.Mechanics.MultiBody.Sensors.RelativeSensor");
-
-
-
 // --------- initialization of Thermal.HeatTransfer with start values ----------
 convertModifiers("Modelica.Thermal.HeatTransfer.HeatCapacitor",{"steadyState"} , 
                  {"der_T.fixed=if %steadyState% then true else false"}, true);
@@ -646,10 +638,10 @@ convertClass("Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearing",
              "ObsoleteModelica3.Mechanics.Rotational.Interfaces.TwoFlangesAndBearing");
 convertClass("Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearing",
              "ObsoleteModelica3.Mechanics.Rotational.Interfaces.TwoFlangesAndBearing");
-convertClass("Modelica.Mechanics.Rotational.Sensors.AbsoluteSensor",
-             "ObsoleteModelica3.Mechanics.Rotational.Sensors.AbsoluteSensor");
-convertClass("Modelica.Mechanics.Rotational.Sensors.RelativeSensor",
-             "ObsoleteModelica3.Mechanics.Rotational.Sensors.RelativeSensor");
+convertClass("Modelica.Mechanics.Rotational.Interfaces.AbsoluteSensor",
+             "ObsoleteModelica3.Mechanics.Rotational.Interfaces.AbsoluteSensor");
+convertClass("Modelica.Mechanics.Rotational.Interfaces.RelativeSensor",
+             "ObsoleteModelica3.Mechanics.Rotational.Interfaces.RelativeSensor");
 
 
 convertClass("Modelica.Mechanics.Rotational.Interfaces.Rigid",
