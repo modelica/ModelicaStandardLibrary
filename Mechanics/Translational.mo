@@ -333,7 +333,7 @@ combination). In this case the system is not at rest.
 </p>
  
 <p>
-<IMG SRC=../Images/Fig.translational.examples.InitialConditions.png> 
+<IMG SRC=../Images/Translational/Fig.translational.examples.InitialConditions.png> 
 </p>
  
  
@@ -834,6 +834,7 @@ length L of the component.
 Plot PositionSensor1.s, PositionSensor2.s and SlidingMass1.s
 to see the difference.
 </p>
+</html>
  
 "),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -1006,7 +1007,8 @@ to see the difference.
             grid={2,2}), graphics={
             Text(
               extent={{-98,-68},{102,-94}},
-              textString="positive force => spool moves in positive direction ",
+              textString="positive force => spool moves in positive direction ", 
+
               lineColor={0,0,255}),
             Text(
               extent={{-32,-46},{38,-62}},
@@ -1028,15 +1030,15 @@ Drawing of spool.
 </p>
  
 <p>
-<<IMG SRC=../Images/PreLoad.png>
+<<IMG SRC=../Images/Translational/PreLoad.png>
 </p>
  
 <p>
-<IMG SRC=../Images/PreLoad3.png>
+<IMG SRC=../Images/Translational/PreLoad3.png>
 </p>
  
 <p>
-<IMG SRC=../Images/PreLoad4.png>
+<IMG SRC=../Images/Translational/PreLoad4.png>
 </p>
  
 <p>
@@ -1044,7 +1046,7 @@ Spool position s as a function of working force f.
 </p>
  
 <p>
-<IMG SRC=../Images/PreLoad2.png> 
+<IMG SRC=../Images/Translational/PreLoad2.png> 
 </p>
 </html>
  
@@ -1845,7 +1847,7 @@ where the different effects are visualized:
 "),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics(
+            grid={2,2}), graphics={
             Line(points={{-100,0},{-50,0}}, color={0,127,0}),
             Line(
               points={{-48,34},{-48,-46}},
@@ -1885,7 +1887,7 @@ where the different effects are visualized:
               points={{100,-60},{95,-61},{95,-59},{100,-60}},
               lineColor={0,0,0},
               fillColor={0,0,0},
-              fillPattern=FillPattern.Solid))),
+              fillPattern=FillPattern.Solid)}),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -2554,7 +2556,7 @@ The surface is fixed and there is friction between sliding mass and surface.
 The frictional force f is given for positive velocity v by:</P>
 <i><uL>
 f = F_Coulomb + F_prop * v + F_Stribeck * exp (-fexp * v)</i> </ul><br>
-<IMG SRC=../Images/Stribeck.png>
+<IMG SRC=../Images/Translational/Stribeck.png>
 <br><br>
 The distance between the left and the right connector is given by parameter L.
 The position of the center of gravity, coordinate s, is in the middle between
@@ -3595,7 +3597,7 @@ in the following way:
 <p>
 An example is given in the next figure
 </p>
-<IMG SRC=\"../Images/relativeStates2.png\" ALT=\"relativeStates2\">
+<IMG SRC=\"../Images/Translational/relativeStates2.png\" ALT=\"relativeStates2\">
 <p>
 Here, the relative position and the relative velocity between
 the two masses are used as state variables. Additionally, the
@@ -4307,7 +4309,7 @@ flange is the same. It is used to built up springs, dampers etc.
               points={{50,-90},{20,-80},{20,-100},{50,-90}},
               lineColor={128,128,128},
               fillColor={128,128,128},
-              fillPattern=FillPattern.Solid), Line(points={{-60,-90},{20,-90}},
+              fillPattern=FillPattern.Solid), Line(points={{-60,-90},{20,-90}}, 
                 color={0,0,0})}));
     equation
       s_rel = flange_b.s - flange_a.s;

@@ -459,7 +459,6 @@ as possible.
 
   end RequirementsForSimulationTool;
 
-
   class Contact "Contact"
 
     annotation (Documentation(info="<html>
@@ -2409,8 +2408,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Line(points={{0,90},{80,70},{80,-40},{70,-40}}, color={0,0,127}),
-            Line(points={{0,90},{-80,70},{-80,-40},{-70,-40}}, color={0,0,127}), 
-
+            Line(points={{0,90},{-80,70},{-80,-40},{-70,-40}}, color={0,0,127}),
             Text(
               extent={{-150,-180},{150,-140}},
               textString="%name",
@@ -3613,8 +3611,7 @@ GearNew.</p>
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={192,192,192}),
             Polygon(
-              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}}, 
-
+              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
               lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={128,128,128}),
@@ -5006,7 +5003,7 @@ in the following way:
 <p>
 An example is given in the next figure
 </p>
-<IMG SRC=\"../Images/relativeStates.png\" ALT=\"relativeStates\">
+<IMG SRC=\"../Images/Rotational/relativeStates.png\" ALT=\"relativeStates\">
 <p>
 Here, the relative angle and the relative angular velocity between
 the two inertias are used as state variables. Additionally, the
