@@ -1407,7 +1407,7 @@ range constructor which is either binary or ternary</span><span
 the same line of the
 table: </span></p>
 
-<table class=\"MsoNormalTable\" border=\"1\" cellpadding=\"0\" cellspacing=\"0\">
+<table border=\"1\" cellpadding=\"0\" cellspacing=\"0\">
   <tbody>
     <tr>
       <td valign=\"top\" width=\"180\">
@@ -4148,7 +4148,7 @@ syntactically equivalent are not discarded, hence yield an
 overdetermined system of equations.]</I></P>
 
 
-<p class=\"MsoBodyText\"><span lang=\"EN-US\">Since
+<p><span>Since
 specialized classes of different
 kinds have different properties,
 only specialized classes that are \"in some sense
@@ -4159,492 +4159,452 @@ shows which kind of specialized class can be used in an extends clauses
 of
 another kind of specialized class:</span></p>
 
-<table class=\"MsoNormalTable\"
+<table 
  style=\"border: medium none ; margin-left: 23.4pt; border-collapse: collapse;\"
  border=\"1\" cellpadding=\"0\" cellspacing=\"0\">
   <tbody>
     <tr style=\"page-break-inside: avoid; height: 15pt;\">
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 82.6pt; height: 15pt;\"
  nowrap=\"nowrap\" valign=\"top\" width=\"110\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p style=\"text-indent: 0pt;\"><span
+>&nbsp;</span></p>
       </td>
       <td colspan=\"7\"
- style=\"border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0pt 5.4pt; width: 313.4pt; height: 15pt;\"
  nowrap=\"nowrap\" valign=\"top\" width=\"418\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><b><span
- lang=\"EN-US\">Base Class</span></b></p>
+      <p
+><b><span
+>Base Class</span></b></p>
       </td>
     </tr>
     <tr style=\"page-break-inside: avoid; height: 15pt;\">
       <td
- style=\"border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0pt 5.4pt; width: 82.6pt; height: 15pt;\"
  nowrap=\"nowrap\" valign=\"top\" width=\"110\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><b><span
- lang=\"EN-US\">Derived Class</span></b></p>
+      <p style=\"text-indent: 0pt;\"><b><span
+>Derived Class</span></b></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 49.4pt; height: 15pt;\"
  nowrap=\"nowrap\" valign=\"top\" width=\"66\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">package</span></p>
+      <p>
+<span>package</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt; height: 15pt;\"
  nowrap=\"nowrap\" valign=\"top\" width=\"64\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">function</span></p>
+      <p><span
+>function</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 30pt; height: 15pt;\"
  nowrap=\"nowrap\" valign=\"top\" width=\"40\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">type</span></p>
+      <p><span
+>type</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt; height: 15pt;\"
  nowrap=\"nowrap\" valign=\"top\" width=\"64\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">record</span></p>
+      <p><span
+>record</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 54pt; height: 15pt;\"
  nowrap=\"nowrap\" valign=\"top\" width=\"72\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">connector</span></p>
+      <p><span
+>connector</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 39.35pt; height: 15pt;\"
  nowrap=\"nowrap\" valign=\"top\" width=\"52\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">block</span></p>
+      <p><span
+>block</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 44.65pt; height: 15pt;\"
  nowrap=\"nowrap\" valign=\"top\" width=\"60\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">model</span></p>
+      <p><span
+>model</span></p>
       </td>
     </tr>
     <tr style=\"page-break-inside: avoid;\">
       <td
- style=\"border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0pt 5.4pt; width: 82.6pt;\"
  nowrap=\"nowrap\" valign=\"top\" width=\"110\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- lang=\"EN-US\">package</span></p>
+      <p style=\"text-indent: 0pt;\"><span
+>package</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 49.4pt;\"
  nowrap=\"nowrap\" valign=\"top\" width=\"66\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">yes</span></p>
+      <p><span
+>yes</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt;\"
  nowrap=\"nowrap\" valign=\"top\" width=\"64\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 30pt;\"
  nowrap=\"nowrap\" valign=\"top\" width=\"40\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt;\"
  nowrap=\"nowrap\" valign=\"top\" width=\"64\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 54pt;\"
  nowrap=\"nowrap\" valign=\"top\" width=\"72\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 39.35pt;\"
  nowrap=\"nowrap\" valign=\"top\" width=\"52\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 44.65pt;\"
  nowrap=\"nowrap\" valign=\"top\" width=\"60\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p><span
+>&nbsp;</span></p>
       </td>
     </tr>
     <tr style=\"page-break-inside: avoid;\">
       <td
- style=\"border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0pt 5.4pt; width: 82.6pt;\"
  nowrap=\"nowrap\" valign=\"top\" width=\"110\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- lang=\"EN-US\">function</span></p>
+      <p style=\"text-indent: 0pt;\"><span
+>function</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 49.4pt;\"
  nowrap=\"nowrap\" valign=\"top\" width=\"66\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt;\"
  nowrap=\"nowrap\" valign=\"top\" width=\"64\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">yes</span></p>
+      <p
+><span
+>yes</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 30pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"40\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"64\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 54pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"72\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 39.35pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"52\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 44.65pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"60\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
     </tr>
     <tr style=\"page-break-inside: avoid;\">
       <td
- style=\"border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0pt 5.4pt; width: 82.6pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"110\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- lang=\"EN-US\">type</span></p>
+      <p style=\"text-indent: 0pt;\"><span
+>type</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 49.4pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"66\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"64\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 30pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"40\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">yes</span></p>
+      <p
+><span
+>yes</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"64\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 54pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"72\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 39.35pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"52\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 44.65pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"60\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
     </tr>
     <tr style=\"page-break-inside: avoid;\">
       <td
- style=\"border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0pt 5.4pt; width: 82.6pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"110\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- lang=\"EN-US\">record</span></p>
+      <p style=\"text-indent: 0pt;\"><span
+>record</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 49.4pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"66\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"64\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 30pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"40\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"64\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">yes</span></p>
+      <p
+><span
+>yes</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 54pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"72\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 39.35pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"52\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 44.65pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"60\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
     </tr>
     <tr style=\"page-break-inside: avoid;\">
       <td
- style=\"border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0pt 5.4pt; width: 82.6pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"110\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- lang=\"EN-US\">connector</span></p>
+      <p style=\"text-indent: 0pt;\"><span
+>connector</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 49.4pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"66\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"64\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; background: rgb(230, 230, 230) none repeat scroll 0%; width: 30pt; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;\"
  nowrap=\"nowrap\" valign=\"top\" width=\"40\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">yes</span></p>
+      <p
+><span
+>yes</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; background: rgb(230, 230, 230) none repeat scroll 0%; width: 48pt; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;\"
  nowrap=\"nowrap\" valign=\"top\" width=\"64\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">yes</span></p>
+      <p
+><span
+>yes</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 54pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"72\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;yes</span></p>
+      <p
+><span
+>&nbsp;yes</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 39.35pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"52\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 44.65pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"60\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
     </tr>
     <tr style=\"page-break-inside: avoid;\">
       <td
- style=\"border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0pt 5.4pt; width: 82.6pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"110\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- lang=\"EN-US\">block</span></p>
+      <p style=\"text-indent: 0pt;\"><span
+>block</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 49.4pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"66\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"64\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 30pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"40\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; background: rgb(230, 230, 230) none repeat scroll 0%; width: 48pt; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"64\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">yes</span></p>
+      <p
+><span
+>yes</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 54pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"72\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 39.35pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"52\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">yes</span></p>
+      <p
+><span
+>yes</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 44.65pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"60\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
     </tr>
     <tr style=\"page-break-inside: avoid;\">
       <td
- style=\"border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0pt 5.4pt; width: 82.6pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"110\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- lang=\"EN-US\">model</span></p>
+      <p style=\"text-indent: 0pt;\"><span
+>model</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 49.4pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"66\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 48pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"64\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 30pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"40\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; background: rgb(230, 230, 230) none repeat scroll 0%; width: 48pt; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"64\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">yes</span></p>
+      <p
+><span
+>yes</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 54pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"72\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <p
+><span
+>&nbsp;</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5"
-           + ".4pt; background: rgb(230, 230, 230) none repeat scroll 0%; width: 39.35pt; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;\"
  nowrap=\"nowrap\" valign=\"top\" width=\"52\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">yes</span></p>
+      <p
+><span
+>yes</span></p>
       </td>
       <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 44.65pt;\"
+
  nowrap=\"nowrap\" valign=\"top\" width=\"60\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: center; text-indent: 0pt;\" align=\"center\"><span
- lang=\"EN-US\">yes</span></p>
+      <p
+><span
+>yes</span></p>
       </td>
     </tr>
   </tbody>
 </table>
-<p class=\"MsoBodyText\"><span lang=\"EN-US\">The
+<p><span>The
 specialized classes </span><span class=\"CODE\"><span
- style=\"font-size: 9.5pt;\" lang=\"EN-US\">package</span></span><span
- lang=\"EN-US\">, </span><span class=\"CODE\"><span
- style=\"font-size: 9.5pt;\" lang=\"EN-US\">function</span></span><span
- lang=\"EN-US\">, </span><span class=\"CODE\"><span
- style=\"font-size: 9.5pt;\" lang=\"EN-US\">type</span></span><span
- lang=\"EN-US\"> and record can only be derived from their own
+ style=\"font-size: 9.5pt;\">package</span></span><span
+>, </span><span class=\"CODE\"><span
+ style=\"font-size: 9.5pt;\">function</span></span><span
+>, </span><span class=\"CODE\"><span
+ style=\"font-size: 9.5pt;\">type</span></span><span
+> and record can only be derived from their own
 kind [<i>(e.g. a
 package can only be base class for packages. All other kinds of classes
 can use
