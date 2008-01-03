@@ -46,6 +46,790 @@ and the accompanying <b>disclaimer</b>
 </ul>
 </html>"));
 
+package Annotations "Annotations" 
+  class choices "choices" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>choices</font></h3>
+<p>
+Define graphical layout of choices in a parameter menu
+</p>
+
+<h3><font color=\"#008000\">Examples</font></h3>
+
+<pre><b>replaceable model</b> MyResistor=Resistor 
+  <b>annotation</b>(choices(
+              choice(redeclare MyResistor=lib2.Resistor(a={2}) \"...\"),
+              choice(redeclare MyResistor=lib2.Resistor2 \"...\")));
+
+<b>replaceable</b> Resistor Load(R=2) constrainedby TwoPin 
+  <b>annotation</b>(choices(
+              choice(redeclare lib2.Resistor Load(a={2}) \"...\"),
+              choice(redeclare Capacitor Load(L=3) \"...\")));
+
+<b>replaceable</b> FrictionFunction a(func=exp) constrainedby Friction
+  <b>annotation</b>(choices(
+             choice(redeclare ConstantFriction a(c=1) \"...\"),
+             choice(redeclare TableFriction a(table=\"...\") \"...\"),
+             choice(redeclare FunctionFriction a(func=exp) \"...\"))));
+
+<b>type</b> KindOfController=Integer(min=1,max=3)
+   <b>annotation</b>(choices(
+                choice=1 \"P\",
+                choice=2 \"PI\",
+                choice=3 \"PID\"));
+
+<b>model</b> A
+  KindOfController x;
+<b>end</b> A;
+A a(x=3 \"PID\");
+</pre>
+
+
+
+<h3><font color=\"#008000\">Description</font></h3>
+
+<p>
+A declaration can have an annotation \"choices\" containing modifiers on choice, where each of them indicates a suitable redeclaration or modifications of the element. 
+This is a hint for users of the model, and can also be used by the user interface to suggest reasonable redeclaration, where the string comments on the choice declaration can be used as textual explanations of the choices.  The annotation is not restricted to replaceable elements but can also be applied to non-replaceable elements, enumeration types, and simple variables.
+</p>
+
+</html>"));
+  end choices;
+
+  class defaultComponentName "defaultComponentName" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>defaultComponentName</font></h3>
+<p>
+Default name when dragging component
+</p>
+
+<h3><font color=\"#008000\">Syntax</font></h3>
+
+<pre>   <b>annotation</b>\"(\" defaultComponentName \"=\" STRING \")\"
+</pre>
+
+
+<h3><font color=\"#008000\">Description</font></h3>
+
+<p>
+When creating a component of the given class, the recommended component name is the
+giving string.
+</p>
+
+</html>"));
+  end defaultComponentName;
+
+  class defaultComponentPrefixes "defaultComponentPrefixes" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>defaultComponentPrefixes</font></h3>
+<p>
+Default prefixes when dragging component
+</p>
+
+<h3><font color=\"#008000\">Examples</font></h3>
+
+<pre><b>annotation</b>(defaultComponentPrefixes=\"inner\",
+           defaultComponentName=\"world\")
+</pre>
+
+<h3><font color=\"#008000\">Syntax</font></h3>
+
+<pre>   <b>annotation</b>\"(\" defaultComponentPrefixes \"=\" STRING \")\"
+</pre>
+
+
+<h3><font color=\"#008000\">Description</font></h3>
+
+<p>
+The following prefixes may be included in the string prefixes: inner, outer, replaceable, constant, parameter, discrete. In combination with defaultComponentName it can be used to make it easy for users to create inner components matching the outer declarations.
+</p>
+
+</html>"));
+  end defaultComponentPrefixes;
+
+  class derivative "derivative" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>derivative</font></h3>
+<p>
+Define derivative of function
+</p>
+
+<h3><font color=\"#008000\">Examples</font></h3>
+
+<pre><b>function</b> foo0 <b>annotation</b>(derivative=foo1); <b>end</b> foo0;
+<b>function</b> foo1 <b>annotation</b>(derivative(order=2)=foo2); <b>end</b> foo1;
+<b>function</b> foo2 <b>end</b> foo2;
+</pre>
+
+
+
+<h3><font color=\"#008000\">Description</font></h3>
+
+<p>
+Derivatives of functions can be declared explicitly using the derivative annotation, whereas a function can be defined as a partial derivative of another function using the der-operator in a short function definition.
+</p>
+
+<p>
+A function declaration can have an annotation derivative specifying the derivative function. This can influence simulation time and accuracy and can be applied to both functions written in Modelica and to external functions. A derivative annotation can state that it is only valid under certain restrictions on the input arguments. These restrictions are defined using the following optional attributes: order (only a restriction if order &gt; 1, the default for order is 1), noDerivative, and zeroDerivative. The given derivative-function can only be used to compute the derivative of a function call if these restrictions are satisfied. There may be multiple restrictions on the derivative, in which case they must all be satisfied. The restrictions also imply that some derivatives of some inputs are excluded from the call of the derivative (since they are not necessary). A function may supply multiple derivative functions subject to different restrictions.
+</p>
+
+<p>
+The inputs to the derivative function of order 1 are constructed as follows:
+</p>
+
+<ul>
+<li> First are all inputs to the original function, and after all them we will
+     in order append one derivative for each input containing reals.<br>&nbsp;</li>
+<li> The outputs are constructed by starting with an empty list and then in
+     order appending one derivative for each output containing reals.<br>&nbsp;</li>
+<li> If the Modelica function call is a nth derivative (n>=1), i.e. this
+     function call has been derived from an (n-1)th derivative, an
+     annotation(order=n+1)=?,  specifies the (n+1)th derivative, and the
+     (n+1)th derivative call is constructed as follows:<br>&nbsp;</li>
+<li> The input arguments are appended with the (n+1)th derivative,
+     which are constructed in order from the nth order derivatives.<br>&nbsp;</li>
+<li> The output arguments are similar to the output argument for the
+     nth derivative, but each output is one higher in derivative order.</li>
+</ul>
+
+<p>
+Example: Given the declarations
+</p>
+
+<pre> function foo0 
+   ...
+   input Real x;
+   input Boolean linear;
+   input ...;
+   output Real y;
+   ...
+   annotation(derivative=foo1);
+ end foo0;
+
+ function foo1 
+   ...
+   input Real x;
+   input Boolean linear;
+   input ...;
+   input Real der_x;
+   ...
+   output Real der_y;
+   ...
+   annotation(derivative(order=2)=foo2);
+ end foo1;
+   
+ function foo2 
+   ...
+   input Real x;
+   input Boolean linear;
+   input ...;
+   input Real der_x;
+   ...;
+   input Real der_2_x;
+   ...
+   output Real der_2_y;
+   ...
+</pre>
+
+<p>
+the equation
+</p>
+
+<pre>(...,y(t),...)=foo0(...,x(t),b,...);
+</pre>
+
+<p>
+implies that:
+<p>
+
+<pre>(...,d y(t)/dt,...)=foo1(...,x(t),b,..., ...,d x(t)/dt,...);
+(...,d^2 y(t)/dt^2,...)=foo2(...,x(t),b,...,d x(t)/dt,..., ...,d^2 x(t)/dt^2,...);
+</pre>
+
+<p>
+An input or output to the function may be any simple type (Real, Boolean, Integer, String and enumeration types) or a record, provided the record does not contain both reals and non-reals predefined types. The function must have at least one input containing reals. The output list of the derivative function may not be empty.
+</p>
+
+<ul>
+<li> zeroDerivative=input_var1<br>
+    The derivative function is only valid if input_var1 is independent
+    of the variables the function call is  differentiated with respect to
+    (i.e. that the derivative of input_var1 is \"zero\"). 
+    The derivative of input_var1 is excluded from the argument list of the derivative-function.
+    Assume that function f takes a matrix and a scalar. Since the matrix argument is
+    usually a parameter expression it is then useful to define the function
+    as follows (the additional derivative = f_general_der is optional and
+    can be used when the derivative of the matrix is non-zero).
+<pre>function f \"Simple table lookup\"
+  input Real x;
+  input Real y[:, 2];
+  output Real z;
+  annotation(derivative(zeroDerivative=y) = f_der, 
+             derivative=f_general_der);
+algorithm
+  ...
+end f;
+
+function f_der \"Derivative of simple table lookup\"
+  input Real x;
+  input Real y[:, 2];
+  input Real x_der;
+  output Real z_der;
+algorithm
+  ...
+end f_der;
+
+function f_general_der \"Derivative of table lookup taking into account varying tables\"
+  input Real x;
+  input Real y[:, 2];
+  input Real x_der;
+  input Real y_der[:, 2];
+  output Real z_der;
+algorithm
+  ...
+end f_general_der; 
+
+</pre></li>
+
+<li> noDerivative(input_var2 = f(input_var1, ...) )<br>
+    The derivative function is only valid if the input argument input_var2
+    is computed as f(input_var1, ...). The derivative of input_var2
+    is excluded from the argument list of the derivative-function.
+    Assume that function fg is defined as a composition f(x, g(x)). 
+    When differentiating f it is useful to give the derivative under the
+    assumption that the second argument is defined in this way:
+<pre>function fg
+  input Real x;
+  output Real z;
+algorithm 
+   z := f(x, g(x));
+end fg;
+
+function f
+  input Real x;
+  input Real y;
+  output Real z;
+  annotation(derivative(noDerivative(y = g(x))) = f_der);
+algorithm
+  ... 
+end f;
+
+function f_der
+  input Real x;
+  input Real x_der;
+  input Real y;
+  output Real z_der;
+algorithm
+  ... 
+end f_der;
+</pre>
+This is useful if g represents the major computational effort of fg).</li>
+</ul>
+
+</html>"));
+  end derivative;
+
+  class Dialog "Dialog" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>Dialog</font></h3>
+<p>
+Define graphical layout of parameter menu
+</p>
+
+<h3><font color=\"#008000\">Examples</font></h3>
+
+<pre><b>model</b> BodyShape
+  ...
+  <b>parameter</b> Boolean animation = true;
+  <b>parameter</b> Modelica.SIunits.Length length \"Length of shape\"
+     <b>annotation</b>(Dialog(enable = animation, tab = \"Animation\", 
+                        group = \"Shape definition\"));
+  ...
+<b>end</b> BodyShape;
+</pre>
+
+<h3><font color=\"#008000\">Syntax</font></h3>
+
+<pre>   <b>annotation</b>(Dialog(enable = parameter-expression, tab = \"tab\", group = \"group\"))
+</pre>
+
+
+<h3><font color=\"#008000\">Description</font></h3>
+
+<p>
+Defines the placement of the component or class parameter in a parameter dialog with optional tab and group specification. If enable is false, the input field may be disabled [and no input can be given]. \"Dialog\" is defined as:
+</p>
+
+<pre>   <b>record</b> Dialog
+     <b>parameter</b> String  tab    = \"General\";
+     <b>parameter</b> String  group  = \"Parameters\";
+     <b>parameter</b> Boolean enable = <b>true</b>;
+   <b>end Dialog;
+</pre>
+
+<p>
+A parameter dialog is a sequence of tabs with a sequence of groups inside them.
+</p>
+
+</html>"));
+  end Dialog;
+
+  class Documentation "Documentation" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>Documentation</font></h3>
+<p>
+Annotations for documentation
+</p>
+
+<h3><font color=\"#008000\">Syntax</font></h3>
+
+<pre>documentation_annotation:
+   <b>annotation</b>\"(\" Documentation \"(\" \"info\" \"=\" STRING 
+                            [\",\" \"revisions\" \"=\" STRING ] \")\" \")\"
+</pre>
+
+<h3><font color=\"#008000\">Description</font></h3>
+<P>
+The \"Documentation\" annotation can contain the \"info\" annotation giving a textual description, the \"revisions\" annotation giving a list of revisions and other annotations defined by a tool [The \"revisions\" documentation may be omitted in printed documentation]. How the tool interprets the information in \"Documentation\" is unspecified. Within a string of the \"Documentation\" annotation, the tags &lt;HTML&gt; and &lt;/HTML&gt; or &lt;html&gt; and &lt;/html&gt; define optionally begin and end of content that is HTML encoded. Links to Modelica classes may be defined with the HTML link command using scheme \"Modelica\", e.g.,
+</p>
+
+<pre>    &lt;a href=\"Modelica://MultiBody.Tutorial\"&gt;MultiBody.Tutorial&lt;/a&gt;
+</pre>
+
+<p>
+Together with scheme \"Modelica\" the (URI)  fragment specifiers #diagram, #info, #text, #icon may be used to reference different layers. Example:
+</p>
+
+<pre>   &lt;a href=\"Modelica://MultiBody.Joints.Revolute#info\"&gt;Revolute&lt;/a&gt;
+</pre>
+
+</html>"));
+  end Documentation;
+  
+  
+  
+  
+  
+  
+  
+  annotation (Documentation(info="<html>
+<p>
+In this package annotations are described.
+Annotations are intended for storing extra information about a model, such as graphics, documentation or versioning, etc. A Modelica tool is free to define and use other annotations, in addition to those defined here. The only requirement is that any tool shall save files with all annotations from this chapter and all vendor-specific annotations intact. To ensure this, annotations must be represented with constructs according to the Modelica grammar. The Modelica language specification defines the semantic meaning if a tool implements any of these annotations.
+</p>
+
+</html>"));
+  class Evaluate "Evaluate" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>Evaluate</font></h3>
+<p>
+Annotation for code generation (evaluate parameter value)
+</p>
+
+<h3><font color=\"#008000\">Syntax</font></h3>
+
+<pre>   <b>annotation</b>\"(\" Evaluate \"=\" ( <b>false</b> | <b>true</b> ) \")  
+</pre>
+
+
+<h3><font color=\"#008000\">Description</font></h3>
+
+<p>
+Has only an effect for a declaration with the prefix parameter. 
+</p>
+
+<p>
+If Evaluate = true, the model developer proposes to utilize the value for the symbolic processing. In that case, it is not possible to change the parameter value after symbolic pre-processing. 
+</p>
+
+<p>
+If Evaluate = false, the model developer proposes to not utilize the value of the corresponding parameter for the symbolic processing.
+</p<
+
+<p>
+Evaluate is for example used for axis of rotation parameters in the Modelica.Mechanics.MultiBody library in order to improve the efficiency of the generated code
+</p>
+
+</html>"));
+  end Evaluate;
+
+  class experiment "experiment" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>experiment</font></h3>
+<p>
+Define default experiment parameters 
+</p>
+
+<h3><font color=\"#008000\">Examples</font></h3>
+
+<pre><b>annotation</b>(experiment(StartTime=0, StopTime=5, Tolerance=1e-6))
+</pre>
+
+
+<h3><font color=\"#008000\">Syntax</font></h3>
+
+<pre>experiment_annotation:
+   <b>annotation</b>\"(\" \"experiment\" \"(\" [experimentOption] {, experimentOption}] \")\"
+
+experimentOption:
+   StartTime  \"=\" [\"+\" | \"-\"] UNSIGNED_NUMBER | 
+   StopTime   \"=\" [\"+\" | \"-\"] UNSIGNED_NUMBER |
+   Tolerance  \"=\" UNSIGNED_NUMBER
+</pre>
+
+
+<h3><font color=\"#008000\">Description</font></h3>
+
+<p>
+The experiment annotation defines the default start time (StartTime) in [s], the default stop time (StopTime) in [s], and the default relative integration tolerance (Tolerance) for simulation experiments to be carried out with the model or block at hand. 
+</p>
+
+</html>"));
+  end experiment;
+
+  class HideResult "HideResult" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>HideResult</font></h3>
+<p>
+Annotation for code generation (hide result)
+</p>
+
+<h3><font color=\"#008000\">Syntax</font></h3>
+
+<pre>   <b>annotation</b>\"(\" HideResult \"=\" ( <b>false</b> | <b>true</b> ) \")  
+</pre>
+
+
+<h3><font color=\"#008000\">Description</font></h3>
+
+<p>
+HideResult = true defines that the model developer proposes to not show the simulator results of the corresponding component [e.g., it will not be possible to plot this variable].
+</p>
+
+<p>
+HideResult = false defines that the developer proposes to show the corresponding component [if a variable is declared in a protected section, a tool might not include it in a simulation result. By setting HideResult = false, the modeler would like to have the variable in the simulation result, even if in the protected section].
+</p>
+
+<p>
+HideResult is for example used in the connectors of the Modelica.StateGraph library to not show variables to the modeler that are of no interest to him and would confuse him.
+</p>
+
+</html>"));
+  end HideResult;
+
+  class Inline "Inline" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>Inline</font></h3>
+<p>
+Annotation for code generation (inline function body)
+</p>
+
+<h3><font color=\"#008000\">Syntax</font></h3>
+
+<pre>   <b>annotation</b>\"(\" Inline \"=\" ( <b>false</b> | <b>true</b> ) \")  
+</pre>
+
+
+<h3><font color=\"#008000\">Description</font></h3>
+
+<p>
+Has only an effect within a function declaration. 
+</p>
+
+<p>
+If \"Inline = true\", the model developer proposes to inline the function.
+This means, that the body of the function is included at all places where the function is called.
+</p>
+
+<p>
+If \"Inline = false\", the model developer proposes to not inline the function. 
+</p>
+
+<p>
+Inline = true is for example used in Modelica.Mechanics.MultiBody.Frames and in functions of Modelica.Media to have no overhead for function calls such as resolving a vector in a different coordinate system and at the same time the function can be analytically differentiated, e.g., for index reduction needed for mechanical systems.
+</p>
+
+</html>"));
+  end Inline;
+
+  class LateInline "LateInline" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>LateInline</font></h3>
+<p>
+Annotation for code generation (inline function body after symbolic processing)
+</p>
+
+<h3><font color=\"#008000\">Syntax</font></h3>
+
+<pre>   <b>annotation</b>\"(\" LateInline \"=\" ( <b>false</b> | <b>true</b> ) \")  
+</pre>
+
+
+<h3><font color=\"#008000\">Description</font></h3>
+
+<p>
+Has only an effect within a function declaration.
+</p>
+
+<p> 
+If \"LateInline = true\", the model developer proposes to inline the function after all symbolic transformations have been performed, but before common subexpression elimination takes place. 
+</p>
+
+<p>
+If \"LateInline = false\", the model developer proposes to not inline the function after symbolic transformations have been performed.
+</p>
+
+<p>
+This annotation is for example used in Modelica.Media.Water.IF97_Utilities.T_props_ph to provide in combination with common subexpression elimination the automatic caching of function calls. Furthermore, it is used in order that a tool is able to propagate specific enthalpy over connectors in the Modelica_Fluid library.
+</p>
+
+</html>"));
+  end LateInline;
+
+  class missingInnerMessage "missingInnerMessage" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>missingInnerMessage</font></h3>
+<p>
+Warning message, if inner declaration is missing
+</p>
+
+<h3><font color=\"#008000\">Examples</font></h3>
+
+<pre><b>model</b> World
+  <b>annotation</b>(defaultComponentName     = \"world\",
+             defaultComponentPrefixes = \"inner replaceable\",
+             missingInnerMessage      = \"The World object is missing\");
+  ...
+<b>end</b> World;
+</pre>
+
+<h3><font color=\"#008000\">Syntax</font></h3>
+
+<pre>   <b>annotation</b>\"(\" missingInnerMessage \"=\" STRING \")\"
+</pre>
+
+
+<h3><font color=\"#008000\">Description</font></h3>
+
+<p>
+When an outer component of the class does not have a corresponding inner component, the string message may be used as a diagnostic message.
+</p>
+
+</html>"));
+  end missingInnerMessage;
+
+  class PreferredView "preferredView" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>preferredView</font></h3>
+<p>
+Define default view when selecting class
+</p>
+
+<h3><font color=\"#008000\">Syntax</font></h3>
+
+<pre>preferred view_annotation:
+   <b>annotation</b>\"(\" preferredView \"=\" (\"info\" | \"diagram\" | \"text\") \")\"  
+</pre>
+
+
+<h3><font color=\"#008000\">Description</font></h3>
+
+<p>
+The preferredView annotation defines the default view when selecting the class. info means info layer, i.e., the documentation of the class, diagram means diagram layer and text means the Modelica text layer.
+</p>
+
+</html>"));
+  end PreferredView;
+
+  class smoothOrder "smoothOrder" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>smoothOrder</font></h3>
+<p>
+Define differentiability of function body
+</p>
+
+<h3><font color=\"#008000\">Syntax</font></h3>
+
+<pre>   <b>annotation</b>\"(\" smoothOrder \"=\" UNSIGNED_INTEGER \")\" 
+</pre>
+
+
+<h3><font color=\"#008000\">Description</font></h3>
+
+<p>
+This annotation has only an effect within a function declaration.
+</p>
+
+<p>
+smoothOrder defines the minimum number of differentations of the function, in order that all of the differentiated outputs are continuous provided all input arguments and their derivatives up to order smoothOrder are continuous.
+</p>
+
+<p>
+This means that the function is at least C<sup>smoothOrder</sup>. smoothOrder = 1 means that the function can be differentiated at least once in order that all output arguments are still continuous, provided the input arguments are continuous. If a tool needs the derivative of a function, e.g. for index reduction or to compute an analytic Jacobian, the function can be differentiated analytically at least smoothOrder times.
+</p>
+
+</html>"));
+  end smoothOrder;
+
+  class version "version" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>Version</font></h3>
+<p>
+Define version information of package
+</p>
+
+<h3><font color=\"#008000\">Examples</font></h3>
+
+<pre><b>package</b> Modelica
+  <b>annotation</b>(version=\"2.1\",
+             conversion(noneFromVersion=\"2.1 Beta 1\",
+                        from(version=\"1.5\",
+                             script=\"convertFromModelica1_5.mos\")));
+  ...
+<b>end</b> Modelica;
+
+<b>model</b> A
+  <b>annotation</b>(version=\"1.0\", 
+     uses(Modelica(version=\"1.5\")));
+  ...
+<b>end</b> A;
+
+<b>model</b> B
+  <b>annotation</b>(uses(Modelica(version=\"2.1 Beta 1\")));
+  ...
+<b>end</b> B;
+</pre>
+
+<p>
+In this example the model A uses an older version of the Modelica library and can be upgraded using the given script, and model B uses an older version of the Modelica library but no changes are required when upgrading.
+</p>
+
+
+
+<h3><font color=\"#008000\">Description</font></h3>
+
+<p>
+Version numbers are of the forms:
+</p>
+
+<ul>
+<li> Main release versions:
+     <pre>\"\"\" UNSIGNED_INTEGER { \".\" UNSIGNED_INTEGER } \"\"\"</pre>
+     Example: <code>\"2.1\"</code><br>&nbsp;</li>
+
+<li> Pre-release versions:
+     <pre>\"\"\" UNSIGNED_INTEGER { \".\" UNSIGNED_INTEGER } \" \" {S-CHAR} \"\"\"</pre>
+     Example: <code>\"2.1 Beta 1\"</code><br>&nbsp;</li>
+
+<li> Un-ordered versions:
+     <pre> \"\"\" NON-DIGIT {S-CHAR} \"\"\" </pre>
+     Example: <code>\"Test 1\"</code></li>
+</ul>
+
+<p>
+The main release versions are ordered using the hierarchical numerical names, and follow the corresponding pre-release versions. The pre-release versions of the same main release version are internally ordered alphabetically. 
+</p>
+
+<p>
+In a top-level class, the version number and the dependency to earlier versions of this class are defined using one or more of the following annotations:
+</p>
+
+<ul>
+<li> <code>version = CURRENT-VERSION-NUMBER</code><br>
+     Defines the version number of the model or package.
+     All classes within this top-level class have this version number.<br>&nbsp;</li>
+
+<li> <code>conversion ( noneFromVersion = VERSION-NUMBER)</code><br>
+     Defines that user models using the VERSION-NUMBER can be upgraded to
+     the CURRENT-VERSION-NUMBER of the current class without any changes.<br>&nbsp;</li>
+
+<li> <code>conversion ( from (version = VERSION-NUMBER, script = \"?\") )	</code><br>
+     Defines that user models using the VERSION-NUMBER can be upgraded to 
+     the CURRENT-VERSION-NUMBER of the current class by applying the given
+     script. The semantics of the conversion script is not defined.<br>&nbsp;</li>
+
+<li> <code>uses(IDENT (version = VERSION-NUMBER) )</code><br>
+     Defines that classes within this top-level class uses version
+     VERSION-NUMBER of classes within the top-level class IDENT.
+     The annotations uses and conversion may contain several different sub-entries.<li>
+</ul>
+
+<p>
+A top-level class, IDENT, with version VERSION-NUMBER can be stored in one
+of the following ways in a directory given in the MODELICAPATH:
+</p>
+
+<ul>
+<li> The file IDENT \".mo\"<br>
+     Example: Modelica.mo</li>
+<li> The file IDENT \" \" VERSION-NUMBER \".mo\"<br>
+     Example: Modelica 2.1.mo</li>
+<li> The directory IDENT<br>
+     Example: Modelica</li>
+<li> The directory IDENT \" \" VERSION-NUMBER<br>
+     Example: Modelica 2.1</li>
+</ul>
+
+<p>
+This allows a tool to access multiple versions of the same package.
+</p>
+
+</html>"));
+  end version;
+
+  class unassignedMessage "unassignedMessage" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>unassignedMessage</font></h3>
+<p>
+Error message, if variable is not assigned
+</p>
+
+<h3><font color=\"#008000\">Examples</font></h3>
+
+<pre><b>connector</b> Frame \"Frame of a mechanical system\" 
+    ...
+  <b>flow</b> Modelica.SIunits.Force f[3] <b>annotation</b>(unassignedMessage = 
+\"All Forces cannot be uniquely calculated. The reason could be that the
+mechanism contains a planar loop or that joints constrain the same motion. 
+For planar loops, use in one revolute joint per loop the option 
+PlanarCutJoint=true in the Advanced menu.
+\");
+<b>end</b> Frame;
+</pre>
+
+
+<h3><font color=\"#008000\">Syntax</font></h3>
+
+<pre>   <b>annotation</b>\"(\" unassignedMessage \"=\" STRING \")\"
+</pre>
+
+
+<h3><font color=\"#008000\">Description</font></h3>
+
+<p>
+When the variable to which this annotation is attached in the declaration cannot be computed due to the structure of the equations, the string message can be used as a diagnostic message. When using BLT partitioning, this means if a variable \"a\" or one of its aliases \"b = a\", \"b = -a\", cannot be assigned, the message is displayed. This annotation is used to provide library specific error messages.
+</p>
+
+</html>"));
+  end unassignedMessage;
+end Annotations;
+
 
 package Classes "Classes (model, function, ...)" 
   class Block "block" 
@@ -597,13 +1381,13 @@ or arrays.
       <td>Concatenation of string scalars or arrays</td></tr>
 </table>
 
-<p class=\"MsoBodyText\"><span lang=\"EN-US\">Operator
+<p><span >Operator
 precedence determines the order
 of evaluation of operators in an expression. An operator with higher
 precedence
 is evaluated before an operator with lower precedence in the same
 expression.</span></p>
-<p class=\"MsoBodyTextIndent\"><span lang=\"EN-US\">The
+<p><span >The
 following table presents all
 the expression operators in order of precedence from highest to lowest.
 All operators are binary except exponentiation, the postfix
@@ -613,442 +1397,280 @@ conditional operator, the
 array construction operator {} and concatenation operator [ ], and the
 array
 range constructor which is either binary or ternary</span><span
- lang=\"EN-US\">. Operators with the same precedence occur at
+ >. Operators with the same precedence occur at
 the same line of the
 table: </span></p>
 
-<table class=\"MsoNormalTable\"
- style=\"margin-left: 12.5pt; border-collapse: collapse;\"
- border=\"0\" cellpadding=\"0\" cellspacing=\"0\">
+<table class=\"MsoNormalTable\" border=\"1\" cellpadding=\"0\" cellspacing=\"0\">
   <tbody>
     <tr>
-      <td
- style=\"border-style: solid none solid solid; border-color: windowtext -moz-use-text-color windowtext windowtext; border-width: 1pt medium 1pt 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
- valign=\"top\" width=\"180\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><i><span
- lang=\"EN-US\">Operator Group</span></i></p>
+      <td valign=\"top\" width=\"180\">
+      <p><i>Operator Group</i></p>
       </td>
-      <td
- style=\"border-style: solid none; border-color: windowtext -moz-use-text-color; border-width: 1pt medium; padding: 0pt 5.4pt; width: 152.95pt;\"
- valign=\"top\" width=\"204\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><i><span
- lang=\"EN-US\">Operator Syntax</span></i></p>
+      <td valign=\"top\">
+      <p><i>Operator Syntax</i></p>
       </td>
-      <td
- style=\"border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1pt 1pt 1pt medium; padding: 0pt 5.4pt; width: 144.75pt;\"
- valign=\"top\" width=\"193\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><i><span
- lang=\"EN-US\">Examples</span></i></p>
+      <td valign=\"top\">
+      <p><i><span>Examples</span></i></p>
       </td>
     </tr>
     <tr>
-      <td
- style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
- valign=\"top\" width=\"180\">
-      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
- lang=\"EN-US\">postfix array index operator</span></p>
+      <td valign=\"top\">
+      <p><span
+ >postfix array index operator</span></p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
- valign=\"top\" width=\"204\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">[]</span></span></p>
+      <td valign=\"top\">
+      <p><span class=\"CODE\"><span>[]</span></span></p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
- valign=\"top\" width=\"193\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">arr[index]</span></span></p>
+      <td valign=\"top\">
+      <p><span class=\"CODE\"><span>arr[index]</span></span></p>
       </td>
     </tr>
     <tr>
-      <td
- style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
- valign=\"top\" width=\"180\">
-      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
- lang=\"EN-US\">postfix access operator</span></p>
+      <td valign=\"top\">
+      <p><span>postfix access operator</span></p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
- valign=\"top\" width=\"204\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">. </span></span></p>
+      <td valign=\"top\">
+      <p><span1 class=\"CODE\"><span>. </span></span></p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
- valign=\"top\" width=\"193\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">a.b</span></span></p>
+      <td valign=\"top\">
+      <p><span class=\"CODE\"><span>a.b</span></span></p>
       </td>
     </tr>
     <tr>
-      <td
- style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
- valign=\"top\" width=\"180\">
-      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
- lang=\"EN-US\">postfix function call</span></p>
+      <td valign=\"top\">
+      <p><span>postfix function call</span></p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
- valign=\"top\" width=\"204\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><i><span
- lang=\"EN-US\">funcName</span></i><span
- lang=\"EN-US\">(<i>function-arguments</i>)</span></p>
+      <td valign=\"top\">
+      <p><i><span>funcName</span></i><span
+ >(<i>function-arguments</i>)</span></p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
- valign=\"top\" width=\"193\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">sin(4.36)</span></span></p>
+      <td valign=\"top\">
+      <p><span class=\"CODE\"><span>sin(4.36)</span></span></p>
       </td>
     </tr>
     <tr>
-      <td
- style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
- valign=\"top\" width=\"180\">
-      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
- lang=\"EN-US\">array construct/concat</span></p>
+      <td valign=\"top\">
+      <p><span>array construct/concat</span></p>
       </td>
       <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
- valign=\"top\" width=\"204\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- lang=\"EN-US\">{<i>expressions</i>}&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp; [<i>expressions</i>]&nbsp;&nbsp; [<i>expressions</i></span><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">;</span></span><span lang=\"EN-US\">
-      <i>expressions</i>...]</span></p>
+
+ valign=\"top\">
+      {<i>expressions</i>}<br>
+      [<i>expressions</i>]<br>
+      [<i>expressions</i>; <i>expressions</i>...]
       </td>
       <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
- valign=\"top\" width=\"193\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">{2,3}&nbsp; [5,6]</span></span></p>
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">[2,3; 7,8]</span></span></p>
+
+ valign=\"top\">
+      <p><span
+ class=\"CODE\"><span 
+ >{2,3}&nbsp; [5,6]</span></span></p>
+      <p><span
+ class=\"CODE\"><span 
+ >[2,3; 7,8]</span></span></p>
       </td>
     </tr>
     <tr>
-      <td
- style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
- valign=\"top\" width=\"180\">
-      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
- lang=\"EN-US\">exponentiation</span></p>
+      <td valign=\"top\">
+      <p><span>exponentiation</span></p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
- valign=\"top\" width=\"204\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">^</span></span></p>
+      <td valign=\"top\">
+      <p><span class=\"CODE\"><span>^</span></span></p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
- valign=\"top\" width=\"193\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">2^3</span></span></p>
+      <td valign=\"top\">
+      <p><span class=\"CODE\"><span>2^3</span></span></p>
       </td>
     </tr>
     <tr>
-      <td
- style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
- valign=\"top\" width=\"180\">
-      <p class=\"MsoBodyText\"
- style=\"margin-top: 0pt; text-align: left;\" align=\"left\"><span
- lang=\"EN-US\">multiplicative and array elementwise
-multiplicative</span></p>
+      <td valign=\"top\">
+      <p>
+<span>multiplicative and<br> array elementwise multiplicative</span></p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
- valign=\"top\" width=\"204\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">*</span></span><span class=\"CODE\"><span
- style=\"font-size: 9.5pt;\" lang=\"EN-US\">&nbsp;&nbsp;/&nbsp;
+      <td valign=\"top\">
+      <p><span class=\"CODE\"><span>*</span></span><span class=\"CODE\"><span
+  >&nbsp;&nbsp;/&nbsp;
 .*&nbsp;&nbsp; ./</span></span></p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
- valign=\"top\" width=\"193\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: left; text-indent: 0pt;\" align=\"left\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">2*3&nbsp;&nbsp; 2/3<br>
+      <td valign=\"top\">
+      <p><span class=\"CODE\"><span>2*3&nbsp;&nbsp; 2/3<br>
 [1,2;3,4].*[2,3;5,6]</span></span></p>
       </td>
     </tr>
     <tr>
-      <td
- style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
- valign=\"top\" width=\"180\">
-      <p class=\"MsoBodyText\"
- style=\"margin-top: 0pt; text-align: left;\" align=\"left\"><span
- lang=\"EN-US\">additive and array elementwise additive</span></p>
+      <td valign=\"top\">
+      <p>additive and<br> array elementwise additive</p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
- valign=\"top\" width=\"204\">
-      <p class=\"MsoBodyTextIndent\"
- style=\"text-align: left; text-indent: 0pt;\" align=\"left\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">+</span></span><span class=\"CODE\"><span
- style=\"font-size: 9.5pt;\" lang=\"EN-US\">&nbsp;&nbsp;-</span></span><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">&nbsp;&nbsp;+</span></span><i><span
- lang=\"EN-US\">expr</span></i><span lang=\"EN-US\">&nbsp;
+      <td valign=\"top\">
+      <p><spanclass=\"CODE\"><span>+</span></span><span class=\"CODE\"><span>&nbsp;&nbsp;-</span></span><span
+ class=\"CODE\"><span>&nbsp;&nbsp;+</span></span><i><span>expr</span></i><span >&nbsp;
       </span><span class=\"CODE\"><span
- style=\"font-size: 9.5pt;\" lang=\"EN-US\">-</span></span><i><span
- lang=\"EN-US\">expr<br>
-      </span></i><span lang=\"EN-US\">.+&nbsp;
+  >-</span></span><i><span
+ >expr<br>
+      </span></i><span >.+&nbsp;
 .</span><span class=\"CODE\"><span
- style=\"font-size: 9.5pt;\" lang=\"EN-US\">-</span></span></p>
+  >-</span></span></p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
- valign=\"top\" width=\"193\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">a+b</span></span><span
- lang=\"EN-US\">,</span><span class=\"CODE\"><span
- style=\"font-size: 9.5pt;\" lang=\"EN-US\">&nbsp;
+      <td valign=\"top\">
+      <p><span class=\"CODE\"><span>a+b</span></span><span>,</span><span class=\"CODE\"><span>&nbsp;
 a-b, +a, -a</span></span></p>
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">[1,2;3,4].+[2,3;5,6]</span></span></p>
+      <p><span class=\"CODE\"><span 
+ >[1,2;3,4].+[2,3;5,6]</span></span></p>
       </td>
     </tr>
     <tr>
-      <td
- style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
- valign=\"top\" width=\"180\">
-      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
- lang=\"EN-US\">relational</span></p>
+      <td valign=\"top\">
+      <p><span >relational</span></p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
- valign=\"top\" width=\"204\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">&lt;</span></span><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">&nbsp;&nbsp;&lt;=</span></span><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">&nbsp;&nbsp;&gt;</span></span><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">&nbsp;&nbsp;&gt;=</span></span><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">&nbsp;&nbsp;==</span></span><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">&nbsp;&nbsp;&lt;&gt;</span></span></p>
+      <td valign=\"top\">
+      <p><span class=\"CODE\"><span 
+ >&lt;</span></span><span
+ class=\"CODE\"><span 
+ >&nbsp;&nbsp;&lt;=</span></span><span
+ class=\"CODE\"><span 
+ >&nbsp;&nbsp;&gt;</span></span><span
+ class=\"CODE\"><span 
+ >&nbsp;&nbsp;&gt;=</span></span><span
+ class=\"CODE\"><span 
+ >&nbsp;&nbsp;==</span></span><span
+ class=\"CODE\"><span 
+ >&nbsp;&nbsp;&lt;&gt;</span></span></p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
- valign=\"top\" width=\"193\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">a&lt;b</span></span><span
- lang=\"EN-US\">,</span><span class=\"CODE\"><span
- style=\"font-size: 9.5pt;\" lang=\"EN-US\">&nbsp;
+      <td valign=\"top\">
+      <p><span class=\"CODE\"><span 
+ >a&lt;b</span></span><span
+ >,</span><span class=\"CODE\"><span
+  >&nbsp;
 a&lt;=b, a&gt;b, ...</span></span></p>
       </td>
     </tr>
     <tr>
-      <td
- style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
- valign=\"top\" width=\"180\">
-      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">...</span></span></p>
+      <td valign=\"top\">
+      <p><span
+ class=\"CODE\"><span 
+ >...</span></span></p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
- valign=\"top\" width=\"204\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <td valign=\"top\">
+      <p><span
+ >&nbsp;</span></p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
- valign=\"top\" width=\"193\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- lang=\"EN-US\">&nbsp;</span></p>
+      <td valign=\"top\">
+      <p><span
+ >&nbsp;</span></p>
       </td>
     </tr>
     <tr>
-      <td
- style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
- valign=\"top\" width=\"180\">
-      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
- lang=\"EN-US\">unary negation</span></p>
+      <td valign=\"top\">
+      <p><span >unary negation</span></p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
- valign=\"top\" width=\"204\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">not</span></span><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">&nbsp;</span></span><i><span
- lang=\"EN-US\">expr</span></i></p>
+      <td valign=\"top\">
+      <p><span class=\"CODE\"><span 
+ >not</span></span><span
+ class=\"CODE\"><span 
+ >&nbsp;</span></span><i><span
+ >expr</span></i></p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
- valign=\"top\" width=\"193\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">not b1</span></span></p>
+      <td valign=\"top\">
+      <p><span class=\"CODE\"><span 
+ >not b1</span></span></p>
       </td>
     </tr>
     <tr>
-      <td
- style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
- valign=\"top\" width=\"180\">
-      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
- lang=\"EN-US\">logical and</span></p>
+      <td valign=\"top\">
+      <p><span >logical and</span></p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
- valign=\"top\" width=\"204\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">and</span></span></p>
+      <td valign=\"top\">
+      <p><span class=\"CODE\"><span 
+ >and</span></span></p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
- valign=\"top\" width=\"193\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">b1 and b2</span></span></p>
+      <td valign=\"top\">
+      <p><span class=\"CODE\"><span 
+ >b1 and b2</span></span></p>
       </td>
     </tr>
     <tr>
-      <td
- style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
- valign=\"top\" width=\"180\">
-      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
- lang=\"EN-US\">logical or</span></p>
+      <td valign=\"top\">
+      <p><span >logical or</span></p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
- valign=\"top\" width=\"204\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">or</span></span></p>
+      <td valign=\"top\">
+      <p><span class=\"CODE\"><span 
+ >or</span></span></p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
- valign=\"top\" width=\"193\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">b1 or&nbsp; b2</span></span></p>
+      <td valign=\"top\">
+      <p><span class=\"CODE\"><span 
+ >b1 or&nbsp; b2</span></span></p>
       </td>
     </tr>
     <tr>
-      <td
- style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
- valign=\"top\" width=\"180\">
-      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
- lang=\"EN-US\">array range</span></p>
+      <td valign=\"top\">
+      <p><span >array range</span></p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
- valign=\"top\" width=\"204\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><i><span
- lang=\"EN-US\">expr</span></i><span lang=\"EN-US\">&nbsp;
+      <td valign=\"top\">
+      <p><i><span >expr</span></i><span >&nbsp;
       </span><span class=\"CODE\"><span
- style=\"font-size: 9.5pt;\" lang=\"EN-US\">:</span></span><span
- lang=\"EN-US\">&nbsp; <i>expr</i>&nbsp; </span><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">:</span></span><span lang=\"EN-US\">&nbsp;
+  >:</span></span><span
+ >&nbsp; <i>expr</i>&nbsp; </span><span
+ class=\"CODE\"><span 
+ >:</span></span><span >&nbsp;
       <i>expr</i></span></p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
- valign=\"top\" width=\"193\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">1:5</span></span><span
- lang=\"EN-US\">,</span><span class=\"CODE\"><span
- style=\"font-size: 9.5pt;\" lang=\"EN-US\">
+      <td valign=\"top\">
+      <p><span class=\"CODE\"><span 
+ >1:5</span></span><span
+ >,</span><span class=\"CODE\"><span
+  >
 start:step:stop</span></span></p>
       </td>
     </tr>
     <tr>
-      <td
- style=\"border-style: none solid; border-color: -moz-use-text-color windowtext; border-width: medium 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
- valign=\"top\" width=\"180\">
-      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
- lang=\"EN-US\">conditional</span></p>
+      <td valign=\"top\">
+      <p><span >conditional</span></p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 152.95pt;\"
- valign=\"top\" width=\"204\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">if</span></span><span
- lang=\"EN-US\">&nbsp;&nbsp;<i>expr</i>&nbsp;
+      <td valign=\"top\">
+      <p><span class=\"CODE\"><span 
+ >if</span></span><span
+ >&nbsp;&nbsp;<i>expr</i>&nbsp;
       </span><span class=\"CODE\"><span
- style=\"font-size: 9.5pt;\" lang=\"EN-US\">then</span></span><span
- lang=\"EN-US\">&nbsp;&nbsp;<i>expr</i>&nbsp;
+  >then</span></span><span
+ >&nbsp;&nbsp;<i>expr</i>&nbsp;
       </span><span class=\"CODE\"><span
- style=\"font-size: 9.5pt;\" lang=\"EN-US\">else</span></span><span
- lang=\"EN-US\">&nbsp;&nbsp;<i>expr</i></span></p>
+  >else</span></span><span
+ >&nbsp;&nbsp;<i>expr</i></span></p>
       </td>
-      <td
- style=\"border-style: none solid none none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 1pt medium medium; padding: 0pt 5.4pt; width: 144.75pt;\"
- valign=\"top\" width=\"193\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">if b then 3 else x</span></span></p>
+      <td valign=\"top\">
+      <p><span class=\"CODE\"><span 
+ >if b then 3 else x</span></span></p>
       </td>
     </tr>
     <tr>
-      <td
- style=\"border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 1pt 1pt; padding: 0pt 5.4pt; width: 134.65pt;\"
- valign=\"top\" width=\"180\">
-      <p class=\"MsoBodyText\" style=\"margin-top: 0pt;\"><span
- lang=\"EN-US\">named argument</span></p>
+      <td valign=\"top\">
+      <p><span >named argument</span></p>
       </td>
-      <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 152.95pt;\"
- valign=\"top\" width=\"204\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><i><span
- lang=\"EN-US\">ident&nbsp; </span></i><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">=</span></span><span lang=\"EN-US\">&nbsp;
+      <td valign=\"top\">
+      <p><i>ident&nbsp;</i><span class=\"CODE\">=</span><span >&nbsp;
       <i>expr</i>&nbsp; </span></p>
       </td>
-      <td
- style=\"border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 1pt 1pt medium; padding: 0pt 5.4pt; width: 144.75pt;\"
- valign=\"top\" width=\"193\">
-      <p class=\"MsoBodyTextIndent\" style=\"text-indent: 0pt;\"><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">x = 2.26</span></span></p>
+      <td valign=\"top\">
+      <p><span class=\"CODE\"><span 
+ >x = 2.26</span></span></p>
       </td>
     </tr>
   </tbody>
 </table>
-<p class=\"MsoBodyText\"><span lang=\"EN-US\">The
+<p><span >The
 conditional operator may also include
 elseif-clauses. Equality </span><span class=\"CODE\"><span
- style=\"font-size: 9.5pt;\" lang=\"EN-US\">=</span></span><span
- lang=\"EN-US\"> and assignment </span><span
- class=\"CODE\"><span style=\"font-size: 9.5pt;\"
- lang=\"EN-US\">:=</span></span><span
- lang=\"EN-US\"> are not expression operators since they are
+  >=</span></span><span
+ > and assignment </span><span
+ class=\"CODE\"><span 
+ >:=</span></span><span
+ > are not expression operators since they are
 allowed only in
 equations and in assignment statements respectively. All binary
 expression
 operators are left associative.</span></p>
 
-<p class=\"MsoBodyText\"><span lang=\"EN-US\">
+<p><span >
 Note, the unary minus and plus in Modelica
 is slightly different than in Mathematica (Mathematica is a registered trademark
 of Wolfram Research Inc.) and in MATLAB (MATLAB is a registered trademark of MathWorks Inc.),
@@ -1103,6 +1725,66 @@ needs to be an Integer or Real expression. </P>
  = {3, 0, 3}</pre>
 </html>"));
   end Abs;
+
+  class Acos "acos" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>asin</font></h3>
+<p>
+Trigonometric inverse cosine function
+</p>
+<h3><font color=\"#008000\">Syntax</font></h3>
+<blockquote><pre><b>acos</b>(u)</pre></blockquote>
+<h3><font color=\"#008000\">Description</font></h3>
+
+<p>Returns the inverse of cos of u, with -1 &le; u &le; +1.
+Argument u needs to be an Integer or Real expression.</p>
+
+<p>
+The acos function can also be accessed as Modelica.Math.acos.
+</p
+
+<p>
+<img src=\"../Images/acos.png\">
+</p>
+
+
+
+<h3><font color=\"#008000\">Examples</font></h3>
+<pre><b>acos</b>(0)
+ = 1.5707963267949</pre>
+</html>"));
+  end Acos;
+
+  class Asin "asin" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>asin</font></h3>
+<p>
+Trigonometric inverse sine function
+</p>
+<h3><font color=\"#008000\">Syntax</font></h3>
+<blockquote><pre><b>asin</b>(u)</pre></blockquote>
+<h3><font color=\"#008000\">Description</font></h3>
+
+<p>Returns the inverse of sin of u, with -1 &le; u &le; +1.
+Argument u needs to be an Integer or Real expression.</p>
+
+<p>
+The asin function can also be accessed as Modelica.Math.asin.
+</p
+
+<p>
+<img src=\"../Images/asin.png\">
+</p>
+
+
+
+<h3><font color=\"#008000\">Examples</font></h3>
+<pre><b>asin</b>(0)
+ = 0.0</pre>
+</html>"));
+  end Asin;
   
   class Assert "assert" 
     
@@ -1164,6 +1846,71 @@ The AssertionLevel.warning case can be used when the boundary of validity is not
 </pre>
 </html>"));
   end Assert;
+
+  class Atan "atan" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>atan</font></h3>
+<p>
+Trigonometric inverse tangent function
+</p>
+<h3><font color=\"#008000\">Syntax</font></h3>
+<blockquote><pre><b>atan</b>(u)</pre></blockquote>
+<h3><font color=\"#008000\">Description</font></h3>
+
+<p>Returns the inverse of tan of u, with -&infin; &lt; u &lt; &infin;.
+Argument u needs to be an Integer or Real expression.</p>
+
+<p>
+The atan function can also be accessed as Modelica.Math.atan.
+</p
+
+<p>
+<img src=\"../Images/atan.png\">
+</p>
+
+
+
+<h3><font color=\"#008000\">Examples</font></h3>
+<pre><b>atan</b>(1)
+ = 0.785398163397448</pre>
+</html>"));
+  end Atan;
+
+  class Atan2 "atan2" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>atan</font></h3>
+<p>
+Four quadrant inverse tangent
+</p>
+<h3><font color=\"#008000\">Syntax</font></h3>
+<blockquote><pre><b>atan2</b>(u1,u2)</pre></blockquote>
+<h3><font color=\"#008000\">Description</font></h3>
+
+<p>
+Returns y = atan2(u1,u2) such that tan(y) = u1/u2 and
+y is in the range -pi &lt; y &le; pi. u2 may be zero, provided
+u1 is not zero. Usually u1, u2 is provided in such a form that
+u1 = sin(y) and u2 = cos(y).
+Arguments u1 and u2 need to be Integer or Real expressions.
+</p>
+
+<p>
+The atan2 function can also be accessed as Modelica.Math.atan2.
+</p
+
+<p>
+<img src=\"../Images/atan2.png\">
+</p>
+
+
+
+<h3><font color=\"#008000\">Examples</font></h3>
+<pre><b>atan2</b>(1,0)
+ = 1.5707963267949</pre>
+</html>"));
+  end Atan2;
   
   class Cardinality "cardinality" 
     
@@ -1264,15 +2011,53 @@ The same restrictions as for the pre() operator apply.</P>
 Trigonometric cosine function
 </p>
 <h3><font color=\"#008000\">Syntax</font></h3>
-<blockquote><pre><b>cos</b>(v)</pre></blockquote>
+<blockquote><pre><b>cos</b>(u)</pre></blockquote>
 <h3><font color=\"#008000\">Description</font></h3>
-<p>Returns the cosine of v.
-Argument v needs to be an Integer or Real expression.</p>
+<p>Returns the cosine of u, with -&infin; &lt; u &lt; &infin;
+Argument u needs to be an Integer or Real expression.</p>
+
+<p>
+The cosine function can also be accessed as Modelica.Math.cos.
+</p>
+
+<p>
+<img src=\"../Images/cos.png\">
+</p>
+
 <h3><font color=\"#008000\">Examples</font></h3>
 <pre><b>cos</b>(3.14159265358979)
  = -1.0</pre>
 </html>"));
   end Cos;
+
+  class Cosh "cosh" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>cosh</font></h3>
+<p>
+Hyberbolic cosine function
+</p>
+<h3><font color=\"#008000\">Syntax</font></h3>
+<blockquote><pre><b>cosh</b>(u)</pre></blockquote>
+<h3><font color=\"#008000\">Description</font></h3>
+<p>Returns the cosh of u, with -&infin; &lt; u &lt; &infin;.
+Argument u needs to be an Integer or Real expression.</p>
+
+<p>
+The cosh function can also be accessed as Modelica.Math.cosh.
+</p
+
+<p>
+<img src=\"../Images/cosh.png\">
+</p>
+
+
+
+<h3><font color=\"#008000\">Examples</font></h3>
+<pre><b>cosh</b>(1)
+  = 1.54308063481524</pre>
+</html>"));
+  end Cosh;
   
 class Cross "cross" 
   annotation (Documentation(info="<html>
@@ -1346,21 +2131,63 @@ time in order to avoid extrapolation in the delay buffer.]</i></p>
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>der</font></h3>
 <p>
-Time derivative of expression
+Time derivative of expression or<br>
+partial derivative of function
 </p>
+
 <h3><font color=\"#008000\">Syntax</font></h3>
-<blockquote><pre><b>der</b>(expr)</pre></blockquote>
+
+<blockquote><pre><b>der</b>(expr) or
+IDENT \"=\" <b>der</b> \"(\" name \",\" IDENT { \",\" IDENT } \")\" comment</pre>
+</blockquote>
+
 <h3><font color=\"#008000\">Description</font></h3>
-<P>The time derivative of expression expr. 
+<p>
+The first form is the time derivative of expression expr. 
 If the expression expr is a scalar it needs to be a subtype of Real. The expression and all its subexpressions must be differentiable. If expr is an array, the operator is applied to all elements of the array. For Real parameters and
 constants the result is a zero scalar or array of the same size as the
-variable.</P>
+variable.</p>
+
+<p>
+The second form is the partial derivative of a function
+and may only be used as declarations of functions.
+The semantics is that a function [and only a function] can be specified in this form, defining that it is the partial derivative of the function to the right of the equal sign (looked up in the same way as a short class definition - the looked up name must be a function), and partially differentiated with respect to each IDENT in order (starting from the first one). The IDENT must be Real inputs to the function.
+The comment allows a user to comment the function (in the info-layer and as one-line description, and as icon).
+</p>
+
+
 <h3><font color=\"#008000\">Examples</font></h3>
+
+<blockquote>
 <pre>  Real x, xdot1, xdot2;
 <b>equation</b>
   xdot1 = <b>der</b>(x);
   xdot2 = <b>der</b>(x*sin(x));
 </pre>
+</blockquote>
+
+<p>
+The specific enthalphy can be computed from a Gibbs-function as follows:
+</p>
+
+<blockquote>
+<pre><b>function</b> Gibbs
+  <b>input</b> Real p,T;
+  <b>output</b> Real g;
+<b>algorithm</b>
+  ...
+<b>end</b> Gibbs;
+
+<b>function</b> Gibbs_T=<b>der</b>(Gibbs, T);
+
+<b>function</b> specificEnthalpy 
+  <b>input</b> Real p,T;
+  <b>output</b> Real h;
+<b>algorithm</b> 
+  h:=Gibbs(p,T)-T*Gibbs_T(p,T);
+<b>end</b> specificEnthalpy;
+</pre>
+</blockquote>
 </html>"));
   end Der;
   
@@ -1435,6 +2262,33 @@ classes).</P>
 <p align=\"center\"><img src=\"../Images/edge.png\" width=\"400\" height=\"280\" alt=\"Simulation result\"></p>
 </html>"));
   end Edge;
+
+  class Exp "exp" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>exp</font></h3>
+<p>
+Exponential, base e.
+</p>
+<h3><font color=\"#008000\">Syntax</font></h3>
+<blockquote><pre><b>exp</b>(u)</pre></blockquote>
+<h3><font color=\"#008000\">Description</font></h3>
+<p>Returns the base e exponential of u, with -&infin; &lt; u &lt; &infin;
+Argument u needs to be an Integer or Real expression.</p>
+
+<p>
+The exponential function can also be accessed as Modelica.Math.exp.
+</p>
+
+<p>
+<img src=\"../Images/exp.png\">
+</p>
+
+<h3><font color=\"#008000\">Examples</font></h3>
+<pre><b>exp</b>(1)
+ = 2.71828182845905</pre>
+</html>"));
+  end Exp;
   
 class Fill "fill" 
   annotation (Documentation(info="<html>
@@ -1625,6 +2479,60 @@ Real v[:] = linspace(1,7,2);  // = {1, 3, 5, 7}
 </html>"));
 end Linspace;
   
+  class Log "log" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>log</font></h3>
+<p>
+Natural (base e) logarithm
+</p>
+<h3><font color=\"#008000\">Syntax</font></h3>
+<blockquote><pre><b>log</b>(u)</pre></blockquote>
+<h3><font color=\"#008000\">Description</font></h3>
+<p>Returns the base e logarithm of u, with u &gt; 0.
+Argument u needs to be an Integer or Real expression.</p>
+
+<p>
+The natural logarithm can also be accessed as Modelica.Math.log.
+</p>
+
+<p>
+<img src=\"../Images/log.png\">
+</p>
+
+<h3><font color=\"#008000\">Examples</font></h3>
+<pre><b>log</b>(1)
+ = 0</pre>
+</html>"));
+  end Log;
+
+  class Log10 "log10" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>log10</font></h3>
+<p>
+Base 10 logarithm
+</p>
+<h3><font color=\"#008000\">Syntax</font></h3>
+<blockquote><pre><b>log10</b>(u)</pre></blockquote>
+<h3><font color=\"#008000\">Description</font></h3>
+<p>Returns the base 10 logarithm of u, with u &gt; 0.
+Argument u needs to be an Integer or Real expression.</p>
+
+<p>
+The base 10 logarithm can also be accessed as Modelica.Math.log10.
+</p>
+
+<p>
+<img src=\"../Images/log10.png\">
+</p>
+
+<h3><font color=\"#008000\">Examples</font></h3>
+<pre><b>log10</b>(1)
+ = 0</pre>
+</html>"));
+  end Log10;
+
 class Matrix "matrix" 
   annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>matrix</font></h3>
@@ -2164,15 +3072,55 @@ when clause state events are triggered.]</i></p>
 Trigonometric sine function
 </p>
 <h3><font color=\"#008000\">Syntax</font></h3>
-<blockquote><pre><b>sin</b>(v)</pre></blockquote>
+<blockquote><pre><b>sin</b>(u)</pre></blockquote>
 <h3><font color=\"#008000\">Description</font></h3>
-<p>Returns the sine of v.
-Argument v needs to be an Integer or Real expression.</p>
+<p>Returns the sine of u, with -&infin; &lt; u &lt; &infin;.
+Argument u needs to be an Integer or Real expression.</p>
+
+<p>
+The sine function can also be accessed as Modelica.Math.sin.
+</p
+
+<p>
+<img src=\"../Images/sin.png\">
+</p>
+
+
+
 <h3><font color=\"#008000\">Examples</font></h3>
 <pre><b>sin</b>(3.14159265358979)
  = 0.0</pre>
 </html>"));
   end Sin;
+
+  class Sinh "sinh" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>sinh</font></h3>
+<p>
+Hyberbolic sine function
+</p>
+<h3><font color=\"#008000\">Syntax</font></h3>
+<blockquote><pre><b>sinh</b>(u)</pre></blockquote>
+<h3><font color=\"#008000\">Description</font></h3>
+<p>Returns the sinh of u, with -&infin; &lt; u &lt; &infin;.
+Argument u needs to be an Integer or Real expression.</p>
+
+<p>
+The sinh function can also be accessed as Modelica.Math.sinh.
+</p
+
+<p>
+<img src=\"../Images/sinh.png\">
+</p>
+
+
+
+<h3><font color=\"#008000\">Examples</font></h3>
+<pre><b>sinh</b>(1)
+  = 1.1752011936438</pre>
+</html>"));
+  end Sinh;
   
 class Size "size" 
   annotation (Documentation(info="<html>
@@ -2432,6 +3380,64 @@ B := <b>symmetric</b>(A)
 </html>"));
 end Symmetric;
   
+  class Tan "tan" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>tan</font></h3>
+<p>
+Trigonometric tangent function
+</p>
+<h3><font color=\"#008000\">Syntax</font></h3>
+<blockquote><pre><b>tan</b>(u)</pre></blockquote>
+<h3><font color=\"#008000\">Description</font></h3>
+<p>Returns the tangent of u, with -&infin; &lt; u &lt; &infin; 
+(if u is a multiple of (2n-1)*pi/2, y = tan(u) is +/- infinity).
+Argument u needs to be an Integer or Real expression.</p>
+
+<p>
+The tangent function can also be accessed as Modelica.Math.tan.
+</p
+
+<p>
+<img src=\"../Images/tan.png\">
+</p>
+
+<h3><font color=\"#008000\">Examples</font></h3>
+<pre><b>tan</b>(3.14159265358979)
+ = 0.0
+</pre>
+</html>"));
+  end Tan;
+
+  class Tanh "tanh" 
+    
+    annotation (Documentation(info="<html>
+<h3><font color=\"#008000\" size=5>tanh</font></h3>
+<p>
+Hyberbolic tangent function
+</p>
+<h3><font color=\"#008000\">Syntax</font></h3>
+<blockquote><pre><b>tanh</b>(u)</pre></blockquote>
+<h3><font color=\"#008000\">Description</font></h3>
+<p>Returns the tanh of u, with -&infin; &lt; u &lt; &infin;.
+Argument u needs to be an Integer or Real expression.</p>
+
+<p>
+The tanh function can also be accessed as Modelica.Math.tanh.
+</p
+
+<p>
+<img src=\"../Images/tanh.png\">
+</p>
+
+
+
+<h3><font color=\"#008000\">Examples</font></h3>
+<pre><b>tanh</b>(1)
+  = 0.761594155955765</pre>
+</html>"));
+  end Tanh;
+
   class Terminal "terminal" 
     
     annotation (Documentation(info="<html>
