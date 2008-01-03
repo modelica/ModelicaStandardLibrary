@@ -46,16 +46,16 @@ and the accompanying <b>disclaimer</b>
 </ul>
 </html>"));
 
-package Annotations "Annotations" 
-  class choices "choices" 
-    
+
+package Annotations "Annotations"
+  class choices "choices"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>choices</font></h3>
 <p>
 Define graphical layout of choices in a parameter menu
 </p>
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <pre><b>replaceable model</b> MyResistor=Resistor 
   <b>annotation</b>(choices(
@@ -87,7 +87,7 @@ A a(x=3 \"PID\");
 
 
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>
 A declaration can have an annotation \"choices\" containing modifiers on choice, where each of them indicates a suitable redeclaration or modifications of the element. 
@@ -97,21 +97,20 @@ This is a hint for users of the model, and can also be used by the user interfac
 </html>"));
   end choices;
 
-  class defaultComponentName "defaultComponentName" 
-    
+  class defaultComponentName "defaultComponentName"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>defaultComponentName</font></h3>
 <p>
 Default name when dragging component
 </p>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <pre>   <b>annotation</b>\"(\" defaultComponentName \"=\" STRING \")\"
 </pre>
 
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>
 When creating a component of the given class, the recommended component name is the
@@ -121,27 +120,26 @@ giving string.
 </html>"));
   end defaultComponentName;
 
-  class defaultComponentPrefixes "defaultComponentPrefixes" 
-    
+  class defaultComponentPrefixes "defaultComponentPrefixes"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>defaultComponentPrefixes</font></h3>
 <p>
 Default prefixes when dragging component
 </p>
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <pre><b>annotation</b>(defaultComponentPrefixes=\"inner\",
            defaultComponentName=\"world\")
 </pre>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <pre>   <b>annotation</b>\"(\" defaultComponentPrefixes \"=\" STRING \")\"
 </pre>
 
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>
 The following prefixes may be included in the string prefixes: inner, outer, replaceable, constant, parameter, discrete. In combination with defaultComponentName it can be used to make it easy for users to create inner components matching the outer declarations.
@@ -150,15 +148,14 @@ The following prefixes may be included in the string prefixes: inner, outer, rep
 </html>"));
   end defaultComponentPrefixes;
 
-  class derivative "derivative" 
-    
+  class derivative "derivative"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>derivative</font></h3>
 <p>
 Define derivative of function
 </p>
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <pre><b>function</b> foo0 <b>annotation</b>(derivative=foo1); <b>end</b> foo0;
 <b>function</b> foo1 <b>annotation</b>(derivative(order=2)=foo2); <b>end</b> foo1;
@@ -167,7 +164,7 @@ Define derivative of function
 
 
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>
 Derivatives of functions can be declared explicitly using the derivative annotation, whereas a function can be defined as a partial derivative of another function using the der-operator in a short function definition.
@@ -333,15 +330,14 @@ This is useful if g represents the major computational effort of fg).</li>
 </html>"));
   end derivative;
 
-  class Dialog "Dialog" 
-    
+  class Dialog "Dialog"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Dialog</font></h3>
 <p>
 Define graphical layout of parameter menu
 </p>
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <pre><b>model</b> BodyShape
   ...
@@ -353,13 +349,13 @@ Define graphical layout of parameter menu
 <b>end</b> BodyShape;
 </pre>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <pre>   <b>annotation</b>(Dialog(enable = parameter-expression, tab = \"tab\", group = \"group\"))
 </pre>
 
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>
 Defines the placement of the component or class parameter in a parameter dialog with optional tab and group specification. If enable is false, the input field may be disabled [and no input can be given]. \"Dialog\" is defined as:
@@ -379,22 +375,21 @@ A parameter dialog is a sequence of tabs with a sequence of groups inside them.
 </html>"));
   end Dialog;
 
-  class Documentation "Documentation" 
-    
+  class Documentation "Documentation"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Documentation</font></h3>
 <p>
 Annotations for documentation
 </p>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <pre>documentation_annotation:
    <b>annotation</b>\"(\" Documentation \"(\" \"info\" \"=\" STRING 
                             [\",\" \"revisions\" \"=\" STRING ] \")\" \")\"
 </pre>
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <P>
 The \"Documentation\" annotation can contain the \"info\" annotation giving a textual description, the \"revisions\" annotation giving a list of revisions and other annotations defined by a tool [The \"revisions\" documentation may be omitted in printed documentation]. How the tool interprets the information in \"Documentation\" is unspecified. Within a string of the \"Documentation\" annotation, the tags &lt;HTML&gt; and &lt;/HTML&gt; or &lt;html&gt; and &lt;/html&gt; define optionally begin and end of content that is HTML encoded. Links to Modelica classes may be defined with the HTML link command using scheme \"Modelica\", e.g.,
 </p>
@@ -411,13 +406,7 @@ Together with scheme \"Modelica\" the (URI)  fragment specifiers #diagram, #info
 
 </html>"));
   end Documentation;
-  
-  
-  
-  
-  
-  
-  
+
   annotation (Documentation(info="<html>
 <p>
 In this package annotations are described.
@@ -425,21 +414,56 @@ Annotations are intended for storing extra information about a model, such as gr
 </p>
 
 </html>"));
-  class Evaluate "Evaluate" 
-    
+  class DynamicSelect "DynamicSelect"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Evaluate</font></h3>
+<p>
+Define schematic animation of diagram layer 
+</p>
+
+<h4><font color=\"#008000\">Examples</font></h4>
+
+<blockquote>
+<p>
+The level of a tank is animated by a rectangle expanding in vertical direction and its color depending on a variable overflow:
+</p>
+
+<pre><b>annotation</b>(
+  Icon(graphics={Rectangle(
+    extent=<b>DynamicSelect</b>({{0,0},{20,20}},{{0,0},{20,level}}), 
+    fillColor=<b>DynamicSelect</b>({0,0,255}, 
+                            <b>if</b> overflow <b>then</b> {255,0,0} <b>else</b> {0,0,255}))}
+);
+</pre></blockquote>
+
+
+<h4><font color=\"#008000\">Description</font></h4>
+
+<p>
+Any value (coordinates, color, text, etc) in graphical annotations can be dependent on class variables using the DynamicSelect expression. DynamicSelect has the syntax of a function call with two arguments, where the first argument specifies the value of the editing state and the second argument the value of the non-editing state. The first argument must be a literal expression
+and this value is used for the annotation when editing and/or browsing the diagram layer.
+The second argument may contain references to variables to enable a dynamic behavior
+and the actual value is used for the annotation for schematic animation
+of the diagram layer, e.g., after a simulation.
+</p>
+
+</html>"));
+  end DynamicSelect;
+
+  class Evaluate "Evaluate"
+
+    annotation (Documentation(info="<html>
 <p>
 Annotation for code generation (evaluate parameter value)
 </p>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <pre>   <b>annotation</b>\"(\" Evaluate \"=\" ( <b>false</b> | <b>true</b> ) \")  
 </pre>
 
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>
 Has only an effect for a declaration with the prefix parameter. 
@@ -460,21 +484,20 @@ Evaluate is for example used for axis of rotation parameters in the Modelica.Mec
 </html>"));
   end Evaluate;
 
-  class experiment "experiment" 
-    
+  class experiment "experiment"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>experiment</font></h3>
 <p>
 Define default experiment parameters 
 </p>
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <pre><b>annotation</b>(experiment(StartTime=0, StopTime=5, Tolerance=1e-6))
 </pre>
 
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <pre>experiment_annotation:
    <b>annotation</b>\"(\" \"experiment\" \"(\" [experimentOption] {, experimentOption}] \")\"
@@ -486,7 +509,7 @@ experimentOption:
 </pre>
 
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>
 The experiment annotation defines the default start time (StartTime) in [s], the default stop time (StopTime) in [s], and the default relative integration tolerance (Tolerance) for simulation experiments to be carried out with the model or block at hand. 
@@ -495,21 +518,20 @@ The experiment annotation defines the default start time (StartTime) in [s], the
 </html>"));
   end experiment;
 
-  class HideResult "HideResult" 
-    
+  class HideResult "HideResult"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>HideResult</font></h3>
 <p>
 Annotation for code generation (hide result)
 </p>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <pre>   <b>annotation</b>\"(\" HideResult \"=\" ( <b>false</b> | <b>true</b> ) \")  
 </pre>
 
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>
 HideResult = true defines that the model developer proposes to not show the simulator results of the corresponding component [e.g., it will not be possible to plot this variable].
@@ -526,21 +548,20 @@ HideResult is for example used in the connectors of the Modelica.StateGraph libr
 </html>"));
   end HideResult;
 
-  class Inline "Inline" 
-    
+  class Inline "Inline"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Inline</font></h3>
 <p>
 Annotation for code generation (inline function body)
 </p>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <pre>   <b>annotation</b>\"(\" Inline \"=\" ( <b>false</b> | <b>true</b> ) \")  
 </pre>
 
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>
 Has only an effect within a function declaration. 
@@ -562,21 +583,20 @@ Inline = true is for example used in Modelica.Mechanics.MultiBody.Frames and in 
 </html>"));
   end Inline;
 
-  class LateInline "LateInline" 
-    
+  class LateInline "LateInline"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>LateInline</font></h3>
 <p>
 Annotation for code generation (inline function body after symbolic processing)
 </p>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <pre>   <b>annotation</b>\"(\" LateInline \"=\" ( <b>false</b> | <b>true</b> ) \")  
 </pre>
 
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>
 Has only an effect within a function declaration.
@@ -597,15 +617,14 @@ This annotation is for example used in Modelica.Media.Water.IF97_Utilities.T_pro
 </html>"));
   end LateInline;
 
-  class missingInnerMessage "missingInnerMessage" 
-    
+  class missingInnerMessage "missingInnerMessage"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>missingInnerMessage</font></h3>
 <p>
 Warning message, if inner declaration is missing
 </p>
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <pre><b>model</b> World
   <b>annotation</b>(defaultComponentName     = \"world\",
@@ -615,13 +634,13 @@ Warning message, if inner declaration is missing
 <b>end</b> World;
 </pre>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <pre>   <b>annotation</b>\"(\" missingInnerMessage \"=\" STRING \")\"
 </pre>
 
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>
 When an outer component of the class does not have a corresponding inner component, the string message may be used as a diagnostic message.
@@ -630,22 +649,21 @@ When an outer component of the class does not have a corresponding inner compone
 </html>"));
   end missingInnerMessage;
 
-  class PreferredView "preferredView" 
-    
+  class PreferredView "preferredView"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>preferredView</font></h3>
 <p>
 Define default view when selecting class
 </p>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <pre>preferred view_annotation:
    <b>annotation</b>\"(\" preferredView \"=\" (\"info\" | \"diagram\" | \"text\") \")\"  
 </pre>
 
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>
 The preferredView annotation defines the default view when selecting the class. info means info layer, i.e., the documentation of the class, diagram means diagram layer and text means the Modelica text layer.
@@ -654,21 +672,20 @@ The preferredView annotation defines the default view when selecting the class. 
 </html>"));
   end PreferredView;
 
-  class smoothOrder "smoothOrder" 
-    
+  class smoothOrder "smoothOrder"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>smoothOrder</font></h3>
 <p>
 Define differentiability of function body
 </p>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <pre>   <b>annotation</b>\"(\" smoothOrder \"=\" UNSIGNED_INTEGER \")\" 
 </pre>
 
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>
 This annotation has only an effect within a function declaration.
@@ -685,15 +702,14 @@ This means that the function is at least C<sup>smoothOrder</sup>. smoothOrder = 
 </html>"));
   end smoothOrder;
 
-  class version "version" 
-    
+  class version "version"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Version</font></h3>
 <p>
 Define version information of package
 </p>
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <pre><b>package</b> Modelica
   <b>annotation</b>(version=\"2.1\",
@@ -721,7 +737,7 @@ In this example the model A uses an older version of the Modelica library and ca
 
 
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>
 Version numbers are of the forms:
@@ -792,15 +808,14 @@ This allows a tool to access multiple versions of the same package.
 </html>"));
   end version;
 
-  class unassignedMessage "unassignedMessage" 
-    
+  class unassignedMessage "unassignedMessage"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>unassignedMessage</font></h3>
 <p>
 Error message, if variable is not assigned
 </p>
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <pre><b>connector</b> Frame \"Frame of a mechanical system\" 
     ...
@@ -814,13 +829,13 @@ PlanarCutJoint=true in the Advanced menu.
 </pre>
 
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <pre>   <b>annotation</b>\"(\" unassignedMessage \"=\" STRING \")\"
 </pre>
 
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>
 When the variable to which this annotation is attached in the declaration cannot be computed due to the structure of the equations, the string message can be used as a diagnostic message. When using BLT partitioning, this means if a variable \"a\" or one of its aliases \"b = a\", \"b = -a\", cannot be assigned, the message is displayed. This annotation is used to provide library specific error messages.
@@ -831,15 +846,14 @@ When the variable to which this annotation is attached in the declaration cannot
 end Annotations;
 
 
-package Classes "Classes (model, function, ...)" 
-  class Block "block" 
-    
+package Classes "Classes (model, function, ...)"
+  class Block "block"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>block</font></h3>
 <p>
 Define specialized class <i>block</i>
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <pre><b>block</b> Integrator
   <b>input</b> Real u;
@@ -851,7 +865,7 @@ Define specialized class <i>block</i>
   y = x;
 <b>end</b> Integrator;</pre>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <PRE>   [ <B>encapsulated</B> ][ <B>partial </B>] <B>block</B>
    IDENT class_specifier
@@ -863,7 +877,7 @@ class_specifier :
 
 <p>See Modelica Language Specification for further details.</p>
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <P>
 A block class is the same as a model class
 with the restriction that each connector component of a block must
@@ -875,15 +889,14 @@ to block diagram semantic.
 </P>
 </html>"));
   end Block;
-  
-  class Class "class" 
-    
+
+  class Class "class"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>class</font></h3>
 <p>
 Define class
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <pre><b>class</b> MyTable
   <b>extends</b> ExternalObject;
@@ -896,7 +909,7 @@ Define class
   <b>end</b> destructor;
 <b>end</b> MyTable;</pre>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <PRE>   [ <B>encapsulated</B> ][ <B>partial </B>] <B>class</B>
    IDENT class_specifier
 
@@ -907,7 +920,7 @@ class_specifier :
 
 <p>See Modelica Language Specification for further details.</p>
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>
 The keyword class is used to define general classes (without any restrictions).
@@ -918,22 +931,21 @@ In most cases, it is recommended to use specialized classes as <b>block</b>,
 </p>
 </html>"));
   end Class;
-  
-  class Connector "connector" 
-    
+
+  class Connector "connector"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>connector</font></h3>
 <p>
 Define specialized class <i>connector</i>
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <pre><b>connector</b> flange
   Modelica.SIunits.Angle phi;
   <b>flow</b> Modelica.SIunits.Torque tau;
 <b>end</b> flange;</pre>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <PRE>   [ <B>encapsulated</B> ][ <B>partial </B>] <B>connector</B>
    IDENT class_specifier
 
@@ -944,7 +956,7 @@ class_specifier :
 
 <p>See Modelica Language Specification for further details.</p>
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <P>The keyword connector is used to define connectors, which are used
 in connect statements. In connectors, no equations are allowed in the
 definition or in any of its components.
@@ -953,15 +965,14 @@ of connector classes.
 </P>
 </html>"));
   end Connector;
-  
-  class Function "function" 
-    
+
+  class Function "function"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>function</font></h3>
 <p>
 Define specialized class <i>function</i>
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <pre><b>function</b> si
   <b>input</b> Real x;
@@ -972,7 +983,7 @@ Define specialized class <i>function</i>
 
 <p align=\"center\"><img src=\"../Images/function.png\" width=\"400\" height=\"280\" alt=\"Simulation result\"></p>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <PRE>   [ <B>encapsulated</B> ][ <B>partial </B>] <B>function</B>
    IDENT class_specifier
@@ -984,7 +995,7 @@ class_specifier :
 
 <p>See Modelica Language Specification for further details.</p>
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <P>The keyword function is used to define functions as known from programming
 languages. Each part of a function interface must
@@ -1076,15 +1087,14 @@ Modelica functions have the following enhancements compared to a general Modelic
 
 </html>"));
   end Function;
-  
-  class Model "model" 
-    
+
+  class Model "model"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>model</font></h3>
 <p>
 Define specialized class <i>model</i>
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <pre><b>model</b> SlidingMass
   <b>parameter</b> Modelica.SIunits.Mass m=1;
@@ -1098,7 +1108,7 @@ Define specialized class <i>model</i>
   m*a = f;
 <b>end</b> SlidingMass;</pre>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <PRE>   [ <B>encapsulated</B> ][ <B>partial </B>] <B>model</B>
    IDENT class_specifier
 
@@ -1109,22 +1119,21 @@ class_specifier :
 
 <p>See Modelica Language Specification for further details.</p>
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <P>
 The keyword model is identical to the keyword class, i.e.,
 no restrictions and no enhancements. 
 </P>
 </html>"));
   end Model;
-  
-  class Package "package" 
-    
+
+  class Package "package"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>package</font></h3>
 <p>
 Define specialized class <i>package</i>
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <pre><b>package</b> Library
   <b>constant</b> Real k = 0.1;
@@ -1141,7 +1150,7 @@ Define specialized class <i>package</i>
 <b>end</b> Library;</pre>
 
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <PRE>   [ <B>encapsulated</B> ][ <B>partial </B>] <B>package</B>
    IDENT class_specifier
 
@@ -1152,21 +1161,20 @@ class_specifier :
 
 <p>See Modelica Language Specification for further details.</p>
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <P>May only contain declarations of classes and constants.
    Enhanced to allow import of elements of packages.</P>
 
 </html>"));
   end Package;
-  
-  class Record "record" 
-    
+
+  class Record "record"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>record</font></h3>
 <p>
 Define specialized class <i>record</i>
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <pre>  <b>record</b> States
     Modelica.SIunits.Position s;
@@ -1188,7 +1196,7 @@ Define specialized class <i>record</i>
     sys.m*sys.a = sys.f;
   <b>end</b> SlidingMass;</pre>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <PRE>   [ <B>encapsulated</B> ][ <B>partial </B>] <B>record</B>
    IDENT class_specifier
 
@@ -1199,7 +1207,7 @@ class_specifier :
 
 <p>See Modelica Language Specification for further details.</p>
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>
 The keyword record is used to define records which are generally used in
@@ -1215,19 +1223,18 @@ normal type compatibility rules.
 
 </html>"));
   end Record;
-  
-  class Type "type" 
-    
+
+  class Type "type"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>type</font></h3>
 <p>
 Define specialized class <i>type</i>
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <pre><b>type</b> R0Plus = Real(min=0);</pre>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <PRE>   [ <B>encapsulated</B> ][ <B>partial </B>] <B>type</B>
    IDENT class_specifier
 
@@ -1238,7 +1245,7 @@ class_specifier :
 
 <p>See Modelica Language Specification for further details.</p>
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>The keyword type is used to define types, which may only be extensions to the predefined types, enumerations, array of type, or classes extending from type.
 Enhanced to extend from predefined types [No other specialized class has this property].
 </p>
@@ -1256,17 +1263,16 @@ Moreover, they have additional properties called enhancements.
 end Classes;
 
 
-package Operators "Operators (+, der, size, ...)" 
-class ElementaryOperators "Elementary operators (+, >, or, ..)" 
-    
+package Operators "Operators (+, der, size, ...)"
+class ElementaryOperators "Elementary operators (+, >, or, ..)"
+
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Elementary Operators</font></h3>
 <p>
 Elementary operators are overloaded and operate on variables
 of type Real, Integer, Boolean, and String, as well as on scalars
 or arrays.
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td colspan=\"3\"><b>Arithmethic Operators (operate on Real, Integer scalars or arrays)</b></td>
@@ -1705,37 +1711,35 @@ sin, cos, tan, asin, acos, atan, atan2, sinh, cosh, tanh, exp,
 log, log10 that are provided for convenience as built-in functions).
 </p>
 </html>"));
-  
-  class Abs "abs" 
-    
+
+  class Abs "abs"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>abs</font></h3>
 <p>
 Absolute value of Real or Integer variable.
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>abs</b>(v)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <P>Is expanded into &quot;noEvent(<B>if </B>v &ge; 0
 <B>then</B> v <B>else</B> -v)&quot;. Argument v
 needs to be an Integer or Real expression. </P>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre>
   <b>abs</b>({-3, 0, 3})
  = {3, 0, 3}</pre>
 </html>"));
   end Abs;
 
-  class Acos "acos" 
-    
+  class Acos "acos"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>asin</font></h3>
 <p>
 Trigonometric inverse cosine function
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>acos</b>(u)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>Returns the inverse of cos of u, with -1 &le; u &le; +1.
 Argument u needs to be an Integer or Real expression.</p>
@@ -1750,22 +1754,21 @@ The acos function can also be accessed as Modelica.Math.acos.
 
 
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>acos</b>(0)
  = 1.5707963267949</pre>
 </html>"));
   end Acos;
 
-  class Asin "asin" 
-    
+  class Asin "asin"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>asin</font></h3>
 <p>
 Trigonometric inverse sine function
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>asin</b>(u)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>Returns the inverse of sin of u, with -1 &le; u &le; +1.
 Argument u needs to be an Integer or Real expression.</p>
@@ -1780,22 +1783,21 @@ The asin function can also be accessed as Modelica.Math.asin.
 
 
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>asin</b>(0)
  = 0.0</pre>
 </html>"));
   end Asin;
-  
-  class Assert "assert" 
-    
+
+  class Assert "assert"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>assert</font></h3>
 <p>
 Trigger error and print error message if assertion condition is not fulfilled
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>assert</b>(condition, message, level = AssertionLevel.error)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>The boolean expression <i>condition</i> shall be true for successful model evaluations.
 Otherwise, an error occurs using the string expression <i>message</i>
 as error message.</p>
@@ -1838,7 +1840,7 @@ The AssertionLevel.warning case can be used when the boundary of validity is not
   <b>assert</b>(T &gt; 200 and T &lt; 500, \"Medium model outside feasible region\");
 </pre>
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre>  <b>parameter</b> Real upperLimit=2;
   <b>parameter</b> Real lowerLimit=-2;
 <b>equation</b>
@@ -1847,16 +1849,15 @@ The AssertionLevel.warning case can be used when the boundary of validity is not
 </html>"));
   end Assert;
 
-  class Atan "atan" 
-    
+  class Atan "atan"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>atan</font></h3>
 <p>
 Trigonometric inverse tangent function
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>atan</b>(u)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>Returns the inverse of tan of u, with -&infin; &lt; u &lt; &infin;.
 Argument u needs to be an Integer or Real expression.</p>
@@ -1871,22 +1872,21 @@ The atan function can also be accessed as Modelica.Math.atan.
 
 
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>atan</b>(1)
  = 0.785398163397448</pre>
 </html>"));
   end Atan;
 
-  class Atan2 "atan2" 
-    
+  class Atan2 "atan2"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>atan</font></h3>
 <p>
 Four quadrant inverse tangent
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>atan2</b>(u1,u2)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>
 Returns y = atan2(u1,u2) such that tan(y) = u1/u2 and
@@ -1906,24 +1906,23 @@ The atan2 function can also be accessed as Modelica.Math.atan2.
 
 
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>atan2</b>(1,0)
  = 1.5707963267949</pre>
 </html>"));
   end Atan2;
-  
-  class Cardinality "cardinality" 
-    
+
+  class Cardinality "cardinality"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>cardinality</font></h3>
 <p>
 Number of connectors in connection.
 This is a deprecated operator. It should  no longer be used, since it will be removed in one of the next Modelica releases.
 </p>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>cardinality</b>(c)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>Returns the number of (inside and outside) occurrences
 of connector instance c in a connect statement as an Integer number.</p>
 <p><i>[The cardinality operator allows the definition of connection dependent equations in a model.]</i></p>
@@ -1934,7 +1933,7 @@ connectors can be used, that are enabled/disabled via Boolean
 parameters.
 </p>
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <PRE><B>connector</B> Pin
   Real      v;
   <B>flow</B> Real i;
@@ -1956,40 +1955,38 @@ parameters.
 <B>end</B> Resistor;</PRE>
 </html>"));
   end Cardinality;
-  
-  class Ceil "ceil" 
-    
+
+  class Ceil "ceil"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>ceil</font></h3>
 <p>
 Round a Real number towards plus infinity
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>ceil</b>(x)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>Returns the smallest integer not less than <tt>x</tt>.
 Result and argument shall have type Real.
 <i>[Note, outside of a when clause state events are
 triggered when the return value changes discontinuously.]</i></p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>ceil</b>({-3.14, 3.14})
  = {-3.0, 4.0}</pre>
 </html>"));
   end Ceil;
-  
-  class Change "change" 
-    
+
+  class Change "change"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>change</font></h3>
 <p>
 Indicate discrete variable changing
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>change</b>(v)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <P>Is expanded into &quot;(v&lt;&gt;pre(v))&quot;.
 The same restrictions as for the pre() operator apply.</P>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>model</b> BothEdges
   Boolean u;
   Integer i;
@@ -2002,17 +1999,16 @@ The same restrictions as for the pre() operator apply.</P>
 <p align=\"center\"><img src=\"../Images/change.png\" width=\"400\" height=\"280\" alt=\"Simulation result\"></p>
 </html>"));
   end Change;
-  
-  class Cos "cos" 
-    
+
+  class Cos "cos"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>cos</font></h3>
 <p>
 Trigonometric cosine function
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>cos</b>(u)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>Returns the cosine of u, with -&infin; &lt; u &lt; &infin;
 Argument u needs to be an Integer or Real expression.</p>
 
@@ -2024,22 +2020,21 @@ The cosine function can also be accessed as Modelica.Math.cos.
 <img src=\"../Images/cos.png\">
 </p>
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>cos</b>(3.14159265358979)
  = -1.0</pre>
 </html>"));
   end Cos;
 
-  class Cosh "cosh" 
-    
+  class Cosh "cosh"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>cosh</font></h3>
 <p>
 Hyberbolic cosine function
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>cosh</b>(u)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>Returns the cosh of u, with -&infin; &lt; u &lt; &infin;.
 Argument u needs to be an Integer or Real expression.</p>
 
@@ -2053,21 +2048,20 @@ The cosh function can also be accessed as Modelica.Math.cosh.
 
 
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>cosh</b>(1)
   = 1.54308063481524</pre>
 </html>"));
   end Cosh;
-  
-class Cross "cross" 
+
+class Cross "cross"
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>cross</font></h3>
 <p>
 Return cross product of two vectors
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>cross</b>(x, y)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>
 Returns the cross product of the 3-vectors x and y, i.e.
 </p>
@@ -2078,18 +2072,17 @@ Returns the cross product of the 3-vectors x and y, i.e.
 </pre></blockquote>
 </html>"));
 end Cross;
-  
-  class Delay "delay" 
-    
+
+  class Delay "delay"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>delay</font></h3>
 <p>
 Delay expression
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>delay</b>(expr, delayTime, delayMax)
 <b>delay</b>(expr, delayTime)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <P>Returns <TT>\"expr(time - delayTime)\"</TT> for <TT>time &gt; time.start + delayTime</TT>
 and <TT>\"expr(time.start)\"</TT> for <TT>time &le; time.start + delayTime</TT>. The
 arguments, i.e., <tt>expr</tt>, <tt>delayTime</tt> and <tt>delayMax</tt>, need to be subtypes of Real.
@@ -2114,7 +2107,7 @@ For simplicity, this is not supported because the minimum delay time has
 to be give as additional argument to be fixed at compile time. Furthermore,
 the maximum step size of the integrator is limited by this minimum delay
 time in order to avoid extrapolation in the delay buffer.]</i></p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>model</b> Delay
   Real x;
   Real y;
@@ -2125,23 +2118,22 @@ time in order to avoid extrapolation in the delay buffer.]</i></p>
 <p align=\"center\"><img src=\"../Images/delay.png\" width=\"400\" height=\"280\" alt=\"Simulation result\"></p>
 </html>"));
   end Delay;
-  
-  class Der "der" 
-    
+
+  class Der "der"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>der</font></h3>
 <p>
 Time derivative of expression or<br>
 partial derivative of function
 </p>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <blockquote><pre><b>der</b>(expr) or
 IDENT \"=\" <b>der</b> \"(\" name \",\" IDENT { \",\" IDENT } \")\" comment</pre>
 </blockquote>
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>
 The first form is the time derivative of expression expr. 
 If the expression expr is a scalar it needs to be a subtype of Real. The expression and all its subexpressions must be differentiable. If expr is an array, the operator is applied to all elements of the array. For Real parameters and
@@ -2156,7 +2148,7 @@ The comment allows a user to comment the function (in the info-layer and as one-
 </p>
 
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <blockquote>
 <pre>  Real x, xdot1, xdot2;
@@ -2190,33 +2182,31 @@ The specific enthalphy can be computed from a Gibbs-function as follows:
 </blockquote>
 </html>"));
   end Der;
-  
-class Diagonal "diagonal" 
+
+class Diagonal "diagonal"
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>diagonal</font></h3>
 <p>
 Returns a diagonal matrix
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>diagonal</b>(v)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>
 Returns a square matrix with the elements of vector v 
 on the diagonal and all other elements zero.
 </p>
 </html>"));
 end Diagonal;
-  
-  class Div "div" 
-    
+
+  class Div "div"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>div</font></h3>
 <p>
 Integer part of division of two Real numbers
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>div</b>(x, y)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <P>Returns the algebraic quotient <TT>x/y</TT> with any
 fractional part discarded (also known as truncation
 toward zero). <I>[Note: this is defined for / in C99;
@@ -2229,27 +2219,26 @@ arguments is Real the result is Real otherwise Integer.</P>
 <p><i>[Note, outside of a when clause state events are triggered
 when the return value changes discontinuously.]</i></p>
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>div</b>(13,6)
  = 2</pre>
 </html>"));
   end Div;
-  
-  class Edge "edge" 
-    
+
+  class Edge "edge"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>edge</font></h3>
 <p>
 Indicate rising edge
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>edge</b>(b)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <P>Is expanded into &quot;(b <B>and not pre</B>(b))&quot;
 for Boolean variable b. The same restrictions as for the
 <B>pre</B> operator apply (e.g. not to be used in function
 classes).</P>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>model</b> RisingEdge
   Boolean u;
   Integer i;
@@ -2263,16 +2252,15 @@ classes).</P>
 </html>"));
   end Edge;
 
-  class Exp "exp" 
-    
+  class Exp "exp"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>exp</font></h3>
 <p>
 Exponential, base e.
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>exp</b>(u)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>Returns the base e exponential of u, with -&infin; &lt; u &lt; &infin;
 Argument u needs to be an Integer or Real expression.</p>
 
@@ -2284,21 +2272,20 @@ The exponential function can also be accessed as Modelica.Math.exp.
 <img src=\"../Images/exp.png\">
 </p>
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>exp</b>(1)
  = 2.71828182845905</pre>
 </html>"));
   end Exp;
-  
-class Fill "fill" 
+
+class Fill "fill"
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>fill</font></h3>
 <p>
 Return a Real, Integer, Boolean or String array with all elements equal
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>fill</b>(s, n1, n2, n3, ...)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>
 Returns the n1 x n2 x n3 x ... array with all elements equal 
 to scalar or array expression s (ni >= 0). The returned 
@@ -2308,120 +2295,114 @@ array has the same type as s. Recursive definition:
 fill(s,n1,n2,n3, ...) = fill(fill(s,n2,n3, ...), n1); 
 fill(s,n) = {s,s,..., s}
 </pre></blockquote>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <blockquote><pre>
 Real    mr[2,2] = fill(-1,2,2);  // = [-1,-1;-1,-1]
 Boolean vb[3]   = fill(true,3);  // = {true, true, true}
 </pre></blockquote>
 </html>"));
 end Fill;
-  
-  class Floor "floor" 
-    
+
+  class Floor "floor"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>floor</font></h3>
 <p>
 Round Real number towards minus infinity
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>floor</b>(x)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>Returns the largest integer not greater than <tt>x</tt>.
 Result and argument shall have type Real. <i>[Note, outside
 of a when clause state events are triggered when the return
 value changes discontinuously.]</i></p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>floor</b>({-3.14, 3.14})
  = {-4.0, 3.0}</pre>
 </html>"));
   end Floor;
-  
-class Identity "identity" 
+
+class Identity "identity"
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>identity</font></h3>
 <p>
 Returns the identity matrix of the desired size
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>identity</b>(n)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>
 Returns the n x n Integer identity matrix, with ones 
 on the diagonal and zeros at the other places.
 </p>
 </html>"));
 end Identity;
-  
-  class Initial "initial" 
-    
+
+  class Initial "initial"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>initial</font></h3>
 <p>
 True during initialization
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>initial</b>()</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>Returns <b>true</b> during the initialization phase and <b>false</b> otherwise.</p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre>  Boolean off;
   Real x;
 <b>equation</b>
   off = x &lt; -2 or <b>initial</b>();</pre>
 </html>"));
   end Initial;
-  
-  class IntegerUpperCase "Integer" 
-    
+
+  class IntegerUpperCase "Integer"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>integer</font></h3>
 <p>
 Returns ordinal number of enumeration
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>Integer</b>(E.e1)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>
 Returns the ordinal number of the enumeration value E.enumvalue, where Integer(E.e1)=1, Integer(E.en)= size(E), for an enumeration type E=enumeration(e1, ...,  en).</p>
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre>  <b>type</b> Size = enumeration(small, medium, large, xlarge);
   <b>Integer</b>(Size.large) = 3</pre>
 
 
 </html>"));
   end IntegerUpperCase;
-  
-  class IntegerLowerCase "integer" 
-    
+
+  class IntegerLowerCase "integer"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>integer</font></h3>
 <p>
 Round Real number towards minus infinity
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>integer</b>(x)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>Returns the largest integer not greater than <tt>x</tt>.
 The argument shall have type Real. The result has type Integer.</p>
 <p><i>[Note, outside of a when clause state events are triggered
 when the return value changes discontinuously.]</i></p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>integer</b>({-3.14, 3.14})
  = {-4, 3}</pre>
 </html>"));
   end IntegerLowerCase;
-  
-  class IsPresent "isPresent" 
-    
+
+  class IsPresent "isPresent"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>isPresent</font></h3>
 <p>
 Returns true if the formal input or output argument of a function is present
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>isPresent</b>(ident)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>
 Returns true if the formal input or output argument ident is present 
 as an actual argument of the function call. If the argument is not 
@@ -2431,7 +2412,7 @@ isPresent() should be used for optimisation only and should not
 influence the results of outputs that are present in the output 
 list. It can only be used in functions.
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <blockquote>
 <pre>
 <b>function</b> eigenValues \"Compute eigenvalues and eigenvectors\" 
@@ -2449,18 +2430,17 @@ list. It can only be used in functions.
 </pre>
 </blockquote>
 </html>"));
-    
+
   end IsPresent;
-  
-class Linspace "linspace" 
+
+class Linspace "linspace"
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>linspace</font></h3>
 <p>
 Return Real vector with equally spaced elements
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>linspace</b>(x1, x2, n)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>
 Returns a Real vector with n equally spaced elements, 
 such that 
@@ -2472,23 +2452,22 @@ v[i] = x1 + (x2-x1)*(i-1)/(n-1) for 1 &le; i &le; n.
 It is required that n &ge; 2. The arguments x1 and x2 shall 
 be Real or Integer scalar expressions.
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <blockquote><pre>
 Real v[:] = linspace(1,7,2);  // = {1, 3, 5, 7}
 </pre></blockquote>
 </html>"));
 end Linspace;
-  
-  class Log "log" 
-    
+
+  class Log "log"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>log</font></h3>
 <p>
 Natural (base e) logarithm
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>log</b>(u)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>Returns the base e logarithm of u, with u &gt; 0.
 Argument u needs to be an Integer or Real expression.</p>
 
@@ -2500,22 +2479,21 @@ The natural logarithm can also be accessed as Modelica.Math.log.
 <img src=\"../Images/log.png\">
 </p>
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>log</b>(1)
  = 0</pre>
 </html>"));
   end Log;
 
-  class Log10 "log10" 
-    
+  class Log10 "log10"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>log10</font></h3>
 <p>
 Base 10 logarithm
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>log10</b>(u)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>Returns the base 10 logarithm of u, with u &gt; 0.
 Argument u needs to be an Integer or Real expression.</p>
 
@@ -2527,21 +2505,20 @@ The base 10 logarithm can also be accessed as Modelica.Math.log10.
 <img src=\"../Images/log10.png\">
 </p>
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>log10</b>(1)
  = 0</pre>
 </html>"));
   end Log10;
 
-class Matrix "matrix" 
+class Matrix "matrix"
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>matrix</font></h3>
 <p>
 Returns the first two dimensions of an array as matrix
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>matrix</b>(A)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>
 Returns <b>promote</b>(A,2), if A is a scalar or vector and 
 otherwise returns the elements of the first two dimensions 
@@ -2563,20 +2540,19 @@ C[i_1, ..., i_nA, 1, ..., 1] = A[i_1, ..., i_nA].
 </pre></blockquote>
 </html>"));
 end Matrix;
-  
-class Max "max" 
+
+class Max "max"
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>max</font></h3>
 <p>
 Returns the largest element
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre>
 <b>max</b>(A)
 <b>max</b>(x,y)
 <b>max</b>(e(i, ..., j) <b>for</b> i <b>in</b> u, ..., j <b>in</b> v)
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>
 The first form returns the largest element of array expression A.
 </p>
@@ -2589,26 +2565,25 @@ returns the largest value of the
 scalar expression e(i, ..., j) evaluated for all 
 combinations of i in u, ..., j in v
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <blockquote><pre>
 <b>max</b>(i^2 <b>for</b> i <b>in</b> {3,7,6})  // = 49
 </pre></blockquote>
 </html>"));
 end Max;
-  
-class Min "min" 
+
+class Min "min"
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>min</font></h3>
 <p>
 Returns the smallest element
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre>
 <b>min</b>(A)
 <b>min</b>(x,y)
 <b>min</b>(e(i, ..., j) <b>for</b> i <b>in</b> u, ..., j <b>in</b> v)
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>
 The first form returns the smallest element of array expression A.
 </p>
@@ -2621,29 +2596,28 @@ returns the smallest value of the
 scalar expression e(i, ..., j) evaluated for all 
 combinations of i in u, ..., j in v
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <blockquote><pre>
 <b>min</b>(i^2 <b>for</b> i <b>in</b> {3,7,6})  // = 9
 </pre></blockquote>
 </html>"));
 end Min;
-  
-  class Mod "mod" 
-    
+
+  class Mod "mod"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>mod</font></h3>
 <p>
 Integer modulus of a division of two Real numbers
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>mod</b>(x, y)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <P>Returns the integer modulus of <TT>x/y</TT>, i.e. mod(x, y) = x - floor(x/y)*y.
 Result and arguments shall have type Real or Integer. If either of the
 arguments is Real the result is Real otherwise Integer. <I>[Note, outside of
 a when clause state events are triggered when the return value changes
 discontinuously.]</I></P>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>mod</b>(3,1.4)
  = 0.2
 <b>mod</b>(-3,1.4)
@@ -2652,38 +2626,36 @@ discontinuously.]</I></P>
  = -1.2</pre>
 </html>"));
   end Mod;
-  
-class Ndims "ndims" 
+
+class Ndims "ndims"
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>ndims</font></h3>
 <p>
 Return number of array dimensions
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>ndims</b>(A)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>
 Returns the number of dimensions k of array expression 
 A, with k >= 0.
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <blockquote><pre>
 Real A[8,4,5];
 Integer n = ndims(A);  // = 3
 </pre></blockquote>
 </html>"));
 end Ndims;
-  
-  class NoEvent "noEvent" 
-    
+
+  class NoEvent "noEvent"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>noEvent</font></h3>
 <p>
 Turn off event triggering
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>noEvent</b>(expr)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>Real elementary relations within expr are taken literally, i.e., no state or time event is triggered.</p>
 <h4>smooth vs. noEvent</h4>
 <p>The noEvent operator implies that real elementary expressions are taken
@@ -2702,53 +2674,50 @@ discontinuously.]</i></p>
   y = smooth(1, noEvent(<B>if</B> x&lt;0 <B>then</B> 0 <B>else</B> sqrt(x)*x));
   // noEvent is necessary.</PRE>
 <p><i>]</i></p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre>der(h)=<B>if noEvent</B>(h&gt;0) <B>then</B> -c*sqrt(h) <B>else</B> 0;</pre>
 </html>"));
   end NoEvent;
-  
-class Ones "ones" 
+
+class Ones "ones"
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>ones</font></h3>
 <p>
 Returns an array with \"1\" elements
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>ones</b>(n1, n2, n3, ...)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>
 Return the n1 x n2 x n3 x ... Integer array with all 
 elements equal to one (ni >=0 ).
 </p>
 </html>"));
 end Ones;
-  
-class OuterProduct "outerProduct" 
+
+class OuterProduct "outerProduct"
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>outerProduct</font></h3>
 <p>
 Returns the outer product of two vectors
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>outerProduct</b>(v1,v2)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>
 Returns the outer product of vectors v1 and v2 <br>
 (= matrix(v)*transpose( matrix(v) ) ).
 </p>
 </html>"));
 end OuterProduct;
-  
-  class Pre "pre" 
-    
+
+  class Pre "pre"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>pre</font></h3>
 <p>
 Refer to left limit
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>pre</b>(y)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <P>Returns the &quot;left limit&quot; y(t<SUP>pre</SUP>)
 of variable y(t) at a time instant t. At an event instant,
 y(t<SUP>pre</SUP>) is the value of y after the last event
@@ -2784,7 +2753,7 @@ unknowns during one iteration. Again, it is a quality of
 implementation to solve these systems more efficiently, e.g.,
 by applying the fix point iteration scheme to a subset of the
 model equations.]</I></p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>model</b> Hysteresis
   Real u;
   Boolean y;
@@ -2795,19 +2764,18 @@ model equations.]</I></p>
 <p align=\"center\"><img src=\"../Images/pre.png\" width=\"400\" height=\"280\" alt=\"Simulation result\"></p>
 </html>"));
   end Pre;
-  
-class Product "product" 
+
+class Product "product"
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>product</font></h3>
 <p>
 Returns the scalar product
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre>
 <b>product</b>(A)
 <b>product</b>(e(i, ..., j) <b>for</b> i <b>in</b> u, ..., j <b>in</b> v)
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>
 The first form returns the scalar product of all the elements of 
 array expression A:<br>
@@ -2825,24 +2793,23 @@ e(u[end],...,v[1]) * ... * e(u[end],...,v[end])
 The type of <b>product</b>(e(i, ..., j) <b>for</b> i <b>in</b>
 u, ..., j <b>in</b> v) is the same as the type of e(i,...j).
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <blockquote><pre>
 {<b>product</b>(j <b>for</b> j <b>in</b> 1:i) <b>for</b> i <b>in</b> 0:4} // = {1,1,2,6,24}
 </pre></blockquote>
 </html>"));
 end Product;
-  
-  class Reinit "reinit" 
-    
+
+  class Reinit "reinit"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>reinit</font></h3>
 <p>
 Reinitialize state variable
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>reinit</b>(x, expr)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <P>Reinitializes state variable x with expr at an event
 instant. Argument x need to be</p>
 <ul>
@@ -2872,17 +2839,16 @@ because the reinit operator is applied on a non-state variable.]</i></P>
     <B>end when</B>;</PRE>
 </html>"));
   end Reinit;
-  
-  class Rem "rem" 
-    
+
+  class Rem "rem"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>rem</font></h3>
 <p>
 Integer remainder of the division of two Real numbers
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>rem</b>(x, y)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <P>Returns the integer remainder of <TT>x/y</TT>,
 such that <TT>div(x,y) * y + rem(x, y) = x</TT>.
 Result and arguments shall have type Real or
@@ -2890,7 +2856,7 @@ Integer. If either of the arguments is Real the
 result is Real otherwise Integer. <I>[Note, outside
 of a when clause state events are triggered when
 the return value changes discontinuously.]</I></P>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>rem</b>(3,1.4)
  = 0.2
 <b>rem</b>(-3,1.4)
@@ -2899,17 +2865,16 @@ the return value changes discontinuously.]</I></P>
  = 0.2</pre>
 </html>"));
   end Rem;
-  
-  class Sample "sample" 
-    
+
+  class Sample "sample"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>sample</font></h3>
 <p>
 Trigger time events
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>sample</b>(start, interval)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <P>Returns true and triggers time events at time instants
 <TT>&quot;start + i*interval&quot; (i=0, 1, ...)</TT>.
 During continuous integration the operator returns always
@@ -2917,7 +2882,7 @@ false. The starting time &quot;start&quot; and the sample
 interval &quot;interval&quot; need to be parameter
 expressions and need to be a subtype of Real or Integer.
 </P>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>model</b> Sampling
   Integer i;
 <b>equation</b>
@@ -2928,38 +2893,36 @@ expressions and need to be a subtype of Real or Integer.
 <p align=\"center\"><img src=\"../Images/sample.png\" width=\"400\" height=\"280\" alt=\"Simulation result\"></p>
 </html>"));
   end Sample;
-  
-class Scalar "scalar" 
+
+class Scalar "scalar"
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>scalar</font></h3>
 <p>
 Returns a one-element array as scalar
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>scalar</b>(A)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>
 Returns the single element of array A. 
 <b>size</b>(A,i) = 1 is required for 1 &le; i &le; <b>ndims</b>(A).
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <blockquote><pre>
 Real A[1,1,1] = {{{3}}};
 Real e = scalar(A);  // = 3
 </pre></blockquote>
 </html>"));
 end Scalar;
-  
-  class SemiLinear "semiLinear" 
-    
+
+  class SemiLinear "semiLinear"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>semiLinear</font></h3>
 <p>
 Returns \"if x >= 0 then positiveSlope*x else negativeSlope*x\" and handle x=0 in a meaningful way
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>semiLinear</b>(x, positiveSlope, negativeSlope)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>
 Returns \"if x >= 0 then positiveSlope*x else negativeSlope*x\".
 In some situations, equations with the semiLinear function 
@@ -3043,37 +3006,35 @@ flow direction.]</i>
 </p>
 </html>"));
   end SemiLinear;
-  
-  class Sign "sign" 
-    
+
+  class Sign "sign"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>sign</font></h3>
 <p>
 Signum function of a Real or Integer number
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>sign</b>(v)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>Is expanded into &quot;noEvent(<b>if</b> v &gt; 0 <b>then</b> 1 <b>else
 if</b> v &lt; 0 <b>then</b> -1 <b>else</b> 0)&quot;. Argument v
 needs to be an Integer or Real expression. <i>[Note, outside of a
 when clause state events are triggered.]</i></p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>sign</b>({-3, 0, 3})
  = {-1, 0, 1}</pre>
 </html>"));
   end Sign;
-  
-  class Sin "sin" 
-    
+
+  class Sin "sin"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>sin</font></h3>
 <p>
 Trigonometric sine function
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>sin</b>(u)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>Returns the sine of u, with -&infin; &lt; u &lt; &infin;.
 Argument u needs to be an Integer or Real expression.</p>
 
@@ -3087,22 +3048,21 @@ The sine function can also be accessed as Modelica.Math.sin.
 
 
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>sin</b>(3.14159265358979)
  = 0.0</pre>
 </html>"));
   end Sin;
 
-  class Sinh "sinh" 
-    
+  class Sinh "sinh"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>sinh</font></h3>
 <p>
 Hyberbolic sine function
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>sinh</b>(u)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>Returns the sinh of u, with -&infin; &lt; u &lt; &infin;.
 Argument u needs to be an Integer or Real expression.</p>
 
@@ -3116,24 +3076,23 @@ The sinh function can also be accessed as Modelica.Math.sinh.
 
 
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>sinh</b>(1)
   = 1.1752011936438</pre>
 </html>"));
   end Sinh;
-  
-class Size "size" 
+
+class Size "size"
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>size</font></h3>
 <p>
 Returns dimensions of an array
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre>
    <b>size</b>(A,i)
    <b>size</b>(A)
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>
 The first form returns the size of dimension i of array expression A 
 where i shall be &gt; 0 and &le; <b>ndims</b>(A).
@@ -3142,7 +3101,7 @@ where i shall be &gt; 0 and &le; <b>ndims</b>(A).
 The second form returns a vector of length <b>ndims</b>(A) 
 containing the dimension sizes of A.
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <blockquote><pre>
 Real A[8,4,5];
 Integer n3   = size(A,3);  // = 5
@@ -3150,16 +3109,15 @@ Integer n[:] = size(A);    // = {8,4,5}
 </pre></blockquote>
 </html>"));
 end Size;
-  
-class Skew "skew" 
+
+class Skew "skew"
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>skew</font></h3>
 <p>
 Returns the skew matrix that is associated with a vector
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>skew</b>(x)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>
 Returns the 3 x 3 skew symmetric matrix associated with a 
 3-vector, i.e.,
@@ -3172,17 +3130,16 @@ Returns the 3 x 3 skew symmetric matrix associated with a
 </pre></blockquote>
 </html>"));
 end Skew;
-  
-  class Smooth "smooth" 
-    
+
+  class Smooth "smooth"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>smooth</font></h3>
 <p>
 Indicate smoothness of expression
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>smooth</b>(p, expr)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <P>If p&gt;=0 <B>smooth</B>(p, expr) returns expr and states
 that expr is p times continuously differentiable, i.e.: expr
 is continuous in all real variables appearing in the expression
@@ -3200,7 +3157,7 @@ However, smooth does not guarantee that no events will be generated, and thus
 it can be necessary to use noEvent inside smooth. <I>[Note that smooth does
 not guarantee a smooth output if any of the occurring variables change
 discontinuously.]</I></p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <PRE>  Real x, y, z;
 <B>equation</B>
   x = <B>if</B> time&lt;1 <B>then</B> 2 <B>else</B> time-2;
@@ -3209,33 +3166,31 @@ discontinuously.]</I></p>
   // noEvent is necessary.</PRE>
 </html>"));
   end Smooth;
-  
-  class Sqrt "sqrt" 
-    
+
+  class Sqrt "sqrt"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>sqrt</font></h3>
 <p>
 Square root
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>sqrt</b>(v)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>Returns the square root of v if v&gt;=0, otherwise an error occurs.
 Argument v needs to be an Integer or Real expression.</p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>sqrt</b>(9)
  = 3.0</pre>
 </html>"));
   end Sqrt;
-  
-  class string "String" 
-    
+
+  class string "String"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>String</font></h3>
 <p>
 Convert a scalar Real, Integer or Boolean expression to a String representation
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote>
 <pre>
 <b>String</b>(b_expr, minimumLength=0, leftJustified=true)
@@ -3245,7 +3200,7 @@ Convert a scalar Real, Integer or Boolean expression to a String representation
 <b>String</b>(e_expr, minimumLength=0, leftJustified=true)
 </pre>
 </blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>
 The arguments have the following meaning
 (the default values of the optional arguments are shown in the left column):
@@ -3308,7 +3263,7 @@ with
        = \"g\": Either \"e\" or \"f\"<br>
        = \"G\": Same as \"g\", but with upper case E</td></tr></table>
 </table>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <blockquote>
 <pre>
 String(2.0)   // = \"2.0\"
@@ -3318,19 +3273,18 @@ String(123, minimumLength=6, leftJustified=false)  // = \"   123\"
 </blockquote>
 </html>"));
   end string;
-  
-class Sum "sum" 
+
+class Sum "sum"
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>sum</font></h3>
 <p>
 Returns the scalar sum
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre>
 <b>sum</b>(A)
 <b>sum</b>(e(i, ..., j) <b>for</b> i <b>in</b> u, ..., j <b>in</b> v)
 </pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>
 The first form returns the scalar sum of all the elements of 
 array expression A:<br>
@@ -3348,23 +3302,22 @@ e(u[end],...,v[1]) + ... + e(u[end],...,v[end])
 The type of <b>sum</b>(e(i, ..., j) <b>for</b> i <b>in</b>
 u, ..., j <b>in</b> v) is the same as the type of e(i,...j).
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <blockquote><pre>
 <b>sum</b>(i <b>for</b> i <b>in</b> 1:10)  // Gives  1+2+...+10=55
    // Read it as: compute the sum of i for i in the range 1 to 10.
 </pre></blockquote>
 </html>"));
 end Sum;
-  
-class Symmetric "symmetric" 
+
+class Symmetric "symmetric"
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>symmetric</font></h3>
 <p>
 Returns a symmetric matrix
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>symmetric</b>(A)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>
 Returns a matrix where the diagonal elements and the 
 elements above the diagonal are identical to the 
@@ -3379,17 +3332,16 @@ B := <b>symmetric</b>(A)
 </pre></blockquote>
 </html>"));
 end Symmetric;
-  
-  class Tan "tan" 
-    
+
+  class Tan "tan"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>tan</font></h3>
 <p>
 Trigonometric tangent function
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>tan</b>(u)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>Returns the tangent of u, with -&infin; &lt; u &lt; &infin; 
 (if u is a multiple of (2n-1)*pi/2, y = tan(u) is +/- infinity).
 Argument u needs to be an Integer or Real expression.</p>
@@ -3402,23 +3354,22 @@ The tangent function can also be accessed as Modelica.Math.tan.
 <img src=\"../Images/tan.png\">
 </p>
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>tan</b>(3.14159265358979)
  = 0.0
 </pre>
 </html>"));
   end Tan;
 
-  class Tanh "tanh" 
-    
+  class Tanh "tanh"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>tanh</font></h3>
 <p>
 Hyberbolic tangent function
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>tanh</b>(u)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>Returns the tanh of u, with -&infin; &lt; u &lt; &infin;.
 Argument u needs to be an Integer or Real expression.</p>
 
@@ -3432,45 +3383,43 @@ The tanh function can also be accessed as Modelica.Math.tanh.
 
 
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>tanh</b>(1)
   = 0.761594155955765</pre>
 </html>"));
   end Tanh;
 
-  class Terminal "terminal" 
-    
+  class Terminal "terminal"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>terminal</font></h3>
 <p>
 True after successful analysis
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>terminal</b>()</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>Returns <b>true</b> at the end of a successful analysis.</p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre>  Boolean a, b;
 <b>equation</b>
   a = <b>change</b>(b) or <b>terminal</b>();</pre>
 </html>"));
   end Terminal;
-  
-  class Terminate "terminate" 
-    
+
+  class Terminate "terminate"
+
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>terminate</font></h3>
 <p>
 Successfully terminate current analysis
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>terminate</b>(message)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <P>The terminate function successfully terminates the analysis
 which was carried out. The function has a string argument
 indicating the reason for the success. <I>[The intention is to
 give more complex stopping criteria than a fixed point in time.]</I></P>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre><B>model</B> ThrowingBall
   Real x(start=0);
   Real y(start=1);
@@ -3484,16 +3433,15 @@ give more complex stopping criteria than a fixed point in time.]</I></P>
 end</B> ThrowingBall;</pre>
 </html>"));
   end Terminate;
-  
-class Transpose "transpose" 
+
+class Transpose "transpose"
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>tranpose</font></h3>
 <p>
 Transpose of a matrix or permutation of the first two dimensions of an array
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>transpose</b>(A)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>
 Permutes the first two dimensions of array A. 
 It is an error, if array A does not have at least 
@@ -3501,37 +3449,35 @@ It is an error, if array A does not have at least
 </p>
 </html>"));
 end Transpose;
-  
-class Vector "vector" 
+
+class Vector "vector"
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>vector</font></h3>
 <p>
 Returns an array with one non-singleton dimension as vector
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>vector</b>(A)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>
 Returns a 1-vector, if A is a scalar and otherwise returns a vector containing all the elements of the array, provided there is at 
 most one dimension size > 1. 
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <blockquote><pre>
 Real A[1,2,1] = {{{3},{4}}};
 Real v[2] = vector(A);  // = {3,4}
 </pre></blockquote>
 </html>"));
 end Vector;
-  
-class Zeros "zeros" 
+
+class Zeros "zeros"
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>zero</font></h3>
 <p>
 Returns a zero array.
 </p>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>zeros</b>(n1, n2, n3, ...)</pre></blockquote>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>
 Returns the n1 x n2 x n3 x ... Integer array with all 
 elements equal to zero (ni >= 0).
@@ -3541,10 +3487,9 @@ end Zeros;
 end Operators;
 
 
-class BalancedModel "balanced model" 
-  
+class BalancedModel "balanced model"
+
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>balanced models</font></h3>
 <p>
 The basic concept to count unknowns and equations.
 </p>
@@ -3555,7 +3500,7 @@ or too many equations can be detected and localized by a Modelica
 translator before using the respective model or block class.
 </p>
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <pre>   <b>partial model</b> BaseCorrelation
      <b>input</b> Real x;
@@ -3588,7 +3533,7 @@ In Modelica 3.0, model UseCorrelation is no longer allowed and the translator wi
 </p>
 
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>
 The restrictions below apply after flattening \" i.e. inherited components are included \" possibly modified. 
@@ -3943,14 +3888,13 @@ Therefore, FixedBoundary_pTX is a locally balanced model. The predefined boundar
 end BalancedModel;
 
 
-class Connect "connect" 
-  
+class Connect "connect"
+
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>connect</font></h3>
 <p>
 Connect objects
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <pre><b>model</b> Integrate
   Modelica.Blocks.Sources.Step step;
@@ -3983,7 +3927,7 @@ Connect objects
   <B>connect</B>(gain.y, gain2.u);     // Legal
   <B>connect</B>(gain2.y, x);          // Legal</pre>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <PRE>equation_clause :
   [ <B>initial</B> ] <B>equation</B> { equation \";\" | annotation  \";\" }
@@ -4000,7 +3944,7 @@ equation :
 connect_clause :
   <B>connect</B> \"(\" component_reference \",\" component_reference \")\"</PRE>
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <P>Connections between objects are introduced by the <B>connect</B>
 statement in the equation part of a class. The <B>connect</B>
@@ -4046,14 +3990,13 @@ connected as a pair of scalar connectors.</P>
 end Connect;
 
 
-class Encapsulated "encapsulated" 
-  
+class Encapsulated "encapsulated"
+
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>encapsulated</font></h3>
 <p>
 Break lookup in hierarchy
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <pre><b>encapsulated model</b> Test
   <b>import</b> Modelica.Mechanics.Rotational;
@@ -4064,7 +4007,7 @@ Break lookup in hierarchy
   ...
 <b>end</b> Test;</pre>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <PRE>class_definition :
    [ <B>encapsulated</B> ]
@@ -4073,7 +4016,7 @@ Break lookup in hierarchy
      <B>package</B> | <b>function</B> )
    IDENT class_specifier</PRE>
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>When an element, equation or algorithm is instantiated, any name is
 looked up sequentially in each member of the ordered set of parents
@@ -4089,14 +4032,13 @@ cannot be redefined at the same level.]</i></p>
 end Encapsulated;
 
 
-class Extends "extends" 
-  
+class Extends "extends"
+
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>extends</font></h3>
 <p>
 Inheritance from base class
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <PRE><B>class</B> A
   <B>parameter</B> Real a, b;
@@ -4127,7 +4069,7 @@ classes A and B defined above,</P>
 
 <p>yields an instance with <TT>bcomp.b=3</TT>, which overrides <TT>b=2</TT>.</P>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <PRE>class_definition :
    [ <B>encapsulated</B> ]
@@ -4167,7 +4109,7 @@ element :
 extends_clause :
    <B>extends</b> name [ class_modification ]</PRE>
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <P>The name of the base class is looked up in the partially
 instantiated parent of the extends clause. The found base
@@ -4713,14 +4655,13 @@ the import statement to use the contents of a package)</i>]<i>.</i></span></p>
 end Extends;
 
 
-class Flow "flow" 
-  
+class Flow "flow"
+
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>flow</font></h3>
 <p>
 Declare flow (through) variable, which have to sum up to zero in connections
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <pre><b>connector</b> Pin
   Modelica.SIunits.Voltage v;
@@ -4746,7 +4687,7 @@ Declare flow (through) variable, which have to sum up to zero in connections
 a.p.v = c.p.v;
 a.p.i + b.p.i + c.p.i = 0;</pre>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <PRE>class_definition :
    [ <B>encapsulated</B> ]
@@ -4793,7 +4734,7 @@ type_prefix :
    [ <B>flow</b> ]
    [ <B>discrete</B> | <B>parameter</b> | <B>constant</b> ] [ <B>input</b> | <B>output</b> ]</PRE>
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>The flow prefix is used in order to generate equations for through variables, which sum up to zero in connections,
 whereas variables without the flow prefix are identical in a connection.</p>
@@ -4801,14 +4742,13 @@ whereas variables without the flow prefix are identical in a connection.</p>
 end Flow;
 
 
-class For "for" 
-  
+class For "for"
+
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>for</font></h3>
 <p>
 Repeat equations or statements a specific number of times
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <p>
 <b>for</b> clauses are mostly used in algorithm sections, such as
 </p>
@@ -4843,7 +4783,7 @@ e.g., to connect elements of an array of components together:
         <b>connect</b>(R[i].p R[i+1].n);   // 9 connect equations
      <b>end for</b>;
 </pre>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <p>
 In equation sections:
 </p>
@@ -4864,7 +4804,7 @@ In algorithm sections:
   for_indices : for_index {\",\" for_index}
   for_index   : IDENT [ in expression ]
 </pre>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <p>A clause</p>
 <pre>    <b>for</b> IDENT <b>in</b> expression <b>loop</b></pre>
 <p>is one example of a for clause.</p>
@@ -4904,14 +4844,13 @@ prepending the reduction-expression with <tt>'function-name('</tt>.</p>
 end For;
 
 
-class If "if" 
-  
+class If "if"
+
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>if</font></h3>
 <p>
 Declare equations or execute statements conditionally
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <h4>If clause</h4>
 
 <pre>    <b>parameter</b> Boolean linear=true;
@@ -4929,7 +4868,7 @@ Declare equations or execute statements conditionally
 <h4>If expression</h4>
 <PRE>  Integer i;
   Integer sign_of_i=<B>if</B> i&lt;0 <B>then</B> -1 <B>else if</B> i==0 <B>then</B> 0 <B>else</B> 1;</PRE>
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 <p>
 In equation sections:
 </p>
@@ -4954,7 +4893,7 @@ In algorithm sections:
      { algorithm \";\" }
    ]
    <B>end if</B></PRE>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 <h4>If clause</h4>
 <P>
 The expression of an <B>if</B> and <B>elseif</B>-clause must be scalar boolean expression.
@@ -4990,14 +4929,13 @@ type of the if-expression. If-expressions with <B>elseif</B> are defined by repl
 end If;
 
 
-class Import "import" 
-  
+class Import "import"
+
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>import</font></h3>
 <p>
 Import classes
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <pre><b>class</b> Lookup
   <b>import</b> SI = Modelica.SIunits; // #1
@@ -5011,7 +4949,7 @@ Import classes
   ...
 <b>end</b> Lookup;</pre>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <PRE>class_definition :
    [ <B>encapsulated</B> ]
@@ -5050,7 +4988,7 @@ element :
 
 import_clause :
    <B>import</B> ( IDENT \"=\" name | name [\".\" \"*\"] ) comment</PRE>
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>Using import statements extends the static name lookup to additional import names.
 The generated import names are:</p>
@@ -5064,15 +5002,14 @@ The generated import names are:</p>
 end Import;
 
 
-class Input "input" 
-  
+class Input "input"
+
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>input</font></h3>
 <p>
 Define causality and/or block diagram connection semantic
 (depending on context)
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <pre><b>connector</b> RealInput = <b>input</b> Real;
 <b>connector</b> RealOutput = <b>output</b> Real;
@@ -5087,7 +5024,7 @@ Define causality and/or block diagram connection semantic
   y = x;
 <b>end</b> Integrator;</pre>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <PRE>class_definition :
    [ <B>encapsulated</B> ]
@@ -5134,7 +5071,7 @@ type_prefix :
    [ <B>flow</b> ]
    [ <B>discrete</B> | <B>parameter</b> | <B>constant</b> ] [ <B>input</b> | <B>output</b> ]</PRE>
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>
 The prefixes <b>input</b> and <b>output</b> have a slightly different semantic meaning depending on the context where they are used:
@@ -5192,16 +5129,15 @@ The prefixes <b>input</b> and <b>output</b> have a slightly different semantic m
 end Input;
 
 
-class Output "output" 
-  
+class Output "output"
+
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>output</font></h3>
 <p>
 Define causality and/or block diagram connection semantic
 (depending on context)
 </p>
 
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <pre><b>connector</b> RealInput = <b>input</b> Real;
 <b>connector</b> RealOutput = <b>output</b> Real;
@@ -5216,7 +5152,7 @@ Define causality and/or block diagram connection semantic
   y = x;
 <b>end</b> Integrator;</pre>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <PRE>class_definition :
    [ <B>encapsulated</B> ]
@@ -5263,7 +5199,7 @@ type_prefix :
    [ <B>flow</b> ]
    [ <B>discrete</B> | <B>parameter</b> | <B>constant</b> ] [ <B>input</b> | <B>output</b> ]</PRE>
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <p>
 The prefixes <b>input</b> and <b>output</b> have a slightly different semantic meaning depending on the context where they are used:
@@ -5321,14 +5257,13 @@ The prefixes <b>input</b> and <b>output</b> have a slightly different semantic m
 end Output;
 
 
-class Partial "partial" 
-  
+class Partial "partial"
+
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>partial</font></h3>
 <p>
 Prohibit instantiation of components of the class
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <pre><b>partial block</b> BaseBlock
   <b>input</b> Real u;
@@ -5358,7 +5293,7 @@ Prohibit instantiation of components of the class
   Gain block3; // Legal
 <b>end</b> Composition;</pre>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <PRE>class_definition :
    [ <B>encapsulated</B> ]
@@ -5376,14 +5311,13 @@ class_specifier :
 end Partial;
 
 
-class Time "time" 
-  
+class Time "time"
+
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>time</font></h3>
 <p>
 Built-in variable time
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 
 <PRE><B>encapsulated model</B> SineSource
   <B>import</B> Modelica.Math.sin;
@@ -5391,11 +5325,11 @@ Built-in variable time
   OutPort y=sin(time); // Uses the built-in variable time.
 <B>end</B> SineSource;</PRE>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <pre><b>time</b></pre>
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <P>All declared variables are functions of the independent
 variable <B>time</B>. Time is a built-in variable available
@@ -5412,14 +5346,13 @@ the time instant at which the simulation is started.</P>
 end Time;
 
 
-class When "when" 
-  
+class When "when"
+
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>when</font></h3>
 <p>
 Activate equations or statements when condition becomes true
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <PRE> <B>equation
    when</B> x &gt; 2 <B>then</B>
      y3 = 2*x +y1+y2; // Order of y1 and y3 equations does not matter
@@ -5427,7 +5360,7 @@ Activate equations or statements when condition becomes true
    <B>end when</B>;
    y2 = sin(y1);</PRE>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <p>
 In equation sections:
@@ -5448,7 +5381,7 @@ In algorithm sections:
     { algorithm \";\" } }
   <B>end when</B></PRE>
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <P>The expression of a when clause shall be a discrete-time Boolean scalar
 or vector expression. The equations and algorithm statements within a when
@@ -5599,14 +5532,13 @@ parameter variable. The start-values of the special functions
 end When;
 
 
-class While "while" 
-  
+class While "while"
+
   annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>while</font></h3>
 <p>
 Repeat statements as long as a condition is fulfilled
 </p>
-<h3><font color=\"#008000\">Examples</font></h3>
+<h4><font color=\"#008000\">Examples</font></h4>
 <pre>    Integer i;
   <b>algorithm</b>
     i := 1;
@@ -5615,13 +5547,13 @@ Repeat statements as long as a condition is fulfilled
       <b>...
     end while</b>;</pre>
 
-<h3><font color=\"#008000\">Syntax</font></h3>
+<h4><font color=\"#008000\">Syntax</font></h4>
 
 <PRE>  <B>while</B> expression <B>loop</B>
     { algorithm \";\" }
   <B>end while</B></PRE>
 
-<h3><font color=\"#008000\">Description</font></h3>
+<h4><font color=\"#008000\">Description</font></h4>
 
 <P>The expression of a while clause shall be a scalar boolean expression.
 The while-clause corresponds to while-statements in programming languages,
