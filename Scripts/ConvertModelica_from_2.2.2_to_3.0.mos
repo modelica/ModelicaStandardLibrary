@@ -779,7 +779,7 @@ convertModifiers({"Modelica.Mechanics.Rotational.IdealGearR2T"},
 // --------- MultiBody -----------------------------------------------------------
 
 
-convertModifiers("Modelica.Mechanics.MultiBody.World,{"driveTrainMechanics3D=false"}, {"driveTrainMechanics3D=%driveTrainMechanics3D%"});
+convertModifiers("Modelica.Mechanics.MultiBody.World",{"driveTrainMechanics3D=false"}, {"driveTrainMechanics3D=%driveTrainMechanics3D%"});
 
 // Forces
 convertClass     ("Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque",
