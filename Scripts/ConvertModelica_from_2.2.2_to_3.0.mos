@@ -636,8 +636,6 @@ convertClass("Modelica.Mechanics.Rotational.Interfaces.Bearing",
              "ObsoleteModelica3.Mechanics.Rotational.Interfaces.Bearing");
 convertClass("Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearing",
              "ObsoleteModelica3.Mechanics.Rotational.Interfaces.TwoFlangesAndBearing");
-convertClass("Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearing",
-             "ObsoleteModelica3.Mechanics.Rotational.Interfaces.TwoFlangesAndBearing");
 convertClass("Modelica.Mechanics.Rotational.Interfaces.AbsoluteSensor",
              "ObsoleteModelica3.Mechanics.Rotational.Interfaces.AbsoluteSensor");
 convertClass("Modelica.Mechanics.Rotational.Interfaces.RelativeSensor",
