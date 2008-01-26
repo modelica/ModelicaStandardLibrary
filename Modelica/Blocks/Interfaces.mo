@@ -75,13 +75,12 @@ connector RealInput = input Real "'input Real' as connector"
   Diagram(coordinateSystem(
         preserveAspectRatio=true, initialScale=0.2,
         extent={{-100,-100},{100,100}},
-        grid={1,1},
-        initialScale=0.2), graphics={Polygon(
+        grid={1,1}), graphics={Polygon(
           points={{0,50},{100,0},{0,-50},{0,50}},
           lineColor={0,0,127},
           fillColor={0,0,127},
           fillPattern=FillPattern.Solid), Text(
-          extent={{-220,105},{200,60}},
+          extent={{-10,85},{-10,60}},
           lineColor={0,0,127},
           textString="%name")}),
     Documentation(info="<html>
@@ -108,7 +107,7 @@ connector RealOutput = output Real "'output Real' as connector"
           lineColor={0,0,127},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid), Text(
-          extent={{-200,140},{260,60}},
+          extent={{30,110},{30,60}},
           lineColor={0,0,127},
           textString="%name")}),
     Documentation(info="<html>
@@ -128,13 +127,12 @@ connector BooleanInput = input Boolean "'input Boolean' as connector"
         preserveAspectRatio=true, initialScale=0.2)),    Diagram(coordinateSystem(
         preserveAspectRatio=true, initialScale=0.2,
         extent={{-100,-100},{100,100}},
-        grid={1,1},
-        initialScale=0.2), graphics={Polygon(
+        grid={1,1}), graphics={Polygon(
           points={{0,50},{100,0},{0,-50},{0,50}},
           lineColor={255,0,255},
           fillColor={255,0,255},
           fillPattern=FillPattern.Solid), Text(
-          extent={{-220,105},{200,60}},
+          extent={{-10,85},{-10,60}},
           lineColor={255,0,255},
           textString="%name")}),
     Documentation(info="<html>
@@ -161,7 +159,7 @@ connector BooleanOutput = output Boolean "'output Boolean' as connector"
           lineColor={255,0,255},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid), Text(
-          extent={{-200,140},{230,60}},
+          extent={{30,110},{30,60}},
           lineColor={255,0,255},
           textString="%name")}),
     Documentation(info="<html>
@@ -182,13 +180,12 @@ connector IntegerInput = input Integer "'input Integer' as connector"
   Diagram(coordinateSystem(
         preserveAspectRatio=true, initialScale=0.2,
         extent={{-100,-100},{100,100}},
-        grid={1,1},
-        initialScale=0.2), graphics={Polygon(
+        grid={1,1}), graphics={Polygon(
           points={{0,50},{100,0},{0,-50},{0,50}},
           lineColor={255,127,0},
           fillColor={255,127,0},
           fillPattern=FillPattern.Solid), Text(
-          extent={{-220,105},{200,60}},
+          extent={{-10,85},{-10,60}},
           lineColor={255,127,0},
           textString="%name")}),
     Documentation(info="<html>
@@ -215,7 +212,7 @@ connector IntegerOutput = output Integer "'output Integer' as connector"
           lineColor={255,127,0},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid), Text(
-          extent={{-200,140},{230,60}},
+          extent={{30,110},{30,60}},
           lineColor={255,127,0},
           textString="%name")}),
     Documentation(info="<html>
