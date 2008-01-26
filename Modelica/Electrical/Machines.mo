@@ -1391,7 +1391,7 @@ The primary and secondary starpoint are available as connectors, if the connecti
 In some cases it may be necessary to ground the transformer's starpoint 
 even though the source's or load's starpoint are grounded; you may use a reasonable high earthing resistance.
 </HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics),
         experiment(StopTime=0.1));
@@ -1543,7 +1543,7 @@ Test example with multiphase components:<br>
 Star-connected voltage source feeds via a transformer a diode bridge rectifier with a DC burden.<br>
 Using f=50 Hz, simulate for 0.1 seconds (5 periods) and compare voltages and currents of source and DC burden, 
 neglecting initial transient.
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
                    graphics),
         experiment(StopTime=0.1));
@@ -1660,7 +1660,7 @@ Test example with multiphase components:<br>
 Star-connected voltage source feeds via two transformers (Dd0 and Dy1) two diode bridge rectifiers with a single DC burden.<br>
 Using f=50 Hz, simulate for 0.1 seconds (5 periods) and compare voltages and currents of source and DC burden, 
 neglecting initial transient.
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
                    graphics),
         experiment(StopTime=0.1));
@@ -2336,7 +2336,7 @@ turnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
 </HTML>"),   Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
                   -100},{100,100}}),
                      graphics),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={Line(points={{-100,50},{-100,20},{-60,
                     20}}, color={0,0,255}), Line(points={{-100,-50},{-100,-20},
                     {-60,-20}}, color={0,0,255})}));
@@ -2510,7 +2510,7 @@ These models use package SpacePhasors.
           Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
                   -100},{100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
                 extent={{-130,10},{-100,-10}}, 
@@ -2752,7 +2752,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
                   -100},{100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255}), 
               Line(points={{-100,50},{-100,20},{-130,20},{-130,-4}}, color={0,0,
@@ -2977,7 +2977,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
                   -100},{100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
                 extent={{-130,10},{-100,-10}}, 
@@ -3666,7 +3666,7 @@ This package contains transformers primary Y connected / secondary y connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Text(
                 extent={{0,40},{0,-100}},
                 lineColor={0,0,255},
@@ -3695,7 +3695,7 @@ Transformer Yy0
           Modelica.Electrical.Analog.Interfaces.NegativePin starpoint2 
             annotation (Placement(transformation(extent={{40,-110},{60,-90}},
                   rotation=0)));
-          annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
+          annotation (Diagram(coordinateSystem(preserveAspectRatio=true,
                   extent={{-100,-100},{100,100}}),
                               graphics));
         equation 
@@ -3993,7 +3993,7 @@ This package contains transformers primary Y connected / secondary d connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Text(
                 extent={{0,40},{0,-100}},
                 lineColor={0,0,255},
@@ -4273,7 +4273,7 @@ This package contains transformers primary Y connected / secondary zig-zag conne
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Text(
                 extent={{0,40},{0,-100}},
                 lineColor={0,0,255},
@@ -4656,7 +4656,7 @@ This package contains transformers primary D connected / secondary y connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Text(
                 extent={{0,40},{0,-100}},
                 lineColor={0,0,255},
@@ -4953,7 +4953,7 @@ This package contains transformers primary D connected / secondary d connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Text(
                 extent={{0,40},{0,-100}},
                 lineColor={0,0,255},
@@ -5206,7 +5206,7 @@ This package contains transformers primary D connected / secondary d connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Text(
                 extent={{0,40},{0,-100}},
                 lineColor={0,0,255},
@@ -5611,7 +5611,7 @@ These models use package SpacePhasors.
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Ellipse(
                 extent={{-90,90},{90,-92}}, 
@@ -5658,10 +5658,10 @@ Partial model of the airgap, using only equations.
         parameter Modelica.SIunits.Inductance L[2,2]={{Lm,0},{0,Lm}} 
           "inductance matrix";
         annotation (defaultComponentName="airGap",
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={Text(
                 extent={{-80,40},{0,-40}}, 
                 lineColor={0,0,0}, 
@@ -5695,10 +5695,10 @@ Model of the airgap in stator-fixed coordinate system, using only equations.
         parameter Modelica.SIunits.Inductance L[2,2]={{Lmd,0},{0,Lmq}} 
           "inductance matrix";
         annotation (defaultComponentName="airGap",
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={Text(
                 extent={{0,40},{80,-40}}, 
                 lineColor={0,0,0}, 
@@ -5731,7 +5731,7 @@ Model of the airgap in rotor-fixed coordinate system, using only equations.
                 rotation=0)));
         annotation (
           Diagram(graphics),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Ellipse(extent={{-60,45},{-30,75}}, lineColor={0,0,255}), 
               Ellipse(extent={{-30,45},{0,75}}, lineColor={0,0,255}), 
@@ -5779,7 +5779,7 @@ Model of a squirrel cage / damper cage in two axis.
                 rotation=0)));
         annotation (
           Diagram(graphics),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Line(points={{60,60},{100,60}}, color={0,0,255}), 
               Line(points={{70,40},{90,40}}, color={0,0,255}), 
@@ -5835,7 +5835,7 @@ Model of an unsymmetrical damper cage cage in two axis.
                 rotation=0)));
         annotation (
           Diagram(graphics),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Text(
                 extent={{-150,-90},{150,-150}}, 
@@ -5879,7 +5879,7 @@ Model of an electrical excitation, converting excitation to space phasor.
                 rotation=0)));
         annotation (
           Diagram(graphics),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Ellipse(
                 extent={{-60,60},{60,20}}, 
@@ -5954,10 +5954,10 @@ Model of a permanent magnet excitation, characterized by an equivalent excitatio
           annotation (Placement(transformation(extent={{90,-110},{110,-90}},
                 rotation=0)));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Ellipse(
                 extent={{-90,90},{90,-92}}, 
@@ -6020,10 +6020,10 @@ Induced armature voltage is calculated from flux times angular velocity.
         extends PartialAirGapDC;
         parameter Modelica.SIunits.Inductance Le "excitation inductance";
         annotation (defaultComponentName="airGap",
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={Text(
                 extent={{-150,-100},{150,-160}}, 
                 lineColor={0,0,255}, 
@@ -6076,10 +6076,10 @@ Induced armature voltage is calculated from flux times angular velocity.
         Modelica.Electrical.MultiPhase.Basic.Inductor l2sigma(final m=m, final L=fill(L2sigma, m)) 
           annotation (Placement(transformation(extent={{50,-10},{70,10}},
                 rotation=0)));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent=
                   {{-100,-100},{100,100}}),
                             graphics),
-                             Icon(coordinateSystem(preserveAspectRatio=false,
+                             Icon(coordinateSystem(preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}}), graphics={
               Ellipse(extent={{-90,60},{30,-60}}, lineColor={0,0,255}),
               Ellipse(extent={{-30,60},{90,-60}}, lineColor={0,0,255}),
@@ -6129,7 +6129,7 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
         Modelica.SIunits.Current i3[m] = plug_p3.pin.i;
         Modelica.SIunits.Current im[m] = i1 + i2/n12 + i3/n13 
           "Magnetizing current";
-        annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+        annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={
               Text(
                 extent={{-100,130},{100,110}},
@@ -6296,10 +6296,10 @@ This package contains sensors that are usefull when modelling machines.
             origin={0,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
                           graphics),
-                           Icon(coordinateSystem(preserveAspectRatio=false,
+                           Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Ellipse(
               extent={{-70,70},{70,-70}},
@@ -6380,10 +6380,10 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
             origin={0,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
                           graphics),
-                           Icon(coordinateSystem(preserveAspectRatio=false,
+                           Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Ellipse(
               extent={{-70,70},{70,-70}},
@@ -6454,7 +6454,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
       Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_nv(final m=m) 
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
               rotation=0)));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Ellipse(
               extent={{-70,70},{70,-70}},
@@ -6486,7 +6486,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
             Line(points={{0,-70},{0,-90}}, color={0,0,255}),
             Line(points={{-10,70},{-10,80},{-50,80},{-50,100}}, color={0,0,255}),
             Line(points={{10,70},{10,80},{50,80},{50,100}}, color={0,0,255})}),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
                   graphics),
         Documentation(info="<HTML>
@@ -6518,7 +6518,7 @@ Q = giving in stationary state reactive power.<br>
             origin={0,110},
             extent={{10,-10},{-10,10}},
             rotation=270)));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Ellipse(
               extent={{-70,70},{70,-70}},
@@ -6693,7 +6693,7 @@ Calculates (mechanical) power from torque times angular speed.
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
               extent={{-60,80},{60,40}},
@@ -6906,10 +6906,10 @@ a ground has to be used where necessary for currents flowing back.
           annotation (Placement(transformation(extent={{60,-110},{80,-90}},
                 rotation=0)));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Line(points={{0,0},{80,80},{60,72},{72,60},{80,80}}, color={0,0,
                     255}), 
@@ -6985,10 +6985,10 @@ Zero-sequence voltage and current are present at pin zero. An additional zero-se
               extent={{-20,-20},{20,20}},
               rotation=90)));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
                 extent={{50,-2},{-2,-50}},
@@ -7079,10 +7079,10 @@ This package contains space phasor transformation blocks for use in controllers:
           annotation (Placement(transformation(extent={{100,-70},{120,-90}},
                 rotation=0)));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Line(points={{0,0},{80,80},{60,72},{72,60},{80,80}}, color={0,0,
                     255}),
@@ -7125,10 +7125,10 @@ Transformation of threephase values (voltages or currents) to space phasor and z
           annotation (Placement(transformation(extent={{-140,-60},{-100,-100}},
                 rotation=0)));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Line(points={{0,0},{-80,80},{-60,72},{-72,60},{-80,80}}, color={0,
                     0,255}),
@@ -7168,10 +7168,10 @@ Transformation of space phasor and zero sequence value to threephase values (vol
               extent={{-20,-20},{20,20}},
               rotation=90)));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Line(points={{0,0},{0,80},{-10,60},{10,60},{0,80}}, color={0,0,
                     255}),
@@ -7211,10 +7211,10 @@ Rotates a space phasor (voltage or current) by the angle provided by the input s
         extends Modelica.Blocks.Interfaces.MIMOs(final n=2);
         constant Real small=Modelica.Constants.small;
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Line(points={{-60,60},{-60,-60},{60,-60}}, color={0,0,255}),
               Line(points={{-100,-100},{100,100}}, color={0,0,255}),
@@ -7254,10 +7254,10 @@ Converts a space phasor from rectangular coordinates to polar coordinates.
       block FromPolar "Converts a space phasor from polar coordinates" 
         extends Modelica.Blocks.Interfaces.MIMOs(final n=2);
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Line(points={{-60,60},{-60,-60},{60,-60}}, color={0,0,255}),
               Line(points={{-100,-100},{100,100}}, color={0,0,255}),
@@ -7462,7 +7462,7 @@ This package contains the space phasor connector and partial models for machine 
     connector SpacePhasor "Connector for Space Phasors" 
       Modelica.SIunits.Voltage v_[2];
       flow Modelica.SIunits.Current i_[2];
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
               points={{0,100},{-100,0},{0,-100},{100,0},{0,100}}, 
               lineColor={0,0,255}, 
@@ -7473,7 +7473,7 @@ This package contains the space phasor connector and partial models for machine 
               fillColor={0,0,255}, 
               fillPattern=FillPattern.Solid, 
               textString="%name")}),     Icon(coordinateSystem(
-              preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
             graphics={Polygon(
               points={{0,100},{-100,0},{0,-100},{100,0},{0,100}}, 
               lineColor={0,0,255}, 
@@ -7673,10 +7673,10 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
       annotation (Documentation(info="<HTML>
 Partial model for induction machine models
 </HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}}, 
                 color={0,0,255}), Line(points={{50,100},{20,100},{20,70}}, 
                 color={0,0,255})}));
@@ -7728,7 +7728,7 @@ Partial model for induction machine models
       annotation (Documentation(info="<HTML>
 Partial model for DC machine models.
 </HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -7800,10 +7800,10 @@ This package contains utility components for testing examples.
       output Modelica.SIunits.Angle x(start=0, fixed=true) "integrator state";
       output Modelica.SIunits.Voltage amplitude;
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(points={{-100,-100},{0,60},{80,60}}, color={0,0,255}),
             Line(points={{-70,0},{-60.2,29.9},{-53.8,46.5},{-48.2,58.1},{-43.3,
@@ -7849,10 +7849,10 @@ Phase shifts between sine-waves may be choosen by the user; default values are <
       Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m) 
         annotation (Placement(transformation(extent={{-70,-90},{-50,-110}},
               rotation=0)));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
                           graphics),
-                           Icon(coordinateSystem(preserveAspectRatio=false,
+                           Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Polygon(
               points={{-100,-60},{-60,-100},{58,-100},{100,-60},{100,60},{60,
@@ -7929,10 +7929,10 @@ If <i>control</i> is true, plug_sp and plug_sn are delta connected and they are 
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugSupply(final m=m) 
         annotation (Placement(transformation(extent={{-10,-70},{10,-90}},
               rotation=0)));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
                           graphics),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Polygon(
               points={{-80,-80},{-80,-84},{-80,-120},{-40,-140},{40,-140},{80,-110},
                   {80,-84},{76,-80},{-80,-80}},

@@ -115,7 +115,7 @@ between two frame connectors, e.g., between two parts.
     annotation (defaultComponentName="force",
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}}), graphics),
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Text(
             extent={{-89,-46},{91,-76}},
@@ -474,7 +474,7 @@ This leads to the following animation
     annotation (defaultComponentName="forceAndTorque",
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}}), graphics),
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Text(
             extent={{-63,56},{44,19}},
@@ -926,7 +926,7 @@ clarity this is not shown in the animation):
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}}),
               graphics),
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
             extent={{-98,99},{99,-98}},
@@ -2254,7 +2254,7 @@ for this situation:
             lineColor={0,0,0},
             fillColor={0,0,0},
             fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}),
               graphics),
       Documentation(info="<HTML>
@@ -2691,7 +2691,7 @@ force element) and der(s_damper) is the time derivative of s_damper.
       Modelica.SIunits.Force f_b_0[3] "frame_b.f resoved in world frame";
 
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics),
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
@@ -2826,10 +2826,10 @@ values from the outside in order that the model remains balanced
       SI.Torque t_b_0[3] "frame_b.t resoved in world frame";
 
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
               extent={{-98,99},{99,-98}},
@@ -2958,7 +2958,7 @@ values from the outside in order that the model remains balanced
         "Frame in which force is resolved (1: world, 2: frame_b, 3: frame_resolve)";
 
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Polygon(
               points={{-100,10},{50,10},{50,31},{97,0},{50,-31},{50,-10},{-100,
                   -10},{-100,10}},
@@ -2968,7 +2968,7 @@ values from the outside in order that the model remains balanced
               points={{0,-10},{0,-97}},
               color={95,95,95},
               pattern=LinePattern.Dot)}),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{-89,-46},{91,-76}},
@@ -3065,7 +3065,7 @@ values from the outside in order that the model remains balanced
         "Frame in which torque is resolved (1: world, 2: frame_b, 3: frame_resolve)";
 
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Line(
               points={{0,97},{0,82}},
@@ -3082,7 +3082,7 @@ values from the outside in order that the model remains balanced
               lineColor={0,0,0},
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{-61,64},{46,27}},

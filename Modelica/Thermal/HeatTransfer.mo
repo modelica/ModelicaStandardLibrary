@@ -7,7 +7,7 @@ package HeatTransfer
   extends Modelica.Icons.Library2;
   annotation (
     version="1.1.1", versionDate="2007-11-13",
-     Icon(coordinateSystem(preserveAspectRatio=false,
+     Icon(coordinateSystem(preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
         Polygon(
           points={{-54,-6},{-61,-7},{-75,-15},{-79,-24},{-80,-34},{-78,-42},{-73,
@@ -237,7 +237,7 @@ and rises between t = 2 and 8 seconds linear to 50 degree C.
 An approppriate simulating time would be 10 seconds.
 </P>
 </HTML>
-"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}),
             graphics),
         experiment(StopTime=10));
@@ -351,7 +351,7 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
 </p>
 </HTML>
 "),     experiment(StopTime=7200),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));
 
@@ -440,7 +440,7 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
               {-40,40},{1.83697e-015,40},{1.83697e-015,20}},       color={0,0,
               127}));
     end Motor;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Ellipse(extent={{-60,10},{40,-90}},
               lineColor={135,135,135}), Polygon(
             points={{-30,-12},{-30,-68},{28,-40},{-30,-12}},
@@ -455,7 +455,7 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
   package Components "Lumped thermal components"
   extends Modelica.Icons.Library2;
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,18},{-70,-100}},
@@ -491,7 +491,7 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
       Modelica.SIunits.TemperatureSlope der_T(start=0)
         "Time derivative of temperature (= der(T))";
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{-129,121},{131,70}},
@@ -522,7 +522,7 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
               extent={{-69,7},{71,-24}},
               lineColor={0,0,0},
               textString="%C")}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Polygon(
               points={{0,67},{-20,63},{-40,57},{-52,43},{-58,35},{-68,25},{-72,
@@ -623,7 +623,7 @@ compute C:
         "Constant thermal conductance of material";
 
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
               extent={{-90,70},{90,-70}},
@@ -647,7 +647,7 @@ compute C:
               extent={{-115,-76},{113,-116}},
               lineColor={0,0,0},
               textString="G=%G")}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),graphics(
             Line(
               points={{-80,0},{80,0}},
@@ -719,7 +719,7 @@ e.g., with one of the following equations:
       Modelica.SIunits.HeatFlowRate Q_flow "Heat flow rate from solid -> fluid";
       Modelica.SIunits.TemperatureDifference dT "= solid.T - fluid.T";
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
               extent={{-62,80},{98,-80}},
@@ -817,7 +817,7 @@ McGraw-Hill, 1997, p.270):
       Re < 5e5 and 0.6 < Pr < 50
 </pre>
 </HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),graphics(
             Rectangle(
               extent={{-90,80},{-60,-80}},
@@ -871,7 +871,7 @@ McGraw-Hill, 1997, p.270):
       parameter Real Gr(unit="m2")
         "Net radiation conductance between two surfaces (see docu)";
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
               extent={{50,80},{90,-80}},
@@ -977,7 +977,7 @@ place from the inner to the outer cylinder):
        e2: Emission value of outer cylinder (0..1)
 </pre>
 </HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics(
             Rectangle(
               extent={{-90,80},{-56,-80}},
@@ -1017,7 +1017,7 @@ place from the inner to the outer cylinder):
   package Sources "Thermal sources"
   extends Modelica.Icons.Library2;
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Line(
             points={{-100,-20},{36,-20}},
@@ -1048,7 +1048,7 @@ place from the inner to the outer cylinder):
 
       parameter Modelica.SIunits.Temperature T "Fixed temperature at port";
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{-121,162},{119,102}},
@@ -1083,7 +1083,7 @@ This model defines a fixed temperature T at its port in Kelvin,
 i.e., it defines a fixed temperature as a boundary condition.
 </p>
 </HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics(
             Rectangle(
               extent={{-100,100},{100,-101}},
@@ -1114,7 +1114,7 @@ i.e., it defines a fixed temperature as a boundary condition.
       "Variable temperature boundary condition in Kelvin"
 
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
@@ -1148,7 +1148,7 @@ an infinite reservoir able to absorb or generate as much energy
 as required to keep the temperature at the specified value.
 </p>
 </HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics(
             Rectangle(
               extent={{-100,100},{100,-100}},
@@ -1185,7 +1185,7 @@ as required to keep the temperature at the specified value.
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
         "Temperature coefficient of heat flow rate";
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{-134,120},{132,60}},
@@ -1218,7 +1218,7 @@ as required to keep the temperature at the specified value.
               lineColor={191,0,0},
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{-100,40},{0,-36}},
@@ -1268,7 +1268,7 @@ in order to simulate temperature dependent losses (which are given an reference 
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
         "Temperature coefficient of heat flow rate";
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
               points={{-60,-20},{40,-20}},
@@ -1318,7 +1318,7 @@ If parameter alpha is > 0, the heat flow is mulitplied by (1 + alpha*(port.T - T
 in order to simulate temperature dependent losses (which are given an reference temperature T_ref).
 </p>
 </HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Line(
               points={{-60,-20},{68,-20}},
@@ -1361,7 +1361,7 @@ in order to simulate temperature dependent losses (which are given an reference 
   package Sensors "Thermal sensors"
   extends Modelica.Icons.Library2;
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Ellipse(
             extent={{-60,10},{40,-90}},
@@ -1404,7 +1404,7 @@ in order to simulate temperature dependent losses (which are given an reference 
     model TemperatureSensor "Absolute temperature sensor in Kelvin"
 
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics(
             Ellipse(
               extent={{-20,-98},{20,-60}},
@@ -1439,7 +1439,7 @@ in order to simulate temperature dependent losses (which are given an reference 
               extent={{102,-28},{60,-78}},
               lineColor={0,0,0},
               textString="K"))),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
@@ -1501,7 +1501,7 @@ sensor model.
     model RelTemperatureSensor "Relative Temperature sensor"
       extends Modelica.Icons.TranslationalSensor;
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(points={{-90,0},{-70,0},{-70,0}}, color={191,0,0}),
             Line(points={{-90,0},{-70,0},{-70,0}}, color={191,0,0}),
@@ -1515,7 +1515,7 @@ sensor model.
               extent={{92,-62},{34,-122}},
               lineColor={0,0,0},
               textString="K")}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics(
             Line(points={{-90,0},{-70,0},{-70,0}}, color={191,0,0}),
             Line(points={{-98,0},{-70,0},{-70,0}}, color={191,0,0}),
@@ -1556,12 +1556,12 @@ the two ports of this component and is provided as output signal in Kelvin.
             extent={{-10,-10},{10,10}},
             rotation=270)));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics(
             Line(points={{-70,0},{-95,0}}, color={191,0,0}),
             Line(points={{0,-70},{0,-90}}, color={0,0,255}),
             Line(points={{94,0},{69,0}}, color={191,0,0}))),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{33,-58},{88,-116}},
@@ -1603,7 +1603,7 @@ to port_b.
 
     model ToKelvin "Conversion block from °Celsius to Kelvin"
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
@@ -1622,7 +1622,7 @@ to port_b.
               textString="K"),
             Line(points={{-100,0},{-40,0}}, color={0,0,255}),
             Line(points={{41,0},{100,0}}, color={0,0,255})}),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
@@ -1664,7 +1664,7 @@ and provide is as output signal.
 
     model FromKelvin "Conversion from Kelvin to °Celsius"
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{-137,99},{132,49}},
@@ -1687,7 +1687,7 @@ and provide is as output signal.
               textString="°C"),
             Line(points={{-40,0},{-100,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
@@ -1728,7 +1728,7 @@ and provides is as output signal.
       parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degC T
         "Fixed Temperature at the port";
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{-118,165},{122,105}},
@@ -1763,7 +1763,7 @@ This model defines a fixed temperature T at its port in [degC],
 i.e., it defines a fixed temperature as a boundary condition.
 </p>
 </HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics(
             Rectangle(
               extent={{-100,100},{100,-100}},
@@ -1794,7 +1794,7 @@ i.e., it defines a fixed temperature as a boundary condition.
       "Variable temperature boundary condition in °Celsius"
 
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
@@ -1832,7 +1832,7 @@ an infinite reservoir able to absorb or generate as much energy
 as required to keep the temperature at the specified value.
 </p>
 </HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics(
             Rectangle(
               extent={{-100,100},{100,-100}},
@@ -1879,7 +1879,7 @@ Example:
     Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degC(20));
 </pre>
 </HTML>
-"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Text(
             extent={{38,10},{-62,-90}},
             lineColor={0,0,0},
@@ -1887,7 +1887,7 @@ Example:
     model TemperatureSensor "Absolute temperature sensor in °Celsius"
 
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
@@ -1922,7 +1922,7 @@ Example:
               extent={{102,-22},{60,-74}},
               lineColor={0,0,0},
               textString="°C")}),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
@@ -2006,7 +2006,7 @@ sensor model.
               textString="K"),
             Line(points={{-100,0},{-40,0}}, color={0,0,255}),
             Line(points={{41,0},{100,0}}, color={0,0,255})}),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
@@ -2048,7 +2048,7 @@ and provides is as output signal.
     model FromKelvin "Conversion from Kelvin to °Fahrenheit"
       parameter Integer n=1 "Number of inputs (= number of outputs)";
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{-137,99},{132,49}},
@@ -2111,7 +2111,7 @@ and provides them as output signals.
       parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degF T
         "Fixed Temperature at the port";
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{-118,165},{122,105}},
@@ -2146,7 +2146,7 @@ This model defines a fixed temperature T at its port in [degF],
 i.e., it defines a fixed temperature as a boundary condition.
 </p>
 </HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics(
             Rectangle(
               extent={{-100,100},{100,-100}},
@@ -2177,7 +2177,7 @@ i.e., it defines a fixed temperature as a boundary condition.
       "Variable temperature boundary condition in °Fahrenheit"
 
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
@@ -2262,7 +2262,7 @@ Example:
     Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degF(70));
 </pre>
 </HTML>
-"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Text(
             extent={{40,10},{-60,-90}},
             lineColor={0,0,0},
@@ -2304,7 +2304,7 @@ Example:
               extent={{102,-22},{60,-74}},
               lineColor={0,0,0},
               textString="°F")}),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
@@ -2389,7 +2389,7 @@ sensor model.
               textString="K"),
             Line(points={{-100,0},{-40,0}}, color={0,0,255}),
             Line(points={{41,0},{100,0}}, color={0,0,255})}),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
@@ -2432,7 +2432,7 @@ and provides them as output signals.
     model FromKelvin "Conversion from Kelvin to °Rankine"
       parameter Integer n=1 "Number of inputs (= number of outputs)";
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{-137,99},{132,49}},
@@ -2495,7 +2495,7 @@ and provides them as output signals.
       parameter Modelica.SIunits.Conversions.NonSIunits.Temperature_degRk T
         "Fixed Temperature at the port";
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{-118,165},{122,105}},
@@ -2530,7 +2530,7 @@ This model defines a fixed temperature T at its port in degree Rankine,
 [degRk], i.e., it defines a fixed temperature as a boundary condition.
 </p>
 </HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics(
             Rectangle(
               extent={{-100,100},{100,-100}},
@@ -2561,7 +2561,7 @@ This model defines a fixed temperature T at its port in degree Rankine,
       "Variable temperature boundary condition in °Rankine"
 
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
@@ -2645,7 +2645,7 @@ Example:
     Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degRk(500));
 </pre>
 </HTML>
-"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Text(
             extent={{40,10},{-60,-90}},
             lineColor={0,0,0},
@@ -2687,7 +2687,7 @@ Example:
               extent={{102,-22},{60,-74}},
               lineColor={0,0,0},
               textString="°Rk")}),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
@@ -2780,13 +2780,13 @@ class.</p>
 <p>Note, that the two connector classes <b>HeatPort_a</b> and
 <b>HeatPort_b</b> are identical with the only exception of the different
 <b>icon layout</b>.</p></HTML>
-"),     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={191,0,0},
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Rectangle(
               extent={{-50,50},{50,-50}},
               lineColor={191,0,0},
@@ -2817,7 +2817,7 @@ class.</p>
 <p>Note, that the two connector classes <b>HeatPort_a</b> and
 <b>HeatPort_b</b> are identical with the only exception of the different
 <b>icon layout</b>.</p></HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Rectangle(
               extent={{-50,50},{50,-50}},
               lineColor={191,0,0},
@@ -2826,7 +2826,7 @@ class.</p>
               extent={{-100,120},{120,60}},
               lineColor={191,0,0},
               textString="%name")}),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={191,0,0},
@@ -2858,10 +2858,10 @@ By extending this model, it is possible to write simple
 constitutive equations for many types of heat transfer components.
 </p>
 </HTML>
-"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}),
          graphics),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));
     equation
@@ -2869,7 +2869,7 @@ constitutive equations for many types of heat transfer components.
       port_a.Q_flow = Q_flow;
       port_b.Q_flow = -Q_flow;
     end Element1D;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(
             extent={{-60,10},{40,-90}},
             lineColor={191,0,0},

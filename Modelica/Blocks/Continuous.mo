@@ -1560,7 +1560,7 @@ results in the following equations:
       extends Interfaces.SISO;
 
       annotation (defaultComponentName="der1",
-   Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Text(
             extent={{-80,76},{80,-82}},
             textString="der()",
@@ -1611,7 +1611,7 @@ the model.
     output Real xr(start=xr_start)
       "state of real pole for uneven order otherwise dummy";
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{-80,78},{-80,-90}}, color={192,192,192}),
           Polygon(
@@ -1645,7 +1645,7 @@ the model.
             extent={{-2,94},{94,48}},
             lineColor={192,192,192},
             textString="%n")}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Line(points={{40,0},{-40,0}}, color={0,0,0}),
           Text(
@@ -1768,7 +1768,7 @@ with zeros.</p>
 
     output Real x[n](start=x_start) "Filter states";
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{-80.6897,77.6256},{-80.6897,-90.3744}}, color={192,192,
                 192}),
@@ -1801,7 +1801,7 @@ with zeros.</p>
             extent={{8,-106},{8,-146}},
             lineColor={0,0,0},
             textString="f=%f")}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Line(points={{40,0},{-40,0}}, color={0,0,0}),
           Text(

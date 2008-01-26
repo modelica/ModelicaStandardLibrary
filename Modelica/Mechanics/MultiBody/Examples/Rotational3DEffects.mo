@@ -6,7 +6,7 @@ package Rotational3DEffects
     extends Modelica.Icons.Example;
 
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics),
       experiment(StopTime=5, Tolerance=1e-008),
       Documentation(info="<html>
@@ -175,7 +175,7 @@ is much faster.
   model ActuatedDrive
      extends Modelica.Icons.Example;
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics),
       experiment(StopTime=1.1));
     Parts.BodyShape bodyCylinder(
@@ -438,7 +438,7 @@ is much faster.
   model GearConstraint
      extends Modelica.Icons.Example;
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics),
       experiment(StopTime=5));
     Joints.GearConstraint gearConstraint(                             ratio=10) 

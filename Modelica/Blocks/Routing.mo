@@ -225,7 +225,7 @@ block Extractor
   parameter Real outOfRangeValue=1e10 "Output signal if index is out of range";
 
   annotation (Icon(coordinateSystem(
-          preserveAspectRatio=false,
+          preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Rectangle(
@@ -300,7 +300,7 @@ value of the additional u index:</p>
 <p>where index is an additional Integer input signal.</p>
 </html>"),
       Diagram(coordinateSystem(
-          preserveAspectRatio=false,
+          preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1})));
 
@@ -1000,7 +1000,7 @@ This package contains blocks to combine and extract signals.
     Modelica.Blocks.Interfaces.RealOutput y "Output signal" 
       annotation (HideResult=true, Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Line(points={{-100,0},{100,0}},
               color={0,0,127})}),
                       Documentation(info="<html>
@@ -1021,7 +1021,7 @@ Passes a Real signal through without modification.  Enables signals to be read o
     Modelica.Blocks.Interfaces.IntegerOutput y "Output signal" 
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Line(points={{-100,0},{100,0}},
               color={255,128,0})}),
                       Documentation(info="<html>
@@ -1041,13 +1041,13 @@ Passes a Real signal through without modification.  Enables signals to be read o
     Modelica.Blocks.Interfaces.BooleanOutput y "Output signal" 
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+    annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
               -100,-100},{100,100}}),
                         graphics),
                          Documentation(info="<html>
 <p>Passes a Boolean signal through without modification.  Enables signals to be read out of one bus, have their name changed and be sent back to a bus.</p>
 </html>"),
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(points={{-100,0},{100,0}}, color={255,0,
                 255})}));
   equation

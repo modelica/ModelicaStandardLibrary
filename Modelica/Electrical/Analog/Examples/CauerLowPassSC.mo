@@ -9,10 +9,10 @@ model Rn "negative resistance"
     annotation (Placement(transformation(extent={{-10,50},{10,70}}, rotation=0)));
   annotation (
     uses(Modelica(version="2.2")),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}),
             graphics),
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Bitmap(extent={{-62,6},{-62,14}}, fileName=""),
           Rectangle(
@@ -87,9 +87,9 @@ end Rn;
 model Rp "positive resistance"
 
   annotation (uses(Modelica(version="2.2")), Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                                                      graphics),
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Bitmap(extent={{-62,4},{-62,12}}, fileName=""),
           Rectangle(

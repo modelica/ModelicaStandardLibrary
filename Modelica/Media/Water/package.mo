@@ -254,7 +254,7 @@ package ConstantPropertyLiquidWater
      MM_const=0.018015268,
      fluidConstants = simpleWaterConstants);
 
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+  annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-90,88},{90,18}},
           lineColor={0,0,0},
@@ -266,7 +266,7 @@ package ConstantPropertyLiquidWater
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           textString="water")}),
-                            Diagram(coordinateSystem(preserveAspectRatio=false,
+                            Diagram(coordinateSystem(preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}),
                                     graphics),
     Documentation(info="<html>
@@ -332,7 +332,7 @@ end WaterIF97_ph;
 partial package WaterIF97_base
   "Water: Steam properties as defined by IAPWS/IF97 standard"
 
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+  annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-94,84},{94,40}},
           lineColor={127,191,255},
@@ -903,7 +903,7 @@ end WaterIF97_base;
 partial package WaterIF97_fixedregion
   "Water: Steam properties as defined by IAPWS/IF97 standard"
 
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+  annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-94,84},{94,40}},
           lineColor={127,191,255},

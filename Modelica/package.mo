@@ -784,17 +784,17 @@ The following changes are present for the whole library:
      If the aspect ratio was not kept when using a component from the Modelica
      Standard Library, it is now resized so that the aspect ratio is maintained.<br>&nbsp; </li>
 
-<li> All non-standard annotations removed by:
-     (1) Removing the annotation since without effect (e.g., \"experimentSetupOutput\" removed).
-     (2) Renaming the annotation to a standard name (e.g., \"Hide\" renamed to \"HideResult\").
+<li> All non-standard annotations removed by:<br>
+     (1) Removing the annotation since without effect (e.g., \"experimentSetupOutput\" removed).<br>
+     (2) Renaming the annotation to a standard name (e.g., \"Hide\" renamed to \"HideResult\").<br>
      (3) Renaming the annotation to a vendor specific name 
          (e.g., \"checkBox\" renamed to \"__Dymola_checkBox\").<br>&nbsp; </li>
 
 <li> All emulated enumerations (defined via packages and constants) have been 
      replaced by \"real\" enumerations. User models are automatically correctly
      converted, provided the user models used the package constants previously.
-     Models that use directly literal values for enumerations, might give in 
-     some cases wrong results (if the first constant of the emulated enumeration
+     <b>Existing models that use directly literal values for enumerations, might give in 
+     some cases wrong results</b> (if the first constant of the emulated enumeration
      had value zero, whereas the first value of an enumeration is one).<br>&nbsp; </li>
 
 <li> The operator \"cardinality\" will be removed in one of the next versions of the
@@ -813,14 +813,33 @@ The following changes are present for the whole library:
      compatible. This is the reason for the changes of the
      Rotational and Translational library (see below).<br>&nbsp;</li>
 
-<li> The design of the Rotational and Translational libraries have been changed
-     (in order to remove the cardinality(..) operator):
-     Components have a <b>useSupport</b> flag to enable or disable a support flange.
-     If the support flange is enabled, it must be connected. If it is disabled, it must
-     not be connected. The two libraries have been restructured in sublibraries to cope
-     with the growing number of components. Finally, the Translational library has been
-     made as similar as possible to the Rotational library by, e.g., adding missing
-     components.<br>&nbsp;</li>
+<li> The design of the <b>Rotational</b> and <b>Translational</b> libraries have been changed
+     (especially to remove the cardinality(..) operator, see above):
+     <ul>
+     <li> Components have a <b>useSupport</b> flag to enable or disable a support flange.
+          If the support flange is enabled, it must be connected. If it is disabled, it must
+          not be connected and the component is then internally grounded. The grounding
+          is visualized in the icon.</li>
+     <li> The relative angle/distance and the relative speed of all force/torque elements
+          (that need the relative speed) are by default defined with \"StateSelect.prefer\", i.e.,
+          to use these variables as preferred states. This improves the numerics if the
+          absolute angle or the absolute distance are continuously increasing during
+          operation (e.g. driving shaft of the wheels of a car). The effect is that relative
+          angles/distances and speeds are used as states and the size of these variables is
+          limited. Previously, the default was to use the absolute angle/distance
+          and absolute speed of every inertia/mass which has the disadvantage that the absolute
+          angle and or distance are state variables that grow in size continuously.<br>
+          A significant advantage is also, that default initialization is usually better,
+          because a default value of zero for a relative angle/distance is usually what the
+          user would like to have. Previously, say, the load was initialized to a non-zero
+          angle and then the elastically coupled motor inertia had to be explicitly
+          also initialized with this value. This is now, no longer needed.</li>
+     <li> The two libraries have been restructured in sublibraries to cope
+          with the growing number of components.</li>
+     <li> Finally, the Translational library has been
+          made as similar as possible to the Rotational library by, e.g., adding missing
+          components.<br>&nbsp;</li>
+     </ul></li>
 
 <li> The initialization of the MultiBody, Rotational and Translational libraries have
      been signficantly simplified by removing the \"initType\" parameters and only
@@ -1204,7 +1223,7 @@ have been <b style=\"color:blue\">changed</b> in a
 
   <tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.Examples.</b></td></tr>
   <tr><td valign=\"top\"> </td>
-      <td valign=\"top\"> Changed the instance names of components used in the examples to more up-to-date style.</td> </tr>
+      <td valign=\"top\"> Changed the i" + "nstance names of components used in the examples to more up-to-date style.</td> </tr>
 
   <tr><td colspan=\"2\"><b>Thermal.HeatTransfer.(Components)</b></td></tr>
   <tr><td valign=\"top\"> HeatCapacitor</td>
@@ -1228,7 +1247,7 @@ have been <b style=\"color:blue\">changed</b> in a
 
 
 <p><br>
-The following <b s" + "tyle=\"color:blue\">existing components</b>
+The following <b style=\"color:blue\">existing components</b>
 have been <b style=\"color:blue\">improved</b> in a
 <b style=\"color:blue\">backward compatible</b> way:
 </p>

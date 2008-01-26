@@ -71,7 +71,7 @@ connector RealInput = input Real "'input Real' as connector"
           lineColor={0,0,127},
           fillColor={0,0,127},
           fillPattern=FillPattern.Solid)},
-       coordinateSystem(extent={{-100,-100},{100,100}}, preserveAspectRatio=false, initialScale=0.2)),
+       coordinateSystem(extent={{-100,-100},{100,100}}, preserveAspectRatio=true, initialScale=0.2)),
   Diagram(coordinateSystem(
         preserveAspectRatio=true, initialScale=0.2,
         extent={{-100,-100},{100,100}},
@@ -125,7 +125,7 @@ connector BooleanInput = input Boolean "'input Boolean' as connector"
           fillColor={255,0,255},
           fillPattern=FillPattern.Solid)},
             coordinateSystem(extent={{-100,-100},{100,100}},
-        preserveAspectRatio=false, initialScale=0.2)),    Diagram(coordinateSystem(
+        preserveAspectRatio=true, initialScale=0.2)),    Diagram(coordinateSystem(
         preserveAspectRatio=true, initialScale=0.2,
         extent={{-100,-100},{100,100}},
         grid={1,1},
@@ -177,7 +177,7 @@ connector IntegerInput = input Integer "'input Integer' as connector"
           lineColor={255,127,0},
           fillColor={255,127,0},
           fillPattern=FillPattern.Solid)},
-       coordinateSystem(extent={{-100,-100},{100,100}}, preserveAspectRatio=false,
+       coordinateSystem(extent={{-100,-100},{100,100}}, preserveAspectRatio=true,
                  initialScale=0.2)),
   Diagram(coordinateSystem(
         preserveAspectRatio=true, initialScale=0.2,
@@ -577,7 +577,7 @@ to be used as base class for a corresponding controller.
     partial block DiscreteBlockIcon
     "Graphical layout of discrete block component icon"
 
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(
             extent={{-100,-100},{100,100}},
             lineColor={0,0,127},
@@ -709,7 +709,7 @@ These signals are sampled due to the defined <b>samplePeriod</b> parameter.
       Modelica.Blocks.Interfaces.RealOutput y
       "Continuous scalar actuator output signal"   annotation (Placement(
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Text(
             extent={{-100,34},{-140,24}},
@@ -768,7 +768,7 @@ to be used as base class for a corresponding controller.
       Modelica.Blocks.Interfaces.RealOutput y[ny]
       "Continuous actuator output signals"   annotation (Placement(
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Text(
             extent={{-100,-10},{-80,-30}},
@@ -963,7 +963,7 @@ This component has one continuous Boolean output signal y.
 
 partial block IntegerBlockIcon "Basic graphical layout of Integer block"
 
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+  annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(
             extent={{-100,-100},{100,100}},
             lineColor={255,127,0},
@@ -1065,7 +1065,7 @@ end IntegerMIBooleanMOs;
   partial block partialBooleanBlockIcon
     "Basic graphical layout of logical block"
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={0,0,0},
@@ -1095,7 +1095,7 @@ in the Blocks.Logical library.
       "Connector of Boolean output signal"   annotation (Placement(
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Ellipse(
             extent={{-71,7},{-85,-7}},
             lineColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0}
@@ -1233,7 +1233,7 @@ with a 3D icon (e.g. used in Blocks.Logical library).
                                             annotation (Placement(
           transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Ellipse(
             extent={{-71,7},{-85,-7}},
             lineColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0}
@@ -1257,7 +1257,7 @@ with a 3D icon (e.g. used in Blocks.Logical library).
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
     extends partialBooleanBlockIcon;
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Ellipse(
             extent={{71,7},{85,-7}},
             lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
@@ -1282,7 +1282,7 @@ with a 3D icon (e.g. used in Blocks.Logical library).
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Polygon(
             points={{-80,88},{-88,66},{-72,66},{-80,88}},
@@ -1303,7 +1303,7 @@ with a 3D icon (e.g. used in Blocks.Logical library).
             fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
                  else {235,235,235}),
             fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Polygon(
             points={{-70,92},{-76,70},{-64,70},{-70,92}},
@@ -1351,7 +1351,7 @@ and a 3D icon (e.g. used in Blocks.Logical library).
                                       annotation (Placement(transformation(
             extent={{100,-10},{120,10}}, rotation=0)));
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,100},{100,-100}},
@@ -1370,7 +1370,7 @@ and a 3D icon (e.g. used in Blocks.Logical library).
             fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
                  else {235,235,235}),
             fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}),
                 graphics),
       Documentation(info="<html>
@@ -1395,7 +1395,7 @@ as well as a 3D icon (e.g. used in Blocks.Logical library).
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,100},{100,-100}},
@@ -1412,7 +1412,7 @@ as well as a 3D icon (e.g. used in Blocks.Logical library).
             fillPattern=FillPattern.Solid),
           Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,255}),
           Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,255})}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}),
                 graphics),
       Documentation(info="<html>
@@ -1435,7 +1435,7 @@ package Adaptors
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
     RealInput u "Input signal to be send to bus" annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,40},{100,-40}},
@@ -1474,7 +1474,7 @@ for signal buses, see example
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
     BooleanInput u "Input signal to be send to bus" annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,40},{100,-40}},
@@ -1513,7 +1513,7 @@ for signal buses, see example
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
     IntegerInput u "Input signal to be send to bus" annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,40},{100,-40}},
@@ -1551,7 +1551,7 @@ for signal buses, see example
             transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
     RealOutput y "Output signal to be received from bus" annotation (Placement(
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,40},{100,-40}},
@@ -1590,7 +1590,7 @@ for signal buses, see example
             transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
     BooleanOutput y "Output signal to be received from bus" annotation (Placement(
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,40},{100,-40}},
@@ -1629,7 +1629,7 @@ for signal buses, see example
             transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
     IntegerOutput y "Output signal to be received from bus" annotation (Placement(
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
               extent={{-100,40},{100,-40}},
@@ -1685,7 +1685,7 @@ end Adaptors;
       "Connector of Real output signal containing input signal u in another unit"
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Rectangle(
             extent={{-100,100},{100,-100}},

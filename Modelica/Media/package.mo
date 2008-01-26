@@ -3270,7 +3270,7 @@ The details of the pipe friction model are described
           X_ambient=0.5*X_start) 
                                 annotation (Placement(transformation(extent={{
                   -80,0},{-60,20}}, rotation=0)));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent=
                   {{-100,-100},{100,100}}),
                             graphics),
                              Documentation(info="<html>

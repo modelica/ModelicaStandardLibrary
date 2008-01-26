@@ -322,7 +322,7 @@ package Utilities "Utility models for Examples.Loops"
             extent={{-100,120},{100,60}},
             textString="%name",
             lineColor={0,0,255})}),                         Diagram(
-          coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+          coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
             extent={{-90,50},{90,-50}},

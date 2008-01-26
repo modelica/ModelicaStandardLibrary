@@ -4,7 +4,7 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
   constant Modelica.SIunits.Capacitance CapVal=0;
   constant Modelica.SIunits.Time tauVal=0;
 
-annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-100,100},{-6,72}},
           textString="Heating \"NPN or\" Gate",
