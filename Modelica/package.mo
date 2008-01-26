@@ -833,7 +833,9 @@ The following changes are present for the whole library:
           because a default value of zero for a relative angle/distance is usually what the
           user would like to have. Previously, say, the load was initialized to a non-zero
           angle and then the elastically coupled motor inertia had to be explicitly
-          also initialized with this value. This is now, no longer needed.</li>
+          also initialized with this value. This is now, no longer needed. Since the default
+          nominal value of 1 is usually too large for a relative quantity, the nominal 
+          values of the relative angle/distance was changed to 1e-4.</li>
      <li> The two libraries have been restructured in sublibraries to cope
           with the growing number of components.</li>
      <li> Finally, the Translational library has been
@@ -1219,11 +1221,11 @@ have been <b style=\"color:blue\">changed</b> in a
   <tr><td valign=\"top\"> ConstantPressureIncrease<br>PrescribedPressureIncrease</td>
       <td valign=\"top\"> available as one combined component PressureIncrease<br>
                         Boolean parameter usePressureIncreaseInput decides 
-                        whether pressure increase is constant or prescribed</td> </tr>
+                        whether pressure increase i" + "s constant or prescribed</td> </tr>
 
   <tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.Examples.</b></td></tr>
   <tr><td valign=\"top\"> </td>
-      <td valign=\"top\"> Changed the i" + "nstance names of components used in the examples to more up-to-date style.</td> </tr>
+      <td valign=\"top\"> Changed the instance names of components used in the examples to more up-to-date style.</td> </tr>
 
   <tr><td colspan=\"2\"><b>Thermal.HeatTransfer.(Components)</b></td></tr>
   <tr><td valign=\"top\"> HeatCapacitor</td>
@@ -1321,6 +1323,16 @@ that can lead to wrong simulation results):
 </p>
  
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>Blocks.Continuous.</b></td></tr>
+  <tr><td valign=\"top\"> TransferFunction </td>
+      <td valign=\"top\"> This component did not have a bug. However, scaling of the states is introduced
+                        in order to enlarge the range of transfer functions where the default
+                        relative tolerance of the simulator is sufficient.
+                        Due to this change, the state vector is different as previously.
+                        If a model has initialized a transfer function with particular states,
+                        the result will be different now.</td> 
+  </tr>
+
   <tr><td colspan=\"2\"><b>Electrical.Analog.Examples.</b></td></tr>
   <tr><td valign=\"top\"> CauerLowPassSC </td>
       <td valign=\"top\"> Wrong calculation of Capacitor1 both in Rn and Rp corrected
