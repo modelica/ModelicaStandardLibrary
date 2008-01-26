@@ -107,7 +107,8 @@ for a 1-dim. rotational inertia controlled by a PI controller are that
      and therefore this setting is backward compatible
   */
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.InitialState
-      "Type of initialization (InitialState and InitialOutput are identical)"         annotation(Evaluate=true,
+      "Type of initialization (1: no init, 2: steady state, 3,4: initial output)"
+                                                                                      annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real y_start=0 "Initial or guess value of output (= state)" 
       annotation (Dialog(group="Initialization"));
@@ -196,7 +197,7 @@ This is discussed in the description of package
     parameter Real outMax(start=1) "Upper limit of output";
     parameter Real outMin=-outMax "Lower limit of output";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.InitialState
-      "Type of initialization" 
+      "Type of initialization (1: no init, 2: steady state, 3/4: initial output)"
       annotation(Evaluate=true, Dialog(group="Initialization"));
     parameter Boolean limitsAtInit = true
       "= false, if limits are ignored during initializiation (i.e., der(y)=k*u)"
@@ -308,7 +309,8 @@ to use <b>limitAtInit</b> = <b>false</b>.
     parameter SIunits.Time T(min=Modelica.Constants.small) = 0.01
       "Time constants (T>0 required; T=0 is ideal derivative block)";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
-      "Type of initialization"                                                        annotation(Evaluate=true,
+      "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
+                                                                                      annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real x_start=0 "Initial or guess value of state" 
       annotation (Dialog(group="Initialization"));
@@ -417,7 +419,8 @@ If k=0, the block reduces to y=0.
     parameter Real k=1 "Gain";
     parameter SIunits.Time T(start=1) "Time Constant";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
-      "Type of initialization (InitialState and InitialOutput are identical)"         annotation(Evaluate=true,
+      "Type of initialization (1: no init, 2: steady state, 3/4: initial output)"
+                                                                                      annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real y_start=0 "Initial or guess value of output (= state)" 
       annotation (Dialog(group="Initialization"));
@@ -517,7 +520,8 @@ Example:
     parameter Real w(start=1) "Angular frequency";
     parameter Real D(start=1) "Damping";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
-      "Type of initialization (InitialState and InitialOutput are identical)"         annotation(Evaluate=true,
+      "Type of initialization (1: no init, 2: steady state, 3/4: initial output)"
+                                                                                      annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real y_start=0 "Initial or guess value of output (= state)" 
       annotation (Dialog(group="Initialization"));
@@ -655,7 +659,8 @@ Example:
     parameter SIunits.Time T(start=1,min=Modelica.Constants.small)
       "Time Constant (T>0 required)";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
-      "Type of initialization (SteadyState and InitialOutput are identical)"  annotation(Evaluate=true,
+      "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
+                                                                              annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real x_start=0 "Initial or guess value of state" 
       annotation (Dialog(group="Initialization"));
@@ -782,7 +787,8 @@ This is discussed in the description of package
     parameter Real Nd(min=Modelica.Constants.small) = 10
       "The higher Nd, the more ideal the derivative block";
     parameter Modelica.Blocks.Types.InitPID initType= Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState
-      "Type of initialization"         annotation(Evaluate=true,
+      "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
+                                       annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real xi_start=0
       "Initial or guess value value for integrator output (= integrator state)"
@@ -995,7 +1001,8 @@ to compute u by an algebraic equation.
          annotation(Dialog(enable=controllerType==SimpleController.PD or 
                                   controllerType==SimpleController.PID));
     parameter Modelica.Blocks.Types.InitPID initType= Modelica.Blocks.Types.InitPID.DoNotUse_InitialIntegratorState
-      "Type of initialization"         annotation(Evaluate=true,
+      "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
+                                       annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Boolean limitsAtInit = true
       "= false, if limits are ignored during initializiation" 
@@ -1332,7 +1339,8 @@ to use <b>limitAtInit</b> = <b>false</b>.
     parameter Real a[:] "Denominator coefficients of transfer function" 
       annotation(Dialog(group="y = (2*s+3)/(4*s^2+5*s+6)*u is defined as b={2,3}, a={4,5,6}"));
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
-      "Type of initialization"         annotation(Evaluate=true, Dialog(group=
+      "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
+                                       annotation(Evaluate=true, Dialog(group=
             "Initialization"));
     parameter Real x_start[size(a, 1) - 1]=zeros(nx)
       "Initial or guess values of states" 
@@ -1349,7 +1357,7 @@ to use <b>limitAtInit</b> = <b>false</b>.
     parameter Integer nx=size(a, 1) - 1;
     parameter Real bb[:] = vector([zeros(max(0,na-nb),1);b]);
     parameter Real d = bb[1]/a[1];
-    parameter Real a_end = if a[end] > 100*Modelica.Constants.eps*Modelica.Math.Vectors.norm(a) then a[end] else 1.0;
+    parameter Real a_end = if a[end] > 100*Modelica.Constants.eps*sqrt(a*a) then a[end] else 1.0;
     Real x_scaled[size(x,1)] "Scaled vector x";
     annotation (
       Window(
@@ -1448,7 +1456,8 @@ results in the following transfer function:
     parameter Real D[size(C, 1), size(B, 2)]=zeros(size(C, 1), size(B, 2))
       "Matrix D of state space model";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
-      "Type of initialization"                                                        annotation(Evaluate=true,
+      "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
+                                                                                      annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real x_start[nx]=zeros(nx) "Initial or guess values of states" 
       annotation (Dialog(group="Initialization"));
@@ -1560,8 +1569,8 @@ results in the following equations:
       extends Interfaces.SISO;
 
       annotation (defaultComponentName="der1",
-   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={Text(
+   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
+          graphics={Text(
             extent={{-80,76},{80,-82}},
             textString="der()",
             lineColor={0,0,127})}),
@@ -1590,7 +1599,8 @@ the model.
     parameter Integer n(min=1) = 2 "Order of filter";
     parameter SI.Frequency f(start=1) "Cut-off frequency";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
-      "Type of initialization"                                                        annotation(Evaluate=true,
+      "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
+                                                                                      annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real x1_start[m]=zeros(m)
       "Initial or guess values of states 1 (der(x1)=x2))" 
@@ -1757,7 +1767,8 @@ with zeros.</p>
     parameter Integer n=2 "Order of filter";
     parameter Modelica.SIunits.Frequency f(start=1) "Cut-off frequency";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
-      "Type of initialization"                                                        annotation(Evaluate=true,
+      "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
+                                                                                      annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real x_start[n]=zeros(n) "Initial or guess values of states" 
       annotation (Dialog(group="Initialization"));
