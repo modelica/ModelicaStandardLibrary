@@ -1119,6 +1119,7 @@ still kept in Modelica.SIunits.</p>
   type IsentropicExponent = Real (final quantity="IsentropicExponent", final unit
         =    "1");
   type Entropy = Real (final quantity="Entropy", final unit="J/K");
+  type EntropyFlowRate = Real (final quantity="EntropyFlowRate", final unit="J/(K.s)");
   type SpecificEntropy = Real (final quantity="SpecificEntropy", final unit=
           "J/(kg.K)");
   type InternalEnergy = Heat;
