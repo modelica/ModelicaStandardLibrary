@@ -31,6 +31,7 @@ package Constants
     "Standard acceleration of gravity on earth";
   final constant Real G(final unit="m3/(kg.s2)") = 6.6742e-11
     "Newtonian constant of gravitation";
+  final constant SI.FaradayConstant F = 9.64853399e4 "Faraday constant, C/mol";
   final constant Real h(final unit="J.s") = 6.6260693e-34 "Planck constant";
   final constant Real k(final unit="J/K") = 1.3806505e-23 "Boltzmann constant";
   final constant Real R(final unit="J/(mol.K)") = 8.314472 "Molar gas constant";

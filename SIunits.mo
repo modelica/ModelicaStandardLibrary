@@ -1388,6 +1388,8 @@ still kept in Modelica.SIunits.</p>
         ="J/(mol.K)");
   type MolarEntropy = Real (final quantity="MolarEntropy", final unit=
           "J/(mol.K)");
+  type MolarFlowRate = Real (final quantity="MolarFlowRate", final unit=
+          "mol/s");
   type NumberDensityOfMolecules = Real (final quantity=
           "NumberDensityOfMolecules", final unit="m-3");
   type MolecularConcentration = Real (final quantity="MolecularConcentration",
