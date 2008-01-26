@@ -256,7 +256,7 @@ vector \"n\" defining the translation axis
       R=frame_a.R) if world.enableAnimation and animation;
     Translational.Components.Fixed fixed 
       annotation (Placement(transformation(extent={{-50,30},{-30,50}})));
-    Translational.Interfaces.InternalSupport internalAxis 
+    Translational.Interfaces.InternalSupport internalAxis(f = f) 
       annotation (Placement(transformation(extent={{70,50},{90,30}})));
     Translational.Sources.ConstantForce constantForce(f_constant=0) if not useAxisFlange 
       annotation (Placement(transformation(extent={{40,30},{60,50}})));
@@ -276,7 +276,6 @@ vector \"n\" defining the translation axis
     f = -e*frame_b.f;
 
     // Connection to internal connectors
-    f = internalAxis.f;
     s = internalAxis.s;
 
     connect(fixed.flange, support) annotation (Line(
