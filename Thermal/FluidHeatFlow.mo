@@ -1350,7 +1350,7 @@ and the accompanying <b>disclaimer</b>
         annotation (
           Documentation(info="<HTML>
 Block generating the sum of two ramps.
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
                   graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -1482,7 +1482,7 @@ leads to neglection of temperature transient cv*m*der(T).
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid), Text(extent={{-150,100},{150,40}},
                 textString="%name")}),                          Diagram(
-            coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+            coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}),                                             graphics));
       extends Interfaces.Partials.TwoPort(final tapT=1);
       extends Interfaces.Partials.SimpleFriction;
@@ -1863,7 +1863,7 @@ Thermodynamic equations are defined by Partials.Ambient.
     annotation (Documentation(info="<HTML>
 AbsolutePressure to define pressure level of a closed cooling cycle. 
 Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
-</HTML>"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
                        graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -1902,7 +1902,7 @@ Coolant's temperature and enthalpy flow are not affected.<br>
 Setting parameter m (mass of medium within fan/pump) to zero
 leads to neglection of temperature transient cv*m*der(T).<br>
 Thermodynamic equations are defined by Partials.TwoPort.
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Ellipse(
               extent={{-90,90},{90,-90}},
@@ -1970,7 +1970,7 @@ Setting parameter m (mass of medium within fan/pump) to zero
 leads to neglection of temperature transient cv*m*der(T).<br>
 Thermodynamic equations are defined by Partials.TwoPort.
 </HTML>"),
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
             Ellipse(
               extent={{-90,90},{90,-90}},
@@ -2069,7 +2069,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
               lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={0,0,255})}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));
       extends Interfaces.Partials.TwoPort(final tapT=1);
@@ -2200,13 +2200,13 @@ and the accompanying <b>disclaimer</b>
     annotation (Documentation(info="<HTML>
 pSensor measures the absolute pressure.<br>
 Thermodynamic equations are defined by Partials.AbsoluteSensor.
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
                    graphics));
       extends Interfaces.Partials.AbsoluteSensor;
     equation
       y = flowPort.p;
-      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation(Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
@@ -2219,13 +2219,13 @@ Thermodynamic equations are defined by Partials.AbsoluteSensor.
     annotation (Documentation(info="<HTML>
 TSensor measures the absolute temperature (Kelvin).<br>
 Thermodynamic equations are defined by Partials.AbsoluteSensor.
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
                    graphics));
       extends Interfaces.Partials.AbsoluteSensor;
     equation
       medium.cp*y = flowPort.h;
-      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation(Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
@@ -2237,13 +2237,13 @@ Thermodynamic equations are defined by Partials.AbsoluteSensor.
     annotation (Documentation(info="<HTML>
 dpSensor measures the pressure drop between flowPort_a and flowPort_b.<br>
 Thermodynamic equations are defined by Partials.RelativeSensor.
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
                    graphics));
       extends Interfaces.Partials.RelativeSensor;
     equation
       y = flowPort_a.p - flowPort_b.p;
-      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation(Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
@@ -2258,13 +2258,13 @@ Thermodynamic equations are defined by Partials.RelativeSensor.<br>
 <b>Note:</b> Connected flowPorts have the same temperature (mixing temperature)!<br>
 Since mixing my occur, the outlet temperature of a component may be different from the connector's temperature.<br> 
 Outlet temperature is defined by variable T of the corresponding component.
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
                    graphics));
       extends Interfaces.Partials.RelativeSensor;
     equation
       medium.cp*y = flowPort_a.h - flowPort_b.h;
-      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation(Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
@@ -2276,13 +2276,13 @@ Outlet temperature is defined by variable T of the corresponding component.
     annotation (Documentation(info="<HTML>
 m_flowSensor measures the mass flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
                    graphics));
       extends Interfaces.Partials.FlowSensor;
     equation
       y = V_flow*medium.rho;
-      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation(Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
@@ -2294,13 +2294,13 @@ Thermodynamic equations are defined by Partials.FlowSensor.
     annotation (Documentation(info="<HTML>
 V_flowSensor measures the volume flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
                    graphics));
       extends Interfaces.Partials.FlowSensor;
     equation
       y = V_flow;
-      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation(Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
@@ -2312,13 +2312,13 @@ Thermodynamic equations are defined by Partials.FlowSensor.
     annotation (Documentation(info="<HTML>
 H_flowSensor measures the enthalpy flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
-</HTML>"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+</HTML>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
                 -100,-100},{100,100}}),
                        graphics));
       extends Interfaces.Partials.FlowSensor;
     equation
       y = flowPort_a.H_flow;
-      annotation(Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation(Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
@@ -2536,7 +2536,7 @@ Linear and quadratic dependency are coupled smoothly at V_flowLaminar / dpLamina
 Quadratic dependency is defined by nominal volume flow and pressure drop (V_flowNominal / dpNominal).<br>
 See also sketch at diagram layer.
 </HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Line(points={{-80,0},{80,0}}, color={0,0,255}),
               Line(points={{0,80},{0,-80}}, color={0,0,255}),
@@ -2717,7 +2717,7 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
         Modelica.Blocks.Interfaces.RealOutput y 
           annotation (Placement(transformation(extent={{100,-10},{120,10}},
                 rotation=0)));
-        annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+        annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={
               Ellipse(
                 extent={{-70,70},{70,-70}},
@@ -2746,7 +2746,7 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
                 extent={{-150,130},{150,70}},
                 lineColor={0,0,255},
                 textString="%name")}),
-                                Diagram(coordinateSystem(preserveAspectRatio=false,
+                                Diagram(coordinateSystem(preserveAspectRatio=true,
                          extent={{-100,-100},{100,100}}),
                                         graphics));
       equation
@@ -2776,7 +2776,7 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
               origin={0,-110},
               extent={{10,-10},{-10,10}},
               rotation=90)));
-        annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+        annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={
               Ellipse(
                 extent={{-70,70},{70,-70}},
@@ -2806,7 +2806,7 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
                 extent={{-150,130},{150,70}},
                 lineColor={0,0,255},
                 textString="%name")}),
-                                Diagram(coordinateSystem(preserveAspectRatio=false,
+                                Diagram(coordinateSystem(preserveAspectRatio=true,
                          extent={{-100,-100},{100,100}}),
                                         graphics));
       equation
@@ -2830,7 +2830,7 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected, b
               origin={0,-110},
               extent={{10,-10},{-10,10}},
               rotation=90)));
-        annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+        annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={
               Ellipse(
                 extent={{-70,70},{70,-70}},

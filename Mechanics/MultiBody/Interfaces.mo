@@ -845,7 +845,7 @@ It is used by inheritance from all visualizer objects.
             extent={{-74,24},{80,-20}},
             lineColor={0,0,0},
             textString="r = 0")}), Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
           graphics));
   equation
     Connections.root(frame_resolve.R);

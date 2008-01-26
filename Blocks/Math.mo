@@ -606,7 +606,7 @@ All other blocks convert exactly between two different units.
     extends Modelica.Blocks.Interfaces.BlockIcon;
 
     annotation(structurallyIncomplete=true,
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}),
               graphics),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,

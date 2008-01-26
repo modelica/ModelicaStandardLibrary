@@ -1465,7 +1465,7 @@ buttons:
       Modelica.Blocks.Interfaces.RealInput level1 
         annotation (Placement(transformation(extent={{-190,-140},{-150,-100}},
                 rotation=0)));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-150,
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-150,
                   -150},{150,150}}),
                           graphics));
       Step fillTank1 annotation (Placement(transformation(extent={{-140,-10},{
@@ -1540,7 +1540,7 @@ buttons:
         import Units = Modelica.SIunits;
 
       Units.VolumeFlowRate Fi "inflow";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Polygon(
                 points={{-100,-100},{0,100},{100,-100},{-100,-100}},
                 lineColor={0,0,0},
@@ -1556,7 +1556,7 @@ buttons:
 
       Units.VolumeFlowRate Fo "outflow";
       Boolean open "valve open";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Polygon(
                 points={{-100,100},{0,-100},{100,100},{-100,100}},
                 lineColor={0,0,0},
@@ -1668,7 +1668,7 @@ buttons:
       outflow outflow1 annotation (Placement(transformation(extent={{-10,-60},{
                   10,-40}}, rotation=0)));
       parameter Real maxflow=1 "maximal flow out of source";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Rectangle(
                 extent={{-80,40},{80,-40}},
                 lineColor={0,0,0},
@@ -1691,7 +1691,7 @@ buttons:
     model CompositeStep
         "State machine demonstrating a composite step (used in StateGraph.Examples.ShowCompositeStep)"
       extends StateGraph.PartialCompositeStep;
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-150,
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-150,
                   -150},{150,150}}),
                           graphics));
       Transition transition3(enableTimer=true, waitTime=1) 
@@ -2026,7 +2026,7 @@ package Interfaces "Connectors and partial models"
               lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
-                              Diagram(coordinateSystem(preserveAspectRatio=false,
+                              Diagram(coordinateSystem(preserveAspectRatio=true,
                        extent={{-100,-100},{100,100}}), graphics={Rectangle(
               extent={{0,0},{0,0}},
               lineColor={255,255,255},

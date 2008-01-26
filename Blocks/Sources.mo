@@ -3297,7 +3297,7 @@ changes its value to the negated value of the previous one.
             extent={{-150,-150},{150,-110}},
             lineColor={0,0,0},
             textString="k=%k")}),
-                            Diagram(coordinateSystem(preserveAspectRatio=false,
+                            Diagram(coordinateSystem(preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{-80,90},{-86,68},{-74,68},{-80,90}},
@@ -3368,7 +3368,7 @@ The Integer output y is a constant signal:
             extent={{-150,-150},{150,-110}},
             lineColor={0,0,0},
             textString="startTime=%startTime")}),
-                            Diagram(coordinateSystem(preserveAspectRatio=false,
+                            Diagram(coordinateSystem(preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{-80,88},{-86,68},{-74,68},{-80,88}},

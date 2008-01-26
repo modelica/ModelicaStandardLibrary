@@ -972,7 +972,7 @@ The simulation stop time has to be 5s.
       annotation (
         Documentation(info="<HTML>
 </HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}),
                 graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -1188,7 +1188,7 @@ The simulation stop time has to be 5s.
         Documentation(info="<HTML>
 </HTML>
 "),     Diagram(graphics),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Rectangle(
                 extent={{-90,100},{90,-100}},
@@ -1288,10 +1288,10 @@ The simulation stop time has to be 5s.
       annotation (
         Documentation(info="<HTML>
 </HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}),
                 graphics),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Rectangle(
                 extent={{-90,100},{90,-100}},
@@ -1418,10 +1418,10 @@ The simulation stop time has to be 5s.
       annotation (
         Documentation(info="<HTML>
 </HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}),
                 graphics),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Rectangle(
                 extent={{-90,100},{90,-100}},
@@ -1530,7 +1530,7 @@ The simulation stop time has to be 5s.
       annotation (
         Documentation(info="<HTML>
 </HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}),
                 graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -1664,10 +1664,10 @@ The simulation stop time has to be 5s.
                                      annotation (Placement(transformation(
                 extent={{90,60},{110,80}}, rotation=0)));
                 annotation (
-                    Diagram(coordinateSystem(preserveAspectRatio=false, extent=
+                    Diagram(coordinateSystem(preserveAspectRatio=true, extent=
                   {{-100,-100},{100,100}}),
                             graphics),
-                             Icon(coordinateSystem(preserveAspectRatio=false,
+                             Icon(coordinateSystem(preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}}), graphics={
               Rectangle(
                 extent={{-90,100},{90,-100}},
@@ -2015,7 +2015,7 @@ The simulation stop time has to be 5s.
   
 </HTML>
 "),      Diagram(graphics),
-         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Rectangle(
                 extent={{-90,100},{90,-100}},
@@ -2143,13 +2143,13 @@ The simulation stop time has to be 5s.
         Documentation(info="<HTML>
   
 </HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={Rectangle(
                 extent={{90,80},{110,-80}},
                 lineColor={127,0,127},
                 fillColor={127,0,127},
                 fillPattern=FillPattern.Solid)}),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Rectangle(
                 extent={{90,80},{110,-80}},

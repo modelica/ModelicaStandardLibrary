@@ -41,7 +41,7 @@ as the components of packages <b>Modelica.Blocks.Math</b>,
     extends Interfaces.DiscreteSISO;
 
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Ellipse(
             extent={{-25,-10},{-45,10}},
@@ -56,7 +56,7 @@ as the components of packages <b>Modelica.Blocks.Math</b>,
           Line(points={{-100,0},{-45,0}}, color={0,0,127}),
           Line(points={{45,0},{100,0}}, color={0,0,127}),
           Line(points={{-35,0},{30,35}}, color={0,0,127})}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Ellipse(
             extent={{-25,-10},{-45,10}},
@@ -447,7 +447,7 @@ results in the following equations:
     parameter Real y_start=0 "initial value of output signal";
 
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Ellipse(
             extent={{-25,-10},{-45,10}},
@@ -463,7 +463,7 @@ results in the following equations:
           Line(points={{45,0},{100,0}}, color={0,0,127}),
           Line(points={{0,-100},{0,-26}}, color={255,0,255}),
           Line(points={{-35,0},{28,-48}}, color={0,0,127})}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Ellipse(
             extent={{-25,-10},{-45,10}},
@@ -513,7 +513,7 @@ the initial value defined via parameter <b>y0</b>.
 
     extends Interfaces.DiscreteBlockIcon;
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Ellipse(
             extent={{-25,-10},{-45,10}},
@@ -533,7 +533,7 @@ the initial value defined via parameter <b>y0</b>.
             extent={{-86,82},{82,24}},
             lineColor={0,0,0},
             textString="max")}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Ellipse(
             extent={{-25,-10},{-45,10}},

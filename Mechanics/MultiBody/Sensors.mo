@@ -1014,7 +1014,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
 
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
           graphics={
           Line(
             points={{70,0},{100,0}},
@@ -1352,10 +1352,10 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     Internal.BasicAbsoluteAngularVelocity angularVelocity(resolveInFrame=
           resolveInFrame) 
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=false,extent={{-100,
+    annotation (Diagram(coordinateSystem(preserveAspectRatio=true,extent={{-100,
               -100},{100,100}},
           grid={1,1}),           graphics), Icon(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}},
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(
             points={{70,0},{100,0}},
@@ -1473,7 +1473,7 @@ computed as:
 
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
           graphics={
           Line(
             points={{0,-70},{0,-100}},
@@ -1743,7 +1743,7 @@ computed as:
             extent={{0,-76},{110,-98}},
             lineColor={0,0,0},
             textString="angles")}),Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
           graphics),
       Documentation(info="<html>
 This model determines the 3 angles to rotate frame_a
@@ -1818,7 +1818,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
           graphics={
           Line(
             points={{0,-70},{0,-100}},
@@ -1953,7 +1953,7 @@ computed as:
       color=arrowColor,
       specularCoefficient=specularCoefficient) if world.enableAnimation and animation;
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{0,-60},{0,-100}}, color={0,0,255}),
           Line(points={{-70,0},{-101,0}}, color={0,0,0}),
@@ -1962,7 +1962,7 @@ computed as:
             extent={{-128,30},{133,78}},
             textString="%name",
             lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Line(points={{-70,0},{-101,0}}, color={0,0,0}),
           Line(points={{70,0},{100,0}}, color={0,0,0}),
@@ -2058,7 +2058,7 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
     extends Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceSensor;
 
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Text(
             extent={{-190,-70},{-74,-96}},
             lineColor={0,0,0},
@@ -2486,7 +2486,7 @@ with negative sign at frame_a.
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}}), graphics),
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{-70,0},{-101,0}}, color={0,0,0}),
           Line(points={{70,0},{100,0}}, color={0,0,0}),
@@ -2673,7 +2673,7 @@ transformed output vector as \"Real r_out[3]\";
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
           graphics={
           Line(
             points={{0,-70},{0,-100}},
@@ -3070,7 +3070,7 @@ transformed output vector as \"Real r_out[3]\";
               extent={{-132,90},{129,138}},
               textString="%name",
               lineColor={0,0,255})}),Diagram(coordinateSystem(
-              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics));
     protected
       Modelica.Mechanics.MultiBody.Frames.Orientation R_rel
@@ -3536,7 +3536,7 @@ with the blocks of package Modelica.Blocks.
               lineColor={0,0,0},
               textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,
                   0,127})}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics),
         Documentation(info="<HTML>

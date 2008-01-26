@@ -694,7 +694,7 @@ parameter menu.
       R=frame_a.R) if world.enableAnimation and animation;
 
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
             extent={{-100,28},{20,-30}},
@@ -714,7 +714,7 @@ parameter menu.
             extent={{-118,-74},{120,-112}},
             lineColor={0,0,0},
             textString="%length")}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}),
               graphics),
       Documentation(info="<html>
@@ -768,7 +768,7 @@ parameter menu.
           extent={{-20,-20},{20,20}},
           rotation=90)));
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
             extent={{-100,28},{20,-30}},
@@ -785,7 +785,7 @@ parameter menu.
             textString="%name",
             lineColor={0,0,255}),
           Line(points={{0,-102},{0,-30}}, color={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}),
               graphics),
       Documentation(info="<HTML>
@@ -908,7 +908,7 @@ a menu definition of the colors used in the MultiBody
 library (will be replaced by a color editor).
 </p>
 </HTML>"),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
               extent={{-100,28},{20,-30}},
@@ -924,7 +924,7 @@ library (will be replaced by a color editor).
               extent={{-146,124},{142,62}},
               textString="%name",
               lineColor={0,0,255})}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));
     protected
@@ -987,7 +987,7 @@ library (will be replaced by a color editor).
                                                                                                             annotation(Dialog);
 
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
               extent={{-100,28},{0,-28}},
@@ -1008,7 +1008,7 @@ library (will be replaced by a color editor).
               lineColor={128,128,128},
               fillColor={128,128,128},
               fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics),
         Documentation(info="<HTML>
@@ -1325,7 +1325,7 @@ model where a <b>Shape</b> instance is used, e.g., in the form
         annotation (Dialog(group="if animation = true", enable=animation));
 
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
@@ -1356,7 +1356,7 @@ model where a <b>Shape</b> instance is used, e.g., in the form
               lineColor={0,127,255},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics),
         Documentation(info="<HTML>
@@ -1455,7 +1455,7 @@ The diameter and color of all line cylinders are identical.
         each R=R,
         each specularCoefficient=specularCoefficient);
       annotation (
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
@@ -1486,7 +1486,7 @@ The diameter and color of all line cylinders are identical.
               extent={{-140,164},{148,102}},
               textString="%name",
               lineColor={0,0,255})}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics),
         Documentation(info="<HTML>

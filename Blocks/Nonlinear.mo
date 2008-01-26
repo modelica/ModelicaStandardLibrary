@@ -153,7 +153,7 @@ limit2. If this is not the case, the corresponding limit
 is passed as output.
 </p>
 </HTML>
-"),   Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{0,-90},{0,68}}, color={192,192,192}),
           Line(points={{-90,0},{68,0}}, color={192,192,192}),
@@ -177,7 +177,7 @@ is passed as output.
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Line(points={{0,-60},{0,50}}, color={192,192,192}),
           Polygon(

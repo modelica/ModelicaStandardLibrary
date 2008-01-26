@@ -12,7 +12,7 @@ model HeatingRectifier "Heating rectifier"
         extent={{-10,-10},{10,10}},
         rotation=270)));
 
-annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-94,102},{0,74}},
           textString="HeatingRectifier",

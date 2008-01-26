@@ -4015,7 +4015,7 @@ provided via a signal bus.
           annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{
                   -100,20}}, rotation=0)));
 
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent=
                   {{-100,-100},{100,100}}),
                             graphics));
         Modelica.Mechanics.Rotational.Interfaces.Flange_b flange(phi(stateSelect=StateSelect.avoid)) 
@@ -4839,7 +4839,7 @@ blocks of Modelica.Blocks.Sources.</p>
       Modelica.SIunits.Torque tau
         "Accelerating torque acting at flange (= -flange.tau)";
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -4875,7 +4875,7 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
       Modelica.SIunits.Torque tau
         "Accelerating torque acting at flange (= -flange.tau)";
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -4931,7 +4931,7 @@ Positive torque acts accelerating.
         "Angular velocity of flange with respect to support (= der(phi))";
       parameter Modelica.SIunits.AngularVelocity w_fixed "Fixed speed";
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{0,-100},{0,100}}, color={0,
@@ -4961,7 +4961,7 @@ Model of <b>fixed</b> angular verlocity of flange, not dependent on torque.
         "Accelerating torque acting at flange (= -flange.tau)";
 
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -5729,7 +5729,7 @@ and instead the component is internally fixed to ground.
           y=0.05,
           width=0.6,
           height=0.6),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
               visible=not useSupport,
@@ -5811,7 +5811,7 @@ and instead the component is internally fixed to ground.
           y=0.05,
           width=0.6,
           height=0.6),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
               visible=not useSupport,
@@ -6000,7 +6000,7 @@ and instead the component is internally fixed to ground.
           y=0.05,
           width=0.6,
           height=0.6),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
               visible=not useSupport,
@@ -6082,7 +6082,7 @@ and instead the component is internally fixed to ground.
           y=0.05,
           width=0.6,
           height=0.6),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
               visible=not useSupport,

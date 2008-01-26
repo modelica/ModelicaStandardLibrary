@@ -3577,7 +3577,7 @@ blocks of Modelica.Blocks.Source.
       Modelica.SIunits.Velocity v
         "Velocity of flange with respect to support (= der(s))";
 
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}}, 
                 color={0,0,255})}), Documentation(info="<HTML>
 <p>
@@ -3605,7 +3605,7 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
         "Nominal speed";
       Modelica.SIunits.Velocity v
         "Velocity of flange with respect to support (= der(s))";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-100,-100},{-80,-98},
                   {-60,-92},{-40,-82},{-20,-68},{0,-50},{20,-28},{40,-2},{60,28},
                   {80,62},{100,100}}, color={0,0,255})}),Documentation(info="<HTML>
@@ -3627,7 +3627,7 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
       extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
       parameter Modelica.SIunits.Force f_constant
         "Nominal force (if negative, force is acting as load)";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-100,0},{98,0}},
                 color={0,0,255}), Text(
               extent={{-118,58},{126,34}},
@@ -3649,7 +3649,7 @@ Positive force acts accelerating.
         "Fixed speed (if negative, force is acting as load)";
       Modelica.SIunits.Velocity v
         "Velocity of flange with respect to support (= der(s))";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{0,-100},{0,100}},
                 color={0,0,255}), Text(
               extent={{-120,60},{124,36}},
@@ -3672,7 +3672,7 @@ Model of <b>fixed</b> verlocity of flange, not dependent on force.
       parameter Modelica.SIunits.Force offsetForce(start=0) "Offset of force";
       parameter Modelica.SIunits.Time startTime=0
         "Force = offset for time < startTime";
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-80,-60},{0,-60},{0,
                   60},{80,60}}, color={0,0,255}), Text(
               extent={{0,-40},{100,-60}},
@@ -3701,7 +3701,7 @@ Positive force acts accelerating.
         height=0.39,
         library=1,
         autolayout=1),
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
             extent={{-76,-81},{64,-1}},
@@ -4182,7 +4182,7 @@ The following variables are transported through this connector:
 
       SI.Position s "absolute position of flange";
       flow SI.Force f "cut force directed into flange";
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
               extent={{-60,60},{60,-60}},
@@ -4198,7 +4198,7 @@ The following variables are transported through this connector:
               lineColor={0,127,0},
               fillColor={0,127,0},
               fillPattern=FillPattern.Solid)}), Icon(coordinateSystem(
-              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={Rectangle(
               extent={{-150,150},{150,-150}},
               fillColor={175,175,175},
@@ -4351,7 +4351,7 @@ and instead the component is internally fixed to ground.
           y=0.05,
           width=0.6,
           height=0.6),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
               visible=not useSupport,
@@ -4433,7 +4433,7 @@ and instead the component is internally fixed to ground.
           y=0.05,
           width=0.6,
           height=0.6),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
               visible=not useSupport,

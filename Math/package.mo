@@ -5383,7 +5383,7 @@ partial function baseIcon1
           extent={{-150,150},{150,110}},
           textString="%name",
           lineColor={0,0,255})}),                          Diagram(
-        coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+        coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
         Line(points={{-80,80},{-88,80}}, color={95,95,95}),
         Line(points={{-80,-80},{-88,-80}}, color={95,95,95}),
