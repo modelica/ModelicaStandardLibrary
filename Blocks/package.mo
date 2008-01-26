@@ -215,8 +215,7 @@ is forced back to its limit after a transient phase.
     Modelica.Mechanics.Rotational.Components.SpringDamper spring(
                                                       c=1e4, d=100,
       stateSelect=StateSelect.prefer,
-      w_rel(fixed=true),
-      a_rel(fixed=true)) 
+      w_rel(fixed=true)) 
       annotation (Placement(transformation(extent={{32,-20},{52,0}}, rotation=0)));
     Modelica.Mechanics.Rotational.Components.Inertia inertia2(
                                                    J=2) 
@@ -233,11 +232,12 @@ is forced back to its limit after a transient phase.
       annotation (Placement(transformation(extent={{22,-50},{2,-30}}, rotation=
               0)));
     Modelica.Mechanics.Rotational.Sources.ConstantTorque loadTorque(
-                                                            tau_constant=10) 
+                                                            tau_constant=10,
+        useSupport=false) 
       annotation (Placement(transformation(extent={{98,-15},{88,-5}}, rotation=
               0)));
-    Modelica.Mechanics.Rotational.Components.Fixed fixed 
-      annotation (Placement(transformation(extent={{68,-35},{88,-15}})));
+  initial equation
+    der(spring.w_rel) = 0;
   equation
     connect(spring.flange_b,inertia2. flange_a) 
       annotation (Line(points={{52,-10},{60,-10}}, color={0,0,0}));
@@ -257,14 +257,6 @@ is forced back to its limit after a transient phase.
             {-46,-22}}, color={0,0,127}));
     connect(integrator.y, PI.u_s)  annotation (Line(points={{-42,30},{-37,30},{
             -37,11},{-67,11},{-67,-10},{-58,-10}}, color={0,0,127}));
-    connect(torque.support, fixed.flange) annotation (Line(
-        points={{-15,-20},{-15,-25},{78,-25}},
-        color={0,0,0},
-        smooth=Smooth.None));
-    connect(fixed.flange, loadTorque.support) annotation (Line(
-        points={{78,-25},{93,-25},{93,-15}},
-        color={0,0,0},
-        smooth=Smooth.None));
   end PID_Controller;
 
      model ShowLogicalSources
@@ -279,7 +271,9 @@ is forced back to its limit after a transient phase.
           transformation(extent={{-60,20},{-40,40}}, rotation=0)));
        Sources.BooleanPulse pulse(period=1.5) annotation (Placement(
           transformation(extent={{-60,-20},{-40,0}}, rotation=0)));
-       annotation(Diagram(graphics),
+       annotation(Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+              -100,-100},{100,100}}),
+                          graphics),
       experiment(StopTime=10),
       Documentation(info="<html>
 <p>
@@ -311,7 +305,9 @@ model.
     Logical.Not Not1 annotation (Placement(transformation(extent={{-40,-20},{
               -20,0}}, rotation=0)));
 
-    annotation(Diagram(graphics),
+    annotation(Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
+              -100,-100},{100,100}}),
+                       graphics),
         experiment(StopTime=10),
       Documentation(info="<html>
 <p>
@@ -529,7 +525,9 @@ just potential signals. The user might still add different signal names.
 This package contains utility models and bus definitions needed for the
 <a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
 </p>
-</html>"), Diagram(graphics));
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}),
+                   graphics));
   package Interfaces "Interfaces specialised for this example"
 
       expandable connector ControlBus
@@ -537,13 +535,13 @@ This package contains utility models and bus definitions needed for the
         extends Modelica.Icons.SignalBus;
 
         annotation (
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={Rectangle(
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={Rectangle(
                 extent={{-20,2},{22,-2}},
                 lineColor={255,204,51},
                 lineThickness=2)}),
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}),
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                  {100,100}}),
                   graphics),
           Documentation(info="<html>
 <p>
@@ -562,8 +560,8 @@ constructed by the signals connected to this bus.
         extends Modelica.Icons.SignalSubBus;
 
         annotation (defaultComponentPrefixes="protected",
-                    Icon(coordinateSystem(preserveAspectRatio=true, extent={{
-                  -100,-100},{100,100}}), graphics={Rectangle(
+                    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={Rectangle(
                 extent={{-20,2},{22,-2}},
                 lineColor={255,204,51},
                 lineThickness=2)}),
@@ -651,8 +649,8 @@ This package contains the bus definitions needed for the
 
    model Part "Component with sub-control bus"
 
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{
-                -100,-100},{100,100}}), graphics={Rectangle(
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={Rectangle(
               extent={{-100,60},{100,-60}},
               fillColor={159,159,223},
               fillPattern=FillPattern.Solid,

@@ -537,7 +537,7 @@ vector \"n\" defining the translation axis
     Modelica.Mechanics.Rotational.Components.Fixed fixed
       "support flange is fixed to ground" 
       annotation (Placement(transformation(extent={{-70,70},{-50,90}})));
-    Rotational.Interfaces.InternalSupport internalAxis 
+    Rotational.Interfaces.InternalSupport internalAxis(tau=tau) 
       annotation (Placement(transformation(extent={{-10,90},{10,70}})));
     Rotational.Sources.ConstantTorque constantTorque(tau_constant=0) if not useAxisFlange 
       annotation (Placement(transformation(extent={{40,70},{20,90}})));
@@ -572,7 +572,6 @@ vector \"n\" defining the translation axis
     tau = -frame_b.t*e;
 
     // Connection to internal connectors
-    tau = internalAxis.tau;
     phi = internalAxis.phi;
 
     connect(fixed.flange, support) annotation (Line(
