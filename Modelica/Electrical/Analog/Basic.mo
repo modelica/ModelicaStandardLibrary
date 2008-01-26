@@ -903,7 +903,7 @@ flange.phi is the angle at the rotational connection.
   protected 
     Mechanics.Rotational.Components.Fixed fixed if not useSupport 
       annotation (Placement(transformation(extent={{-90,-20},{-70,0}})));
-    Mechanics.Rotational.Interfaces.InternalSupport internalSupport 
+    Mechanics.Rotational.Interfaces.InternalSupport internalSupport(tau=-flange.tau) 
       annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
   equation 
     v = p.v - n.v;
@@ -914,7 +914,6 @@ flange.phi is the angle at the rotational connection.
     w = der(phi);
     k*w = v;
     flange.tau = -k*i;
-    0 = flange.tau + internalSupport.tau;
     connect(internalSupport.flange, support) annotation (Line(
         points={{-80,0},{-100,0}},
         color={0,0,0},
