@@ -1208,7 +1208,7 @@ convertClass  ("Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque",  "
 convertClass  ("Modelica.Mechanics.Rotational.ConstantTorque",                 "Modelica.Mechanics.Rotational.Sources.ConstantTorque");
 convertClass  ("Modelica.Mechanics.Rotational.TorqueStep",                     "Modelica.Mechanics.Rotational.Sources.TorqueStep");
 convertClass  ("Modelica.Mechanics.Rotational.ConstantSpeed",                  "Modelica.Mechanics.Rotational.Sources.ConstantSpeed");
-convertClass  ("Modelica.Mechanics.Rotational.RelativeStates",                 "Modelica.Mechanics.Rotational.Sources.RelativeStates");
+convertClass  ("Modelica.Mechanics.Rotational.RelativeStates",                 "Modelica.Mechanics.Rotational.Components.RelativeStates");
 convertClass  ("Modelica.Mechanics.Rotational.Fixed",                          "Modelica.Mechanics.Rotational.Components.Fixed");
 convertClass  ("Modelica.Mechanics.Rotational.Inertia",                        "Modelica.Mechanics.Rotational.Components.Inertia");
 convertClass  ("Modelica.Mechanics.Rotational.Spring",                         "Modelica.Mechanics.Rotational.Components.Spring");
