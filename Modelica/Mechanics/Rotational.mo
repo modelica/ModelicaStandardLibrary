@@ -1275,9 +1275,7 @@ also that the damping torque does not lead to unphysical pulling torques
 
     model RollingWheel "Demonstrate coupling Rotational - Translational"
       extends Modelica.Icons.Example;
-      Rotational.Components.IdealRollingWheel idealRollingWheel(radius=1,
-        useHubSupport=false,
-        useWheelSupport=false) 
+      Rotational.Components.IdealRollingWheel idealRollingWheel(radius=1) 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       Rotational.Components.Inertia inertia(J=1) 
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
@@ -1293,8 +1291,7 @@ also that the damping torque does not lead to unphysical pulling torques
         quadraticSpeedDependentForce(
         f_nominal=-10,
         ForceDirection=false,
-        v_nominal=5,
-        useSupport=false) 
+        v_nominal=5) 
         annotation (Placement(transformation(extent={{72,-10},{52,10}})));
     equation
 
@@ -1313,11 +1310,11 @@ Du to a speed dependent force (like driving resistance), we find an eqilibrium a
           points={{-50,0},{-40,0}},
           color={0,0,0},
           smooth=Smooth.None));
-      connect(inertia.flange_b, idealRollingWheel.hubFlange) annotation (Line(
+      connect(inertia.flange_b, idealRollingWheel.flangeR)   annotation (Line(
           points={{-20,0},{-10,0}},
           color={0,0,0},
           smooth=Smooth.None));
-      connect(idealRollingWheel.wheelFlange, mass.flange_a) annotation (Line(
+      connect(idealRollingWheel.flangeT, mass.flange_a)     annotation (Line(
           points={{10,0},{20,0}},
           color={0,127,0},
           smooth=Smooth.None));
@@ -1408,14 +1405,21 @@ at an angle phi0 in the <b>housing</b>. May be used:
 
     model Inertia "1D-rotational component with inertia"
       import SI = Modelica.SIunits;
-      extends Rotational.Interfaces.PartialRigid(phi(start=0, stateSelect=stateSelect));
+      Rotational.Interfaces.Flange_a flange_a "Left flange of shaft" 
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+              rotation=0)));
+      Rotational.Interfaces.Flange_b flange_b "Right flange of shaft" 
+        annotation (Placement(transformation(extent={{90,-10},{110,10}},
+              rotation=0)));
       parameter SI.Inertia J(min=0, start=1) "Moment of inertia";
       parameter StateSelect stateSelect=StateSelect.default
         "Priority to use phi and w as states" annotation(HideResult=true,Dialog(tab="Advanced"));
-      SI.AngularVelocity w(start=0, stateSelect=stateSelect)
-        "Absolute angular velocity of component (= der(phi))";
-      SI.AngularAcceleration a(start=0)
-        "Absolute angular acceleration of component (= der(w))";
+      SI.Angle phi(stateSelect=stateSelect)
+        "Absolute rotation angle of component" annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
+      SI.AngularVelocity w(stateSelect=stateSelect)
+        "Absolute angular velocity of component (= der(phi))" annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
+      SI.AngularAcceleration a
+        "Absolute angular acceleration of component (= der(w))" annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
 
       annotation (
         Window(
@@ -1470,6 +1474,8 @@ Rotational component with <b>inertia</b> and two rigidly connected flanges.
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
     equation
+      phi = flange_a.phi;
+      phi = flange_b.phi;
       w = der(phi);
       a = der(w);
       J*a = flange_a.tau + flange_b.tau;
@@ -1601,11 +1607,10 @@ a coupling of the element with the housing via a spring.
     end Spring;
 
     model Damper "Linear 1D rotational damper"
-      extends Modelica.Mechanics.Rotational.Interfaces.PartialCompliant;
+      extends
+        Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates;
       parameter SI.RotationalDampingConstant d(final min=0, start=0)
         "Damping constant";
-      Modelica.SIunits.AngularVelocity w_rel(start=0)
-        "Relative angular velocity between flange_b and flange_a";
       annotation (
         Window(
           x=0.23,
@@ -1669,7 +1674,6 @@ between two inertia/gear elements.
               fillColor={128,128,128},
               fillPattern=FillPattern.Solid)}));
     equation
-      w_rel = der(phi_rel);
       tau = d*w_rel;
     end Damper;
 
@@ -2129,7 +2133,7 @@ where the different effects are visualized:
     end ElastoBacklash;
 
     model BearingFriction "Coulomb friction in bearings "
-      extends Rotational.Interfaces.PartialGear;
+      extends Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport;
 
       parameter Real tau_pos[:, 2]=[0, 1]
         "[w,tau] Positive sliding friction characteristic (w>=0)";
@@ -2138,7 +2142,8 @@ where the different effects are visualized:
 
       extends Rotational.Interfaces.PartialFriction;
 
-      SI.Angle phi;
+      SI.Angle phi
+        "Angle between shaft flanges (flange_a, flange_b) and support";
       SI.AngularVelocity w "Absolute angular velocity of flange_a and flange_b";
       SI.AngularAcceleration a
         "Absolute angular acceleration of flange_a and flange_b";
@@ -2308,8 +2313,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       tau0_max = peak*tau0;
       free = false;
 
-      phi = phi_a;
-      phi = phi_b;
+      phi = flange_a.phi - internalSupport.phi;
+      flange_b.phi = flange_a.phi;
 
       // Angular velocity and angular acceleration of flanges
       w = der(phi);
@@ -2329,7 +2334,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
     end BearingFriction;
 
     model Brake "Brake based on Coulomb friction "
-      extends Rotational.Interfaces.PartialGear;
+      extends Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport;
 
       parameter Real mue_pos[:, 2]=[0, 0.5]
         "[w,mue] positive sliding friction coefficient (w_rel>=0)";
@@ -2341,7 +2346,9 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 
       extends Rotational.Interfaces.PartialFriction;
 
-      SI.Angle phi;
+      SI.Angle phi
+        "Angle between shaft flanges (flange_a, flange_b) and support";
+
       SI.AngularVelocity w "Absolute angular velocity of flange_a and flange_b";
       SI.AngularAcceleration a
         "Absolute angular acceleration of flange_a and flange_b";
@@ -2509,10 +2516,10 @@ following references, especially (Armstrong and Canudas de Witt 1996):
     equation
       mue0 = Modelica.Math.tempInterpol1(0, mue_pos, 2);
 
-      phi = phi_a;
-      phi = phi_b;
+      phi = flange_a.phi - internalSupport.phi;
+      flange_b.phi = flange_a.phi;
 
-        // Angular velocity and angular acceleration of flanges flange_a and flange_b
+      // Angular velocity and angular acceleration of flanges flange_a and flange_b
       w = der(phi);
       a = der(w);
       w_relfric = w;
@@ -2927,9 +2934,13 @@ are dynamically coupled. The method is described in:
     end OneWayClutch;
 
     model IdealGear "Ideal gear without inertia"
-      extends Rotational.Interfaces.PartialGear;
+      extends Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport;
       parameter Real ratio(start=1)
         "Transmission ratio (flange_a.phi/flange_b.phi)";
+      Modelica.SIunits.Angle phi_a
+        "Angle between left shaft flange and support";
+      Modelica.SIunits.Angle phi_b
+        "Angle between right shaft flange and support";
 
       annotation (
         Window(
@@ -3009,6 +3020,8 @@ connected to other elements in an appropriate way.
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
     equation
+      phi_a = flange_a.phi - internalSupport.phi;
+      phi_b = flange_b.phi - internalSupport.phi;
       phi_a = ratio*phi_b;
       0 = ratio*flange_a.tau + flange_b.tau;
     end IdealGear;
@@ -3016,12 +3029,16 @@ connected to other elements in an appropriate way.
     model LossyGear
       "Gear with mesh efficiency and bearing friction (stuck/rolling possible)"
 
-      extends Rotational.Interfaces.PartialGear;
+      extends Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport;
 
       parameter Real ratio(start=1)
         "Transmission ratio (flange_a.phi/flange_b.phi)";
       parameter Real lossTable[:, 5]=[0, 1, 1, 0, 0]
         "Array for mesh efficiencies and bearing friction depending on speed";
+      Modelica.SIunits.Angle phi_a
+        "Angle between left shaft flange and support";
+      Modelica.SIunits.Angle phi_b
+        "Angle between right shaft flange and support";
 
       Real sa(final unit="1") "Path parameter for acceleration and torque loss";
       SI.AngularVelocity w_a "Angular velocity of flange_a";
@@ -3283,7 +3300,6 @@ Modelica.Constants.eps).
 </HTML>"));
       end equal;
     equation
-
       assert(abs(ratio) > 0,
         "Error in initialization of LossyGear: ratio may not be zero");
 
@@ -3296,6 +3312,8 @@ Modelica.Constants.eps).
       tau_bf1 = noEvent(abs(interpolation_result[1, 3]));
       tau_bf2 = noEvent(abs(interpolation_result[1, 4]));
 
+      phi_a = flange_a.phi - internalSupport.phi;
+      phi_b = flange_b.phi - internalSupport.phi;
       phi_a = ratio*phi_b;
 
       // Torque balance (no inertias)
@@ -3556,7 +3574,8 @@ in the flanges, are along the axis vector displayed in the icon.
     end IdealPlanetary;
 
     model Gearbox "Realistic model of a gearbox (based on LossyGear)"
-      extends Rotational.Interfaces.PartialTwoFlangesAndSupport;
+      extends
+        Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlangesAndSupport;
 
       parameter Real ratio(start=1)
         "transmission ratio (flange_a.phi/flange_b.phi)";
@@ -3567,6 +3586,16 @@ in the flanges, are along the axis vector displayed in the icon.
       parameter SI.RotationalDampingConstant d(final min=0, start=0)
         "(relative) gear damping";
       parameter SI.Angle b(final min=0) = 0 "Total backlash";
+      parameter StateSelect stateSelect=StateSelect.prefer
+        "Priority to use phi_rel and w_rel as states" 
+      annotation(HideResult=true, Dialog(tab="Advanced"));
+
+      Modelica.SIunits.Angle phi_rel(start=0, stateSelect=stateSelect, nominal=1e-4)
+        "Relative rotation angle over gear elasticity (= flange_b.phi - lossyGear.flange_b.phi)";
+      Modelica.SIunits.AngularVelocity w_rel(start=0, stateSelect=stateSelect)
+        "Relative angular velocity over gear elasticity (= der(phi_rel))";
+      Modelica.SIunits.AngularAcceleration a_rel(start=0)
+        "Relative angular acceleration over gear elasticity (= der(w_rel))";
 
       annotation (
         Documentation(info="<html>
@@ -3588,7 +3617,8 @@ particular</p>
 <p>The inertia of the gear wheels is not modeled. If necessary,
 inertia has to be taken into account by connecting components of
 model Inertia to the left and/or the right flange of component
-GearNew.</p>
+Gearbox.
+</p>
  
 </HTML>
 "),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -3650,6 +3680,9 @@ GearNew.</p>
         final d=d) annotation (Placement(transformation(extent={{20,-20},{60,20}},
               rotation=0)));
     equation
+      phi_rel = flange_b.phi - lossyGear.flange_b.phi;
+      w_rel = der(phi_rel);
+      a_rel = der(w_rel);
       connect(flange_a, lossyGear.flange_a) 
         annotation (Line(points={{-100,0},{-60,0}}, color={0,0,0}));
       connect(lossyGear.flange_b, elastoBacklash.flange_a) 
@@ -3657,26 +3690,16 @@ GearNew.</p>
       connect(elastoBacklash.flange_b, flange_b) 
         annotation (Line(points={{60,0},{100,0}}, color={0,0,0}));
       connect(lossyGear.support, internalSupport) annotation (Line(
-          points={{-40,-20},{-40,-80},{0,-80}},
+          points={{-40,-20},{-40,-40},{0,-40},{0,-80}},
           color={0,0,0},
           smooth=Smooth.None));
     end Gearbox;
 
     model IdealGearR2T
       "Gearbox transforming rotational into translational motion"
-      import SI = Modelica.SIunits;
-      parameter Boolean useSupportR=false
-        "= true, if rotational support flange enabled, otherwise implicitly grounded"
-          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-      parameter Boolean useSupportT=false
-        "= true, if translational support flange enabled, otherwise implicitly grounded"
-          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      extends Rotational.Interfaces.PartialElementaryRotationalToTranslational;
       parameter Real ratio(final unit="rad/m", start=1)
         "Transmission ratio (flange_a.phi/flange_b.s)";
-      Rotational.Interfaces.Flange_a flangeR 
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
-      Modelica.Mechanics.Translational.Interfaces.Flange_b flangeT 
-        annotation (Placement(transformation(extent={{90,10},{110,-10}}, rotation=0)));
       annotation (
         Window(
           x=0.35,
@@ -3688,9 +3711,14 @@ This is an ideal mass- and inertialess gearbox which transforms a
 1D-rotational into a 1D-translational motion. If elasticity, damping
 or backlash has to be considered, this ideal gearbox has to be
 connected with corresponding elements.
+This component defines the kinematic constraint:
 </p>
  
-</HTML>
+<pre>
+  (flangeR.phi - internalSupportR.phi) = ratio*(flangeT.s - internalSupportT.s);
+</pre>
+
+</html>
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -3747,124 +3775,23 @@ connected with corresponding elements.
               color={0,0,0},
               smooth=Smooth.None),
             Line(
-              visible=not useSupportT,
-              points={{76,-110},{85,-100}},
-              color={0,0,0}),
-            Line(
-              visible=not useSupportT,
-              points={{85,-110},{95,-100}},
-              color={0,0,0}),
-            Line(
-              visible=not useSupportT,
-              points={{95,-110},{105,-100}},
-              color={0,0,0}),
-            Line(
-              visible=not useSupportT,
-              points={{105,-110},{115,-100}},
-              color={0,0,0}),
-            Line(
-              visible=not useSupportT,
-              points={{85,-100},{115,-100}},
-              color={0,0,0}),
-            Line(
-              visible=not useSupportR,
-              points={{-124,-110},{-115,-100}},
-              color={0,0,0}),
-            Line(
-              visible=not useSupportR,
-              points={{-115,-110},{-105,-100}},
-              color={0,0,0}),
-            Line(
-              visible=not useSupportR,
-              points={{-105,-110},{-95,-100}},
-              color={0,0,0}),
-            Line(
-              visible=not useSupportR,
-              points={{-95,-110},{-85,-100}},
-              color={0,0,0}),
-            Line(
-              visible=not useSupportR,
-              points={{-115,-100},{-85,-100}},
-              color={0,0,0}),
-            Line(
               points={{100,-80},{100,-100}},
               color={0,0,0},
               smooth=Smooth.None)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Text(
-              extent={{-100,80},{100,50}},
-              textString="transform rotation into translation",
-              lineColor={0,0,255})}));
-      Rotational.Interfaces.Support supportR if useSupportR 
-        annotation (Placement(transformation(extent={{-110,-110},{-90,-90}},     rotation=0),
-            iconTransformation(extent={{-110,-110},{-90,-90}})));
-      Translational.Interfaces.Support supportT if useSupportT 
-        annotation (Placement(transformation(extent={{90,-110},{110,-90}},
-              rotation=0), iconTransformation(extent={{90,-110},{110,-90}})));
-    protected
-      Rotational.Interfaces.InternalSupport internalSupportR 
-        annotation (Placement(transformation(extent={{-110,-90},{-90,-70}})));
-      Translational.Interfaces.InternalSupport internalSupportT 
-        annotation (Placement(transformation(extent={{90,-90},{110,-70}})));
-      Rotational.Components.Fixed fixedR if not useSupportR 
-        annotation (Placement(transformation(extent={{-90,-90},{-70,-70}})));
-      Translational.Components.Fixed fixedT if not useSupportT 
-        annotation (Placement(transformation(extent={{70,-90},{90,-70}})));
+            grid={1,1}), graphics));
     equation
-
       (flangeR.phi - internalSupportR.phi) = ratio*(flangeT.s - internalSupportT.s);
       0 = ratio*flangeR.tau + flangeT.f;
-
-      0 = flangeR.tau + internalSupportR.tau;
-      0 = flangeT.f + internalSupportT.f;
-      connect(internalSupportR.flange, supportR) annotation (Line(
-          points={{-100,-80},{-100,-100}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(internalSupportT.flange, supportT) annotation (Line(
-          points={{100,-80},{100,-100}},
-          color={0,127,0},
-          smooth=Smooth.None));
-      connect(supportT, supportT) annotation (Line(
-          points={{100,-100},{100,-91.5},{100,-91.5},{100,-100}},
-          color={0,127,0},
-          smooth=Smooth.None));
-      connect(internalSupportR.flange, fixedR.flange) 
-                                                     annotation (Line(
-          points={{-100,-80},{-80,-80}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(fixedT.flange, internalSupportT.flange) annotation (Line(
-          points={{80,-80},{100,-80}},
-          color={0,127,0},
-          smooth=Smooth.None));
     end IdealGearR2T;
 
     model IdealRollingWheel
       "Simple 1-dim. model of an ideal rolling wheel without inertia"
 
-      Rotational.Interfaces.Flange_a hubFlange "Hub flange of wheel shaft" 
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
-      Modelica.Mechanics.Translational.Interfaces.Flange_b wheelFlange
-        "Translational movement of wheel center" 
-        annotation (Placement(transformation(extent={{90,-10},{110,10}},   rotation=0)));
-      Rotational.Interfaces.Support hubSupport if useHubSupport
-        "Support of wheel shaft" 
-        annotation (Placement(transformation(extent={{-110,-112},{-90,-92}})));
-      Translational.Interfaces.Support wheelSupport if useWheelSupport
-        "Support of translational movement" 
-        annotation (Placement(transformation(extent={{90,-110},{110,-90}}),
-            iconTransformation(extent={{90,-110},{110,-90}})));
-      parameter Boolean useHubSupport=false
-        "= true, if rotational support flange enabled, otherwise implicitly grounded"
-          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-      parameter Boolean useWheelSupport=false
-        "= true, if translational support flange enabled, otherwise implicitly grounded"
-          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      extends Rotational.Interfaces.PartialElementaryRotationalToTranslational;
       parameter Modelica.SIunits.Distance radius(start=0.3) "Wheel radius";
-
      annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
                 -100},{100,100}},
             grid={1,1}), graphics={
@@ -3935,46 +3862,6 @@ connected with corresponding elements.
               color={0,127,0},
               smooth=Smooth.None),
             Line(
-              visible=not useWheelSupport,
-              points={{76,-110},{85,-100}},
-              color={0,127,0}),
-            Line(
-              visible=not useWheelSupport,
-              points={{85,-110},{95,-100}},
-              color={0,127,0}),
-            Line(
-              visible=not useWheelSupport,
-              points={{95,-110},{105,-100}},
-              color={0,127,0}),
-            Line(
-              visible=not useWheelSupport,
-              points={{105,-110},{115,-100}},
-              color={0,127,0}),
-            Line(
-              visible=not useHubSupport,
-              points={{-124,-110},{-115,-100}},
-              color={0,0,0}),
-            Line(
-              visible=not useHubSupport,
-              points={{-115,-110},{-105,-100}},
-              color={0,0,0}),
-            Line(
-              visible=not useHubSupport,
-              points={{-105,-110},{-95,-100}},
-              color={0,0,0}),
-            Line(
-              visible=not useHubSupport,
-              points={{-95,-110},{-85,-100}},
-              color={0,0,0}),
-            Line(
-              visible=not useHubSupport,
-              points={{-115,-100},{-85,-100}},
-              color={0,0,0}),
-            Line(
-              visible=not useWheelSupport,
-              points={{85,-100},{115,-100}},
-              color={0,127,0}),
-            Line(
               points={{70,-26},{70,-50},{100,-50},{100,-100}},
               color={0,127,0},
               smooth=Smooth.None)}),
@@ -3985,44 +3872,17 @@ no rolling resistance. This component defines the kinematic constraint:
 </p>
  
 <pre>
-   (hubFlange.phi - hubSupport.phi)*wheelRadius = (wheelFlange.s - wheelSupport.s);
+   (flangeR.phi - internalSupportR.phi)*wheelRadius = (flangeT.s - internalSupportT.s);
 </pre>
  
 </html>
 "),     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
                 {100,100}},
             grid={1,1}),    graphics));
-    protected
-      Rotational.Interfaces.InternalSupport internalHubSupport 
-        annotation (Placement(transformation(extent={{-110,-90},{-90,-70}})));
-      Translational.Interfaces.InternalSupport internalWheelSupport 
-        annotation (Placement(transformation(extent={{90,-90},{110,-70}})));
-      Rotational.Components.Fixed hubFixed if  not useWheelSupport 
-        annotation (Placement(transformation(extent={{-90,-90},{-70,-70}})));
-      Translational.Components.Fixed wheelFixed if not useWheelSupport 
-        annotation (Placement(transformation(extent={{70,-90},{90,-70}})));
-    equation
-      (hubFlange.phi - internalHubSupport.phi)*radius = (wheelFlange.s - internalWheelSupport.s);
-      0 = radius*wheelFlange.f + hubFlange.tau;
 
-      0 = hubFlange.tau + internalHubSupport.tau;
-      0 = wheelFlange.f + internalWheelSupport.f;
-      connect(internalHubSupport.flange, hubSupport) annotation (Line(
-          points={{-100,-80},{-100,-102}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(internalWheelSupport.flange, wheelSupport) annotation (Line(
-          points={{100,-80},{100,-100}},
-          color={0,127,0},
-          smooth=Smooth.None));
-      connect(internalHubSupport.flange, hubFixed.flange) annotation (Line(
-          points={{-100,-80},{-80,-80}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(wheelFixed.flange, internalWheelSupport.flange) annotation (Line(
-          points={{80,-80},{90,-80},{90,-80},{100,-80}},
-          color={0,127,0},
-          smooth=Smooth.None));
+    equation
+      (flangeR.phi - internalSupportR.phi)*radius = (flangeT.s - internalSupportT.s);
+      0 = radius*flangeT.f + flangeR.tau;
     end IdealRollingWheel;
 
     model InitializeFlange
@@ -4041,16 +3901,16 @@ no rolling resistance. This component defines the kinematic constraint:
 
       Modelica.Blocks.Interfaces.RealInput phi_start if use_phi_start
         "Initial angle of flange" 
-        annotation (Placement(transformation(extent={{-140,40},{-100,80}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-140,60},{-100,100}},
+              rotation=0), iconTransformation(extent={{-140,60},{-100,100}})));
       Modelica.Blocks.Interfaces.RealInput w_start if use_w_start
         "Initial speed of flange" 
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
       Modelica.Blocks.Interfaces.RealInput a_start if use_a_start
         "Initial angular acceleration of flange" 
-        annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-140,-100},{-100,-60}},
+              rotation=0), iconTransformation(extent={{-140,-100},{-100,-60}})));
       Interfaces.Flange_b flange "Flange that is initialized" annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
 
@@ -4061,7 +3921,7 @@ no rolling resistance. This component defines the kinematic constraint:
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Text(
-              extent={{-94,74},{68,46}},
+              extent={{-94,94},{68,66}},
               lineColor={0,0,0},
               textString="phi_start"),
             Text(
@@ -4069,7 +3929,7 @@ no rolling resistance. This component defines the kinematic constraint:
               lineColor={0,0,0},
               textString="w_start"),
             Text(
-              extent={{-94,-46},{66,-74}},
+              extent={{-92,-68},{68,-96}},
               lineColor={0,0,0},
               textString="a_start")}),
                                 Diagram(coordinateSystem(preserveAspectRatio=true,
@@ -4147,7 +4007,9 @@ provided via a signal bus.
           annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{
                   -100,20}}, rotation=0)));
 
-        annotation (Diagram(graphics));
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
+                  {{-100,-100},{100,100}}),
+                            graphics));
         Modelica.Mechanics.Rotational.Interfaces.Flange_b flange(phi(stateSelect=StateSelect.avoid)) 
                                                                                   annotation (Placement(
               transformation(extent={{90,-10},{110,10}}, rotation=0)));
@@ -4158,7 +4020,7 @@ provided via a signal bus.
         flange.tau = 0;
       end Set_a_start;
 
-      encapsulated model Set_flange_tau "Set flange_tau to zero"
+      encapsulated model Set_flange_tau "Set flange.tau to zero"
         import Modelica;
         extends Modelica.Blocks.Interfaces.BlockIcon;
         Modelica.Mechanics.Rotational.Interfaces.Flange_b flange 
@@ -4169,22 +4031,22 @@ provided via a signal bus.
       end Set_flange_tau;
     protected
       Set_phi_start set_phi_start if use_phi_start annotation (Placement(
-            transformation(extent={{-20,50},{0,70}}, rotation=0)));
+            transformation(extent={{-20,70},{0,90}}, rotation=0)));
       Set_w_start set_w_start if use_w_start 
                               annotation (Placement(transformation(extent={{-20,
                 -10},{0,10}}, rotation=0)));
       Set_a_start set_a_start if use_a_start 
-                              annotation (Placement(transformation(extent={{-20,
-                -70},{0,-50}}, rotation=0)));
-      Set_flange_tau set_flange_tau annotation (Placement(transformation(extent={
-                {20,-100},{40,-80}}, rotation=0)));
+                              annotation (Placement(transformation(extent={{-20,-90},
+                {0,-70}},      rotation=0)));
+      Set_flange_tau set_flange_tau annotation (Placement(transformation(extent={{96,-90},
+                {76,-70}},           rotation=0)));
     equation
       connect(set_phi_start.phi_start, phi_start) annotation (Line(
-          points={{-22,60},{-120,60}},
+          points={{-22,80},{-120,80}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(set_phi_start.flange, flange) annotation (Line(
-          points={{0,60},{60,60},{60,0},{100,0}},
+          points={{0,80},{60,80},{60,0},{100,0}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(set_w_start.flange, flange) annotation (Line(
@@ -4196,19 +4058,135 @@ provided via a signal bus.
           color={0,0,127},
           smooth=Smooth.None));
       connect(set_a_start.a_start, a_start) annotation (Line(
-          points={{-22,-60},{-120,-60}},
+          points={{-22,-80},{-120,-80}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(set_a_start.flange, flange) annotation (Line(
-          points={{0,-60},{60,-60},{60,0},{100,0}},
+          points={{0,-80},{60,-80},{60,0},{100,0}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(set_flange_tau.flange, flange) annotation (Line(
-          points={{40,-90},{60,-90},{60,0},{100,0}},
+          points={{76,-80},{60,-80},{60,0},{100,0}},
           color={0,0,0},
           smooth=Smooth.None));
     end InitializeFlange;
 
+    model RelativeStates "Definition of relative state variables"
+      extends Rotational.Interfaces.PartialTwoFlanges;
+      parameter StateSelect stateSelect=StateSelect.prefer
+        "Priority to use the relative angle and relative speed as states";
+      SI.Angle phi_rel(start=0, stateSelect=stateSelect)
+        "Relative rotation angle used as state variable";
+      SI.AngularVelocity w_rel(start=0, stateSelect=stateSelect)
+        "Relative angular velocity used as state variable";
+      SI.AngularAcceleration a_rel(start=0) "Relative angular acceleration";
+      annotation (
+        Window(
+          x=0.23,
+          y=0.02,
+          width=0.72,
+          height=0.83),
+        Documentation(info="<html>
+<p>
+Usually, the absolute angle and the absolute angular velocity of
+Modelica.Mechanics.Rotational.Inertia models are used as state variables.
+In some circumstances, relative quantities are better suited, e.g.,
+because it may be easier to supply initial values.
+In such cases, model <b>RelativeStates</b> allows the definition of state variables
+in the following way:
+</p>
+<ul>
+<li> Connect an instance of this model between two flange connectors.</li>
+<li> The <b>relative rotation angle</b> and the <b>relative angular velocity</b>
+     between the two connectors are used as <b>state variables</b>.
+</ul>
+<p>
+An example is given in the next figure
+</p>
+<IMG SRC=\"../Images/Rotational/relativeStates.png\" ALT=\"relativeStates\">
+<p>
+Here, the relative angle and the relative angular velocity between
+the two inertias are used as state variables. Additionally, the
+simulator selects either the absolute angle and absolute angular
+velocity of model inertia1 or of model inertia2 as state variables.
+</p>
+ 
+</HTML>
+"),     Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics={
+            Ellipse(
+              extent={{-40,40},{40,-40}},
+              lineColor={0,255,255},
+              fillColor={0,255,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-40,40},{40,-40}},
+              textString="S",
+              lineColor={0,0,255}),
+            Line(
+              points={{-92,0},{-42,0}},
+              color={0,0,0},
+              pattern=LinePattern.Dot),
+            Line(
+              points={{40,0},{90,0}},
+              color={0,0,0},
+              pattern=LinePattern.Dot),
+            Text(
+              extent={{-150,-40},{150,-80}},
+              textString="%name",
+              lineColor={0,0,255})}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics={
+            Ellipse(
+              extent={{-40,40},{40,-40}},
+              lineColor={0,255,255},
+              fillColor={0,255,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-40,40},{40,-40}},
+              textString="S",
+              lineColor={0,0,255}),
+            Line(
+              points={{40,0},{96,0}},
+              color={0,0,0},
+              pattern=LinePattern.Dash),
+            Line(points={{-100,-10},{-100,-80}}, color={160,160,164}),
+            Line(points={{100,-10},{100,-80}}, color={160,160,164}),
+            Polygon(
+              points={{80,-65},{80,-55},{100,-60},{80,-65}},
+              lineColor={160,160,164},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-100,-60},{80,-60}}, color={160,160,164}),
+            Text(
+              extent={{-30,-70},{30,-90}},
+              textString="w_rel",
+              lineColor={0,0,255}),
+            Line(points={{-76,80},{-5,80}}, color={128,128,128}),
+            Polygon(
+              points={{14,80},{-6,85},{-6,75},{14,80}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{18,87},{86,74}},
+              lineColor={128,128,128},
+              textString="rotation axis"),
+            Line(
+              points={{-96,0},{-40,0}},
+              color={0,0,0},
+              pattern=LinePattern.Dash)}));
+    equation
+      phi_rel = flange_b.phi - flange_a.phi;
+      w_rel = der(phi_rel);
+      a_rel = der(w_rel);
+      flange_a.tau = 0;
+      flange_b.tau = 0;
+    end RelativeStates;
   end Components;
 
   package Sources "Sources to drive 1D rotational mechanical components"
@@ -4231,19 +4209,21 @@ This package contains ideal sources to drive 1D mechanical rotational drive trai
     model Position
       "Forced movement of a flange according to a reference angle signal"
       import SI = Modelica.SIunits;
-      extends Modelica.Mechanics.Rotational.Interfaces.PartialSource(
-         phi(stateSelect=if exact then StateSelect.default else StateSelect.prefer));
+      extends
+        Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport;
       parameter Boolean exact=false
         "true/false exact treatment/filtering the input signal";
       parameter SI.Frequency f_crit=50
         "if exact=false, critical frequency of filter to filter input signal" annotation(Dialog(enable=not exact));
+      SI.Angle phi(stateSelect=if exact then StateSelect.default else StateSelect.prefer)
+        "Rotation angle of flange with respect to support";
       SI.AngularVelocity w(start=0,stateSelect=if exact then StateSelect.default else StateSelect.prefer)
-        "If exact=false, absolute angular velocity of flange_b else dummy";
+        "If exact=false, Angular velocity of flange with respect to support else dummy";
       SI.AngularAcceleration a(start=0)
-        "If exact=false, absolute angular acceleration of flange_b else dummy";
+        "If exact=false, Angular acceleration of flange with respect to support else dummy";
       Modelica.Blocks.Interfaces.RealInput phi_ref(final quantity="Angle", final unit
           =                                                                           "rad", displayUnit="deg")
-        "Reference angle of flange as input signal" 
+        "Reference angle of flange with respect to support as input signal" 
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
       annotation (
@@ -4287,7 +4267,7 @@ blocks of the block library Modelica.Blocks.Sources.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Rectangle(
-              extent={{-102,20},{98,-20}},
+              extent={{-100,20},{100,-20}},
               lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={192,192,192}),
@@ -4332,6 +4312,7 @@ blocks of the block library Modelica.Blocks.Sources.
         phi = phi_ref;
       end if;
     equation
+      phi = flange.phi - internalSupport.phi;
       if exact then
         phi = phi_ref;
         w = 0;
@@ -4347,18 +4328,20 @@ blocks of the block library Modelica.Blocks.Sources.
     model Speed
       "Forced movement of a flange according to a reference angular velocity signal"
       import SI = Modelica.SIunits;
-      extends Modelica.Mechanics.Rotational.Interfaces.PartialSource(
-                phi(start=0, fixed=true, stateSelect=StateSelect.prefer));
+      extends
+        Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport;
       parameter Boolean exact=false
         "true/false exact treatment/filtering the input signal";
       parameter SI.Frequency f_crit=50
         "if exact=false, critical frequency of filter to filter input signal";
+      SI.Angle phi(start=0, fixed=true, stateSelect=StateSelect.prefer)
+        "Rotation angle of flange with respect to support";
       SI.AngularVelocity w(stateSelect=if exact then StateSelect.default else StateSelect.prefer)
-        "Absolute angular velocity of flange_b";
+        "Angular velocity of flange with respect to support";
       SI.AngularAcceleration a
-        "If exact=false, absolute angular acceleration of flange_b else dummy";
+        "If exact=false, angular acceleration of flange with respect to support else dummy";
       Modelica.Blocks.Interfaces.RealInput w_ref
-        "Reference angular velocity of flange as input signal" 
+        "Reference angular velocity of flange with respect to support as input signal"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
       annotation (
@@ -4445,6 +4428,7 @@ blocks of the block library Modelica.Blocks.Sources.
         w = w_ref;
       end if;
     equation
+      phi = flange.phi - internalSupport.phi;
       w = der(phi);
       if exact then
         w = w_ref;
@@ -4459,14 +4443,17 @@ blocks of the block library Modelica.Blocks.Sources.
     model Accelerate
       "Forced movement of a flange according to an acceleration signal"
       import SI = Modelica.SIunits;
-      extends Modelica.Mechanics.Rotational.Interfaces.PartialSource(
-          phi(start=0, fixed=true, stateSelect=StateSelect.prefer));
+      extends
+        Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport;
+      SI.Angle phi(start=0, fixed=true, stateSelect=StateSelect.prefer)
+        "Rotation angle of flange with respect to support";
       SI.AngularVelocity w(start=0, fixed=true, stateSelect=StateSelect.prefer)
-        "Absolute angular velocity of flange_b";
-      SI.AngularAcceleration a "Absolute angular acceleration of flange_b";
+        "Angular velocity of flange with respect to support";
+      SI.AngularAcceleration a
+        "Angular acceleration of flange with respect to support";
 
       Modelica.Blocks.Interfaces.RealInput a_ref
-        "Absolute angular acceleration of flange as input signal" 
+        "Absolute angular acceleration of flange with respect to support as input signal"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
       annotation (
@@ -4522,6 +4509,7 @@ blocks of the block library Modelica.Blocks.Sources.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
     equation
+      phi = flange.phi - internalSupport.phi;
       w = der(phi);
       a = der(w);
       a = a_ref;
@@ -4530,10 +4518,13 @@ blocks of the block library Modelica.Blocks.Sources.
     model Move
       "Forced movement of a flange according to an angle, speed and angular acceleration signal"
       import SI = Modelica.SIunits;
-      extends Modelica.Mechanics.Rotational.Interfaces.PartialSource;
+      extends
+        Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport;
 
+      Modelica.SIunits.Angle phi
+        "Rotation angle of flange with respect to support";
       Modelica.Blocks.Interfaces.RealInput u[3]
-        "angle, angular velocity and angular acceleration of flange as input signals"
+        "Angle, angular velocity and angular acceleration of flange with respect to support as input signals"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
       annotation (
@@ -4637,13 +4628,14 @@ blocks of the block library Modelica.Blocks.Sources.
         qdd :=q_qd_qdd[3];
       end position_der2;
     equation
+      phi = flange.phi - internalSupport.phi;
       phi = position(u,time);
     end Move;
 
     model Torque "Input signal acting as external torque on a flange"
-      extends Modelica.Mechanics.Rotational.Interfaces.PartialSource;
+      extends Rotational.Interfaces.PartialElementaryOneFlangeAndSupport;
       Modelica.Blocks.Interfaces.RealInput tau
-        "Torque driving the flange (a positive value accelerates the flange)" 
+        "Accelerating torque acting at flange (= -flange.tau)" 
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
       annotation (
@@ -4828,14 +4820,16 @@ blocks of Modelica.Blocks.Sources.</p>
 
     model LinearSpeedDependentTorque "Linear dependency of torque versus speed"
       extends Modelica.Mechanics.Rotational.Interfaces.PartialTorque;
-      Modelica.SIunits.AngularVelocity w
-        "Angular velocity of flange with respect to support (= der(phi))";
       parameter Modelica.SIunits.Torque tau_nominal
         "Nominal torque (if negative, torque is acting as load)";
       parameter Boolean TorqueDirection=true
         "Same direction of torque in both directions of rotation";
       parameter Modelica.SIunits.AngularVelocity w_nominal(min=Modelica.Constants.eps)
         "Nominal speed";
+      Modelica.SIunits.AngularVelocity w
+        "Angular velocity of flange with respect to support (= der(phi))";
+      Modelica.SIunits.Torque tau
+        "Accelerating torque acting at flange (= -flange.tau)";
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}),
@@ -4851,24 +4845,27 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
 </HTML>"));
     equation
       w = der(phi);
+      tau = -flange.tau;
       if TorqueDirection then
-        tau = -tau_nominal*abs(w/w_nominal);
+        tau = tau_nominal*abs(w/w_nominal);
       else
-        tau = -tau_nominal*(w/w_nominal);
+        tau = tau_nominal*(w/w_nominal);
       end if;
     end LinearSpeedDependentTorque;
 
     model QuadraticSpeedDependentTorque
       "Quadratic dependency of torque versus speed"
       extends Modelica.Mechanics.Rotational.Interfaces.PartialTorque;
-      Modelica.SIunits.AngularVelocity w
-        "Angular velocity of flange with respect to support (= der(phi))";
       parameter Modelica.SIunits.Torque tau_nominal
         "Nominal torque (if negative, torque is acting as load)";
       parameter Boolean TorqueDirection=true
         "Same direction of torque in both directions of rotation";
       parameter Modelica.SIunits.AngularVelocity w_nominal(min=Modelica.Constants.eps)
         "Nominal speed";
+      Modelica.SIunits.AngularVelocity w
+        "Angular velocity of flange with respect to support (= der(phi))";
+      Modelica.SIunits.Torque tau
+        "Accelerating torque acting at flange (= -flange.tau)";
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}),
@@ -4885,10 +4882,11 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
 </HTML>"));
     equation
       w = der(phi);
+      tau = -flange.tau;
       if TorqueDirection then
-        tau = -tau_nominal*(w/w_nominal)^2;
+        tau = tau_nominal*(w/w_nominal)^2;
       else
-        tau = -tau_nominal*smooth(1,if w >= 0 then (w/w_nominal)^2 else -(w/w_nominal)^2);
+        tau = tau_nominal*smooth(1,if w >= 0 then (w/w_nominal)^2 else -(w/w_nominal)^2);
       end if;
     end QuadraticSpeedDependentTorque;
 
@@ -4897,7 +4895,7 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
       parameter Modelica.SIunits.Torque tau_constant
         "Constant torque (if negative, torque is acting as load)";
       Modelica.SIunits.Torque tau
-        "Accelerating torque acting at flange (= flange.tau)";
+        "Accelerating torque acting at flange (= -flange.tau)";
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
                 {100,100}}),
@@ -4915,7 +4913,8 @@ Positive torque acts accelerating.
 </p>
 </HTML>"));
     equation
-      tau = -tau_constant;
+      tau = -flange.tau;
+      tau = tau_constant;
     end ConstantTorque;
 
     model ConstantSpeed "Constant speed, not dependent on torque"
@@ -4950,6 +4949,8 @@ Model of <b>fixed</b> angular verlocity of flange, not dependent on torque.
         "Offset of torque";
       parameter Modelica.SIunits.Time startTime=0
         "Torque = offset for time < startTime";
+      Modelica.SIunits.Torque tau
+        "Accelerating torque acting at flange (= -flange.tau)";
 
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
@@ -4968,125 +4969,10 @@ Positive torque acts accelerating.
 </p>
 </HTML>"));
     equation
-      tau = -offsetTorque - (if time < startTime then 0 else stepTorque);
+      tau = -flange.tau;
+      tau = offsetTorque + (if time < startTime then 0 else stepTorque);
     end TorqueStep;
 
-    model RelativeStates "Definition of relative state variables"
-      extends Rotational.Interfaces.PartialTwoFlanges;
-      parameter StateSelect stateSelect=StateSelect.prefer
-        "Priority to use the relative angle and relative speed as states";
-      SI.Angle phi_rel(start=0, stateSelect=stateSelect)
-        "Relative rotation angle used as state variable";
-      SI.AngularVelocity w_rel(start=0, stateSelect=stateSelect)
-        "Relative angular velocity used as state variable";
-      SI.AngularAcceleration a_rel(start=0) "Relative angular acceleration";
-      annotation (
-        Window(
-          x=0.23,
-          y=0.02,
-          width=0.72,
-          height=0.83),
-        Documentation(info="<html>
-<p>
-Usually, the absolute angle and the absolute angular velocity of
-Modelica.Mechanics.Rotational.Inertia models are used as state variables.
-In some circumstances, relative quantities are better suited, e.g.,
-because it may be easier to supply initial values.
-In such cases, model <b>RelativeStates</b> allows the definition of state variables
-in the following way:
-</p>
-<ul>
-<li> Connect an instance of this model between two flange connectors.</li>
-<li> The <b>relative rotation angle</b> and the <b>relative angular velocity</b>
-     between the two connectors are used as <b>state variables</b>.
-</ul>
-<p>
-An example is given in the next figure
-</p>
-<IMG SRC=\"../Images/Rotational/relativeStates.png\" ALT=\"relativeStates\">
-<p>
-Here, the relative angle and the relative angular velocity between
-the two inertias are used as state variables. Additionally, the
-simulator selects either the absolute angle and absolute angular
-velocity of model inertia1 or of model inertia2 as state variables.
-</p>
- 
-</HTML>
-"),     Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
-            Ellipse(
-              extent={{-40,40},{40,-40}},
-              lineColor={0,255,255},
-              fillColor={0,255,255},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-40,40},{40,-40}},
-              textString="S",
-              lineColor={0,0,255}),
-            Line(
-              points={{-92,0},{-42,0}},
-              color={0,0,0},
-              pattern=LinePattern.Dot),
-            Line(
-              points={{40,0},{90,0}},
-              color={0,0,0},
-              pattern=LinePattern.Dot),
-            Text(
-              extent={{-150,-40},{150,-80}},
-              textString="%name",
-              lineColor={0,0,255})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
-            Ellipse(
-              extent={{-40,40},{40,-40}},
-              lineColor={0,255,255},
-              fillColor={0,255,255},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-40,40},{40,-40}},
-              textString="S",
-              lineColor={0,0,255}),
-            Line(
-              points={{40,0},{96,0}},
-              color={0,0,0},
-              pattern=LinePattern.Dash),
-            Line(points={{-100,-10},{-100,-80}}, color={160,160,164}),
-            Line(points={{100,-10},{100,-80}}, color={160,160,164}),
-            Polygon(
-              points={{80,-65},{80,-55},{100,-60},{80,-65}},
-              lineColor={160,160,164},
-              fillColor={160,160,164},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-100,-60},{80,-60}}, color={160,160,164}),
-            Text(
-              extent={{-30,-70},{30,-90}},
-              textString="w_rel",
-              lineColor={0,0,255}),
-            Line(points={{-76,80},{-5,80}}, color={128,128,128}),
-            Polygon(
-              points={{14,80},{-6,85},{-6,75},{14,80}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{18,87},{86,74}},
-              lineColor={128,128,128},
-              textString="rotation axis"),
-            Line(
-              points={{-96,0},{-40,0}},
-              color={0,0,0},
-              pattern=LinePattern.Dash)}));
-    equation
-      phi_rel = flange_b.phi - flange_a.phi;
-      w_rel = der(phi_rel);
-      a_rel = der(w_rel);
-      flange_a.tau = 0;
-      flange_b.tau = 0;
-    end RelativeStates;
   end Sources;
 
   package Sensors
@@ -5485,23 +5371,31 @@ only be used as basic building elements for models.
           y=0.02,
           width=0.56,
           height=0.68),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This is a connector for 1-dim. rotational mechanical systems and models
 the mechanical flange of a shaft. The following variables are defined in this connector:
 </p>
-<pre>
-   <b>phi</b>: Absolute rotation angle of the flange in [rad].
-   <b>tau</b>: Cut-torque in the flange in [Nm].
-</pre>
+ 
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign=\"top\"> <b>phi</b></td>
+      <td valign=\"top\"> Absolute rotation angle of theshaft flange in [rad] </td>
+  </tr>
+  <tr><td valign=\"top\"> <b>tau</b></td>
+      <td valign=\"top\"> Cut-torque in the shaft flange in [Nm] </td>
+  </tr>
+</table>
+ 
 <p>
 There is a second connector for flanges: Flange_b. The connectors
 Flange_a and Flange_b are completely identical. There is only a difference
 in the icons, in order to easier identify a flange variable in a diagram.
 For a discussion on the actual direction of the cut-torque tau and
-of the rotation angle, see the information text of package Rotational
-(section 4. Sign conventions).
+of the rotation angle, see section
+<a href=\"Modelica://Modelica.Mechanics.Rotational.UsersGuide.SignConventions\">Sign Conventions</a>
+in the user's guide of Rotational.
 </p>
+ 
 <p>
 If needed, the absolute angular velocity w and the
 absolute angular acceleration a of the flange can be determined by
@@ -5511,7 +5405,7 @@ differentiation of the flange angle phi:
      w = der(phi);    a = der(w)
 </pre>
  
-</HTML>
+</html>
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -5530,10 +5424,7 @@ differentiation of the flange angle phi:
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
               fillColor={135,135,135},
-              fillPattern=FillPattern.Solid)}),
-        Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=0,
-                fillColor=10),
-            lineColor={0,0,255})));
+              fillPattern=FillPattern.Solid)}));
     end Flange_a;
 
     connector Flange_b
@@ -5546,23 +5437,31 @@ differentiation of the flange angle phi:
           y=0.05,
           width=0.48,
           height=0.65),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This is a connector for 1-dim. rotational mechanical systems and models
 the mechanical flange of a shaft. The following variables are defined in this connector:
 </p>
-<pre>
-   <b>phi</b>: Absolute rotation angle of the flange in [rad].
-   <b>tau</b>: Cut-torque in the flange in [Nm].
-</pre>
+ 
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign=\"top\"> <b>phi</b></td>
+      <td valign=\"top\"> Absolute rotation angle of the shaft flange in [rad] </td>
+  </tr>
+  <tr><td valign=\"top\"> <b>tau</b></td>
+      <td valign=\"top\"> Cut-torque in the shaft flange in [Nm] </td>
+  </tr>
+</table>
+ 
 <p>
 There is a second connector for flanges: Flange_a. The connectors
 Flange_a and Flange_b are completely identical. There is only a difference
 in the icons, in order to easier identify a flange variable in a diagram.
 For a discussion on the actual direction of the cut-torque tau and
-of the rotation angle, see the information text of package Rotational
-(section 4. Sign conventions).
+of the rotation angle, see section
+<a href=\"Modelica://Modelica.Mechanics.Rotational.UsersGuide.SignConventions\">Sign Conventions</a>
+in the user's guide of Rotational.
 </p>
+ 
 <p>
 If needed, the absolute angular velocity w and the
 absolute angular acceleration a of the flange can be determined by
@@ -5572,7 +5471,7 @@ differentiation of the flange angle phi:
      w = der(phi);    a = der(w)
 </pre>
  
-</HTML>
+</html>
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -5599,30 +5498,46 @@ differentiation of the flange angle phi:
 
     connector Support "Support/housing of a 1-dim. rotational shaft"
 
-      SI.Angle phi
-        "Absolute rotation angle of shaft with respect to the support";
-      flow SI.Torque tau "Reaction torque in the support";
+      SI.Angle phi "Absolute rotation angle of the support/housing";
+      flow SI.Torque tau "Reaction torque in the support/housing";
 
       annotation (Documentation(info="<html>
 <p>
 This is a connector for 1-dim. rotational mechanical systems and models
 the support or housing of a shaft. The following variables are defined in this connector:
 </p>
-<pre>
-   <b>phi</b>: Absolute rotation angle of the shaft 
-        with respect to the support in [rad].
-   <b>tau</b>: Reaction torque in the support in [Nm].
-</pre>
+ 
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign=\"top\"> <b>phi</b></td>
+      <td valign=\"top\"> Absolute rotation angle of the support/housing in [rad] </td>
+  </tr>
+  <tr><td valign=\"top\"> <b>tau</b></td>
+      <td valign=\"top\"> Reaction torque in the support/housing in [Nm] </td>
+  </tr>
+</table>
  
 <p>
-It is required that a support connector is always connected since
-a not connected support leads to the equation that the support torque
-is zero (= standard Modelica semantic of not-connected connectors),
-which is not physical. In current Modelica it is not possible to
-express the property \"must always be connected\".
-Therefore, whenever a support is used, an assert has to be defined that
-guarantees that it is connected.
+The support connector is usually defined as conditional connector.
+It is most convenient to utilize it
 </p>
+ 
+<ul>
+<li> For models to be build graphically (i.e. the model is build up by drag-and-drop
+     from elementary components):<br>
+     <a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialOneFlangeAndSupport\">
+     PartialOneFlangeAndSupport</a>,<br>
+     <a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlangesAndSupport\">
+     PartialTwoFlangesAndSupport</a>, <br> &nbsp; </li>
+
+<li> For models to be build textually (i.e. elementary models):<br>
+     <a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport\">
+     PartialElementaryOneFlangeAndSupport</a>,<br>
+     <a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport\">
+     PartialElementaryTwoFlangesAndSupport</a>,<br>
+     <a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational\">
+     PartialElementaryRotationalToTranslational</a>.</li>
+</ul>
+ 
 </html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -5669,11 +5584,11 @@ guarantees that it is connected.
 
     model InternalSupport
       "Adapter model to utilize conditional support connector"
-      connector InputSupportTorque = input SI.Torque
-        "Support torque as input signal connector";
-      InputSupportTorque tau "External Support torque";
-      SI.Angle phi;
-      Flange_a flange 
+      input Modelica.SIunits.Torque tau
+        "External support torque (must be computed via torque balance in model where InternalSupport is used; = flange.tau)";
+      Modelica.SIunits.Angle phi "External support angle (= flange.phi)";
+      Flange_a flange
+        "Internal support flange (must be connected to the conditional support connector for useSupport=true and to conditional fixed model for useSupport=false)"
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics), Icon(coordinateSystem(
@@ -5690,50 +5605,235 @@ guarantees that it is connected.
               textString="%name")}),
         Documentation(info="<html>
 <p>
-This is an adapter model to utilize a conditional support connector:<br>
-If <i>useSupport = true</i>, the flange has to be connected to the conditional support connector.<br>
-If <i>useSupport = false</i>, the flange has to be connected to the conditional fixed.<br>
-In both cases the support angle can be accessed as internalSupport.flange.phi, 
-the support torque can be accessed as internalSupport.tau.
+This is an adapter model to utilize a conditional support connector
+in an elementary component, i.e., where the component equations are
+defined textually:
 </p>
+
+<ul>
+<li> If <i>useSupport = true</i>, the flange has to be connected to the conditional 
+     support connector.</li>
+<li> If <i>useSupport = false</i>, the flange has to be connected to the conditional 
+     fixed model.</li>
+</ul>
+
+<p>
+Variable <b>tau</b> is defined as <b>input</b> and must be provided when using
+this component as a modifier (computed via a torque balance in
+the model where InternalSupport is used). Usually, model InternalSupport is 
+utilized via the partial models:
+</p>
+
+<blockquote>
+<a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport\">
+PartialElementaryOneFlangeAndSupport</a>,<br>
+<a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport\">
+PartialElementaryTwoFlangesAndSupport</a>,<br>
+<a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational\">
+PartialElementaryRotationalToTranslational</a>.</li>
+</blockquote>
+
+<p>
+Note, the support angle can always be accessed as internalSupport.phi, and
+the support torque can always be accessed as internalSupport.tau.
+</p>
+
+
 </html>"));
     equation
       flange.tau = tau;
-      phi = flange.phi;
+      flange.phi = phi;
     end InternalSupport;
 
-    partial model PartialRigid
-      "Partial model for a rigid shaft with a left and a right shaft flange"
-      Flange_a flange_a "Left flange of shaft" 
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
-      Flange_b flange_b "Right flange of shaft" 
-        annotation (Placement(transformation(extent={{90,-10},{110,10}},
-              rotation=0)));
-      SI.Angle phi "Absolute rotation angle of component";
-
+    partial model PartialTwoFlanges
+      "Partial model for a component with two rotational 1-dim. shaft flanges"
+      Flange_a flange_a "Flange of left shaft" 
+                        annotation (Placement(transformation(extent={{-110,-10},
+                {-90,10}}, rotation=0)));
+      Flange_b flange_b "Flange of right shaft" 
+                        annotation (Placement(transformation(extent={{90,-10},{
+                110,10}}, rotation=0)));
       annotation (
         Documentation(info="<html>
 <p>
-This is a 1-dim. rotational component with one shaft. The left and right
-(rigidly connected) shaft flanges are the two connectors of the component.
-It is used e.g. to built up components with inertia.
+This is a 1-dim. rotational component with two flanges.
+It is used e.g. to build up parts of a drive train consisting
+of several components. 
 </p>
  
-</HTML>
+</html>
 "),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics),
         Window(
-          x=0.18,
-          y=0.3,
-          width=0.61,
-          height=0.66));
+          x=0.37,
+          y=0.05,
+          width=0.6,
+          height=0.6));
+    end PartialTwoFlanges;
+
+    partial model PartialOneFlangeAndSupport
+      "Partial model for a component with one rotational 1-dim. shaft flange and a support used for graphical modeling, i.e., the model is build up by drag-and-drop from elementary components"
+      parameter Boolean useSupport=false
+        "= true, if support flange enabled, otherwise implicitly grounded" 
+          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      Flange_b flange "Flange of shaft" 
+        annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
+      Support support if useSupport "Support/housing of component" 
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+      annotation (
+        Documentation(info="<html>
+<p>
+This is a 1-dim. rotational component with one flange and a support/housing.
+It is used e.g. to build up parts of a drive train graphically consisting
+of several components.
+</p>
+
+<p>
+If <i>useSupport=true</i>, the support connector is conditionally enabled
+and needs to be connected.<br>
+If <i>useSupport=false</i>, the support connector is conditionally disabled
+and instead the component is internally fixed to ground.
+</p>
+
+</html>
+"),     Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics={Text(
+              extent={{-38,-98},{-6,-96}},
+              lineColor={95,95,95},
+              textString="(if useSupport)"), Text(
+              extent={{21,-95},{61,-96}},
+              lineColor={95,95,95},
+              textString="(if not useSupport)")}),
+        Window(
+          x=0.37,
+          y=0.05,
+          width=0.6,
+          height=0.6),
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Line(
+              visible=not useSupport,
+              points={{-50,-120},{-30,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-30,-120},{-10,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-10,-120},{10,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{10,-120},{30,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-30,-100},{30,-100}},
+              color={0,0,0})}));
+    protected
+      Support internalSupport
+        "Internal support/housing of component (either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
+        annotation (Placement(transformation(extent={{-3,-83},{3,-77}})));
+      Components.Fixed fixed if not useSupport
+        "Fixed support/housing, if not useSupport" 
+        annotation (Placement(transformation(extent={{10,-94},{30,-74}})));
     equation
-      flange_a.phi = phi;
-      flange_b.phi = phi;
-    end PartialRigid;
+      connect(support, internalSupport) annotation (Line(
+          points={{0,-100},{0,-80}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(internalSupport, fixed.flange) annotation (Line(
+          points={{0,-80},{20,-80},{20,-84}},
+          color={0,0,0},
+          smooth=Smooth.None));
+    end PartialOneFlangeAndSupport;
+
+    partial model PartialTwoFlangesAndSupport
+      "Partial model for a component with two rotational 1-dim. shaft flanges and a support used for graphical modeling, i.e., the model is build up by drag-and-drop from elementary components"
+      parameter Boolean useSupport=false
+        "= true, if support flange enabled, otherwise implicitly grounded" 
+          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      Flange_a flange_a "Flange of left shaft" 
+        annotation (Placement(transformation(extent={{-110,-10}, {-90,10}}, rotation=0)));
+      Flange_b flange_b "Flange of right shaft" 
+        annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
+      Support support if useSupport "Support/housing of component" 
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+      annotation (
+        Documentation(info="<html>
+<p>
+This is a 1-dim. rotational component with two flanges and a support/housing.
+It is used e.g. to build up parts of a drive train graphically consisting
+of several components.
+</p>
+
+<p>
+If <i>useSupport=true</i>, the support connector is conditionally enabled
+and needs to be connected.<br>
+If <i>useSupport=false</i>, the support connector is conditionally disabled
+and instead the component is internally fixed to ground.
+</p>
+ 
+</html>
+"),     Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics={Text(
+              extent={{-38,-98},{-6,-96}},
+              lineColor={95,95,95},
+              textString="(if useSupport)"), Text(
+              extent={{24,-97},{64,-98}},
+              lineColor={95,95,95},
+              textString="(if not useSupport)")}),
+        Window(
+          x=0.37,
+          y=0.05,
+          width=0.6,
+          height=0.6),
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Line(
+              visible=not useSupport,
+              points={{-50,-120},{-30,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-30,-120},{-10,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-10,-120},{10,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{10,-120},{30,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-30,-100},{30,-100}},
+              color={0,0,0})}));
+    protected
+      Support internalSupport
+        "Internal support/housing of component (either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
+        annotation (Placement(transformation(extent={{-3,-83},{3,-77}})));
+      Components.Fixed fixed if not useSupport
+        "Fixed support/housing, if not useSupport" 
+        annotation (Placement(transformation(extent={{10,-97},{30,-77}})));
+    equation
+      connect(support, internalSupport) annotation (Line(
+          points={{0,-100},{0,-80}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(internalSupport, fixed.flange) annotation (Line(
+          points={{0,-80},{20,-80},{20,-87}},
+          color={0,0,0},
+          smooth=Smooth.None));
+    end PartialTwoFlangesAndSupport;
 
     partial model PartialCompliant
       "Partial model for the compliant connection of two rotational 1-dim. shaft flanges"
@@ -5764,25 +5864,6 @@ but opposite sign: flange_a.tau + flange_b.tau = 0. This base class
 is used to built up force elements such as springs, dampers, friction.
 </p>
  
-<p>
-The (scaled) relative angle is defined as preferred state.
-The reason is that for some drive trains, such as drive 
-trains in vehicles, the absolute angle is quickly increasing during operation.
-Numerically, it is better to use relative angles between drive train components
-because they remain in a limited size. For this reason, StateSelect.prefer
-is set for the (scaled) relative angle of this component.
-</p>
- 
-<p>
-In order to improve the numerics, a nominal value for the relative angle
-can be provided. The default ist 1e-4 rad since relative angles are usually
-in this order and the step size control of an integrator would be
-practically switched off, if a default of 1 rad would be used.
-This nominal value might also be computed from other values, such
-as \"phi_nominal = tau_nominal / c\" for a rotational spring, if tau_nominal
-and c have are more meaningful for the user.
-</p>
- 
 </html>
 "),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -5797,7 +5878,7 @@ and c have are more meaningful for the user.
     partial model PartialCompliantWithRelativeStates
       "Partial model for the compliant connection of two rotational 1-dim. shaft flanges where the relative angle and speed are used as preferred states"
 
-      Modelica.SIunits.Angle phi_rel(start=0, stateSelect=stateSelect, nominal=phi_nominal)
+      Modelica.SIunits.Angle phi_rel(start=0, stateSelect=stateSelect, nominal=1e-4)
         "Relative rotation angle (= flange_b.phi - flange_a.phi)";
       Modelica.SIunits.AngularVelocity w_rel(start=0, stateSelect=stateSelect)
         "Relative angular velocity (= der(phi_rel))";
@@ -5811,8 +5892,6 @@ and c have are more meaningful for the user.
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
 
-      parameter SI.Angle phi_nominal(displayUnit="rad")=1e-4
-        "Nominal value of phi_rel (used for scaling)" annotation(Dialog(tab="Advanced"));
       parameter StateSelect stateSelect=StateSelect.prefer
         "Priority to use phi_rel and w_rel as states" 
       annotation(HideResult=true, Dialog(tab="Advanced"));
@@ -5834,21 +5913,21 @@ is used to built up force elements such as springs, dampers, friction.
 </p>
  
 <p>
-The (scaled) relative angle and the relative speed are defined as preferred states.
+The relative angle and the relative speed are defined as preferred states.
 The reason is that for some drive trains, such as drive 
 trains in vehicles, the absolute angle is quickly increasing during operation.
 Numerically, it is better to use relative angles between drive train components
 because they remain in a limited size. For this reason, StateSelect.prefer
-is set for the (scaled) relative angle of this component.
+is set for the relative angle of this component.
 </p>
  
 <p>
 In order to improve the numerics, a nominal value for the relative angle
-can be provided. The default ist 1e-4 rad since relative angles are usually
+should be provided. The default ist 1e-4 rad since relative angles are usually
 in this order and the step size control of an integrator would be
 practically switched off, if a default of 1 rad would be used.
 This nominal value might also be computed from other values, such
-as \"phi_nominal = tau_nominal / c\" for a rotational spring, if tau_nominal
+as \"phi(nominal = tau_nominal / c)\" for a rotational spring, if tau_nominal
 and c are more meaningful for the user.
 </p>
  
@@ -5865,8 +5944,88 @@ and c are more meaningful for the user.
       flange_a.tau = -tau;
     end PartialCompliantWithRelativeStates;
 
-    partial model PartialGear
-      "Partial model for a 1-dim. rotational gear consisting of the flange of an input shaft, the flange of an output shaft and the support"
+    partial model PartialElementaryOneFlangeAndSupport
+      "Partial model for a component with one rotational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models"
+      parameter Boolean useSupport=false
+        "= true, if support flange enabled, otherwise implicitly grounded" 
+          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      Flange_b flange "Flange of shaft" 
+        annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
+      Support support if useSupport "Support/housing of component" 
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+      annotation (
+        Documentation(info="<html>
+<p>
+This is a 1-dim. rotational component with one flange and a support/housing.
+It is used to build up elementary components of a drive train with
+equations in the text layer.
+</p>
+
+<p>
+If <i>useSupport=true</i>, the support connector is conditionally enabled
+and needs to be connected.<br>
+If <i>useSupport=false</i>, the support connector is conditionally disabled
+and instead the component is internally fixed to ground.
+</p>
+ 
+</html>
+"),     Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics={Text(
+              extent={{25,-97},{65,-98}},
+              lineColor={95,95,95},
+              textString="(if not useSupport)"), Text(
+              extent={{-38,-98},{-6,-96}},
+              lineColor={95,95,95},
+              textString="(if useSupport)")}),
+        Window(
+          x=0.37,
+          y=0.05,
+          width=0.6,
+          height=0.6),
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
+            Line(
+              visible=not useSupport,
+              points={{-50,-120},{-30,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-30,-120},{-10,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-10,-120},{10,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{10,-120},{30,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-30,-100},{30,-100}},
+              color={0,0,0})}));
+    protected
+      Rotational.Interfaces.InternalSupport internalSupport(tau = -flange.tau)
+        "Internal support/housing of component as a model with connector flange (flange is either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
+        annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
+      Rotational.Components.Fixed fixed if not useSupport
+        "Fixed support/housing, if not useSupport" 
+        annotation (Placement(transformation(extent={{10,-96},{30,-76}})));
+    equation
+      connect(internalSupport.flange, support) annotation (Line(
+          points={{0,-80},{0,-100}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(internalSupport.flange, fixed.flange) annotation (Line(
+          points={{0,-80},{20,-80},{20,-86}},
+          color={0,0,0},
+          smooth=Smooth.None));
+    end PartialElementaryOneFlangeAndSupport;
+
+    partial model PartialElementaryTwoFlangesAndSupport
+      "Partial model for a component with two rotational 1-dim. shaft flanges and a support used for textual modeling, i.e., for elementary models"
       parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded" 
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
@@ -5875,101 +6034,39 @@ and c are more meaningful for the user.
       Flange_b flange_b "Flange of right shaft" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Support support if useSupport "Support/housing of component" 
-        annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
-            iconTransformation(extent={{-10,-110},{10,-90}})));
-      Modelica.SIunits.Angle phi_a
-        "Angle between left shaft flange and support";
-      Modelica.SIunits.Angle phi_b
-        "Angle between right shaft flange and support";
-      annotation (Documentation(info="<html>
-<p>
-This is a 1-dim. rotational component with two flanges and an additional support.
-It is used e.g. to build up elementary ideal gear components. The component
-contains the torque balance, i.e., the sum of the torques of the connectors
-is zero (therefore, components that are based on PartialGear cannot have
-inertia). If <i>useSupport=true</i>, the support connector needs to be connected
-to avoid the unphysical behavior that the support torque is required to be zero 
-(= the default value, if the connector is not connected). Otherwise, 
-the support is internally fixed.
-</p>
-</HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),graphics),
-        Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-                100,100}}), graphics={
-            Line(
-              visible=not useSupport,
-              points={{-50,-120},{-30,-100}},
-              color={0,0,0}),
-            Line(
-              visible=not useSupport,
-              points={{-30,-100},{30,-100}},
-              color={0,0,0}),
-            Line(
-              visible=not useSupport,
-              points={{-30,-120},{-10,-100}},
-              color={0,0,0}),
-            Line(
-              visible=not useSupport,
-              points={{-10,-120},{10,-100}},
-              color={0,0,0}),
-            Line(
-              visible=not useSupport,
-              points={{10,-120},{30,-100}},
-              color={0,0,0})}));
-    protected
-      Rotational.Components.Fixed fixed if not useSupport 
-        annotation (Placement(transformation(extent={{10,-90},{30,-70}})));
-      InternalSupport internalSupport 
-        annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
-    equation
-      phi_a = flange_a.phi - internalSupport.phi;
-      phi_b = flange_b.phi - internalSupport.phi;
-    // torque balance
-      0 = flange_a.tau + flange_b.tau + internalSupport.tau;
-      connect(internalSupport.flange, support) annotation (Line(
-          points={{0,-80},{0,-100}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(internalSupport.flange, fixed.flange) annotation (Line(
-          points={{0,-80},{20,-80}},
-          color={0,0,0},
-          smooth=Smooth.None));
-    end PartialGear;
-
-    partial model PartialSource
-      "Partial model for a component with a rotational 1-dim. shaft flange and a support to define either a predefined motion or a predefined torque"
-      parameter Boolean useSupport=false
-        "= true, if support flange enabled, otherwise implicitly grounded" 
-          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-      Flange_b flange "Flange of shaft" 
-        annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      Support support if useSupport "Support/housing of component" 
-        annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
-            iconTransformation(extent={{-10,-110},{10,-90}})));
-      SI.Angle phi "Absolute rotation angle of flange_b";
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
       annotation (
         Documentation(info="<html>
 <p>
-This is a 1-dim. rotational component with one shaft flange
-and one support. It is used to build up \"source\" components,
-e.g., driving a shaft with a predefined motion or with a 
-predefined torque. If <i>useSupport=true</i>, the support connector needs to be connected
-to avoid the unphysical behavior that the support torque is required to be zero 
-(= the default value, if the connector is not connected). Otherwise, 
-the support is internally fixed.
+This is a 1-dim. rotational component with two flanges and a support/housing.
+It is used to build up elementary components of a drive train with
+equations in the text layer.
 </p>
-</HTML>
+
+<p>
+If <i>useSupport=true</i>, the support connector is conditionally enabled
+and needs to be connected.<br>
+If <i>useSupport=false</i>, the support connector is conditionally disabled
+and instead the component is internally fixed to ground.
+</p>
+
+</html>
 "),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
+            grid={2,2}), graphics={Text(
+              extent={{24,-97},{64,-98}},
+              lineColor={95,95,95},
+              textString="(if not useSupport)"), Text(
+              extent={{-38,-98},{-6,-96}},
+              lineColor={95,95,95},
+              textString="(if useSupport)")}),
         Window(
           x=0.37,
           y=0.05,
           width=0.6,
           height=0.6),
-        Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
               visible=not useSupport,
@@ -5992,40 +6089,166 @@ the support is internally fixed.
               points={{-30,-100},{30,-100}},
               color={0,0,0})}));
     protected
-      Rotational.Components.Fixed fixed if not useSupport 
-        annotation (Placement(transformation(extent={{10,-90},{30,-70}})));
-      InternalSupport internalSupport 
+      Rotational.Interfaces.InternalSupport internalSupport(tau = -flange_a.tau - flange_b.tau)
+        "Internal support/housing of component as a model with connector flange (flange is either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
         annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
+      Rotational.Components.Fixed fixed if not useSupport
+        "Fixed support/housing, if not useSupport" 
+        annotation (Placement(transformation(extent={{10,-97},{30,-77}})));
     equation
-      phi = flange.phi - internalSupport.phi;
-
-      // torque balance
-      0 = flange.tau + internalSupport.tau;
       connect(internalSupport.flange, support) annotation (Line(
           points={{0,-80},{0,-100}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(internalSupport.flange, fixed.flange) annotation (Line(
-          points={{0,-80},{20,-80}},
+          points={{0,-80},{20,-80},{20,-87}},
           color={0,0,0},
           smooth=Smooth.None));
-    end PartialSource;
+    end PartialElementaryTwoFlangesAndSupport;
+
+    partial model PartialElementaryRotationalToTranslational
+      "Partial model to transform rotational into translational motion"
+      parameter Boolean useSupportR=false
+        "= true, if rotational support flange enabled, otherwise implicitly grounded"
+          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      parameter Boolean useSupportT=false
+        "= true, if translational support flange enabled, otherwise implicitly grounded"
+          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      Rotational.Interfaces.Flange_a flangeR "Flange of rotational shaft" 
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+      Modelica.Mechanics.Translational.Interfaces.Flange_b flangeT
+        "Flange of translational rod" 
+        annotation (Placement(transformation(extent={{90,10},{110,-10}}, rotation=0)));
+      Rotational.Interfaces.Support supportR if useSupportR
+        "Rotational support/housing of component" 
+        annotation (Placement(transformation(extent={{-110,-110},{-90,-90}},     rotation=0),
+            iconTransformation(extent={{-110,-110},{-90,-90}})));
+      Translational.Interfaces.Support supportT if useSupportT
+        "Translational support/housing of component" 
+        annotation (Placement(transformation(extent={{110,-110},{90,-90}},
+              rotation=0), iconTransformation(extent={{90,-110},{110,-90}})));
+
+      annotation (
+        Window(
+          x=0.35,
+          y=0.1,
+          width=0.6,
+          height=0.65),
+        Documentation(info="<html>
+ 
+<p>
+This is a 1-dim. rotational component with
+</p>
+
+<ul>
+<li> one rotational flange, </li>
+<li> one rotational support/housing, </li>
+<li> one translational flange, and </li>
+<li> one translatinal support/housing </li>
+</ul>
+
+<p>
+This model is used to build up elementary components of a drive train
+transforming rotational into translational motion with
+equations in the text layer.
+</p>
+
+<p>
+If <i>useSupportR=true</i>, the rotational support connector is conditionally enabled
+and needs to be connected.<br>
+If <i>useSupportR=false</i>, the rotational support connector is conditionally disabled
+and instead the rotational part is internally fixed to ground.<br>
+If <i>useSupportT=true</i>, the translational support connector is conditionally enabled
+and needs to be connected.<br>
+If <i>useSupportT=false</i>, the translational support connector is conditionally disabled
+and instead the translational part is internally fixed to ground.
+</p>
+
+
+</html>
+"),     Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={
+            Line(
+              visible=not useSupportT,
+              points={{76,-110},{85,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupportT,
+              points={{85,-110},{95,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupportT,
+              points={{95,-110},{105,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupportT,
+              points={{105,-110},{115,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupportT,
+              points={{85,-100},{115,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupportR,
+              points={{-124,-110},{-115,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupportR,
+              points={{-115,-110},{-105,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupportR,
+              points={{-105,-110},{-95,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupportR,
+              points={{-95,-110},{-85,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupportR,
+              points={{-115,-100},{-85,-100}},
+              color={0,0,0})}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics));
+    protected
+      Rotational.Interfaces.InternalSupport internalSupportR(tau = - flangeR.tau) 
+        annotation (Placement(transformation(extent={{-110,-90},{-90,-70}})));
+      Translational.Interfaces.InternalSupport internalSupportT 
+        annotation (Placement(transformation(extent={{90,-90},{110,-70}})));
+      Rotational.Components.Fixed fixedR if not useSupportR 
+        annotation (Placement(transformation(extent={{-90,-90},{-70,-70}})));
+      Translational.Components.Fixed fixedT if not useSupportT 
+        annotation (Placement(transformation(extent={{70,-90},{90,-70}})));
+    equation
+      0 = flangeT.f + internalSupportT.f;
+      connect(internalSupportR.flange, supportR) annotation (Line(
+          points={{-100,-80},{-100,-100}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(internalSupportR.flange, fixedR.flange) 
+                                                     annotation (Line(
+          points={{-100,-80},{-80,-80}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(fixedT.flange, internalSupportT.flange) annotation (Line(
+          points={{80,-80},{100,-80}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(internalSupportT.flange, supportT) annotation (Line(
+          points={{100,-80},{100,-100}},
+          color={0,127,0},
+          smooth=Smooth.None));
+    end PartialElementaryRotationalToTranslational;
 
     partial model PartialTorque
       "Partial model of a torque acting at the flange (accelerates the flange)"
-      parameter Boolean useSupport=false
-        "= true, if support flange enabled, otherwise implicitly grounded" 
-          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-      Rotational.Interfaces.Flange_b flange "Flange on which torque is acting" 
-        annotation (Placement(transformation(extent={{110,-10},{90,10}},
-              rotation=0)));
-      Rotational.Interfaces.Support support if useSupport
-        "Support/housing at which the reaction torque (= -flange.tau) is acting"
-           annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+      extends PartialElementaryOneFlangeAndSupport;
       Modelica.SIunits.Angle phi
         "Angle of flange with respect to support (= flange.phi - support.phi)";
-      Modelica.SIunits.Torque tau
-        "Accelerating torque acting at flange (= flange.tau)";
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
                 {100,100}}),
@@ -6082,158 +6305,146 @@ the support is internally fixed.
               color={0,0,0})}),
         Documentation(info="<HTML>
 <p>
-Partial model of torque that accelerates the flange.<br>
-If <i>useSupport=true</i>, the support connector needs to be connected
-to avoid the unphysical behavior that the support torque is required to be zero 
-(= the default value, if the connector is not connected). Otherwise, 
-the support is internally fixed.
+Partial model of torque that accelerates the flange.
 </p>
-</HTML>"));
-    protected
-      Rotational.Components.Fixed fixed if not useSupport 
-        annotation (Placement(transformation(extent={{10,-90},{30,-70}})));
-      InternalSupport internalSupport 
-        annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
+
+<p>
+If <i>useSupport=true</i>, the support connector is conditionally enabled
+and needs to be connected.<br>
+If <i>useSupport=false</i>, the support connector is conditionally disabled
+and instead the component is internally fixed to ground.
+</p>
+
+</html>"));
+
     equation
       phi = flange.phi - internalSupport.phi;
-      tau = flange.tau;
-      0 = flange.tau + internalSupport.tau;
-      connect(internalSupport.flange, support) annotation (Line(
-          points={{0,-80},{0,-100}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(internalSupport.flange,fixed. flange) annotation (Line(
-          points={{0,-80},{20,-80}},
-          color={0,0,0},
-          smooth=Smooth.None));
     end PartialTorque;
 
-    partial model PartialSpeedDependentTorque
-      "Partial model of a torque acting at the flange that depends on the speed (accelerates the flange)"
-      extends PartialTorque;
-      Modelica.SIunits.AngularVelocity w
-        "Angular velocity at flange with respect to support (= der(flange.phi) - der(support.phi))";
-    equation
-      w = der(phi);
-      annotation (Documentation(info="<html>
-<p>
-Partial model of torque that accelerates the flange. The torque depends
-on angle phi (relative to support) and on speed w (relative to support).<br>
-If <i>useSupport=true</i>, the support connector needs to be connected
-to avoid the unphysical behavior that the support torque is required to be zero 
-(= the default value, if the connector is not connected). Otherwise, 
-the support is internally fixed.
-</p>
-</html>"));
-    end PartialSpeedDependentTorque;
+    partial model PartialAbsoluteSensor
+      "Partial model to measure a single absolute flange variable"
 
-    partial model PartialTwoFlanges
-      "Partial model for a component with two rotational 1-dim. shaft flanges"
-      Flange_a flange_a "Flange of left shaft" 
-                        annotation (Placement(transformation(extent={{-110,-10},
-                {-90,10}}, rotation=0)));
-      Flange_b flange_b "Flange of right shaft" 
-                        annotation (Placement(transformation(extent={{90,-10},{
-                110,10}}, rotation=0)));
+      Flange_a flange
+        "Flange of shaft from which sensor information shall be measured" 
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+              rotation=0)));
       annotation (
-        Documentation(info="<html>
-<p>
-This is a 1-dim. rotational component with two flanges.
-It is used e.g. to build up parts of a drive train consisting
-of several components. There are specialized versions of this
-base class for rigidly connected flanges (Interfaces.PartialRigid),
-for a compliant connection of flanges (Interfaces.PartialCompliant)
-and for an elementary gear (Interfaces.PartialGear).
-</p>
- 
-</HTML>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
         Window(
-          x=0.37,
-          y=0.05,
-          width=0.6,
-          height=0.6));
-    end PartialTwoFlanges;
-
-    partial model PartialTwoFlangesAndSupport
-      "Partial model for a component with two rotational 1-dim. shaft flanges and a support"
-      parameter Boolean useSupport=false
-        "= true, if support flange enabled, otherwise implicitly grounded" 
-          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-      Flange_a flange_a "Flange of left shaft" 
-        annotation (Placement(transformation(extent={{-110,-10}, {-90,10}}, rotation=0)));
-      Flange_b flange_b "Flange of right shaft" 
-        annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      Support support if useSupport "Support/housing of component" 
-        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-      annotation (
-        Documentation(info="<html>
-<p>
-This is a 1-dim. rotational component with two flanges and a support.
-It is used e.g. to build up parts of a drive train consisting
-of several components.If <i>useSupport=true</i>, the support connector needs to be connected
-to avoid the unphysical behavior that the support torque is required to be zero 
-(= the default value, if the connector is not connected). Otherwise, 
-the support is internally fixed.
-</p>
- 
-<p>
-There are specialized versions of this
-base class for rigidly connected flanges (Interfaces.PartialRigid),
-for a compliant connection of flanges (Interfaces.PartialCompliant)
-and for an elementary gear (Interfaces.PartialGear).
-</p>
- 
-</HTML>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
-        Window(
-          x=0.37,
+          x=0.39,
           y=0.05,
           width=0.6,
           height=0.6),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={
-            Line(
-              visible=not useSupport,
-              points={{-50,-120},{-30,-100}},
-              color={0,0,0}),
-            Line(
-              visible=not useSupport,
-              points={{-30,-120},{-10,-100}},
-              color={0,0,0}),
-            Line(
-              visible=not useSupport,
-              points={{-10,-120},{10,-100}},
-              color={0,0,0}),
-            Line(
-              visible=not useSupport,
-              points={{10,-120},{30,-100}},
-              color={0,0,0}),
-            Line(
-              visible=not useSupport,
-              points={{-30,-100},{30,-100}},
-              color={0,0,0})}));
-    protected
-      Support internalSupport "Support/housing of component" 
-        annotation (Placement(transformation(extent={{-1,-81},{1,-79}})));
-      Components.Fixed fixed if not useSupport 
-        annotation (Placement(transformation(extent={{10,-90},{30,-70}})));
+        Documentation(info="<html>
+<p>
+This is a partial model of a 1-dim. rotational component with one flange of a shaft 
+in order to measure an absolute kinematic quantity in the flange
+and to provide the measured signal as output signal for further processing
+with the blocks of package Modelica.Blocks.
+</p>
+ 
+</html>
+"),     Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={
+            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            Line(points={{70,0},{100,0}}, color={0,0,127}),
+            Text(
+              extent={{150,80},{-150,120}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Ellipse(
+              extent={{-70,70},{70,-70}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,70},{0,40}}, color={0,0,0}),
+            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
+            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
+            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
+            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
+            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
+            Polygon(
+              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Ellipse(
+              extent={{-5,5},{5,-5}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid)}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics));
     equation
-      connect(support, internalSupport) annotation (Line(
-          points={{0,-100},{0,-80}},
-          color={0,0,0},
-          smooth=Smooth.None));
-      connect(internalSupport, fixed.flange) annotation (Line(
-          points={{0,-80},{20,-80}},
-          color={0,0,0},
-          smooth=Smooth.None));
-    end PartialTwoFlangesAndSupport;
+      0 = flange.tau;
+    end PartialAbsoluteSensor;
+
+    partial model PartialRelativeSensor
+      "Partial model to measure a single relative variable between two flanges"
+
+      Flange_a flange_a "Left flange of shaft" 
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+              rotation=0)));
+      Flange_b flange_b "Right flange of shaft" 
+        annotation (Placement(transformation(extent={{90,-10},{110,10}},
+              rotation=0)));
+      annotation (
+        Window(
+          x=0.37,
+          y=0.02,
+          width=0.6,
+          height=0.65),
+        Documentation(info="<html>
+<p>
+This is a partial model for 1-dim. rotational components with two rigidly connected
+flanges in order to measure relative kinematic quantities
+between the two flanges or the cut-torque in the flange and
+to provide the measured signal as output signal for further processing
+with the blocks of package Modelica.Blocks.
+</p>
+ 
+</html>
+"),     Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={
+            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            Line(points={{70,0},{90,0}}, color={0,0,0}),
+            Text(
+              extent={{-150,73},{150,113}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Ellipse(
+              extent={{-70,70},{70,-70}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,70},{0,40}}, color={0,0,0}),
+            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
+            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
+            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
+            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
+            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
+            Polygon(
+              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Ellipse(
+              extent={{-5,5},{5,-5}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid)}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics));
+    equation
+      0 = flange_a.tau + flange_b.tau;
+    end PartialRelativeSensor;
 
     partial model PartialFriction "Partial model of Coulomb friction elements"
 
@@ -6313,131 +6524,6 @@ Basic model for Coulomb friction that models the stuck phase in a reliable way.
            Backward else 
            Stuck);
     end PartialFriction;
-
-    partial model PartialAbsoluteSensor
-      "Partial model to measure a single absolute flange variable"
-
-      Flange_a flange
-        "Flange of shaft from which sensor information shall be measured" 
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
-      annotation (
-        Window(
-          x=0.39,
-          y=0.05,
-          width=0.6,
-          height=0.6),
-        Documentation(info="<html>
-<p>
-This is the base class of a 1-dim. rotational component with one flange of a shaft 
-in order to measure an absolute kinematic quantity in the flange
-and to provide the measured signal as output signal for further processing
-with the blocks of package Modelica.Blocks.
-</p>
- 
-</html>
-"),     Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
-            Line(points={{70,0},{100,0}}, color={0,0,127}),
-            Text(
-              extent={{150,80},{-150,120}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Ellipse(
-              extent={{-70,70},{70,-70}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{0,70},{0,40}}, color={0,0,0}),
-            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
-            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
-            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
-            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
-            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
-            Polygon(
-              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Ellipse(
-              extent={{-5,5},{5,-5}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
-    equation
-      0 = flange.tau;
-    end PartialAbsoluteSensor;
-
-    partial model PartialRelativeSensor
-      "Partial model to measure a single relative variable between two flanges"
-
-      Flange_a flange_a "Left flange of shaft" 
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
-      Flange_b flange_b "Right flange of shaft" 
-        annotation (Placement(transformation(extent={{90,-10},{110,10}},
-              rotation=0)));
-      annotation (
-        Window(
-          x=0.37,
-          y=0.02,
-          width=0.6,
-          height=0.65),
-        Documentation(info="<html>
-<p>
-This is a base class for 1-dim. rotational components with two rigidly connected
-flanges in order to measure relative kinematic quantities
-between the two flanges or the cut-torque in the flange and
-to provide the measured signal as output signal for further processing
-with the blocks of package Modelica.Blocks.
-</p>
- 
-</html>
-"),     Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
-            Line(points={{70,0},{90,0}}, color={0,0,0}),
-            Text(
-              extent={{-150,73},{150,113}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Ellipse(
-              extent={{-70,70},{70,-70}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{0,70},{0,40}}, color={0,0,0}),
-            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
-            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
-            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
-            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
-            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
-            Polygon(
-              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
-            Ellipse(
-              extent={{-5,5},{5,-5}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
-    equation
-      0 = flange_a.tau + flange_b.tau;
-    end PartialRelativeSensor;
 
   end Interfaces;
 

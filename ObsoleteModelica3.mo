@@ -2288,6 +2288,45 @@ with negative sign at frame_a.
 
       package Interfaces
         "Connectors and partial models for 1D rotational mechanical components"
+        partial model Rigid
+          "Base class for the rigid connection of two rotational 1D flanges"
+          extends ObsoleteModelica3.Icons.ObsoleteModel;
+
+          Modelica.SIunits.Angle phi
+            "Absolute rotation angle of component (= flange_a.phi = flange_b.phi)";
+
+          Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a
+            "(left) driving flange (flange axis directed INTO cut plane)" 
+            annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+                  rotation=0)));
+          Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b
+            "(right) driven flange (flange axis directed OUT OF cut plane)" 
+            annotation (Placement(transformation(extent={{90,-10},{110,10}},
+                  rotation=0)));
+          annotation (
+            Documentation(info="<html>
+<p>
+This is a 1D rotational component with two rigidly connected flanges,
+i.e., flange_a.phi = flange_b.phi. It is used e.g. to built up components
+with inertia.
+</p>
+ 
+</HTML>
+"),         Diagram(coordinateSystem(
+                preserveAspectRatio=false,
+                extent={{-100,-100},{100,100}},
+                grid={2,2}), graphics),
+            Window(
+              x=0.18,
+              y=0.3,
+              width=0.61,
+              height=0.66),
+            uses(Modelica(version="3.0")));
+        equation
+          flange_a.phi = phi;
+          flange_b.phi = phi;
+        end Rigid;
+
         partial model Bearing
           "Obsolete model. Use one of Modelica.Mechanics.Rotational.Interfaces.PartialXXX instead"
           extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
@@ -2408,6 +2447,66 @@ of several base components.</p>
 </HTML>
 "));
         end TwoFlangesAndBearingH;
+
+        partial model PartialSpeedDependentTorque
+          "Partial model of a torque acting at the flange (accelerates the flange)"
+          extends ObsoleteModelica3.Icons.ObsoleteModel;
+          Modelica.SIunits.AngularVelocity w = der(flange.phi)
+            "Angular velocity at flange";
+          Modelica.SIunits.Torque tau = flange.tau
+            "accelerating torque acting at flange";
+          Modelica.Mechanics.Rotational.Interfaces.Flange_b flange
+            "Flange on which torque is acting" 
+            annotation (Placement(transformation(extent={{110,-10},{90,10}},
+                  rotation=0)));
+          Modelica.Mechanics.Rotational.Interfaces.Flange_a bearing
+            "Bearing at which the reaction torque (i.e., -flange.tau) is acting"
+               annotation (Placement(transformation(extent={{-10,-130},{10,-110}}, 
+                  rotation=0)));
+          annotation (
+            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                    -100},{100,100}}), graphics),
+            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                    {100,100}}), graphics={
+                Rectangle(
+                  extent={{-96,96},{96,-96}},
+                  lineColor={255,255,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),
+                Line(points={{-30,-70},{30,-70}}, color={0,0,0}),
+                Line(points={{-30,-90},{-10,-70}}, color={0,0,0}),
+                Line(points={{-10,-90},{10,-70}}, color={0,0,0}),
+                Rectangle(
+                  extent={{-20,-100},{20,-140}},
+                  lineColor={192,192,192},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),
+                Line(points={{10,-90},{30,-70}}, color={0,0,0}),
+                Line(points={{0,-70},{0,-110}}, color={0,0,0}),
+                Line(points={{-92,0},{-76,36},{-54,62},{-30,80},{-14,88},{10,92},
+                      {26,90},{46,80},{64,62}}, color={0,0,0}),
+                Text(
+                  extent={{-150,140},{150,100}},
+                  lineColor={0,0,255},
+                  textString=
+                       "%name"),
+                Polygon(
+                  points={{94,16},{80,74},{50,52},{94,16}},
+                  lineColor={0,0,0},
+                  fillColor={0,0,0},
+                  fillPattern=FillPattern.Solid)}),
+            Documentation(info="<HTML>
+<p>
+Partial model of torque dependent on speed that accelerates the flange.
+</p>
+</HTML>"),  uses(Modelica(version="3.0")));
+        equation
+          if cardinality(bearing) == 0 then
+            bearing.phi = 0;
+          else
+            bearing.tau = -flange.tau;
+          end if;
+        end PartialSpeedDependentTorque;
 
         partial model AbsoluteSensor
           "Obsolete model. Use Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor instead and define a meaningful name for the output signal"
