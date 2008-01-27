@@ -2709,7 +2709,6 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       mue0 = Modelica.Math.tempInterpol1(0, mue_pos, 2);
 
       // Relative quantities
-      a_rel = der(w_rel);
       w_relfric = w_rel;
       a_relfric = a_rel;
 
@@ -2742,8 +2741,6 @@ following references, especially (Armstrong and Canudas de Witt 1996):
         "Relative angular velocity near to zero if jumps due to a reinit(..) of the velocity can occur (set to low value only if such impulses can occur)"
          annotation(Dialog(tab="Advanced"));
 
-      Modelica.SIunits.AngularAcceleration a_rel(start=0)
-        "Relative angular acceleration (= der(w_rel))";
       Real u "normalized force input signal (0..1)";
       SI.Force fn "Normal force (fn=fn_max*inPort.signal)";
       Boolean startForward
@@ -2915,7 +2912,6 @@ are dynamically coupled. The method is described in:
       tau0_max_low = eps0*mue0*cgeo*fn_max;
 
       // Normal force and friction torque for w_rel=0
-      a_rel = der(w_rel);
       u = f_normalized;
       free = u <= 0;
       fn = if free then 0 else fn_max*u;
@@ -5898,6 +5894,8 @@ is used to built up force elements such as springs, dampers, friction.
         "Relative rotation angle (= flange_b.phi - flange_a.phi)";
       Modelica.SIunits.AngularVelocity w_rel(start=0, stateSelect=stateSelect)
         "Relative angular velocity (= der(phi_rel))";
+      Modelica.SIunits.AngularAcceleration a_rel(start=0)
+        "Relative angular acceleration (= der(w_rel))";
       Modelica.SIunits.Torque tau "Torque between flanges (= flange_b.tau)";
       Flange_a flange_a "Left flange of compliant 1-dim. rotational component" 
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
@@ -5936,7 +5934,7 @@ Numerically, it is better to use relative angles between drive train components
 because they remain in a limited size. For this reason, StateSelect.prefer
 is set for the relative angle of this component.
 </p>
-
+ 
 <p>
 In order to improve the numerics, a nominal value for the relative angle
 can be provided via parameter <b>phi_nominal</b> in the Advanced menu.
@@ -5956,6 +5954,7 @@ and c are more meaningful for the user.
     equation
       phi_rel = flange_b.phi - flange_a.phi;
       w_rel = der(phi_rel);
+      a_rel = der(w_rel);
       flange_b.tau = tau;
       flange_a.tau = -tau;
     end PartialCompliantWithRelativeStates;
