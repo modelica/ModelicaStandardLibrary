@@ -1,5 +1,4 @@
-within TestExternalTables.Blocks;
-    // within Modelica.Blocks;
+within Modelica.Blocks;
 
 
 package Tables
