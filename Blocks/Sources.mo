@@ -1,6 +1,4 @@
-within TestExternalTables.Blocks;
-    // within Modelica.Blocks;
-
+within Modelica.Blocks;
 
 package Sources
   "Library of signal source blocks generating Real and Boolean signals"
