@@ -1,9 +1,12 @@
-within Modelica.Blocks;
+within TestExternalTables.Blocks;
+    // within Modelica.Blocks;
+
+
 package Sources
   "Library of signal source blocks generating Real and Boolean signals"
   block RealExpression "Set output signal to a time varying Real expression"
 
-    Blocks.Interfaces.RealOutput y=0.0 "Value of Real output" 
+    Modelica.Blocks.Interfaces.RealOutput y=0.0 "Value of Real output" 
       annotation (                            Dialog(group=
             "Time varying output signal"), Placement(transformation(extent={{
               100,-10},{120,10}}, rotation=0)));
@@ -56,7 +59,7 @@ Variable <b>y</b> is both a variable and a connector.
   block IntegerExpression
     "Set output signal to a time varying Integer expression"
 
-    Blocks.Interfaces.IntegerOutput y=0 "Value of Integer output" 
+    Modelica.Blocks.Interfaces.IntegerOutput y=0 "Value of Integer output" 
       annotation (                            Dialog(group=
             "Time varying output signal"), Placement(transformation(extent={{
               100,-10},{120,10}}, rotation=0)));
@@ -109,7 +112,7 @@ Variable <b>y</b> is both a variable and a connector.
   block BooleanExpression
     "Set output signal to a time varying Boolean expression"
 
-    Blocks.Interfaces.BooleanOutput y=false "Value of Boolean output" 
+    Modelica.Blocks.Interfaces.BooleanOutput y=false "Value of Boolean output" 
       annotation (                            Dialog(group=
             "Time varying output signal"), Placement(transformation(extent={{
               100,-10},{120,10}}, rotation=0)));
@@ -142,10 +145,10 @@ Variable <b>y</b> is both a variable and a connector.
             lineColor={0,0,255}),
           Polygon(
             points={{100,10},{120,0},{100,-10},{100,10}},
-            lineColor=DynamicSelect({255,0,255}, if y > 0.5 then {0,255,0} else 
-                      {255,0,255}),
-            fillColor=DynamicSelect({255,255,255}, if y > 0.5 then {0,255,0} else 
-                      {255,255,255}),
+            lineColor=DynamicSelect({255,0,255}, if y > 0.5 then {0,255,0}
+                 else {255,0,255}),
+            fillColor=DynamicSelect({255,255,255}, if y > 0.5 then {0,255,0}
+                 else {255,255,255}),
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1897,20 +1900,21 @@ a flange according to a given acceleration.
 
   block KinematicPTP2
     "Move as fast as possible from start to end position within given kinematic constraints with output signals q, qd=der(q), qdd=der(qd)"
-
+    import SI = Modelica.SIunits;
     parameter Real q_begin[:] = {0} "Start position";
     parameter Real q_end[:] "End position";
     parameter Real qd_max[:](final min=Modelica.Constants.small)
       "Maximum velocities der(q)";
     parameter Real qdd_max[:](final min=Modelica.Constants.small)
       "Maximum accelerations der(qd)";
-    parameter SI.Time startTime=0 "Time instant at which movement starts";
+    parameter Modelica.SIunits.Time startTime=0
+      "Time instant at which movement starts";
 
     extends Modelica.Blocks.Interfaces.BlockIcon;
     final parameter Integer nout=max([size(q_begin, 1); size(q_end, 1); size(
         qd_max, 1); size(qdd_max, 1)])
       "Number of output signals (= dimension of q, qd, qdd, moving)";
-    output SI.Time endTime "Time instant at which movement stops";
+    output Modelica.SIunits.Time endTime "Time instant at which movement stops";
 
     Modelica.Blocks.Interfaces.RealOutput q[nout]
       "Reference position of path planning" 
@@ -2278,7 +2282,7 @@ a flange according to a given acceleration.
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-48,-50},{-48,70},{52,70},{52,-50},{-48,-50},{-48,-20},
-                {52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-51}},
+                {52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-51}}, 
               color={0,0,0}),
           Text(
             extent={{-150,-150},{150,-110}},
@@ -2512,15 +2516,16 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     parameter Integer columns[:]=2:size(table, 2)
       "Columns of table to be interpolated" 
     annotation(Dialog(group="table data interpretation"));
-    parameter Blocks.Types.Smoothness smoothness=Blocks.Types.Smoothness.LinearSegments
+    parameter Modelica.Blocks.Types.Smoothness smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments
       "Smoothness of table interpolation" 
     annotation(Dialog(group="table data interpretation"));
-    parameter Blocks.Types.Extrapolation extrapolation=Blocks.Types.Extrapolation.LastTwoPoints
+    parameter Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints
       "Extrapolation of data outside the definition range" 
     annotation(Dialog(group="table data interpretation"));
     parameter Real offset[:]={0} "Offsets of output signals" 
     annotation(Dialog(group="table data interpretation"));
-    parameter SI.Time startTime=0 "Output = offset for time < startTime" 
+    parameter Modelica.SIunits.Time startTime=0
+      "Output = offset for time < startTime" 
     annotation(Dialog(group="table data interpretation"));
     extends Modelica.Blocks.Interfaces.MO(final nout=max([size(columns, 1); size(offset, 1)]));
     final parameter Real t_min(fixed=false)
@@ -2528,46 +2533,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     final parameter Real t_max(fixed=false)
       "Maximum abscissa value defined in table";
 
-  protected
-    final parameter Real p_offset[nout]=(if size(offset, 1) == 1 then ones(nout)
-         *offset[1] else offset);
 
-    Integer tableID;
-
-    function tableTimeInit
-      input Real timeIn;
-      input Real startTime;
-      input Integer ipoType;
-      input Integer expoType;
-      input String tableName;
-      input String fileName;
-      input Real table[:, :];
-      input Integer colWise;
-      output Integer tableID;
-    external "C" tableID = dymTableTimeIni2(timeIn, startTime, ipoType,
-        expoType, tableName, fileName, table, size(table, 1), size(table, 2),
-        colWise);
-    end tableTimeInit;
-
-    function tableTimeIpo
-      input Integer tableID;
-      input Integer icol;
-      input Real timeIn;
-      output Real value;
-    external "C" value = dymTableTimeIpo2(tableID, icol, timeIn);
-    end tableTimeIpo;
-
-    function tableTimeTmin
-      input Integer tableID;
-      output Real Tmin "minimum time value in table";
-    external "C" Tmin = dymTableTimeTmin(tableID);
-    end tableTimeTmin;
-
-    function tableTimeTmax
-      input Integer tableID;
-      output Real Tmax "maximum time value in table";
-    external "C" Tmax = dymTableTimeTmax(tableID);
-    end tableTimeTmax;
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -2737,7 +2703,7 @@ Several matrices may be defined one after another.
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Line(points={{-48,-50},{-48,70},{52,70},{52,-50},{-48,-50},{-48,-20},
-                {52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-51}},
+                {52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-51}}, 
               color={0,0,0})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
@@ -2759,7 +2725,7 @@ Several matrices may be defined one after another.
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-20,-30},{-20,90},{80,90},{80,-30},{-20,-30},{-20,0},{
-                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{20,90},{20,-30}},
+                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{20,90},{20,-30}}, 
               color={0,0,0}),
           Text(
             extent={{-71,-42},{-32,-54}},
@@ -2816,6 +2782,48 @@ Several matrices may be defined one after another.
             extent={{51,82},{80,68}},
             lineColor={0,0,0},
             textString="y[2]")}));
+  protected
+    final parameter Real p_offset[nout]=(if size(offset, 1) == 1 then ones(nout)
+         *offset[1] else offset);
+
+    Integer tableID;
+
+    function tableTimeInit
+      input String tableName;
+      input String fileName;
+      input Real table[ :, :];
+      input Real startTime;
+      input Modelica.Blocks.Types.Smoothness smoothness;
+      input Modelica.Blocks.Types.Extrapolation extrapolation;
+      output Integer tableID;
+    external "C" tableID = ModelicaTables_CombiTimeTable_init(
+                   tableName, fileName, table, size(table, 1), size(table, 2),
+                   startTime, smoothness, extrapolation);
+    end tableTimeInit;
+
+    function tableTimeIpo
+      input Integer tableID;
+      input Integer icol;
+      input Real timeIn;
+      output Real value;
+    external "C" value = 
+                       ModelicaTables_CombiTimeTable_interpolate(tableID, icol, timeIn);
+    end tableTimeIpo;
+
+    function tableTimeTmin
+      input Integer tableID;
+      output Real Tmin "minimum time value in table";
+    external "C" Tmin = 
+                      ModelicaTables_CombiTimeTable_minimumTime(tableID);
+    end tableTimeTmin;
+
+    function tableTimeTmax
+      input Integer tableID;
+      output Real Tmax "maximum time value in table";
+    external "C" Tmax = 
+                      ModelicaTables_CombiTimeTable_maximumTime(tableID);
+    end tableTimeTmax;
+
   equation
     if tableOnFile then
       assert(tableName<>"NoName", "tableOnFile = true and no table name given");
@@ -2827,9 +2835,9 @@ Several matrices may be defined one after another.
       y[i] = p_offset[i] + tableTimeIpo(tableID, columns[i], time);
     end for;
     when initial() then
-      tableID=tableTimeInit(0.0, startTime, smoothness-1,
-        extrapolation-1, (if not tableOnFile then "NoName" else tableName),
-                         (if not tableOnFile then "NoName" else fileName), table, 0);
+      tableID=tableTimeInit((if not tableOnFile then "NoName" else tableName),
+                            (if not tableOnFile then "NoName" else fileName), table,
+                            startTime, smoothness, extrapolation);
     end when;
   initial equation
       t_min=tableTimeTmin(tableID);
