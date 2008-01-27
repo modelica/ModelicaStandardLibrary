@@ -2896,8 +2896,6 @@ For details of the arguments, see documentation of dgesv.
         A, 1), info) annotation (Library="Lapack");
     end dgesv_vec;
 
-
-
     function dgglse_vec
       "Solve a linear equality constrained least squares problem"
       extends Modelica.Icons.Function;
@@ -3463,7 +3461,6 @@ elements of U because of fill-in resulting from the row interchanges."),
         annotation (Library="Lapack");
     end dgesvd_sigma;
 
-
     function dgetrf
       "Compute LU factorization of square or rectangular matrix A (A = P*L*U)"
 
@@ -3816,7 +3813,7 @@ then the jth column of P is the ith canonical unit vector."),
       Integer ncol=size(A, 2) "Column dimension of A";
       Real work[3*ncol] "work array";
     external "FORTRAN 77" dgeqpf(size(A, 1), ncol, QR, size(A, 1), p, tau, work,
-         info) annotation (Library="Lapack");
+         info) annotation (Library={"Lapack"});
     end dgeqpf;
 
     function dorgqr
@@ -3888,7 +3885,7 @@ INFO    (output) INTEGER
       Integer lwork=min(10, size(QR, 2))*size(QR, 2) "Length of work array";
       Real work[lwork];
     external "FORTRAN 77" dorgqr(size(QR, 1), size(QR, 2), size(tau, 1), Q,
-        size(Q, 1), tau, work, lwork, info) annotation (Library="Lapack");
+        size(Q, 1), tau, work, lwork, info) annotation (Library={"Lapack"});
     end dorgqr;
       annotation (Documentation(info="<html>
 <p>
@@ -3902,7 +3899,7 @@ the much more convenient interface of
 The documentation of the LAPACK functions is a copy of the original
 FORTRAN code.
 </p>
-
+ 
 <p>
 The details of LAPACK are described in:
 </p>
