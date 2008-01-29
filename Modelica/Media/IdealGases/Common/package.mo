@@ -153,7 +153,6 @@ and adapted to the Modelica.Media package.
   extends Interfaces.PartialPureSubstance(
      mediumName=data.name,
      substanceNames={data.name},
-     final reducedX=true,
      singleState=false,
      Temperature(min=200, max=6000, start=500, nominal=500),
      SpecificEnthalpy(start=if referenceChoice==ReferenceEnthalpy.ZeroAt0K then data.H0 else 
@@ -229,7 +228,6 @@ and adapted to the Modelica.Media package.
 Temperature T (= " + String(T) + " K) is not in the allowed range
 200 K <= T <= 6000 K required from medium model \"" + mediumName + "\".
 ");
-    X = reference_X;
     MM = data.MM;
     R = data.R;
     h = h_T(data, T, excludeEnthalpyOfFormation, referenceChoice, h_offset);

@@ -3270,8 +3270,8 @@ The details of the pipe friction model are described
           X_ambient=0.5*X_start) 
                                 annotation (Placement(transformation(extent={{
                   -80,0},{-60,20}}, rotation=0)));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent=
-                  {{-100,-100},{100,100}}),
+        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}),
                             graphics),
                              Documentation(info="<html>
   
@@ -3846,6 +3846,7 @@ kind of media.
       final substanceNames={mediumName},
       final singleState=false,
       final reducedX =  true,
+      final fixedX = true,
       Temperature(min=273, max=450, start=323));
 
       // Provide medium constants here
@@ -3858,11 +3859,15 @@ kind of media.
          singleState is true if u and d do not depend on pressure, but only
          on a thermal variable (temperature or enthalpy). Otherwise, set it
          to false.
-         For a single-substance medium, just set reducedX to true, and there's
+         For a single-substance medium, just set reducedX and fixedX to true, and there's
          no need to bother about medium compositions at all. Otherwise, set
          final reducedX = true if the medium model has nS-1 independent mass
          fraction, or reducedX = false if the medium model has nS independent
          mass fractions (nS = number of substances).
+         If a mixture has a fixed composition set fixedX=true, otherwise false.
+         The modifiers for reducedX and fixedX should normally be final 
+         since the other equations are based on these values.
+
          It is also possible to redeclare the min, max, and start attributes of
          Medium types, defined in the base class Interfaces.PartialMedium
          (the example of Temperature is shown here). Min and max attributes 
@@ -3888,7 +3893,8 @@ kind of media.
      p,T as independent variables.
   */
 
-    redeclare model extends BaseProperties "Base properties of medium"
+    redeclare model extends BaseProperties(final standardOrderComponents=true)
+      "Base properties of medium"
 
       annotation (Documentation(info="<html></html>"));
     equation
@@ -3899,7 +3905,6 @@ kind of media.
       R  = 8.3144/MM;
       state.p = p;
       state.T = T;
-      X = reference_X;
       annotation (Documentation(revisions="<html>
  
 </html>"));
@@ -4029,7 +4034,7 @@ Modelica source.
     final constant Integer nS=size(substanceNames, 1) "Number of substances" annotation(Evaluate=true);
     constant Integer nX = nS "Number of mass fractions" 
                                  annotation(Evaluate=true);
-    constant Integer nXi=if fixedX then 0 else if reducedX or nS == 1 then nS - 1 else nS
+    constant Integer nXi=if fixedX then 0 else if reducedX then nS - 1 else nS
       "Number of structurally independent mass fractions (see docu for details)"
       annotation(Evaluate=true);
 
@@ -4103,7 +4108,7 @@ Modelica source.
     equation
       if standardOrderComponents then
         Xi = X[1:nXi];
-        if nX > 1 then
+
           if fixedX then
             X = reference_X;
           end if;
@@ -4115,7 +4120,7 @@ Modelica source.
                    String(i) + "] = " + String(X[i]) + "of substance "
                    + substanceNames[i] + "\nof medium " + mediumName + " is not in the range 0..1");
           end for;
-        end if;
+
       end if;
 
       assert(p >= 0.0, "Pressure (= " + String(p) + " Pa) of medium \"" +
@@ -4696,16 +4701,16 @@ are described in
 
   partial package PartialPureSubstance
     "base class for pure substances of one chemical substance"
-    extends PartialMedium;
+    extends PartialMedium(final reducedX = true, final fixedX=true);
 
-    replaceable function setState_pT "Return thermodynamic state from p and T"
+   replaceable function setState_pT "Return thermodynamic state from p and T"
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
       output ThermodynamicState state "thermodynamic state record";
-    algorithm
+   algorithm
       state := setState_pTX(p,T,fill(0,0));
-    end setState_pT;
+   end setState_pT;
 
     replaceable function setState_ph "Return thermodynamic state from p and h"
       extends Modelica.Icons.Function;
@@ -4817,6 +4822,10 @@ are described in
     algorithm
       d := density(setState_pTX(p, T, fill(0,0)));
     end density_pT;
+
+    redeclare replaceable partial model extends BaseProperties(
+      final standardOrderComponents=true)
+    end BaseProperties;
   end PartialPureSubstance;
 
 partial package PartialLinearFluid
@@ -4863,7 +4872,6 @@ partial package PartialLinearFluid
         T = state.T;
         MM = MM_const;
         R  = 8.3144/MM;
-        X = reference_X;
       end BaseProperties;
 
       redeclare function extends setState_pTX
@@ -5868,8 +5876,7 @@ end PartialMixtureMedium;
   partial package PartialSimpleMedium
     "Medium model with linear dependency of u, h from temperature. All other quantities, especially density, are constant."
 
-    extends Interfaces.PartialPureSubstance(final singleState=true,final
-        reducedX =                                                                  true);
+    extends Interfaces.PartialPureSubstance(final singleState=true);
 
     import SI = Modelica.SIunits;
     constant SpecificHeatCapacity cp_const
@@ -5910,7 +5917,6 @@ required from medium model \""     + mediumName + "\".
       MM = MM_const;
       state.T = T;
       state.p = p;
-      X = reference_X;
           annotation (Documentation(info="<HTML>
 <p>
 This is the most simple incompressible medium model, where
@@ -5971,6 +5977,7 @@ quantities are assumed to be constant.
     end setState_dTX;
 
     redeclare function extends dynamicViscosity "Return dynamic viscosity"
+
     annotation(Documentation(info="<html></html>"));
     algorithm
       eta := eta_const;
@@ -5978,6 +5985,7 @@ quantities are assumed to be constant.
 
     redeclare function extends thermalConductivity
       "Return thermal conductivity"
+
       annotation (Documentation(info="<html></html>"));
     algorithm
       lambda := lambda_const;
@@ -5985,6 +5993,7 @@ quantities are assumed to be constant.
 
     redeclare function extends specificHeatCapacityCp
       "Return specific heat capacity at constant pressure"
+
       annotation(Documentation(info="<html></html>"));
     algorithm
       cp := cp_const;
@@ -5992,18 +6001,21 @@ quantities are assumed to be constant.
 
     redeclare function extends specificHeatCapacityCv
       "Return specific heat capacity at constant volume"
+
       annotation(Documentation(info="<html></html>"));
     algorithm
       cv := cv_const;
     end specificHeatCapacityCv;
 
     redeclare function extends isentropicExponent "Return isentropic exponent"
+
       annotation(Documentation(info="<html></html>"));
     algorithm
       gamma := cp_const/cv_const;
     end isentropicExponent;
 
     redeclare function extends velocityOfSound "Return velocity of sound "
+
       annotation(Documentation(info="<html></html>"));
     algorithm
       a := a_const;
@@ -6049,8 +6061,7 @@ quantities are assumed to be constant.
   partial package PartialSimpleIdealGasMedium
     "Medium model of Ideal gas with constant cp and cv. All other quantities, e.g. transport properties, are constant."
 
-    extends Interfaces.PartialPureSubstance(final singleState=false,final
-        reducedX =                                                                 true);
+    extends Interfaces.PartialPureSubstance(final singleState=false);
 
     import SI = Modelica.SIunits;
     constant SpecificHeatCapacity cp_const
@@ -6090,7 +6101,6 @@ required from medium model \""     + mediumName + "\".
       MM = MM_const;
       state.T = T;
       state.p = p;
-      X = reference_X;
           annotation (Documentation(info="<HTML>
 <p>
 This is the most simple incompressible medium model, where
