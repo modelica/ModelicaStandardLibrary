@@ -1534,12 +1534,12 @@ buttons:
                 {119,0}}, color={0,0,0}));
     end MakeProduct;
 
-    connector inflow
+    connector inflow1
         "Inflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
-        import Units = Modelica.SIunits;
+      import Units = Modelica.SIunits;
 
-      Units.VolumeFlowRate Fi "inflow";
+      input Units.VolumeFlowRate Fi "inflow";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Polygon(
                 points={{-100,-100},{0,100},{100,-100},{-100,-100}},
@@ -1547,15 +1547,30 @@ buttons:
                 lineThickness=2,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid)}));
-    end inflow;
+    end inflow1;
 
-    connector outflow
+    connector inflow2
+        "Inflow connector (this is a copy from Isolde Dressler's master thesis project)"
+
+      import Units = Modelica.SIunits;
+
+      output Units.VolumeFlowRate Fi "inflow";
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={Polygon(
+                points={{-100,-100},{0,100},{100,-100},{-100,-100}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid)}));
+    end inflow2;
+
+    connector outflow1
         "Outflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
-        import Units = Modelica.SIunits;
+      import Units = Modelica.SIunits;
 
-      Units.VolumeFlowRate Fo "outflow";
-      Boolean open "valve open";
+      output Units.VolumeFlowRate Fo "outflow";
+      input Boolean open "valve open";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Polygon(
                 points={{-100,100},{0,-100},{100,100},{-100,100}},
@@ -1563,7 +1578,23 @@ buttons:
                 lineThickness=2,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid)}));
-    end outflow;
+    end outflow1;
+
+    connector outflow2
+        "Outflow connector (this is a copy from Isolde Dressler's master thesis project)"
+
+      import Units = Modelica.SIunits;
+
+      input Units.VolumeFlowRate Fo "outflow";
+      output Boolean open "valve open";
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={Polygon(
+                points={{-100,100},{0,-100},{100,100},{-100,100}},
+                lineColor={0,0,0},
+                lineThickness=2,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid)}));
+    end outflow2;
 
     model valve
         "Simple valve model (this is a copy from Isolde Dressler's master thesis project)"
@@ -1594,11 +1625,13 @@ buttons:
               origin={0,-80},
               extent={{-20,-20},{20,20}},
               rotation=90)));
-      inflow inflow1 annotation (Placement(transformation(
+      Modelica.StateGraph.Examples.Utilities.inflow2 inflow1 
+                     annotation (Placement(transformation(
               origin={50,0},
               extent={{-50,-50},{50,50}},
               rotation=90)));
-      outflow outflow1 annotation (Placement(transformation(
+      Modelica.StateGraph.Examples.Utilities.outflow2 outflow1 
+                       annotation (Placement(transformation(
               origin={-50,0},
               extent={{-50,-50},{50,50}},
               rotation=90)));
@@ -1614,9 +1647,11 @@ buttons:
         annotation (Placement(transformation(extent={{-61,-30},{-81,-10}},
                 rotation=0)));
 
-      inflow inflow1 annotation (Placement(transformation(extent={{-55,60},{-45,
+      Modelica.StateGraph.Examples.Utilities.inflow1 inflow1 
+                     annotation (Placement(transformation(extent={{-55,60},{-45,
                   70}}, rotation=0)));
-      outflow outflow1 annotation (Placement(transformation(extent={{55,-50},{
+      Modelica.StateGraph.Examples.Utilities.outflow1 outflow1 
+                       annotation (Placement(transformation(extent={{55,-50},{
                   65,-40}}, rotation=0)));
       annotation (
         Diagram(coordinateSystem(
@@ -1665,7 +1700,8 @@ buttons:
     model Source
         "Simple source model (this is a copy from Isolde Dressler's master thesis project)"
 
-      outflow outflow1 annotation (Placement(transformation(extent={{-10,-60},{
+      Modelica.StateGraph.Examples.Utilities.outflow1 outflow1 
+                       annotation (Placement(transformation(extent={{-10,-60},{
                   10,-40}}, rotation=0)));
       parameter Real maxflow=1 "maximal flow out of source";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1679,7 +1715,9 @@ buttons:
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="%name",
-                lineColor={0,0,255})}));
+                lineColor={0,0,255})}), Diagram(coordinateSystem(
+                preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+              graphics));
     equation
       if outflow1.open then
         outflow1.Fo = maxflow;
@@ -3219,9 +3257,9 @@ value, still requires to go in to the text layer.
                 100}}),
           graphics={Rectangle(
               extent={{-100,-100},{100,100}},
-              fillColor=DynamicSelect({192,192,192}, if on > 0.5 then {0,255,0} else 
-                        {192,192,192}),
-              fillPattern=DynamicSelect(FillPattern.Solid, if on > 0.5 then 
+              fillColor=DynamicSelect({192,192,192}, if on > 0.5 then {0,255,0}
+                   else {192,192,192}),
+              fillPattern=DynamicSelect(FillPattern.Solid, if on > 0.5 then
                   FillPattern.Solid else FillPattern.Solid),
               lineColor={128,128,128},
               lineThickness=2), Text(
