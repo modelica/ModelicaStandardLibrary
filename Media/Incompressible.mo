@@ -38,6 +38,7 @@ package Incompressible
 
     extends Modelica.Media.Interfaces.PartialMedium(
        final reducedX=true,
+       final fixedX = true,
        mediumName="tableMedium",
        redeclare record ThermodynamicState=Common.BaseProps_Tpoly,
        singleState=true);
@@ -129,6 +130,7 @@ function calls can not be used.
     end invertTemp;
 
     redeclare model extends BaseProperties(
+      final standardOrderComponents=true,
       p_bar=Cv.to_bar(p),
       T_degC(start = T_start-273.15)=Cv.to_degC(T),
       T(start = T_start,
@@ -183,7 +185,6 @@ which is only exactly true for a fluid with constant density d=d0.
       state.T = T;
       state.p = p;
       MM = MM_const;
-      X = reference_X;
     end BaseProperties;
 
     redeclare function extends setState_pTX

@@ -254,7 +254,7 @@ package ConstantPropertyLiquidWater
      MM_const=0.018015268,
      fluidConstants = simpleWaterConstants);
 
-  annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-90,88},{90,18}},
           lineColor={0,0,0},
@@ -266,7 +266,7 @@ package ConstantPropertyLiquidWater
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           textString="water")}),
-                            Diagram(coordinateSystem(preserveAspectRatio=true,
+                            Diagram(coordinateSystem(preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}),
                                     graphics),
     Documentation(info="<html>
@@ -332,7 +332,7 @@ end WaterIF97_ph;
 partial package WaterIF97_base
   "Water: Steam properties as defined by IAPWS/IF97 standard"
 
-  annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-94,84},{94,40}},
           lineColor={127,191,255},
@@ -392,7 +392,6 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
   extends Interfaces.PartialTwoPhaseMedium(
      mediumName="WaterIF97",
      substanceNames={"water"},
-     final reducedX=true,
      singleState=false,
      SpecificEnthalpy(start=1.0e5, nominal=5.0e5),
      Density(start=150, nominal=500),
@@ -425,7 +424,6 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     SaturationProperties sat(Tsat(start=300.0), psat(start=1.0e5))
       "saturation temperature and pressure";
   equation
-    X = reference_X;
     MM = fluidConstants[1].molarMass;
     if smoothModel then
       if onePhase then
@@ -903,7 +901,7 @@ end WaterIF97_base;
 partial package WaterIF97_fixedregion
   "Water: Steam properties as defined by IAPWS/IF97 standard"
 
-  annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-94,84},{94,40}},
           lineColor={127,191,255},
@@ -965,7 +963,6 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
      mediumName="WaterIF97",
      substanceNames={"water"},
      singleState=false,
-     final reducedX=true,
      SpecificEnthalpy(start=1.0e5, nominal=5.0e5),
      Density(start=150, nominal=500),
      AbsolutePressure(start=50e5, nominal=10e5),
@@ -998,7 +995,6 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
     SaturationProperties sat(Tsat(start=300.0), psat(start=1.0e5))
       "saturation temperature and pressure";
   equation
-    X = reference_X;
     MM = fluidConstants[1].molarMass;
     if smoothModel then
       if onePhase then
