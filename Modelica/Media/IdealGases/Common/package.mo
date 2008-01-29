@@ -352,7 +352,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   redeclare function extends velocityOfSound "Return velocity of sound"
     extends Modelica.Icons.Function;
   algorithm
-    a := sqrt(data.R*state.T*cp_T(data, state.T)/specificHeatCapacityCv(state));
+    a := sqrt(max(0,data.R*state.T*cp_T(data, state.T)/specificHeatCapacityCv(state)));
   end velocityOfSound;
 
   function isentropicEnthalpyApproximation
@@ -597,9 +597,9 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
       "Constant in formula for eta converted to SI units";
     parameter Real Const2_SI=131.3/1000.0
       "Constant in formula for mur converted to SI units";
-    parameter Real mur=Const2_SI*mu/sqrt(Vc*Tc)
+    Real mur=Const2_SI*mu/sqrt(Vc*Tc)
       "Dimensionless dipole moment of gas molecule";
-    parameter Real Fc=1 - 0.2756*w + 0.059035*mur^4 + k
+    Real Fc=1 - 0.2756*w + 0.059035*mur^4 + k
       "Factor to account for molecular shape and polarities of gas";
     Real Tstar "Dimensionless temperature defined by equation below";
     Real Ov "Viscosity collision integral for the gas";
@@ -1024,7 +1024,7 @@ required from medium model \""   + mediumName + "\".");
     extends Modelica.Icons.Function;
     input ThermodynamicState state "properties at upstream location";
   algorithm
-    a := sqrt(gasConstant(state)*state.T*specificHeatCapacityCp(state)/specificHeatCapacityCv(state));
+    a := sqrt(max(0,gasConstant(state)*state.T*specificHeatCapacityCp(state)/specificHeatCapacityCv(state)));
   end velocityOfSound;
 
   function isentropicEnthalpyApproximation
