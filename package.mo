@@ -1,4 +1,4 @@
-within ; 
+within ;
 package Modelica "Modelica Standard Library (Version 3.0)"
 extends Icons.Library;
 
@@ -753,7 +753,8 @@ more of the following changes.
 <p>
 Version 3.0 is <b>not</b> backward compatible to previous versions.
 A conversion script is provided to transform models and libraries
-of previous versions to the new version.
+of previous versions to the new version. Therefore, conversion 
+should be automatic.
 </p>
 
 <p>
@@ -1202,6 +1203,18 @@ have been <b style=\"color:blue\">changed</b> in a
                         (the unit checker needs to know for a unit that has an offset,
                         whether it is used as absolute or as a relative number)</td> </tr>
 
+  <tr><td colspan=\"2\"><b>StateGraph.Examples.</b></td></tr>
+  <tr><td valign=\"top\"> ControlledTanks </td>
+      <td valign=\"top\"> The connectors of the ControlledTanks did not fulfill the new
+                        restrictions of Modelica 3. This has been fixed.</td> </tr>
+  <tr><td valign=\"top\"> Utilities </td>
+      <td valign=\"top\"> Replacing inflow, outflow by connectors inflow1, inflow2, 
+                        outflow1, outflow2 with appropriate input/output prefixes in 
+                        order to fufill the restrictions of Modelica 3 to arrive
+                        at balanced models. No conversion is provided, since
+                        too difficult and since the non-backward compatible change is in
+                        an example. </td> </tr>
+
   <tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.Sensors.</b></td></tr>
   <tr><td valign=\"top\"> <br>
                         pSensor<br>TSensor<br>dpSensor<br>dTSensor<br>m_flowSensor<br>V_flowSensor<br>H_flowSensor</td>
@@ -1211,7 +1224,7 @@ have been <b style=\"color:blue\">changed</b> in a
 
   <tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.Sources.</b></td></tr>
   <tr><td valign=\"top\"> Ambient<br>PrescribedAmbient</td>
-      <td valign=\"top\"> available as one combined component Ambient<br>
+      <td valign=\"top\"> ava" + "ilable as one combined component Ambient<br>
                         Boolean parameters usePressureInput and useTemperatureInput decide 
                         whether pressure and/or temperature are constant or prescribed</td> </tr>
   <tr><td valign=\"top\"> ConstantVolumeFlow<br>PrescribedVolumeFlow</td>
@@ -1221,7 +1234,7 @@ have been <b style=\"color:blue\">changed</b> in a
   <tr><td valign=\"top\"> ConstantPressureIncrease<br>PrescribedPressureIncrease</td>
       <td valign=\"top\"> available as one combined component PressureIncrease<br>
                         Boolean parameter usePressureIncreaseInput decides 
-                        whether pressure increase i" + "s constant or prescribed</td> </tr>
+                        whether pressure increase is constant or prescribed</td> </tr>
 
   <tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.Examples.</b></td></tr>
   <tr><td valign=\"top\"> </td>
@@ -1431,6 +1444,11 @@ units are wrong or errors in documentation):
   <tr><td valign=\"top\"> GasForce </td>
       <td valign=\"top\"> Unit of variable \"press\" corrected (from Pa to bar)</td> 
   </tr>
+
+  <tr><td colspan=\"2\"><b>StateGraph.Examples.</b></td></tr>
+  <tr><td valign=\"top\">SimpleFriction</td>
+      <td valign=\"top\"> The internal parameter k is defined and calculated with the appropriate unit.</td> </tr>
+
 
   <tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.Interfaces.Partials.</b></td></tr>
   <tr><td valign=\"top\">SimpleFriction</td>
