@@ -4962,7 +4962,7 @@ partial package PartialLinearFluid
       "Return velocity of sound from the thermodynamic state"
         extends Modelica.Icons.Function;
       algorithm
-        a := sqrt(1/(kappa_const*density(state) -beta_const*beta_const*state.T/cp_const));
+        a := sqrt(max(0,1/(kappa_const*density(state) -beta_const*beta_const*state.T/cp_const)));
       end velocityOfSound;
 
       redeclare function extends isentropicExponent

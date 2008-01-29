@@ -3415,7 +3415,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
         Real pi "dimensionless pressure";
         Real[49] o "vector of auxiliary variables";
       algorithm
-        pi := p*data.IPSTAR;
+        pi := max(Modelica.Constants.small,p*data.IPSTAR);
         o[1] := pi^0.75;
         o[2] := 1/o[1];
         o[3] := -4.268461735023*o[2];
@@ -6817,10 +6817,10 @@ Ordinary Water Substance<br>
       LateInline=true);
   algorithm
     // dp/drho at constant s
-    v_sound := if aux.region == 3 then sqrt((aux.pd*aux.rho*aux.rho*aux.cv + aux.pt*aux.pt*aux.T)/(aux.rho*aux.rho*aux.cv)) else 
+    v_sound := if aux.region == 3 then sqrt(max(0,(aux.pd*aux.rho*aux.rho*aux.cv + aux.pt*aux.pt*aux.T)/(aux.rho*aux.rho*aux.cv))) else 
       if aux.region == 4 then 
-      sqrt(1/((aux.rho*(aux.rho*aux.cv/aux.dpT + 1.0)/(aux.dpT*aux.T)) - 1/aux.rho*aux.rho*aux.rho/(aux.dpT*aux.T))) else 
-           sqrt(-aux.cp/(aux.rho*aux.rho*(aux.vp*aux.cp+aux.vt*aux.vt*aux.T)));
+      sqrt(max(0,1/((aux.rho*(aux.rho*aux.cv/aux.dpT + 1.0)/(aux.dpT*aux.T)) - 1/aux.rho*aux.rho*aux.rho/(aux.dpT*aux.T)))) else 
+           sqrt(max(0,-aux.cp/(aux.rho*aux.rho*(aux.vp*aux.cp+aux.vt*aux.vt*aux.T))));
   end velocityOfSound_props_ph;
 
   function velocityOfSound_ph
@@ -7233,8 +7233,8 @@ Ordinary Water Substance<br>
       LateInline=true);
   algorithm
     // dp/drho at constant s
-    v_sound := if aux.region == 3 then sqrt((aux.pd*aux.rho*aux.rho*aux.cv + aux.pt*aux.pt*aux.T)/(aux.rho*aux.rho*aux.cv)) else 
-      sqrt(-aux.cp/(aux.rho*aux.rho*(aux.vp*aux.cp+aux.vt*aux.vt*aux.T)));
+    v_sound := if aux.region == 3 then sqrt(max(0,(aux.pd*aux.rho*aux.rho*aux.cv + aux.pt*aux.pt*aux.T)/(aux.rho*aux.rho*aux.cv))) else 
+      sqrt(max(0,-aux.cp/(aux.rho*aux.rho*(aux.vp*aux.cp+aux.vt*aux.vt*aux.T))));
   end velocityOfSound_props_pT;
 
   function velocityOfSound_pT
@@ -7639,10 +7639,10 @@ Ordinary Water Substance<br>
       LateInline=true);
   algorithm
     // dp/drho at constant s
-    v_sound := if aux.region == 3 then sqrt((aux.pd*aux.rho*aux.rho*aux.cv + aux.pt*aux.pt*aux.T)/(aux.rho*aux.rho*aux.cv)) else 
+    v_sound := if aux.region == 3 then sqrt(max(0,((aux.pd*aux.rho*aux.rho*aux.cv + aux.pt*aux.pt*aux.T)/(aux.rho*aux.rho*aux.cv)))) else 
       if aux.region == 4 then 
-      sqrt(1/((aux.rho*(aux.rho*aux.cv/aux.dpT + 1.0)/(aux.dpT*aux.T)) - 1/aux.rho*aux.rho*aux.rho/(aux.dpT*aux.T))) else 
-           sqrt(-aux.cp/(aux.rho*aux.rho*(aux.vp*aux.cp+aux.vt*aux.vt*aux.T)));
+      sqrt(max(0,1/((aux.rho*(aux.rho*aux.cv/aux.dpT + 1.0)/(aux.dpT*aux.T)) - 1/aux.rho*aux.rho*aux.rho/(aux.dpT*aux.T)))) else 
+           sqrt(max(0,-aux.cp/(aux.rho*aux.rho*(aux.vp*aux.cp+aux.vt*aux.vt*aux.T))));
   end velocityOfSound_props_dT;
 
   function velocityOfSound_dT

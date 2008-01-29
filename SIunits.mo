@@ -1380,8 +1380,8 @@ still kept in Modelica.SIunits.</p>
       final quantity="AmountOfSubstance",
       final unit="mol",
       min=0);
-  type MolarMass = Real (final quantity="MolarMass", final unit="kg/mol");
-  type MolarVolume = Real (final quantity="MolarVolume", final unit="m3/mol");
+  type MolarMass = Real (final quantity="MolarMass", final unit="kg/mol",min=0);
+  type MolarVolume = Real (final quantity="MolarVolume", final unit="m3/mol", min=0);
   type MolarInternalEnergy = Real (final quantity="MolarInternalEnergy", final unit
         =    "J/mol");
   type MolarHeatCapacity = Real (final quantity="MolarHeatCapacity", final unit
