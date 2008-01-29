@@ -232,7 +232,7 @@ the output y is identical to parameter yStart.
     parameter Real b[:]={1} "Numerator coefficients of transfer function.";
     parameter Real a[:] "Denominator coefficients of transfer function.";
     extends Interfaces.DiscreteSISO;
-    output Real x[size(a, 1) - 1](start=zeros(size(a, 1) - 1), fixed=fill(true,size(a, 1) - 1))
+    output Real x[size(a, 1) - 1](each start=0, each fixed=true)
       "State of transfer function from controller canonical form";
   protected
     parameter Integer nb=size(b, 1) "Size of Numerator of transfer function";
