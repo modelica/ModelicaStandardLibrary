@@ -4190,7 +4190,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1},
-            initialScale=0.2), graphics={
+            initialScale=0.2), graphics(
             Text(
               extent={{-140,-41},{140,-66}},
               lineColor={0,0,255},
@@ -4316,7 +4316,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Line(
               points={{90,30},{90,40},{95,40}},
               color={95,95,95},
-              thickness=2)}),
+              thickness=2))),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -4732,7 +4732,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1},
-            initialScale=0.2), graphics={
+            initialScale=0.2), graphics(
             Rectangle(
               extent={{50,20},{80,-20}},
               lineColor={0,0,0},
@@ -4863,12 +4863,12 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Line(
               points={{95,40},{90,40},{90,30}},
               color={135,135,135},
-              thickness=2)}),
+              thickness=2))),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1},
-            initialScale=0.2), graphics={
+            initialScale=0.2), graphics(
             Line(
               points={{-78,30},{-50,30}},
               color={128,128,128},
@@ -4884,7 +4884,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Line(
               points={{3,30},{-43,30}},
               color={128,128,128},
-              arrow={Arrow.None,Arrow.Filled})}));
+              arrow={Arrow.None,Arrow.Filled}))));
 
       Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint
         prismatic(
@@ -5967,7 +5967,7 @@ are connected by rigid rods.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1},
-            initialScale=0.2), graphics={
+            initialScale=0.2), graphics(
             Rectangle(
               extent={{-90,90},{90,-90}},
               lineColor={255,255,255},
@@ -6057,7 +6057,7 @@ are connected by rigid rods.
             Line(
               points={{100,40},{93,40},{93,3}},
               color={95,95,95},
-              thickness=2)}),
+              thickness=2))),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -6784,6 +6784,8 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
         Real C "Coefficient C of equation: A*cos(phi) + B*sin(phi) + C = 0";
         Real k1 "Constant of quadratic equation";
         Real k2 "Constant of quadratic equation";
+        Real k1a;
+        Real k1b;
         Real kcos1 "k1*cos(angle1)";
         Real ksin1 "k1*sin(angle1)";
         Real kcos2 "k2*cos(angle2)";
@@ -6835,7 +6837,22 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
         B := 2*r_b*cross(e, r_a);
         C := r_a*r_a + r_b*r_b - L*L - 2*e_r_b*e_r_a;
         k1 := A*A + B*B;
-        k2 := sqrt(k1 - C*C);
+        k1a :=k1 - C*C;
+        assert(k1a > 1.e-10, "
+Singular position of loop (either no or two analytic solutions;
+the mechanism has lost one-degree-of freedom in this position).
+Try first to use another Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXXX component.
+In most cases it is best that the joints outside of the JointXXX
+component are revolute and NOT prismatic joints. If this also
+lead to singular positions, it could be that this kinematic loop
+cannot be solved analytically. In this case you have to build
+up the loop with basic joints (NO aggregation JointXXX components)
+and rely on dynamic state selection, i.e., during simulation
+the states will be dynamically selected in such a way that in no
+position a degree of freedom is lost.
+");
+        k1b := max(k1a, 1.0e-12);
+        k2 := sqrt(k1b);
 
         kcos1 := -A*C + B*k2;
         ksin1 := -B*C - A*k2;
@@ -7194,6 +7211,8 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
         Real C "Coefficient C of equation: d*d + B*d + C = 0";
         Real k1 "Constant of quadratic equation solution";
         Real k2 "Constant of quadratic equation solution";
+        Real k1a;
+        Real k1b;
         Real d1 "solution 1 of quadratic equation";
         Real d2 "solution 2 of quadratic equation";
       algorithm
@@ -7221,7 +7240,21 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
         B := 2*(e*rbra);
         C := rbra*rbra - L*L;
         k1 := B/2;
-        k2 := sqrt(k1*k1 - C);
+        k1a :=k1*k1 - C;
+      assert(noEvent(k1a > 1.e-10), "
+Singular position of loop (either no or two analytic solutions;
+the mechanism has lost one-degree-of freedom in this position).
+Try first to use another Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXXX component.
+If this also lead to singular positions, it could be that this
+kinematic loop cannot be solved analytically with a fixed state
+selection. In this case you have to build up the loop with
+basic joints (NO aggregation JointXXX components) and rely on
+dynamic state selection, i.e., during simulation the states will
+be dynamically selected in such a way that in no position a
+degree of freedom is lost.
+");
+        k1b :=max(k1a, 1.0e-12);
+        k2 :=sqrt(k1b);
         d1 := -k1 + k2;
         d2 := -k1 - k2;
         if abs(d1 - d_guess) <= abs(d2 - d_guess) then
