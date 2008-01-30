@@ -1096,6 +1096,29 @@ have been <b style=\"color:blue\">changed</b> in a
                         (all Assembly joint models are now \"balanced\").</td> </tr>
 
 
+  <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Joints.Internal</b></td></tr>
+  <tr><td valign=\"top\"> RevoluteWithLengthConstraint<br>
+                        PrismaticWithLengthConstraint</td>
+      <td valign=\"top\"> These joints should not be used by a user of the MultiBody library. 
+                        They are only provided to built-up the
+                        MultiBody.Joints.Assemblies.JointXYZ joints.
+                        These two joints have been changed in a slightly not backward compatible
+                        way, in order that the usage in the Assemblies.JointXYZ joints results in 
+                        balanced models (<b>no conversion is provided for this change since the
+                        user should not have used these joints and the conversion would be too
+                        complicated</b>): 
+                        In releases before version 3.0 of the Modelica Standard Library, 
+                        it was possible to activate the torque/force projection equation 
+                        (= cut-torque/-force projected to the rotation/translation
+                        axis must be identical to
+                        the drive torque/force of flange axis) via parameter <b>axisTorqueBalance</b>.
+                        This is no longer possible, since otherwise this model would not be
+                        \"balanced\" (= same number of unknowns as equations). Instead, when
+                        using this model in version 3.0 and later versions, the torque/force
+                        projection equation must be provided in the Advanced menu of joints
+                        Joints.SphericalSpherical and Joints.UniversalSpherical
+                        via the new parameter \"constraintResidue\".</td> </tr>
+
   <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Parts.</b></td></tr>
   <tr><td valign=\"top\"> BodyBox<br>
                         BodyCylinder</td>
@@ -1196,7 +1219,7 @@ have been <b style=\"color:blue\">changed</b> in a
 
   <tr><td colspan=\"2\"><b>SIunits.Conversions.NonSIunits.</b></td></tr>
   <tr><td valign=\"top\"> Temperature_degC<br>
-                        Temperature_degF<br>
+                    " + "    Temperature_degF<br>
                         Temperature_degRk </td>
       <td valign=\"top\"> Added annotation \"__Dymola_absoluteValue=true\"
                         in order that unit checking is possible<br> 
@@ -1224,7 +1247,7 @@ have been <b style=\"color:blue\">changed</b> in a
 
   <tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.Sources.</b></td></tr>
   <tr><td valign=\"top\"> Ambient<br>PrescribedAmbient</td>
-      <td valign=\"top\"> ava" + "ilable as one combined component Ambient<br>
+      <td valign=\"top\"> available as one combined component Ambient<br>
                         Boolean parameters usePressureInput and useTemperatureInput decide 
                         whether pressure and/or temperature are constant or prescribed</td> </tr>
   <tr><td valign=\"top\"> ConstantVolumeFlow<br>PrescribedVolumeFlow</td>
