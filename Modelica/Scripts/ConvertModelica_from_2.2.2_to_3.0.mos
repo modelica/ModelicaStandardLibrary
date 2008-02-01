@@ -641,9 +641,9 @@ convertClass("Modelica.Mechanics.Rotational.Interfaces.AbsoluteSensor",
 convertClass("Modelica.Mechanics.Rotational.Interfaces.RelativeSensor",
              "ObsoleteModelica3.Mechanics.Rotational.Interfaces.RelativeSensor");
 convertClass("Modelica.Mechanics.Rotational.Interfaces.Rigid",
-             "ObsoleteModelica.Mechanics.Rotational.Interfaces.Rigid");
+             "ObsoleteModelica3.Mechanics.Rotational.Interfaces.Rigid");
 convertClass("Modelica.Mechanics.Rotational.Interfaces.PartialSpeedDependentTorque",
-             "ObsoleteModelica.Mechanics.Rotational.Interfaces.PartialSpeedDependentTorque");
+             "ObsoleteModelica3.Mechanics.Rotational.Interfaces.PartialSpeedDependentTorque");
 
 
 convertClass("Modelica.Mechanics.Rotational.Interfaces.Compliant",
