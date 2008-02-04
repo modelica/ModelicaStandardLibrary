@@ -1,3 +1,16 @@
+/*  Adaptation of new MSL3.0 table function interface to
+    the existing Dymola table function interface.
+    
+    Release Notes:
+       Feb. 4, 2008: by Martin Otter, DLR. Implemented.
+            
+    Copyright (C) 2008 DLR.
+               
+    The content of this file is free software; it can be redistributed 
+    and/or modified under the terms of the Modelica license, see the 
+    license conditions and the accompanying disclaimer in file
+    _ModelicaLicense.txt or in Modelica.UsersGuide.ModelicaLicense.
+*/
 
 #include "ModelicaTables.h"
 #include "dymtable.h"
