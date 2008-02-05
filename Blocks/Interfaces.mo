@@ -44,25 +44,7 @@ partial models for continuous and discrete blocks.
 </html>
 "));
 
-connector RealSignal = Real "Real port (both input/output possible)" 
-    annotation (Documentation(info="<html>
-<p>
-Connector with one signal of type Real (no icon, no input/output prefix).
-</p>
-</html>"));
 
-connector BooleanSignal = Boolean "Boolean port (both input/output possible)" 
-    annotation (Documentation(info="<html>
-<p>
-Connector with one signal of type Boolean (no icon, no input/output prefix).
-</p>
-</html>"));
-connector IntegerSignal = Integer "Integer port (both input/output possible)" 
-    annotation (Documentation(info="<html>
-<p>
-Connector with one signal of type Icon (no icon, no input/output prefix).
-</p>
-</html>"));
 
 connector RealInput = input Real "'input Real' as connector" 
   annotation (defaultComponentName="u",
