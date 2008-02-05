@@ -56,21 +56,24 @@ and the accompanying <b>disclaimer</b>
     package Interfaces
       "Library of connectors and partial models for input/output blocks"
     connector RealSignal = Real "Real port (both input/output possible)" 
-        annotation (Documentation(info="<html>
+        annotation (__Dymola_obsolete="Connector is not valid according to Modelica 3, since input/output prefixes are missing. When using this connector, it is not possible to check for balanced models.",
+    Documentation(info="<html>
 <p>
 Connector with one signal of type Real (no icon, no input/output prefix).
 </p>
 </html>"));
     connector BooleanSignal = Boolean
         "Boolean port (both input/output possible)" 
-        annotation (Documentation(info="<html>
+        annotation (__Dymola_obsolete="Connector is not valid according to Modelica 3, since input/output prefixes are missing. When using this connector, it is not possible to check for balanced models.",
+    Documentation(info="<html>
 <p>
 Connector with one signal of type Boolean (no icon, no input/output prefix).
 </p>
 </html>"));
     connector IntegerSignal = Integer
         "Integer port (both input/output possible)" 
-        annotation (Documentation(info="<html>
+        annotation (__Dymola_obsolete="Connector is not valid according to Modelica 3, since input/output prefixes are missing. When using this connector, it is not possible to check for balanced models.",
+    Documentation(info="<html>
 <p>
 Connector with one signal of type Icon (no icon, no input/output prefix).
 </p>
