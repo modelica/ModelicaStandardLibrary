@@ -747,7 +747,7 @@ more of the following changes.
 </html>
 "));
 
-  class Version_3_0 "Version 3.0 (Jan., 2008)"
+  class Version_3_0 "Version 3.0 (Feb., 2008)"
 
       annotation (Documentation(info="<html>
 <p>
@@ -951,6 +951,13 @@ have been <b style=\"color:blue\">changed</b> in a
       <td valign=\"top\"> Removed \"SignalType\", since extending from a replaceable class 
                         and this is not allowed in Modelica 3.<br>The conversion script
                         removes modifiers to SignalType.</td> </tr>
+
+  <tr><td valign=\"top\"> RealSignal<br>
+                        IntegerSignal<br>
+                        BooleanSignal</td>
+      <td valign=\"top\"> Moved to library ObsoleteModelica3, since these connectors
+                        are no longer allowed in Modelica 3<br>
+                        (prefixes input and/or output are required). </td> </tr>
 
   <tr><td colspan=\"2\"><b>Blocks.Interfaces.Adaptors.</b></td></tr>
   <tr><td valign=\"top\"> AdaptorReal<br>
@@ -1213,13 +1220,13 @@ have been <b style=\"color:blue\">changed</b> in a
   <tr><td valign=\"top\"> ThermodynamicTemperature <br>
                         TemperatureDifference</td>
       <td valign=\"top\"> Added annotation \"__Dymola_absoluteValue=true/false\"
-                        in order that unit checking is possible<br> 
+                        in orde" + "r that unit checking is possible<br> 
                         (the unit checker needs to know for a unit that has an offset,
                         whether it is used as absolute or as a relative number)</td> </tr>
 
   <tr><td colspan=\"2\"><b>SIunits.Conversions.NonSIunits.</b></td></tr>
   <tr><td valign=\"top\"> Temperature_degC<br>
-                    " + "    Temperature_degF<br>
+                        Temperature_degF<br>
                         Temperature_degRk </td>
       <td valign=\"top\"> Added annotation \"__Dymola_absoluteValue=true\"
                         in order that unit checking is possible<br> 

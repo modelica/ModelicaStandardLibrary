@@ -55,12 +55,32 @@ and the accompanying <b>disclaimer</b>
     "Library of basic input/output control blocks (continuous, discrete, logical, table blocks)"
     package Interfaces
       "Library of connectors and partial models for input/output blocks"
+    connector RealSignal = Real "Real port (both input/output possible)" 
+        annotation (Documentation(info="<html>
+<p>
+Connector with one signal of type Real (no icon, no input/output prefix).
+</p>
+</html>"));
+    connector BooleanSignal = Boolean
+        "Boolean port (both input/output possible)" 
+        annotation (Documentation(info="<html>
+<p>
+Connector with one signal of type Boolean (no icon, no input/output prefix).
+</p>
+</html>"));
+    connector IntegerSignal = Integer
+        "Integer port (both input/output possible)" 
+        annotation (Documentation(info="<html>
+<p>
+Connector with one signal of type Icon (no icon, no input/output prefix).
+</p>
+</html>"));
       package Adaptors
         "Obsolete package with components to send signals to a bus or receive signals from a bus (only for backward compatibility)"
       model AdaptorReal
           "Completely obsolete adaptor between 'old' and 'new' Real signal connectors (only for backward compatibility)"
         extends ObsoleteModelica3.Icons.ObsoleteBlock;
-        Modelica.Blocks.Interfaces.RealSignal newReal
+        ObsoleteModelica3.Blocks.Interfaces.RealSignal newReal
             "Connector of Modelica version 2.1"                annotation (                            Hide=true,
               Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
         RealPort oldReal(final n=1) "Connector of Modelica version 1.6" annotation (Placement(
@@ -69,7 +89,7 @@ and the accompanying <b>disclaimer</b>
         annotation(structurallyIncomplete,
           __Dymola_obsolete="Model is not balanced, so equation check will not work. This model is no longer needed",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics(
+                    {100,100}}), graphics={
                 Rectangle(
                   extent={{-100,40},{100,-40}},
                   lineColor={0,0,255},
@@ -90,7 +110,7 @@ and the accompanying <b>disclaimer</b>
                   lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid,
-                  textString="port.signal"))),
+                  textString="port.signal")}),
                                       Documentation(info="<html>
 <p>
 Completely obsolete adaptor between the Real signal connector
@@ -114,7 +134,7 @@ This block is only provided for backward compatibility.
       model AdaptorBoolean
           "Completely obsolete adaptor between 'old' and 'new' Boolean signal connectors (only for backward compatibility)"
         extends ObsoleteModelica3.Icons.ObsoleteBlock;
-        Modelica.Blocks.Interfaces.BooleanSignal newBoolean
+        ObsoleteModelica3.Blocks.Interfaces.BooleanSignal newBoolean
             "Connector of Modelica version 2.1" 
           annotation (                            Hide=true, Placement(
                 transformation(extent={{100,-10},{120,10}}, rotation=0)));
@@ -124,7 +144,7 @@ This block is only provided for backward compatibility.
         annotation(structurallyIncomplete,
           __Dymola_obsolete="Model is not balanced, so equation check will not work. This model is no longer needed",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics(
+                    {100,100}}), graphics={
                 Rectangle(
                   extent={{-100,40},{100,-40}},
                   lineColor={255,0,255},
@@ -143,7 +163,7 @@ This block is only provided for backward compatibility.
                   lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid,
-                  textString="port.signal"))),
+                  textString="port.signal")}),
                                       Documentation(info="<html>
 <p>
 Completely obsolete adaptor between the Real signal connector
@@ -169,7 +189,7 @@ This block is only provided for backward compatibility.
       model AdaptorInteger
           "Completely obsolete adaptor between 'old' and 'new' Integer signal connectors (only for backward compatibility)"
         extends ObsoleteModelica3.Icons.ObsoleteBlock;
-        Modelica.Blocks.Interfaces.IntegerSignal newInteger
+        ObsoleteModelica3.Blocks.Interfaces.IntegerSignal newInteger
             "Connector of Modelica version 2.1" 
           annotation (                            Hide=true, Placement(
                 transformation(extent={{100,-10},{120,10}}, rotation=0)));
@@ -179,7 +199,7 @@ This block is only provided for backward compatibility.
         annotation(structurallyIncomplete,
           __Dymola_obsolete="Model is not balanced, so equation check will not work. This model is no longer needed",
            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics(
+                    {100,100}}), graphics={
                 Rectangle(
                   extent={{-100,40},{100,-40}},
                   lineColor={255,127,0},
@@ -198,7 +218,7 @@ This block is only provided for backward compatibility.
                   lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid,
-                  textString="port.signal"))),
+                  textString="port.signal")}),
                                       Documentation(info="<html>
 <p>
 Completely obsolete adaptor between the Real signal connector
@@ -2461,7 +2481,7 @@ of several base components.</p>
                   rotation=0)));
           Modelica.Mechanics.Rotational.Interfaces.Flange_a bearing
             "Bearing at which the reaction torque (i.e., -flange.tau) is acting"
-               annotation (Placement(transformation(extent={{-10,-130},{10,-110}}, 
+               annotation (Placement(transformation(extent={{-10,-130},{10,-110}},
                   rotation=0)));
           annotation (
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
@@ -2936,8 +2956,7 @@ to the left and/or the right flange.
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={192,192,192}),
               Polygon(
-                points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}}, 
-
+                points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
                 lineColor={0,0,0},
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={128,128,128}),
