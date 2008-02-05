@@ -1982,9 +1982,9 @@ the only case where this is done.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-146,76},{154,36}},
-            textString="%name=%phi0",
-            lineColor={0,0,255}),
+            extent={{-146,60},{154,20}},
+            lineColor={0,0,255},
+            textString="%name"),
           Line(points={{80,-60},{40,-100}}, color={0,0,0}),
           Line(points={{40,-60},{0,-100}}, color={0,0,0}),
           Line(points={{0,-60},{-40,-100}}, color={0,0,0}),
