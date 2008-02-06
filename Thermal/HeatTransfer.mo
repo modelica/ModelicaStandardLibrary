@@ -648,7 +648,7 @@ compute C:
               lineColor={0,0,0},
               textString="G=%G")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),graphics(
+                {100,100}}),graphics={
             Line(
               points={{-80,0},{80,0}},
               color={255,0,0},
@@ -661,7 +661,7 @@ compute C:
             Text(
               extent={{-80,50},{80,20}},
               lineColor={0,0,0},
-              textString="dT = port_a.T - port_b.T"))),
+              textString="dT = port_a.T - port_b.T")}),
         Documentation(info="<HTML>
 <p>
 This is a model for transport of heat without storing it.
@@ -818,7 +818,7 @@ McGraw-Hill, 1997, p.270):
 </pre>
 </HTML>
 "),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),graphics(
+                {100,100}}),graphics={
             Rectangle(
               extent={{-90,80},{-60,-80}},
               lineColor={0,0,0},
@@ -848,7 +848,7 @@ McGraw-Hill, 1997, p.270):
             Line(points={{56,-30},{76,-20}}, color={191,0,0}),
             Line(points={{56,-10},{76,-20}}, color={191,0,0}),
             Line(points={{56,10},{76,20}}, color={191,0,0}),
-            Line(points={{56,30},{76,20}}, color={191,0,0}))));
+            Line(points={{56,30},{76,20}}, color={191,0,0})}));
       Modelica.Blocks.Interfaces.RealInput Gc
         "Signal representing the convective thermal conductance in [W/K]" 
         annotation (Placement(transformation(
@@ -978,7 +978,7 @@ place from the inner to the outer cylinder):
 </pre>
 </HTML>
 "),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics(
+                100,100}}), graphics={
             Rectangle(
               extent={{-90,80},{-56,-80}},
               lineColor={0,0,0},
@@ -1008,7 +1008,7 @@ place from the inner to the outer cylinder):
             Line(points={{-40,-30},{-30,-36}}, color={191,0,0}),
             Line(points={{-40,30},{40,30}}, color={191,0,0}),
             Line(points={{30,24},{40,30}}, color={191,0,0}),
-            Line(points={{30,36},{40,30}}, color={191,0,0}))));
+            Line(points={{30,36},{40,30}}, color={191,0,0})}));
     equation
       Q_flow = Gr*Modelica.Constants.sigma*(port_a.T^4 - port_b.T^4);
     end BodyRadiation;
@@ -1084,7 +1084,7 @@ i.e., it defines a fixed temperature as a boundary condition.
 </p>
 </HTML>
 "),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics(
+                100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-101}},
               lineColor={0,0,0},
@@ -1103,7 +1103,7 @@ i.e., it defines a fixed temperature as a boundary condition.
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
               fillColor={191,0,0},
-              fillPattern=FillPattern.Solid))));
+              fillPattern=FillPattern.Solid)}));
       Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{90,
                 -10},{110,10}}, rotation=0)));
     equation
@@ -1149,7 +1149,7 @@ as required to keep the temperature at the specified value.
 </p>
 </HTML>
 "),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics(
+                100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
@@ -1168,7 +1168,7 @@ as required to keep the temperature at the specified value.
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
               fillColor={191,0,0},
-              fillPattern=FillPattern.Solid))));
+              fillPattern=FillPattern.Solid)}));
       Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{90,
                 -10},{110,10}}, rotation=0)));
       Modelica.Blocks.Interfaces.RealInput T annotation (Placement(transformation(
@@ -1405,7 +1405,7 @@ in order to simulate temperature dependent losses (which are given an reference 
 
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics(
+                100,100}}), graphics={
             Ellipse(
               extent={{-20,-98},{20,-60}},
               lineColor={0,0,0},
@@ -1438,7 +1438,7 @@ in order to simulate temperature dependent losses (which are given an reference 
             Text(
               extent={{102,-28},{60,-78}},
               lineColor={0,0,0},
-              textString="K"))),
+              textString="K")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
@@ -1516,7 +1516,7 @@ sensor model.
               lineColor={0,0,0},
               textString="K")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics(
+                100,100}}), graphics={
             Line(points={{-90,0},{-70,0},{-70,0}}, color={191,0,0}),
             Line(points={{-98,0},{-70,0},{-70,0}}, color={191,0,0}),
             Line(points={{70,0},{94,0},{94,0}}, color={191,0,0}),
@@ -1524,7 +1524,7 @@ sensor model.
             Text(
               extent={{64,-74},{32,-102}},
               lineColor={0,0,0},
-              textString="K"))),
+              textString="K")}),
         Documentation(info="<HTML>
 <p>
 The relative temperature \"port_a.T - port_b.T\" is determined between
@@ -1557,10 +1557,10 @@ the two ports of this component and is provided as output signal in Kelvin.
             rotation=270)));
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics(
+                100,100}}), graphics={
             Line(points={{-70,0},{-95,0}}, color={191,0,0}),
             Line(points={{0,-70},{0,-90}}, color={0,0,255}),
-            Line(points={{94,0},{69,0}}, color={191,0,0}))),
+            Line(points={{94,0},{69,0}}, color={191,0,0})}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -1764,7 +1764,7 @@ i.e., it defines a fixed temperature as a boundary condition.
 </p>
 </HTML>
 "),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics(
+                {100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
@@ -1783,7 +1783,7 @@ i.e., it defines a fixed temperature as a boundary condition.
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
               fillColor={191,0,0},
-              fillPattern=FillPattern.Solid))));
+              fillPattern=FillPattern.Solid)}));
       Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{
                 90,-10},{110,10}}, rotation=0)));
     equation
@@ -1833,7 +1833,7 @@ as required to keep the temperature at the specified value.
 </p>
 </HTML>
 "),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics(
+                {100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
@@ -1852,7 +1852,7 @@ as required to keep the temperature at the specified value.
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
               fillColor={191,0,0},
-              fillPattern=FillPattern.Solid))));
+              fillPattern=FillPattern.Solid)}));
       Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{
                 90,-10},{110,10}}, rotation=0)));
       Modelica.Blocks.Interfaces.RealInput T                       annotation (Placement(
@@ -2147,7 +2147,7 @@ i.e., it defines a fixed temperature as a boundary condition.
 </p>
 </HTML>
 "),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics(
+                {100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
@@ -2166,7 +2166,7 @@ i.e., it defines a fixed temperature as a boundary condition.
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
               fillColor={191,0,0},
-              fillPattern=FillPattern.Solid))));
+              fillPattern=FillPattern.Solid)}));
       Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{
                 90,-10},{110,10}}, rotation=0)));
     equation
@@ -2531,7 +2531,7 @@ This model defines a fixed temperature T at its port in degree Rankine,
 </p>
 </HTML>
 "),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics(
+                {100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
@@ -2550,7 +2550,7 @@ This model defines a fixed temperature T at its port in degree Rankine,
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
               fillColor={191,0,0},
-              fillPattern=FillPattern.Solid))));
+              fillPattern=FillPattern.Solid)}));
       Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{
                 90,-10},{110,10}}, rotation=0)));
     equation
