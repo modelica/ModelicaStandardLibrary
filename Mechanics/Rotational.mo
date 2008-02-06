@@ -3063,10 +3063,11 @@ connected to other elements in an appropriate way.
       SI.Torque tauLossMax "Torque loss for positive speed";
       SI.Torque tauLossMin "Torque loss for negative speed";
 
-      Boolean tau_aPos "true, if torque of flange_a is not negative";
-      Boolean startForward "true, if starting to roll forward";
-      Boolean startBackward "true, if starting to roll backward";
-      Boolean locked "true, if gear is locked";
+      Boolean tau_aPos(start=true)
+        "true, if torque of flange_a is not negative";
+      Boolean startForward(start=false) "true, if starting to roll forward";
+      Boolean startBackward(start=false) "true, if starting to roll backward";
+      Boolean locked(start=false) "true, if gear is locked";
 
       Boolean ideal "true, if losses are neglected";
 
@@ -5597,24 +5598,16 @@ It is most convenient to utilize it
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics), Icon(coordinateSystem(
               preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-            graphics={
-            Ellipse(
+            graphics={Ellipse(
               extent={{-20,20},{20,-20}},
               lineColor={135,135,135},
               fillColor={175,175,175},
-              fillPattern=FillPattern.Solid),
-            Text(
+              fillPattern=FillPattern.Solid), Text(
               extent={{-200,80},{200,40}},
               lineColor={0,0,255},
               fillColor={175,175,175},
               fillPattern=FillPattern.Solid,
-              textString="%name"),
-            Text(
-              extent={{-200,-38},{200,-78}},
-              lineColor={0,0,255},
-              fillColor={175,175,175},
-              fillPattern=FillPattern.Solid,
-              textString="tau=%tau")}),
+              textString="%name")}),
         Documentation(info="<html>
 <p>
 This is an adapter model to utilize a conditional support connector
