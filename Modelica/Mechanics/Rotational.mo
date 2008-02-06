@@ -3892,7 +3892,6 @@ no rolling resistance. This component defines the kinematic constraint:
 
     model InitializeFlange
       "Initializes a flange with pre-defined angle, speed and angular acceleration (usually, this is reference data from a control bus)"
-      import Modelica.Blocks.Types.StateSelection;
       extends Modelica.Blocks.Interfaces.BlockIcon;
       parameter Boolean use_phi_start = true
         "= true, if initial angle is defined by input phi_start, otherwise not initialized";

@@ -13,7 +13,6 @@ annotation (Window(
     height=0.58,
     library=1,
     autolayout=1),
-    classOrder={"Examples", "*"},
   Documentation(info="<html>
 <p>
 This package contains packages for analog electrical components:

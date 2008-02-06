@@ -389,49 +389,32 @@ The multiplexer converts a parallel 4 bit signal in a sequential
     equation
       connect(CLK.y, FF.clk) annotation (Line(
           points={{-60,-46},{-36,-46},{-36,-52},{-20,-52}},
-          color={127,0,127},
-          fillColor={255,255,170},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
       connect(Enable.y, FF.k) annotation (Line(
           points={{-60,-72},{-30,-72},{-30,-59},{-20,-59}},
-          color={127,0,127},
-          fillColor={255,255,170},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
       connect(Enable.y, FF.j) annotation (Line(
           points={{-60,-72},{-30,-72},{-30,-45},{-20,-45}},
-          color={127,0,127},
-          fillColor={255,255,170},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
       connect(CLK.y, MUX.a0) annotation (Line(
           points={{-60,-46},{-36,-46},{-36,22.4},{-10,22.4}},
-          color={127,0,127},
-          fillColor={255,255,170},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
       connect(D0.y, MUX.d0) annotation (Line(
           points={{-60,68},{-10,68}},
-          color={127,0,127},
-          fillColor={255,255,170},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
       connect(D1.y, MUX.d1) annotation (Line(
           points={{-60,42},{-54,42},{-54,57.6},{-10,57.6}},
-          color={127,0,127},
-          fillColor={255,255,170},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
       connect(D2.y, MUX.d2) annotation (Line(
           points={{-60,16},{-50,16},{-50,47.2},{-10,47.2}},
-          color={127,0,127},
-          fillColor={255,255,170},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
       connect(D3.y, MUX.d3) annotation (Line(
           points={{-60,-10},{-46,-10},{-46,36.8},{-10,36.8}},
-          color={127,0,127},
-          fillColor={255,255,170},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
       connect(FF.q, MUX.a1) annotation (Line(
           points={{0,-45},{2,-45},{2,-22},{-20,-22},{-20,12},{-10,12}},
           color={127,0,127},
-          fillColor={255,255,170},
-          fillPattern=FillPattern.Solid));
+          fillColor={255,25));
     end Multiplexer;
 
     model FlipFlop "Pulse Triggered Master Slave Flip-Flop"
@@ -481,19 +464,13 @@ Pulse-triggered master-slave flip-flop.
     equation
       connect(J.y, FF.j)     annotation (Line(
           points={{-60,28},{-10,28}},
-          color={127,0,127},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
       connect(CLK.y, FF.clk)    annotation (Line(
           points={{-60,0},{-10,0}},
-          color={127,0,127},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
       connect(K.y, FF.k)      annotation (Line(
           points={{-60,-28},{-10,-28}},
-          color={127,0,127},
-          fillColor={255,255,170},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
     end FlipFlop;
 
     model HalfAdder "adding circuit for binary numbers without input carry bit"
@@ -581,14 +558,10 @@ The simulation stop time should be 5 seconds.
     equation
       connect(b.y,Adder. b) annotation (Line(
           points={{-60,-28},{-40,-28}},
-          color={127,0,127},
-          fillColor={127,0,127},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
       connect(a.y,Adder. a) annotation (Line(
           points={{-60,28},{-40,28}},
-          color={127,0,127},
-          fillColor={127,0,127},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
       connect(Adder.s, s.x[1]) annotation (Line(points={{40,28},{65,28}}, color=
              {127,0,127}));
       connect(Adder.c, c.x[1]) annotation (Line(points={{40,-28},{65,-28}},
@@ -799,64 +772,41 @@ The simulation stop time has to be 5s.
     equation
       connect(b1.y, Adder1.b)  annotation (Line(
           points={{-130,0},{-120,0},{-120,-54},{-100,-54}},
-          color={127,0,127},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
       connect(a1.y, Adder1.a)  annotation (Line(
           points={{-130,60},{-110,60},{-110,-46},{-100,-46}},
-          color={127,0,127},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
       connect(Set.y, Adder1.c_in)  annotation (Line(
           points={{-130,-74},{-100,-74}},
-          color={127,0,127},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
       connect(Adder1.c_out, Adder2.c_in)  annotation (Line(
           points={{-60,-74},{-20,-74}},
           color={127,0,127},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          fillColor={255,25));
       connect(Adder2.c_out, Adder3.c_in) annotation (Line(
           points={{20,-74},{60,-74}},
-          color={127,0,127},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
       connect(Adder3.c_out, Adder4.c_in) annotation (Line(
           points={{100,-74},{140,-74}},
-          color={127,0,127},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
       connect(b2.y, Adder2.b) annotation (Line(
           points={{-50,0},{-40,0},{-40,-54},{-20,-54}},
-          color={127,0,127},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
       connect(a2.y, Adder2.a) annotation (Line(
           points={{-50,60},{-30,60},{-30,-46},{-20,-46}},
-          color={127,0,127},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
       connect(b3.y, Adder3.b) annotation (Line(
           points={{30,0},{40,0},{40,-54},{60,-54}},
-          color={127,0,127},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
       connect(a3.y, Adder3.a) annotation (Line(
           points={{30,60},{50,60},{50,-46},{60,-46}},
-          color={127,0,127},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
       connect(b4.y, Adder4.b) annotation (Line(
           points={{110,0},{120,0},{120,-54},{140,-54}},
-          color={127,0,127},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
       connect(a4.y, Adder4.a) annotation (Line(
           points={{110,60},{130,60},{130,-46},{140,-46}},
-          color={127,0,127},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
     end Adder4;
 
     model Counter3 "3 Bit Counter Example"
@@ -894,14 +844,10 @@ The simulation stop time has to be 5s.
     equation
       connect(Enable.y, Counter.enable) annotation (Line(
           points={{-50,28},{-30,28}},
-          color={127,0,127},
-          fillColor={255,255,170},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
       connect(Clock.y, Counter.count) annotation (Line(
           points={{-50,-28},{-30,-28}},
-          color={127,0,127},
-          fillColor={255,255,170},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
     end Counter3;
 
     model Counter "Generic N Bit Counter Example"
@@ -947,14 +893,10 @@ The simulation stop time has to be 5s.
     equation
       connect(Enable.y, Counter.enable) annotation (Line(
           points={{-50,28},{-30,28}},
-          color={127,0,127},
-          fillColor={255,255,170},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
       connect(Clock.y, Counter.count) annotation (Line(
           points={{-50,-28},{-30,-28}},
-          color={127,0,127},
-          fillColor={255,255,170},
-          fillPattern=FillPattern.Solid));
+          color={127,0,127}));
       connect(Q0.x[1], Counter.q[1]) annotation (Line(points={{71,-30},{58,-30},
               {58,-24},{50,-24}}, color={127,0,127}));
       connect(Q1.x[1], Counter.q[2]) annotation (Line(points={{71,-10},{60,-10},
@@ -1084,101 +1026,63 @@ The simulation stop time has to be 5s.
     equation
         connect(a0, Not1.x) annotation (Line(
             points={{-100,-44},{-72,-44}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
         connect(a1, Not2.x) annotation (Line(
             points={{-100,-70},{-72,-70}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
         connect(d0, And1.x[2]) annotation (Line(
             points={{-100,70},{-58,70},{-58,70},{-16,70}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
         connect(d1, And2.x[2]) annotation (Line(
             points={{-100,44},{-16,44}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
         connect(d2, And3.x[2]) annotation (Line(
             points={{-100,18},{-16,18}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
         connect(d3, And4.x[2]) annotation (Line(
             points={{-100,-8},{-58,-8},{-58,-8},{-16,-8}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
         connect(And4.y, Or1.x[1]) annotation (Line(
             points={{0,-8},{40,-8},{40,24},{54,24}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
         connect(And3.y, Or1.x[2]) annotation (Line(
             points={{0,18},{20,18},{20,28},{54,28}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
         connect(And2.y, Or1.x[3]) annotation (Line(
             points={{0,44},{20,44},{20,32},{54,32}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
         connect(And1.y, Or1.x[4]) annotation (Line(
             points={{0,70},{40,70},{40,36},{54,36}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
         connect(Or1.y, d) annotation (Line(
             points={{70,30},{80,30},{80,0},{100,0}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
         connect(Not1.y, And1.x[3]) annotation (Line(
             points={{-56,-44},{-50,-44},{-50,75.3333},{-16,75.3333}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
         connect(Not1.y, And3.x[3]) annotation (Line(
             points={{-56,-44},{-50,-44},{-50,23.3333},{-16,23.3333}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
         connect(Not2.y, And1.x[1]) annotation (Line(
             points={{-56,-70},{-40,-70},{-40,64.6667},{-16,64.6667}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
         connect(Not2.y, And2.x[1]) annotation (Line(
             points={{-56,-70},{-40,-70},{-40,38.6667},{-16,38.6667}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
         connect(a0, And4.x[3]) annotation (Line(
             points={{-100,-44},{-80,-44},{-80,-2.66667},{-16,-2.66667}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
         connect(a0, And2.x[3]) annotation (Line(
             points={{-100,-44},{-80,-44},{-80,49.3333},{-16,49.3333}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
         connect(a1, And4.x[1]) annotation (Line(
             points={{-100,-70},{-80,-70},{-80,-90},{-30,-90},{-30,-13.3333},{
                 -16,-13.3333}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
         connect(a1, And3.x[1]) annotation (Line(
             points={{-100,-70},{-80,-70},{-80,-90},{-30,-90},{-30,12.6667},{-16,
                 12.6667}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
     end MUX4;
 
     model RS "Unclocked RS FlipFlop"
@@ -1268,14 +1172,10 @@ The simulation stop time has to be 5s.
                 20,-20},{-70,20},{-70,54},{-32,54}}, color={127,0,127}));
       connect(Nor1.y,qn)    annotation (Line(
             points={{0,62},{50,62},{50,-70},{100,-70}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
       connect(Nor2.y,q)    annotation (Line(
             points={{0,-62},{70,-62},{70,70},{100,70}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
       connect(TD1.y, Nor2.x[2]) annotation (Line(points={{-40,-54},{-32,-54}},
               color={127,0,127}));
       connect(TD1.x, Nor1.y) annotation (Line(points={{-56,-54},{-70,-54},{-70,
@@ -1371,45 +1271,29 @@ The simulation stop time has to be 5s.
       connect(And2.y, RS1.r) 
                             annotation (Line(
             points={{-30,-28},{-10,-28}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
       connect(And1.y, RS1.s) 
                             annotation (Line(
             points={{-30,28},{-10,28}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
       connect(s, And1.x[2]) annotation (Line(
             points={{-100,70},{-70,70},{-70,36},{-62,36}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
       connect(clk, And1.x[1]) annotation (Line(
             points={{-100,0},{-70,0},{-70,20},{-62,20}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
       connect(clk, And2.x[2]) annotation (Line(
             points={{-100,0},{-70,0},{-70,-20},{-62,-20}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
       connect(r, And2.x[1]) annotation (Line(
             points={{-100,-70},{-70,-70},{-70,-36},{-62,-36}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
       connect(RS1.q,q) annotation (Line(
             points={{70,28},{80,28},{80,70},{100,70}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
       connect(RS1.qn,qn) annotation (Line(
             points={{70,-28},{80,-28},{80,-70},{100,-70}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
     end RSFF;
 
     model DFF "D FlipFlop"
@@ -1492,36 +1376,24 @@ The simulation stop time has to be 5s.
       connect(RSFF1.q,q) 
                        annotation (Line(
             points={{70,28},{80,28},{80,70},{100,70}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
       connect(RSFF1.qn,qn) 
                          annotation (Line(
             points={{70,-28},{80,-28},{80,-70},{100,-70}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
       connect(Not1.y, RSFF1.r) 
                              annotation (Line(
             points={{-30,-28},{-10,-28}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
       connect(clk, RSFF1.clk)  annotation (Line(
             points={{-100,0},{-10,0}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
       connect(d, Not1.x)  annotation (Line(
             points={{-100,70},{-80,70},{-80,-28},{-62,-28}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
       connect(d, RSFF1.s)  annotation (Line(
             points={{-100,70},{-80,70},{-80,28},{-10,28}},
-            color={127,0,127},
-            fillColor={255,255,170},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
     end DFF;
 
     model JKFF "JK FlipFlop"
@@ -1727,39 +1599,27 @@ The simulation stop time has to be 5s.
                 connect(AND.y, c) 
                                annotation (Line(
             points={{20,-62},{60,-62},{60,-70},{100,-70}},
-            color={127,0,127},
-            fillColor={170,85,255},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
                 connect(XOR.y, s) 
                                annotation (Line(
             points={{20,62},{60,62},{60,70},{100,70}},
-            color={127,0,127},
-            fillColor={170,85,255},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
                 connect(b, AND.x[1]) 
                                   annotation (Line(
             points={{-100,-70},{-12,-70}},
-            color={127,0,127},
-            fillColor={170,85,255},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
                 connect(b, XOR.x[1]) 
                                   annotation (Line(
             points={{-100,-70},{-30,-70},{-30,54},{-12,54}},
-            color={127,0,127},
-            fillColor={170,85,255},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
                 connect(a, XOR.x[2]) 
                                   annotation (Line(
             points={{-100,70},{-12,70}},
-            color={127,0,127},
-            fillColor={170,85,255},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
                 connect(a, AND.x[2]) 
                                   annotation (Line(
             points={{-100,70},{-40,70},{-40,-54},{-12,-54}},
-            color={127,0,127},
-            fillColor={170,85,255},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
               end HalfAdder;
 
     model FullAdder "adding circuit for binary numbers with input carry bit"
@@ -1887,15 +1747,11 @@ The simulation stop time has to be 5s.
 
       connect(c_out, OR.y)   annotation (Line(
             points={{100,-70},{50,-70}},
-            color={127,0,127},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
       connect(Adder2.c, OR.x[2]) 
                                annotation (Line(
             points={{50,42},{70,42},{70,-40},{10,-40},{10,-62},{18,-62}},
-            color={127,0,127},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid));
+            color={127,0,127}));
       connect(Adder2.s, s) 
         annotation (Line(points={{50,70},{101,70}}, color={127,0,127}));
         connect(Adder1.a, a) annotation (Line(points={{-60,70},{-100,70}},

@@ -1,7 +1,7 @@
 within Modelica.Electrical.Analog.Examples;
 model CauerLowPassAnalog "Cauer low pass filter with analog components"
 
-  annotation (uses(Modelica(version="2.2")), Diagram(coordinateSystem(
+  annotation (Diagram(coordinateSystem(
           preserveAspectRatio=true, extent={{-200,-100},{200,100}}), graphics={
         Rectangle(
           extent={{-62,32},{-58,28}},
@@ -186,9 +186,7 @@ equation
           -60,-30}}, color={0,0,255}));
   connect(C5.p,R2. p) annotation (Line(
       points={{60,-10},{60,30},{100,30},{100,-10}},
-      color={0,0,255},
-      fillColor={85,85,255},
-      fillPattern=FillPattern.Solid));
+      color={0,0,255});
   connect(R1.p, V.p) 
     annotation (Line(points={{-100,30},{-100,0}}, color={0,0,255}));
   connect(V.n, G.p)            annotation (Line(points={{-100,-20},{-100,-70},{
