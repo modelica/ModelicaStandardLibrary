@@ -3578,7 +3578,7 @@ blocks of Modelica.Blocks.Source.
         "Velocity of flange with respect to support (= der(s))";
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}}, 
+                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}},
                 color={0,0,255})}), Documentation(info="<HTML>
 <p>
 Model of force, linearly dependent on velocity of flange.<br>
@@ -3752,7 +3752,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
               Text(
               extent={{80,-28},{114,-62}},
               lineColor={0,0,0},
@@ -3788,7 +3788,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
               Text(
               extent={{80,-28},{111,-61}},
               lineColor={0,0,0},
@@ -3826,7 +3826,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
               Text(
               extent={{80,-28},{115,-60}},
               lineColor={0,0,0},
@@ -4221,24 +4221,16 @@ The following variables are transported through this connector:
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics), Icon(coordinateSystem(
               preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-            graphics={
-            Text(
+            graphics={Text(
               extent={{-200,80},{200,40}},
               lineColor={0,0,255},
               fillColor={175,175,175},
               fillPattern=FillPattern.Solid,
-              textString="%name"),
-            Rectangle(
+              textString="%name"), Rectangle(
               extent={{-20,20},{20,-20}},
               lineColor={0,127,0},
               fillColor={175,175,175},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-200,-38},{200,-78}},
-              lineColor={0,0,255},
-              fillColor={175,175,175},
-              fillPattern=FillPattern.Solid,
-              textString="f=%f")}),
+              fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
 <p>
 This is an adapter model to utilize a conditional support connector
