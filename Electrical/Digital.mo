@@ -413,8 +413,7 @@ The multiplexer converts a parallel 4 bit signal in a sequential
           color={127,0,127}));
       connect(FF.q, MUX.a1) annotation (Line(
           points={{0,-45},{2,-45},{2,-22},{-20,-22},{-20,12},{-10,12}},
-          color={127,0,127},
-          fillColor={255,25));
+          color={127,0,127}));
     end Multiplexer;
 
     model FlipFlop "Pulse Triggered Master Slave Flip-Flop"
@@ -781,8 +780,7 @@ The simulation stop time has to be 5s.
           color={127,0,127}));
       connect(Adder1.c_out, Adder2.c_in)  annotation (Line(
           points={{-60,-74},{-20,-74}},
-          color={127,0,127},
-          fillColor={255,25));
+          color={127,0,127}));
       connect(Adder2.c_out, Adder3.c_in) annotation (Line(
           points={{20,-74},{60,-74}},
           color={127,0,127}));
