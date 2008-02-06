@@ -186,7 +186,7 @@ equation
           -60,-30}}, color={0,0,255}));
   connect(C5.p,R2. p) annotation (Line(
       points={{60,-10},{60,30},{100,30},{100,-10}},
-      color={0,0,255});
+      color={0,0,255}));
   connect(R1.p, V.p) 
     annotation (Line(points={{-100,30},{-100,0}}, color={0,0,255}));
   connect(V.n, G.p)            annotation (Line(points={{-100,-20},{-100,-70},{
