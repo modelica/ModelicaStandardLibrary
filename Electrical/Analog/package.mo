@@ -13,6 +13,7 @@ annotation (Window(
     height=0.58,
     library=1,
     autolayout=1),
+    __Dymola_classOrder={"Examples", "*"},
   Documentation(info="<html>
 <p>
 This package contains packages for analog electrical components:
