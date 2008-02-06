@@ -4190,7 +4190,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1},
-            initialScale=0.2), graphics(
+            initialScale=0.2), graphics={
             Text(
               extent={{-140,-41},{140,-66}},
               lineColor={0,0,255},
@@ -4316,7 +4316,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Line(
               points={{90,30},{90,40},{95,40}},
               color={95,95,95},
-              thickness=2))),
+              thickness=2)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -4732,7 +4732,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1},
-            initialScale=0.2), graphics(
+            initialScale=0.2), graphics={
             Rectangle(
               extent={{50,20},{80,-20}},
               lineColor={0,0,0},
@@ -4863,12 +4863,12 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Line(
               points={{95,40},{90,40},{90,30}},
               color={135,135,135},
-              thickness=2))),
+              thickness=2)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1},
-            initialScale=0.2), graphics(
+            initialScale=0.2), graphics={
             Line(
               points={{-78,30},{-50,30}},
               color={128,128,128},
@@ -4884,7 +4884,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Line(
               points={{3,30},{-43,30}},
               color={128,128,128},
-              arrow={Arrow.None,Arrow.Filled}))));
+              arrow={Arrow.None,Arrow.Filled})}));
 
       Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint
         prismatic(
@@ -5967,7 +5967,7 @@ are connected by rigid rods.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1},
-            initialScale=0.2), graphics(
+            initialScale=0.2), graphics={
             Rectangle(
               extent={{-90,90},{90,-90}},
               lineColor={255,255,255},
@@ -6057,7 +6057,7 @@ are connected by rigid rods.
             Line(
               points={{100,40},{93,40},{93,3}},
               color={95,95,95},
-              thickness=2))),
+              thickness=2)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
