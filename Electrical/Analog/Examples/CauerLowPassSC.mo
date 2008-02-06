@@ -72,16 +72,13 @@ equation
             {60,0}}, color={0,0,255}));
   connect(IdealCommutingSwitch2.n1,n2)  annotation (Line(
         points={{60,5},{80,5},{80,2},{100,2}},
-        color={0,0,255},
-        fillPattern=FillPattern.Solid));
+        color={0,0,255}));
   connect(n1, IdealCommutingSwitch1.n2) annotation (Line(
         points={{-102,0},{-81,0},{-81,1.22465e-015},{-60,1.22465e-015}},
-        color={0,0,255},
-        fillPattern=FillPattern.Solid));
+        color={0,0,255}));
   connect(Ground1.p, IdealCommutingSwitch1.n1) annotation (Line(
         points={{-60,-20},{-60,-5}},
-        color={0,0,255},
-        fillPattern=FillPattern.Solid));
+        color={0,0,255}));
 end Rn;
 
 model Rp "positive resistance"
@@ -159,8 +156,7 @@ equation
             -5},{-99,0},{-102,0}}, color={0,0,255}));
   connect(IdealCommutingSwitch2.n1, n2) annotation (Line(
         points={{60,5},{80,5},{80,2},{100,2}},
-        color={0,0,255},
-        fillPattern=FillPattern.Solid));
+        color={0,0,255}));
 end Rp;
   annotation (
     uses(Modelica(version="2.2")),
@@ -469,90 +465,68 @@ equation
           -170}}, color={0,0,255}));
   connect(R4.n2, n5) annotation (Line(
       points={{-120,-29.8},{-116,-29.8},{-116,-30},{-113,-30}},
-      color={0,0,255},
-      fillPattern=FillPattern.Solid));
+      color={0,0,255}));
   connect(Op1.out, R4.n1) annotation (Line(
       points={{-161,-30},{-140.2,-30}},
-      color={0,0,255},
-      fillPattern=FillPattern.Solid));
+      color={0,0,255}));
   connect(R5.n1, p1) annotation (Line(
       points={{-140.2,-70},{-152,-70},{-152,-120}},
-      color={0,0,255},
-      fillPattern=FillPattern.Solid));
+      color={0,0,255}));
   connect(R5.n2, n5) annotation (Line(
       points={{-120,-69.8},{-116,-69.8},{-116,-70},{-113,-70},{-113,-30}},
-      color={0,0,255},
-      fillPattern=FillPattern.Solid));
+      color={0,0,255}));
   connect(p3, R8.n1) annotation (Line(
       points={{59,80},{59.8,80},{59.8,20}},
-      color={0,0,255},
-      fillPattern=FillPattern.Solid));
+      color={0,0,255}));
   connect(R8.n2, n9) annotation (Line(
       points={{80,20.2},{84,20.2},{84,20},{87,20}},
-      color={0,0,255},
-      fillPattern=FillPattern.Solid));
+      color={0,0,255}));
   connect(Op3.out, R9.n1) annotation (Line(
       points={{45,-30},{59.8,-30}},
-      color={0,0,255},
-      fillPattern=FillPattern.Solid));
+      color={0,0,255}));
   connect(R9.n2, n10) annotation (Line(
       points={{80,-29.8},{84,-29.8},{84,-30},{87,-30}},
-      color={0,0,255},
-      fillPattern=FillPattern.Solid));
+      color={0,0,255}));
   connect(R1.n1, V.n)            annotation (Line(
       points={{-240.2,-20},{-250,-20},{-250,-130},{-241,-130},{-241,-140}},
-      color={0,0,255},
-      fillPattern=FillPattern.Solid));
+      color={0,0,255}));
   connect(R1.n2, n1) annotation (Line(
       points={{-220,-19.8},{-216,-19.8},{-216,-20},{-213,-20}},
-      color={0,0,255},
-      fillPattern=FillPattern.Solid));
+      color={0,0,255}));
   connect(R2.n2, n2) annotation (Line(
       points={{-220,20.2},{-218,20.2},{-218,20},{-213,20}},
-      color={0,0,255},
-      fillPattern=FillPattern.Solid));
+      color={0,0,255}));
   connect(R2.n1, n6) annotation (Line(
       points={{-240.2,20},{-240,20},{-240,100},{-61,100},{-61,40}},
-      color={0,0,255},
-      fillPattern=FillPattern.Solid));
+      color={0,0,255}));
   connect(R3.n1, n3) annotation (Line(
       points={{-200.2,80},{-213,80},{-213,40}},
-      color={0,0,255},
-      fillPattern=FillPattern.Solid));
+      color={0,0,255}));
   connect(R3.n2, n4) annotation (Line(
       points={{-180,80.2},{-170,80.2},{-170,80},{-161,80},{-161,40}},
-      color={0,0,255},
-      fillPattern=FillPattern.Solid));
+      color={0,0,255}));
   connect(Rp1.n2, n8) annotation (Line(
       points={{-12,20.2},{-8,20.2},{-8,20},{-5,20}},
-      color={0,0,255},
-      fillPattern=FillPattern.Solid));
+      color={0,0,255}));
   connect(Rp1.n1, n11) annotation (Line(
       points={{-32.2,20},{-52,20},{-52,100},{139,100},{139,40}},
-      color={0,0,255},
-      fillPattern=FillPattern.Solid));
+      color={0,0,255}));
   connect(Op2.out, R7.n1) annotation (Line(
       points={{-61,-30},{-32.2,-30}},
-      color={0,0,255},
-      fillPattern=FillPattern.Solid));
+      color={0,0,255}));
   connect(R7.n2, n7) annotation (Line(
       points={{-12,-29.8},{-8,-29.8},{-8,-30},{-5,-30}},
-      color={0,0,255},
-      fillPattern=FillPattern.Solid));
+      color={0,0,255}));
   connect(R10.n1, Op4.out) annotation (Line(
       points={{159.8,-30},{139,-30}},
-      color={0,0,255},
-      fillPattern=FillPattern.Solid));
+      color={0,0,255}));
   connect(R10.n2, n14) annotation (Line(
       points={{180,-29.8},{186,-29.8},{186,-30},{190,-30}},
-      color={0,0,255},
-      fillPattern=FillPattern.Solid));
+      color={0,0,255}));
   connect(R11.n2, n12) annotation (Line(
       points={{228,60.2},{234,60.2},{234,60},{239,60}},
-      color={0,0,255},
-      fillPattern=FillPattern.Solid));
+      color={0,0,255}));
   connect(R11.n1, p4) annotation (Line(
       points={{207.8,60},{190,60},{190,20}},
-      color={0,0,255},
-      fillPattern=FillPattern.Solid));
+      color={0,0,255}));
 end CauerLowPassSC;
