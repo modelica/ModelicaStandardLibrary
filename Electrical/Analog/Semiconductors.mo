@@ -115,8 +115,8 @@ continued to avoid overflow.
         width=0.75,
         height=0.63));
   equation 
-    i = noEvent(smooth(1,(if (v/Vt > Maxexp) then Ids*(exp(Maxexp)*(1 + v/Vt - Maxexp) - 1) +
-      v/R else Ids*(exp(v/Vt) - 1) + v/R)));
+    i = smooth(1,(if (v/Vt > Maxexp) then Ids*(exp(Maxexp)*(1 + v/Vt - Maxexp) - 1) +
+      v/R else Ids*(exp(v/Vt) - 1) + v/R));
   end Diode;
   
   model PMOS "Simple MOS Transistor" 
@@ -237,16 +237,16 @@ Some typical parameter sets are:
     //assert (W + dW > 0, "Effective width  must be positive");
     gds = if (RDS < 1.e-20 and RDS > -1.e-20) then 1.e20 else 1/RDS;
     v = Beta*(W + dW)/(L + dL);
-    ud = noEvent(smooth(0,if (D.v > S.v) then S.v else D.v));
-    us = noEvent(smooth(0,if (D.v > S.v) then D.v else S.v));
+    ud = smooth(0,if (D.v > S.v) then S.v else D.v);
+    us = smooth(0,if (D.v > S.v) then D.v else S.v);
     uds = ud - us;
-    ubs = noEvent(smooth(0,if (B.v < us) then 0 else B.v - us));
+    ubs = smooth(0,if (B.v < us) then 0 else B.v - us);
     ugst = (G.v - us - Vt + K2*ubs)*K5;
-    id = noEvent(smooth(0,if (ugst >= 0) then uds*gds else if (ugst < uds) then -v*uds*(
-      ugst - uds/2) + uds*gds else -v*ugst*ugst/2 + uds*gds));
+    id = smooth(0,if (ugst >= 0) then uds*gds else if (ugst < uds) then -v*uds*(
+      ugst - uds/2) + uds*gds else -v*ugst*ugst/2 + uds*gds);
     G.i = 0;
-    D.i = noEvent(smooth(0,if (D.v > S.v) then -id else id));
-    S.i = noEvent(smooth(0,if (D.v > S.v) then id else -id));
+    D.i = smooth(0,if (D.v > S.v) then -id else id);
+    S.i = smooth(0,if (D.v > S.v) then id else -id);
     B.i = 0;
   end PMOS;
   
@@ -373,16 +373,16 @@ Muenchen Wien 1990.
     //assert (W + dW > 0, "Effective width  must be positive");
     gds = if (RDS < 1.e-20 and RDS > -1.e-20) then 1.e20 else 1/RDS;
     v = Beta*(W + dW)/(L + dL);
-    ud = noEvent(smooth(0,if (D.v < S.v) then S.v else D.v));
+    ud = smooth(0,if (D.v < S.v) then S.v else D.v);
     us = if (D.v < S.v) then D.v else S.v;
     uds = ud - us;
-    ubs = noEvent(smooth(0,if (B.v > us) then 0 else B.v - us));
+    ubs = smooth(0,if (B.v > us) then 0 else B.v - us);
     ugst = (G.v - us - Vt + K2*ubs)*K5;
-    id = noEvent(smooth(0,if (ugst <= 0) then uds*gds else if (ugst > uds) then v*uds*(ugst
-       - uds/2) + uds*gds else v*ugst*ugst/2 + uds*gds));
+    id = smooth(0,if (ugst <= 0) then uds*gds else if (ugst > uds) then v*uds*(ugst
+       - uds/2) + uds*gds else v*ugst*ugst/2 + uds*gds);
     G.i = 0;
-    D.i = noEvent(smooth(0,if (D.v < S.v) then -id else id));
-    S.i = noEvent(smooth(0,if (D.v < S.v) then id else -id));
+    D.i = smooth(0,if (D.v < S.v) then -id else id);
+    S.i = smooth(0,if (D.v < S.v) then id else -id);
     B.i = 0;
   end NMOS;
   
@@ -513,22 +513,22 @@ on page 317 ff.
     vbe = B.v - E.v;
     qbk = 1 - vbc*Vak;
     
-    ibc = noEvent(smooth(1,if (vbc/Vt < EMin) then Is*(ExMin*(vbc/Vt - EMin + 1) - 1) + vbc*Gbc else 
+    ibc = smooth(1,if (vbc/Vt < EMin) then Is*(ExMin*(vbc/Vt - EMin + 1) - 1) + vbc*Gbc else 
             if (vbc/Vt > EMax) then Is*(ExMax*(vbc/Vt - EMax + 1) - 1) + vbc*
-      Gbc else Is*(exp(vbc/Vt) - 1) + vbc*Gbc));
-    ibe = noEvent(smooth(1,if (vbe/Vt < EMin) then Is*(ExMin*(vbe/Vt - EMin + 1) - 1) + vbe*Gbe else 
+      Gbc else Is*(exp(vbc/Vt) - 1) + vbc*Gbc);
+    ibe = smooth(1,if (vbe/Vt < EMin) then Is*(ExMin*(vbe/Vt - EMin + 1) - 1) + vbe*Gbe else 
             if (vbe/Vt > EMax) then Is*(ExMax*(vbe/Vt - EMax + 1) - 1) + vbe*
-      Gbe else Is*(exp(vbe/Vt) - 1) + vbe*Gbe));
-    Capcjc = noEvent(smooth(1,(if (vbc/Phic > 0) then Cjc*(1 + Mc*vbc/Phic) else Cjc*pow(1 - vbc
-      /Phic, -Mc))));
-    Capcje = noEvent(smooth(1,(if (vbe/Phie > 0) then Cje*(1 + Me*vbe/Phie) else Cje*pow(1 - vbe
-      /Phie, -Me))));
-    cbc = noEvent(smooth(1,(if (vbc/Vt < EMin) then Taur*Is/Vt*ExMin*(vbc/Vt - EMin + 1) +
+      Gbe else Is*(exp(vbe/Vt) - 1) + vbe*Gbe);
+    Capcjc = smooth(1,(if (vbc/Phic > 0) then Cjc*(1 + Mc*vbc/Phic) else Cjc*pow(1 - vbc
+      /Phic, -Mc)));
+    Capcje = smooth(1,(if (vbe/Phie > 0) then Cje*(1 + Me*vbe/Phie) else Cje*pow(1 - vbe
+      /Phie, -Me)));
+    cbc = smooth(1,(if (vbc/Vt < EMin) then Taur*Is/Vt*ExMin*(vbc/Vt - EMin + 1) +
       Capcjc else if (vbc/Vt > EMax) then Taur*Is/Vt*ExMax*(vbc/Vt - EMax + 1)
-       + Capcjc else Taur*Is/Vt*exp(vbc/Vt) + Capcjc)));
-    cbe = noEvent(smooth(1,(if (vbe/Vt < EMin) then Tauf*Is/Vt*ExMin*(vbe/Vt - EMin + 1) +
+       + Capcjc else Taur*Is/Vt*exp(vbc/Vt) + Capcjc));
+    cbe = smooth(1,(if (vbe/Vt < EMin) then Tauf*Is/Vt*ExMin*(vbe/Vt - EMin + 1) +
       Capcje else if (vbe/Vt > EMax) then Tauf*Is/Vt*ExMax*(vbe/Vt - EMax + 1)
-       + Capcje else Tauf*Is/Vt*exp(vbe/Vt) + Capcje)));
+       + Capcje else Tauf*Is/Vt*exp(vbe/Vt) + Capcje));
     C.i = (ibe - ibc)*qbk - ibc/Br - cbc*der(vbc) + Ccs*der(C.v);
     B.i = ibe/Bf + ibc/Br + cbc*der(vbc) + cbe*der(vbe);
     E.i = -B.i - C.i + Ccs*der(C.v);
@@ -655,24 +655,24 @@ on page 317 ff.
     vbe = E.v - B.v;
     qbk = 1 - vbc*Vak;
     
-    ibc = noEvent(smooth(1,(if (vbc/Vt < EMin) then Is*(ExMin*(vbc/Vt - EMin + 1) - 1) + vbc*Gbc else 
+    ibc = smooth(1,(if (vbc/Vt < EMin) then Is*(ExMin*(vbc/Vt - EMin + 1) - 1) + vbc*Gbc else 
             if (vbc/Vt > EMax) then Is*(ExMax*(vbc/Vt - EMax + 1) - 1) + vbc*
-      Gbc else Is*(exp(vbc/Vt) - 1) + vbc*Gbc)));
+      Gbc else Is*(exp(vbc/Vt) - 1) + vbc*Gbc));
     
-    ibe = noEvent(smooth(1,(if (vbe/Vt < EMin) then Is*(ExMin*(vbe/Vt - EMin + 1) - 1) + vbe*Gbe else 
+    ibe = smooth(1,(if (vbe/Vt < EMin) then Is*(ExMin*(vbe/Vt - EMin + 1) - 1) + vbe*Gbe else 
             if (vbe/Vt > EMax) then Is*(ExMax*(vbe/Vt - EMax + 1) - 1) + vbe*
-      Gbe else Is*(exp(vbe/Vt) - 1) + vbe*Gbe)));
+      Gbe else Is*(exp(vbe/Vt) - 1) + vbe*Gbe));
     
-    Capcjc = noEvent(smooth(1,(if (vbc/Phic > 0) then Cjc*(1 + Mc*vbc/Phic) else Cjc*pow(1 - vbc
-      /Phic, -Mc))));
-    Capcje = noEvent(smooth(1,if (vbe/Phie > 0) then Cje*(1 + Me*vbe/Phie) else Cje*pow(1 - vbe
-      /Phie, -Me)));
-    cbc = noEvent(smooth(1,(if (vbc/Vt < EMin) then Taur*Is/Vt*ExMin*(vbc/Vt - EMin + 1) +
+    Capcjc = smooth(1,(if (vbc/Phic > 0) then Cjc*(1 + Mc*vbc/Phic) else Cjc*pow(1 - vbc
+      /Phic, -Mc)));
+    Capcje = smooth(1,if (vbe/Phie > 0) then Cje*(1 + Me*vbe/Phie) else Cje*pow(1 - vbe
+      /Phie, -Me));
+    cbc = smooth(1,(if (vbc/Vt < EMin) then Taur*Is/Vt*ExMin*(vbc/Vt - EMin + 1) +
       Capcjc else if (vbc/Vt > EMax) then Taur*Is/Vt*ExMax*(vbc/Vt - EMax + 1)
-       + Capcjc else Taur*Is/Vt*exp(vbc/Vt) + Capcjc)));
-    cbe = noEvent(smooth(1,(if (vbe/Vt < EMin) then Tauf*Is/Vt*ExMin*(vbe/Vt - EMin + 1) +
+       + Capcjc else Taur*Is/Vt*exp(vbc/Vt) + Capcjc));
+    cbe = smooth(1,(if (vbe/Vt < EMin) then Tauf*Is/Vt*ExMin*(vbe/Vt - EMin + 1) +
       Capcje else if (vbe/Vt > EMax) then Tauf*Is/Vt*ExMax*(vbe/Vt - EMax + 1)
-       + Capcje else Tauf*Is/Vt*exp(vbe/Vt) + Capcje)));
+       + Capcje else Tauf*Is/Vt*exp(vbe/Vt) + Capcje));
     C.i = -((ibe - ibc)*qbk - ibc/Br - cbc*der(vbc) - Ccs*der(C.v));
     B.i = -(ibe/Bf + ibc/Br + cbe*der(vbe) + cbc*der(vbc));
     E.i = -B.i - C.i + Ccs*der(C.v);
@@ -934,21 +934,21 @@ Muenchen Wien 1990.
           assert( heatPort.T > 0,"temperature must be positive");
           gds = if (RDS < 1.e-20 and RDS > -1.e-20) then 1.e20 else 1/RDS;
           v = beta_t*(W + dW)/(L + dL);
-          ud = noEvent(smooth(0,if (D.v < S.v) then S.v else D.v));
-          us = noEvent(smooth(0,if (D.v < S.v) then D.v else S.v));
+          ud = smooth(0,if (D.v < S.v) then S.v else D.v);
+          us = smooth(0,if (D.v < S.v) then D.v else S.v);
           uds = ud - us;
-          ubs = noEvent(smooth(0,if (B.v > us) then 0 else B.v - us));
+          ubs = smooth(0,if (B.v > us) then 0 else B.v - us);
           ugst = (G.v - us - vt_t + k2_t*ubs)*K5;
-          id = noEvent(smooth(0,if (ugst <= 0) then uds*gds else if (ugst > uds) then v*uds*(
-            ugst - uds/2) + uds*gds else v*ugst*ugst/2 + uds*gds));
+          id = smooth(0,if (ugst <= 0) then uds*gds else if (ugst > uds) then v*uds*(
+            ugst - uds/2) + uds*gds else v*ugst*ugst/2 + uds*gds);
     
           beta_t = Beta*pow((heatPort.T/Tnom), -1.5);
           vt_t = Vt*(1 + (heatPort.T - Tnom)*kvt);
           k2_t = K2*(1 + (heatPort.T - Tnom)*kk2);
     
           G.i = 0;
-          D.i = noEvent(smooth(0,if (D.v < S.v) then -id else id));
-          S.i = noEvent(smooth(0,if (D.v < S.v) then id else -id));
+          D.i = smooth(0,if (D.v < S.v) then -id else id);
+          S.i = smooth(0,if (D.v < S.v) then id else -id);
           B.i = 0;
           heatPort.Q_flow = -D.i*(D.v - S.v);
         end HeatingNMOS;
@@ -1098,21 +1098,21 @@ Some typical parameter sets are:
           assert( heatPort.T > 0,"temperature must be positive");
           gds = if (RDS < 1.e-20 and RDS > -1.e-20) then 1.e20 else 1/RDS;
           v = beta_t*(W + dW)/(L + dL);
-          ud = noEvent(smooth(0,if (D.v > S.v) then S.v else D.v));
-          us = noEvent(smooth(0,if (D.v > S.v) then D.v else S.v));
+          ud = smooth(0,if (D.v > S.v) then S.v else D.v);
+          us = smooth(0,if (D.v > S.v) then D.v else S.v);
           uds = ud - us;
-          ubs = noEvent(smooth(0,if (B.v < us) then 0 else B.v - us));
+          ubs = smooth(0,if (B.v < us) then 0 else B.v - us);
           ugst = (G.v - us - vt_t + k2_t*ubs)*K5;
-          id = noEvent(smooth(0,if (ugst >= 0) then uds*gds else if (ugst < uds) then -v*uds*(
-            ugst - uds/2) + uds*gds else -v*ugst*ugst/2 + uds*gds));
+          id = smooth(0,if (ugst >= 0) then uds*gds else if (ugst < uds) then -v*uds*(
+            ugst - uds/2) + uds*gds else -v*ugst*ugst/2 + uds*gds);
     
           beta_t = Beta*pow((heatPort.T/Tnom), -1.5);
           vt_t = Vt*(1 + (heatPort.T - Tnom)*kvt);
           k2_t = K2*(1 + (heatPort.T - Tnom)*kk2);
     
           G.i = 0;
-          D.i = noEvent(smooth(0,if (D.v > S.v) then -id else id));
-          S.i = noEvent(smooth(0,if (D.v > S.v) then id else -id));
+          D.i = smooth(0,if (D.v > S.v) then -id else id);
+          S.i = smooth(0,if (D.v > S.v) then id else -id);
           B.i = 0;
           heatPort.Q_flow = -D.i*(D.v - S.v);
         end HeatingPMOS;
@@ -1277,34 +1277,34 @@ on page 317 ff.
           qbk = 1 - vbc*Vak;
     
           hexp = (heatPort.T/Tnom - 1)*EG/vt_t;
-          htempexp = noEvent(smooth(1,if (hexp < EMin) then ExMin*(hexp - EMin + 1) else if (
-            hexp > EMax) then ExMax*(hexp - EMax + 1) else exp(hexp)));
+          htempexp = smooth(1,if (hexp < EMin) then ExMin*(hexp - EMin + 1) else if (
+            hexp > EMax) then ExMax*(hexp - EMax + 1) else exp(hexp));
     
           is_t = Is*pow((heatPort.T/Tnom), XTI)*htempexp;
           br_t = Br*pow((heatPort.T/Tnom), XTB);
           bf_t = Bf*pow((heatPort.T/Tnom), XTB);
           vt_t = (K/q)*heatPort.T;
     
-          ibc = noEvent(smooth(1,(if (vbc/(NR*vt_t) < EMin) then is_t*(ExMin*(vbc/(NR*vt_t) -
+          ibc = smooth(1,(if (vbc/(NR*vt_t) < EMin) then is_t*(ExMin*(vbc/(NR*vt_t) -
             EMin + 1) - 1) + vbc*Gbc else if (vbc/(NR*vt_t) > EMax) then is_t*(
             ExMax*(vbc/(NR*vt_t) - EMax + 1) - 1) + vbc*Gbc else is_t*(exp(vbc/
-            (NR*vt_t)) - 1) + vbc*Gbc)));
-          ibe = noEvent(smooth(1,(if (vbe/(NF*vt_t) < EMin) then is_t*(ExMin*(vbe/(NF*vt_t) -
+            (NR*vt_t)) - 1) + vbc*Gbc));
+          ibe = smooth(1,(if (vbe/(NF*vt_t) < EMin) then is_t*(ExMin*(vbe/(NF*vt_t) -
             EMin + 1) - 1) + vbe*Gbe else if (vbe/(NF*vt_t) > EMax) then is_t*(
             ExMax*(vbe/(NF*vt_t) - EMax + 1) - 1) + vbe*Gbe else is_t*(exp(vbe/
-            (NF*vt_t)) - 1) + vbe*Gbe)));
-          Capcjc = noEvent(smooth(1,(if (vbc/Phic > 0) then Cjc*(1 + Mc*vbc/Phic) else Cjc*pow(1
-             - vbc/Phic, -Mc))));
-          Capcje = noEvent(smooth(1,(if (vbe/Phie > 0) then Cje*(1 + Me*vbe/Phie) else Cje*pow(1
-             - vbe/Phie, -Me))));
-          cbc = noEvent(smooth(1,(if (vbc/(NR*vt_t) < EMin) then Taur*is_t/(NR*vt_t)*ExMin*(vbc/(
+            (NF*vt_t)) - 1) + vbe*Gbe));
+          Capcjc = smooth(1,(if (vbc/Phic > 0) then Cjc*(1 + Mc*vbc/Phic) else Cjc*pow(1
+             - vbc/Phic, -Mc)));
+          Capcje = smooth(1,(if (vbe/Phie > 0) then Cje*(1 + Me*vbe/Phie) else Cje*pow(1
+             - vbe/Phie, -Me)));
+          cbc = smooth(1,(if (vbc/(NR*vt_t) < EMin) then Taur*is_t/(NR*vt_t)*ExMin*(vbc/(
             NR*vt_t) - EMin + 1) + Capcjc else if (vbc/(NR*vt_t) > EMax) then 
             Taur*is_t/(NR*vt_t)*ExMax*(vbc/(NR*vt_t) - EMax + 1) + Capcjc else 
-            Taur*is_t/(NR*vt_t)*exp(vbc/(NR*vt_t)) + Capcjc)));
-          cbe = noEvent(smooth(1,(if (vbe/(NF*vt_t) < EMin) then Tauf*is_t/(NF*vt_t)*ExMin*(vbe/(
+            Taur*is_t/(NR*vt_t)*exp(vbc/(NR*vt_t)) + Capcjc));
+          cbe = smooth(1,(if (vbe/(NF*vt_t) < EMin) then Tauf*is_t/(NF*vt_t)*ExMin*(vbe/(
             NF*vt_t) - EMin + 1) + Capcje else if (vbe/(NF*vt_t) > EMax) then 
             Tauf*is_t/(NF*vt_t)*ExMax*(vbe/(NF*vt_t) - EMax + 1) + Capcje else 
-            Tauf*is_t/(NF*vt_t)*exp(vbe/(NF*vt_t)) + Capcje)));
+            Tauf*is_t/(NF*vt_t)*exp(vbe/(NF*vt_t)) + Capcje));
           C.i = (ibe - ibc)*qbk - ibc/br_t - cbc*der(vbc) + Ccs*der(C.v);
           B.i = ibe/bf_t + ibc/br_t + cbc*der(vbc) + cbe*der(vbe);
           E.i = -B.i - C.i + Ccs*der(C.v);
@@ -1467,36 +1467,36 @@ on page 317 ff.
           qbk = 1 - vcb*Vak;
     
           hexp = (heatPort.T/Tnom - 1)*EG/vt_t;
-          htempexp = noEvent(smooth(1,if (hexp < EMin) then ExMin*(hexp - EMin + 1) else if (
-            hexp > EMax) then ExMax*(hexp - EMax + 1) else exp(hexp)));
+          htempexp = smooth(1,if (hexp < EMin) then ExMin*(hexp - EMin + 1) else if (
+            hexp > EMax) then ExMax*(hexp - EMax + 1) else exp(hexp));
     
           is_t = Is*pow((heatPort.T/Tnom), XTI)*htempexp;
           br_t = Br*pow((heatPort.T/Tnom), XTB);
           bf_t = Bf*pow((heatPort.T/Tnom), XTB);
           vt_t = (K/q)*heatPort.T;
     
-          icb = noEvent(smooth(1,(if (vcb/(NR*vt_t) < EMin) then is_t*(ExMin*(vcb/(NR*vt_t) -
+          icb = smooth(1,(if (vcb/(NR*vt_t) < EMin) then is_t*(ExMin*(vcb/(NR*vt_t) -
             EMin + 1) - 1) + vcb*Gbc else if (vcb/(NR*vt_t) > EMax) then is_t*(
             ExMax*(vcb/(NR*vt_t) - EMax + 1) - 1) + vcb*Gbc else is_t*(exp(vcb/
-            (NR*vt_t)) - 1) + vcb*Gbc)));
+            (NR*vt_t)) - 1) + vcb*Gbc));
     
-          ieb = noEvent(smooth(1,(if (veb/(NF*vt_t) < EMin) then is_t*(ExMin*(veb/(NF*vt_t) -
+          ieb = smooth(1,(if (veb/(NF*vt_t) < EMin) then is_t*(ExMin*(veb/(NF*vt_t) -
             EMin + 1) - 1) + veb*Gbe else if (veb/(NF*vt_t) > EMax) then is_t*(
             ExMax*(veb/(NF*vt_t) - EMax + 1) - 1) + veb*Gbe else is_t*(exp(veb/
-            (NF*vt_t)) - 1) + veb*Gbe)));
+            (NF*vt_t)) - 1) + veb*Gbe));
     
-          Capcjc = noEvent(smooth(1,(if (vcb/Phic > 0) then Cjc*(1 + Mc*vcb/Phic) else Cjc*pow(1
-             - vcb/Phic, -Mc))));
-          Capcje = noEvent(smooth(1,(if (veb/Phie > 0) then Cje*(1 + Me*veb/Phie) else Cje*pow(1
-             - veb/Phie, -Me))));
-          ccb = noEvent(smooth(1,(if (vcb/(NR*vt_t) < EMin) then Taur*is_t/(NR*vt_t)*ExMin*(vcb/(
+          Capcjc = smooth(1,(if (vcb/Phic > 0) then Cjc*(1 + Mc*vcb/Phic) else Cjc*pow(1
+             - vcb/Phic, -Mc)));
+          Capcje = smooth(1,(if (veb/Phie > 0) then Cje*(1 + Me*veb/Phie) else Cje*pow(1
+             - veb/Phie, -Me)));
+          ccb = smooth(1,(if (vcb/(NR*vt_t) < EMin) then Taur*is_t/(NR*vt_t)*ExMin*(vcb/(
             NR*vt_t) - EMin + 1) + Capcjc else if (vcb/(NR*vt_t) > EMax) then 
             Taur*is_t/(NR*vt_t)*ExMax*(vcb/(NR*vt_t) - EMax + 1) + Capcjc else 
-            Taur*is_t/(NR*vt_t)*exp(vcb/(NR*vt_t)) + Capcjc)));
-          ceb = noEvent(smooth(1,(if (veb/(NF*vt_t) < EMin) then Tauf*is_t/(NF*vt_t)*ExMin*(veb/(
+            Taur*is_t/(NR*vt_t)*exp(vcb/(NR*vt_t)) + Capcjc));
+          ceb = smooth(1,(if (veb/(NF*vt_t) < EMin) then Tauf*is_t/(NF*vt_t)*ExMin*(veb/(
             NF*vt_t) - EMin + 1) + Capcje else if (veb/(NF*vt_t) > EMax) then 
             Tauf*is_t/(NF*vt_t)*ExMax*(veb/(NF*vt_t) - EMax + 1) + Capcje else 
-            Tauf*is_t/(NF*vt_t)*exp(veb/(NF*vt_t)) + Capcje)));
+            Tauf*is_t/(NF*vt_t)*exp(veb/(NF*vt_t)) + Capcje));
           C.i = icb/br_t + ccb*der(vcb) + Ccs*der(C.v) + (icb - ieb)*qbk;
           B.i = -ieb/bf_t - icb/br_t - ceb*der(veb) - ccb*der(vcb);
           E.i = -B.i - C.i + Ccs*der(C.v);

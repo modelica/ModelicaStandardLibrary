@@ -1095,8 +1095,8 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
     VMax.i = 0;
     VMin.i = 0;
     vin = in_p.v - in_n.v;
-    in_p.v - in_n.v = unitVoltage*noEvent(smooth(0,(if s < -1 then s + 1 else if s > 1 then s - 1 else 0)));
-    out.v = noEvent(smooth(0,if s < -1 then VMin.v else if s > 1 then VMax.v else (VMax.v - VMin.v)*s/2 + (VMax.v + VMin.v)/2));
+    in_p.v - in_n.v = unitVoltage*smooth(0,(if s < -1 then s + 1 else if s > 1 then s - 1 else 0));
+    out.v = smooth(0,if s < -1 then VMin.v else if s > 1 then VMax.v else (VMax.v - VMin.v)*s/2 + (VMax.v + VMin.v)/2);
   end IdealOpAmpLimited;
   
         model IdealDiode "Ideal diode" 
