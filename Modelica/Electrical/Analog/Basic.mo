@@ -1355,9 +1355,9 @@ value of Slope is taken into calculation.)
     VMin.i = 0;
     vin = in_p.v - in_n.v;
     f = 2/(VMax.v - VMin.v);
-    absSlope = noEvent(smooth(0,(if (Slope < 0) then -Slope else Slope)));
-    out.v = (VMax.v + VMin.v)/2 + absSlope*vin/(1 + absSlope*noEvent(smooth(0,(if (f*vin
-       < 0) then -f*vin else f*vin))));
+    absSlope = smooth(0,(if (Slope < 0) then -Slope else Slope));
+    out.v = (VMax.v + VMin.v)/2 + absSlope*vin/(1 + absSlope*smooth(0,(if (f*vin
+       < 0) then -f*vin else f*vin)));
   end OpAmp;
   
         model VariableResistor 
