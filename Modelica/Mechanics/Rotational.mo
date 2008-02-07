@@ -2823,6 +2823,7 @@ to describe a coupling of the element with the housing via a spring/damper.
       "Relative angular velocity between flange_b and flange_a";
   protected 
     SI.Angle b2=b/2;
+    SI.Angle phi_diff;
     // A minimum backlash is defined in order to avoid an infinite
     // number of state events if backlash b is set to zero.
     constant SI.Angle b_min=1.e-10 "minimum backlash";
@@ -2962,10 +2963,11 @@ can be used to model a gear box with backlash, elasticity and damping.
               fillColor=10)),
         Line(points=[-79, -96; -8, -96], style(color=10, fillColor=10))));
   equation 
+    phi_diff = phi_rel - phi_rel0;
     w_rel = der(phi_rel);
-    tau = if b2 > b_min then (if phi_rel > b2 then c*(phi_rel - phi_rel0 - b2)
-       + d*w_rel else (if phi_rel < -b2 then c*(phi_rel - phi_rel0 + b2) + d*
-      w_rel else 0)) else c*(phi_rel - phi_rel0) + d*w_rel;
+    tau = if b2 > b_min then (if phi_diff > b2 then c*(phi_diff - b2)
+       + d*w_rel else (if phi_diff < -b2 then c*(phi_diff + b2) + d*
+      w_rel else 0)) else c*phi_diff + d*w_rel;
   end ElastoBacklash;
   
   model BearingFriction "Coulomb friction in bearings " 

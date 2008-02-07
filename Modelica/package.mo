@@ -590,10 +590,6 @@ that can lead to wrong simulation results):
 </p>
  
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-  <tr><td colspan=\"2\"><b>Package-Name.</b></td></tr>
-  <tr><td valign=\"top\"> Model-Name </td>
-      <td valign=\"top\"> Description text</td> 
-  </tr>
   <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Parts</b></td></tr>
   <tr><td valign=\"top\"> Rotor1D </td>
       <td valign=\"top\"> The 3D reaction torque was not completely correct and gave in 
@@ -609,8 +605,12 @@ that can lead to wrong simulation results):
                         TorqueStep</td>
       <td valign=\"top\"> Speed used in torque calculation was der(flange.phi) and not
                         the speed relative to the bearing<br> (= der(flange.phi) - der(bearing.phi)).
-                        This was correct. This bug leads to wrong simulation results,<br> 
+                        This was corrected. This bug leads to wrong simulation results,<br> 
                         when the bearing is not fixed to ground </td> 
+  </tr>
+  <tr><td valign=\"top\"> Backlash </td>
+      <td valign=\"top\"> If parameter phi_rel0 is not zero, the equations have been wrong.
+                        This bug has been fixed.  </td> 
   </tr>
 
 </table>
