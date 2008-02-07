@@ -134,8 +134,7 @@ and the accompanying <b>disclaimer</b>
           points={{-20,10},{0,-10},{-20,-30},{40,-30},{60,-10},{40,10},{-20,10}},
           lineColor={255,128,0},
           fillColor={255,128,0},
-          fillPattern=FillPattern.Solid)}),
-    uses(Modelica(version="3.0-development")));
+          fillPattern=FillPattern.Solid)}));
 
   package Examples
     "Examples that demonstrate the usage of the FluidHeatFlow components"

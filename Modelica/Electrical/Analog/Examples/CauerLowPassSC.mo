@@ -7,9 +7,7 @@ model Rn "negative resistance"
       "Resistance";
   Modelica.Blocks.Sources.BooleanPulse BooleanPulse1(period=clock) 
     annotation (Placement(transformation(extent={{-10,50},{10,70}}, rotation=0)));
-  annotation (
-    uses(Modelica(version="2.2")),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}),
             graphics),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -83,7 +81,7 @@ end Rn;
 
 model Rp "positive resistance"
 
-  annotation (uses(Modelica(version="2.2")), Diagram(coordinateSystem(
+  annotation (Diagram(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                                                      graphics),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -158,9 +156,7 @@ equation
         points={{60,5},{80,5},{80,2},{100,2}},
         color={0,0,255}));
 end Rp;
-  annotation (
-    uses(Modelica(version="2.2")),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-250,-200},{
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-250,-200},{
             250,200}}), graphics={Text(
           extent={{-100,180},{94,140}},
           textString="CauerLowPassSC",

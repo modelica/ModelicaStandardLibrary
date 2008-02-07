@@ -240,8 +240,7 @@ model PowerSensor "Sensor to measure the power"
           origin={-30,-50},
           extent={{-10,-10},{10,10}},
           rotation=270)));
-  annotation (uses(Modelica(version="2.2")),
-    Icon(coordinateSystem(
+  annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
