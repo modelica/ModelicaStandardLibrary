@@ -1341,9 +1341,7 @@ states and of the \"Advanced\" menu parameters, see model
     connect(frame_a, body.frame_a) annotation (Line(
         points={{-100,0},{-60,0},{-60,-50.1666},{-27.3333,-50.1666}},
         color={95,95,95},
-        thickness=2,
-        fillColor={0,0,0},
-        fillPattern=FillPattern.Solid));
+        thickness=2));
   end BodyShape;
 
   model BodyBox
@@ -1837,17 +1835,6 @@ states and of the \"Advanced\" menu parameters, see model
       "Absolute acceleration of frame_a resolved in world frame (= der(v_0))" 
       annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
     annotation (
-      defaultAttributes={"inner"},
-      defaultInstanceName="world",
-      defaultModifiers="gravityType=0",
-      missingInnerMessage="No \"world\" component is defined. A default world component
-without a gravity field will be used. If this is not desired,
-drag Modelica.Mechanics.MultiBody.World into the top level of your model.",
-      Window(
-        x=0.21,
-        y=0,
-        width=0.75,
-        height=0.82),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2198,14 +2185,14 @@ November 3-4, 2003, pp. 149-158</p>
         "Angular velocity of frame_a, resolved in frame_a";
     SI.Angle phi(start=0, final stateSelect=stateSelect)
         "Rotation angle of rotor with respect to frame_a (= flange_a.phi = flange_b.phi)"
-      annotation(Dialog(initialDialog=true));
+      annotation(Dialog(__Dymola_initialDialog=true));
 
     SI.AngularVelocity w(start=0, stateSelect=stateSelect)
         "Angular velocity of rotor with respect to frame_a" 
-      annotation(Dialog(initialDialog=true));
+      annotation(Dialog(__Dymola_initialDialog=true));
     SI.AngularAcceleration a(start=0)
         "Angular acceleration of rotor with respect to frame_a" 
-      annotation(Dialog(initialDialog=true));
+      annotation(Dialog(__Dymola_initialDialog=true));
 
     Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a
         "(left) driving flange (flange axis directed INTO cut plane)" 

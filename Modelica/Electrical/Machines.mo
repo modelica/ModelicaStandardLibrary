@@ -306,9 +306,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
                                                              annotation (Line(
           points={{-1.83697e-015,20},{-1.83697e-015,17},{1.83697e-015,17},{
               1.83697e-015,10}},
-          color={0,0,255},
-          fillColor={135,135,135},
-          fillPattern=FillPattern.Solid));
+          color={0,0,255}));
       connect(TerminalBox1.plug_sn, aimc.plug_sn)  annotation (Line(
           points={{-16,-30},{-16,-30}},
           color={0,0,255},
@@ -433,9 +431,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
                                                              annotation (Line(
           points={{-1.83697e-015,20},{-1.83697e-015,18},{1.83697e-015,18},{
               1.83697e-015,10}},
-          color={0,0,255},
-          fillColor={135,135,135},
-          fillPattern=FillPattern.Solid));
+          color={0,0,255}));
       connect(switchYD.plug_sn, aimc.plug_sn)   annotation (Line(
           points={{-16,-30},{-16,-30}},
           color={0,0,255},
@@ -574,15 +570,11 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
       connect(starRotorResistor.plug_p, rotorResistor.plug_n) 
                                               annotation (Line(
           points={{-80,-70},{-70,-70}},
-          color={0,0,255},
-          fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={0,128,255}));
+          color={0,0,255}));
       connect(rotorResistor.plug_p, idealCommutingSwitch.plug_n1) 
                                                                annotation (Line(
           points={{-50,-70},{-45,-70},{-45,-50}},
-          color={0,0,255},
-          fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={0,128,255}));
+          color={0,0,255}));
       connect(aims.plug_rn, starRotor.plug_p) 
                                             annotation (Line(points={{-20,-46},
               {-20,-90},{-50,-90}}, color={0,0,255}));
@@ -601,9 +593,7 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
                                                              annotation (Line(
           points={{-1.83697e-015,20},{-1.83697e-015,16},{1.83697e-015,16},{
               1.83697e-015,10}},
-          color={0,0,255},
-          fillColor={135,135,135},
-          fillPattern=FillPattern.Solid));
+          color={0,0,255}));
       connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n) 
                                                                  annotation (Line(
           points={{-10,-28},{-10,-20},{-1.83697e-015,-20},{-1.83697e-015,-10}},
@@ -2360,9 +2350,7 @@ turnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
                 60,-90},{-80,-90},{-80,60},{-100,60}}, color={0,0,255}));
         connect(spacePhasorR.ground, spacePhasorR.zero) annotation (Line(
             points={{-10,-20},{-10,-14},{6.12323e-016,-14},{6.12323e-016,-20}},
-            color={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid));
+            color={0,0,255}));
         
         connect(airGapS.spacePhasor_r, spacePhasorR.spacePhasor) 
           annotation (Line(points={{10,-10},{10,-15},{10,-15},{10,-20}},
@@ -6964,9 +6952,7 @@ Zero-sequence voltage and current are present at pin zero. An additional zero-se
       //-i  = fill(zero.i,m) + InverseTransformation*spacePhasor.i_;
         connect(gnd.p, ground) annotation (Line(
             points={{70,-90},{100,-90},{100,-100}},
-            color={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid));
+            color={0,0,255}));
       end SpacePhasor;
       
       model Rotator "Rotates space phasor" 
@@ -7699,9 +7685,7 @@ Partial model for induction machine models
           smooth=Smooth.None));
       connect(spacePhasorS.ground,spacePhasorS. zero) annotation (Line(
           points={{-10,20},{-10,14},{-6.12323e-016,14},{-6.12323e-016,20}},
-          color={0,0,255},
-          fillColor={0,0,255},
-          fillPattern=FillPattern.Solid));
+          color={0,0,255}));
     end PartialBasicInductionMachine;
     
     partial model PartialBasicDCMachine "Partial model for DC machine" 
@@ -7902,9 +7886,7 @@ If <i>control</i> is true, plug_sp and plug_sn are delta connected and they are 
               -10,-60},{-60,-60},{-60,-100}}, color={0,0,255}));
       connect(control, idealCommutingSwitch.control) annotation (Line(
           points={{-110,0},{0,0},{0,-52}},
-          color={255,0,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={255,0,255}));
     end SwitchYD;
     
     model TerminalBox "terminal box Y/D-connection" 
