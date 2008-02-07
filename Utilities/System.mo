@@ -21,7 +21,7 @@ function getWorkDirectory "Get full path name of work directory"
   output String directory "Full path name of work directory";
 // POSIX function "getcwd"
   external "C" directory = ModelicaInternal_getcwd(0);
-    annotation (Documentation(info="<html>
+    annotation (Library="ModelicaExternalC",Documentation(info="<html>
  
 </html>"));
 end getWorkDirectory;
@@ -31,7 +31,7 @@ function setWorkDirectory "Set work directory"
   input String directory "New work directory";
 // POSIX function "chdir"
 external "C" ModelicaInternal_chdir(directory);
-    annotation (Documentation(info="<html>
+    annotation (Library="ModelicaExternalC",Documentation(info="<html>
   
 </html>"));
 end setWorkDirectory;
@@ -46,7 +46,7 @@ function getEnvironmentVariable "Get content of environment variable"
   output Boolean exist
       "= true, if environment variable exists; = false, if it does not exist";
   external "C" ModelicaInternal_getenv(name, convertToSlash, content, exist);
-    annotation (Documentation(info="<html>
+    annotation (Library="ModelicaExternalC",Documentation(info="<html>
   
 </html>"));
 end getEnvironmentVariable;
@@ -58,7 +58,7 @@ function setEnvironmentVariable "Set content of local environment variable"
   input Boolean convertFromSlash =  false
       "True, if '/' in content shall be changed to the native directory separator";
 external "C" ModelicaInternal_setenv(name, content, convertFromSlash);
-    annotation (Documentation(info="<html>
+    annotation (Library="ModelicaExternalC",Documentation(info="<html>
     
 </html>"));
 end setEnvironmentVariable;
@@ -68,7 +68,7 @@ function command "Execute command in default shell"
   input String string "String to be passed to shell";
   output Integer result "Return value from command (depends on environment)";
   external "C" result = system(string);
-    annotation (Documentation(info="<html>
+    annotation (Library="ModelicaExternalC",Documentation(info="<html>
  
 </html>"));
 end command;
@@ -78,5 +78,6 @@ function exit "Terminate execution of Modelica environment"
   input Integer status=0
       "Result to be returned by environment (0 means success)";
   external "C" ModelicaInternal_exit(status);
+  annotation(Library="ModelicaExternalC");
 end exit;
 end System;

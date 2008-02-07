@@ -1,5 +1,6 @@
 within Modelica.Blocks;
 
+
 package Sources
   "Library of signal source blocks generating Real and Boolean signals"
   block RealExpression "Set output signal to a time varying Real expression"
@@ -2531,7 +2532,6 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     final parameter Real t_max(fixed=false)
       "Maximum abscissa value defined in table";
 
-
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -2797,6 +2797,7 @@ Several matrices may be defined one after another.
     external "C" tableID = ModelicaTables_CombiTimeTable_init(
                    tableName, fileName, table, size(table, 1), size(table, 2),
                    startTime, smoothness, extrapolation);
+      annotation(Library="ModelicaExternalC");
     end tableTimeInit;
 
     function tableTimeIpo
@@ -2806,6 +2807,7 @@ Several matrices may be defined one after another.
       output Real value;
     external "C" value = 
                        ModelicaTables_CombiTimeTable_interpolate(tableID, icol, timeIn);
+      annotation(Library="ModelicaExternalC");
     end tableTimeIpo;
 
     function tableTimeTmin
@@ -2813,6 +2815,7 @@ Several matrices may be defined one after another.
       output Real Tmin "minimum time value in table";
     external "C" Tmin = 
                       ModelicaTables_CombiTimeTable_minimumTime(tableID);
+      annotation(Library="ModelicaExternalC");
     end tableTimeTmin;
 
     function tableTimeTmax
@@ -2820,6 +2823,7 @@ Several matrices may be defined one after another.
       output Real Tmax "maximum time value in table";
     external "C" Tmax = 
                       ModelicaTables_CombiTimeTable_maximumTime(tableID);
+      annotation(Library="ModelicaExternalC");
     end tableTimeTmax;
 
   equation

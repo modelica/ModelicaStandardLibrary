@@ -78,7 +78,7 @@ Example:
                  annotation(Dialog(__Dymola_saveSelector(filter="Text files (*.txt)",
                         caption="Text file to store the output of print(..)")));
   external "C" ModelicaInternal_print(string, fileName);
-    annotation (
+    annotation (Library="ModelicaExternalC",
   Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -150,7 +150,7 @@ content, closes the file and returns the content as a vector of strings. Lines a
     output Boolean endOfFile
       "If true, end-of-file was reached when trying to read line";
    external "C" string=  ModelicaInternal_readLine(fileName,lineNumber,endOfFile);
-    annotation (Documentation(info="<html>
+    annotation (Library="ModelicaExternalC",Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 (string, endOfFile) = Streams.<b>readLine</b>(fileName, lineNumber)
@@ -178,7 +178,7 @@ and endOfFile=true. Otherwise endOfFile=false.
 
     output Integer numberOfLines "Number of lines in file";
   external "C" numberOfLines=  ModelicaInternal_countLines(fileName);
-    annotation (Documentation(info="<html>
+    annotation (Library="ModelicaExternalC",Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 numberOfLines = Streams.<b>countLines</b>(fileName)
@@ -196,7 +196,7 @@ separated by LF or CR-LF.
     extends Modelica.Icons.Function;
     input String string "String to be printed to error message window";
     external "C" ModelicaError(string);
-    annotation (
+    annotation (Library="ModelicaExternalC",
   Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -227,7 +227,7 @@ by \"\\n\" in the string.
                  annotation(Dialog(__Dymola_loadSelector(filter="Text files (*.txt)",
                         caption="Close text file")));
     external "C" ModelicaStreams_closeFile(fileName);
-    annotation (Documentation(info="<html>
+    annotation (Library="ModelicaExternalC",Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Streams.<b>close</b>(fileName)

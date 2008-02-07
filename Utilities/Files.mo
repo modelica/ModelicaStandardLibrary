@@ -601,7 +601,7 @@ function fullPathName "Get full path name of file or directory name"
   input String name "Absolute or relative file or directory name";
   output String fullName "Full path of 'name'";
 external "C" fullName = ModelicaInternal_fullPathName(name);
-  annotation (Documentation(info="<html>
+  annotation (Library="ModelicaExternalC",Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 fullName = Files.<b>fullPathName</b>(name);
@@ -689,7 +689,7 @@ function temporaryFileName
   extends Modelica.Icons.Function;
   output String fileName "Full path name of temporary file";
   external "C" fileName=ModelicaInternal_temporaryFileName(0);
-  annotation (Documentation(info="<html>
+  annotation (Library="ModelicaExternalC",Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 fileName = Files.<b>temporaryFileName</b>();
