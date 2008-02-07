@@ -73,7 +73,7 @@ package Incompressible
       "true if table tableVaporPressure is present";
     final constant Real invTK[neta] = if size(tableViscosity,1) > 0 then 
         invertTemp(tableViscosity[:,1],TinK) else fill(0,0);
-  annotation(keepConstant = true, Documentation(info="<HTML>
+  annotation(__Dymola_keepConstant = true, Documentation(info="<HTML>
 <p>
 This is the base package for medium models of incompressible fluids based on
 tables. The minimal data to provide for a useful medium description is tables

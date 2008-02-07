@@ -945,9 +945,7 @@ has a higher priority to fire as alternative.split[2]).
               -16.1,-150},{-1,-150},{-1,-136}}, color={255,0,255}));
     connect(setReal.y, NumericValue1.Value) annotation (Line(
           points={{42,-150},{59,-150}},
-          color={0,0,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={0,0,255}));
     connect(transition3.inPort, alternative.split[1])  annotation (Line(points=
               {{-36,90},{-55.09,90}}, color={0,0,0}));
     connect(transition4.inPort, alternative.split[2])  annotation (Line(points=
@@ -1034,9 +1032,7 @@ is that the alternative paths are included in a \"CompositeStep\".
               91.5,0},{96,0},{96,-60},{4,-60}}, color={0,0,0}));
     connect(transition2.outPort, step6.inPort[1]) annotation (Line(
           points={{56.5,0},{70,0}},
-          color={0,0,0},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={0,0,0}));
     connect(transition1.outPort, Parallel1.inPort) annotation (Line(points={{-47.5,0},
               {-30.99,0}},          color={0,0,0}));
     connect(Parallel1.outPort, transition2.inPort) annotation (Line(points={{36.66,0},
@@ -1207,27 +1203,19 @@ buttons:
     connect(tank1.outflow1, valve2.outflow1) annotation (Line(
           points={{50,33.75},{50,26.875},{46.5,26.875},{46.5,16.5}},
           color={0,0,0},
-          thickness=2,
-          fillColor={0,0,0},
-          fillPattern=FillPattern.Solid));
+          thickness=2));
     connect(tank2.inflow1, valve2.inflow1) annotation (Line(
           points={{46.5,-18.75},{46.5,9.5}},
           color={0,0,0},
-          thickness=2,
-          fillColor={0,0,0},
-          fillPattern=FillPattern.Solid));
+          thickness=2));
     connect(tank2.outflow1, valve3.outflow1) annotation (Line(
           points={{74,-46.25},{74,-73.5},{73.5,-73.5}},
           color={0,0,0},
-          thickness=2,
-          fillColor={0,0,0},
-          fillPattern=FillPattern.Solid));
+          thickness=2));
     connect(tank1.inflow1, valve1.inflow1) annotation (Line(
           points={{22.5,61.25},{22.5,69.25}},
           color={0,0,0},
-          thickness=2,
-          fillColor={0,0,0},
-          fillPattern=FillPattern.Solid));
+          thickness=2));
     connect(shut.on, tankController.shut) annotation (Line(points={{-69,-30},{
               -62,-30},{-62,-12},{-52,-12}}, color={255,0,255}));
     connect(stop.on, tankController.stop) annotation (Line(points={{-69,0},{-52,
@@ -1394,31 +1382,21 @@ buttons:
       connect(s1.outPort[1], T1.inPort) 
                                      annotation (Line(
             points={{-51.5,40},{-44,40}},
-            color={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid));
+            color={0,0,0}));
       connect(T1.outPort, makeProduct.inPort) annotation (Line(
             points={{-38.5,40},{-21,40}},
-            color={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid));
+            color={0,0,0}));
       connect(makeProduct.outPort, T2.inPort) annotation (Line(
             points={{10.5,40},{33,40}},
-            color={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid));
+            color={0,0,0}));
       connect(T5.outPort, emptyTanks.inPort[1]) 
                                              annotation (Line(
             points={{5.5,-50},{21,-50}},
-            color={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid));
+            color={0,0,0}));
       connect(emptyTanks.outPort[1], T6.inPort) 
                                              annotation (Line(
             points={{42.5,-50},{51,-50}},
-            color={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid));
+            color={0,0,0}));
       connect(setValve1.y, valve1) 
         annotation (Line(points={{83,82.5},{90,82.5},{90,60},{105,60}}, color={
                 255,0,255}));
@@ -1494,27 +1472,19 @@ buttons:
       connect(fillTank1.inPort[1], inPort) 
                                         annotation (Line(
             points={{-141,0},{-160,0}},
-            color={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid));
+            color={0,0,0}));
       connect(fillTank1.outPort[1], T1.inPort) 
                                             annotation (Line(
             points={{-119.5,0},{-104,0}},
-            color={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid));
+            color={0,0,0}));
       connect(fillTank2.outPort[1], T3.inPort) 
                                             annotation (Line(
             points={{10.5,0},{26,0}},
-            color={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid));
+            color={0,0,0}));
       connect(emptyTank2.outPort[1], outPort) 
                                            annotation (Line(
             points={{140.5,0},{155,0}},
-            color={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid));
+            color={0,0,0}));
       connect(wait1.outPort[1], T2.inPort) 
                                         annotation (Line(points={{-59.5,0},{-44,
                 0}}, color={0,0,0}));

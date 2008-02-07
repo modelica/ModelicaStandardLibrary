@@ -269,27 +269,19 @@ the two other examples).
       connect(force1.flange, mass1.flange_a)    annotation (Line(
           points={{16,70},{40,70}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(force2.flange, mass2.flange_b)    annotation (Line(
           points={{16,30},{70,30},{70,10},{60,10}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(mass3.flange_b, force3.flange)    annotation (Line(
           points={{-20,-30},{0,-30}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(fixed.flange, force3.support) annotation (Line(
           points={{10,-50},{10,-40}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
     end SignConvention;
 
     model InitialConditions "Setting of initial conditions"
@@ -387,51 +379,35 @@ combination). In this case the system is not at rest.
       connect(s2.flange_a, fixed2.flange) annotation (Line(
           points={{-60,70},{-90,70}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(s1.flange_a, fixed1.flange) annotation (Line(
           points={{-58,-10},{-90,-10}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(m1.flange_a, s1.flange_b) annotation (Line(
           points={{-20,-10},{-38,-10}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(sd1.flange_a, m1.flange_b) annotation (Line(
           points={{20,-10},{0,-10}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(m2.flange_a, sd1.flange_b) annotation (Line(
           points={{60,-10},{40,-10}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(m4.flange_a, sd2.flange_b) annotation (Line(
           points={{60,70},{40,70}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(sd2.flange_a, m3.flange_b) annotation (Line(
           points={{20,70},{0,70}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(m3.flange_a, s2.flange_b) annotation (Line(
           points={{-20,70},{-40,70}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
     end InitialConditions;
 
     model WhyArrows "Use of arrows in Mechanics.Translational"
@@ -529,51 +505,35 @@ problems.
       connect(rod3.flange_b,positionSensor3. flange) annotation (Line(
           points={{-50,68},{-60,68}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(rod1.flange_a,positionSensor1. flange) annotation (Line(
           points={{-48,30},{-60,30}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(rod1.flange_b, fixed.flange)  annotation (Line(
           points={{-28,30},{-10,30}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(rod3.flange_a, fixed.flange)  annotation (Line(
           points={{-30,68},{-10,68},{-10,30}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(fixed.flange, rod2.flange_a)  annotation (Line(
           points={{-10,30},{20,30}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(rod2.flange_b,positionSensor2. flange) annotation (Line(
           points={{40,30},{60,30}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(fixed1.flange,spring1. flange_a) annotation (Line(
           points={{-90,-50},{-80,-50}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(fixed2.flange,spring2. flange_a) annotation (Line(
           points={{10,-50},{30,-50}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
     end WhyArrows;
 
     model Accelerate "Use of model accelerate."
@@ -601,9 +561,7 @@ with a predefined acceleration.
       connect(accelerate.flange, mass.flange_a)    annotation (Line(
           points={{-20,30},{0,30}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(constantAcc.y, accelerate.a_ref) annotation (Line(
           points={{-59,30},{-42,30}},
           color={0,0,127},
@@ -675,21 +633,15 @@ Demonstrate usage of damper components in different variants.
       connect(damper1.flange_b, fixed1.flange) annotation (Line(
           points={{0,70},{32,70}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(damper2.flange_b, fixed2.flange) annotation (Line(
           points={{0,10},{30,10}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(springDamper3.flange_b, fixed3.flange) annotation (Line(
           points={{0,-50},{30,-50}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
     end Damper;
 
     model Oscillator "Oscillator demonstrates the use of initial conditions."
@@ -782,27 +734,19 @@ If damping is added the amplitudes are bounded.
       connect(spring1.flange_b, fixed1.flange) annotation (Line(
           points={{40,50},{70,50}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(force2.flange, mass2.flange_a)    annotation (Line(
           points={{-40,-50},{-20,-50}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(force1.flange, mass1.flange_a)    annotation (Line(
           points={{-40,50},{-20,50}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(spring2.flange_b, fixed2.flange) annotation (Line(
           points={{40,-50},{70,-50}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
     end Oscillator;
 
     model Sensors "Sensors for translational systems."
@@ -871,33 +815,23 @@ to see the difference.
       connect(forceSensor.flange_a, force.flange)   annotation (Line(
           points={{-20,50},{-40,50}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(mass.flange_a, positionSensor1.flange)         annotation (Line(
           points={{20,50},{20,10},{40,10}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(mass.flange_a, speedSensor1.flange)         annotation (Line(
           points={{20,50},{20,-30},{40,-30}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(mass.flange_a, accSensor1.flange)         annotation (Line(
           points={{20,50},{20,-70},{40,-70}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(mass.flange_b, positionSensor2.flange)         annotation (Line(
           points={{40,50},{60,50}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
     end Sensors;
 
     model Friction "Use of model Stop"
@@ -980,15 +914,11 @@ to see the difference.
       connect(spring.flange_a, fixed2.flange) annotation (Line(
           points={{20,10},{-12,10}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(force.flange, stop1.flange_a) annotation (Line(
           points={{40,70},{60,70}},
           color={0,127,0},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
     end Friction;
 
     model PreLoad "Preload of a spool using ElastoGap models."
@@ -2269,9 +2199,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
             Line(
               points={{0,-50},{0,-60},{-40,-50},{-40,48},{0,60},{0,90}},
               color={0,0,0},
-              smooth=Smooth.None,
-              fillColor={175,175,175},
-              fillPattern=FillPattern.Solid)}),
+              smooth=Smooth.None)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics));
       extends
@@ -2513,21 +2441,15 @@ provided via a signal bus.
       connect(s_start, set_s_start.s_start) annotation (Line(
           points={{-120,60},{-22,60}},
           color={0,0,127},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(v_start, set_v_start.v_start) annotation (Line(
           points={{-120,0},{-22,0}},
           color={0,0,127},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
       connect(a_start, set_a_start.a_start) annotation (Line(
           points={{-120,-60},{-22,-60}},
           color={0,0,127},
-          smooth=Smooth.None,
-          fillColor={0,127,0},
-          fillPattern=FillPattern.Solid));
+          smooth=Smooth.None));
     end InitializeFlange;
 
     model MassWithStopAndFriction

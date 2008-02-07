@@ -309,8 +309,6 @@ to the FlangeWithBearing connector.
           Text(
             extent={{-216,88},{86,36}},
             lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="%name")}),
       Documentation(info="<html>
 <p>
@@ -323,15 +321,11 @@ connector.
   equation
     connect(flange, flangeAndFrame.flange) annotation (Line(
         points={{0,0},{-100,0}},
-        color={0,0,0},
-        fillColor={255,255,255},
-        fillPattern=FillPattern.Solid));
+        color={0,0,0}));
     connect(frame, flangeAndFrame.bearingFrame) annotation (Line(
         points={{0,-100},{0,-40},{-100,-40},{-100,0}},
         color={0,0,0},
-        thickness=2,
-        fillColor={255,255,255},
-        fillPattern=FillPattern.Solid));
+        thickness=2));
   end FlangeWithBearingAdaptor;
 
   partial model PartialTwoFrames

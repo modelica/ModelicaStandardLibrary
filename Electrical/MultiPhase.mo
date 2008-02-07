@@ -902,24 +902,16 @@ Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
 
       connect(plug_p1.pin, transformer.p1) annotation (Line(
           points={{-100,100},{-10,100},{-10,5}},
-          color={0,0,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={0,0,255}));
       connect(plug_p2.pin, transformer.p2) annotation (Line(
           points={{100,100},{10,100},{10,5}},
-          color={0,0,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={0,0,255}));
       connect(plug_n1.pin, transformer.n1) annotation (Line(
           points={{-100,-100},{-10,-100},{-10,-5}},
-          color={0,0,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={0,0,255}));
       connect(plug_n2.pin, transformer.n2) annotation (Line(
           points={{100,-100},{10,-100},{10,-5}},
-          color={0,0,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={0,0,255}));
     end Transformer;
 
     model VariableResistor
@@ -1332,19 +1324,13 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
     equation
       connect(plug_p.pin, idealCommutingSwitch.p) annotation (Line(
           points={{-100,0},{-10,0}},
-          color={0,0,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={0,0,255}));
       connect(idealCommutingSwitch.n2, plug_n2.pin) annotation (Line(
           points={{10,0},{100,0}},
-          color={0,0,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={0,0,255}));
       connect(idealCommutingSwitch.n1, plug_n1.pin) annotation (Line(
           points={{10,5},{10,50},{100,50}},
-          color={0,0,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={0,0,255}));
       connect(control, idealCommutingSwitch.control) 
         annotation (Line(points={{0,80},{0,8}}, color={255,0,255}));
     end IdealCommutingSwitch;
@@ -1412,24 +1398,16 @@ Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIn
     equation
       connect(plug_p2.pin, idealIntermediateSwitch.p2) annotation (Line(
           points={{-100,0},{-10,0}},
-          color={0,0,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={0,0,255}));
       connect(idealIntermediateSwitch.n2, plug_n2.pin) annotation (Line(
           points={{10,0},{100,0}},
-          color={0,0,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={0,0,255}));
       connect(idealIntermediateSwitch.p1, plug_p1.pin) annotation (Line(
           points={{-10,5},{-10,50},{-100,50}},
-          color={0,0,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={0,0,255}));
       connect(idealIntermediateSwitch.n1, plug_n1.pin) annotation (Line(
           points={{10,5},{10,50},{100,50}},
-          color={0,0,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={0,0,255}));
       connect(control, idealIntermediateSwitch.control) 
         annotation (Line(points={{0,80},{0,8}}, color={255,0,255}));
     end IdealIntermediateSwitch;
@@ -1563,14 +1541,10 @@ Contains m idles (Modelica.Electrical.Analog.Ideal.Idle)
 
       connect(plug_p.pin, idle.p) annotation (Line(
           points={{-100,0},{-10,0}},
-          color={0,0,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={0,0,255}));
       connect(idle.n, plug_n.pin) annotation (Line(
           points={{10,0},{100,0}},
-          color={0,0,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={0,0,255}));
     end Idle;
 
     model Short "Multiphase short cut branch"
@@ -1604,14 +1578,10 @@ Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
 
       connect(plug_p.pin, short.p) annotation (Line(
           points={{-100,0},{-10,0}},
-          color={0,0,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={0,0,255}));
       connect(short.n, plug_n.pin) annotation (Line(
           points={{10,0},{100,0}},
-          color={0,0,255},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid));
+          color={0,0,255}));
     end Short;
 
     model IdealOpeningSwitch "Multiphase ideal opener"

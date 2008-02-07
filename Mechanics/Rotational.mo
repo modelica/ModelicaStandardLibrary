@@ -853,7 +853,7 @@ frictional mode of clutches (clutchX.mode) where
 mode = -1/0/+1 means backward sliding,
 locked, forward sliding.</p>
  
-</HTML>"),      Commands(file="CoupledClutches.mos" "Plot inertias"),
+</HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-140,-80},{
                 140,80}},
             grid={2,2}),
@@ -4690,9 +4690,7 @@ blocks of Modelica.Blocks.Sources.
             Line(
               points={{-54,-42},{-38,-28},{-16,-16},{4,-14},{22,-18},{36,-26},{
                   48,-36},{56,-46},{64,-58}},
-              color={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
+              color={0,0,0}),
             Polygon(
               points={{-61,-66},{-44,-42},{-58,-36},{-61,-66}},
               lineColor={0,0,0},
@@ -6273,9 +6271,7 @@ and instead the translational part is internally fixed to ground.
             Line(
               points={{-58,-82},{-42,-68},{-20,-56},{0,-54},{18,-56},{34,-62},{
                   44,-72},{54,-82},{60,-94}},
-              color={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
+              color={0,0,0}),
             Polygon(
               points={{-65,-98},{-46,-80},{-58,-72},{-65,-98}},
               lineColor={0,0,0},
