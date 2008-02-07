@@ -467,7 +467,7 @@ Modelica in file \"Modelica/package.mo\".
        first version implemented
 </li>
 </ul>
-</html>"),     uses(Modelica(version="2.1"), Modelica_Interpolation(version="0.94")));
+</html>"));
       function evaluate "Evaluate polynomial at a given abszissa value"
         extends Modelica.Icons.Function;
         input Real p[:]

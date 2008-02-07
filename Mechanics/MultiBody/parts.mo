@@ -2014,8 +2014,7 @@ Modelica Conference</i>. Link&ouml;ping : The Modelica Association and Link&ouml
 November 3-4, 2003, pp. 149-158</p>
 </HTML>
 "),   Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics),
-      uses(Modelica(version="3.0-development")));
+              100,100}}), graphics));
   protected
     outer Modelica.Mechanics.MultiBody.World world;
 
@@ -2168,8 +2167,7 @@ November 3-4, 2003, pp. 149-158</p>
             lineColor={0,0,255}),
           Line(points={{0,-70},{0,-100}}, color={0,0,0})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics),
-      uses(Modelica(version="3.0-development")));
+              100,100}}), graphics));
 
   encapsulated model RotorWith3DEffects
       "1D inertia attachable on 3-dim. bodies (3D dynamic effects are taken into account)"

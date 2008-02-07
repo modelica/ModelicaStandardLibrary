@@ -4137,8 +4137,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
   package IceBoundaries
       "the melting line and sublimation line curves from IAPWS"
 
-      annotation (                                                                                                    uses(Modelica(version="1.6")),
-  Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 The International Association for the Properties of Water and Steam<br>
 Milan, Italy<br>
