@@ -4005,6 +4005,7 @@ This function returns y = sin(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"));
 external "C" y = sin(u);
+annotation(Library="ModelicaExternalC");
 end sin;
 
 
@@ -4088,6 +4089,7 @@ This function returns y = cos(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"));
 external "C" y = cos(u);
+annotation(Library="ModelicaExternalC");
 end cos;
 
 
@@ -4174,6 +4176,7 @@ This function returns y = tan(u), with -&infin; &lt; u &lt; &infin;
 </p>
 </html>"));
 external "C" y = tan(u);
+annotation(Library="ModelicaExternalC");
 end tan;
 
 
@@ -4261,6 +4264,7 @@ This function returns y = asin(u), with -1 &le; u &le; +1:
 </p>
 </html>"));
 external "C" y = asin(u);
+annotation(Library="ModelicaExternalC");
 end asin;
 
 
@@ -4344,6 +4348,7 @@ This function returns y = acos(u), with -1 &le; u &le; +1:
 </p>
 </html>"));
 external "C" y = acos(u);
+annotation(Library="ModelicaExternalC");
 end acos;
 
 
@@ -4421,6 +4426,7 @@ This function returns y = atan(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"));
 external "C" y = atan(u);
+annotation(Library="ModelicaExternalC");
 end atan;
 
 
@@ -4529,6 +4535,7 @@ u1 = sin(y) and u2 = cos(y):
 </HTML>
 "));
 external "C" y = atan2(u1, u2);
+annotation(Library="ModelicaExternalC");
 end atan2;
 
 
@@ -4730,6 +4737,7 @@ This function returns y = sinh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"));
 external "C" y = sinh(u);
+annotation(Library="ModelicaExternalC");
 end sinh;
 
 
@@ -4819,6 +4827,7 @@ This function returns y = cosh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"));
 external "C" y = cosh(u);
+annotation(Library="ModelicaExternalC");
 end cosh;
 
 
@@ -4896,6 +4905,7 @@ This function returns y = tanh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"));
 external "C" y = tanh(u);
+annotation(Library="ModelicaExternalC");
 end tanh;
 
 
@@ -5177,6 +5187,7 @@ This function returns y = exp(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"));
 external "C" y = exp(u);
+annotation(Library="ModelicaExternalC");
 end exp;
 
 
@@ -5267,6 +5278,7 @@ with u &gt; 0:
 </html>"));
 
 external "C" y = log(u);
+annotation(Library="ModelicaExternalC");
 end log;
 
 
@@ -5357,6 +5369,7 @@ with u &gt; 0:
 </html>"));
 
 external "C" y = log10(u);
+annotation(Library="ModelicaExternalC");
 end log10;
 
 

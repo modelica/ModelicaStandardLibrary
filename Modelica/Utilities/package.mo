@@ -241,12 +241,14 @@ especially if the operating system supports Unicode characters.
     extends Modelica.Icons.Function;
     input String directoryName "Make a new directory";
   external "C" ModelicaInternal_mkdir(directoryName);
+  annotation(Library="ModelicaExternalC");
   end mkdir;
 
   function rmdir "Remove empty directory (POSIX function 'rmdir')"
     extends Modelica.Icons.Function;
     input String directoryName "Empty directory to be removed";
   external "C" ModelicaInternal_rmdir(directoryName);
+  annotation(Library="ModelicaExternalC");
   end rmdir;
 
   function stat "Inquire file information (POSIX function 'stat')"
@@ -254,6 +256,7 @@ especially if the operating system supports Unicode characters.
     input String name "Name of file, directory, pipe etc.";
     output Types.FileType fileType "Type of file";
   external "C" fileType=  ModelicaInternal_stat(name);
+  annotation(Library="ModelicaExternalC");
   end stat;
 
   function rename "Rename existing file or directory (C function 'rename')"
@@ -261,12 +264,14 @@ especially if the operating system supports Unicode characters.
     input String oldName "Current name";
     input String newName "New name";
   external "C" ModelicaInternal_rename(oldName, newName);
+  annotation(Library="ModelicaExternalC");
   end rename;
 
   function removeFile "Remove existing file (C function 'remove')"
     extends Modelica.Icons.Function;
     input String fileName "File to be removed";
   external "C" ModelicaInternal_removeFile(fileName);
+  annotation(Library="ModelicaExternalC");
   end removeFile;
 
   function copyFile
@@ -275,6 +280,7 @@ especially if the operating system supports Unicode characters.
     input String fromName "Name of file to be copied";
     input String toName "Name of copy of file";
   external "C" ModelicaInternal_copyFile(fromName, toName);
+  annotation(Library="ModelicaExternalC");
   end copyFile;
 
   function readDirectory
@@ -287,6 +293,7 @@ especially if the operating system supports Unicode characters.
     output String names[nNames]
       "All file and directory names in any order from the desired directory";
     external "C" ModelicaInternal_readDirectory(directory,nNames,names);
+  annotation(Library="ModelicaExternalC");
   end readDirectory;
 
 function getNumberOfFiles
@@ -296,6 +303,7 @@ function getNumberOfFiles
   output Integer result
       "Number of files and directories present in 'directory'";
   external "C" result = ModelicaInternal_getNumberOfFiles(directory);
+  annotation(Library="ModelicaExternalC");
 end getNumberOfFiles;
 
 end Internal;

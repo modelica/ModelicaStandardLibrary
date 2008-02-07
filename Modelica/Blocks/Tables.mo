@@ -219,6 +219,7 @@ Several matrices may be defined one after another.
     external "C" tableID = ModelicaTables_CombiTable1D_init(
                    tableName, fileName, table, size(table, 1), size(table, 2),
                    smoothness);
+      annotation(Library="ModelicaExternalC");
     end tableInit;
 
     function tableIpo
@@ -228,6 +229,7 @@ Several matrices may be defined one after another.
       output Real value;
     external "C" value = 
                        ModelicaTables_CombiTable1D_interpolate(tableID, icol, u);
+      annotation(Library="ModelicaExternalC");
     end tableIpo;
   equation
     if tableOnFile then
@@ -463,6 +465,7 @@ Several matrices may be defined one after another.
     external "C" tableID = ModelicaTables_CombiTable1D_init(
                    tableName, fileName, table, size(table, 1), size(table, 2),
                    smoothness);
+      annotation(Library="ModelicaExternalC");
     end tableInit;
 
     function tableIpo
@@ -472,6 +475,7 @@ Several matrices may be defined one after another.
       output Real value;
     external "C" value = 
                        ModelicaTables_CombiTable1D_interpolate(tableID, icol, u);
+      annotation(Library="ModelicaExternalC");
     end tableIpo;
 
   equation
@@ -731,6 +735,7 @@ and the first row \"table2D_1[1,2:]\" contains the u[2] grid points.
     external "C" tableID = ModelicaTables_CombiTable2D_init(
                    tableName, fileName, table, size(table, 1), size(table, 2),
                    smoothness);
+      annotation(Library="ModelicaExternalC");
     end tableInit;
 
     function tableIpo
@@ -740,6 +745,7 @@ and the first row \"table2D_1[1,2:]\" contains the u[2] grid points.
       output Real value;
     external "C" value = 
                        ModelicaTables_CombiTable2D_interpolate(tableID, u1, u2);
+      annotation(Library="ModelicaExternalC");
     end tableIpo;
 
   equation
