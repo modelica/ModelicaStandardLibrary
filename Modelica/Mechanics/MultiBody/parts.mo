@@ -805,17 +805,6 @@ the animation may be switched off via parameter animation = <b>false</b>.
       "Absolute angular acceleration of frame_a resolved in frame_a";
     SI.Acceleration g_0[3] "Gravity acceleration resolved in world frame";
     annotation (
-      defaultAttributes={"inner"},
-      defaultInstanceName="world",
-      defaultModifiers="gravityType=0",
-      missingInnerMessage="No \"world\" component is defined. A default world component
-without a gravity field will be used. If this is not desired,
-drag Modelica.Mechanics.MultiBody.World into the top level of your model.",
-      Window(
-        x=0.21,
-        y=0,
-        width=0.75,
-        height=0.82),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
