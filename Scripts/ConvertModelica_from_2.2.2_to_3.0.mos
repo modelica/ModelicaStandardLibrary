@@ -19,12 +19,12 @@ convertClass("Modelica.Blocks.Interfaces.Adaptors.AdaptorBoolean",
              "ObsoleteModelica3.Blocks.Interfaces.Adaptors.AdaptorBoolean");
 convertClass("Modelica.Blocks.Interfaces.Adaptors.AdaptorInteger",
              "ObsoleteModelica3.Blocks.Interfaces.Adaptors.AdaptorInteger");
-convertClass("Modelica.Blocks.Interfaces.RealSignals",
-             "ObsoleteModelica3.Blocks.Interfaces.RealSignals");
-convertClass("Modelica.Blocks.Interfaces.IntegerSignals",
-             "ObsoleteModelica3.Blocks.Interfaces.IntegerSignals");
-convertClass("Modelica.Blocks.Interfaces.BooleanSignals",
-             "ObsoleteModelica3.Blocks.Interfaces.BooleanSignals");
+convertClass("Modelica.Blocks.Interfaces.RealSignal",
+             "ObsoleteModelica3.Blocks.Interfaces.RealSignal");
+convertClass("Modelica.Blocks.Interfaces.IntegerSignal",
+             "ObsoleteModelica3.Blocks.Interfaces.IntegerSignal");
+convertClass("Modelica.Blocks.Interfaces.BooleanSignal",
+             "ObsoleteModelica3.Blocks.Interfaces.BooleanSignal");
 
 convertClass("Modelica.Blocks.Types.StateSelection.Temp",
              "StateSelect")
