@@ -5350,10 +5350,7 @@ differentiation of the flange angle phi:
               fillPattern=FillPattern.Solid), Text(
               extent={{-40,90},{160,50}},
               lineColor={0,0,0},
-              textString="%name")}),
-        Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=0,
-                fillColor=7),
-            lineColor={0,0,255})));
+              textString="%name")}));
     end Flange_b;
 
     connector Support "Support/housing of a 1-dim. rotational shaft"
@@ -5436,10 +5433,7 @@ It is most convenient to utilize it
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
               fillColor={135,135,135},
-              fillPattern=FillPattern.Solid)}),
-        Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=0,
-                fillColor=10),
-            lineColor={0,0,255})));
+              fillPattern=FillPattern.Solid)}));
     end Support;
 
     model InternalSupport
