@@ -2,11 +2,7 @@ within Modelica.Electrical.Analog.Examples.Utilities;
 model NonlinearResistor "Chua's resistor"
   extends Interfaces.OnePort;
   annotation (
-    Window(
-      x=0.4,
-      y=0.4,
-      width=0.6,
-      height=0.6),
+    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},

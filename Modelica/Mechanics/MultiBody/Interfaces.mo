@@ -4,13 +4,7 @@ package Interfaces
 
   extends Modelica.Icons.Library;
 
-  annotation(Window(
-      x=0.03,
-      y=0.1,
-      width=0.38,
-      height=0.26,
-      library=1,
-      autolayout=1),  Documentation(info="<html>
+  annotation(  Documentation(info="<html>
 <p>
 This package contains connectors and partial models (i.e. models
 that are only used to build other models) of the MultiBody library.
@@ -72,12 +66,8 @@ different icons.
             extent={{-12,40},{12,-40}},
             lineColor={0,0,0},
             fillColor={192,192,192},
-            fillPattern=FillPattern.Solid)}),
-      Window(
-        x=0.21,
-        y=0.18,
-        width=0.71,
-        height=0.65),
+            fillPattern=FillPattern.Solid)})
+      ,
       Documentation(info="<html>
 <p>
 Basic definition of a coordinate system that is fixed to a mechanical
@@ -116,12 +106,8 @@ This component has a filled rectangular icon.
             extent={{-12,40},{12,-40}},
             lineColor={0,0,0},
             fillColor={255,255,255},
-            fillPattern=FillPattern.Solid)}),
-      Window(
-        x=0.21,
-        y=0.18,
-        width=0.71,
-        height=0.65),
+            fillPattern=FillPattern.Solid)})
+      ,
       Documentation(info="<html>
 <p>
 Basic definition of a coordinate system that is fixed to a mechanical
@@ -161,12 +147,8 @@ coordinate system a vector is resolved (non-filled rectangular icon)"
             lineColor={95,95,95},
             pattern=LinePattern.Dot,
             fillColor={255,255,255},
-            fillPattern=FillPattern.Solid)}),
-    Window(
-      x=0.21,
-      y=0.18,
-      width=0.71,
-      height=0.65),
+            fillPattern=FillPattern.Solid)})
+    ,
     Documentation(info="<html>
 <p>
 Basic definition of a coordinate system that is fixed to a mechanical
@@ -708,11 +690,7 @@ has to be defined. Example:
   protected
     outer Modelica.Mechanics.MultiBody.World world;
     annotation (
-      Window(
-        x=0.39,
-        y=0.05,
-        width=0.6,
-        height=0.6),
+      
       Documentation(info="
 <HTML>
 <p>
@@ -759,11 +737,7 @@ with the blocks of package Modelica.Blocks.
   protected
     outer Modelica.Mechanics.MultiBody.World world;
     annotation (
-      Window(
-        x=0.37,
-        y=0.02,
-        width=0.6,
-        height=0.65),
+      
       Documentation(info="
 <HTML>
 <p>

@@ -4,13 +4,7 @@ extends Modelica.Icons.Library2;
 
 
 annotation (
-  Window(
-    x=0.03,
-    y=0.04,
-    width=0.49,
-    height=0.5,
-    library=1,
-    autolayout=1),
+  
   Documentation(info="<html>
 <p>
 This package contains examples that demonstrate the usage of the

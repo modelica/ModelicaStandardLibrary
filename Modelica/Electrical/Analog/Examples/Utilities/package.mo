@@ -3,13 +3,7 @@ package Utilities "Utility components used by package Examples"
 extends Modelica.Icons.Library2;
 
 
-annotation (Window(
-    x=0.09,
-    y=0.15,
-    width=0.26,
-    height=0.44,
-    library=1,
-    autolayout=1),
+annotation (
   Documentation(info="<html>
 <p>
 This package contains utility components used by package Examples.

@@ -3,12 +3,8 @@ model ThreeSprings "3-dim. springs in series and parallel connection"
   extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
   annotation (
-    experiment(StopTime=10),
-    Window(
-      x=0.29,
-      y=0,
-      width=0.71,
-      height=0.85),
+    experiment(StopTime=10)
+    ,
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},

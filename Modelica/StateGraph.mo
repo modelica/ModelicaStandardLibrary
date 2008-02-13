@@ -81,14 +81,8 @@ and the accompanying <b>disclaimer</b>
 </p><br>
  
 </HTML>
-"),
-  Window(
-    x=0.05,
-    y=0.06,
-    width=0.29,
-    height=0.59,
-    library=1,
-    autolayout=1),
+")
+  ,
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
         Rectangle(extent={{-88,-20},{-50,-54}}, lineColor={0,0,0}),
@@ -2293,11 +2287,7 @@ block InitialStep "Initial step (= step that is active when simulation starts)"
   extends Interfaces.PartialStep;
 
   annotation (
-    Window(
-      x=0.21,
-      y=0.03,
-      width=0.52,
-      height=0.7),
+    
     Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2382,11 +2372,7 @@ block Step "Ordinary step (= step that is not active when simulation starts)"
   extends Interfaces.PartialStep;
 
   annotation (
-    Window(
-      x=0.21,
-      y=0.03,
-      width=0.52,
-      height=0.7),
+    
     Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2466,11 +2452,7 @@ block Transition
   extends Interfaces.PartialTransition(final localCondition=condition);
 
   annotation (
-    Window(
-      x=0.26,
-      y=0.01,
-      width=0.42,
-      height=0.78),
+    
     Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2523,11 +2505,7 @@ block TransitionWithSignal
   extends Interfaces.PartialTransition(final localCondition=condition);
 
   annotation (
-    Window(
-      x=0.26,
-      y=0.01,
-      width=0.42,
-      height=0.78),
+    
     Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2893,11 +2871,7 @@ partial block PartialCompositeStep
           rotation=90)));
 
   annotation (
-    Window(
-      x=0.21,
-      y=0.03,
-      width=0.52,
-      height=0.7),
+    
     Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-150,-150},{150,150}},
@@ -3121,12 +3095,8 @@ type SetRealParameter = Real "Define Real parameter (GUI not yet satisfactory)"
   annotation (
   Dialog,
   defaultComponentName="name",
-  defaultComponentPrefixes="parameter",
-  Window(
-    x=0.29,
-    y=0.23,
-    width=0.6,
-    height=0.6),
+  defaultComponentPrefixes="parameter"
+  ,
   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},

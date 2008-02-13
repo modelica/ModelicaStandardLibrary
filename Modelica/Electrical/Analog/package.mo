@@ -6,13 +6,7 @@ import SI = Modelica.SIunits;
 extends Modelica.Icons.Library2;
 
 
-annotation (Window(
-    x=0.05,
-    y=0.06,
-    width=0.16,
-    height=0.58,
-    library=1,
-    autolayout=1),
+annotation (
     __Dymola_classOrder={"Examples", "*"},
   Documentation(info="<html>
 <p>

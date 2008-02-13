@@ -101,14 +101,8 @@ and the accompanying <b>disclaimer</b>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Realized.</li>
 </ul>
-</html>"),
-    Window(
-      x=0.16,
-      y=0.01,
-      width=0.65,
-      height=0.81,
-      library=1,
-      autolayout=1),
+</html>")
+    ,
     Invisible=true,
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={

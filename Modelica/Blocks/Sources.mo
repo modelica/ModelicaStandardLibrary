@@ -11,11 +11,7 @@ package Sources
               100,-10},{120,10}}, rotation=0)));
 
     annotation (
-      Window(
-        x=0.29,
-        y=0.23,
-        width=0.6,
-        height=0.6),
+      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -64,11 +60,7 @@ Variable <b>y</b> is both a variable and a connector.
               100,-10},{120,10}}, rotation=0)));
 
     annotation (
-      Window(
-        x=0.29,
-        y=0.23,
-        width=0.6,
-        height=0.6),
+      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -117,11 +109,7 @@ Variable <b>y</b> is both a variable and a connector.
               100,-10},{120,10}}, rotation=0)));
 
     annotation (
-      Window(
-        x=0.29,
-        y=0.23,
-        width=0.6,
-        height=0.6),
+      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -173,13 +161,7 @@ Variable <b>y</b> is both a variable and a connector.
       extends Modelica.Icons.Library;
 
       annotation (
-        Window(
-          x=0.06,
-          y=0.1,
-          width=0.43,
-          height=0.65,
-          library=1,
-          autolayout=1),
+        
         Documentation(info="<HTML>
 <p>
 This package contains <b>source</b> components, i.e., blocks which
@@ -242,11 +224,7 @@ usually requires a trimming calculation.
         extends Interfaces.SO;
 
         annotation (
-          Window(
-            x=0.26,
-            y=0,
-            width=0.36,
-            height=0.52),
+          
           Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -364,12 +342,8 @@ The Real output y is a clock signal:
         parameter Real k(start=1) "Constant output value";
         extends Interfaces.SO;
 
-        annotation (defaultComponentName="const",
-          Window(
-            x=0.29,
-            y=0.19,
-            width=0.6,
-            height=0.6),
+        annotation (defaultComponentName="const"
+          ,
           Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -446,11 +420,7 @@ The Real output y is a constant signal:
         parameter Real height=1 "Height of step";
         extends Interfaces.SignalSource;
         annotation (
-          Window(
-            x=0.38,
-            y=0.11,
-            width=0.6,
-            height=0.6),
+          
           Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -575,11 +545,7 @@ The Real output y is a step signal:
         extends Interfaces.SO;
 
         annotation (
-          Window(
-            x=0.19,
-            y=0.02,
-            width=0.59,
-            height=0.77),
+          
           Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -733,11 +699,7 @@ The Real output y is a ramp signal:
   protected
         constant Real pi=Modelica.Constants.pi;
         annotation (
-          Window(
-            x=0.23,
-            y=0.08,
-            width=0.66,
-            height=0.68),
+          
           Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -862,11 +824,7 @@ The Real output y is a sine signal:
   protected
         constant Real pi=Modelica.Constants.pi;
         annotation (
-          Window(
-            x=0.18,
-            y=0.05,
-            width=0.6,
-            height=0.63),
+          
           Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1019,11 +977,7 @@ The Real output y is a sine signal with exponentially changing amplitude:
   protected
         Real y_riseTime;
         annotation (
-          Window(
-            x=0.03,
-            y=0.05,
-            width=0.85,
-            height=0.74),
+          
           Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1164,11 +1118,7 @@ by a falling exponential signal:
       "Output = offset for time < startTime";
         extends Modelica.Blocks.Interfaces.SO;
         annotation (
-          Window(
-            x=0.29,
-            y=0.05,
-            width=0.59,
-            height=0.72),
+          
           Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1339,11 +1289,7 @@ The Real output y is a pulse signal:
   protected
         SIunits.Time T0(final start=startTime) "Start time of current period";
         annotation (
-          Window(
-            x=0.21,
-            y=0.11,
-            width=0.55,
-            height=0.71),
+          
           Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1503,11 +1449,7 @@ The Real output y is a saw tooth signal:
         Integer counter(start=nperiod) "Period counter";
         Integer counter2(start=nperiod);
         annotation (
-          Window(
-            x=0.35,
-            y=0,
-            width=0.49,
-            height=0.58),
+          
           Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1754,11 +1696,7 @@ The Real output y is a trapezoid signal:
         SIunits.Time Te;
         Boolean noWphase;
         annotation (
-          Window(
-            x=0.17,
-            y=0.05,
-            width=0.69,
-            height=0.72),
+          
           Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1932,12 +1870,8 @@ a flange according to a given acceleration.
       annotation (Placement(transformation(extent={{100,-90},{120,-70}},
             rotation=0)));
 
-    annotation (defaultComponentName="kinematicPTP",
-      Window(
-        x=0.17,
-        y=0.05,
-        width=0.69,
-        height=0.72),
+    annotation (defaultComponentName="kinematicPTP"
+      ,
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2254,11 +2188,7 @@ a flange according to a given acceleration.
         Integer last(start=1) "Last used lower grid index";
         SIunits.Time nextEvent(start=0, fixed=true) "Next event instant";
         annotation (
-          Window(
-            x=0.26,
-            y=0.01,
-            width=0.7,
-            height=0.82),
+          
           Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2850,11 +2780,7 @@ Several matrices may be defined one after another.
       parameter Boolean k=true "Constant output value";
       extends Interfaces.partialBooleanSource;
       annotation (
-        Window(
-          x=0.29,
-          y=0.23,
-          width=0.6,
-          height=0.6),
+        
         Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2965,11 +2891,7 @@ The Boolean output y is a step signal:
       parameter Modelica.SIunits.Time startTime=0 "Time instant of first pulse";
       extends Modelica.Blocks.Interfaces.partialBooleanSource;
       annotation (
-        Window(
-          x=0.32,
-          y=0.08,
-          width=0.6,
-          height=0.6),
+        
         Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -3074,11 +2996,7 @@ The Boolean output y is a pulse signal:
       extends Interfaces.partialBooleanSource;
 
       annotation (
-        Window(
-          x=0.22,
-          y=0.02,
-          width=0.58,
-          height=0.8),
+        
         Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},

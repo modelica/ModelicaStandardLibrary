@@ -8,14 +8,8 @@ annotation (
     from(version="0.97", script="Scripts/ConvertTo_0.98.mos"),
     from(version="0.98", script="Scripts/ConvertTo_1.0.mos"),
     from(version="0.99", script="Scripts/ConvertTo_1.0.mos"),
-    from(version="0.99 Beta", script="Scripts/ConvertTo_1.0.mos")),
-Window(
-    x=0,
-    y=0.01,
-    width=0.58,
-    height=0.54,
-    library=1,
-    autolayout=1),
+    from(version="0.99 Beta", script="Scripts/ConvertTo_1.0.mos"))
+,
   Documentation(info="<HTML>
 <p>
 Library <b>MultiBody</b> is a <b>free</b> Modelica package providing
@@ -1002,12 +996,8 @@ model World
     missingInnerMessage="No \"world\" component is defined. A default world
 component with the default gravity field will be used
 (g=9.81 in negative y-axis). If this is not desired,
-drag Modelica.Mechanics.MultiBody.World into the top level of your model.",
-    Window(
-      x=0.13,
-      y=0.1,
-      width=0.81,
-      height=0.83),
+drag Modelica.Mechanics.MultiBody.World into the top level of your model."
+    ,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},

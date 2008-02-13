@@ -12,13 +12,7 @@ especially three phase induction machines such as an asynchronous motor.
 </p>
 
 </HTML>
-"),Window(
-    x=0.03,
-    y=0.03,
-    width=0.13,
-    height=0.29,
-    library=1,
-    autolayout=1),
+"),
   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
       graphics={
       Rectangle(extent={{-29,-13},{3,-27}}, lineColor={0,0,0}),

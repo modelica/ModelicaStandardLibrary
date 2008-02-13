@@ -279,12 +279,8 @@ This leads to the following animation
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(group="if animation = true", enable=animation));
 
-    annotation (defaultComponentName="torque",
-      Window(
-        x=0.18,
-        y=0.17,
-        width=0.64,
-        height=0.74),
+    annotation (defaultComponentName="torque"
+      ,
       Documentation(info="<HTML>
 
 <p>
@@ -584,12 +580,8 @@ This leads to the following animation
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
-        component=[20, 20]),
-      Window(
-        x=0.18,
-        y=0.01,
-        width=0.8,
-        height=0.82),
+        component=[20, 20])
+      ,
       Documentation(info="
 An external force element exerts the inport signal
 as negative force on the connector frame (the force vector
@@ -1421,11 +1413,7 @@ clarity this is not shown in the animation):
     Real e_rel_0[3]
       "Unit vector in direction from frame_a to frame_b, resolved in world frame";
     annotation (
-      Window(
-        x=0.24,
-        y=0.02,
-        width=0.69,
-        height=0.78),
+      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1782,11 +1770,7 @@ for this situation:
     Real e_rel_0[3]
       "Unit vector in direction from frame_a to frame_b, resolved in world frame";
     annotation (
-      Window(
-        x=0.24,
-        y=0.02,
-        width=0.69,
-        height=0.78),
+      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2328,11 +2312,7 @@ ALT=\"model Examples.Elementary.SpringWithMass\">
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     extends Interfaces.PartialLineForce;
     annotation (
-      Window(
-        x=0.32,
-        y=0.29,
-        width=0.6,
-        height=0.6),
+      
       Documentation(info="<HTML>
 <p>
 <b>Linear damper</b> acting as line force between frame_a and frame_b.
@@ -2455,11 +2435,7 @@ where a mass is hanging on a damper.
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     extends Interfaces.PartialLineForce;
     annotation (
-      Window(
-        x=0.34,
-        y=0.26,
-        width=0.6,
-        height=0.6),
+      
       Documentation(info="<HTML>
 <p>
 <b>Linear spring</b> and <b>dinear damper</b>
@@ -2567,11 +2543,7 @@ and der(s) is the time derivative of s.
       "Actual length of damper (frame_a - damper - spring - frame_b)";
     extends Interfaces.PartialLineForce;
     annotation (
-      Window(
-        x=0.3,
-        y=0.15,
-        width=0.6,
-        height=0.75),
+      
       Documentation(info="<HTML>
 <p>
 <b>Linear spring</b> and <b>linear damper</b> in series connection

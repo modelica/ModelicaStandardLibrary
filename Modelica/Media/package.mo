@@ -3048,12 +3048,8 @@ transport.
                 extent={{-26,30},{-18,22}},
                 lineColor={255,0,0},
                 fillColor={255,0,0},
-                fillPattern=FillPattern.Solid)}),
-          Window(
-            x=0.45,
-            y=0.01,
-            width=0.44,
-            height=0.65),
+                fillPattern=FillPattern.Solid)})
+          ,
           Diagram(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},

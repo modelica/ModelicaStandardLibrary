@@ -223,13 +223,7 @@ end UsersGuide;
   extends Modelica.Icons.Library2;
 
   annotation (
-    Window(
-      x=0.08,
-      y=0.04,
-      width=0.58,
-      height=0.84,
-      library=1,
-      autolayout=1),
+    
     Invisible=true,
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={Text(

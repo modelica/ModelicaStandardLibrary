@@ -3,12 +3,8 @@ model SpringMassSystem "Mass attached with a spring to the world frame"
   extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
   annotation (
-    experiment(StopTime=5),
-    Window(
-      x=0.29,
-      y=0,
-      width=0.71,
-      height=0.85),
+    experiment(StopTime=5)
+    ,
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},

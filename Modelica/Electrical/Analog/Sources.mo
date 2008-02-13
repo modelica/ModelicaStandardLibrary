@@ -4,13 +4,7 @@ package Sources "Time-dependend and controlled voltage and current sources"
   extends Modelica.Icons.Library;
 
   annotation (
-    Window(
-      x=0.03,
-      y=0.04,
-      width=0.50,
-      height=0.60,
-      library=1,
-      autolayout=1),Documentation(info="<html>
+    Documentation(info="<html>
 <p>
 This package contains time-dependend and controlled voltage and current sources.
 </p>
@@ -80,12 +74,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           Text(
             extent={{20,50},{120,0}},
             lineColor={0,0,255},
-            textString="-")}),
-      Window(
-        x=0.36,
-        y=0.03,
-        width=0.62,
-        height=0.76),
+            textString="-")})
+      ,
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -140,11 +130,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
     parameter SI.Voltage V(start=1) "Value of constant voltage";
     extends Interfaces.OnePort;
     annotation (
-      Window(
-        x=0.33,
-        y=0.18,
-        width=0.6,
-        height=0.6),
+      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -275,12 +261,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           Text(
             extent={{-67,93},{-2,67}},
             lineColor={160,160,164},
-            textString="v = p.v - n.v")}),
-      Window(
-        x=0.28,
-        y=0,
-        width=0.72,
-        height=0.73),
+            textString="v = p.v - n.v")})
+      ,
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -404,12 +386,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={Line(points={{-80,-60},{-50,-60},{50,60},{80,
-                60}}, color={192,192,192})}),
-      Window(
-        x=0.29,
-        y=0.11,
-        width=0.6,
-        height=0.6),
+                60}}, color={192,192,192})})
+      ,
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -431,11 +409,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
         freqHz=freqHz,
         phase=phase));
     annotation (
-      Window(
-        x=0.37,
-        y=0.06,
-        width=0.6,
-        height=0.6),
+      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -653,12 +627,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           Text(
             extent={{-77,105},{-38,92}},
             lineColor={160,160,164},
-            textString="v = p.v - n.v")}),
-      Window(
-        x=0.33,
-        y=0.06,
-        width=0.6,
-        height=0.75),
+            textString="v = p.v - n.v")})
+      ,
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -855,12 +825,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           Line(
             points={{30,100},{30,-34}},
             color={192,192,192},
-            pattern=LinePattern.Dash)}),
-      Window(
-        x=0.11,
-        y=0.12,
-        width=0.78,
-        height=0.83),
+            pattern=LinePattern.Dash)})
+      ,
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -1016,12 +982,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           Text(
             extent={{-78,103},{-24,89}},
             lineColor={160,160,164},
-            textString="v = p.v - n.v")}),
-      Window(
-        x=0.4,
-        y=0.23,
-        width=0.6,
-        height=0.6),
+            textString="v = p.v - n.v")})
+      ,
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -1147,12 +1109,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           Text(
             extent={{-77,100},{-27,88}},
             lineColor={160,160,164},
-            textString="v = p.v - n.v")}),
-      Window(
-        x=0.37,
-        y=0.04,
-        width=0.6,
-        height=0.6),
+            textString="v = p.v - n.v")})
+      ,
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -1344,12 +1302,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           Text(
             extent={{-2,86},{25,77}},
             lineColor={160,160,164},
-            textString="period")}),
-      Window(
-        x=0.21,
-        y=0.22,
-        width=0.6,
-        height=0.63),
+            textString="period")})
+      ,
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -1373,12 +1327,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={Line(points={{-58,-36},{-58,84},{42,84},{42,-36},
                 {-58,-36},{-58,-6},{42,-6},{42,24},{-58,24},{-58,54},{42,54},{
-                42,84},{-8,84},{-8,-37}}, color={192,192,192})}),
-      Window(
-        x=0.25,
-        y=0.01,
-        width=0.72,
-        height=0.86),
+                42,84},{-8,84},{-8,-37}}, color={192,192,192})})
+      ,
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1539,12 +1489,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             points={{90,0},{60,10},{60,-10},{90,0}},
             lineColor={0,0,255},
             fillColor={0,0,255},
-            fillPattern=FillPattern.Solid)}),
-      Window(
-        x=0.39,
-        y=0.19,
-        width=0.6,
-        height=0.6),
+            fillPattern=FillPattern.Solid)})
+      ,
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1596,12 +1542,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             points={{90,0},{60,10},{60,-10},{90,0}},
             lineColor={0,0,255},
             fillColor={0,0,255},
-            fillPattern=FillPattern.Solid)}),
-      Window(
-        x=0.33,
-        y=0.24,
-        width=0.6,
-        height=0.6),
+            fillPattern=FillPattern.Solid)})
+      ,
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1716,12 +1658,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           Text(
             extent={{-73,75},{-53,95}},
             lineColor={192,192,192},
-            textString="i")}),
-      Window(
-        x=0.28,
-        y=0,
-        width=0.72,
-        height=0.73),
+            textString="i")})
+      ,
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -1844,12 +1782,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={Line(points={{-80,-60},{-50,-60},{50,60},{80,
-                60}}, color={192,192,192})}),
-      Window(
-        x=0.29,
-        y=0.11,
-        width=0.6,
-        height=0.6),
+                60}}, color={192,192,192})})
+      ,
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -1871,11 +1805,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         freqHz=freqHz,
         phase=phase));
     annotation (
-      Window(
-        x=0.37,
-        y=0.06,
-        width=0.6,
-        height=0.6),
+      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2093,12 +2023,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           Text(
             extent={{-74,83},{-54,103}},
             lineColor={192,192,192},
-            textString="i")}),
-      Window(
-        x=0.33,
-        y=0.06,
-        width=0.6,
-        height=0.75),
+            textString="i")})
+      ,
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -2214,12 +2140,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           Text(
             extent={{-73,75},{-53,95}},
             lineColor={192,192,192},
-            textString="i")}),
-      Window(
-        x=0.11,
-        y=0.12,
-        width=0.78,
-        height=0.83),
+            textString="i")})
+      ,
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -2375,12 +2297,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           Text(
             extent={{-73,75},{-53,95}},
             lineColor={192,192,192},
-            textString="i")}),
-      Window(
-        x=0.4,
-        y=0.23,
-        width=0.6,
-        height=0.6),
+            textString="i")})
+      ,
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -2506,12 +2424,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           Text(
             extent={{-73,75},{-53,95}},
             lineColor={192,192,192},
-            textString="i")}),
-      Window(
-        x=0.37,
-        y=0.04,
-        width=0.6,
-        height=0.6),
+            textString="i")})
+      ,
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -2703,12 +2617,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           Text(
             extent={{-73,75},{-53,95}},
             lineColor={192,192,192},
-            textString="i")}),
-      Window(
-        x=0.19,
-        y=0.28,
-        width=0.6,
-        height=0.63),
+            textString="i")})
+      ,
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -2732,12 +2642,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={Line(points={{-66,-36},{-66,84},{34,84},{34,-36},
                 {-66,-36},{-66,-6},{34,-6},{34,24},{-66,24},{-66,54},{34,54},{
-                34,84},{-16,84},{-16,-37}}, color={192,192,192})}),
-      Window(
-        x=0.25,
-        y=0.01,
-        width=0.72,
-        height=0.86),
+                34,84},{-16,84},{-16,-37}}, color={192,192,192})})
+      ,
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},

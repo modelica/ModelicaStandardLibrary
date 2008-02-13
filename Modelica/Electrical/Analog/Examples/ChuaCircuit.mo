@@ -48,12 +48,8 @@ and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
-</html>"),
-    Window(
-      x=0.22,
-      y=0.17,
-      width=0.6,
-      height=0.6),
+</html>")
+    ,
     experiment(StopTime=1));
   Basic.Inductor L(L=18) annotation (Placement(transformation(
         origin={-75,50},

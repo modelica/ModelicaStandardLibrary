@@ -7,13 +7,7 @@ extends Modelica.Icons.Library2;
 
 
 annotation (
-    Window(
-      x=0.04,
-      y=0.05,
-      width=0.44,
-      height=0.68,
-      library=1,
-      autolayout=1),
+    
   Invisible=true,
   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
       graphics={Text(
@@ -418,14 +412,8 @@ package Matrices "Library of functions operating on matrices"
 
   annotation (
     version="0.8.1",
-    versionDate="2004-08-21",
-    Window(
-      x=0.24,
-      y=0.32,
-      width=0.35,
-      height=0.49,
-      library=1,
-      autolayout=1),
+    versionDate="2004-08-21"
+    ,
     Documentation(info="<HTML>
 <h4>Library content</h4>
 <p>
@@ -802,11 +790,7 @@ to the original matrix are given, such that
     output Real x[size(b, 1)] "Vector x such that A*x = b";
 
     annotation (
-      Window(
-        x=0.4,
-        y=0.4,
-        width=0.6,
-        height=0.6),
+      
       Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -862,11 +846,7 @@ no or infinitely many solutions (A is singular).");
     output Real X[size(B, 1), size(B,2)] "Matrix X such that A*X = B";
 
     annotation (
-      Window(
-        x=0.4,
-        y=0.4,
-        width=0.6,
-        height=0.6),
+      
       Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -928,11 +908,7 @@ no or infinitely many solutions (A is singular).");
       "Vector x such that min|A*x-b|^2 if size(A,1) >= size(A,2) or min|x|^2 and A*x=b, if size(A,1) < size(A,2)";
 
     annotation (
-      Window(
-        x=0.4,
-        y=0.4,
-        width=0.6,
-        height=0.6),
+      
       Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -979,11 +955,7 @@ equations with function \"Matrices.leastSquares\" failed.");
     output Real x[size(A,2)] "solution vector";
 
     annotation (
-      Window(
-        x=0.4,
-        y=0.4,
-        width=0.6,
-        height=0.6),
+      
       Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -1404,11 +1376,7 @@ This is not allowed when calling Modelica.Matrices.QR(A).");
       "Real-valued eigenvector matrix";
 
     annotation (
-      Window(
-        x=0.4,
-        y=0.4,
-        width=0.6,
-        height=0.6),
+      
       Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -1488,11 +1456,7 @@ numerical algorithm does not converge.");
       "Real valued block diagonal matrix with eigen values (Re: 1x1 block, Im: 2x2 block)";
 
     annotation (
-      Window(
-        x=0.4,
-        y=0.4,
-        width=0.6,
-        height=0.6),
+      
       Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -1751,12 +1715,8 @@ which based on the balanc function from EISPACK.
        by H. D. Joos and Nico Walther<br>
        Implemented.
 </li>
-</html>"),
-      Window(
-        x=0.13,
-        y=0.13,
-        width=0.71,
-        height=0.8));
+</html>")
+      );
   algorithm
 
     // B = inv(D)*A*D, so that cond(B)<=cond(A)
@@ -1799,11 +1759,7 @@ which based on the balanc function from EISPACK.
     output Real phi[size(A, 1), size(A, 1)] "= exp(A*T)";
 
     annotation (
-      Window(
-        x=0.12,
-        y=0.06,
-        width=0.61,
-        height=0.8),
+      
       Documentation(info="<HTML>
 <p>This function computes</p>
 <pre>                            (<b>A</b>T)^2   (<b>A</b>T)^3 
@@ -1961,11 +1917,7 @@ implementation variant used in this function.
     /*diagonal transformation matrix for balancing*/
 
     annotation (
-      Window(
-        x=0.25,
-        y=0.05,
-        width=0.67,
-        height=0.84),
+      
       Documentation(info="<HTML>
 <p>
 The function uses a Taylor series expansion with Balancing and
@@ -2123,11 +2075,7 @@ The Algorithm to calculate psi is taken from
     Real F[na + 2*nb, na + 2*nb];
 
     annotation (
-      Window(
-        x=0.06,
-        y=0.09,
-        width=0.69,
-        height=0.82),
+      
       Documentation(info="<HTML>
 <p>
 The function calculates the matrices phi,gamma,gamma1 through the equation:
@@ -2200,11 +2148,7 @@ is discribed in
       Real work[lwork];
 
       annotation (
-        Window(
-          x=0.25,
-          y=0.3,
-          width=0.6,
-          height=0.6),
+        
         Documentation(info="Lapack documentation
     Purpose   
     =======   
@@ -2305,11 +2249,7 @@ is discribed in
       Real EigenvectorsL[size(A, 1), size(A, 1)]=zeros(size(A, 1), size(A, 1));
 
       annotation (
-        Window(
-          x=0.25,
-          y=0.3,
-          width=0.6,
-          height=0.6),
+        
         Documentation(info="Lapack documentation
     Purpose   
     =======   
@@ -2588,11 +2528,7 @@ are computed, then only the diagonal blocks will be correct.
                                   nx, work, lwork, info) annotation (Library="Lapack");
 
       annotation (
-        Window(
-          x=0.25,
-          y=0.3,
-          width=0.6,
-          height=0.6),
+        
         Documentation(info="Lapack documentation
   Purpose                                                                 
   =======                                                                 
@@ -2710,11 +2646,7 @@ are computed, then only the diagonal blocks will be correct.
                                   rcond, rank, work, lwork, info) annotation (Library="Lapack");
 
       annotation (
-        Window(
-          x=0.25,
-          y=0.3,
-          width=0.6,
-          height=0.6),
+        
         Documentation(info="Lapack documentation
   Purpose                                                               
   =======                                                               
@@ -2861,11 +2793,7 @@ are computed, then only the diagonal blocks will be correct.
   
                   has been completed, but the factor U is exactly   
                   singular, so the solution could not be computed.   
-"),     Window(
-          x=0.4,
-          y=0.4,
-          width=0.6,
-          height=0.6));
+")     );
 
     external "FORTRAN 77" dgesv(size(A, 1), size(B, 2), Awork, size(A, 1), ipiv,
          X, size(A, 1), info) annotation (Library="Lapack");
@@ -2886,11 +2814,7 @@ are computed, then only the diagonal blocks will be correct.
         Documentation(info="
 Same as function LAPACK.dgesv, but right hand side is a vector and not a matrix.
 For details of the arguments, see documentation of dgesv.
-"),     Window(
-          x=0.4,
-          y=0.4,
-          width=0.6,
-          height=0.6));
+")     );
 
     external "FORTRAN 77" dgesv(size(A, 1), 1, Awork, size(A, 1), ipiv, x, size(
         A, 1), info) annotation (Library="Lapack");
@@ -3000,11 +2924,7 @@ For details of the arguments, see documentation of dgesv.
   INFO    (output) INTEGER
           = 0:  successful exit.
           < 0:  if INFO = -i, the i-th argument had an illegal value.
-"),     Window(
-          x=0.34,
-          y=0.06,
-          width=0.6,
-          height=0.6));
+")     );
     end dgglse_vec;
 
     function dgtsv
@@ -3068,11 +2988,7 @@ For details of the arguments, see documentation of dgesv.
                   has not been computed.  The factorization has not been 
   
                   completed unless i = N.   
-"),     Window(
-          x=0.4,
-          y=0.4,
-          width=0.6,
-          height=0.6));
+")     );
 
     external "FORTRAN 77" dgtsv(size(diag, 1), size(B, 2), subdiagwork,
         diagwork, superdiagwork, X, size(B, 1), info) 
@@ -3098,11 +3014,7 @@ For details of the arguments, see documentation of dgesv.
         Documentation(info="
 Same as function LAPACK.dgtsv, but right hand side is a vector and not a matrix.
 For details of the arguments, see documentation of dgtsv.
-"),     Window(
-          x=0.4,
-          y=0.4,
-          width=0.6,
-          height=0.6));
+")     );
 
     external "FORTRAN 77" dgtsv(size(diag, 1), 1, subdiagwork, diagwork,
         superdiagwork, x, size(b, 1), info) annotation (Library="Lapack");
@@ -3186,12 +3098,8 @@ On entry:                       On exit:
    a31  a42  a53  a64   *    *      m31  m42  m53  m64   *    *
 Array elements marked * are not used by the routine; elements marked
 + need not be set on entry, but are required by the routine to store
-elements of U because of fill-in resulting from the row interchanges."),
-        Window(
-          x=0.4,
-          y=0.4,
-          width=0.6,
-          height=0.6));
+elements of U because of fill-in resulting from the row interchanges.")
+        );
 
     external "FORTRAN 77" dgbsv(n, kLower, kUpper, size(B, 2), Awork, size(
         Awork, 1), ipiv, X, n, info) annotation (Library="Lapack");
@@ -3213,11 +3121,7 @@ elements of U because of fill-in resulting from the row interchanges."),
 
       annotation (
         Documentation(info="Lapack documentation:  
-"),     Window(
-          x=0.4,
-          y=0.4,
-          width=0.6,
-          height=0.6));
+")     );
 
     external "FORTRAN 77" dgbsv(n, kLower, kUpper, 1, Awork, size(Awork, 1),
         ipiv, x, n, info) annotation (Library="Lapack");
@@ -3331,11 +3235,7 @@ elements of U because of fill-in resulting from the row interchanges."),
                   superdiagonals of an intermediate bidiagonal form B   
                   did not converge to zero. See the description of WORK   
                   above for details.   
-"),     Window(
-          x=0.31,
-          y=0.4,
-          width=0.6,
-          height=0.6));
+")     );
 
     external "Fortran 77" dgesvd("A", "A", size(A, 1), size(A, 2), Awork, size(
         A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info) 
@@ -3450,11 +3350,7 @@ elements of U because of fill-in resulting from the row interchanges."),
                   superdiagonals of an intermediate bidiagonal form B   
                   did not converge to zero. See the description of WORK   
                   above for details.   
-"),     Window(
-          x=0.4,
-          y=0.4,
-          width=0.6,
-          height=0.6));
+")     );
 
     external "Fortran 77" dgesvd("N", "N", size(A, 1), size(A, 2), Awork, size(
         A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info) 
@@ -3516,11 +3412,7 @@ INFO    (output) INTEGER
               has been completed, but the factor U is exactly
               singular, and division by zero will occur if it is used
               to solve a system of equations.
-"),     Window(
-          x=0.4,
-          y=0.4,
-          width=0.6,
-          height=0.6));
+")     );
 
     external "FORTRAN 77" dgetrf(size(A, 1), size(A, 2), LU, size(A, 1), pivots,
          info) annotation (Library="Lapack");
@@ -3585,11 +3477,7 @@ LDB     (input) INTEGER
 INFO    (output) INTEGER
         = 0:  successful exit
         < 0:  if INFO = -i, the i-th argument had an illegal value
-"),       Window(
-            x=0.4,
-            y=0.4,
-            width=0.6,
-            height=0.6));
+")       );
 
     protected
         Real work[size(LU, 1), size(LU, 1)]=LU;
@@ -3657,11 +3545,7 @@ LDB     (input) INTEGER
 INFO    (output) INTEGER
         = 0:  successful exit
         < 0:  if INFO = -i, the i-th argument had an illegal value
-"),     Window(
-          x=0.4,
-          y=0.4,
-          width=0.6,
-          height=0.6));
+")     );
 
     protected
       Real work[size(LU, 1), size(LU, 1)]=LU;
@@ -3722,12 +3606,8 @@ INFO    (output) INTEGER
         = 0:  successful exit
         < 0:  if INFO = -i, the i-th argument had an illegal value
         > 0:  if INFO = i, U(i,i) is exactly zero; the matrix is
-              singular and its inverse could not be computed."),
-        Window(
-          x=0.4,
-          y=0.4,
-          width=0.6,
-          height=0.6));
+              singular and its inverse could not be computed.")
+        );
     protected
       Integer lwork=min(10, size(LU, 1))*size(LU, 1) "Length of work array";
       Real work[lwork];
@@ -3802,12 +3682,8 @@ where tau is a real scalar, and v is a real vector with
 v(1:i-1) = 0 and v(i) = 1; v(i+1:m) is stored on exit in A(i+1:m,i).
 The matrix P is represented in jpvt as follows: If
    jpvt(j) = i
-then the jth column of P is the ith canonical unit vector."),
-        Window(
-          x=0.4,
-          y=0.4,
-          width=0.6,
-          height=0.6));
+then the jth column of P is the ith canonical unit vector.")
+        );
     protected
       Integer info;
       Integer ncol=size(A, 2) "Column dimension of A";
@@ -3874,11 +3750,7 @@ LWORK   (input) INTEGER
 INFO    (output) INTEGER
         = 0:  successful exit
         < 0:  if INFO = -i, the i-th argument has an illegal value
-"),     Window(
-          x=0.4,
-          y=0.4,
-          width=0.6,
-          height=0.6));
+")     );
 
     protected
       Integer info;
@@ -3927,11 +3799,7 @@ function sin "Sine"
   output Real y;
 
   annotation (
-    Window(
-      x=0.02,
-      y=0.21,
-      width=0.6,
-      height=0.6),
+    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -4015,11 +3883,7 @@ function cos "Cosine"
   output Real y;
 
   annotation (
-    Window(
-      x=0.28,
-      y=0.06,
-      width=0.6,
-      height=0.6),
+    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -4099,11 +3963,7 @@ function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
   output Real y;
 
   annotation (
-    Window(
-      x=0.31,
-      y=0.01,
-      width=0.6,
-      height=0.6),
+    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -4186,11 +4046,7 @@ function asin "Inverse sine (-1 <= u <= 1)"
   output SI.Angle y;
 
   annotation (
-    Window(
-      x=0.29,
-      y=0.02,
-      width=0.6,
-      height=0.6),
+    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -4274,11 +4130,7 @@ function acos "Inverse cosine (-1 <= u <= 1)"
   output SI.Angle y;
 
   annotation (
-    Window(
-      x=0.37,
-      y=0.09,
-      width=0.6,
-      height=0.6),
+    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -4358,11 +4210,7 @@ function atan "Inverse tangent"
   output SI.Angle y;
 
   annotation (
-    Window(
-      x=0.36,
-      y=0.07,
-      width=0.6,
-      height=0.6),
+    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -4437,11 +4285,7 @@ function atan2 "Four quadrant inverse tangent"
   output SI.Angle y;
 
   annotation (
-    Window(
-      x=0.36,
-      y=0.07,
-      width=0.6,
-      height=0.6),
+    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -4549,11 +4393,7 @@ function atan3
   output Modelica.SIunits.Angle y;
 
   annotation (
-    Window(
-      x=0.36,
-      y=0.07,
-      width=0.6,
-      height=0.6),
+    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -4657,11 +4497,7 @@ function sinh "Hyperbolic sine"
   output Real y;
 
   annotation (
-    Window(
-      x=0.36,
-      y=0.07,
-      width=0.6,
-      height=0.6),
+    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -4747,11 +4583,7 @@ function cosh "Hyperbolic cosine"
   output Real y;
 
   annotation (
-    Window(
-      x=0.4,
-      y=0.05,
-      width=0.6,
-      height=0.6),
+    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -4837,11 +4669,7 @@ function tanh "Hyperbolic tangent"
   output Real y;
 
   annotation (
-    Window(
-      x=0.36,
-      y=0.07,
-      width=0.6,
-      height=0.6),
+    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -4915,11 +4743,7 @@ function asinh "Inverse of sinh (area hyperbolic sine)"
   output Real y;
 
   annotation (
-    Window(
-      x=0.36,
-      y=0.07,
-      width=0.6,
-      height=0.6),
+    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -5007,11 +4831,7 @@ function acosh "Inverse of cosh (area hyperbolic cosine)"
   output Real y;
 
   annotation (
-    Window(
-      x=0.36,
-      y=0.07,
-      width=0.6,
-      height=0.6),
+    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -5109,11 +4929,7 @@ function exp "Exponential, base e"
   output Real y;
 
   annotation (
-    Window(
-      x=0.36,
-      y=0.07,
-      width=0.6,
-      height=0.6),
+    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -5197,11 +5013,7 @@ function log "Natural (base e) logarithm (u shall be > 0)"
   output Real y;
 
   annotation (
-    Window(
-      x=0.36,
-      y=0.07,
-      width=0.6,
-      height=0.6),
+    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -5288,11 +5100,7 @@ function log10 "Base 10 logarithm (u shall be > 0)"
   output Real y;
 
   annotation (
-    Window(
-      x=0.36,
-      y=0.07,
-      width=0.6,
-      height=0.6),
+    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},

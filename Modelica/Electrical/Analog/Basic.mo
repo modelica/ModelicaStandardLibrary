@@ -4,13 +4,7 @@ package Basic
   
   extends Modelica.Icons.Library;
   
-  annotation (Window(
-       x=0.03,
-       y=0.04,
-       width=0.54,
-       height=0.35,
-       library=1,
-       autolayout=1),
+  annotation (
 Documentation(info="<HTML>
 <p>
 This package contains basic analog electrical components.
@@ -90,12 +84,8 @@ at least one ground object.
           Text(
             extent={{-24,-38},{22,-6}},
             textString="p.v=0",
-            lineColor={0,0,255})}),
-      Window(
-        x=0.23,
-        y=0.23,
-        width=0.59,
-        height=0.63));
+            lineColor={0,0,255})})
+      );
   equation 
     p.v = 0;
   end Ground;
@@ -145,12 +135,8 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
           grid={2,2}), graphics={
           Rectangle(extent={{-70,30},{70,-30}}, lineColor={0,0,255}),
           Line(points={{-96,0},{-70,0}}, color={0,0,255}),
-          Line(points={{70,0},{96,0}}, color={0,0,255})}),
-      Window(
-        x=0.2,
-        y=0.06,
-        width=0.62,
-        height=0.69));
+          Line(points={{70,0},{96,0}}, color={0,0,255})})
+      );
   equation 
     R*i = v;
   end Resistor;
@@ -300,12 +286,8 @@ The Conductance <i>G</i> is allowed to be positive, zero, or negative.
           grid={2,2}), graphics={
           Line(points={{-96,0},{-70,0}}, color={0,0,255}),
           Line(points={{70,0},{96,0}}, color={0,0,255}),
-          Rectangle(extent={{-70,30},{70,-30}}, lineColor={0,0,255})}),
-      Window(
-        x=0,
-        y=0.2,
-        width=0.63,
-        height=0.68));
+          Rectangle(extent={{-70,30},{70,-30}}, lineColor={0,0,255})})
+      );
   equation 
     i = G*v;
   end Conductor;
@@ -314,11 +296,7 @@ The Conductance <i>G</i> is allowed to be positive, zero, or negative.
     extends Interfaces.OnePort;
     parameter SI.Capacitance C(start=1) "Capacitance";
     annotation (
-      Window(
-        x=0.32,
-        y=0.33,
-        width=0.48,
-        height=0.58),
+      
       Documentation(info="<HTML>
 <p>
 The linear capacitor connects the branch voltage <i>v</i> with the
@@ -432,12 +410,8 @@ The Inductance <i>L</i> is allowed to be positive, zero, or negative.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{60,0},{96,0}}, color={0,0,255}),
-          Line(points={{-96,0},{-60,0}}, color={0,0,255})}),
-      Window(
-        x=0.3,
-        y=0.12,
-        width=0.6,
-        height=0.6));
+          Line(points={{-96,0},{-60,0}}, color={0,0,255})})
+      );
   equation 
     L*der(i) = v;
   end Inductor;
@@ -635,12 +609,8 @@ relation:</p>
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{32,50},{96,50}}, color={0,0,255}),
-          Line(points={{32,-50},{96,-50}}, color={0,0,255})}),
-      Window(
-        x=0.26,
-        y=0.43,
-        width=0.6,
-        height=0.6));
+          Line(points={{32,-50},{96,-50}}, color={0,0,255})})
+      );
   equation 
     v1 = L1*der(i1) + M*der(i2);
     v2 = M*der(i1) + L2*der(i2);
@@ -761,12 +731,8 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
           Text(
             extent={{-20,-35},{20,-50}},
             textString="G2",
-            lineColor={0,0,255})}),
-      Window(
-        x=0.4,
-        y=0.4,
-        width=0.6,
-        height=0.6));
+            lineColor={0,0,255})})
+      );
   equation 
     i1 = G2*v2;
     i2 = -G1*v1;
@@ -876,12 +842,8 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
             lineColor={160,160,164},
             textString="i"),
           Line(points={{8,-79},{18,-79}}, color={192,192,192}),
-          Line(points={{14,80},{14,70}}, color={192,192,192})}),
-      Window(
-        x=0.21,
-        y=0,
-        width=0.65,
-        height=0.66),
+          Line(points={{14,80},{14,70}}, color={192,192,192})})
+      ,
       Documentation(info="<HTML>
 <p>
 EMF transforms electrical energy into rotational mechanical energy.
@@ -949,12 +911,8 @@ The left port current is zero. Any voltage gain can be chosen.
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
-</html>"),
-      Window(
-        x=0.28,
-        y=0.02,
-        width=0.59,
-        height=0.92),
+</html>")
+      ,
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1065,12 +1023,8 @@ The left port current is zero. Any transConductance can be chosen.
             lineColor={0,0,255}),
           Line(points={{96,50},{30,50},{30,20}}, color={0,0,255}),
           Line(points={{96,-50},{30,-50},{30,-20}}, color={0,0,255}),
-          Line(points={{10,0},{50,0}}, color={0,0,255})}),
-      Window(
-        x=0.34,
-        y=0.05,
-        width=0.6,
-        height=0.6));
+          Line(points={{10,0},{50,0}}, color={0,0,255})})
+      );
   equation 
     i2 = v1*transConductance;
     i1 = 0;
@@ -1138,12 +1092,8 @@ The left port voltage is zero. Any transResistance can be chosen.
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
           Line(points={{96,50},{30,50},{30,-50},{96,-50}}, color={0,0,255}),
-          Line(points={{-96,50},{-30,50},{-30,-50},{-96,-50}}, color={0,0,255})}),
-      Window(
-        x=0.3,
-        y=0.13,
-        width=0.6,
-        height=0.6));
+          Line(points={{-96,50},{-30,50},{-30,-50},{-96,-50}}, color={0,0,255})})
+      );
   equation 
     v2 = i1*transResistance;
     v1 = 0;
@@ -1214,12 +1164,8 @@ The left port voltage is zero. Any current gain can be chosen.
           Line(points={{96,50},{30,50},{30,20}}, color={0,0,255}),
           Line(points={{96,-50},{30,-50},{30,-20}}, color={0,0,255}),
           Line(points={{10,0},{50,0}}, color={0,0,255}),
-          Line(points={{-96,50},{-30,50},{-30,-50},{-96,-50}}, color={0,0,255})}),
-      Window(
-        x=0.31,
-        y=0.09,
-        width=0.6,
-        height=0.6));
+          Line(points={{-96,50},{-30,50},{-30,-50},{-96,-50}}, color={0,0,255})})
+      );
     
   equation 
     i2 = i1*gain;
@@ -1342,12 +1288,8 @@ value of Slope is taken into calculation.)
             lineColor={160,160,164},
             fillColor={160,160,164},
             fillPattern=FillPattern.Solid,
-            textString="vin")}),
-      Window(
-        x=0.28,
-        y=0.19,
-        width=0.71,
-        height=0.59));
+            textString="vin")})
+      );
   equation 
     in_p.i = 0;
     in_n.i = 0;

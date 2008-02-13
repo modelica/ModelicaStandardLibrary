@@ -3,13 +3,7 @@ package Lines
   "Lossy and lossless segmented transmission lines, and LC distributed line models"
   extends Modelica.Icons.Library;
   annotation (
-    Window(
-      x=0.03,
-      y=0.04,
-      width=0.50,
-      height=0.24,
-      library=1,
-      autolayout=1),
+    
     Documentation(info="<html>
 <p>
 This package contains lossy and lossless segmented transmission lines,
@@ -138,12 +132,8 @@ Lossy Transmission Line.
           Line(points={{-60,0},{-96,0}}, color={0,0,255}),
           Line(points={{30,30},{-30,30}}, color={0,0,255}),
           Line(points={{-30,40},{-30,20}}, color={0,0,255}),
-          Line(points={{30,40},{30,20}}, color={0,0,255})}),
-      Window(
-        x=0.24,
-        y=0.07,
-        width=0.6,
-        height=0.6));
+          Line(points={{30,40},{30,20}}, color={0,0,255})})
+      );
   equation
     v13 = p1.v - p3.v;
     v23 = p2.v - p3.v;
@@ -216,12 +206,8 @@ lumped segments.
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
-</html>"),
-      Window(
-        x=0.2,
-        y=0.21,
-        width=0.6,
-        height=0.6),
+</html>")
+      ,
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -357,12 +343,8 @@ Lossless transmission line with characteristic impedance Z0 and transmission del
           Text(
             extent={{-30,0},{31,-31}},
             textString="TLine1",
-            lineColor={0,0,255})}),
-      Window(
-        x=0.45,
-        y=0.01,
-        width=0.51,
-        height=0.83));
+            lineColor={0,0,255})})
+      );
    equation
      assert(Z0 > 0, "Z0 has to be positive");
      assert(TD > 0, "TD has to be positive");
@@ -460,12 +442,8 @@ Lossless transmission line with characteristic impedance Z0, frequency F and nor
           Text(
             extent={{-100,100},{100,70}},
             textString="TLine2",
-            lineColor={0,0,255})}),
-      Window(
-        x=0.01,
-        y=0.03,
-        width=0.78,
-        height=0.89));
+            lineColor={0,0,255})})
+      );
   equation
     assert(Z0 > 0, "Z0 has to be positive");
     assert(NL > 0, "NL has to be positive");
@@ -563,12 +541,8 @@ Lossless transmission line with characteristic impedance Z0 and frequency F
           Text(
             extent={{-100,100},{100,70}},
             textString="TLine3",
-            lineColor={0,0,255})}),
-      Window(
-        x=0,
-        y=0,
-        width=0.7,
-        height=0.92));
+            lineColor={0,0,255})})
+      );
   equation
     assert(Z0 > 0, "Z0 has to be positive");
     assert(F > 0, "F  has to be positive");

@@ -21,11 +21,7 @@ equation
   connect(n2, S.n2) annotation (Line(points={{100,14},{58,41.3334}}));
   connect(control, S.control) annotation (Line(points={{34,100},{34.6666,
           64.6667}}));
-  annotation (             Window(
-      x=0.4,
-      y=0.4,
-      width=0.6,
-      height=0.6),
+  annotation (             
     Documentation(info="<html>
   
 </html>"));

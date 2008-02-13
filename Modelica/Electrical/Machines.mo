@@ -6152,12 +6152,8 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
                 fillPattern=FillPattern.Solid),
               Line(points={{32,-40},{90,-40}}, color={0,0,255}),
               Line(points={{34,-90},{92,-90}}, color={0,0,255})}),
-          Diagram(graphics),
-          Window(
-            x=0.29,
-            y=0.07,
-            width=0.6,
-            height=0.6),
+          Diagram(graphics)
+          ,
           Documentation(info="<html>
 Partial model of transformer core with 3 windings; saturation function flux versus magentizing current has to be defined.
 </html>"));
