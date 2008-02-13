@@ -143,9 +143,7 @@ component.</p></html>", revisions="<html>
             fillPattern=FillPattern.Solid), Text(
             extent={{-40,110},{160,50}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Terminal(Rectangle(extent=[-100, 100; 100, -100], style(color=3),
-          lineColor={0,0,255})));
+            lineColor={0,0,255})}));
   end NegativePin;
 
   partial model TwoPin "Component with one electrical port"

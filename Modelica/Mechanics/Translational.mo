@@ -3902,10 +3902,7 @@ The following variables are transported through this connector:
               fillPattern=FillPattern.Solid), Text(
               extent={{-160,110},{40,50}},
               lineColor={0,127,0},
-              textString="%name")}),
-        Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=58,
-                fillColor=58),
-            lineColor={0,0,255})));
+              textString="%name")}));
 
       SI.Position s "absolute position of flange";
       flow SI.Force f "cut force directed into flange";
@@ -3953,9 +3950,7 @@ The following variables are transported through this connector:
               fillPattern=FillPattern.Solid), Text(
               extent={{-40,110},{160,50}},
               lineColor={0,127,0},
-              textString="%name")}),
-        Terminal(Rectangle(extent=[-100, -100; 100, 100], style(color=58),
-            lineColor={0,0,255})));
+              textString="%name")}));
     end Flange_b;
 
     connector Support "Support/housing 1D translational flange"
