@@ -62,6 +62,7 @@ convertClass("Modelica.Mechanics.Rotational.Types.InitRel",
 // Remove "SignalType" from all RealInput and RealOutput modifiers
 convertModifiers("Modelica.Blocks.Interfaces.RealInput",{"SignalType"},fill("",0),true);
 convertModifiers("Modelica.Blocks.Interfaces.RealOutput",{"SignalType"},fill("",0),true);
+convertModifiers("Modelica.Blocks.Interfaces.RealSignal",{"SignalType"},fill("",0),true);
 
 
 // Change modifiers of PartialMedium.BaseProperties to equations in the equation section,
