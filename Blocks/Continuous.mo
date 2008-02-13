@@ -6,13 +6,7 @@ package Continuous "Library of continuous control blocks with internal states"
   extends Modelica.Icons.Library;
 
   annotation (
-    Window(
-      x=0.05,
-      y=0.09,
-      width=0.35,
-      height=0.74,
-      library=1,
-      autolayout=1),
+    
     Documentation(info="<html>
 <p>
 This package contains basic <b>continuous</b> input/output blocks
@@ -115,11 +109,7 @@ for a 1-dim. rotational inertia controlled by a PI controller are that
     extends Interfaces.SISO(y(start=y_start));
 
     annotation (
-      Window(
-        x=0.29,
-        y=0.05,
-        width=0.53,
-        height=0.54),
+      
       Documentation(info="<html>
 <p>
 This blocks computes output <b>y</b> (element-wise) as
@@ -207,11 +197,7 @@ This is discussed in the description of package
       annotation (Dialog(group="Initialization"));
     extends Interfaces.SISO(y(start=y_start));
     annotation (
-      Window(
-        x=0.31,
-        y=0.09,
-        width=0.54,
-        height=0.6),
+      
       Documentation(info="<html>
 <p>
 This blocks computes <b>y</b> (element-wise) as <i>integral</i>
@@ -389,12 +375,8 @@ If k=0, the block reduces to y=0.
           Line(points={{-50,0},{50,0}}, color={0,0,0}),
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
-          Line(points={{60,0},{100,0}}, color={0,0,255})}),
-      Window(
-        x=0.17,
-        y=0.03,
-        width=0.5,
-        height=0.61));
+          Line(points={{60,0},{100,0}}, color={0,0,255})})
+      );
   protected
     parameter Boolean zeroGain = abs(k) < Modelica.Constants.eps;
   initial equation
@@ -498,12 +480,8 @@ Example:
           Line(points={{-50,0},{50,0}}, color={0,0,0}),
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
-          Line(points={{60,0},{100,0}}, color={0,0,255})}),
-      Window(
-        x=0.15,
-        y=0.04,
-        width=0.52,
-        height=0.55));
+          Line(points={{60,0},{100,0}}, color={0,0,255})})
+      );
   initial equation
     if initType == Init.SteadyState then
       der(y) = 0;
@@ -532,11 +510,7 @@ Example:
     extends Interfaces.SISO(y(start=y_start));
     output Real yd(start=yd_start) "Derivative of y";
     annotation (
-      Window(
-        x=0.23,
-        y=0.1,
-        width=0.54,
-        height=0.49),
+      
       Documentation(info="<HTML>
 <p>
 This blocks defines the transfer function between the input u and
@@ -671,12 +645,8 @@ Example:
     extends Interfaces.SISO;
     output Real x(start=x_start) "State of block";
 
-    annotation (defaultComponentName="PI",
-      Window(
-        x=0.24,
-        y=0.13,
-        width=0.56,
-        height=0.5),
+    annotation (defaultComponentName="PI"
+      ,
       Documentation(info="
 <HTML>
 <p>
@@ -800,12 +770,8 @@ This is discussed in the description of package
       annotation(Dialog(enable=initType == Init.InitialOutput, group=
             "Initialization"));
 
-    annotation (defaultComponentName="PID",
-      Window(
-        x=0.15,
-        y=0.04,
-        width=0.55,
-        height=0.68),
+    annotation (defaultComponentName="PID"
+      ,
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1023,12 +989,8 @@ to compute u by an algebraic equation.
       annotation(Dialog(enable=initType == InitPID.InitialOutput, group=
             "Initialization"));
 
-    annotation (defaultComponentName="PID",
-      Window(
-        x=0.22,
-        y=0.02,
-        width=0.6,
-        height=0.72),
+    annotation (defaultComponentName="PID"
+      ,
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1360,11 +1322,7 @@ to use <b>limitAtInit</b> = <b>false</b>.
     parameter Real a_end = if a[end] > 100*Modelica.Constants.eps*sqrt(a*a) then a[end] else 1.0;
     Real x_scaled[size(x,1)] "Scaled vector x";
     annotation (
-      Window(
-        x=0.39,
-        y=0.09,
-        width=0.58,
-        height=0.77),
+      
       Documentation(info="<html>
 <p>
 This block defines the transfer function between the input
@@ -1469,11 +1427,7 @@ results in the following transfer function:
     extends Interfaces.MIMO(final nin=size(B, 2), final nout=size(C, 1));
     output Real x[size(A, 1)](start=x_start) "State vector";
     annotation (
-      Window(
-        x=0.2,
-        y=0.03,
-        width=0.64,
-        height=0.73),
+      
       Documentation(info="<HTML>
 <p>
 The State Space block defines the relation

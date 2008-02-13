@@ -4,13 +4,7 @@ package Ideal
   
   extends Modelica.Icons.Library;
   
-  annotation (Window(
-       x=0.03,
-       y=0.04,
-       width=0.50,
-       height=0.36,
-       library=1,
-       autolayout=1),Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>
 This package contains electrical components with idealized behaviour:
 </p>
@@ -172,12 +166,8 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
           Line(
             points={{20,10},{70,40}},
             color={0,0,0},
-            thickness=2)}),
-              Window(
-                x=0.27,
-                y=0.18,
-                width=0.6,
-                height=0.6));
+            thickness=2)})
+              );
           equation 
             off = s < 0 or pre(off) and not fire;
             v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
@@ -314,12 +304,8 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
           Line(
             points={{20,10},{70,40}},
             color={0,0,0},
-            thickness=2)}),
-              Window(
-                x=0.27,
-                y=0.13,
-                width=0.6,
-                height=0.6));
+            thickness=2)})
+              );
           equation 
             off = s < 0 or not fire;
             v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
@@ -409,12 +395,8 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
           Line(points={{40,50},{96,50}}, color={0,0,255}),
           Line(points={{0,60},{0,25}}, color={0,0,255}),
-          Line(points={{40,0},{96,0}}, color={0,0,255})}),
-      Window(
-        x=0.21,
-        y=0.05,
-        width=0.6,
-        height=0.6));
+          Line(points={{40,0},{96,0}}, color={0,0,255})})
+      );
   equation 
     0 = p.i + n2.i + n1.i;
     
@@ -524,12 +506,8 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points={{-40,50},{40,0}}, color={0,0,255}),
           Line(points={{40,50},{96,50}}, color={0,0,255}),
           Line(points={{0,60},{0,25}}, color={0,0,255}),
-          Line(points={{40,0},{96,0}}, color={0,0,255})}),
-      Window(
-        x=0.21,
-        y=0.05,
-        width=0.6,
-        height=0.6));
+          Line(points={{40,0},{96,0}}, color={0,0,255})})
+      );
   equation 
     p1.v - n1.v = (s1*unitCurrent)*(if (control) then 1 else Ron);
     p2.v - n2.v = (s2*unitCurrent)*(if (control) then 1 else Ron);
@@ -627,12 +605,8 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
           Line(points={{40,50},{96,50}}, color={0,0,255}),
           Line(points={{0,96},{0,25}}, color={0,0,255}),
-          Line(points={{40,0},{96,0}}, color={0,0,255})}),
-      Window(
-        x=0.21,
-        y=0.05,
-        width=0.6,
-        height=0.6));
+          Line(points={{40,0},{96,0}}, color={0,0,255})})
+      );
   equation 
     control.i = 0;
     0 = p.i + n2.i + n1.i;
@@ -746,12 +720,8 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points={{-40,50},{40,0}}, color={0,0,255}),
           Line(points={{40,50},{96,50}}, color={0,0,255}),
           Line(points={{0,96},{0,25}}, color={0,0,255}),
-          Line(points={{40,0},{96,0}}, color={0,0,255})}),
-      Window(
-        x=0.21,
-        y=0.05,
-        width=0.6,
-        height=0.6));
+          Line(points={{40,0},{96,0}}, color={0,0,255})})
+      );
   equation 
     control.i = 0;
     
@@ -870,12 +840,8 @@ are possible (norator).
             lineColor={0,0,0},
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={160,160,164},
-            textString="i2")}),
-      Window(
-        x=0.28,
-        y=0.19,
-        width=0.71,
-        height=0.59));
+            textString="i2")})
+      );
   equation 
     v1 = p1.v - n1.v;
     v2 = p2.v - n2.v;
@@ -971,12 +937,8 @@ are possible.
             lineColor={160,160,164},
             fillColor={160,160,164},
             fillPattern=FillPattern.Solid,
-            textString="n1.i=0")}),
-      Window(
-        x=0.28,
-        y=0.19,
-        width=0.71,
-        height=0.59));
+            textString="n1.i=0")})
+      );
   equation 
     in_p.v = in_n.v;
     in_p.i = 0;
@@ -1082,12 +1044,8 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
             lineColor={160,160,164},
             fillColor={160,160,164},
             fillPattern=FillPattern.Solid,
-            textString="n1.i=0")}),
-      Window(
-        x=0.28,
-        y=0.19,
-        width=0.71,
-        height=0.59));
+            textString="n1.i=0")})
+      );
     
   equation 
     in_p.i = 0;
@@ -1219,12 +1177,8 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
           Ellipse(
             extent={{18,12},{22,8}},
             pattern=LinePattern.Dot,
-            lineColor={0,0,255})}),
-            Window(
-              x=0.26,
-              y=0.11,
-              width=0.6,
-              height=0.6));
+            lineColor={0,0,255})})
+            );
         equation 
           off = s < 0;
           v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
@@ -1316,12 +1270,8 @@ where <i>n</i> is a real number called the turns ratio.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{32,50},{96,50}}, color={0,0,255}),
-          Line(points={{32,-50},{96,-50}}, color={0,0,255})}),
-      Window(
-        x=0.29,
-        y=0.07,
-        width=0.6,
-        height=0.6));
+          Line(points={{32,-50},{96,-50}}, color={0,0,255})})
+      );
   equation 
     v1 = n*v2;
     i2 = -n*i1;
@@ -1454,12 +1404,8 @@ The model Idle is a simple idle running branch.
           grid={1,1}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Line(points={{-96,0},{-41,0}}, color={0,0,255}),
-          Line(points={{96,0},{40,0}}, color={0,0,255})}),
-      Window(
-        x=0.36,
-        y=0.16,
-        width=0.6,
-        height=0.6));
+          Line(points={{96,0},{40,0}}, color={0,0,255})})
+      );
   equation 
     i = 0;
   end Idle;
@@ -1504,12 +1450,8 @@ The model Short is a simple short cut branch.
           Text(
             extent={{-100,100},{100,70}},
             textString="Short",
-            lineColor={0,0,255})}),
-      Window(
-        x=0.31,
-        y=0.14,
-        width=0.6,
-        height=0.6));
+            lineColor={0,0,255})})
+      );
   equation 
     v = 0;
   end Short;
@@ -1559,12 +1501,8 @@ where a description with zero Ron or zero Goff is not possible.
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
-</html>"),
-      Window(
-        x=0.45,
-        y=0.01,
-        width=0.44,
-        height=0.65),
+</html>")
+      ,
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1645,12 +1583,8 @@ where a description with zero Ron or zero Goff is not possible.
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
-</html>"),
-        Window(
-          x=0.24,
-          y=0.01,
-          width=0.65,
-          height=0.77),
+</html>")
+        ,
         Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1734,12 +1668,8 @@ where a description with zero Ron or zero Goff is not possible.
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
-</html>"),
-      Window(
-        x=0.45,
-        y=0.01,
-        width=0.44,
-        height=0.65),
+</html>")
+      ,
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1825,12 +1755,8 @@ where a description with zero Ron or zero Goff is not possible.
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
-</html>"),
-        Window(
-          x=0.45,
-          y=0.01,
-          width=0.44,
-          height=0.65),
+</html>")
+        ,
         Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},

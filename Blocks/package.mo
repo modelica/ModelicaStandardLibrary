@@ -7,13 +7,7 @@ extends Modelica.Icons.Library2;
 
 
 annotation (
-  Window(
-    x=0.03,
-    y=0.05,
-    width=0.21,
-    height=0.48,
-    library=1,
-    autolayout=1),
+  
   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
       graphics={
       Rectangle(extent={{-32,-6},{16,-35}}, lineColor={0,0,0}),

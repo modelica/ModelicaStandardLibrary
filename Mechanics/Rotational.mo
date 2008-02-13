@@ -5,14 +5,8 @@ package Rotational
   import SI = Modelica.SIunits;
 
   annotation (
-  version="1.1.1", versionDate="2007-11-22",
-    Window(
-      x=0.05,
-      y=0.09,
-      width=0.43,
-      height=0.63,
-      library=1,
-      autolayout=1),
+  version="1.1.1", versionDate="2007-11-22"
+    ,
     Documentation(info="<html>
  
 <p>
@@ -497,13 +491,7 @@ end UsersGuide;
 
     extends Modelica.Icons.Library;
 
-    annotation (Window(
-        x=0.07,
-        y=0.13,
-        width=0.59,
-        height=0.36,
-        library=1,
-        autolayout=1), Documentation(info="<html>
+    annotation ( Documentation(info="<html>
 <p>
 This package contains example models to demonstrate the usage of the
 Modelica.Mechanics.Rotational package. Open the models and
@@ -1357,11 +1345,7 @@ This package contains basic components 1D mechanical rotational drive trains.
         annotation (Placement(transformation(extent={{10,-10},{-10,10}}, rotation=
                0)));
       annotation (
-        Window(
-          x=0.27,
-          y=0.02,
-          width=0.63,
-          height=0.73),
+        
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1422,11 +1406,7 @@ at an angle phi0 in the <b>housing</b>. May be used:
         "Absolute angular acceleration of component (= der(w))" annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
 
       annotation (
-        Window(
-          x=0.28,
-          y=0.04,
-          width=0.7,
-          height=0.63),
+        
         Documentation(info="<html>
 <p>
 Rotational component with <b>inertia</b> and two rigidly connected flanges.
@@ -1489,11 +1469,7 @@ Rotational component with <b>inertia</b> and two rigidly connected flanges.
         "Fixed rotation of left flange with respect to right flange (= flange_b.phi - flange_a.phi)";
       SI.Angle phi "Absolute rotation angle of component";
       annotation (
-        Window(
-          x=0.28,
-          y=0.04,
-          width=0.7,
-          height=0.63),
+        
         Documentation(info="<html>
 <p>
 Rotational component with two rigidly connected flanges without <b>inertia</b>.
@@ -1551,11 +1527,7 @@ flange.
       parameter SI.Angle phi_rel0=0 "Unstretched spring angle";
 
       annotation (
-        Window(
-          x=0.21,
-          y=0.02,
-          width=0.8,
-          height=0.69),
+        
         Documentation(info="<html>
 <p>
 A <b>linear 1D rotational spring</b>. The component can be connected either
@@ -1612,11 +1584,7 @@ a coupling of the element with the housing via a spring.
       parameter SI.RotationalDampingConstant d(final min=0, start=0)
         "Damping constant";
       annotation (
-        Window(
-          x=0.23,
-          y=0.05,
-          width=0.62,
-          height=0.65),
+        
         Documentation(info="<html>
 <p>
 <b>Linear, velocity dependent damper</b> element. It can be either connected
@@ -1688,11 +1656,7 @@ between two inertia/gear elements.
         Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates;
 
       annotation (
-        Window(
-          x=0.45,
-          y=0.04,
-          width=0.44,
-          height=0.65),
+        
         Documentation(info="<html>
 <p>
 A <b>spring</b> and <b>damper</b> element <b>connected in parallel</b>.
@@ -1798,11 +1762,7 @@ to describe a coupling of the element with the housing via a spring/damper.
       // number of state events if backlash b is set to zero.
       constant SI.Angle bEps = 1e-10 "minimum backlash";
       annotation (
-        Window(
-          x=0.45,
-          y=0.01,
-          width=0.44,
-          height=0.65),
+        
         Documentation(info="<html>
 <p>
 This element consists of a <b>backlash</b> element <b>connected in series</b>
@@ -2233,11 +2193,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
  
  
 </HTML>
-"),     Window(
-          x=0.25,
-          y=0.01,
-          width=0.53,
-          height=0.61),
+")     ,
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -2364,11 +2320,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
             extent={{20,-20},{-20,20}},
             rotation=90)));
       annotation (
-        Window(
-          x=0.05,
-          y=0.01,
-          width=0.74,
-          height=0.71),
+        
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -2566,11 +2518,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
             extent={{20,-20},{-20,20}},
             rotation=90)));
       annotation (
-        Window(
-          x=0.2,
-          y=0.01,
-          width=0.63,
-          height=0.64),
+        
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -2768,11 +2716,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
             extent={{20,-20},{-20,20}},
             rotation=90)));
       annotation (
-        Window(
-          x=0.19,
-          y=0.01,
-          width=0.55,
-          height=0.72),
+        
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -2946,11 +2890,7 @@ are dynamically coupled. The method is described in:
         "Angle between right shaft flange and support";
 
       annotation (
-        Window(
-          x=0.23,
-          y=0.01,
-          width=0.6,
-          height=0.57),
+        
         Documentation(info="<html>
 <p>
 This element characterices any type of gear box which is fixed in the
@@ -3377,11 +3317,7 @@ Modelica.Constants.eps).
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=
                0)));
       annotation (
-        Window(
-          x=0.25,
-          y=0.01,
-          width=0.3,
-          height=0.73),
+        
         Documentation(info="<HTML>
 <p>
 The IdealPlanetary gear box is an ideal gear without inertia,
@@ -3706,11 +3642,7 @@ Gearbox.
       parameter Real ratio(final unit="rad/m", start=1)
         "Transmission ratio (flange_a.phi/flange_b.s)";
       annotation (
-        Window(
-          x=0.35,
-          y=0.1,
-          width=0.6,
-          height=0.65),
+        
         Documentation(info="<html>
 This is an ideal mass- and inertialess gearbox which transforms a
 1D-rotational into a 1D-translational motion. If elasticity, damping
@@ -4085,11 +4017,7 @@ provided via a signal bus.
         "Relative angular velocity used as state variable";
       SI.AngularAcceleration a_rel(start=0) "Relative angular acceleration";
       annotation (
-        Window(
-          x=0.23,
-          y=0.02,
-          width=0.72,
-          height=0.83),
+        
         Documentation(info="<html>
 <p>
 Usually, the absolute angle and the absolute angular velocity of
@@ -4231,11 +4159,7 @@ This package contains ideal sources to drive 1D mechanical rotational drive trai
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
       annotation (
-        Window(
-          x=0.33,
-          y=0.01,
-          width=0.57,
-          height=0.72),
+        
         Documentation(info="<HTML>
 <p>
 The input signal <b>phi_ref</b> defines the <b>reference
@@ -4349,11 +4273,7 @@ blocks of the block library Modelica.Blocks.Sources.
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
       annotation (
-        Window(
-          x=0.33,
-          y=0.01,
-          width=0.57,
-          height=0.72),
+        
         Documentation(info="<html>
 <p>
 The input signal <b>w_ref</b> defines the <b>reference
@@ -4461,11 +4381,7 @@ blocks of the block library Modelica.Blocks.Sources.
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
       annotation (
-        Window(
-          x=0.22,
-          y=0.01,
-          width=0.47,
-          height=0.55),
+        
         Documentation(info="<html>
 <p>
 The input signal <b>a</b> defines an <b>angular acceleration</b>
@@ -4588,12 +4504,8 @@ blocks of the block library Modelica.Blocks.Sources.
             Text(
               extent={{-150,100},{150,60}},
               textString="%name",
-              lineColor={0,0,255})}),
-        Window(
-          x=0.27,
-          y=0.05,
-          width=0.6,
-          height=0.6));
+              lineColor={0,0,255})})
+        );
     protected
       function position
          input Real q_qd_qdd[3]
@@ -4643,11 +4555,7 @@ blocks of the block library Modelica.Blocks.Sources.
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
       annotation (
-        Window(
-          x=0.32,
-          y=0.03,
-          width=0.67,
-          height=0.72),
+        
         Documentation(info="<HTML>
 <p>
 The input signal <b>tau</b> defines an external
@@ -4735,11 +4643,7 @@ blocks of Modelica.Blocks.Sources.
             rotation=270)));
 
       annotation (
-        Window(
-          x=0.32,
-          y=0.03,
-          width=0.67,
-          height=0.72),
+        
         Documentation(info="<HTML>
 <p>
 The input signal <b>tau</b> defines an external
@@ -5036,12 +4940,8 @@ way and provides the result as output signal <b>phi</b>
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
-        Window(
-          x=0.08,
-          y=0.09,
-          width=0.6,
-          height=0.6));
+            grid={1,1}), graphics)
+        );
     equation
       phi = flange.phi;
     end AngleSensor;
@@ -5074,12 +4974,8 @@ way and provides the result as output signal <b>w</b>
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
-        Window(
-          x=0.12,
-          y=0.08,
-          width=0.6,
-          height=0.6));
+            grid={1,1}), graphics)
+        );
     equation
       w = der(flange.phi);
     end SpeedSensor;
@@ -5113,12 +5009,8 @@ blocks of the Modelica.Blocks library).
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
-        Window(
-          x=0.17,
-          y=0.12,
-          width=0.6,
-          height=0.6));
+            grid={1,1}), graphics)
+        );
     equation
       w = der(flange.phi);
       a = der(w);
@@ -5155,12 +5047,8 @@ in an ideal way and provides the result as output signal <b>phi_rel</b>
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
-        Window(
-          x=0.12,
-          y=0.17,
-          width=0.6,
-          height=0.6));
+            grid={1,1}), graphics)
+        );
     equation
       phi_rel = flange_b.phi - flange_a.phi;
       0 = flange_a.tau;
@@ -5200,12 +5088,8 @@ in an ideal way and provides the result as output signal <b>w_rel</b>
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
-        Window(
-          x=0.12,
-          y=0.05,
-          width=0.6,
-          height=0.6));
+            grid={1,1}), graphics)
+        );
     equation
       phi_rel = flange_b.phi - flange_a.phi;
       w_rel = der(phi_rel);
@@ -5247,12 +5131,8 @@ in an ideal way and provides the result as output signal <b>a_rel</b>
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
-        Window(
-          x=0.14,
-          y=0.08,
-          width=0.6,
-          height=0.6));
+            grid={1,1}), graphics)
+        );
     equation
       phi_rel = flange_b.phi - flange_a.phi;
       w_rel = der(phi_rel);
@@ -5291,12 +5171,8 @@ and provides the result as output signal <b>tau</b>
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
-        Window(
-          x=0.43,
-          y=0.11,
-          width=0.55,
-          height=0.59));
+            grid={1,1}), graphics)
+        );
     equation
       flange_a.phi = flange_b.phi;
       flange_a.tau = tau;
@@ -5331,12 +5207,8 @@ and provides the result as output signal <b>power</b>
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
-        Window(
-          x=0.43,
-          y=0.11,
-          width=0.55,
-          height=0.59));
+            grid={1,1}), graphics)
+        );
     equation
       flange_a.phi = flange_b.phi;
       power = flange_a.tau*der(flange_a.phi);
@@ -5348,13 +5220,7 @@ and provides the result as output signal <b>power</b>
 
     extends Modelica.Icons.Library;
 
-    annotation (Window(
-        x=0.07,
-        y=0.13,
-        width=0.43,
-        height=0.52,
-        library=1,
-        autolayout=1), Documentation(info="<html>
+    annotation ( Documentation(info="<html>
 <p>
 This package contains connectors and partial models for 1-dim.
 rotational mechanical components. The components of this package can
@@ -5367,12 +5233,8 @@ only be used as basic building elements for models.
       "1-dim. rotational flange of a shaft (filled square icon)"
       SI.Angle phi "Absolute rotation angle of flange";
       flow SI.Torque tau "Cut torque in the flange";
-      annotation(defaultComponentName = "flange_a",
-        Window(
-          x=0.23,
-          y=0.02,
-          width=0.56,
-          height=0.68),
+      annotation(defaultComponentName = "flange_a"
+        ,
         Documentation(info="<html>
 <p>
 This is a connector for 1-dim. rotational mechanical systems and models
@@ -5433,12 +5295,8 @@ differentiation of the flange angle phi:
       "1-dim. rotational flange of a shaft (non-filled square icon)"
       SI.Angle phi "Absolute rotation angle of flange";
       flow SI.Torque tau "Cut torque in the flange";
-      annotation(defaultComponentName = "flange_b",
-        Window(
-          x=0.21,
-          y=0.05,
-          width=0.48,
-          height=0.65),
+      annotation(defaultComponentName = "flange_b"
+        ,
         Documentation(info="<html>
 <p>
 This is a connector for 1-dim. rotational mechanical systems and models
@@ -5667,12 +5525,8 @@ of several components.
 "),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
-        Window(
-          x=0.37,
-          y=0.05,
-          width=0.6,
-          height=0.6));
+            grid={2,2}), graphics)
+        );
     end PartialTwoFlanges;
 
     partial model PartialOneFlangeAndSupport
@@ -5709,12 +5563,8 @@ and instead the component is internally fixed to ground.
               textString="(if useSupport)"), Text(
               extent={{21,-95},{61,-96}},
               lineColor={95,95,95},
-              textString="(if not useSupport)")}),
-        Window(
-          x=0.37,
-          y=0.05,
-          width=0.6,
-          height=0.6),
+              textString="(if not useSupport)")})
+        ,
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -5791,12 +5641,8 @@ and instead the component is internally fixed to ground.
               textString="(if useSupport)"), Text(
               extent={{24,-97},{64,-98}},
               lineColor={95,95,95},
-              textString="(if not useSupport)")}),
-        Window(
-          x=0.37,
-          y=0.05,
-          width=0.6,
-          height=0.6),
+              textString="(if not useSupport)")})
+        ,
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -5851,11 +5697,7 @@ and instead the component is internally fixed to ground.
               rotation=0)));
 
       annotation (
-        Window(
-          x=0.32,
-          y=0.01,
-          width=0.6,
-          height=0.6),
+        
         Documentation(info="<html>
 <p>
 This is a 1-dim. rotational component with a compliant connection of two
@@ -5901,11 +5743,7 @@ is used to built up force elements such as springs, dampers, friction.
       annotation(HideResult=true, Dialog(tab="Advanced"));
 
       annotation (
-        Window(
-          x=0.32,
-          y=0.01,
-          width=0.6,
-          height=0.6),
+        
         Documentation(info="<html>
 <p>
 This is a 1-dim. rotational component with a compliant connection of two
@@ -5983,12 +5821,8 @@ and instead the component is internally fixed to ground.
               textString="(if not useSupport)"), Text(
               extent={{-38,-98},{-6,-96}},
               lineColor={95,95,95},
-              textString="(if useSupport)")}),
-        Window(
-          x=0.37,
-          y=0.05,
-          width=0.6,
-          height=0.6),
+              textString="(if useSupport)")})
+        ,
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -6065,12 +5899,8 @@ and instead the component is internally fixed to ground.
               textString="(if not useSupport)"), Text(
               extent={{-38,-98},{-6,-96}},
               lineColor={95,95,95},
-              textString="(if useSupport)")}),
-        Window(
-          x=0.37,
-          y=0.05,
-          width=0.6,
-          height=0.6),
+              textString="(if useSupport)")})
+        ,
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -6134,11 +5964,7 @@ and instead the component is internally fixed to ground.
               rotation=0), iconTransformation(extent={{90,-110},{110,-90}})));
 
       annotation (
-        Window(
-          x=0.35,
-          y=0.1,
-          width=0.6,
-          height=0.65),
+        
         Documentation(info="<html>
  
 <p>
@@ -6323,11 +6149,7 @@ and instead the component is internally fixed to ground.
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
       annotation (
-        Window(
-          x=0.39,
-          y=0.05,
-          width=0.6,
-          height=0.6),
+        
         Documentation(info="<html>
 <p>
 This is a partial model of a 1-dim. rotational component with one flange of a shaft 
@@ -6386,11 +6208,7 @@ with the blocks of package Modelica.Blocks.
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
       annotation (
-        Window(
-          x=0.37,
-          y=0.02,
-          width=0.6,
-          height=0.65),
+        
         Documentation(info="<html>
 <p>
 This is a partial model for 1-dim. rotational components with two rigidly connected

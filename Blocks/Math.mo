@@ -5,13 +5,7 @@ package Math "Library of mathematical functions as input/output blocks"
   extends Modelica.Icons.Library;
 
   annotation (
-    Window(
-      x=0.05,
-      y=0.09,
-      width=0.44,
-      height=0.71,
-      library=1,
-      autolayout=1),
+    
     Documentation(info="
 <HTML>
 <p>
@@ -641,11 +635,7 @@ All other blocks convert exactly between two different units.
           annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
         annotation (
-          Window(
-            x=0.19,
-            y=0.02,
-            width=0.59,
-            height=0.6),
+          
           Documentation(info="
 <HTML>
 <p>
@@ -740,12 +730,8 @@ Example:
             fillPattern=FillPattern.Solid), Text(
             extent={{-90,-60},{90,60}},
             lineColor={160,160,164},
-            textString="*K")}),
-          Window(
-            x=0.35,
-            y=0.09,
-            width=0.6,
-            height=0.6));
+            textString="*K")})
+          );
       equation
         y = K*u;
       end MatrixGain;
@@ -753,12 +739,8 @@ Example:
       block Sum "Output the sum of the elements of the input vector"
         extends Interfaces.MISO;
         parameter Real k[nin]=ones(nin) "Optional: sum coefficients";
-        annotation (defaultComponentName="sum1",
-          Window(
-            x=0.35,
-            y=0.08,
-            width=0.54,
-            height=0.66),
+        annotation (defaultComponentName="sum1"
+          ,
           Documentation(info="
 <HTML>
 <p>
@@ -818,11 +800,7 @@ Example:
         output Interfaces.RealOutput y annotation (Placement(transformation(
             extent={{80,-10},{100,10}}, rotation=0)));
         annotation (
-          Window(
-            x=0.35,
-            y=0.02,
-            width=0.52,
-            height=0.68),
+          
           Documentation(info="
 <HTML>
 <p>
@@ -892,11 +870,7 @@ Example:
         parameter Real k1=+1 "Gain of upper input";
         parameter Real k2=+1 "Gain of lower input";
         annotation (
-          Window(
-            x=0.23,
-            y=0.22,
-            width=0.54,
-            height=0.66),
+          
           Documentation(info="
 <HTML>
 <p>
@@ -1027,11 +1001,7 @@ Example:
           annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
         annotation (
-          Window(
-            x=0.37,
-            y=0.09,
-            width=0.54,
-            height=0.66),
+          
           Documentation(info="
 <HTML>
 <p>
@@ -1165,12 +1135,8 @@ the two inputs <b>u1</b> and <b>u2</b>:
           Line(points={{-30,0},{30,0}}, color={0,0,0}),
           Line(points={{-15,25.99},{15,-25.99}}, color={0,0,0}),
           Line(points={{-15,-25.99},{15,25.99}}, color={0,0,0}),
-          Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,255})}),
-          Window(
-            x=0.2,
-            y=0.01,
-            width=0.47,
-            height=0.62));
+          Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,255})})
+          );
 
       equation
         y = u1*u2;
@@ -1237,12 +1203,8 @@ the two inputs <b>u1</b> and <b>u2</b>:
             fillPattern=FillPattern.Solid),
           Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,255}),
           Line(points={{-100,60},{-66,60},{-40,30}}, color={0,0,255}),
-          Line(points={{-100,-60},{0,-60},{0,-50}}, color={0,0,255})}),
-          Window(
-            x=0.22,
-            y=0.09,
-            width=0.6,
-            height=0.6));
+          Line(points={{-100,-60},{0,-60},{0,-50}}, color={0,0,255})})
+          );
 
       equation
         y = u1/u2;
@@ -1325,11 +1287,7 @@ as <i>absolute value</i> of the input <b>u</b>:
 </pre>
 
 </HTML>
-"),       Window(
-            x=0.37,
-            y=0.06,
-            width=0.6,
-            height=0.6));
+")       );
       equation
         y = abs(u);
       end Abs;
@@ -1416,11 +1374,7 @@ as <b>sign</b> of the input <b>u</b>:
 </pre>
 
 </HTML>
-"),       Window(
-            x=0.38,
-            y=0.11,
-            width=0.6,
-            height=0.6));
+")       );
       equation
         y = sign(u);
       end Sign;
@@ -1492,11 +1446,7 @@ Otherwise an error occurs.
 </p>
 
 </HTML>
-"),       Window(
-            x=0.38,
-            y=0.15,
-            width=0.6,
-            height=0.6));
+")       );
 
       equation
         y = sqrt(u);
@@ -1587,11 +1537,7 @@ as <b>sine</b> of the input <b>u</b>:
 </p>
 
 </HTML>
-"),       Window(
-            x=0.38,
-            y=0.23,
-            width=0.6,
-            height=0.6));
+")       );
       equation
         y = Modelica.Math.sin(u);
       end Sin;
@@ -1681,11 +1627,7 @@ as <b>cos</b> of the input <b>u</b>:
 </p>
 
 </HTML>
-"),       Window(
-            x=0.38,
-            y=0.18,
-            width=0.6,
-            height=0.6));
+")       );
 
       equation
         y = Modelica.Math.cos(u);
@@ -1775,11 +1717,7 @@ as <b>tan</b> of the input <b>u</b>:
 </p>
 
 </HTML>
-"),       Window(
-            x=0.39,
-            y=0.18,
-            width=0.6,
-            height=0.6));
+")       );
 
       equation
         y = Modelica.Math.tan(u);
@@ -1875,11 +1813,7 @@ Otherwise an error occurs.
 </p>
 
 </HTML>
-"),       Window(
-            x=0.41,
-            y=0.13,
-            width=0.6,
-            height=0.6));
+")       );
 
       equation
         y = Modelica.Math.asin(u);
@@ -1971,11 +1905,7 @@ Otherwise an error occurs.
 </p>
 
 </HTML>
-"),       Window(
-            x=0.39,
-            y=0.18,
-            width=0.6,
-            height=0.6));
+")       );
       equation
         y = Modelica.Math.acos(u);
       end Acos;
@@ -2067,11 +1997,7 @@ This blocks computes the output <b>y</b> as the
 </p>
 
 </HTML>
-"),       Window(
-            x=0.38,
-            y=0.12,
-            width=0.6,
-            height=0.6));
+")       );
       equation
         y = Modelica.Math.atan(u);
       end Atan;
@@ -2183,11 +2109,7 @@ block <b>Atan</b> gives a solution in the range
 </p>
 
 </HTML>
-"),       Window(
-            x=0.38,
-            y=0.21,
-            width=0.6,
-            height=0.6));
+")       );
       equation
         y = Modelica.Math.atan2(u1, u2);
       end Atan2;
@@ -2279,11 +2201,7 @@ This blocks computes the output <b>y</b> as the
 </p>
 
 </HTML>
-"),       Window(
-            x=0.41,
-            y=0.13,
-            width=0.6,
-            height=0.6));
+")       );
 
       equation
         y = Modelica.Math.sinh(u);
@@ -2376,11 +2294,7 @@ This blocks computes the output <b>y</b> as the
 </p>
 
 </HTML>
-"),       Window(
-            x=0.28,
-            y=0.07,
-            width=0.6,
-            height=0.6));
+")       );
       equation
         y = Modelica.Math.cosh(u);
       end Cosh;
@@ -2472,11 +2386,7 @@ This blocks computes the output <b>y</b> as the
 </p>
 
 </HTML>
-"),       Window(
-            x=0.38,
-            y=0.14,
-            width=0.6,
-            height=0.6));
+")       );
       equation
         y = Modelica.Math.tanh(u);
       end Tanh;
@@ -2566,11 +2476,7 @@ This blocks computes the output <b>y</b> as the
 </p>
 
 </HTML>
-"),       Window(
-            x=0.27,
-            y=0.09,
-            width=0.6,
-            height=0.6));
+")       );
 
       equation
         y = Modelica.Math.exp(u);
@@ -2669,11 +2575,7 @@ zero or negative.
 </p>
 
 </HTML>
-"),       Window(
-            x=0.38,
-            y=0.23,
-            width=0.6,
-            height=0.6));
+")       );
       equation
         y = Modelica.Math.log(u);
       end Log;
@@ -2771,11 +2673,7 @@ zero or negative.
 </p>
 
 </HTML>
-"),       Window(
-            x=0.27,
-            y=0.11,
-            width=0.6,
-            height=0.6));
+")       );
       equation
         y = Modelica.Math.log10(u);
       end Log10;
@@ -2865,11 +2763,7 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
             rotation=0)));
 
     annotation (
-      Window(
-        x=0.24,
-        y=0.26,
-        width=0.6,
-        height=0.6),
+      
       Documentation(info="<html>
 <p>
 This block computes the output <b>y</b>
@@ -2918,11 +2812,7 @@ and <b>realTrue</b> and <b>realFalse</b> are parameters.
             rotation=0)));
 
     annotation (
-      Window(
-        x=0.24,
-        y=0.26,
-        width=0.6,
-        height=0.6),
+      
       Documentation(info="<html>
 <p>
 This block computes the output <b>y</b>
@@ -2970,11 +2860,7 @@ and <b>integerTrue</b> and <b>integerFalse</b> are parameters.
       "Output signal y is true, if input u >= threshold";
 
     annotation (
-      Window(
-        x=0.24,
-        y=0.26,
-        width=0.6,
-        height=0.6),
+      
       Documentation(info="<html>
 <p>
 This block computes the Boolean output <b>y</b>
@@ -3024,11 +2910,7 @@ where <b>threshold</b> is a parameter.
       "Output signal y is true, if input u >= threshold";
 
     annotation (
-      Window(
-        x=0.24,
-        y=0.26,
-        width=0.6,
-        height=0.6),
+      
       Documentation(info="<html>
 <p>
 This block computes the Boolean output <b>y</b>

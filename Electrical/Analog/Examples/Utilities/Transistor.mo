@@ -13,12 +13,8 @@ model Transistor "transistor with resistance an capacitance"
         Line(points={{-60,0},{-10,0}}, color={0,0,255}),
         Line(points={{-10,40},{-10,-40}}, color={0,0,255}),
         Line(points={{60,60},{40,60},{-10,10}}, color={0,0,255}),
-        Line(points={{-10,-10},{40,-60},{60,-60}}, color={0,0,255})}),
-    Window(
-      x=0.25,
-      y=0.24,
-      width=0.6,
-      height=0.6),
+        Line(points={{-10,-10},{40,-60},{60,-60}}, color={0,0,255})})
+    ,
     Documentation(info="<html>
   
 </html>"));

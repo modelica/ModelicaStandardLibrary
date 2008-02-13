@@ -3317,11 +3317,7 @@ transformed output vector as \"Real r_out[3]\";
         "Frame in which output vector(s) is/are resolved (1: world, 2: frame_a, 3: frame_resolve)";
 
       annotation (
-        Window(
-          x=0.37,
-          y=0.02,
-          width=0.6,
-          height=0.65),
+        
         Documentation(info="
 <HTML>
 <p>
@@ -3396,11 +3392,7 @@ with the blocks of package Modelica.Blocks.
         "Frame in which output vector is resolved (1: world, 2: frame_a, 3: frame_resolve)";
 
       annotation (
-        Window(
-          x=0.37,
-          y=0.02,
-          width=0.6,
-          height=0.65),
+        
         Documentation(info="
 <HTML>
 <p>

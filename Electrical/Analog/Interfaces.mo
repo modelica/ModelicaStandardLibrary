@@ -2,13 +2,7 @@ within Modelica.Electrical.Analog;
 package Interfaces
   "Connectors and partial models for Analog electrical components"
   extends Modelica.Icons.Library;
-  annotation (Window(
-      x=0.03,
-      y=0.04,
-      width=0.21,
-      height=0.49,
-      library=1,
-      autolayout=1),Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>
 This package contains connectors and interfaces (partial models) for
 analog electrical components.
@@ -190,12 +184,8 @@ component.</p></html>", revisions="<html>
             lineColor={160,160,164},
             fillColor={160,160,164},
             fillPattern=FillPattern.Solid,
-            textString="n.i")}),
-      Window(
-        x=0.11,
-        y=0.14,
-        width=0.55,
-        height=0.64),
+            textString="n.i")})
+      ,
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -264,12 +254,8 @@ This current is provided explicitly as current i.
           Text(
             extent={{90,45},{110,25}},
             lineColor={160,160,164},
-            textString="i")}),
-      Window(
-        x=0.33,
-        y=0.04,
-        width=0.63,
-        height=0.67));
+            textString="i")})
+      );
   equation
     v = p.v - n.v;
     0 = p.i + n.i;
@@ -346,12 +332,8 @@ This current is provided explicitly as current i.
             lineColor={160,160,164},
             fillColor={160,160,164},
             fillPattern=FillPattern.Solid,
-            textString="i1")}),
-      Window(
-        x=0.16,
-        y=0.12,
-        width=0.6,
-        height=0.6),
+            textString="i1")})
+      ,
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -382,11 +364,7 @@ This current is provided explicitly as current i.
       "Measured quantity as Real output signal"                                       annotation (Placement(
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
     annotation (
-      Window(
-        x=0.31,
-        y=0.04,
-        width=0.6,
-        height=0.6),
+      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -487,12 +465,8 @@ This current is provided explicitly as current i.
           Text(
             extent={{20,50},{120,0}},
             lineColor={0,0,255},
-            textString="-")}),
-      Window(
-        x=0.31,
-        y=0.09,
-        width=0.6,
-        height=0.6),
+            textString="-")})
+      ,
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -534,12 +508,8 @@ This current is provided explicitly as current i.
             points={{90,0},{60,10},{60,-10},{90,0}},
             lineColor={0,0,255},
             fillColor={0,0,255},
-            fillPattern=FillPattern.Solid)}),
-      Window(
-        x=0.33,
-        y=0.24,
-        width=0.6,
-        height=0.6),
+            fillPattern=FillPattern.Solid)})
+      ,
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>

@@ -2,13 +2,7 @@ within Modelica;
 package Icons "Library of icons"
 
   annotation (
-    Window(
-      x=0.08,
-      y=0.08,
-      width=0.28,
-      height=0.51,
-      library=1,
-      autolayout=1),
+    
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
         Rectangle(

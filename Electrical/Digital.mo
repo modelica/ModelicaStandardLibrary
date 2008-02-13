@@ -187,13 +187,7 @@ The Electrical.Digital library is based on the following references:
 end UsersGuide;
 
   annotation (
-    Window(
-      x=0.45,
-      y=0.01,
-      width=0.44,
-      height=0.65,
-      library=1,
-      autolayout=1),
+    
     Documentation(info="<html>
 <p>
 This library contains packages for digital electrical components. Both, type system
@@ -351,12 +345,8 @@ The multiplexer converts a parallel 4 bit signal in a sequential
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
-        Window(
-          x=0.2,
-          y=0.06,
-          width=0.62,
-          height=0.69),
+            grid={2,2}), graphics)
+        ,
         experiment(StopTime=250));
       D.Sources.Clock CLK(period=20)  annotation (Placement(transformation(
               extent={{-80,-56},{-60,-36}}, rotation=0)));
@@ -438,12 +428,8 @@ Pulse-triggered master-slave flip-flop.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
-        Window(
-          x=0.2,
-          y=0.06,
-          width=0.62,
-          height=0.69),
+            grid={2,2}), graphics)
+        ,
         experiment(StopTime=250));
       D.Examples.Utilities.JKFF FF 
                      annotation (Placement(transformation(extent={{-10,-40},{70,
@@ -527,12 +513,8 @@ The simulation stop time should be 5 seconds.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
-        Window(
-          x=0.2,
-          y=0.06,
-          width=0.62,
-          height=0.69),
+            grid={2,2}), graphics)
+        ,
         experiment(StopTime=5));
 
       Sources.Table a(
@@ -610,12 +592,8 @@ The simulation stop time should be 10 seconds.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
-        Window(
-          x=0.2,
-          y=0.06,
-          width=0.62,
-          height=0.69),
+            grid={2,2}), graphics)
+        ,
         experiment(StopTime=10));
 
       Digital.Examples.Utilities.FullAdder Adder1            annotation (Placement(
@@ -703,12 +681,8 @@ The simulation stop time has to be 5s.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-200,-200},{200,200}},
-            grid={2,2}), graphics),
-        Window(
-          x=0.2,
-          y=0.06,
-          width=0.62,
-          height=0.69),
+            grid={2,2}), graphics)
+        ,
         experiment(StopTime=5));
 
       Digital.Sources.Table b4(
@@ -825,12 +799,8 @@ The simulation stop time has to be 5s.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
-        Window(
-          x=0.2,
-          y=0.06,
-          width=0.62,
-          height=0.69),
+            grid={2,2}), graphics)
+        ,
         experiment(StopTime=10));
       D.Sources.Step Enable       annotation (Placement(transformation(extent={
                 {-90,8},{-50,48}}, rotation=0)));
@@ -866,12 +836,8 @@ The simulation stop time has to be 5s.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
-        Window(
-          x=0.2,
-          y=0.06,
-          width=0.62,
-          height=0.69),
+            grid={2,2}), graphics)
+        ,
         experiment(StopTime=100));
       D.Sources.Step Enable       annotation (Placement(transformation(extent={
                 {-90,8},{-50,48}}, rotation=0)));
@@ -1701,12 +1667,8 @@ The simulation stop time has to be 5s.
         Diagram(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},
-              grid={2,2}), graphics),
-        Window(
-          x=0.2,
-          y=0.06,
-          width=0.62,
-          height=0.69));
+              grid={2,2}), graphics)
+        );
 
       HalfAdder Adder2(delayTime=0.001) 
                                       annotation (Placement(transformation(
@@ -1828,12 +1790,8 @@ The simulation stop time has to be 5s.
         Diagram(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},
-              grid={2,2}), graphics),
-        Window(
-          x=0.2,
-          y=0.06,
-          width=0.62,
-          height=0.69));
+              grid={2,2}), graphics)
+        );
       parameter Integer n=2 "number of single adders";
       Digital.Examples.Utilities.FullAdder Adder[n] 
                                    annotation (Placement(transformation(extent=

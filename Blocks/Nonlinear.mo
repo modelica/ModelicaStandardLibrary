@@ -5,13 +5,7 @@ package Nonlinear
       extends Modelica.Icons.Library;
 
       annotation (
-        Window(
-          x=0.05,
-          y=0.1,
-          width=0.21,
-          height=0.23,
-          library=1,
-          autolayout=1),
+        
         Documentation(info="
 <HTML>
 <p>
@@ -40,11 +34,7 @@ This package contains <b>discontinuous</b> and
         extends Interfaces.SISO;
 
         annotation (
-          Window(
-            x=0.22,
-            y=0.06,
-            width=0.43,
-            height=0.51),
+          
           Documentation(info="
 <HTML>
 <p>
@@ -238,11 +228,7 @@ is passed as output.
         extends Interfaces.SISO;
 
         annotation (
-          Window(
-            x=0.39,
-            y=0.18,
-            width=0.56,
-            height=0.6),
+          
           Documentation(info="
 <HTML>
 <p>
@@ -329,11 +315,7 @@ function of the input with a slope of 1.
       "Delay time of output with respect to input signal";
 
     annotation (
-      Window(
-        x=0.27,
-        y=0.09,
-        width=0.65,
-        height=0.78),
+      
       Documentation(info="<html>
 <p>
 The Input signal is delayed by a given time instant, or more precisely:
@@ -442,11 +424,7 @@ The Input signal is delayed by a given time instant, or more precisely:
     final output Real x[n]
       "State of transfer function from controller canonical form";
     annotation (
-      Window(
-        x=0.27,
-        y=0.09,
-        width=0.65,
-        height=0.78),
+      
       Documentation(info="<html>
 <p>
 The Input signal is delayed by a given time instant, or more precisely:
@@ -611,11 +589,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
     extends Modelica.Blocks.Interfaces.SISO;
     parameter Real delayMax(min=0, start=1) "maximum delay time";
     annotation (
-      Window(
-        x=0.26,
-        y=0.04,
-        width=0.62,
-        height=0.78),
+      
       Documentation(info="<html>
 <p>
 The Input signal is delayed by a given time instant, or more precisely:

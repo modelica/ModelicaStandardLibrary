@@ -132,11 +132,7 @@ connected to the prismatic joint.");
     SI.Force f "Actuation force in direction of joint axis";
 
     annotation (
-      Window(
-        x=0.2,
-        y=0.01,
-        width=0.67,
-        height=0.79),
+      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -354,11 +350,7 @@ connected to the revolute joint.
     SI.Torque tau "Driving torque in direction of axis of rotation";
     SI.Angle angle "= phi_offset + phi";
     annotation (
-      Window(
-        x=0.05,
-        y=0.09,
-        width=0.65,
-        height=0.69),
+      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -621,12 +613,8 @@ vector \"n\" defining the translation axis
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(group="if animation = true", enable=animation));
-    annotation (defaultComponentName="revolute",
-      Window(
-        x=0.05,
-        y=0.09,
-        width=0.65,
-        height=0.69),
+    annotation (defaultComponentName="revolute"
+      ,
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -834,11 +822,7 @@ definition of the axes vectors n in the revolute joints of the planar loop.
       "Second derivative of angle phi (relative angular acceleration)";
 
     annotation (
-      Window(
-        x=0.33,
-        y=0.08,
-        width=0.67,
-        height=0.7),
+      
       Documentation(info="<HTML>
 <p>
 Joint where frame_b rotates around and translates along axis n
@@ -994,11 +978,7 @@ vector \"n\" defining the cylinder axis
       "Second derivative of angle phi_b (relative angular acceleration b)";
 
     annotation (
-      Window(
-        x=0.11,
-        y=0.09,
-        width=0.65,
-        height=0.77),
+      
       Documentation(info="<HTML>
 <p>
 Joint where frame_a rotates around axis n_a which is fixed in frame_a
@@ -1189,11 +1169,7 @@ phi_b.start = 45<sup>o</sup>).
       "Second derivative of angle phi (relative angular acceleration)";
 
     annotation (
-      Window(
-        x=0.17,
-        y=0.04,
-        width=0.74,
-        height=0.81),
+      
       Documentation(info="<HTML>
 <p>
 Joint where frame_b can move in a plane and can rotate around an
@@ -1396,11 +1372,7 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
         Frames.axesRotations(sequence_start, angles_start, zeros(3))
       "Orientation object from frame_a to frame_b at initial time";
     annotation (
-      Window(
-        x=0.23,
-        y=0.03,
-        width=0.69,
-        height=0.7),
+      
       Documentation(info="<html>
 <p>
 Joint with <b>3 constraints</b> that define that the origin of
@@ -1724,11 +1696,7 @@ frame_b of the joint.
       "Orientation object from frame_a to frame_b at initial time";
 
     annotation (
-      Window(
-        x=0.16,
-        y=0,
-        width=0.65,
-        height=0.79),
+      
       Documentation(info="<HTML>
 <p>
 Joint which does not constrain the motion between frame_a and frame_b.
@@ -2100,11 +2068,7 @@ frame_b of the joint.
       "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
 
     annotation (
-      Window(
-        x=0.24,
-        y=0.02,
-        width=0.69,
-        height=0.78),
+      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2475,11 +2439,7 @@ that has this property.
     SI.Position rRod_a[3](start=rRod_ia)
       "Position vector from origin of frame_a to origin of frame_b resolved in frame_a";
     annotation (
-      Window(
-        x=0.19,
-        y=0.01,
-        width=0.81,
-        height=0.81),
+      
       Documentation(info="<html>
 <p>
 This component consists of a <b>universal joint</b> at frame_a and
@@ -3340,11 +3300,7 @@ pair of joints\" from Woernle and Hiller is described in:
       SI.Power totalPower
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       annotation (
-        Window(
-          x=0.19,
-          y=0.01,
-          width=0.81,
-          height=0.81),
+        
         Documentation(info="<html>
 <p>
 This component consists of a <b>universal</b> joint at frame_a,
@@ -4065,11 +4021,7 @@ origin of frame_b. You may try to use another \"n1_a\" vector.
         "Constraint force in direction of the rod (positive, if rod is pressed)";
 
       annotation (
-        Window(
-          x=0.19,
-          y=0.01,
-          width=0.81,
-          height=0.81),
+        
         Documentation(info="<html>
 <p>
 This component consists of a <b>universal</b> joint at frame_a, a <b>revolute</b>
@@ -4600,11 +4552,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       SI.Power totalPower
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       annotation (
-        Window(
-          x=0.19,
-          y=0.01,
-          width=0.81,
-          height=0.81),
+        
         Documentation(info="<html>
 <p>
 This component consists of a <b>universal</b> joint at frame_a, a <b>prismatic</b>
@@ -5133,11 +5081,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       SI.Power totalPower
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       annotation (
-        Window(
-          x=0.19,
-          y=0.01,
-          width=0.81,
-          height=0.81),
+        
         Documentation(info="<html>
 <p>
 This component consists of a <b>spherical</b> joint 1 at frame_a, a <b>revolute</b>
@@ -5530,11 +5474,7 @@ component).
       SI.Power totalPower
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
       annotation (
-        Window(
-          x=0.19,
-          y=0.01,
-          width=0.81,
-          height=0.81),
+        
         Documentation(info="<html>
 <p>
 This component consists of a <b>spherical</b> joint 1 at frame_a, a <b>prismatic</b>
@@ -5916,11 +5856,7 @@ component).
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
 
       annotation (
-        Window(
-          x=0.19,
-          y=0.01,
-          width=0.81,
-          height=0.81),
+        
         Documentation(info="<html>
 <p>
 This component consists of <b>3 revolute</b> joints with parallel
@@ -6265,11 +6201,7 @@ are connected by rigid rods.
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
 
       annotation (
-        Window(
-          x=0.19,
-          y=0.01,
-          width=0.81,
-          height=0.81),
+        
         Documentation(info="<html>
 <p>
 This component consists of <b>2 revolute</b> joints with parallel
@@ -6592,11 +6524,7 @@ and 1 prismatic joint are connected by rigid rods.
       SI.Torque tau "= axis.tau (driving torque in the axis)";
 
       annotation (
-        Window(
-          x=0.05,
-          y=0.09,
-          width=0.65,
-          height=0.69),
+        
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -6981,11 +6909,7 @@ position a degree of freedom is lost.
       SI.Force f "= axis.f (driving force in the axis)";
 
       annotation (
-        Window(
-          x=0.05,
-          y=0.09,
-          width=0.65,
-          height=0.69),
+        
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},

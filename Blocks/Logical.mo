@@ -515,11 +515,7 @@ component <i>ModelicaAdditions.Blocks.Discrete.TriggeredSampler</i>.
     extends Blocks.Interfaces.partialBooleanSI3SO;
 
     annotation (
-      Window(
-        x=0.33,
-        y=0.27,
-        width=0.6,
-        height=0.6),
+      
       Documentation(info="<html>
 <p>The LogicalSwitch switches, depending on the
 Boolean u2 connector (the middle connector),
@@ -584,12 +580,8 @@ u1, else it is set equal to u2.</p>
                                    annotation (Placement(transformation(extent=
               {{100,-10},{120,10}}, rotation=0)));
 
-    annotation (defaultComponentName="switch1",
-      Window(
-        x=0.08,
-        y=0.07,
-        width=0.6,
-        height=0.6),
+    annotation (defaultComponentName="switch1"
+      ,
       Documentation(info="<html>
 <p>The Logical.Switch switches, depending on the
 logical connector u2 (the middle connector)
@@ -1115,11 +1107,7 @@ input becomes false.
     parameter String terminationText = "... End condition reached"
       "Text that will be displayed when simulation is terminated";
     annotation (
-      Window(
-        x=0.29,
-        y=0.23,
-        width=0.6,
-        height=0.6),
+      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-200,-20},{200,20}},

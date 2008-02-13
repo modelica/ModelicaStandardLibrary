@@ -5,13 +5,7 @@ package Semiconductors
   import Modelica.SIunits;
   
   annotation (
-    Window(
-      x=0.03,
-      y=0.04,
-      width=0.50,
-      height=0.36,
-      library=1,
-      autolayout=1),
+    
     Documentation(info="
 <HTML>
 <p>
@@ -108,12 +102,8 @@ continued to avoid overflow.
             fillPattern=FillPattern.None),
           Line(points={{-96,0},{40,0}}, color={0,0,255}),
           Line(points={{40,0},{96,0}}, color={0,0,255}),
-          Line(points={{30,40},{30,-40}}, color={0,0,255})}),
-      Window(
-        x=0.13,
-        y=0.09,
-        width=0.75,
-        height=0.63));
+          Line(points={{30,40},{30,-40}}, color={0,0,255})})
+      );
   equation 
     i = smooth(1,(if (v/Vt > Maxexp) then Ids*(exp(Maxexp)*(1 + v/Vt - Maxexp) - 1) +
       v/R else Ids*(exp(v/Vt) - 1) + v/R));
@@ -188,12 +178,8 @@ Some typical parameter sets are:
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
-</html>"),
-      Window(
-        x=0.34,
-        y=0.24,
-        width=0.6,
-        height=0.6),
+</html>")
+      ,
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -466,12 +452,8 @@ on page 317 ff.
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
-</html>"),
-      Window(
-        x=0.22,
-        y=0.28,
-        width=0.6,
-        height=0.6),
+</html>")
+      ,
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -763,12 +745,8 @@ The thermal power is calculated by <i>i*v</i>.
           Line(points={{-99,0},{39,0}}, color={0,0,255}),
           Line(points={{40,0},{96,0}}, color={0,0,255}),
           Line(points={{30,40},{30,-40}}, color={0,0,255}),
-          Line(points={{0,-20},{0,-91}}, color={191,0,0})}),
-            Window(
-              x=0.13,
-              y=0.09,
-              width=0.75,
-              height=0.63));
+          Line(points={{0,-20},{0,-91}}, color={191,0,0})})
+            );
         equation 
           assert( heatPort.T > 0,"temperature must be positive");
           htemp = heatPort.T;
@@ -1047,11 +1025,7 @@ Some typical parameter sets are:
        by Christoph Clauss<br> implemented<br>
        </li>
 </ul>
-</html>"),  Window(
-              x=0.34,
-              y=0.24,
-              width=0.6,
-              height=0.6),
+</html>")  ,
             Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1227,11 +1201,7 @@ on page 317 ff.
        by Christoph Clauss<br> implemented<br>
        </li>
 </ul>
-</html>"),  Window(
-              x=0.22,
-              y=0.28,
-              width=0.6,
-              height=0.6),
+</html>")  ,
             Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},

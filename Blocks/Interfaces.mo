@@ -5,13 +5,7 @@ package Interfaces
     extends Modelica.Icons.Library;
 
     annotation (
-      Window(
-        x=0.05,
-        y=0.09,
-        width=0.72,
-        height=0.71,
-        library=1,
-        autolayout=1),
+      
       Documentation(info="<HTML>
 <p>
 This package contains interface definitions for
@@ -206,11 +200,7 @@ Connector with one output signal of type Integer.
     partial block BlockIcon "Basic graphical layout of input/output block"
 
       annotation (
-        Window(
-          x=0,
-          y=0,
-          width=0.6,
-          height=0.6),
+        
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Rectangle(
             extent={{-100,-100},{100,100}},
@@ -239,11 +229,7 @@ from this block.
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
       annotation (
-        Window(
-          x=0.25,
-          y=0.02,
-          width=0.6,
-          height=0.6),
+        
         Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -263,11 +249,7 @@ Block has one continuous Real output signal.
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
       annotation (
-        Window(
-          x=0.13,
-          y=0.03,
-          width=0.6,
-          height=0.6),
+        
         Documentation(info="<html>
 <p>
 Block has one continuous Real output signal vector.
@@ -284,11 +266,7 @@ Block has one continuous Real output signal vector.
       RealOutput y "Connector of Real output signal" 
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
-      annotation (             Window(
-          x=0.32,
-          y=0.07,
-          width=0.6,
-          height=0.6),
+      annotation (             
       Documentation(info="<html>
 <p>
 Block has one continuous Real input and one continuous Real output signal.
@@ -311,11 +289,7 @@ Block has one continuous Real input and one continuous Real output signal.
             rotation=0)));
 
       annotation (
-        Window(
-          x=0.31,
-          y=0.07,
-          width=0.6,
-          height=0.6),
+        
         Documentation(info="<html>
 <p>
 Block has two continuous Real input signals u1 and u2 and one
@@ -404,11 +378,7 @@ Block has a continuous Real input and a continuous Real output signal vector
 where the signal sizes of the input and output vector are identical.
 </p>
 </HTML>
-"),     Window(
-          x=0.28,
-          y=0.16,
-          width=0.6,
-          height=0.6));
+")     );
     end MIMOs;
 
     partial block MI2MO
@@ -427,11 +397,7 @@ where the signal sizes of the input and output vector are identical.
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
       annotation (
-        Window(
-          x=0.31,
-          y=0.07,
-          width=0.6,
-          height=0.6),
+        
         Documentation(info="<html>
 <p>
 Block has two continuous Real input vectors u1 and u2 and one
@@ -490,12 +456,8 @@ generated signal.
           Text(
             extent={{-83,-112},{-33,-102}},
             textString=" (measurement)",
-            lineColor={0,0,255})}),
-        Window(
-          x=0.19,
-          y=0.21,
-          width=0.6,
-          height=0.46),
+            lineColor={0,0,255})})
+        ,
       Documentation(info="<html>
 <p>
 Block has two continuous Real input signals and one
@@ -538,12 +500,8 @@ to be used as base class for a corresponding controller.
           Text(
             extent={{-75,-108},{-25,-98}},
             textString=" (measurement)",
-            lineColor={0,0,255})}),
-        Window(
-          x=0.26,
-          y=0.19,
-          width=0.6,
-          height=0.6),
+            lineColor={0,0,255})})
+        ,
       Documentation(info="<html>
 <p>
 Block has two continuous Real input signal vectors and one
@@ -784,11 +742,7 @@ to be used as base class for a corresponding controller.
     partial block BooleanBlockIcon "Basic graphical layout of Boolean block"
 
       annotation (
-        Window(
-          x=0.1,
-          y=0.1,
-          width=0.6,
-          height=0.6),
+        
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Rectangle(
             extent={{-100,-100},{100,100}},
@@ -821,11 +775,7 @@ Boolean block (no declarations, no equations).
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
-      annotation (             Window(
-          x=0.37,
-          y=0.14,
-          width=0.6,
-          height=0.6),
+      annotation (             
       Documentation(info="<html>
 <p>
 Block has one continuous Boolean input and one continuous Boolean output signal.
@@ -887,11 +837,7 @@ end MI2BooleanMOs;
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
       annotation (
-        Window(
-          x=0.19,
-          y=0.16,
-          width=0.6,
-          height=0.6),
+        
         Documentation(info="<html>
 <p>
 Block has two Boolean input signals u1 and u2 and one Boolean output signal y.
@@ -907,11 +853,7 @@ Block has two Boolean input signals u1 and u2 and one Boolean output signal y.
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
       annotation (
-        Window(
-          x=0.13,
-          y=0.03,
-          width=0.6,
-          height=0.6),
+        
         Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},

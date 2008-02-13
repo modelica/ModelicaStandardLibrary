@@ -86,11 +86,7 @@ respectively.
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(group="if animation = true", enable=animation));
     annotation (
-      Window(
-        x=0.02,
-        y=0,
-        width=0.79,
-        height=0.89),
+      
       Documentation(info="<HTML>
 <p>
 Model <b>FixedShape</b> defines a visual shape that is
@@ -262,11 +258,7 @@ definition of the colors used in the MultiBody library
       annotation (Dialog(group="if animation = true", enable=animation));
 
     annotation (
-      Window(
-        x=0.25,
-        y=0.04,
-        width=0.67,
-        height=0.69),
+      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1169,12 +1161,8 @@ library (will be replaced by a color editor).
             Text(
               extent={{-132,160},{128,100}},
               textString="%name",
-              lineColor={0,0,255})}),
-        Window(
-          x=0.28,
-          y=0.06,
-          width=0.6,
-          height=0.69),
+              lineColor={0,0,255})})
+        ,
         Documentation(info="<HTML>
 <p>
 Model <b>Shape</b> defines a visual shape that is

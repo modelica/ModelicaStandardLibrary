@@ -74,12 +74,8 @@ and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
-</html>"),
-    Window(
-      x=0.28,
-      y=0.08,
-      width=0.6,
-      height=0.6),
+</html>")
+    ,
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},

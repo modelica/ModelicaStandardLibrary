@@ -6,11 +6,7 @@ block ExtractSignal "Extract signals from an input signal vector"
   extends Modelica.Blocks.Interfaces.MIMO;
   parameter Integer extract[nout]=1:nout "Extracting vector";
   annotation (
-    Window(
-      x=0.28,
-      y=0.29,
-      width=0.57,
-      height=0.61),
+    
     Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -340,11 +336,7 @@ end Extractor;
       "Connector of Real output signals" annotation (Placement(transformation(
             extent={{100,-10},{120,10}}, rotation=0)));
     annotation (
-      Window(
-        x=0.2,
-        y=0.34,
-        width=0.56,
-        height=0.6),
+      
       Documentation(info="<HTML>
 <p>
 The output connector is the <b>concatenation</b> of the two input connectors.
@@ -398,11 +390,7 @@ explicitly defined via parameters n1 and n2.
       "Connector of Real output signals" annotation (Placement(transformation(
             extent={{100,-10},{120,10}}, rotation=0)));
     annotation (
-      Window(
-        x=0.23,
-        y=0.03,
-        width=0.56,
-        height=0.6),
+      
       Documentation(info="<HTML>
 <p>
 The output connector is the <b>concatenation</b> of the three input connectors.
@@ -461,11 +449,7 @@ explicitly defined via parameters n1, n2 and n3.
       "Connector of Real output signals" annotation (Placement(transformation(
             extent={{100,-10},{120,10}}, rotation=0)));
     annotation (
-      Window(
-        x=0.33,
-        y=0.1,
-        width=0.59,
-        height=0.67),
+      
       Documentation(info="<HTML>
 <p>
 The output connector is the <b>concatenation</b> of the four input connectors.
@@ -531,11 +515,7 @@ explicitly defined via parameters n1, n2, n3 and n4.
       "Connector of Real output signals" annotation (Placement(transformation(
             extent={{100,-10},{120,10}}, rotation=0)));
     annotation (
-      Window(
-        x=0.26,
-        y=0.12,
-        width=0.59,
-        height=0.68),
+      
       Documentation(info="<HTML>
 <p>
 The output connector is the <b>concatenation</b> of the five input connectors.
@@ -608,11 +588,7 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
       "Connector of Real output signals" annotation (Placement(transformation(
             extent={{100,-10},{120,10}}, rotation=0)));
     annotation (
-      Window(
-        x=0.26,
-        y=0.12,
-        width=0.59,
-        height=0.68),
+      
       Documentation(info="<HTML>
 <p>
 The output connector is the <b>concatenation</b> of the six input connectors.
@@ -670,11 +646,7 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
       "Connector of Real output signals 2" annotation (Placement(transformation(
             extent={{100,-70},{120,-50}}, rotation=0)));
     annotation (
-      Window(
-        x=0.35,
-        y=0.14,
-        width=0.63,
-        height=0.59),
+      
       Documentation(info="<HTML>
 <p>
 The input connector is <b>splitted</b> up into two output connectors.
@@ -728,11 +700,7 @@ explicitly defined via parameters n1 and n2.
       "Connector of Real output signals 3" annotation (Placement(transformation(
             extent={{100,-80},{120,-60}}, rotation=0)));
     annotation (
-      Window(
-        x=0.19,
-        y=0.08,
-        width=0.65,
-        height=0.68),
+      
       Documentation(info="<HTML>
 <p>
 The input connector is <b>splitted</b> up into three output connectors.
@@ -793,11 +761,7 @@ explicitly defined via parameters n1, n2 and n3.
       "Connector of Real output signals 4" annotation (Placement(transformation(
             extent={{100,-100},{120,-80}}, rotation=0)));
     annotation (
-      Window(
-        x=0.29,
-        y=0.12,
-        width=0.63,
-        height=0.59),
+      
       Documentation(info="<HTML>
 <p>
 The input connector is <b>splitted</b> up into four output connectors.
@@ -863,11 +827,7 @@ explicitly defined via parameters n1, n2, n3 and n4.
       "Connector of Real output signals 5" annotation (Placement(transformation(
             extent={{100,-90},{120,-70}}, rotation=0)));
     annotation (
-      Window(
-        x=0.15,
-        y=0.16,
-        width=0.63,
-        height=0.59),
+      
       Documentation(info="<HTML>
 <p>
 The input connector is <b>splitted</b> up into five output connectors.
@@ -938,11 +898,7 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
       "Connector of Real output signals 6" annotation (Placement(transformation(
             extent={{100,-100},{120,-80}}, rotation=0)));
     annotation (
-      Window(
-        x=0.15,
-        y=0.16,
-        width=0.63,
-        height=0.59),
+      
       Documentation(info="<HTML>
 <p>
 The input connector is <b>splitted</b> up into six output connectors.

@@ -185,14 +185,8 @@ In the table below an example call to every function is given:
            write to this file (useful for temporary output of files).</td>
   </tr>
 </table>
-</HTML>"),
-      Window(
-        x=0.03,
-        y=0.02,
-        width=0.42,
-        height=0.86,
-        library=1,
-        autolayout=1));
+</HTML>")
+      );
 
 function copy "Generate a copy of a file or of a directory"
   extends Modelica.Icons.Function;

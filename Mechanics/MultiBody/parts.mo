@@ -147,11 +147,7 @@ definition of the colors used in the MultiBody library
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
 
     annotation (
-      Window(
-        x=0.27,
-        y=0.02,
-        width=0.63,
-        height=0.73),
+      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -272,11 +268,7 @@ animation = <b>false</b>.
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
 
     annotation (
-      Window(
-        x=0.25,
-        y=0.04,
-        width=0.67,
-        height=0.69),
+      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -517,11 +509,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation;
     annotation (
-      Window(
-        x=0.08,
-        y=0.24,
-        width=0.75,
-        height=0.68),
+      
       Documentation(info="<HTML>
 <p>
 Component for a <b>fixed translation</b> and <b>fixed rotation</b> of frame_b with respect
@@ -1174,11 +1162,7 @@ to the setting of parameters \"useQuaternions\" and
        annotation (Evaluate=true, Dialog(tab="Advanced", enable=not 
             useQuaternions));
     annotation (
-      Window(
-        x=0.24,
-        y=0.1,
-        width=0.6,
-        height=0.73),
+      
       Documentation(info="<HTML>
 <p>
 <b>Rigid body</b> with mass and inertia tensor and <b>two frame connectors</b>.
@@ -1487,11 +1471,7 @@ states and of the \"Advanced\" menu parameters, see model
      specularCoefficient=specularCoefficient) annotation (Placement(
           transformation(extent={{-30,-20},{10,20}}, rotation=0)));
     annotation (
-      Window(
-        x=0.22,
-        y=0.09,
-        width=0.72,
-        height=0.68),
+      
       Documentation(info="<HTML>
 <p>
 <b>Rigid body</b> with <b>box</b> shape.
@@ -1719,11 +1699,7 @@ states and of the \"Advanced\" menu parameters, see model
       widthDirection={0,1,0}) annotation (Placement(transformation(extent={{-30,
               -20},{10,20}}, rotation=0)));
     annotation (
-      Window(
-        x=0.22,
-        y=0.09,
-        width=0.72,
-        height=0.68),
+      
       Documentation(info="<HTML>
 <p>
 <b>Rigid body</b> with <b>cylinder</b> shape.

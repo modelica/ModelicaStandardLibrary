@@ -4,14 +4,8 @@ package Translational
   extends Modelica.Icons.Library2;
   import SI = Modelica.SIunits;
   annotation (
-  version="1.1.1", versionDate="2007-11-22",
-    Window(
-      x=0.05,
-      y=0.09,
-      width=0.39,
-      height=0.47,
-      library=1,
-      autolayout=1),
+  version="1.1.1", versionDate="2007-11-22"
+    ,
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
         Line(points={{-84,-73},{66,-73}}, color={0,0,0}),
@@ -164,13 +158,7 @@ and the accompanying <b>disclaimer</b>
     extends Modelica.Icons.Library;
 
     annotation (
-      Window(
-        x=0.07,
-        y=0.14,
-        width=0.51,
-        height=0.4,
-        library=1,
-        autolayout=1),
+      
       Documentation(info="<html>
 <p>
 This package contains example models to demonstrate the usage of the
@@ -288,11 +276,7 @@ the two other examples).
 
       extends Modelica.Icons.Example;
       annotation (
-        Window(
-          x=0.45,
-          y=0.01,
-          width=0.56,
-          height=0.83),
+        
         Documentation(info="<html> 
 <p>
 There are several ways to set initial conditions.
@@ -414,11 +398,7 @@ combination). In this case the system is not at rest.
 
       extends Modelica.Icons.Example;
       annotation (
-        Window(
-          x=0.45,
-          y=0.01,
-          width=0.56,
-          height=0.83),
+        
         Documentation(info="<html>
 <p>
 When using the models of the translational sublibrary
@@ -648,11 +628,7 @@ Demonstrate usage of damper components in different variants.
 
       extends Modelica.Icons.Example;
       annotation (
-        Window(
-          x=0.45,
-          y=0.01,
-          width=0.56,
-          height=0.83),
+        
         Documentation(info="<html>
 <p>
 A spring - mass system is a mechanical oscillator. If no
@@ -753,11 +729,7 @@ If damping is added the amplitudes are bounded.
 
       extends Modelica.Icons.Example;
       annotation (
-        Window(
-          x=0.45,
-          y=0.01,
-          width=0.56,
-          height=0.83),
+        
         Documentation(info="<html>
 <p>
 These sensors measure
@@ -852,12 +824,8 @@ to see the difference.
             Text(
               extent={{-100,20},{-80,0}},
               textString="2)",
-              lineColor={0,0,255})}),
-        Window(
-          x=0.45,
-          y=0.01,
-          width=0.56,
-          height=0.83),
+              lineColor={0,0,255})})
+        ,
         Documentation(info="<html>
 <ol>
 <li> Simulate and then plot Stop1.f as a function of Stop1.v
@@ -926,11 +894,7 @@ to see the difference.
       extends Modelica.Icons.Example;
 
       annotation (
-        Window(
-          x=0.45,
-          y=0.01,
-          width=0.56,
-          height=0.83),
+        
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1230,11 +1194,7 @@ This package contains basic components 1D mechanical translational drive trains.
       parameter SI.Position s0=0 "fixed offset position of housing";
 
       annotation (
-        Window(
-          x=0.41,
-          y=0.02,
-          width=0.42,
-          height=0.58),
+        
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1285,11 +1245,7 @@ at an position s0 in the <i>housing</i>. May be used:
       SI.Acceleration a(start=0) "absolute acceleration of component";
 
       annotation (
-        Window(
-          x=0.23,
-          y=0.06,
-          width=0.7,
-          height=0.63),
+        
         Documentation(info="<html>
 <p>
 Sliding mass with <i>inertia, without friction</i> and two rigidly connected flanges.
@@ -1381,11 +1337,7 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
       extends Translational.Interfaces.PartialRigid;
 
       annotation (
-        Window(
-          x=0.23,
-          y=0.06,
-          width=0.7,
-          height=0.63),
+        
         Documentation(info="<html>
 <p>
 Rod <i>without inertia</i> and two rigidly connected flanges.
@@ -1462,11 +1414,7 @@ Rod <i>without inertia</i> and two rigidly connected flanges.
       parameter SI.Distance s_rel0=0 "unstretched spring length";
 
       annotation (
-        Window(
-          x=0.21,
-          y=0.12,
-          width=0.56,
-          height=0.64),
+        
         Documentation(info="<html>
 <p>
 A <i>linear 1D translational spring</i>. The component can be connected either
@@ -1519,11 +1467,7 @@ a coupling of the sliding mass with the housing via a spring.
       parameter SI.TranslationalDampingConstant d(final min=0, start = 0)
         "damping constant";
       annotation (
-        Window(
-          x=0.23,
-          y=0.05,
-          width=0.6,
-          height=0.6),
+        
         Documentation(info="<html>
 <p>
 <i>Linear, velocity dependent damper</i> element. It can be either connected
@@ -1592,11 +1536,7 @@ between two sliding masses.
         "damping constant";
       parameter SI.Position s_rel0=0 "unstretched spring length";
       annotation (
-        Window(
-          x=0.2,
-          y=0.03,
-          width=0.64,
-          height=0.68),
+        
         Documentation(info="<html>
 <p>
 A <i>spring and damper element connected in parallel</i>.
@@ -1682,11 +1622,7 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
       parameter SI.Position s_rel0=0 "Unstretched spring length";
 
       annotation (
-        Window(
-          x=0.23,
-          y=0.04,
-          width=0.62,
-          height=0.69),
+        
         Documentation(info="<html>
 <p>
 A linear spring damper combination that can lift off.
@@ -2540,12 +2476,8 @@ modified event logic such if you have friction parameters equal to zero you do n
 between the stops.</i> </li>
 <li><i>June 10, 2002 by P. Beater, StateSelect.always for variables s and v (instead of fixed=true). </i> </li>
 </ul>
-</html>"),
-        Window(
-          x=0.45,
-          y=0.01,
-          width=0.56,
-          height=0.83),
+</html>")
+        ,
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -2838,11 +2770,7 @@ Additionally, a left and right stop are handled.
         "relative velocity used as state variable";
       SI.Acceleration a_rel(start=0) "relative angular acceleration";
       annotation (
-        Window(
-          x=0.23,
-          y=0.02,
-          width=0.72,
-          height=0.83),
+        
         Documentation(info="<html>
 <p>
 Usually, the absolute position and the absolute velocity of
@@ -2982,11 +2910,7 @@ This package contains ideal sources to drive 1D mechanical translational drive t
       constant Real af=1.3617 "s coefficient of Bessel filter";
       constant Real bf=0.6180 "s*s coefficient of Bessel filter";
       annotation (
-        Window(
-          x=0.33,
-          y=0.01,
-          width=0.66,
-          height=0.62),
+        
         Documentation(info="<HTML>
 <p>
 The input signal <b>s_ref</b> defines the <b>reference
@@ -3090,11 +3014,7 @@ blocks of the block library Modelica.Blocks.Sources.
         "reference speed of flange as input signal" annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
       annotation (
-        Window(
-          x=0.33,
-          y=0.01,
-          width=0.66,
-          height=0.62),
+        
         Documentation(info="<HTML>
 <p>
 The input signal <b>v_ref</b> defines the <b>reference
@@ -3198,11 +3118,7 @@ blocks of the block library Modelica.Blocks.Sources.
          annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
       annotation (
-        Window(
-          x=0.23,
-          y=0.07,
-          width=0.6,
-          height=0.6),
+        
         Documentation(info="<html>
 <p>
 The input signal <b>a</b> in [m/s2] moves the 1D translational flange
@@ -3320,12 +3236,8 @@ blocks of the block library Modelica.Blocks.Sources.
             Text(
               extent={{150,60},{-150,100}},
               textString="%name",
-              lineColor={0,0,255})}),
-        Window(
-          x=0.27,
-          y=0.05,
-          width=0.6,
-          height=0.6));
+              lineColor={0,0,255})})
+        );
     protected
       function position
          input Real q_qd_qdd[3]
@@ -3375,11 +3287,7 @@ blocks of the block library Modelica.Blocks.Sources.
                                         annotation (Placement(transformation(
               extent={{-140,-20},{-100,20}}, rotation=0)));
       annotation (
-        Window(
-          x=0.05,
-          y=0.01,
-          width=0.69,
-          height=0.83),
+        
         Documentation(info="<html>
 <p>
 The input signal \"f\" in [N] characterizes an <i>external
@@ -3440,11 +3348,7 @@ blocks of Modelica.Blocks.Source.
             rotation=270,
             origin={0,40})));
       annotation (
-        Window(
-          x=0.05,
-          y=0.01,
-          width=0.69,
-          height=0.83),
+        
         Documentation(info="<html>
 <p>
 The input signal \"f\" in [N] characterizes an <i>external
@@ -3616,13 +3520,7 @@ Positive force acts accelerating.
     extends Modelica.Icons.Library2;
 
     annotation (
-      Window(
-        x=0.08,
-        y=0.16,
-        width=0.23,
-        height=0.39,
-        library=1,
-        autolayout=1),
+      
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
@@ -3658,11 +3556,7 @@ Modelica.Blocks library.
                 {120,9}},            rotation=0), iconTransformation(extent={{100,
                 -10},{120,10}})));
       annotation (
-        Window(
-          x=0.04,
-          y=0.05,
-          width=0.6,
-          height=0.6),
+        
         Documentation(info="<html>
 <p>
 Measures the <i>absolute position s</i> of a flange in an ideal way and provides the result as
@@ -3694,11 +3588,7 @@ Modelica.Blocks library).
            annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
       annotation (
-        Window(
-          x=0.04,
-          y=0.05,
-          width=0.6,
-          height=0.6),
+        
         Documentation(info="<html>
 <p>
 Measures the <i>absolute velocity v</i> of a flange in an ideal way and provides the result as
@@ -3731,11 +3621,7 @@ Modelica.Blocks library).
            annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
       annotation (
-        Window(
-          x=0.14,
-          y=0.08,
-          width=0.6,
-          height=0.6),
+        
         Documentation(info="<html>
 <p>
 Measures the <i>absolute acceleration a</i>
@@ -3770,11 +3656,7 @@ Modelica.Blocks library).
                 {10,10}},            rotation=270,
             origin={0,-110})));
       annotation (
-        Window(
-          x=0.04,
-          y=0.05,
-          width=0.6,
-          height=0.6),
+        
         Documentation(info="<html>
 <p>
 Measures the <i>relative position s</i> of a flange in an ideal way and provides the result as
@@ -3813,11 +3695,7 @@ Modelica.Blocks library).
                 {10,10}},            rotation=270,
             origin={0,-110})));
       annotation (
-        Window(
-          x=0.04,
-          y=0.05,
-          width=0.6,
-          height=0.6),
+        
         Documentation(info="<html>
 <p>
 Measures the <i>relative speed v</i> of a flange in an ideal way and provides the result as
@@ -3866,11 +3744,7 @@ Modelica.Blocks library).
                 {10,10}},            rotation=270,
             origin={0,-110})));
       annotation (
-        Window(
-          x=0.04,
-          y=0.05,
-          width=0.6,
-          height=0.6),
+        
         Documentation(info="<html>
 <p>
 Measures the <i>relative acceleration a</i> of a flange in an ideal way and provides the result as
@@ -3928,12 +3802,8 @@ with blocks of the Modelica.Blocks library).
               textString="f"),
             Line(points={{-70,0},{-90,0}}, color={0,0,0}),
             Line(points={{70,0},{90,0}}, color={0,0,0}),
-            Line(points={{-80,-100},{-80,0}}, color={0,0,127})}),
-        Window(
-          x=0.27,
-          y=0.08,
-          width=0.6,
-          height=0.6),
+            Line(points={{-80,-100},{-80,0}}, color={0,0,127})})
+        ,
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -3969,12 +3839,8 @@ and provides the result as output signal <b>power</b>
               textString="power"),
             Line(points={{-70,0},{-90,0}}, color={0,0,0}),
             Line(points={{70,0},{90,0}}, color={0,0,0}),
-            Line(points={{-80,-100},{-80,0}}, color={0,0,127})}),
-        Window(
-          x=0.27,
-          y=0.08,
-          width=0.6,
-          height=0.6),
+            Line(points={{-80,-100},{-80,0}}, color={0,0,127})})
+        ,
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -4002,12 +3868,8 @@ only be used as basic building elements for models.
     connector Flange_a
       "(left) 1D translational flange (flange axis directed INTO cut plane, e. g. from left to right)"
 
-      annotation(defaultComponentName = "flange_a",
-        Window(
-          x=0.27,
-          y=0.05,
-          width=0.39,
-          height=0.83),
+      annotation(defaultComponentName = "flange_a"
+        ,
         Documentation(info="<html>
 This is a flange for 1D translational mechanical systems. In the cut plane of
 the flange a unit vector n, called flange axis, is defined which is directed
@@ -4054,12 +3916,8 @@ The following variables are transported through this connector:
 
       SI.Position s "absolute position of flange";
       flow SI.Force f "cut force directed into flange";
-      annotation(defaultComponentName = "flange_b",
-        Window(
-          x=0.27,
-          y=0.05,
-          width=0.39,
-          height=0.83),
+      annotation(defaultComponentName = "flange_b"
+        ,
         Documentation(info="<html>
 This is a flange for 1D translational mechanical systems. In the cut plane of
 the flange a unit vector n, called flange axis, is defined which is directed
@@ -4217,12 +4075,8 @@ of several base components.
 "),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
-        Window(
-          x=0.08,
-          y=0.18,
-          width=0.6,
-          height=0.6));
+            grid={2,2}), graphics)
+        );
     end PartialTwoFlanges;
 
     partial model PartialOneFlangeAndSupport
@@ -4259,12 +4113,8 @@ and instead the component is internally fixed to ground.
               textString="(if useSupport)"), Text(
               extent={{21,-95},{61,-96}},
               lineColor={95,95,95},
-              textString="(if not useSupport)")}),
-        Window(
-          x=0.37,
-          y=0.05,
-          width=0.6,
-          height=0.6),
+              textString="(if not useSupport)")})
+        ,
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -4341,12 +4191,8 @@ and instead the component is internally fixed to ground.
               textString="(if useSupport)"), Text(
               extent={{24,-97},{64,-98}},
               lineColor={95,95,95},
-              textString="(if not useSupport)")}),
-        Window(
-          x=0.37,
-          y=0.05,
-          width=0.6,
-          height=0.6),
+              textString="(if not useSupport)")})
+        ,
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -4411,12 +4257,8 @@ It is used e.g. to built up sliding masses.
 "),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
-        Window(
-          x=0.14,
-          y=0.05,
-          width=0.71,
-          height=0.58));
+            grid={2,2}), graphics)
+        );
     equation
       flange_a.s = s - L/2;
       flange_b.s = s + L/2;
@@ -4438,11 +4280,7 @@ It is used e.g. to built up sliding masses.
       SI.Force f
         "force between flanges (positive in direction of flange axis R)";
       annotation (
-        Window(
-          x=0.17,
-          y=0.09,
-          width=0.6,
-          height=0.6),
+        
         Documentation(info="<html>
 <p>
 This is a 1D translational component with a <i>compliant </i>connection of two
@@ -4491,11 +4329,7 @@ flange is the same. It is used to built up springs, dampers etc.
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
       annotation (
-        Window(
-          x=0.32,
-          y=0.01,
-          width=0.6,
-          height=0.6),
+        
         Documentation(info="<html>
 <p>
 This is a 1-dim. translational component with a compliant connection of two
@@ -4549,11 +4383,7 @@ and c have more meaningful values for the user.
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
       annotation (
-        Window(
-          x=0.17,
-          y=0.09,
-          width=0.6,
-          height=0.6),
+        
         Documentation(info="<html>
 <p>
 This is a 1-dim. translational component with one flange and a support/housing.
@@ -4781,11 +4611,7 @@ and instead the component is internally fixed to ground.
          annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
       annotation (
-        Window(
-          x=0.36,
-          y=0.04,
-          width=0.6,
-          height=0.6),
+        
         Documentation(info="<html>
 <p>
 This is the superclass of a 1D translational component with one flange and one
@@ -4832,11 +4658,7 @@ with the Modelica.Blocks blocks.
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
       annotation (
-        Window(
-          x=0.04,
-          y=0.05,
-          width=0.6,
-          height=0.6),
+        
         Documentation(info="<html>
 <p>
 This is a superclass for 1D translational components with two rigidly connected

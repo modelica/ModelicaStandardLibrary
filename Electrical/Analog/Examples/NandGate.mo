@@ -50,12 +50,8 @@ and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
-</html>"),
-    Window(
-      x=0.36,
-      y=0.01,
-      width=0.44,
-      height=0.6),
+</html>")
+    ,
     experiment(StopTime=1e-007));
   Sources.TrapezoidVoltage VIN1(
     V=3.5,

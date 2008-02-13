@@ -4,14 +4,8 @@ extends Icons.Library;
 
 
 annotation (
-  preferredView="info",
-  Window(
-    x=0.02,
-    y=0.01,
-    width=0.2,
-    height=0.57,
-    library=1,
-    autolayout=1),
+  preferredView="info"
+  ,
   version="3.0",
   versionBuild="$Rev$",
   versionDate="$Date::                            $",
