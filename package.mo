@@ -405,14 +405,14 @@ that have the flow attribute):
       <td valign=\"top\">mass flow rate<br>
           enthalpy flow rate<br>
           subst. mass flow rates</td>
-      <td valign=\"top\"><a href=\"Modelica://Modelica_Fluid.Interfaces\">Modelica_Fluid.Interfaces</a>
+      <td valign=\"top\">Modelica_Fluid.Interfaces
            <br>FluidPort, FluidPort_a, FluidPort_b</td>
       <td valign=\"top\"><img src=\"../Images/UsersGuide/FluidPorts.png\"></td></tr>
 
   <tr><td valign=\"top\"><b>magnetic</b></td>
       <td valign=\"top\">magnetic potential</td>
       <td valign=\"top\">magnetic flux</td>
-      <td valign=\"top\"><a href=\"Modelica://Magnetic.Interfaces\">Magnetic.Interfaces</a>
+      <td valign=\"top\">Magnetic.Interfaces
            <br>MagneticPort, PositiveMagneticPort, <br>NegativeMagneticPort</td>
       <td valign=\"top\"><img src=\"../Images/UsersGuide/MagneticPorts.png\"></td></tr>
 
@@ -422,14 +422,14 @@ that have the flow attribute):
   <tr><td valign=\"top\"><b>hydraulic</b></td>
       <td valign=\"top\">pressure</td>
       <td valign=\"top\">volume flow rate</td>
-      <td valign=\"top\"><a href=\"Modelica://HyLibLight.Interfaces\">HyLibLight.Interfaces</a>
+      <td valign=\"top\">HyLibLight.Interfaces
            <br>Port_A, Port_b</td>
       <td valign=\"top\"><img src=\"../Images/UsersGuide/HydraulicPorts.png\"></td></tr>
 
   <tr><td valign=\"top\"><b>pneumatic</b></td>
       <td valign=\"top\">pressure</td>
       <td valign=\"top\">mass flow rate</td>
-      <td valign=\"top\"><a href=\"Modelica://PneuLibLight.Interfaces\">PneuLibLight.Interfaces</a>
+      <td valign=\"top\">PneuLibLight.Interfaces
            <br>Port_1, Port_2</td>
       <td valign=\"top\"><img src=\"../Images/UsersGuide/PneumaticPorts.png\"></td></tr>
 </table>
