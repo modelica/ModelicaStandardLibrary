@@ -7,7 +7,6 @@ extends Modelica.Icons.Library2;
 
 
 annotation (
-  
   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
       graphics={
       Rectangle(extent={{-32,-6},{16,-35}}, lineColor={0,0,0}),
@@ -96,7 +95,8 @@ package Examples
 
   extends Icons.Library;
 
-  model PID_Controller "Demonstrate usage of the Continuous.LimPID controller"
+  model PID_Controller
+    "Demonstrates the usage of a Continuous.LimPID controller"
     extends Modelica.Icons.Example;
     parameter Modelica.SIunits.Angle driveAngle=1.57
       "Reference distance to move";
@@ -253,8 +253,137 @@ is forced back to its limit after a transient phase.
             -37,11},{-67,11},{-67,-10},{-58,-10}}, color={0,0,127}));
   end PID_Controller;
 
+  model InverseModel "Demonstrates the construction of an inverse model"
+    extends Modelica.Icons.Example;
+
+    Continuous.FirstOrder firstOrder1(
+      k=1,
+      T=0.3,
+      initType=Modelica.Blocks.Types.Init.SteadyState)
+      annotation (Placement(transformation(extent={{20,20},{0,40}})));
+    Sources.Sine sine(
+      freqHz=2,
+      offset=1,
+      startTime=0.2)
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
+              -100,-100},{100,100}}), graphics), Documentation(info="<html>
+<p>
+This example demonstrates how to construct an inverse model in Modelica
+(for more details see <a href=\"http://www.modelica.org/events/Conference2005/online_proceedings/Session3/Session3c3.pdf\">Looye, Thümmel, Kurze, Otter, Bals: Nonlinear Inverse Models for Control</a>).
+</p>
+
+<p>
+For a linear, single input, single output system
+</p>
+
+<pre>
+   y = n(s)/d(s) * u   // plant model
+</pre>
+
+<p>
+the inverse model is derived by simply exchanging the numerator and
+the denominator polynomial:
+</p>
+
+<pre>
+   u = d(s)/n(s) * y   // inverse plant model
+</pre>
+
+<p>
+If the denominator polynomial d(s) has a higher degree as the
+numerator polynomial n(s) (which is usually the case for plant models),
+then the inverse model is no longer proper, i.e., it is not causal.
+To avoid this, an approximate inverse model is constructed by adding 
+a sufficient number of poles to the denominator of the inverse model.
+This can be interpreted as filtering the desired output signal y:
+</p>
+
+<pre>
+   u = d(s)/(n(s)*f(s)) * y  // inverse plant model with filtered y
+</pre>
+
+<p>
+With Modelica it is in principal possible to construct inverse models not only
+for linear but also for non-linear models and in particular for every
+Modelica model. The basic construction mechanism is explained at hand
+of this example:
+</p>
+
+<p>
+<img src=\"../Images/Blocks/InverseModelSchematic.png\">
+</p>
+
+<p>
+Here the first order block \"firstOrder1\" shall be inverted. This is performed
+by connecting its inputs and outputs with an instance of block
+Modelica.Blocks.Math.<b>InverseBlockConstraints</b>. By this connection,
+the inputs and outputs are exchanged. The goal is to compute the input of the
+\"firstOrder1\" block so that its output follows a given sine signal.
+For this, the sine signal \"sin\" is first filtered with a \"CriticalDamping\"
+filter of order 1 and then the output of this filter is connected to the output
+of the \"firstOrder1\" block (via the InverseBlockConstraints block, since 
+2 outputs cannot be connected directly together in a block diagram).
+</p>
+
+<p>
+In order to check the inversion, the computed input of \"firstOrder1\" is used
+as input in an identical block \"firstOrder2\". The output of \"firstOrder2\" should
+be the given \"sine\" function. The difference is constructed with the \"feedback\" 
+block. Since the \"sine\" function is filtered, one cannot expect that this difference
+is zero. The higher the cut-off frequency of the filter, the closer is the 
+agreement. A typical simulation result is shown in the next figure:
+</p>
+
+<p>
+<img src=\"../Images/Blocks/InverseModel.png\">
+</p>
+
+</html>"));
+    Math.InverseBlockConstraints inverseBlockConstraints
+      annotation (Placement(transformation(extent={{-10,20},{30,40}})));
+    Continuous.FirstOrder firstOrder2(
+      k=1,
+      T=0.3,
+      initType=Modelica.Blocks.Types.Init.SteadyState)
+      annotation (Placement(transformation(extent={{20,-20},{0,0}})));
+    Math.Feedback feedback
+      annotation (Placement(transformation(extent={{-40,0},{-60,-20}})));
+    Continuous.CriticalDamping criticalDamping(n=1, f=50*sine.freqHz)
+      annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
+  equation
+    connect(firstOrder1.y, inverseBlockConstraints.u2) annotation (Line(
+        points={{-1,30},{-6,30}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(inverseBlockConstraints.y2, firstOrder1.u) annotation (Line(
+        points={{27,30},{22,30}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(firstOrder2.y, feedback.u1) annotation (Line(
+        points={{-1,-10},{-42,-10}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(sine.y, criticalDamping.u) annotation (Line(
+        points={{-59,30},{-42,30}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(criticalDamping.y, inverseBlockConstraints.u1) annotation (Line(
+        points={{-19,30},{-12,30}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(sine.y, feedback.u2) annotation (Line(
+        points={{-59,30},{-50,30},{-50,-2}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(inverseBlockConstraints.y1, firstOrder2.u) annotation (Line(
+        points={{31,30},{40,30},{40,-10},{22,-10}},
+        color={0,0,127},
+        smooth=Smooth.None));
+  end InverseModel;
+
      model ShowLogicalSources
-    "Show logical sources and demonstrate their diagram animation"
+    "Demonstrates the usage of logical sources together with their diagram animation"
        extends Modelica.Icons.Example;
        Sources.BooleanTable table(table={2,4,6,8}) 
                                        annotation (Placement(transformation(
@@ -265,8 +394,8 @@ is forced back to its limit after a transient phase.
           transformation(extent={{-60,20},{-40,40}}, rotation=0)));
        Sources.BooleanPulse pulse(period=1.5) annotation (Placement(
           transformation(extent={{-60,-20},{-40,0}}, rotation=0)));
-       annotation(Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-              -100,-100},{100,100}}),
+       annotation(Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}),
                           graphics),
       experiment(StopTime=10),
       Documentation(info="<html>
@@ -289,7 +418,7 @@ model.
       annotation (Placement(transformation(extent={{20,20},{80,40}}, rotation=0)));
      end ShowLogicalSources;
 
-    model LogicalNetwork1 "Example for a network of logical blocks"
+    model LogicalNetwork1 "Demonstrates the usage of logical blocks"
 
     extends Modelica.Icons.Example;
     Sources.BooleanTable table2(table={1,3,5,7}) annotation (Placement(
@@ -299,8 +428,8 @@ model.
     Logical.Not Not1 annotation (Placement(transformation(extent={{-40,-20},{
               -20,0}}, rotation=0)));
 
-    annotation(Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-              -100,-100},{100,100}}),
+    annotation(Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}),
                        graphics),
         experiment(StopTime=10),
       Documentation(info="<html>
@@ -344,7 +473,7 @@ usage of package blocks.
 </HTML>
 "));
 
-  model BusUsage "Demonstration of signal bus usage"
+  model BusUsage "Demonstrates the usage of a signal bus"
     extends Modelica.Icons.Example;
 
     annotation (Documentation(info="<html>
@@ -513,7 +642,7 @@ just potential signals. The user might still add different signal names.
   end BusUsage;
 
   package BusUsage_Utilities
-    "Utility models and connectors for the demonstration example Modelica.Blocks.Examples.BusUsage"
+    "Utility models and connectors for example Modelica.Blocks.Examples.BusUsage"
     annotation (Documentation(info="<html>
 <p>
 This package contains utility models and bus definitions needed for the

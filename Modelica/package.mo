@@ -4,8 +4,7 @@ extends Icons.Library;
 
 
 annotation (
-  preferredView="info"
-  ,
+  preferredView="info",
   version="3.0",
   versionBuild="$Rev$",
   versionDate="$Date::                            $",
@@ -780,7 +779,8 @@ The following changes are present for the whole library:
      Standard Library, it is now resized so that the aspect ratio is maintained.<br>&nbsp; </li>
 
 <li> All non-standard annotations removed by:<br>
-     (1) Removing the annotation since without effect (e.g., \"experimentSetupOutput\" removed).<br>
+     (1) Removing the annotation since without effect 
+         (e.g., \"experimentSetupOutput\", \"Window\", \"Terminal\" removed).<br>
      (2) Renaming the annotation to a standard name (e.g., \"Hide\" renamed to \"HideResult\").<br>
      (3) Renaming the annotation to a vendor specific name 
          (e.g., \"checkBox\" renamed to \"__Dymola_checkBox\").<br>&nbsp; </li>
@@ -872,6 +872,16 @@ are the new sublibrary names that are introduced in version 3.0):
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>Blocks.Examples.</b></td></tr>
+  <tr><td valign=\"top\">InverseModel</td>
+      <td valign=\"top\"> Demonstrates the construction of an inverse model.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Blocks.Math.</b></td></tr>
+  <tr><td valign=\"top\">InverseBlockConstraints</td>
+      <td valign=\"top\"> Construct inverse model by requiring that two inputs 
+                        and two outputs are identical (replaces the previously, 
+                        unbalanced, TwoInputs and TwoOutputs blocks).</td> </tr>
+
   <tr><td colspan=\"2\"><b>Electrical.Machines.Utilities</b></td></tr>
   <tr><td valign=\"top\">TransformerData</td>
       <td valign=\"top\"> A record that calculates required impedances (parameters) from nominal data of transformers.</td> </tr>
@@ -935,10 +945,21 @@ are the new sublibrary names that are introduced in version 3.0):
 <p><br>
 The following <b style=\"color:blue\">existing components</b>
 have been <b style=\"color:blue\">changed</b> in a
-<b style=\"color:blue\">non-backward compatible</b> way:
+<b style=\"color:blue\">non-backward compatible</b> way
+(the conversion script transforms models and libraries
+of previous versions to the new version. Therefore, conversion 
+should be automatic):
 </p>
  
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>Blocks.Continuous.</b></td></tr>
+  <tr><td valign=\"top\"> CriticalDamping </td>
+      <td valign=\"top\"> New parameter \"normalized\" to define whether filter is provided
+                        in normalized or non-normalized form. Default is \"normalized = true\".
+                        The previous implementation was a non-normalized filter.
+                        The conversion script automatically introduces the modifier
+                        \"normalized=false\" for existing models.</td> </tr>
+
   <tr><td colspan=\"2\"><b>Blocks.Interfaces.</b></td></tr>
   <tr><td valign=\"top\"> RealInput<br>
                         RealOutput</td>
@@ -1200,7 +1221,7 @@ have been <b style=\"color:blue\">changed</b> in a
                         MassWithStopAndFriction is not available with a support connector, <br>
                         since the reaction force can't be modeled in a meaningful way due to reinit of velocity v.<br>
                         Until a sound implementation of a hard stop is available, the old model may be used.</td> </tr>
-  <tr><td colspan=\"2\"><b>Media.</b></td></tr>
+  <tr><td colspan=\"" + "2\"><b>Media.</b></td></tr>
   <tr><td valign=\"top\"> constant nX <br>
                         constant nXi <br>
                         constant reference_X<br>
@@ -1214,7 +1235,7 @@ have been <b style=\"color:blue\">changed</b> in a
   <tr><td valign=\"top\"> ThermodynamicTemperature <br>
                         TemperatureDifference</td>
       <td valign=\"top\"> Added annotation \"__Dymola_absoluteValue=true/false\"
-                        in orde" + "r that unit checking is possible<br> 
+                        in order that unit checking is possible<br> 
                         (the unit checker needs to know for a unit that has an offset,
                         whether it is used as absolute or as a relative number)</td> </tr>
 
@@ -1292,11 +1313,20 @@ have been <b style=\"color:blue\">improved</b> in a
 </p>
  
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-  <tr><td colspan=\"2\"><b>Modelica.</b></td></tr>
-  <tr><td valign=\"top\"> </td>
+  <tr><td valign=\"top\"> <b>Modelica.*</b> </td>
       <td valign=\"top\"> Parameter declarations, input and output function arguments without description
                         strings improved<br> by providing meaningful description texts.
                         </td> </tr>
+
+  <tr><td colspan=\"2\"><b>Modelica.Blocks.Continuous.</b></td></tr>
+  <tr><td valign=\"top\"> TransferFunction </td>
+      <td valign=\"top\"> Internal scaling of the controller canonical states introduced
+                        in order to enlarge the range of transfer functions where the default
+                        relative tolerance of the simulator is sufficient.</td> 
+  </tr>
+
+  <tr><td valign=\"top\"> Butterworth<br>CriticalDamping </td>
+      <td valign=\"top\"> Documentation improved and plots of the filter characteristics added.</td> </tr>
 
   <tr><td colspan=\"2\"><b>Electrical.Analog.Basic.</b></td></tr>
   <tr><td valign=\"top\"> EMF </td>
@@ -1339,7 +1369,7 @@ have been <b style=\"color:blue\">improved</b> in a
 
   <tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.Interfaces.Partials.</b></td></tr>
   <tr><td valign=\"top\">TwoPort</td>
-      <td valign=\"top\"> Introduced <tt>parameter Real tapT(final min=0, final max=1)=1</tt> that defines the temperature of the heatPort
+      <td valign=\"top\"> Introduced <tt>parameter Real tapT(final min=0, final max=1)=1</tt> <br> that defines the temperature of the heatPort
                         betwen inlet and outlet.</td> </tr>
 
   <tr><td colspan=\"2\"><b>StateGraph.</b></td></tr>
@@ -1360,16 +1390,6 @@ that can lead to wrong simulation results):
 </p>
  
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-  <tr><td colspan=\"2\"><b>Blocks.Continuous.</b></td></tr>
-  <tr><td valign=\"top\"> TransferFunction </td>
-      <td valign=\"top\"> This component did not have a bug. However, scaling of the states is introduced
-                        in order to enlarge the range of transfer functions where the default
-                        relative tolerance of the simulator is sufficient.
-                        Due to this change, the state vector is different as previously.
-                        If a model has initialized a transfer function with particular states,
-                        the result will be different now.</td> 
-  </tr>
-
   <tr><td colspan=\"2\"><b>Electrical.Analog.Examples.</b></td></tr>
   <tr><td valign=\"top\"> CauerLowPassSC </td>
       <td valign=\"top\"> Wrong calculation of Capacitor1 both in Rn and Rp corrected
@@ -1399,10 +1419,12 @@ that can lead to wrong simulation results):
   </tr>
   <tr><td valign=\"top\"> Position<br>Speed<br>Accelerate<br>Move</td>
       <td valign=\"top\"> The movement of the flange was wrongly defined as absolute;
-                        this is corrected as relative to support.<br>
+                        this is corrected as relative to connector support.<br>
                         For Accelerate, it was necessary to rename
                         RealInput a to a_ref, as well as the start values
-                        phi_start to phi.start and w_start to w.start</td> 
+                        phi_start to phi.start and w_start to w.start.
+                        The conversion script performs the necessary conversion of  
+                        existing models automatically.</td> 
   </tr>
   <tr><td colspan=\"2\"><b>Media.Interfaces.</b></td></tr>
   <tr><td valign=\"top\"> PartialSimpleIdealGasMedium </td>

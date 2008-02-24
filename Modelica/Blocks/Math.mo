@@ -5,7 +5,6 @@ package Math "Library of mathematical functions as input/output blocks"
   extends Modelica.Icons.Library;
 
   annotation (
-    
     Documentation(info="
 <HTML>
 <p>
@@ -597,32 +596,66 @@ All other blocks convert exactly between two different units.
 
   block InverseBlockConstraints
     "Construct inverse model by requiring that two inputs and two outputs are identical (replaces the previously, unbalanced, TwoInputs and TwoOutputs blocks)"
-    extends Modelica.Blocks.Interfaces.BlockIcon;
+
+    Modelica.Blocks.Interfaces.RealInput u1 "Input signal 1 (u1 = u2)" 
+                            annotation (Placement(transformation(extent={{-240,
+              -20},{-200,20}}, rotation=0), iconTransformation(extent={{-240,-20},
+              {-200,20}})));
+    Modelica.Blocks.Interfaces.RealInput u2 "Input signal 2 (u1 = u2)" 
+                            annotation (Placement(transformation(extent={{-140,
+              -20},{-180,20}}, rotation=0), iconTransformation(extent={{-140,-20},
+              {-180,20}})));
+    Modelica.Blocks.Interfaces.RealOutput y1 "Output signal 1 (y1 = y2)" 
+                             annotation (Placement(transformation(extent={{200,-10},
+              {220,10}},      rotation=0), iconTransformation(extent={{200,-10},{
+              220,10}})));
+    Modelica.Blocks.Interfaces.RealOutput y2 "Output signal 2 (y2 = y2)" 
+                             annotation (Placement(transformation(extent={{10,-10},
+              {-10,10}},       rotation=0,
+          origin={170,0}),  iconTransformation(extent={{180,-10},{160,10}})));
 
     annotation(__Dymola_structurallyIncomplete=true,
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}),
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-200,-100},{
+              200,100}}),
               graphics),
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={Line(
-            points={{-100,0},{-58,0},{-58,80},{-100,80}},
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-200,-100},{200,
+              100}}), graphics={
+          Line(
+            points={{180,0},{200,0}},
             color={0,0,127},
-            smooth=Smooth.None), Line(
-            points={{100,-62},{58,-62},{58,0},{100,0}},
+            smooth=Smooth.None),
+          Line(
+            points={{-200,0},{-180,0}},
             color={0,0,127},
-            smooth=Smooth.None)}));
-    Interfaces.RealInput u1 annotation (Placement(transformation(extent={{-140,
-              -20},{-100,20}}, rotation=0)));
-    Interfaces.RealInput u2 annotation (Placement(transformation(extent={{-140,
-              60},{-100,100}}, rotation=0)));
-    Interfaces.RealOutput y1 annotation (Placement(transformation(extent={{100,
-              -10},{120,10}}, rotation=0)));
-    Interfaces.RealOutput y2 annotation (Placement(transformation(extent={{100,
-              -70},{120,-50}}, rotation=0)));
+            smooth=Smooth.None),
+          Rectangle(
+            extent={{-190,110},{190,-110}},
+            lineColor={135,135,135},
+            lineThickness=0.5)}),
+      Documentation(info="<html>
+<p>
+Exchange input and ouput signals of a block, i.e., the previous
+block inputs become block outputs and the previous block outputs become
+block inputs. This block is used to construct inverse models.
+Its usage is demonstrated in example:
+<a href=\"Modelica://Modelica.Blocks.Examples.InverseModel\">Modelica.Blocks.Examples.InverseModel</a>.
+</p>
+
+<p>
+Note, if a block shall be inverted that has several input and output blocks,
+then this can be easily achieved by using a vector of InverseBlockConstraints 
+instances:
+</p>
+
+<pre>
+   InverseBlockConstraint invert[3];  // Block to be inverted has 3 input signals
+</pre>
+</html>"));
   equation
     u1 = u2;
     y1 = y2;
   end InverseBlockConstraints;
+
 
       block Gain "Output the product of a gain value with the input signal"
 
@@ -635,7 +668,6 @@ All other blocks convert exactly between two different units.
           annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
         annotation (
-          
           Documentation(info="
 <HTML>
 <p>
@@ -676,6 +708,7 @@ input <i>u</i>:
             extent={{-76,38},{0,-34}},
             textString="k",
             lineColor={0,0,255})}));
+
       equation
         y = k*u;
       end Gain;
@@ -730,8 +763,7 @@ Example:
             fillPattern=FillPattern.Solid), Text(
             extent={{-90,-60},{90,60}},
             lineColor={160,160,164},
-            textString="*K")})
-          );
+            textString="*K")}));
       equation
         y = K*u;
       end MatrixGain;
@@ -739,8 +771,7 @@ Example:
       block Sum "Output the sum of the elements of the input vector"
         extends Interfaces.MISO;
         parameter Real k[nin]=ones(nin) "Optional: sum coefficients";
-        annotation (defaultComponentName="sum1"
-          ,
+        annotation (defaultComponentName="sum1",
           Documentation(info="
 <HTML>
 <p>
@@ -800,7 +831,6 @@ Example:
         output Interfaces.RealOutput y annotation (Placement(transformation(
             extent={{80,-10},{100,10}}, rotation=0)));
         annotation (
-          
           Documentation(info="
 <HTML>
 <p>
@@ -861,6 +891,7 @@ Example:
             extent={{-12,10},{84,-84}},
             lineColor={0,0,0},
             textString="-")}));
+
       equation
         y = u1 - u2;
       end Feedback;
@@ -870,7 +901,6 @@ Example:
         parameter Real k1=+1 "Gain of upper input";
         parameter Real k2=+1 "Gain of lower input";
         annotation (
-          
           Documentation(info="
 <HTML>
 <p>
@@ -1001,7 +1031,6 @@ Example:
           annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
         annotation (
-          
           Documentation(info="
 <HTML>
 <p>
@@ -1135,8 +1164,7 @@ the two inputs <b>u1</b> and <b>u2</b>:
           Line(points={{-30,0},{30,0}}, color={0,0,0}),
           Line(points={{-15,25.99},{15,-25.99}}, color={0,0,0}),
           Line(points={{-15,-25.99},{15,25.99}}, color={0,0,0}),
-          Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,255})})
-          );
+          Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,255})}));
 
       equation
         y = u1*u2;
@@ -1203,8 +1231,7 @@ the two inputs <b>u1</b> and <b>u2</b>:
             fillPattern=FillPattern.Solid),
           Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,255}),
           Line(points={{-100,60},{-66,60},{-40,30}}, color={0,0,255}),
-          Line(points={{-100,-60},{0,-60},{0,-50}}, color={0,0,255})})
-          );
+          Line(points={{-100,-60},{0,-60},{0,-50}}, color={0,0,255})}));
 
       equation
         y = u1/u2;
@@ -1287,7 +1314,7 @@ as <i>absolute value</i> of the input <b>u</b>:
 </pre>
 
 </HTML>
-")       );
+"));
       equation
         y = abs(u);
       end Abs;
@@ -1374,7 +1401,7 @@ as <b>sign</b> of the input <b>u</b>:
 </pre>
 
 </HTML>
-")       );
+"));
       equation
         y = sign(u);
       end Sign;
@@ -1446,7 +1473,7 @@ Otherwise an error occurs.
 </p>
 
 </HTML>
-")       );
+"));
 
       equation
         y = sqrt(u);
@@ -1537,7 +1564,7 @@ as <b>sine</b> of the input <b>u</b>:
 </p>
 
 </HTML>
-")       );
+"));
       equation
         y = Modelica.Math.sin(u);
       end Sin;
@@ -1627,7 +1654,7 @@ as <b>cos</b> of the input <b>u</b>:
 </p>
 
 </HTML>
-")       );
+"));
 
       equation
         y = Modelica.Math.cos(u);
@@ -1717,7 +1744,7 @@ as <b>tan</b> of the input <b>u</b>:
 </p>
 
 </HTML>
-")       );
+"));
 
       equation
         y = Modelica.Math.tan(u);
@@ -1813,7 +1840,7 @@ Otherwise an error occurs.
 </p>
 
 </HTML>
-")       );
+"));
 
       equation
         y = Modelica.Math.asin(u);
@@ -1905,7 +1932,7 @@ Otherwise an error occurs.
 </p>
 
 </HTML>
-")       );
+"));
       equation
         y = Modelica.Math.acos(u);
       end Acos;
@@ -1997,7 +2024,7 @@ This blocks computes the output <b>y</b> as the
 </p>
 
 </HTML>
-")       );
+"));
       equation
         y = Modelica.Math.atan(u);
       end Atan;
@@ -2109,7 +2136,7 @@ block <b>Atan</b> gives a solution in the range
 </p>
 
 </HTML>
-")       );
+"));
       equation
         y = Modelica.Math.atan2(u1, u2);
       end Atan2;
@@ -2201,7 +2228,7 @@ This blocks computes the output <b>y</b> as the
 </p>
 
 </HTML>
-")       );
+"));
 
       equation
         y = Modelica.Math.sinh(u);
@@ -2294,7 +2321,7 @@ This blocks computes the output <b>y</b> as the
 </p>
 
 </HTML>
-")       );
+"));
       equation
         y = Modelica.Math.cosh(u);
       end Cosh;
@@ -2386,7 +2413,7 @@ This blocks computes the output <b>y</b> as the
 </p>
 
 </HTML>
-")       );
+"));
       equation
         y = Modelica.Math.tanh(u);
       end Tanh;
@@ -2476,7 +2503,7 @@ This blocks computes the output <b>y</b> as the
 </p>
 
 </HTML>
-")       );
+"));
 
       equation
         y = Modelica.Math.exp(u);
@@ -2575,7 +2602,7 @@ zero or negative.
 </p>
 
 </HTML>
-")       );
+"));
       equation
         y = Modelica.Math.log(u);
       end Log;
@@ -2673,7 +2700,7 @@ zero or negative.
 </p>
 
 </HTML>
-")       );
+"));
       equation
         y = Modelica.Math.log10(u);
       end Log10;
@@ -2763,7 +2790,6 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
             rotation=0)));
 
     annotation (
-      
       Documentation(info="<html>
 <p>
 This block computes the output <b>y</b>
@@ -2812,7 +2838,6 @@ and <b>realTrue</b> and <b>realFalse</b> are parameters.
             rotation=0)));
 
     annotation (
-      
       Documentation(info="<html>
 <p>
 This block computes the output <b>y</b>
@@ -2860,7 +2885,6 @@ and <b>integerTrue</b> and <b>integerFalse</b> are parameters.
       "Output signal y is true, if input u >= threshold";
 
     annotation (
-      
       Documentation(info="<html>
 <p>
 This block computes the Boolean output <b>y</b>
@@ -2910,7 +2934,6 @@ where <b>threshold</b> is a parameter.
       "Output signal y is true, if input u >= threshold";
 
     annotation (
-      
       Documentation(info="<html>
 <p>
 This block computes the Boolean output <b>y</b>
