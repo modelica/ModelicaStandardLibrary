@@ -10,7 +10,7 @@ user interface when the type is used as parameter in a declaration.
 </p>
 </HTML>"));
 
-  type Axis = Modelica.Icons.TypeReal[3](each unit="1")
+  type Axis = Modelica.Icons.TypeReal[3](each final unit="1")
     "Axis vector with choices for menus"                                      annotation (
     preferedView="text",
     Evaluate=true,

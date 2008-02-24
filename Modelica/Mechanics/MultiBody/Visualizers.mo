@@ -753,7 +753,7 @@ parameter menu.
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(group="if animation = true", enable=animation));
 
-    Modelica.Blocks.Interfaces.RealInput r_head[3]
+    Modelica.Blocks.Interfaces.RealInput r_head[3](each final quantity="Position", each final unit="m")
       "Position vector from origin of frame_a to head of arrow, resolved in frame_a"
       annotation (Placement(transformation(
           origin={0,-120},
@@ -1095,35 +1095,35 @@ library (will be replaced by a color editor).
       input SI.Position r_shape[3]={0,0,0}
         "Position vector from origin of object frame to shape origin, resolved in object frame"
                                                                                                 annotation(Dialog);
-      input Real lengthDirection[3]={1,0,0}
+      input Real lengthDirection[3](each final unit="1")={1,0,0}
         "Vector in length direction, resolved in object frame"  annotation(Dialog);
-      input Real widthDirection[3]={0,1,0}
+      input Real widthDirection[3](each final unit="1")={0,1,0}
         "Vector in width direction, resolved in object frame"  annotation(Dialog);
       input SI.Length length=0 "Length of visual object"  annotation(Dialog);
       input SI.Length width=0 "Width of visual object"  annotation(Dialog);
       input SI.Length height=0 "Height of visual object"  annotation(Dialog);
       input Types.ShapeExtra extra=0.0
         "Additional size data for some of the shape types"                                 annotation(Dialog);
-      input Real color[3]={255,0,0} "Color of shape"            annotation(Dialog);
+      input Integer color[3]={255,0,0} "Color of shape"            annotation(Dialog);
       input Types.SpecularCoefficient specularCoefficient = 0.7
         "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog);
       // Real rxry[3, 2];
     protected
-      Real abs_n_x=Modelica.Math.Vectors.length(
+      Real abs_n_x(final unit="1")=Modelica.Math.Vectors.length(
                                  lengthDirection) annotation (HideResult=true);
-      Real e_x[3]=noEvent(if abs_n_x < 1.e-10 then {1,0,0} else lengthDirection
+      Real e_x[3](each final unit="1")=noEvent(if abs_n_x < 1.e-10 then {1,0,0} else lengthDirection
           /abs_n_x) annotation (HideResult=true);
-      Real n_z_aux[3]=cross(e_x, widthDirection) annotation (HideResult=true);
-      Real e_y[3]=noEvent(cross(Modelica.Math.Vectors.normalize(
+      Real n_z_aux[3](each final unit="1")=cross(e_x, widthDirection) annotation (HideResult=true);
+      Real e_y[3](each final unit="1")=noEvent(cross(Modelica.Math.Vectors.normalize(
                                                  cross(e_x, if n_z_aux*n_z_aux
            > 1.0e-6 then widthDirection else (if abs(e_x[1]) > 1.0e-6 then {0,1,
           0} else {1,0,0}))), e_x)) annotation (HideResult=true);
       output Real Form annotation (HideResult=false);
     public
-      output Real rxvisobj[3]
+      output Real rxvisobj[3](each final unit="1")
         "x-axis unit vector of shape, resolved in world frame" 
         annotation (HideResult=false);
-      output Real ryvisobj[3]
+      output Real ryvisobj[3](each final unit="1")
         "y-axis unit vector of shape, resolved in world frame" 
         annotation (HideResult=false);
       output SI.Position rvisobj[3]
@@ -1300,10 +1300,10 @@ model where a <b>Shape</b> instance is used, e.g., in the form
       input SI.Position r_lines[3]={0,0,0}
         "Position vector from origin of frame_a to the origin of the 'lines' frame, resolved in frame_a"
         annotation (Dialog(group="if animation = true", enable=animation));
-      input Real n_x[3]={1,0,0}
+      input Real n_x[3](each final unit="1")={1,0,0}
         "Vector in direction of x-axis of 'lines' frame, resolved in frame_a." 
         annotation (Dialog(group="if animation = true", enable=animation));
-      input Real n_y[3]={0,1,0}
+      input Real n_y[3](each final unit="1")={0,1,0}
         "Vector in direction of y-axis of 'lines' frame, resolved in frame_a." 
         annotation (Dialog(group="if animation = true", enable=animation));
       input MultiBody.Types.Color color={0,128,255} " Color of cylinders" 
@@ -1404,10 +1404,10 @@ The diameter and color of all line cylinders are identical.
       input SI.Position r_lines[3]={0,0,0}
         "Position vector from origin of object frame to the origin of 'lines' frame, resolved in object frame"
          annotation(Dialog);
-      input Real n_x[3]={1,0,0}
+      input Real n_x[3](each final unit="1")={1,0,0}
         "Vector in direction of x-axis of 'lines' frame, resolved in object frame"
          annotation(Dialog);
-      input Real n_y[3]={0,1,0}
+      input Real n_y[3](each final unit="1")={0,1,0}
         "Vector in direction of y-axis of 'lines' frame, resolved in object frame"
        annotation(Dialog);
       input SI.Position lines[:, 2, 2]=zeros(0, 2, 2)
