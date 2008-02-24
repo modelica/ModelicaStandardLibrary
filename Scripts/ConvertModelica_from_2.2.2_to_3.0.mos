@@ -856,6 +856,15 @@ convertModifiers({"Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic"},
 convertModifiers({"Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic"},
                  {"cardinality(bearing)=1"},{"useAxisFlange=true"});
 
+convertClassIf("Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint","axisTorqueBalance","false",
+               "Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint");
+convertClassIf("Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint","axisTorqueBalance","true",
+               "ObsoleteModelica3.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint");
+convertClassIf("Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint","axisForceBalance","false",
+               "Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint");
+convertClassIf("Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint","axisForceBalance","true",
+               "ObsoleteModelica3.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint");
+
 
 // Sensors
 convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.CutForce"},
