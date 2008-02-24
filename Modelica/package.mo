@@ -1,6 +1,6 @@
 within ;
 package Modelica "Modelica Standard Library"
-extends Icons.Library;
+extends Icons.Library; 
 
 
 annotation(preferedView="info",
@@ -13,7 +13,7 @@ annotation(preferedView="info",
     autolayout=1),
   version="2.2.2",
   versionBuild="631",
-  versionDate="2007-09-16",
+  versionDate="$Date::                            $",
   conversion(
     from(version="1.6",
          ModelicaAdditions(version="1.5"),
