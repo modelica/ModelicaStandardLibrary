@@ -2252,7 +2252,7 @@ November 3-4, 2003, pp. 149-158</p>
 
     protected
     outer Modelica.Mechanics.MultiBody.World world;
-    parameter Real e[3]=Modelica.Math.Vectors.normalize(
+    parameter Real e[3](each final unit="1")=Modelica.Math.Vectors.normalize(
                                          n)
         "Unit vector in direction of rotor axis, resolved in frame_a";
     parameter SI.Inertia nJ[3]=J*e;
@@ -2299,7 +2299,7 @@ November 3-4, 2003, pp. 149-158</p>
 
   protected
     outer Modelica.Mechanics.MultiBody.World world;
-    parameter Real e[3]=Modelica.Math.Vectors.normalize(
+    parameter Real e[3](each final unit="1")=Modelica.Math.Vectors.normalize(
                                          n)
       "Unit vector in direction of rotor axis, resolved in frame_a";
     Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape cylinder(
@@ -2451,9 +2451,9 @@ November 3-4, 2003, pp. 149-158</p>
 
   protected
     outer World world;
-    parameter Real e_a[3]=Modelica.Math.Vectors.normalize(              n_a)
+    parameter Real e_a[3](each final unit="1")=Modelica.Math.Vectors.normalize(              n_a)
       "Unit vector in direction of flange_a rotation axis";
-    parameter Real e_b[3]=Modelica.Math.Vectors.normalize(              n_b)
+    parameter Real e_b[3](each final unit="1")=Modelica.Math.Vectors.normalize(              n_b)
       "Unit vector in direction of flange_b rotation axis";
     encapsulated model Housing
       import Modelica;
