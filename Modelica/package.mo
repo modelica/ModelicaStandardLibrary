@@ -597,6 +597,7 @@ that can lead to wrong simulation results):
                         movement of a multi-body system, but only the constraint torques
                         are sometimes not correct. </td> 
   </tr>
+
   <tr><td colspan=\"2\"><b>Mechanics.Rotational.</b></td></tr>
   <tr><td valign=\"top\"> LinearSpeedDependentTorque<br>
                         QuadraticSpeedDependentTorque<br>
@@ -631,6 +632,11 @@ units are wrong or errors in documentation):
   <tr><td colspan=\"2\"><b>Blocks.Tables.</b></td></tr>
   <tr><td valign=\"top\"> CombiTable2D</td>
       <td valign=\"top\"> Documentation improved and \"model\" changed to \"block\"</td> 
+  </tr>
+  <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Types</b></td></tr>
+  <tr><td valign=\"top\"> Axis </td>
+      <td valign=\"top\"> Added unit=\"1\", since in Dymola 7 unit propagation sometimes leads to
+                        warnings otherwise.</td> 
   </tr>
 </table>
                                
