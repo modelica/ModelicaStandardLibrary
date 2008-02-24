@@ -1312,6 +1312,739 @@ with the blocks of package Modelica.Blocks.
         end PartialCutForceSensor;
       end Interfaces;
 
+      package Joints
+        package Internal
+          model RevoluteWithLengthConstraint
+            "Obsolete model. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint"
+
+            import SI = Modelica.SIunits;
+            import Cv = Modelica.SIunits.Conversions;
+            extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
+            extends ObsoleteModelica3.Icons.ObsoleteModel;
+            Modelica.Mechanics.Rotational.Interfaces.Flange_a axis
+              "1-dim. rotational flange that drives the joint" 
+              annotation (Placement(transformation(extent={{10,90},{-10,110}}, rotation=0)));
+            Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing
+              "1-dim. rotational flange of the drive bearing" 
+              annotation (Placement(transformation(extent={{-50,90},{-70,110}}, rotation=
+                      0)));
+
+            Modelica.Blocks.Interfaces.RealInput position_a[3]
+              "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint"
+              annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
+                    rotation=0)));
+            Modelica.Blocks.Interfaces.RealInput position_b[3]
+              "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint"
+              annotation (Placement(transformation(extent={{140,-80},{100,-40}}, rotation=
+                     0)));
+
+            parameter Boolean animation=true
+              "= true, if animation shall be enabled";
+            parameter SI.Position lengthConstraint=1
+              "Fixed length of length constraint";
+            parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1}
+              "Axis of rotation resolved in frame_a (= same as in frame_b)" 
+              annotation (Evaluate=true);
+            parameter Cv.NonSIunits.Angle_deg phi_offset=0
+              "Relative angle offset (angle = phi + from_deg(phi_offset))";
+            parameter Cv.NonSIunits.Angle_deg phi_guess=0
+              "Select the configuration such that at initial time |phi - from_deg(phi_guess)|is minimal";
+            parameter SI.Distance cylinderLength=world.defaultJointLength
+              "Length of cylinder representing the joint axis" 
+              annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+            parameter SI.Distance cylinderDiameter=world.defaultJointWidth
+              "Diameter of cylinder representing the joint axis" 
+              annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+            input Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
+              "Color of cylinder representing the joint axis" 
+              annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+            input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
+              specularCoefficient=world.defaultSpecularCoefficient
+              "Reflection of ambient light (= 0: light is completely absorbed)"
+              annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+
+            parameter Boolean axisTorqueBalance=true
+              "= true, if torque balance of flange axis with the frame_b connector (axis.tau = -e*frame_b.t) shall be defined. Otherwise this equation has to be provided outside of this joint"
+              annotation (Dialog(tab="Advanced"));
+            final parameter Boolean positiveBranch(fixed=false)
+              "Based on phi_guess, selection of one of the two solutions of the non-linear constraint equation";
+            final parameter Real e[3](each final unit="1")=Modelica.Math.Vectors.normalize(              n)
+              "Unit vector in direction of rotation axis, resolved in frame_a";
+
+            SI.Angle phi "Rotation angle of revolute joint";
+            Modelica.Mechanics.MultiBody.Frames.Orientation R_rel
+              "Relative orientation object from frame_a to frame_b";
+            SI.Angle angle
+              "= phi + from_deg(phi_offset) (relative rotation angle between frame_a and frame_b)";
+            SI.Torque tau "= axis.tau (driving torque in the axis)";
+
+            annotation (
+              structurallyIncomplete,
+              preferedView="info",
+              __Dymola_obsolete="Obsolete model that is not balanced. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint",
+              Window(
+                x=0.05,
+                y=0.09,
+                width=0.65,
+                height=0.69),
+              Icon(coordinateSystem(
+                  preserveAspectRatio=false,
+                  extent={{-100,-100},{100,100}},
+                  grid={1,1}), graphics={
+                  Rectangle(
+                    extent={{-30,10},{10,-10}},
+                    lineColor={0,0,0},
+                    fillColor={192,192,192},
+                    fillPattern=FillPattern.Solid),
+                  Rectangle(
+                    extent={{-100,-60},{-30,60}},
+                    lineColor={0,0,0},
+                    fillPattern=FillPattern.HorizontalCylinder,
+                    fillColor={192,192,192}),
+                  Rectangle(
+                    extent={{30,-60},{100,60}},
+                    lineColor={0,0,0},
+                    fillPattern=FillPattern.HorizontalCylinder,
+                    fillColor={192,192,192}),
+                  Text(extent={{-139,-168},{137,-111}}, textString="%name"),
+                  Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}),
+                  Rectangle(extent={{30,60},{100,-60}}, lineColor={0,0,0}),
+                  Text(
+                    extent={{-142,-108},{147,-69}},
+                    lineColor={0,0,0},
+                    textString="n=%n"),
+                  Line(points={{-60,60},{-60,90}}, color={0,0,0}),
+                  Line(points={{-20,70},{-60,70}}, color={0,0,0}),
+                  Line(points={{-20,80},{-20,60}}, color={0,0,0}),
+                  Line(points={{20,80},{20,60}}, color={0,0,0}),
+                  Line(points={{20,70},{41,70}}, color={0,0,0}),
+                  Polygon(
+                    points={{-9,30},{10,30},{30,50},{-29,50},{-9,30}},
+                    lineColor={0,0,0},
+                    fillColor={192,192,192},
+                    fillPattern=FillPattern.Solid),
+                  Polygon(
+                    points={{10,30},{30,50},{30,-51},{10,-31},{10,30}},
+                    lineColor={0,0,0},
+                    fillColor={192,192,192},
+                    fillPattern=FillPattern.Solid),
+                  Rectangle(
+                    extent={{-10,90},{10,50}},
+                    lineColor={0,0,0},
+                    fillPattern=FillPattern.VerticalCylinder,
+                    fillColor={192,192,192})}),
+              Diagram(coordinateSystem(
+                  preserveAspectRatio=false,
+                  extent={{-100,-100},{100,100}},
+                  grid={1,1}), graphics={
+                  Rectangle(
+                    extent={{-100,-60},{-30,60}},
+                    lineColor={0,0,0},
+                    fillPattern=FillPattern.HorizontalCylinder,
+                    fillColor={192,192,192}),
+                  Rectangle(
+                    extent={{-30,10},{10,-10}},
+                    lineColor={0,0,0},
+                    fillColor={192,192,192},
+                    fillPattern=FillPattern.Solid),
+                  Rectangle(
+                    extent={{30,-60},{100,60}},
+                    lineColor={0,0,0},
+                    fillPattern=FillPattern.HorizontalCylinder,
+                    fillColor={192,192,192}),
+                  Line(points={{-60,60},{-60,96}}, color={0,0,0}),
+                  Line(points={{-20,70},{-60,70}}, color={0,0,0}),
+                  Line(points={{-20,80},{-20,60}}, color={0,0,0}),
+                  Line(points={{20,80},{20,60}}, color={0,0,0}),
+                  Line(points={{20,70},{41,70}}, color={0,0,0}),
+                  Polygon(
+                    points={{-9,30},{10,30},{30,50},{-29,50},{-9,30}},
+                    lineColor={0,0,0},
+                    fillColor={192,192,192},
+                    fillPattern=FillPattern.Solid),
+                  Polygon(
+                    points={{10,30},{30,50},{30,-51},{10,-31},{10,30}},
+                    lineColor={0,0,0},
+                    fillColor={192,192,192},
+                    fillPattern=FillPattern.Solid),
+                  Rectangle(
+                    extent={{-10,50},{10,100}},
+                    lineColor={0,0,0},
+                    fillPattern=FillPattern.VerticalCylinder,
+                    fillColor={192,192,192})}),
+              Documentation(info="<HTML>
+<p>
+Joint where frame_b rotates around axis n which is fixed in frame_a.
+The two frames coincide when \"phi + phi_offset = 0\", where
+\"phi_offset\" is a parameter with a zero default
+and \"phi\" is the rotation angle.
+</p>
+<p>
+This variant of the revolute joint is designed to work together
+with a length constraint in a kinematic loop. This means that the
+angle of the revolute joint, phi, is computed such that the
+length constraint is fulfilled.
+</p>
+<p>
+<b>Usually, this joint should not be used by a user of the MultiBody
+library. It is only provided to built-up the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXYZ
+joints.</b>
+</p>
+</HTML>
+"),           uses(Modelica(version="3.0")));
+
+          protected
+            SI.Position r_a[3]=position_a
+              "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint";
+            SI.Position r_b[3]=position_b
+              "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint";
+            Real e_r_a "Projection of r_a on e";
+            Real e_r_b "Projection of r_b on e";
+            Real A "Coefficient A of equation: A*cos(phi) + B*sin(phi) + C = 0";
+            Real B "Coefficient B of equation: A*cos(phi) + B*sin(phi) + C = 0";
+            Real C "Coefficient C of equation: A*cos(phi) + B*sin(phi) + C = 0";
+            Real k1 "Constant of quadratic equation";
+            Real k2 "Constant of quadratic equation";
+            Real k1a(start=1);
+            Real k1b;
+            Real kcos_angle "= k1*cos(angle)";
+            Real ksin_angle "= k1*sin(angle)";
+
+            Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape cylinder(
+              shapeType="cylinder",
+              color=cylinderColor,
+              specularCoefficient=specularCoefficient,
+              length=cylinderLength,
+              width=cylinderDiameter,
+              height=cylinderDiameter,
+              lengthDirection=e,
+              widthDirection={0,1,0},
+              r_shape=-e*(cylinderLength/2),
+              r=frame_a.r_0,
+              R=frame_a.R) if world.enableAnimation and animation;
+
+            function selectBranch
+              "Determine branch which is closest to initial angle=0"
+
+              import Modelica.Math.*;
+              input SI.Length L "Length of length constraint";
+              input Real e[3](each final unit="1")
+                "Unit vector along axis of rotation, resolved in frame_a (= same in frame_b)";
+              input SI.Angle angle_guess
+                "Select the configuration such that at initial time |angle-angle_guess|is minimal (angle=0: frame_a and frame_b coincide)";
+              input SI.Position r_a[3]
+                "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint";
+              input SI.Position r_b[3]
+                "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint";
+              output Boolean positiveBranch "Branch of the initial solution";
+            protected
+              Real e_r_a "Projection of r_a on e";
+              Real e_r_b "Projection of r_b on e";
+              Real A
+                "Coefficient A of equation: A*cos(phi) + B*sin(phi) + C = 0";
+              Real B
+                "Coefficient B of equation: A*cos(phi) + B*sin(phi) + C = 0";
+              Real C
+                "Coefficient C of equation: A*cos(phi) + B*sin(phi) + C = 0";
+              Real k1 "Constant of quadratic equation";
+              Real k2 "Constant of quadratic equation";
+              Real kcos1 "k1*cos(angle1)";
+              Real ksin1 "k1*sin(angle1)";
+              Real kcos2 "k2*cos(angle2)";
+              Real ksin2 "k2*sin(angle2)";
+              SI.Angle angle1 "solution 1 of nonlinear equation";
+              SI.Angle angle2 "solution 2 of nonlinear equation";
+            algorithm
+              /* The position vector r_rel from frame_a to frame_b of the length constraint
+       element, resolved in frame_b of the revolute joint is given by
+       (T_rel is the planar transformation matrix from frame_a to frame_b of
+        the revolute joint):
+          r_rel = r_b - T_rel*r_a
+       The length constraint can therefore be formulated as:
+          r_rel*r_rel = L*L
+       with
+          (r_b - T_rel*r_a)*(r_b - T_rel*r_a)
+             = r_b*r_b - 2*r_b*T_rel*r_a + r_a*transpose(T_rel)*T_rel*r_a
+             = r_b*r_b + r_a*r_a - 2*r_b*T_rel*r_a
+       follows
+          (1) 0 = r_a*r_a + r_b*r_b - 2*r_b*T_rel*r_a - L*L
+       The vectors r_a, r_b and parameter L are NOT a function of
+       the angle of the revolute joint. Since T_rel = T_rel(angle) is a function
+       of the unknown angle of the revolute joint, this is a non-linear
+       equation in this angle.
+          T_rel = [e]*tranpose([e]) + (identity(3) - [e]*transpose([e]))*cos(angle)
+                  - skew(e)*sin(angle);
+       with
+          r_b*T_rel*r_a
+             = r_b*(e*(e*r_a) + (r_a - e*(e*r_a))*cos(angle) - cross(e,r_a)*sin(angle)
+             = (e*r_b)*(e*r_a) + (r_b*r_a - (e*r_b)*(e*r_a))*cos(angle) - r_b*cross(e,r_a)*sin(angle)
+       follows for the constraint equation (1)
+          (2) 0 = r_a*r_a + r_b*r_b - L*L
+                  - 2*(e*r_b)*(e*r_a)
+                  - 2*(r_b*r_a - (e*r_b)*(e*r_a))*cos(angle)
+                  + 2*r_b*cross(e,r_a)*sin(angle)
+       or
+          (3) A*cos(angle) + B*sin(angle) + C = 0
+       with
+              A = -2*(r_b*r_a - (e*r_b)*(e*r_a))
+              B = 2*r_b*cross(e,r_a)
+              C = r_a*r_a + r_b*r_b - L*L - 2*(e*r_b)*(e*r_a)
+       Equation (3) is solved by computing sin(angle) and cos(angle)
+       independently from each other. This allows to compute
+       angle in the range: -180 deg <= angle <= 180 deg
+    */
+              e_r_a := e*r_a;
+              e_r_b := e*r_b;
+              A := -2*(r_b*r_a - e_r_b*e_r_a);
+              B := 2*r_b*cross(e, r_a);
+              C := r_a*r_a + r_b*r_b - L*L - 2*e_r_b*e_r_a;
+              k1 := A*A + B*B;
+              k2 := sqrt(k1 - C*C);
+
+              kcos1 := -A*C + B*k2;
+              ksin1 := -B*C - A*k2;
+              angle1 := atan2(ksin1, kcos1);
+
+              kcos2 := -A*C - B*k2;
+              ksin2 := -B*C + A*k2;
+              angle2 := atan2(ksin2, kcos2);
+
+              if abs(angle1 - angle_guess) <= abs(angle2 - angle_guess) then
+                positiveBranch := true;
+              else
+                positiveBranch := false;
+              end if;
+            end selectBranch;
+          initial equation
+            positiveBranch = selectBranch(lengthConstraint, e, Cv.from_deg(phi_offset
+               + phi_guess), r_a, r_b);
+          equation
+            Connections.branch(frame_a.R, frame_b.R);
+            axis.tau = tau;
+            axis.phi = phi;
+            bearing.phi = 0;
+
+            angle = Cv.from_deg(phi_offset) + phi;
+
+            // transform kinematic quantities from frame_a to frame_b
+            frame_b.r_0 = frame_a.r_0;
+
+            R_rel = Modelica.Mechanics.MultiBody.Frames.planarRotation(
+              e,
+              angle,
+              der(angle));
+            frame_b.R = Modelica.Mechanics.MultiBody.Frames.absoluteRotation(frame_a.R,
+              R_rel);
+
+            // Transform the force and torque acting at frame_b to frame_a
+            zeros(3) = frame_a.f + Modelica.Mechanics.MultiBody.Frames.resolve1(R_rel,
+              frame_b.f);
+            zeros(3) = frame_a.t + Modelica.Mechanics.MultiBody.Frames.resolve1(R_rel,
+              frame_b.t);
+
+            if axisTorqueBalance then
+              /* Note, if axisTorqueBalance is false, the force in the
+       length constraint must be calculated such that the driving
+       Torque in direction of the rotation axis is:
+          axis.tau = -e*frame_b.t;
+       If axisTorqueBalance=true, this equation is provided here.
+       As a consequence, the force in the length constraint and the second
+       derivative of 'angle' will be part of a linear algebraic system of
+       equations (otherwise, it might be possible to remove this force
+       from the linear system).
+    */
+              tau = -e*frame_b.t;
+            end if;
+
+            // Compute rotation angle (details, see function "selectBranch")
+            e_r_a = e*r_a;
+            e_r_b = e*r_b;
+            A = -2*(r_b*r_a - e_r_b*e_r_a);
+            B = 2*r_b*cross(e, r_a);
+            C = r_a*r_a + r_b*r_b - lengthConstraint*lengthConstraint - 2*e_r_b*e_r_a;
+            k1 = A*A + B*B;
+            k1a = k1 - C*C;
+
+            assert(k1a > 1.e-10, "
+Singular position of loop (either no or two analytic solutions;
+the mechanism has lost one-degree-of freedom in this position).
+Try first to use another Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXXX component.
+In most cases it is best that the joints outside of the JointXXX
+component are revolute and NOT prismatic joints. If this also
+lead to singular positions, it could be that this kinematic loop
+cannot be solved analytically. In this case you have to build
+up the loop with basic joints (NO aggregation JointXXX components)
+and rely on dynamic state selection, i.e., during simulation
+the states will be dynamically selected in such a way that in no
+position a degree of freedom is lost.
+");
+
+            k1b = Modelica.Mechanics.MultiBody.Frames.Internal.maxWithoutEvent(k1a,
+              1.0e-12);
+            k2 = sqrt(k1b);
+            kcos_angle = -A*C + (if positiveBranch then B else -B)*k2;
+            ksin_angle = -B*C + (if positiveBranch then -A else A)*k2;
+
+            angle = Modelica.Math.atan2(ksin_angle, kcos_angle);
+          end RevoluteWithLengthConstraint;
+
+          model PrismaticWithLengthConstraint
+            "Obsolete model. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint"
+
+            import SI = Modelica.SIunits;
+            import Cv = Modelica.SIunits.Conversions;
+            extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
+            extends ObsoleteModelica3.Icons.ObsoleteModel;
+            Modelica.Mechanics.Translational.Interfaces.Flange_a axis
+              "1-dim. translational flange that drives the joint" 
+              annotation (Placement(transformation(extent={{70,80},{90,60}}, rotation=0)));
+            Modelica.Mechanics.Translational.Interfaces.Flange_b bearing
+              "1-dim. translational flange of the drive bearing" 
+              annotation (Placement(transformation(extent={{-30,80},{-50,60}}, rotation=0)));
+            Modelica.Blocks.Interfaces.RealInput position_a[3]
+              "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint"
+              annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
+                    rotation=0)));
+            Modelica.Blocks.Interfaces.RealInput position_b[3]
+              "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint"
+              annotation (Placement(transformation(extent={{140,-80},{100,-40}}, rotation=
+                     0)));
+
+            parameter Boolean animation=true
+              "= true, if animation shall be enabled";
+            parameter SI.Position length=1 "Fixed length of length constraint";
+            parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0}
+              "Axis of translation resolved in frame_a (= same as in frame_b)" 
+              annotation (Evaluate=true);
+            parameter SI.Position s_offset=0
+              "Relative distance offset (distance between frame_a and frame_b = s(t) + s_offset)";
+            parameter SI.Position s_guess=0
+              "Select the configuration such that at initial time |s(t0)-s_guess|is minimal";
+            parameter Modelica.Mechanics.MultiBody.Types.Axis boxWidthDirection
+              =                                                                 {0,1,0}
+              "Vector in width direction of box, resolved in frame_a" 
+              annotation (Evaluate=true, Dialog(tab="Animation", group=
+                    "if animation = true", enable=animation));
+            parameter SI.Distance boxWidth=world.defaultJointWidth
+              "Width of prismatic joint box" 
+              annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+            parameter SI.Distance boxHeight=boxWidth
+              "Height of prismatic joint box" 
+              annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+            input Modelica.Mechanics.MultiBody.Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
+              "Color of prismatic joint box" 
+              annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+            input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
+              specularCoefficient=world.defaultSpecularCoefficient
+              "Reflection of ambient light (= 0: light is completely absorbed)"
+              annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+
+            parameter Boolean axisForceBalance=true
+              "= true, if force balance of flange axis with the frame_b connector (axis.f = -e*frame_b.f) shall be defined. Otherwise this equation has to be provided outside of this joint"
+              annotation (Dialog(tab="Advanced"));
+            final parameter Boolean positiveBranch(fixed=false)
+              "Selection of one of the two solutions of the non-linear constraint equation";
+            final parameter Real e[3](each final unit="1")=Modelica.Math.Vectors.normalize(              n)
+              "Unit vector in direction of translation axis, resolved in frame_a";
+            SI.Position s
+              "Relative distance between frame_a and frame_b along axis n = s + s_offset)";
+            SI.Position distance
+              "Relative distance between frame_a and frame_b along axis n";
+            SI.Position r_rel_a[3]
+              "Position vector from frame_a to frame_b resolved in frame_a";
+            SI.Force f "= axis.f (driving force in the axis)";
+
+            annotation (
+              structurallyIncomplete,
+              preferedView="info",
+              __Dymola_obsolete="Obsolete model that is not balanced. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint",
+              Window(
+                x=0.05,
+                y=0.09,
+                width=0.65,
+                height=0.69),
+              Icon(coordinateSystem(
+                  preserveAspectRatio=false,
+                  extent={{-100,-100},{100,100}},
+                  grid={1,1}), graphics={
+                  Rectangle(
+                    extent={{-30,-40},{100,30}},
+                    lineColor={0,0,255},
+                    pattern=LinePattern.None,
+                    fillColor={192,192,192},
+                    fillPattern=FillPattern.Solid),
+                  Rectangle(extent={{-30,40},{100,-40}}, lineColor={0,0,0}),
+                  Rectangle(
+                    extent={{-100,-60},{-30,50}},
+                    lineColor={0,0,255},
+                    pattern=LinePattern.None,
+                    fillColor={192,192,192},
+                    fillPattern=FillPattern.Solid),
+                  Rectangle(
+                    extent={{-100,50},{-30,60}},
+                    lineColor={0,0,255},
+                    pattern=LinePattern.None,
+                    fillColor={0,0,0},
+                    fillPattern=FillPattern.Solid),
+                  Rectangle(
+                    extent={{-30,30},{100,40}},
+                    lineColor={0,0,255},
+                    pattern=LinePattern.None,
+                    fillColor={0,0,0},
+                    fillPattern=FillPattern.Solid),
+                  Text(extent={{-136,-170},{140,-113}}, textString="%name"),
+                  Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}),
+                  Line(points={{100,-40},{100,-60}}),
+                  Rectangle(
+                    extent={{100,40},{90,80}},
+                    lineColor={0,0,0},
+                    fillColor={192,192,192},
+                    fillPattern=FillPattern.Solid),
+                  Text(
+                    extent={{-136,-116},{153,-77}},
+                    lineColor={0,0,0},
+                    textString="n=%n")}),
+              Diagram(coordinateSystem(
+                  preserveAspectRatio=false,
+                  extent={{-100,-100},{100,100}},
+                  grid={1,1}), graphics={
+                  Line(points={{-30,-50},{-30,50}}, color={0,0,0}),
+                  Line(points={{0,-67},{90,-67}}, color={128,128,128}),
+                  Text(
+                    extent={{31,-68},{68,-81}},
+                    lineColor={128,128,128},
+                    textString="s"),
+                  Line(points={{-100,-67},{0,-67}}, color={128,128,128}),
+                  Polygon(
+                    points={{-39,-64},{-29,-67},{-39,-70},{-39,-64}},
+                    lineColor={128,128,128},
+                    fillColor={128,128,128},
+                    fillPattern=FillPattern.Solid),
+                  Text(
+                    extent={{-77,-70},{-43,-85}},
+                    lineColor={128,128,128},
+                    textString="s_offset"),
+                  Line(points={{-100,-71},{-100,-51}}, color={128,128,128}),
+                  Line(points={{-30,-73},{-30,-33}}, color={128,128,128}),
+                  Line(points={{100,-70},{100,-30}}, color={128,128,128}),
+                  Polygon(
+                    points={{90,-64},{100,-67},{90,-70},{90,-64}},
+                    lineColor={128,128,128},
+                    fillColor={128,128,128},
+                    fillPattern=FillPattern.Solid),
+                  Rectangle(
+                    extent={{-100,50},{-30,60}},
+                    lineColor={0,0,255},
+                    pattern=LinePattern.None,
+                    fillColor={0,0,0},
+                    fillPattern=FillPattern.Solid),
+                  Rectangle(
+                    extent={{-100,-60},{-30,50}},
+                    lineColor={0,0,255},
+                    pattern=LinePattern.None,
+                    fillColor={192,192,192},
+                    fillPattern=FillPattern.Solid),
+                  Rectangle(extent={{-30,40},{100,-40}}, lineColor={0,0,0}),
+                  Rectangle(
+                    extent={{-30,-40},{100,30}},
+                    lineColor={0,0,255},
+                    pattern=LinePattern.None,
+                    fillColor={192,192,192},
+                    fillPattern=FillPattern.Solid),
+                  Rectangle(
+                    extent={{-30,30},{100,40}},
+                    lineColor={0,0,255},
+                    pattern=LinePattern.None,
+                    fillColor={0,0,0},
+                    fillPattern=FillPattern.Solid),
+                  Rectangle(extent={{-100,60},{-30,-60}}, lineColor={0,0,0}),
+                  Line(points={{100,-40},{100,-60}}),
+                  Text(extent={{42,91},{57,76}}, textString="f"),
+                  Line(points={{40,75},{70,75}}, color={0,0,255}),
+                  Polygon(
+                    points={{-21,78},{-31,75},{-21,72},{-21,78}},
+                    lineColor={0,0,255},
+                    fillColor={0,0,255},
+                    fillPattern=FillPattern.Solid),
+                  Line(points={{-8,75},{-31,75}}, color={0,0,255}),
+                  Text(extent={{-21,90},{-6,75}}, textString="f"),
+                  Polygon(
+                    points={{60,78},{70,75},{60,72},{60,78}},
+                    lineColor={0,0,255},
+                    fillColor={0,0,255},
+                    fillPattern=FillPattern.Solid),
+                  Line(points={{-30,64},{70,64}}, color={128,128,128}),
+                  Polygon(
+                    points={{60,67},{70,64},{60,61},{60,67}},
+                    lineColor={128,128,128},
+                    fillColor={128,128,128},
+                    fillPattern=FillPattern.Solid),
+                  Text(
+                    extent={{0,63},{37,50}},
+                    lineColor={128,128,128},
+                    textString="s"),
+                  Rectangle(
+                    extent={{100,40},{90,80}},
+                    lineColor={0,0,0},
+                    fillColor={192,192,192},
+                    fillPattern=FillPattern.Solid)}),
+              Documentation(info="<HTML>
+<p>
+Joint where frame_b is translated along axis n which is fixed in frame_a.
+The two frames coincide when \"s + s_offset = 0\", where
+\"s_offset\" is a parameter with a zero default
+and \"s\" is the relative distance.
+</p>
+<p>
+This variant of the prismatic joint is designed to work together
+with a length constraint in a kinematic loop. This means that the
+relative distance \"s\" of the joint is computed such that the
+length constraint is fulfilled.
+</p>
+<p>
+<b>Usually, this joint should not be used by a user of the MultiBody
+library. It is only provided to built-up the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXYZ
+joints.</b>
+</p>
+</HTML>
+"),           uses(Modelica(version="3.0")));
+
+          protected
+            SI.Position r_a[3]=position_a
+              "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint";
+            SI.Position r_b[3]=position_b
+              "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint";
+            Modelica.SIunits.Position rbra[3] "= rb - ra";
+            Real B "Coefficient B of equation: s*s + B*s + C = 0";
+            Real C "Coefficient C of equation: s*s + B*s + C = 0";
+            Real k1 "Constant of quadratic equation solution";
+            Real k2 "Constant of quadratic equation solution";
+            Real k1a(start=1);
+            Real k1b;
+
+            Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape box(
+              shapeType="box",
+              color=boxColor,
+              specularCoefficient=specularCoefficient,
+              length=if noEvent(abs(s + s_offset) > 1.e-6) then s + s_offset else 1.e-6,
+              width=boxWidth,
+              height=boxHeight,
+              lengthDirection=e,
+              widthDirection=boxWidthDirection,
+              r=frame_a.r_0,
+              R=frame_a.R) if world.enableAnimation and animation;
+
+            function selectBranch
+              "Determine branch which is closest to initial angle=0"
+              import Modelica.Math.*;
+              input SI.Length L "Length of length constraint";
+              input Real e[3](each final unit="1")
+                "Unit vector along axis of translation, resolved in frame_a (= same in frame_b)";
+              input SI.Position d_guess
+                "Select the configuration such that at initial time |d-d_guess|is minimal (d: distance between origin of frame_a and origin of frame_b)";
+              input SI.Position r_a[3]
+                "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of prismatic joint";
+              input SI.Position r_b[3]
+                "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of prismatic joint";
+              output Boolean positiveBranch "Branch of the initial solution";
+            protected
+              Modelica.SIunits.Position rbra[3] "= rb - ra";
+              Real B "Coefficient B of equation: d*d + B*d + C = 0";
+              Real C "Coefficient C of equation: d*d + B*d + C = 0";
+              Real k1 "Constant of quadratic equation solution";
+              Real k2 "Constant of quadratic equation solution";
+              Real d1 "solution 1 of quadratic equation";
+              Real d2 "solution 2 of quadratic equation";
+            algorithm
+              /* The position vector r_rel from frame_a to frame_b of the length constraint
+       element, resolved in frame_b of the prismatic joint (frame_a and frame_b
+       of the prismatic joint are parallel to each other) is given by:
+          r_rel = d*e + r_b - r_a
+       The length constraint can therefore be formulated as:
+          r_rel*r_rel = L*L
+       with
+          (d*e + r_b - r_a)*(d*e + r_b - r_a)
+                   = d*d + 2*d*e*(r_b - r_a) + (r_b - r_a)*(r_b - r_a)
+       follows
+          (1)  0 = d*d + d*2*e*(r_b - r_a) + (r_b - r_a)*(r_b - r_a) - L*L
+       The vectors r_a, r_b and parameter L are NOT a function of
+       the distance d of the prismatic joint. Therefore, (1) is a quadratic
+       equation in the single unknown "d":
+          (2) d*d + B*d + C = 0
+              with   B = 2*e*(r_b - r_a)
+                     C = (r_b - r_a)*(r_b - r_a) - L*L
+       The solution is
+          (3) d = - B/2 +/- sqrt(B*B/4 - C)
+    */
+              rbra := r_b - r_a;
+              B := 2*(e*rbra);
+              C := rbra*rbra - L*L;
+              k1 := B/2;
+              k2 := sqrt(k1*k1 - C);
+              d1 := -k1 + k2;
+              d2 := -k1 - k2;
+              if abs(d1 - d_guess) <= abs(d2 - d_guess) then
+                positiveBranch := true;
+              else
+                positiveBranch := false;
+              end if;
+            end selectBranch;
+          initial equation
+            positiveBranch = selectBranch(length, e, s_offset + s_guess, r_a, r_b);
+          equation
+            Connections.branch(frame_a.R, frame_b.R);
+            axis.f = f;
+            axis.s = s;
+            bearing.s = 0;
+            distance = s_offset + s;
+
+            // relationships of frame_a and frame_b quantities
+            r_rel_a = e*distance;
+            frame_b.r_0 = frame_a.r_0 + Modelica.Mechanics.MultiBody.Frames.resolve1(
+              frame_a.R, r_rel_a);
+            frame_b.R = frame_a.R;
+            zeros(3) = frame_a.f + frame_b.f;
+            zeros(3) = frame_a.t + frame_b.t + cross(r_rel_a, frame_b.f);
+
+            if axisForceBalance then
+              /* Note, if axisForceBalance is false, the force in the
+       length constraint must be calculated such that the driving
+       force in direction of the translation axis is:
+          axis.f = -e*frame_b.f;
+       If axisForceBalance=true, this equation is provided here.
+       As a consequence, the force in the length constraint will be
+       part of a linear algebraic system of equations (otherwise, it
+       might be possible to remove this force from the linear system).
+    */
+              f = -e*frame_b.f;
+            end if;
+
+            // Compute translational distance (details, see function "selectBranch")
+            rbra = r_b - r_a;
+            B = 2*(e*rbra);
+            C = rbra*rbra - length*length;
+            k1 = B/2;
+            k1a = k1*k1 - C;
+            assert(noEvent(k1a > 1.e-10), "
+Singular position of loop (either no or two analytic solutions;
+the mechanism has lost one-degree-of freedom in this position).
+Try first to use another Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXXX component.
+If this also lead to singular positions, it could be that this
+kinematic loop cannot be solved analytically with a fixed state
+selection. In this case you have to build up the loop with
+basic joints (NO aggregation JointXXX components) and rely on
+dynamic state selection, i.e., during simulation the states will
+be dynamically selected in such a way that in no position a
+degree of freedom is lost.
+");
+            k1b = Modelica.Mechanics.MultiBody.Frames.Internal.maxWithoutEvent(k1a,
+              1.0e-12);
+            k2 = sqrt(k1b);
+            distance = -k1 + (if positiveBranch then k2 else -k2);
+          end PrismaticWithLengthConstraint;
+        end Internal;
+      end Joints;
+
       package Sensors "Sensors to measure variables"
         model AbsoluteSensor
           "Obsolete model. Use instead Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor"
