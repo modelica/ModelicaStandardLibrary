@@ -3535,7 +3535,7 @@ even if advised of the possibility of such damage.
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
     Institut f&uuml;r Robotik und Mechatronik<br> 
-    Abteilung f&uuml;r Entwurfsorientierte Regelungstechnik<br>
+    Abteilung f&uuml;r Systemdynamik und Regelungstechnik<br>
     Postfach 1116<br>
     D-82230 Wessling<br>
     Germany<br>
@@ -3557,7 +3557,7 @@ is formally decided by voting of the Modelica Association members.
 </p>
 
 <p>
-The following library officers are assigned:
+The following library officers are currently assigned:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
@@ -3581,17 +3581,40 @@ The following library officers are assigned:
                         arsenal research, Vienna, Austria (Christian Kral)</td>
   </tr>
 
-  <tr><td valign=\"top\"> Icons <br>
-                        Math <br>
-                        Mechanics.MultiBody <br>
-                        Mechanics.Rotational <br>
-                        Mechanics.Translational </td>
+  <tr><td valign=\"top\"> Icons </td>
+      <td valign=\"top\"> Modelon AB, Lund, Sweden (Johan Andreasson) </td>
+  </tr>
+
+  <tr><td valign=\"top\"> Math </td>
       <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
                         (Martin Otter)</td>
   </tr>
 
+  <tr><td valign=\"top\"> Mechanics.MultiBody </td>
+      <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
+                        (Martin Otter),<br>
+                         Modelon AB, Lund, Sweden (Johan Andreasson) </td>
+  </tr>
+
+  <tr><td valign=\"top\"> Mechanics.Rotational </td>
+      <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
+                        (Martin Otter)<br>
+                        Anton Haumer, Consultant, St.Andrae-Woerdern, Austria,<br>
+                        arsenal research, Vienna, Austria (Christian Kral),<br>
+                        Modelon AB, Lund, Sweden (Johan Andreasson)</td>
+  </tr>
+
+  <tr><td valign=\"top\"> Mechanics.Translational </td>
+      <td valign=\"top\"> Anton Haumer, Consultant, St.Andrae-Woerdern, Austria,<br>
+                        arsenal research, Vienna, Austria (Christian Kral), <br>
+                        DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
+                        (Martin Otter)<br>
+                         Modelon AB, Lund, Sweden (Johan Andreasson)</td>
+  </tr>
+
+
   <tr><td valign=\"top\"> Media </td>
-      <td valign=\"top\"> Modelon AB, Lund, Sweden (H. Tummescheit) </td>
+      <td valign=\"top\"> Modelon AB, Lund, Sweden (Hubertus Tummescheit) </td>
   </tr>
 
   <tr><td valign=\"top\"> SIunits <br>
@@ -3607,7 +3630,8 @@ The following library officers are assigned:
 
   <tr><td valign=\"top\"> Utilities </td>
       <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
-                        (Martin Otter)</td>
+                        (Martin Otter)<br>
+                        Dynasim AB, Lund, Sweden (Hans Olsson)</td>
   </tr>
 </table>
 
@@ -3664,7 +3688,9 @@ of the Modelica package (many more people have contributed to the design):
            Modelica.Mechanics.Rotational<br>
            Modelica.Mechanics.Translational<br>
            Modelica.Thermal.FluidHeatFlow<br>
-           Conversion from 1.6 to 2.0</td>
+           Modelica.Thermal.HeatTransfer<br>
+           Conversion from 1.6 to 2.0<br>
+           Conversion from 2.2 to 3.0</td>
   </tr>
 
   <tr><td valign=\"top\"><b>Hans-Dieter Joos</b> </td
@@ -3689,7 +3715,8 @@ of the Modelica package (many more people have contributed to the design):
       <td valign=\"top\"> Modelica.Blocks<br>
            Modelica.Math.Matrices<br>
            Modelica.Utilities<br>
-           Conversion from 1.6 to 2.0</td>
+           Conversion from 1.6 to 2.0<br>
+           Conversion from 2.2 to 3.0</td>
   </tr>
   <tr><td valign=\"top\"><b>Martin Otter</b> </td
       <td valign=\"top\"> Institute of Robotics and Mechatronics<br>
@@ -3703,7 +3730,7 @@ of the Modelica package (many more people have contributed to the design):
            Modelica.Media<br>
            Modelica.SIunits<br>
            Modelica.StateGraph<br>
-           Modelica.Thermal<br>
+           Modelica.Thermal.HeatTransfer<br>
            Modelica.Utilities<br>
            ModelicaReference<br>
            Conversion from 1.6 to 2.0<br>
@@ -3741,12 +3768,12 @@ of the Modelica package (many more people have contributed to the design):
       <td valign=\"top\"> Emmeskay, Inc., Dearborn, MI, U.S.A, <br>
            (previously Ford Motor Company, Dearborn) </td>
       <td valign=\"top\"> Modelica.Media<br>
-           Modelica.Thermal</td>
+           Modelica.Thermal.HeatTransfer</td>
   </tr>
   <tr><td valign=\"top\"><b>Hubertus Tummescheit</b> </td
       <td valign=\"top\"> Modelon AB, Lund, Sweden </td>
       <td valign=\"top\"> Modelica.Media<br>
-           Modelica.Thermal</td>
+           Modelica.Thermal.HeatTransfer</td>
   </tr>
   <tr><td valign=\"top\"><b>Nico Walter</b> </td
       <td valign=\"top\"> Master thesis at HTWK Leipzig<br>
