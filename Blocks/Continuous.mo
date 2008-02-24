@@ -6,7 +6,6 @@ package Continuous "Library of continuous control blocks with internal states"
   extends Modelica.Icons.Library;
 
   annotation (
-    
     Documentation(info="<html>
 <p>
 This package contains basic <b>continuous</b> input/output blocks
@@ -93,6 +92,7 @@ for a 1-dim. rotational inertia controlled by a PI controller are that
 
 </html>
 "));
+
   block Integrator "Output the integral of the input signal"
     import Modelica.Blocks.Types.Init;
     parameter Real k=1 "Integrator gain";
@@ -109,7 +109,6 @@ for a 1-dim. rotational inertia controlled by a PI controller are that
     extends Interfaces.SISO(y(start=y_start));
 
     annotation (
-      
       Documentation(info="<html>
 <p>
 This blocks computes output <b>y</b> (element-wise) as
@@ -170,6 +169,7 @@ This is discussed in the description of package
             lineColor={0,0,0},
             textString="s"),
           Line(points={{-46,0},{46,0}}, color={0,0,0})}));
+
   initial equation
     if initType == Init.SteadyState then
        der(y) = 0;
@@ -197,7 +197,6 @@ This is discussed in the description of package
       annotation (Dialog(group="Initialization"));
     extends Interfaces.SISO(y(start=y_start));
     annotation (
-      
       Documentation(info="<html>
 <p>
 This blocks computes <b>y</b> (element-wise) as <i>integral</i>
@@ -269,6 +268,7 @@ to use <b>limitAtInit</b> = <b>false</b>.
             lineColor={0,0,0},
             textString="s"),
           Line(points={{4,0},{46,0}}, color={0,0,0})}));
+
   initial equation
     if initType == Init.SteadyState then
        der(y) = 0;
@@ -375,8 +375,7 @@ If k=0, the block reduces to y=0.
           Line(points={{-50,0},{50,0}}, color={0,0,0}),
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
-          Line(points={{60,0},{100,0}}, color={0,0,255})})
-      );
+          Line(points={{60,0},{100,0}}, color={0,0,255})}));
   protected
     parameter Boolean zeroGain = abs(k) < Modelica.Constants.eps;
   initial equation
@@ -480,8 +479,7 @@ Example:
           Line(points={{-50,0},{50,0}}, color={0,0,0}),
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
-          Line(points={{60,0},{100,0}}, color={0,0,255})})
-      );
+          Line(points={{60,0},{100,0}}, color={0,0,255})}));
   initial equation
     if initType == Init.SteadyState then
       der(y) = 0;
@@ -510,7 +508,6 @@ Example:
     extends Interfaces.SISO(y(start=y_start));
     output Real yd(start=yd_start) "Derivative of y";
     annotation (
-      
       Documentation(info="<HTML>
 <p>
 This blocks defines the transfer function between the input u and
@@ -614,6 +611,7 @@ Example:
             extent={{30,2},{58,-42}},
             lineColor={0,0,0},
             textString="+1")}));
+
   initial equation
     if initType == Init.SteadyState then
       der(y) = 0;
@@ -645,8 +643,7 @@ Example:
     extends Interfaces.SISO;
     output Real x(start=x_start) "State of block";
 
-    annotation (defaultComponentName="PI"
-      ,
+    annotation (defaultComponentName="PI",
       Documentation(info="
 <HTML>
 <p>
@@ -770,8 +767,7 @@ This is discussed in the description of package
       annotation(Dialog(enable=initType == Init.InitialOutput, group=
             "Initialization"));
 
-    annotation (defaultComponentName="PID"
-      ,
+    annotation (defaultComponentName="PID",
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -989,8 +985,7 @@ to compute u by an algebraic equation.
       annotation(Dialog(enable=initType == InitPID.InitialOutput, group=
             "Initialization"));
 
-    annotation (defaultComponentName="PID"
-      ,
+    annotation (defaultComponentName="PID",
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1322,7 +1317,6 @@ to use <b>limitAtInit</b> = <b>false</b>.
     parameter Real a_end = if a[end] > 100*Modelica.Constants.eps*sqrt(a*a) then a[end] else 1.0;
     Real x_scaled[size(x,1)] "Scaled vector x";
     annotation (
-      
       Documentation(info="<html>
 <p>
 This block defines the transfer function between the input
@@ -1336,8 +1330,13 @@ as (nb = dimension of b, na = dimension of a):
 </pre>
 <p>
 State variables <b>x</b> are defined according to <b>controller canonical</b>
-form. Initial values of the states can be set as start values of <b>x</b>.
-<p>
+form. Internally, vector <b>x</b> is scaled to improve the numerics (the states in versions before version 3.0 of the Modelica Standard Library have been not scaled). This scaling is
+not visible from the outside of this block because the non-scaled vector <b>x</b>
+is provided as output signal and the start value is with respect to the non-scaled
+vector <b>x</b>.
+Initial values of the states <b>x</b> can be set via parameter <b>x_start</b>.
+</p>
+
 <p>
 Example:
 </p>
@@ -1382,6 +1381,7 @@ results in the following transfer function:
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255})}));
+
   initial equation
     if initType == Init.SteadyState then
       der(x_scaled) = zeros(nx);
@@ -1427,7 +1427,6 @@ results in the following transfer function:
     extends Interfaces.MIMO(final nin=size(B, 2), final nout=size(C, 1));
     output Real x[size(A, 1)](start=x_start) "State vector";
     annotation (
-      
       Documentation(info="<HTML>
 <p>
 The State Space block defines the relation
@@ -1503,6 +1502,7 @@ results in the following equations:
             textString=" y=Cx+Du"),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255})}));
+
   protected
     parameter Integer nx = size(A, 1) "number of states";
     parameter Integer ny = size(C, 1) "number of outputs";
@@ -1624,19 +1624,29 @@ the model.
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255})}),
       Documentation(info="<html>
-<p>This block defines the transfer function between the input u
+<p>
+This block defines the transfer function between the input u
 and the output y as an n-th order low pass filter with <i>Butterworth</i>
 characteristics and cut-off frequency f. It is implemented as
-a series of second order filters and a first order filter.</p>
-<p>If transients at the simulation start shall be avoided the
-states x1 and xr need to be initialized with the start value
-of the input signal and the states x2 need to be initialized
-with zeros.</p>
-<pre>
-     y = PT21*PT22*...*PT2(n/2)*PT1 u
-</pre>
- 
-</HTML>
+a series of second order filters and a first order filter.
+Butterworth filters have the feature that the amplitude at the
+cut-off frequency f is 1/sqrt(2) (= 3 dB), i.e., they are 
+always \"normalized\". Step responses of the Butterworth filter of
+different orders are shown in the next figure:
+</p>
+
+<p>
+<img src=\"../Images/Blocks/Butterworth.png\">
+</p>
+
+<p>
+If transients at the simulation start shall be avoided, the filter
+should be initialized in steady state (e.g., using option
+initType=Modelica.Blocks.Types.Init.SteadyState).
+</p>
+
+
+</html>
 "));
   protected
     constant Real pi=Modelica.Constants.pi;
@@ -1720,6 +1730,8 @@ with zeros.</p>
 
     parameter Integer n=2 "Order of filter";
     parameter Modelica.SIunits.Frequency f(start=1) "Cut-off frequency";
+    parameter Boolean normalized = true
+      "= true, if amplitude at f_cut is 3 dB, otherwise unmodified filter";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
       "Type of initialization (1: no init, 2: steady state, 3: initial state, 4: initial output)"
                                                                                       annotation(Evaluate=true,
@@ -1779,7 +1791,7 @@ with zeros.</p>
           Text(
             extent={{-54,-6},{44,-56}},
             lineColor={0,0,0},
-            textString="(T s + 1)"),
+            textString="(s/w + 1)"),
           Text(
             extent={{38,-10},{58,-30}},
             lineColor={0,0,0},
@@ -1788,21 +1800,57 @@ with zeros.</p>
 <p>This block defines the transfer function between the
 input u and the output y
 as an n-th order filter with <i>critical damping</i>
-characteristics and cut-off frequency f=1/T. It is
-implemented as a series of first order filters.</p>
-<p>If transients at the simulation start shall be avoided
-the states x need to be initialized with the start value of
-the input.</p>
+characteristics and cut-off frequency f. It is
+implemented as a series of first order filters.
+This filter type is especially useful to filter the input of an
+inverse model, since the filter does not introduce any transients.
+</p>
+
+<p>
+If parameter <b>normalized</b> = <b>true</b> (default), the filter
+is normalized such that the amplitude of the filter transfer function
+at the cut-off frequency f is 1/sqrt(2) (= 3 dB). Otherwise, the filter
+is not normalized, i.e., it is unmodified. A normalized filter is usually
+much better for applications, since filters of different orders are
+\"comparable\", whereas non-normalized filters usually require to adapt the
+cut-off frequency, when the order of the filter is changed.
+Figures of the filter step responses are shown below.
+Note, in versions before version 3.0 of the Modelica Standard library,
+the CriticalDamping filter was provided only in non-normalzed form.
+</p>
+
+<p>If transients at the simulation start shall be avoided, the filter
+should be initialized in steady state (e.g., using option
+initType=Modelica.Blocks.Types.Init.SteadyState).
+</p>
+
+<p>
+The critical damping filter is defined as
+</p>
+
 <pre>
-               k
-     y = ------------- * u
-         (T * s + 1)^n
+    &alpha; = <b>if</b> normalized <b>then</b> <b>sqrt</b>(2^(1/n) - 1) <b>else</b> 1 // frequency correction factor
+    &omega; = 2*&pi;*f/&alpha;
+              1
+    y = ------------- * u
+         (s/w + 1)^n
+
 </pre>
  
-</HTML>
+<p>
+<img src=\"../Images/Blocks/CriticalDampingNormalized.png\">
+</p>
+
+<p>
+<img src=\"../Images/Blocks/CriticalDampingNonNormalized.png\">
+</p>
+
+</html>
 "));
   protected
-    parameter Real w=2*Modelica.Constants.pi*f;
+    parameter Real alpha=if normalized then sqrt(2^(1/n) - 1) else 1.0
+      "Frequency correction factor for normalized filter";
+    parameter Real w=2*Modelica.Constants.pi*f/alpha;
   initial equation
     if initType == Init.SteadyState then
       der(x) = zeros(n);

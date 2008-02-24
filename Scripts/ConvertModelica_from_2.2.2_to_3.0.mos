@@ -118,6 +118,9 @@ convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyBox"     ,{"density"}, 
 convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyCylinder",{"density"}, {"density=%density%*1000"});
 
 
+// --------- Modelica.Blocks.Continuous.CriticalDamping - introduce value for new parameter normalized
+convertModifiers("Modelica.Blocks.Continuous.CriticalDamping",fill("",0), {"normalized=false"});
+
 
 // --------- Modelica.Blocks - Change of start values ---------------------------------------------------
 convertModifiers("Modelica.Blocks.Continuous.TransferFunction",{"b={1}", "a={1,1}"}, {"b=%b%", "a=%a%"});
