@@ -62,36 +62,36 @@ equation
     annotation (Line(
       points={{-60,30},{-46,30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(revolute.frame_a, bar1.frame_b) 
     annotation (Line(
       points={{-12,30},{-26,30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(prismatic.frame_a, revolute.frame_b) 
     annotation (Line(
       points={{20,30},{8,30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(damper1.frame_a, bar1.frame_b) annotation (Line(
       points={{0,-10},{-18,-10},{-18,30},{-26,30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(damper1.frame_b, prismatic.frame_b) annotation (Line(
       points={{20,-10},{44,-10},{44,30},{40,30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(spring1.frame_a, bar1.frame_b) annotation (Line(
       points={{0,-36},{-18,-36},{-18,30},{-26,30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(spring1.frame_b, prismatic.frame_b) annotation (Line(
       points={{20,-36},{44,-36},{44,30},{40,30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(body1.frame_a, prismatic.frame_b) 
     annotation (Line(
       points={{62,30},{40,30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
 end PendulumWithSpringDamper;

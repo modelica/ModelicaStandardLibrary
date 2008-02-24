@@ -127,63 +127,63 @@ equation
   connect(world.frame_b, rev.frame_a) annotation (Line(
       points={{-74,-80},{-56,-80},{-56,-20}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(rod1.frame_a, rev.frame_b) 
     annotation (Line(
       points={{-56,20},{-56,0}},
       color={0,0,0},
-      thickness=2));
+      thickness=0.5));
   connect(rod1.frame_b, jointRRR1.frame_a) annotation (Line(
       points={{-56,40},{-56,50},{-20,50},{-20,20}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(rod2.frame_a, world.frame_b) 
     annotation (Line(
       points={{-50,-50},{-56,-50},{-56,-80},{-74,-80}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(rod2.frame_b, jointRRR1.frame_b) annotation (Line(
       points={{-30,-50},{-20,-50},{-20,-20}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(jointRRR1.frame_ia, body1.frame_a) annotation (Line(
       points={{3.55271e-015,16},{6,16},{6,50}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(rod3.frame_a, rod2.frame_b) 
     annotation (Line(
       points={{0,-50},{-30,-50}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(rod3.frame_b, jointRRR2.frame_b) annotation (Line(
       points={{20,-50},{30,-50},{30,-20}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(jointRRR2.frame_ia, body2.frame_a) annotation (Line(
       points={{50,16},{55,16},{55,51}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(jointRRR1.frame_im, jointRRR2.frame_a) annotation (Line(
       points={{0,-3.67394e-015},{12,-3.67394e-015},{12,25},{30,25},{30,20}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(rod3.frame_b, rod4.frame_a) 
     annotation (Line(
       points={{20,-50},{40,-50}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(rod4.frame_b, jointRRR3.frame_b) annotation (Line(
       points={{60,-50},{80,-50},{80,-20}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(jointRRR2.frame_im, jointRRR3.frame_a) annotation (Line(
       points={{50,-3.67394e-015},{60,-3.67394e-015},{60,26},{80,26},{80,20}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(jointRRR3.frame_ia, body3.frame_a) annotation (Line(
       points={{100,16},{108,16},{108,52}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(sine.y, position.phi_ref) annotation (Line(points={{-96,19},{-96,-10},
           {-92,-10}}, color={0,0,127}));
   connect(mounting1D.flange_b, position.support) annotation (Line(
@@ -193,7 +193,7 @@ equation
   connect(mounting1D.frame_a, world.frame_b) annotation (Line(
       points={{-90,-50},{-90,-57},{-70,-57},{-70,-80},{-74,-80}},
       color={95,95,95},
-      thickness=2,
+      thickness=0.5,
       smooth=Smooth.None));
   connect(position.flange, rev.axis) annotation (Line(
       points={{-70,-10},{-66,-10}},

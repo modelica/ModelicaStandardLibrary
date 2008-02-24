@@ -433,7 +433,7 @@ problems.
               lineColor={0,0,255}),
             Line(
               points={{-90,-28},{90,-28}},
-              thickness=2,
+              thickness=0.5,
               color={0,0,255})}),
         experiment(StopTime=1));
       Translational.Components.Fixed fixed 
@@ -1583,7 +1583,7 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
               points={{-80,32},{-58,32},{-43,2},{-13,62},{17,2},{47,62},{62,32},
                   {80,32}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(points={{-100,31},{-100,96}}, color={128,128,128}),
             Line(points={{100,29},{100,94}}, color={128,128,128}),
             Line(points={{-98,82},{100,82}}, color={128,128,128}),
@@ -1715,14 +1715,14 @@ where the different effects are visualized:
             Line(
               points={{-48,34},{-48,-46}},
               color={0,0,0},
-              thickness=4),
+              thickness=1),
             Line(points={{8,40},{8,2}}, color={0,0,0}),
             Line(points={{-2,0},{38,0},{38,44},{-2,44}}, color={0,0,0}),
             Line(points={{38,22},{72,22}}, color={0,0,0}),
             Line(
               points={{-12,-38},{-12,20}},
               color={0,0,0},
-              thickness=4),
+              thickness=1),
             Line(points={{-12,22},{8,22}}, color={0,0,0}),
             Line(points={{-12,-38},{-2,-38}}, color={0,0,0}),
             Line(points={{72,0},{90,0}}, color={0,127,0}),
@@ -1759,14 +1759,14 @@ where the different effects are visualized:
             Line(
               points={{-48,34},{-48,-46}},
               color={0,0,0},
-              thickness=4),
+              thickness=1),
             Line(points={{8,40},{8,2}}, color={0,0,0}),
             Line(points={{-2,0},{38,0},{38,44},{-2,44}}, color={0,0,0}),
             Line(points={{38,22},{72,22}}, color={0,0,0}),
             Line(
               points={{-12,-38},{-12,20}},
               color={0,0,0},
-              thickness=4),
+              thickness=1),
             Line(points={{-12,22},{8,22}}, color={0,0,0}),
             Line(points={{-12,-38},{-2,-38}}, color={0,0,0}),
             Line(points={{72,0},{98,0}}, color={0,127,0}),
@@ -2550,13 +2550,13 @@ between the stops.</i> </li>
               points={{-111,43},{-111,50}},
               color={0,0,0},
               pattern=LinePattern.Solid,
-              thickness=1,
+              thickness=0.25,
               arrow={Arrow.None,Arrow.None}),
             Line(
               points={{-151,49},{-113,49}},
               color={0,0,0},
               pattern=LinePattern.Solid,
-              thickness=1,
+              thickness=0.25,
               arrow={Arrow.None,Arrow.None}),
             Text(
               extent={{-149,51},{-126,60}},
@@ -2576,13 +2576,13 @@ between the stops.</i> </li>
               points={{124,39},{124,87}},
               color={0,0,0},
               pattern=LinePattern.Solid,
-              thickness=1,
+              thickness=0.25,
               arrow={Arrow.None,Arrow.None}),
             Line(
               points={{-19,78},{121,78}},
               color={0,0,0},
               pattern=LinePattern.Solid,
-              thickness=1,
+              thickness=0.25,
               arrow={Arrow.None,Arrow.None}),
             Text(
               extent={{-17,83},{6,92}},
@@ -2597,13 +2597,13 @@ between the stops.</i> </li>
               points={{5,26},{5,63}},
               color={0,0,0},
               pattern=LinePattern.Solid,
-              thickness=1,
+              thickness=0.25,
               arrow={Arrow.None,Arrow.None}),
             Line(
               points={{-77,58},{-1,58}},
               color={0,0,0},
               pattern=LinePattern.Solid,
-              thickness=1,
+              thickness=0.25,
               arrow={Arrow.None,Arrow.None}),
             Text(
               extent={{-75,60},{-38,71}},

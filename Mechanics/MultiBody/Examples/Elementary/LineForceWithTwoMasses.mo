@@ -152,63 +152,63 @@ equation
     annotation (Line(
       points={{18,30},{18,24},{32,24}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(world.frame_b, rod2.frame_a) annotation (Line(
       points={{-60,70},{-40,70},{-40,74}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(world.frame_b, rod1.frame_a) annotation (Line(
       points={{-60,70},{-40,70},{-40,64}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(rod2.frame_b, revolute1.frame_a) annotation (Line(
       points={{-40,94},{-40,98},{-28,98},{-28,70},{-20,70}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(revolute1.frame_b, bodyBox1.frame_a) 
     annotation (Line(
       points={{0,70},{20,70}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(bodyBox1.frame_b, jointUPS.frame_b) annotation (Line(
       points={{40,70},{46,70},{46,40},{20,40}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(body1.frame_a, jointUPS.frame_ia) 
     annotation (Line(
       points={{-14,24},{2,24},{2,30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(rod1.frame_b, jointUPS.frame_a) annotation (Line(
       points={{-40,44},{-40,40},{0,40}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(rod4.frame_b, revolute2.frame_a) annotation (Line(
       points={{-40,-6},{-40,-2},{-28,-2},{-28,-30},{-20,-30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(revolute2.frame_b, bodyBox2.frame_a) 
     annotation (Line(
       points={{0,-30},{20,-30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(world.frame_b, rod4.frame_a) annotation (Line(
       points={{-60,70},{-52,70},{-52,-32},{-40,-32},{-40,-26}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(rod3.frame_a, rod4.frame_a) 
     annotation (Line(
       points={{-40,-36},{-40,-26}},
       color={0,0,0},
-      thickness=2));
+      thickness=0.5));
   connect(lineForceWithTwoMasses.frame_a, rod3.frame_b) annotation (Line(
       points={{0,-60},{-40,-60},{-40,-56}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(lineForceWithTwoMasses.frame_b, bodyBox2.frame_b) annotation (Line(
       points={{20,-60},{54,-60},{54,-30},{40,-30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(lineForceWithTwoMasses.flange_b, damper2.flange_b) 
     annotation (Line(points={{16,-71},{20,-71},{20,-86}}, color={0,191,0}));
   connect(lineForceWithTwoMasses.flange_a, damper2.flange_a) 

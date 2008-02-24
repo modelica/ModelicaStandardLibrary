@@ -245,11 +245,11 @@ usually requires a trimming calculation.
           Line(
             points={{0,0},{-50,50}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{0,0},{40,0}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Text(
             extent={{-150,-150},{150,-110}},
             lineColor={0,0,0},
@@ -267,7 +267,7 @@ usually requires a trimming calculation.
           Line(
             points={{-80,0},{-10,0},{60,70}},
             color={0,0,255},
-            thickness=2),
+            thickness=0.5),
           Line(points={{-90,-70},{82,-70}}, color={95,95,95}),
           Polygon(
             points={{90,-70},{68,-64},{68,-76},{90,-70}},
@@ -378,7 +378,7 @@ The Real output y is a clock signal:
           Line(
             points={{-80,0},{80,0}},
             color={0,0,255},
-            thickness=2),
+            thickness=0.5),
           Line(points={{-90,-70},{82,-70}}, color={95,95,95}),
           Polygon(
             points={{90,-70},{68,-64},{68,-76},{90,-70}},
@@ -455,7 +455,7 @@ The Real output y is a constant signal:
           Line(
             points={{-80,-18},{0,-18},{0,50},{80,50}},
             color={0,0,255},
-            thickness=2),
+            thickness=0.5),
           Line(points={{-90,-70},{82,-70}}, color={95,95,95}),
           Polygon(
             points={{90,-70},{68,-64},{68,-76},{90,-70}},
@@ -581,7 +581,7 @@ The Real output y is a step signal:
           Line(
             points={{-80,-20},{-20,-20},{50,50}},
             color={0,0,255},
-            thickness=2),
+            thickness=0.5),
           Line(points={{-90,-70},{82,-70}}, color={95,95,95}),
           Polygon(
             points={{90,-70},{68,-64},{68,-76},{90,-70}},
@@ -596,7 +596,7 @@ The Real output y is a step signal:
           Line(
             points={{-40,-20},{-40,-70}},
             color={95,95,95},
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Polygon(
             points={{-40,-70},{-43,-60},{-38,-60},{-40,-70},{-40,-70}},
@@ -631,16 +631,16 @@ The Real output y is a step signal:
           Line(
             points={{-19,-20},{50,-20}},
             color={95,95,95},
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Line(
             points={{50,50},{101,50}},
             color={0,0,255},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{50,50},{50,-20}},
             color={95,95,95},
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Polygon(
             points={{50,-20},{42,-18},{42,-22},{50,-20}},
@@ -748,11 +748,11 @@ The Real output y is a ramp signal:
                 42,-73.1},{46.2,-78.4},{50.5,-80},{54.7,-77.6},{58.9,-71.5},{
                 63.1,-61.9},{67.9,-47.2},{74,-24.8},{80,0}},
             color={0,0,255},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{-41,-2},{-80,-2}},
             color={0,0,255},
-            thickness=2),
+            thickness=0.5),
           Text(
             extent={{-87,12},{-40,0}},
             lineColor={0,0,0},
@@ -877,7 +877,7 @@ The Real output y is a sine signal:
                 16.9},{56.5,-9.2},{61.7,-18.6},{66.3,-22.7},{70.9,-22.6},{76.1,
                 -18},{80,-12.1}},
             color={0,0,255},
-            thickness=2),
+            thickness=0.5),
           Text(
             extent={{-80,17},{-57,-3}},
             lineColor={0,0,0},
@@ -906,7 +906,7 @@ The Real output y is a sine signal:
           Line(
             points={{-50,0},{-86,0}},
             color={0,0,255},
-            thickness=2),
+            thickness=0.5),
           Line(points={{-50,77},{-50,0}}, color={95,95,95}),
           Line(points={{18,-1},{18,76}}, color={95,95,95}),
           Line(points={{18,73},{-50,73}}, color={95,95,95}),
@@ -1023,7 +1023,7 @@ The Real output y is a sine signal with exponentially changing amplitude:
                 47.68,22},{51.9,11.8},{56.2,3.4},{61.1,-4.5},{66.8,-11.4},{73.1,
                 -17.3},{80.9,-22.5},{90.8,-26.8},{100,-29.4}},
             color={0,0,255},
-            thickness=2),
+            thickness=0.5),
           Polygon(
             points={{-80,86},{-86,64},{-74,64},{-80,86}},
             lineColor={95,95,95},
@@ -1056,7 +1056,7 @@ The Real output y is a sine signal with exponentially changing amplitude:
           Line(
             points={{-39,-34},{-80,-34}},
             color={0,0,255},
-            thickness=2),
+            thickness=0.5),
           Text(
             extent={{-62,-76},{-17,-85}},
             lineColor={0,0,0},
@@ -1197,7 +1197,7 @@ by a falling exponential signal:
             points={{-80,0},{-10,0},{-10,50},{30,50},{30,0},{50,0},{50,50},{90,
                 50}},
             color={0,0,255},
-            thickness=2),
+            thickness=0.5),
           Line(points={{-10,88},{-10,49}}, color={95,95,95}),
           Line(points={{30,74},{30,50}}, color={95,95,95}),
           Line(points={{50,88},{50,50}}, color={95,95,95}),
@@ -1236,7 +1236,7 @@ by a falling exponential signal:
           Line(
             points={{90,50},{90,0},{100,0}},
             color={0,0,255},
-            thickness=2),
+            thickness=0.5),
           Polygon(
             points={{-10,69},{-1,71},{-1,67},{-10,69}},
             lineColor={95,95,95},
@@ -1404,7 +1404,7 @@ The Real output y is a pulse signal:
           Line(
             points={{-80,-20},{-10,-20},{30,60},{30,-20},{72,60},{72,-20}},
             color={0,0,255},
-            thickness=2)}),
+            thickness=0.5)}),
       Documentation(info="<html>
 <p>
 The Real output y is a saw tooth signal:
@@ -1596,7 +1596,7 @@ The Real output y is a saw tooth signal:
             points={{-81,-30},{-31,-30},{-11,40},{19,40},{39,-30},{59,-30},{79,
                 40},{99,40}},
             color={0,0,255},
-            thickness=2),
+            thickness=0.5),
           Polygon(
             points={{-40,40},{-42,29},{-38,29},{-40,40}},
             lineColor={95,95,95},
@@ -1717,7 +1717,7 @@ The Real output y is a trapezoid signal:
             points={{-80,0},{-70,0},{-70,70},{-30,70},{-30,0},{20,0},{20,-70},{
                 60,-70},{60,0},{68,0}},
             color={0,0,0},
-            thickness=1),
+            thickness=0.25),
           Text(
             extent={{2,80},{80,20}},
             lineColor={192,192,192},
@@ -1746,7 +1746,7 @@ The Real output y is a trapezoid signal:
             points={{-80,0},{-70,0},{-70,70},{-30,70},{-30,0},{20,0},{20,-70},{
                 60,-70},{60,0},{68,0}},
             color={0,0,255},
-            thickness=2),
+            thickness=0.5),
           Text(
             extent={{-73,95},{-16,80}},
             lineColor={0,0,0},
@@ -1887,7 +1887,7 @@ a flange according to a given acceleration.
             points={{-80,0},{-70,0},{-70,70},{-50,70},{-50,0},{-15,0},{-15,-70},
                 {5,-70},{5,0},{18,0}},
             color={0,0,0},
-            thickness=1),
+            thickness=0.25),
           Text(
             extent={{34,96},{94,66}},
             lineColor={0,0,0},
@@ -1932,7 +1932,7 @@ a flange according to a given acceleration.
             points={{-80,0},{-70,0},{-70,70},{-30,70},{-30,0},{20,0},{20,-70},{
                 60,-70},{60,0},{68,0}},
             color={0,0,255},
-            thickness=2),
+            thickness=0.5),
           Text(
             extent={{-72,96},{-15,81}},
             lineColor={0,0,0},
@@ -2796,7 +2796,7 @@ Several matrices may be defined one after another.
           Line(
             points={{-70,0},{80,0}},
             color={0,0,255},
-            thickness=2),
+            thickness=0.5),
           Text(
             extent={{-69,20},{-49,0}},
             lineColor={0,0,0},
@@ -2844,7 +2844,7 @@ The Boolean output y is a constant signal:
           Line(
             points={{-80,-70},{0,-70},{0,50},{80,50}},
             color={0,0,255},
-            thickness=2),
+            thickness=0.5),
           Text(
             extent={{-15,-74},{20,-82}},
             lineColor={0,0,0},
@@ -2914,7 +2914,7 @@ The Boolean output y is a step signal:
             points={{-78,-70},{-40,-70},{-40,20},{20,20},{20,-70},{50,-70},{50,
                 20},{100,20}},
             color={0,0,255},
-            thickness=2),
+            thickness=0.5),
           Line(points={{-40,61},{-40,21}}, color={95,95,95}),
           Line(points={{20,44},{20,20}}, color={95,95,95}),
           Line(points={{50,58},{50,20}}, color={95,95,95}),
@@ -3054,19 +3054,19 @@ The Boolean output y is a pulse signal:
           Line(
             points={{0,-70},{0,19}},
             color={0,0,255},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{-30,-70},{-30,19}},
             color={0,0,255},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{30,-70},{30,19}},
             color={0,0,255},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{60,-70},{60,19}},
             color={0,0,255},
-            thickness=2)}),
+            thickness=0.5)}),
         Documentation(info="<html>
 <p>
 The Boolean output y is a trigger signal where the output y is only <b>true</b>
@@ -3236,7 +3236,7 @@ changes its value to the negated value of the previous one.
           Line(
             points={{-80,0},{80,0}},
             color={0,0,255},
-            thickness=2),
+            thickness=0.5),
           Line(points={{-90,-70},{82,-70}}, color={95,95,95}),
           Polygon(
             points={{90,-70},{68,-62},{68,-78},{90,-70}},
@@ -3307,7 +3307,7 @@ The Integer output y is a constant signal:
           Line(
             points={{-80,-18},{0,-18},{0,50},{80,50}},
             color={0,0,255},
-            thickness=2),
+            thickness=0.5),
           Line(points={{-90,-70},{82,-70}}, color={95,95,95}),
           Polygon(
             points={{90,-70},{70,-66},{70,-74},{90,-70}},

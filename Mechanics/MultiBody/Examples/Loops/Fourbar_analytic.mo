@@ -80,26 +80,26 @@ equation
   connect(j1.frame_b, b1.frame_a) annotation (Line(
       points={{-34,-30},{-30,-30},{-30,-18}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(j1.frame_a, world.frame_b) annotation (Line(
       points={{-54,-30},{-60,-30},{-60,-50}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(b3.frame_a, world.frame_b) 
     annotation (Line(
       points={{-32,-50},{-60,-50}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(b1.frame_b, jointSSP.frame_a) annotation (Line(
       points={{-30,2},{-30,20},{-20,20}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(b3.frame_b, jointSSP.frame_b) annotation (Line(
       points={{-12,-50},{30,-50},{30,20},{20,20}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(b2.frame_a, jointSSP.frame_ib) annotation (Line(
       points={{50,20},{50,48},{16,48},{16,40}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
 end Fourbar_analytic;

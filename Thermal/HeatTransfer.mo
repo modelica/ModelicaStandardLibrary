@@ -45,11 +45,11 @@ package HeatTransfer
         Line(
           points={{-41,-17},{-9,-17}},
           color={191,0,0},
-          thickness=2),
+          thickness=0.5),
         Line(
           points={{-17,-40},{15,-40}},
           color={191,0,0},
-          thickness=2),
+          thickness=0.5),
         Polygon(
           points={{-17,-46},{-17,-34},{-40,-40},{-17,-46}},
           lineColor={191,0,0},
@@ -634,11 +634,11 @@ compute C:
             Line(
               points={{-90,70},{-90,-70}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{90,70},{90,-70}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Text(
               extent={{-139,134},{141,74}},
               textString="%name",
@@ -652,7 +652,7 @@ compute C:
             Line(
               points={{-80,0},{80,0}},
               color={255,0,0},
-              thickness=2,
+              thickness=0.5,
               arrow={Arrow.None,Arrow.Filled}),
             Text(
               extent={{-26,-10},{27,-39}},
@@ -987,11 +987,11 @@ place from the inner to the outer cylinder):
             Line(
               points={{-56,80},{-56,-80}},
               color={0,0,0},
-              thickness=4),
+              thickness=1),
             Line(
               points={{50,80},{50,-80}},
               color={0,0,0},
-              thickness=4),
+              thickness=1),
             Rectangle(
               extent={{50,80},{90,-80}},
               lineColor={0,0,0},
@@ -1022,11 +1022,11 @@ place from the inner to the outer cylinder):
           Line(
             points={{-100,-20},{36,-20}},
             color={191,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{-100,-60},{38,-60}},
             color={191,0,0},
-            thickness=2),
+            thickness=0.5),
           Polygon(
             points={{30,-80},{30,-40},{60,-60},{30,-80}},
             lineColor={191,0,0},
@@ -1071,7 +1071,7 @@ place from the inner to the outer cylinder):
             Line(
               points={{-52,0},{56,0}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Polygon(
               points={{50,-20},{50,20},{90,0},{50,-20}},
               lineColor={191,0,0},
@@ -1094,7 +1094,7 @@ i.e., it defines a fixed temperature as a boundary condition.
             Line(
               points={{-52,0},{56,0}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
@@ -1125,7 +1125,7 @@ i.e., it defines a fixed temperature as a boundary condition.
             Line(
               points={{-102,0},{64,0}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
@@ -1163,7 +1163,7 @@ as required to keep the temperature at the specified value.
             Line(
               points={{-102,0},{64,0}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
@@ -1198,11 +1198,11 @@ as required to keep the temperature at the specified value.
             Line(
               points={{-100,-20},{48,-20}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{-100,20},{46,20}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Polygon(
               points={{40,0},{40,40},{70,20},{40,0}},
               lineColor={191,0,0},
@@ -1227,11 +1227,11 @@ as required to keep the temperature at the specified value.
             Line(
               points={{-48,-20},{60,-20}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{-48,20},{60,20}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Polygon(
               points={{60,0},{60,40},{90,20},{60,0}},
               lineColor={191,0,0},
@@ -1273,19 +1273,19 @@ in order to simulate temperature dependent losses (which are given an reference 
             Line(
               points={{-60,-20},{40,-20}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{-60,20},{40,20}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{-80,0},{-60,-20}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{-80,0},{-60,20}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Polygon(
               points={{40,0},{40,40},{70,20},{40,0}},
               lineColor={191,0,0},
@@ -1323,19 +1323,19 @@ in order to simulate temperature dependent losses (which are given an reference 
             Line(
               points={{-60,-20},{68,-20}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{-60,20},{68,20}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{-80,0},{-60,-20}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{-80,0},{-60,20}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Polygon(
               points={{60,0},{60,40},{90,20},{60,0}},
               lineColor={191,0,0},
@@ -1409,7 +1409,7 @@ in order to simulate temperature dependent losses (which are given an reference 
             Ellipse(
               extent={{-20,-98},{20,-60}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid),
             Rectangle(
@@ -1423,15 +1423,15 @@ in order to simulate temperature dependent losses (which are given an reference 
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},{
                   12,80},{12,40},{-12,40}},
               lineColor={0,0,0},
-              lineThickness=2),
+              lineThickness=0.5),
             Line(
               points={{-12,40},{-12,-64}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{12,40},{12,-64}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(points={{-40,-20},{-12,-20}}, color={0,0,0}),
             Line(points={{-40,20},{-12,20}}, color={0,0,0}),
             Line(points={{-40,60},{-12,60}}, color={0,0,0}),
@@ -1444,7 +1444,7 @@ in order to simulate temperature dependent losses (which are given an reference 
             Ellipse(
               extent={{-20,-98},{20,-60}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid),
             Rectangle(
@@ -1458,15 +1458,15 @@ in order to simulate temperature dependent losses (which are given an reference 
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
                   {12,80},{12,40},{-12,40}},
               lineColor={0,0,0},
-              lineThickness=2),
+              lineThickness=0.5),
             Line(
               points={{-12,40},{-12,-64}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{12,40},{12,-64}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(points={{-40,-20},{-12,-20}}, color={0,0,0}),
             Line(points={{-40,20},{-12,20}}, color={0,0,0}),
             Line(points={{-40,60},{-12,60}}, color={0,0,0}),
@@ -1608,13 +1608,13 @@ to port_b.
             Ellipse(
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-40,-50},{-99,-99}},
               lineColor={0,0,0},
-              lineThickness=4,
+              lineThickness=1,
               textString="°C"),
             Text(
               extent={{100,-47},{44,-100}},
@@ -1627,7 +1627,7 @@ to port_b.
             Ellipse(
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
@@ -1637,7 +1637,7 @@ to port_b.
             Text(
               extent={{-31,-39},{-111,-119}},
               lineColor={0,0,0},
-              lineThickness=4,
+              lineThickness=1,
               textString="°C"),
             Line(points={{-41,0},{-100,0}}, color={0,0,255}),
             Line(points={{100,0},{40,0}}, color={0,0,255}),
@@ -1673,13 +1673,13 @@ and provide is as output signal.
             Ellipse(
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-34,-42},{-114,-122}},
               lineColor={0,0,0},
-              lineThickness=4,
+              lineThickness=1,
               textString="K"),
             Text(
               extent={{110,-39},{30,-119}},
@@ -1692,13 +1692,13 @@ and provide is as output signal.
             Ellipse(
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-42,-41},{-101,-98}},
               lineColor={0,0,0},
-              lineThickness=4,
+              lineThickness=1,
               textString="K"),
             Text(
               extent={{100,-40},{30,-100}},
@@ -1756,7 +1756,7 @@ and provides is as output signal.
             Line(
               points={{-42,0},{66,0}},
               color={191,0,0},
-              thickness=2)}),
+              thickness=0.5)}),
         Documentation(info="<HTML>
 <p>
 This model defines a fixed temperature T at its port in [degC],
@@ -1774,7 +1774,7 @@ i.e., it defines a fixed temperature as a boundary condition.
             Line(
               points={{-42,0},{66,0}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
@@ -1805,7 +1805,7 @@ i.e., it defines a fixed temperature as a boundary condition.
             Line(
               points={{-102,0},{64,0}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
@@ -1817,7 +1817,7 @@ i.e., it defines a fixed temperature as a boundary condition.
             Line(
               points={{-102,0},{64,0}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
@@ -1843,7 +1843,7 @@ as required to keep the temperature at the specified value.
             Line(
               points={{-102,0},{64,0}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
@@ -1892,7 +1892,7 @@ Example:
             Ellipse(
               extent={{-20,-98},{20,-60}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid),
             Rectangle(
@@ -1906,15 +1906,15 @@ Example:
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
                   {12,80},{12,40},{-12,40}},
               lineColor={0,0,0},
-              lineThickness=2),
+              lineThickness=0.5),
             Line(
               points={{-12,40},{-12,-64}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{12,40},{12,-64}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(points={{-40,-20},{-12,-20}}, color={0,0,0}),
             Line(points={{-40,20},{-12,20}}, color={0,0,0}),
             Line(points={{-40,60},{-12,60}}, color={0,0,0}),
@@ -1927,7 +1927,7 @@ Example:
             Ellipse(
               extent={{-20,-98},{20,-60}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid),
             Rectangle(
@@ -1941,15 +1941,15 @@ Example:
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
                   {12,80},{12,40},{-12,40}},
               lineColor={0,0,0},
-              lineThickness=2),
+              lineThickness=0.5),
             Line(
               points={{-12,40},{-12,-64}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{12,40},{12,-64}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(points={{-40,-20},{-12,-20}}, color={0,0,0}),
             Line(points={{-40,20},{-12,20}}, color={0,0,0}),
             Line(points={{-40,60},{-12,60}}, color={0,0,0}),
@@ -1992,13 +1992,13 @@ sensor model.
             Ellipse(
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-40,-50},{-99,-99}},
               lineColor={0,0,0},
-              lineThickness=4,
+              lineThickness=1,
               textString="°F"),
             Text(
               extent={{100,-47},{44,-100}},
@@ -2011,7 +2011,7 @@ sensor model.
             Ellipse(
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
@@ -2021,7 +2021,7 @@ sensor model.
             Text(
               extent={{-31,-39},{-111,-119}},
               lineColor={0,0,0},
-              lineThickness=4,
+              lineThickness=1,
               textString="°F"),
             Line(points={{-41,0},{-100,0}}, color={0,0,255}),
             Line(points={{100,0},{40,0}}, color={0,0,255}),
@@ -2057,13 +2057,13 @@ and provides is as output signal.
             Ellipse(
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-34,-42},{-114,-122}},
               lineColor={0,0,0},
-              lineThickness=4,
+              lineThickness=1,
               textString="K"),
             Text(
               extent={{110,-39},{30,-119}},
@@ -2075,13 +2075,13 @@ and provides is as output signal.
             Ellipse(
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-42,-41},{-101,-98}},
               lineColor={0,0,0},
-              lineThickness=4,
+              lineThickness=1,
               textString="K"),
             Text(
               extent={{100,-40},{30,-100}},
@@ -2139,7 +2139,7 @@ and provides them as output signals.
             Line(
               points={{-42,0},{66,0}},
               color={191,0,0},
-              thickness=2)}),
+              thickness=0.5)}),
         Documentation(info="<HTML>
 <p>
 This model defines a fixed temperature T at its port in [degF],
@@ -2157,7 +2157,7 @@ i.e., it defines a fixed temperature as a boundary condition.
             Line(
               points={{-42,0},{66,0}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
@@ -2188,7 +2188,7 @@ i.e., it defines a fixed temperature as a boundary condition.
             Line(
               points={{-102,0},{64,0}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
@@ -2200,7 +2200,7 @@ i.e., it defines a fixed temperature as a boundary condition.
             Line(
               points={{-102,0},{64,0}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
@@ -2225,7 +2225,7 @@ as required to keep the temperature at the specified value.
             Line(
               points={{-102,0},{64,0}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
@@ -2274,7 +2274,7 @@ Example:
             Ellipse(
               extent={{-20,-98},{20,-60}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid),
             Rectangle(
@@ -2288,15 +2288,15 @@ Example:
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
                   {12,80},{12,40},{-12,40}},
               lineColor={0,0,0},
-              lineThickness=2),
+              lineThickness=0.5),
             Line(
               points={{-12,40},{-12,-64}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{12,40},{12,-64}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(points={{-40,-20},{-12,-20}}, color={0,0,0}),
             Line(points={{-40,20},{-12,20}}, color={0,0,0}),
             Line(points={{-40,60},{-12,60}}, color={0,0,0}),
@@ -2309,7 +2309,7 @@ Example:
             Ellipse(
               extent={{-20,-98},{20,-60}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid),
             Rectangle(
@@ -2323,15 +2323,15 @@ Example:
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
                   {12,80},{12,40},{-12,40}},
               lineColor={0,0,0},
-              lineThickness=2),
+              lineThickness=0.5),
             Line(
               points={{-12,40},{-12,-64}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{12,40},{12,-64}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(points={{-40,-20},{-12,-20}}, color={0,0,0}),
             Line(points={{-40,20},{-12,20}}, color={0,0,0}),
             Line(points={{-40,60},{-12,60}}, color={0,0,0}),
@@ -2375,13 +2375,13 @@ sensor model.
             Ellipse(
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-40,-50},{-99,-99}},
               lineColor={0,0,0},
-              lineThickness=4,
+              lineThickness=1,
               textString="°Rk"),
             Text(
               extent={{100,-47},{44,-100}},
@@ -2394,7 +2394,7 @@ sensor model.
             Ellipse(
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
@@ -2404,7 +2404,7 @@ sensor model.
             Text(
               extent={{-31,-39},{-111,-119}},
               lineColor={0,0,0},
-              lineThickness=4,
+              lineThickness=1,
               textString="°Rk"),
             Line(points={{-41,0},{-100,0}}, color={0,0,255}),
             Line(points={{100,0},{40,0}}, color={0,0,255}),
@@ -2441,13 +2441,13 @@ and provides them as output signals.
             Ellipse(
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-34,-42},{-114,-122}},
               lineColor={0,0,0},
-              lineThickness=4,
+              lineThickness=1,
               textString="K"),
             Text(
               extent={{110,-39},{30,-119}},
@@ -2459,13 +2459,13 @@ and provides them as output signals.
             Ellipse(
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-42,-41},{-101,-98}},
               lineColor={0,0,0},
-              lineThickness=4,
+              lineThickness=1,
               textString="K"),
             Text(
               extent={{100,-40},{30,-100}},
@@ -2523,7 +2523,7 @@ and provides them as output signals.
             Line(
               points={{-42,0},{66,0}},
               color={191,0,0},
-              thickness=2)}),
+              thickness=0.5)}),
         Documentation(info="<HTML>
 <p>
 This model defines a fixed temperature T at its port in degree Rankine,
@@ -2541,7 +2541,7 @@ This model defines a fixed temperature T at its port in degree Rankine,
             Line(
               points={{-42,0},{66,0}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
@@ -2572,7 +2572,7 @@ This model defines a fixed temperature T at its port in degree Rankine,
             Line(
               points={{-102,0},{64,0}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
@@ -2584,7 +2584,7 @@ This model defines a fixed temperature T at its port in degree Rankine,
             Line(
               points={{-102,0},{64,0}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
@@ -2609,7 +2609,7 @@ as required to keep the temperature at the specified value.
             Line(
               points={{-102,0},{64,0}},
               color={191,0,0},
-              thickness=2),
+              thickness=0.5),
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
@@ -2657,7 +2657,7 @@ Example:
             Ellipse(
               extent={{-20,-98},{20,-60}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid),
             Rectangle(
@@ -2671,15 +2671,15 @@ Example:
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
                   {12,80},{12,40},{-12,40}},
               lineColor={0,0,0},
-              lineThickness=2),
+              lineThickness=0.5),
             Line(
               points={{-12,40},{-12,-64}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{12,40},{12,-64}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(points={{-40,-20},{-12,-20}}, color={0,0,0}),
             Line(points={{-40,20},{-12,20}}, color={0,0,0}),
             Line(points={{-40,60},{-12,60}}, color={0,0,0}),
@@ -2692,7 +2692,7 @@ Example:
             Ellipse(
               extent={{-20,-98},{20,-60}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid),
             Rectangle(
@@ -2706,15 +2706,15 @@ Example:
               points={{-12,40},{-12,80},{-10,86},{-6,88},{0,90},{6,88},{10,86},
                   {12,80},{12,40},{-12,40}},
               lineColor={0,0,0},
-              lineThickness=2),
+              lineThickness=0.5),
             Line(
               points={{-12,40},{-12,-64}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{12,40},{12,-64}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(points={{-40,-20},{-12,-20}}, color={0,0,0}),
             Line(points={{-40,20},{-12,20}}, color={0,0,0}),
             Line(points={{-40,60},{-12,60}}, color={0,0,0}),

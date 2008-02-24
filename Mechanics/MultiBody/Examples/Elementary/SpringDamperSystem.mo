@@ -98,45 +98,45 @@ equation
     annotation (Line(
       points={{-60,30},{-46,30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(bar1.frame_b, bar2.frame_a) 
     annotation (Line(
       points={{-26,30},{0,30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(bar2.frame_b, p2.frame_a) 
     annotation (Line(
       points={{20,30},{50,30},{50,0}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(p2.frame_b, body2.frame_a) 
     annotation (Line(
       points={{50,-20},{50,-40}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(bar2.frame_b, spring2.frame_a) 
     annotation (Line(
       points={{20,30},{90,30},{90,0}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(body2.frame_a, spring2.frame_b) annotation (Line(
       points={{50,-40},{90,-40},{90,-20}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(damper1.frame_a, bar1.frame_b) annotation (Line(
       points={{-30,0},{-30,10},{-20,10},{-20,30},{-26,30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(spring1.frame_a, bar1.frame_b) annotation (Line(
       points={{-6,0},{-6,10},{-20,10},{-20,30},{-26,30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(damper1.frame_b, body1.frame_a) annotation (Line(
       points={{-30,-20},{-30,-28},{-20,-28},{-20,-40}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(spring1.frame_b, body1.frame_a) annotation (Line(
       points={{-6,-20},{-6,-28},{-20,-28},{-20,-40}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
 end SpringDamperSystem;

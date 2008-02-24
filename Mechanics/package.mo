@@ -15,12 +15,12 @@ annotation (
       Line(
         points={{-85,-55},{-60,-21}},
         color={0,0,0},
-        thickness=2),
+        thickness=0.5),
       Ellipse(extent={{-65,-16},{-55,-26}}, lineColor={0,0,0}),
       Line(
         points={{-60,-21},{9,-55}},
         color={0,0,0},
-        thickness=2),
+        thickness=0.5),
       Ellipse(
         extent={{4,-50},{14,-60}},
         lineColor={0,0,0},

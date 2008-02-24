@@ -92,42 +92,42 @@ equation
     annotation (Line(
       points={{-20,-40},{-20,-20},{-20,-20}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(world.frame_b, bar1.frame_a) 
     annotation (Line(
       points={{-60,30},{-46,30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(bar1.frame_b, p1.frame_a) annotation (Line(
       points={{-26,30},{-20,30},{-20,0}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(spring1.flange_b, p1.axis) annotation (Line(points={{10,-20},{10,-30},
           {-8,-30},{-8,-18},{-14,-18}}, color={0,191,0}));
   connect(bar1.frame_b, bar2.frame_a) 
     annotation (Line(
       points={{-26,30},{0,30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(bar2.frame_b, p2.frame_a) 
     annotation (Line(
       points={{20,30},{50,30},{50,0}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(p2.frame_b, body2.frame_a) 
     annotation (Line(
       points={{50,-20},{50,-40}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(bar2.frame_b, spring2.frame_a) 
     annotation (Line(
       points={{20,30},{90,30},{90,0}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(body2.frame_a, spring2.frame_b) annotation (Line(
       points={{50,-40},{90,-40},{90,-20}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(spring1.flange_a, p1.support) annotation (Line(
       points={{10,0},{-8,0},{-8,-6},{-14,-6}},
       color={0,127,0},

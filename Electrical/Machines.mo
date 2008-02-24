@@ -5893,7 +5893,7 @@ Model of an electrical excitation, converting excitation to space phasor.
                 extent={{-60,0},{60,-40}}, 
                 lineColor={0,255,0}, 
                 pattern=LinePattern.None, 
-                lineThickness=2, 
+                lineThickness=0.5, 
                 fillColor={0,255,0}, 
                 fillPattern=FillPattern.Solid), 
               Line(points={{-60,-40},{-60,0}}, color={0,255,0}), 
@@ -6825,10 +6825,10 @@ This package contains components, blocks and functions to utilize space phasor t
               {100,100}}), graphics={Line(
             points={{-8,-26},{64,46},{44,38},{56,26},{64,46}}, 
             color={0,0,255}, 
-            thickness=2), Line(
+            thickness=0.5), Line(
             points={{-8,-26},{64,-98},{56,-78},{44,-90},{64,-98}}, 
             color={0,0,255}, 
-            thickness=2)}));
+            thickness=0.5)}));
     
     package Components "Basic space phasor models" 
       extends Modelica.Icons.Library;
@@ -7844,11 +7844,11 @@ Phase shifts between sine-waves may be choosen by the user; default values are <
             Line(
               points={{-80,52},{-40,0},{-2,52},{-40,0},{-40,-52}},
               color={0,0,255},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{0,40},{0,-40},{80,0},{0,40}},
               color={0,0,255},
-              thickness=2)}),
+              thickness=0.5)}),
         Documentation(info="<HTML>
 Simple Star-Delta-switch.<br>
 If <i>control</i> is false, plug_sp and plug_sn are star connected and plug_sp connected to the supply plug.<br>

@@ -102,36 +102,36 @@ equation
   connect(j2.frame_b, b2.frame_a) annotation (Line(
       points={{32,-70},{50,-70},{50,-60}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(j1.frame_b, b1.frame_a) annotation (Line(
       points={{-34,-30},{-30,-30},{-30,-10}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(j1.frame_a, world.frame_b) annotation (Line(
       points={{-54,-30},{-60,-30},{-60,-70}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(b1.frame_b, universalSpherical.frame_b) annotation (Line(
       points={{-30,10},{-30,28},{-20,28}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(universalSpherical.frame_a, b2.frame_b) 
     annotation (Line(
       points={{0,28},{50,28},{50,-40}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(b3.frame_a, world.frame_b) 
     annotation (Line(
       points={{-32,-70},{-60,-70}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(b3.frame_b, j2.frame_a) 
     annotation (Line(
       points={{-12,-70},{12,-70}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(fixedFrame.frame_a, universalSpherical.frame_ia) annotation (Line(
       points={{-6,60},{-6,49},{-6,49},{-6,38}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
 end Fourbar2;

@@ -78,7 +78,7 @@ a size of about 50 Mbyte (for 5000 output intervalls).
     annotation (Line(
       points={{-60,-10},{-20,-10},{-20,-0.2}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(load2.flange, load.flange_b) 
     annotation (Line(points={{70,20},{60,20}}, color={0,0,0}));
   connect(torqueSensor.flange_a, engine.flange_b) 

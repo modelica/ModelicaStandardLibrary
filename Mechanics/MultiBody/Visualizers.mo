@@ -572,7 +572,7 @@ MultiBody.Visualizers.FixedShape2 object is connected");
           Line(
             points={{-2,-18},{-2,52}},
             color={0,191,0},
-            thickness=2),
+            thickness=0.5),
           Text(
             extent={{16,93},{67,43}},
             lineColor={0,191,0},
@@ -591,10 +591,10 @@ MultiBody.Visualizers.FixedShape2 object is connected");
           Line(
             points={{-2,-18},{72,-54}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{-72,-54},{-2,-18}},
-            thickness=2,
+            thickness=0.5,
             color={0,0,255}),
           Polygon(points={{-98,-68},{-66,-60},{-78,-46},{-98,-68}}, lineColor={
                 0,0,255}),

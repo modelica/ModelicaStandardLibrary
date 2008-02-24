@@ -521,7 +521,7 @@ This icon is designed for a <b>rotational sensor</b> model.
             extent={{-40,60},{40,-60}},
             lineColor={0,0,0},
             pattern=LinePattern.Solid,
-            lineThickness=1,
+            lineThickness=0.25,
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={192,192,192}),
           Polygon(
@@ -591,7 +591,7 @@ This icon is designed for an <b>electrical motor</b> model.
           Rectangle(
             extent={{-20,2},{20,-2}},
             lineColor={255,204,51},
-            lineThickness=2),
+            lineThickness=0.5),
           Polygon(
             points={{-80,50},{80,50},{100,30},{80,-40},{60,-50},{-60,-50},{-80,
                 -40},{-100,30},{-80,50}},
@@ -682,11 +682,11 @@ This icon is designed for a <b>signal bus</b> connector.
           Line(
             points={{-16,2},{16,2}},
             color={255,204,51},
-            thickness=2),
+            thickness=0.5),
           Rectangle(
             extent={{-10,8},{8,0}},
             lineColor={255,204,51},
-            lineThickness=2),
+            lineThickness=0.5),
           Polygon(
             points={{-80,50},{80,50},{100,30},{80,-40},{60,-50},{-60,-50},{-80,
                 -40},{-100,30},{-80,50}},
@@ -711,7 +711,7 @@ This icon is designed for a <b>signal bus</b> connector.
           Rectangle(
             extent={{-20,4},{20,0}},
             lineColor={255,204,51},
-            lineThickness=2)}),
+            lineThickness=0.5)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},

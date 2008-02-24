@@ -67,19 +67,19 @@ at least one ground object.
           grid={2,2}), graphics={
           Line(
             points={{-60,50},{60,50}},
-            thickness=2,
+            thickness=0.5,
             color={0,0,255}),
           Line(
             points={{-40,30},{40,30}},
-            thickness=2,
+            thickness=0.5,
             color={0,0,255}),
           Line(
             points={{-20,10},{20,10}},
-            thickness=2,
+            thickness=0.5,
             color={0,0,255}),
           Line(
             points={{0,96},{0,50}},
-            thickness=2,
+            thickness=0.5,
             color={0,0,255}),
           Text(
             extent={{-24,-38},{22,-6}},
@@ -319,11 +319,11 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
           grid={2,2}), graphics={
           Line(
             points={{-14,28},{-14,-28}},
-            thickness=2,
+            thickness=0.5,
             color={0,0,255}),
           Line(
             points={{14,28},{14,-28}},
-            thickness=2,
+            thickness=0.5,
             color={0,0,255}),
           Line(points={{-90,0},{-14,0}}, color={0,0,255}),
           Line(points={{14,0},{90,0}}, color={0,0,255}),
@@ -341,11 +341,11 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
           grid={2,2}), graphics={
           Line(
             points={{-20,40},{-20,-40}},
-            thickness=2,
+            thickness=0.5,
             color={0,0,255}),
           Line(
             points={{20,40},{20,-40}},
-            thickness=2,
+            thickness=0.5,
             color={0,0,255}),
           Line(points={{-96,0},{-20,0}}, color={0,0,255}),
           Line(points={{20,0},{96,0}}, color={0,0,255})}));
@@ -669,15 +669,15 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
             lineColor={0,0,255}),
           Line(
             points={{-5,10},{-10,-10}},
-            thickness=2,
+            thickness=0.5,
             color={0,0,255}),
           Line(
             points={{9,10},{4,-9}},
-            thickness=2,
+            thickness=0.5,
             color={0,0,255}),
           Line(
             points={{-14,9},{16,10}},
-            thickness=2,
+            thickness=0.5,
             color={0,0,255}),
           Text(
             extent={{-100,130},{100,69}},
@@ -714,15 +714,15 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
             lineColor={0,0,255}),
           Line(
             points={{-4,5},{-6,-5}},
-            thickness=4,
+            thickness=1,
             color={0,0,255}),
           Line(
             points={{3,5},{1,-5}},
-            thickness=4,
+            thickness=1,
             color={0,0,255}),
           Line(
             points={{-8,5},{7,5}},
-            thickness=4,
+            thickness=1,
             color={0,0,255}),
           Text(
             extent={{-20,50},{20,35}},
@@ -1479,11 +1479,11 @@ Cmin is a parameter with default value Modelica.Constants.eps.
           Line(points={{0,90},{0,30}}, color={0,0,255}),
           Line(
             points={{-14,28},{-14,-28}},
-            thickness=2,
+            thickness=0.5,
             color={0,0,255}),
           Line(
             points={{14,28},{14,-28}},
-            thickness=2,
+            thickness=0.5,
             color={0,0,255})}),
             Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
@@ -1492,11 +1492,11 @@ Cmin is a parameter with default value Modelica.Constants.eps.
           Line(points={{0,90},{0,30}}, color={0,0,255}),
           Line(
             points={{-14,28},{-14,-28}},
-            thickness=2,
+            thickness=0.5,
             color={0,0,255}),
           Line(
             points={{14,28},{14,-28}},
-            thickness=2,
+            thickness=0.5,
             color={0,0,255})}));
         equation 
           assert(C>=0,"Capacitance C (= " +

@@ -113,62 +113,62 @@ is much faster.
     connect(world.frame_b,spherical1. frame_a) annotation (Line(
         points={{-80,30},{-70,30}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(spherical1.frame_b,bodyCylinder1. frame_a) annotation (Line(
         points={{-50,30},{-44,30}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(bodyCylinder1.frame_b,fixedRotation1. frame_a) annotation (Line(
         points={{-24,30},{-16,30}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(fixedRotation1.frame_b,revolute. frame_a) annotation (Line(
         points={{4,30},{14,30}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(revolute.frame_b,fixedTranslation. frame_a) annotation (Line(
         points={{34,30},{42,30}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(fixedTranslation.frame_b,bodyCylinder2. frame_a) annotation (Line(
         points={{62,30},{70,30}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(spherical2.frame_b,bodyCylinder3. frame_a) annotation (Line(
         points={{-50,-30},{-44,-30}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(bodyCylinder3.frame_b,fixedRotation2. frame_a) annotation (Line(
         points={{-24,-30},{-16,-30}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(fixed.frame_b,spherical2. frame_a) annotation (Line(
         points={{-80,-30},{-70,-30}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(fixedTranslation1.frame_b,bodyCylinder4. frame_a) annotation (Line(
         points={{44,-30},{56,-30}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(fixedRotation2.frame_b,fixedTranslation1. frame_a) annotation (Line(
         points={{4,-30},{24,-30}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(rotor1D.frame_a,fixedRotation2. frame_b) annotation (Line(
         points={{38,-70},{38,-76},{10,-76},{10,-30},{4,-30}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
   end GyroscopicEffects;
 
@@ -221,17 +221,17 @@ is much faster.
     connect(world.frame_b,revolute. frame_a) annotation (Line(
         points={{-40,10},{-26,10}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(revolute.frame_b,bodyCylinder. frame_a) annotation (Line(
         points={{-6,10},{8,10}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(torque.frame_b,bodyCylinder. frame_b) annotation (Line(
         points={{28,40},{38,40},{38,10},{28,10}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(torque.frame_resolve,world. frame_b) annotation (Line(
         points={{22,50},{22,64},{-30,64},{-30,10},{-40,10}},
@@ -241,7 +241,7 @@ is much faster.
     connect(torque.frame_a,world. frame_b) annotation (Line(
         points={{8,40},{-30,40},{-30,10},{-40,10}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(sine.y,torque. torque) annotation (Line(
         points={{-59,70},{12,70},{12,52}},
@@ -250,7 +250,7 @@ is much faster.
     connect(fixed.frame_b,rotor1D. frame_a)  annotation (Line(
         points={{-42,-80},{10,-80},{10,-40}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(torque1.flange,rotor1D.   flange_a) annotation (Line(
         points={{-12,-30},{0,-30}},
@@ -263,7 +263,7 @@ is much faster.
     connect(mounting1D.frame_a,fixed. frame_b)  annotation (Line(
         points={{-36,-60},{-36,-80},{-42,-80}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(sine[1].y,torque1. tau) annotation (Line(
         points={{-59,70},{-50,70},{-50,40},{-72,40},{-72,-30},{-34,-30}},
@@ -340,12 +340,12 @@ is much faster.
     connect(revolute.frame_b,bodyCylinder. frame_a) annotation (Line(
         points={{36,20},{50,20}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(torque.frame_b,bodyCylinder. frame_b) annotation (Line(
         points={{70,50},{80,50},{80,20},{70,20}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(sine1.y,torque. torque) 
                                    annotation (Line(
@@ -363,7 +363,7 @@ is much faster.
     connect(r1.frame_a,world. frame_b) annotation (Line(
         points={{-32,20},{-64,20}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(position1.flange,r1.   axis) annotation (Line(
         points={{-26,70},{-22,70},{-22,30}},
@@ -376,7 +376,7 @@ is much faster.
     connect(mounting1D1.frame_a,world. frame_b) annotation (Line(
         points={{-50,34},{-50,20},{-64,20}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(sine2.y,position1. phi_ref) annotation (Line(
         points={{-79,70},{-48,70}},
@@ -385,7 +385,7 @@ is much faster.
     connect(r1.frame_b,revolute. frame_a) annotation (Line(
         points={{-12,20},{16,20}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(torque.frame_resolve,revolute. frame_a) annotation (Line(
         points={{64,60},{8,60},{8,20},{16,20}},
@@ -395,7 +395,7 @@ is much faster.
     connect(torque.frame_a,revolute. frame_a) annotation (Line(
         points={{50,50},{8,50},{8,20},{16,20}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(position2.flange,r2.   axis) annotation (Line(
         points={{-32,-20},{-28,-20},{-28,-60}},
@@ -408,12 +408,12 @@ is much faster.
     connect(fixed.frame_b,r2. frame_a) annotation (Line(
         points={{-66,-70},{-38,-70}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(fixed.frame_b,mounting1D2. frame_a) annotation (Line(
         points={{-66,-70},{-56,-70},{-56,-56}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(sine2.y,position2. phi_ref) annotation (Line(
         points={{-79,70},{-70,70},{-70,46},{-92,46},{-92,-20},{-54,-20}},
@@ -422,12 +422,12 @@ is much faster.
     connect(r2.frame_b,rotor1D. frame_a) annotation (Line(
         points={{-18,-70},{60,-70},{60,-36}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(r2.frame_b,mounting1D. frame_a) annotation (Line(
         points={{-18,-70},{14,-70},{14,-56}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(sine1[1].y,torque1. tau) annotation (Line(
         points={{37,80},{92,80},{92,-10},{0,-10},{0,-26},{16,-26}},
@@ -485,27 +485,27 @@ is much faster.
     connect(world.frame_b,gearConstraint. bearing) annotation (Line(
         points={{-42,20},{44,20},{44,40}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(cyl1.frame_b,gearConstraint. frame_a) annotation (Line(
         points={{22,50},{34,50}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(gearConstraint.frame_b,cyl2. frame_a) annotation (Line(
         points={{54,50},{70,50}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(torque1.frame_b,cyl1. frame_a) annotation (Line(
         points={{-6,50},{2,50}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(torque1.frame_a,world. frame_b) annotation (Line(
         points={{-26,50},{-36,50},{-36,20},{-42,20}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(sine.y,torque1. torque) annotation (Line(
         points={{-79,70},{-22,70},{-22,62}},
@@ -538,7 +538,7 @@ is much faster.
     connect(fixed.frame_b,mounting1D. frame_a) annotation (Line(
         points={{-28,-80},{-10,-80},{-10,-70}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
   end GearConstraint;
   annotation (Documentation(info="<html>

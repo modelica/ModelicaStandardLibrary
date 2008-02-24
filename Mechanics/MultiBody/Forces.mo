@@ -226,7 +226,7 @@ This leads to the following animation
     connect(basicWorldForce.frame_b, frame_b) annotation (Line(
         points={{10,0},{100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(basicWorldForce.force, force) annotation (Line(
         points={{-12,0},{-120,0}},
@@ -367,7 +367,7 @@ This leads to the following animation
                 81},{-22,84},{-8,84},{7,80},{19,73},{32,65},{44,55},{52,47},{58,
                 40}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Polygon(
             points={{94,10},{75,59},{41,24},{94,10}},
             lineColor={0,0,0},
@@ -400,7 +400,7 @@ This leads to the following animation
     connect(basicWorldTorque.frame_b, frame_b) annotation (Line(
         points={{10,0},{100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(basicWorldTorque.torque, torque) annotation (Line(
         points={{-12,0},{-120,0}},
@@ -485,7 +485,7 @@ This leads to the following animation
                 88},{-16,88},{-2,86},{12,80},{24,74},{34,68},{46,58},{52,54},{
                 58,48}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Polygon(
             points={{89,17},{64,76},{30,41},{89,17}},
             lineColor={0,0,0},
@@ -637,7 +637,7 @@ is resolved in the world frame).
     connect(basicWorldForce.frame_b, frame_b) annotation (Line(
         points={{38,-60},{60,-60},{60,0},{100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(basicWorldForce.force, force) annotation (Line(
         points={{16,-60},{-120,-60}},
@@ -646,7 +646,7 @@ is resolved in the world frame).
     connect(torque1.frame_b, frame_b) annotation (Line(
         points={{10,60},{60,60},{60,0},{100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(torque1.torque, torque) annotation (Line(
         points={{-12,60},{-120,60}},
@@ -848,12 +848,12 @@ clarity this is not shown in the animation):
     connect(basicForce.frame_a, frame_a) annotation (Line(
         points={{0,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(basicForce.frame_b, frame_b) annotation (Line(
         points={{20,0},{100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(force, basicForce.force) annotation (Line(
         points={{-60,120},{-60,40},{4,40},{4,12}},
@@ -1049,12 +1049,12 @@ clarity this is not shown in the animation):
     connect(basicTorque.frame_a, frame_a) annotation (Line(
         points={{-8,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(basicTorque.frame_b, frame_b) annotation (Line(
         points={{12,0},{100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(basicTorque.torque, torque) annotation (Line(
         points={{-4,12},{-4,60},{-60,60},{-60,120}},
@@ -1303,22 +1303,22 @@ clarity this is not shown in the animation):
     connect(basicForce.frame_a, frame_a) annotation (Line(
         points={{-84,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(basicForce.frame_b, frame_b) annotation (Line(
         points={{-64,0},{100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(basicTorque.frame_b, frame_b) annotation (Line(
         points={{16,20},{68,20},{68,0},{100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(basicTorque.frame_a, frame_a) annotation (Line(
         points={{-4,20},{-90,20},{-90,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(basicForce.force, force) annotation (Line(
         points={{-80,12},{-80,120}},
@@ -2223,7 +2223,7 @@ for this situation:
                 {100,0}},
             color={0,0,0},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Text(
             extent={{-130,49},{132,109}},
@@ -2276,12 +2276,12 @@ ALT=\"model Examples.Elementary.SpringWithMass\">
       annotation (Line(
         points={{-20,0},{-100,0}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(lineForce.frame_b, frame_b) 
       annotation (Line(
         points={{20,0},{100,0}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(spring.flange_b, lineForce.flange_b) 
       annotation (Line(points={{12,50},{12,20}}, color={0,191,0}));
     connect(spring.flange_a, lineForce.flange_a) 
@@ -2488,7 +2488,7 @@ and der(s) is the time derivative of s.
             points={{-80,32},{-58,32},{-43,2},{-13,62},{17,2},{47,62},{62,32},{
                 80,32}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(points={{-68,32},{-68,97}}, color={128,128,128}),
           Line(points={{72,32},{72,97}}, color={128,128,128}),
           Line(points={{-68,92},{72,92}}, color={128,128,128}),
@@ -3048,7 +3048,7 @@ values from the outside in order that the model remains balanced
                   81},{-22,84},{-8,84},{7,80},{19,73},{32,65},{44,55},{52,47},{
                   58,40}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Polygon(
               points={{97,6},{75,59},{41,24},{97,6}},
               lineColor={0,0,0},
@@ -3073,7 +3073,7 @@ values from the outside in order that the model remains balanced
                   81},{-22,84},{-8,84},{7,80},{19,73},{32,65},{44,55},{52,47},{
                   58,40}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Polygon(
               points={{94,10},{75,59},{41,24},{94,10}},
               lineColor={0,0,0},
