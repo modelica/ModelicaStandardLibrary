@@ -913,7 +913,7 @@ s_start_y = 0.5, phi_start = 45<sup>o</sup>).
     
   protected 
     parameter Integer ndim=if world.enableAnimation and animation then 1 else 0;
-    parameter Real e[3]=Frames.normalize(n);
+    parameter Real e[3](each final unit="1")=Frames.normalize(n);
   protected 
     Visualizers.Advanced.Shape box_x[ndim](
       each shapeType="box",
@@ -1696,7 +1696,7 @@ frame_b of the joint.
       "Position vector from frame_a to frame_b resolved in world frame";
     SI.Position rRod_a[3] 
       "Position vector from frame_a to frame_b resolved in frame_a";
-    Real eRod_a[3] 
+    Real eRod_a[3](each final unit="1") 
       "Unit vector in direction from frame_a to frame_b, resolved in frame_a";
     SI.Position r_CM_0[3] 
       "Dummy if m==0, or position vector from world frame to mid-point of rod, resolved in world frame";
@@ -2043,17 +2043,17 @@ that has this property.
     final parameter SI.Distance rodLength(fixed=not computeRodLength)=
       Frames.length(rRod_ia) 
       "Length of rod (distance between origin of frame_a and origin of frame_b)";
-    final parameter Real eRod_ia[3]=Frames.normalize(rRod_ia) 
+    final parameter Real eRod_ia[3](each final unit="1")=Frames.normalize(rRod_ia) 
       "Unit vector from origin of frame_a to origin of frame_b, resolved in frame_ia";
-    final parameter Real e2_ia[3]=Frames.normalize(cross(n1_a, eRod_ia)) 
+    final parameter Real e2_ia[3](each final unit="1")=Frames.normalize(cross(n1_a, eRod_ia)) 
       "Unit vector in direction of axis 2 of universal joint, resolved in frame_ia (orthogonal to n1_a and eRod_ia; note: frame_ia is parallel to frame_a when the universal joint angles are zero)";
-    final parameter Real e3_ia[3]=cross(eRod_ia, e2_ia) 
+    final parameter Real e3_ia[3](each final unit="1")=cross(eRod_ia, e2_ia) 
       "Unit vector perpendicular to eRod_ia and e2_ia, resolved in frame_ia";
     SI.Power totalPower 
       "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
     SI.Force f_b_a1[3] 
       "frame_b.f without f_rod part, resolved in frame_a (needed for analytic loop handling)";
-    Real eRod_a[3] 
+    Real eRod_a[3](each final unit="1") 
       "Unit vector in direction of rRod_a, resolved in frame_a (needed for analytic loop handling)";
     SI.Position rRod_0[3](start=rRod_ia) 
       "Position vector from origin of frame_a to origin of frame_b resolved in world frame";
@@ -2326,15 +2326,15 @@ the origin of frame_a to the middle of the rod, this might be defined as:
     SI.Force f_b_a[3] "frame_b.f resolved in frame_a";
     SI.Force f_ia_a[3] "frame_ia.f resolved in frame_a";
     SI.Torque t_ia_a[3] "frame_ia.t resolved in frame_a";
-    Real n2_a[3] 
+    Real n2_a[3](each final unit="1") 
       "Vector in direction of axis 2 of the universal joint (e2_ia), resolved in frame_a";
     Real length2_n2_a(start=1, unit="m2") "Square of length of vector n2_a";
     SI.Length length_n2_a "Length of vector n2_a";
-    Real e2_a[3] 
+    Real e2_a[3](each final unit="1") 
       "Unit vector in direction of axis 2 of the universal joint (e2_ia), resolved in frame_a";
-    Real e3_a[3] 
+    Real e3_a[3](each final unit="1") 
       "Unit vector perpendicular to eRod_ia and e2_a, resolved in frame_a";
-    Real der_rRod_a_L[3] "= der(rRod_a)/rodLength";
+    Real der_rRod_a_L[3](each final unit="1/s") "= der(rRod_a)/rodLength";
     SI.AngularVelocity w_rel_ia1[3];
     Frames.Orientation R_rel_ia1;
     Frames.Orientation R_rel_ia2;
@@ -2837,11 +2837,11 @@ pair of joints\" from Woernle and Hiller is described in:
       parameter Boolean checkTotalPower=false 
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
-      final parameter Real eAxis_ia[3]=Frames.normalize(nAxis_ia) 
+      final parameter Real eAxis_ia[3](each final unit="1")=Frames.normalize(nAxis_ia) 
         "Unit vector from origin of frame_a to origin of frame_b, resolved in frame_ia";
-      final parameter Real e2_ia[3]=Frames.normalize(cross(n1_a, eAxis_ia)) 
+      final parameter Real e2_ia[3](each final unit="1")=Frames.normalize(cross(n1_a, eAxis_ia)) 
         "Unit vector in direction of second rotation axis of universal joint, resolved in frame_ia";
-      final parameter Real e3_ia[3]=cross(eAxis_ia, e2_ia) 
+      final parameter Real e3_ia[3](each final unit="1")=cross(eAxis_ia, e2_ia) 
         "Unit vector perpendicular to eAxis_ia and e2_ia, resolved in frame_ia";
       SI.Position s 
         "Relative distance between frame_a and frame_b along axis nAxis = s + s_offset";
@@ -3166,17 +3166,17 @@ component).
         "Position vector from origin of frame_a to origin of frame_b resolved in world frame";
       SI.Position rAxis_a[3] 
         "Position vector from origin of frame_a to origin of frame_b resolved in frame_a";
-      Real eAxis_a[3] 
+      Real eAxis_a[3](each final unit="1") 
         "Unit vector in direction of rAxis_a, resolved in frame_a";
-      Real e2_a[3] 
+      Real e2_a[3](each final unit="1") 
         "Unit vector in direction of second rotation axis of universal joint, resolved in frame_a";
-      Real e3_a[3] 
+      Real e3_a[3](each final unit="1") 
         "Unit vector perpendicular to eAxis_a and e2_a, resolved in frame_a";
-      Real n2_a[3] 
+      Real n2_a[3](each final unit="1") 
         "Vector in direction of second rotation axis of universal joint, resolved in frame_a";
       Real length2_n2_a(unit="m2") "Square of length of vector n2_a";
       SI.Length length_n2_a "Length of vector n2_a";
-      Real der_rAxis_a_L[3] "= der(rAxis_a)/axisLength";
+      Real der_rAxis_a_L[3](each final unit="1/s") "= der(rAxis_a)/axisLength";
       SI.AngularVelocity w_rel_ia1[3];
       Frames.Orientation R_ia1_a;
       Frames.Orientation R_ia2_a;
@@ -3476,9 +3476,9 @@ origin of frame_b. You may try to use another \"n1_a\" vector.
       parameter Boolean checkTotalPower=false 
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
-      final parameter Real eRod1_ia[3]=rod1.eRod_ia 
+      final parameter Real eRod1_ia[3](each final unit="1")=rod1.eRod_ia 
         "Unit vector from origin of frame_a to origin of spherical joint, resolved in frame_ia";
-      final parameter Real e2_ia[3]=rod1.e2_ia 
+      final parameter Real e2_ia[3](each final unit="1")=rod1.e2_ia 
         "Unit vector in direction of axis 2 of universal joint, resolved in frame_ia";
       final parameter SI.Distance rod1Length=rod1.rodLength 
         "Length of rod 1 (= distance between universal and spherical joint";
@@ -3972,9 +3972,9 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       parameter Boolean checkTotalPower=false 
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
-      final parameter Real eRod1_ia[3]=rod1.eRod_ia 
+      final parameter Real eRod1_ia[3](each final unit="1")=rod1.eRod_ia 
         "Unit vector from origin of frame_a to origin of spherical joint, resolved in frame_ia";
-      final parameter Real e2_ia[3]=rod1.e2_ia 
+      final parameter Real e2_ia[3](each final unit="1")=rod1.e2_ia 
         "Unit vector in direction of axis 2 of universal joint, resolved in frame_ia";
       final parameter SI.Distance rod1Length=rod1.rodLength 
         "Length of rod 1 (= distance between universal and spherical joint";
@@ -5125,7 +5125,7 @@ component).
       parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={0,0,1} 
         "Axes of revolute joints resolved in frame_a (all axes are parallel to each other)"
         annotation (Evaluate=true);
-      final parameter Real n_b[3](fixed=false) = {0,0,1} 
+      final parameter Real n_b[3](each final unit="1", fixed=false) = {0,0,1} 
         "Axis of revolute joint fixed and resolved in frame_b" 
         annotation (Evaluate=true);
       parameter SI.Position rRod1_ia[3]={1,0,0} 
@@ -5159,11 +5159,11 @@ component).
       parameter Boolean checkTotalPower=false 
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
-      final parameter Real e_a[3]=Frames.normalize(n_a) 
+      final parameter Real e_a[3](each final unit="1")=Frames.normalize(n_a) 
         "Unit vector along axes of rotations, resolved in frame_a";
-      final parameter Real e_ia[3]=jointUSR.e2_ia 
+      final parameter Real e_ia[3](each final unit="1")=jointUSR.e2_ia 
         "Unit vector along axes of rotations, resolved in frame_ia";
-      final parameter Real e_b[3]=jointUSR.revolute.e 
+      final parameter Real e_b[3](each final unit="1")=jointUSR.revolute.e 
         "Unit vector along axes of rotations, resolved in frame_b, frame_ib and frame_im";
       SI.Power totalPower=jointUSR.totalPower 
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
@@ -5469,13 +5469,13 @@ are connected by rigid rods.
       parameter Boolean checkTotalPower=false 
         "= true, if total power flowing into this component shall be determined (must be zero)"
         annotation (Dialog(tab="Advanced"));
-      final parameter Real e_a[3]=Frames.normalize(n_a) 
+      final parameter Real e_a[3](each final unit="1")=Frames.normalize(n_a) 
         "Unit vector along axes of rotations, resolved in frame_a";
-      final parameter Real e_ia[3]=jointUSP.e2_ia 
+      final parameter Real e_ia[3](each final unit="1")=jointUSP.e2_ia 
         "Unit vector along axes of rotations, resolved in frame_ia";
-      final parameter Real e_im[3](each fixed=false) 
+      final parameter Real e_im[3](each final unit="1",each fixed=false) 
         "Unit vector along axes of rotations, resolved in frame_im";
-      final parameter Real e_b[3]=jointUSP.prismatic.e 
+      final parameter Real e_b[3](each final unit="1")=jointUSP.prismatic.e 
         "Unit vector along axes of translation of the prismatic joint, resolved in frame_b and frame_ib";
       SI.Power totalPower=jointUSP.totalPower 
         "Total power flowing into this element, if checkTotalPower=true (otherwise dummy)";
@@ -5846,25 +5846,25 @@ this force is an unknown quantity).
 "));
     protected 
       outer Modelica.Mechanics.MultiBody.World world;
-      parameter Real e[3]=Frames.normalize(n) 
+      parameter Real e[3](each final unit="1")=Frames.normalize(n) 
         "Unit vector in direction of rotation axis, resolved in frame_a (= same as in frame_b)";
-      parameter Real nnx_a[3]=if abs(e[1]) > 0.1 then {0,1,0} else (if abs(e[2])
+      parameter Real nnx_a[3](each final unit="1")=if abs(e[1]) > 0.1 then {0,1,0} else (if abs(e[2])
            > 0.1 then {0,0,1} else {1,0,0}) 
         "Arbitrary vector that is not aligned with rotation axis n" 
         annotation (Evaluate=true);
-      parameter Real ey_a[3]=Frames.normalize(cross(e, nnx_a)) 
+      parameter Real ey_a[3](each final unit="1")=Frames.normalize(cross(e, nnx_a)) 
         "Unit vector orthogonal to axis n of revolute joint, resolved in frame_a"
         annotation (Evaluate=true);
-      parameter Real ex_a[3]=cross(ey_a, e) 
+      parameter Real ex_a[3](each final unit="1")=cross(ey_a, e) 
         "Unit vector orthogonal to axis n of revolute joint and to ey_a, resolved in frame_a"
         annotation (Evaluate=true);
-      Real ey_b[3] "ey_a, resolved in frame_b";
-      Real ex_b[3] "ex_a, resolved in frame_b";
+      Real ey_b[3](each final unit="1") "ey_a, resolved in frame_b";
+      Real ex_b[3](each final unit="1") "ex_a, resolved in frame_b";
       Frames.Orientation R_rel 
         "Dummy or relative orientation object from frame_a to frame_b";
       Frames.Orientation R_rel_inv 
         "Dummy or relative orientation object from frame_b to frame_a";
-      Real r_rel_a[3] 
+      Modelica.SIunits.Position r_rel_a[3] 
         "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
       SI.Force f_c[2] "Dummy or constraint forces in direction of ex_a, ey_a";
       
@@ -6027,7 +6027,7 @@ in the revolute joints of the planar loop.
       parameter Boolean enforceStates=false 
         "= true, if generalized variables (s,v) shall be used as states (StateSelect.always)"
         annotation (Dialog(tab="Advanced"));
-      final parameter Real e[3]=Frames.normalize(n) 
+      final parameter Real e[3](each final unit="1")=Frames.normalize(n) 
         "Unit vector in direction of prismatic axis n";
       
       SI.Position s(start=s_start, stateSelect=if enforceStates then 
@@ -6230,7 +6230,7 @@ it might be slightly more efficient, when using the \"enforceStates\" setting.
         annotation (Dialog(tab="Advanced"));
       final parameter Boolean positiveBranch(fixed=false) 
         "Based on phi_guess, selection of one of the two solutions of the non-linear constraint equation";
-      final parameter Real e[3]=Modelica.Mechanics.MultiBody.Frames.normalize(n) 
+      final parameter Real e[3](each final unit="1")=Modelica.Mechanics.MultiBody.Frames.normalize(n) 
         "Unit vector in direction of rotation axis, resolved in frame_a";
       
       SI.Angle phi "Rotation angle of revolute joint";
@@ -6375,7 +6375,7 @@ joints.</b>
         
         import Modelica.Math.*;
         input SI.Length L "Length of length constraint";
-        input Real e[3] 
+        input Real e[3](each final unit="1")
           "Unit vector along axis of rotation, resolved in frame_a (= same in frame_b)";
         input SI.Angle angle_guess 
           "Select the configuration such that at initial time |angle-angle_guess|is minimal (angle=0: frame_a and frame_b coincide)";
@@ -6575,7 +6575,7 @@ position a degree of freedom is lost.
         annotation (Dialog(tab="Advanced"));
       final parameter Boolean positiveBranch(fixed=false) 
         "Selection of one of the two solutions of the non-linear constraint equation";
-      final parameter Real e[3]=Modelica.Mechanics.MultiBody.Frames.normalize(n) 
+      final parameter Real e[3](each final unit="1")=Modelica.Mechanics.MultiBody.Frames.normalize(n) 
         "Unit vector in direction of translation axis, resolved in frame_a";
       SI.Position s 
         "Relative distance between frame_a and frame_b along axis n = s + s_offset)";
@@ -6700,7 +6700,7 @@ joints.</b>
         "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint";
       SI.Position r_b[3]=position_b 
         "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint";
-      Real rbra[3] "= rb - ra";
+      Modelica.SIunits.Position rbra[3] "= rb - ra";
       Real B "Coefficient B of equation: s*s + B*s + C = 0";
       Real C "Coefficient C of equation: s*s + B*s + C = 0";
       Real k1 "Constant of quadratic equation solution";
@@ -6724,7 +6724,7 @@ joints.</b>
         "Determine branch which is closest to initial angle=0" 
         import Modelica.Math.*;
         input SI.Length L "Length of length constraint";
-        input Real e[3] 
+        input Real e[3](each final unit="1") 
           "Unit vector along axis of translation, resolved in frame_a (= same in frame_b)";
         input SI.Position d_guess 
           "Select the configuration such that at initial time |d-d_guess|is minimal (d: distance between origin of frame_a and origin of frame_b)";
@@ -6734,7 +6734,7 @@ joints.</b>
           "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of prismatic joint";
         output Boolean positiveBranch "Branch of the initial solution";
       protected 
-        Real rbra[3] "= rb - ra";
+        Modelica.SIunits.Position rbra[3] "= rb - ra";
         Real B "Coefficient B of equation: d*d + B*d + C = 0";
         Real C "Coefficient C of equation: d*d + B*d + C = 0";
         Real k1 "Constant of quadratic equation solution";

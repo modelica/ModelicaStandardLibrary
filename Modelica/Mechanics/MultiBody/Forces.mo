@@ -1564,7 +1564,7 @@ is resolved in the world frame).
       "Distance between the origin of frame_a and the origin of frame_b";
     SI.Position r_rel_0[3] 
       "Position vector from frame_a to frame_b resolved in world frame";
-    Real e_rel_0[3] 
+    Real e_rel_0[3](each final unit="1") 
       "Unit vector in direction from frame_a to frame_b, resolved in world frame";
     annotation (
       preferedView="info",
@@ -1879,7 +1879,7 @@ for this situation:
       "Distance between the origin of frame_a and the origin of frame_b";
     SI.Position r_rel_0[3] 
       "Position vector from frame_a to frame_b resolved in world frame";
-    Real e_rel_0[3] 
+    Real e_rel_0[3](each final unit="1") 
       "Unit vector in direction from frame_a to frame_b, resolved in world frame";
     annotation (
       preferedView="info",

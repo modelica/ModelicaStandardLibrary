@@ -633,10 +633,11 @@ units are wrong or errors in documentation):
   <tr><td valign=\"top\"> CombiTable2D</td>
       <td valign=\"top\"> Documentation improved and \"model\" changed to \"block\"</td> 
   </tr>
-  <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Types</b></td></tr>
-  <tr><td valign=\"top\"> Axis </td>
-      <td valign=\"top\"> Added unit=\"1\", since in Dymola 7 unit propagation sometimes leads to
-                        warnings otherwise.</td> 
+  <tr><td colspan=\"2\"><b>Mechanics.MultiBody</b></td></tr>
+  <tr><td valign=\"top\"> * </td>
+      <td valign=\"top\"> Added (each final unit=\"1\") as unit for all unit vectors, 
+                        since in Dymola 7 unit propagation sometimes leads otherwise
+                        to warnings.</td> 
   </tr>
 </table>
                                

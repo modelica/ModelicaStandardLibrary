@@ -2082,7 +2082,7 @@ November 3-4, 2003, pp. 149-158</p>
     
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
-    parameter Real e[3]=Frames.normalize(n) 
+    parameter Real e[3](each final unit="1")=Frames.normalize(n) 
       "Unit vector in direction of rotor axis, resolved in frame_a";
     parameter SI.Inertia nJ[3]=J*e;
     Visualizers.Advanced.Shape cylinder(
@@ -2216,9 +2216,9 @@ November 3-4, 2003, pp. 149-158</p>
 </html>"));
   protected 
     outer World world;
-    parameter Real e_a[3]=Modelica.Mechanics.MultiBody.Frames.normalize(n_a) 
+    parameter Real e_a[3](each final unit="1")=Modelica.Mechanics.MultiBody.Frames.normalize(n_a) 
       "Unit vector in direction of flange_a rotation axis";
-    parameter Real e_b[3]=Modelica.Mechanics.MultiBody.Frames.normalize(n_b) 
+    parameter Real e_b[3](each final unit="1")=Modelica.Mechanics.MultiBody.Frames.normalize(n_b) 
       "Unit vector in direction of flange_b rotation axis";
   equation 
     flange_a.phi = ratio*flange_b.phi;

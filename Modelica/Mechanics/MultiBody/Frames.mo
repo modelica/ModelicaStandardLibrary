@@ -393,7 +393,7 @@ with
   function planarRotation "Return orientation object of a planar rotation" 
     import Modelica.Math;
     extends Modelica.Icons.Function;
-    input Real e[3] "Normalized axis of rotation (must have length=1)";
+    input Real e[3](each final unit="1") "Normalized axis of rotation (must have length=1)";
     input Modelica.SIunits.Angle angle 
       "Rotation angle to rotate frame 1 into frame 2 along axis e";
     input Modelica.SIunits.AngularVelocity der_angle "= der(angle)";
@@ -408,7 +408,7 @@ with
     "Return angle of a planar rotation, given the rotation axis and the representations of a vector in frame 1 and frame 2" 
     
     extends Modelica.Icons.Function;
-    input Real e[3] 
+    input Real e[3](each final unit="1") 
       "Normalized axis of rotation to rotate frame 1 around e into frame 2 (must have length=1)";
     input Real v1[3] 
       "A vector v resolved in frame 1 (shall not be parallel to e)";
@@ -546,10 +546,10 @@ and/or a division by zero will occur.
     output SI.Angle angles[3] 
       "Rotation angles around the axes defined in 'sequence' such that R=Frames.axesRotation(sequence,angles); -pi < angles[i] <= pi";
   protected 
-    Real e1_1[3] "First rotation axis, resolved in frame 1";
-    Real e2_1a[3] "Second rotation axis, resolved in frame 1a";
-    Real e3_1[3] "Third rotation axis, resolved in frame 1";
-    Real e3_2[3] "Third rotation axis, resolved in frame 2";
+    Real e1_1[3](each final unit="1") "First rotation axis, resolved in frame 1";
+    Real e2_1a[3](each final unit="1") "Second rotation axis, resolved in frame 1a";
+    Real e3_1[3](each final unit="1") "Third rotation axis, resolved in frame 1";
+    Real e3_2[3](each final unit="1") "Third rotation axis, resolved in frame 2";
     Real A 
       "Coefficient A in the equation A*cos(angles[1])+B*sin(angles[1]) = 0";
     Real B 
@@ -702,19 +702,19 @@ and sequence[2] &ne; sequence[3]. Often used values are:
   
   function from_nxy "Return fixed orientation object from n_x and n_y vectors" 
     extends Modelica.Icons.Function;
-    input Real n_x[3] 
+    input Real n_x[3](each final unit="1") 
       "Vector in direction of x-axis of frame 2, resolved in frame 1";
-    input Real n_y[3] 
+    input Real n_y[3](each final unit="1") 
       "Vector in direction of y-axis of frame 2, resolved in frame 1";
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
   protected 
-    Real abs_n_x=sqrt(n_x*n_x);
-    Real e_x[3]=if abs_n_x < 1.e-10 then {1,0,0} else n_x/abs_n_x;
-    Real n_z_aux[3]=cross(e_x, n_y);
-    Real n_y_aux[3]=if n_z_aux*n_z_aux > 1.0e-6 then n_y else (if abs(e_x[1])
+    Real abs_n_x(final unit="1")=sqrt(n_x*n_x);
+    Real e_x[3](each final unit="1")=if abs_n_x < 1.e-10 then {1,0,0} else n_x/abs_n_x;
+    Real n_z_aux[3](each final unit="1")=cross(e_x, n_y);
+    Real n_y_aux[3](each final unit="1")=if n_z_aux*n_z_aux > 1.0e-6 then n_y else (if abs(e_x[1])
          > 1.0e-6 then {0,1,0} else {1,0,0});
-    Real e_z_aux[3]=cross(e_x, n_y_aux);
-    Real e_z[3]=e_z_aux/sqrt(e_z_aux*e_z_aux);
+    Real e_z_aux[3](each final unit="1")=cross(e_x, n_y_aux);
+    Real e_z[3](each final unit="1")=e_z_aux/sqrt(e_z_aux*e_z_aux);
   algorithm 
     R := Orientation(T={e_x,cross(e_z, e_x),e_z},w= zeros(3));
     annotation (Documentation(info="<html>
@@ -742,19 +742,19 @@ arbitrarily such that e_x and e_y are orthogonal to each other.
   
   function from_nxz "Return fixed orientation object from n_x and n_z vectors" 
     extends Modelica.Icons.Function;
-    input Real n_x[3] 
+    input Real n_x[3](each final unit="1") 
       "Vector in direction of x-axis of frame 2, resolved in frame 1";
-    input Real n_z[3] 
+    input Real n_z[3] (each final unit="1")
       "Vector in direction of z-axis of frame 2, resolved in frame 1";
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
   protected 
-    Real abs_n_x=sqrt(n_x*n_x);
-    Real e_x[3]=if abs_n_x < 1.e-10 then {1,0,0} else n_x/abs_n_x;
-    Real n_y_aux[3]=cross(n_z, e_x);
-    Real n_z_aux[3]=if n_y_aux*n_y_aux > 1.0e-6 then n_z else (if abs(e_x[1])
+    Real abs_n_x(final unit="1")=sqrt(n_x*n_x);
+    Real e_x[3](each final unit="1")=if abs_n_x < 1.e-10 then {1,0,0} else n_x/abs_n_x;
+    Real n_y_aux[3](each final unit="1")=cross(n_z, e_x);
+    Real n_z_aux[3](each final unit="1")=if n_y_aux*n_y_aux > 1.0e-6 then n_z else (if abs(e_x[1])
          > 1.0e-6 then {0,0,1} else {1,0,0});
-    Real e_y_aux[3]=cross(n_z_aux, e_x);
-    Real e_y[3]=e_y_aux/sqrt(e_y_aux*e_y_aux);
+    Real e_y_aux[3](each final unit="1")=cross(n_z_aux, e_x);
+    Real e_y[3](each final unit="1")=e_y_aux/sqrt(e_y_aux*e_y_aux);
   algorithm 
     R := Orientation(T={e_x,e_y,cross(e_x, e_y)},w= zeros(3));
     annotation (Documentation(info="<html>
@@ -917,7 +917,7 @@ is not possible or too difficult to compute, use function from_T2(..).
   function axis "Return unit vector for x-, y-, or z-axis" 
     extends Modelica.Icons.Function;
     input Integer axis(min=1, max=3) "Axis vector to be returned";
-    output Real e[3] "Unit axis vector";
+    output Real e[3](each final unit="1") "Unit axis vector";
   algorithm 
     e := if axis == 1 then {1,0,0} else (if axis == 2 then {0,1,0} else {0,0,1});
   end axis;
@@ -1224,7 +1224,7 @@ confused with Modelica \"parameters\".
       "Return quaternions orientation object of a planar rotation" 
       import Modelica.Math;
       extends Modelica.Icons.Function;
-      input Real e[3] "Normalized axis of rotation (must have length=1)";
+      input Real e[3](each final unit="1") "Normalized axis of rotation (must have length=1)";
       input Modelica.SIunits.Angle angle 
         "Rotation angle to rotate frame 1 into frame 2 along axis e";
       output Quaternions.Orientation Q 
@@ -1620,7 +1620,7 @@ Rotation can be defined by adapting this package correspondingly.
     function planarRotation "Return orientation object of a planar rotation" 
       import Modelica.Math;
       extends Modelica.Icons.Function;
-      input Real e[3] "Normalized axis of rotation (must have length=1)";
+      input Real e[3](each final unit="1") "Normalized axis of rotation (must have length=1)";
       input Modelica.SIunits.Angle angle 
         "Rotation angle to rotate frame 1 into frame 2 along axis e";
       output TransformationMatrices.Orientation T 
@@ -1634,7 +1634,7 @@ Rotation can be defined by adapting this package correspondingly.
       "Return angle of a planar rotation, given the rotation axis and the representations of a vector in frame 1 and frame 2" 
       
       extends Modelica.Icons.Function;
-      input Real e[3] 
+      input Real e[3](each final unit="1") 
         "Normalized axis of rotation to rotate frame 1 around e into frame 2 (must have length=1)";
       input Real v1[3] 
         "A vector v resolved in frame 1 (shall not be parallel to e)";
@@ -1761,10 +1761,10 @@ and/or a division by zero will occur.
       output SI.Angle angles[3] 
         "Rotation angles around the axes defined in 'sequence' such that T=TransformationMatrices.axesRotation(sequence,angles); -pi < angles[i] <= pi";
     protected 
-      Real e1_1[3] "First rotation axis, resolved in frame 1";
-      Real e2_1a[3] "Second rotation axis, resolved in frame 1a";
-      Real e3_1[3] "Third rotation axis, resolved in frame 1";
-      Real e3_2[3] "Third rotation axis, resolved in frame 2";
+      Real e1_1[3](each final unit="1") "First rotation axis, resolved in frame 1";
+      Real e2_1a[3](each final unit="1") "Second rotation axis, resolved in frame 1a";
+      Real e3_1[3](each final unit="1") "Third rotation axis, resolved in frame 1";
+      Real e3_2[3](each final unit="1") "Third rotation axis, resolved in frame 2";
       Real A 
         "Coefficient A in the equation A*cos(angles[1])+B*sin(angles[1]) = 0";
       Real B 
@@ -1918,20 +1918,20 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     
     function from_nxy "Return orientation object from n_x and n_y vectors" 
       extends Modelica.Icons.Function;
-      input Real n_x[3] 
+      input Real n_x[3](each final unit="1") 
         "Vector in direction of x-axis of frame 2, resolved in frame 1";
-      input Real n_y[3] 
+      input Real n_y[3](each final unit="1") 
         "Vector in direction of y-axis of frame 2, resolved in frame 1";
       output TransformationMatrices.Orientation T 
         "Orientation object to rotate frame 1 into frame 2";
     protected 
-      Real abs_n_x=sqrt(n_x*n_x);
-      Real e_x[3]=if abs_n_x < 1.e-10 then {1,0,0} else n_x/abs_n_x;
-      Real n_z_aux[3]=cross(e_x, n_y);
-      Real n_y_aux[3]=if n_z_aux*n_z_aux > 1.0e-6 then n_y else (if abs(e_x[1])
+      Real abs_n_x(final unit="1")=sqrt(n_x*n_x);
+      Real e_x[3](each final unit="1")=if abs_n_x < 1.e-10 then {1,0,0} else n_x/abs_n_x;
+      Real n_z_aux[3](each final unit="1")=cross(e_x, n_y);
+      Real n_y_aux[3](each final unit="1")=if n_z_aux*n_z_aux > 1.0e-6 then n_y else (if abs(e_x[1])
            > 1.0e-6 then {0,1,0} else {1,0,0});
-      Real e_z_aux[3]=cross(e_x, n_y_aux);
-      Real e_z[3]=e_z_aux/sqrt(e_z_aux*e_z_aux);
+      Real e_z_aux[3](each final unit="1")=cross(e_x, n_y_aux);
+      Real e_z[3](each final unit="1")=e_z_aux/sqrt(e_z_aux*e_z_aux);
     algorithm 
       T := {e_x,cross(e_z, e_x),e_z};
       annotation (Documentation(info="<html>
@@ -1959,20 +1959,20 @@ arbitrarily such that e_x and e_y are orthogonal to each other.
     
     function from_nxz "Return orientation object from n_x and n_z vectors" 
       extends Modelica.Icons.Function;
-      input Real n_x[3] 
+      input Real n_x[3](each final unit="1")
         "Vector in direction of x-axis of frame 2, resolved in frame 1";
-      input Real n_z[3] 
+      input Real n_z[3](each final unit="1") 
         "Vector in direction of z-axis of frame 2, resolved in frame 1";
       output TransformationMatrices.Orientation T 
         "Orientation object to rotate frame 1 into frame 2";
     protected 
-      Real abs_n_x=sqrt(n_x*n_x);
-      Real e_x[3]=if abs_n_x < 1.e-10 then {1,0,0} else n_x/abs_n_x;
-      Real n_y_aux[3]=cross(n_z, e_x);
-      Real n_z_aux[3]=if n_y_aux*n_y_aux > 1.0e-6 then n_z else (if abs(e_x[1])
+      Real abs_n_x(final unit="1")=sqrt(n_x*n_x);
+      Real e_x[3](each final unit="1")=if abs_n_x < 1.e-10 then {1,0,0} else n_x/abs_n_x;
+      Real n_y_aux[3](each final unit="1")=cross(n_z, e_x);
+      Real n_z_aux[3](each final unit="1")=if n_y_aux*n_y_aux > 1.0e-6 then n_z else (if abs(e_x[1])
            > 1.0e-6 then {0,0,1} else {1,0,0});
-      Real e_y_aux[3]=cross(n_z_aux, e_x);
-      Real e_y[3]=e_y_aux/sqrt(e_y_aux*e_y_aux);
+      Real e_y_aux[3](each final unit="1")=cross(n_z_aux, e_x);
+      Real e_y[3](each final unit="1")=e_y_aux/sqrt(e_y_aux*e_y_aux);
     algorithm 
       T := {e_x,e_y,cross(e_x, e_y)};
       annotation (Documentation(info="<html>

@@ -623,9 +623,9 @@ to which this force element is connected.
       "Line force acting on frame_a and on frame_b (positive, if acting on frame_b and directed from frame_a to frame_b)";
     SI.Position s 
       "(Guarded) distance between the origin of frame_a and the origin of frame_b (>= s_small))";
-    Real e_a[3] 
+    Real e_a[3](each final unit="1") 
       "Unit vector on the line connecting the origin of frame_a with the origin of frame_b resolved in frame_a (directed from frame_a to frame_b)";
-    Real r_rel_a[3] 
+    Modelica.SIunits.Position r_rel_a[3] 
       "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
   protected 
     outer Modelica.Mechanics.MultiBody.World world;
