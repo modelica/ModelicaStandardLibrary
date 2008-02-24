@@ -357,7 +357,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
                                     annotation (Line(
         points={{-80,40},{-90,40},{-90,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(der2.u, der1.y) annotation (Line(
         points={{-20,-39},{-20,-35},{-60,-35},{-60,-30.5}},
@@ -370,7 +370,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     connect(angularVelocity.frame_a, frame_a)         annotation (Line(
         points={{60,-4},{60,20},{-90,20},{-90,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(angularVelocity.w, w)                 annotation (Line(
         points={{60,-25},{60,-110}},
@@ -393,7 +393,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
                                               annotation (Line(
         points={{-70,-54},{-90,-54},{-90,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(transformVector_v.frame_resolve, frame_resolve) 
                                                           annotation (Line(
@@ -424,7 +424,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     connect(transformVector_a.frame_a, frame_a)      annotation (Line(
         points={{-30,-70},{-90,-70},{-90,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(transformVector_a.frame_resolve, frame_resolve)      annotation (Line(
         points={{-10,-69.9},{-10,-70},{-1,-70},{-1,0},{100,0}},
@@ -446,7 +446,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     connect(transformVector_z.frame_a, frame_a)     annotation (Line(
         points={{90,-85},{-90,-85},{-90,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(transformVector_z.frame_resolve, frame_resolve)     annotation (Line(
         points={{110,-84.9},{120,-84.9},{120,0},{100,0}},
@@ -456,7 +456,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     connect(frame_a, position.frame_a)         annotation (Line(
         points={{-100,0},{-90,0},{-90,20},{-60,20},{-60,10}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(position.r, der1.u)         annotation (Line(
         points={{-60,-11},{-60,-19}},
@@ -465,7 +465,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     connect(absoluteAngles.frame_a, frame_a) annotation (Line(
         points={{20,-4},{20,20},{-90,20},{-90,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(position.r, r)         annotation (Line(
         points={{-60,-11},{-60,-15},{-100,-15},{-100,-110}},
@@ -828,12 +828,12 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     connect(relativePosition.frame_a, frame_a) annotation (Line(
         points={{-80,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(relativePosition.frame_b, frame_b) annotation (Line(
         points={{-60,0},{100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(relativePosition.r_rel, r_rel) annotation (Line(
         points={{-70,-11},{-70,-15},{-80,-15},{-80,-80},{-100,-80},{-100,-110}},
@@ -843,13 +843,13 @@ and sequence[2] &ne; sequence[3]. Often used values are:
                                     annotation (Line(
         points={{-81,50},{-90,50},{-90,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(zeroForce2.frame_a, frame_b) 
                                     annotation (Line(
         points={{70,30},{90,30},{90,0},{100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(relativePosition.r_rel, der1.u) annotation (Line(
         points={{-70,-11},{-70,-15},{-60,-15},{-60,-19}},
@@ -862,12 +862,12 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     connect(relativeAngles.frame_a, frame_a) annotation (Line(
         points={{10,-15},{0,-15},{0,30},{-90,30},{-90,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(relativeAngles.frame_b, frame_b) annotation (Line(
         points={{30,-15},{40,-15},{40,0},{100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(relativeAngles.angles, angles) annotation (Line(
         points={{20,-26},{20,-110}},
@@ -876,12 +876,12 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     connect(relativeAngularVelocity.frame_b, frame_b) annotation (Line(
         points={{70,-30},{80,-30},{80,0},{100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(relativeAngularVelocity.frame_a, frame_a) annotation (Line(
         points={{50,-30},{0,-30},{0,30},{-90,30},{-90,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(relativeAngularVelocity.w_rel, w_rel) annotation (Line(
         points={{60,-41},{60,-110}},
@@ -905,13 +905,13 @@ and sequence[2] &ne; sequence[3]. Often used values are:
                                               annotation (Line(
         points={{-70,-54},{-90,-54},{-90,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(transformVector_v_rel.frame_b, frame_b) 
                                               annotation (Line(
         points={{-50,-54},{-36,-54},{-36,0},{100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(transformVector_v_rel.frame_resolve, frame_resolve) 
                                                           annotation (Line(
@@ -942,12 +942,12 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     connect(transformVector_a_rel.frame_a, frame_a)  annotation (Line(
         points={{-30,-70},{-90,-70},{-90,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(transformVector_a_rel.frame_b, frame_b)  annotation (Line(
         points={{-10,-70},{6,-70},{6,0},{100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(transformVector_a_rel.frame_resolve, frame_resolve)  annotation (Line(
         points={{-10,-61.9},{-10,80},{100,80}},
@@ -969,12 +969,12 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     connect(transformVector_z_rel.frame_a, frame_a) annotation (Line(
         points={{90,-85},{-90,-85},{-90,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(transformVector_z_rel.frame_b, frame_b) annotation (Line(
         points={{110,-85},{119,-85},{119,0},{100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(transformVector_z_rel.frame_resolve, frame_resolve) annotation (Line(
         points={{110,-76.9},{116,-76.9},{116,80},{100,80}},
@@ -1099,7 +1099,7 @@ computed as:
     connect(position.frame_a, frame_a) annotation (Line(
         points={{-10,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
   end AbsolutePosition;
 
@@ -1230,7 +1230,7 @@ computed as:
     connect(position.frame_a, frame_a) annotation (Line(
         points={{-10,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
   end AbsoluteVelocity;
 
@@ -1442,7 +1442,7 @@ computed as:
     connect(angularVelocity.frame_a, frame_a) annotation (Line(
         points={{-10,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
   end AbsoluteAngularVelocity;
 
@@ -1537,12 +1537,12 @@ computed as:
     connect(relativePosition.frame_a, frame_a) annotation (Line(
         points={{-10,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(relativePosition.frame_b, frame_b) annotation (Line(
         points={{10,0},{100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(relativePosition.frame_resolve, frame_resolve) annotation (Line(
         points={{10,8.1},{26,8.1},{26,8},{36,8},{36,80},{100,80}},
@@ -1659,12 +1659,12 @@ computed as:
     connect(relativePosition.frame_a, frame_a) annotation (Line(
         points={{-10,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(relativePosition.frame_b, frame_b) annotation (Line(
         points={{10,0},{100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(relativePosition.frame_resolve, frame_resolve) annotation (Line(
         points={{10,8.1},{26,8.1},{26,8},{36,8},{36,80},{100,80}},
@@ -1888,13 +1888,13 @@ computed as:
                                                annotation (Line(
         points={{-10,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(relativeAngularVelocity.frame_b, frame_b) 
                                                annotation (Line(
         points={{10,0},{100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(relativeAngularVelocity.frame_resolve, frame_resolve) 
                                                            annotation (Line(
@@ -2133,12 +2133,12 @@ with negative sign at frame_a.
     connect(cutForce.frame_a, frame_a)      annotation (Line(
         points={{-50,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(cutForce.frame_b, frame_b)      annotation (Line(
         points={{-30,0},{100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(cutForce.frame_resolve, frame_resolve)      annotation (Line(
         points={{-32,-10},{-32,-60},{80,-60},{80,-100}},
@@ -2263,12 +2263,12 @@ with negative sign at frame_a.
     connect(cutTorque.frame_a, frame_a) annotation (Line(
         points={{-62,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(cutTorque.frame_b, frame_b) annotation (Line(
         points={{-42,0},{100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(cutTorque.torque, torque) annotation (Line(
         points={{-60,-11},{-60,-80},{-80,-80},{-80,-110}},
@@ -2429,17 +2429,17 @@ with negative sign at frame_a.
     connect(cutForce.frame_a, frame_a) annotation (Line(
         points={{-60,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(cutForce.frame_b, cutTorque.frame_a) annotation (Line(
         points={{-40,0},{-2,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(cutTorque.frame_b, frame_b) annotation (Line(
         points={{18,0},{100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(cutForce.force, force) annotation (Line(
         points={{-58,-11},{-58,-20},{-80,-20},{-80,-110}},
@@ -2616,7 +2616,7 @@ transformed output vector as \"Real r_out[3]\";
     connect(basicTransformVector.frame_a, frame_a) annotation (Line(
         points={{-10,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(basicTransformVector.frame_resolve, frame_resolve) annotation (Line(
         points={{10,0},{100,0}},
@@ -2710,12 +2710,12 @@ transformed output vector as \"Real r_out[3]\";
     connect(basicTransformVector.frame_a, frame_a) annotation (Line(
         points={{-10,0},{-100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(basicTransformVector.frame_b, frame_b) annotation (Line(
         points={{10,0},{100,0}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(basicTransformVector.frame_resolve, frame_resolve) annotation (Line(
         points={{10,8.1},{20,8.1},{20,8},{32,8},{32,80},{100,80}},

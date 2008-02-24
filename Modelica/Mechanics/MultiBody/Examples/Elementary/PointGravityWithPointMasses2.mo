@@ -146,57 +146,57 @@ equation
                                                          annotation (Line(
         points={{-20,-10},{0,-10}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
   connect(fixedTranslation1.frame_a, fixedTranslation2.frame_a) 
                                                           annotation (Line(
         points={{-20,-10},{-10,-10},{-10,20},{0,20}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
   connect(fixedTranslation3.frame_a, fixedTranslation.frame_a) 
                                                          annotation (Line(
         points={{-20,-40},{-10,-40},{-10,-10},{0,-10}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
   connect(fixedTranslation1.frame_a, fixedTranslation4.frame_a) 
                                                           annotation (Line(
         points={{-20,-10},{-10,-10},{-10,40}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
   connect(fixedTranslation5.frame_a, fixedTranslation.frame_a) 
                                                          annotation (Line(
         points={{-10,-60},{-10,-10},{0,-10}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
   connect(fixedTranslation2.frame_b, pointMass3.frame_a) 
                                                       annotation (Line(
         points={{20,20},{40,20}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
   connect(fixedTranslation3.frame_b, pointMass4.frame_a) 
                                                       annotation (Line(
         points={{-40,-40},{-50,-40}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
   connect(pointMass5.frame_a, fixedTranslation4.frame_b) 
                                                       annotation (Line(
         points={{0,70},{-10,70},{-10,60}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
   connect(fixedTranslation5.frame_b, pointMass6.frame_a) 
                                                       annotation (Line(
         points={{-10,-80},{-10,-92},{2,-92}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
   connect(fixedTranslation.frame_b, pointMass1.frame_a) 
                                                      annotation (Line(
         points={{20,-10},{40,-10}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
   connect(fixedTranslation1.frame_b, pointMass2.frame_a) 
                                                       annotation (Line(
         points={{-40,-10},{-60,-10}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
 end SystemWithStandardBodies;
 
   SystemWithStandardBodies referenceSystem annotation (Placement(transformation(
@@ -206,63 +206,63 @@ equation
                                                          annotation (Line(
       points={{0,0},{20,0}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(fixedTranslation1.frame_a, fixedTranslation2.frame_a) 
                                                           annotation (Line(
       points={{0,0},{10,0},{10,30},{20,30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(fixedTranslation3.frame_a, fixedTranslation.frame_a) 
                                                          annotation (Line(
       points={{0,-30},{10,-30},{10,0},{20,0}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(fixedTranslation1.frame_a, fixedTranslation4.frame_a) 
                                                           annotation (Line(
       points={{0,0},{10,0},{10,50}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(fixedTranslation5.frame_a, fixedTranslation.frame_a) 
                                                          annotation (Line(
       points={{10,-50},{10,0},{20,0}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(fixedTranslation2.frame_b, pointMass3.frame_a) 
                                                       annotation (Line(
       points={{40,30},{70,30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(fixedTranslation3.frame_b, pointMass4.frame_a) 
                                                       annotation (Line(
       points={{-20,-30},{-40,-30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(pointMass5.frame_a, fixedTranslation4.frame_b) 
                                                       annotation (Line(
       points={{10,90},{10,70}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(fixedTranslation5.frame_b, pointMass6.frame_a) 
                                                       annotation (Line(
       points={{10,-70},{10,-90}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(fixedTranslation.frame_b, pointMass1.frame_a) 
                                                      annotation (Line(
       points={{40,0},{70,0}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(fixedTranslation1.frame_b, pointMass2.frame_a) 
                                                       annotation (Line(
       points={{-20,0},{-50,0}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(world.frame_b, freeMotion.frame_a) annotation (Line(
       points={{-60,70},{-40,70}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(freeMotion.frame_b, fixedTranslation1.frame_a) annotation (Line(
       points={{-20,70},{-10,70},{-10,20},{10,20},{10,0},{0,0}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
 end PointGravityWithPointMasses2;

@@ -65,31 +65,31 @@ equation
   connect(revolute2.frame_b, body.frame_a) annotation (Line(
       points={{-20,30},{-20,40},{0,40}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(forceAndTorque.frame_b, body.frame_b) 
     annotation (Line(
       points={{40,40},{20,40}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(fixed1.frame_b, revolute1.frame_a) 
     annotation (Line(
       points={{-70,0},{-60,0}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(revolute1.frame_b, revolute2.frame_a) 
     annotation (Line(
       points={{-40,0},{-20,0},{-20,10}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(fixed2.frame_b, forceAndTorque.frame_a) 
     annotation (Line(
       points={{80,40},{60,40}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(fixedRotation.frame_a, fixed1.frame_b) annotation (Line(
       points={{-8,-20},{-65,-20},{-65,0},{-70,0}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(forceAndTorque.frame_resolve, fixedRotation.frame_b) annotation (Line(
       points={{42,30},{42,30},{20,30},{20,-20},{12,-20}},
       color={95,95,95},

@@ -356,7 +356,7 @@ and the accompanying <b>disclaimer</b>
           Text(
             extent={{-33,-7},{-92,-67}},
             lineColor={0,0,0},
-            lineThickness=4,
+            lineThickness=1,
             textString="°C"),
           Text(
             extent={{82,-7},{22,-67}},

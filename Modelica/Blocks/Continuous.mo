@@ -1277,15 +1277,15 @@ to use <b>limitAtInit</b> = <b>false</b>.
     connect(u_m, addP.u2) annotation (Line(
         points={{0,-120},{0,-92},{-92,-92},{-92,44},{-82,44}},
         color={0,0,127},
-        thickness=2));
+        thickness=0.5));
     connect(u_m, addD.u2) annotation (Line(
         points={{0,-120},{0,-92},{-92,-92},{-92,-6},{-82,-6}},
         color={0,0,127},
-        thickness=2));
+        thickness=0.5));
     connect(u_m, addI.u2) annotation (Line(
         points={{0,-120},{0,-92},{-92,-92},{-92,-50},{-82,-50}},
         color={0,0,127},
-        thickness=2));
+        thickness=0.5));
     connect(Dzero.y, addPID.u2) annotation (Line(points={{-19.5,25},{-14,25},{
             -14,0},{-2,0}}, color={0,0,127}));
     connect(Izero.y, addPID.u3) annotation (Line(points={{-0.5,-50},{-10,-50},{

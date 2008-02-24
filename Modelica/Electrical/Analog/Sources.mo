@@ -195,7 +195,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           Line(
             points={{-80,-18},{0,-18},{0,50},{80,50}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
           Polygon(
             points={{90,-70},{68,-62},{68,-78},{90,-70}},
@@ -222,7 +222,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             points={{-13,50},{-13,-17}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Polygon(
             points={{2,50},{-19,50},{2,50}},
@@ -251,7 +251,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             points={{-13,-18},{-13,-70}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Polygon(
             points={{-13,-18},{-16,-31},{-9,-31},{-13,-18}},
@@ -295,7 +295,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           Line(
             points={{-80,-20},{-20,-20},{50,50}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
           Polygon(
             points={{90,-70},{68,-62},{68,-78},{90,-70}},
@@ -311,7 +311,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             points={{-40,-20},{-40,-70}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Polygon(
             points={{-40,-70},{-43,-60},{-38,-60},{-40,-70},{-40,-70}},
@@ -342,17 +342,17 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             points={{-19,-20},{50,-20}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Line(
             points={{50,50},{101,50}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{50,50},{50,-20}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Polygon(
             points={{50,-20},{42,-18},{42,-22},{50,-20}},
@@ -442,11 +442,11 @@ Modelica in file \"Modelica/package.mo\".</i><br>
                 42,-73.1},{46.2,-78.4},{50.5,-80},{54.7,-77.6},{58.9,-71.5},{
                 63.1,-61.9},{67.9,-47.2},{74,-24.8},{80,0}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{-41,-2},{-80,-2}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Text(
             extent={{-106,-11},{-60,-29}},
             lineColor={160,160,164},
@@ -489,7 +489,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             points={{33,79},{33,0}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Text(
             extent={{-69,109},{-4,83}},
@@ -554,7 +554,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
                 16.9},{56.5,-9.2},{61.7,-18.6},{66.3,-22.7},{70.9,-22.6},{76.1,
                 -18},{80,-12.1}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Text(
             extent={{-78,1},{-55,-19}},
             lineColor={160,160,164},
@@ -574,7 +574,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           Line(
             points={{-50,0},{-81,0}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{-50,77},{-50,0}},
             color={192,192,192},
@@ -682,7 +682,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
                 47.68,26},{51.9,15.8},{56.2,7.4},{61.1,-0.5},{66.8,-7.4},{73.1,
                 -13.3},{80.9,-18.5},{90.8,-22.8},{100,-25.4}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}},
             lineColor={192,192,192},
@@ -706,7 +706,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             points={{-40,-29},{-40,-60}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Polygon(
             points={{-40,-30},{-42,-40},{-37,-40},{-40,-30}},
@@ -716,7 +716,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           Line(
             points={{-39,-30},{-80,-30}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Text(
             extent={{-59,-71},{-13,-89}},
             lineColor={160,160,164},
@@ -730,7 +730,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             points={{-40,-30},{29,-30}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Polygon(
             points={{29,-30},{21,-28},{21,-32},{29,-30}},
@@ -759,7 +759,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
                 47.68,26},{51.9,15.8},{56.2,7.4},{61.1,-0.5},{66.8,-7.4},{73.1,
                 -13.3},{80.9,-18.5},{90.8,-22.8},{100,-25.4}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}},
             lineColor={192,192,192},
@@ -783,7 +783,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             points={{-40,-29},{-40,-60}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Polygon(
             points={{-40,-30},{-42,-40},{-37,-40},{-40,-30}},
@@ -793,7 +793,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           Line(
             points={{-39,-30},{-80,-30}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Text(
             extent={{-59,-71},{-13,-89}},
             lineColor={160,160,164},
@@ -807,7 +807,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             points={{-40,-30},{29,-30}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Polygon(
             points={{29,-30},{21,-28},{21,-32},{29,-30}},
@@ -881,7 +881,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             points={{-34,-1},{-34,-70}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Polygon(
             points={{-33,-70},{-36,-57},{-30,-57},{-33,-70},{-33,-70}},
@@ -908,7 +908,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             points={{-80,0},{-20,0},{-21,50},{21,50},{20,-1},{41,0},{40,50},{80,
                 51}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{-19,88},{-19,49}},
             color={192,192,192},
@@ -939,7 +939,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             points={{-34,50},{-34,1}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Text(
             extent={{-78,34},{-37,20}},
@@ -958,7 +958,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           Line(
             points={{80,51},{80,0},{90,-1}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Polygon(
             points={{-19,69},{-10,71},{-10,67},{-19,69}},
             lineColor={192,192,192},
@@ -1032,7 +1032,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             points={{-34,-20},{-34,-70}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Polygon(
             points={{-34,-70},{-37,-57},{-31,-57},{-34,-70},{-34,-70}},
@@ -1076,7 +1076,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             points={{-34,47},{-34,-7}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Text(
             extent={{-78,34},{-37,20}},
@@ -1105,7 +1105,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           Line(
             points={{-80,-20},{-10,-20},{30,60},{30,-20},{72,60},{72,-20}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Text(
             extent={{-77,100},{-27,88}},
             lineColor={160,160,164},
@@ -1173,7 +1173,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             points={{-45,-31},{-45,-70}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Polygon(
             points={{-45,-70},{-47,-60},{-43,-60},{-45,-70},{-45,-70}},
@@ -1221,7 +1221,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             points={{-39,40},{-39,-19}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Text(
             extent={{-77,14},{-40,0}},
@@ -1241,7 +1241,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             points={{-80,-30},{-30,-30},{-9,46},{21,46},{40,-30},{60,-30},{80,
                 46},{100,46}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Polygon(
             points={{-39,40},{-41,29},{-37,29},{-39,40}},
             lineColor={192,192,192},
@@ -1371,7 +1371,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             points={{-31,-31},{-31,-70}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Line(
             points={{-20,-20},{-20,-70}},
@@ -1592,7 +1592,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           Line(
             points={{-80,-18},{0,-18},{0,50},{80,50}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
           Polygon(
             points={{90,-70},{68,-62},{68,-78},{90,-70}},
@@ -1619,7 +1619,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             points={{-13,50},{-13,-17}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Polygon(
             points={{2,50},{-19,50},{2,50}},
@@ -1648,7 +1648,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             points={{-13,-18},{-13,-70}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Polygon(
             points={{-13,-18},{-16,-31},{-9,-31},{-13,-18}},
@@ -1691,7 +1691,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           Line(
             points={{-80,-20},{-20,-20},{50,50}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(points={{-90,-70},{82,-70}}, color={192,192,192}),
           Polygon(
             points={{90,-70},{68,-62},{68,-78},{90,-70}},
@@ -1707,7 +1707,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             points={{-40,-20},{-40,-70}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Polygon(
             points={{-40,-70},{-43,-60},{-38,-60},{-40,-70},{-40,-70}},
@@ -1734,17 +1734,17 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             points={{-19,-20},{50,-20}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Line(
             points={{50,50},{101,50}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{50,50},{50,-20}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Polygon(
             points={{50,-20},{42,-18},{42,-22},{50,-20}},
@@ -1838,11 +1838,11 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
                 42,-73.1},{46.2,-78.4},{50.5,-80},{54.7,-77.6},{58.9,-71.5},{
                 63.1,-61.9},{67.9,-47.2},{74,-24.8},{80,0}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{-41,-2},{-80,-2}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Text(
             extent={{-106,-11},{-60,-29}},
             lineColor={160,160,164},
@@ -1885,7 +1885,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             points={{33,79},{33,0}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Text(
             extent={{-73,82},{-53,102}},
@@ -1950,7 +1950,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
                 16.9},{56.5,-9.2},{61.7,-18.6},{66.3,-22.7},{70.9,-22.6},{76.1,
                 -18},{80,-12.1}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Text(
             extent={{-78,1},{-55,-19}},
             lineColor={160,160,164},
@@ -1970,7 +1970,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           Line(
             points={{-50,0},{-81,0}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{-50,77},{-50,0}},
             color={192,192,192},
@@ -2078,7 +2078,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
                 47.68,26},{51.9,15.8},{56.2,7.4},{61.1,-0.5},{66.8,-7.4},{73.1,
                 -13.3},{80.9,-18.5},{90.8,-22.8},{100,-25.4}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}},
             lineColor={192,192,192},
@@ -2094,7 +2094,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             points={{-40,-29},{-40,-60}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Polygon(
             points={{-40,-30},{-42,-40},{-37,-40},{-40,-30}},
@@ -2104,7 +2104,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           Line(
             points={{-39,-30},{-80,-30}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Text(
             extent={{-59,-71},{-13,-89}},
             lineColor={160,160,164},
@@ -2118,7 +2118,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             points={{-40,-30},{29,-30}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Polygon(
             points={{29,-30},{21,-28},{21,-32},{29,-30}},
@@ -2132,7 +2132,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           Line(
             points={{-39,-30},{-80,-30}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{30,100},{30,-34}},
             color={192,192,192},
@@ -2196,7 +2196,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             points={{-34,-1},{-34,-70}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Polygon(
             points={{-33,-70},{-36,-57},{-30,-57},{-33,-70},{-33,-70}},
@@ -2223,7 +2223,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             points={{-80,0},{-20,0},{-21,50},{21,50},{20,-1},{41,0},{40,50},{80,
                 51}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{-19,88},{-19,49}},
             color={192,192,192},
@@ -2254,7 +2254,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             points={{-34,50},{-34,1}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Text(
             extent={{-78,34},{-37,20}},
@@ -2273,7 +2273,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           Line(
             points={{80,51},{80,0},{90,-1}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Polygon(
             points={{-19,69},{-10,71},{-10,67},{-19,69}},
             lineColor={192,192,192},
@@ -2347,7 +2347,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             points={{-34,-20},{-34,-70}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Polygon(
             points={{-34,-70},{-37,-57},{-31,-57},{-34,-70},{-34,-70}},
@@ -2391,7 +2391,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             points={{-34,47},{-34,-7}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Text(
             extent={{-78,34},{-37,20}},
@@ -2420,7 +2420,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           Line(
             points={{-80,-20},{-10,-20},{30,60},{30,-20},{72,60},{72,-20}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Text(
             extent={{-73,75},{-53,95}},
             lineColor={192,192,192},
@@ -2488,7 +2488,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             points={{-45,-31},{-45,-70}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Polygon(
             points={{-45,-70},{-47,-60},{-43,-60},{-45,-70},{-45,-70}},
@@ -2541,7 +2541,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             points={{-39,40},{-39,-19}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Text(
             extent={{-77,14},{-40,0}},
@@ -2571,7 +2571,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             points={{-80,-30},{-30,-30},{-9,46},{21,46},{40,-30},{60,-30},{80,
                 46},{100,46}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Polygon(
             points={{-39,40},{-41,29},{-37,29},{-39,40}},
             lineColor={192,192,192},
@@ -2686,7 +2686,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             points={{-31,-31},{-31,-70}},
             color={192,192,192},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Line(
             points={{-20,-20},{-20,-70}},

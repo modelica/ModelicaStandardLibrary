@@ -35,7 +35,7 @@ equation
     annotation (Line(
       points={{-40,10},{-20,10}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(damper.flange_b, rev.axis) annotation (Line(points={{0,50},{4,50},{4,
           26},{-10,26},{-10,20}}, color={0,0,0}));
   connect(rev.support, damper.flange_a) annotation (Line(points={{-16,20},{-16,
@@ -43,6 +43,6 @@ equation
   connect(body.frame_a, rev.frame_b) annotation (Line(
       points={{20,10},{0,10}},
       color={95,95,95},
-      thickness=2,
+      thickness=0.5,
       fillPattern=FillPattern.HorizontalCylinder));
 end Pendulum;

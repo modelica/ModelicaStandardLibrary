@@ -392,7 +392,7 @@ is defined as:
 <pre>  <b>expandable connector</b> ControlBus
       <b>extends</b> Modelica.Icons.ControlBus;
       <b>annotation</b> (Icon(Rectangle(extent=[-20, 2; 22, -2], 
-                       style(rgbcolor={255,204,51}, thickness=2))));
+                       style(rgbcolor={255,204,51}, thickness=0.5))));
   <b>end</b> ControlBus;
 </pre>
 <p>
@@ -402,7 +402,7 @@ line element in the icon annotation of a connector class. Above, a small rectang
 color of the bus is defined (and therefore this rectangle is not
 visible). As a result, when connecting from an instance of this
 connector to another connector instance, the connecting line has
-the color of the \"ControlBus\" with double width (due to \"thickness=2\").
+the color of the \"ControlBus\" with double width (due to \"thickness=0.5\").
 </p>
 
 <p>
@@ -504,7 +504,7 @@ just potential signals. The user might still add different signal names.
     connect(part.subControlBus, controlBus.subControlBus) annotation (Line(
         points={{-40,-70},{30,-70},{30,2}},
         color={255,204,51},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
     connect(gain.u, controlBus.realSignal1) annotation (Line(
         points={{-38,80},{20,80},{20,18},{28,18}},
@@ -533,7 +533,7 @@ This package contains utility models and bus definitions needed for the
                   100,100}}), graphics={Rectangle(
                 extent={{-20,2},{22,-2}},
                 lineColor={255,204,51},
-                lineThickness=2)}),
+                lineThickness=0.5)}),
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}),
                   graphics),
@@ -558,7 +558,7 @@ constructed by the signals connected to this bus.
                   -100},{100,100}}), graphics={Rectangle(
                 extent={{-20,2},{22,-2}},
                 lineColor={255,204,51},
-                lineThickness=2)}),
+                lineThickness=0.5)}),
           Documentation(info="<html>
 <p>
 This connector defines the \"expandable connector\" SubControlBus that
@@ -589,7 +589,7 @@ constructed by the signals connected to this bus.
             Icon(graphics={Rectangle(
                   extent={{-20,2},{22,-2}},
                   lineColor={255,204,51},
-                  lineThickness=2)}),
+                  lineThickness=0.5)}),
             Diagram(graphics),
             Documentation(info="<html>
 <p>
@@ -613,7 +613,7 @@ to the
                       Icon(graphics={Rectangle(
                   extent={{-20,2},{22,-2}},
                   lineColor={255,204,51},
-                  lineThickness=2)}),
+                  lineThickness=0.5)}),
             Documentation(info="<html>
 <p>
 This connector is used to show default signals that might be added

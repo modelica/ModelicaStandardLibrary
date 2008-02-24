@@ -50,7 +50,7 @@ different icons.
           initialScale=0.16), graphics={Rectangle(
             extent={{-10,10},{10,-10}},
             lineColor={95,95,95},
-            lineThickness=2), Rectangle(
+            lineThickness=0.5), Rectangle(
             extent={{-30,100},{30,-100}},
             lineColor={0,0,0},
             fillColor={192,192,192},
@@ -90,7 +90,7 @@ This component has a filled rectangular icon.
           initialScale=0.16), graphics={Rectangle(
             extent={{-10,10},{10,-10}},
             lineColor={95,95,95},
-            lineThickness=2), Rectangle(
+            lineThickness=0.5), Rectangle(
             extent={{-30,100},{30,-100}},
             lineColor={0,0,0},
             fillColor={255,255,255},
@@ -183,7 +183,7 @@ end Frame_resolve;
           Rectangle(
             extent={{-20,1},{20,-1}},
             lineColor={135,135,135},
-            lineThickness=2),
+            lineThickness=0.5),
           Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={255,255,255},
@@ -207,20 +207,20 @@ end Frame_resolve;
           Line(
             points={{-50,-40},{50,-40}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{-50,40},{50,40}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Text(
             extent={{-158,-66},{158,-124}},
             lineColor={0,0,0},
-            lineThickness=2,
+            lineThickness=0.5,
             textString="%name"),
           Rectangle(
             extent={{-60,60},{60,-60}},
             lineColor={255,255,255},
-            lineThickness=2,
+            lineThickness=0.5,
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Rectangle(
@@ -286,7 +286,7 @@ to the FlangeWithBearing connector.
           Line(
             points={{-100,-10},{-100,-40},{0,-40},{0,-100}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(points={{-90,0},{0,0}}, color={0,0,0}),
           Text(
             extent={{-216,88},{86,36}},
@@ -307,7 +307,7 @@ connector.
     connect(frame, flangeAndFrame.bearingFrame) annotation (Line(
         points={{0,-100},{0,-40},{-100,-40},{-100,0}},
         color={0,0,0},
-        thickness=2));
+        thickness=0.5));
   end FlangeWithBearingAdaptor;
 
   partial model PartialTwoFrames

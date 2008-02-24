@@ -1197,19 +1197,19 @@ buttons:
     connect(tank1.outflow1, valve2.outflow1) annotation (Line(
           points={{50,33.75},{50,26.875},{46.5,26.875},{46.5,16.5}},
           color={0,0,0},
-          thickness=2));
+          thickness=0.5));
     connect(tank2.inflow1, valve2.inflow1) annotation (Line(
           points={{46.5,-18.75},{46.5,9.5}},
           color={0,0,0},
-          thickness=2));
+          thickness=0.5));
     connect(tank2.outflow1, valve3.outflow1) annotation (Line(
           points={{74,-46.25},{74,-73.5},{73.5,-73.5}},
           color={0,0,0},
-          thickness=2));
+          thickness=0.5));
     connect(tank1.inflow1, valve1.inflow1) annotation (Line(
           points={{22.5,61.25},{22.5,69.25}},
           color={0,0,0},
-          thickness=2));
+          thickness=0.5));
     connect(shut.on, tankController.shut) annotation (Line(points={{-69,-30},{
               -62,-30},{-62,-12},{-52,-12}}, color={255,0,255}));
     connect(stop.on, tankController.stop) annotation (Line(points={{-69,0},{-52,
@@ -1231,7 +1231,7 @@ buttons:
     connect(source.outflow1, valve1.outflow1) annotation (Line(
           points={{22.5,85.5},{22.5,74.75}},
           color={0,0,0},
-          thickness=2));
+          thickness=0.5));
 
   end ControlledTanks;
 
@@ -1508,7 +1508,7 @@ buttons:
                   -100},{100,100}}), graphics={Polygon(
                 points={{-100,-100},{0,100},{100,-100},{-100,-100}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid)}));
     end inflow1;
@@ -1523,7 +1523,7 @@ buttons:
                   -100},{100,100}}), graphics={Polygon(
                 points={{-100,-100},{0,100},{100,-100},{-100,-100}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid)}));
     end inflow2;
@@ -1539,7 +1539,7 @@ buttons:
                   -100},{100,100}}), graphics={Polygon(
                 points={{-100,100},{0,-100},{100,100},{-100,100}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid)}));
     end outflow1;
@@ -1555,7 +1555,7 @@ buttons:
                   -100},{100,100}}), graphics={Polygon(
                 points={{-100,100},{0,-100},{100,100},{-100,100}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid)}));
     end outflow2;
@@ -1576,7 +1576,7 @@ buttons:
               Line(
                 points={{20,20},{20,20}},
                 color={0,0,0},
-                thickness=2),
+                thickness=0.5),
               Text(
                 extent={{-131,125},{136,67}},
                 lineColor={0,0,255},
@@ -1635,14 +1635,14 @@ buttons:
               Rectangle(
                 extent={{-60,60},{80,-40}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Rectangle(
                 extent=DynamicSelect({{-60,-40},{-60,-40}}, {{-60,-40},{80,(-40
                      + level*100)}}),
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={191,0,95})}));
       Real level "Tank level in % of max height";
@@ -1672,7 +1672,7 @@ buttons:
                   -100},{100,100}}), graphics={Rectangle(
                 extent={{-80,40},{80,-40}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid), Text(
                 extent={{-144,54},{152,114}},
@@ -2739,11 +2739,11 @@ connector Transition_in_forParallel
             Line(
               points={{-100,100},{-100,-100}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{100,100},{100,-100}},
               color={0,0,0},
-              thickness=2)}),             Diagram(coordinateSystem(
+              thickness=0.5)}),             Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -2755,11 +2755,11 @@ connector Transition_in_forParallel
             Line(
               points={{-100,100},{-100,-100}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{100,100},{100,-100}},
               color={0,0,0},
-              thickness=2)}));
+              thickness=0.5)}));
 end Transition_in_forParallel;
 
 connector Transition_out_forParallel
@@ -2789,11 +2789,11 @@ connector Transition_out_forParallel
             Line(
               points={{-100,100},{-100,-100}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{100,100},{100,-100}},
               color={0,0,0},
-              thickness=2)}),
+              thickness=0.5)}),
                             Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -2806,11 +2806,11 @@ connector Transition_out_forParallel
             Line(
               points={{-100,100},{-100,-100}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{100,100},{100,-100}},
               color={0,0,0},
-              thickness=2)}));
+              thickness=0.5)}));
 end Transition_out_forParallel;
 
 equation
@@ -3202,7 +3202,7 @@ value, still requires to go in to the text layer.
               fillPattern=DynamicSelect(FillPattern.Solid, if on > 0.5 then
                   FillPattern.Solid else FillPattern.Solid),
               lineColor={128,128,128},
-              lineThickness=2), Text(
+              lineThickness=0.5), Text(
               extent={{-80,-40},{80,40}},
               lineColor={0,0,0},
               textString="%name")},

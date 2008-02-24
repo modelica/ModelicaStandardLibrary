@@ -463,15 +463,15 @@ This package contains basic analog electrical multiphase components.
               lineColor={0,0,255}),
             Line(
               points={{80,0},{0,0}},
-              thickness=2,
+              thickness=0.5,
               color={0,0,255}),
             Line(
               points={{0,0},{-39,68}},
-              thickness=2,
+              thickness=0.5,
               color={0,0,255}),
             Line(
               points={{0,0},{-38,-69}},
-              thickness=2,
+              thickness=0.5,
               color={0,0,255}),
             Text(
               extent={{-100,-110},{100,-70}},
@@ -507,7 +507,7 @@ Connects all pins of plug_p to pin_n, thus establishing a so-called star-connect
               textString="%name"),
             Line(
               points={{-40,68},{-40,-70},{79,0},{-40,68},{-40,67}},
-              thickness=2,
+              thickness=0.5,
               color={0,0,255}),
             Text(
               extent={{-100,-110},{100,-70}},
@@ -711,11 +711,11 @@ Contains m conductors (Modelica.Electrical.Analog.Basic.Conductor)
               lineColor={0,0,255}),
             Line(
               points={{-14,28},{-14,-28}},
-              thickness=2,
+              thickness=0.5,
               color={0,0,255}),
             Line(
               points={{14,28},{14,-28}},
-              thickness=2,
+              thickness=0.5,
               color={0,0,255}),
             Line(points={{-90,0},{-14,0}}, color={0,0,255}),
             Line(points={{14,0},{90,0}}, color={0,0,255}),
@@ -1037,11 +1037,11 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
             Line(points={{14,0},{90,0}}, color={0,0,255}),
             Line(
               points={{-14,28},{-14,-28}},
-              thickness=2,
+              thickness=0.5,
               color={0,0,255}),
             Line(
               points={{14,28},{14,-28}},
-              thickness=2,
+              thickness=0.5,
               color={0,0,255})}),
           Documentation(                                                     info="<HTML>
 <p>

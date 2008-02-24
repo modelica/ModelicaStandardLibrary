@@ -285,7 +285,7 @@ states can be set as start values of <b>x</b>.<p>
           Line(
             points={{40,0},{-44,0}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Text(
             extent={{-54,54},{54,4}},
             lineColor={0,0,0},

@@ -655,7 +655,7 @@ vector \"n\" defining the translation axis
           Line(
             points={{-91,-76},{-33,15},{30,-49},{87,61}},
             color={255,0,0},
-            thickness=2,
+            thickness=0.5,
             smooth=Smooth.None)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -904,17 +904,17 @@ vector \"n\" defining the cylinder axis
       annotation (Line(
         points={{-100,0},{-70,0}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(prismatic.frame_b, revolute.frame_a) 
       annotation (Line(
         points={{-15,0},{10,0}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(revolute.frame_b, frame_b) 
       annotation (Line(
         points={{65,0},{100,0}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
   end Cylindrical;
 
   model Universal "Universal joint (2 degrees-of-freedom, 4 potential states)"
@@ -1048,7 +1048,7 @@ phi_b.start = 45<sup>o</sup>).
           Line(
             points={{12,78},{12,-78}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Ellipse(
             extent={{-52,-40},{80,40}},
             lineColor={160,160,164},
@@ -1068,11 +1068,11 @@ phi_b.start = 45<sup>o</sup>).
           Line(
             points={{12,78},{12,-20}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{32,38},{-12,-36}},
             color={0,0,0},
-            thickness=2)}),
+            thickness=0.5)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1088,15 +1088,15 @@ phi_b.start = 45<sup>o</sup>).
       annotation (Line(
         points={{-100,0},{-60,0}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(revolute_b.frame_b, frame_b) annotation (Line(
         points={{35,70},{35,90},{70,90},{70,0},{100,0}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(revolute_a.frame_b, revolute_b.frame_a) annotation (Line(
         points={{-10,0},{35,0},{35,20}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
   end Universal;
 
   model Planar "Planar joint (3 degrees-of-freedom, 6 potential states)"
@@ -1298,20 +1298,20 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
       annotation (Line(
         points={{-100,0},{-69,0}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(prismatic_x.frame_b, prismatic_y.frame_a) annotation (Line(
         points={{-29,0},{-1.22465e-015,0},{-1.22465e-015,30}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(prismatic_y.frame_b, revolute.frame_a) annotation (Line(
         points={{1.22465e-015,70},{0,80},{30,80},{30,0},{41,0}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(revolute.frame_b, frame_b) 
       annotation (Line(
         points={{81,0},{100,0}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
   end Planar;
 
   model Spherical
@@ -1787,7 +1787,7 @@ frame_b of the joint.
             points={{-86,31},{-74,61},{-49,83},{-17,92},{19,88},{40,69},{59,48}}, 
 
             color={160,160,164},
-            thickness=2),
+            thickness=0.5),
           Polygon(
             points={{90,0},{50,20},{50,-20},{90,0}},
             lineColor={0,0,0},
@@ -1829,7 +1829,7 @@ frame_b of the joint.
           Line(
             points={{-86,31},{-74,61},{-49,83},{-17,92},{19,88},{40,69},{59,48}},
             color={160,160,164},
-            thickness=2),
+            thickness=0.5),
           Polygon(
             points={{90,0},{50,20},{50,-20},{90,0}},
             lineColor={0,0,0},
@@ -2556,7 +2556,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
           Line(
             points={{-60,40},{-60,-40}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Ellipse(
             extent={{-83,-17},{-34,21}},
             lineColor={0,0,0},
@@ -2576,11 +2576,11 @@ the origin of frame_a to the middle of the rod, this might be defined as:
           Line(
             points={{-60,40},{-60,-10}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{-49,20},{-69,-15}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Ellipse(
             extent={{44,14},{73,-14}},
             lineColor={0,0,0},
@@ -2623,7 +2623,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
           Line(
             points={{-40,101},{-40,60},{-60,1}},
             color={128,128,128},
-            thickness=2)}),
+            thickness=0.5)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2656,7 +2656,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
           Line(
             points={{-60,40},{-60,-40}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Ellipse(
             extent={{-83,-17},{-34,21}},
             lineColor={0,0,0},
@@ -2676,11 +2676,11 @@ the origin of frame_a to the middle of the rod, this might be defined as:
           Line(
             points={{-60,40},{-60,-10}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{-49,20},{-69,-15}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Polygon(points={{7,-1},{-5,2},{-5,-4},{7,-1}}, lineColor={0,0,255}),
           Line(points={{-50,19},{-30,57}}, color={0,0,255}),
           Text(
@@ -2733,7 +2733,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
           Line(
             points={{-40,100},{-40,70},{-60,0}},
             color={128,128,128},
-            thickness=2),
+            thickness=0.5),
           Text(
             extent={{-23,30},{26,10}},
             textString=" eRod*e2 = 0;  n1*e2 = 0",
@@ -3072,31 +3072,31 @@ November 3-4, 2003, pp. 149-158</p>
     connect(actuatedRevolute_a.frame_a,fixedTranslation2. frame_b) annotation (Line(
         points={{-40,0},{-35,0},{-35,1.22465e-015},{-30,1.22465e-015}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(fixedTranslation2.frame_a, bearing) annotation (Line(
         points={{-10,-1.22465e-015},{-4,-1.22465e-015},{-4,0},{0,0},{0,-100}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(fixedTranslation1.frame_a, bearing) 
       annotation (Line(
         points={{10,0},{0,0},{0,-100}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(fixedTranslation1.frame_b, actuatedRevolute_b.frame_a) 
       annotation (Line(
         points={{30,0},{40,0}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(frame_a, actuatedRevolute_a.frame_b) 
       annotation (Line(
         points={{-100,0},{-60,0}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(actuatedRevolute_b.frame_b, frame_b) 
       annotation (Line(
         points={{60,0},{100,0}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
   end GearConstraint;
 
   package Assemblies "Joint aggregations for analytic loop handling"
@@ -3401,7 +3401,7 @@ component).
             Line(
               points={{-60,40},{-60,-40}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Ellipse(
               extent={{-83,-17},{-34,21}},
               lineColor={0,0,0},
@@ -3421,11 +3421,11 @@ component).
             Line(
               points={{-60,40},{-60,-10}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{-49,20},{-69,-15}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Ellipse(
               extent={{44,14},{73,-14}},
               lineColor={0,0,0},
@@ -3458,7 +3458,7 @@ component).
             Line(
               points={{-40,0},{-40,90},{-80,90},{-80,97}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Text(
               extent={{61,86},{109,64}},
               lineColor={128,128,128},
@@ -3491,11 +3491,11 @@ component).
             Line(
               points={{60,-1},{60,90},{80,90},{80,97}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{60,90},{40,90},{40,95}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Line(points={{-30,70},{10,70}}, color={0,0,0}),
             Polygon(
               points={{30,70},{10,76},{10,63},{30,70}},
@@ -3505,7 +3505,7 @@ component).
             Line(
               points={{-40,90},{-40,90},{-40,95}},
               color={95,95,95},
-              thickness=2)}),
+              thickness=0.5)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -3539,7 +3539,7 @@ component).
             Line(
               points={{-60,40},{-60,-40}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Ellipse(
               extent={{-83,-17},{-34,21}},
               lineColor={0,0,0},
@@ -3559,15 +3559,15 @@ component).
             Line(
               points={{-60,40},{-60,-10}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{-49,20},{-69,-15}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{-40,0},{-40,90},{-80,90},{-80,99}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Polygon(points={{7,-1},{-5,2},{-5,-4},{7,-1}}, lineColor={0,0,255}),
             Line(points={{-50,19},{-30,57}}, color={0,0,255}),
             Text(
@@ -3639,7 +3639,7 @@ component).
             Line(
               points={{60,-1},{60,90},{80,90},{80,99}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Text(
               extent={{-24,117},{-9,102}},
               textString="f",
@@ -3673,11 +3673,11 @@ component).
             Line(
               points={{60,90},{40,90},{40,98}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{-40,90},{-40,96},{-40,98}},
               color={135,135,135},
-              thickness=2)}));
+              thickness=0.5)}));
 
     protected
       SI.Force f_c_a[3] "frame_ia.f resolved in frame_a";
@@ -4165,7 +4165,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Line(
               points={{-70,28},{-70,-30}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Ellipse(
               extent={{-89,-18},{-48,18}},
               lineColor={0,0,0},
@@ -4185,15 +4185,15 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Line(
               points={{-70,30},{-70,-10}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{-61,16},{-79,-15}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{-50,0},{-50,80},{-80,80},{-80,100}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Ellipse(
               extent={{-40,-30},{20,30}},
               lineColor={0,0,0},
@@ -4252,7 +4252,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Line(
               points={{60,30},{60,80},{80,80},{80,100}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Text(
               extent={{-43,108},{-10,92}},
               lineColor={128,128,128},
@@ -4260,15 +4260,15 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Line(
               points={{19,6},{19,80},{0,80},{0,100}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{80,80},{101,80}},
               color={128,128,128},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{90,30},{90,40},{95,40}},
               color={95,95,95},
-              thickness=2)}),
+              thickness=0.5)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -4373,31 +4373,31 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       connect(revolute.frame_b, rod2.frame_a) annotation (Line(
           points={{35,0},{15,0}},
           color={95,95,95},
-          thickness=2,
+          thickness=0.5,
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod2.frame_b, rod1.frame_b) annotation (Line(
           points={{-25,0},{-52,0}},
           color={95,95,95},
-          thickness=2,
+          thickness=0.5,
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(revolute.frame_a, frame_b) annotation (Line(
           points={{75,0},{100,0}},
           color={95,95,95},
-          thickness=2,
+          thickness=0.5,
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod2.frame_a, frame_ib) annotation (Line(
           points={{15,0},{26,0},{26,70},{80,70},{80,100}},
           color={95,95,95},
-          thickness=2,
+          thickness=0.5,
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod1.frame_a, frame_a) annotation (Line(
           points={{-92,0},{-100,0}},
           color={95,95,95},
-          thickness=2,
+          thickness=0.5,
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(relativePosition.frame_b, frame_a) 
@@ -4422,11 +4422,11 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       connect(rod2.frame_b, frame_im) annotation (Line(
           points={{-25,0},{-40,0},{-40,80},{0,80},{0,100}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(rod1.frame_ia, frame_ia) annotation (Line(
           points={{-80,20},{-80,100}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(revolute.axis, axis) annotation (Line(points={{55,20},{55,60},{90,
               60},{90,80},{100,80}}, color={0,0,0}));
       connect(relativePosition.r_rel, revolute.position_a) annotation (Line(
@@ -4713,7 +4713,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Line(
               points={{-70,28},{-70,-30}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Ellipse(
               extent={{-89,-18},{-48,18}},
               lineColor={0,0,0},
@@ -4733,15 +4733,15 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Line(
               points={{-70,30},{-70,-10}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{-61,16},{-79,-15}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{-50,0},{-50,80},{-80,80},{-80,100}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Ellipse(
               extent={{-40,-30},{20,30}},
               lineColor={0,0,0},
@@ -4783,7 +4783,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Line(
               points={{50,6},{50,80},{80,80},{80,100}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Text(
               extent={{-44,111},{-8,91}},
               lineColor={128,128,128},
@@ -4791,7 +4791,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Line(
               points={{19,6},{19,80},{0,80},{0,100}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Rectangle(
               extent={{80,24},{100,30}},
               pattern=LinePattern.None,
@@ -4807,11 +4807,11 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Line(
               points={{95,80},{79,80}},
               color={135,135,135},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{95,40},{90,40},{90,30}},
               color={135,135,135},
-              thickness=2)}),
+              thickness=0.5)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -4929,31 +4929,31 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       connect(prismatic.frame_b, rod2.frame_a) annotation (Line(
           points={{36,0},{0,0}},
           color={95,95,95},
-          thickness=2,
+          thickness=0.5,
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod2.frame_b, rod1.frame_b) annotation (Line(
           points={{-40,0},{-52,0}},
           color={0,0,0},
-          thickness=2,
+          thickness=0.5,
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(prismatic.frame_a, frame_b) annotation (Line(
           points={{76,0},{100,0}},
           color={95,95,95},
-          thickness=2,
+          thickness=0.5,
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod2.frame_a, frame_ib) annotation (Line(
           points={{0,0},{7,0},{7,70},{80,70},{80,100}},
           color={95,95,95},
-          thickness=2,
+          thickness=0.5,
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod1.frame_a, frame_a) annotation (Line(
           points={{-92,0},{-100,0}},
           color={95,95,95},
-          thickness=2,
+          thickness=0.5,
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(relativePosition.frame_b, frame_a) 
@@ -4973,11 +4973,11 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       connect(rod2.frame_b, frame_im) annotation (Line(
           points={{-40,0},{-46,0},{-46,80},{0,80},{0,100}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(rod1.frame_ia, frame_ia) annotation (Line(
           points={{-80,20},{-80,100}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(position_b.y, prismatic.position_b)       annotation (Line(
           points={{1,-50},{10,-50},{10,-12},{32,-12}},
           color={0,0,127},
@@ -5205,11 +5205,11 @@ component).
             Line(
               points={{80,80},{100,80}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{19,6},{19,80},{0,80},{0,100}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Text(
               extent={{-47,111},{-8,92}},
               lineColor={128,128,128},
@@ -5217,11 +5217,11 @@ component).
             Line(
               points={{68,30},{68,80},{80,80},{80,98}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{90,30},{90,40},{95,40}},
               color={95,95,95},
-              thickness=2)}),
+              thickness=0.5)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -5319,31 +5319,31 @@ component).
       connect(revolute.frame_b, rod2.frame_a) annotation (Line(
           points={{35,0},{15,0}},
           color={95,95,95},
-          thickness=2,
+          thickness=0.5,
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod2.frame_b, rod1.frame_b) annotation (Line(
           points={{-25,0},{-49,0}},
           color={95,95,95},
-          thickness=2,
+          thickness=0.5,
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(revolute.frame_a, frame_b) annotation (Line(
           points={{75,0},{100,0}},
           color={95,95,95},
-          thickness=2,
+          thickness=0.5,
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod2.frame_a, frame_ib) annotation (Line(
           points={{15,0},{26,0},{26,70},{80,70},{80,100}},
           color={95,95,95},
-          thickness=2,
+          thickness=0.5,
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod1.frame_a, frame_a) annotation (Line(
           points={{-89,0},{-100,0}},
           color={95,95,95},
-          thickness=2,
+          thickness=0.5,
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(relativePosition.frame_b, frame_a) 
@@ -5370,7 +5370,7 @@ component).
       connect(rod2.frame_b, frame_im) annotation (Line(
           points={{-25,0},{-35,0},{-35,60},{0,60},{0,100}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(relativePosition.r_rel, revolute.position_a) 
                                                          annotation (Line(
           points={{50,-69},{50,-50},{90,-50},{90,-12},{79,-12}},
@@ -5581,7 +5581,7 @@ component).
             Line(
               points={{19,6},{19,80},{0,80},{0,100}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Text(
               extent={{-49,114},{-11,92}},
               lineColor={128,128,128},
@@ -5611,15 +5611,15 @@ component).
             Line(
               points={{50,6},{50,80},{80,80},{80,100}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{101,80},{80,80}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{99,40},{90,40},{90,30}},
               color={95,95,95},
-              thickness=2)}),
+              thickness=0.5)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -5710,31 +5710,31 @@ component).
       connect(prismatic.frame_b, rod2.frame_a) annotation (Line(
           points={{35,0},{15,0}},
           color={95,95,95},
-          thickness=2,
+          thickness=0.5,
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod2.frame_b, rod1.frame_b) annotation (Line(
           points={{-25,0},{-49,0}},
           color={95,95,95},
-          thickness=2,
+          thickness=0.5,
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(prismatic.frame_a, frame_b) annotation (Line(
           points={{75,0},{100,0}},
           color={95,95,95},
-          thickness=2,
+          thickness=0.5,
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod2.frame_a, frame_ib) annotation (Line(
           points={{15,0},{26,0},{26,70},{80,70},{80,100}},
           color={95,95,95},
-          thickness=2,
+          thickness=0.5,
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(rod1.frame_a, frame_a) annotation (Line(
           points={{-89,0},{-100,0}},
           color={95,95,95},
-          thickness=2,
+          thickness=0.5,
           fillPattern=FillPattern.Sphere,
           fillColor={192,192,192}));
       connect(relativePosition.frame_b, frame_a) 
@@ -5763,7 +5763,7 @@ component).
       connect(rod2.frame_b, frame_im) annotation (Line(
           points={{-25,0},{-35,0},{-35,60},{0,60},{0,100}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(relativePosition.r_rel, prismatic.position_a) 
                                                           annotation (Line(
           points={{50,-69},{50,-50},{90,-50},{90,-12},{79,-12}},
@@ -5969,7 +5969,7 @@ are connected by rigid rods.
             Line(
               points={{80,24},{80,80},{80,80},{80,100}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Text(
               extent={{-128,-29},{136,-47}},
               lineColor={0,0,0},
@@ -5977,7 +5977,7 @@ are connected by rigid rods.
             Line(
               points={{0,57},{0,86},{0,86},{0,100}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Text(
               extent={{-46,114},{-7,91}},
               lineColor={128,128,128},
@@ -5985,15 +5985,15 @@ are connected by rigid rods.
             Line(
               points={{-80,100},{-80,8}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{80,80},{101,80}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{100,40},{93,40},{93,3}},
               color={95,95,95},
-              thickness=2)}),
+              thickness=0.5)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -6080,24 +6080,24 @@ are connected by rigid rods.
         annotation (Line(
           points={{-30,0},{-100,0}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(jointUSR.frame_b, frame_b) 
         annotation (Line(
           points={{10,0},{100,0}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(jointUSR.frame_ia, frame_ia) annotation (Line(
           points={{-26,20},{-26,70},{-80,70},{-80,100}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(jointUSR.frame_im, frame_im) annotation (Line(
           points={{-10,20},{-10,70},{0,70},{0,100}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(jointUSR.frame_ib, frame_ib) annotation (Line(
           points={{6,20},{6,50},{80,50},{80,100}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(jointUSR.axis, axis) 
         annotation (Line(points={{10,16},{86,16},{86,80},{100,80}}, color={0,0,
               0}));
@@ -6305,7 +6305,7 @@ and 1 prismatic joint are connected by rigid rods.
             Line(
               points={{0,57},{0,86},{0,86},{0,100}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Text(
               extent={{-55,126},{-15,92}},
               lineColor={128,128,128},
@@ -6313,15 +6313,15 @@ and 1 prismatic joint are connected by rigid rods.
             Line(
               points={{-80,100},{-80,8}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{80,80},{101,80}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{100,40},{93,40},{93,3}},
               color={95,95,95},
-              thickness=2),
+              thickness=0.5),
             Rectangle(
               extent={{80,15},{100,21}},
               pattern=LinePattern.None,
@@ -6347,7 +6347,7 @@ and 1 prismatic joint are connected by rigid rods.
             Line(
               points={{80,100},{80,80},{57,11}},
               color={95,95,95},
-              thickness=2)}),
+              thickness=0.5)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -6433,24 +6433,24 @@ and 1 prismatic joint are connected by rigid rods.
         annotation (Line(
           points={{-30,0},{-100,0}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(jointUSP.frame_b, frame_b) 
         annotation (Line(
           points={{10,0},{100,0}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(jointUSP.frame_ia, frame_ia) annotation (Line(
           points={{-26,20},{-26,70},{-80,70},{-80,100}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(jointUSP.frame_im, frame_im) annotation (Line(
           points={{-10,20},{-10,70},{0,70},{0,100}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(jointUSP.frame_ib, frame_ib) annotation (Line(
           points={{6,20},{6,50},{80,50},{80,100}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(jointUSP.axis, axis) 
         annotation (Line(points={{10,16},{86,16},{86,80},{100,80}}, color={0,0,
               0}));

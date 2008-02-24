@@ -68,11 +68,11 @@ load inertia.
       annotation (Line(
         points={{40,10},{54,10}},
         color={128,128,128},
-        thickness=2));
+        thickness=0.5));
     connect(pathPlanning.controlBus, controlBus) annotation (Line(
         points={{-40,10},{-15,10},{-15,28},{-12,28},{-12,30}},
         color={255,204,51},
-        thickness=2));
+        thickness=0.5));
     connect(controlBus.axisControlBus1, axis.axisControlBus) annotation (
       Text(
         string="%first",
@@ -81,7 +81,7 @@ load inertia.
         style(color=0, rgbcolor={0,0,0})), Line(
         points={{-12,30},{-12,29},{-9,29},{-9,10},{20,10}},
         color={255,204,51},
-        thickness=2));
+        thickness=0.5));
   end oneAxis;
 
   model fullRobot
@@ -327,7 +327,7 @@ to plot variables.
                                          annotation (Line(
         points={{-80,-10},{-80,60},{-25,60}},
         color={255,204,51},
-        thickness=2));
+        thickness=0.5));
     connect(controlBus.axisControlBus1, axis1.axisControlBus) annotation (
       Text(
         string="%first",
@@ -337,7 +337,7 @@ to plot variables.
         points={{-80,-10},{-80,-14.5},{-79,-14.5},{-79,-17},{-65,-17},{-65,-65},
             {-25,-65}},
         color={255,204,51},
-        thickness=2));
+        thickness=0.5));
 
     connect(controlBus.axisControlBus2, axis2.axisControlBus) annotation (
       Text(
@@ -347,7 +347,7 @@ to plot variables.
         style(color=0, rgbcolor={0,0,0})), Line(
         points={{-80,-10},{-79,-10},{-79,-15},{-62.5,-15},{-62.5,-45},{-25,-45}},
         color={255,204,51},
-        thickness=2));
+        thickness=0.5));
 
     connect(controlBus.axisControlBus3, axis3.axisControlBus) annotation (
       Text(
@@ -357,7 +357,7 @@ to plot variables.
         style(color=0, rgbcolor={0,0,0})), Line(
         points={{-80,-10},{-77,-10},{-77,-12.5},{-61,-12.5},{-61,-25},{-25,-25}},
         color={255,204,51},
-        thickness=2));
+        thickness=0.5));
 
     connect(controlBus.axisControlBus4, axis4.axisControlBus) annotation (
       Text(
@@ -367,7 +367,7 @@ to plot variables.
         style(color=0, rgbcolor={0,0,0})), Line(
         points={{-80,-10},{-60.5,-10},{-60.5,-5},{-25,-5}},
         color={255,204,51},
-        thickness=2));
+        thickness=0.5));
     connect(controlBus.axisControlBus5, axis5.axisControlBus) annotation (
       Text(
         string="%first",
@@ -376,7 +376,7 @@ to plot variables.
         style(color=0, rgbcolor={0,0,0})), Line(
         points={{-80,-10},{-77,-10},{-77,-7},{-63,-7},{-63,15},{-25,15}},
         color={255,204,51},
-        thickness=2));
+        thickness=0.5));
     connect(controlBus.axisControlBus6, axis6.axisControlBus) annotation (
       Text(
         string="%first",
@@ -385,7 +385,7 @@ to plot variables.
         style(color=0, rgbcolor={0,0,0})), Line(
         points={{-80,-10},{-79,-10},{-79,-5},{-65,-5},{-65,35},{-25,35}},
         color={255,204,51},
-        thickness=2));
+        thickness=0.5));
   end fullRobot;
   extends Modelica.Icons.Library;
   import SI = Modelica.SIunits;
@@ -401,7 +401,7 @@ to plot variables.
                 -100},{100,100}}), graphics={Rectangle(
               extent={{-20,2},{22,-2}},
               lineColor={255,204,51},
-              lineThickness=2)}),
+              lineThickness=0.5)}),
         Documentation(info="<html>
 <p>
 Signal bus that is used to communicate all signals for <b>one</b> axis.
@@ -424,7 +424,7 @@ the connection to this bus) are defined
                 100,100}}), graphics={Rectangle(
               extent={{-20,2},{22,-2}},
               lineColor={255,204,51},
-              lineThickness=2)}),
+              lineThickness=0.5)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics),
@@ -566,7 +566,7 @@ motion on the controlBus of the r3 robot.
           style(color=0, rgbcolor={0,0,0})), Line(
           points={{20,0},{100,0}},
           color={255,204,51},
-          thickness=2));
+          thickness=0.5));
     end PathPlanning1;
 
     model PathPlanning6
@@ -754,7 +754,7 @@ motion on the controlBus of the r3 robot.
           style(color=0, rgbcolor={0,0,0})), Line(
           points={{10,80},{80,80},{80,7},{98,7}},
           color={255,204,51},
-          thickness=2));
+          thickness=0.5));
       connect(pathToAxis2.axisControlBus, controlBus.axisControlBus2) annotation (
         Text(
           string="%second",
@@ -763,7 +763,7 @@ motion on the controlBus of the r3 robot.
           style(color=0, rgbcolor={0,0,0})), Line(
           points={{10,50},{77,50},{77,5},{97,5}},
           color={255,204,51},
-          thickness=2));
+          thickness=0.5));
       connect(pathToAxis3.axisControlBus, controlBus.axisControlBus3) annotation (
         Text(
           string="%second",
@@ -772,7 +772,7 @@ motion on the controlBus of the r3 robot.
           style(color=0, rgbcolor={0,0,0})), Line(
           points={{10,20},{75,20},{75,3},{96,3}},
           color={255,204,51},
-          thickness=2));
+          thickness=0.5));
       connect(pathToAxis4.axisControlBus, controlBus.axisControlBus4) annotation (
         Text(
           string="%second",
@@ -781,7 +781,7 @@ motion on the controlBus of the r3 robot.
           style(color=0, rgbcolor={0,0,0})), Line(
           points={{10,-10},{73,-10},{73,0},{100,0}},
           color={255,204,51},
-          thickness=2));
+          thickness=0.5));
       connect(pathToAxis5.axisControlBus, controlBus.axisControlBus5) annotation (
         Text(
           string="%second",
@@ -790,7 +790,7 @@ motion on the controlBus of the r3 robot.
           style(color=0, rgbcolor={0,0,0})), Line(
           points={{10,-40},{75,-40},{75,-3},{100,-3},{100,0}},
           color={255,204,51},
-          thickness=2));
+          thickness=0.5));
       connect(pathToAxis6.axisControlBus, controlBus.axisControlBus6) annotation (
         Text(
           string="%second",
@@ -799,7 +799,7 @@ motion on the controlBus of the r3 robot.
           style(color=0, rgbcolor={0,0,0})), Line(
           points={{10,-70},{78,-70},{78,-6},{98,-6}},
           color={255,204,51},
-          thickness=2));
+          thickness=0.5));
     end PathPlanning6;
 
     model PathToAxisControlBus "Map path planning to one axis control bus"
@@ -969,7 +969,7 @@ the definition of initial values considerably.
               extent={{-40,60},{40,-60}},
               lineColor={0,0,0},
               pattern=LinePattern.Solid,
-              lineThickness=1,
+              lineThickness=0.25,
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={192,192,192}),
             Polygon(
@@ -1025,22 +1025,22 @@ the definition of initial values considerably.
         annotation (Line(
           points={{20,0},{50,0}},
           color={128,128,128},
-          thickness=2));
+          thickness=0.5));
       connect(bearingFriction.flange_b, spring.flange_a) 
         annotation (Line(
           points={{-40,0},{0,0}},
           color={128,128,128},
-          thickness=2));
+          thickness=0.5));
       connect(gear.flange_b, flange_b) 
         annotation (Line(
           points={{70,0},{100,0}},
           color={128,128,128},
-          thickness=2));
+          thickness=0.5));
       connect(bearingFriction.flange_a, flange_a) 
         annotation (Line(
           points={{-60,0},{-100,0}},
           color={128,128,128},
-          thickness=2));
+          thickness=0.5));
     initial equation
       spring.w_rel = 0;
       a_rel = 0;
@@ -1081,7 +1081,7 @@ Default values for all parameters are given for joint 4.
               extent={{-40,60},{40,-60}},
               lineColor={0,0,0},
               pattern=LinePattern.Solid,
-              lineThickness=1,
+              lineThickness=0.25,
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={192,192,192}),
             Polygon(
@@ -1130,17 +1130,17 @@ Default values for all parameters are given for joint 4.
         annotation (Line(
           points={{-8,0},{30,0}},
           color={128,128,128},
-          thickness=2));
+          thickness=0.5));
       connect(bearingFriction.flange_b, flange_b) 
         annotation (Line(
           points={{50,0},{100,0}},
           color={128,128,128},
-          thickness=2));
+          thickness=0.5));
       connect(gear.flange_a, flange_a) 
         annotation (Line(
           points={{-28,0},{-100,0}},
           color={128,128,128},
-          thickness=2));
+          thickness=0.5));
     end GearType2;
 
     model Motor "Motor model including current controller of r3 motors "
@@ -1171,7 +1171,7 @@ produced by the motor).
               lineColor={0,0,255}), Line(
               points={{80,-102},{80,-10}},
               color={255,204,51},
-              thickness=2)}),
+              thickness=0.5)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1335,7 +1335,7 @@ produced by the motor).
         annotation (Line(
           points={{90,0},{100,0}},
           color={128,128,128},
-          thickness=2));
+          thickness=0.5));
       connect(phi.phi, axisControlBus.motorAngle) 
                                        annotation (Line(points={{76,-51},{76,
               -100},{80,-100}}, color={0,0,127}));
@@ -1379,7 +1379,7 @@ produced by the motor).
               extent={{-100,-100},{100,100}},
               lineColor={0,0,0},
               pattern=LinePattern.Solid,
-              lineThickness=1,
+              lineThickness=0.25,
               fillColor={235,235,235},
               fillPattern=FillPattern.Solid),
             Rectangle(
@@ -1596,11 +1596,11 @@ Default values of the parameters are given for the axis of joint 1.
       connect(controller.axisControlBus, axisControlBus) annotation (Line(
           points={{-60,-10},{-60,-20},{-95,-20},{-95,-4},{-100,-4},{-100,0}},
           color={255,204,51},
-          thickness=2));
+          thickness=0.5));
       connect(motor.axisControlBus, axisControlBus) annotation (Line(
           points={{-12,-10},{-12,-20},{-95,-20},{-95,-5},{-100,-5},{-100,0}},
           color={255,204,51},
-          thickness=2));
+          thickness=0.5));
       connect(angleSensor.phi, axisControlBus.angle) annotation (
         Text(
           string="%second",
@@ -1913,7 +1913,7 @@ This model contains the mechanical components of the r3 robot
         annotation (Line(
           points={{-60,140},{-60,150}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       q = {r1.phi,r2.phi,r3.phi,r4.phi,r5.phi,r6.phi};
       qd = der(q);
       qdd = der(qd);
@@ -1923,32 +1923,32 @@ This model contains the mechanical components of the r3 robot
         annotation (Line(
           points={{-60,178},{-60,170}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(world.frame_b, b0.frame_a) annotation (Line(
           points={{-80,-190},{-30,-190},{-30,-180}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(b0.frame_b, r1.frame_a) annotation (Line(
           points={{-30,-160},{-30,-146},{-48,-146},{-48,-180},{-70,-180},{-70,
               -170}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(b1.frame_b, r2.frame_a) annotation (Line(
           points={{-70,-108},{-70,-100},{-50,-100}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(r1.frame_b, b1.frame_a) annotation (Line(
           points={{-70,-150},{-70,-128}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(r2.frame_b, b2.frame_a) annotation (Line(
           points={{-30,-100},{-16,-100},{-16,-80}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(b2.frame_b, r3.frame_a) annotation (Line(
           points={{-16,-60},{-16,-36},{-40,-36}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(r2.axis, axis2) annotation (Line(points={{-40,-90},{-42,-90},{-42,
               -80},{-160,-80},{-160,-110},{-210,-110}}, color={0,0,0}));
       connect(r1.axis, axis1) annotation (Line(points={{-80,-160},{-160,-160},{
@@ -1956,11 +1956,11 @@ This model contains the mechanical components of the r3 robot
       connect(r3.frame_b, b3.frame_a) annotation (Line(
           points={{-60,-36},{-88,-36},{-86,-32}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(b3.frame_b, r4.frame_a) annotation (Line(
           points={{-86,-12},{-86,-8},{-70,-8},{-70,0}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(r3.axis, axis3) 
         annotation (Line(points={{-50,-46},{-50,-50},{-210,-50}}, color={0,0,0}));
       connect(r4.axis, axis4) 
@@ -1969,21 +1969,21 @@ This model contains the mechanical components of the r3 robot
         annotation (Line(
           points={{-70,20},{-70,40}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(b4.frame_b, r5.frame_a) annotation (Line(
           points={{-70,60},{-70,80},{-60,80}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(r5.axis, axis5) annotation (Line(points={{-50,90},{-50,94},{-160,
               94},{-160,70},{-210,70}}, color={0,0,0}));
       connect(r5.frame_b, b5.frame_a) annotation (Line(
           points={{-40,80},{-20,80},{-20,88}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(b5.frame_b, r6.frame_a) annotation (Line(
           points={{-20,108},{-20,116},{-60,116},{-60,120}},
           color={95,95,95},
-          thickness=2));
+          thickness=0.5));
       connect(r6.axis, axis6) 
         annotation (Line(points={{-70,130},{-210,130}}, color={0,0,0}));
     end MechanicalStructure;

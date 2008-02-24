@@ -51,20 +51,20 @@ equation
     annotation (Line(
       points={{-28,10},{-10,10}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(revolute2.frame_b, boxBody2.frame_a) 
     annotation (Line(
       points={{52,10},{74,10}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(boxBody1.frame_b, revolute2.frame_a) 
     annotation (Line(
       points={{10,10},{32,10}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(world.frame_b, revolute1.frame_a) 
     annotation (Line(
       points={{-68,10},{-48,10}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
 end DoublePendulum;

@@ -78,56 +78,56 @@ equation
   connect(j2.frame_b, b2.frame_a) annotation (Line(
       points={{30,-70},{50,-70},{50,-60}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(j1.frame_b, b1.frame_a) annotation (Line(
       points={{-34,-30},{-30,-30},{-30,-8}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(rev.frame_a, b2.frame_b) 
     annotation (Line(
       points={{50,-32},{50,-40}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(rev.frame_b, rev1.frame_a) 
     annotation (Line(
       points={{50,-12},{50,10},{60,10}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(rev1.frame_b, b3.frame_a) annotation (Line(
       points={{80,10},{90,10},{90,30},{38,30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(world.frame_b, j1.frame_a) annotation (Line(
       points={{-80,-70},{-66,-70},{-66,-30},{-54,-30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(b1.frame_b, j3.frame_a) annotation (Line(
       points={{-30,12},{-30,28},{-72,28},{-72,50},{-60,50}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(j3.frame_b, j4.frame_a) annotation (Line(
       points={{-40,50},{-34,50},{-42,70},{-32,70}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(j4.frame_b, j5.frame_a) 
     annotation (Line(
       points={{-12,70},{0,70},{0,80}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(j5.frame_b, b3.frame_b) annotation (Line(
       points={{20,80},{30,80},{30,54},{4,54},{4,30},{18,30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(b0.frame_a, world.frame_b) 
     annotation (Line(
       points={{-40,-70},{-80,-70}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(b0.frame_b, j2.frame_a) 
     annotation (Line(
       points={{-20,-70},{10,-70}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   j1_phi = j1.phi;
   j2_s = j2.s;
   j1_w = j1.w;

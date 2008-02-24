@@ -73,7 +73,7 @@ equation
     annotation (Line(
       points={{-60,10},{-40,10}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(damper.flange_b, rev.axis) annotation (Line(points={{-20,50},{-16,50},
           {-16,26},{-30,26},{-30,20}}, color={0,0,0}));
   connect(rev.support, damper.flange_a) annotation (Line(points={{-36,20},{-36,
@@ -82,15 +82,15 @@ equation
     annotation (Line(
       points={{-20,10},{0,10}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(fixed.frame_b, spring.frame_a) 
     annotation (Line(
       points={{50,60},{50,40}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(body.frame_b, spring.frame_b) 
     annotation (Line(
       points={{20,10},{50,10},{50,20}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
 end InitSpringConstant;

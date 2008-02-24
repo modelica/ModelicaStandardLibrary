@@ -769,7 +769,7 @@ Example:
           grid={2,2}), graphics={Line(
             points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}},
             color={0,0,0},
-            thickness=1), Text(
+            thickness=0.25), Text(
             extent={{-150,150},{150,110}},
             textString="%name",
             lineColor={0,0,255})}),
@@ -783,7 +783,7 @@ Example:
             fillPattern=FillPattern.Solid), Line(
             points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}},
             color={0,0,0},
-            thickness=1)}));
+            thickness=0.25)}));
       equation
         y = k*u;
       end Sum;
@@ -850,7 +850,7 @@ Example:
           Ellipse(
             extent={{-20,20},{20,-20}},
             pattern=LinePattern.Solid,
-            lineThickness=1,
+            lineThickness=0.25,
             fillColor={235,235,235},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),

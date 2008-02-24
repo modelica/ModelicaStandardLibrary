@@ -1316,16 +1316,16 @@ states and of the \"Advanced\" menu parameters, see model
       annotation (Line(
         points={{-100,0},{-20,0}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(frame_b, frameTranslation.frame_b) 
       annotation (Line(
         points={{100,0},{20,0}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(frame_a, body.frame_a) annotation (Line(
         points={{-100,0},{-60,0},{-60,-50.1666},{-27.3333,-50.1666}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
   end BodyShape;
 
   model BodyBox
@@ -1546,15 +1546,15 @@ states and of the \"Advanced\" menu parameters, see model
     connect(frameTranslation.frame_a, frame_a) annotation (Line(
         points={{-30,0},{-100,0}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(frameTranslation.frame_b, frame_b) annotation (Line(
         points={{10,0},{100,0}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(frame_a, body.frame_a) annotation (Line(
         points={{-100,0},{-70,0},{-70,-60},{-30,-60}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
   end BodyBox;
 
   model BodyCylinder
@@ -1759,15 +1759,15 @@ states and of the \"Advanced\" menu parameters, see model
     connect(frameTranslation.frame_a, frame_a) annotation (Line(
         points={{-30,0},{-100,0}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(frameTranslation.frame_b, frame_b) annotation (Line(
         points={{10,0},{100,0}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(frame_a, body.frame_a) annotation (Line(
         points={{-100,0},{-70,0},{-70,-60},{-30,-60}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
   end BodyCylinder;
 
   model PointMass
@@ -1999,7 +1999,7 @@ November 3-4, 2003, pp. 149-158</p>
     connect(housing.frame_a, frame_a) annotation (Line(
         points={{20,-50},{0,-50},{0,-100}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
   end Mounting1D;
 
@@ -2358,7 +2358,7 @@ November 3-4, 2003, pp. 149-158</p>
     connect(rotorWith3DEffects.frame_a, frame_a) annotation (Line(
         points={{0,-80},{0,-100}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
   end Rotor1D;
 
@@ -2486,7 +2486,7 @@ November 3-4, 2003, pp. 149-158</p>
     connect(housing.frame_a, frame_a) annotation (Line(
         points={{20,-50},{0,-50},{0,-100}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         smooth=Smooth.None));
   end BevelGear1D;
 end Parts;

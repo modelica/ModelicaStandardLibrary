@@ -13,16 +13,16 @@ model Engine1b
         Rectangle(
           extent={{3,117},{88,-23}},
           lineColor={255,0,0},
-          lineThickness=2),
+          lineThickness=0.5),
         Text(
           extent={{65,-30},{145,-39}},
           lineColor={255,0,0},
-          lineThickness=2,
+          lineThickness=0.5,
           textString="jointRRP in model"),
         Text(
           extent={{66,-34},{141,-52}},
           lineColor={255,0,0},
-          lineThickness=2,
+          lineThickness=0.5,
           textString="Loops.Engine1b_analytic")}),
     Documentation(info="<html>
 <p>
@@ -78,23 +78,23 @@ equation
   connect(B1.frame_b, Rod1.frame_a) annotation (Line(
       points={{60,-10},{70,-10},{70,0}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(Rod1.frame_b, B2.frame_b) annotation (Line(
       points={{70,20},{70,30},{60,30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(Cylinder.frame_b, Rod3.frame_a) annotation (Line(
       points={{50,87},{50,68}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(B2.frame_a, Rod3.frame_b) annotation (Line(
       points={{40,30},{30,30},{30,44},{50,44},{50,48}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(cylPosition.frame_b, Cylinder.frame_a) annotation (Line(
       points={{-20.5,110},{50,110},{50,107}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(gasForce.flange_a, Cylinder.support) annotation (Line(points={{119,
           107},{119,112},{70,112},{70,101},{56,101}}, color={0,127,0}));
   connect(Cylinder.axis, gasForce.flange_b) annotation (Line(points={{56,89},{
@@ -102,13 +102,13 @@ equation
   connect(Piston.frame_a, Rod3.frame_a) annotation (Line(
       points={{120,63},{120,75},{50,75},{50,68}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(B1.frame_b, Rod2.frame_a) annotation (Line(
       points={{60,-10},{120,-10},{120,0}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(Mid.frame_b, B1.frame_a) annotation (Line(
       points={{50,-43},{57,-43},{57,-28},{30,-28},{30,-10},{40,-10}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
 end Engine1b;

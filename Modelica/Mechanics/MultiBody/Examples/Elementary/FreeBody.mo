@@ -69,23 +69,23 @@ equation
     annotation (Line(
       points={{0,30},{-40,30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(spring1.frame_b, body.frame_a) annotation (Line(
       points={{-20,-4},{-20,-30},{0,-30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(bar2.frame_b, spring2.frame_a) 
     annotation (Line(
       points={{20,30},{40,30},{40,16}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(spring1.frame_a, world.frame_b) annotation (Line(
       points={{-20,16},{-20,30},{-40,30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(body.frame_b, spring2.frame_b) annotation (Line(
       points={{20,-30},{40,-30},{40,-4}},
       color={95,95,95},
-      thickness=2,
+      thickness=0.5,
       smooth=Smooth.None));
 end FreeBody;

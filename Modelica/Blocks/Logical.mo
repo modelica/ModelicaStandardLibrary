@@ -532,26 +532,26 @@ u1, else it is set equal to u2.</p>
             points={{12,0},{100,0}},
             color={255,0,255},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Line(
             points={{-100,0},{-40,0}},
             color={255,0,255},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Line(
             points={{-100,-80},{-40,-80},{-40,-80}},
             color={255,0,255},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Line(points={{-40,12},{-40,-10}}, color={255,0,255}),
           Line(points={{-100,80},{-40,80}}, color={255,0,255}),
           Line(
             points={{-40,80},{8,2}},
             color={255,0,127},
-            thickness=4),
+            thickness=1),
           Ellipse(
             extent={{2,8},{18,-6}},
             fillColor={0,0,0},
@@ -597,26 +597,26 @@ u1, else it is set equal to u3.</p>
           Line(
             points={{12,0},{100,0}},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None},
             color={0,0,255}),
           Line(
             points={{-100,0},{-40,0}},
             color={255,0,127},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Line(
             points={{-100,-80},{-40,-80},{-40,-80}},
             pattern=LinePattern.Solid,
-            thickness=1,
+            thickness=0.25,
             arrow={Arrow.None,Arrow.None},
             color={0,0,255}),
           Line(points={{-40,12},{-40,-12}}, color={255,0,127}),
           Line(points={{-100,80},{-38,80}}, color={0,0,255}),
           Line(
             points={{-38,80},{6,2}},
-            thickness=4,
+            thickness=1,
             color={0,0,255}),
           Ellipse(
             extent={{2,8},{18,-6}},
@@ -670,35 +670,35 @@ u1, else it is set equal to u3.</p>
           Line(
             points={{-80,-70},{30,-70}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{-50,10},{80,10}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{-50,10},{-50,-70}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{30,10},{30,-70}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{-10,-65},{0,-70},{-10,-75}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{-10,15},{-20,10},{-10,5}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{-55,-20},{-50,-30},{-44,-20}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{25,-30},{30,-19},{35,-30}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Text(
             extent={{-99,2},{-70,18}},
             lineColor={160,160,164},
@@ -799,7 +799,7 @@ The default value of this parameter is <b>false</b>.
           Text(
             extent={{-92,74},{44,44}},
             lineColor={0,0,0},
-            lineThickness=2,
+            lineThickness=0.5,
             textString="reference"),
           Text(
             extent={{-94,-52},{-34,-74}},

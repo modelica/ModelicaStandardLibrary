@@ -133,7 +133,7 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
           Line(
             points={{-80,-40},{-20,-10},{20,10},{40,70}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{20,9},{20,0}},
             color={128,128,128},
@@ -166,7 +166,7 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
           Line(
             points={{20,10},{70,40}},
             color={0,0,0},
-            thickness=2)})
+            thickness=0.5)})
               );
           equation 
             off = s < 0 or pre(off) and not fire;
@@ -271,7 +271,7 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
           Line(
             points={{-80,-40},{-20,-10},{20,10},{40,70}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{20,9},{20,0}},
             color={128,128,128},
@@ -304,7 +304,7 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
           Line(
             points={{20,10},{70,40}},
             color={0,0,0},
-            thickness=2)})
+            thickness=0.5)})
               );
           equation 
             off = s < 0 or not fire;
@@ -1148,7 +1148,7 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
           Line(
             points={{-80,-40},{-20,-10},{20,10},{40,70}},
             color={0,0,0},
-            thickness=2),
+            thickness=0.5),
           Line(
             points={{20,9},{20,0}},
             color={128,128,128},
@@ -1311,7 +1311,7 @@ where the constant <i>G</i> is called the gyration conductance.
             extent={{-80,-40},{-41,40}},
             lineColor={255,255,255},
             pattern=LinePattern.Solid,
-            lineThickness=1,
+            lineThickness=0.25,
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{-90,50},{-40,50},{-40,-50},{-90,-50}}, color={0,0,255}),
@@ -1323,7 +1323,7 @@ where the constant <i>G</i> is called the gyration conductance.
           Polygon(
             points={{20,63},{30,60},{20,57},{20,63}},
             pattern=LinePattern.Solid,
-            lineThickness=1,
+            lineThickness=0.25,
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
@@ -1332,7 +1332,7 @@ where the constant <i>G</i> is called the gyration conductance.
             extent={{80,-40},{40,40}},
             lineColor={255,255,255},
             pattern=LinePattern.Solid,
-            lineThickness=1,
+            lineThickness=0.25,
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{90,50},{40,50},{40,-50},{90,-50}}, color={0,0,255})}),

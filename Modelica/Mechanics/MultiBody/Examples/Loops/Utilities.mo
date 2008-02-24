@@ -139,7 +139,7 @@ package Utilities "Utility models for Examples.Loops"
     connect(B1.frame_a, Mid.frame_b) annotation (Line(
         points={{4,-17},{-6,-17},{-6,-29},{22,-29},{22,-36},{14,-36}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     annotation (
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -190,7 +190,7 @@ package Utilities "Utility models for Examples.Loops"
           Line(
             points={{0,-90},{26,-58},{-2,37}},
             color={0,0,0},
-            thickness=4),
+            thickness=1),
           Text(
             extent={{-150,-124},{164,-186}},
             textString="%name",
@@ -198,32 +198,32 @@ package Utilities "Utility models for Examples.Loops"
           Line(
             points={{-100,-90},{100,-91}},
             color={0,0,0},
-            thickness=2)}));
+            thickness=0.5)}));
     connect(Rod.frame_a, B1.frame_b) annotation (Line(
         points={{14,-2},{14,-9},{30,-9},{30,-17},{24,-17}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(Cylinder.frame_b, Piston.frame_b) annotation (Line(
         points={{14,89},{14,80},{14.5,80}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(Crank1.frame_a, CrankAngle1.frame_b) 
       annotation (Line(
         points={{-50,-90},{-70,-90}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(B2.frame_a, Piston.frame_a) annotation (Line(
         points={{4,35},{-6,35},{-6,49},{14.5,49},{14.5,59}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(Rod.frame_b, B2.frame_b) annotation (Line(
         points={{14,18},{14,23},{32,23},{32,35},{24,35}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(Crank4.frame_b, CrankAngle2.frame_a) annotation (Line(
         points={{40.5,-84},{40.5,-90},{60,-90}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(Cylinder.support, gasForce.flange_b) annotation (Line(points={{20,103},
             {34,103},{34,117},{50,117}},      color={0,191,0}));
     connect(Cylinder.axis, gasForce.flange_a) 
@@ -233,43 +233,43 @@ package Utilities "Utility models for Examples.Loops"
     connect(Crank1.frame_b, Crank2.frame_a) annotation (Line(
         points={{-30,-90},{-10,-90},{-10,-86}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(Crank3.frame_b, Crank4.frame_a) annotation (Line(
         points={{24.5,-50},{40.5,-50},{40.5,-64}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(Crank3.frame_a, Crank2.frame_b) annotation (Line(
         points={{4.5,-50},{-10,-50},{-10,-66}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(Crank2.frame_b, Mid.frame_a) annotation (Line(
         points={{-10,-66},{-10,-36},{-6,-36}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(CylinderTop.frame_b, Cylinder.frame_a) annotation (Line(
         points={{-30,81},{-30,120},{14,120},{14,109}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(CylinderInclination.frame_a, cylinder_a) annotation (Line(
         points={{-60,40},{-80,40},{-80,130},{-100,130}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(Mounting.frame_a, cylinder_a) annotation (Line(
         points={{0,130},{-100,130}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(Mounting.frame_b, cylinder_b) annotation (Line(
         points={{20,130},{100,130}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(CrankAngle1.frame_a, crank_a) annotation (Line(
         points={{-90,-90},{-100,-90}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(CrankAngle2.frame_b, crank_b) annotation (Line(
         points={{80,-90},{100,-90}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
 
   end Cylinder;
 
@@ -673,7 +673,7 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
           Line(
             points={{-1,-99},{25,-67},{-2,10}},
             color={0,0,0},
-            thickness=4),
+            thickness=1),
           Text(
             extent={{-156,178},{158,116}},
             textString="%name",
@@ -681,7 +681,7 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
           Line(
             points={{-100,-99},{100,-100}},
             color={0,0,0},
-            thickness=2)}));
+            thickness=0.5)}));
 
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation Crank(animation=false, r={crankLength,0,0}) 
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
@@ -699,11 +699,11 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
     connect(jointRRP.frame_ia, Rod.frame_a) annotation (Line(
         points={{20,-4},{49,-4},{49,-1}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(Mid.frame_b, jointRRP.frame_a) annotation (Line(
         points={{-24,-20},{-1.22465e-015,-20},{-1.22465e-015,-8}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(gasForce.flange_a, jointRRP.axis) 
       annotation (Line(points={{9,70},{16,70},{16,32}}, color={0,191,0}));
     connect(jointRRP.bearing, gasForce.flange_b) annotation (Line(points={{8,32},{
@@ -711,39 +711,39 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
     connect(jointRRP.frame_ib, Piston.frame_b) annotation (Line(
         points={{20,28},{30,28},{30,70},{50,70},{50,60}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(jointRRP.frame_b, CylinderInclination.frame_b) annotation (Line(
         points={{1.22465e-015,32},{1,32},{1,40},{-24,40}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(CrankAngle.frame_b, Mid.frame_a) annotation (Line(
         points={{-64,-70},{-56,-70},{-56,-20},{-44,-20}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(cylinder_a, CylinderInclination.frame_a) annotation (Line(
         points={{-100,100},{-70,100},{-70,40},{-44,40}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(cylinder_a, Mounting.frame_a) annotation (Line(
         points={{-100,100},{-3,100}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(cylinder_b, Mounting.frame_b) annotation (Line(
         points={{100,100},{17,100}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(CrankAngle.frame_a, crank_a) annotation (Line(
         points={{-84,-70},{-89.5,-70},{-89.5,-100},{-100,-100}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(crank_a, Crank.frame_a) annotation (Line(
         points={{-100,-100},{-10,-100}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(Crank.frame_b, crank_b) annotation (Line(
         points={{10,-100},{100,-100}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
   end CylinderBase;
 
   model Cylinder_analytic_CAD
@@ -774,7 +774,7 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
       annotation (Line(
         points={{-20,-70},{-64,-70}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
   end Cylinder_analytic_CAD;
 
   model EngineV6_analytic "V6 engine with analytic loop handling"
@@ -850,47 +850,47 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
       annotation (Line(
         points={{-70,-10},{-60,-10}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(cylinder2.cylinder_a, cylinder1.cylinder_b) annotation (Line(
         points={{-60,10},{-70,10}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(cylinder3.cylinder_a, cylinder2.cylinder_b) annotation (Line(
         points={{-30,10},{-40,10}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(cylinder3.crank_a, cylinder2.crank_b) 
       annotation (Line(
         points={{-30,-10},{-40,-10}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(cylinder3.cylinder_b, cylinder4.cylinder_a) annotation (Line(
         points={{-10,10},{0,10}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(cylinder3.crank_b, cylinder4.crank_a) 
       annotation (Line(
         points={{-10,-10},{0,-10}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(cylinder4.cylinder_b, cylinder5.cylinder_a) annotation (Line(
         points={{20,10},{30,10}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(cylinder4.crank_b, cylinder5.crank_a) 
       annotation (Line(
         points={{20,-10},{30,-10}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(cylinder5.cylinder_b, cylinder6.cylinder_a) annotation (Line(
         points={{50,10},{60,10}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(cylinder5.crank_b, cylinder6.crank_a) 
       annotation (Line(
         points={{50,-10},{60,-10}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -915,21 +915,21 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
       annotation (Line(
         points={{-70,-50},{-50,-50}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(crank.frame_b, cylinder1.crank_a) annotation (Line(
         points={{-30,-50},{-24,-50},{-24,-26},{-94,-26},{-94,-10},{-90,-10}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(bearing.axis, flange_b) annotation (Line(points={{-80,-60},{-80,-66},
             {90,-66},{90,0},{110,0}}, color={0,0,0}));
     connect(frame_a, bearing.frame_a) annotation (Line(
         points={{0,-101},{0,-81},{-98,-81},{-98,-50},{-90,-50}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(bearing.frame_a, cylinder1.cylinder_a) annotation (Line(
         points={{-90,-50},{-98,-50},{-98,10},{-90,10}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
   end EngineV6_analytic;
 
   partial model Engine1bBase "Model of one cylinder engine with gas force"
@@ -1037,33 +1037,33 @@ An animation of this example is shown in the figure below.
       annotation (Line(
         points={{-70,-90},{-50,-90}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(Crank2.frame_a, Crank1.frame_b) annotation (Line(
         points={{30,-86},{30,-90},{4,-90}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         fillColor={192,192,192},
         fillPattern=FillPattern.Solid));
     connect(Crank2.frame_b, Crank3.frame_a) annotation (Line(
         points={{30,-66},{30,-61},{41.5,-61}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         fillColor={192,192,192},
         fillPattern=FillPattern.Solid));
     connect(Bearing.frame_b, Crank1.frame_a) annotation (Line(
         points={{-30,-90},{-16,-90}},
         color={95,95,95},
-        thickness=2,
+        thickness=0.5,
         fillColor={192,192,192},
         fillPattern=FillPattern.Solid));
     connect(world.frame_b, cylPosition.frame_a) annotation (Line(
         points={{-70,-90},{-60,-90},{-60,110},{-40.5,110}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(Crank3.frame_b, Crank4.frame_a) annotation (Line(
         points={{61.5,-61},{75,-61},{75,-65},{75.5,-65}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
     connect(Inertia.flange_b, Bearing.axis) annotation (Line(
         points={{-48,-110},{-40,-110},{-40,-100}},
         color={0,0,0},
@@ -1072,6 +1072,6 @@ An animation of this example is shown in the figure below.
     connect(Mid.frame_a, Crank2.frame_b) annotation (Line(
         points={{30,-43},{23,-43},{23,-61},{30,-61},{30,-66}},
         color={95,95,95},
-        thickness=2));
+        thickness=0.5));
   end Engine1bBase;
 end Utilities;

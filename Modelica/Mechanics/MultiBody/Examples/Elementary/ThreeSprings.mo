@@ -81,33 +81,33 @@ equation
     annotation (Line(
       points={{-40,30},{-20,30}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(world.frame_b, bar2.frame_a) annotation (Line(
       points={{-40,30},{-30,30},{-30,0}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(bar1.frame_b, spring1.frame_a) 
     annotation (Line(
       points={{0,30},{30,30},{30,20}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(bar2.frame_b, spring3.frame_a) annotation (Line(
       points={{-30,-20},{-30,-32},{-20,-32}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(spring2.frame_b, body1.frame_a) 
     annotation (Line(
       points={{30,-48},{30,-51},{30,-60},{30,-60}},
       color={0,0,0},
-      thickness=2));
+      thickness=0.5));
   connect(spring3.frame_b, spring1.frame_b) 
     annotation (Line(
       points={{0,-32},{30,-14},{30,0}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(spring2.frame_a, spring1.frame_b) 
     annotation (Line(
       points={{30,-28},{30,-21},{30,-21},{30,-14},{30,0},{30,0}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
 end ThreeSprings;

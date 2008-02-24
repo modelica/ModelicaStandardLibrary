@@ -339,7 +339,7 @@ The multiplexer converts a parallel 4 bit signal in a sequential
             grid={2,2}), graphics={Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,170},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
@@ -422,7 +422,7 @@ Pulse-triggered master-slave flip-flop.
             grid={2,2}), graphics={Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,170},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
@@ -506,7 +506,7 @@ The simulation stop time should be 5 seconds.
             grid={2,2}), graphics={Rectangle(
               extent={{-88,100},{90,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,170},
               fillPattern=FillPattern.Solid), Line(points={{40,54},{40,60},{-40,
                   60},{10,0},{-40,-60},{40,-60},{40,-52}}, color={0,0,0})}),
@@ -585,7 +585,7 @@ The simulation stop time should be 10 seconds.
             grid={2,2}), graphics={Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,170},
               fillPattern=FillPattern.Solid), Line(points={{40,54},{40,60},{-40,
                   60},{10,0},{-40,-60},{40,-60},{40,-52}}, color={0,0,0})}),
@@ -675,7 +675,7 @@ The simulation stop time has to be 5s.
             grid={2,2}), graphics={Rectangle(
               extent={{-200,200},{200,-200}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,170},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
@@ -793,7 +793,7 @@ The simulation stop time has to be 5s.
             grid={2,2}), graphics={Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,170},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
@@ -830,7 +830,7 @@ The simulation stop time has to be 5s.
             grid={2,2}), graphics={Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,170},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
@@ -886,28 +886,28 @@ The simulation stop time has to be 5s.
               Rectangle(
                 extent={{-90,100},{90,-100}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,170},
                 fillPattern=FillPattern.Solid),
               Line(
                 points={{-60,100},{-60,-100}},
                 color={0,0,0},
-                thickness=2),
+                thickness=0.5),
               Line(
                 points={{60,100},{60,-100}},
                 color={0,0,0},
-                thickness=2),
+                thickness=0.5),
               Text(
                 extent={{-86,80},{-64,60}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="D0"),
               Text(
                 extent={{64,12},{86,-8}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="D"),
@@ -924,35 +924,35 @@ The simulation stop time has to be 5s.
               Text(
                 extent={{-86,-60},{-64,-80}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="A1"),
               Text(
                 extent={{-86,54},{-64,34}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="D1"),
               Text(
                 extent={{-86,28},{-64,8}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="D2"),
               Text(
                 extent={{-86,2},{-64,-18}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="D3"),
               Text(
                 extent={{-86,-36},{-64,-56}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="A0")}));
@@ -1061,7 +1061,7 @@ The simulation stop time has to be 5s.
               Rectangle(
                 extent={{-90,100},{90,-100}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,170},
                 fillPattern=FillPattern.Solid),
               Text(
@@ -1071,36 +1071,36 @@ The simulation stop time has to be 5s.
               Line(
                 points={{-60,100},{-60,-100}},
                 color={0,0,0},
-                thickness=2),
+                thickness=0.5),
               Line(
                 points={{60,100},{60,-100}},
                 color={0,0,0},
-                thickness=2),
+                thickness=0.5),
               Text(
                 extent={{-86,-60},{-64,-80}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="R"),
               Text(
                 extent={{-86,80},{-64,60}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="S"),
               Text(
                 extent={{64,80},{86,60}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="Q"),
               Text(
                 extent={{64,-60},{86,-80}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="QN"),
@@ -1160,7 +1160,7 @@ The simulation stop time has to be 5s.
               Rectangle(
                 extent={{-90,100},{90,-100}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,170},
                 fillPattern=FillPattern.Solid),
               Text(
@@ -1170,36 +1170,36 @@ The simulation stop time has to be 5s.
               Line(
                 points={{-60,100},{-60,-100}},
                 color={0,0,0},
-                thickness=2),
+                thickness=0.5),
               Line(
                 points={{60,100},{60,-100}},
                 color={0,0,0},
-                thickness=2),
+                thickness=0.5),
               Text(
                 extent={{-86,-60},{-64,-80}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="R"),
               Text(
                 extent={{-86,80},{-64,60}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="S"),
               Text(
                 extent={{64,80},{86,60}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="Q"),
               Text(
                 extent={{64,-60},{86,-80}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="QN"),
@@ -1274,35 +1274,35 @@ The simulation stop time has to be 5s.
               Rectangle(
                 extent={{-90,100},{90,-100}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,170},
                 fillPattern=FillPattern.Solid),
               Line(
                 points={{-60,100},{-60,-100}},
                 color={0,0,0},
-                thickness=2),
+                thickness=0.5),
               Line(
                 points={{60,100},{60,-100}},
                 color={0,0,0},
-                thickness=2),
+                thickness=0.5),
               Text(
                 extent={{-86,80},{-64,60}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="D"),
               Text(
                 extent={{64,80},{86,60}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="Q"),
               Text(
                 extent={{64,-60},{86,-80}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="QN"),
@@ -1374,35 +1374,35 @@ The simulation stop time has to be 5s.
               Rectangle(
                 extent={{-90,100},{90,-100}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,170},
                 fillPattern=FillPattern.Solid),
               Line(
                 points={{-60,100},{-60,-100}},
                 color={0,0,0},
-                thickness=2),
+                thickness=0.5),
               Line(
                 points={{60,100},{60,-100}},
                 color={0,0,0},
-                thickness=2),
+                thickness=0.5),
               Text(
                 extent={{-86,80},{-64,60}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="J"),
               Text(
                 extent={{64,80},{86,60}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="Q"),
               Text(
                 extent={{64,-60},{86,-80}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="QN"),
@@ -1420,7 +1420,7 @@ The simulation stop time has to be 5s.
               Text(
                 extent={{-86,-60},{-64,-80}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="K")}));
@@ -1508,7 +1508,7 @@ The simulation stop time has to be 5s.
               Rectangle(
                 extent={{-90,100},{90,-100}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,170},
                 fillPattern=FillPattern.Solid),
               Text(
@@ -1538,11 +1538,11 @@ The simulation stop time has to be 5s.
               Line(
                 points={{-60,100},{-60,-100}},
                 color={0,0,0},
-                thickness=2),
+                thickness=0.5),
               Line(
                 points={{60,100},{60,-100}},
                 color={0,0,0},
-                thickness=2)}),
+                thickness=0.5)}),
           Documentation(info="<html>
   
 </html>"));
@@ -1610,7 +1610,7 @@ The simulation stop time has to be 5s.
               Rectangle(
                 extent={{-90,100},{90,-100}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,170},
                 fillPattern=FillPattern.Solid),
               Text(
@@ -1620,35 +1620,35 @@ The simulation stop time has to be 5s.
               Text(
                 extent={{-86,80},{-64,60}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="a"),
               Text(
                 extent={{-86,40},{-64,20}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="b"),
               Text(
                 extent={{-86,-60},{-64,-80}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="c_in"),
               Text(
                 extent={{60,-60},{90,-80}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="c_out"),
               Text(
                 extent={{64,80},{86,60}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="s"),
@@ -1659,11 +1659,11 @@ The simulation stop time has to be 5s.
               Line(
                 points={{-60,100},{-60,-100}},
                 color={0,0,0},
-                thickness=2),
+                thickness=0.5),
               Line(
                 points={{60,100},{60,-100}},
                 color={0,0,0},
-                thickness=2)}),
+                thickness=0.5)}),
         Diagram(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},
@@ -1739,13 +1739,13 @@ The simulation stop time has to be 5s.
               Rectangle(
                 extent={{-90,100},{90,-100}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,170},
                 fillPattern=FillPattern.Solid),
               Text(
                 extent={{68,80},{88,60}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="S"),
@@ -1762,28 +1762,28 @@ The simulation stop time has to be 5s.
               Text(
                 extent={{48,-60},{88,-80}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="Cout"),
               Text(
                 extent={{-90,-60},{-50,-80}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="Cin"),
               Text(
                 extent={{-88,80},{-68,60}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="A"),
               Text(
                 extent={{-88,40},{-68,20}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="B")}),
@@ -1832,27 +1832,27 @@ The simulation stop time has to be 5s.
               Rectangle(
                 extent={{-90,100},{90,-100}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,170},
                 fillPattern=FillPattern.Solid),
               Text(
                 extent={{-80,80},{-40,60}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="ENABLE"),
               Text(
                 extent={{64,80},{86,60}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="Q2"),
               Text(
                 extent={{64,-60},{86,-80}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="Q0"),
@@ -1869,14 +1869,14 @@ The simulation stop time has to be 5s.
               Text(
                 extent={{-80,-60},{-40,-80}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="COUNT"),
               Text(
                 extent={{62,8},{84,-12}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="Q1")}));
@@ -1971,20 +1971,20 @@ The simulation stop time has to be 5s.
               Rectangle(
                 extent={{-90,100},{90,-100}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,170},
                 fillPattern=FillPattern.Solid),
               Text(
                 extent={{-80,80},{-40,60}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="ENABLE"),
               Text(
                 extent={{66,8},{88,-12}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="Q"),
@@ -2001,7 +2001,7 @@ The simulation stop time has to be 5s.
               Text(
                 extent={{-80,-60},{-40,-80}},
                 lineColor={0,0,0},
-                lineThickness=2,
+                lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="COUNT")}));
@@ -2174,7 +2174,7 @@ components of the Electrical.Digital library.
                 100,100}}), graphics={Rectangle(
               extent={{-50,100},{50,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid), Line(points={{50,0},{92,0}},
                 color={127,0,127})}),
@@ -2197,7 +2197,7 @@ components of the Electrical.Digital library.
                 -100,-100},{100,100}}), graphics={Rectangle(
               extent={{-50,100},{50,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid), Line(points={{50,0},{90,0}},
                 color={127,0,127})}),
@@ -2381,7 +2381,7 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
             Rectangle(
               extent={{-50,100},{50,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
             Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
@@ -2390,12 +2390,12 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
             Text(
               extent={{-50,-40},{50,-20}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="Transport"),
             Text(
               extent={{-50,-60},{50,-40}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="Delay")}));
 
     equation
@@ -2448,7 +2448,7 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
             Rectangle(
               extent={{-50,100},{50,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
             Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
@@ -2457,12 +2457,12 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
             Text(
               extent={{-50,-40},{50,-20}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="Inertial"),
             Text(
               extent={{-50,-60},{50,-40}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="Delay")}));
 
     algorithm
@@ -2531,23 +2531,23 @@ is used, if it is zero, the input is not delayed.
             Rectangle(
               extent={{-50,100},{50,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-50,-40},{50,-20}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="Inertial"),
             Text(
               extent={{-50,-60},{50,-40}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="Delay"),
             Text(
               extent={{-50,-80},{50,-60}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="sensitive"),
             Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
             Line(points={{10,60},{10,40}}, color={0,0,0}),
@@ -2626,7 +2626,7 @@ Not with 1 input value, without delay.
             Text(
               extent={{-50,40},{50,80}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="1"),
             Text(
               extent={{152,-160},{-148,-100}},
@@ -2635,7 +2635,7 @@ Not with 1 input value, without delay.
             Ellipse(
               extent={{50,6},{62,-6}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -2672,7 +2672,7 @@ And with n input values, without delay.
                 100,100}}), graphics={Text(
               extent={{-50,40},{50,80}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="&"), Text(
               extent={{152,-160},{-148,-100}},
               lineColor={0,0,255},
@@ -2715,7 +2715,7 @@ Nand with n input values, without delay.
             Text(
               extent={{-50,40},{50,80}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="&"),
             Text(
               extent={{152,-160},{-148,-100}},
@@ -2724,7 +2724,7 @@ Nand with n input values, without delay.
             Ellipse(
               extent={{50,6},{62,-6}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -2764,7 +2764,7 @@ Or with n input values, without delay.
                 100,100}}), graphics={Text(
               extent={{-50,40},{50,80}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString=">=1"), Text(
               extent={{152,-160},{-148,-100}},
               lineColor={0,0,255},
@@ -2807,7 +2807,7 @@ Nor with n input values, without delay.
             Text(
               extent={{-50,40},{50,80}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString=">=1"),
             Text(
               extent={{152,-160},{-148,-100}},
@@ -2816,7 +2816,7 @@ Nor with n input values, without delay.
             Ellipse(
               extent={{50,6},{62,-6}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -2856,7 +2856,7 @@ Xor with n input values, without delay.
                 100,100}}), graphics={Text(
               extent={{-50,40},{50,80}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="=1"), Text(
               extent={{152,-160},{-148,-100}},
               lineColor={0,0,255},
@@ -2898,7 +2898,7 @@ XNor with n input values, without delay.
                 100,100}}), graphics={Text(
               extent={{-50,40},{50,80}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="="), Text(
               extent={{152,-160},{-148,-100}},
               lineColor={0,0,255},
@@ -2983,13 +2983,13 @@ InvGate with 1 input value, composed by Not and sensitive intertial delay.
             Rectangle(
               extent={{-50,100},{50,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-50,80},{50,40}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,191,127},
               fillPattern=FillPattern.Solid,
               textString="1"),
@@ -3000,7 +3000,7 @@ InvGate with 1 input value, composed by Not and sensitive intertial delay.
             Ellipse(
               extent={{50,6},{62,-6}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}));
     equation
@@ -3048,18 +3048,18 @@ AndGate with n input values, composed by And and sensitive intertial delay.
             Rectangle(
               extent={{-50,100},{50,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-50,80},{50,40}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="&"),
             Text(
               extent={{-20,-60},{20,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="Gate")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
@@ -3096,23 +3096,23 @@ AndGate with n input values, composed by And and sensitive intertial delay.
             Rectangle(
               extent={{-50,100},{50,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-40,40},{40,80}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="&"),
             Text(
               extent={{-20,-60},{20,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="Gate"),
             Ellipse(
               extent={{50,6},{62,-6}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
         Documentation(revisions="<HTML>
@@ -3148,15 +3148,15 @@ NandGate with n input values, composed by Nand and sensitive intertial delay.
 "),     Icon(
           Text(
             extent=[-40,80; 40,40],
-            style(color=0, thickness=2),
+            style(color=0, thickness=0.5),
             string="&",
             lineColor={0,0,255}),
           Text(
             extent=[-20, -40; 20, -80],
-            style(color=0, thickness=2),
+            style(color=0, thickness=0.5),
             string="Gate",
             lineColor={0,0,255}),
-          Ellipse(extent=[60, -10; 40, 10], style(color=0, thickness=2),
+          Ellipse(extent=[60, -10; 40, 10], style(color=0, thickness=0.5),
             lineColor={0,0,255})),
         Diagram);
     equation
@@ -3204,18 +3204,18 @@ OrGate with n input values, composed by Or and sensitive intertial delay.
             Rectangle(
               extent={{-50,100},{50,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-50,80},{50,40}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString=">=1"),
             Text(
               extent={{-20,-60},{20,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="Gate")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
@@ -3265,23 +3265,23 @@ NorGate with n input values, composed by Nor and sensitive intertial delay.
             Rectangle(
               extent={{-50,100},{50,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-50,80},{50,40}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString=">=1"),
             Text(
               extent={{-20,-60},{20,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="Gate"),
             Ellipse(
               extent={{50,6},{62,-6}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -3332,18 +3332,18 @@ XorGate with n input values, composed by Xor and sensitive intertial delay.
             Rectangle(
               extent={{-50,100},{50,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-50,80},{50,40}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="=1"),
             Text(
               extent={{-20,-60},{20,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="Gate")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
@@ -3393,18 +3393,18 @@ XNorGate with n input values, composed by XNor and sensitive intertial delay.
             Rectangle(
               extent={{-50,100},{50,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-40,80},{40,40}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="="),
             Text(
               extent={{-20,-60},{20,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="Gate")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
@@ -3454,7 +3454,7 @@ BufGate with 1 input value, composed by Not and sensitive intertial delay.
             Rectangle(
               extent={{-50,100},{50,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
             Text(
@@ -3464,7 +3464,7 @@ BufGate with 1 input value, composed by Not and sensitive intertial delay.
             Text(
               extent={{-50,80},{50,40}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,191,127},
               fillPattern=FillPattern.Solid,
               textString="1")}));
@@ -3559,13 +3559,13 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
             Rectangle(
               extent={{-50,100},{50,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={213,255,170},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-50,40},{50,80}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="SET"),
             Text(
               extent={{152,-160},{-148,-100}},
@@ -3632,7 +3632,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
             Rectangle(
               extent={{-50,100},{50,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={213,255,170},
               fillPattern=FillPattern.Solid),
             Text(
@@ -3713,7 +3713,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
             Rectangle(
               extent={{-50,100},{50,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={213,255,170},
               fillPattern=FillPattern.Solid),
             Text(
@@ -3823,7 +3823,7 @@ they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
             Rectangle(
               extent={{-50,100},{50,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={213,255,170},
               fillPattern=FillPattern.Solid),
             Text(
@@ -3891,7 +3891,7 @@ The number of periods is unlimited. The first pulse starts at startTime.
             Rectangle(
               extent={{-50,100},{50,-100}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={213,255,170},
               fillPattern=FillPattern.Solid),
             Text(
@@ -3996,18 +3996,18 @@ If the signal width is greater than 1 this conversion is done for each signal.
             Polygon(
               points={{-40,-40},{40,-40},{40,40},{-40,-40}},
               lineColor={127,0,127},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{0,-20},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="X01"),
             Rectangle(
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=2)}),
+              lineThickness=0.5)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));
@@ -4074,18 +4074,18 @@ If the signal width is greater than 1 this conversion is done for each signal.
             Polygon(
               points={{-40,-40},{40,-40},{40,40},{-40,-40}},
               lineColor={127,0,127},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{0,-20},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="X01Z"),
             Rectangle(
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=2)}),
+              lineThickness=0.5)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));
@@ -4152,18 +4152,18 @@ If the signal width is greater than 1 this conversion is done for each signal.
             Polygon(
               points={{-40,-40},{40,-40},{40,40},{-40,-40}},
               lineColor={127,0,127},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Text(
               extent={{0,-20},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               textString="UX01"),
             Rectangle(
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=2)}),
+              lineThickness=0.5)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));
@@ -4227,7 +4227,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
             Rectangle(
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=2)}),
+              lineThickness=0.5)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}),
                 graphics),
@@ -4297,7 +4297,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
             Rectangle(
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=2)}));
+              lineThickness=0.5)}));
     equation
       for i in 1:n loop
         y[i] = if x[i] == 4 or x[i] == 8 then true else false;
@@ -4364,7 +4364,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
             Rectangle(
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=2)}),
+              lineThickness=0.5)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}),
                 graphics),
@@ -4442,7 +4442,7 @@ The values val... are given by parameters.</P>
             Rectangle(
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=2)}),
+              lineThickness=0.5)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                 graphics));

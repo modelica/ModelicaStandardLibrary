@@ -110,65 +110,65 @@ a size of about 50 Mbyte (for 5000 output intervalls).
     annotation (Line(
       points={{-70,10},{-50,10}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(cylinder1.crank_b, cylinder2.crank_a) 
     annotation (Line(
       points={{-30,10},{-20,10}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(cylinder2.crank_b, cylinder3.crank_a) 
     annotation (Line(
       points={{0,10},{10,10}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(cylinder3.crank_b, cylinder4.crank_a) 
     annotation (Line(
       points={{30,10},{39,10}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(cylinder4.crank_b, cylinder5.crank_a) 
     annotation (Line(
       points={{59,10},{70,10}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(cylinder5.crank_b, cylinder6.crank_a) 
     annotation (Line(
       points={{90,10},{100,10}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(cylinder5.cylinder_b, cylinder6.cylinder_a) 
     annotation (Line(
       points={{90,32},{100,32}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(cylinder4.cylinder_b, cylinder5.cylinder_a) 
     annotation (Line(
       points={{59,32},{70,32}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(cylinder4.cylinder_a, cylinder3.cylinder_b) 
     annotation (Line(
       points={{39,32},{30,32}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(cylinder3.cylinder_a, cylinder2.cylinder_b) 
     annotation (Line(
       points={{10,32},{0,32}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(cylinder2.cylinder_a, cylinder1.cylinder_b) 
     annotation (Line(
       points={{-20,32},{-30,32}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(world.frame_b, cylinder1.cylinder_a) annotation (Line(
       points={{-100,30},{-59,30},{-59,32},{-50,32}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(world.frame_b, bearing.frame_a) annotation (Line(
       points={{-100,30},{-96,30},{-96,10},{-90,10}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(load2.flange, load.flange_b) 
     annotation (Line(points={{-14,-20},{-24,-20}}, color={0,0,0}));
   connect(torqueSensor.flange_b, load.flange_a) 

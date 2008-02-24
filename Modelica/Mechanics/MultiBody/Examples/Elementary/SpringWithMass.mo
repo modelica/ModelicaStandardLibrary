@@ -38,10 +38,10 @@ equation
     annotation (Line(
       points={{-20,50},{10,50},{10,40}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(body.frame_a, spring.frame_b) 
     annotation (Line(
       points={{10,0},{10,10},{10,20}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
 end SpringWithMass;

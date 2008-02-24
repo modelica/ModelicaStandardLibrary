@@ -1554,7 +1554,7 @@ a coupling of the element with the housing via a spring.
                   0},{100,0}},
               color={0,0,0},
               pattern=LinePattern.Solid,
-              thickness=1,
+              thickness=0.25,
               arrow={Arrow.None,Arrow.None})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -1706,7 +1706,7 @@ to describe a coupling of the element with the housing via a spring/damper.
               points={{-80,32},{-58,32},{-43,2},{-13,62},{17,2},{47,62},{62,32},
                   {80,32}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(points={{-68,32},{-68,97}}, color={128,128,128}),
             Line(points={{72,32},{72,97}}, color={128,128,128}),
             Line(points={{-68,92},{72,92}}, color={128,128,128}),
@@ -1878,74 +1878,74 @@ where the different effects are visualized:
                   {20,30}},
               color={0,0,0},
               pattern=LinePattern.Solid,
-              thickness=1,
+              thickness=0.25,
               arrow={Arrow.None,Arrow.None}),
             Rectangle(
               extent={{-60,-10},{-10,-50}},
               lineColor={0,0,0},
               pattern=LinePattern.Solid,
-              lineThickness=1,
+              lineThickness=0.25,
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),
             Line(
               points={{-60,-50},{0,-50}},
               color={0,0,0},
               pattern=LinePattern.Solid,
-              thickness=1,
+              thickness=0.25,
               arrow={Arrow.None,Arrow.None}),
             Line(
               points={{-60,-10},{0,-10}},
               color={0,0,0},
               pattern=LinePattern.Solid,
-              thickness=1,
+              thickness=0.25,
               arrow={Arrow.None,Arrow.None}),
             Line(
               points={{-10,-30},{20,-30}},
               color={0,0,0},
               pattern=LinePattern.Solid,
-              thickness=1,
+              thickness=0.25,
               arrow={Arrow.None,Arrow.None}),
             Line(
               points={{-80,-30},{-60,-30}},
               color={0,0,0},
               pattern=LinePattern.Solid,
-              thickness=1,
+              thickness=0.25,
               arrow={Arrow.None,Arrow.None}),
             Line(
               points={{-80,32},{-80,-30}},
               color={0,0,0},
               pattern=LinePattern.Solid,
-              thickness=1,
+              thickness=0.25,
               arrow={Arrow.None,Arrow.None}),
             Line(
               points={{20,30},{20,-30}},
               color={0,0,0},
               pattern=LinePattern.Solid,
-              thickness=1,
+              thickness=0.25,
               arrow={Arrow.None,Arrow.None}),
             Line(
               points={{-90,0},{-80,0}},
               color={0,0,0},
               pattern=LinePattern.Solid,
-              thickness=1,
+              thickness=0.25,
               arrow={Arrow.None,Arrow.None}),
             Line(
               points={{90,0},{80,0}},
               color={0,0,0},
               pattern=LinePattern.Solid,
-              thickness=1,
+              thickness=0.25,
               arrow={Arrow.None,Arrow.None}),
             Line(
               points={{20,0},{60,0},{60,-30}},
               color={0,0,0},
               pattern=LinePattern.Solid,
-              thickness=1,
+              thickness=0.25,
               arrow={Arrow.None,Arrow.None}),
             Line(
               points={{40,-12},{40,-40},{80,-40},{80,0}},
               color={0,0,0},
               pattern=LinePattern.Solid,
-              thickness=1,
+              thickness=0.25,
               arrow={Arrow.None,Arrow.None}),
             Text(
               extent={{-150,-130},{150,-90}},
@@ -1967,7 +1967,7 @@ where the different effects are visualized:
               points={{-80,32},{-58,32},{-48,0},{-34,60},{-20,0},{-8,60},{0,30},
                   {20,30}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(points={{-68,32},{-68,97}}, color={128,128,128}),
             Line(points={{80,0},{80,96}}, color={128,128,128}),
             Line(points={{-68,92},{72,92}}, color={128,128,128}),
@@ -1983,46 +1983,46 @@ where the different effects are visualized:
             Rectangle(
               extent={{-60,-20},{-10,-80}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),
             Line(
               points={{-52,-80},{0,-80}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{-52,-20},{0,-20}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{-10,-50},{20,-50}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{-80,-50},{-60,-50}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{-80,32},{-80,-50}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{20,30},{20,-50}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(points={{-96,0},{-80,0}}, color={0,0,0}),
             Line(
               points={{96,0},{80,0}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{20,0},{60,0},{60,-30}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{40,-12},{40,-40},{80,-40},{80,0}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(points={{30,0},{30,64}}, color={128,128,128}),
             Line(points={{30,60},{80,60}}, color={128,128,128}),
             Polygon(
@@ -3577,7 +3577,7 @@ Gearbox.
               extent={{-40,60},{40,-60}},
               lineColor={0,0,0},
               pattern=LinePattern.Solid,
-              lineThickness=1,
+              lineThickness=0.25,
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={192,192,192}),
             Polygon(
@@ -4128,7 +4128,7 @@ velocity of model inertia1 or of model inertia2 as state variables.
             points={{-98,-64},{-74,-34},{-46,-12},{-12,-2},{18,-8},{38,-20},{54,
                 -36},{66,-50},{76,-64}},
             color={0,0,0},
-            thickness=2), Polygon(
+            thickness=0.5), Polygon(
             points={{76,-64},{56,-6},{27,-37},{76,-64}},
             lineColor={0,0,0},
             fillColor={0,0,0},
@@ -4584,7 +4584,7 @@ blocks of Modelica.Blocks.Sources.
               points={{-88,0},{-64,30},{-36,52},{-2,62},{28,56},{48,44},{64,28},
                   {76,14},{86,0}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Polygon(
               points={{86,0},{66,58},{37,27},{86,0}},
               lineColor={0,0,0},
@@ -4622,7 +4622,7 @@ blocks of Modelica.Blocks.Sources.
               points={{-88,0},{-64,30},{-36,52},{-2,62},{28,56},{48,44},{64,28},
                   {76,14},{80,10}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Polygon(
               points={{86,0},{66,58},{38,28},{86,0}},
               lineColor={0,0,0},
@@ -4664,7 +4664,7 @@ blocks of Modelica.Blocks.Sources.</p>
             Polygon(
               points={{-78,24},{-69,17},{-89,0},{-78,24}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Line(
@@ -4672,12 +4672,12 @@ blocks of Modelica.Blocks.Sources.</p>
                   30},{-35,29},{-31,28},{-26,26},{-21,23},{-17,20},{-13,15},{-10,
                   9}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Line(
               points={{74,20},{70,23},{65,26},{60,28},{56,29},{50,30},{41,30},{
                   35,29},{31,28},{26,26},{21,23},{17,20},{13,15},{10,9}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Polygon(
               points={{89,0},{78,24},{69,17},{89,0}},
               lineColor={0,0,0},
@@ -4702,18 +4702,18 @@ blocks of Modelica.Blocks.Sources.</p>
                   30},{-36,29},{-32,28},{-27,26},{-22,23},{-18,20},{-14,15},{-11,
                   9}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Polygon(
               points={{-79,24},{-70,17},{-90,0},{-79,24}},
               lineColor={0,0,0},
-              lineThickness=2,
+              lineThickness=0.5,
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Line(
               points={{73,20},{69,23},{64,26},{59,28},{55,29},{49,30},{40,30},{
                   34,29},{30,28},{25,26},{20,23},{16,20},{12,15},{9,9}},
               color={0,0,0},
-              thickness=2),
+              thickness=0.5),
             Polygon(
               points={{88,0},{77,24},{68,17},{88,0}},
               lineColor={0,0,0},

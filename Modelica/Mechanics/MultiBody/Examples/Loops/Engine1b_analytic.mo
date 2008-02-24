@@ -43,11 +43,11 @@ equation
   connect(Mid.frame_b, jointRRP.frame_a) annotation (Line(
       points={{50,-43},{58,-43},{58,-30},{30,-30},{30,34}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(jointRRP.frame_b, cylPosition.frame_b) annotation (Line(
       points={{30,74},{30,110},{-20.5,110}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(jointRRP.axis, gasForce.flange_b) annotation (Line(points={{46,74},{
           46,82},{119,82},{119,87}}, color={0,127,0}));
   connect(jointRRP.bearing, gasForce.flange_a) annotation (Line(points={{38,74},
@@ -55,9 +55,9 @@ equation
   connect(jointRRP.frame_ib, Piston.frame_a) annotation (Line(
       points={{50,70},{120,70},{120,63}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(jointRRP.frame_ia, Rod2.frame_a) annotation (Line(
       points={{50,38},{80,38},{80,-10},{120,-10},{120,0}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
 end Engine1b_analytic;

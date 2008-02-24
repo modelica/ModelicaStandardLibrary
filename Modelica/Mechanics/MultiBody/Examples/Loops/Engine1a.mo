@@ -112,53 +112,53 @@ equation
     annotation (Line(
       points={{-30,-90},{-10,-90}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(Crank2.frame_a, Crank1.frame_b) annotation (Line(
       points={{70,-86},{70,-90},{44,-90}},
       color={95,95,95},
-      thickness=2,
+      thickness=0.5,
       fillColor={192,192,192},
       fillPattern=FillPattern.Solid));
   connect(Crank2.frame_b, Crank3.frame_a) annotation (Line(
       points={{70,-66},{70,-61},{81.5,-61}},
       color={95,95,95},
-      thickness=2,
+      thickness=0.5,
       fillColor={192,192,192},
       fillPattern=FillPattern.Solid));
   connect(Bearing.frame_b, Crank1.frame_a) annotation (Line(
       points={{10,-90},{24,-90}},
       color={95,95,95},
-      thickness=2,
+      thickness=0.5,
       fillColor={192,192,192},
       fillPattern=FillPattern.Solid));
   connect(cylPosition.frame_b, Cylinder.frame_a) annotation (Line(
       points={{19.5,110},{90,110},{90,106}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(world.frame_b, cylPosition.frame_a) annotation (Line(
       points={{-30,-90},{-20,-90},{-20,110},{-0.5,110}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(Crank3.frame_b, Crank4.frame_a) annotation (Line(
       points={{101.5,-61},{115,-61},{115,-65},{115.5,-65}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(B1.frame_a, Mid.frame_b) annotation (Line(
       points={{80,-20},{70,-20},{70,-32},{98,-32},{98,-43},{90,-43}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(B1.frame_b, Rod.frame_b) annotation (Line(
       points={{100,-20},{112,-20},{112,-9},{90,-9},{90,-5}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(Rod.frame_a, B2.frame_b) annotation (Line(
       points={{90,15},{90,21},{110,21},{110,32},{100,32}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(B2.frame_a, Piston.frame_b) annotation (Line(
       points={{80,32},{70,32},{70,46},{90.5,46},{90.5,56}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(Inertia.flange_b, Bearing.axis) annotation (Line(
       points={{-8,-110},{0,-110},{0,-100}},
       color={0,0,0},
@@ -167,9 +167,9 @@ equation
   connect(Mid.frame_a, Crank2.frame_b) annotation (Line(
       points={{70,-43},{63,-43},{63,-61},{70,-61},{70,-66}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
   connect(Cylinder.frame_b, Piston.frame_a) annotation (Line(
       points={{90,86},{90,77},{90.5,77}},
       color={95,95,95},
-      thickness=2));
+      thickness=0.5));
 end Engine1a;
