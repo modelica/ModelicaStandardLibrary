@@ -7,7 +7,7 @@ extends Modelica.Icons.Library2;
 
 
 annotation (
-  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
+  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
       graphics={
       Rectangle(extent={{-32,-6},{16,-35}}, lineColor={0,0,0}),
       Rectangle(extent={{-32,-56},{16,-85}}, lineColor={0,0,0}),
@@ -43,7 +43,7 @@ Copyright &copy; 1998-2008, Modelica Association and DLR.
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> 
+and the accompanying <b>disclaimer</b>
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p>
 </HTML>
@@ -107,7 +107,7 @@ package Examples
       Ni=0.1,
       initType=Modelica.Blocks.Types.Init.SteadyState,
       limitsAtInit=false,
-      controllerType=Modelica.Blocks.Types.SimpleController.PI) 
+      controllerType=Modelica.Blocks.Types.SimpleController.PI)
       annotation (Placement(transformation(extent={{-56,-20},{-36,0}}, rotation=
              0)));
     Modelica.Mechanics.Rotational.Components.Inertia inertia1(
@@ -157,7 +157,7 @@ This is a simple drive train controlled by a PID controller:
      is used as PI controller.</li>
 
 <li> The output of the controller is a torque that drives a motor inertia
-     \"inertia1\". Via a compl�iant spring/damper component, the load
+     \"inertia1\". Via a compliant spring/damper component, the load
      inertia \"inertia2\" is attached. A constant external torque of 10 Nm
      is acting on the load inertia.</li>
 </ul>
@@ -165,7 +165,7 @@ This is a simple drive train controlled by a PID controller:
 <p>
 The PI controller settings included \"limitAtInit=false\", in order that
 the controller output limits of 12 Nm are removed from the initialization
-problem. 
+problem.
 </p>
 
 <p>
@@ -203,16 +203,16 @@ is forced back to its limit after a transient phase.
 
 </html>"));
 
-    Modelica.Mechanics.Rotational.Sources.Torque torque 
+    Modelica.Mechanics.Rotational.Sources.Torque torque
       annotation (Placement(transformation(extent={{-25,-20},{-5,0}}, rotation=
               0)));
     Modelica.Mechanics.Rotational.Components.SpringDamper spring(
                                                       c=1e4, d=100,
       stateSelect=StateSelect.prefer,
-      w_rel(fixed=true)) 
+      w_rel(fixed=true))
       annotation (Placement(transformation(extent={{32,-20},{52,0}}, rotation=0)));
     Modelica.Mechanics.Rotational.Components.Inertia inertia2(
-                                                   J=2) 
+                                                   J=2)
       annotation (Placement(transformation(extent={{60,-20},{80,0}}, rotation=0)));
     Modelica.Blocks.Sources.KinematicPTP kinematicPTP(startTime=0.5, deltaq={
           driveAngle},
@@ -222,28 +222,28 @@ is forced back to its limit after a transient phase.
     Modelica.Blocks.Continuous.Integrator integrator(initType=Modelica.Blocks.
           Types.Init.InitialState) annotation (Placement(transformation(extent=
               {{-63,20},{-43,40}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor 
+    Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor
       annotation (Placement(transformation(extent={{22,-50},{2,-30}}, rotation=
               0)));
     Modelica.Mechanics.Rotational.Sources.ConstantTorque loadTorque(
                                                             tau_constant=10,
-        useSupport=false) 
+        useSupport=false)
       annotation (Placement(transformation(extent={{98,-15},{88,-5}}, rotation=
               0)));
   initial equation
     der(spring.w_rel) = 0;
   equation
-    connect(spring.flange_b,inertia2. flange_a) 
+    connect(spring.flange_b,inertia2. flange_a)
       annotation (Line(points={{52,-10},{60,-10}}, color={0,0,0}));
-    connect(inertia1.flange_b, spring.flange_a) 
+    connect(inertia1.flange_b, spring.flange_a)
       annotation (Line(points={{22,-10},{32,-10}}, color={0,0,0}));
-    connect(torque.flange, inertia1.flange_a) 
+    connect(torque.flange, inertia1.flange_a)
       annotation (Line(points={{-5,-10},{2,-10}}, color={0,0,0}));
     connect(kinematicPTP.y[1], integrator.u) annotation (Line(points={{-71,30},
             {-65,30}}, color={0,0,127}));
-    connect(speedSensor.flange, inertia1.flange_b) 
+    connect(speedSensor.flange, inertia1.flange_b)
       annotation (Line(points={{22,-40},{22,-10}}, color={0,0,0}));
-    connect(loadTorque.flange, inertia2.flange_b) 
+    connect(loadTorque.flange, inertia2.flange_b)
       annotation (Line(points={{88,-10},{80,-10}}, color={0,0,0}));
     connect(PI.y, torque.tau)  annotation (Line(points={{-35,-10},{-27,-10}},
           color={0,0,127}));
@@ -270,7 +270,7 @@ is forced back to its limit after a transient phase.
               -100,-100},{100,100}}), graphics), Documentation(info="<html>
 <p>
 This example demonstrates how to construct an inverse model in Modelica
-(for more details see <a href=\"http://www.modelica.org/events/Conference2005/online_proceedings/Session3/Session3c3.pdf\">Looye, Th�mmel, Kurze, Otter, Bals: Nonlinear Inverse Models for Control</a>).
+(for more details see <a href=\"http://www.modelica.org/events/Conference2005/online_proceedings/Session3/Session3c3.pdf\">Looye, Th&uuml;mmel, Kurze, Otter, Bals: Nonlinear Inverse Models for Control</a>).
 </p>
 
 <p>
@@ -294,7 +294,7 @@ the denominator polynomial:
 If the denominator polynomial d(s) has a higher degree as the
 numerator polynomial n(s) (which is usually the case for plant models),
 then the inverse model is no longer proper, i.e., it is not causal.
-To avoid this, an approximate inverse model is constructed by adding 
+To avoid this, an approximate inverse model is constructed by adding
 a sufficient number of poles to the denominator of the inverse model.
 This can be interpreted as filtering the desired output signal y:
 </p>
@@ -322,16 +322,16 @@ the inputs and outputs are exchanged. The goal is to compute the input of the
 \"firstOrder1\" block so that its output follows a given sine signal.
 For this, the sine signal \"sin\" is first filtered with a \"CriticalDamping\"
 filter of order 1 and then the output of this filter is connected to the output
-of the \"firstOrder1\" block (via the InverseBlockConstraints block, since 
+of the \"firstOrder1\" block (via the InverseBlockConstraints block, since
 2 outputs cannot be connected directly together in a block diagram).
 </p>
 
 <p>
 In order to check the inversion, the computed input of \"firstOrder1\" is used
 as input in an identical block \"firstOrder2\". The output of \"firstOrder2\" should
-be the given \"sine\" function. The difference is constructed with the \"feedback\" 
+be the given \"sine\" function. The difference is constructed with the \"feedback\"
 block. Since the \"sine\" function is filtered, one cannot expect that this difference
-is zero. The higher the cut-off frequency of the filter, the closer is the 
+is zero. The higher the cut-off frequency of the filter, the closer is the
 agreement. A typical simulation result is shown in the next figure:
 </p>
 
@@ -385,7 +385,7 @@ agreement. A typical simulation result is shown in the next figure:
      model ShowLogicalSources
     "Demonstrates the usage of logical sources together with their diagram animation"
        extends Modelica.Icons.Example;
-       Sources.BooleanTable table(table={2,4,6,8}) 
+       Sources.BooleanTable table(table={2,4,6,8})
                                        annotation (Placement(transformation(
             extent={{-60,-100},{-40,-80}}, rotation=0)));
        Sources.BooleanConstant const    annotation (Placement(transformation(
@@ -400,7 +400,7 @@ agreement. A typical simulation result is shown in the next figure:
       experiment(StopTime=10),
       Documentation(info="<html>
 <p>
-This simple example demonstrates the logical sources in 
+This simple example demonstrates the logical sources in
 <a href=\"Modelica://Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a> and demonstrate
 their diagram animation (see \"small circle\" close to the output connector).
 The \"booleanExpression\" source shows how a logical expression can be defined
@@ -414,7 +414,7 @@ model.
                           period=0.5) annotation (Placement(transformation(
             extent={{-60,-60},{-40,-40}}, rotation=0)));
       Sources.BooleanExpression booleanExpression(
-                                                y=pulse.y and step.y) 
+                                                y=pulse.y and step.y)
       annotation (Placement(transformation(extent={{20,20},{80,40}}, rotation=0)));
      end ShowLogicalSources;
 
@@ -514,19 +514,19 @@ at hand of this model (Modelica.Blocks.Examples.BusUsage):
 The control and sub-control bus icons are provided within Modelica.Icons.
 In <a href=\"Modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces\">Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces</a>
 the buses for this example are defined. Both the \"ControlBus\" and the \"SubControlBus\" are
-<b>expandable</b> connectors that do not define any variable. For example, 
+<b>expandable</b> connectors that do not define any variable. For example,
 <a href=\"Modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.ControlBus#text\">Interfaces.ControlBus</a>
 is defined as:
 </p>
 <pre>  <b>expandable connector</b> ControlBus
       <b>extends</b> Modelica.Icons.ControlBus;
-      <b>annotation</b> (Icon(Rectangle(extent=[-20, 2; 22, -2], 
+      <b>annotation</b> (Icon(Rectangle(extent=[-20, 2; 22, -2],
                        style(rgbcolor={255,204,51}, thickness=0.5))));
   <b>end</b> ControlBus;
 </pre>
 <p>
 Note, the \"annotation\" in the connector is important since the color
-and thickness of a connector line are taken from the first 
+and thickness of a connector line are taken from the first
 line element in the icon annotation of a connector class. Above, a small rectangle in the
 color of the bus is defined (and therefore this rectangle is not
 visible). As a result, when connecting from an instance of this
@@ -546,7 +546,7 @@ menu pops-up in Dymola:
 </p>
 
 <p>
-The \"Add variable/New name\" field allows the user to define the name of the signal on 
+The \"Add variable/New name\" field allows the user to define the name of the signal on
 the \"controlBus\". When typing \"realSignal1\" as \"New name\", a connection of the form:
 </p>
 
@@ -555,7 +555,7 @@ the \"controlBus\". When typing \"realSignal1\" as \"New name\", a connection of
 
 <p>
 is generated and the \"controlBus\" contains the new signal \"realSignal1\". Modelica tools
-may give more support in order to list potential signals for a connection. 
+may give more support in order to list potential signals for a connection.
 For example, in Dymola all variables are listed in the menu that are contained in
 connectors which are derived by inheritance from \"controlBus\". Therefore, in
 <a href=\"Modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.InternalConnectors\">BusUsage_Utilities.Interfaces.InternalConnectors</a>
@@ -563,9 +563,9 @@ the expected implementation of the \"ControlBus\" and of the \"SubControlBus\" a
 For example \"Internal.ControlBus\" is defined as:
 </p>
 
-<pre>  <b>expandable connector</b> StandardControlBus 
+<pre>  <b>expandable connector</b> StandardControlBus
     <b>extends</b> BusUsage_Utilities.Interfaces.ControlBus;
-  
+
     <b>import</b> SI = Modelica.SIunits;
     SI.AngularVelocity    realSignal1   \"First Real signal\";
     SI.Velocity           realSignal2   \"Second Real signal\";
@@ -597,21 +597,21 @@ just potential signals. The user might still add different signal names.
       offset=2,
       startTime=0.5)   annotation (Placement(transformation(extent={{-60,-40},{
               -40,-20}}, rotation=0)));
-    Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=0.5) 
+    Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=0.5)
                                                                annotation (Placement(
           transformation(extent={{-58,0},{-38,20}}, rotation=0)));
-    Modelica.Blocks.Sources.Sine sine 
+    Modelica.Blocks.Sources.Sine sine
                                      annotation (Placement(transformation(
             extent={{-60,40},{-40,60}}, rotation=0)));
 
-    Modelica.Blocks.Examples.BusUsage_Utilities.Part part 
+    Modelica.Blocks.Examples.BusUsage_Utilities.Part part
               annotation (Placement(transformation(extent={{-60,-80},{-40,-60}},
             rotation=0)));
-    Modelica.Blocks.Math.Gain gain 
+    Modelica.Blocks.Math.Gain gain
       annotation (Placement(transformation(extent={{-40,70},{-60,90}}, rotation=
              0)));
   protected
-    BusUsage_Utilities.Interfaces.ControlBus controlBus 
+    BusUsage_Utilities.Interfaces.ControlBus controlBus
       annotation (Placement(transformation(
           origin={30,10},
           extent={{-20,20},{20,-20}},
@@ -669,7 +669,7 @@ This package contains utility models and bus definitions needed for the
           Documentation(info="<html>
 <p>
 This connector defines the \"expandable connector\" ControlBus that
-is used as bus in the 
+is used as bus in the
 <a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
 Note, this connector is \"empty\". When using it, the actual content is
 constructed by the signals connected to this bus.
@@ -691,7 +691,7 @@ constructed by the signals connected to this bus.
           Documentation(info="<html>
 <p>
 This connector defines the \"expandable connector\" SubControlBus that
-is used as sub-bus in the 
+is used as sub-bus in the
 <a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
 Note, this connector is \"empty\". When using it, the actual content is
 constructed by the signals connected to this bus.
@@ -723,7 +723,7 @@ constructed by the signals connected to this bus.
             Documentation(info="<html>
 <p>
 This connector is used to show default signals that might be added
-to the 
+to the
 <a href=\"Modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.ControlBus\">ControlBus</a>.
 </p>
 </html>"));
@@ -746,7 +746,7 @@ to the
             Documentation(info="<html>
 <p>
 This connector is used to show default signals that might be added
-to the 
+to the
 <a href=\"Modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.SubControlBus\">SubControlBus</a>.
 </p>
 </html>"));
@@ -757,7 +757,7 @@ This package contains the \"actual\" default bus definitions needed for the
 <a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
 The bus definitions in this package are the default definitions shown in the
 bus menu when connecting a signal to an expandable connector (here: ControlBus
-or SubControlBus). Usually, the connectors of this package should not be 
+or SubControlBus). Usually, the connectors of this package should not be
 utilized by a user.
 </p>
 </html>"));
@@ -794,14 +794,14 @@ This model is used to demonstrate the bus usage in example
 </p>
 </p>
 </html>"));
-     Interfaces.SubControlBus subControlBus 
+     Interfaces.SubControlBus subControlBus
        annotation (Placement(transformation(
             origin={100,0},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-     Sources.RealExpression realExpression(y=time) 
+     Sources.RealExpression realExpression(y=time)
        annotation (Placement(transformation(extent={{-6,0},{20,20}}, rotation=0)));
-     Sources.BooleanExpression booleanExpression(y=time > 0.5) 
+     Sources.BooleanExpression booleanExpression(y=time > 0.5)
        annotation (Placement(transformation(extent={{-6,-30},{20,-10}},
               rotation=0)));
    equation
