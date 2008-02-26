@@ -32,7 +32,7 @@ For an introduction, have especially a look at:
 </ul>
 
 <p>
-Copyright &copy; 1998-2007, Modelica Association and DLR.
+Copyright &copy; 1998-2008, Modelica Association and DLR.
 </p>
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -705,7 +705,7 @@ Since 6
 cylinders are connected together, 6 coupled loops with 6 JointRRP objects are 
 present. This model is available as 
 <a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_analytic\">
-MultiBody.Examples.Loops.Engine­V6_analytic</a>.
+MultiBody.Examples.Loops.Engineï¿½V6_analytic</a>.
 </p>
 <p>
 The composition diagram of the connected 6 cylinders is

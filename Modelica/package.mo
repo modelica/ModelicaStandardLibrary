@@ -59,7 +59,7 @@ that are directly usable (= number of public, non-partial classes).
 </p>
 
 <p>
-Copyright &copy; 1998-2007, Modelica Association.
+Copyright &copy; 1998-2008, Modelica Association.
 </p>
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -3744,7 +3744,7 @@ of the Modelica package (many more people have contributed to the design):
   </tr>
 
   <tr><td valign=\"top\"><b>Christoph C. Richter</b> </td
-      <td valign=\"top\"> Institut für Thermodynamik, <br>
+      <td valign=\"top\"> Institut fï¿½r Thermodynamik, <br>
            Technische Universit&auml;t Braunschweig, <br>
            Germany</td>
       <td valign=\"top\"> Modelica.Media</td>

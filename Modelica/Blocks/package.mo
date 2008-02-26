@@ -38,7 +38,7 @@ This library contains input/output blocks to build up block diagrams.
     email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
 </dl>
 <p>
-Copyright &copy; 1998-2007, Modelica Association and DLR.
+Copyright &copy; 1998-2008, Modelica Association and DLR.
 </p>
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -157,7 +157,7 @@ This is a simple drive train controlled by a PID controller:
      is used as PI controller.</li>
 
 <li> The output of the controller is a torque that drives a motor inertia
-     \"inertia1\". Via a complöiant spring/damper component, the load
+     \"inertia1\". Via a complï¿½iant spring/damper component, the load
      inertia \"inertia2\" is attached. A constant external torque of 10 Nm
      is acting on the load inertia.</li>
 </ul>
@@ -270,7 +270,7 @@ is forced back to its limit after a transient phase.
               -100,-100},{100,100}}), graphics), Documentation(info="<html>
 <p>
 This example demonstrates how to construct an inverse model in Modelica
-(for more details see <a href=\"http://www.modelica.org/events/Conference2005/online_proceedings/Session3/Session3c3.pdf\">Looye, Thümmel, Kurze, Otter, Bals: Nonlinear Inverse Models for Control</a>).
+(for more details see <a href=\"http://www.modelica.org/events/Conference2005/online_proceedings/Session3/Session3c3.pdf\">Looye, Thï¿½mmel, Kurze, Otter, Bals: Nonlinear Inverse Models for Control</a>).
 </p>
 
 <p>

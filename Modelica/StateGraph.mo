@@ -71,7 +71,7 @@ It is most useful to combine this libray with the Modelica libraries
 </ul>
  
 <p>
-Copyright &copy; 1998-2007, Modelica Association and DLR
+Copyright &copy; 1998-2008, Modelica Association and DLR
 </p>
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
