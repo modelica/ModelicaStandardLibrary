@@ -135,7 +135,7 @@ Hubertus Tummescheit, Lund Institute of Technology, Lund, Sweden.
   </p>
   </dd>
 </dl>
-<p><b>Copyright &copy; 2001-2007, Modelica Association, Michael Tiller and DLR.</b></p>
+<p><b>Copyright &copy; 2001-2008, Modelica Association, Michael Tiller and DLR.</b></p>
 <p><i>
 This Modelica package is free software; it can be redistributed and/or modified
 under the terms of the Modelica license, see the license conditions
