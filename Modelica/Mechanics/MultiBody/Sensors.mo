@@ -5,35 +5,44 @@ package Sensors "Sensors to measure variables"
 
     import SI = Modelica.SIunits;
 
-    Blocks.Interfaces.RealOutput r[3](each final quantity="Position", each final unit = "m") if get_r
+    Blocks.Interfaces.RealOutput r[3](each final quantity="Position", each
+        final unit =                                                                    "m") if get_r
       "Absolute position vector frame_a.r_0 resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           origin={-100,-110},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-    Blocks.Interfaces.RealOutput v[3](each final quantity="Velocity", each final unit = "m/s") if get_v "Absolute velocity vector" 
+    Blocks.Interfaces.RealOutput v[3](each final quantity="Velocity", each
+        final unit =                                                                    "m/s") if get_v
+      "Absolute velocity vector" 
       annotation (Placement(transformation(
           origin={-60,-110},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-    Blocks.Interfaces.RealOutput a[3](each final quantity="Acceleration", each final unit = "m/s2") if get_a "Absolute acceleration vector" 
+    Blocks.Interfaces.RealOutput a[3](each final quantity="Acceleration", each
+        final unit =                                                                        "m/s2") if get_a
+      "Absolute acceleration vector" 
       annotation (Placement(transformation(
           origin={-20,-110},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-    Blocks.Interfaces.RealOutput angles[3](each final quantity="Angles", each final unit = "rad", each displayUnit="deg") if get_angles
+    Blocks.Interfaces.RealOutput angles[3](each final quantity="Angles", each
+        final unit =                                                                       "rad", each
+        displayUnit =                                                                                              "deg") if get_angles
       "Angles to rotate world frame into frame_a via 'sequence'" 
       annotation (Placement(transformation(
           origin={20,-110},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-    Blocks.Interfaces.RealOutput w[3](each final quantity="AngularVelocity", each final unit = "1/s") if get_w
+    Blocks.Interfaces.RealOutput w[3](each final quantity="AngularVelocity", each
+        final unit =                                                                           "1/s") if get_w
       "Absolute angular velocity vector" 
       annotation (Placement(transformation(
           origin={60,-110},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-    Blocks.Interfaces.RealOutput z[3](each final quantity="AngularAcceleration", each final unit = "1/s2") if get_z
+    Blocks.Interfaces.RealOutput z[3](each final quantity="AngularAcceleration", each
+        final unit =                                                                               "1/s2") if get_z
       "Absolute angular acceleration vector" 
       annotation (Placement(transformation(
           origin={100,-110},
@@ -536,37 +545,44 @@ and sequence[2] &ne; sequence[3]. Often used values are:
       "Frame in which vectors are resolved after differentiation (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)"
       annotation(Dialog(tab="Advanced", group="if get_v_rel or get_a_rel or get_z_rel", enable=get_v_rel or get_a_rel or get_z_rel));
 
-    Blocks.Interfaces.RealOutput r_rel[3](each final quantity="Position", each final unit = "m") if get_r_rel
+    Blocks.Interfaces.RealOutput r_rel[3](each final quantity="Position", each
+        final unit =                                                                        "m") if get_r_rel
       "Relative position vector frame_b.r_0 - frame_a.r_0 resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           origin={-100,-110},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-    Blocks.Interfaces.RealOutput v_rel[3](each final quantity="Velocity", each final unit = "m/s") if get_v_rel
+    Blocks.Interfaces.RealOutput v_rel[3](each final quantity="Velocity", each
+        final unit =                                                                        "m/s") if get_v_rel
       "Relative velocity vector" 
       annotation (Placement(transformation(
           origin={-60,-110},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-    Blocks.Interfaces.RealOutput a_rel[3](each final quantity="Position", each final unit = "m") if get_a_rel
+    Blocks.Interfaces.RealOutput a_rel[3](each final quantity="Acceleration",
+        each final unit="m/s2") if                                                                  get_a_rel
       "Relative acceleration vector" 
       annotation (Placement(transformation(
           origin={-20,-110},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-    Blocks.Interfaces.RealOutput angles[3](each final quantity="Angles", each final unit = "rad", each displayUnit="deg") if get_angles
+    Blocks.Interfaces.RealOutput angles[3](each final quantity="Angles", each
+        final unit =                                                                       "rad", each
+        displayUnit =                                                                                              "deg") if get_angles
       "Angles to rotate frame_a into frame_b via 'sequence'" 
       annotation (Placement(transformation(
           origin={20,-110},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-    Blocks.Interfaces.RealOutput w_rel[3](each final quantity="AngularVelocity", each final unit = "1/s") if get_w_rel
+    Blocks.Interfaces.RealOutput w_rel[3](each final quantity="AngularVelocity", each
+        final unit =                                                                               "1/s") if get_w_rel
       "Relative angular velocity vector" 
       annotation (Placement(transformation(
           origin={60,-110},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-    Blocks.Interfaces.RealOutput z_rel[3](each final quantity="AngularAcceleration", each final unit = "1/s2") if get_z_rel
+    Blocks.Interfaces.RealOutput z_rel[3](each final quantity="AngularAcceleration", each
+        final unit =                                                                                   "1/s2") if get_z_rel
       "Relative angular acceleration vector" 
       annotation (Placement(transformation(
           origin={100,-110},
@@ -986,7 +1002,8 @@ and sequence[2] &ne; sequence[3]. Often used values are:
   model AbsolutePosition
     "Measure absolute position vector of the origin of a frame connector"
     extends Internal.PartialAbsoluteSensor;
-    Blocks.Interfaces.RealOutput r[3](each final quantity="Position", each final unit = "m")
+    Blocks.Interfaces.RealOutput r[3](each final quantity="Position", each
+        final unit =                                                                    "m")
       "Absolute position vector resolved in frame defined by resolveInFrame" 
       annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
@@ -1014,8 +1031,8 @@ and sequence[2] &ne; sequence[3]. Often used values are:
 
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-          graphics={
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
+          ={
           Line(
             points={{70,0},{100,0}},
             color={0,0,127},
@@ -1106,7 +1123,8 @@ computed as:
   model AbsoluteVelocity
     "Measure absolute velocity vector of origin of frame connector"
     extends Internal.PartialAbsoluteSensor;
-    Blocks.Interfaces.RealOutput v[3](each final quantity="Velocity", each final unit = "m/s")
+    Blocks.Interfaces.RealOutput v[3](each final quantity="Velocity", each
+        final unit =                                                                    "m/s")
       "Absolute velocity vector resolved in frame defined by resolveInFrame" 
       annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
@@ -1241,7 +1259,9 @@ computed as:
       "Coordinate system a from which the angles shall be determined"             annotation (Placement(
           transformation(extent={{-116,-16},{-84,16}}, rotation=0)));
 
-    Modelica.Blocks.Interfaces.RealOutput angles[3](each final quantity="Angles", each final unit = "rad", each displayUnit="deg")
+    Modelica.Blocks.Interfaces.RealOutput angles[3](each final quantity="Angles", each
+        final unit =                                                                                "rad", each
+        displayUnit =                                                                                                    "deg")
       "Angles to rotate world frame into frame_a via 'sequence'" 
       annotation (Placement(transformation(
           origin={110,0},
@@ -1325,7 +1345,8 @@ and sequence[2] &ne; sequence[3]. Often used values are:
   model AbsoluteAngularVelocity
     "Measure absolute angular velocity of frame connector"
     extends Internal.PartialAbsoluteSensor;
-    Blocks.Interfaces.RealOutput w[3](each final quantity="AngularVelocity", each final unit = "1/s")
+    Blocks.Interfaces.RealOutput w[3](each final quantity="AngularVelocity", each
+        final unit =                                                                           "1/s")
       "Absolute angular velocity vector of frame_a with respect to world frame, resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
@@ -1472,8 +1493,8 @@ computed as:
 
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-          graphics={
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
+          ={
           Line(
             points={{0,-70},{0,-100}},
             color={0,0,127},
@@ -1563,7 +1584,8 @@ computed as:
   model RelativeVelocity
     "Measure relative velocity vector between the origins of two frame connectors"
     extends Internal.PartialRelativeSensor;
-    Blocks.Interfaces.RealOutput v_rel[3](each final quantity="Velocity", each final unit = "m/s")
+    Blocks.Interfaces.RealOutput v_rel[3](each final quantity="Velocity", each
+        final unit =                                                                        "m/s")
       "Relative velocity vector resolved in frame defined by resolveInFrame" 
       annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
@@ -1695,7 +1717,8 @@ computed as:
       "Coordinate system b"                                                       annotation (Placement(
           transformation(extent={{84,-16},{116,16}}, rotation=0)));
 
-    Modelica.Blocks.Interfaces.RealOutput angles[3](each final quantity="Angles", each final unit = "rad", displayUnit="deg")
+    Modelica.Blocks.Interfaces.RealOutput angles[3](each final quantity="Angles", each
+        final unit =                                                                                "rad", displayUnit="deg")
       "Angles to rotate frame_a into frame_b via 'sequence'" 
       annotation (Placement(transformation(
           origin={0,-110},
@@ -1792,7 +1815,8 @@ and sequence[2] &ne; sequence[3]. Often used values are:
   model RelativeAngularVelocity
     "Measure relative angular velocity between two frame connectors"
     extends Internal.PartialRelativeSensor;
-    Blocks.Interfaces.RealOutput w_rel[3](each final quantity="AngularVelocity", each final unit = "1/s")
+    Blocks.Interfaces.RealOutput w_rel[3](each final quantity="AngularVelocity", each
+        final unit =                                                                               "1/s")
       "Relative angular velocity vector between frame_a and frame_b resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
@@ -1816,8 +1840,8 @@ and sequence[2] &ne; sequence[3]. Often used values are:
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-          graphics={
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
+          ={
           Line(
             points={{0,-70},{0,-100}},
             color={0,0,127},
@@ -2029,7 +2053,8 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
 
     import SI = Modelica.SIunits;
 
-    Modelica.Blocks.Interfaces.RealOutput force[3](final quantity="Force", final unit="N")
+    Modelica.Blocks.Interfaces.RealOutput force[3](final quantity="Force", final unit
+        =                                                                             "N")
       "Cut force resolved in frame defined by resolveInFrame" 
          annotation (Placement(transformation(
           origin={-80,-110},
@@ -2289,7 +2314,8 @@ with negative sign at frame_a.
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
 
-    Modelica.Blocks.Interfaces.RealOutput force[3](final quantity="Force", final unit="N")
+    Modelica.Blocks.Interfaces.RealOutput force[3](final quantity="Force", final unit
+        =                                                                             "N")
       "Cut force resolved in frame defined by resolveInFrame" 
          annotation (Placement(transformation(
           origin={-80,-110},
@@ -2537,12 +2563,12 @@ coordinate system.
       annotation (Placement(transformation(extent={{84,-16},{116,16}}),
           iconTransformation(extent={{84,-15},{116,17}})));
 
-    Blocks.Interfaces.RealInput r_in[3](each final quantity="Position", each final unit = "m")
+    Blocks.Interfaces.RealInput r_in[3]
       "Input vector resolved in frame defined by frame_r_in" 
       annotation (Placement(transformation(extent={{-20,-20},{20,20}},
           rotation=-90,
           origin={0,120})));
-    Blocks.Interfaces.RealOutput r_out[3](each final quantity="Position", each final unit = "m")
+    Blocks.Interfaces.RealOutput r_out[3]
       "Input vector r_in resolved in frame defined by frame_r_out" 
       annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=-90,
@@ -2647,12 +2673,12 @@ transformed output vector as \"Real r_out[3]\";
       annotation (Placement(transformation(extent={{84,64},{116,96}}),
           iconTransformation(extent={{84,65},{116,97}})));
 
-    Blocks.Interfaces.RealInput r_in[3](each final quantity="Position", each final unit = "m")
+    Blocks.Interfaces.RealInput r_in[3]
       "Input vector resolved in frame defined by frame_r_in" 
       annotation (Placement(transformation(extent={{-20,-20},{20,20}},
           rotation=-90,
           origin={0,120})));
-    Blocks.Interfaces.RealOutput r_out[3](each final quantity="Position", each final unit = "m")
+    Blocks.Interfaces.RealOutput r_out[3]
       "Input vector r_in resolved in frame defined by frame_r_out" 
       annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=-90,
@@ -2671,8 +2697,8 @@ transformed output vector as \"Real r_out[3]\";
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-          graphics={
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
+          ={
           Line(
             points={{0,-70},{0,-100}},
             color={0,0,127},
@@ -3117,12 +3143,12 @@ transformed output vector as \"Real r_out[3]\";
             rotation=0,
             origin={100,0})));
 
-      Blocks.Interfaces.RealInput r_in[3](each final quantity="Position", each final unit = "m")
+      Blocks.Interfaces.RealInput r_in[3]
         "Input vector resolved in frame defined by frame_r_in" 
         annotation (Placement(transformation(extent={{-20,-20},{20,20}},
             rotation=-90,
             origin={0,120})));
-      Blocks.Interfaces.RealOutput r_out[3](each final quantity="Position", each final unit = "m")
+      Blocks.Interfaces.RealOutput r_out[3]
         "Input vector r_in resolved in frame defined by frame_r_out" 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=-90,
@@ -3220,12 +3246,12 @@ transformed output vector as \"Real r_out[3]\";
         =             frame_r_in
         "Frame in which vector r_out (= r_in in other frame) is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
 
-      Blocks.Interfaces.RealInput r_in[3](each final quantity="Position", each final unit = "m")
+      Blocks.Interfaces.RealInput r_in[3]
         "Input vector resolved in frame defined by frame_r_in" 
         annotation (Placement(transformation(extent={{-20,-20},{20,20}},
             rotation=-90,
             origin={0,120})));
-      Blocks.Interfaces.RealOutput r_out[3](each final quantity="Position", each final unit = "m")
+      Blocks.Interfaces.RealOutput r_out[3]
         "Input vector r_in resolved in frame defined by frame_r_out" 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=-90,
@@ -3315,7 +3341,6 @@ transformed output vector as \"Real r_out[3]\";
         "Frame in which output vector(s) is/are resolved (1: world, 2: frame_a, 3: frame_resolve)";
 
       annotation (
-        
         Documentation(info="
 <HTML>
 <p>
@@ -3390,7 +3415,6 @@ with the blocks of package Modelica.Blocks.
         "Frame in which output vector is resolved (1: world, 2: frame_a, 3: frame_resolve)";
 
       annotation (
-        
         Documentation(info="
 <HTML>
 <p>
@@ -3461,7 +3485,8 @@ with the blocks of package Modelica.Blocks.
 
       extends
         Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceBaseSensor;
-      Modelica.Blocks.Interfaces.RealOutput force[3](final quantity="Force", final unit="N")
+      Modelica.Blocks.Interfaces.RealOutput force[3](final quantity="Force", final unit
+          =                                                                             "N")
         "Cut force resolved in frame defined by resolveInFrame" 
            annotation (Placement(transformation(
             origin={-80,-110},
