@@ -86,7 +86,6 @@ respectively.
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(group="if animation = true", enable=animation));
     annotation (
-      
       Documentation(info="<HTML>
 <p>
 Model <b>FixedShape</b> defines a visual shape that is
@@ -170,7 +169,8 @@ definition of the colors used in the MultiBody library
             fillColor={0,127,255},
             fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-98,34},{-64,46},{0,30},{74,56},{50,32},{-10,12},{-98,34}},
+            points={{-98,34},{-64,46},{0,30},{74,56},{50,32},{-10,12},{-98,34}}, 
+
             lineColor={255,255,255},
             fillColor={160,160,164},
             fillPattern=FillPattern.Solid),
@@ -258,7 +258,6 @@ definition of the colors used in the MultiBody library
       annotation (Dialog(group="if animation = true", enable=animation));
 
     annotation (
-      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -753,7 +752,8 @@ parameter menu.
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(group="if animation = true", enable=animation));
 
-    Modelica.Blocks.Interfaces.RealInput r_head[3](each final quantity="Position", each final unit="m")
+    Modelica.Blocks.Interfaces.RealInput r_head[3](each final quantity="Position", each
+        final unit =                                                                               "m")
       "Position vector from origin of frame_a to head of arrow, resolved in frame_a"
       annotation (Placement(transformation(
           origin={0,-120},
@@ -1104,7 +1104,7 @@ library (will be replaced by a color editor).
       input SI.Length height=0 "Height of visual object"  annotation(Dialog);
       input Types.ShapeExtra extra=0.0
         "Additional size data for some of the shape types"                                 annotation(Dialog);
-      input Integer color[3]={255,0,0} "Color of shape"            annotation(Dialog);
+      input Real color[3]={255,0,0} "Color of shape"               annotation(Dialog);
       input Types.SpecularCoefficient specularCoefficient = 0.7
         "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog);
       // Real rxry[3, 2];
@@ -1161,8 +1161,7 @@ library (will be replaced by a color editor).
             Text(
               extent={{-132,160},{128,100}},
               textString="%name",
-              lineColor={0,0,255})})
-        ,
+              lineColor={0,0,255})}),
         Documentation(info="<HTML>
 <p>
 Model <b>Shape</b> defines a visual shape that is
