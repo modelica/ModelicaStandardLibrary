@@ -2,7 +2,7 @@ within ;
 package Modelica "Modelica Standard Library (Version 3.0)"
 extends Icons.Library;
  
-
+ 
 annotation (
   preferredView="info",
   version="3.0",
