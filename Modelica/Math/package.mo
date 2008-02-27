@@ -7,7 +7,6 @@ extends Modelica.Icons.Library2;
 
 
 annotation (
-    
   Invisible=true,
   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
       graphics={Text(
@@ -412,8 +411,7 @@ package Matrices "Library of functions operating on matrices"
 
   annotation (
     version="0.8.1",
-    versionDate="2004-08-21"
-    ,
+    versionDate="2004-08-21",
     Documentation(info="<HTML>
 <h4>Library content</h4>
 <p>
@@ -790,7 +788,6 @@ to the original matrix are given, such that
     output Real x[size(b, 1)] "Vector x such that A*x = b";
 
     annotation (
-      
       Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -828,6 +825,7 @@ i.e., by Gaussian elemination with partial pivoting.
 <a href=\"Modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a>,
 <a href=\"Modelica://Modelica.Math.Matrices.LU_solve\">Matrices.LU_solve</a>
 </HTML>"));
+
   protected
     Integer info;
   algorithm
@@ -846,7 +844,6 @@ no or infinitely many solutions (A is singular).");
     output Real X[size(B, 1), size(B,2)] "Matrix X such that A*X = B";
 
     annotation (
-      
       Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -890,6 +887,7 @@ i.e., by Gaussian elemination with partial pivoting.
 <a href=\"Modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a>,
 <a href=\"Modelica://Modelica.Math.Matrices.LU_solve2\">Matrices.LU_solve2</a>
 </HTML>"));
+
   protected
     Integer info;
   algorithm
@@ -908,7 +906,6 @@ no or infinitely many solutions (A is singular).");
       "Vector x such that min|A*x-b|^2 if size(A,1) >= size(A,2) or min|x|^2 and A*x=b, if size(A,1) < size(A,2)";
 
     annotation (
-      
       Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -934,6 +931,7 @@ the solution is not unique and from the infinitely many solutions
 the one is selected that minimizes both |x|^2 and |A*x - b|^2.
 </p>
 </HTML>"));
+
   protected
     Integer info;
     Integer rank;
@@ -955,7 +953,6 @@ equations with function \"Matrices.leastSquares\" failed.");
     output Real x[size(A,2)] "solution vector";
 
     annotation (
-      
       Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -989,6 +986,7 @@ full column rank (= size(A,2)). In this case, the problem
 has a unique solution.
 </p>
 </HTML>"));
+
   protected
     Integer info;
   algorithm
@@ -1376,7 +1374,6 @@ This is not allowed when calling Modelica.Matrices.QR(A).");
       "Real-valued eigenvector matrix";
 
     annotation (
-      
       Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -1430,11 +1427,13 @@ i.e., matrix A has the 3 real eigenvalues -0.618, 8, 1.618.
 <a href=\"Modelica://Modelica.Math.Matrices.singularValues\">Matrices.singularValues</a>
 </HTML>
 "));
+
   protected
     Integer info;
     // replace with "isPresent(..)" if supported by Dymola
     Boolean onlyEigenvalues = false;
   algorithm
+  if size(A,1) > 0 then
     if onlyEigenvalues then
        (eigenvalues[:, 1],eigenvalues[:, 2],info) := LAPACK.dgeev_eigenValues(A);
        eigenvectors :=zeros(size(A, 1), size(A, 1));
@@ -1444,6 +1443,7 @@ i.e., matrix A has the 3 real eigenvalues -0.618, 8, 1.618.
     assert(info == 0, "Calculating the eigen values with function
 \"Matrices.eigenvalues\" is not possible, since the
 numerical algorithm does not converge.");
+  end if;
   end eigenValues;
 
   function eigenValueMatrix
@@ -1456,7 +1456,6 @@ numerical algorithm does not converge.");
       "Real valued block diagonal matrix with eigen values (Re: 1x1 block, Im: 2x2 block)";
 
     annotation (
-      
       Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -1487,6 +1486,7 @@ are used to construct a 2 by 2 diagonal block of <b>J</b>:
 <h4>See also</h4>
 <a href=\"Modelica://Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>
 </HTML>"));
+
   protected
     Integer n=size(eigenValues, 1);
     Integer i;
@@ -1512,9 +1512,9 @@ are used to construct a 2 by 2 diagonal block of <b>J</b>:
     extends Modelica.Icons.Function;
     input Real A[:, :] "Matrix";
     output Real sigma[min(size(A, 1), size(A, 2))] "Singular values";
-    output Real U[size(A, 1), size(A, 1)]=zeros(size(A, 1), size(A, 1))
+    output Real U[size(A, 1), size(A, 1)]=identity(size(A, 1))
       "Left orthogonal matrix";
-    output Real VT[size(A, 2), size(A, 2)]=zeros(size(A, 2), size(A, 2))
+    output Real VT[size(A, 2), size(A, 2)]=identity(size(A, 2))
       "Transposed right orthogonal matrix ";
 
     annotation ( Documentation(info="<HTML>
@@ -1564,9 +1564,11 @@ matrices <tt>U</tt> and <tt>V</tt>.
     Integer info;
     Integer n=min(size(A, 1), size(A, 2)) "Number of singular values";
   algorithm
-    (sigma,U,VT,info) := Matrices.LAPACK.dgesvd(A);
+  if n>0 then
+    (sigma,U,VT,info) := Modelica.Math.Matrices.LAPACK.dgesvd(A);
     assert(info == 0, "The numerical algorithm to compute the
 singular value decomposition did not converge");
+  end if;
   end singularValues;
 
   function det "Determinant of a matrix (computed by LU decomposition)"
@@ -1630,24 +1632,28 @@ to compute the rank of a matrix.
     input Real eps=0
       "If eps > 0, the singular values are checked against eps; otherwise eps=max(size(A))*norm(A)*Modelica.Constants.eps is used";
     output Integer result "Rank of matrix A";
-  protected
-    Integer n=min(size(A, 1), size(A, 2));
-    Integer i=n;
-    Real sigma[n]=singularValues(A) "Singular values";
-    Real eps2=if eps > 0 then eps else max(size(A))*sigma[1]*Modelica.Constants.eps;
-  algorithm
-    result := n;
-    while i > 0 loop
-      if sigma[i] > eps2 then
-        result := i;
-        i := 0;
-      end if;
-      i := i - 1;
-    end while;
 
     annotation (Documentation(info="<html>
   
 </html>"));
+  protected
+    Integer n=min(size(A, 1), size(A, 2));
+    Integer i=n;
+    Real sigma[n];
+    Real eps2;
+  algorithm
+    result := 0;
+    if n > 0 then
+      sigma := Modelica.Math.Matrices.singularValues(A);
+      eps2 := if eps > 0 then eps else max(size(A))*sigma[1]*Modelica.Constants.eps;
+      while i > 0 loop
+        if sigma[i] > eps2 then
+          result := i;
+          i := 0;
+        end if;
+        i := i - 1;
+      end while;
+    end if;
   end rank;
 
   function balance "Balancing of matrix A to improve the condition of A"
@@ -1715,8 +1721,7 @@ which based on the balanc function from EISPACK.
        by H. D. Joos and Nico Walther<br>
        Implemented.
 </li>
-</html>")
-      );
+</html>"));
   algorithm
 
     // B = inv(D)*A*D, so that cond(B)<=cond(A)
@@ -1759,7 +1764,6 @@ which based on the balanc function from EISPACK.
     output Real phi[size(A, 1), size(A, 1)] "= exp(A*T)";
 
     annotation (
-      
       Documentation(info="<HTML>
 <p>This function computes</p>
 <pre>                            (<b>A</b>T)^2   (<b>A</b>T)^3 
@@ -1822,6 +1826,7 @@ implementation variant used in this function.
 </li>
 </ul>
 </html>"));
+
   protected
     parameter Integer nmax=21;
     /*max number of iterations*/
@@ -1917,7 +1922,6 @@ implementation variant used in this function.
     /*diagonal transformation matrix for balancing*/
 
     annotation (
-      
       Documentation(info="<HTML>
 <p>
 The function uses a Taylor series expansion with Balancing and
@@ -2075,7 +2079,6 @@ The Algorithm to calculate psi is taken from
     Real F[na + 2*nb, na + 2*nb];
 
     annotation (
-      
       Documentation(info="<HTML>
 <p>
 The function calculates the matrices phi,gamma,gamma1 through the equation:
@@ -2116,6 +2119,7 @@ is discribed in
 </li>
 </ul>
 </html>"));
+
   algorithm
     F := [A, B, zeros(na, nb); zeros(2*nb, na), zeros(2*nb, nb), [identity(nb);
        zeros(nb, nb)]];
@@ -2148,7 +2152,6 @@ is discribed in
       Real work[lwork];
 
       annotation (
-        
         Documentation(info="Lapack documentation
     Purpose   
     =======   
@@ -2225,6 +2228,7 @@ is discribed in
                   elements i+1:N of WR and WI contain eigenvalues which   
                   have converged.   
 "));
+
     external "Fortran 77" dgeev("N", "V", n, Awork, n, eigenReal, eigenImag,
         eigenVectors, n, eigenVectors, n, work, size(work, 1), info) 
         annotation (Library="Lapack");
@@ -2249,7 +2253,6 @@ is discribed in
       Real EigenvectorsL[size(A, 1), size(A, 1)]=zeros(size(A, 1), size(A, 1));
 
       annotation (
-        
         Documentation(info="Lapack documentation
     Purpose   
     =======   
@@ -2528,7 +2531,6 @@ are computed, then only the diagonal blocks will be correct.
                                   nx, work, lwork, info) annotation (Library="Lapack");
 
       annotation (
-        
         Documentation(info="Lapack documentation
   Purpose                                                                 
   =======                                                                 
@@ -2621,6 +2623,7 @@ are computed, then only the diagonal blocks will be correct.
           = 0:  successful exit                                           
           < 0:  if INFO = -i, the i-th argument had an illegal value      
                                                                           "));
+
     end dgels_vec;
 
     function dgelsx_vec
@@ -2646,7 +2649,6 @@ are computed, then only the diagonal blocks will be correct.
                                   rcond, rank, work, lwork, info) annotation (Library="Lapack");
 
       annotation (
-        
         Documentation(info="Lapack documentation
   Purpose                                                               
   =======                                                               
@@ -2737,6 +2739,7 @@ are computed, then only the diagonal blocks will be correct.
   INFO    (output) INTEGER                                              
           = 0:  successful exit                                         
           < 0:  if INFO = -i, the i-th argument had an illegal value    "));
+
     end dgelsx_vec;
 
     function dgesv
@@ -2793,7 +2796,7 @@ are computed, then only the diagonal blocks will be correct.
   
                   has been completed, but the factor U is exactly   
                   singular, so the solution could not be computed.   
-")     );
+"));
 
     external "FORTRAN 77" dgesv(size(A, 1), size(B, 2), Awork, size(A, 1), ipiv,
          X, size(A, 1), info) annotation (Library="Lapack");
@@ -2814,7 +2817,7 @@ are computed, then only the diagonal blocks will be correct.
         Documentation(info="
 Same as function LAPACK.dgesv, but right hand side is a vector and not a matrix.
 For details of the arguments, see documentation of dgesv.
-")     );
+"));
 
     external "FORTRAN 77" dgesv(size(A, 1), 1, Awork, size(A, 1), ipiv, x, size(
         A, 1), info) annotation (Library="Lapack");
@@ -2924,7 +2927,7 @@ For details of the arguments, see documentation of dgesv.
   INFO    (output) INTEGER
           = 0:  successful exit.
           < 0:  if INFO = -i, the i-th argument had an illegal value.
-")     );
+"));
     end dgglse_vec;
 
     function dgtsv
@@ -2988,7 +2991,7 @@ For details of the arguments, see documentation of dgesv.
                   has not been computed.  The factorization has not been 
   
                   completed unless i = N.   
-")     );
+"));
 
     external "FORTRAN 77" dgtsv(size(diag, 1), size(B, 2), subdiagwork,
         diagwork, superdiagwork, X, size(B, 1), info) 
@@ -3014,7 +3017,7 @@ For details of the arguments, see documentation of dgesv.
         Documentation(info="
 Same as function LAPACK.dgtsv, but right hand side is a vector and not a matrix.
 For details of the arguments, see documentation of dgtsv.
-")     );
+"));
 
     external "FORTRAN 77" dgtsv(size(diag, 1), 1, subdiagwork, diagwork,
         superdiagwork, x, size(b, 1), info) annotation (Library="Lapack");
@@ -3098,8 +3101,7 @@ On entry:                       On exit:
    a31  a42  a53  a64   *    *      m31  m42  m53  m64   *    *
 Array elements marked * are not used by the routine; elements marked
 + need not be set on entry, but are required by the routine to store
-elements of U because of fill-in resulting from the row interchanges.")
-        );
+elements of U because of fill-in resulting from the row interchanges."));
 
     external "FORTRAN 77" dgbsv(n, kLower, kUpper, size(B, 2), Awork, size(
         Awork, 1), ipiv, X, n, info) annotation (Library="Lapack");
@@ -3121,7 +3123,7 @@ elements of U because of fill-in resulting from the row interchanges.")
 
       annotation (
         Documentation(info="Lapack documentation:  
-")     );
+"));
 
     external "FORTRAN 77" dgbsv(n, kLower, kUpper, 1, Awork, size(Awork, 1),
         ipiv, x, n, info) annotation (Library="Lapack");
@@ -3235,7 +3237,7 @@ elements of U because of fill-in resulting from the row interchanges.")
                   superdiagonals of an intermediate bidiagonal form B   
                   did not converge to zero. See the description of WORK   
                   above for details.   
-")     );
+"));
 
     external "Fortran 77" dgesvd("A", "A", size(A, 1), size(A, 2), Awork, size(
         A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info) 
@@ -3350,7 +3352,7 @@ elements of U because of fill-in resulting from the row interchanges.")
                   superdiagonals of an intermediate bidiagonal form B   
                   did not converge to zero. See the description of WORK   
                   above for details.   
-")     );
+"));
 
     external "Fortran 77" dgesvd("N", "N", size(A, 1), size(A, 2), Awork, size(
         A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info) 
@@ -3412,7 +3414,7 @@ INFO    (output) INTEGER
               has been completed, but the factor U is exactly
               singular, and division by zero will occur if it is used
               to solve a system of equations.
-")     );
+"));
 
     external "FORTRAN 77" dgetrf(size(A, 1), size(A, 2), LU, size(A, 1), pivots,
          info) annotation (Library="Lapack");
@@ -3477,7 +3479,7 @@ LDB     (input) INTEGER
 INFO    (output) INTEGER
         = 0:  successful exit
         < 0:  if INFO = -i, the i-th argument had an illegal value
-")       );
+"));
 
     protected
         Real work[size(LU, 1), size(LU, 1)]=LU;
@@ -3545,7 +3547,7 @@ LDB     (input) INTEGER
 INFO    (output) INTEGER
         = 0:  successful exit
         < 0:  if INFO = -i, the i-th argument had an illegal value
-")     );
+"));
 
     protected
       Real work[size(LU, 1), size(LU, 1)]=LU;
@@ -3606,8 +3608,7 @@ INFO    (output) INTEGER
         = 0:  successful exit
         < 0:  if INFO = -i, the i-th argument had an illegal value
         > 0:  if INFO = i, U(i,i) is exactly zero; the matrix is
-              singular and its inverse could not be computed.")
-        );
+              singular and its inverse could not be computed."));
     protected
       Integer lwork=min(10, size(LU, 1))*size(LU, 1) "Length of work array";
       Real work[lwork];
@@ -3682,8 +3683,7 @@ where tau is a real scalar, and v is a real vector with
 v(1:i-1) = 0 and v(i) = 1; v(i+1:m) is stored on exit in A(i+1:m,i).
 The matrix P is represented in jpvt as follows: If
    jpvt(j) = i
-then the jth column of P is the ith canonical unit vector.")
-        );
+then the jth column of P is the ith canonical unit vector."));
     protected
       Integer info;
       Integer ncol=size(A, 2) "Column dimension of A";
@@ -3750,7 +3750,7 @@ LWORK   (input) INTEGER
 INFO    (output) INTEGER
         = 0:  successful exit
         < 0:  if INFO = -i, the i-th argument has an illegal value
-")     );
+"));
 
     protected
       Integer info;
@@ -3799,7 +3799,6 @@ function sin "Sine"
   output Real y;
 
   annotation (
-    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -3872,6 +3871,7 @@ This function returns y = sin(u), with -&infin; &lt; u &lt; &infin;:
 <img src=\"../Images/Math/sin.png\">
 </p>
 </html>"));
+
 external "C" y = sin(u);
 annotation(Library="ModelicaExternalC");
 end sin;
@@ -3883,7 +3883,6 @@ function cos "Cosine"
   output Real y;
 
   annotation (
-    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -3952,6 +3951,7 @@ This function returns y = cos(u), with -&infin; &lt; u &lt; &infin;:
 <img src=\"../Images/Math/cos.png\">
 </p>
 </html>"));
+
 external "C" y = cos(u);
 annotation(Library="ModelicaExternalC");
 end cos;
@@ -3963,7 +3963,6 @@ function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
   output Real y;
 
   annotation (
-    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -4035,6 +4034,7 @@ This function returns y = tan(u), with -&infin; &lt; u &lt; &infin;
 <img src=\"../Images/Math/tan.png\">
 </p>
 </html>"));
+
 external "C" y = tan(u);
 annotation(Library="ModelicaExternalC");
 end tan;
@@ -4046,7 +4046,6 @@ function asin "Inverse sine (-1 <= u <= 1)"
   output SI.Angle y;
 
   annotation (
-    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -4119,6 +4118,7 @@ This function returns y = asin(u), with -1 &le; u &le; +1:
 <img src=\"../Images/Math/asin.png\">
 </p>
 </html>"));
+
 external "C" y = asin(u);
 annotation(Library="ModelicaExternalC");
 end asin;
@@ -4130,7 +4130,6 @@ function acos "Inverse cosine (-1 <= u <= 1)"
   output SI.Angle y;
 
   annotation (
-    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -4199,6 +4198,7 @@ This function returns y = acos(u), with -1 &le; u &le; +1:
 <img src=\"../Images/Math/acos.png\">
 </p>
 </html>"));
+
 external "C" y = acos(u);
 annotation(Library="ModelicaExternalC");
 end acos;
@@ -4210,7 +4210,6 @@ function atan "Inverse tangent"
   output SI.Angle y;
 
   annotation (
-    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -4273,6 +4272,7 @@ This function returns y = atan(u), with -&infin; &lt; u &lt; &infin;:
 <img src=\"../Images/Math/atan.png\">
 </p>
 </html>"));
+
 external "C" y = atan(u);
 annotation(Library="ModelicaExternalC");
 end atan;
@@ -4285,7 +4285,6 @@ function atan2 "Four quadrant inverse tangent"
   output SI.Angle y;
 
   annotation (
-    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -4378,6 +4377,7 @@ u1 = sin(y) and u2 = cos(y):
 
 </HTML>
 "));
+
 external "C" y = atan2(u1, u2);
 annotation(Library="ModelicaExternalC");
 end atan2;
@@ -4393,7 +4393,6 @@ function atan3
   output Modelica.SIunits.Angle y;
 
   annotation (
-    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -4482,6 +4481,7 @@ shall be returned:
 
 </HTML>
 "));
+
 protected
   Real pi = Modelica.Constants.pi;
   Real w;
@@ -4497,7 +4497,6 @@ function sinh "Hyperbolic sine"
   output Real y;
 
   annotation (
-    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -4572,6 +4571,7 @@ This function returns y = sinh(u), with -&infin; &lt; u &lt; &infin;:
 <img src=\"../Images/Math/sinh.png\">
 </p>
 </html>"));
+
 external "C" y = sinh(u);
 annotation(Library="ModelicaExternalC");
 end sinh;
@@ -4583,7 +4583,6 @@ function cosh "Hyperbolic cosine"
   output Real y;
 
   annotation (
-    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -4658,6 +4657,7 @@ This function returns y = cosh(u), with -&infin; &lt; u &lt; &infin;:
 <img src=\"../Images/Math/cosh.png\">
 </p>
 </html>"));
+
 external "C" y = cosh(u);
 annotation(Library="ModelicaExternalC");
 end cosh;
@@ -4669,7 +4669,6 @@ function tanh "Hyperbolic tangent"
   output Real y;
 
   annotation (
-    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -4732,6 +4731,7 @@ This function returns y = tanh(u), with -&infin; &lt; u &lt; &infin;:
 <img src=\"../Images/Math/tanh.png\">
 </p>
 </html>"));
+
 external "C" y = tanh(u);
 annotation(Library="ModelicaExternalC");
 end tanh;
@@ -4743,7 +4743,6 @@ function asinh "Inverse of sinh (area hyperbolic sine)"
   output Real y;
 
   annotation (
-    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -4819,6 +4818,7 @@ asinh(u) (-&infin; &lt; u &lt; &infin;):
 <img src=\"../Images/Math/asinh.png\">
 </p>
 </html>"));
+
 algorithm
   y :=Modelica.Math.log(u + sqrt(u*u + 1));
 end asinh;
@@ -4831,7 +4831,6 @@ function acosh "Inverse of cosh (area hyperbolic cosine)"
   output Real y;
 
   annotation (
-    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -4929,7 +4928,6 @@ function exp "Exponential, base e"
   output Real y;
 
   annotation (
-    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -5002,6 +5000,7 @@ This function returns y = exp(u), with -&infin; &lt; u &lt; &infin;:
 <img src=\"../Images/Math/exp.png\">
 </p>
 </html>"));
+
 external "C" y = exp(u);
 annotation(Library="ModelicaExternalC");
 end exp;
@@ -5013,7 +5012,6 @@ function log "Natural (base e) logarithm (u shall be > 0)"
   output Real y;
 
   annotation (
-    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -5100,7 +5098,6 @@ function log10 "Base 10 logarithm (u shall be > 0)"
   output Real y;
 
   annotation (
-    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
