@@ -1418,16 +1418,7 @@ This is not allowed when calling Modelica.Matrices.QR(A).");
     output Real eigenvectors[size(A,1), size(A,2)] 
       "Real-valued eigenvector matrix";
     
-    annotation (preferedView="info",
-      Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[2, 2],
-        component=[20, 20]),
-      Window(
-        x=0.4,
-        y=0.4,
-        width=0.6,
-        height=0.6),
+    annotation (
       Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -1481,11 +1472,13 @@ i.e., matrix A has the 3 real eigenvalues -0.618, 8, 1.618.
 <a href=\"Modelica://Modelica.Math.Matrices.singularValues\">Matrices.singularValues</a>
 </HTML>
 "));
+    
   protected 
     Integer info;
     // replace with "isPresent(..)" if supported by Dymola
     Boolean onlyEigenvalues = false;
   algorithm 
+  if size(A,1) > 0 then
     if onlyEigenvalues then
        (eigenvalues[:, 1],eigenvalues[:, 2],info) := LAPACK.dgeev_eigenValues(A);
        eigenvectors :=zeros(size(A, 1), size(A, 1));
@@ -1495,6 +1488,7 @@ i.e., matrix A has the 3 real eigenvalues -0.618, 8, 1.618.
     assert(info == 0, "Calculating the eigen values with function
 \"Matrices.eigenvalues\" is not possible, since the
 numerical algorithm does not converge.");
+  end if;
   end eigenValues;
   
   function eigenValueMatrix 
@@ -1571,12 +1565,12 @@ are used to construct a 2 by 2 diagonal block of <b>J</b>:
     extends Modelica.Icons.Function;
     input Real A[:, :] "Matrix";
     output Real sigma[min(size(A, 1), size(A, 2))] "Singular values";
-    output Real U[size(A, 1), size(A, 1)]=zeros(size(A, 1), size(A, 1)) 
+    output Real U[size(A, 1), size(A, 1)]=identity(size(A, 1)) 
       "Left orthogonal matrix";
-    output Real VT[size(A, 2), size(A, 2)]=zeros(size(A, 2), size(A, 2)) 
+    output Real VT[size(A, 2), size(A, 2)]=identity(size(A, 2)) 
       "Transposed right orthogonal matrix ";
     
-    annotation (preferedView="info", Documentation(info="<HTML>
+    annotation ( Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
          sigma = Matrices.<b>singularValues</b>(A);
@@ -1623,9 +1617,11 @@ matrices <tt>U</tt> and <tt>V</tt>.
     Integer info;
     Integer n=min(size(A, 1), size(A, 2)) "Number of singular values";
   algorithm 
-    (sigma,U,VT,info) := Matrices.LAPACK.dgesvd(A);
+  if n>0 then
+    (sigma,U,VT,info) := Modelica.Math.Matrices.LAPACK.dgesvd(A);
     assert(info == 0, "The numerical algorithm to compute the
 singular value decomposition did not converge");
+  end if;
   end singularValues;
   
   function det "Determinant of a matrix (computed by LU decomposition)" 
@@ -1689,24 +1685,28 @@ to compute the rank of a matrix.
     input Real eps=0 
       "If eps > 0, the singular values are checked against eps; otherwise eps=max(size(A))*norm(A)*Modelica.Constants.eps is used";
     output Integer result "Rank of matrix A";
-  protected 
-    Integer n=min(size(A, 1), size(A, 2));
-    Integer i=n;
-    Real sigma[n]=singularValues(A) "Singular values";
-    Real eps2=if eps > 0 then eps else max(size(A))*sigma[1]*Modelica.Constants.eps;
-  algorithm 
-    result := n;
-    while i > 0 loop
-      if sigma[i] > eps2 then
-        result := i;
-        i := 0;
-      end if;
-      i := i - 1;
-    end while;
     
     annotation (Documentation(info="<html>
   
 </html>"));
+  protected 
+    Integer n=min(size(A, 1), size(A, 2));
+    Integer i=n;
+    Real sigma[n];
+    Real eps2;
+  algorithm 
+    result := 0;
+    if n > 0 then
+      sigma := Modelica.Math.Matrices.singularValues(A);
+      eps2 := if eps > 0 then eps else max(size(A))*sigma[1]*Modelica.Constants.eps;
+      while i > 0 loop
+        if sigma[i] > eps2 then
+          result := i;
+          i := 0;
+        end if;
+        i := i - 1;
+      end while;
+    end if;
   end rank;
   
   function balance "Balancing of matrix A to improve the condition of A" 
