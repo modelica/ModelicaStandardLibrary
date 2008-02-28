@@ -860,9 +860,13 @@ convertClassIf("Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthC
                "Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint");
 convertClassIf("Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint","axisTorqueBalance","true",
                "ObsoleteModelica3.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint");
+convertClass  ("Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint",
+               "ObsoleteModelica3.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint");
 convertClassIf("Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint","axisForceBalance","false",
                "Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint");
 convertClassIf("Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint","axisForceBalance","true",
+               "ObsoleteModelica3.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint");
+convertClass  ("Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint",
                "ObsoleteModelica3.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint");
 
 
