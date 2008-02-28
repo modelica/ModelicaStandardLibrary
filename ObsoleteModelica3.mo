@@ -516,7 +516,7 @@ connectors are set to zero.</p>
               extent={{-102,102},{102,-102}},
               lineColor={255,0,0},
               pattern=LinePattern.Dash,
-              lineThickness=2)}),        Documentation(info="<html>
+              lineThickness=0.5)}),        Documentation(info="<html>
 <p>
 This partial class is intended to design a <em>default icon
 for an obsolete class</em> that will be removed from the
@@ -541,7 +541,7 @@ PowerTrain library later on.
               extent={{-102,102},{102,-102}},
               lineColor={255,0,0},
               pattern=LinePattern.Dash,
-              lineThickness=2)}),        Documentation(info="<html>
+              lineThickness=0.5)}),        Documentation(info="<html>
 <p>
 This partial class is intended to design a <em>default icon
 for an obsolete class</em> that will be removed from the
@@ -638,7 +638,7 @@ This icon is designed for an <b>enumeration</b>
                       {-35,92},{-22,95},{-8,95},{7,91},{19,84},{32,76},{44,66},
                       {52,58},{58,51}},
                   color={0,0,0},
-                  thickness=2),
+                  thickness=0.5),
                 Polygon(
                   points={{97,18},{72,77},{38,42},{97,18}},
                   lineColor={0,0,0},
@@ -662,7 +662,7 @@ This icon is designed for an <b>enumeration</b>
                       {-33,95},{-20,98},{-6,98},{9,94},{21,87},{34,79},{46,69},
                       {54,61},{60,54}},
                   color={0,0,0},
-                  thickness=2),
+                  thickness=0.5),
                 Polygon(
                   points={{99,21},{74,80},{40,45},{99,21}},
                   lineColor={0,0,0},
@@ -3672,7 +3672,7 @@ to the left and/or the right flange.
                 extent={{-40,60},{40,-60}},
                 lineColor={0,0,0},
                 pattern=LinePattern.Solid,
-                lineThickness=1,
+                lineThickness=0.25,
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={192,192,192}),
               Polygon(
