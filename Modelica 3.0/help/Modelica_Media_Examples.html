@@ -1,0 +1,405 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Media.Examples</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Demonstrate usage of property models (currently: simple tests)&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Examples<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Examples"></A><A HREF="Modelica_Media.html#Modelica.Media"
+>Modelica.Media</A>.Examples</H2>
+<B>Demonstrate usage of property models (currently: simple tests)</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<h4>Examples</h4>
+Physical properties for fluids are needed in so many different variants
+that a library can only provide models for the most common situations.
+With the following examples we are going to demonstrate how to use the
+existing packages and functions in Modelica.Media to customize these
+models for advanced applications. The high level functions try to
+abstract as much as possible form the fact that different media are
+based on different variables, e.g. ideal gases need pressure and
+temperature, while many refrigerants are based on Helmholtz functions
+of density and temperature, and many water proeprties are based on
+pressure and specific enthalpy. Medium properties are needed in control
+volumes in the dynamic state equations and in many thermodynamic state
+locations that are independent of the dynamic states of a control
+volume, e.g. at a wall temperature, an isentropic reference state or at
+a phase boundary. The general structure of the library is such that:<br>
+<ul>
+<li>Each medium has a model called BaseProperties. BaseProperties
+contains the minimum set of medium properties needed in a dynamic
+control volume model.</li>
+<li>Each instance of BaseProperties contains a "state" record that is
+an input to all the functions to compute properties. If these functions
+need further inputs, like e.g. the molarMass, these are accessible as
+constants in the package.</li>
+<li>The simplest way to compute properties at any other reference
+point is to declare an instance of ThermodynamicState and use that as
+input to arbitrary property functions.<br>
+</li>
+</ul>
+
+<p>
+A small library of generic volume, pipe, pump and ambient models
+is provided in Modelica.Media.Examples.Tests.Components to demonstrate
+how fluid components should be implemented that are using Modelica.Media
+models. This library is also used to test all media models in
+Modelica.Media.Examples.Tests.MediaTestModels.
+</p>
+<pre>
+</PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Media.Examples.SimpleLiquidWaterS.png" ALT="Modelica.Media.Examples.SimpleLiquidWater" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples.html#Modelica.Media.Examples.SimpleLiquidWater"
+>SimpleLiquidWater</A>
+</TD><TD>Example for Water.SimpleLiquidWater medium model</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Examples.SimpleLiquidWaterS.png" ALT="Modelica.Media.Examples.IdealGasH2O" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples.html#Modelica.Media.Examples.IdealGasH2O"
+>IdealGasH2O</A>
+</TD><TD>IdealGas H20 medium model</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Examples.SimpleLiquidWaterS.png" ALT="Modelica.Media.Examples.WaterIF97" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples.html#Modelica.Media.Examples.WaterIF97"
+>WaterIF97</A>
+</TD><TD>WaterIF97 medium model</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Examples.SimpleLiquidWaterS.png" ALT="Modelica.Media.Examples.MixtureGases" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples.html#Modelica.Media.Examples.MixtureGases"
+>MixtureGases</A>
+</TD><TD>Test gas mixtures</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Examples.SimpleLiquidWaterS.png" ALT="Modelica.Media.Examples.MoistAir" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples.html#Modelica.Media.Examples.MoistAir"
+>MoistAir</A>
+</TD><TD>Ideal gas flue gas  model</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Examples.TwoPhaseWaterS.png" ALT="Modelica.Media.Examples.TwoPhaseWater" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples_TwoPhaseWater.html#Modelica.Media.Examples.TwoPhaseWater"
+>TwoPhaseWater</A>
+</TD><TD>extension of the StandardWater package</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Examples.TestOnlyS.png" ALT="Modelica.Media.Examples.TestOnly" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples_TestOnly.html#Modelica.Media.Examples.TestOnly"
+>TestOnly</A>
+</TD><TD>examples for testing purposes: move for final version </TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Examples.TestOnlyS.png" ALT="Modelica.Media.Examples.Tests" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples_Tests.html#Modelica.Media.Examples.Tests"
+>Tests</A>
+</TD><TD>Library to test that all media models simulate and fulfill the expected structural properties</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Examples.SolveOneNonlinearEquationS.png" ALT="Modelica.Media.Examples.SolveOneNonlinearEquation" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples_SolveOneNonlinearEquation.html#Modelica.Media.Examples.SolveOneNonlinearEquation"
+>SolveOneNonlinearEquation</A>
+</TD><TD>Demonstrate how to solve one non-linear algebraic equation in one unknown</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SimpleLiquidWater<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Examples.SimpleLiquidWaterI.png" ALT="Modelica.Media.Examples.SimpleLiquidWater" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Examples.SimpleLiquidWater"></A><A HREF="Modelica_Media_Examples.html#Modelica.Media.Examples"
+>Modelica.Media.Examples</A>.SimpleLiquidWater</H2>
+<B>Example for Water.SimpleLiquidWater medium model</B><p>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Volume"
+>Volume</A></TD><TD>V</TD><TD>1</TD><TD>Volume [m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.EnthalpyFlowRate"
+>EnthalpyFlowRate</A></TD><TD>H_flow_ext</TD><TD>1.e6</TD><TD>Constant enthalpy flow rate into the volume [W]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SimpleLiquidWater <font color="darkgreen">
+  &quot;Example for Water.SimpleLiquidWater medium model&quot;</font>
+
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Volume"
+>SI.Volume</A> V=1 <font color="darkgreen">&quot;Volume&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.EnthalpyFlowRate"
+>SI.EnthalpyFlowRate</A> H_flow_ext=1.e6 <font color="darkgreen">
+    &quot;Constant enthalpy flow rate into the volume&quot;</font>;
+
+  <font color="blue">package</font> Medium = <A HREF="Modelica_Media_Water_ConstantPropertyLiquidWater.html#Modelica.Media.Water.ConstantPropertyLiquidWater"
+>Water.ConstantPropertyLiquidWater</A> (SpecificEnthalpy(max=1e6)) <font color="darkgreen">
+    &quot;Medium model&quot;</font>;
+  Medium.BaseProperties medium(
+    T(start=300,fixed=true));
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
+>SI.Mass</A> m(start = 1.0);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.InternalEnergy"
+>SI.InternalEnergy</A> U;
+
+  <font color="darkgreen">// Use type declarations from the Medium</font>
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>Medium.MassFlowRate</A> m_flow_ext;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.DynamicViscosity"
+>Medium.DynamicViscosity</A> eta=<font color="red">Medium.dynamicViscosity</font>(medium);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificHeatCapacity"
+>Medium.SpecificHeatCapacity</A> cv=<font color="red">Medium.specificHeatCapacityCv</font>(medium);
+<font color="blue">equation </font>
+  medium.p = 1.0e5;
+  m = medium.d*V;
+  U = m*medium.u;
+
+  <font color="darkgreen">// Mass balance</font>
+  <font color="red">der</font>(m) = m_flow_ext;
+
+  <font color="darkgreen">// Energy balance</font>
+  <font color="red">der</font>(U) = H_flow_ext;
+<font color="blue">end </font>SimpleLiquidWater;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IdealGasH2O<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Examples.SimpleLiquidWaterI.png" ALT="Modelica.Media.Examples.IdealGasH2O" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Examples.IdealGasH2O"></A><A HREF="Modelica_Media_Examples.html#Modelica.Media.Examples"
+>Modelica.Media.Examples</A>.IdealGasH2O</H2>
+<B>IdealGas H20 medium model</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>An example for using ideal gas properties and how to compute
+  isentropic enthalpy changes.
+  The function that is implemented is approximate, but usually
+   very good: the second medium record medium2
+   is given to compare the approximation.
+</p>
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealGasH2O <font color="darkgreen">&quot;IdealGas H20 medium model&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">package</font> Medium = <A HREF="Modelica_Media_IdealGases_SingleGases_H2O.html#Modelica.Media.IdealGases.SingleGases.H2O"
+>IdealGases.SingleGases.H2O</A> <font color="darkgreen">&quot;Medium model&quot;</font>;
+  Medium.ThermodynamicState state <font color="darkgreen">&quot;thermodynamic state record&quot;</font>;
+  Medium.ThermodynamicState state2;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificHeatCapacity"
+>Medium.SpecificHeatCapacity</A> cp=<font color="red">Medium.specificHeatCapacityCp</font>(state);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificHeatCapacity"
+>Medium.SpecificHeatCapacity</A> cv=<font color="red">Medium.specificHeatCapacityCv</font>(state);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.IsentropicExponent"
+>Medium.IsentropicExponent</A> k=<font color="red">Medium.isentropicExponent</font>(state);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>Medium.SpecificEntropy</A> s=<font color="red">Medium.specificEntropy</font>(state);
+  <font color="darkgreen">//  Medium.SpecificEntropy s2=Medium.specificEntropy(state2);</font>
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.VelocityOfSound"
+>Medium.VelocityOfSound</A> a=<font color="red">Medium.velocityOfSound</font>(state);
+  Real beta =<font color="red"> Medium.isobaricExpansionCoefficient</font>(state);
+  Real gamma =<font color="red"> Medium.isothermalCompressibility</font>(state);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>Medium.SpecificEnthalpy</A> h_is =<font color="red"> Medium.isentropicEnthalpyApproximation</font>(2.0, state);
+<font color="blue">equation </font>
+  state.p = 100000.0;
+  state.T = 200 + 1000*time;
+  state2.p = 2.0e5;
+  state2.T = 500.0;
+  <font color="darkgreen">//  s2 = s;</font>
+<font color="blue">end </font>IdealGasH2O;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE WaterIF97<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Examples.SimpleLiquidWaterI.png" ALT="Modelica.Media.Examples.WaterIF97" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Examples.WaterIF97"></A><A HREF="Modelica_Media_Examples.html#Modelica.Media.Examples"
+>Modelica.Media.Examples</A>.WaterIF97</H2>
+<B>WaterIF97 medium model</B><p>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>dV</TD><TD>0.0</TD><TD>Fixed time derivative of volume [m3/s]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow_ext</TD><TD>0</TD><TD>Fixed mass flow rate into volume [kg/s]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.EnthalpyFlowRate"
+>EnthalpyFlowRate</A></TD><TD>H_flow_ext</TD><TD>10000</TD><TD>Fixed enthalpy flow rate into volume [W]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> WaterIF97 <font color="darkgreen">&quot;WaterIF97 medium model&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">package</font> Medium = Water.StandardWater <font color="darkgreen">&quot;Medium model&quot;</font>;
+  Medium.BaseProperties medium(
+    p(start=1.e5, stateSelect=StateSelect.prefer),
+    h(start=1.0e5, stateSelect=StateSelect.prefer),
+    T(start = 275.0),
+    d(start = 999.0));
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Volume"
+>Modelica.SIunits.Volume</A> V(start = 0.1);
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>Modelica.SIunits.VolumeFlowRate</A> dV = 0.0 <font color="darkgreen">
+    &quot;Fixed time derivative of volume&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>Medium.MassFlowRate</A> m_flow_ext=0 <font color="darkgreen">&quot;Fixed mass flow rate into volume&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.EnthalpyFlowRate"
+>Medium.EnthalpyFlowRate</A> H_flow_ext=10000 <font color="darkgreen">
+    &quot;Fixed enthalpy flow rate into volume&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
+>Modelica.SIunits.Mass</A> m <font color="darkgreen">&quot;Mass of volume&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.InternalEnergy"
+>Modelica.SIunits.InternalEnergy</A> U <font color="darkgreen">&quot;Internal energy of volume&quot;</font>;
+<font color="blue">equation </font>
+  <font color="red">der</font>(V) = dV;
+  m = medium.d*V;
+  U = m*medium.u;
+
+  <font color="darkgreen">// Mass balance</font>
+  <font color="red">der</font>(m) = m_flow_ext;
+
+  <font color="darkgreen">// Energy balance</font>
+  <font color="red">der</font>(U) = H_flow_ext;
+<font color="blue">end </font>WaterIF97;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MixtureGases<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Examples.SimpleLiquidWaterI.png" ALT="Modelica.Media.Examples.MixtureGases" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Examples.MixtureGases"></A><A HREF="Modelica_Media_Examples.html#Modelica.Media.Examples"
+>Modelica.Media.Examples</A>.MixtureGases</H2>
+<B>Test gas mixtures</B><p>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Volume"
+>Volume</A></TD><TD>V</TD><TD>1</TD><TD>Fixed size of volume 1 and volume 2 [m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow_ext</TD><TD>0.01</TD><TD>Fixed mass flow rate in to volume 1 and in to volume 2 [kg/s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.EnthalpyFlowRate"
+>EnthalpyFlowRate</A></TD><TD>H_flow_ext</TD><TD>5000</TD><TD>Fixed enthalpy flow rate in to volume and in to volume 2 [W]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> MixtureGases <font color="darkgreen">&quot;Test gas mixtures&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Volume"
+>Modelica.SIunits.Volume</A> V=1 <font color="darkgreen">&quot;Fixed size of volume 1 and volume 2&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>Modelica.SIunits.MassFlowRate</A> m_flow_ext=0.01 <font color="darkgreen">
+    &quot;Fixed mass flow rate in to volume 1 and in to volume 2&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.EnthalpyFlowRate"
+>Modelica.SIunits.EnthalpyFlowRate</A> H_flow_ext=5000 <font color="darkgreen">
+    &quot;Fixed enthalpy flow rate in to volume and in to volume 2&quot;</font>;
+
+  <font color="blue">package</font> Medium1 = <A HREF="Modelica_Media_IdealGases_MixtureGases_CombustionAir.html#Modelica.Media.IdealGases.MixtureGases.CombustionAir"
+>Modelica.Media.IdealGases.MixtureGases.CombustionAir</A> <font color="darkgreen">
+    &quot;Medium model&quot;</font>;
+  Medium1.BaseProperties medium1(p(start=1.e5, stateSelect=StateSelect.prefer),
+     T(start=300, stateSelect=StateSelect.prefer),
+     X(start={0.8,0.2}));
+  Real m1(quantity=Medium1.mediumName, start = 1.0);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.InternalEnergy"
+>SI.InternalEnergy</A> U1;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificHeatCapacity"
+>Medium1.SpecificHeatCapacity</A> cp1=<font color="red">Medium1.specificHeatCapacityCp</font>(medium1.state);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.DynamicViscosity"
+>Medium1.DynamicViscosity</A> eta1=<font color="red"> Medium1.dynamicViscosity</font>(medium1.state);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermalConductivity"
+>Medium1.ThermalConductivity</A> lambda1=<font color="red"> Medium1.thermalConductivity</font>(medium1.state);
+
+  <font color="blue">package</font> Medium2 = <A HREF="Modelica_Media_IdealGases_MixtureGases_SimpleNaturalGas.html#Modelica.Media.IdealGases.MixtureGases.SimpleNaturalGas"
+>Modelica.Media.IdealGases.MixtureGases.SimpleNaturalGas</A> <font color="darkgreen">
+    &quot;Medium model&quot;</font>;
+  Medium2.BaseProperties medium2(p(start=1.e5, stateSelect=StateSelect.prefer),
+     T(start=300, stateSelect=StateSelect.prefer),
+     X(start={0.1,0.1,0.1,0.2,0.2,0.3}));
+  Real m2(quantity=Medium2.mediumName, start = 1.0);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.InternalEnergy"
+>SI.InternalEnergy</A> U2;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificHeatCapacity"
+>Medium2.SpecificHeatCapacity</A> cp2=<font color="red">Medium2.specificHeatCapacityCp</font>(medium2.state);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.DynamicViscosity"
+>Medium2.DynamicViscosity</A> eta2=<font color="red"> Medium2.dynamicViscosity</font>(medium2.state);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermalConductivity"
+>Medium2.ThermalConductivity</A> lambda2=<font color="red"> Medium2.thermalConductivity</font>(medium2.state);
+
+<font color="blue">equation </font>
+  medium1.X = {0.8,0.2};
+  m1 = medium1.d*V;
+  U1 = m1*medium1.u;
+  <font color="red">der</font>(m1) = m_flow_ext;
+  <font color="red">der</font>(U1) = H_flow_ext;
+
+  medium2.X ={0.1,0.1,0.1,0.2,0.2,0.3};
+  m2 = medium2.d*V;
+  U2 = m2*medium2.u;
+  <font color="red">der</font>(m2) = m_flow_ext;
+  <font color="red">der</font>(U2) = H_flow_ext;
+<font color="blue">end </font>MixtureGases;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MoistAir<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Examples.SimpleLiquidWaterI.png" ALT="Modelica.Media.Examples.MoistAir" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Examples.MoistAir"></A><A HREF="Modelica_Media_Examples.html#Modelica.Media.Examples"
+>Modelica.Media.Examples</A>.MoistAir</H2>
+<B>Ideal gas flue gas  model</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>An example for using ideal gas properties and how to compute isentropic enthalpy changes.
+The function that is implemented is approximate, but usually very good: the second medium record medium2
+is given to compare the approximation.
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MolarMass"
+>MolarMass</A></TD><TD>MMx[2]</TD><TD>{Medium.dryair.MM,Medium.ste...</TD><TD>Vector of molar masses (consisting of dry air and of steam) [kg/mol]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> MoistAir <font color="darkgreen">&quot;Ideal gas flue gas  model&quot;</font>
+    <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+    <font color="blue">package</font> Medium = Air.MoistAir <font color="darkgreen">&quot;Medium model&quot;</font>;
+    Medium.BaseProperties medium(
+       T(start = 274.0),
+       X(start = {0.95,0.05}),
+       p(start = 1.0e5));
+  <font color="darkgreen">//  Medium.SpecificEntropy s=Medium.specificEntropy(medium);</font>
+  <font color="darkgreen">//  Medium.SpecificEnthalpy h_is = Medium.isentropicEnthalpyApproximation(medium, 2.0e5);</font>
+    <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MolarMass"
+>Medium.MolarMass</A>[2] MMx = {Medium.dryair.MM,Medium.steam.MM} <font color="darkgreen">
+    &quot;Vector of molar masses (consisting of dry air and of steam)&quot;</font>;
+    <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MolarMass"
+>Medium.MolarMass</A> MM = 1/((1-medium.X[1])/MMx[1]+medium.X[1]/MMx[2]) <font color="darkgreen">
+    &quot;Molar mass of gas part of mixture&quot;</font>;
+  <font color="darkgreen">//  Real[4] dddX=Medium.density_derX(medium,MM);</font>
+<font color="blue">equation </font>
+  <font color="red">  der</font>(medium.p) = 0.0;
+  <font color="red">  der</font>(medium.T) = 90;
+    medium.X[Medium.Air] = 0.95;
+  <font color="darkgreen">  //    medium.X[Medium.Water] = 0.05;</font>
+  <font color="darkgreen">  // one simple assumption only for quick testing:</font>
+  <font color="darkgreen">//  medium.X_liquidWater = if medium.X_sat &lt; medium.X[2] then medium.X[2] - medium.X_sat else 0.0;</font>
+<font color="blue">end </font>MoistAir;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Sat Mar 01 21:48:31 2008.
+</address></BODY>
+</HTML>

@@ -1,0 +1,387 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Demonstrates the usage of 1-dim. rotational elements with all 3-dim. effects included&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Rotational3DEffects<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects"></A><A HREF="Modelica_Mechanics_MultiBody_Examples.html#Modelica.Mechanics.MultiBody.Examples"
+>Modelica.Mechanics.MultiBody.Examples</A>.Rotational3DEffects</H2>
+<B>Demonstrates the usage of 1-dim. rotational elements with all 3-dim. effects included</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This library demonstrates the usage of elements of the Mechanics.Rotational library
+by taking into account all 3-dim. effects. The reason for this type of modeling is
+to speedup the simulation drastically. This is possible if moving bodies have
+rotational symmetry. A typical application area are drive trains, driving joints of
+a multi-body system.
+</p>
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Engine1bBaseS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffects" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Rotational3DEffects.html#Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffects"
+>GyroscopicEffects</A>
+</TD><TD>Demonstrates that a cylindrical body can be replaced by Rotor1D model</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Engine1bBaseS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.ActuatedDrive" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Rotational3DEffects.html#Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.ActuatedDrive"
+>ActuatedDrive</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Engine1bBaseS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.MovingActuatedDrive" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Rotational3DEffects.html#Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.MovingActuatedDrive"
+>MovingActuatedDrive</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Engine1bBaseS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GearConstraint" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Rotational3DEffects.html#Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GearConstraint"
+>GearConstraint</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE GyroscopicEffects<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffectsI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffects" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffects"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Rotational3DEffects.html#Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects"
+>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</A>.GyroscopicEffects</H2>
+<B>Demonstrates that a cylindrical body can be replaced by Rotor1D model</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffectsD.png" ALT="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffects">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This example consists of a body that is attached to the world system
+with a spherical joint. On this body, a "rotor", i.e., a body with rotational
+symmetry is present. Two kinds of models are shown:
+</p>
+
+<ul>
+<li> In the upper part of the diagram layer, only multi-body components are used.</li>
+<li> In the lower part of the diagram layer, the same model is implemented,
+     but by a different modeling of the cylindrical body:
+     The cylindrical body is included, but it is rigidly attached to its mount.
+     This part takes into account the movement of the center of mass and of
+     the inertia tensor of the cylindrical body. Note, since the cylindrical body
+     has rotational symmetry, its center of mass and its inertia tensor is independent
+     of the angle of the inertia and can therefore be rigidly attached to its mount.
+     Additionally, with a "MultiBody.Parts.Rotor1D" model, a primarily 1-dim.
+     inertia is included that takes into account the additional effects when the
+     cylindrical body is moving relatively to its mounts</li>
+</ul>
+
+<p>
+The simulation reveals that both the kinematic movement and the reaction forces on the
+environment (object "world" and "fixed" respectively) are identical for both models.
+</p>
+
+<p>
+A typical usage scenario is to model a complete drive train of a vehicle, including
+the automatic gearbox, with elements of the "Mechanics.Rotational" library, but using
+the "Rotor1D" model instead of the "Rotational.Components.Inertia" component.
+This drive train model can be mounted on a 3-dim. multi-body model of the vehicle.
+Additionally, one rigid body has to be fixed to the vehicle that has the mass, center
+of mass and inertia tensor of the complete drive train. Both models together, give
+exactly the same effect, as if every part of the drive train would have been modelled
+solely with mult-body components. One benefit of this modeling is that the simulation
+is much faster.
+</p>
+
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> GyroscopicEffects <font color="darkgreen">
+  &quot;Demonstrates that a cylindrical body can be replaced by Rotor1D model&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+
+  <font color="blue">inner </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody.World"
+>World</A> world(                             driveTrainMechanics3D=true);
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Spherical"
+>Joints.Spherical</A> spherical1(
+    angles_fixed=true,
+    w_rel_a_fixed=true,
+    z_rel_a_fixed=false);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyCylinder"
+>Parts.BodyCylinder</A> bodyCylinder1(                             r={0.25,0,0},
+      diameter=0.05);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedRotation"
+>Parts.FixedRotation</A> fixedRotation1(                             angle=45,
+      n={0,1,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Revolute"
+>Joints.Revolute</A> revolute(
+    n={1,0,0},
+    a(fixed=false),
+    phi(fixed=true),
+    w(fixed=true, start=10));
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedTranslation"
+>Parts.FixedTranslation</A> fixedTranslation(                             r={-0.1,
+        0,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyCylinder"
+>Parts.BodyCylinder</A> bodyCylinder2(                             diameter=
+        0.1, r={0.2,0,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Fixed"
+>Parts.Fixed</A> fixed;
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Spherical"
+>Joints.Spherical</A> spherical2(
+    angles_fixed=true,
+    w_rel_a_fixed=true,
+    z_rel_a_fixed=false);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyCylinder"
+>Parts.BodyCylinder</A> bodyCylinder3(
+    r={0.25,0,0},
+    diameter=0.05,
+    color={0,128,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedRotation"
+>Parts.FixedRotation</A> fixedRotation2(                             n={0,1,0},
+      angle=45);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.FixedTranslation"
+>Parts.FixedTranslation</A> fixedTranslation1(                             r={
+        -0.1,0,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyCylinder"
+>Parts.BodyCylinder</A> bodyCylinder4(
+    diameter=0.1,
+    r={0.2,0,0},
+    color={0,128,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Rotor1D"
+>Parts.Rotor1D</A> rotor1D(
+    J=bodyCylinder4.I[1, 1],
+    n={1,0,0},
+    a(fixed=false),
+    phi(fixed=true),
+    w(fixed=true, start=10));
+<font color="blue">equation </font>
+  <font color="red">connect</font>(world.frame_b,spherical1. frame_a);
+  <font color="red">connect</font>(spherical1.frame_b,bodyCylinder1. frame_a);
+  <font color="red">connect</font>(bodyCylinder1.frame_b,fixedRotation1. frame_a);
+  <font color="red">connect</font>(fixedRotation1.frame_b,revolute. frame_a);
+  <font color="red">connect</font>(revolute.frame_b,fixedTranslation. frame_a);
+  <font color="red">connect</font>(fixedTranslation.frame_b,bodyCylinder2. frame_a);
+  <font color="red">connect</font>(spherical2.frame_b,bodyCylinder3. frame_a);
+  <font color="red">connect</font>(bodyCylinder3.frame_b,fixedRotation2. frame_a);
+  <font color="red">connect</font>(fixed.frame_b,spherical2. frame_a);
+  <font color="red">connect</font>(fixedTranslation1.frame_b,bodyCylinder4. frame_a);
+  <font color="red">connect</font>(fixedRotation2.frame_b,fixedTranslation1. frame_a);
+  <font color="red">connect</font>(rotor1D.frame_a,fixedRotation2. frame_b);
+<font color="blue">end </font>GyroscopicEffects;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ActuatedDrive<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffectsI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.ActuatedDrive" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.ActuatedDrive"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Rotational3DEffects.html#Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects"
+>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</A>.ActuatedDrive</H2>
+<IMG SRC="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.ActuatedDriveD.png" ALT="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.ActuatedDrive">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ActuatedDrive
+   <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyShape"
+>Parts.BodyShape</A> bodyCylinder(
+    r={0.5,0,0},
+    m=0,
+    I_11=2,
+    I_22=0,
+    I_33=0,
+    shapeType=&quot;cylinder&quot;,
+    width=0.1,
+    animateSphere=false,
+    r_shape={0.1,0,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Revolute"
+>Joints.Revolute</A> revolute(                             n={1,0,0},
+    a(fixed=false),
+    phi(fixed=true),
+    w(fixed=true));
+  <font color="blue">inner </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody.World"
+>World</A> world(                             g=0, driveTrainMechanics3D=
+        true);
+  <A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces.Torque"
+>Forces.Torque</A> torque;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Blocks.Sources.Sine</A> sine[         3](amplitude={1,0,0});
+  <font color="blue">inner </font><A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Fixed"
+>Parts.Fixed</A> fixed;
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Rotor1D"
+>Parts.Rotor1D</A> rotor1D(                             J=2,
+    phi(fixed=true),
+    w(fixed=true));
+  <A HREF="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources.Torque"
+>Rotational.Sources.Torque</A> torque1(useSupport=true);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Mounting1D"
+>Parts.Mounting1D</A> mounting1D;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(world.frame_b,revolute. frame_a);
+  <font color="red">connect</font>(revolute.frame_b,bodyCylinder. frame_a);
+  <font color="red">connect</font>(torque.frame_b,bodyCylinder. frame_b);
+  <font color="red">connect</font>(torque.frame_resolve,world. frame_b);
+  <font color="red">connect</font>(torque.frame_a,world. frame_b);
+  <font color="red">connect</font>(sine.y,torque. torque);
+  <font color="red">connect</font>(fixed.frame_b,rotor1D. frame_a);
+  <font color="red">connect</font>(torque1.flange,rotor1D.   flange_a);
+  <font color="red">connect</font>(mounting1D.flange_b,torque1.support);
+  <font color="red">connect</font>(mounting1D.frame_a,fixed. frame_b);
+  <font color="red">connect</font>(sine[1].y,torque1. tau);
+<font color="blue">end </font>ActuatedDrive;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MovingActuatedDrive<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffectsI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.MovingActuatedDrive" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.MovingActuatedDrive"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Rotational3DEffects.html#Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects"
+>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</A>.MovingActuatedDrive</H2>
+<IMG SRC="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.MovingActuatedDriveD.png" ALT="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.MovingActuatedDrive">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> MovingActuatedDrive
+   <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyShape"
+>Parts.BodyShape</A> bodyCylinder(
+    r={0.5,0,0},
+    m=0,
+    I_11=2,
+    I_22=0,
+    I_33=0,
+    shapeType=&quot;cylinder&quot;,
+    width=0.1,
+    animateSphere=false,
+    r_shape={0.1,0,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Revolute"
+>Joints.Revolute</A> revolute(                             n={1,0,0},
+    a(fixed=false),
+    phi(fixed=true),
+    w(fixed=true));
+  <font color="blue">inner </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody.World"
+>World</A> world(                             g=0, driveTrainMechanics3D=
+        true);
+  <A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces.Torque"
+>Forces.Torque</A> torque;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Blocks.Sources.Sine</A> sine1[         3](amplitude={1,0,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Rotor1D"
+>Parts.Rotor1D</A> rotor1D(                             J=2,
+    phi(fixed=true),
+    w(fixed=true));
+  <A HREF="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources.Torque"
+>Rotational.Sources.Torque</A> torque1(useSupport=true);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Mounting1D"
+>Parts.Mounting1D</A> mounting1D;
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Revolute"
+>Joints.Revolute</A> r1(useAxisFlange=true,  n={0,1,0});
+  <A HREF="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources.Position"
+>Rotational.Sources.Position</A> position1(useSupport=true);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Blocks.Sources.Sine</A> sine2(         amplitude=2);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Mounting1D"
+>Parts.Mounting1D</A> mounting1D1;
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Revolute"
+>Joints.Revolute</A> r2(useAxisFlange=true, n={0,1,0});
+  <A HREF="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources.Position"
+>Rotational.Sources.Position</A> position2(useSupport=true);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Mounting1D"
+>Parts.Mounting1D</A> mounting1D2;
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Fixed"
+>Parts.Fixed</A> fixed;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(revolute.frame_b,bodyCylinder. frame_a);
+  <font color="red">connect</font>(torque.frame_b,bodyCylinder. frame_b);
+  <font color="red">connect</font>(sine1.y,torque. torque);
+  <font color="red">connect</font>(torque1.flange,rotor1D.   flange_a);
+  <font color="red">connect</font>(mounting1D.flange_b,torque1.support);
+  <font color="red">connect</font>(r1.frame_a,world. frame_b);
+  <font color="red">connect</font>(position1.flange,r1.   axis);
+  <font color="red">connect</font>(position1.support,mounting1D1. flange_b);
+  <font color="red">connect</font>(mounting1D1.frame_a,world. frame_b);
+  <font color="red">connect</font>(sine2.y,position1. phi_ref);
+  <font color="red">connect</font>(r1.frame_b,revolute. frame_a);
+  <font color="red">connect</font>(torque.frame_resolve,revolute. frame_a);
+  <font color="red">connect</font>(torque.frame_a,revolute. frame_a);
+  <font color="red">connect</font>(position2.flange,r2.   axis);
+  <font color="red">connect</font>(position2.support,mounting1D2. flange_b);
+  <font color="red">connect</font>(fixed.frame_b,r2. frame_a);
+  <font color="red">connect</font>(fixed.frame_b,mounting1D2. frame_a);
+  <font color="red">connect</font>(sine2.y,position2. phi_ref);
+  <font color="red">connect</font>(r2.frame_b,rotor1D. frame_a);
+  <font color="red">connect</font>(r2.frame_b,mounting1D. frame_a);
+  <font color="red">connect</font>(sine1[1].y,torque1. tau);
+<font color="blue">end </font>MovingActuatedDrive;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE GearConstraint<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffectsI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GearConstraint" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GearConstraint"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Rotational3DEffects.html#Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects"
+>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</A>.GearConstraint</H2>
+<IMG SRC="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GearConstraintD.png" ALT="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GearConstraint">
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> GearConstraint
+   <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.GearConstraint"
+>Joints.GearConstraint</A> gearConstraint(                             ratio=10);
+  <font color="blue">inner </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody.World"
+>World</A> world(                             driveTrainMechanics3D=true,
+      g=0);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyCylinder"
+>Parts.BodyCylinder</A> cyl1(
+    diameter=0.1,
+    color={0,128,0},
+    r={0.4,0,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.BodyCylinder"
+>Parts.BodyCylinder</A> cyl2(                             r={0.4,0,0}, diameter=
+        0.2);
+  <A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces.Torque"
+>Forces.Torque</A> torque1;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Blocks.Sources.Sine</A> sine[         3](amplitude={2,0,0});
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Fixed"
+>Parts.Fixed</A> fixed;
+  <A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.Inertia"
+>Rotational.Components.Inertia</A> inertia1(
+      J=cyl1.I[1, 1],
+    a(fixed=false),
+    phi(fixed=true),
+    w(fixed=true));
+  <A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.IdealGear"
+>Rotational.Components.IdealGear</A> idealGear(        ratio=10, useSupport=true);
+  <A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.Inertia"
+>Rotational.Components.Inertia</A> inertia2(        J=cyl2.I[1, 1]);
+  <A HREF="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources.Torque"
+>Rotational.Sources.Torque</A> torque2(useSupport=true);
+  <A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Mounting1D"
+>Parts.Mounting1D</A> mounting1D;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(world.frame_b,gearConstraint. bearing);
+  <font color="red">connect</font>(cyl1.frame_b,gearConstraint. frame_a);
+  <font color="red">connect</font>(gearConstraint.frame_b,cyl2. frame_a);
+  <font color="red">connect</font>(torque1.frame_b,cyl1. frame_a);
+  <font color="red">connect</font>(torque1.frame_a,world. frame_b);
+  <font color="red">connect</font>(sine.y,torque1. torque);
+  <font color="red">connect</font>(inertia1.flange_b,idealGear. flange_a);
+  <font color="red">connect</font>(idealGear.flange_b,inertia2. flange_a);
+  <font color="red">connect</font>(torque2.flange,inertia1.   flange_a);
+  <font color="red">connect</font>(sine[1].y,torque2. tau);
+  <font color="red">connect</font>(mounting1D.flange_b,idealGear.support);
+  <font color="red">connect</font>(mounting1D.flange_b,torque2.support);
+  <font color="red">connect</font>(fixed.frame_b,mounting1D. frame_a);
+<font color="blue">end </font>GearConstraint;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Sat Mar 01 21:47:56 2008.
+</address></BODY>
+</HTML>

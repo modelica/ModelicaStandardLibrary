@@ -1,0 +1,393 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Digital.Basic</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Basic logic blocks without delays&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Basic<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Digital.Basic"></A><A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>.Basic</H2>
+<B>Basic logic blocks without delays</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.Basic.NotS.png" ALT="Modelica.Electrical.Digital.Basic.Not" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.Not"
+>Not</A>
+</TD><TD>Not Logic</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.Basic.AndS.png" ALT="Modelica.Electrical.Digital.Basic.And" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.And"
+>And</A>
+</TD><TD>And logic with multiple input and one output</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.Basic.NandS.png" ALT="Modelica.Electrical.Digital.Basic.Nand" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.Nand"
+>Nand</A>
+</TD><TD>Nand logic with multiple input and one output</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.Basic.OrS.png" ALT="Modelica.Electrical.Digital.Basic.Or" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.Or"
+>Or</A>
+</TD><TD>Or logic with multiple input and one output</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.Basic.NorS.png" ALT="Modelica.Electrical.Digital.Basic.Nor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.Nor"
+>Nor</A>
+</TD><TD>Nor logic with multiple input and one output</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.Basic.XorS.png" ALT="Modelica.Electrical.Digital.Basic.Xor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.Xor"
+>Xor</A>
+</TD><TD>Xor logic with multiple input and one output</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.Basic.XnorS.png" ALT="Modelica.Electrical.Digital.Basic.Xnor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.Xnor"
+>Xnor</A>
+</TD><TD>Xnor logic with multiple input and one output</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Not<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.Basic.NotI.png" ALT="Modelica.Electrical.Digital.Basic.Not" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Basic.Not"></A><A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic"
+>Modelica.Electrical.Digital.Basic</A>.Not</H2>
+<B>Not Logic</B><p>
+<IMG SRC="Modelica.Electrical.Digital.Delay.TransportDelayD.png" ALT="Modelica.Electrical.Digital.Basic.Not">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+Not with 1 input value, without delay.
+</P>
+<pre>
+</PRE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalInput"
+>DigitalInput</A></TD><TD>x</TD><TD>Connector of Digital input signal</TD></TR>
+<TR><TD>output <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalOutput"
+>DigitalOutput</A></TD><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Not <font color="darkgreen">&quot;Not Logic&quot;</font>
+  <font color="blue">import </font>D = <A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>;
+  <font color="blue">import </font>L = <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>Modelica.Electrical.Digital.Interfaces.Logic</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.SISO"
+>D.Interfaces.SISO</A>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>D.Interfaces.Logic</A> auxiliary(start=L.'0', fixed=true);
+<font color="blue">equation </font>
+  auxiliary = D.Tables.NotTable[x];
+  y =<font color="red"> pre</font>(auxiliary);
+<font color="blue">end </font>Not;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE And<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.Basic.AndI.png" ALT="Modelica.Electrical.Digital.Basic.And" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Basic.And"></A><A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic"
+>Modelica.Electrical.Digital.Basic</A>.And</H2>
+<B>And logic with multiple input and one output</B><p>
+<IMG SRC="Modelica.Electrical.Digital.Basic.AndD.png" ALT="Modelica.Electrical.Digital.Basic.And">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+And with n input values, without delay.
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>n</TD><TD>2</TD><TD>Number of inputs</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalInput"
+>DigitalInput</A></TD><TD>x[n]</TD><TD>Connector of Digital input signal vector</TD></TR>
+<TR><TD>output <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalOutput"
+>DigitalOutput</A></TD><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> And <font color="darkgreen">&quot;And logic with multiple input and one output&quot;</font>
+  <font color="blue">import </font>D = <A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>;
+  <font color="blue">import </font>L = <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>Modelica.Electrical.Digital.Interfaces.Logic</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
+>D.Interfaces.MISO</A>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>D.Interfaces.Logic</A> auxiliary[n](<font color="blue">each </font>start=L.'U', <font color="blue">each </font>fixed=true);
+<font color="blue">equation </font>
+  auxiliary[1] = x[1];
+  <font color="blue">for </font>i<font color="blue"> in </font>1:n - 1<font color="blue"> loop</font>
+    auxiliary[i + 1] = D.Tables.AndTable[auxiliary[i], x[i + 1]];
+  <font color="blue">end for</font>;
+  y =<font color="red"> pre</font>(auxiliary[n]);
+<font color="blue">end </font>And;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Nand<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.Basic.NandI.png" ALT="Modelica.Electrical.Digital.Basic.Nand" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Basic.Nand"></A><A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic"
+>Modelica.Electrical.Digital.Basic</A>.Nand</H2>
+<B>Nand logic with multiple input and one output</B><p>
+<IMG SRC="Modelica.Electrical.Digital.Basic.AndD.png" ALT="Modelica.Electrical.Digital.Basic.Nand">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+Nand with n input values, without delay.
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>n</TD><TD>2</TD><TD>Number of inputs</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalInput"
+>DigitalInput</A></TD><TD>x[n]</TD><TD>Connector of Digital input signal vector</TD></TR>
+<TR><TD>output <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalOutput"
+>DigitalOutput</A></TD><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Nand <font color="darkgreen">&quot;Nand logic with multiple input and one output&quot;</font>
+  <font color="blue">import </font>D = <A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>;
+  <font color="blue">import </font>L = <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>Modelica.Electrical.Digital.Interfaces.Logic</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
+>D.Interfaces.MISO</A>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>D.Interfaces.Logic</A> auxiliary[n](<font color="blue">each </font>start=L.'U', <font color="blue">each </font>fixed=true);
+<font color="blue">equation </font>
+  auxiliary[1] = x[1];
+  <font color="blue">for </font>i<font color="blue"> in </font>1:n - 1<font color="blue"> loop</font>
+    auxiliary[i + 1] = D.Tables.AndTable[auxiliary[i], x[i + 1]];
+  <font color="blue">end for</font>;
+  y =<font color="red"> pre</font>(D.Tables.NotTable[auxiliary[n]]);
+<font color="blue">end </font>Nand;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Or<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.Basic.OrI.png" ALT="Modelica.Electrical.Digital.Basic.Or" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Basic.Or"></A><A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic"
+>Modelica.Electrical.Digital.Basic</A>.Or</H2>
+<B>Or logic with multiple input and one output</B><p>
+<IMG SRC="Modelica.Electrical.Digital.Basic.AndD.png" ALT="Modelica.Electrical.Digital.Basic.Or">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+Or with n input values, without delay.
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>n</TD><TD>2</TD><TD>Number of inputs</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalInput"
+>DigitalInput</A></TD><TD>x[n]</TD><TD>Connector of Digital input signal vector</TD></TR>
+<TR><TD>output <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalOutput"
+>DigitalOutput</A></TD><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Or <font color="darkgreen">&quot;Or logic with multiple input and one output&quot;</font>
+  <font color="blue">import </font>D = <A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>;
+  <font color="blue">import </font>L = <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>Modelica.Electrical.Digital.Interfaces.Logic</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
+>D.Interfaces.MISO</A>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>D.Interfaces.Logic</A> auxiliary[n](<font color="blue">each </font>start=L.'U', <font color="blue">each </font>fixed=true);
+<font color="blue">equation </font>
+  auxiliary[1] = x[1];
+  <font color="blue">for </font>i<font color="blue"> in </font>1:n - 1<font color="blue"> loop</font>
+    auxiliary[i + 1] = D.Tables.OrTable[auxiliary[i], x[i + 1]];
+  <font color="blue">end for</font>;
+  y =<font color="red"> pre</font>(auxiliary[n]);
+<font color="blue">end </font>Or;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Nor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.Basic.NorI.png" ALT="Modelica.Electrical.Digital.Basic.Nor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Basic.Nor"></A><A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic"
+>Modelica.Electrical.Digital.Basic</A>.Nor</H2>
+<B>Nor logic with multiple input and one output</B><p>
+<IMG SRC="Modelica.Electrical.Digital.Basic.AndD.png" ALT="Modelica.Electrical.Digital.Basic.Nor">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+Nor with n input values, without delay.
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>n</TD><TD>2</TD><TD>Number of inputs</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalInput"
+>DigitalInput</A></TD><TD>x[n]</TD><TD>Connector of Digital input signal vector</TD></TR>
+<TR><TD>output <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalOutput"
+>DigitalOutput</A></TD><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Nor <font color="darkgreen">&quot;Nor logic with multiple input and one output&quot;</font>
+  <font color="blue">import </font>D = <A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>;
+  <font color="blue">import </font>L = <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>Modelica.Electrical.Digital.Interfaces.Logic</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
+>D.Interfaces.MISO</A>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>D.Interfaces.Logic</A> auxiliary[n](<font color="blue">each </font>start=L.'U', <font color="blue">each </font>fixed=true);
+<font color="blue">equation </font>
+  auxiliary[1] = x[1];
+  <font color="blue">for </font>i<font color="blue"> in </font>1:n - 1<font color="blue"> loop</font>
+    auxiliary[i + 1] = D.Tables.OrTable[auxiliary[i], x[i + 1]];
+  <font color="blue">end for</font>;
+  y =<font color="red"> pre</font>(D.Tables.NotTable[auxiliary[n]]);
+<font color="blue">end </font>Nor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Xor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.Basic.XorI.png" ALT="Modelica.Electrical.Digital.Basic.Xor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Basic.Xor"></A><A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic"
+>Modelica.Electrical.Digital.Basic</A>.Xor</H2>
+<B>Xor logic with multiple input and one output</B><p>
+<IMG SRC="Modelica.Electrical.Digital.Basic.AndD.png" ALT="Modelica.Electrical.Digital.Basic.Xor">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+Xor with n input values, without delay.
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>n</TD><TD>2</TD><TD>Number of inputs</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalInput"
+>DigitalInput</A></TD><TD>x[n]</TD><TD>Connector of Digital input signal vector</TD></TR>
+<TR><TD>output <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalOutput"
+>DigitalOutput</A></TD><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Xor <font color="darkgreen">&quot;Xor logic with multiple input and one output&quot;</font>
+  <font color="blue">import </font>D = <A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>;
+  <font color="blue">import </font>L = <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>Modelica.Electrical.Digital.Interfaces.Logic</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
+>D.Interfaces.MISO</A>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>D.Interfaces.Logic</A> auxiliary[n](<font color="blue">each </font>start=L.'U', <font color="blue">each </font>fixed=true);
+<font color="blue">equation </font>
+  auxiliary[1] = x[1];
+  <font color="blue">for </font>i<font color="blue"> in </font>1:n - 1<font color="blue"> loop</font>
+    auxiliary[i + 1] = D.Tables.XorTable[auxiliary[i], x[i + 1]];
+  <font color="blue">end for</font>;
+  y =<font color="red"> pre</font>(auxiliary[n]);
+<font color="blue">end </font>Xor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Xnor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.Basic.XnorI.png" ALT="Modelica.Electrical.Digital.Basic.Xnor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Basic.Xnor"></A><A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic"
+>Modelica.Electrical.Digital.Basic</A>.Xnor</H2>
+<B>Xnor logic with multiple input and one output</B><p>
+<IMG SRC="Modelica.Electrical.Digital.Basic.AndD.png" ALT="Modelica.Electrical.Digital.Basic.Xnor">
+<H3>Information</H3>
+<PRE></pre>
+<P>
+XNor with n input values, without delay.
+</P>
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>n</TD><TD>2</TD><TD>Number of inputs</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalInput"
+>DigitalInput</A></TD><TD>x[n]</TD><TD>Connector of Digital input signal vector</TD></TR>
+<TR><TD>output <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalOutput"
+>DigitalOutput</A></TD><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Xnor <font color="darkgreen">&quot;Xnor logic with multiple input and one output&quot;</font>
+  <font color="blue">import </font>D = <A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>;
+  <font color="blue">import </font>L = <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>Modelica.Electrical.Digital.Interfaces.Logic</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
+>D.Interfaces.MISO</A>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>D.Interfaces.Logic</A> auxiliary[n](<font color="blue">each </font>start=L.'U', <font color="blue">each </font>fixed=true);
+<font color="blue">equation </font>
+  auxiliary[1] = x[1];
+  <font color="blue">for </font>i<font color="blue"> in </font>1:n - 1<font color="blue"> loop</font>
+    auxiliary[i + 1] = D.Tables.XorTable[auxiliary[i], x[i + 1]];
+  <font color="blue">end for</font>;
+  y =<font color="red"> pre</font>(D.Tables.NotTable[auxiliary[n]]);
+<font color="blue">end </font>Xnor;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Sat Mar 01 21:47:01 2008.
+</address></BODY>
+</HTML>

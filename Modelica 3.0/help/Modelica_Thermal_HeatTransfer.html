@@ -1,0 +1,147 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Thermal.HeatTransfer</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Library of 1-dimensional heat transfer with lumped elements&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatTransfer<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Thermal.HeatTransfer"></A><A HREF="Modelica_Thermal.html#Modelica.Thermal"
+>Modelica.Thermal</A>.HeatTransfer</H2>
+<B>Library of 1-dimensional heat transfer with lumped elements</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains components to model <b>1-dimensional heat transfer</b>
+with lumped elements. This allows especially to model heat transfer in
+machines provided the parameters of the lumped elements, such as
+the heat capacity of a part, can be determined by measurements
+(due to the complex geometries and many materials used in machines,
+calculating the lumped element parameters from some basic analytic
+formulas is usually not possible).
+</p>
+<p>
+Example models how to use this library are given in subpackage <b>Examples</b>.<br>
+For a first simple example, see <b>Examples.TwoMasses</b> where two masses
+with different initial temperatures are getting in contact to each
+other and arriving after some time at a common temperature.<br>
+<b>Examples.ControlledTemperature</b> shows how to hold a temperature
+within desired limits by switching on and off an electric resistor.<br>
+A more realistic example is provided in <b>Examples.Motor</b> where the
+heating of an electrical motor is modelled, see the following screen shot
+of this example:
+</p>
+<img src="../Images/driveWithHeatTransfer.png" ALT="driveWithHeatTransfer">
+<p>
+The <b>filled</b> and <b>non-filled red squares</b> at the left and
+right side of a component represent <b>thermal ports</b> (connector HeatPort).
+Drawing a line between such squares means that they are thermally connected.
+The variables of a HeatPort connector are the temperature <b>T</b> at the port
+and the heat flow rate <b>Q_flow</b> flowing into the component (if Q_flow is positive,
+the heat flows into the element, otherwise it flows out of the element):
+</p>
+<pre>   Modelica.SIunits.Temperature  T  "absolute temperature at port in Kelvin";
+   Modelica.SIunits.HeatFlowRate Q_flow  "flow rate at the port in Watt";
+</pre>
+<p>
+Note, that all temperatures of this package, including initial conditions,
+are given in Kelvin. For convenience, in subpackages <b>HeatTransfer.Celsius</b>,
+ <b>HeatTransfer.Fahrenheit</b> and <b>HeatTransfer.Rankine</b> components are provided such that source and
+sensor information is available in degree Celsius, degree Fahrenheit, or degree Rankine,
+respectively. Additionally, in package <b>SIunits.Conversions</b> conversion
+functions between the units Kelvin and Celsius, Fahrenheit, Rankine are
+provided. These functions may be used in the following way:
+</p>
+<pre>  <b>import</b> SI=Modelica.SIunits;
+  <b>import</b> Modelica.SIunits.Conversions.*;
+     ...
+  <b>parameter</b> SI.Temperature T = from_degC(25);  // convert 25 degree Celsius to Kelvin
+</pre>
+
+<p>
+There are several other components available, such as AxialConduction (discretized PDE in
+axial direction), which have been temporarily removed from this library. The reason is that
+these components reference material properties, such as thermal conductivity, and currently
+the Modelica design group is discussing a general scheme to describe material properties.
+</p>
+<p>
+For technical details in the design of this library, see the following reference:<br>
+<b>Michael Tiller (2001)</b>: <a href="http://www.amazon.de">
+Introduction to Physical Modeling with Modelica</a>.
+Kluwer Academic Publishers Boston.
+</p>
+<p>
+<b>Acknowledgements:</b><br>
+Several helpful remarks from the following persons are acknowledged:
+John Batteh, Ford Motors, Dearborn, U.S.A;
+<a href="http://www.haumer.at/">Anton Haumer</a>, Technical Consulting & Electrical Engineering, Austria;
+Ludwig Marvan, VA TECH ELIN EBG Elektronik GmbH, Wien, Austria;
+Hans Olsson, Dynasim AB, Sweden;
+Hubertus Tummescheit, Lund Institute of Technology, Lund, Sweden.
+</p>
+<dl>
+  <dt><b>Main Authors:</b></dt>
+  <dd>
+  <p>
+  <a href="http://www.haumer.at/">Anton Haumer</a><br>
+  Technical Consulting & Electrical Engineering<br>
+  A-3423 St.Andrae-Woerdern, Austria<br>
+  email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a>
+  </p>
+  </dd>
+</dl>
+<p><b>Copyright &copy; 2001-2008, Modelica Association, Michael Tiller and DLR.</b></p>
+<p><i>
+This Modelica package is free software; it can be redistributed and/or modified
+under the terms of the Modelica license, see the license conditions
+and the accompanying disclaimer in the documentation of package
+Modelica in file "Modelica/package.mo".
+</i></p>
+<pre>
+</PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.ExamplesS.png" ALT="Modelica.Thermal.HeatTransfer.Examples" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Examples.html#Modelica.Thermal.HeatTransfer.Examples"
+>Examples</A>
+</TD><TD>Example models to demonstrate the usage of package Modelica.Thermal.HeatTransfer</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.ComponentsS.png" ALT="Modelica.Thermal.HeatTransfer.Components" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Components.html#Modelica.Thermal.HeatTransfer.Components"
+>Components</A>
+</TD><TD>Lumped thermal components</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.SourcesS.png" ALT="Modelica.Thermal.HeatTransfer.Sources" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Sources.html#Modelica.Thermal.HeatTransfer.Sources"
+>Sources</A>
+</TD><TD>Thermal sources</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.SensorsS.png" ALT="Modelica.Thermal.HeatTransfer.Sensors" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Sensors.html#Modelica.Thermal.HeatTransfer.Sensors"
+>Sensors</A>
+</TD><TD>Thermal sensors</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.CelsiusS.png" ALT="Modelica.Thermal.HeatTransfer.Celsius" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius"
+>Celsius</A>
+</TD><TD>Components with Celsius input and/or output</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.CelsiusS.png" ALT="Modelica.Thermal.HeatTransfer.Fahrenheit" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Fahrenheit.html#Modelica.Thermal.HeatTransfer.Fahrenheit"
+>Fahrenheit</A>
+</TD><TD>Components with Fahrenheit input and/or output</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.CelsiusS.png" ALT="Modelica.Thermal.HeatTransfer.Rankine" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Rankine.html#Modelica.Thermal.HeatTransfer.Rankine"
+>Rankine</A>
+</TD><TD>Components with Rankine input and/or output</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.InterfacesS.png" ALT="Modelica.Thermal.HeatTransfer.Interfaces" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces"
+>Interfaces</A>
+</TD><TD>Connectors and partial models</TD></TR>
+</TABLE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Sat Mar 01 21:50:10 2008.
+</address></BODY>
+</HTML>

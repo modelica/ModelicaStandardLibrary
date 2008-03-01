@@ -1,0 +1,873 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Mechanics.Translational.Examples</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Demonstration examples of the components of this package&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Examples<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.Translational.Examples"></A><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational"
+>Modelica.Mechanics.Translational</A>.Examples</H2>
+<B>Demonstration examples of the components of this package</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains example models to demonstrate the usage of the
+Translational package. Open the models and
+simulate them according to the provided description in the models.
+</p>
+
+<pre>
+</PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Examples.SignConventionS.png" ALT="Modelica.Mechanics.Translational.Examples.SignConvention" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples.SignConvention"
+>SignConvention</A>
+</TD><TD>Examples for the used sign conventions.</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Examples.SignConventionS.png" ALT="Modelica.Mechanics.Translational.Examples.InitialConditions" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples.InitialConditions"
+>InitialConditions</A>
+</TD><TD>Setting of initial conditions</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Examples.SignConventionS.png" ALT="Modelica.Mechanics.Translational.Examples.WhyArrows" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples.WhyArrows"
+>WhyArrows</A>
+</TD><TD>Use of arrows in Mechanics.Translational</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Examples.SignConventionS.png" ALT="Modelica.Mechanics.Translational.Examples.Accelerate" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples.Accelerate"
+>Accelerate</A>
+</TD><TD>Use of model accelerate.</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Examples.SignConventionS.png" ALT="Modelica.Mechanics.Translational.Examples.Damper" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples.Damper"
+>Damper</A>
+</TD><TD>Use of damper models.</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Examples.SignConventionS.png" ALT="Modelica.Mechanics.Translational.Examples.Oscillator" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples.Oscillator"
+>Oscillator</A>
+</TD><TD>Oscillator demonstrates the use of initial conditions.</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Examples.SignConventionS.png" ALT="Modelica.Mechanics.Translational.Examples.Sensors" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples.Sensors"
+>Sensors</A>
+</TD><TD>Sensors for translational systems.</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Examples.SignConventionS.png" ALT="Modelica.Mechanics.Translational.Examples.Friction" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples.Friction"
+>Friction</A>
+</TD><TD>Use of model Stop</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Examples.SignConventionS.png" ALT="Modelica.Mechanics.Translational.Examples.PreLoad" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples.PreLoad"
+>PreLoad</A>
+</TD><TD>Preload of a spool using ElastoGap models.</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Examples.SignConventionS.png" ALT="Modelica.Mechanics.Translational.Examples.ElastoGap" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples.ElastoGap"
+>ElastoGap</A>
+</TD><TD>Demonstrate usgae of ElastoGap</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SignConvention<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Examples.SignConventionI.png" ALT="Modelica.Mechanics.Translational.Examples.SignConvention" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Examples.SignConvention"></A><A HREF="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples"
+>Modelica.Mechanics.Translational.Examples</A>.SignConvention</H2>
+<B>Examples for the used sign conventions.</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Examples.SignConventionD.png" ALT="Modelica.Mechanics.Translational.Examples.SignConvention">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+If all arrows point in the same direction a positive force
+results in a positive acceleration a, velocity v and position s.
+</p>
+For a force of 1 N and a mass of 1 Kg this leads to
+<pre>
+        a = 1 m/s2
+        v = 1 m/s after 1 s (SlidingMass1.v)
+        s = 0.5 m after 1 s (SlidingMass1.s)
+</pre>
+The acceleration is not available for plotting.
+<p>
+</p>
+System 1) and 2) are equivalent. It doesn't matter whether the
+force pushes at flange_a in system 1 or pulls at flange_b in system 2.
+</p><p>
+It is of course possible to ignore the arrows and connect the models
+in an arbitrary way. But then it is hard see in what direction the
+force acts.
+</p><p>
+In the third system the two arrows are opposed which means that the
+force acts in the opposite direction (in the same direction as in
+the two other examples).
+</p>
+
+<pre>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SignConvention <font color="darkgreen">&quot;Examples for the used sign conventions.&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Mass"
+>Translational.Components.Mass</A> mass1(L=1,
+    s(fixed=true),
+    v(fixed=true),
+    m=1);
+  <A HREF="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources.Force"
+>Translational.Sources.Force</A> force1;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> constant1(k=1);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Mass"
+>Translational.Components.Mass</A> mass2(L=1,
+    s(fixed=true),
+    v(fixed=true),
+    m=1);
+  <A HREF="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources.Force"
+>Translational.Sources.Force</A> force2;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> constant2(k=1);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Mass"
+>Translational.Components.Mass</A> mass3(L=1,
+    s(fixed=true),
+    v(fixed=true),
+    m=1);
+  <A HREF="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources.Force"
+>Translational.Sources.Force</A> force3(useSupport=true);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> constant3(k=1);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Fixed"
+>Translational.Components.Fixed</A> fixed;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(constant1.y,force1. f);
+  <font color="red">connect</font>(constant2.y,force2. f);
+  <font color="red">connect</font>(constant3.y,force3. f);
+  <font color="red">connect</font>(force1.flange, mass1.flange_a);
+  <font color="red">connect</font>(force2.flange, mass2.flange_b);
+  <font color="red">connect</font>(mass3.flange_b, force3.flange);
+  <font color="red">connect</font>(fixed.flange, force3.support);
+<font color="blue">end </font>SignConvention;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE InitialConditions<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Examples.SignConventionI.png" ALT="Modelica.Mechanics.Translational.Examples.InitialConditions" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Examples.InitialConditions"></A><A HREF="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples"
+>Modelica.Mechanics.Translational.Examples</A>.InitialConditions</H2>
+<B>Setting of initial conditions</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Examples.InitialConditionsD.png" ALT="Modelica.Mechanics.Translational.Examples.InitialConditions">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+There are several ways to set initial conditions.
+In the first system the position of the mass m3 was defined
+by using the modifier s(start=4.5), the position of m4 by s(start=12.5).
+These positions were chosen such that the system is a rest. To calculate
+these values start at the left (Fixed1) with a value of 1 m. The spring
+has an unstreched length of 2 m and m3 an length of 3 m, which leads to
+</p>
+
+<pre>
+        1   m (fixed1)
+      + 2   m (spring s2)
+      + 3/2 m (half of the length of mass m3)
+      -------
+        4,5 m = s(start = 4.5) for m3
+      + 3/2 m (half of the length of mass m3)
+      + 4   m (springDamper 2)
+      + 5/2 m (half of length of mass m4)
+      -------
+       12,5 m = s(start = 12.5) for m4
+</pre>
+
+<p>
+This selection of initial conditions has the effect that Dymola selects
+those variables (m3.s and m4.s) as state variables.
+In the second example the length of the springs are given as start values
+but they cannot be used as state for pure springs (only for the spring/damper
+combination). In this case the system is not at rest.
+</p>
+
+<p>
+<IMG SRC=../Images/Translational/Fig.translational.examples.InitialConditions.png>
+</p>
+
+
+<pre>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> InitialConditions <font color="darkgreen">&quot;Setting of initial conditions&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Fixed"
+>Translational.Components.Fixed</A> fixed2(        s0=1);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Spring"
+>Translational.Components.Spring</A> s2(        s_rel0=2, c=1e3);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Mass"
+>Translational.Components.Mass</A> m3(           L=3, s(start=4.5, fixed=true),
+    v(fixed=true),
+    m=1);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.SpringDamper"
+>Translational.Components.SpringDamper</A> sd2(        s_rel0=4, c=111,
+    d=1);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Mass"
+>Translational.Components.Mass</A> m4(           L=5, s(start=12.5, fixed=true),
+    v(fixed=true),
+    m=1);
+
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Fixed"
+>Translational.Components.Fixed</A> fixed1(        s0=-1);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Spring"
+>Translational.Components.Spring</A> s1(
+    s_rel0=1,
+    c=1e3,
+    s_rel(start=1, fixed=true));
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Mass"
+>Translational.Components.Mass</A> m1(           L=1, v(fixed=true),
+    m=1);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.SpringDamper"
+>Translational.Components.SpringDamper</A> sd1(
+    s_rel0=1,
+    c=111,
+    s_rel(start=1, fixed=true),
+    v_rel(fixed=true),
+    d=1);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Mass"
+>Translational.Components.Mass</A> m2(           L=2, m=1);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(s2.flange_a, fixed2.flange);
+  <font color="red">connect</font>(s1.flange_a, fixed1.flange);
+  <font color="red">connect</font>(m1.flange_a, s1.flange_b);
+  <font color="red">connect</font>(sd1.flange_a, m1.flange_b);
+  <font color="red">connect</font>(m2.flange_a, sd1.flange_b);
+  <font color="red">connect</font>(m4.flange_a, sd2.flange_b);
+  <font color="red">connect</font>(sd2.flange_a, m3.flange_b);
+  <font color="red">connect</font>(m3.flange_a, s2.flange_b);
+<font color="blue">end </font>InitialConditions;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE WhyArrows<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Examples.SignConventionI.png" ALT="Modelica.Mechanics.Translational.Examples.WhyArrows" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Examples.WhyArrows"></A><A HREF="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples"
+>Modelica.Mechanics.Translational.Examples</A>.WhyArrows</H2>
+<B>Use of arrows in Mechanics.Translational</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Examples.WhyArrowsD.png" ALT="Modelica.Mechanics.Translational.Examples.WhyArrows">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+When using the models of the translational sublibrary
+it is recommended to make sure that all arrows point in
+the same direction because then all component have the
+same reference system.
+In the example the distance from flange_a of Rod1 to flange_b
+of Rod2 is 2 m. The distance from flange_a of Rod1 to flange_b
+of Rod3 is also 2 m though it is difficult to see that. Without
+the arrows it would be almost impossible to notice.
+That all arrows point in the same direction is a sufficient
+condition for an easy use of the library. There are cases
+where horizontally flipped models can be used without
+problems.
+</p>
+<pre>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> WhyArrows <font color="darkgreen">&quot;Use of arrows in Mechanics.Translational&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Fixed"
+>Translational.Components.Fixed</A> fixed;
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Rod"
+>Translational.Components.Rod</A> rod1(        L=1);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Rod"
+>Translational.Components.Rod</A> rod2(        L=1);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Rod"
+>Translational.Components.Rod</A> rod3(        L=1);
+  <A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors.PositionSensor"
+>Translational.Sensors.PositionSensor</A> positionSensor2;
+  <A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors.PositionSensor"
+>Translational.Sensors.PositionSensor</A> positionSensor1;
+  <A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors.PositionSensor"
+>Translational.Sensors.PositionSensor</A> positionSensor3;
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Fixed"
+>Translational.Components.Fixed</A> fixed1(        s0=-1.9);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Spring"
+>Translational.Components.Spring</A> spring1(        s_rel0=2, c=11);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Mass"
+>Translational.Components.Mass</A> mass1(
+    L=2,
+    s(fixed=true),
+    v(fixed=true),
+    m=1);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Fixed"
+>Translational.Components.Fixed</A> fixed2(        s0=-1.9);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Spring"
+>Translational.Components.Spring</A> spring2(        s_rel0=2, c=11);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Mass"
+>Translational.Components.Mass</A> inertia2(           L=2,
+    m=1,
+    s(fixed=true),
+    v(fixed=true));
+<font color="blue">equation </font>
+  <font color="red">connect</font>(spring1.flange_b, mass1.flange_b);
+  <font color="red">connect</font>(spring2.flange_b, inertia2.flange_b);
+  <font color="red">connect</font>(rod3.flange_b,positionSensor3. flange);
+  <font color="red">connect</font>(rod1.flange_a,positionSensor1. flange);
+  <font color="red">connect</font>(rod1.flange_b, fixed.flange);
+  <font color="red">connect</font>(rod3.flange_a, fixed.flange);
+  <font color="red">connect</font>(fixed.flange, rod2.flange_a);
+  <font color="red">connect</font>(rod2.flange_b,positionSensor2. flange);
+  <font color="red">connect</font>(fixed1.flange,spring1. flange_a);
+  <font color="red">connect</font>(fixed2.flange,spring2. flange_a);
+<font color="blue">end </font>WhyArrows;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Accelerate<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Examples.SignConventionI.png" ALT="Modelica.Mechanics.Translational.Examples.Accelerate" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Examples.Accelerate"></A><A HREF="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples"
+>Modelica.Mechanics.Translational.Examples</A>.Accelerate</H2>
+<B>Use of model accelerate.</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Examples.AccelerateD.png" ALT="Modelica.Mechanics.Translational.Examples.Accelerate">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Demonstrate usage of component Sources.Accelerate by moving a massing
+with a predefined acceleration.
+</p>
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Accelerate <font color="darkgreen">&quot;Use of model accelerate.&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <A HREF="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources.Accelerate"
+>Translational.Sources.Accelerate</A> accelerate;
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Mass"
+>Translational.Components.Mass</A> mass(L=1, m=1);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> constantAcc(k=1);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(accelerate.flange, mass.flange_a);
+  <font color="red">connect</font>(constantAcc.y, accelerate.a_ref);
+<font color="blue">end </font>Accelerate;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Damper<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Examples.SignConventionI.png" ALT="Modelica.Mechanics.Translational.Examples.Damper" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Examples.Damper"></A><A HREF="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples"
+>Modelica.Mechanics.Translational.Examples</A>.Damper</H2>
+<B>Use of damper models.</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Examples.DamperD.png" ALT="Modelica.Mechanics.Translational.Examples.Damper">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Demonstrate usage of damper components in different variants.
+</p>
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Damper <font color="darkgreen">&quot;Use of damper models.&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Mass"
+>Translational.Components.Mass</A> mass1(
+    L=1,
+    s(start=3, fixed=true),
+    v(start=10, fixed=true),
+    m=1);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Damper"
+>Translational.Components.Damper</A> damper1(        d=25);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Fixed"
+>Translational.Components.Fixed</A> fixed1(        s0=4.5);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Mass"
+>Translational.Components.Mass</A> mass2(
+    L=1,
+    s(start=3, fixed=true),
+    v(start=10, fixed=true),
+    m=1);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Damper"
+>Translational.Components.Damper</A> damper2(        d=25);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Fixed"
+>Translational.Components.Fixed</A> fixed2(        s0=4.5);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Mass"
+>Translational.Components.Mass</A> mass3(
+    L=1,
+    s(start=3, fixed=true),
+    v(start=10, fixed=true),
+    m=1);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Fixed"
+>Translational.Components.Fixed</A> fixed3(        s0=4.5);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Spring"
+>Translational.Components.Spring</A> spring2(        s_rel0=1, c=1);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.SpringDamper"
+>Translational.Components.SpringDamper</A> springDamper3(        s_rel0=1, d=25,
+    c=1);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(mass1.flange_b, damper1.flange_a);
+  <font color="red">connect</font>(mass2.flange_b, damper2.flange_a);
+  <font color="red">connect</font>(damper2.flange_b,spring2. flange_b);
+  <font color="red">connect</font>(damper2.flange_a,spring2. flange_a);
+  <font color="red">connect</font>(mass3.flange_b, springDamper3.flange_a);
+  <font color="red">connect</font>(damper1.flange_b, fixed1.flange);
+  <font color="red">connect</font>(damper2.flange_b, fixed2.flange);
+  <font color="red">connect</font>(springDamper3.flange_b, fixed3.flange);
+<font color="blue">end </font>Damper;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Oscillator<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Examples.SignConventionI.png" ALT="Modelica.Mechanics.Translational.Examples.Oscillator" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Examples.Oscillator"></A><A HREF="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples"
+>Modelica.Mechanics.Translational.Examples</A>.Oscillator</H2>
+<B>Oscillator demonstrates the use of initial conditions.</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Examples.OscillatorD.png" ALT="Modelica.Mechanics.Translational.Examples.Oscillator">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+A spring - mass system is a mechanical oscillator. If no
+damping is included and the system is excited at resonance
+frequency infinite amplitudes will result.
+The resonant frequency is given by
+omega_res = sqrt(c / m)
+with:
+</p>
+
+<pre>
+      c spring stiffness
+      m mass
+</pre>
+
+<p>
+To make sure that the system is initially at rest the initial
+conditions s(start=0) and v(start=0) for the SlindingMass
+are set.
+If damping is added the amplitudes are bounded.
+</p>
+<pre>
+
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Oscillator <font color="darkgreen">
+  &quot;Oscillator demonstrates the use of initial conditions.&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Mass"
+>Translational.Components.Mass</A> mass1(
+    L=1,
+    s(start=-0.5, fixed=true),
+    v(start=0, fixed=true),
+    m=1);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Spring"
+>Translational.Components.Spring</A> spring1(        s_rel0=1, c=10000);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Fixed"
+>Translational.Components.Fixed</A> fixed1(        s0=1);
+  <A HREF="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources.Force"
+>Translational.Sources.Force</A> force1;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Modelica.Blocks.Sources.Sine</A> sine1(freqHz=15.9155);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Mass"
+>Translational.Components.Mass</A> mass2(
+    L=1,
+    s(start=-0.5, fixed=true),
+    v(start=0, fixed=true),
+    m=1);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Spring"
+>Translational.Components.Spring</A> spring2(        s_rel0=1, c=10000);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Fixed"
+>Translational.Components.Fixed</A> fixed2(        s0=1);
+  <A HREF="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources.Force"
+>Translational.Sources.Force</A> force2;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Modelica.Blocks.Sources.Sine</A> sine2(freqHz=15.9155);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Damper"
+>Translational.Components.Damper</A> damper1(        d=10);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(mass1.flange_b, spring1.flange_a);
+  <font color="red">connect</font>(spring2.flange_a,damper1. flange_a);
+  <font color="red">connect</font>(mass2.flange_b, spring2.flange_a);
+  <font color="red">connect</font>(damper1.flange_b,spring2. flange_b);
+  <font color="red">connect</font>(sine1.y,force1. f);
+  <font color="red">connect</font>(sine2.y,force2. f);
+  <font color="red">connect</font>(spring1.flange_b, fixed1.flange);
+  <font color="red">connect</font>(force2.flange, mass2.flange_a);
+  <font color="red">connect</font>(force1.flange, mass1.flange_a);
+  <font color="red">connect</font>(spring2.flange_b, fixed2.flange);
+<font color="blue">end </font>Oscillator;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Sensors<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Examples.SignConventionI.png" ALT="Modelica.Mechanics.Translational.Examples.Sensors" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Examples.Sensors"></A><A HREF="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples"
+>Modelica.Mechanics.Translational.Examples</A>.Sensors</H2>
+<B>Sensors for translational systems.</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Examples.SensorsD.png" ALT="Modelica.Mechanics.Translational.Examples.Sensors">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+These sensors measure
+</p>
+
+<pre>
+   force f in N
+   position s in m
+   velocity v in m/s
+   acceleration a in m/s2
+</pre>
+
+<p>
+Dhe measured velocity and acceleration is independent on
+the flange the sensor is connected to. The position
+depends on the flange (flange_a or flange_b) and the
+length L of the component.
+Plot PositionSensor1.s, PositionSensor2.s and SlidingMass1.s
+to see the difference.
+</p>
+<pre>
+
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Sensors <font color="darkgreen">&quot;Sensors for translational systems.&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+
+  <A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors.ForceSensor"
+>Translational.Sensors.ForceSensor</A> forceSensor;
+  <A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors.SpeedSensor"
+>Translational.Sensors.SpeedSensor</A> speedSensor1;
+  <A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors.PositionSensor"
+>Translational.Sensors.PositionSensor</A> positionSensor1;
+  <A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors.AccSensor"
+>Translational.Sensors.AccSensor</A> accSensor1;
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Mass"
+>Translational.Components.Mass</A> mass(L=1,
+    s(fixed=true),
+    v(fixed=true),
+    m=1);
+  <A HREF="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources.Force"
+>Translational.Sources.Force</A> force;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Modelica.Blocks.Sources.Sine</A> sineForce(amplitude=10, freqHz=4);
+  <A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors.PositionSensor"
+>Translational.Sensors.PositionSensor</A> positionSensor2;
+<font color="blue">equation </font>
+  <font color="red">connect</font>(forceSensor.flange_b, mass.flange_a);
+  <font color="red">connect</font>(sineForce.y, force.f);
+  <font color="red">connect</font>(forceSensor.flange_a, force.flange);
+  <font color="red">connect</font>(mass.flange_a, positionSensor1.flange);
+  <font color="red">connect</font>(mass.flange_a, speedSensor1.flange);
+  <font color="red">connect</font>(mass.flange_a, accSensor1.flange);
+  <font color="red">connect</font>(mass.flange_b, positionSensor2.flange);
+<font color="blue">end </font>Sensors;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Friction<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Examples.SignConventionI.png" ALT="Modelica.Mechanics.Translational.Examples.Friction" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Examples.Friction"></A><A HREF="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples"
+>Modelica.Mechanics.Translational.Examples</A>.Friction</H2>
+<B>Use of model Stop</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Examples.FrictionD.png" ALT="Modelica.Mechanics.Translational.Examples.Friction">
+<H3>Information</H3>
+<PRE></pre>
+<ol>
+<li> Simulate and then plot Stop1.f as a function of Stop1.v
+     This gives the Stribeck curve.</li>
+<li> This model gives an example for a hard stop. However there
+     can arise some problems with the used modeling approach (use of
+     Reinit, convergence problems). In this case use the ElastoGap
+     to model a stop (see example Preload).</li>
+</ol>
+<pre>
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Friction <font color="darkgreen">&quot;Use of model Stop&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.MassWithStopAndFriction"
+>Modelica.Mechanics.Translational.Components.MassWithStopAndFriction</A> stop1(
+                                           L=1,
+    s(fixed=true),
+    v(fixed=true),
+    smax=25,
+    smin=-25,
+    m=1,
+    F_prop=1,
+    F_Coulomb=5,
+    F_Stribeck=10,
+    fexp=2);
+  <A HREF="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources.Force"
+>Translational.Sources.Force</A> force;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Modelica.Blocks.Sources.Sine</A> sineForce(amplitude=25, freqHz=0.25);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.MassWithStopAndFriction"
+>Modelica.Mechanics.Translational.Components.MassWithStopAndFriction</A> stop2(
+    L=1,
+    smax=0.9,
+    smin=-0.9,
+    F_Coulomb=3,
+    F_Stribeck=5,
+    s(start=0, fixed=true),
+    v(start=-5, fixed=true),
+    m=1,
+    F_prop=1,
+    fexp=2);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Spring"
+>Translational.Components.Spring</A> spring(s_rel0=1, c=500);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Fixed"
+>Translational.Components.Fixed</A> fixed2(s0=-1.75);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(spring.flange_b, stop2.flange_a);
+  <font color="red">connect</font>(sineForce.y, force.f);
+  <font color="red">connect</font>(spring.flange_a, fixed2.flange);
+  <font color="red">connect</font>(force.flange, stop1.flange_a);
+<font color="blue">end </font>Friction;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PreLoad<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Examples.SignConventionI.png" ALT="Modelica.Mechanics.Translational.Examples.PreLoad" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Examples.PreLoad"></A><A HREF="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples"
+>Modelica.Mechanics.Translational.Examples</A>.PreLoad</H2>
+<B>Preload of a spool using ElastoGap models.</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Examples.PreLoadD.png" ALT="Modelica.Mechanics.Translational.Examples.PreLoad">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+When designing hydraulic valves it is often necessary to hold the spool in
+a certain position as long as an external force is below a threshold value.
+If this force exceeds the treshold value a linear relation between force
+and position is desired.
+There are designs that need only one spring to accomplish this task. Using
+the ElastoGap elements this design can be modelled easily.
+Drawing of spool.
+</p>
+
+<p>
+<<IMG SRC=../Images/Translational/PreLoad.png>
+</p>
+
+<p>
+<IMG SRC=../Images/Translational/PreLoad3.png>
+</p>
+
+<p>
+<IMG SRC=../Images/Translational/PreLoad4.png>
+</p>
+
+<p>
+Spool position s as a function of working force f.
+</p>
+
+<p>
+<IMG SRC=../Images/Translational/PreLoad2.png>
+</p>
+<pre>
+
+</PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> PreLoad <font color="darkgreen">&quot;Preload of a spool using ElastoGap models.&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+
+
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.ElastoGap"
+>Translational.Components.ElastoGap</A> innerContactA(
+    c=1000e3,
+    d=250,
+    s_rel0=0.001);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.ElastoGap"
+>Translational.Components.ElastoGap</A> innerContactB(
+    c=1000e3,
+    d=250,
+    s_rel0=0.001);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Mass"
+>Translational.Components.Mass</A> spool(
+    L=0.19,
+    m=0.150,
+    s(start=0.01475, fixed=true),
+    v(fixed=true));
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Fixed"
+>Translational.Components.Fixed</A> fixedLe(        s0=-0.0955);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Mass"
+>Translational.Components.Mass</A> springPlateA(
+    m=10e-3,
+    L=0.002,
+    s(start=-0.093, fixed=true),
+    v(fixed=true));
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Mass"
+>Translational.Components.Mass</A> springPlateB(
+    m=10e-3,
+    s(start=-0.06925, fixed=true),
+    L=0.002,
+    v(fixed=true));
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Spring"
+>Translational.Components.Spring</A> spring(        c=20e3, s_rel0=0.025);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.ElastoGap"
+>Translational.Components.ElastoGap</A> outerContactA(
+    c=1000e3,
+    d=250,
+    s_rel0=0.0015);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.ElastoGap"
+>Translational.Components.ElastoGap</A> outerContactB(
+    c=1000e3,
+    d=250,
+    s_rel0=0.0015);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Rod"
+>Translational.Components.Rod</A> rod1(        L=0.007);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Damper"
+>Translational.Components.Damper</A> friction(        d=2500);
+  <A HREF="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources.Force"
+>Translational.Sources.Force</A> force;
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Rod"
+>Translational.Components.Rod</A> housing(        L=0.0305);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Rod"
+>Translational.Components.Rod</A> rod3(        L=0.00575);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Rod"
+>Translational.Components.Rod</A> rod4(        L=0.00575);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Rod"
+>Translational.Components.Rod</A> rod2(        L=0.007);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Modelica.Blocks.Sources.Sine</A> sineForce(amplitude=150, freqHz=0.01);
+<font color="blue">equation </font>
+  <font color="red">connect</font>(outerContactA.flange_b,springPlateA. flange_a);
+  <font color="red">connect</font>(springPlateA.flange_b,spring. flange_a);
+  <font color="red">connect</font>(spring.flange_b,springPlateB. flange_a);
+  <font color="red">connect</font>(springPlateB.flange_b,outerContactB. flange_a);
+  <font color="red">connect</font>(outerContactB.flange_b,housing. flange_b);
+  <font color="red">connect</font>(springPlateA.flange_b,rod1. flange_a);
+  <font color="red">connect</font>(innerContactA.flange_a,rod3. flange_a);
+  <font color="red">connect</font>(innerContactA.flange_b,rod1. flange_b);
+  <font color="red">connect</font>(rod2.flange_a,innerContactB. flange_a);
+  <font color="red">connect</font>(rod4.flange_b,innerContactB. flange_b);
+  <font color="red">connect</font>(friction.flange_b,rod3. flange_a);
+  <font color="red">connect</font>(rod3.flange_b,rod4. flange_a);
+  <font color="red">connect</font>(rod2.flange_b,springPlateB. flange_a);
+  <font color="red">connect</font>(spool.flange_a,rod4. flange_a);
+  <font color="red">connect</font>(sineForce.y, force.f);
+  <font color="red">connect</font>(force.flange, spool.flange_a);
+  <font color="red">connect</font>(outerContactA.flange_a, fixedLe.flange);
+  <font color="red">connect</font>(housing.flange_a, fixedLe.flange);
+  <font color="red">connect</font>(friction.flange_a, fixedLe.flange);
+<font color="blue">end </font>PreLoad;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ElastoGap<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Examples.SignConventionI.png" ALT="Modelica.Mechanics.Translational.Examples.ElastoGap" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Examples.ElastoGap"></A><A HREF="Modelica_Mechanics_Translational_Examples.html#Modelica.Mechanics.Translational.Examples"
+>Modelica.Mechanics.Translational.Examples</A>.ElastoGap</H2>
+<B>Demonstrate usgae of ElastoGap</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Examples.ElastoGapD.png" ALT="Modelica.Mechanics.Translational.Examples.ElastoGap">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This model demonstrates the effect of ElastoGaps on eigenfrequency:<br>
+Plot mass1.s and mass2.s as well as mass1.v and mass2.v<br><br>
+mass1 is moved by both spring forces all the time.<br>
+Since elastoGap1 lifts off at s &gt; -0.5 m and elastoGap2 lifts off s &lt; +0.5 m,
+mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.TranslationalDampingConstant"
+>TranslationalDampingConstant</A></TD><TD>d</TD><TD>1.5</TD><TD>damping constant [N.s/m]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ElastoGap <font color="darkgreen">&quot;Demonstrate usgae of ElastoGap&quot;</font>
+<font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Fixed"
+>Components.Fixed</A> fixed;
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Rod"
+>Components.Rod</A> rod1(L=2);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Rod"
+>Components.Rod</A> rod2(L=2);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.SpringDamper"
+>Components.SpringDamper</A> springDamper1(
+    c=10,
+    s_rel0=1,
+    s_rel(fixed=false, start=1),
+    d=1.5);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.SpringDamper"
+>Components.SpringDamper</A> springDamper2(
+    c=10,
+    s_rel0=1,
+    s_rel(fixed=false, start=1),
+    d=1.5);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Mass"
+>Components.Mass</A> mass1(
+    s(fixed=true, start=2),
+    L=0,
+    m=1,
+    v(fixed=true));
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.ElastoGap"
+>Components.ElastoGap</A> elastoGap1(
+    c=10,
+    s_rel(fixed=false, start=1.5),
+    s_rel0=1.5,
+    d=1.5);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.ElastoGap"
+>Components.ElastoGap</A> elastoGap2(
+    c=10,
+    s_rel(fixed=false, start=1.5),
+    s_rel0=1.5,
+    d=1.5);
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Mass"
+>Components.Mass</A> mass2(
+    s(fixed=true, start=2),
+    L=0,
+    m=1,
+    v(fixed=true));
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TranslationalDampingConstant"
+>SI.TranslationalDampingConstant</A> d=1.5 <font color="darkgreen">&quot;damping constant&quot;</font>;
+<font color="blue">equation </font>
+
+  <font color="red">connect</font>(rod1.flange_b, fixed.flange);
+  <font color="red">connect</font>(fixed.flange, rod2.flange_a);
+  <font color="red">connect</font>(springDamper1.flange_a, rod1.flange_a);
+  <font color="red">connect</font>(springDamper2.flange_b, rod2.flange_b);
+  <font color="red">connect</font>(springDamper1.flange_b, mass1.flange_a);
+  <font color="red">connect</font>(mass1.flange_b, springDamper2.flange_a);
+  <font color="red">connect</font>(rod1.flange_a, elastoGap1.flange_a);
+  <font color="red">connect</font>(rod2.flange_b, elastoGap2.flange_b);
+  <font color="red">connect</font>(elastoGap1.flange_b, mass2.flange_a);
+  <font color="red">connect</font>(mass2.flange_b, elastoGap2.flange_a);
+<font color="blue">end </font>ElastoGap;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Sat Mar 01 21:48:27 2008.
+</address></BODY>
+</HTML>

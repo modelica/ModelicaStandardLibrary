@@ -1,0 +1,322 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Media.Examples.TestOnly</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;examples for testing purposes: move for final version &quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestOnly<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Examples.TestOnly"></A><A HREF="Modelica_Media_Examples.html#Modelica.Media.Examples"
+>Modelica.Media.Examples</A>.TestOnly</H2>
+<B>examples for testing purposes: move for final version </B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Media.Examples.TestOnly.MixIdealGasAirS.png" ALT="Modelica.Media.Examples.TestOnly.MixIdealGasAir" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples_TestOnly.html#Modelica.Media.Examples.TestOnly.MixIdealGasAir"
+>MixIdealGasAir</A>
+</TD><TD>Ideal gas air medium model</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Examples.TestOnly.MixIdealGasAirS.png" ALT="Modelica.Media.Examples.TestOnly.FlueGas" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples_TestOnly.html#Modelica.Media.Examples.TestOnly.FlueGas"
+>FlueGas</A>
+</TD><TD>Ideal gas flue gas  model</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Examples.TestOnly.N2AsMixS.png" ALT="Modelica.Media.Examples.TestOnly.N2AsMix" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples_TestOnly_N2AsMix.html#Modelica.Media.Examples.TestOnly.N2AsMix"
+>N2AsMix</A>
+</TD><TD>air and steam mixture (no condensation!, pseudo-mixture)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Examples.TestOnly.IdealGasN2S.png" ALT="Modelica.Media.Examples.TestOnly.IdealGasN2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples_TestOnly.html#Modelica.Media.Examples.TestOnly.IdealGasN2"
+>IdealGasN2</A>
+</TD><TD>Test IdealGas.SingleMedia.N2 medium model</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Examples.TestOnly.TestMediaS.png" ALT="Modelica.Media.Examples.TestOnly.TestMedia" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples_TestOnly_TestMedia.html#Modelica.Media.Examples.TestOnly.TestMedia"
+>TestMedia</A>
+</TD><TD>Test interfaces of media</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Examples.TestOnly.IdealGasN2MixS.png" ALT="Modelica.Media.Examples.TestOnly.IdealGasN2Mix" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples_TestOnly.html#Modelica.Media.Examples.TestOnly.IdealGasN2Mix"
+>IdealGasN2Mix</A>
+</TD><TD>Test IdealGas.SingleMedia.N2 medium model</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MixIdealGasAir<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Examples.TestOnly.MixIdealGasAirI.png" ALT="Modelica.Media.Examples.TestOnly.MixIdealGasAir" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Examples.TestOnly.MixIdealGasAir"></A><A HREF="Modelica_Media_Examples_TestOnly.html#Modelica.Media.Examples.TestOnly"
+>Modelica.Media.Examples.TestOnly</A>.MixIdealGasAir</H2>
+<B>Ideal gas air medium model</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>An example for using ideal gas properties and how to compute isentropic enthalpy changes.
+The function that is implemented is approximate, but usually very good: the second medium record medium2
+is given to compare the approximation.
+</p>
+<pre></PRE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> MixIdealGasAir <font color="darkgreen">&quot;Ideal gas air medium model&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">package</font> Medium = <A HREF="Modelica_Media_IdealGases_MixtureGases_CombustionAir.html#Modelica.Media.IdealGases.MixtureGases.CombustionAir"
+>IdealGases.MixtureGases.CombustionAir</A> <font color="darkgreen">&quot;Medium model&quot;</font>;
+  Medium.BaseProperties medium(
+     T(start = 200.0),
+     X(start = {0.2,0.8}),
+     p(start = 1.0e5));
+  Medium.BaseProperties medium2(
+     T(start = 300.0),
+     X(start = {0.2,0.8}),
+     p(start = 2.0e5));
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificHeatCapacity"
+>Medium.SpecificHeatCapacity</A> cp=<font color="red">Medium.specificHeatCapacityCp</font>(medium.state);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificHeatCapacity"
+>Medium.SpecificHeatCapacity</A> cv=<font color="red">Medium.specificHeatCapacityCv</font>(medium.state);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.IsentropicExponent"
+>Medium.IsentropicExponent</A> gamma=<font color="red">Medium.isentropicExponent</font>(medium.state);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>Medium.SpecificEntropy</A> s=<font color="red">Medium.specificEntropy</font>(medium.state);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>Medium.SpecificEntropy</A> s2=<font color="red">Medium.specificEntropy</font>(medium2.state);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.VelocityOfSound"
+>Medium.VelocityOfSound</A> a=<font color="red">Medium.velocityOfSound</font>(medium.state);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.DynamicViscosity"
+>Medium.DynamicViscosity</A> eta=<font color="red"> Medium.dynamicViscosity</font>(medium.state);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermalConductivity"
+>Medium.ThermalConductivity</A> lambda=<font color="red"> Medium.thermalConductivity</font>(medium.state);
+  Real beta =<font color="red"> Medium.isobaricExpansionCoefficient</font>(medium.state);
+  Real gamma2 =<font color="red"> Medium.isothermalCompressibility</font>(medium2.state);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>Medium.SpecificEnthalpy</A> h_is =<font color="red"> Medium.isentropicEnthalpyApproximation</font>(2.0e5, medium);
+<font color="blue">equation </font>
+  <font color="red">der</font>(medium.p) = 1000.0;
+  <font color="red">der</font>(medium.T) = 1000;
+  medium.X = {0.2,0.8};
+  <font color="red">der</font>(medium2.p) = 1.0e3;
+  <font color="red">der</font>(medium2.T) = 0.0;
+  <font color="red">der</font>(medium2.X) = {0.0,0.0};
+<font color="darkgreen">//  s2 = s;</font>
+<font color="blue">end </font>MixIdealGasAir;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FlueGas<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Examples.TestOnly.MixIdealGasAirI.png" ALT="Modelica.Media.Examples.TestOnly.FlueGas" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Examples.TestOnly.FlueGas"></A><A HREF="Modelica_Media_Examples_TestOnly.html#Modelica.Media.Examples.TestOnly"
+>Modelica.Media.Examples.TestOnly</A>.FlueGas</H2>
+<B>Ideal gas flue gas  model</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>An example for using ideal gas properties and how to compute isentropic enthalpy changes.
+The function that is implemented is approximate, but usually very good: the second medium record medium2
+is given to compare the approximation.
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MolarMass"
+>MolarMass</A></TD><TD>MMx[4]</TD><TD>Medium.data.MM</TD><TD>Molar masses of flue gas [kg/mol]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> FlueGas <font color="darkgreen">&quot;Ideal gas flue gas  model&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">package</font> Medium = <A HREF="Modelica_Media_IdealGases_MixtureGases_FlueGasLambdaOnePlus.html#Modelica.Media.IdealGases.MixtureGases.FlueGasLambdaOnePlus"
+>IdealGases.MixtureGases.FlueGasLambdaOnePlus</A> <font color="darkgreen">&quot;Medium model&quot;</font>;
+  Medium.ThermodynamicState state(
+     T(start = 200.0),
+     X(start = {0.2,0.3,0.4,0.1}),
+     p(start = 1.0e5));
+  Medium.BaseProperties medium2(
+     T(start = 300.0),
+     X(start = {0.2,0.1,0.3,0.4}),
+     p(start = 2.0e5));
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificHeatCapacity"
+>Medium.SpecificHeatCapacity</A> cp=<font color="red">Medium.specificHeatCapacityCp</font>(state);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificHeatCapacity"
+>Medium.SpecificHeatCapacity</A> cv=<font color="red">Medium.specificHeatCapacityCv</font>(state);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.IsentropicExponent"
+>Medium.IsentropicExponent</A> gamma=<font color="red">Medium.isentropicExponent</font>(state);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>Medium.SpecificEntropy</A> s=<font color="red">Medium.specificEntropy</font>(state);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>Medium.SpecificEntropy</A> s2=<font color="red">Medium.specificEntropy</font>(medium2.state);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.VelocityOfSound"
+>Medium.VelocityOfSound</A> a=<font color="red">Medium.velocityOfSound</font>(state);
+  Real beta =<font color="red"> Medium.isobaricExpansionCoefficient</font>(state);
+  Real gamma2 =<font color="red"> Medium.isothermalCompressibility</font>(medium2.state);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>Medium.SpecificEnthalpy</A> h_is =<font color="red"> Medium.isentropicEnthalpyApproximation</font>(2.0e5, medium2);
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MolarMass"
+>Medium.MolarMass</A>[4] MMx = Medium.data.MM <font color="darkgreen">&quot;Molar masses of flue gas&quot;</font>;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MolarMass"
+>Medium.MolarMass</A> MM =  1/<font color="red">sum</font>(state.X[j]/MMx[j] <font color="blue">for </font>j<font color="blue"> in </font>1:4) <font color="darkgreen">&quot;molar mass&quot;</font>;
+  Real[4] dddX=<font color="red">Medium.density_derX</font>(medium2.state);
+<font color="blue">equation </font>
+  <font color="red">der</font>(state.p) = 1000.0;
+  <font color="red">der</font>(state.T) = 1000;
+  state.X = {0.2,0.2,0.4,0.2};
+  <font color="red">der</font>(medium2.p) = 1.0e3;
+  <font color="red">der</font>(medium2.T) = 0.0;
+  <font color="red">der</font>(medium2.X[1:Medium.nX]) = {0.0,0.0,0.0,0.0};
+<font color="blue">end </font>FlueGas;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IdealGasN2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Examples.TestOnly.MixIdealGasAirI.png" ALT="Modelica.Media.Examples.TestOnly.IdealGasN2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Examples.TestOnly.IdealGasN2"></A><A HREF="Modelica_Media_Examples_TestOnly.html#Modelica.Media.Examples.TestOnly"
+>Modelica.Media.Examples.TestOnly</A>.IdealGasN2</H2>
+<B>Test IdealGas.SingleMedia.N2 medium model</B><p>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Volume"
+>Volume</A></TD><TD>V</TD><TD>1</TD><TD>Size of fixed volume [m3]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow_ext</TD><TD>0.01</TD><TD>Mass flow rate into volume [kg/s]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.EnthalpyFlowRate"
+>EnthalpyFlowRate</A></TD><TD>H_flow_ext</TD><TD>5000</TD><TD>Enthalpy flow rate into volume [W]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealGasN2 <font color="darkgreen">&quot;Test IdealGas.SingleMedia.N2 medium model&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Volume"
+>Modelica.SIunits.Volume</A> V=1 <font color="darkgreen">&quot;Size of fixed volume&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>Medium.MassFlowRate</A> m_flow_ext=0.01 <font color="darkgreen">&quot;Mass flow rate into volume&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.EnthalpyFlowRate"
+>Medium.EnthalpyFlowRate</A> H_flow_ext=5000 <font color="darkgreen">
+    &quot;Enthalpy flow rate into volume&quot;</font>;
+
+  <font color="blue">package</font> Medium = <A HREF="Modelica_Media_IdealGases_SingleGases_N2.html#Modelica.Media.IdealGases.SingleGases.N2"
+>IdealGases.SingleGases.N2</A> <font color="darkgreen">&quot;Medium model&quot;</font>;
+  <font color="darkgreen">// initType=Medium.Choices.Init.SteadyState,</font>
+
+  Medium.BaseProperties medium(preferredMediumStates=true,
+    p(start=1.e5),
+    T(start=300));
+
+  Real m(quantity=Medium.mediumName, start = 1.0);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.InternalEnergy"
+>SI.InternalEnergy</A> U;
+
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificHeatCapacity"
+>Medium.SpecificHeatCapacity</A> cp=<font color="red">Medium.specificHeatCapacityCp</font>(medium);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificHeatCapacity"
+>Medium.SpecificHeatCapacity</A> cv=<font color="red">Medium.specificHeatCapacityCv</font>(medium);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.IsentropicExponent"
+>Medium.IsentropicExponent</A> gamma=<font color="red">Medium.isentropicExponent</font>(medium);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>Medium.SpecificEntropy</A> s=<font color="red">Medium.specificEntropy</font>(medium);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.VelocityOfSound"
+>Medium.VelocityOfSound</A> a=<font color="red">Medium.velocityOfSound</font>(medium);
+<font color="blue">equation </font>
+
+  m = medium.d*V;
+  U = m*medium.u;
+
+  <font color="darkgreen">// Mass balance</font>
+  <font color="red">der</font>(m) = m_flow_ext;
+
+  <font color="darkgreen">// Energy balance</font>
+  <font color="red">der</font>(U) = H_flow_ext;
+<font color="blue">end </font>IdealGasN2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IdealGasN2Mix<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Examples.TestOnly.MixIdealGasAirI.png" ALT="Modelica.Media.Examples.TestOnly.IdealGasN2Mix" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Examples.TestOnly.IdealGasN2Mix"></A><A HREF="Modelica_Media_Examples_TestOnly.html#Modelica.Media.Examples.TestOnly"
+>Modelica.Media.Examples.TestOnly</A>.IdealGasN2Mix</H2>
+<B>Test IdealGas.SingleMedia.N2 medium model</B><p>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Volume"
+>Volume</A></TD><TD>V</TD><TD>1</TD><TD>Size of volume [m3]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow_ext</TD><TD>0.01</TD><TD>Mass flow rate flowing into volume [kg/s]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.EnthalpyFlowRate"
+>EnthalpyFlowRate</A></TD><TD>H_flow_ext</TD><TD>5000</TD><TD>Enthalpy flow rate flowing into volume [W]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealGasN2Mix <font color="darkgreen">&quot;Test IdealGas.SingleMedia.N2 medium model&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Volume"
+>Modelica.SIunits.Volume</A> V=1 <font color="darkgreen">&quot;Size of volume&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>Medium.MassFlowRate</A> m_flow_ext=0.01 <font color="darkgreen">
+    &quot;Mass flow rate flowing into volume&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.EnthalpyFlowRate"
+>Medium.EnthalpyFlowRate</A> H_flow_ext=5000 <font color="darkgreen">
+    &quot;Enthalpy flow rate flowing into volume&quot;</font>;
+
+  <font color="blue">package</font> Medium = <A HREF="Modelica_Media_Examples_TestOnly_N2AsMix.html#Modelica.Media.Examples.TestOnly.N2AsMix"
+>N2AsMix</A> <font color="darkgreen">&quot;Medium model&quot;</font>;
+  <font color="darkgreen">// initType=Medium.Choices.Init.SteadyState,</font>
+
+  Medium.BaseProperties medium(preferredMediumStates=true,
+    p(start=1.e5),
+    T(start=300));
+
+  Real m(quantity=Medium.mediumName, start = 1.0);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.InternalEnergy"
+>SI.InternalEnergy</A> U;
+
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificHeatCapacity"
+>Medium.SpecificHeatCapacity</A> cp=<font color="red">Medium.specificHeatCapacityCp</font>(medium);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificHeatCapacity"
+>Medium.SpecificHeatCapacity</A> cv=<font color="red">Medium.specificHeatCapacityCv</font>(medium);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.IsentropicExponent"
+>Medium.IsentropicExponent</A> gamma=<font color="red">Medium.isentropicExponent</font>(medium);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>Medium.SpecificEntropy</A> s=<font color="red">Medium.specificEntropy</font>(medium);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.VelocityOfSound"
+>Medium.VelocityOfSound</A> a=<font color="red">Medium.velocityOfSound</font>(medium);
+<font color="blue">equation </font>
+
+  m = medium.d*V;
+  U = m*medium.u;
+  medium.X = {1.0};
+  <font color="darkgreen">// Mass balance</font>
+  <font color="red">der</font>(m) = m_flow_ext;
+
+  <font color="darkgreen">// Energy balance</font>
+  <font color="red">der</font>(U) = H_flow_ext;
+<font color="blue">end </font>IdealGasN2Mix;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Sat Mar 01 21:48:31 2008.
+</address></BODY>
+</HTML>

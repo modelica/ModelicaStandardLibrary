@@ -1,0 +1,1353 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Media.Incompressible.TableBased</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Incompressible medium properties based on tables&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TableBased<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Incompressible.TableBased"></A><A HREF="Modelica_Media_Incompressible.html#Modelica.Media.Incompressible"
+>Modelica.Media.Incompressible</A>.TableBased</H2>
+<B>Incompressible medium properties based on tables</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This is the base package for medium models of incompressible fluids based on
+tables. The minimal data to provide for a useful medium description is tables
+of density and heat capacity as functions of temperature.
+</p>
+
+<h4>Using the package TableBased</h4>
+<p>
+To implement a new medium model, create a package that <b>extends</b> TableBased
+and provides one or more of the constant tables:
+</p>
+
+<pre>
+tableDensity        = [T, d];
+tableHeatCapacity   = [T, Cp];
+tableConductivity   = [T, lam];
+tableViscosity      = [T, eta];
+tableVaporPressure  = [T, pVap];
+</pre>
+
+<p>
+The table data is used to fit constant polynomials of order <b>npol</b>, the
+temperature data points do not need to be same for different properties. Properties
+like enthalpy, inner energy and entropy are calculated consistently from integrals
+and derivatives of d(T) and Cp(T). The minimal
+data for a useful medium model is thus density and heat capacity. Transport
+properties and vapor pressure are optional, if the data tables are empty the corresponding
+function calls can not be used.
+</p>
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD>enthalpyOfT=true</TD><TD>true if enthalpy is approximated as a function of T only, (p-dependence neglected)</TD></TR>
+<TR><TD>densityOfT=size(tableDensity, 1) &gt; 1</TD><TD>true if density is a function of temperature</TD></TR>
+<TR><TD>T_min</TD><TD>Minimum temperature valid for medium model</TD></TR>
+<TR><TD>T_max</TD><TD>Maximum temperature valid for medium model</TD></TR>
+<TR><TD>T0=273.15</TD><TD>reference Temperature</TD></TR>
+<TR><TD>h0=0</TD><TD>reference enthalpy at T0, reference_p</TD></TR>
+<TR><TD>s0=0</TD><TD>reference entropy at T0, reference_p</TD></TR>
+<TR><TD>MM_const=0.1</TD><TD>Molar mass</TD></TR>
+<TR><TD>npol=2</TD><TD>degree of polynomial used for fitting</TD></TR>
+<TR><TD>neta=size(tableViscosity, 1)</TD><TD>number of data points for viscosity</TD></TR>
+<TR><TD>tableDensity</TD><TD>Table for rho(T)</TD></TR>
+<TR><TD>tableHeatCapacity</TD><TD>Table for Cp(T)</TD></TR>
+<TR><TD>tableViscosity</TD><TD>Table for eta(T)</TD></TR>
+<TR><TD>tableVaporPressure</TD><TD>Table for pVap(T)</TD></TR>
+<TR><TD>tableConductivity</TD><TD>Table for lambda(T)</TD></TR>
+<TR><TD>TinK</TD><TD>true if T[K],Kelvin used for table temperatures</TD></TR>
+<TR><TD>hasDensity=not (size(tableDensity, 1) == 0)</TD><TD>true if table tableDensity is present</TD></TR>
+<TR><TD>hasHeatCapacity=not (size(tableHeatCapacity, 1) == 0)</TD><TD>true if table tableHeatCapacity is present</TD></TR>
+<TR><TD>hasViscosity=not (size(tableViscosity, 1) == 0)</TD><TD>true if table tableViscosity is present</TD></TR>
+<TR><TD>hasVaporPressure=not (size(tableVaporPressure, 1) == 0)</TD><TD>true if table tableVaporPressure is present</TD></TR>
+<TR><TD>invTK=if size(tableViscosity, 1) &gt; 0 then invertTemp(tableViscosity[:, 1], TinK) else fill(0, 0)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>poly_rho=if hasDensity then Poly.fitting(tableDensity[:, 1], tableDensity[:, 2], npol) else zeros(npol + 1)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>poly_Cp=if hasHeatCapacity then Poly.fitting(tableHeatCapacity[:, 1], tableHeatCapacity[:, 2], npol) else zeros(npol + 1)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>poly_eta=if hasViscosity then Poly.fitting(invTK, Math.log(tableViscosity[:, 2]), npol) else zeros(npol + 1)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>poly_pVap=if hasVaporPressure then Poly.fitting(tableVaporPressure[:, 1], tableVaporPressure[:, 2], npol) else zeros(npol + 1)</TD><TD>&nbsp;</TD></TR>
+<TR><TD>poly_lam=if size(tableConductivity, 1) &gt; 0 then Poly.fitting(tableConductivity[:, 1], tableConductivity[:, 2], npol) else zeros(npol + 1)</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.invertTempS.png" ALT="Modelica.Media.Incompressible.TableBased.invertTemp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.invertTemp"
+>invertTemp</A>
+</TD><TD>function to invert temperatures</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.BasePropertiesS.png" ALT="Modelica.Media.Incompressible.TableBased.BaseProperties" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.BaseProperties"
+>BaseProperties</A>
+</TD><TD>Base properties of T dependent medium</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.setState_pTXS.png" ALT="Modelica.Media.Incompressible.TableBased.setState_pTX" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.setState_pTX"
+>setState_pTX</A>
+</TD><TD>Returns state record, given pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.setState_pTXS.png" ALT="Modelica.Media.Incompressible.TableBased.setState_dTX" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.setState_dTX"
+>setState_dTX</A>
+</TD><TD>Returns state record, given pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.setState_pTS.png" ALT="Modelica.Media.Incompressible.TableBased.setState_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.setState_pT"
+>setState_pT</A>
+</TD><TD>returns state record as function of p and T</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.setState_phXS.png" ALT="Modelica.Media.Incompressible.TableBased.setState_phX" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.setState_phX"
+>setState_phX</A>
+</TD><TD>Returns state record, given pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.setState_phS.png" ALT="Modelica.Media.Incompressible.TableBased.setState_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.setState_ph"
+>setState_ph</A>
+</TD><TD>returns state record as function of p and h</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.setState_psXS.png" ALT="Modelica.Media.Incompressible.TableBased.setState_psX" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.setState_psX"
+>setState_psX</A>
+</TD><TD>Returns state record, given pressure and specific entropy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.setState_psS.png" ALT="Modelica.Media.Incompressible.TableBased.setState_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.setState_ps"
+>setState_ps</A>
+</TD><TD>returns state record as function of p and s</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.specificHeatCapacityCvS.png" ALT="Modelica.Media.Incompressible.TableBased.specificHeatCapacityCv" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.specificHeatCapacityCv"
+>specificHeatCapacityCv</A>
+</TD><TD>Specific heat capacity at constant volume (or pressure) of medium</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.specificHeatCapacityCvS.png" ALT="Modelica.Media.Incompressible.TableBased.specificHeatCapacityCp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.specificHeatCapacityCp"
+>specificHeatCapacityCp</A>
+</TD><TD>Specific heat capacity at constant volume (or pressure) of medium</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.specificHeatCapacityCvS.png" ALT="Modelica.Media.Incompressible.TableBased.dynamicViscosity" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.dynamicViscosity"
+>dynamicViscosity</A>
+</TD><TD>Return dynamic viscosity as a function of the thermodynamic state record</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.specificHeatCapacityCvS.png" ALT="Modelica.Media.Incompressible.TableBased.thermalConductivity" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.thermalConductivity"
+>thermalConductivity</A>
+</TD><TD>Return thermal conductivity as a function of the thermodynamic state record</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.s_TS.png" ALT="Modelica.Media.Incompressible.TableBased.s_T" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.s_T"
+>s_T</A>
+</TD><TD>compute specific entropy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.specificEntropyS.png" ALT="Modelica.Media.Incompressible.TableBased.specificEntropy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.specificEntropy"
+>specificEntropy</A>
+</TD><TD>Return specific entropy
+ as a function of the thermodynamic state record</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.specificEntropyS.png" ALT="Modelica.Media.Incompressible.TableBased.h_T" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.h_T"
+>h_T</A>
+</TD><TD>Compute specific enthalpy from temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.specificEntropyS.png" ALT="Modelica.Media.Incompressible.TableBased.h_T_der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.h_T_der"
+>h_T_der</A>
+</TD><TD>Compute specific enthalpy from temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.specificEntropyS.png" ALT="Modelica.Media.Incompressible.TableBased.h_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.h_pT"
+>h_pT</A>
+</TD><TD>Compute specific enthalpy from pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.density_TS.png" ALT="Modelica.Media.Incompressible.TableBased.density_T" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.density_T"
+>density_T</A>
+</TD><TD>Return density as function of temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.temperatureS.png" ALT="Modelica.Media.Incompressible.TableBased.temperature" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.temperature"
+>temperature</A>
+</TD><TD>Return temperature as a function of the thermodynamic state record</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.temperatureS.png" ALT="Modelica.Media.Incompressible.TableBased.pressure" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.pressure"
+>pressure</A>
+</TD><TD>Return pressure as a function of the thermodynamic state record</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.temperatureS.png" ALT="Modelica.Media.Incompressible.TableBased.density" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.density"
+>density</A>
+</TD><TD>Return density as a function of the thermodynamic state record</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.temperatureS.png" ALT="Modelica.Media.Incompressible.TableBased.specificEnthalpy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.specificEnthalpy"
+>specificEnthalpy</A>
+</TD><TD>Return specific enthalpy as a function of the thermodynamic state record</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.temperatureS.png" ALT="Modelica.Media.Incompressible.TableBased.specificInternalEnergy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.specificInternalEnergy"
+>specificInternalEnergy</A>
+</TD><TD>Return specific internal energy as a function of the thermodynamic state record</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.T_phS.png" ALT="Modelica.Media.Incompressible.TableBased.T_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.T_ph"
+>T_ph</A>
+</TD><TD>Compute temperature from pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.T_phS.png" ALT="Modelica.Media.Incompressible.TableBased.T_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.T_ps"
+>T_ps</A>
+</TD><TD>Compute temperature from pressure and specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBased.Polynomials_TempS.png" ALT="Modelica.Media.Incompressible.TableBased.Polynomials_Temp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased_Polynomials_Temp.html#Modelica.Media.Incompressible.TableBased.Polynomials_Temp"
+>Polynomials_Temp</A>
+</TD><TD>Temporary Functions operating on polynomials (including polynomial fitting); only to be used in Modelica.Media.Incompressible.TableBased</TD></TR>
+<TR><TH COLSPAN="2">Inherited</TH></TR>
+<TR><TD>mediumName=&quot;unusablePartialMedium&quot;</TD><TD>Name of the medium</TD></TR>
+<TR><TD>substanceNames={mediumName}</TD><TD>Names of the mixture substances. Set substanceNames={mediumName} if only one substance.</TD></TR>
+<TR><TD>extraPropertiesNames=fill(&quot;&quot;, 0)</TD><TD>Names of the additional (extra) transported properties. Set extraPropertiesNames=fill(&quot;&quot;,0) if unused</TD></TR>
+<TR><TD>singleState</TD><TD>= true, if u and d are not a function of pressure</TD></TR>
+<TR><TD>reducedX=true</TD><TD>= true if medium contains the equation sum(X) = 1.0; set reducedX=true if only one substance (see docu for details)</TD></TR>
+<TR><TD>fixedX=false</TD><TD>= true if medium contains the equation X = reference_X</TD></TR>
+<TR><TD>reference_p=101325</TD><TD>Reference pressure of Medium: default 1 atmosphere</TD></TR>
+<TR><TD>reference_T=298.15</TD><TD>Reference temperature of Medium: default 25 deg Celsius</TD></TR>
+<TR><TD>reference_X=fill(1/nX, nX)</TD><TD>Default mass fractions of medium</TD></TR>
+<TR><TD>p_default=101325</TD><TD>Default value for pressure of medium (for initialization)</TD></TR>
+<TR><TD>T_default=Modelica.SIunits.Conversions.from_degC(20)</TD><TD>Default value for temperature of medium (for initialization)</TD></TR>
+<TR><TD>h_default=specificEnthalpy_pTX(p_default, T_default, X_default)</TD><TD>Default value for specific enthalpy of medium (for initialization)</TD></TR>
+<TR><TD>X_default=reference_X</TD><TD>Default value for mass fractions of medium (for initialization)</TD></TR>
+<TR><TD>nS=size(substanceNames, 1)</TD><TD>Number of substances</TD></TR>
+<TR><TD>nX=nS</TD><TD>Number of mass fractions</TD></TR>
+<TR><TD>nXi=if fixedX then 0 else if reducedX then nS - 1 else nS</TD><TD>Number of structurally independent mass fractions (see docu for details)</TD></TR>
+<TR><TD>nC=size(extraPropertiesNames, 1)</TD><TD>Number of extra (outside of standard mass-balance) transported properties</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.FluidConstantsS.png" ALT="Modelica.Media.Interfaces.PartialMedium.FluidConstants" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.FluidConstants"
+>FluidConstants</A>
+</TD><TD>critical, triple, molecular and other standard data of fluid</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.FluidConstantsS.png" ALT="Modelica.Media.Interfaces.PartialMedium.ThermodynamicState" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermodynamicState"
+>ThermodynamicState</A>
+</TD><TD>Minimal variable set that is available as input argument to every medium function</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMixtureMedium.gasConstantS.png" ALT="Modelica.Media.Interfaces.PartialMedium.prandtlNumber" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.prandtlNumber"
+>prandtlNumber</A>
+</TD><TD>Return the Prandtl number</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.setState_pTXS.png" ALT="Modelica.Media.Interfaces.PartialMedium.specificGibbsEnergy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.specificGibbsEnergy"
+>specificGibbsEnergy</A>
+</TD><TD>Return specific Gibbs energy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.setState_pTXS.png" ALT="Modelica.Media.Interfaces.PartialMedium.specificHelmholtzEnergy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.specificHelmholtzEnergy"
+>specificHelmholtzEnergy</A>
+</TD><TD>Return specific Helmholtz energy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.prandtlNumberS.png" ALT="Modelica.Media.Interfaces.PartialMedium.heatCapacity_cp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.heatCapacity_cp"
+>heatCapacity_cp</A>
+</TD><TD>alias for deprecated name</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.prandtlNumberS.png" ALT="Modelica.Media.Interfaces.PartialMedium.heatCapacity_cv" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.heatCapacity_cv"
+>heatCapacity_cv</A>
+</TD><TD>alias for deprecated name</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.setState_pTXS.png" ALT="Modelica.Media.Interfaces.PartialMedium.isentropicExponent" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.isentropicExponent"
+>isentropicExponent</A>
+</TD><TD>Return isentropic exponent</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.setState_pTXS.png" ALT="Modelica.Media.Interfaces.PartialMedium.isentropicEnthalpy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.isentropicEnthalpy"
+>isentropicEnthalpy</A>
+</TD><TD>Return isentropic enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.setState_pTXS.png" ALT="Modelica.Media.Interfaces.PartialMedium.velocityOfSound" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.velocityOfSound"
+>velocityOfSound</A>
+</TD><TD>Return velocity of sound</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.setState_pTXS.png" ALT="Modelica.Media.Interfaces.PartialMedium.isobaricExpansionCoefficient" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.isobaricExpansionCoefficient"
+>isobaricExpansionCoefficient</A>
+</TD><TD>Return overall the isobaric expansion coefficient beta</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.prandtlNumberS.png" ALT="Modelica.Media.Interfaces.PartialMedium.beta" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.beta"
+>beta</A>
+</TD><TD>alias for isobaricExpansionCoefficient for user convenience</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.setState_pTXS.png" ALT="Modelica.Media.Interfaces.PartialMedium.isothermalCompressibility" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.isothermalCompressibility"
+>isothermalCompressibility</A>
+</TD><TD>Return overall the isothermal compressibility factor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.prandtlNumberS.png" ALT="Modelica.Media.Interfaces.PartialMedium.kappa" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.kappa"
+>kappa</A>
+</TD><TD>alias of isothermalCompressibility for user convenience</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.setState_pTXS.png" ALT="Modelica.Media.Interfaces.PartialMedium.density_derp_h" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.density_derp_h"
+>density_derp_h</A>
+</TD><TD>Return density derivative wrt pressure at const specific enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.setState_pTXS.png" ALT="Modelica.Media.Interfaces.PartialMedium.density_derh_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.density_derh_p"
+>density_derh_p</A>
+</TD><TD>Return density derivative wrt specific enthalpy at constant pressure</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.prandtlNumberS.png" ALT="Modelica.Media.Interfaces.PartialMedium.density_derp_T" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.density_derp_T"
+>density_derp_T</A>
+</TD><TD>Return density derivative wrt pressure at const temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.prandtlNumberS.png" ALT="Modelica.Media.Interfaces.PartialMedium.density_derT_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.density_derT_p"
+>density_derT_p</A>
+</TD><TD>Return density derivative wrt temperature at constant pressure</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.prandtlNumberS.png" ALT="Modelica.Media.Interfaces.PartialMedium.density_derX" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.density_derX"
+>density_derX</A>
+</TD><TD>Return density derivative wrt mass fraction</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.setState_pTXS.png" ALT="Modelica.Media.Interfaces.PartialMedium.molarMass" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.molarMass"
+>molarMass</A>
+</TD><TD>Return the molar mass of the medium</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.setState_pTXS.png" ALT="Modelica.Media.Interfaces.PartialMedium.specificEnthalpy_pTX" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.specificEnthalpy_pTX"
+>specificEnthalpy_pTX</A>
+</TD><TD>Return specific enthalpy from p, T, and X or Xi</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.prandtlNumberS.png" ALT="Modelica.Media.Interfaces.PartialMedium.density_pTX" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.density_pTX"
+>density_pTX</A>
+</TD><TD>Return density from p, T, and X or Xi</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.setState_pTXS.png" ALT="Modelica.Media.Interfaces.PartialMedium.temperature_phX" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.temperature_phX"
+>temperature_phX</A>
+</TD><TD>Return temperature from p, h, and X or Xi</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.setState_pTXS.png" ALT="Modelica.Media.Interfaces.PartialMedium.density_phX" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.density_phX"
+>density_phX</A>
+</TD><TD>Return density from p, h, and X or Xi</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.setState_pTXS.png" ALT="Modelica.Media.Interfaces.PartialMedium.temperature_psX" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.temperature_psX"
+>temperature_psX</A>
+</TD><TD>Return temperature from p,s, and X or Xi</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.setState_pTXS.png" ALT="Modelica.Media.Interfaces.PartialMedium.density_psX" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.density_psX"
+>density_psX</A>
+</TD><TD>Return density from p, s, and X or Xi</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.setState_pTXS.png" ALT="Modelica.Media.Interfaces.PartialMedium.specificEnthalpy_psX" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.specificEnthalpy_psX"
+>specificEnthalpy_psX</A>
+</TD><TD>Return specific enthalpy from p, s, and X or Xi</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A>
+</TD><TD>Type for absolute pressure with medium specific attributes</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A>
+</TD><TD>Type for density with medium specific attributes</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.DynamicViscosity"
+>DynamicViscosity</A>
+</TD><TD>Type for dynamic viscosity with medium specific attributes</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.EnthalpyFlowRate"
+>EnthalpyFlowRate</A>
+</TD><TD>Type for enthalpy flow rate with medium specific attributes</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</A>
+</TD><TD>Type for mass flow rate with medium specific attributes</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A>
+</TD><TD>Type for mass fraction with medium specific attributes</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MoleFraction"
+>MoleFraction</A>
+</TD><TD>Type for mole fraction with medium specific attributes</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MolarMass"
+>MolarMass</A>
+</TD><TD>Type for molar mass with medium specific attributes</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MolarVolume"
+>MolarVolume</A>
+</TD><TD>Type for molar volume with medium specific attributes</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.IsentropicExponent"
+>IsentropicExponent</A>
+</TD><TD>Type for isentropic exponent with medium specific attributes</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnergy"
+>SpecificEnergy</A>
+</TD><TD>Type for specific energy with medium specific attributes</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificInternalEnergy"
+>SpecificInternalEnergy</A>
+</TD><TD>Type for specific internal energy with medium specific attributes</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A>
+</TD><TD>Type for specific enthalpy with medium specific attributes</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A>
+</TD><TD>Type for specific entropy with medium specific attributes</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificHeatCapacity"
+>SpecificHeatCapacity</A>
+</TD><TD>Type for specific heat capacity with medium specific attributes</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SurfaceTension"
+>SurfaceTension</A>
+</TD><TD>Type for surface tension with medium specific attributes</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A>
+</TD><TD>Type for temperature with medium specific attributes</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermalConductivity"
+>ThermalConductivity</A>
+</TD><TD>Type for thermal conductivity with medium specific attributes</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.PrandtlNumber"
+>PrandtlNumber</A>
+</TD><TD>Type for Prandtl number with medium specific attributes</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.VelocityOfSound"
+>VelocityOfSound</A>
+</TD><TD>Type for velocity of sound with medium specific attributes</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>ExtraProperty</A>
+</TD><TD>Type for unspecified, mass-specific property transported by flow</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.CumulativeExtraProperty"
+>CumulativeExtraProperty</A>
+</TD><TD>Type for conserved integral of unspecified, mass specific property</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraPropertyFlowRate"
+>ExtraPropertyFlowRate</A>
+</TD><TD>Type for flow rate of unspecified, mass-specific property</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.IsobaricExpansionCoefficient"
+>IsobaricExpansionCoefficient</A>
+</TD><TD>Type for isobaric expansion coefficient with medium specific attributes</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.DipoleMoment"
+>DipoleMoment</A>
+</TD><TD>Type for dipole moment with medium specific attributes</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.DerDensityByPressure"
+>DerDensityByPressure</A>
+</TD><TD>Type for partial derivative of density with resect to pressure with medium specific attributes</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.DerDensityByEnthalpy"
+>DerDensityByEnthalpy</A>
+</TD><TD>Type for partial derivative of density with resect to enthalpy with medium specific attributes</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.DerEnthalpyByPressure"
+>DerEnthalpyByPressure</A>
+</TD><TD>Type for partial derivative of enthalpy with resect to pressure with medium specific attributes</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.DerDensityByTemperature"
+>DerDensityByTemperature</A>
+</TD><TD>Type for partial derivative of density with resect to temperature with medium specific attributes</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Interfaces.PartialMedium.ChoicesS.png" ALT="Modelica.Media.Interfaces.PartialMedium.Choices" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_PartialMedium_Choices.html#Modelica.Media.Interfaces.PartialMedium.Choices"
+>Choices</A>
+</TD><TD>Types, constants to define menu choices</TD></TR>
+</TABLE>
+<H3>Types and constants</H3>
+<PRE>  <font color="blue">constant </font>Boolean enthalpyOfT=true <font color="darkgreen">
+  &quot;true if enthalpy is approximated as a function of T only, (p-dependence neglected)&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font>Boolean densityOfT =<font color="red"> size</font>(tableDensity,1) &gt; 1 <font color="darkgreen">
+  &quot;true if density is a function of temperature&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T_min <font color="darkgreen">&quot;Minimum temperature valid for medium model&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T_max <font color="darkgreen">&quot;Maximum temperature valid for medium model&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T0=273.15 <font color="darkgreen">&quot;reference Temperature&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A> h0=0 <font color="darkgreen">&quot;reference enthalpy at T0, reference_p&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A> s0=0 <font color="darkgreen">&quot;reference entropy at T0, reference_p&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MolarMass"
+>MolarMass</A> MM_const=0.1 <font color="darkgreen">&quot;Molar mass&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font>Integer npol=2 <font color="darkgreen">&quot;degree of polynomial used for fitting&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font>Integer neta=<font color="red">size</font>(tableViscosity,1) <font color="darkgreen">
+  &quot;number of data points for viscosity&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font>Real[:,:] tableDensity <font color="darkgreen">&quot;Table for rho(T)&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font>Real[:,:] tableHeatCapacity <font color="darkgreen">&quot;Table for Cp(T)&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font>Real[:,:] tableViscosity <font color="darkgreen">&quot;Table for eta(T)&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font>Real[:,:] tableVaporPressure <font color="darkgreen">&quot;Table for pVap(T)&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font>Real[:,:] tableConductivity <font color="darkgreen">&quot;Table for lambda(T)&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font>Boolean TinK <font color="darkgreen">&quot;true if T[K],Kelvin used for table temperatures&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font>Boolean hasDensity = <font color="blue">not </font>(<font color="red">size</font>(tableDensity,1)==0) <font color="darkgreen">
+  &quot;true if table tableDensity is present&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font>Boolean hasHeatCapacity = <font color="blue">not </font>(<font color="red">size</font>(tableHeatCapacity,1)==0) <font color="darkgreen">
+  &quot;true if table tableHeatCapacity is present&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font>Boolean hasViscosity = <font color="blue">not </font>(<font color="red">size</font>(tableViscosity,1)==0) <font color="darkgreen">
+  &quot;true if table tableViscosity is present&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font>Boolean hasVaporPressure = <font color="blue">not </font>(<font color="red">size</font>(tableVaporPressure,1)==0) <font color="darkgreen">
+  &quot;true if table tableVaporPressure is present&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">final </font><font color="blue">constant </font>Real invTK[neta] = <font color="blue">if </font><font color="red">size</font>(tableViscosity,1) &gt; 0<font color="blue"> then </font>
+      <font color="red">invertTemp</font>(tableViscosity[:,1],TinK)<font color="blue"> else </font><font color="red">fill</font>(0,0);</PRE><p>
+<PRE>  <font color="blue">final </font><font color="blue">constant </font>Real poly_rho[:] = <font color="blue">if </font>hasDensity<font color="blue"> then </font>
+                                       <font color="red">Poly.fitting</font>(tableDensity[:,1],tableDensity[:,2],npol)<font color="blue"> else </font>
+                                         <font color="red">zeros</font>(npol+1);</PRE><p>
+<PRE>  <font color="blue">final </font><font color="blue">constant </font>Real poly_Cp[:] = <font color="blue">if </font>hasHeatCapacity<font color="blue"> then </font>
+                                       <font color="red">Poly.fitting</font>(tableHeatCapacity[:,1],tableHeatCapacity[:,2],npol)<font color="blue"> else </font>
+                                         <font color="red">zeros</font>(npol+1);</PRE><p>
+<PRE>  <font color="blue">final </font><font color="blue">constant </font>Real poly_eta[:] = <font color="blue">if </font>hasViscosity<font color="blue"> then </font>
+                                       <font color="red">Poly.fitting</font>(invTK,<font color="red"> Math.log</font>(tableViscosity[:,2]),npol)<font color="blue"> else </font>
+                                         <font color="red">zeros</font>(npol+1);</PRE><p>
+<PRE>  <font color="blue">final </font><font color="blue">constant </font>Real poly_pVap[:] = <font color="blue">if </font>hasVaporPressure<font color="blue"> then </font>
+                                       <font color="red">Poly.fitting</font>(tableVaporPressure[:,1],tableVaporPressure[:,2],npol)<font color="blue"> else </font>
+                                          <font color="red">zeros</font>(npol+1);</PRE><p>
+<PRE>  <font color="blue">final </font><font color="blue">constant </font>Real poly_lam[:] = <font color="blue">if </font><font color="red">size</font>(tableConductivity,1)&gt;0<font color="blue"> then </font>
+                                       <font color="red">Poly.fitting</font>(tableConductivity[:,1],tableConductivity[:,2],npol)<font color="blue"> else </font>
+                                         <font color="red">zeros</font>(npol+1);</PRE><p>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE invertTemp<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Incompressible.TableBased.invertTemp"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.invertTemp</H2>
+<B>function to invert temperatures</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>table[:]</TD><TD>&nbsp;</TD><TD>table temperature data</TD></TR>
+<TR><TD>Boolean</TD><TD>Tink</TD><TD>&nbsp;</TD><TD>flag for Celsius or Kelvin</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>invTable[size(table, 1)]</TD><TD>inverted temperatures</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> invertTemp <font color="darkgreen">&quot;function to invert temperatures&quot;</font>
+  <font color="blue">input </font>Real[:] table <font color="darkgreen">&quot;table temperature data&quot;</font>;
+  <font color="blue">input </font>Boolean Tink <font color="darkgreen">&quot;flag for Celsius or Kelvin&quot;</font>;
+  <font color="blue">output </font>Real invTable[<font color="red">size</font>(table,1)] <font color="darkgreen">&quot;inverted temperatures&quot;</font>;
+<font color="blue">algorithm </font>
+  <font color="blue">for </font>i<font color="blue"> in </font>1:<font color="red">size</font>(table,1)<font color="blue"> loop</font>
+    invTable[i] := <font color="blue">if </font>TinK<font color="blue"> then </font>1/table[i]<font color="blue"> else </font>1/<font color="red">Cv.from_degC</font>(table[i]);
+  <font color="blue">end for</font>;
+<font color="blue">end </font>invertTemp;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BaseProperties<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Incompressible.TableBased.BasePropertiesI.png" ALT="Modelica.Media.Incompressible.TableBased.BaseProperties" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Incompressible.TableBased.BaseProperties"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.BaseProperties</H2>
+<B>Base properties of T dependent medium</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Note that the inner energy neglects the pressure dependence, which is only
+true for an incompressible medium with d = constant. The neglected term is
+p-reference_p)/rho*(T/rho)*(partial rho /partial T). This is very small for
+liquids due to proportionality to 1/d^2, but can be problematic for gases that are
+modeled incompressible.
+</p>
+
+<p>
+Enthalpy is never a function of T only (h = h(T) + (p-reference_p)/d), but the
+error is also small and non-linear systems can be avoided. In particular,
+non-linear systems are small and local as opposed to large and over all volumes.
+</p>
+
+<p>
+Entropy is calculated as
+</p>
+<pre>
+  s = s0 + integral(Cp(T)/T,dt)
+</pre>
+<p>
+which is only exactly true for a fluid with constant density d=d0.
+</p>
+<pre>
+      </PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_start</TD><TD>298.15</TD><TD>initial temperature [K]</TD></TR>
+<TR><TD>Boolean</TD><TD>standardOrderComponents</TD><TD>true</TD><TD>if true, and reducedX = true, the last element of X will be computed from the other ones</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Pressure_bar"
+>Pressure_bar</A></TD><TD>p_bar</TD><TD>Cv.to_bar(p)</TD><TD>Absolute pressure of medium in [bar] [bar]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Advanced</B></TD></TR>
+<TR><TD>Boolean</TD><TD>preferredMediumStates</TD><TD>false</TD><TD>= true if StateSelect.prefer shall be used for the independent property variables of the medium</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">model</font> <font color="blue">extends </font>BaseProperties(
+  <font color="blue">final </font>standardOrderComponents=true,
+  p_bar=<font color="red">Cv.to_bar</font>(p),
+  T_degC(start = T_start-273.15)=<font color="red">Cv.to_degC</font>(T),
+  T(start = T_start,
+    stateSelect=<font color="blue">if </font>preferredMediumStates<font color="blue"> then </font>StateSelect.prefer<font color="blue"> else </font>StateSelect.default)) <font color="darkgreen">
+  &quot;Base properties of T dependent medium&quot;</font>
+<font color="darkgreen">//  redeclare parameter SpecificHeatCapacity R=Modelica.Constants.R,</font>
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> cp <font color="darkgreen">&quot;specific heat capacity&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T_start = 298.15 <font color="darkgreen">&quot;initial temperature&quot;</font>;
+<font color="blue">equation </font>
+  <font color="red">assert</font>(hasDensity,&quot;Medium &quot; + mediumName +
+                    &quot; can not be used without assigning tableDensity.&quot;);
+  <font color="red">assert</font>(T &gt;= T_min<font color="blue"> and </font>T &lt;= T_max, &quot;Temperature T (= &quot; +<font color="red"> String</font>(T) +
+         &quot; K) is not in the allowed range (&quot; +<font color="red"> String</font>(T_min) +
+         &quot; K &lt;= T &lt;= &quot; +<font color="red"> String</font>(T_max) + &quot; K) required from medium model \&quot;&quot;
+         + mediumName + &quot;\&quot;.&quot;);
+  R = Modelica.Constants.R;
+  cp =<font color="red"> Poly.evaluate</font>(poly_Cp,<font color="blue">if </font>TinK<font color="blue"> then </font>T<font color="blue"> else </font>T_degC);
+  h = <font color="blue">if </font>enthalpyOfT<font color="blue"> then </font><font color="red">h_T</font>(T)<font color="blue"> else </font><font color="red"> h_pT</font>(p,T,densityOfT);
+  <font color="blue">if </font>singleState<font color="blue"> then</font>
+    u =<font color="red"> h_T</font>(T) - reference_p/d;
+  <font color="blue">else</font>
+    u = h - p/d;
+  <font color="blue">end if</font>;
+  d =<font color="red"> Poly.evaluate</font>(poly_rho,<font color="blue">if </font>TinK<font color="blue"> then </font>T<font color="blue"> else </font>T_degC);
+  state.T = T;
+  state.p = p;
+  MM = MM_const;
+<font color="blue">end </font>BaseProperties;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE setState_pTX<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Incompressible.TableBased.setState_pTXI.png" ALT="Modelica.Media.Incompressible.TableBased.setState_pTX" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Incompressible.TableBased.setState_pTX"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.setState_pTX</H2>
+<B>Returns state record, given pressure and temperature</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>Temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A></TD><TD>X[:]</TD><TD>reference_X</TD><TD>Mass fractions [kg/kg]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermodynamicState"
+>ThermodynamicState</A></TD><TD>state</TD><TD>thermodynamic state record</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>setState_pTX <font color="darkgreen">
+  &quot;Returns state record, given pressure and temperature&quot;</font>
+<font color="blue">algorithm </font>
+  state :=<font color="red"> ThermodynamicState</font>(p=p,T=T);
+<font color="blue">end </font>setState_pTX;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE setState_dTX<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Incompressible.TableBased.setState_pTXI.png" ALT="Modelica.Media.Incompressible.TableBased.setState_dTX" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Incompressible.TableBased.setState_dTX"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.setState_dTX</H2>
+<B>Returns state record, given pressure and temperature</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A></TD><TD>d</TD><TD>&nbsp;</TD><TD>density [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>Temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A></TD><TD>X[:]</TD><TD>reference_X</TD><TD>Mass fractions [kg/kg]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermodynamicState"
+>ThermodynamicState</A></TD><TD>state</TD><TD>thermodynamic state record</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>setState_dTX <font color="darkgreen">
+  &quot;Returns state record, given pressure and temperature&quot;</font>
+<font color="blue">algorithm </font>
+  <font color="red">assert</font>(false, &quot;for incompressible media with d(T) only, state can not be set from density and temperature&quot;);
+<font color="blue">end </font>setState_dTX;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE setState_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Incompressible.TableBased.setState_pT"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.setState_pT</H2>
+<B>returns state record as function of p and T</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermodynamicState"
+>ThermodynamicState</A></TD><TD>state</TD><TD>thermodynamic state</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> setState_pT <font color="darkgreen">&quot;returns state record as function of p and T&quot;</font>
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermodynamicState"
+>ThermodynamicState</A> state <font color="darkgreen">&quot;thermodynamic state&quot;</font>;
+<font color="blue">algorithm </font>
+  state.T := T;
+  state.p := p;
+<font color="blue">end </font>setState_pT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE setState_phX<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Incompressible.TableBased.setState_phXI.png" ALT="Modelica.Media.Incompressible.TableBased.setState_phX" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Incompressible.TableBased.setState_phX"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.setState_phX</H2>
+<B>Returns state record, given pressure and specific enthalpy</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h</TD><TD>&nbsp;</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A></TD><TD>X[:]</TD><TD>reference_X</TD><TD>Mass fractions [kg/kg]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermodynamicState"
+>ThermodynamicState</A></TD><TD>state</TD><TD>thermodynamic state record</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>setState_phX <font color="darkgreen">
+  &quot;Returns state record, given pressure and specific enthalpy&quot;</font>
+<font color="blue">algorithm </font>
+  state :=<font color="red">ThermodynamicState</font>(p=p,T=<font color="red">T_ph</font>(p,h));
+<font color="blue">end </font>setState_phX;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE setState_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Incompressible.TableBased.setState_ph"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.setState_ph</H2>
+<B>returns state record as function of p and h</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h</TD><TD>&nbsp;</TD><TD>specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermodynamicState"
+>ThermodynamicState</A></TD><TD>state</TD><TD>thermodynamic state</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> setState_ph <font color="darkgreen">&quot;returns state record as function of p and h&quot;</font>
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermodynamicState"
+>ThermodynamicState</A> state <font color="darkgreen">&quot;thermodynamic state&quot;</font>;
+<font color="blue">algorithm </font>
+  state :=<font color="red">ThermodynamicState</font>(p=p,T=<font color="red">T_ph</font>(p,h));
+<font color="blue">end </font>setState_ph;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE setState_psX<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Incompressible.TableBased.setState_psXI.png" ALT="Modelica.Media.Incompressible.TableBased.setState_psX" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Incompressible.TableBased.setState_psX"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.setState_psX</H2>
+<B>Returns state record, given pressure and specific entropy</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A></TD><TD>s</TD><TD>&nbsp;</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A></TD><TD>X[:]</TD><TD>reference_X</TD><TD>Mass fractions [kg/kg]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermodynamicState"
+>ThermodynamicState</A></TD><TD>state</TD><TD>thermodynamic state record</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>setState_psX <font color="darkgreen">
+  &quot;Returns state record, given pressure and specific entropy&quot;</font>
+<font color="blue">algorithm </font>
+  state :=<font color="red">ThermodynamicState</font>(p=p,T=<font color="red">T_ps</font>(p,s));
+<font color="blue">end </font>setState_psX;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE setState_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Incompressible.TableBased.setState_ps"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.setState_ps</H2>
+<B>returns state record as function of p and s</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A></TD><TD>s</TD><TD>&nbsp;</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermodynamicState"
+>ThermodynamicState</A></TD><TD>state</TD><TD>thermodynamic state</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> setState_ps <font color="darkgreen">&quot;returns state record as function of p and s&quot;</font>
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermodynamicState"
+>ThermodynamicState</A> state <font color="darkgreen">&quot;thermodynamic state&quot;</font>;
+<font color="blue">algorithm </font>
+  state :=<font color="red">ThermodynamicState</font>(p=p,T=<font color="red">T_ps</font>(p,s));
+<font color="blue">end </font>setState_ps;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE specificHeatCapacityCv<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Incompressible.TableBased.specificHeatCapacityCvI.png" ALT="Modelica.Media.Incompressible.TableBased.specificHeatCapacityCv" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Incompressible.TableBased.specificHeatCapacityCv"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.specificHeatCapacityCv</H2>
+<B>Specific heat capacity at constant volume (or pressure) of medium</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermodynamicState"
+>ThermodynamicState</A></TD><TD>state</TD><TD>&nbsp;</TD><TD>thermodynamic state record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificHeatCapacity"
+>SpecificHeatCapacity</A></TD><TD>cv</TD><TD>Specific heat capacity at constant volume [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>specificHeatCapacityCv <font color="darkgreen">
+  &quot;Specific heat capacity at constant volume (or pressure) of medium&quot;</font>
+
+<font color="blue">algorithm </font>
+  <font color="red">assert</font>(hasHeatCapacity,&quot;Specific Heat Capacity, Cv, is not defined for medium &quot;
+                                         + mediumName + &quot;.&quot;);
+  cv :=<font color="red"> Poly.evaluate</font>(poly_Cp,<font color="blue">if </font>TinK<font color="blue"> then </font>state.T<font color="blue"> else </font>state.T - 273.15);
+<font color="blue">end </font>specificHeatCapacityCv;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE specificHeatCapacityCp<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Incompressible.TableBased.specificHeatCapacityCvI.png" ALT="Modelica.Media.Incompressible.TableBased.specificHeatCapacityCp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Incompressible.TableBased.specificHeatCapacityCp"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.specificHeatCapacityCp</H2>
+<B>Specific heat capacity at constant volume (or pressure) of medium</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermodynamicState"
+>ThermodynamicState</A></TD><TD>state</TD><TD>&nbsp;</TD><TD>thermodynamic state record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificHeatCapacity"
+>SpecificHeatCapacity</A></TD><TD>cp</TD><TD>Specific heat capacity at constant pressure [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>specificHeatCapacityCp <font color="darkgreen">
+  &quot;Specific heat capacity at constant volume (or pressure) of medium&quot;</font>
+
+<font color="blue">algorithm </font>
+  <font color="red">assert</font>(hasHeatCapacity,&quot;Specific Heat Capacity, Cv, is not defined for medium &quot;
+                                         + mediumName + &quot;.&quot;);
+  cp :=<font color="red"> Poly.evaluate</font>(poly_Cp,<font color="blue">if </font>TinK<font color="blue"> then </font>state.T<font color="blue"> else </font>state.T - 273.15);
+<font color="blue">end </font>specificHeatCapacityCp;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dynamicViscosity<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Incompressible.TableBased.specificHeatCapacityCvI.png" ALT="Modelica.Media.Incompressible.TableBased.dynamicViscosity" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Incompressible.TableBased.dynamicViscosity"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.dynamicViscosity</H2>
+<B>Return dynamic viscosity as a function of the thermodynamic state record</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermodynamicState"
+>ThermodynamicState</A></TD><TD>state</TD><TD>&nbsp;</TD><TD>thermodynamic state record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>eta</TD><TD>Dynamic viscosity [Pa.s]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>dynamicViscosity <font color="darkgreen">
+  &quot;Return dynamic viscosity as a function of the thermodynamic state record&quot;</font>
+
+<font color="blue">algorithm </font>
+  <font color="red">assert</font>(<font color="red">size</font>(tableViscosity,1)&gt;0,&quot;DynamicViscosity, eta, is not defined for medium &quot;
+                                         + mediumName + &quot;.&quot;);
+  eta :=<font color="red"> Math.exp</font>(<font color="red">Poly.evaluate</font>(poly_eta, 1/state.T));
+<font color="blue">end </font>dynamicViscosity;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE thermalConductivity<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Incompressible.TableBased.specificHeatCapacityCvI.png" ALT="Modelica.Media.Incompressible.TableBased.thermalConductivity" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Incompressible.TableBased.thermalConductivity"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.thermalConductivity</H2>
+<B>Return thermal conductivity as a function of the thermodynamic state record</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermodynamicState"
+>ThermodynamicState</A></TD><TD>state</TD><TD>&nbsp;</TD><TD>thermodynamic state record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermalConductivity"
+>ThermalConductivity</A></TD><TD>lambda</TD><TD>Thermal conductivity [W/(m.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>thermalConductivity <font color="darkgreen">
+  &quot;Return thermal conductivity as a function of the thermodynamic state record&quot;</font>
+
+<font color="blue">algorithm </font>
+  <font color="red">assert</font>(<font color="red">size</font>(tableConductivity,1)&gt;0,&quot;ThermalConductivity, lambda, is not defined for medium &quot;
+                                         + mediumName + &quot;.&quot;);
+  lambda :=<font color="red"> Poly.evaluate</font>(poly_lam,<font color="blue">if </font>TinK<font color="blue"> then </font>state.T<font color="blue"> else </font><font color="red">Cv.to_degC</font>(state.T));
+<font color="blue">end </font>thermalConductivity;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE s_T<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Incompressible.TableBased.s_T"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.s_T</H2>
+<B>compute specific entropy</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A></TD><TD>s</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> s_T <font color="darkgreen">&quot;compute specific entropy&quot;</font>
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+<font color="blue">algorithm </font>
+  s := s0 + (<font color="blue">if </font>TinK<font color="blue"> then </font>
+    <font color="red">Poly.integralValue</font>(poly_Cp[1:npol],T, T0)<font color="blue"> else </font>
+    <font color="red">Poly.integralValue</font>(poly_Cp[1:npol],<font color="red">Cv.to_degC</font>(T),<font color="red">Cv.to_degC</font>(T0)))
+    +<font color="red"> Modelica.Math.log</font>(T/T0)*
+    <font color="red">Poly.evaluate</font>(poly_Cp,<font color="blue">if </font>TinK<font color="blue"> then </font>0<font color="blue"> else </font>Modelica.Constants.T_zero);
+<font color="blue">end </font>s_T;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE specificEntropy<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Incompressible.TableBased.specificEntropyI.png" ALT="Modelica.Media.Incompressible.TableBased.specificEntropy" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Incompressible.TableBased.specificEntropy"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.specificEntropy</H2>
+<B>Return specific entropy
+ as a function of the thermodynamic state record</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermodynamicState"
+>ThermodynamicState</A></TD><TD>state</TD><TD>&nbsp;</TD><TD>thermodynamic state record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A></TD><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>specificEntropy <font color="darkgreen">&quot;Return specific entropy
+ as a function of the thermodynamic state record&quot;</font>
+
+<font color="blue">protected </font>
+  Integer npol=<font color="red">size</font>(poly_Cp,1)-1;
+<font color="blue">algorithm </font>
+  <font color="red">assert</font>(hasHeatCapacity,&quot;Specific Entropy, s(T), is not defined for medium &quot;
+                                         + mediumName + &quot;.&quot;);
+  s :=<font color="red"> s_T</font>(state.T);
+<font color="blue">end </font>specificEntropy;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE h_T<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Incompressible.TableBased.specificEntropyI.png" ALT="Modelica.Media.Incompressible.TableBased.h_T" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Incompressible.TableBased.h_T"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.h_T</H2>
+<B>Compute specific enthalpy from temperature</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h</TD><TD>Specific enthalpy at p, T [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> h_T <font color="darkgreen">&quot;Compute specific enthalpy from temperature&quot;</font>
+  annotation(derivative=<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased.h_T_der"
+>h_T_der</A>);
+  <font color="blue">import </font><A HREF="Modelica_SIunits_Conversions.html#Modelica.SIunits.Conversions.to_degC"
+>Modelica.SIunits.Conversions.to_degC</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;Temperature&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;Specific enthalpy at p, T&quot;</font>;
+<font color="blue">algorithm </font>
+  h :=h0 +<font color="red"> Poly.integralValue</font>(poly_Cp, <font color="blue">if </font>TinK<font color="blue"> then </font>T<font color="blue"> else </font><font color="red">Cv.to_degC</font>(T), <font color="blue">if </font>TinK<font color="blue"> then </font>
+  T0<font color="blue"> else </font><font color="red">Cv.to_degC</font>(T0));
+<font color="blue">end </font>h_T;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE h_T_der<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Incompressible.TableBased.specificEntropyI.png" ALT="Modelica.Media.Incompressible.TableBased.h_T_der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Incompressible.TableBased.h_T_der"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.h_T_der</H2>
+<B>Compute specific enthalpy from temperature</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>Real</TD><TD>dT</TD><TD>&nbsp;</TD><TD>temperature derivative</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>dh</TD><TD>derivative of Specific enthalpy at T</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> h_T_der <font color="darkgreen">&quot;Compute specific enthalpy from temperature&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_SIunits_Conversions.html#Modelica.SIunits.Conversions.to_degC"
+>Modelica.SIunits.Conversions.to_degC</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;Temperature&quot;</font>;
+  <font color="blue">input </font>Real dT <font color="darkgreen">&quot;temperature derivative&quot;</font>;
+  <font color="blue">output </font>Real dh <font color="darkgreen">&quot;derivative of Specific enthalpy at T&quot;</font>;
+<font color="blue">algorithm </font>
+  dh :=<font color="red">Poly.evaluate</font>(poly_Cp, <font color="blue">if </font>TinK<font color="blue"> then </font>T<font color="blue"> else </font><font color="red">Cv.to_degC</font>(T))*dT;
+<font color="blue">end </font>h_T_der;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE h_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Incompressible.TableBased.specificEntropyI.png" ALT="Modelica.Media.Incompressible.TableBased.h_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Incompressible.TableBased.h_pT"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.h_pT</H2>
+<B>Compute specific enthalpy from pressure and temperature</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>Pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>Temperature [K]</TD></TR>
+<TR><TD>Boolean</TD><TD>densityOfT</TD><TD>false</TD><TD>include or neglect density derivative dependence of enthalpy</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h</TD><TD>Specific enthalpy at p, T [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> h_pT <font color="darkgreen">
+  &quot;Compute specific enthalpy from pressure and temperature&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_SIunits_Conversions.html#Modelica.SIunits.Conversions.to_degC"
+>Modelica.SIunits.Conversions.to_degC</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;Pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;Temperature&quot;</font>;
+  <font color="blue">input </font>Boolean densityOfT = false <font color="darkgreen">
+    &quot;include or neglect density derivative dependence of enthalpy&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;Specific enthalpy at p, T&quot;</font>;
+<font color="blue">algorithm </font>
+  h :=h0 +<font color="red"> Poly.integralValue</font>(poly_Cp, <font color="blue">if </font>TinK<font color="blue"> then </font>T<font color="blue"> else </font><font color="red">Cv.to_degC</font>(T), <font color="blue">if </font>TinK<font color="blue"> then </font>
+  T0<font color="blue"> else </font><font color="red">Cv.to_degC</font>(T0)) + (p - reference_p)/<font color="red">Poly.evaluate</font>(poly_rho, <font color="blue">if </font>TinK<font color="blue"> then </font>
+          T<font color="blue"> else </font><font color="red">Cv.to_degC</font>(T))
+    *(<font color="blue">if </font>densityOfT<font color="blue"> then </font>(1 + T/<font color="red">Poly.evaluate</font>(poly_rho, <font color="blue">if </font>TinK<font color="blue"> then </font>T<font color="blue"> else </font><font color="red">Cv.to_degC</font>(T))
+  *<font color="red">Poly.derivativeValue</font>(poly_rho,<font color="blue">if </font>TinK<font color="blue"> then </font>T<font color="blue"> else </font><font color="red">Cv.to_degC</font>(T)))<font color="blue"> else </font>1.0);
+<font color="blue">end </font>h_pT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE density_T<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Incompressible.TableBased.density_T"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.density_T</H2>
+<B>Return density as function of temperature</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A></TD><TD>d</TD><TD>density [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> density_T <font color="darkgreen">&quot;Return density as function of temperature&quot;</font>
+
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+<font color="blue">algorithm </font>
+  d :=<font color="red"> Poly.evaluate</font>(poly_rho,<font color="blue">if </font>TinK<font color="blue"> then </font>T<font color="blue"> else </font><font color="red">Cv.to_degC</font>(T));
+<font color="blue">end </font>density_T;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE temperature<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Incompressible.TableBased.temperatureI.png" ALT="Modelica.Media.Incompressible.TableBased.temperature" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Incompressible.TableBased.temperature"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.temperature</H2>
+<B>Return temperature as a function of the thermodynamic state record</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermodynamicState"
+>ThermodynamicState</A></TD><TD>state</TD><TD>&nbsp;</TD><TD>thermodynamic state record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>Temperature [K]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>temperature <font color="darkgreen">
+  &quot;Return temperature as a function of the thermodynamic state record&quot;</font>
+
+<font color="blue">algorithm </font>
+ T := state.T;
+<font color="blue">end </font>temperature;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE pressure<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Incompressible.TableBased.temperatureI.png" ALT="Modelica.Media.Incompressible.TableBased.pressure" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Incompressible.TableBased.pressure"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.pressure</H2>
+<B>Return pressure as a function of the thermodynamic state record</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermodynamicState"
+>ThermodynamicState</A></TD><TD>state</TD><TD>&nbsp;</TD><TD>thermodynamic state record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p</TD><TD>Pressure [Pa]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>pressure <font color="darkgreen">
+  &quot;Return pressure as a function of the thermodynamic state record&quot;</font>
+<font color="blue">algorithm </font>
+ p := state.p;
+<font color="blue">end </font>pressure;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE density<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Incompressible.TableBased.temperatureI.png" ALT="Modelica.Media.Incompressible.TableBased.density" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Incompressible.TableBased.density"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.density</H2>
+<B>Return density as a function of the thermodynamic state record</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermodynamicState"
+>ThermodynamicState</A></TD><TD>state</TD><TD>&nbsp;</TD><TD>thermodynamic state record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Density</A></TD><TD>d</TD><TD>Density [kg/m3]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>density <font color="darkgreen">
+  &quot;Return density as a function of the thermodynamic state record&quot;</font>
+<font color="blue">algorithm </font>
+  d :=<font color="red"> Poly.evaluate</font>(poly_rho,<font color="blue">if </font>TinK<font color="blue"> then </font>state.T<font color="blue"> else </font><font color="red">Cv.to_degC</font>(state.T));
+<font color="blue">end </font>density;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE specificEnthalpy<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Incompressible.TableBased.temperatureI.png" ALT="Modelica.Media.Incompressible.TableBased.specificEnthalpy" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Incompressible.TableBased.specificEnthalpy"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.specificEnthalpy</H2>
+<B>Return specific enthalpy as a function of the thermodynamic state record</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermodynamicState"
+>ThermodynamicState</A></TD><TD>state</TD><TD>&nbsp;</TD><TD>thermodynamic state record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>specificEnthalpy <font color="darkgreen">
+  &quot;Return specific enthalpy as a function of the thermodynamic state record&quot;</font>
+<font color="blue">algorithm </font>
+  h := <font color="blue">if </font>enthalpyOfT<font color="blue"> then </font><font color="red">h_T</font>(state.T)<font color="blue"> else </font><font color="red">h_pT</font>(state.p,state.T);
+<font color="blue">end </font>specificEnthalpy;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE specificInternalEnergy<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Incompressible.TableBased.temperatureI.png" ALT="Modelica.Media.Incompressible.TableBased.specificInternalEnergy" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Incompressible.TableBased.specificInternalEnergy"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.specificInternalEnergy</H2>
+<B>Return specific internal energy as a function of the thermodynamic state record</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermodynamicState"
+>ThermodynamicState</A></TD><TD>state</TD><TD>&nbsp;</TD><TD>thermodynamic state record</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnergy"
+>SpecificEnergy</A></TD><TD>u</TD><TD>Specific internal energy [J/kg]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>specificInternalEnergy <font color="darkgreen">
+  &quot;Return specific internal energy as a function of the thermodynamic state record&quot;</font>
+<font color="blue">algorithm </font>
+  u := <font color="blue">if </font>enthalpyOfT<font color="blue"> then </font><font color="red">h_T</font>(state.T)<font color="blue"> else </font><font color="red">h_pT</font>(state.p,state.T)
+    - (<font color="blue">if </font>singleState<font color="blue"> then </font> reference_p/<font color="red">density</font>(state)<font color="blue"> else </font>state.p/<font color="red">density</font>(state));
+<font color="blue">end </font>specificInternalEnergy;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE T_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Incompressible.TableBased.T_ph"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.T_ph</H2>
+<B>Compute temperature from pressure and specific enthalpy</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h</TD><TD>&nbsp;</TD><TD>specific enthalpy [J/kg]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>temperature [K]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> T_ph <font color="darkgreen">
+  &quot;Compute temperature from pressure and specific enthalpy&quot;</font>
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">package</font> Internal <font color="darkgreen">
+    &quot;Solve h(T) for T with given h (use only indirectly via temperature_phX)&quot;</font>
+    <font color="blue">extends </font><A HREF="Modelica_Media_Common_OneNonLinearEquation.html#Modelica.Media.Common.OneNonLinearEquation"
+>Modelica.Media.Common.OneNonLinearEquation</A>;
+
+    <font color="blue">redeclare </font><font color="blue">record</font> <font color="blue">extends </font>f_nonlinear_Data <font color="darkgreen">
+      &quot;superfluous record, fix later when better structure of inverse functions exists&quot;</font>
+        <font color="blue">constant </font>Real[5] dummy = {1,2,3,4,5};
+    <font color="blue">end </font>f_nonlinear_Data;
+
+    <font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>f_nonlinear <font color="darkgreen">
+      &quot;p is smuggled in via vector&quot;</font>
+    <font color="blue">algorithm </font>
+      y := <font color="blue">if </font>singleState<font color="blue"> then </font><font color="red">h_T</font>(x)<font color="blue"> else </font><font color="red">h_pT</font>(p,x);
+    <font color="blue">end </font>f_nonlinear;
+
+    <font color="darkgreen">// Dummy definition has to be added for current Dymola</font>
+    <font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>solve
+    <font color="blue">end </font>solve;
+  <font color="blue">end </font>Internal;
+<font color="blue">algorithm </font>
+ T :=<font color="red"> Internal.solve</font>(h, T_min, T_max, p, {1},<font color="red"> Internal.f_nonlinear_Data</font>());
+<font color="blue">end </font>T_ph;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE T_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Incompressible.TableBased.T_ps"></A><A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>Modelica.Media.Incompressible.TableBased</A>.T_ps</H2>
+<B>Compute temperature from pressure and specific enthalpy</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A></TD><TD>s</TD><TD>&nbsp;</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>temperature [K]</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> T_ps <font color="darkgreen">
+  &quot;Compute temperature from pressure and specific enthalpy&quot;</font>
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEntropy"
+>SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">package</font> Internal <font color="darkgreen">
+    &quot;Solve h(T) for T with given h (use only indirectly via temperature_phX)&quot;</font>
+    <font color="blue">extends </font><A HREF="Modelica_Media_Common_OneNonLinearEquation.html#Modelica.Media.Common.OneNonLinearEquation"
+>Modelica.Media.Common.OneNonLinearEquation</A>;
+
+    <font color="blue">redeclare </font><font color="blue">record</font> <font color="blue">extends </font>f_nonlinear_Data <font color="darkgreen">
+      &quot;superfluous record, fix later when better structure of inverse functions exists&quot;</font>
+        <font color="blue">constant </font>Real[5] dummy = {1,2,3,4,5};
+    <font color="blue">end </font>f_nonlinear_Data;
+
+    <font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>f_nonlinear <font color="darkgreen">
+      &quot;p is smuggled in via vector&quot;</font>
+    <font color="blue">algorithm </font>
+      y := <font color="red">s_T</font>(x);
+    <font color="blue">end </font>f_nonlinear;
+
+    <font color="darkgreen">// Dummy definition has to be added for current Dymola</font>
+    <font color="blue">redeclare </font><font color="blue">function</font> <font color="blue">extends </font>solve
+    <font color="blue">end </font>solve;
+  <font color="blue">end </font>Internal;
+<font color="blue">algorithm </font>
+ T :=<font color="red"> Internal.solve</font>(s, T_min, T_max, p, {1},<font color="red"> Internal.f_nonlinear_Data</font>());
+<font color="blue">end </font>T_ps;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Sat Mar 01 21:49:52 2008.
+</address></BODY>
+</HTML>

@@ -1,0 +1,104 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Media.Incompressible</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Medium model for T-dependent properties, defined by tables or polynomials&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Incompressible<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Incompressible"></A><A HREF="Modelica_Media.html#Modelica.Media"
+>Modelica.Media</A>.Incompressible</H2>
+<B>Medium model for T-dependent properties, defined by tables or polynomials</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<h4>Incompressible media package</h4>
+<p>
+This package provides a structure and examples of how to create simple
+medium models of incompressible fluids, meaning fluids with very little
+pressure influence on density. The medium properties is typically described
+in terms of tables, functions or polynomial coefficients.
+</p>
+<h4>Definitions</h4>
+<p>
+The common meaning of <em>incompressible</em> is that properties like density
+and enthalpy are independent of pressure. Thus properties are conveniently
+described as functions of temperature, e.g. as polynomials density(T) and cp(T).
+However, enthalpy can not be independent of pressure since h = u - p/d. For liquids
+it is anyway
+common to neglect this dependence since for constant density the neglected term
+is (p - p0)/d, which in comparison with cp is very small for most liquids. For
+water, the equivalent change of temperature to increasing pressure 1 bar is
+0.025 Kelvin.
+</p>
+<p>
+Two boolean flags are used to choose how enthalpy and inner energy is calculated:
+<ul>
+<li><b>enthalpyOfT</b>=true, means assuming that enthalpy is only a function
+of temperature, neglecting the pressure dependent term.</li>
+<li><b>singleState</b>=true, means also neglect the pressure influence on inner
+energy, which makes all medium properties pure functions of temperature.</li>
+</ul>
+The default setting for both these flags is true, which enables the simulation tool
+to choose temperature as the only medium state and avoids non-linear equation
+systems, see the section about
+<A HREF="Modelica_Media_UsersGuide_MediumDefinition.html#Modelica.Media.UsersGuide.MediumDefinition.StaticStateSelection"
+>Static
+state selection</a> in the Modelica.Media User's Guide.
+
+</p>
+<h4>Contents</h4>
+<p>
+Currently, the package contains the following parts:
+</p>
+<ol>
+<li> <A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>
+      Table based medium models</a></li>
+<li> <A HREF="Modelica_Media_Incompressible_Examples.html#Modelica.Media.Incompressible.Examples"
+>
+      Example medium models</a></li>
+</ol>
+
+<p>
+A few examples are given in the Examples package. The model
+<A HREF="Modelica_Media_Incompressible_Examples_Glycol47.html#Modelica.Media.Incompressible.Examples.Glycol47"
+>
+Examples.Glycol47</a> shows how the medium models can be used. For more
+realistic examples of how to implement volume models with medium properties
+look in the <A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage"
+>Medium
+usage section</a> of the User's Guide.
+</p>
+
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.CommonS.png" ALT="Modelica.Media.Incompressible.Common" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_Common.html#Modelica.Media.Incompressible.Common"
+>Common</A>
+</TD><TD>Common data structures</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBasedS.png" ALT="Modelica.Media.Incompressible.TableBased" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>TableBased</A>
+</TD><TD>Incompressible medium properties based on tables</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Incompressible.ExamplesS.png" ALT="Modelica.Media.Incompressible.Examples" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_Examples.html#Modelica.Media.Incompressible.Examples"
+>Examples</A>
+</TD><TD>Examples for incompressible media</TD></TR>
+</TABLE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Sat Mar 01 21:49:52 2008.
+</address></BODY>
+</HTML>

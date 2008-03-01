@@ -1,0 +1,316 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Media.Common.OneNonLinearEquation</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Determine solution of a non-linear algebraic equation in one unknown without derivatives in a reliable and efficient way&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE OneNonLinearEquation<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common.OneNonLinearEquation"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.OneNonLinearEquation</H2>
+<B>Determine solution of a non-linear algebraic equation in one unknown without derivatives in a reliable and efficient way</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This function should currently only be used in Modelica.Media,
+since it might be replaced in the future by another strategy,
+where the tool is responsible for the solution of the non-linear
+equation.
+</p>
+
+<p>
+This library determines the solution of one non-linear algebraic equation "y=f(x)"
+in one unknown "x" in a reliable way. As input, the desired value y of the
+non-linear function has to be given, as well as an interval x_min, x_max that
+contains the solution, i.e., "f(x_min) - y" and "f(x_max) - y" must
+have a different sign. If possible, a smaller interval is computed by
+inverse quadratic interpolation (interpolating with a quadratic polynomial
+through the last 3 points and computing the zero). If this fails,
+bisection is used, which always reduces the interval by a factor of 2.
+The inverse quadratic interpolation method has superlinear convergence.
+This is roughly the same convergence rate as a globally convergent Newton
+method, but without the need to compute derivatives of the non-linear
+function. The solver function is a direct mapping of the Algol 60 procedure
+"zero" to Modelica, from:
+</p>
+
+<dl>
+<dt> Brent R.P.:</dt>
+<dd> <b>Algorithms for Minimization without derivatives</b>.
+     Prentice Hall, 1973, pp. 58-59.</dd>
+</dl>
+
+<p>
+Due to current limitations of the
+Modelica language (not possible to pass a function reference to a function),
+the construction to use this solver on a user-defined function is a bit
+complicated (this method is from Hans Olsson, Dynasim AB). A user has to
+provide a package in the following way:
+</p>
+
+<pre>
+  <b>package</b> MyNonLinearSolver
+    <b>extends</b> OneNonLinearEquation;
+
+    <b>redeclare record extends</b> Data
+      // Define data to be passed to user function
+      ...
+    <b>end</b> Data;
+
+    <b>redeclare function extends</b> f_nonlinear
+    <b>algorithm</b>
+       // Compute the non-linear equation: y = f(x, Data)
+    <b>end</b> f_nonlinear;
+
+    // Dummy definition that has to be present for current Dymola
+    <b>redeclare function extends</b> solve
+    <b>end</b> solve;
+  <b>end</b> MyNonLinearSolver;
+
+  x_zero = MyNonLinearSolver.solve(y_zero, x_min, x_max, data=data);
+</pre>
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.OneNonLinearEquation.f_nonlinear_DataS.png" ALT="Modelica.Media.Common.OneNonLinearEquation.f_nonlinear_Data" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_OneNonLinearEquation.html#Modelica.Media.Common.OneNonLinearEquation.f_nonlinear_Data"
+>f_nonlinear_Data</A>
+</TD><TD>Data specific for function f_nonlinear</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.OneNonLinearEquation.f_nonlinearS.png" ALT="Modelica.Media.Common.OneNonLinearEquation.f_nonlinear" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_OneNonLinearEquation.html#Modelica.Media.Common.OneNonLinearEquation.f_nonlinear"
+>f_nonlinear</A>
+</TD><TD>Nonlinear algebraic equation in one unknown: y = f_nonlinear(x,p,X)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.OneNonLinearEquation.f_nonlinearS.png" ALT="Modelica.Media.Common.OneNonLinearEquation.solve" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_OneNonLinearEquation.html#Modelica.Media.Common.OneNonLinearEquation.solve"
+>solve</A>
+</TD><TD>Solve f_nonlinear(x_zero)=y_zero; f_nonlinear(x_min) - y_zero and f_nonlinear(x_max)-y_zero must have different sign</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE f_nonlinear_Data<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.OneNonLinearEquation.f_nonlinear_DataI.png" ALT="Modelica.Media.Common.OneNonLinearEquation.f_nonlinear_Data" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.OneNonLinearEquation.f_nonlinear_Data"></A><A HREF="Modelica_Media_Common_OneNonLinearEquation.html#Modelica.Media.Common.OneNonLinearEquation"
+>Modelica.Media.Common.OneNonLinearEquation</A>.f_nonlinear_Data</H2>
+<B>Data specific for function f_nonlinear</B><p>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">replaceable </font><font color="blue">record</font> f_nonlinear_Data <font color="darkgreen">
+  &quot;Data specific for function f_nonlinear&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A>;
+<font color="blue">end </font>f_nonlinear_Data;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE f_nonlinear<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.OneNonLinearEquation.f_nonlinearI.png" ALT="Modelica.Media.Common.OneNonLinearEquation.f_nonlinear" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.OneNonLinearEquation.f_nonlinear"></A><A HREF="Modelica_Media_Common_OneNonLinearEquation.html#Modelica.Media.Common.OneNonLinearEquation"
+>Modelica.Media.Common.OneNonLinearEquation</A>.f_nonlinear</H2>
+<B>Nonlinear algebraic equation in one unknown: y = f_nonlinear(x,p,X)</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x</TD><TD>&nbsp;</TD><TD>Independent variable of function</TD></TR>
+<TR><TD>Real</TD><TD>p</TD><TD>0.0</TD><TD>disregaded variables (here always used for pressure)</TD></TR>
+<TR><TD>Real</TD><TD>X[:]</TD><TD>fill(0, 0)</TD><TD>disregaded variables (her always used for composition)</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common_OneNonLinearEquation.html#Modelica.Media.Common.OneNonLinearEquation.f_nonlinear_Data"
+>f_nonlinear_Data</A></TD><TD>f_nonlinear_data</TD><TD>&nbsp;</TD><TD>Additional data for the function</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>= f_nonlinear(x)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">replaceable </font><font color="blue">partial </font><font color="blue">function</font> f_nonlinear <font color="darkgreen">
+  &quot;Nonlinear algebraic equation in one unknown: y = f_nonlinear(x,p,X)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real x <font color="darkgreen">&quot;Independent variable of function&quot;</font>;
+  <font color="blue">input </font>Real p = 0.0 <font color="darkgreen">&quot;disregaded variables (here always used for pressure)&quot;</font>;
+  <font color="blue">input </font>Real[:] X =<font color="red"> fill</font>(0,0) <font color="darkgreen">
+    &quot;disregaded variables (her always used for composition)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Common_OneNonLinearEquation.html#Modelica.Media.Common.OneNonLinearEquation.f_nonlinear_Data"
+>f_nonlinear_Data</A> f_nonlinear_data <font color="darkgreen">&quot;Additional data for the function&quot;</font>;
+  <font color="blue">output </font>Real y <font color="darkgreen">&quot;= f_nonlinear(x)&quot;</font>;
+  <font color="darkgreen">// annotation(derivative(zeroDerivative=y)); // this must hold for all replaced functions</font>
+<font color="blue">end </font>f_nonlinear;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE solve<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.OneNonLinearEquation.f_nonlinearI.png" ALT="Modelica.Media.Common.OneNonLinearEquation.solve" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.OneNonLinearEquation.solve"></A><A HREF="Modelica_Media_Common_OneNonLinearEquation.html#Modelica.Media.Common.OneNonLinearEquation"
+>Modelica.Media.Common.OneNonLinearEquation</A>.solve</H2>
+<B>Solve f_nonlinear(x_zero)=y_zero; f_nonlinear(x_min) - y_zero and f_nonlinear(x_max)-y_zero must have different sign</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y_zero</TD><TD>&nbsp;</TD><TD>Determine x_zero, such that f_nonlinear(x_zero) = y_zero</TD></TR>
+<TR><TD>Real</TD><TD>x_min</TD><TD>&nbsp;</TD><TD>Minimum value of x</TD></TR>
+<TR><TD>Real</TD><TD>x_max</TD><TD>&nbsp;</TD><TD>Maximum value of x</TD></TR>
+<TR><TD>Real</TD><TD>pressure</TD><TD>0.0</TD><TD>disregaded variables (here always used for pressure)</TD></TR>
+<TR><TD>Real</TD><TD>X[:]</TD><TD>fill(0, 0)</TD><TD>disregaded variables (here always used for composition)</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common_OneNonLinearEquation.html#Modelica.Media.Common.OneNonLinearEquation.f_nonlinear_Data"
+>f_nonlinear_Data</A></TD><TD>f_nonlinear_data</TD><TD>&nbsp;</TD><TD>Additional data for function f_nonlinear</TD></TR>
+<TR><TD>Real</TD><TD>x_tol</TD><TD>100*Modelica.Constants.eps</TD><TD>Relative tolerance of the result</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x_zero</TD><TD>f_nonlinear(x_zero) = y_zero</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">replaceable </font><font color="blue">function</font> solve <font color="darkgreen">
+  &quot;Solve f_nonlinear(x_zero)=y_zero; f_nonlinear(x_min) - y_zero and f_nonlinear(x_max)-y_zero must have different sign&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.error"
+>Modelica.Utilities.Streams.error</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real y_zero <font color="darkgreen">&quot;Determine x_zero, such that f_nonlinear(x_zero) = y_zero&quot;</font>;
+  <font color="blue">input </font>Real x_min <font color="darkgreen">&quot;Minimum value of x&quot;</font>;
+  <font color="blue">input </font>Real x_max <font color="darkgreen">&quot;Maximum value of x&quot;</font>;
+  <font color="blue">input </font>Real pressure = 0.0 <font color="darkgreen">
+    &quot;disregaded variables (here always used for pressure)&quot;</font>;
+  <font color="blue">input </font>Real[:] X =<font color="red"> fill</font>(0,0) <font color="darkgreen">
+    &quot;disregaded variables (here always used for composition)&quot;</font>;
+   <font color="blue">input </font><A HREF="Modelica_Media_Common_OneNonLinearEquation.html#Modelica.Media.Common.OneNonLinearEquation.f_nonlinear_Data"
+>f_nonlinear_Data</A> f_nonlinear_data <font color="darkgreen">
+    &quot;Additional data for function f_nonlinear&quot;</font>;
+   <font color="blue">input </font>Real x_tol =  100*Modelica.Constants.eps <font color="darkgreen">
+    &quot;Relative tolerance of the result&quot;</font>;
+   <font color="blue">output </font>Real x_zero <font color="darkgreen">&quot;f_nonlinear(x_zero) = y_zero&quot;</font>;
+<font color="blue">protected </font>
+   <font color="blue">constant </font>Real eps = Modelica.Constants.eps <font color="darkgreen">&quot;machine epsilon&quot;</font>;
+   Real a = x_min <font color="darkgreen">&quot;Current best minimum interval value&quot;</font>;
+   Real b = x_max <font color="darkgreen">&quot;Current best maximum interval value&quot;</font>;
+   Real c <font color="darkgreen">&quot;Intermediate point a &lt;= c &lt;= b&quot;</font>;
+   Real d;
+   Real e <font color="darkgreen">&quot;b - a&quot;</font>;
+   Real m;
+   Real s;
+   Real p;
+   Real q;
+   Real r;
+   Real tol;
+   Real fa <font color="darkgreen">&quot;= f_nonlinear(a) - y_zero&quot;</font>;
+   Real fb <font color="darkgreen">&quot;= f_nonlinear(b) - y_zero&quot;</font>;
+   Real fc;
+   Boolean found = false;
+<font color="blue">algorithm </font>
+  <font color="darkgreen"> // Check that f(x_min) and f(x_max) have different sign</font>
+   fa :=<font color="red">f_nonlinear</font>(x_min, pressure, X, f_nonlinear_data) - y_zero;
+   fb :=<font color="red">f_nonlinear</font>(x_max, pressure, X, f_nonlinear_data) - y_zero;
+   fc := fb;
+   <font color="blue">if </font>fa &gt; 0.0<font color="blue"> and </font>fb &gt; 0.0<font color="blue"> or </font>
+      fa &lt; 0.0<font color="blue"> and </font>fb &lt; 0.0<font color="blue"> then</font>
+    <font color="red">  error</font>(&quot;The arguments x_min and x_max to OneNonLinearEquation.solve(..)\n&quot; +
+            &quot;do not bracket the root of the single non-linear equation:\n&quot; +
+            &quot;  x_min  = &quot; +<font color="red"> String</font>(x_min) + &quot;\n&quot; +
+            &quot;  x_max  = &quot; +<font color="red"> String</font>(x_max) + &quot;\n&quot; +
+            &quot;  y_zero = &quot; +<font color="red"> String</font>(y_zero) + &quot;\n&quot; +
+            &quot;  fa = f(x_min) - y_zero = &quot; +<font color="red"> String</font>(fa) + &quot;\n&quot; +
+            &quot;  fb = f(x_max) - y_zero = &quot; +<font color="red"> String</font>(fb) + &quot;\n&quot; +
+            &quot;fa and fb must have opposite sign which is not the case&quot;);
+   <font color="blue">end if</font>;
+
+  <font color="darkgreen"> // Initialize variables</font>
+   c :=a;
+   fc :=fa;
+   e :=b - a;
+   d :=e;
+
+  <font color="darkgreen"> // Search loop</font>
+   <font color="blue">while </font><font color="blue">not </font>found<font color="blue"> loop</font>
+      <font color="blue">if </font><font color="red">abs</font>(fc) &lt;<font color="red"> abs</font>(fb)<font color="blue"> then</font>
+         a :=b;
+         b :=c;
+         c :=a;
+         fa :=fb;
+         fb :=fc;
+         fc :=fa;
+      <font color="blue">end if</font>;
+
+      tol :=2*eps*<font color="red">abs</font>(b) + x_tol;
+      m :=(c - b)/2;
+
+      <font color="blue">if </font><font color="red">abs</font>(m) &lt;= tol<font color="blue"> or </font>fb == 0.0<font color="blue"> then</font>
+      <font color="darkgreen">   // root found (interval is small enough)</font>
+         found :=true;
+         x_zero :=b;
+      <font color="blue">else</font>
+      <font color="darkgreen">   // Determine if a bisection is needed</font>
+         <font color="blue">if </font><font color="red">abs</font>(e) &lt; tol<font color="blue"> or </font><font color="red">abs</font>(fa) &lt;=<font color="red"> abs</font>(fb)<font color="blue"> then</font>
+            e :=m;
+            d :=e;
+         <font color="blue">else</font>
+            s :=fb/fa;
+            <font color="blue">if </font>a == c<font color="blue"> then</font>
+          <font color="darkgreen">     // linear interpolation</font>
+               p :=2*m*s;
+               q :=1 - s;
+            <font color="blue">else</font>
+          <font color="darkgreen">     // inverse quadratic interpolation</font>
+               q :=fa/fc;
+               r :=fb/fc;
+               p :=s*(2*m*q*(q - r) - (b - a)*(r - 1));
+               q :=(q - 1)*(r - 1)*(s - 1);
+            <font color="blue">end if</font>;
+
+            <font color="blue">if </font>p &gt; 0<font color="blue"> then</font>
+               q :=-q;
+            <font color="blue">else</font>
+               p :=-p;
+            <font color="blue">end if</font>;
+
+            s :=e;
+            e :=d;
+            <font color="blue">if </font>2*p &lt; 3*m*q-<font color="red">abs</font>(tol*q)<font color="blue"> and </font>p &lt;<font color="red"> abs</font>(0.5*s*q)<font color="blue"> then</font>
+          <font color="darkgreen">     // interpolation successful</font>
+               d :=p/q;
+            <font color="blue">else</font>
+          <font color="darkgreen">     // use bi-section</font>
+               e :=m;
+               d :=e;
+            <font color="blue">end if</font>;
+         <font color="blue">end if</font>;
+
+      <font color="darkgreen">   // Best guess value is defined as &quot;a&quot;</font>
+         a :=b;
+         fa :=fb;
+         b :=b + (<font color="blue">if </font><font color="red">abs</font>(d) &gt; tol<font color="blue"> then </font>d<font color="blue"> else </font><font color="blue">if </font>m &gt; 0<font color="blue"> then </font>tol<font color="blue"> else </font>-tol);
+         fb :=<font color="red">f_nonlinear</font>(b, pressure, X, f_nonlinear_data) - y_zero;
+
+         <font color="blue">if </font>fb &gt; 0<font color="blue"> and </font>fc &gt; 0<font color="blue"> or </font>
+            fb &lt; 0<font color="blue"> and </font>fc &lt; 0<font color="blue"> then</font>
+        <font color="darkgreen">    // initialize variables</font>
+            c :=a;
+            fc :=fa;
+            e :=b - a;
+            d :=e;
+         <font color="blue">end if</font>;
+      <font color="blue">end if</font>;
+   <font color="blue">end while</font>;
+<font color="blue">end </font>solve;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Sat Mar 01 21:49:50 2008.
+</address></BODY>
+</HTML>

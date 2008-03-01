@@ -1,0 +1,285 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Mechanics.MultiBody.Visualizers.Internal</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Visualizers that will be replaced by improved versions in the future (don't use them)&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Internal<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.MultiBody.Visualizers.Internal"></A><A HREF="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers"
+>Modelica.Mechanics.MultiBody.Visualizers</A>.Internal</H2>
+<B>Visualizers that will be replaced by improved versions in the future (don't use them)</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains components to construct 3-dim. fonts
+with "cylinder" elements for the animation window.
+This is just a temporary hack until 3-dim. fonts are supported in
+Modelica tools. The components are used to construct the "x", "y",
+"z" labels of coordinates systems in the animation.
+</p>
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Visualizers.Internal.FixedLinesS.png" ALT="Modelica.Mechanics.MultiBody.Visualizers.Internal.FixedLines" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Visualizers_Internal.html#Modelica.Mechanics.MultiBody.Visualizers.Internal.FixedLines"
+>FixedLines</A>
+</TD><TD>Visualizing a set of lines as cylinders (e.g., used to display characters)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Visualizers.Internal.LinesS.png" ALT="Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Visualizers_Internal.html#Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines"
+>Lines</A>
+</TD><TD>Visualizing a set of lines as cylinders with variable size, e.g., used to display characters (no Frame connector)</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FixedLines<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Visualizers.Internal.FixedLinesI.png" ALT="Modelica.Mechanics.MultiBody.Visualizers.Internal.FixedLines" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Visualizers.Internal.FixedLines"></A><A HREF="Modelica_Mechanics_MultiBody_Visualizers_Internal.html#Modelica.Mechanics.MultiBody.Visualizers.Internal"
+>Modelica.Mechanics.MultiBody.Visualizers.Internal</A>.FixedLines</H2>
+<B>Visualizing a set of lines as cylinders (e.g., used to display characters)</B><p>
+<IMG SRC="Modelica.Mechanics.MultiBody.Visualizers.Internal.FixedLinesD.png" ALT="Modelica.Mechanics.MultiBody.Visualizers.Internal.FixedLines">
+<H3>Information</H3>
+<PRE></pre>
+<p>
+With model <b>FixedLines</b> a set of lines is defined
+that are located relatively to frame_a. Every line
+is represented by a cylinder. This allows to define simple shaped
+3-dimensional characters. An example is shown in the
+following figure:<br>&nbsp;
+</p>
+<IMG SRC="../Images/MultiBody/FixedLines.png" ALT="model Visualizers.FixedLines">
+<p>&nbsp;<br>
+The two letters "x" and "y" are constructed with 4 lines
+by providing the following data for parameter <b>lines</b>
+</p>
+<pre>
+   lines = {[0, 0; 1, 1],[0, 1; 1, 0],[1.5, -0.5; 2.5, 1],[1.5, 1; 2, 0.25]}
+</pre>
+<p>
+Via parameter vectors <b>n_x</b> and <b>n_y</b> a two-dimensional
+coordinate system is defined. The points defined with parameter
+<b>lines</b> are with respect to this coordinate system. For example
+"[0, 0; 1, 1]" defines a line that starts at {0,0} and ends at {1,1}.
+The diameter and color of all line cylinders are identical.
+</p>
+<pre></PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>animation</TD><TD>true</TD><TD>= true, if animation shall be enabled</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>if animation = true</TD></TR>
+<TR><TD>Real</TD><TD>scale</TD><TD>1</TD><TD>The 'lines' are visualized 'scale' times bigger</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>lines[:, 2, 2]</TD><TD>{[0, 0; 1, 1],[0, 1; 1, 0]}</TD><TD>List of start and end points of cylinders resolved along n_x and n_y [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>Distance</A></TD><TD>diameter</TD><TD>0.05</TD><TD>Diameter of the cylinders defined by lines [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>r_lines[3]</TD><TD>{0,0,0}</TD><TD>Position vector from origin of frame_a to the origin of the 'lines' frame, resolved in frame_a [m]</TD></TR>
+<TR><TD>Real</TD><TD>n_x[3]</TD><TD>{1,0,0}</TD><TD>Vector in direction of x-axis of 'lines' frame, resolved in frame_a. [1]</TD></TR>
+<TR><TD>Real</TD><TD>n_y[3]</TD><TD>{0,1,0}</TD><TD>Vector in direction of y-axis of 'lines' frame, resolved in frame_a. [1]</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.Color"
+>Color</A></TD><TD>color</TD><TD>{0,128,255}</TD><TD> Color of cylinders</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.SpecularCoefficient"
+>SpecularCoefficient</A></TD><TD>specularCoefficient</TD><TD>world.defaultSpecularCoeffic...</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.Frame_a"
+>Frame_a</A></TD><TD>frame_a</TD><TD>Coordinate system in which visualization data is resolved</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> FixedLines <font color="darkgreen">
+  &quot;Visualizing a set of lines as cylinders (e.g., used to display characters)&quot;</font>
+
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody"
+>Modelica.Mechanics.MultiBody</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types"
+>Modelica.Mechanics.MultiBody.Types</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer"
+>Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer</A>;
+
+  <font color="blue">parameter </font>Boolean animation=true <font color="darkgreen">&quot;= true, if animation shall be enabled&quot;</font>;
+  <font color="blue">input </font>Real scale(min=0) = 1 <font color="darkgreen">&quot;The 'lines' are visualized 'scale' times bigger&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> lines[:,2,2]={[0,0; 1,1],[0,1; 1,0]} <font color="darkgreen">
+    &quot;List of start and end points of cylinders resolved along n_x and n_y&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> diameter(min=0) = 0.05 <font color="darkgreen">
+    &quot;Diameter of the cylinders defined by lines&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_lines[3]={0,0,0} <font color="darkgreen">
+    &quot;Position vector from origin of frame_a to the origin of the 'lines' frame, resolved in frame_a&quot;</font>;
+  <font color="blue">input </font>Real n_x[3](<font color="blue">each </font><font color="blue">final </font>unit=&quot;1&quot;)={1,0,0} <font color="darkgreen">
+    &quot;Vector in direction of x-axis of 'lines' frame, resolved in frame_a.&quot;</font>;
+  <font color="blue">input </font>Real n_y[3](<font color="blue">each </font><font color="blue">final </font>unit=&quot;1&quot;)={0,1,0} <font color="darkgreen">
+    &quot;Vector in direction of y-axis of 'lines' frame, resolved in frame_a.&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.Color"
+>MultiBody.Types.Color</A> color={0,128,255} <font color="darkgreen">&quot; Color of cylinders&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.SpecularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = world.defaultSpecularCoefficient <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Internal.html#Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines"
+>Lines</A> x_label(
+    lines=scale*lines,
+    diameter=scale*diameter,
+    color=color,
+    specularCoefficient = specularCoefficient,
+    r_lines=r_lines,
+    n_x=n_x,
+    n_y=n_y,
+    r=frame_a.r_0,
+    R=frame_a.R) <font color="blue">if </font>world.enableAnimation<font color="blue"> and </font>animation;
+<font color="blue">equation </font>
+  frame_a.f =<font color="red"> zeros</font>(3);
+  frame_a.t =<font color="red"> zeros</font>(3);
+<font color="blue">end </font>FixedLines;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Lines<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Visualizers.Internal.LinesI.png" ALT="Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines"></A><A HREF="Modelica_Mechanics_MultiBody_Visualizers_Internal.html#Modelica.Mechanics.MultiBody.Visualizers.Internal"
+>Modelica.Mechanics.MultiBody.Visualizers.Internal</A>.Lines</H2>
+<B>Visualizing a set of lines as cylinders with variable size, e.g., used to display characters (no Frame connector)</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+With model <b>Lines</b> a set of dynamic lines is defined
+that are located relatively to frame_a. Every line
+is represented by a cylinder. This allows, e.g., to define simple shaped
+3-dimensional characters. Note, if the lines are fixed relatively to frame_a,
+it is more convenient to use model <b>Visualizers.FixedLines</b>.
+An example for dynamic lines is shown in the following figure:<br>&nbsp;
+</p>
+<IMG SRC="../Images/MultiBody/FixedLines.png" ALT="model Visualizers.FixedLines">
+<p>&nbsp;<br>
+The two letters "x" and "y" are constructed with 4 lines
+by providing the following data for input variable <b>lines</b>
+</p>
+<pre>
+   lines = {[0, 0; 1, 1],[0, 1; 1, 0],[1.5, -0.5; 2.5, 1],[1.5, 1; 2, 0.25]}
+</pre>
+<p>
+Via vectors <b>n_x</b> and <b>n_y</b> a two-dimensional
+coordinate system is defined. The points defined with variable
+<b>lines</b> are with respect to this coordinate system. For example
+"[0, 0; 1, 1]" defines a line that starts at {0,0} and ends at {1,1}.
+The diameter and color of all line cylinders are identical
+and are defined by parameters.
+</p>
+
+<pre>
+</PRE>
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Frames.html#Modelica.Mechanics.MultiBody.Frames.Orientation"
+>Orientation</A></TD><TD>R</TD><TD>Frames.nullRotation()</TD><TD>Orientation object to rotate the world frame into the object frame</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>r[3]</TD><TD>{0,0,0}</TD><TD>Position vector from origin of world frame to origin of object frame, resolved in world frame [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>r_lines[3]</TD><TD>{0,0,0}</TD><TD>Position vector from origin of object frame to the origin of 'lines' frame, resolved in object frame [m]</TD></TR>
+<TR><TD>Real</TD><TD>n_x[3]</TD><TD>{1,0,0}</TD><TD>Vector in direction of x-axis of 'lines' frame, resolved in object frame [1]</TD></TR>
+<TR><TD>Real</TD><TD>n_y[3]</TD><TD>{0,1,0}</TD><TD>Vector in direction of y-axis of 'lines' frame, resolved in object frame [1]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>lines[:, 2, 2]</TD><TD>zeros(0, 2, 2)</TD><TD>List of start and end points of cylinders resolved in an x-y frame defined by n_x, n_y, e.g., {[0,0;1,1], [0,1;1,0], [2,0; 3,1]} [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>diameter</TD><TD>0.05</TD><TD>Diameter of the cylinders defined by lines [m]</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.Color"
+>Color</A></TD><TD>color</TD><TD>{0,128,255}</TD><TD>Color of cylinders</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.SpecularCoefficient"
+>SpecularCoefficient</A></TD><TD>specularCoefficient</TD><TD>0.7</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Lines <font color="darkgreen">
+  &quot;Visualizing a set of lines as cylinders with variable size, e.g., used to display characters (no Frame connector)&quot;</font>
+
+  <font color="blue">import </font>SI = <A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody"
+>Modelica.Mechanics.MultiBody</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types"
+>Modelica.Mechanics.MultiBody.Types</A>;
+  <font color="blue">import </font><A HREF="Modelica_Mechanics_MultiBody_Frames.html#Modelica.Mechanics.MultiBody.Frames"
+>Modelica.Mechanics.MultiBody.Frames</A>;
+  <font color="blue">import </font>T = <A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices"
+>Modelica.Mechanics.MultiBody.Frames.TransformationMatrices</A>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Frames.html#Modelica.Mechanics.MultiBody.Frames.Orientation"
+>Modelica.Mechanics.MultiBody.Frames.Orientation</A> R=<font color="red">Frames.nullRotation</font>() <font color="darkgreen">
+    &quot;Orientation object to rotate the world frame into the object frame&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r[3]={0,0,0} <font color="darkgreen">
+    &quot;Position vector from origin of world frame to origin of object frame, resolved in world frame&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> r_lines[3]={0,0,0} <font color="darkgreen">
+    &quot;Position vector from origin of object frame to the origin of 'lines' frame, resolved in object frame&quot;</font>;
+  <font color="blue">input </font>Real n_x[3](<font color="blue">each </font><font color="blue">final </font>unit=&quot;1&quot;)={1,0,0} <font color="darkgreen">
+    &quot;Vector in direction of x-axis of 'lines' frame, resolved in object frame&quot;</font>;
+  <font color="blue">input </font>Real n_y[3](<font color="blue">each </font><font color="blue">final </font>unit=&quot;1&quot;)={0,1,0} <font color="darkgreen">
+    &quot;Vector in direction of y-axis of 'lines' frame, resolved in object frame&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> lines[:, 2, 2]=<font color="red">zeros</font>(0, 2, 2) <font color="darkgreen">
+    &quot;List of start and end points of cylinders resolved in an x-y frame defined by n_x, n_y, e.g., {[0,0;1,1], [0,1;1,0], [2,0; 3,1]}&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> diameter(min=0) = 0.05 <font color="darkgreen">
+    &quot;Diameter of the cylinders defined by lines&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.Color"
+>Modelica.Mechanics.MultiBody.Types.Color</A> color={0,128,255} <font color="darkgreen">
+    &quot;Color of cylinders&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types.SpecularCoefficient"
+>Types.SpecularCoefficient</A> specularCoefficient = 0.7 <font color="darkgreen">
+    &quot;Reflection of ambient light (= 0: light is completely absorbed)&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Integer n=<font color="red">size</font>(lines, 1) <font color="darkgreen">&quot;Number of cylinders&quot;</font>;
+  <A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>T.Orientation</A> R_rel=<font color="red">T.from_nxy</font>(n_x, n_y);
+  <A HREF="Modelica_Mechanics_MultiBody_Frames_TransformationMatrices.html#Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation"
+>T.Orientation</A> R_lines=<font color="red">T.absoluteRotation</font>(R.T, R_rel);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Modelica.SIunits.Position</A> r_abs[3]=r +<font color="red"> T.resolve1</font>(R.T, r_lines);
+  <A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape"
+>Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</A> cylinders[n](
+    <font color="blue">each </font>shapeType=&quot;cylinder&quot;,
+    lengthDirection={<font color="red">T.resolve1</font>(R_rel,<font color="red"> vector</font>([lines[i, 2, :] - lines[i, 1,
+         :]; 0])) <font color="blue">for </font>i<font color="blue"> in </font>1:n},
+    length={<font color="red">Modelica.Math.Vectors.length</font>(
+                                    lines[i, 2, :] - lines[i, 1, :]) <font color="blue">for </font>i<font color="blue"> in </font>
+            1:n},
+    r={r_abs +<font color="red"> T.resolve1</font>(R_lines,<font color="red"> vector</font>([lines[i, 1, :]; 0])) <font color="blue">for </font>i<font color="blue"> in </font>1:
+        n},
+    <font color="blue">each </font>width=diameter,
+    <font color="blue">each </font>height=diameter,
+    <font color="blue">each </font>widthDirection={0,1,0},
+    <font color="blue">each </font>color=color,
+    <font color="blue">each </font>R=R,
+    <font color="blue">each </font>specularCoefficient=specularCoefficient);
+
+<font color="blue">end </font>Lines;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Sat Mar 01 21:48:17 2008.
+</address></BODY>
+</HTML>

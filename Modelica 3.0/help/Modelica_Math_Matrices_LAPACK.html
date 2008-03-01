@@ -1,0 +1,2214 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Math.Matrices.LAPACK</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Interface to LAPACK library (should usually not directly be used but only indirectly via Modelica.Math.Matrices)&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE LAPACK<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Math.Matrices.LAPACK"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.LAPACK</H2>
+<B>Interface to LAPACK library (should usually not directly be used but only indirectly via Modelica.Math.Matrices)</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains external Modelica functions as interface to the
+LAPACK library
+(<a href="http://www.netlib.org/lapack">http://www.netlib.org/lapack</a>)
+that provides FORTRAN subroutines to solve linear algebra
+tasks. Usually, these functions are not directly called, but only via
+the much more convenient interface of
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</a>.
+The documentation of the LAPACK functions is a copy of the original
+FORTRAN code.
+</p>
+
+<p>
+The details of LAPACK are described in:
+</p>
+
+<dl>
+<dt>Anderson E., Bai Z., Bischof C., Blackford S., Demmel J., Dongarra J.,
+    Du Croz J., Greenbaum A., Hammarling S., McKenney A., and Sorensen D.:</dt>
+<dd> <b>Lapack Users' Guide</b>.
+     Third Edition, SIAM, 1999.</dd>
+</dl>
+
+<p>
+This package contains a direct interface to the LAPACK subroutines
+</p>
+
+<pre></PRE><P>
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevS.png" ALT="Modelica.Math.Matrices.LAPACK.dgeev" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgeev"
+>dgeev</A>
+</TD><TD>Compute eigenvalues and (right) eigenvectors for real nonsymmetrix matrix A</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevS.png" ALT="Modelica.Math.Matrices.LAPACK.dgeev_eigenValues" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgeev_eigenValues"
+>dgeev_eigenValues</A>
+</TD><TD>Compute eigenvalues for real nonsymmetrix matrix A</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevS.png" ALT="Modelica.Math.Matrices.LAPACK.dgegv" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgegv"
+>dgegv</A>
+</TD><TD>Compute generalized eigenvalues and eigenvectors for a (A,B) system</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevS.png" ALT="Modelica.Math.Matrices.LAPACK.dgels_vec" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgels_vec"
+>dgels_vec</A>
+</TD><TD>Solves overdetermined or underdetermined real linear equations A*x=b with a b vector</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevS.png" ALT="Modelica.Math.Matrices.LAPACK.dgelsx_vec" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgelsx_vec"
+>dgelsx_vec</A>
+</TD><TD>Computes the minimum-norm solution to a real linear least squares problem with rank deficient A</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevS.png" ALT="Modelica.Math.Matrices.LAPACK.dgesv" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgesv"
+>dgesv</A>
+</TD><TD>Solve real system of linear equations A*X=B with a B matrix</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevS.png" ALT="Modelica.Math.Matrices.LAPACK.dgesv_vec" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgesv_vec"
+>dgesv_vec</A>
+</TD><TD>Solve real system of linear equations A*x=b with a b vector</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevS.png" ALT="Modelica.Math.Matrices.LAPACK.dgglse_vec" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgglse_vec"
+>dgglse_vec</A>
+</TD><TD>Solve a linear equality constrained least squares problem</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevS.png" ALT="Modelica.Math.Matrices.LAPACK.dgtsv" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgtsv"
+>dgtsv</A>
+</TD><TD>Solve real system of linear equations A*X=B with B matrix and tridiagonal A</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevS.png" ALT="Modelica.Math.Matrices.LAPACK.dgtsv_vec" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgtsv_vec"
+>dgtsv_vec</A>
+</TD><TD>Solve real system of linear equations A*x=b with b vector and tridiagonal A</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevS.png" ALT="Modelica.Math.Matrices.LAPACK.dgbsv" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgbsv"
+>dgbsv</A>
+</TD><TD>Solve real system of linear equations A*X=B with a B matrix</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevS.png" ALT="Modelica.Math.Matrices.LAPACK.dgbsv_vec" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgbsv_vec"
+>dgbsv_vec</A>
+</TD><TD>Solve real system of linear equations A*x=b with a b vector</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevS.png" ALT="Modelica.Math.Matrices.LAPACK.dgesvd" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgesvd"
+>dgesvd</A>
+</TD><TD>Determine singular value decomposition</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevS.png" ALT="Modelica.Math.Matrices.LAPACK.dgesvd_sigma" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgesvd_sigma"
+>dgesvd_sigma</A>
+</TD><TD>Determine singular values</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevS.png" ALT="Modelica.Math.Matrices.LAPACK.dgetrf" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgetrf"
+>dgetrf</A>
+</TD><TD>Compute LU factorization of square or rectangular matrix A (A = P*L*U)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevS.png" ALT="Modelica.Math.Matrices.LAPACK.dgetrs" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgetrs"
+>dgetrs</A>
+</TD><TD>Solves a system of linear equations with the LU decomposition from dgetrf(..)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevS.png" ALT="Modelica.Math.Matrices.LAPACK.dgetrs_vec" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgetrs_vec"
+>dgetrs_vec</A>
+</TD><TD>Solves a system of linear equations with the LU decomposition from dgetrf(..)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevS.png" ALT="Modelica.Math.Matrices.LAPACK.dgetri" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgetri"
+>dgetri</A>
+</TD><TD>Computes the inverse of a matrix using the LU factorization from dgetrf(..)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevS.png" ALT="Modelica.Math.Matrices.LAPACK.dgeqpf" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgeqpf"
+>dgeqpf</A>
+</TD><TD>Compute QR factorization of square or rectangular matrix A with column pivoting (A(:,p) = Q*R)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevS.png" ALT="Modelica.Math.Matrices.LAPACK.dorgqr" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dorgqr"
+>dorgqr</A>
+</TD><TD>Generates a Real orthogonal matrix Q which is defined as the product of elementary reflectors as returned from dgeqpf</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dgeev<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgeev" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.LAPACK.dgeev"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</A>.dgeev</H2>
+<B>Compute eigenvalues and (right) eigenvectors for real nonsymmetrix matrix A</B><p>
+<H3>Information</H3>
+<PRE>Lapack documentation
+    Purpose
+    =======
+    DGEEV computes for an N-by-N real nonsymmetric matrix A, the
+    eigenvalues and, optionally, the left and/or right eigenvectors.
+    The right eigenvector v(j) of A satisfies
+                     A * v(j) = lambda(j) * v(j)
+    where lambda(j) is its eigenvalue.
+    The left eigenvector u(j) of A satisfies
+                  u(j)**H * A = lambda(j) * u(j)**H
+    where u(j)**H denotes the conjugate transpose of u(j).
+    The computed eigenvectors are normalized to have Euclidean norm
+    equal to 1 and largest component real.
+    Arguments
+    =========
+    JOBVL   (input) CHARACTER*1
+            = 'N': left eigenvectors of A are not computed;
+            = 'V': left eigenvectors of A are computed.
+    JOBVR   (input) CHARACTER*1
+            = 'N': right eigenvectors of A are not computed;
+            = 'V': right eigenvectors of A are computed.
+    N       (input) INTEGER
+            The order of the matrix A. N &gt;= 0.
+    A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+            On entry, the N-by-N matrix A.
+            On exit, A has been overwritten.
+    LDA     (input) INTEGER
+            The leading dimension of the array A.  LDA &gt;= max(1,N).
+    WR      (output) DOUBLE PRECISION array, dimension (N)
+    WI      (output) DOUBLE PRECISION array, dimension (N)
+            WR and WI contain the real and imaginary parts,
+            respectively, of the computed eigenvalues.  Complex
+            conjugate pairs of eigenvalues appear consecutively
+            with the eigenvalue having the positive imaginary part
+            first.
+    VL      (output) DOUBLE PRECISION array, dimension (LDVL,N)
+            If JOBVL = 'V', the left eigenvectors u(j) are stored one
+            after another in the columns of VL, in the same order
+            as their eigenvalues.
+            If JOBVL = 'N', VL is not referenced.
+            If the j-th eigenvalue is real, then u(j) = VL(:,j),
+            the j-th column of VL.
+            If the j-th and (j+1)-st eigenvalues form a complex
+            conjugate pair, then u(j) = VL(:,j) + i*VL(:,j+1) and
+            u(j+1) = VL(:,j) - i*VL(:,j+1).
+    LDVL    (input) INTEGER
+            The leading dimension of the array VL.  LDVL &gt;= 1; if
+            JOBVL = 'V', LDVL &gt;= N.
+    VR      (output) DOUBLE PRECISION array, dimension (LDVR,N)
+            If JOBVR = 'V', the right eigenvectors v(j) are stored one
+            after another in the columns of VR, in the same order
+            as their eigenvalues.
+            If JOBVR = 'N', VR is not referenced.
+            If the j-th eigenvalue is real, then v(j) = VR(:,j),
+            the j-th column of VR.
+            If the j-th and (j+1)-st eigenvalues form a complex
+            conjugate pair, then v(j) = VR(:,j) + i*VR(:,j+1) and
+            v(j+1) = VR(:,j) - i*VR(:,j+1).
+    LDVR    (input) INTEGER
+            The leading dimension of the array VR.  LDVR &gt;= 1; if
+            JOBVR = 'V', LDVR &gt;= N.
+    WORK    (workspace/output) DOUBLE PRECISION array, dimension (LWORK)
+
+            On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
+    LWORK   (input) INTEGER
+            The dimension of the array WORK.  LWORK &gt;= max(1,3*N), and
+            if JOBVL = 'V' or JOBVR = 'V', LWORK &gt;= 4*N.  For good
+            performance, LWORK must generally be larger.
+    INFO    (output) INTEGER
+            = 0:  successful exit
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value.
+            &gt; 0:  if INFO = i, the QR algorithm failed to compute all the
+                  eigenvalues, and no eigenvectors have been computed;
+                  elements i+1:N of WR and WI contain eigenvalues which
+                  have converged.
+</PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>A[:, size(A, 1)]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>eigenReal[size(A, 1)]</TD><TD>Real part of eigen values</TD></TR>
+<TR><TD>Real</TD><TD>eigenImag[size(A, 1)]</TD><TD>Imaginary part of eigen values</TD></TR>
+<TR><TD>Real</TD><TD>eigenVectors[size(A, 1), size(A, 1)]</TD><TD>Right eigen vectors</TD></TR>
+<TR><TD>Integer</TD><TD>info</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dgeev <font color="darkgreen">
+  &quot;Compute eigenvalues and (right) eigenvectors for real nonsymmetrix matrix A&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real A[:,<font color="red"> size</font>(A, 1)];
+  <font color="blue">output </font>Real eigenReal[<font color="red">size</font>(A, 1)] <font color="darkgreen">&quot;Real part of eigen values&quot;</font>;
+  <font color="blue">output </font>Real eigenImag[<font color="red">size</font>(A, 1)] <font color="darkgreen">&quot;Imaginary part of eigen values&quot;</font>;
+  <font color="blue">output </font>Real eigenVectors[<font color="red">size</font>(A, 1),<font color="red"> size</font>(A, 1)] <font color="darkgreen">&quot;Right eigen vectors&quot;</font>;
+  <font color="blue">output </font>Integer info;
+<font color="blue">protected </font>
+  Integer n=<font color="red">size</font>(A, 1);
+  Integer lwork=12*n;
+  Real Awork[n, n]=A;
+  Real work[lwork];
+
+
+<font color="blue">external </font>&quot;Fortran 77&quot; <font color="red">dgeev</font>(&quot;N&quot;, &quot;V&quot;, n, Awork, n, eigenReal, eigenImag,
+    eigenVectors, n, eigenVectors, n, work,<font color="red"> size</font>(work, 1), info);
+<font color="blue">end </font>dgeev;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dgeev_eigenValues<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgeev_eigenValues" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.LAPACK.dgeev_eigenValues"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</A>.dgeev_eigenValues</H2>
+<B>Compute eigenvalues for real nonsymmetrix matrix A</B><p>
+<H3>Information</H3>
+<PRE>Lapack documentation
+    Purpose
+    =======
+    DGEEV computes for an N-by-N real nonsymmetric matrix A, the
+    eigenvalues and, optionally, the left and/or right eigenvectors.
+    The right eigenvector v(j) of A satisfies
+                     A * v(j) = lambda(j) * v(j)
+    where lambda(j) is its eigenvalue.
+    The left eigenvector u(j) of A satisfies
+                  u(j)**H * A = lambda(j) * u(j)**H
+    where u(j)**H denotes the conjugate transpose of u(j).
+    The computed eigenvectors are normalized to have Euclidean norm
+    equal to 1 and largest component real.
+    Arguments
+    =========
+    JOBVL   (input) CHARACTER*1
+            = 'N': left eigenvectors of A are not computed;
+            = 'V': left eigenvectors of A are computed.
+    JOBVR   (input) CHARACTER*1
+            = 'N': right eigenvectors of A are not computed;
+            = 'V': right eigenvectors of A are computed.
+    N       (input) INTEGER
+            The order of the matrix A. N &gt;= 0.
+    A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+            On entry, the N-by-N matrix A.
+            On exit, A has been overwritten.
+    LDA     (input) INTEGER
+            The leading dimension of the array A.  LDA &gt;= max(1,N).
+    WR      (output) DOUBLE PRECISION array, dimension (N)
+    WI      (output) DOUBLE PRECISION array, dimension (N)
+            WR and WI contain the real and imaginary parts,
+            respectively, of the computed eigenvalues.  Complex
+            conjugate pairs of eigenvalues appear consecutively
+            with the eigenvalue having the positive imaginary part
+            first.
+    VL      (output) DOUBLE PRECISION array, dimension (LDVL,N)
+            If JOBVL = 'V', the left eigenvectors u(j) are stored one
+            after another in the columns of VL, in the same order
+            as their eigenvalues.
+            If JOBVL = 'N', VL is not referenced.
+            If the j-th eigenvalue is real, then u(j) = VL(:,j),
+            the j-th column of VL.
+            If the j-th and (j+1)-st eigenvalues form a complex
+            conjugate pair, then u(j) = VL(:,j) + i*VL(:,j+1) and
+            u(j+1) = VL(:,j) - i*VL(:,j+1).
+    LDVL    (input) INTEGER
+            The leading dimension of the array VL.  LDVL &gt;= 1; if
+            JOBVL = 'V', LDVL &gt;= N.
+    VR      (output) DOUBLE PRECISION array, dimension (LDVR,N)
+            If JOBVR = 'V', the right eigenvectors v(j) are stored one
+            after another in the columns of VR, in the same order
+            as their eigenvalues.
+            If JOBVR = 'N', VR is not referenced.
+            If the j-th eigenvalue is real, then v(j) = VR(:,j),
+            the j-th column of VR.
+            If the j-th and (j+1)-st eigenvalues form a complex
+            conjugate pair, then v(j) = VR(:,j) + i*VR(:,j+1) and
+            v(j+1) = VR(:,j) - i*VR(:,j+1).
+    LDVR    (input) INTEGER
+            The leading dimension of the array VR.  LDVR &gt;= 1; if
+            JOBVR = 'V', LDVR &gt;= N.
+    WORK    (workspace/output) DOUBLE PRECISION array, dimension (LWORK)
+
+            On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
+    LWORK   (input) INTEGER
+            The dimension of the array WORK.  LWORK &gt;= max(1,3*N), and
+            if JOBVL = 'V' or JOBVR = 'V', LWORK &gt;= 4*N.  For good
+            performance, LWORK must generally be larger.
+    INFO    (output) INTEGER
+            = 0:  successful exit
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value.
+            &gt; 0:  if INFO = i, the QR algorithm failed to compute all the
+                  eigenvalues, and no eigenvectors have been computed;
+                  elements i+1:N of WR and WI contain eigenvalues which
+                  have converged.
+</PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>A[:, size(A, 1)]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>EigenReal[size(A, 1)]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>EigenImag[size(A, 1)]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Integer</TD><TD>info</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dgeev_eigenValues <font color="darkgreen">
+  &quot;Compute eigenvalues for real nonsymmetrix matrix A&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real A[:,<font color="red"> size</font>(A, 1)];
+  <font color="blue">output </font>Real EigenReal[<font color="red">size</font>(A, 1)];
+  <font color="blue">output </font>Real EigenImag[<font color="red">size</font>(A, 1)];
+
+  <font color="darkgreen">/*
+      output Real Eigenvectors[size(A, 1), size(A, 1)]=zeros(size(A, 1), size(
+          A, 1)); */</font>
+  <font color="blue">output </font>Integer info;
+<font color="blue">protected </font>
+  Integer lwork=8*<font color="red">size</font>(A, 1);
+  Real Awork[<font color="red">size</font>(A, 1),<font color="red"> size</font>(A, 1)]=A;
+  Real work[lwork];
+  Real EigenvectorsL[<font color="red">size</font>(A, 1),<font color="red"> size</font>(A, 1)]=<font color="red">zeros</font>(<font color="red">size</font>(A, 1),<font color="red"> size</font>(A, 1));
+
+
+  <font color="darkgreen">/*
+    external &quot;Fortran 77&quot; dgeev(&quot;N&quot;, &quot;V&quot;, size(A, 1), Awork, size(A, 1),
+        EigenReal, EigenImag, EigenvectorsL, size(EigenvectorsL, 1),
+        Eigenvectors, size(Eigenvectors, 1), work, size(work, 1), info)
+*/</font>
+<font color="blue">external </font>&quot;Fortran 77&quot; <font color="red">dgeev</font>(&quot;N&quot;, &quot;N&quot;,<font color="red"> size</font>(A, 1), Awork,<font color="red"> size</font>(A, 1),
+    EigenReal, EigenImag, EigenvectorsL,<font color="red"> size</font>(EigenvectorsL, 1),
+    EigenvectorsL,<font color="red"> size</font>(EigenvectorsL, 1), work,<font color="red"> size</font>(work, 1), info);
+
+<font color="blue">end </font>dgeev_eigenValues;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dgegv<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgegv" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.LAPACK.dgegv"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</A>.dgegv</H2>
+<B>Compute generalized eigenvalues and eigenvectors for a (A,B) system</B><p>
+<H3>Information</H3>
+<PRE>Purpose
+=======
+
+For a pair of N-by-N real nonsymmetric matrices A, B:
+   compute the generalized eigenvalues (alphar +/- alphai*i, beta)
+   compute the left and/or right generalized eigenvectors
+           (VL and VR)
+The second action is optional -- see the description of JOBVL and
+JOBVR below.
+A generalized eigenvalue for a pair of matrices (A,B) is, roughly
+speaking, a scalar w or a ratio  alpha/beta = w, such that  A - w*B
+is singular.  It is usually represented as the pair (alpha,beta),
+as there is a reasonable interpretation for beta=0, and even for
+both being zero.  A good beginning reference is the book, &quot;Matrix
+Computations&quot;, by G. Golub &amp; C. van Loan (Johns Hopkins U. Press)
+A right generalized eigenvector corresponding to a generalized
+eigenvalue  w  for a pair of matrices (A,B) is a vector  r  such
+that  (A - w B) r = 0 .  A left generalized eigenvector is a vector
+                       H
+l  such that  (A - w B) l = 0 .
+Note: this routine performs &quot;full balancing&quot; on A and B -- see
+&quot;Further Details&quot;, below.
+Arguments
+=========
+JOBVL   (input) CHARACTER*1
+        = 'N':  do not compute the left generalized eigenvectors;
+        = 'V':  compute the left generalized eigenvectors.
+JOBVR   (input) CHARACTER*1
+        = 'N':  do not compute the right generalized eigenvectors;
+        = 'V':  compute the right generalized eigenvectors.
+N       (input) INTEGER
+        The number of rows and columns in the matrices A, B, VL, and
+        VR.  N &gt;= 0.
+A       (input/workspace) DOUBLE PRECISION array, dimension (LDA, N)
+        On entry, the first of the pair of matrices whose
+        generalized eigenvalues and (optionally) generalized
+        eigenvectors are to be computed.
+        On exit, the contents will have been destroyed.  (For a
+        description of the contents of A on exit, see &quot;Further
+        Details&quot;, below.)
+LDA     (input) INTEGER
+        The leading dimension of A.  LDA &gt;= max(1,N).
+B       (input/workspace) DOUBLE PRECISION array, dimension (LDB, N)
+        On entry, the second of the pair of matrices whose
+        generalized eigenvalues and (optionally) generalized
+        eigenvectors are to be computed.
+        On exit, the contents will have been destroyed.  (For a
+        description of the contents of B on exit, see &quot;Further
+        Details&quot;, below.)
+LDB     (input) INTEGER
+        The leading dimension of B.  LDB &gt;= max(1,N).
+ALPHAR  (output) DOUBLE PRECISION array, dimension (N)
+ALPHAI  (output) DOUBLE PRECISION array, dimension (N)
+BETA    (output) DOUBLE PRECISION array, dimension (N)
+        On exit, (ALPHAR(j) + ALPHAI(j)*i)/BETA(j), j=1,...,N, will
+        be the generalized eigenvalues.  If ALPHAI(j) is zero, then
+        the j-th eigenvalue is real; if positive, then the j-th and
+        (j+1)-st eigenvalues are a complex conjugate pair, with
+        ALPHAI(j+1) negative.
+        Note: the quotients ALPHAR(j)/BETA(j) and ALPHAI(j)/BETA(j)
+        may easily over- or underflow, and BETA(j) may even be zero.
+        Thus, the user should avoid naively computing the ratio
+        alpha/beta.  However, ALPHAR and ALPHAI will be always less
+        than and usually comparable with norm(A) in magnitude, and
+        BETA always less than and usually comparable with norm(B).
+VL      (output) DOUBLE PRECISION array, dimension (LDVL,N)
+        If JOBVL = 'V', the left generalized eigenvectors.  (See
+        &quot;Purpose&quot;, above.)  Real eigenvectors take one column,
+        complex take two columns, the first for the real part and
+        the second for the imaginary part.  Complex eigenvectors
+        correspond to an eigenvalue with positive imaginary part.
+        Each eigenvector will be scaled so the largest component
+        will have abs(real part) + abs(imag. part) = 1, *except*
+        that for eigenvalues with alpha=beta=0, a zero vector will
+        be returned as the corresponding eigenvector.
+        Not referenced if JOBVL = 'N'.
+LDVL    (input) INTEGER
+        The leading dimension of the matrix VL. LDVL &gt;= 1, and
+        if JOBVL = 'V', LDVL &gt;= N.
+VR      (output) DOUBLE PRECISION array, dimension (LDVR,N)
+        If JOBVL = 'V', the right generalized eigenvectors.  (See
+        &quot;Purpose&quot;, above.)  Real eigenvectors take one column,
+        complex take two columns, the first for the real part and
+        the second for the imaginary part.  Complex eigenvectors
+        correspond to an eigenvalue with positive imaginary part.
+        Each eigenvector will be scaled so the largest component
+        will have abs(real part) + abs(imag. part) = 1, *except*
+        that for eigenvalues with alpha=beta=0, a zero vector will
+        be returned as the corresponding eigenvector.
+        Not referenced if JOBVR = 'N'.
+LDVR    (input) INTEGER
+        The leading dimension of the matrix VR. LDVR &gt;= 1, and
+        if JOBVR = 'V', LDVR &gt;= N.
+WORK    (workspace/output) DOUBLE PRECISION array, dimension (LWORK)
+        On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
+LWORK   (input) INTEGER
+        The dimension of the array WORK.  LWORK &gt;= max(1,8*N).
+        For good performance, LWORK must generally be larger.
+        To compute the optimal value of LWORK, call ILAENV to get
+        blocksizes (for DGEQRF, DORMQR, and DORGQR.)  Then compute:
+        NB  -- MAX of the blocksizes for DGEQRF, DORMQR, and DORGQR;
+        The optimal LWORK is:
+            2*N + MAX( 6*N, N*(NB+1) ).
+INFO    (output) INTEGER
+        = 0:  successful exit
+        &lt; 0:  if INFO = -i, the i-th argument had an illegal value.
+        = 1,...,N:
+              The QZ iteration failed.  No eigenvectors have been
+              calculated, but ALPHAR(j), ALPHAI(j), and BETA(j)
+              should be correct for j=INFO+1,...,N.
+        &gt; N:  errors that usually indicate LAPACK problems:
+              =N+1: error return from DGGBAL
+              =N+2: error return from DGEQRF
+              =N+3: error return from DORMQR
+              =N+4: error return from DORGQR
+              =N+5: error return from DGGHRD
+              =N+6: error return from DHGEQZ (other than failed
+                                              iteration)
+              =N+7: error return from DTGEVC
+              =N+8: error return from DGGBAK (computing VL)
+              =N+9: error return from DGGBAK (computing VR)
+              =N+10: error return from DLASCL (various calls)
+Further Details
+===============
+Balancing
+---------
+This driver calls DGGBAL to both permute and scale rows and columns
+of A and B.  The permutations PL and PR are chosen so that PL*A*PR
+and PL*B*R will be upper triangular except for the diagonal blocks
+A(i:j,i:j) and B(i:j,i:j), with i and j as close together as
+possible.  The diagonal scaling matrices DL and DR are chosen so
+that the pair  DL*PL*A*PR*DR, DL*PL*B*PR*DR have entries close to
+one (except for the entries that start out zero.)
+After the eigenvalues and eigenvectors of the balanced matrices
+have been computed, DGGBAK transforms the eigenvectors back to what
+they would have been (in perfect arithmetic) if they had not been
+balanced.
+Contents of A and B on Exit
+-------- -- - --- - -- ----
+If any eigenvectors are computed (either JOBVL='V' or JOBVR='V' or
+both), then on exit the arrays A and B will contain the real Schur
+form[*] of the &quot;balanced&quot; versions of A and B.  If no eigenvectors
+are computed, then only the diagonal blocks will be correct.
+[*] See DHGEQZ, DGEGS, or read the book &quot;Matrix Computations&quot;,
+</PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>A[:, size(A, 1)]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>B[size(A, 1), size(A, 1)]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>alphaReal[size(A, 1)]</TD><TD>Real part of alpha (eigenvalue=(alphaReal+i*alphaImag)/beta)</TD></TR>
+<TR><TD>Real</TD><TD>alphaImag[size(A, 1)]</TD><TD>Imaginary part of alpha</TD></TR>
+<TR><TD>Real</TD><TD>beta[size(A, 1)]</TD><TD>Denominator of eigenvalue</TD></TR>
+<TR><TD>Integer</TD><TD>info</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dgegv <font color="darkgreen">
+  &quot;Compute generalized eigenvalues and eigenvectors for a (A,B) system&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real A[:,<font color="red"> size</font>(A, 1)];
+  <font color="blue">input </font>Real B[<font color="red">size</font>(A,1),<font color="red"> size</font>(A, 1)];
+  <font color="blue">output </font>Real alphaReal[<font color="red">size</font>(A, 1)] <font color="darkgreen">
+    &quot;Real part of alpha (eigenvalue=(alphaReal+i*alphaImag)/beta)&quot;</font>;
+  <font color="blue">output </font>Real alphaImag[<font color="red">size</font>(A, 1)] <font color="darkgreen">&quot;Imaginary part of alpha&quot;</font>;
+  <font color="blue">output </font>Real beta[<font color="red">size</font>(A,1)] <font color="darkgreen">&quot;Denominator of eigenvalue&quot;</font>;
+  <font color="blue">output </font>Integer info;
+<font color="blue">protected </font>
+  Integer n=<font color="red">size</font>(A, 1);
+  Integer lwork=12*n;
+  Real Awork[n, n]=A;
+  Real Bwork[n, n]=B;
+  Real work[lwork];
+  Real dummy1[1,1];
+  Real dummy2[1,1];
+
+  <font color="blue">external </font>&quot;Fortran 77&quot; <font color="red">dgegv</font>(&quot;N&quot;, &quot;N&quot;, n, Awork, n, Bwork, n, alphaReal, alphaImag, beta,
+             dummy1, 1, dummy2, 1, work,<font color="red"> size</font>(work, 1), info);
+<font color="blue">end </font>dgegv;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dgels_vec<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgels_vec" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.LAPACK.dgels_vec"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</A>.dgels_vec</H2>
+<B>Solves overdetermined or underdetermined real linear equations A*x=b with a b vector</B><p>
+<H3>Information</H3>
+<PRE>Lapack documentation
+  Purpose
+  =======
+
+  DGELS solves overdetermined or underdetermined real linear systems
+  involving an M-by-N matrix A, or its transpose, using a QR or LQ
+  factorization of A.  It is assumed that A has full rank.
+
+  The following options are provided:
+
+  1. If TRANS = 'N' and m &gt;= n:  find the least squares solution of
+     an overdetermined system, i.e., solve the least squares problem
+                  minimize || B - A*X ||.
+
+  2. If TRANS = 'N' and m &lt; n:  find the minimum norm solution of
+     an underdetermined system A * X = B.
+
+  3. If TRANS = 'T' and m &gt;= n:  find the minimum norm solution of
+     an undetermined system A**T * X = B.
+
+  4. If TRANS = 'T' and m &lt; n:  find the least squares solution of
+     an overdetermined system, i.e., solve the least squares problem
+                  minimize || B - A**T * X ||.
+
+  Several right hand side vectors b and solution vectors x can be
+  handled in a single call; they are stored as the columns of the
+  M-by-NRHS right hand side matrix B and the N-by-NRHS solution
+  matrix X.
+
+  Arguments
+  =========
+
+  TRANS   (input) CHARACTER
+          = 'N': the linear system involves A;
+          = 'T': the linear system involves A**T.
+
+  M       (input) INTEGER
+          The number of rows of the matrix A.  M &gt;= 0.
+
+  N       (input) INTEGER
+          The number of columns of the matrix A.  N &gt;= 0.
+
+  NRHS    (input) INTEGER
+          The number of right hand sides, i.e., the number of
+          columns of the matrices B and X. NRHS &gt;=0.
+
+  A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+          On entry, the M-by-N matrix A.
+          On exit,
+            if M &gt;= N, A is overwritten by details of its QR
+                       factorization as returned by DGEQRF;
+            if M &lt;  N, A is overwritten by details of its LQ
+                       factorization as returned by DGELQF.
+
+  LDA     (input) INTEGER
+          The leading dimension of the array A.  LDA &gt;= max(1,M).
+
+  B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)
+          On entry, the matrix B of right hand side vectors, stored
+          columnwise; B is M-by-NRHS if TRANS = 'N', or N-by-NRHS
+          if TRANS = 'T'.
+          On exit, B is overwritten by the solution vectors, stored
+          columnwise:  if TRANS = 'N' and m &gt;= n, rows 1 to n of B
+          contain the least squares solution vectors; the residual
+          sum of squares for the solution in each column is given by
+          the sum of squares of elements N+1 to M in that column;
+          if TRANS = 'N' and m &lt; n, rows 1 to N of B contain the
+          minimum norm solution vectors;
+          if TRANS = 'T' and m &gt;= n, rows 1 to M of B contain the
+          minimum norm solution vectors;
+          if TRANS = 'T' and m &lt; n, rows 1 to M of B contain the
+          least squares solution vectors; the residual sum of squares
+          for the solution in each column is given by the sum of
+          squares of elements M+1 to N in that column.
+
+  LDB     (input) INTEGER
+          The leading dimension of the array B. LDB &gt;= MAX(1,M,N).
+
+  WORK    (workspace) DOUBLE PRECISION array, dimension (LWORK)
+          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
+
+  LWORK   (input) INTEGER
+          The dimension of the array WORK.
+          LWORK &gt;= min(M,N) + MAX(1,M,N,NRHS).
+          For optimal performance,
+          LWORK &gt;= min(M,N) + MAX(1,M,N,NRHS) * NB
+          where NB is the optimum block size.
+
+  INFO    (output) INTEGER
+          = 0:  successful exit
+          &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+                                                                          </PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>A[:, :]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>b[size(A, 1)]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x[nx]</TD><TD>solution is in first size(A,2) rows</TD></TR>
+<TR><TD>Integer</TD><TD>info</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dgels_vec <font color="darkgreen">
+  &quot;Solves overdetermined or underdetermined real linear equations A*x=b with a b vector&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real A[:, :];
+  <font color="blue">input </font>Real b[<font color="red">size</font>(A,1)];
+  <font color="blue">output </font>Real x[nx]=<font color="red"> cat</font>(1,b,<font color="red">zeros</font>(nx-nrow)) <font color="darkgreen">
+    &quot;solution is in first size(A,2) rows&quot;</font>;
+  <font color="blue">output </font>Integer info;
+<font color="blue">protected </font>
+  Integer nrow=<font color="red">size</font>(A,1);
+  Integer ncol=<font color="red">size</font>(A,2);
+  Integer nx=<font color="red">max</font>(nrow,ncol);
+  Integer lwork=<font color="red">min</font>(nrow,ncol) + nx;
+  Real work[lwork];
+  Real Awork[nrow,ncol]=A;
+  <font color="blue">external </font>&quot;FORTRAN 77&quot; <font color="red">dgels</font>(&quot;N&quot;, nrow, ncol, 1, Awork, nrow, x,
+                              nx, work, lwork, info);
+
+
+<font color="blue">end </font>dgels_vec;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dgelsx_vec<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgelsx_vec" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.LAPACK.dgelsx_vec"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</A>.dgelsx_vec</H2>
+<B>Computes the minimum-norm solution to a real linear least squares problem with rank deficient A</B><p>
+<H3>Information</H3>
+<PRE>Lapack documentation
+  Purpose
+  =======
+
+  DGELSX computes the minimum-norm solution to a real linear least
+  squares problem:
+      minimize || A * X - B ||
+  using a complete orthogonal factorization of A.  A is an M-by-N
+  matrix which may be rank-deficient.
+
+  Several right hand side vectors b and solution vectors x can be
+  handled in a single call; they are stored as the columns of the
+  M-by-NRHS right hand side matrix B and the N-by-NRHS solution
+  matrix X.
+
+  The routine first computes a QR factorization with column pivoting:
+      A * P = Q * [ R11 R12 ]
+                  [  0  R22 ]
+  with R11 defined as the largest leading submatrix whose estimated
+  condition number is less than 1/RCOND.  The order of R11, RANK,
+  is the effective rank of A.
+
+  Then, R22 is considered to be negligible, and R12 is annihilated
+  by orthogonal transformations from the right, arriving at the
+  complete orthogonal factorization:
+     A * P = Q * [ T11 0 ] * Z
+                 [  0  0 ]
+  The minimum-norm solution is then
+     X = P * Z' [ inv(T11)*Q1'*B ]
+                [        0       ]
+  where Q1 consists of the first RANK columns of Q.
+
+  Arguments
+  =========
+
+  M       (input) INTEGER
+          The number of rows of the matrix A.  M &gt;= 0.
+
+  N       (input) INTEGER
+          The number of columns of the matrix A.  N &gt;= 0.
+
+  NRHS    (input) INTEGER
+          The number of right hand sides, i.e., the number of
+          columns of matrices B and X. NRHS &gt;= 0.
+
+  A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+          On entry, the M-by-N matrix A.
+          On exit, A has been overwritten by details of its
+          complete orthogonal factorization.
+
+  LDA     (input) INTEGER
+          The leading dimension of the array A.  LDA &gt;= max(1,M).
+
+  B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)
+          On entry, the M-by-NRHS right hand side matrix B.
+          On exit, the N-by-NRHS solution matrix X.
+          If m &gt;= n and RANK = n, the residual sum-of-squares for
+          the solution in the i-th column is given by the sum of
+          squares of elements N+1:M in that column.
+
+  LDB     (input) INTEGER
+          The leading dimension of the array B. LDB &gt;= max(1,M,N).
+
+  JPVT    (input/output) INTEGER array, dimension (N)
+          On entry, if JPVT(i) .ne. 0, the i-th column of A is an
+          initial column, otherwise it is a free column.  Before
+          the QR factorization of A, all initial columns are
+          permuted to the leading positions; only the remaining
+          free columns are moved as a result of column pivoting
+          during the factorization.
+          On exit, if JPVT(i) = k, then the i-th column of A*P
+          was the k-th column of A.
+
+  RCOND   (input) DOUBLE PRECISION
+          RCOND is used to determine the effective rank of A, which
+          is defined as the order of the largest leading triangular
+          submatrix R11 in the QR factorization with pivoting of A,
+          whose estimated condition number &lt; 1/RCOND.
+
+  RANK    (output) INTEGER
+          The effective rank of A, i.e., the order of the submatrix
+          R11.  This is the same as the order of the submatrix T11
+          in the complete orthogonal factorization of A.
+
+  WORK    (workspace) DOUBLE PRECISION array, dimension
+                      (max( min(M,N)+3*N, 2*min(M,N)+NRHS )),
+
+  INFO    (output) INTEGER
+          = 0:  successful exit
+          &lt; 0:  if INFO = -i, the i-th argument had an illegal value    </PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>A[:, :]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>b[size(A, 1)]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>rcond</TD><TD>0.0</TD><TD>Reciprocal condition number to estimate rank</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x[max(nrow, ncol)]</TD><TD>solution is in first size(A,2) rows</TD></TR>
+<TR><TD>Integer</TD><TD>info</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Integer</TD><TD>rank</TD><TD>Effective rank of A</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dgelsx_vec <font color="darkgreen">
+  &quot;Computes the minimum-norm solution to a real linear least squares problem with rank deficient A&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real A[:, :];
+  <font color="blue">input </font>Real b[<font color="red">size</font>(A,1)];
+  <font color="blue">input </font>Real rcond=0.0 <font color="darkgreen">&quot;Reciprocal condition number to estimate rank&quot;</font>;
+  <font color="blue">output </font>Real x[<font color="red">max</font>(nrow,ncol)]=<font color="red"> cat</font>(1,b,<font color="red">zeros</font>(<font color="red">max</font>(nrow,ncol)-nrow)) <font color="darkgreen">
+    &quot;solution is in first size(A,2) rows&quot;</font>;
+  <font color="blue">output </font>Integer info;
+  <font color="blue">output </font>Integer rank <font color="darkgreen">&quot;Effective rank of A&quot;</font>;
+<font color="blue">protected </font>
+  Integer nrow=<font color="red">size</font>(A,1);
+  Integer ncol=<font color="red">size</font>(A,2);
+  Integer nx=<font color="red">max</font>(nrow,ncol);
+  Integer lwork=<font color="red">max</font>(<font color="red"> min</font>(nrow,ncol)+3*ncol, 2*<font color="red">min</font>(nrow,ncol)+1);
+  Real work[lwork];
+  Real Awork[nrow,ncol]=A;
+  Integer jpvt[ncol]=<font color="red">zeros</font>(ncol);
+  <font color="blue">external </font>&quot;FORTRAN 77&quot; <font color="red">dgelsx</font>(nrow, ncol, 1, Awork, nrow, x, nx, jpvt,
+                              rcond, rank, work, lwork, info);
+
+
+<font color="blue">end </font>dgelsx_vec;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dgesv<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgesv" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.LAPACK.dgesv"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</A>.dgesv</H2>
+<B>Solve real system of linear equations A*X=B with a B matrix</B><p>
+<H3>Information</H3>
+<PRE>Lapack documentation:
+    Purpose
+    =======
+    DGESV computes the solution to a real system of linear equations
+       A * X = B,
+    where A is an N-by-N matrix and X and B are N-by-NRHS matrices.
+    The LU decomposition with partial pivoting and row interchanges is
+    used to factor A as
+       A = P * L * U,
+    where P is a permutation matrix, L is unit lower triangular, and U is
+
+    upper triangular.  The factored form of A is then used to solve the
+    system of equations A * X = B.
+    Arguments
+    =========
+    N       (input) INTEGER
+            The number of linear equations, i.e., the order of the
+            matrix A.  N &gt;= 0.
+    NRHS    (input) INTEGER
+            The number of right hand sides, i.e., the number of columns
+            of the matrix B.  NRHS &gt;= 0.
+    A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+            On entry, the N-by-N coefficient matrix A.
+            On exit, the factors L and U from the factorization
+            A = P*L*U; the unit diagonal elements of L are not stored.
+    LDA     (input) INTEGER
+            The leading dimension of the array A.  LDA &gt;= max(1,N).
+    IPIV    (output) INTEGER array, dimension (N)
+            The pivot indices that define the permutation matrix P;
+            row i of the matrix was interchanged with row IPIV(i).
+    B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)
+            On entry, the N-by-NRHS matrix of right hand side matrix B.
+            On exit, if INFO = 0, the N-by-NRHS solution matrix X.
+    LDB     (input) INTEGER
+            The leading dimension of the array B.  LDB &gt;= max(1,N).
+    INFO    (output) INTEGER
+            = 0:  successful exit
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+            &gt; 0:  if INFO = i, U(i,i) is exactly zero.  The factorization
+
+                  has been completed, but the factor U is exactly
+                  singular, so the solution could not be computed.
+</PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>A[:, size(A, 1)]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>B[size(A, 1), :]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>X[size(A, 1), size(B, 2)]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Integer</TD><TD>info</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dgesv <font color="darkgreen">
+  &quot;Solve real system of linear equations A*X=B with a B matrix&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real A[:,<font color="red"> size</font>(A, 1)];
+  <font color="blue">input </font>Real B[<font color="red">size</font>(A, 1), :];
+  <font color="blue">output </font>Real X[<font color="red">size</font>(A, 1),<font color="red"> size</font>(B, 2)]=B;
+  <font color="blue">output </font>Integer info;
+<font color="blue">protected </font>
+  Real Awork[<font color="red">size</font>(A, 1),<font color="red"> size</font>(A, 1)]=A;
+  Integer ipiv[<font color="red">size</font>(A, 1)];
+
+
+<font color="blue">external </font>&quot;FORTRAN 77&quot; <font color="red">dgesv</font>(<font color="red">size</font>(A, 1),<font color="red"> size</font>(B, 2), Awork,<font color="red"> size</font>(A, 1), ipiv,
+     X,<font color="red"> size</font>(A, 1), info);
+<font color="blue">end </font>dgesv;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dgesv_vec<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgesv_vec" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.LAPACK.dgesv_vec"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</A>.dgesv_vec</H2>
+<B>Solve real system of linear equations A*x=b with a b vector</B><p>
+<H3>Information</H3>
+<PRE>
+Same as function LAPACK.dgesv, but right hand side is a vector and not a matrix.
+For details of the arguments, see documentation of dgesv.
+</PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>A[:, size(A, 1)]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>b[size(A, 1)]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x[size(A, 1)]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Integer</TD><TD>info</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dgesv_vec <font color="darkgreen">
+  &quot;Solve real system of linear equations A*x=b with a b vector&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real A[:,<font color="red"> size</font>(A, 1)];
+  <font color="blue">input </font>Real b[<font color="red">size</font>(A, 1)];
+  <font color="blue">output </font>Real x[<font color="red">size</font>(A, 1)]=b;
+  <font color="blue">output </font>Integer info;
+<font color="blue">protected </font>
+  Real Awork[<font color="red">size</font>(A, 1),<font color="red"> size</font>(A, 1)]=A;
+  Integer ipiv[<font color="red">size</font>(A, 1)];
+
+
+<font color="blue">external </font>&quot;FORTRAN 77&quot; <font color="red">dgesv</font>(<font color="red">size</font>(A, 1), 1, Awork,<font color="red"> size</font>(A, 1), ipiv, x,<font color="red"> size</font>(
+    A, 1), info);
+<font color="blue">end </font>dgesv_vec;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dgglse_vec<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgglse_vec" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.LAPACK.dgglse_vec"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</A>.dgglse_vec</H2>
+<B>Solve a linear equality constrained least squares problem</B><p>
+<H3>Information</H3>
+<PRE>Lapack documentation
+
+  Purpose
+  =======
+
+  DGGLSE solves the linear equality constrained least squares (LSE)
+  problem:
+
+          minimize || A*x - c ||_2   subject to B*x = d
+
+  using a generalized RQ factorization of matrices A and B, where A is
+  M-by-N, B is P-by-N, assume P &lt;= N &lt;= M+P, and ||.||_2 denotes vector
+  2-norm. It is assumed that
+
+                       rank(B) = P                                  (1)
+
+  and the null spaces of A and B intersect only trivially, i.e.,
+
+   intersection of Null(A) and Null(B) = {0} &lt;=&gt; rank( ( A ) ) = N  (2)
+                                                     ( ( B ) )
+
+  where N(A) denotes the null space of matrix A. Conditions (1) and (2)
+  ensure that the problem LSE has a unique solution.
+
+  Arguments
+  =========
+
+  M       (input) INTEGER
+          The number of rows of the matrix A.  M &gt;= 0.
+
+  N       (input) INTEGER
+          The number of columns of the matrices A and B. N &gt;= 0.
+          Assume that P &lt;= N &lt;= M+P.
+
+  P       (input) INTEGER
+          The number of rows of the matrix B.  P &gt;= 0.
+
+  A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+          On entry, the P-by-M matrix A.
+          On exit, A is destroyed.
+
+  LDA     (input) INTEGER
+          The leading dimension of the array A. LDA &gt;= max(1,M).
+
+  B       (input/output) DOUBLE PRECISION array, dimension (LDB,N)
+          On entry, the P-by-N matrix B.
+          On exit, B is destroyed.
+
+  LDB     (input) INTEGER
+          The leading dimension of the array B. LDB &gt;= max(1,P).
+
+  C       (input/output) DOUBLE PRECISION array, dimension (M)
+          On entry, C contains the right hand side vector for the
+          least squares part of the LSE problem.
+          On exit, the residual sum of squares for the solution
+          is given by the sum of squares of elements N-P+1 to M of
+          vector C.
+
+  D       (input/output) DOUBLE PRECISION array, dimension (P)
+          On entry, D contains the right hand side vector for the
+          constrained equation.
+          On exit, D is destroyed.
+
+  X       (output) DOUBLE PRECISION array, dimension (N)
+          On exit, X is the solution of the LSE problem.
+
+  WORK    (workspace) DOUBLE PRECISION array, dimension (LWORK)
+          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
+
+  LWORK   (input) INTEGER
+          The dimension of the array WORK. LWORK &gt;= N+P+max(N,M,P).
+          For optimum performance LWORK &gt;=
+          N+P+max(M,P,N)*max(NB1,NB2), where NB1 is the optimal
+          blocksize for the QR factorization of M-by-N matrix A.
+          NB2 is the optimal blocksize for the RQ factorization of
+          P-by-N matrix B.
+
+  INFO    (output) INTEGER
+          = 0:  successful exit.
+          &lt; 0:  if INFO = -i, the i-th argument had an illegal value.
+</PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>A[:, :]</TD><TD>&nbsp;</TD><TD>Minimize |A*x - c|^2</TD></TR>
+<TR><TD>Real</TD><TD>c[size(A, 1)]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>B[:, size(A, 2)]</TD><TD>&nbsp;</TD><TD>subject to B*x=d</TD></TR>
+<TR><TD>Real</TD><TD>d[size(B, 1)]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x[size(A, 2)]</TD><TD>solution vector</TD></TR>
+<TR><TD>Integer</TD><TD>info</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dgglse_vec <font color="darkgreen">
+  &quot;Solve a linear equality constrained least squares problem&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real A[:,:] <font color="darkgreen">&quot;Minimize |A*x - c|^2&quot;</font>;
+  <font color="blue">input </font>Real c[<font color="red">size</font>(A,1)];
+  <font color="blue">input </font>Real B[:,<font color="red">size</font>(A,2)] <font color="darkgreen">&quot;subject to B*x=d&quot;</font>;
+  <font color="blue">input </font>Real d[<font color="red">size</font>(B,1)];
+  <font color="blue">output </font>Real x[<font color="red">size</font>(A,2)] <font color="darkgreen">&quot;solution vector&quot;</font>;
+  <font color="blue">output </font>Integer info;
+<font color="blue">protected </font>
+  Integer nrow_A=<font color="red">size</font>(A,1);
+  Integer nrow_B=<font color="red">size</font>(B,1);
+  Integer ncol_A=<font color="red">size</font>(A,2) <font color="darkgreen">&quot;(min=nrow_B,max=nrow_A+nrow_B) required&quot;</font>;
+  Real Awork[nrow_A,ncol_A]=A;
+  Real Bwork[nrow_B,ncol_A]=B;
+  Real cwork[nrow_A] = c;
+  Real dwork[nrow_B] = d;
+  Integer lwork=ncol_A + nrow_B +<font color="red"> max</font>(nrow_A,<font color="red"> max</font>(ncol_A, nrow_B))*5;
+  Real work[lwork];
+  <font color="blue">external </font>&quot;FORTRAN 77&quot; <font color="red">dgglse</font>(nrow_A, ncol_A, nrow_B, Awork, nrow_A,
+                               Bwork, nrow_B, cwork, dwork, x,
+                               work, lwork, info);
+
+<font color="blue">end </font>dgglse_vec;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dgtsv<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgtsv" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.LAPACK.dgtsv"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</A>.dgtsv</H2>
+<B>Solve real system of linear equations A*X=B with B matrix and tridiagonal A</B><p>
+<H3>Information</H3>
+<PRE>Lapack documentation:
+    Purpose
+    =======
+    DGTSV  solves the equation
+       A*X = B,
+    where A is an N-by-N tridiagonal matrix, by Gaussian elimination with
+
+    partial pivoting.
+    Note that the equation  A'*X = B  may be solved by interchanging the
+
+    order of the arguments DU and DL.
+    Arguments
+    =========
+    N       (input) INTEGER
+            The order of the matrix A.  N &gt;= 0.
+    NRHS    (input) INTEGER
+            The number of right hand sides, i.e., the number of columns
+            of the matrix B.  NRHS &gt;= 0.
+    DL      (input/output) DOUBLE PRECISION array, dimension (N-1)
+            On entry, DL must contain the (n-1) subdiagonal elements of
+            A.
+            On exit, DL is overwritten by the (n-2) elements of the
+            second superdiagonal of the upper triangular matrix U from
+            the LU factorization of A, in DL(1), ..., DL(n-2).
+    D       (input/output) DOUBLE PRECISION array, dimension (N)
+            On entry, D must contain the diagonal elements of A.
+            On exit, D is overwritten by the n diagonal elements of U.
+    DU      (input/output) DOUBLE PRECISION array, dimension (N-1)
+            On entry, DU must contain the (n-1) superdiagonal elements
+            of A.
+            On exit, DU is overwritten by the (n-1) elements of the first
+
+            superdiagonal of U.
+    B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)
+            On entry, the N-by-NRHS right hand side matrix B.
+            On exit, if INFO = 0, the N-by-NRHS solution matrix X.
+    LDB     (input) INTEGER
+            The leading dimension of the array B.  LDB &gt;= max(1,N).
+    INFO    (output) INTEGER
+            = 0:  successful exit
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+            &gt; 0:  if INFO = i, U(i,i) is exactly zero, and the solution
+                  has not been computed.  The factorization has not been
+
+                  completed unless i = N.
+</PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>superdiag[:]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>diag[size(superdiag, 1) + 1]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>subdiag[size(superdiag, 1)]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>B[size(diag, 1), :]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>X[size(B, 1), size(B, 2)]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Integer</TD><TD>info</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dgtsv <font color="darkgreen">
+  &quot;Solve real system of linear equations A*X=B with B matrix and tridiagonal A&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real superdiag[:];
+  <font color="blue">input </font>Real diag[<font color="red">size</font>(superdiag, 1) + 1];
+  <font color="blue">input </font>Real subdiag[<font color="red">size</font>(superdiag, 1)];
+  <font color="blue">input </font>Real B[<font color="red">size</font>(diag, 1), :];
+  <font color="blue">output </font>Real X[<font color="red">size</font>(B, 1),<font color="red"> size</font>(B, 2)]=B;
+  <font color="blue">output </font>Integer info;
+<font color="blue">protected </font>
+  Real superdiagwork[<font color="red">size</font>(superdiag, 1)]=superdiag;
+  Real diagwork[<font color="red">size</font>(diag, 1)]=diag;
+  Real subdiagwork[<font color="red">size</font>(subdiag, 1)]=subdiag;
+
+
+<font color="blue">external </font>&quot;FORTRAN 77&quot; <font color="red">dgtsv</font>(<font color="red">size</font>(diag, 1),<font color="red"> size</font>(B, 2), subdiagwork,
+    diagwork, superdiagwork, X,<font color="red"> size</font>(B, 1), info);
+<font color="blue">end </font>dgtsv;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dgtsv_vec<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgtsv_vec" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.LAPACK.dgtsv_vec"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</A>.dgtsv_vec</H2>
+<B>Solve real system of linear equations A*x=b with b vector and tridiagonal A</B><p>
+<H3>Information</H3>
+<PRE>
+Same as function LAPACK.dgtsv, but right hand side is a vector and not a matrix.
+For details of the arguments, see documentation of dgtsv.
+</PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>superdiag[:]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>diag[size(superdiag, 1) + 1]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>subdiag[size(superdiag, 1)]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>b[size(diag, 1)]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x[size(b, 1)]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Integer</TD><TD>info</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dgtsv_vec <font color="darkgreen">
+  &quot;Solve real system of linear equations A*x=b with b vector and tridiagonal A&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real superdiag[:];
+  <font color="blue">input </font>Real diag[<font color="red">size</font>(superdiag, 1) + 1];
+  <font color="blue">input </font>Real subdiag[<font color="red">size</font>(superdiag, 1)];
+  <font color="blue">input </font>Real b[<font color="red">size</font>(diag, 1)];
+  <font color="blue">output </font>Real x[<font color="red">size</font>(b, 1)]=b;
+  <font color="blue">output </font>Integer info;
+<font color="blue">protected </font>
+  Real superdiagwork[<font color="red">size</font>(superdiag, 1)]=superdiag;
+  Real diagwork[<font color="red">size</font>(diag, 1)]=diag;
+  Real subdiagwork[<font color="red">size</font>(subdiag, 1)]=subdiag;
+
+
+<font color="blue">external </font>&quot;FORTRAN 77&quot; <font color="red">dgtsv</font>(<font color="red">size</font>(diag, 1), 1, subdiagwork, diagwork,
+    superdiagwork, x,<font color="red"> size</font>(b, 1), info);
+<font color="blue">end </font>dgtsv_vec;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dgbsv<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgbsv" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.LAPACK.dgbsv"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</A>.dgbsv</H2>
+<B>Solve real system of linear equations A*X=B with a B matrix</B><p>
+<H3>Information</H3>
+<PRE>Lapack documentation:
+Purpose
+=======
+DGBSV computes the solution to a real system of linear equations
+A * X = B, where A is a band matrix of order N with KL subdiagonals
+and KU superdiagonals, and X and B are N-by-NRHS matrices.
+The LU decomposition with partial pivoting and row interchanges is
+used to factor A as A = L * U, where L is a product of permutation
+and unit lower triangular matrices with KL subdiagonals, and U is
+upper triangular with KL+KU superdiagonals.  The factored form of A
+is then used to solve the system of equations A * X = B.
+Arguments
+=========
+N       (input) INTEGER
+        The number of linear equations, i.e., the order of the
+        matrix A.  N &gt;= 0.
+KL      (input) INTEGER
+        The number of subdiagonals within the band of A.  KL &gt;= 0.
+KU      (input) INTEGER
+        The number of superdiagonals within the band of A.  KU &gt;= 0.
+NRHS    (input) INTEGER
+        The number of right hand sides, i.e., the number of columns
+        of the matrix B.  NRHS &gt;= 0.
+AB      (input/output) DOUBLE PRECISION array, dimension (LDAB,N)
+        On entry, the matrix A in band storage, in rows KL+1 to
+        2*KL+KU+1; rows 1 to KL of the array need not be set.
+        The j-th column of A is stored in the j-th column of the
+        array AB as follows:
+        AB(KL+KU+1+i-j,j) = A(i,j) for max(1,j-KU)&lt;=i&lt;=min(N,j+KL)
+        On exit, details of the factorization: U is stored as an
+        upper triangular band matrix with KL+KU superdiagonals in
+        rows 1 to KL+KU+1, and the multipliers used during the
+        factorization are stored in rows KL+KU+2 to 2*KL+KU+1.
+        See below for further details.
+LDAB    (input) INTEGER
+        The leading dimension of the array AB.  LDAB &gt;= 2*KL+KU+1.
+IPIV    (output) INTEGER array, dimension (N)
+        The pivot indices that define the permutation matrix P;
+        row i of the matrix was interchanged with row IPIV(i).
+B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)
+        On entry, the N-by-NRHS right hand side matrix B.
+        On exit, if INFO = 0, the N-by-NRHS solution matrix X.
+LDB     (input) INTEGER
+        The leading dimension of the array B.  LDB &gt;= max(1,N).
+INFO    (output) INTEGER
+        = 0:  successful exit
+        &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+        &gt; 0:  if INFO = i, U(i,i) is exactly zero.  The factorization
+              has been completed, but the factor U is exactly
+              singular, and the solution has not been computed.
+Further Details
+===============
+The band storage scheme is illustrated by the following example, when
+M = N = 6, KL = 2, KU = 1:
+On entry:                       On exit:
+    *    *    *    +    +    +       *    *    *   u14  u25  u36
+    *    *    +    +    +    +       *    *   u13  u24  u35  u46
+    *   a12  a23  a34  a45  a56      *   u12  u23  u34  u45  u56
+   a11  a22  a33  a44  a55  a66     u11  u22  u33  u44  u55  u66
+   a21  a32  a43  a54  a65   *      m21  m32  m43  m54  m65   *
+   a31  a42  a53  a64   *    *      m31  m42  m53  m64   *    *
+Array elements marked * are not used by the routine; elements marked
++ need not be set on entry, but are required by the routine to store
+elements of U because of fill-in resulting from the row interchanges.</PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>n</TD><TD>&nbsp;</TD><TD>Number of equations</TD></TR>
+<TR><TD>Integer</TD><TD>kLower</TD><TD>&nbsp;</TD><TD>Number of lower bands</TD></TR>
+<TR><TD>Integer</TD><TD>kUpper</TD><TD>&nbsp;</TD><TD>Number of upper bands</TD></TR>
+<TR><TD>Real</TD><TD>A[2*kLower + kUpper + 1, n]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>B[n, :]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>X[n, size(B, 2)]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Integer</TD><TD>info</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dgbsv <font color="darkgreen">
+  &quot;Solve real system of linear equations A*X=B with a B matrix&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Integer n <font color="darkgreen">&quot;Number of equations&quot;</font>;
+  <font color="blue">input </font>Integer kLower <font color="darkgreen">&quot;Number of lower bands&quot;</font>;
+  <font color="blue">input </font>Integer kUpper <font color="darkgreen">&quot;Number of upper bands&quot;</font>;
+  <font color="blue">input </font>Real A[2*kLower + kUpper + 1, n];
+  <font color="blue">input </font>Real B[n, :];
+  <font color="blue">output </font>Real X[n,<font color="red"> size</font>(B, 2)]=B;
+  <font color="blue">output </font>Integer info;
+<font color="blue">protected </font>
+  Real Awork[<font color="red">size</font>(A, 1),<font color="red"> size</font>(A, 2)]=A;
+  Integer ipiv[n];
+
+
+<font color="blue">external </font>&quot;FORTRAN 77&quot; <font color="red">dgbsv</font>(n, kLower, kUpper,<font color="red"> size</font>(B, 2), Awork,<font color="red"> size</font>(
+    Awork, 1), ipiv, X, n, info);
+<font color="blue">end </font>dgbsv;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dgbsv_vec<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgbsv_vec" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.LAPACK.dgbsv_vec"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</A>.dgbsv_vec</H2>
+<B>Solve real system of linear equations A*x=b with a b vector</B><p>
+<H3>Information</H3>
+<PRE>Lapack documentation:
+</PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>n</TD><TD>&nbsp;</TD><TD>Number of equations</TD></TR>
+<TR><TD>Integer</TD><TD>kLower</TD><TD>&nbsp;</TD><TD>Number of lower bands</TD></TR>
+<TR><TD>Integer</TD><TD>kUpper</TD><TD>&nbsp;</TD><TD>Number of upper bands</TD></TR>
+<TR><TD>Real</TD><TD>A[2*kLower + kUpper + 1, n]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>b[n]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x[n]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Integer</TD><TD>info</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dgbsv_vec <font color="darkgreen">
+  &quot;Solve real system of linear equations A*x=b with a b vector&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Integer n <font color="darkgreen">&quot;Number of equations&quot;</font>;
+  <font color="blue">input </font>Integer kLower <font color="darkgreen">&quot;Number of lower bands&quot;</font>;
+  <font color="blue">input </font>Integer kUpper <font color="darkgreen">&quot;Number of upper bands&quot;</font>;
+  <font color="blue">input </font>Real A[2*kLower + kUpper + 1, n];
+  <font color="blue">input </font>Real b[n];
+  <font color="blue">output </font>Real x[n]=b;
+  <font color="blue">output </font>Integer info;
+<font color="blue">protected </font>
+  Real Awork[<font color="red">size</font>(A, 1),<font color="red"> size</font>(A, 2)]=A;
+  Integer ipiv[n];
+
+
+<font color="blue">external </font>&quot;FORTRAN 77&quot; <font color="red">dgbsv</font>(n, kLower, kUpper, 1, Awork,<font color="red"> size</font>(Awork, 1),
+    ipiv, x, n, info);
+<font color="blue">end </font>dgbsv_vec;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dgesvd<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgesvd" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.LAPACK.dgesvd"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</A>.dgesvd</H2>
+<B>Determine singular value decomposition</B><p>
+<H3>Information</H3>
+<PRE>Lapack documentation:
+    Purpose
+    =======
+    DGESVD computes the singular value decomposition (SVD) of a real
+    M-by-N matrix A, optionally computing the left and/or right singular
+
+    vectors. The SVD is written
+         A = U * SIGMA * transpose(V)
+    where SIGMA is an M-by-N matrix which is zero except for its
+    min(m,n) diagonal elements, U is an M-by-M orthogonal matrix, and
+    V is an N-by-N orthogonal matrix.  The diagonal elements of SIGMA
+    are the singular values of A; they are real and non-negative, and
+    are returned in descending order.  The first min(m,n) columns of
+    U and V are the left and right singular vectors of A.
+    Note that the routine returns V**T, not V.
+    Arguments
+    =========
+    JOBU    (input) CHARACTER*1
+            Specifies options for computing all or part of the matrix U:
+
+            = 'A':  all M columns of U are returned in array U:
+            = 'S':  the first min(m,n) columns of U (the left singular
+                    vectors) are returned in the array U;
+            = 'O':  the first min(m,n) columns of U (the left singular
+                    vectors) are overwritten on the array A;
+            = 'N':  no columns of U (no left singular vectors) are
+                    computed.
+    JOBVT   (input) CHARACTER*1
+            Specifies options for computing all or part of the matrix
+            V**T:
+            = 'A':  all N rows of V**T are returned in the array VT;
+            = 'S':  the first min(m,n) rows of V**T (the right singular
+                    vectors) are returned in the array VT;
+            = 'O':  the first min(m,n) rows of V**T (the right singular
+                    vectors) are overwritten on the array A;
+            = 'N':  no rows of V**T (no right singular vectors) are
+                    computed.
+            JOBVT and JOBU cannot both be 'O'.
+    M       (input) INTEGER
+            The number of rows of the input matrix A.  M &gt;= 0.
+    N       (input) INTEGER
+            The number of columns of the input matrix A.  N &gt;= 0.
+    A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+            On entry, the M-by-N matrix A.
+            On exit,
+            if JOBU = 'O',  A is overwritten with the first min(m,n)
+                            columns of U (the left singular vectors,
+                            stored columnwise);
+            if JOBVT = 'O', A is overwritten with the first min(m,n)
+                            rows of V**T (the right singular vectors,
+                            stored rowwise);
+            if JOBU .ne. 'O' and JOBVT .ne. 'O', the contents of A
+                            are destroyed.
+    LDA     (input) INTEGER
+            The leading dimension of the array A.  LDA &gt;= max(1,M).
+    S       (output) DOUBLE PRECISION array, dimension (min(M,N))
+            The singular values of A, sorted so that S(i) &gt;= S(i+1).
+    U       (output) DOUBLE PRECISION array, dimension (LDU,UCOL)
+            (LDU,M) if JOBU = 'A' or (LDU,min(M,N)) if JOBU = 'S'.
+            If JOBU = 'A', U contains the M-by-M orthogonal matrix U;
+            if JOBU = 'S', U contains the first min(m,n) columns of U
+            (the left singular vectors, stored columnwise);
+            if JOBU = 'N' or 'O', U is not referenced.
+    LDU     (input) INTEGER
+            The leading dimension of the array U.  LDU &gt;= 1; if
+            JOBU = 'S' or 'A', LDU &gt;= M.
+    VT      (output) DOUBLE PRECISION array, dimension (LDVT,N)
+            If JOBVT = 'A', VT contains the N-by-N orthogonal matrix
+            V**T;
+            if JOBVT = 'S', VT contains the first min(m,n) rows of
+            V**T (the right singular vectors, stored rowwise);
+            if JOBVT = 'N' or 'O', VT is not referenced.
+    LDVT    (input) INTEGER
+            The leading dimension of the array VT.  LDVT &gt;= 1; if
+            JOBVT = 'A', LDVT &gt;= N; if JOBVT = 'S', LDVT &gt;= min(M,N).
+    WORK    (workspace/output) DOUBLE PRECISION array, dimension (LWORK)
+
+            On exit, if INFO = 0, WORK(1) returns the optimal LWORK;
+            if INFO &gt; 0, WORK(2:MIN(M,N)) contains the unconverged
+            superdiagonal elements of an upper bidiagonal matrix B
+            whose diagonal is in S (not necessarily sorted). B
+            satisfies A = U * B * VT, so it has the same singular values
+
+            as A, and singular vectors related by U and VT.
+    LWORK   (input) INTEGER
+            The dimension of the array WORK. LWORK &gt;= 1.
+            LWORK &gt;= MAX(3*MIN(M,N)+MAX(M,N),5*MIN(M,N)-4).
+            For good performance, LWORK should generally be larger.
+    INFO    (output) INTEGER
+            = 0:  successful exit.
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value.
+            &gt; 0:  if DBDSQR did not converge, INFO specifies how many
+                  superdiagonals of an intermediate bidiagonal form B
+                  did not converge to zero. See the description of WORK
+                  above for details.
+</PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>A[:, :]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>sigma[min(size(A, 1), size(A, 2))]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>U[size(A, 1), size(A, 1)]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>VT[size(A, 2), size(A, 2)]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Integer</TD><TD>info</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dgesvd <font color="darkgreen">&quot;Determine singular value decomposition&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real A[:, :];
+  <font color="blue">output </font>Real sigma[<font color="red">min</font>(<font color="red">size</font>(A, 1),<font color="red"> size</font>(A, 2))];
+  <font color="blue">output </font>Real U[<font color="red">size</font>(A, 1),<font color="red"> size</font>(A, 1)]=<font color="red">zeros</font>(<font color="red">size</font>(A, 1),<font color="red"> size</font>(A, 1));
+  <font color="blue">output </font>Real VT[<font color="red">size</font>(A, 2),<font color="red"> size</font>(A, 2)]=<font color="red">zeros</font>(<font color="red">size</font>(A, 2),<font color="red"> size</font>(A, 2));
+  <font color="blue">output </font>Integer info;
+<font color="blue">protected </font>
+  Real Awork[<font color="red">size</font>(A, 1),<font color="red"> size</font>(A, 2)]=A;
+  Integer lwork=5*<font color="red">size</font>(A, 1) + 5*<font color="red">size</font>(A, 2);
+  Real work[lwork];
+
+
+<font color="blue">external </font>&quot;Fortran 77&quot; <font color="red">dgesvd</font>(&quot;A&quot;, &quot;A&quot;,<font color="red"> size</font>(A, 1),<font color="red"> size</font>(A, 2), Awork,<font color="red"> size</font>(
+    A, 1), sigma, U,<font color="red"> size</font>(A, 1), VT,<font color="red"> size</font>(A, 2), work, lwork, info);
+<font color="blue">end </font>dgesvd;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dgesvd_sigma<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgesvd_sigma" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.LAPACK.dgesvd_sigma"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</A>.dgesvd_sigma</H2>
+<B>Determine singular values</B><p>
+<H3>Information</H3>
+<PRE>Lapack documentation:
+    Purpose
+    =======
+    DGESVD computes the singular value decomposition (SVD) of a real
+    M-by-N matrix A, optionally computing the left and/or right singular
+
+    vectors. The SVD is written
+         A = U * SIGMA * transpose(V)
+    where SIGMA is an M-by-N matrix which is zero except for its
+    min(m,n) diagonal elements, U is an M-by-M orthogonal matrix, and
+    V is an N-by-N orthogonal matrix.  The diagonal elements of SIGMA
+    are the singular values of A; they are real and non-negative, and
+    are returned in descending order.  The first min(m,n) columns of
+    U and V are the left and right singular vectors of A.
+    Note that the routine returns V**T, not V.
+    Arguments
+    =========
+    JOBU    (input) CHARACTER*1
+            Specifies options for computing all or part of the matrix U:
+
+            = 'A':  all M columns of U are returned in array U:
+            = 'S':  the first min(m,n) columns of U (the left singular
+                    vectors) are returned in the array U;
+            = 'O':  the first min(m,n) columns of U (the left singular
+                    vectors) are overwritten on the array A;
+            = 'N':  no columns of U (no left singular vectors) are
+                    computed.
+    JOBVT   (input) CHARACTER*1
+            Specifies options for computing all or part of the matrix
+            V**T:
+            = 'A':  all N rows of V**T are returned in the array VT;
+            = 'S':  the first min(m,n) rows of V**T (the right singular
+                    vectors) are returned in the array VT;
+            = 'O':  the first min(m,n) rows of V**T (the right singular
+                    vectors) are overwritten on the array A;
+            = 'N':  no rows of V**T (no right singular vectors) are
+                    computed.
+            JOBVT and JOBU cannot both be 'O'.
+    M       (input) INTEGER
+            The number of rows of the input matrix A.  M &gt;= 0.
+    N       (input) INTEGER
+            The number of columns of the input matrix A.  N &gt;= 0.
+    A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+            On entry, the M-by-N matrix A.
+            On exit,
+            if JOBU = 'O',  A is overwritten with the first min(m,n)
+                            columns of U (the left singular vectors,
+                            stored columnwise);
+            if JOBVT = 'O', A is overwritten with the first min(m,n)
+                            rows of V**T (the right singular vectors,
+                            stored rowwise);
+            if JOBU .ne. 'O' and JOBVT .ne. 'O', the contents of A
+                            are destroyed.
+    LDA     (input) INTEGER
+            The leading dimension of the array A.  LDA &gt;= max(1,M).
+    S       (output) DOUBLE PRECISION array, dimension (min(M,N))
+            The singular values of A, sorted so that S(i) &gt;= S(i+1).
+    U       (output) DOUBLE PRECISION array, dimension (LDU,UCOL)
+            (LDU,M) if JOBU = 'A' or (LDU,min(M,N)) if JOBU = 'S'.
+            If JOBU = 'A', U contains the M-by-M orthogonal matrix U;
+            if JOBU = 'S', U contains the first min(m,n) columns of U
+            (the left singular vectors, stored columnwise);
+            if JOBU = 'N' or 'O', U is not referenced.
+    LDU     (input) INTEGER
+            The leading dimension of the array U.  LDU &gt;= 1; if
+            JOBU = 'S' or 'A', LDU &gt;= M.
+    VT      (output) DOUBLE PRECISION array, dimension (LDVT,N)
+            If JOBVT = 'A', VT contains the N-by-N orthogonal matrix
+            V**T;
+            if JOBVT = 'S', VT contains the first min(m,n) rows of
+            V**T (the right singular vectors, stored rowwise);
+            if JOBVT = 'N' or 'O', VT is not referenced.
+    LDVT    (input) INTEGER
+            The leading dimension of the array VT.  LDVT &gt;= 1; if
+            JOBVT = 'A', LDVT &gt;= N; if JOBVT = 'S', LDVT &gt;= min(M,N).
+    WORK    (workspace/output) DOUBLE PRECISION array, dimension (LWORK)
+
+            On exit, if INFO = 0, WORK(1) returns the optimal LWORK;
+            if INFO &gt; 0, WORK(2:MIN(M,N)) contains the unconverged
+            superdiagonal elements of an upper bidiagonal matrix B
+            whose diagonal is in S (not necessarily sorted). B
+            satisfies A = U * B * VT, so it has the same singular values
+
+            as A, and singular vectors related by U and VT.
+    LWORK   (input) INTEGER
+            The dimension of the array WORK. LWORK &gt;= 1.
+            LWORK &gt;= MAX(3*MIN(M,N)+MAX(M,N),5*MIN(M,N)-4).
+            For good performance, LWORK should generally be larger.
+    INFO    (output) INTEGER
+            = 0:  successful exit.
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value.
+            &gt; 0:  if DBDSQR did not converge, INFO specifies how many
+                  superdiagonals of an intermediate bidiagonal form B
+                  did not converge to zero. See the description of WORK
+                  above for details.
+</PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>A[:, :]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>sigma[min(size(A, 1), size(A, 2))]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Integer</TD><TD>info</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dgesvd_sigma <font color="darkgreen">&quot;Determine singular values&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real A[:, :];
+  <font color="blue">output </font>Real sigma[<font color="red">min</font>(<font color="red">size</font>(A, 1),<font color="red"> size</font>(A, 2))];
+  <font color="blue">output </font>Integer info;
+<font color="blue">protected </font>
+  Real Awork[<font color="red">size</font>(A, 1),<font color="red"> size</font>(A, 2)]=A;
+  Real U[<font color="red">size</font>(A, 1),<font color="red"> size</font>(A, 1)];
+  Real VT[<font color="red">size</font>(A, 2),<font color="red"> size</font>(A, 2)];
+  Integer lwork=5*<font color="red">size</font>(A, 1) + 5*<font color="red">size</font>(A, 2);
+  Real work[lwork];
+
+
+<font color="blue">external </font>&quot;Fortran 77&quot; <font color="red">dgesvd</font>(&quot;N&quot;, &quot;N&quot;,<font color="red"> size</font>(A, 1),<font color="red"> size</font>(A, 2), Awork,<font color="red"> size</font>(
+    A, 1), sigma, U,<font color="red"> size</font>(A, 1), VT,<font color="red"> size</font>(A, 2), work, lwork, info);
+<font color="blue">end </font>dgesvd_sigma;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dgetrf<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgetrf" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.LAPACK.dgetrf"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</A>.dgetrf</H2>
+<B>Compute LU factorization of square or rectangular matrix A (A = P*L*U)</B><p>
+<H3>Information</H3>
+<PRE>Lapack documentation:
+  SUBROUTINE DGETRF( M, N, A, LDA, IPIV, INFO )
+-- LAPACK routine (version 1.1) --
+   Univ. of Tennessee, Univ. of California Berkeley, NAG Ltd.,
+   Courant Institute, Argonne National Lab, and Rice University
+   March 31, 1993
+   .. Scalar Arguments ..
+   INTEGER            INFO, LDA, M, N
+   ..
+   .. Array Arguments ..
+   INTEGER            IPIV( * )
+   DOUBLE PRECISION   A( LDA, * )
+   ..
+Purpose
+=======
+DGETRF computes an LU factorization of a general M-by-N matrix A
+using partial pivoting with row interchanges.
+The factorization has the form
+   A = P * L * U
+where P is a permutation matrix, L is lower triangular with unit
+diagonal elements (lower trapezoidal if m &gt; n), and U is upper
+triangular (upper trapezoidal if m &lt; n).
+This is the right-looking Level 3 BLAS version of the algorithm.
+Arguments
+=========
+M       (input) INTEGER
+        The number of rows of the matrix A.  M &gt;= 0.
+N       (input) INTEGER
+        The number of columns of the matrix A.  N &gt;= 0.
+A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+        On entry, the M-by-N matrix to be factored.
+        On exit, the factors L and U from the factorization
+        A = P*L*U; the unit diagonal elements of L are not stored.
+LDA     (input) INTEGER
+        The leading dimension of the array A.  LDA &gt;= max(1,M).
+IPIV    (output) INTEGER array, dimension (min(M,N))
+        The pivot indices; for 1 &lt;= i &lt;= min(M,N), row i of the
+        matrix was interchanged with row IPIV(i).
+INFO    (output) INTEGER
+        = 0:  successful exit
+        &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+        &gt; 0:  if INFO = i, U(i,i) is exactly zero. The factorization
+              has been completed, but the factor U is exactly
+              singular, and division by zero will occur if it is used
+              to solve a system of equations.
+</PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>A[:, :]</TD><TD>&nbsp;</TD><TD>Square or rectangular matrix</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>LU[size(A, 1), size(A, 2)]</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Integer</TD><TD>pivots[min(size(A, 1), size(A, 2))]</TD><TD>Pivot vector</TD></TR>
+<TR><TD>Integer</TD><TD>info</TD><TD>Information</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dgetrf <font color="darkgreen">
+  &quot;Compute LU factorization of square or rectangular matrix A (A = P*L*U)&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real A[:, :] <font color="darkgreen">&quot;Square or rectangular matrix&quot;</font>;
+  <font color="blue">output </font>Real LU[<font color="red">size</font>(A, 1),<font color="red"> size</font>(A, 2)]=A;
+  <font color="blue">output </font>Integer pivots[<font color="red">min</font>(<font color="red">size</font>(A, 1),<font color="red"> size</font>(A, 2))] <font color="darkgreen">&quot;Pivot vector&quot;</font>;
+  <font color="blue">output </font>Integer info <font color="darkgreen">&quot;Information&quot;</font>;
+
+
+<font color="blue">external </font>&quot;FORTRAN 77&quot; <font color="red">dgetrf</font>(<font color="red">size</font>(A, 1),<font color="red"> size</font>(A, 2), LU,<font color="red"> size</font>(A, 1), pivots,
+     info);
+<font color="blue">end </font>dgetrf;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dgetrs<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgetrs" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.LAPACK.dgetrs"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</A>.dgetrs</H2>
+<B>Solves a system of linear equations with the LU decomposition from dgetrf(..)</B><p>
+<H3>Information</H3>
+<PRE>Lapack documentation:
+  SUBROUTINE DGETRS( TRANS, N, NRHS, A, LDA, IPIV, B, LDB, INFO )
+-- LAPACK routine (version 1.1) --
+   Univ. of Tennessee, Univ. of California Berkeley, NAG Ltd.,
+   Courant Institute, Argonne National Lab, and Rice University
+   March 31, 1993
+   .. Scalar Arguments ..
+   CHARACTER          TRANS
+   INTEGER            INFO, LDA, LDB, N, NRHS
+   ..
+   .. Array Arguments ..
+   INTEGER            IPIV( * )
+   DOUBLE PRECISION   A( LDA, * ), B( LDB, * )
+   ..
+Purpose
+=======
+DGETRS solves a system of linear equations
+   A * X = B  or  A' * X = B
+with a general N-by-N matrix A using the LU factorization computed
+by DGETRF.
+Arguments
+=========
+TRANS   (input) CHARACTER*1
+        Specifies the form of the system of equations:
+        = 'N':  A * X = B  (No transpose)
+        = 'T':  A'* X = B  (Transpose)
+        = 'C':  A'* X = B  (Conjugate transpose = Transpose)
+N       (input) INTEGER
+        The order of the matrix A.  N &gt;= 0.
+NRHS    (input) INTEGER
+        The number of right hand sides, i.e., the number of columns
+        of the matrix B.  NRHS &gt;= 0.
+A       (input) DOUBLE PRECISION array, dimension (LDA,N)
+        The factors L and U from the factorization A = P*L*U
+        as computed by DGETRF.
+LDA     (input) INTEGER
+        The leading dimension of the array A.  LDA &gt;= max(1,N).
+IPIV    (input) INTEGER array, dimension (N)
+        The pivot indices from DGETRF; for 1&lt;=i&lt;=N, row i of the
+        matrix was interchanged with row IPIV(i).
+B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)
+        On entry, the right hand side matrix B.
+        On exit, the solution matrix X.
+LDB     (input) INTEGER
+        The leading dimension of the array B.  LDB &gt;= max(1,N).
+INFO    (output) INTEGER
+        = 0:  successful exit
+        &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+</PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>LU[:, size(LU, 1)]</TD><TD>&nbsp;</TD><TD>LU factorization of dgetrf of a square matrix</TD></TR>
+<TR><TD>Integer</TD><TD>pivots[size(LU, 1)]</TD><TD>&nbsp;</TD><TD>Pivot vector of dgetrf</TD></TR>
+<TR><TD>Real</TD><TD>B[size(LU, 1), :]</TD><TD>&nbsp;</TD><TD>Right hand side matrix B</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>X[size(B, 1), size(B, 2)]</TD><TD>Solution matrix X</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dgetrs <font color="darkgreen">
+  &quot;Solves a system of linear equations with the LU decomposition from dgetrf(..)&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real LU[:,<font color="red"> size</font>(LU, 1)] <font color="darkgreen">&quot;LU factorization of dgetrf of a square matrix&quot;</font>;
+  <font color="blue">input </font>Integer pivots[<font color="red">size</font>(LU, 1)] <font color="darkgreen">&quot;Pivot vector of dgetrf&quot;</font>;
+  <font color="blue">input </font>Real B[<font color="red">size</font>(LU, 1),:] <font color="darkgreen">&quot;Right hand side matrix B&quot;</font>;
+  <font color="blue">output </font>Real X[<font color="red">size</font>(B, 1),<font color="red"> size</font>(B,2)]=B <font color="darkgreen">&quot;Solution matrix X&quot;</font>;
+
+
+<font color="blue">protected </font>
+  Real work[<font color="red">size</font>(LU, 1),<font color="red"> size</font>(LU, 1)]=LU;
+  Integer info;
+<font color="blue">external </font>&quot;FORTRAN 77&quot; <font color="red">dgetrs</font>(&quot;N&quot;,<font color="red"> size</font>(LU, 1),<font color="red"> size</font>(B,2), work,<font color="red"> size</font>(LU, 1), pivots,
+     X,<font color="red"> size</font>(B, 1), info);
+<font color="blue">end </font>dgetrs;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dgetrs_vec<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgetrs_vec" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.LAPACK.dgetrs_vec"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</A>.dgetrs_vec</H2>
+<B>Solves a system of linear equations with the LU decomposition from dgetrf(..)</B><p>
+<H3>Information</H3>
+<PRE>Lapack documentation:
+  SUBROUTINE DGETRS( TRANS, N, NRHS, A, LDA, IPIV, B, LDB, INFO )
+-- LAPACK routine (version 1.1) --
+   Univ. of Tennessee, Univ. of California Berkeley, NAG Ltd.,
+   Courant Institute, Argonne National Lab, and Rice University
+   March 31, 1993
+   .. Scalar Arguments ..
+   CHARACTER          TRANS
+   INTEGER            INFO, LDA, LDB, N, NRHS
+   ..
+   .. Array Arguments ..
+   INTEGER            IPIV( * )
+   DOUBLE PRECISION   A( LDA, * ), B( LDB, * )
+   ..
+Purpose
+=======
+DGETRS solves a system of linear equations
+   A * X = B  or  A' * X = B
+with a general N-by-N matrix A using the LU factorization computed
+by DGETRF.
+Arguments
+=========
+TRANS   (input) CHARACTER*1
+        Specifies the form of the system of equations:
+        = 'N':  A * X = B  (No transpose)
+        = 'T':  A'* X = B  (Transpose)
+        = 'C':  A'* X = B  (Conjugate transpose = Transpose)
+N       (input) INTEGER
+        The order of the matrix A.  N &gt;= 0.
+NRHS    (input) INTEGER
+        The number of right hand sides, i.e., the number of columns
+        of the matrix B.  NRHS &gt;= 0.
+A       (input) DOUBLE PRECISION array, dimension (LDA,N)
+        The factors L and U from the factorization A = P*L*U
+        as computed by DGETRF.
+LDA     (input) INTEGER
+        The leading dimension of the array A.  LDA &gt;= max(1,N).
+IPIV    (input) INTEGER array, dimension (N)
+        The pivot indices from DGETRF; for 1&lt;=i&lt;=N, row i of the
+        matrix was interchanged with row IPIV(i).
+B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)
+        On entry, the right hand side matrix B.
+        On exit, the solution matrix X.
+LDB     (input) INTEGER
+        The leading dimension of the array B.  LDB &gt;= max(1,N).
+INFO    (output) INTEGER
+        = 0:  successful exit
+        &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+</PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>LU[:, size(LU, 1)]</TD><TD>&nbsp;</TD><TD>LU factorization of dgetrf of a square matrix</TD></TR>
+<TR><TD>Integer</TD><TD>pivots[size(LU, 1)]</TD><TD>&nbsp;</TD><TD>Pivot vector of dgetrf</TD></TR>
+<TR><TD>Real</TD><TD>b[size(LU, 1)]</TD><TD>&nbsp;</TD><TD>Right hand side vector b</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x[size(b, 1)]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dgetrs_vec <font color="darkgreen">
+  &quot;Solves a system of linear equations with the LU decomposition from dgetrf(..)&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real LU[:,<font color="red"> size</font>(LU, 1)] <font color="darkgreen">&quot;LU factorization of dgetrf of a square matrix&quot;</font>;
+  <font color="blue">input </font>Integer pivots[<font color="red">size</font>(LU, 1)] <font color="darkgreen">&quot;Pivot vector of dgetrf&quot;</font>;
+  <font color="blue">input </font>Real b[<font color="red">size</font>(LU, 1)] <font color="darkgreen">&quot;Right hand side vector b&quot;</font>;
+  <font color="blue">output </font>Real x[<font color="red">size</font>(b, 1)]=b;
+
+
+<font color="blue">protected </font>
+  Real work[<font color="red">size</font>(LU, 1),<font color="red"> size</font>(LU, 1)]=LU;
+  Integer info;
+<font color="blue">external </font>&quot;FORTRAN 77&quot; <font color="red">dgetrs</font>(&quot;N&quot;,<font color="red"> size</font>(LU, 1), 1, work,<font color="red"> size</font>(LU, 1), pivots,
+     x,<font color="red"> size</font>(b, 1), info);
+<font color="blue">end </font>dgetrs_vec;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dgetri<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgetri" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.LAPACK.dgetri"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</A>.dgetri</H2>
+<B>Computes the inverse of a matrix using the LU factorization from dgetrf(..)</B><p>
+<H3>Information</H3>
+<PRE>Lapack documentation:
+   SUBROUTINE DGETRI( N, A, LDA, IPIV, WORK, LWORK, INFO )
+-- LAPACK routine (version 1.1) --
+   Univ. of Tennessee, Univ. of California Berkeley, NAG Ltd.,
+   Courant Institute, Argonne National Lab, and Rice University
+   March 31, 1993
+   .. Scalar Arguments ..
+   INTEGER            INFO, LDA, LWORK, N
+   ..
+   .. Array Arguments ..
+   INTEGER            IPIV( * )
+   DOUBLE PRECISION   A( LDA, * ), WORK( LWORK )
+   ..
+Purpose
+=======
+DGETRI computes the inverse of a matrix using the LU factorization
+computed by DGETRF.
+This method inverts U and then computes inv(A) by solving the system
+inv(A)*L = inv(U) for inv(A).
+Arguments
+=========
+N       (input) INTEGER
+        The order of the matrix A.  N &gt;= 0.
+A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+        On entry, the factors L and U from the factorization
+        A = P*L*U as computed by DGETRF.
+        On exit, if INFO = 0, the inverse of the original matrix A.
+LDA     (input) INTEGER
+        The leading dimension of the array A.  LDA &gt;= max(1,N).
+IPIV    (input) INTEGER array, dimension (N)
+        The pivot indices from DGETRF; for 1&lt;=i&lt;=N, row i of the
+        matrix was interchanged with row IPIV(i).
+WORK    (workspace) DOUBLE PRECISION array, dimension (LWORK)
+        On exit, if INFO=0, then WORK(1) returns the optimal LWORK.
+LWORK   (input) INTEGER
+        The dimension of the array WORK.  LWORK &gt;= max(1,N).
+        For optimal performance LWORK &gt;= N*NB, where NB is
+        the optimal blocksize returned by ILAENV.
+INFO    (output) INTEGER
+        = 0:  successful exit
+        &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+        &gt; 0:  if INFO = i, U(i,i) is exactly zero; the matrix is
+              singular and its inverse could not be computed.</PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>LU[:, size(LU, 1)]</TD><TD>&nbsp;</TD><TD>LU factorization of dgetrf of a square matrix</TD></TR>
+<TR><TD>Integer</TD><TD>pivots[size(LU, 1)]</TD><TD>&nbsp;</TD><TD>Pivot vector of dgetrf</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>inv[size(LU, 1), size(LU, 2)]</TD><TD>Inverse of matrix P*L*U</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dgetri <font color="darkgreen">
+  &quot;Computes the inverse of a matrix using the LU factorization from dgetrf(..)&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real LU[:,<font color="red"> size</font>(LU, 1)] <font color="darkgreen">&quot;LU factorization of dgetrf of a square matrix&quot;</font>;
+  <font color="blue">input </font>Integer pivots[<font color="red">size</font>(LU, 1)] <font color="darkgreen">&quot;Pivot vector of dgetrf&quot;</font>;
+  <font color="blue">output </font>Real inv[<font color="red">size</font>(LU, 1),<font color="red"> size</font>(LU, 2)]=LU <font color="darkgreen">&quot;Inverse of matrix P*L*U&quot;</font>;
+
+<font color="blue">protected </font>
+  Integer lwork=<font color="red">min</font>(10,<font color="red"> size</font>(LU, 1))*<font color="red">size</font>(LU, 1) <font color="darkgreen">&quot;Length of work array&quot;</font>;
+  Real work[lwork];
+  Integer info;
+<font color="blue">external </font>&quot;FORTRAN 77&quot; <font color="red">dgetri</font>(<font color="red">size</font>(LU, 1), inv,<font color="red"> size</font>(LU, 1), pivots, work,
+    lwork, info);
+<font color="blue">end </font>dgetri;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dgeqpf<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgeqpf" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.LAPACK.dgeqpf"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</A>.dgeqpf</H2>
+<B>Compute QR factorization of square or rectangular matrix A with column pivoting (A(:,p) = Q*R)</B><p>
+<H3>Information</H3>
+<PRE>Lapack documentation:
+   SUBROUTINE DGEQPF( M, N, A, LDA, JPVT, TAU, WORK, INFO )
+-- LAPACK test routine (version 1.1) --
+   Univ. of Tennessee, Univ. of California Berkeley, NAG Ltd.,
+   Courant Institute, Argonne National Lab, and Rice University
+   March 31, 1993
+   .. Scalar Arguments ..
+   INTEGER            INFO, LDA, M, N
+   ..
+   .. Array Arguments ..
+   INTEGER            JPVT( * )
+   DOUBLE PRECISION   A( LDA, * ), TAU( * ), WORK( * )
+   ..
+Purpose
+=======
+DGEQPF computes a QR factorization with column pivoting of a
+real M-by-N matrix A: A*P = Q*R.
+Arguments
+=========
+M       (input) INTEGER
+        The number of rows of the matrix A. M &gt;= 0.
+N       (input) INTEGER
+        The number of columns of the matrix A. N &gt;= 0
+A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+        On entry, the M-by-N matrix A.
+        On exit, the upper triangle of the array contains the
+        min(M,N)-by-N upper triangular matrix R; the elements
+        below the diagonal, together with the array TAU,
+        represent the orthogonal matrix Q as a product of
+        min(m,n) elementary reflectors.
+LDA     (input) INTEGER
+        The leading dimension of the array A. LDA &gt;= max(1,M).
+JPVT    (input/output) INTEGER array, dimension (N)
+        On entry, if JPVT(i) .ne. 0, the i-th column of A is permuted
+        to the front of A*P (a leading column); if JPVT(i) = 0,
+        the i-th column of A is a free column.
+        On exit, if JPVT(i) = k, then the i-th column of A*P
+        was the k-th column of A.
+TAU     (output) DOUBLE PRECISION array, dimension (min(M,N))
+        The scalar factors of the elementary reflectors.
+WORK    (workspace) DOUBLE PRECISION array, dimension (3*N)
+INFO    (output) INTEGER
+        = 0:  successful exit
+        &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+Further Details
+===============
+The matrix Q is represented as a product of elementary reflectors
+   Q = H(1) H(2) . . . H(n)
+Each H(i) has the form
+   H = I - tau * v * v'
+where tau is a real scalar, and v is a real vector with
+v(1:i-1) = 0 and v(i) = 1; v(i+1:m) is stored on exit in A(i+1:m,i).
+The matrix P is represented in jpvt as follows: If
+   jpvt(j) = i
+then the jth column of P is the ith canonical unit vector.</PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>A[:, :]</TD><TD>&nbsp;</TD><TD>Square or rectangular matrix</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>QR[size(A, 1), size(A, 2)]</TD><TD>QR factorization in packed format</TD></TR>
+<TR><TD>Real</TD><TD>tau[min(size(A, 1), size(A, 2))]</TD><TD>The scalar factors of the elementary reflectors of Q</TD></TR>
+<TR><TD>Integer</TD><TD>p[size(A, 2)]</TD><TD>Pivot vector</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dgeqpf <font color="darkgreen">
+  &quot;Compute QR factorization of square or rectangular matrix A with column pivoting (A(:,p) = Q*R)&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real A[:, :] <font color="darkgreen">&quot;Square or rectangular matrix&quot;</font>;
+  <font color="blue">output </font>Real QR[<font color="red">size</font>(A, 1),<font color="red"> size</font>(A, 2)]=A <font color="darkgreen">&quot;QR factorization in packed format&quot;</font>;
+  <font color="blue">output </font>Real tau[<font color="red">min</font>(<font color="red">size</font>(A, 1),<font color="red"> size</font>(A, 2))] <font color="darkgreen">
+    &quot;The scalar factors of the elementary reflectors of Q&quot;</font>;
+  <font color="blue">output </font>Integer p[<font color="red">size</font>(A, 2)]=<font color="red">zeros</font>(<font color="red">size</font>(A, 2)) <font color="darkgreen">&quot;Pivot vector&quot;</font>;
+
+<font color="blue">protected </font>
+  Integer info;
+  Integer ncol=<font color="red">size</font>(A, 2) <font color="darkgreen">&quot;Column dimension of A&quot;</font>;
+  Real work[3*ncol] <font color="darkgreen">&quot;work array&quot;</font>;
+<font color="blue">external </font>&quot;FORTRAN 77&quot; <font color="red">dgeqpf</font>(<font color="red">size</font>(A, 1), ncol, QR,<font color="red"> size</font>(A, 1), p, tau, work,
+     info);
+<font color="blue">end </font>dgeqpf;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dorgqr<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dorgqr" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Matrices.LAPACK.dorgqr"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</A>.dorgqr</H2>
+<B>Generates a Real orthogonal matrix Q which is defined as the product of elementary reflectors as returned from dgeqpf</B><p>
+<H3>Information</H3>
+<PRE>Lapack documentation:
+   SUBROUTINE DORGQR( M, N, K, A, LDA, TAU, WORK, LWORK, INFO )
+-- LAPACK routine (version 1.1) --
+   Univ. of Tennessee, Univ. of California Berkeley, NAG Ltd.,
+   Courant Institute, Argonne National Lab, and Rice University
+   March 31, 1993
+   .. Scalar Arguments ..
+   INTEGER            INFO, K, LDA, LWORK, M, N
+   ..
+   .. Array Arguments ..
+   DOUBLE PRECISION   A( LDA, * ), TAU( * ), WORK( LWORK )
+   ..
+Purpose
+=======
+DORGQR generates an M-by-N real matrix Q with orthonormal columns,
+which is defined as the first N columns of a product of K elementary
+reflectors of order M
+      Q  =  H(1) H(2) . . . H(k)
+as returned by DGEQRF.
+Arguments
+=========
+M       (input) INTEGER
+        The number of rows of the matrix Q. M &gt;= 0.
+N       (input) INTEGER
+        The number of columns of the matrix Q. M &gt;= N &gt;= 0.
+K       (input) INTEGER
+        The number of elementary reflectors whose product defines the
+        matrix Q. N &gt;= K &gt;= 0.
+A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+        On entry, the i-th column must contain the vector which
+        defines the elementary reflector H(i), for i = 1,2,...,k, as
+        returned by DGEQRF in the first k columns of its array
+        argument A.
+        On exit, the M-by-N matrix Q.
+LDA     (input) INTEGER
+        The first dimension of the array A. LDA &gt;= max(1,M).
+TAU     (input) DOUBLE PRECISION array, dimension (K)
+        TAU(i) must contain the scalar factor of the elementary
+        reflector H(i), as returned by DGEQRF.
+WORK    (workspace) DOUBLE PRECISION array, dimension (LWORK)
+        On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
+LWORK   (input) INTEGER
+        The dimension of the array WORK. LWORK &gt;= max(1,N).
+        For optimum performance LWORK &gt;= N*NB, where NB is the
+        optimal blocksize.
+INFO    (output) INTEGER
+        = 0:  successful exit
+        &lt; 0:  if INFO = -i, the i-th argument has an illegal value
+</PRE>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>QR[:, :]</TD><TD>&nbsp;</TD><TD>QR from dgeqpf</TD></TR>
+<TR><TD>Real</TD><TD>tau[min(size(QR, 1), size(QR, 2))]</TD><TD>&nbsp;</TD><TD>The scalar factors of the elementary reflectors of Q</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>Q[size(QR, 1), size(QR, 2)]</TD><TD>Orthogonal matrix Q</TD></TR>
+</TABLE>
+<H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dorgqr <font color="darkgreen">
+  &quot;Generates a Real orthogonal matrix Q which is defined as the product of elementary reflectors as returned from dgeqpf&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real QR[:, :] <font color="darkgreen">&quot;QR from dgeqpf&quot;</font>;
+  <font color="blue">input </font>Real tau[<font color="red">min</font>(<font color="red">size</font>(QR, 1),<font color="red"> size</font>(QR, 2))] <font color="darkgreen">
+    &quot;The scalar factors of the elementary reflectors of Q&quot;</font>;
+  <font color="blue">output </font>Real Q[<font color="red">size</font>(QR, 1),<font color="red"> size</font>(QR, 2)]=QR <font color="darkgreen">&quot;Orthogonal matrix Q&quot;</font>;
+
+
+<font color="blue">protected </font>
+  Integer info;
+  Integer lwork=<font color="red">min</font>(10,<font color="red"> size</font>(QR, 2))*<font color="red">size</font>(QR, 2) <font color="darkgreen">&quot;Length of work array&quot;</font>;
+  Real work[lwork];
+<font color="blue">external </font>&quot;FORTRAN 77&quot; <font color="red">dorgqr</font>(<font color="red">size</font>(QR, 1),<font color="red"> size</font>(QR, 2),<font color="red"> size</font>(tau, 1), Q,
+    <font color="red">size</font>(Q, 1), tau, work, lwork, info);
+<font color="blue">end </font>dorgqr;
+</PRE>
+<HR>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Sat Mar 01 21:47:38 2008.
+</address></BODY>
+</HTML>
