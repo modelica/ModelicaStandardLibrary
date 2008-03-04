@@ -1,9 +1,12 @@
 within ;
 package ModelicaReference "Modelica Reference"
-annotation (DocumentationClass=true, Documentation(info="<html>
+annotation (DocumentationClass=true,
+    versionBuild="$Rev$",
+    versionDate="$Date::                            $",
+    Documentation(info="<html>
 <p>
-This package is a reference to Modelica keywords and Modelica builtin 
-operators and is based on the 
+This package is a reference to Modelica keywords and Modelica builtin
+operators and is based on the
 <a href=\"http://www.modelica.org/documents/ModelicaSpec30.pdf\">Modelica Language Specification version 3.0</a> from Sept. 2007.
 
 
@@ -22,10 +25,10 @@ operators and is based on the
 <b>Copyright &copy; 2003-2004, 2008 Modelica Association and DLR.</b>
 </p>
 <p>
-<i>The <b>ModelicaReference</b> package is <b>free</b> software; 
+<i>The <b>ModelicaReference</b> package is <b>free</b> software;
 it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
-and the accompanying <b>disclaimer</b> 
+and the accompanying <b>disclaimer</b>
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense\">here</a>.</i>
 </p><br>
 </html>", revisions="<html>
@@ -57,12 +60,12 @@ Define graphical layout of choices in a parameter menu
 
 <h4><font color=\"#008000\">Examples</font></h4>
 
-<pre><b>replaceable model</b> MyResistor=Resistor 
+<pre><b>replaceable model</b> MyResistor=Resistor
   <b>annotation</b>(choices(
               choice(redeclare MyResistor=lib2.Resistor(a={2}) \"...\"),
               choice(redeclare MyResistor=lib2.Resistor2 \"...\")));
 
-<b>replaceable</b> Resistor Load(R=2) constrainedby TwoPin 
+<b>replaceable</b> Resistor Load(R=2) constrainedby TwoPin
   <b>annotation</b>(choices(
               choice(redeclare lib2.Resistor Load(a={2}) \"...\"),
               choice(redeclare Capacitor Load(L=3) \"...\")));
@@ -90,7 +93,7 @@ A a(x=3 \"PID\");
 <h4><font color=\"#008000\">Description</font></h4>
 
 <p>
-A declaration can have an annotation \"choices\" containing modifiers on choice, where each of them indicates a suitable redeclaration or modifications of the element. 
+A declaration can have an annotation \"choices\" containing modifiers on choice, where each of them indicates a suitable redeclaration or modifications of the element.
 This is a hint for users of the model, and can also be used by the user interface to suggest reasonable redeclaration, where the string comments on the choice declaration can be used as textual explanations of the choices.  The annotation is not restricted to replaceable elements but can also be applied to non-replaceable elements, enumeration types, and simple variables.
 </p>
 
@@ -197,7 +200,7 @@ The inputs to the derivative function of order 1 are constructed as follows:
 Example: Given the declarations
 </p>
 
-<pre> function foo0 
+<pre> function foo0
    ...
    input Real x;
    input Boolean linear;
@@ -207,7 +210,7 @@ Example: Given the declarations
    annotation(derivative=foo1);
  end foo0;
 
- function foo1 
+ function foo1
    ...
    input Real x;
    input Boolean linear;
@@ -218,8 +221,8 @@ Example: Given the declarations
    ...
    annotation(derivative(order=2)=foo2);
  end foo1;
-   
- function foo2 
+
+ function foo2
    ...
    input Real x;
    input Boolean linear;
@@ -255,7 +258,7 @@ An input or output to the function may be any simple type (Real, Boolean, Intege
 <li> zeroDerivative=input_var1<br>
     The derivative function is only valid if input_var1 is independent
     of the variables the function call is  differentiated with respect to
-    (i.e. that the derivative of input_var1 is \"zero\"). 
+    (i.e. that the derivative of input_var1 is \"zero\").
     The derivative of input_var1 is excluded from the argument list of the derivative-function.
     Assume that function f takes a matrix and a scalar. Since the matrix argument is
     usually a parameter expression it is then useful to define the function
@@ -265,7 +268,7 @@ An input or output to the function may be any simple type (Real, Boolean, Intege
   input Real x;
   input Real y[:, 2];
   output Real z;
-  annotation(derivative(zeroDerivative=y) = f_der, 
+  annotation(derivative(zeroDerivative=y) = f_der,
              derivative=f_general_der);
 algorithm
   ...
@@ -288,7 +291,7 @@ function f_general_der \"Derivative of table lookup taking into account varying 
   output Real z_der;
 algorithm
   ...
-end f_general_der; 
+end f_general_der;
 
 </pre></li>
 
@@ -296,13 +299,13 @@ end f_general_der;
     The derivative function is only valid if the input argument input_var2
     is computed as f(input_var1, ...). The derivative of input_var2
     is excluded from the argument list of the derivative-function.
-    Assume that function fg is defined as a composition f(x, g(x)). 
+    Assume that function fg is defined as a composition f(x, g(x)).
     When differentiating f it is useful to give the derivative under the
     assumption that the second argument is defined in this way:
 <pre>function fg
   input Real x;
   output Real z;
-algorithm 
+algorithm
    z := f(x, g(x));
 end fg;
 
@@ -312,7 +315,7 @@ function f
   output Real z;
   annotation(derivative(noDerivative(y = g(x))) = f_der);
 algorithm
-  ... 
+  ...
 end f;
 
 function f_der
@@ -321,7 +324,7 @@ function f_der
   input Real y;
   output Real z_der;
 algorithm
-  ... 
+  ...
 end f_der;
 </pre>
 This is useful if g represents the major computational effort of fg).</li>
@@ -343,7 +346,7 @@ Define graphical layout of parameter menu
   ...
   <b>parameter</b> Boolean animation = true;
   <b>parameter</b> Modelica.SIunits.Length length \"Length of shape\"
-     <b>annotation</b>(Dialog(enable = animation, tab = \"Animation\", 
+     <b>annotation</b>(Dialog(enable = animation, tab = \"Animation\",
                         group = \"Shape definition\"));
   ...
 <b>end</b> BodyShape;
@@ -385,7 +388,7 @@ Annotations for documentation
 <h4><font color=\"#008000\">Syntax</font></h4>
 
 <pre>documentation_annotation:
-   <b>annotation</b>\"(\" Documentation \"(\" \"info\" \"=\" STRING 
+   <b>annotation</b>\"(\" Documentation \"(\" \"info\" \"=\" STRING
                             [\",\" \"revisions\" \"=\" STRING ] \")\" \")\"
 </pre>
 
@@ -418,7 +421,7 @@ Annotations are intended for storing extra information about a model, such as gr
 
     annotation (Documentation(info="<html>
 <p>
-Define schematic animation of diagram layer 
+Define schematic animation of diagram layer
 </p>
 
 <h4><font color=\"#008000\">Examples</font></h4>
@@ -430,8 +433,8 @@ The level of a tank is animated by a rectangle expanding in vertical direction a
 
 <pre><b>annotation</b>(
   Icon(graphics={Rectangle(
-    extent=<b>DynamicSelect</b>({{0,0},{20,20}},{{0,0},{20,level}}), 
-    fillColor=<b>DynamicSelect</b>({0,0,255}, 
+    extent=<b>DynamicSelect</b>({{0,0},{20,20}},{{0,0},{20,level}}),
+    fillColor=<b>DynamicSelect</b>({0,0,255},
                             <b>if</b> overflow <b>then</b> {255,0,0} <b>else</b> {0,0,255}))}
 );
 </pre></blockquote>
@@ -459,18 +462,18 @@ Annotation for code generation (evaluate parameter value)
 
 <h4><font color=\"#008000\">Syntax</font></h4>
 
-<pre>   <b>annotation</b>\"(\" Evaluate \"=\" ( <b>false</b> | <b>true</b> ) \")  
+<pre>   <b>annotation</b>\"(\" Evaluate \"=\" ( <b>false</b> | <b>true</b> ) \")
 </pre>
 
 
 <h4><font color=\"#008000\">Description</font></h4>
 
 <p>
-Has only an effect for a declaration with the prefix parameter. 
+Has only an effect for a declaration with the prefix parameter.
 </p>
 
 <p>
-If Evaluate = true, the model developer proposes to utilize the value for the symbolic processing. In that case, it is not possible to change the parameter value after symbolic pre-processing. 
+If Evaluate = true, the model developer proposes to utilize the value for the symbolic processing. In that case, it is not possible to change the parameter value after symbolic pre-processing.
 </p>
 
 <p>
@@ -488,7 +491,7 @@ Evaluate is for example used for axis of rotation parameters in the Modelica.Mec
 
     annotation (Documentation(info="<html>
 <p>
-Define default experiment parameters 
+Define default experiment parameters
 </p>
 
 <h4><font color=\"#008000\">Examples</font></h4>
@@ -503,7 +506,7 @@ Define default experiment parameters
    <b>annotation</b>\"(\" \"experiment\" \"(\" [experimentOption] {, experimentOption}] \")\"
 
 experimentOption:
-   StartTime  \"=\" [\"+\" | \"-\"] UNSIGNED_NUMBER | 
+   StartTime  \"=\" [\"+\" | \"-\"] UNSIGNED_NUMBER |
    StopTime   \"=\" [\"+\" | \"-\"] UNSIGNED_NUMBER |
    Tolerance  \"=\" UNSIGNED_NUMBER
 </pre>
@@ -512,7 +515,7 @@ experimentOption:
 <h4><font color=\"#008000\">Description</font></h4>
 
 <p>
-The experiment annotation defines the default start time (StartTime) in [s], the default stop time (StopTime) in [s], and the default relative integration tolerance (Tolerance) for simulation experiments to be carried out with the model or block at hand. 
+The experiment annotation defines the default start time (StartTime) in [s], the default stop time (StopTime) in [s], and the default relative integration tolerance (Tolerance) for simulation experiments to be carried out with the model or block at hand.
 </p>
 
 </html>"));
@@ -527,7 +530,7 @@ Annotation for code generation (hide result)
 
 <h4><font color=\"#008000\">Syntax</font></h4>
 
-<pre>   <b>annotation</b>\"(\" HideResult \"=\" ( <b>false</b> | <b>true</b> ) \")  
+<pre>   <b>annotation</b>\"(\" HideResult \"=\" ( <b>false</b> | <b>true</b> ) \")
 </pre>
 
 
@@ -557,14 +560,14 @@ Annotation for code generation (inline function body)
 
 <h4><font color=\"#008000\">Syntax</font></h4>
 
-<pre>   <b>annotation</b>\"(\" Inline \"=\" ( <b>false</b> | <b>true</b> ) \")  
+<pre>   <b>annotation</b>\"(\" Inline \"=\" ( <b>false</b> | <b>true</b> ) \")
 </pre>
 
 
 <h4><font color=\"#008000\">Description</font></h4>
 
 <p>
-Has only an effect within a function declaration. 
+Has only an effect within a function declaration.
 </p>
 
 <p>
@@ -573,7 +576,7 @@ This means, that the body of the function is included at all places where the fu
 </p>
 
 <p>
-If \"Inline = false\", the model developer proposes to not inline the function. 
+If \"Inline = false\", the model developer proposes to not inline the function.
 </p>
 
 <p>
@@ -592,7 +595,7 @@ Annotation for code generation (inline function body after symbolic processing)
 
 <h4><font color=\"#008000\">Syntax</font></h4>
 
-<pre>   <b>annotation</b>\"(\" LateInline \"=\" ( <b>false</b> | <b>true</b> ) \")  
+<pre>   <b>annotation</b>\"(\" LateInline \"=\" ( <b>false</b> | <b>true</b> ) \")
 </pre>
 
 
@@ -602,8 +605,8 @@ Annotation for code generation (inline function body after symbolic processing)
 Has only an effect within a function declaration.
 </p>
 
-<p> 
-If \"LateInline = true\", the model developer proposes to inline the function after all symbolic transformations have been performed, but before common subexpression elimination takes place. 
+<p>
+If \"LateInline = true\", the model developer proposes to inline the function after all symbolic transformations have been performed, but before common subexpression elimination takes place.
 </p>
 
 <p>
@@ -659,7 +662,7 @@ Define default view when selecting class
 <h4><font color=\"#008000\">Syntax</font></h4>
 
 <pre>preferred view_annotation:
-   <b>annotation</b>\"(\" preferredView \"=\" (\"info\" | \"diagram\" | \"text\") \")\"  
+   <b>annotation</b>\"(\" preferredView \"=\" (\"info\" | \"diagram\" | \"text\") \")\"
 </pre>
 
 
@@ -681,7 +684,7 @@ Define differentiability of function body
 
 <h4><font color=\"#008000\">Syntax</font></h4>
 
-<pre>   <b>annotation</b>\"(\" smoothOrder \"=\" UNSIGNED_INTEGER \")\" 
+<pre>   <b>annotation</b>\"(\" smoothOrder \"=\" UNSIGNED_INTEGER \")\"
 </pre>
 
 
@@ -720,7 +723,7 @@ Define version information of package
 <b>end</b> Modelica;
 
 <b>model</b> A
-  <b>annotation</b>(version=\"1.0\", 
+  <b>annotation</b>(version=\"1.0\",
      uses(Modelica(version=\"1.5\")));
   ...
 <b>end</b> A;
@@ -758,7 +761,7 @@ Version numbers are of the forms:
 </ul>
 
 <p>
-The main release versions are ordered using the hierarchical numerical names, and follow the corresponding pre-release versions. The pre-release versions of the same main release version are internally ordered alphabetically. 
+The main release versions are ordered using the hierarchical numerical names, and follow the corresponding pre-release versions. The pre-release versions of the same main release version are internally ordered alphabetically.
 </p>
 
 <p>
@@ -775,7 +778,7 @@ In a top-level class, the version number and the dependency to earlier versions 
      the CURRENT-VERSION-NUMBER of the current class without any changes.<br>&nbsp;</li>
 
 <li> <code>conversion ( from (version = VERSION-NUMBER, script = \"?\") )	</code><br>
-     Defines that user models using the VERSION-NUMBER can be upgraded to 
+     Defines that user models using the VERSION-NUMBER can be upgraded to
      the CURRENT-VERSION-NUMBER of the current class by applying the given
      script. The semantics of the conversion script is not defined.<br>&nbsp;</li>
 
@@ -817,12 +820,12 @@ Error message, if variable is not assigned
 
 <h4><font color=\"#008000\">Examples</font></h4>
 
-<pre><b>connector</b> Frame \"Frame of a mechanical system\" 
+<pre><b>connector</b> Frame \"Frame of a mechanical system\"
     ...
-  <b>flow</b> Modelica.SIunits.Force f[3] <b>annotation</b>(unassignedMessage = 
+  <b>flow</b> Modelica.SIunits.Force f[3] <b>annotation</b>(unassignedMessage =
 \"All Forces cannot be uniquely calculated. The reason could be that the
-mechanism contains a planar loop or that joints constrain the same motion. 
-For planar loops, use in one revolute joint per loop the option 
+mechanism contains a planar loop or that joints constrain the same motion.
+For planar loops, use in one revolute joint per loop the option
 PlanarCutJoint=true in the Advanced menu.
 \");
 <b>end</b> Frame;
@@ -881,7 +884,7 @@ class_specifier :
 <P>
 A block class is the same as a model class
 with the restriction that each connector component of a block must
-have prefixes input and/or output for all connector variables. 
+have prefixes input and/or output for all connector variables.
 The purpose is to model input/output blocks of block diagrams.
 Due to the restrictions on input and output prefixes,
 connections between blocks are only possible according
@@ -960,7 +963,7 @@ class_specifier :
 <P>The keyword connector is used to define connectors, which are used
 in connect statements. In connectors, no equations are allowed in the
 definition or in any of its components.
-With respect to \"class\", it is enhanced to allow connect(..) to components 
+With respect to \"class\", it is enhanced to allow connect(..) to components
 of connector classes.
 </P>
 </html>"));
@@ -1005,14 +1008,14 @@ one algorithm clause are allowed. Calling a function requires
 either an algorithm clause or an external function interface.</p>
 
 <p>
-The syntax and semantics of a function have many similarities to those of the block 
-specialized class. A function has many of the properties of a general class, 
+The syntax and semantics of a function have many similarities to those of the block
+specialized class. A function has many of the properties of a general class,
 e.g. being able to inherit other functions, or to redeclare or modify
 elements of a function declaration.
 </p>
 
-<p> 
-Modelica functions have the following restrictions compared to a 
+<p>
+Modelica functions have the following restrictions compared to a
 general Modelica class:
 </p>
 
@@ -1021,7 +1024,7 @@ general Modelica class:
      prefixed by the keyword input, and each result formal parameter
      by the keyword output. All public variables are formal parameters.</li>
 
-<li> Input formal parameters are read-only after being bound to the 
+<li> Input formal parameters are read-only after being bound to the
      actual arguments or default values, i.e., they may not be assigned
      values in the body of the function.</li>
 
@@ -1036,7 +1039,7 @@ general Modelica class:
      either an algorithm section or an external function interface as
      its body, and it may not be partial.</li>
 
-<li> A function cannot contain calls to the Modelica built-in operators 
+<li> A function cannot contain calls to the Modelica built-in operators
      der, initial, terminal, sample, pre, edge, change, reinit, delay,
      cardinality, to the operators of the built-in package Connections,
      and is not allowed to contain when-statements.</li>
@@ -1058,7 +1061,7 @@ general Modelica class:
 </ul>
 
 <p>
-Modelica functions have the following enhancements compared to a general Modelica class: 
+Modelica functions have the following enhancements compared to a general Modelica class:
 </p>
 
 <ul>
@@ -1122,7 +1125,7 @@ class_specifier :
 <h4><font color=\"#008000\">Description</font></h4>
 <P>
 The keyword model is identical to the keyword class, i.e.,
-no restrictions and no enhancements. 
+no restrictions and no enhancements.
 </P>
 </html>"));
   end Model;
@@ -1213,9 +1216,9 @@ class_specifier :
 The keyword record is used to define records which are generally used in
 order to group variables. Only public sections are allowed in the definition
 or in any of its components (i.e., equation, algorithm, initial equation,
-initial algorithm and protected sections are not allowed). May not be used in 
-connections. The elements of a record may not have prefixes input, output, inner, outer, 
-or flow.  Enhanced with implicitly available record constructor function. 
+initial algorithm and protected sections are not allowed). May not be used in
+connections. The elements of a record may not have prefixes input, output, inner, outer,
+or flow.  Enhanced with implicitly available record constructor function.
 Additionally, record components can be used as component references in
 expressions and in the left hand side of assignments, subject to
 normal type compatibility rules.
@@ -1306,7 +1309,7 @@ or arrays.
 
   <tr><td>.*, ./, .^</td>
       <td>a .* b</td>
-      <td>element-wise multiplication, division and exponentation of 
+      <td>element-wise multiplication, division and exponentation of
           scalars and arrays</td></tr>
 
   <tr><td>=</td>
@@ -1470,10 +1473,10 @@ table: </span></p>
 
  valign=\"top\">
       <p><span
- class=\"CODE\"><span 
+ class=\"CODE\"><span
  >{2,3}&nbsp; [5,6]</span></span></p>
       <p><span
- class=\"CODE\"><span 
+ class=\"CODE\"><span
  >[2,3; 7,8]</span></span></p>
       </td>
     </tr>
@@ -1520,7 +1523,7 @@ table: </span></p>
       <td valign=\"top\">
       <p><span class=\"CODE\"><span>a+b</span></span><span>,</span><span class=\"CODE\"><span>&nbsp;
 a-b, +a, -a</span></span></p>
-      <p><span class=\"CODE\"><span 
+      <p><span class=\"CODE\"><span
  >[1,2;3,4].+[2,3;5,6]</span></span></p>
       </td>
     </tr>
@@ -1529,21 +1532,21 @@ a-b, +a, -a</span></span></p>
       <p><span >relational</span></p>
       </td>
       <td valign=\"top\">
-      <p><span class=\"CODE\"><span 
+      <p><span class=\"CODE\"><span
  >&lt;</span></span><span
- class=\"CODE\"><span 
+ class=\"CODE\"><span
  >&nbsp;&nbsp;&lt;=</span></span><span
- class=\"CODE\"><span 
+ class=\"CODE\"><span
  >&nbsp;&nbsp;&gt;</span></span><span
- class=\"CODE\"><span 
+ class=\"CODE\"><span
  >&nbsp;&nbsp;&gt;=</span></span><span
- class=\"CODE\"><span 
+ class=\"CODE\"><span
  >&nbsp;&nbsp;==</span></span><span
- class=\"CODE\"><span 
+ class=\"CODE\"><span
  >&nbsp;&nbsp;&lt;&gt;</span></span></p>
       </td>
       <td valign=\"top\">
-      <p><span class=\"CODE\"><span 
+      <p><span class=\"CODE\"><span
  >a&lt;b</span></span><span
  >,</span><span class=\"CODE\"><span
   >&nbsp;
@@ -1553,7 +1556,7 @@ a&lt;=b, a&gt;b, ...</span></span></p>
     <tr>
       <td valign=\"top\">
       <p><span
- class=\"CODE\"><span 
+ class=\"CODE\"><span
  >...</span></span></p>
       </td>
       <td valign=\"top\">
@@ -1570,14 +1573,14 @@ a&lt;=b, a&gt;b, ...</span></span></p>
       <p><span >unary negation</span></p>
       </td>
       <td valign=\"top\">
-      <p><span class=\"CODE\"><span 
+      <p><span class=\"CODE\"><span
  >not</span></span><span
- class=\"CODE\"><span 
+ class=\"CODE\"><span
  >&nbsp;</span></span><i><span
  >expr</span></i></p>
       </td>
       <td valign=\"top\">
-      <p><span class=\"CODE\"><span 
+      <p><span class=\"CODE\"><span
  >not b1</span></span></p>
       </td>
     </tr>
@@ -1586,11 +1589,11 @@ a&lt;=b, a&gt;b, ...</span></span></p>
       <p><span >logical and</span></p>
       </td>
       <td valign=\"top\">
-      <p><span class=\"CODE\"><span 
+      <p><span class=\"CODE\"><span
  >and</span></span></p>
       </td>
       <td valign=\"top\">
-      <p><span class=\"CODE\"><span 
+      <p><span class=\"CODE\"><span
  >b1 and b2</span></span></p>
       </td>
     </tr>
@@ -1599,11 +1602,11 @@ a&lt;=b, a&gt;b, ...</span></span></p>
       <p><span >logical or</span></p>
       </td>
       <td valign=\"top\">
-      <p><span class=\"CODE\"><span 
+      <p><span class=\"CODE\"><span
  >or</span></span></p>
       </td>
       <td valign=\"top\">
-      <p><span class=\"CODE\"><span 
+      <p><span class=\"CODE\"><span
  >b1 or&nbsp; b2</span></span></p>
       </td>
     </tr>
@@ -1616,12 +1619,12 @@ a&lt;=b, a&gt;b, ...</span></span></p>
       </span><span class=\"CODE\"><span
   >:</span></span><span
  >&nbsp; <i>expr</i>&nbsp; </span><span
- class=\"CODE\"><span 
+ class=\"CODE\"><span
  >:</span></span><span >&nbsp;
       <i>expr</i></span></p>
       </td>
       <td valign=\"top\">
-      <p><span class=\"CODE\"><span 
+      <p><span class=\"CODE\"><span
  >1:5</span></span><span
  >,</span><span class=\"CODE\"><span
   >
@@ -1633,7 +1636,7 @@ start:step:stop</span></span></p>
       <p><span >conditional</span></p>
       </td>
       <td valign=\"top\">
-      <p><span class=\"CODE\"><span 
+      <p><span class=\"CODE\"><span
  >if</span></span><span
  >&nbsp;&nbsp;<i>expr</i>&nbsp;
       </span><span class=\"CODE\"><span
@@ -1644,7 +1647,7 @@ start:step:stop</span></span></p>
  >&nbsp;&nbsp;<i>expr</i></span></p>
       </td>
       <td valign=\"top\">
-      <p><span class=\"CODE\"><span 
+      <p><span class=\"CODE\"><span
  >if b then 3 else x</span></span></p>
       </td>
     </tr>
@@ -1657,7 +1660,7 @@ start:step:stop</span></span></p>
       <i>expr</i>&nbsp; </span></p>
       </td>
       <td valign=\"top\">
-      <p><span class=\"CODE\"><span 
+      <p><span class=\"CODE\"><span
  >x = 2.26</span></span></p>
       </td>
     </tr>
@@ -1668,7 +1671,7 @@ conditional operator may also include
 elseif-clauses. Equality </span><span class=\"CODE\"><span
   >=</span></span><span
  > and assignment </span><span
- class=\"CODE\"><span 
+ class=\"CODE\"><span
  >:=</span></span><span
  > are not expression operators since they are
 allowed only in
@@ -1697,14 +1700,14 @@ end ElementaryOperators;
 In this chapter <b>operators</b> of Modelica are documented.
 Elementary operators, such as \"+\" or \"-\" are overloaded and
 operate on scalar and array variables. Other operators
-have the same syntax as a 
+have the same syntax as a
 <a href=\"Modelica:ModelicaReference.Classes.Function\">Modelica function</a>
-call. However, they do not behave as a Modelica function, 
-either because the result depends not only on the input arguments but 
+call. However, they do not behave as a Modelica function,
+either because the result depends not only on the input arguments but
 also on the status of the simulation (such as \"pre(..)\"), or
 the function operates on input arguments of different types
 (such as \"String(..)\"). Neither of these \"functions\"
-can be defined with a \"standard\" Modelica function and are 
+can be defined with a \"standard\" Modelica function and are
 therefore builtin operators of the Modelica language
 (with exception of the basic mathematical functions,
 sin, cos, tan, asin, acos, atan, atan2, sinh, cosh, tanh, exp,
@@ -1808,7 +1811,7 @@ evaluates to false different actions are taken depending on the level input:
 
 <ul>
 <li> level = AssertionLevel.error:<br>
-     The current evaluation is aborted. The simulation may 
+     The current evaluation is aborted. The simulation may
      continue with another evaluation [e.g., with a shorter step-size,
      or by changing the values of iteration variables].
      If the simulation is aborted, message indicates the cause of the
@@ -1818,8 +1821,8 @@ evaluates to false different actions are taken depending on the level input:
      or explicitly with terminate(), but the evaluation with
      terminal()=true triggers an assert, the analysis failed. </li>
 <li> level = AssertionLevel.warning:<br>
-     The current evaluation is not aborted. message indicates 
-     the cause of the warning [It is recommended to report the 
+     The current evaluation is not aborted. message indicates
+     the cause of the warning [It is recommended to report the
      warning only once when the condition becomes false, and it is
      reported that the condition is no longer violated when the
      condition returns to true. The assert(..) statement shall
@@ -2066,8 +2069,8 @@ Return cross product of two vectors
 Returns the cross product of the 3-vectors x and y, i.e.
 </p>
 <blockquote><pre>
-<b>cross</b>(x,y) = <b>vector</b>( [ x[2]*y[3]-x[3]*y[2];  
-                       x[3]*y[1]-x[1]*y[3];  
+<b>cross</b>(x,y) = <b>vector</b>( [ x[2]*y[3]-x[3]*y[2];
+                       x[3]*y[1]-x[1]*y[3];
                        x[1]*y[2]-x[2]*y[1] ] );
 </pre></blockquote>
 </html>"));
@@ -2135,7 +2138,7 @@ IDENT \"=\" <b>der</b> \"(\" name \",\" IDENT { \",\" IDENT } \")\" comment</pre
 
 <h4><font color=\"#008000\">Description</font></h4>
 <p>
-The first form is the time derivative of expression expr. 
+The first form is the time derivative of expression expr.
 If the expression expr is a scalar it needs to be a subtype of Real. The expression and all its subexpressions must be differentiable. If expr is an array, the operator is applied to all elements of the array. For Real parameters and
 constants the result is a zero scalar or array of the same size as the
 variable.</p>
@@ -2172,10 +2175,10 @@ The specific enthalphy can be computed from a Gibbs-function as follows:
 
 <b>function</b> Gibbs_T=<b>der</b>(Gibbs, T);
 
-<b>function</b> specificEnthalpy 
+<b>function</b> specificEnthalpy
   <b>input</b> Real p,T;
   <b>output</b> Real h;
-<b>algorithm</b> 
+<b>algorithm</b>
   h:=Gibbs(p,T)-T*Gibbs_T(p,T);
 <b>end</b> specificEnthalpy;
 </pre>
@@ -2192,7 +2195,7 @@ Returns a diagonal matrix
 <blockquote><pre><b>diagonal</b>(v)</pre></blockquote>
 <h4><font color=\"#008000\">Description</font></h4>
 <p>
-Returns a square matrix with the elements of vector v 
+Returns a square matrix with the elements of vector v
 on the diagonal and all other elements zero.
 </p>
 </html>"));
@@ -2287,12 +2290,12 @@ Return a Real, Integer, Boolean or String array with all elements equal
 <blockquote><pre><b>fill</b>(s, n1, n2, n3, ...)</pre></blockquote>
 <h4><font color=\"#008000\">Description</font></h4>
 <p>
-Returns the n1 x n2 x n3 x ... array with all elements equal 
-to scalar or array expression s (ni >= 0). The returned 
+Returns the n1 x n2 x n3 x ... array with all elements equal
+to scalar or array expression s (ni >= 0). The returned
 array has the same type as s. Recursive definition:
 <p>
 <blockquote><pre>
-fill(s,n1,n2,n3, ...) = fill(fill(s,n2,n3, ...), n1); 
+fill(s,n1,n2,n3, ...) = fill(fill(s,n2,n3, ...), n1);
 fill(s,n) = {s,s,..., s}
 </pre></blockquote>
 <h4><font color=\"#008000\">Examples</font></h4>
@@ -2331,7 +2334,7 @@ Returns the identity matrix of the desired size
 <blockquote><pre><b>identity</b>(n)</pre></blockquote>
 <h4><font color=\"#008000\">Description</font></h4>
 <p>
-Returns the n x n Integer identity matrix, with ones 
+Returns the n x n Integer identity matrix, with ones
 on the diagonal and zeros at the other places.
 </p>
 </html>"));
@@ -2404,18 +2407,18 @@ Returns true if the formal input or output argument of a function is present
 <blockquote><pre><b>isPresent</b>(ident)</pre></blockquote>
 <h4><font color=\"#008000\">Description</font></h4>
 <p>
-Returns true if the formal input or output argument ident is present 
-as an actual argument of the function call. If the argument is not 
-present, isPresent(ident) may return false <i>[but may also return 
-true e.g. for implementations that always compute all results]</i>. 
-isPresent() should be used for optimisation only and should not 
-influence the results of outputs that are present in the output 
+Returns true if the formal input or output argument ident is present
+as an actual argument of the function call. If the argument is not
+present, isPresent(ident) may return false <i>[but may also return
+true e.g. for implementations that always compute all results]</i>.
+isPresent() should be used for optimisation only and should not
+influence the results of outputs that are present in the output
 list. It can only be used in functions.
 </p>
 <h4><font color=\"#008000\">Examples</font></h4>
 <blockquote>
 <pre>
-<b>function</b> eigenValues \"Compute eigenvalues and eigenvectors\" 
+<b>function</b> eigenValues \"Compute eigenvalues and eigenvectors\"
   <b>input</b>  Real A[:, size(A, 1)];
   <b>output</b> Real eigenvalues[size(A, 1), 2];
   <b>output</b> Real eigenvectors[size(A,1), size(A,2)];
@@ -2442,14 +2445,14 @@ Return Real vector with equally spaced elements
 <blockquote><pre><b>linspace</b>(x1, x2, n)</pre></blockquote>
 <h4><font color=\"#008000\">Description</font></h4>
 <p>
-Returns a Real vector with n equally spaced elements, 
-such that 
+Returns a Real vector with n equally spaced elements,
+such that
 </p>
 <blockquote><pre>
-v[i] = x1 + (x2-x1)*(i-1)/(n-1) for 1 &le; i &le; n. 
+v[i] = x1 + (x2-x1)*(i-1)/(n-1) for 1 &le; i &le; n.
 </pre></blockquote>
 <p>
-It is required that n &ge; 2. The arguments x1 and x2 shall 
+It is required that n &ge; 2. The arguments x1 and x2 shall
 be Real or Integer scalar expressions.
 </p>
 <h4><font color=\"#008000\">Examples</font></h4>
@@ -2520,22 +2523,22 @@ Returns the first two dimensions of an array as matrix
 <blockquote><pre><b>matrix</b>(A)</pre></blockquote>
 <h4><font color=\"#008000\">Description</font></h4>
 <p>
-Returns <b>promote</b>(A,2), if A is a scalar or vector and 
-otherwise returns the elements of the first two dimensions 
-as a matrix. <b>size</b>(A,i) = 1 is required for 
-2 &lt; i &le; <b>ndims</b>(A). 
+Returns <b>promote</b>(A,2), if A is a scalar or vector and
+otherwise returns the elements of the first two dimensions
+as a matrix. <b>size</b>(A,i) = 1 is required for
+2 &lt; i &le; <b>ndims</b>(A).
 </p>
 <p>
-Function <b>promote</b>(A,n) fills dimensions of size 1 
-from the right to array A upto dimension n, where 
-\"n &gt; <b>ndims</b>(A)\" is required. Let 
-C = <b>promote</b>(A,n), with nA = <b>ndims</b>(A), 
-then 
+Function <b>promote</b>(A,n) fills dimensions of size 1
+from the right to array A upto dimension n, where
+\"n &gt; <b>ndims</b>(A)\" is required. Let
+C = <b>promote</b>(A,n), with nA = <b>ndims</b>(A),
+then
 </p>
 <blockquote><pre>
-<b>ndims</b>(C) = n, 
-<b>size</b>(C,j) = <b>size</b>(A,j) for 1 &le; j &le; nA, 
-<b>size</b>(C,j) = 1 for nA+1 &le; j &le; n, 
+<b>ndims</b>(C) = n,
+<b>size</b>(C,j) = <b>size</b>(A,j) for 1 &le; j &le; nA,
+<b>size</b>(C,j) = 1 for nA+1 &le; j &le; n,
 C[i_1, ..., i_nA, 1, ..., 1] = A[i_1, ..., i_nA].
 </pre></blockquote>
 </html>"));
@@ -2560,9 +2563,9 @@ The first form returns the largest element of array expression A.
 The second form returns the largest element of the scalars x and y.
 </p>
 <p>
-The third form is a reduction expression and 
-returns the largest value of the 
-scalar expression e(i, ..., j) evaluated for all 
+The third form is a reduction expression and
+returns the largest value of the
+scalar expression e(i, ..., j) evaluated for all
 combinations of i in u, ..., j in v
 </p>
 <h4><font color=\"#008000\">Examples</font></h4>
@@ -2591,9 +2594,9 @@ The first form returns the smallest element of array expression A.
 The second form returns the smallest element of the scalars x and y.
 </p>
 <p>
-The third form is a reduction expression and 
-returns the smallest value of the 
-scalar expression e(i, ..., j) evaluated for all 
+The third form is a reduction expression and
+returns the smallest value of the
+scalar expression e(i, ..., j) evaluated for all
 combinations of i in u, ..., j in v
 </p>
 <h4><font color=\"#008000\">Examples</font></h4>
@@ -2636,7 +2639,7 @@ Return number of array dimensions
 <blockquote><pre><b>ndims</b>(A)</pre></blockquote>
 <h4><font color=\"#008000\">Description</font></h4>
 <p>
-Returns the number of dimensions k of array expression 
+Returns the number of dimensions k of array expression
 A, with k >= 0.
 </p>
 <h4><font color=\"#008000\">Examples</font></h4>
@@ -2688,7 +2691,7 @@ Returns an array with \"1\" elements
 <blockquote><pre><b>ones</b>(n1, n2, n3, ...)</pre></blockquote>
 <h4><font color=\"#008000\">Description</font></h4>
 <p>
-Return the n1 x n2 x n3 x ... Integer array with all 
+Return the n1 x n2 x n3 x ... Integer array with all
 elements equal to one (ni >=0 ).
 </p>
 </html>"));
@@ -2777,12 +2780,12 @@ Returns the scalar product
 </pre></blockquote>
 <h4><font color=\"#008000\">Description</font></h4>
 <p>
-The first form returns the scalar product of all the elements of 
+The first form returns the scalar product of all the elements of
 array expression A:<br>
 A[1,...,1]*A[2,...,1]*....*A[end,...,1]*A[end,...,end]
 </p>
 <p>
-The second form is a reduction expression and 
+The second form is a reduction expression and
 returns the product of the expression e(i, ..., j) evaluated for all combinations of i in u, ..., j in v:
 </p>
 <blockquote><pre>
@@ -2903,7 +2906,7 @@ Returns a one-element array as scalar
 <blockquote><pre><b>scalar</b>(A)</pre></blockquote>
 <h4><font color=\"#008000\">Description</font></h4>
 <p>
-Returns the single element of array A. 
+Returns the single element of array A.
 <b>size</b>(A,i) = 1 is required for 1 &le; i &le; <b>ndims</b>(A).
 </p>
 <h4><font color=\"#008000\">Examples</font></h4>
@@ -2925,11 +2928,11 @@ Returns \"if x >= 0 then positiveSlope*x else negativeSlope*x\" and handle x=0 i
 <h4><font color=\"#008000\">Description</font></h4>
 <p>
 Returns \"if x >= 0 then positiveSlope*x else negativeSlope*x\".
-In some situations, equations with the semiLinear function 
-become underdetermined if the first argument (x) becomes 
-zero, i.e., there are an infinite number of solutions. 
-It is recommended that the following rules are used to 
-transform the equations during the translation phase in 
+In some situations, equations with the semiLinear function
+become underdetermined if the first argument (x) becomes
+zero, i.e., there are an infinite number of solutions.
+It is recommended that the following rules are used to
+transform the equations during the translation phase in
 order to select one meaningful solution in such cases:
 </p>
 <p>
@@ -2978,7 +2981,7 @@ sa = sb;
 </pre>
 </blockquote>
 <p>
-<i> [For symbolic transformations, the following property is 
+<i> [For symbolic transformations, the following property is
 useful (this follows from the definition):</i>
 </p>
 <blockquote>
@@ -2987,21 +2990,21 @@ useful (this follows from the definition):</i>
 </pre>
 </blockquote>
 <p>
-is identical to 
+is identical to
 </p>
 <blockquote><pre>
 -<b>semiLinear</b>(-m_flow, h, port_h);
 </pre></blockquote>
 <p>
-<i> The semiLinear function is designed to handle reversing 
+<i> The semiLinear function is designed to handle reversing
 flow in fluid systems, such as</i>
 </p>
 <blockquote><pre>
 H_flow = <b>semiLinear</b>(m_flow, port.h, h);
 </pre></blockquote>
 <p>
-<i> i.e., the enthalpy flow rate H _flow is computed from the mass flow 
-rate m_flow and the upstream specific enthalpy depending on the 
+<i> i.e., the enthalpy flow rate H _flow is computed from the mass flow
+rate m_flow and the upstream specific enthalpy depending on the
 flow direction.]</i>
 </p>
 </html>"));
@@ -3094,11 +3097,11 @@ Returns dimensions of an array
 </pre></blockquote>
 <h4><font color=\"#008000\">Description</font></h4>
 <p>
-The first form returns the size of dimension i of array expression A 
+The first form returns the size of dimension i of array expression A
 where i shall be &gt; 0 and &le; <b>ndims</b>(A).
 </p>
 <p>
-The second form returns a vector of length <b>ndims</b>(A) 
+The second form returns a vector of length <b>ndims</b>(A)
 containing the dimension sizes of A.
 </p>
 <h4><font color=\"#008000\">Examples</font></h4>
@@ -3119,13 +3122,13 @@ Returns the skew matrix that is associated with a vector
 <blockquote><pre><b>skew</b>(x)</pre></blockquote>
 <h4><font color=\"#008000\">Description</font></h4>
 <p>
-Returns the 3 x 3 skew symmetric matrix associated with a 
+Returns the 3 x 3 skew symmetric matrix associated with a
 3-vector, i.e.,
 </p>
 <blockquote><pre>
-<b>cross</b>(x,y) = <b>skew</b>(x)*y;  
-<b>skew</b>(x) = [ 0   , -x[3],  x[2];  
-            x[3],  0   , -x[1];  
+<b>cross</b>(x,y) = <b>skew</b>(x)*y;
+<b>skew</b>(x) = [ 0   , -x[3],  x[2];
+            x[3],  0   , -x[1];
            -x[2],  x[1],  0   ];
 </pre></blockquote>
 </html>"));
@@ -3224,15 +3227,15 @@ The arguments have the following meaning
        the blank character is used to fill up unused space.</td></tr>
 <tr>
   <td> Boolean leftJustified = <b>true</b> </td>
-  <td> if <b>true</b>, the converted result is left justified;<br> 
+  <td> if <b>true</b>, the converted result is left justified;<br>
        if <b>false</b>, it is right justified in the string.</td></tr>
 <tr>
   <td> Integer significantDigits = 6 </td>
   <td> defines the number of significant digits in the result string<br>
        (e.g. \"12.3456\", \"0.0123456\", \"12345600\", \"1.23456E-10\")</td></tr>
 <tr>
-  <td> String format </td> 
-  <td> defines the string formating according to ANSI-C without \"%\" and \"*\" character<br> 
+  <td> String format </td>
+  <td> defines the string formating according to ANSI-C without \"%\" and \"*\" character<br>
        (e.g. \".6g\", \"14.5e\", \"+6f\"). In particular:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;
 format = \"[&lt;flags&gt;] [&lt;width&gt;] [.&lt;precision&gt;] &lt;conversion&gt;\"<br>
@@ -3286,12 +3289,12 @@ Returns the scalar sum
 </pre></blockquote>
 <h4><font color=\"#008000\">Description</font></h4>
 <p>
-The first form returns the scalar sum of all the elements of 
+The first form returns the scalar sum of all the elements of
 array expression A:<br>
 A[1,...,1]+A[2,...,1]+....+A[end,...,1]+A[end,...,end]
 </p>
 <p>
-The second form is a reduction expression and 
+The second form is a reduction expression and
 returns the sum of the expression e(i, ..., j) evaluated for all combinations of i in u, ..., j in v:
 </p>
 <blockquote><pre>
@@ -3319,15 +3322,15 @@ Returns a symmetric matrix
 <blockquote><pre><b>symmetric</b>(A)</pre></blockquote>
 <h4><font color=\"#008000\">Description</font></h4>
 <p>
-Returns a matrix where the diagonal elements and the 
-elements above the diagonal are identical to the 
-corresponding elements of matrix A and where the 
-elements below the diagonal are set equal to the elements 
-above the diagonal of A, i.e., 
+Returns a matrix where the diagonal elements and the
+elements above the diagonal are identical to the
+corresponding elements of matrix A and where the
+elements below the diagonal are set equal to the elements
+above the diagonal of A, i.e.,
 <p>
 <blockquote><pre>
-B := <b>symmetric</b>(A) 
-     -> B[i,j] := A[i,j], <b>if</b> i &le; j, 
+B := <b>symmetric</b>(A)
+     -> B[i,j] := A[i,j], <b>if</b> i &le; j,
         B[i,j] := A[j,i], <b>if</b> i &gt; j.
 </pre></blockquote>
 </html>"));
@@ -3342,7 +3345,7 @@ Trigonometric tangent function
 <h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>tan</b>(u)</pre></blockquote>
 <h4><font color=\"#008000\">Description</font></h4>
-<p>Returns the tangent of u, with -&infin; &lt; u &lt; &infin; 
+<p>Returns the tangent of u, with -&infin; &lt; u &lt; &infin;
 (if u is a multiple of (2n-1)*pi/2, y = tan(u) is +/- infinity).
 Argument u needs to be an Integer or Real expression.</p>
 
@@ -3443,8 +3446,8 @@ Transpose of a matrix or permutation of the first two dimensions of an array
 <blockquote><pre><b>transpose</b>(A)</pre></blockquote>
 <h4><font color=\"#008000\">Description</font></h4>
 <p>
-Permutes the first two dimensions of array A. 
-It is an error, if array A does not have at least 
+Permutes the first two dimensions of array A.
+It is an error, if array A does not have at least
 2 dimensions.
 </p>
 </html>"));
@@ -3459,8 +3462,8 @@ Returns an array with one non-singleton dimension as vector
 <blockquote><pre><b>vector</b>(A)</pre></blockquote>
 <h4><font color=\"#008000\">Description</font></h4>
 <p>
-Returns a 1-vector, if A is a scalar and otherwise returns a vector containing all the elements of the array, provided there is at 
-most one dimension size > 1. 
+Returns a 1-vector, if A is a scalar and otherwise returns a vector containing all the elements of the array, provided there is at
+most one dimension size > 1.
 </p>
 <h4><font color=\"#008000\">Examples</font></h4>
 <blockquote><pre>
@@ -3479,7 +3482,7 @@ Returns a zero array.
 <blockquote><pre><b>zeros</b>(n1, n2, n3, ...)</pre></blockquote>
 <h4><font color=\"#008000\">Description</font></h4>
 <p>
-Returns the n1 x n2 x n3 x ... Integer array with all 
+Returns the n1 x n2 x n3 x ... Integer array with all
 elements equal to zero (ni >= 0).
 </p>
 </html>"));
@@ -3528,7 +3531,7 @@ translator before using the respective model or block class.
 
 <p>
 In this case one can argue that both UseCorrelation (adding an acausal equation) and SpecialCorrelation (adding a default to an input) are correct, but still when combined they lead to a model with too many equations - and it is not possible to determine which model is incorrect without strict rules.
-In Modelica 2.2, model Broken will work with some models. However, by just redeclaring it to model SpecialCorrelation, an error will occur and it will be very difficult in a larger model to figure out the source of this error. 
+In Modelica 2.2, model Broken will work with some models. However, by just redeclaring it to model SpecialCorrelation, an error will occur and it will be very difficult in a larger model to figure out the source of this error.
 In Modelica 3.0, model UseCorrelation is no longer allowed and the translator will give an error. In fact, it is guaranteed that a redeclaration cannot lead to an unbalanced model any more.
 </p>
 
@@ -3536,7 +3539,7 @@ In Modelica 3.0, model UseCorrelation is no longer allowed and the translator wi
 <h4><font color=\"#008000\">Description</font></h4>
 
 <p>
-The restrictions below apply after flattening \" i.e. inherited components are included \" possibly modified. 
+The restrictions below apply after flattening \" i.e. inherited components are included \" possibly modified.
 </p>
 
 <p>
@@ -3563,13 +3566,13 @@ The local number of unknowns of a model or block class is the sum based on the c
 </p>
 
 <p>
-The local equation size of a model or block class is the sum of the following numbers: 
+The local equation size of a model or block class is the sum of the following numbers:
 </p>
 
 <ul>
 <li>The number of equations defined locally (i.e. not in any model or block component), including binding equations, and equations generated from connect-equations. This includes the proper count for when-clauses, and algorithms, and is also used for the flat Hybrid DAE formulation.</li>
 
-<li> The number of input and flow-variables present in each (top-level) public connector component. [This represents 
+<li> The number of input and flow-variables present in each (top-level) public connector component. [This represents
 the number of connection equations that will be provided when the class is used.]</li>
 
 <li> The number of (top level) public input variables that neither are connectors nor have binding equations [i.e., top-level inputs are treated as known variables. This represents the number of binding equations that will be provided when the class is used.].
@@ -3606,7 +3609,7 @@ Similarly as locally balanced, but including all unknowns and equations from all
 </ul>
 
 <p>
-The following restrictions hold: 
+The following restrictions hold:
 </p>
 
 <ul>
@@ -3623,7 +3626,7 @@ Based on these restrictions, the following strong guarantee can be given for sim
 
 <p>
 <b>Proposition 1: All simulation models and blocks are globally balanced.</b><br>
-[Therefore the number of unknowns equal to the number of equations of a simulation model or block, provided that every used non-partial model or block class is locally balanced.] 
+[Therefore the number of unknowns equal to the number of equations of a simulation model or block, provided that every used non-partial model or block class is locally balanced.]
 </p>
 
 <pre>Example 1:
@@ -3652,7 +3655,7 @@ Model Capacitor is a locally balanced model according to the following analysis:
 Local equations:  0 = p.i + n.i;
                   u = p.v - n.v;
                   C*der(u) = p.i;
-                  and 2 equations corresponding to the 
+                  and 2 equations corresponding to the
                   2 flow-variables p.i and n.i.
 </pre>
 
@@ -3699,7 +3702,7 @@ Since t is partial we cannot check whether this is a globally balanced model, bu
 Counting on  model Circuit results in the following balance sheet:
 </p>
 
-<pre>Locally unknown variables (8): p.i, p.v, n.i, n.v, and 2 flow variables for t (t.p.i, t.n.i)  
+<pre>Locally unknown variables (8): p.i, p.v, n.i, n.v, and 2 flow variables for t (t.p.i, t.n.i)
                                                    and 2 flow variable for c (c.p.i, c.n.i).
 Local equations:     p.v = t.p.v;
                        0 = p.i - t.p.i;
@@ -3707,12 +3710,12 @@ Local equations:     p.v = t.p.v;
                        0 = c.p.i+load.n.i;
                      n.v = c.n.v;
                        0 = n.i - c.n.i;
-                    and 2 equation corresponding to the 
+                    and 2 equation corresponding to the
                     flow variables p.i, n.i
 </pre>
 
 <p>
-In total we have 8 scalar unknowns and 8 scalar equations, i.e., a locally balanced model (and this feature holds for any models used for the replaceable component \"t\"). 
+In total we have 8 scalar unknowns and 8 scalar equations, i.e., a locally balanced model (and this feature holds for any models used for the replaceable component \"t\").
 Some more analysis reveals that this local set of equations and unknowns is structurally non-singular. However, this does not provide any guarantees for the global set of equations, and specific combinations of models that are \"locally non-singular\" may lead to a globally non-singular model.]
 </p>
 
@@ -3742,10 +3745,10 @@ This partial model defines that T,d,u can be computed from the medium model, pro
 </p>
 
 <pre>model SimpleAir \"Medium model of simple air. Independent variables: p,T\"
-   extends BaseProperties(nXi = 0, 	
-        p(stateSelect = if preferredMediumStates then StateSelect.prefer 
+   extends BaseProperties(nXi = 0,
+        p(stateSelect = if preferredMediumStates then StateSelect.prefer
                                    else StateSelect.default),
-        T(stateSelect = if preferredMediumStates then StateSelect.prefer 
+        T(stateSelect = if preferredMediumStates then StateSelect.prefer
                                    else StateSelect.default));
    constant SI.SpecificHeatCapacity R  = 287;
    constant SI.SpecificHeatCapacity cp = 1005.45;
@@ -3777,36 +3780,36 @@ The local equation size is:
 </ul>
 
 <p>
-Therefore, the model is locally balanced. 
+Therefore, the model is locally balanced.
 The generic medium model BaseProperties is used as a replaceable model in different components, like a dynamic volume or a fixed boundary condition:
 </p>
 
 <pre>import SI = Modelica.SIunits
 connector FluidPort
   replaceable model Medium = BaseProperties;
- 
+
   SI.AbsolutePressure  p;
   flow SI.MassFlowRate m_flow;
-  
+
   SI.SpecificEnthalpy      h;
   flow SI.EnthalpyFlowRate H_flow;
-  
+
   SI.MassFraction       Xi     [Medium.nXi] \"Independent mixture mass fractions\";
   flow SI.MassFlowRate mXi_flow[Medium.nXi] \"Independent subst. mass flow rates\";
 end FluidPort;
-  
+
 model DynamicVolume
    parameter SI.Volume V;
    replaceable model Medium = BaseProperties;
    FluidPort port(redeclare model Medium = Medium);
    Medium    medium(preferredMediumStates=true); // No modifier for p,h,Xi
-   SI.InternalEnergy U; 
-   SI.Mass           M; 
+   SI.InternalEnergy U;
+   SI.Mass           M;
    SI.Mass           MXi[medium.nXi];
-equation 
-   U   = medium.u*M; 
-   M   = medium.d*V; 
-   MXi = medium.Xi*M; 
+equation
+   U   = medium.u*M;
+   M   = medium.d*V;
+   MXi = medium.Xi*M;
    der(U)   = port.H_flow;   // Energy balance
    der(M)   = port.m_flow;   // Mass balance
    der(MXi) = port.mXi_flow; // Substance mass balance
@@ -3829,7 +3832,7 @@ The local number of unknowns of DynamicVolume is:
 </ul>
 
 <p>
-resulting in 8+4*nXi unknowns; the local equation size is 
+resulting in 8+4*nXi unknowns; the local equation size is
 </p>
 
 <ul>
@@ -3845,7 +3848,7 @@ Note, when the DynamicVolume is used and the Medium model is redeclared to \"Sim
 <pre>model FixedBoundary_pTX
    parameter SI.AbsolutePressure p \"Predefined boundary pressure\";
    parameter SI.Temperature      T \"Predefined boundary temperature\";
-   parameter SI.MassFraction     Xi[medium.nXi] 
+   parameter SI.MassFraction     Xi[medium.nXi]
                                    \"Predefined boundary mass fraction\";
    replaceable model Medium = BaseProperties;
    FluidPort port(redeclare model Medium = Medium);
@@ -4159,7 +4162,7 @@ shows which kind of specialized class can be used in an extends clauses
 of
 another kind of specialized class:</span></p>
 
-<table 
+<table
  style=\"border: medium none ; margin-left: 23.4pt; border-collapse: collapse;\"
  border=\"1\" cellpadding=\"0\" cellspacing=\"0\">
   <tbody>
@@ -5039,19 +5042,19 @@ The prefixes <b>input</b> and <b>output</b> have a slightly different semantic m
 
 <ul>
 <li> In functions, these prefixes define the computational causality of the
-     function body, i.e., given the variables declared as input, 
+     function body, i.e., given the variables declared as input,
      the variables declared as output are computed in the function body<br>&nbsp;</li>.
 
-<li> In simulation models and blocks (i.e., on the top level of a model or 
+<li> In simulation models and blocks (i.e., on the top level of a model or
      block that shall be simulated), these prefixes define the interaction
-     with the environment where the simulation model or block is used. 
-     Especially, the input prefix defines that values for such a variable 
-     have to be provided from the simulation environment and the output 
-     prefix defines that the values of the corresponding variable 
+     with the environment where the simulation model or block is used.
+     Especially, the input prefix defines that values for such a variable
+     have to be provided from the simulation environment and the output
+     prefix defines that the values of the corresponding variable
      can be directly utilized in the simulation environment.<br>&nbsp;</li>
 
-<li> In component models and blocks, the input prefix defines that a 
-     binding equation has to be provided for the corresponding variable 
+<li> In component models and blocks, the input prefix defines that a
+     binding equation has to be provided for the corresponding variable
      when the component is utilized in order to guarantee a locally
      balanced model (i.e., the number of local equations is identical
      to the local number of unknowns). Example:
@@ -5068,7 +5071,7 @@ The prefixes <b>input</b> and <b>output</b> have a slightly different semantic m
      The output prefix does not have a particular effect in a model
      or block component and is ignored.<br>&nbsp;</li>
 
-<li> In connectors, prefixes input and output define that the 
+<li> In connectors, prefixes input and output define that the
      corresponding connectors can only be connected according
      to block diagram semantics (e.g., a connector with an output
      variable can only be connected to a connector where the
@@ -5167,19 +5170,19 @@ The prefixes <b>input</b> and <b>output</b> have a slightly different semantic m
 
 <ul>
 <li> In functions, these prefixes define the computational causality of the
-     function body, i.e., given the variables declared as input, 
+     function body, i.e., given the variables declared as input,
      the variables declared as output are computed in the function body<br>&nbsp;</li>.
 
-<li> In simulation models and blocks (i.e., on the top level of a model or 
+<li> In simulation models and blocks (i.e., on the top level of a model or
      block that shall be simulated), these prefixes define the interaction
-     with the environment where the simulation model or block is used. 
-     Especially, the input prefix defines that values for such a variable 
-     have to be provided from the simulation environment and the output 
-     prefix defines that the values of the corresponding variable 
+     with the environment where the simulation model or block is used.
+     Especially, the input prefix defines that values for such a variable
+     have to be provided from the simulation environment and the output
+     prefix defines that the values of the corresponding variable
      can be directly utilized in the simulation environment.<br>&nbsp;</li>
 
-<li> In component models and blocks, the input prefix defines that a 
-     binding equation has to be provided for the corresponding variable 
+<li> In component models and blocks, the input prefix defines that a
+     binding equation has to be provided for the corresponding variable
      when the component is utilized in order to guarantee a locally
      balanced model (i.e., the number of local equations is identical
      to the local number of unknowns). Example:
@@ -5196,7 +5199,7 @@ The prefixes <b>input</b> and <b>output</b> have a slightly different semantic m
      The output prefix does not have a particular effect in a model
      or block component and is ignored.<br>&nbsp;</li>
 
-<li> In connectors, prefixes input and output define that the 
+<li> In connectors, prefixes input and output define that the
      corresponding connectors can only be connected according
      to block diagram semantics (e.g., a connector with an output
      variable can only be connected to a connector where the
