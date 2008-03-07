@@ -16,7 +16,7 @@ package IF97_Utilities
       The original documentation of the IAPWS/IF97 steam properties can freely be distributed with computer
       implementations, so for curious minds the complete standard documentation is provided with the Modelica
       properties library. The following documents are included
-      (in directory Modelica\\help\\Documentation\IF97documentation):
+      (in directory Modelica\\help\\Documentation\\IF97documentation):
       <ul>
       <li><a href=\"Documentation/IF97documentation/IF97.pdf\">IF97.pdf</a> The standards document for the main part of the IF97.</li>
       <li><a href=\"Documentation/IF97documentation/Back3.pdf\">Back3.pdf</a> The backwards equations for region 3.</li>
