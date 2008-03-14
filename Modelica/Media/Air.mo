@@ -515,6 +515,17 @@ Specific enthalpy of steam is computed from temperature.
      h := SingleGasNasa.h_Tlow(data=steam, T=T, refChoice=3, h_off=46479.819+2501014.5);
    end enthalpyOfCondensingGas;
 
+   redeclare function extends enthalpyOfNonCondensingGas
+      "Return specific enthalpy of dry air as a function of temperature T"
+
+     annotation(Inline=false,smoothOrder=5,
+        Documentation(info="<html>
+Specific enthalpy of dry air is computed from temperature.
+</html>"));
+   algorithm
+     h := SingleGasNasa.h_Tlow(data=dryair, T=T, refChoice=3, h_off=25104.684);
+   end enthalpyOfNonCondensingGas;
+
   function enthalpyOfWater
       "Computes specific enthalpy of water (solid/liquid) near atmospheric pressure from temperature T"
     input SIunits.Temperature T "Temperature";

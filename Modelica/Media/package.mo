@@ -3048,8 +3048,7 @@ transport.
                 extent={{-26,30},{-18,22}},
                 lineColor={255,0,0},
                 fillColor={255,0,0},
-                fillPattern=FillPattern.Solid)})
-          ,
+                fillPattern=FillPattern.Solid)}),
           Diagram(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},
@@ -5252,16 +5251,22 @@ end PartialMixtureMedium;
     extends Modelica.Icons.Function;
     input Temperature T "temperature";
     input MassFraction[:] X "vector of mass fractions";
-    output SpecificEnthalpy h "liquid enthalpy";
+    output SpecificEnthalpy h "specific enthalpy";
   end enthalpyOfGas;
 
   replaceable partial function enthalpyOfCondensingGas
       "Return enthalpy of condensing gas (most often steam)"
     extends Modelica.Icons.Function;
     input Temperature T "temperature";
-    output SpecificEnthalpy h "liquid enthalpy";
+    output SpecificEnthalpy h "specific enthalpy";
   end enthalpyOfCondensingGas;
 
+  replaceable partial function enthalpyOfNonCondensingGas
+      "Return enthalpy of the non-condensing species"
+    extends Modelica.Icons.Function;
+    input Temperature T "temperature";
+    output SpecificEnthalpy h "specific enthalpy";
+  end enthalpyOfNonCondensingGas;
   end PartialCondensingGases;
 
   partial package PartialTwoPhaseMedium
