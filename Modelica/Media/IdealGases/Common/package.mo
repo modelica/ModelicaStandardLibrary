@@ -1403,7 +1403,7 @@ end lowPressureThermalConductivity;
   end isothermalCompressibility;
   
   redeclare function extends density_derp_T 
-    "Return density derivative by temperature at constant pressure" 
+    "Return density derivative by pressure at constant temperature" 
   algorithm 
     ddpT := 1/(state.T*gasConstant(state));
   end density_derp_T;
