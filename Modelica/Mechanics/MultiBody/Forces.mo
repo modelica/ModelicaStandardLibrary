@@ -279,8 +279,7 @@ This leads to the following animation
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(group="if animation = true", enable=animation));
 
-    annotation (defaultComponentName="torque"
-      ,
+    annotation (defaultComponentName="torque",
       Documentation(info="<HTML>
 
 <p>
@@ -390,7 +389,7 @@ This leads to the following animation
       r_tail=t_in_m,
       r_head=-t_in_m) if world.enableAnimation and animation;
   public
-    Internal.BasicWorldTorque basicWorldTorque 
+    Internal.BasicWorldTorque basicWorldTorque(resolveInFrame=resolveInFrame) 
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   protected
     Interfaces.ZeroPosition zeroPosition if 
@@ -466,6 +465,11 @@ This leads to the following animation
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)" 
       annotation (Dialog(group="if animation = true", enable=animation));
+
+    Internal.BasicWorldForce basicWorldForce(resolveInFrame=resolveInFrame) 
+      annotation (Placement(transformation(extent={{18,-50},{38,-70}})));
+    Internal.BasicWorldTorque basicWorldTorque(resolveInFrame=resolveInFrame) 
+      annotation (Placement(transformation(extent={{-10,50},{10,70}})));
 
     annotation (defaultComponentName="forceAndTorque",
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
@@ -580,8 +584,7 @@ This leads to the following animation
       Coordsys(
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
-        component=[20, 20])
-      ,
+        component=[20, 20]),
       Documentation(info="
 An external force element exerts the inport signal
 as negative force on the connector frame (the force vector
@@ -624,12 +627,6 @@ is resolved in the world frame).
       r=frame_b.r_0,
       r_tail=t_in_m,
       r_head=-t_in_m) if world.enableAnimation and animation;
-  public
-    Internal.BasicWorldForce basicWorldForce(resolveInFrame=resolveInFrame) 
-      annotation (Placement(transformation(extent={{18,-50},{38,-70}})));
-    WorldTorque torque1 
-      annotation (Placement(transformation(extent={{-10,50},{10,70}})));
-  protected
     Interfaces.ZeroPosition zeroPosition if 
          not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve) 
       annotation (Placement(transformation(extent={{58,70},{78,90}})));
@@ -643,12 +640,14 @@ is resolved in the world frame).
         points={{16,-60},{-120,-60}},
         color={0,0,127},
         smooth=Smooth.None));
-    connect(torque1.frame_b, frame_b) annotation (Line(
+    connect(basicWorldTorque.frame_b, frame_b) 
+                                      annotation (Line(
         points={{10,60},{60,60},{60,0},{100,0}},
         color={95,95,95},
         thickness=0.5,
         smooth=Smooth.None));
-    connect(torque1.torque, torque) annotation (Line(
+    connect(basicWorldTorque.torque, torque) 
+                                    annotation (Line(
         points={{-12,60},{-120,60}},
         color={0,0,127},
         smooth=Smooth.None));
@@ -657,12 +656,14 @@ is resolved in the world frame).
         color={95,95,95},
         pattern=LinePattern.Dot,
         smooth=Smooth.None));
-    connect(torque1.frame_resolve, frame_resolve) annotation (Line(
+    connect(basicWorldTorque.frame_resolve, frame_resolve) 
+                                                  annotation (Line(
         points={{0,70},{0,100}},
         color={95,95,95},
         pattern=LinePattern.Dot,
         smooth=Smooth.None));
-    connect(zeroPosition.frame_resolve, torque1.frame_resolve) annotation (Line(
+    connect(zeroPosition.frame_resolve, basicWorldTorque.frame_resolve) 
+                                                               annotation (Line(
         points={{58,80},{0,80},{0,70}},
         color={95,95,95},
         pattern=LinePattern.Dot,
@@ -1413,7 +1414,6 @@ clarity this is not shown in the animation):
     Real e_rel_0[3](each final unit="1")
       "Unit vector in direction from frame_a to frame_b, resolved in world frame";
     annotation (
-      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1533,14 +1533,16 @@ clarity this is not shown in the animation):
             fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(points={{-60,0},{-31,0}}, color={0,0,255}),
-          Polygon(points={{-19,0},{-31,3},{-31,-3},{-19,0}}, lineColor={0,0,255}),
+          Polygon(points={{-19,0},{-31,3},{-31,-3},{-19,0}}, lineColor={0,0,255}), 
+
           Line(points={{-60,16},{0,16}}, color={0,0,255}),
           Line(points={{0,0},{0,20}}, color={0,0,255}),
           Text(
             extent={{-43,-8},{-7,-33}},
             lineColor={0,0,0},
             textString="e_rel_0"),
-          Polygon(points={{0,16},{-12,19},{-12,13},{0,16}}, lineColor={0,0,255}),
+          Polygon(points={{0,16},{-12,19},{-12,13},{0,16}}, lineColor={0,0,255}), 
+
           Text(
             extent={{-50,35},{51,26}},
             lineColor={0,0,0},
@@ -1770,7 +1772,6 @@ for this situation:
     Real e_rel_0[3](each final unit="1")
       "Unit vector in direction from frame_a to frame_b, resolved in world frame";
     annotation (
-      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1918,7 +1919,8 @@ for this situation:
             fillPattern=FillPattern.Solid),
           Line(points={{29,3},{29,22}}, color={0,0,255}),
           Line(points={{29,16},{60,16}}, color={0,0,255}),
-          Polygon(points={{29,16},{41,19},{41,13},{29,16}}, lineColor={0,0,255}),
+          Polygon(points={{29,16},{41,19},{41,13},{29,16}}, lineColor={0,0,255}), 
+
           Text(
             extent={{15,36},{32,26}},
             lineColor={0,0,0},
@@ -2312,7 +2314,6 @@ ALT=\"model Examples.Elementary.SpringWithMass\">
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     extends Interfaces.PartialLineForce;
     annotation (
-      
       Documentation(info="<HTML>
 <p>
 <b>Linear damper</b> acting as line force between frame_a and frame_b.
@@ -2435,7 +2436,6 @@ where a mass is hanging on a damper.
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     extends Interfaces.PartialLineForce;
     annotation (
-      
       Documentation(info="<HTML>
 <p>
 <b>Linear spring</b> and <b>dinear damper</b>
@@ -2543,7 +2543,6 @@ and der(s) is the time derivative of s.
       "Actual length of damper (frame_a - damper - spring - frame_b)";
     extends Interfaces.PartialLineForce;
     annotation (
-      
       Documentation(info="<HTML>
 <p>
 <b>Linear spring</b> and <b>linear damper</b> in series connection
@@ -2629,6 +2628,7 @@ force element) and der(s_damper) is the time derivative of s_damper.
             extent={{0,80},{20,100}},
             lineColor={160,160,164},
             textString="s")}));
+
   equation
     f = c*(s - s_unstretched - s_damper);
     d*der(s_damper) = f;
@@ -2648,7 +2648,7 @@ force element) and der(s_damper) is the time derivative of s_damper.
             extent={{-16,-16},{16,16}},
             rotation=90)));
       Modelica.Blocks.Interfaces.RealInput force[3](each final quantity="Force", each
-        final unit = "N")
+          final unit="N")
         "x-, y-, z-coordinates of force resolved in frame defined by resolveInFrame"
         annotation (Placement(transformation(
             origin={-60,120},
@@ -2784,7 +2784,7 @@ values from the outside in order that the model remains balanced
             rotation=90)));
 
       Modelica.Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each
-        final unit = "N.m")
+          final unit="N.m")
         "x-, y-, z-coordiantes of torque resolved in frame defined by resolveInFrame"
         annotation (Placement(transformation(
             origin={-60,120},
@@ -2923,7 +2923,7 @@ values from the outside in order that the model remains balanced
             rotation=270)));
 
       Modelica.Blocks.Interfaces.RealInput force[3](each final quantity="Force", each
-        final unit = "N")
+          final unit="N")
         "x-, y-, z-coordinates of force resolved in frame defined by resolveInFrame"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
@@ -3031,7 +3031,7 @@ values from the outside in order that the model remains balanced
             rotation=270)));
 
       Modelica.Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each
-        final unit = "N.m")
+          final unit="N.m")
         "x-, y-, z-coordinates of torque resolved in frame defined by resolveInFrame"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));

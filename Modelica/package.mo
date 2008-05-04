@@ -1,8 +1,8 @@
 within ;
 package Modelica "Modelica Standard Library (Version 3.0)"
 extends Icons.Library;
-  
-  
+
+
 annotation (
   preferredView="info",
   version="3.0",
@@ -626,6 +626,53 @@ instead of a warning.
   end ParameterDefaults;
 
   package ReleaseNotes "Release notes"
+  class Version_3_0_BugFixes "Version 3.0 with bug fixes"
+
+      annotation (Documentation(info="<html>
+
+<p>
+In this section bug fixes are summarized that have been incorporated
+since the release of version 3.0.
+</p>
+
+<p><br>
+The following <b style=\"color:red\">critical errors</b> have been fixed (i.e. errors
+that can lead to wrong simulation results):
+</p>
+ 
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Forces</b></td></tr>
+  <tr><td valign=\"top\"> WorldTorque </td>
+      <td valign=\"top\"> Parameter \"ResolveInFrame\" was not propagated and therefore
+                        always the default (resolved in world frame) was used, independently
+                        of the setting of this parameter. </td> 
+  </tr>
+  <tr><td valign=\"top\"> WorldForceAndTorque </td>
+      <td valign=\"top\"> Parameter \"ResolveInFrame\" was not propagated and therefore
+                        always the default (resolved in world frame) was used, independently
+                        of the setting of this parameter.<br>
+                        Furthermore, internally WorldTorque was used instead of
+                        Internal.BasicWorldTorque and therefore the visualization of
+                        worldTorque was performed twice. </td> 
+  </tr>
+</table>
+ 
+ 
+<p><br>
+The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e. errors
+that do <b style=\"color:red\">not</b> lead to wrong simulation results, but, e.g., 
+units are wrong or errors in documentation):
+</p>
+ 
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>XXXX</b></td></tr>
+  <tr><td valign=\"top\"> XXX</td>
+      <td valign=\"top\"> XXX </td> 
+  </tr>
+</table>
+                                                
+</html>"));
+  end Version_3_0_BugFixes;
 
     annotation (Documentation(info="<html>
 
