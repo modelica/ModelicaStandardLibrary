@@ -1,25 +1,25 @@
 within Modelica.Mechanics;
-package Translational 
-  "Library to model 1-dimensional, translational mechanical systems" 
+package Translational
+  "Library to model 1-dimensional, translational mechanical systems"
   extends Modelica.Icons.Library2;
   import SI = Modelica.SIunits;
   annotation (
   version="1.1.1", versionDate="2007-11-22",
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
-        Line(points={{-84,-73},{66,-73}}, color={0,0,0}), 
+        Line(points={{-84,-73},{66,-73}}, color={0,0,0}),
         Rectangle(
-          extent={{-81,-22},{-8,-65}}, 
-          lineColor={0,0,0}, 
-          fillPattern=FillPattern.Sphere, 
-          fillColor={192,192,192}), 
+          extent={{-81,-22},{-8,-65}},
+          lineColor={0,0,0},
+          fillPattern=FillPattern.Sphere,
+          fillColor={192,192,192}),
         Line(points={{-8,-43},{-1,-43},{6,-64},{17,-23},{29,-65},{40,-23},{50,-44},
-              {61,-44}}, color={0,0,0}), 
-        Line(points={{-59,-73},{-84,-93}}, color={0,0,0}), 
-        Line(points={{-11,-73},{-36,-93}}, color={0,0,0}), 
-        Line(points={{-34,-73},{-59,-93}}, color={0,0,0}), 
-        Line(points={{14,-73},{-11,-93}}, color={0,0,0}), 
-        Line(points={{39,-73},{14,-93}}, color={0,0,0}), 
+              {61,-44}}, color={0,0,0}),
+        Line(points={{-59,-73},{-84,-93}}, color={0,0,0}),
+        Line(points={{-11,-73},{-36,-93}}, color={0,0,0}),
+        Line(points={{-34,-73},{-59,-93}}, color={0,0,0}),
+        Line(points={{14,-73},{-11,-93}}, color={0,0,0}),
+        Line(points={{39,-73},{14,-93}}, color={0,0,0}),
         Line(points={{63,-73},{38,-93}}, color={0,0,0})}),
                                                         Documentation(info="<html>
 <p>
@@ -151,11 +151,11 @@ and the accompanying <b>disclaimer</b>
 </li>
 </ul>
 </html>"));
-  
-  package Examples "Demonstration examples of the components of this package" 
-    
+
+  package Examples "Demonstration examples of the components of this package"
+
     extends Modelica.Icons.Library;
-    
+
     annotation (
       Documentation(info="<html>
 <p>
@@ -166,8 +166,8 @@ simulate them according to the provided description in the models.
  
 </HTML>
 "));
-    
-    model SignConvention "Examples for the used sign conventions." 
+
+    model SignConvention "Examples for the used sign conventions."
       extends Modelica.Icons.Example;
       annotation (Documentation(info="<html>
 <p>
@@ -246,7 +246,7 @@ the two other examples).
                 60,-40},{40,-20}}, rotation=0)));
       Translational.Components.Fixed fixed 
                   annotation (Placement(transformation(extent={{0,-60},{20,-40}})));
-    equation 
+    equation
       connect(constant1.y,force1. f) annotation (Line(points={{-23,70},{-6,70}},
             color={0,0,127}));
       connect(constant2.y,force2. f) annotation (Line(points={{-23,30},{-6,30}},
@@ -270,9 +270,9 @@ the two other examples).
           color={0,127,0},
           smooth=Smooth.None));
     end SignConvention;
-    
-    model InitialConditions "Setting of initial conditions" 
-      
+
+    model InitialConditions "Setting of initial conditions"
+
       extends Modelica.Icons.Example;
       annotation (
         Documentation(info="<html> 
@@ -316,7 +316,7 @@ combination). In this case the system is not at rest.
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
                         graphics));
-      
+
       Translational.Components.Fixed fixed2(        s0=1) 
                                        annotation (Placement(transformation(
               extent={{-100,60},{-80,80}}, rotation=0)));
@@ -334,7 +334,7 @@ combination). In this case the system is not at rest.
         v(fixed=true),
         m=1)                                           annotation (Placement(
             transformation(extent={{60,60},{80,80}}, rotation=0)));
-      
+
       Translational.Components.Fixed fixed1(        s0=-1) 
                                         annotation (Placement(transformation(
               extent={{-100,-20},{-80,0}}, rotation=0)));
@@ -357,7 +357,7 @@ combination). In this case the system is not at rest.
       Translational.Components.Mass m2(           L=2, m=1) 
                                         annotation (Placement(transformation(
               extent={{60,-20},{80,0}}, rotation=0)));
-    equation 
+    equation
       connect(s2.flange_a, fixed2.flange) annotation (Line(
           points={{-60,70},{-90,70}},
           color={0,127,0},
@@ -391,9 +391,9 @@ combination). In this case the system is not at rest.
           color={0,127,0},
           smooth=Smooth.None));
     end InitialConditions;
-    
-    model WhyArrows "Use of arrows in Mechanics.Translational" 
-      
+
+    model WhyArrows "Use of arrows in Mechanics.Translational"
+
       extends Modelica.Icons.Example;
       annotation (
         Documentation(info="<html>
@@ -433,7 +433,7 @@ problems.
               thickness=0.5,
               color={0,0,255})}),
         experiment(StopTime=1));
-      
+
       Translational.Components.Fixed fixed 
                                  annotation (Placement(transformation(extent={{
                 -20,20},{0,40}}, rotation=0)));
@@ -475,7 +475,7 @@ problems.
         s(fixed=true),
         v(fixed=true))                            annotation (Placement(
             transformation(extent={{80,-60},{60,-40}}, rotation=0)));
-    equation 
+    equation
       connect(spring1.flange_b, mass1.flange_b)        annotation (Line(points={{-60,-50},
               {-60,-72},{-30,-72},{-30,-50}},            color={0,191,0}));
       connect(spring2.flange_b, inertia2.flange_b)     annotation (Line(points={{50,-50},
@@ -513,9 +513,9 @@ problems.
           color={0,127,0},
           smooth=Smooth.None));
     end WhyArrows;
-    
-    model Accelerate "Use of model accelerate." 
-      
+
+    model Accelerate "Use of model accelerate."
+
       extends Modelica.Icons.Example;
       Translational.Sources.Accelerate accelerate 
                                            annotation (Placement(transformation(
@@ -535,7 +535,7 @@ with a predefined acceleration.
                 -100},{100,100}}),
                    graphics),
         experiment(StopTime=1));
-    equation 
+    equation
       connect(accelerate.flange, mass.flange_a)    annotation (Line(
           points={{-20,30},{0,30}},
           color={0,127,0},
@@ -545,9 +545,9 @@ with a predefined acceleration.
           color={0,0,127},
           smooth=Smooth.None));
     end Accelerate;
-    
-    model Damper "Use of damper models." 
-      
+
+    model Damper "Use of damper models."
+
       extends Modelica.Icons.Example;
       annotation (Documentation(info="<html>
 <p>
@@ -557,7 +557,7 @@ Demonstrate usage of damper components in different variants.
         experiment(StopTime=1),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics));
-      
+
       Translational.Components.Mass mass1(
         L=1,
         s(start=3, fixed=true),
@@ -597,7 +597,7 @@ Demonstrate usage of damper components in different variants.
       Translational.Components.SpringDamper springDamper3(        s_rel0=1, d=25,
         c=1)                                                   annotation (Placement(
             transformation(extent={{-20,-60},{0,-40}}, rotation=0)));
-    equation 
+    equation
       connect(mass1.flange_b, damper1.flange_a)        annotation (Line(points=
               {{-60,70},{-20,70}}, color={0,191,0}));
       connect(mass2.flange_b, damper2.flange_a)        annotation (Line(points={{-60,10},
@@ -621,9 +621,9 @@ Demonstrate usage of damper components in different variants.
           color={0,127,0},
           smooth=Smooth.None));
     end Damper;
-    
-    model Oscillator "Oscillator demonstrates the use of initial conditions." 
-      
+
+    model Oscillator "Oscillator demonstrates the use of initial conditions."
+
       extends Modelica.Icons.Example;
       annotation (
         Documentation(info="<html>
@@ -654,7 +654,7 @@ If damping is added the amplitudes are bounded.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics),
         experiment(StopTime=1));
-      
+
       Translational.Components.Mass mass1(
         L=1,
         s(start=-0.5, fixed=true),
@@ -692,7 +692,7 @@ If damping is added the amplitudes are bounded.
       Translational.Components.Damper damper1(        d=10) 
                                          annotation (Placement(transformation(
               extent={{20,-36},{40,-16}}, rotation=0)));
-    equation 
+    equation
       connect(mass1.flange_b, spring1.flange_a)        annotation (Line(points=
               {{0,50},{20,50}}, color={0,191,0}));
       connect(spring2.flange_a,damper1. flange_a) annotation (Line(points={{20,
@@ -722,9 +722,9 @@ If damping is added the amplitudes are bounded.
           color={0,127,0},
           smooth=Smooth.None));
     end Oscillator;
-    
-    model Sensors "Sensors for translational systems." 
-      
+
+    model Sensors "Sensors for translational systems."
+
       extends Modelica.Icons.Example;
       annotation (
         Documentation(info="<html>
@@ -754,7 +754,7 @@ to see the difference.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics),
         experiment(StopTime=1));
-      
+
       Translational.Sensors.ForceSensor forceSensor  annotation (Placement(
             transformation(extent={{-20,40},{0,60}}, rotation=0)));
       Translational.Sensors.SpeedSensor speedSensor1 annotation (Placement(
@@ -776,7 +776,7 @@ to see the difference.
             transformation(extent={{-100,40},{-80,60}}, rotation=0)));
       Translational.Sensors.PositionSensor positionSensor2 annotation (Placement(
             transformation(extent={{60,40},{80,60}}, rotation=0)));
-    equation 
+    equation
       connect(forceSensor.flange_b, mass.flange_a)          annotation (Line(
             points={{0,50},{20,50}}, color={0,191,0}));
       connect(sineForce.y, force.f) 
@@ -803,8 +803,8 @@ to see the difference.
           color={0,127,0},
           smooth=Smooth.None));
     end Sensors;
-    
-    model Friction "Use of model Stop" 
+
+    model Friction "Use of model Stop"
       extends Modelica.Icons.Example;
       annotation (
         Diagram(coordinateSystem(
@@ -871,7 +871,7 @@ to see the difference.
       Translational.Components.Fixed fixed2(s0=-1.75) 
                                            annotation (Placement(transformation(
               extent={{-22,0},{-2,20}}, rotation=0)));
-    equation 
+    equation
       connect(spring.flange_b, stop2.flange_a)  annotation (Line(points={{40,10},
               {60,10}}, color={0,191,0}));
       connect(sineForce.y, force.f) 
@@ -885,11 +885,11 @@ to see the difference.
           color={0,127,0},
           smooth=Smooth.None));
     end Friction;
-    
-    model PreLoad "Preload of a spool using ElastoGap models." 
-      
+
+    model PreLoad "Preload of a spool using ElastoGap models."
+
       extends Modelica.Icons.Example;
-      
+
       annotation (
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -941,7 +941,7 @@ Spool position s as a function of working force f.
  
 "),     experiment(StopTime=100),
         experimentSetupOutput);
-      
+
       Translational.Components.ElastoGap innerContactA(
         c=1000e3,
         d=250,
@@ -1018,7 +1018,7 @@ Spool position s as a function of working force f.
       Modelica.Blocks.Sources.Sine sineForce(amplitude=150, freqHz=0.01) 
         annotation (Placement(transformation(extent={{-78,-30},{-58,-10}},
               rotation=0)));
-    equation 
+    equation
       connect(outerContactA.flange_b,springPlateA. flange_a) annotation (Line(
             points={{-50,70},{-38,70}}, color={0,191,0}));
       connect(springPlateA.flange_b,spring. flange_a) annotation (Line(points={{-18,70},
@@ -1069,8 +1069,8 @@ Spool position s as a function of working force f.
           color={0,127,0},
           smooth=Smooth.None));
     end PreLoad;
-    
-    model ElastoGap "Demonstrate usgae of ElastoGap" 
+
+    model ElastoGap "Demonstrate usgae of ElastoGap"
     extends Modelica.Icons.Example;
       annotation (
         Documentation(info="<html>
@@ -1128,8 +1128,8 @@ mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
         v(fixed=true)) 
              annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
       parameter SI.TranslationalDampingConstant d=1.5 "damping constant";
-    equation 
-      
+    equation
+
       connect(rod1.flange_b, fixed.flange) annotation (Line(
           points={{-20,0},{0,0}},
           color={0,127,0},
@@ -1172,37 +1172,37 @@ mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
           smooth=Smooth.None));
     end ElastoGap;
   end Examples;
-  
-  package Components "Components for 1D translational mechanical drive trains" 
+
+  package Components "Components for 1D translational mechanical drive trains"
     extends Modelica.Icons.Library2;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(
-            extent={{-67,-66},{44,-6}}, 
-            lineColor={0,0,0}, 
-            fillPattern=FillPattern.Sphere, 
+            extent={{-67,-66},{44,-6}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.Sphere,
             fillColor={255,255,255})}),                     Documentation(info="<html>
 <p>
 This package contains basic components 1D mechanical translational drive trains.
 </p>
 </html>"));
-    
-    model Fixed "Fixed flange" 
+
+    model Fixed "Fixed flange"
       parameter SI.Position s0=0 "fixed offset position of housing";
-      
+
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
-            Line(points={{-80,-40},{80,-40}}, color={0,0,0}), 
-            Line(points={{80,-40},{40,-80}}, color={0,0,0}), 
-            Line(points={{40,-40},{0,-80}}, color={0,0,0}), 
-            Line(points={{0,-40},{-40,-80}}, color={0,0,0}), 
-            Line(points={{-40,-40},{-80,-80}}, color={0,0,0}), 
-            Line(points={{0,-40},{0,-10}}, color={0,0,0}), 
+            Line(points={{-80,-40},{80,-40}}, color={0,0,0}),
+            Line(points={{80,-40},{40,-80}}, color={0,0,0}),
+            Line(points={{40,-40},{0,-80}}, color={0,0,0}),
+            Line(points={{0,-40},{-40,-80}}, color={0,0,0}),
+            Line(points={{-40,-40},{-80,-80}}, color={0,0,0}),
+            Line(points={{0,-40},{0,-10}}, color={0,0,0}),
             Text(
-              extent={{0,-90},{0,-150}}, 
-              textString="%name", 
+              extent={{0,-90},{0,-150}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -1222,24 +1222,24 @@ at an position s0 in the <i>housing</i>. May be used:
  
 </HTML>
 "));
-      
+
       Interfaces.Flange_b flange   annotation (Placement(transformation(
             origin={0,0},
             extent={{-10,10},{10,-10}},
             rotation=180)));
-    equation 
+    equation
       flange.s = s0;
     end Fixed;
-    
-    model Mass "Sliding mass with inertia" 
+
+    model Mass "Sliding mass with inertia"
       parameter SI.Mass m(min=0, start=1) "mass of the sliding mass";
-      parameter StateSelect stateSelect=StateSelect.default 
+      parameter StateSelect stateSelect=StateSelect.default
         "Priority to use s and v as states" annotation(Dialog(tab="Advanced"));
       extends Translational.Interfaces.PartialRigid(L=0,s(start=0, stateSelect=stateSelect));
-      SI.Velocity v(start=0, stateSelect=stateSelect) 
+      SI.Velocity v(start=0, stateSelect=stateSelect)
         "absolute velocity of component";
       SI.Acceleration a(start=0) "absolute acceleration of component";
-      
+
       annotation (
         Documentation(info="<html>
 <p>
@@ -1256,26 +1256,26 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
-            Line(points={{-100,0},{-55,0}}, color={0,127,0}), 
-            Line(points={{55,0},{100,0}}, color={0,127,0}), 
+            Line(points={{-100,0},{-55,0}}, color={0,127,0}),
+            Line(points={{55,0},{100,0}}, color={0,127,0}),
             Rectangle(
-              extent={{-55,-30},{56,30}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={255,255,255}), 
+              extent={{-55,-30},{56,30}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={255,255,255}),
             Polygon(
-              points={{50,-90},{20,-80},{20,-100},{50,-90}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-60,-90},{20,-90}}, color={0,0,0}), 
+              points={{50,-90},{20,-80},{20,-100},{50,-90}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-60,-90},{20,-90}}, color={0,0,0}),
             Text(
-              extent={{0,100},{0,40}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{0,100},{0,40}},
+              textString="%name",
+              lineColor={0,0,255}),
             Text(
-              extent={{-100,-40},{100,-80}}, 
-              lineColor={0,0,255}, 
+              extent={{-100,-40},{100,-80}},
+              lineColor={0,0,255},
               textString="m=%m")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -1322,16 +1322,16 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
               extent={{-61,53},{-9,42}},
               textString="Position s",
               lineColor={0,0,255})}));
-      
-    equation 
+
+    equation
       v = der(s);
       a = der(v);
       m*a = flange_a.f + flange_b.f;
     end Mass;
-    
-    model Rod "Rod without inertia" 
+
+    model Rod "Rod without inertia"
       extends Translational.Interfaces.PartialRigid;
-      
+
       annotation (
         Documentation(info="<html>
 <p>
@@ -1343,26 +1343,26 @@ Rod <i>without inertia</i> and two rigidly connected flanges.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
-            Line(points={{-100,0},{-55,0}}, color={0,127,0}), 
-            Line(points={{53,0},{99,0}}, color={0,127,0}), 
+            Line(points={{-100,0},{-55,0}}, color={0,127,0}),
+            Line(points={{53,0},{99,0}}, color={0,127,0}),
             Polygon(
-              points={{50,-90},{20,-80},{20,-100},{50,-90}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-60,-90},{20,-90}}, color={0,0,0}), 
+              points={{50,-90},{20,-80},{20,-100},{50,-90}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-60,-90},{20,-90}}, color={0,0,0}),
             Rectangle(
-              extent={{-55,10},{53,-10}}, 
-              lineColor={160,160,164}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-55,10},{53,-10}},
+              lineColor={160,160,164},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{0,100},{0,40}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{0,100},{0,40}},
+              textString="%name",
+              lineColor={0,0,255}),
             Text(
-              extent={{-100,-20},{100,-80}}, 
-              lineColor={0,0,255}, 
+              extent={{-100,-20},{100,-80}},
+              lineColor={0,0,255},
               textString="L=%L")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -1398,17 +1398,17 @@ Rod <i>without inertia</i> and two rigidly connected flanges.
               extent={{-44,-41},{51,-57}},
               textString="Length L",
               lineColor={0,0,255})}));
-      
-    equation 
+
+    equation
       0 = flange_a.f + flange_b.f;
     end Rod;
-    
-    model Spring "Linear 1D translational spring" 
+
+    model Spring "Linear 1D translational spring"
       extends Translational.Interfaces.PartialCompliant;
-      parameter SI.TranslationalSpringConstant c(final min=0, start = 1) 
+      parameter SI.TranslationalSpringConstant c(final min=0, start = 1)
         "spring constant ";
       parameter SI.Distance s_rel0=0 "unstretched spring length";
-      
+
       annotation (
         Documentation(info="<html>
 <p>
@@ -1423,16 +1423,16 @@ a coupling of the sliding mass with the housing via a spring.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
-            Line(points={{-60,-90},{20,-90}}, color={0,0,0}), 
+            Line(points={{-60,-90},{20,-90}}, color={0,0,0}),
             Polygon(
-              points={{50,-90},{20,-80},{20,-100},{50,-90}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              points={{50,-90},{20,-80},{20,-100},{50,-90}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{0,110},{0,50}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
+              extent={{0,110},{0,50}},
+              textString="%name",
+              lineColor={0,0,255}),
             Line(points={{-86,0},{-60,0},{-44,-30},{-16,30},{14,-30},{44,30},{
                   60,0},{84,0}}, color={0,0,0})}),
         Diagram(coordinateSystem(
@@ -1453,14 +1453,14 @@ a coupling of the sliding mass with the housing via a spring.
               textString="s_rel"),
             Line(points={{-86,0},{-60,0},{-44,-30},{-16,30},{14,-30},{44,30},{
                   60,0},{84,0}}, color={0,0,0})}));
-      
-    equation 
+
+    equation
       f = c*(s_rel - s_rel0);
     end Spring;
-    
-    model Damper "Linear 1D translational damper" 
+
+    model Damper "Linear 1D translational damper"
       extends Translational.Interfaces.PartialCompliantWithRelativeStates;
-      parameter SI.TranslationalDampingConstant d(final min=0, start = 0) 
+      parameter SI.TranslationalDampingConstant d(final min=0, start = 0)
         "damping constant";
       annotation (
         Documentation(info="<html>
@@ -1475,25 +1475,25 @@ between two sliding masses.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
-            Line(points={{-90,0},{-60,0}}, color={0,0,0}), 
-            Line(points={{-60,-30},{-60,30}}, color={0,0,0}), 
-            Line(points={{-60,-30},{60,-30}}, color={0,0,0}), 
-            Line(points={{-60,30},{60,30}}, color={0,0,0}), 
+            Line(points={{-90,0},{-60,0}}, color={0,0,0}),
+            Line(points={{-60,-30},{-60,30}}, color={0,0,0}),
+            Line(points={{-60,-30},{60,-30}}, color={0,0,0}),
+            Line(points={{-60,30},{60,30}}, color={0,0,0}),
             Rectangle(
-              extent={{-60,30},{30,-30}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{30,0},{90,0}}, color={0,0,0}), 
+              extent={{-60,30},{30,-30}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Line(points={{30,0},{90,0}}, color={0,0,0}),
             Polygon(
-              points={{50,-90},{20,-80},{20,-100},{50,-90}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-60,-90},{20,-90}}, color={0,0,0}), 
+              points={{50,-90},{20,-80},{20,-100},{50,-90}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-60,-90},{20,-90}}, color={0,0,0}),
             Text(
-              extent={{0,106},{0,46}}, 
-              textString="%name", 
+              extent={{0,106},{0,46}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -1519,16 +1519,16 @@ between two sliding masses.
               extent={{-40,68},{38,90}},
               lineColor={128,128,128},
               textString="der(s_rel)")}));
-      
-    equation 
+
+    equation
       f = d*v_rel;
     end Damper;
-    
-    model SpringDamper "Linear 1D translational spring and damper in parallel" 
+
+    model SpringDamper "Linear 1D translational spring and damper in parallel"
       extends Translational.Interfaces.PartialCompliantWithRelativeStates;
-      parameter SI.TranslationalSpringConstant c(final min=0, start = 1) 
+      parameter SI.TranslationalSpringConstant c(final min=0, start = 1)
         "spring constant";
-      parameter SI.TranslationalDampingConstant d(final min=0, start = 1) 
+      parameter SI.TranslationalDampingConstant d(final min=0, start = 1)
         "damping constant";
       parameter SI.Position s_rel0=0 "unstretched spring length";
       annotation (
@@ -1546,29 +1546,29 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Line(points={{-80,40},{-60,40},{-45,10},{-15,70},{15,10},{45,70},{
-                  60,40},{80,40}}, color={0,0,0}), 
-            Line(points={{-80,40},{-80,-70}}, color={0,0,0}), 
-            Line(points={{-80,-70},{-52,-70}}, color={0,0,0}), 
+                  60,40},{80,40}}, color={0,0,0}),
+            Line(points={{-80,40},{-80,-70}}, color={0,0,0}),
+            Line(points={{-80,-70},{-52,-70}}, color={0,0,0}),
             Rectangle(
-              extent={{-52,-49},{38,-91}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-52,-49},{68,-49}}, color={0,0,0}), 
-            Line(points={{-51,-91},{69,-91}}, color={0,0,0}), 
-            Line(points={{38,-70},{80,-70}}, color={0,0,0}), 
-            Line(points={{80,40},{80,-70}}, color={0,0,0}), 
-            Line(points={{-90,0},{-80,0}}, color={0,0,0}), 
-            Line(points={{80,0},{90,0}}, color={0,0,0}), 
+              extent={{-52,-49},{38,-91}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-52,-49},{68,-49}}, color={0,0,0}),
+            Line(points={{-51,-91},{69,-91}}, color={0,0,0}),
+            Line(points={{38,-70},{80,-70}}, color={0,0,0}),
+            Line(points={{80,40},{80,-70}}, color={0,0,0}),
+            Line(points={{-90,0},{-80,0}}, color={0,0,0}),
+            Line(points={{80,0},{90,0}}, color={0,0,0}),
             Polygon(
-              points={{53,-18},{23,-8},{23,-28},{53,-18}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-57,-18},{23,-18}}, color={0,0,0}), 
+              points={{53,-18},{23,-8},{23,-28},{53,-18}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-57,-18},{23,-18}}, color={0,0,0}),
             Text(
-              extent={{1,140},{1,80}}, 
-              textString="%name", 
+              extent={{1,140},{1,80}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -1576,47 +1576,47 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
             grid={1,1}), graphics={
             Line(
               points={{-80,32},{-58,32},{-43,2},{-13,62},{17,2},{47,62},{62,32},
-                  {80,32}}, 
-              color={0,0,0}, 
-              thickness=0.5), 
-            Line(points={{-100,31},{-100,96}}, color={128,128,128}), 
-            Line(points={{100,29},{100,94}}, color={128,128,128}), 
-            Line(points={{-98,82},{100,82}}, color={128,128,128}), 
+                  {80,32}},
+              color={0,0,0},
+              thickness=0.5),
+            Line(points={{-100,31},{-100,96}}, color={128,128,128}),
+            Line(points={{100,29},{100,94}}, color={128,128,128}),
+            Line(points={{-98,82},{100,82}}, color={128,128,128}),
             Polygon(
-              points={{90,85},{100,82},{90,79},{90,85}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              points={{90,85},{100,82},{90,79},{90,85}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-21,61},{19,86}}, 
-              lineColor={0,0,255}, 
-              textString="s_rel"), 
+              extent={{-21,61},{19,86}},
+              lineColor={0,0,255},
+              textString="s_rel"),
             Rectangle(
-              extent={{-52,-28},{38,-72}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-51,-72},{69,-72}}, color={0,0,0}), 
-            Line(points={{-52,-28},{68,-28}}, color={0,0,0}), 
-            Line(points={{38,-50},{80,-50}}, color={0,0,0}), 
-            Line(points={{-80,-50},{-52,-50}}, color={0,0,0}), 
-            Line(points={{-80,32},{-80,-50}}, color={0,0,0}), 
-            Line(points={{80,32},{80,-50}}, color={0,0,0}), 
-            Line(points={{-90,0},{-80,0}}, color={0,0,0}), 
+              extent={{-52,-28},{38,-72}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-51,-72},{69,-72}}, color={0,0,0}),
+            Line(points={{-52,-28},{68,-28}}, color={0,0,0}),
+            Line(points={{38,-50},{80,-50}}, color={0,0,0}),
+            Line(points={{-80,-50},{-52,-50}}, color={0,0,0}),
+            Line(points={{-80,32},{-80,-50}}, color={0,0,0}),
+            Line(points={{80,32},{80,-50}}, color={0,0,0}),
+            Line(points={{-90,0},{-80,0}}, color={0,0,0}),
             Line(points={{90,0},{80,0}}, color={0,0,0})}));
-      
-    equation 
+
+    equation
       f = c*(s_rel - s_rel0) + d*v_rel;
     end SpringDamper;
-    
-    model ElastoGap "1D translational spring damper combination with gap" 
+
+    model ElastoGap "1D translational spring damper combination with gap"
       extends Translational.Interfaces.PartialCompliantWithRelativeStates;
-      parameter SI.TranslationalSpringConstant c(final min=0, start = 1) 
+      parameter SI.TranslationalSpringConstant c(final min=0, start = 1)
         "Spring constant";
-      parameter SI.TranslationalDampingConstant d(final min=0, start = 1) 
+      parameter SI.TranslationalDampingConstant d(final min=0, start = 1)
         "Damping constant";
       parameter SI.Position s_rel0=0 "Unstretched spring length";
-      
+
       annotation (
         Documentation(info="<html>
 <p>
@@ -1706,94 +1706,94 @@ where the different effects are visualized:
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
-            Line(points={{-100,0},{-50,0}}, color={0,127,0}), 
+            Line(points={{-100,0},{-50,0}}, color={0,127,0}),
             Line(
-              points={{-48,34},{-48,-46}}, 
-              color={0,0,0}, 
-              thickness=1), 
-            Line(points={{8,40},{8,2}}, color={0,0,0}), 
-            Line(points={{-2,0},{38,0},{38,44},{-2,44}}, color={0,0,0}), 
-            Line(points={{38,22},{72,22}}, color={0,0,0}), 
+              points={{-48,34},{-48,-46}},
+              color={0,0,0},
+              thickness=1),
+            Line(points={{8,40},{8,2}}, color={0,0,0}),
+            Line(points={{-2,0},{38,0},{38,44},{-2,44}}, color={0,0,0}),
+            Line(points={{38,22},{72,22}}, color={0,0,0}),
             Line(
-              points={{-12,-38},{-12,20}}, 
-              color={0,0,0}, 
-              thickness=1), 
-            Line(points={{-12,22},{8,22}}, color={0,0,0}), 
-            Line(points={{-12,-38},{-2,-38}}, color={0,0,0}), 
-            Line(points={{72,0},{90,0}}, color={0,127,0}), 
-            Line(points={{72,22},{72,-42}}, color={0,0,0}), 
+              points={{-12,-38},{-12,20}},
+              color={0,0,0},
+              thickness=1),
+            Line(points={{-12,22},{8,22}}, color={0,0,0}),
+            Line(points={{-12,-38},{-2,-38}}, color={0,0,0}),
+            Line(points={{72,0},{90,0}}, color={0,127,0}),
+            Line(points={{72,22},{72,-42}}, color={0,0,0}),
             Line(points={{-2,-38},{10,-28},{22,-48},{38,-28},{50,-48},{64,-28},
-                  {72,-40}}, color={0,0,0}), 
+                  {72,-40}}, color={0,0,0}),
             Rectangle(
-              extent={{8,44},{38,0}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{8,44},{38,0}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-28,-80},{12,-55}}, 
-              lineColor={0,0,255}, 
-              textString="s_rel"), 
-            Line(points={{-100,-29},{-100,-61}}, color={0,0,0}), 
-            Line(points={{100,-61},{100,-28}}, color={0,0,0}), 
-            Line(points={{-98,-60},{98,-60}}, color={0,0,0}), 
+              extent={{-28,-80},{12,-55}},
+              lineColor={0,0,255},
+              textString="s_rel"),
+            Line(points={{-100,-29},{-100,-61}}, color={0,0,0}),
+            Line(points={{100,-61},{100,-28}}, color={0,0,0}),
+            Line(points={{-98,-60},{98,-60}}, color={0,0,0}),
             Polygon(
-              points={{-101,-60},{-96,-59},{-96,-61},{-101,-60}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-101,-60},{-96,-59},{-96,-61},{-101,-60}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{100,-60},{95,-61},{95,-59},{100,-60}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
+              points={{100,-60},{95,-61},{95,-59},{100,-60}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
-            Line(points={{-98,0},{-48,0}}, color={0,127,0}), 
+            Line(points={{-98,0},{-48,0}}, color={0,127,0}),
             Line(
-              points={{-48,34},{-48,-46}}, 
-              color={0,0,0}, 
-              thickness=1), 
-            Line(points={{8,40},{8,2}}, color={0,0,0}), 
-            Line(points={{-2,0},{38,0},{38,44},{-2,44}}, color={0,0,0}), 
-            Line(points={{38,22},{72,22}}, color={0,0,0}), 
+              points={{-48,34},{-48,-46}},
+              color={0,0,0},
+              thickness=1),
+            Line(points={{8,40},{8,2}}, color={0,0,0}),
+            Line(points={{-2,0},{38,0},{38,44},{-2,44}}, color={0,0,0}),
+            Line(points={{38,22},{72,22}}, color={0,0,0}),
             Line(
-              points={{-12,-38},{-12,20}}, 
-              color={0,0,0}, 
-              thickness=1), 
-            Line(points={{-12,22},{8,22}}, color={0,0,0}), 
-            Line(points={{-12,-38},{-2,-38}}, color={0,0,0}), 
-            Line(points={{72,0},{98,0}}, color={0,127,0}), 
-            Line(points={{72,22},{72,-42}}, color={0,0,0}), 
+              points={{-12,-38},{-12,20}},
+              color={0,0,0},
+              thickness=1),
+            Line(points={{-12,22},{8,22}}, color={0,0,0}),
+            Line(points={{-12,-38},{-2,-38}}, color={0,0,0}),
+            Line(points={{72,0},{98,0}}, color={0,127,0}),
+            Line(points={{72,22},{72,-42}}, color={0,0,0}),
             Line(points={{-2,-38},{10,-28},{22,-48},{38,-28},{50,-48},{64,-28},
-                  {72,-40}}, color={0,0,0}), 
+                  {72,-40}}, color={0,0,0}),
             Rectangle(
-              extent={{8,44},{38,0}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-60,-90},{20,-90}}, color={0,0,0}), 
+              extent={{8,44},{38,0}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-60,-90},{20,-90}}, color={0,0,0}),
             Polygon(
-              points={{50,-90},{20,-80},{20,-100},{50,-90}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              points={{50,-90},{20,-80},{20,-100},{50,-90}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{0,120},{0,60}}, 
-              textString="%name", 
+              extent={{0,120},{0,60}},
+              textString="%name",
               lineColor={0,0,255})}));
-      
+
     /*
 Please note that initialization might fail due to the nonlinear spring characteristic
 (spring force is zero for s_rel > s_rel0) 
 if a positive force is acting on the element and no other force balances this force
 (e.g. when setting both initial velocity and acceleration to 0)
 */
-    protected 
+    protected
       SI.Force f_c "Spring force";
       SI.Force f_d "Unmodified damping force";
-    equation 
+    equation
       // Modify contact force, so that it is only "pushing" and not
       // "pulling/sticking" and that it is continous near lift off
       if s_rel > s_rel0 then
@@ -1806,9 +1806,9 @@ if a positive force is acting on the element and no other force balances this fo
          f   = smooth(0, noEvent(if (f_c + f_d) >= 0 then 0 else f_c + max(f_c, f_d)));
       end if;
     end ElastoGap;
-    
-    model SupportFriction "Coulomb friction in support" 
-      
+
+    model SupportFriction "Coulomb friction in support"
+
       annotation (
         Documentation(info="<html>
 <p>
@@ -1897,98 +1897,98 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 "), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
             Rectangle(
-              extent={{-90,10},{90,-10}}, 
-              lineColor={0,127,0}, 
-              fillColor={215,215,215}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-90,10},{90,-10}},
+              lineColor={0,127,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-48,-10},{-28,-30}}, 
-              lineColor={95,95,95}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={175,175,175}), 
+              extent={{-48,-10},{-28,-30}},
+              lineColor={95,95,95},
+              fillPattern=FillPattern.Sphere,
+              fillColor={175,175,175}),
             Ellipse(
-              extent={{-10,-10},{10,-30}}, 
-              lineColor={95,95,95}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={175,175,175}), 
+              extent={{-10,-10},{10,-30}},
+              lineColor={95,95,95},
+              fillPattern=FillPattern.Sphere,
+              fillColor={175,175,175}),
             Ellipse(
-              extent={{30,-10},{50,-30}}, 
-              lineColor={95,95,95}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={175,175,175}), 
+              extent={{30,-10},{50,-30}},
+              lineColor={95,95,95},
+              fillPattern=FillPattern.Sphere,
+              fillColor={175,175,175}),
             Polygon(
               points={{-60,-30},{60,-30},{60,-12},{80,-12},{80,-50},{-80,-50},{
-                  -80,-12},{-60,-12},{-60,-30}}, 
-              lineColor={95,95,95}, 
-              fillPattern=FillPattern.Solid, 
-              smooth=Smooth.None, 
-              fillColor={175,175,175}), 
+                  -80,-12},{-60,-12},{-60,-30}},
+              lineColor={95,95,95},
+              fillPattern=FillPattern.Solid,
+              smooth=Smooth.None,
+              fillColor={175,175,175}),
             Text(
-              extent={{-150,100},{150,60}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
-            Line(points={{-10,-85},{-5,-80}}, color={0,0,0}), 
-            Line(points={{-5,-90},{5,-80}}, color={0,0,0}), 
-            Line(points={{-10,-90},{0,-80}}, color={0,0,0}), 
-            Line(points={{0,-90},{10,-80}}, color={0,0,0}), 
+              extent={{-150,100},{150,60}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{-10,-85},{-5,-80}}, color={0,0,0}),
+            Line(points={{-5,-90},{5,-80}}, color={0,0,0}),
+            Line(points={{-10,-90},{0,-80}}, color={0,0,0}),
+            Line(points={{0,-90},{10,-80}}, color={0,0,0}),
             Polygon(
-              points={{-60,-50},{-20,-80},{20,-80},{60,-50},{-60,-50}}, 
-              lineColor={95,95,95}, 
-              smooth=Smooth.None, 
-              fillColor={175,175,175}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-60,-50},{-20,-80},{20,-80},{60,-50},{-60,-50}},
+              lineColor={95,95,95},
+              smooth=Smooth.None,
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid),
             Ellipse(
-              extent={{-50,30},{-30,10}}, 
-              lineColor={95,95,95}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={175,175,175}), 
+              extent={{-50,30},{-30,10}},
+              lineColor={95,95,95},
+              fillPattern=FillPattern.Sphere,
+              fillColor={175,175,175}),
             Ellipse(
-              extent={{-10,30},{10,10}}, 
-              lineColor={95,95,95}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={175,175,175}), 
+              extent={{-10,30},{10,10}},
+              lineColor={95,95,95},
+              fillPattern=FillPattern.Sphere,
+              fillColor={175,175,175}),
             Ellipse(
-              extent={{30,30},{50,10}}, 
-              lineColor={95,95,95}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={175,175,175}), 
+              extent={{30,30},{50,10}},
+              lineColor={95,95,95},
+              fillPattern=FillPattern.Sphere,
+              fillColor={175,175,175}),
             Polygon(
               points={{-60,30},{60,30},{60,12},{80,12},{80,50},{-80,50},{-80,12},
-                  {-60,12},{-60,30}}, 
-              lineColor={95,95,95}, 
-              fillPattern=FillPattern.Solid, 
-              smooth=Smooth.None, 
+                  {-60,12},{-60,30}},
+              lineColor={95,95,95},
+              fillPattern=FillPattern.Solid,
+              smooth=Smooth.None,
               fillColor={175,175,175})}));
-      extends 
+      extends
         Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport;
-      parameter Real f_pos[:, 2]=[0, 1] 
+      parameter Real f_pos[:, 2]=[0, 1]
         "[v, f] Positive sliding friction characteristic (v>=0)";
-      parameter Real peak(final min=1) = 1 
+      parameter Real peak(final min=1) = 1
         "peak*f_pos[1,2] = Maximum friction force for v==0";
       extends Translational.Interfaces.PartialFriction;
-      
+
       SI.Position s;
       SI.Force f "Friction force";
       SI.Velocity v "Absolute velocity of flange_a and flange_b";
       SI.Acceleration a "Absolute acceleration of flange_a and flange_b";
-    equation 
+    equation
       // Constant auxiliary variables
       f0 = Modelica.Math.tempInterpol1(0, f_pos, 2);
       f0_max = peak*f0;
       free = false;
-      
+
       s = s_a;
       s = s_b;
-      
+
     // velocity and acceleration of flanges
       v = der(s);
       a = der(v);
       v_relfric = v;
       a_relfric = a;
-      
+
     // Friction force
       flange_a.f + flange_b.f + f = 0;
-      
+
     // Friction force
       f = if locked then sa*unitForce else 
          (if startForward then          Modelica.Math.tempInterpol1( v, f_pos, 2) else 
@@ -1996,9 +1996,9 @@ following references, especially (Armstrong and Canudas de Witt 1996):
           if pre(mode) == Forward then  Modelica.Math.tempInterpol1( v, f_pos, 2) else 
                                        -Modelica.Math.tempInterpol1(-v, f_pos, 2));
     end SupportFriction;
-    
-    model Brake "Brake basend on Coulomb friction" 
-      
+
+    model Brake "Brake basend on Coulomb friction"
+
       annotation (
         Documentation(info="<html>
 <p>
@@ -2081,105 +2081,105 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 "), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
             Rectangle(
-              extent={{-90,10},{90,-10}}, 
-              lineColor={0,127,0}, 
-              fillColor={215,215,215}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-90,10},{90,-10}},
+              lineColor={0,127,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-20,30},{20,20}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-20,30},{20,20}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-20,-20},{20,-30}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-20,-20},{20,-30}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{0,-30},{10,-50},{-10,-50},{0,-30}}, 
-              lineColor={0,0,127}, 
-              fillColor={0,0,127}, 
-              fillPattern=FillPattern.Solid), 
+              points={{0,-30},{10,-50},{-10,-50},{0,-30}},
+              lineColor={0,0,127},
+              fillColor={0,0,127},
+              fillPattern=FillPattern.Solid),
             Polygon(
-              points={{10,50},{-10,50},{0,30},{10,50}}, 
-              lineColor={0,0,127}, 
-              fillColor={0,0,127}, 
-              fillPattern=FillPattern.Solid), 
+              points={{10,50},{-10,50},{0,30},{10,50}},
+              lineColor={0,0,127},
+              fillColor={0,0,127},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{0,90},{0,50}}, 
-              color={0,0,0}, 
-              smooth=Smooth.None), 
+              points={{0,90},{0,50}},
+              color={0,0,0},
+              smooth=Smooth.None),
             Rectangle(
-              extent={{20,28},{30,22}}, 
-              lineColor={175,175,175}, 
-              fillColor={175,175,175}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{20,28},{30,22}},
+              lineColor={175,175,175},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{20,-22},{30,-28}}, 
-              lineColor={175,175,175}, 
-              fillColor={175,175,175}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{20,-22},{30,-28}},
+              lineColor={175,175,175},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{30,28},{36,-102}}, 
-              lineColor={175,175,175}, 
-              fillColor={175,175,175}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{30,28},{36,-102}},
+              lineColor={175,175,175},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{14,-96},{30,-102}}, 
-              lineColor={175,175,175}, 
-              fillColor={175,175,175}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{14,-96},{30,-102}},
+              lineColor={175,175,175},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid),
             Line(
-              points={{0,-50},{0,-60},{-40,-50},{-40,48},{0,60},{0,90}}, 
-              color={0,0,0}, 
+              points={{0,-50},{0,-60},{-40,-50},{-40,48},{0,60},{0,90}},
+              color={0,0,0},
               smooth=Smooth.None)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics));
-      extends 
+      extends
         Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport;
-      parameter Real mue_pos[:, 2]=[0, 0.5] 
+      parameter Real mue_pos[:, 2]=[0, 0.5]
         "[v, f] Positive sliding friction characteristic (v>=0)";
-      parameter Real peak(final min=1) = 1 
+      parameter Real peak(final min=1) = 1
         "peak*mue_pos[1,2] = Maximum friction force for v==0";
-      parameter Real cgeo(final min=0) = 1 
+      parameter Real cgeo(final min=0) = 1
         "Geometry constant containing friction distribution assumption";
       parameter SI.Force fn_max(final min=0, start=1) "Maximum normal force";
       extends Translational.Interfaces.PartialFriction;
-      
+
       SI.Position s;
       SI.Force f "Brake friction force";
       SI.Velocity v "Absolute velocity of flange_a and flange_b";
       SI.Acceleration a "Absolute acceleration of flange_a and flange_b";
-      
+
       Real mue0 "Friction coefficient for v=0 and forward sliding";
       SI.Force fn "Normal force (=fn_max*f_normalized)";
-      
+
       // Constant auxiliary variable
-      Modelica.Blocks.Interfaces.RealInput f_normalized 
+      Modelica.Blocks.Interfaces.RealInput f_normalized
         "Normalized force signal 0..1 (normal force = fn_max*f_normalized; brake is active if > 0)"
         annotation (Placement(transformation(
             origin={0,110},
             extent={{20,-20},{-20,20}},
             rotation=90)));
-    equation 
+    equation
       mue0 = Modelica.Math.tempInterpol1(0, mue_pos, 2);
-      
+
       s = s_a;
       s = s_b;
-      
+
     // velocity and acceleration of flanges flange_a and flange_b
       v = der(s);
       a = der(v);
       v_relfric = v;
       a_relfric = a;
-      
+
     // Friction force, normal force and friction force for v_rel=0
       flange_a.f + flange_b.f + f = 0;
       fn = fn_max*f_normalized;
       f0 = mue0*cgeo*fn;
       f0_max = peak*f0;
       free = fn <= 0;
-      
+
       // friction force
       f = if locked then sa*unitForce else 
           if free then   0 else 
@@ -2188,67 +2188,67 @@ following references, especially (Armstrong and Canudas de Witt 1996):
                    if pre(mode) == Forward then  Modelica.Math.tempInterpol1( v, mue_pos, 2) else 
                                                 -Modelica.Math.tempInterpol1(-v, mue_pos, 2));
     end Brake;
-    
-    model IdealGearR2T 
-      "Gearbox transforming rotational into translational motion\"" 
+
+    model IdealGearR2T
+      "Gearbox transforming rotational into translational motion\""
       extends Modelica.Mechanics.Rotational.Components.IdealGearR2T;
-    equation 
-      
+    equation
+
     end IdealGearR2T;
-    
-    model IdealRollingWheel 
-      "Simple 1-dim. model of an ideal rolling wheel without inertia" 
+
+    model IdealRollingWheel
+      "Simple 1-dim. model of an ideal rolling wheel without inertia"
       extends Modelica.Mechanics.Rotational.Components.IdealRollingWheel;
-    equation 
-      
+    equation
+
     end IdealRollingWheel;
-    
-    model InitializeFlange 
-      "Initializes a flange with pre-defined position, speed and acceleration (usually, this is reference data from a control bus)" 
+
+    model InitializeFlange
+      "Initializes a flange with pre-defined position, speed and acceleration (usually, this is reference data from a control bus)"
       import Modelica.Blocks.Types.StateSelection;
       extends Modelica.Blocks.Interfaces.BlockIcon;
-      parameter Boolean use_s_start = true 
+      parameter Boolean use_s_start = true
         "= true, if initial position is defined by input s_start, otherwise not initialized";
-      parameter Boolean use_v_start = true 
+      parameter Boolean use_v_start = true
         "= true, if initial speed is defined by input v_start, otherwise not initialized";
-      parameter Boolean use_a_start = true 
+      parameter Boolean use_a_start = true
         "= true, if initial acceleration is defined by input a_start, otherwise not initialized";
-      
-      parameter StateSelect stateSelect=StateSelect.default 
+
+      parameter StateSelect stateSelect=StateSelect.default
         "Priority to use flange angle and speed as states";
-      
-      Modelica.Blocks.Interfaces.RealInput s_start if use_s_start 
+
+      Modelica.Blocks.Interfaces.RealInput s_start if use_s_start
         "Initial position of flange" 
         annotation (Placement(transformation(extent={{-140,40},{-100,80}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.RealInput v_start if use_v_start 
+      Modelica.Blocks.Interfaces.RealInput v_start if use_v_start
         "Initial speed of flange" 
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.RealInput a_start if use_a_start 
+      Modelica.Blocks.Interfaces.RealInput a_start if use_a_start
         "Initial angular acceleration of flange" 
         annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
               rotation=0)));
       Interfaces.Flange_b flange "Flange that is initialized" annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      
-      Modelica.SIunits.Position s_flange(stateSelect=stateSelect)=flange.s 
+
+      Modelica.SIunits.Position s_flange(stateSelect=stateSelect)=flange.s
         "Flange position";
-      Modelica.SIunits.Velocity v_flange(stateSelect=stateSelect)= der(s_flange) 
+      Modelica.SIunits.Velocity v_flange(stateSelect=stateSelect)= der(s_flange)
         "= der(s_flange)";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Text(
-              extent={{-94,74},{68,46}}, 
-              lineColor={0,0,0}, 
-              textString="s_start"), 
+              extent={{-94,74},{68,46}},
+              lineColor={0,0,0},
+              textString="s_start"),
             Text(
-              extent={{-94,16},{70,-14}}, 
-              lineColor={0,0,0}, 
-              textString="v_start"), 
+              extent={{-94,16},{70,-14}},
+              lineColor={0,0,0},
+              textString="v_start"),
             Text(
-              extent={{-94,-46},{66,-74}}, 
-              lineColor={0,0,0}, 
+              extent={{-94,-46},{66,-74}},
+              lineColor={0,0,0},
               textString="a_start")}),
                                 Diagram(coordinateSystem(preserveAspectRatio=true,
                        extent={{-100,-100},{100,100}}),
@@ -2281,70 +2281,70 @@ provided via a signal bus.
 </p>
  
 </html>"));
-      
-    protected 
-      encapsulated model Set_s_start "Set s_start" 
+
+    protected
+      encapsulated model Set_s_start "Set s_start"
         import Modelica;
         extends Modelica.Blocks.Interfaces.BlockIcon;
         Modelica.Blocks.Interfaces.RealInput s_start "Start position" 
         annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{
                 -100,20}}, rotation=0)));
-        
+
       annotation (Diagram(graphics));
         Modelica.Mechanics.Translational.Interfaces.Flange_b flange 
                                                                annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      initial equation 
+      initial equation
         flange.s = s_start;
-      equation 
+      equation
         flange.f = 0;
       end Set_s_start;
-      
-      encapsulated model Set_v_start "Set v_start" 
+
+      encapsulated model Set_v_start "Set v_start"
         import Modelica;
         extends Modelica.Blocks.Interfaces.BlockIcon;
         Modelica.Blocks.Interfaces.RealInput v_start "Start velocity" 
         annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{
                 -100,20}}, rotation=0)));
-        
+
       annotation (Diagram(graphics));
         Modelica.Mechanics.Translational.Interfaces.Flange_b flange 
                                                                annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      initial equation 
+      initial equation
         der(flange.s) = v_start;
-      equation 
+      equation
         flange.f = 0;
       end Set_v_start;
-      
-      encapsulated model Set_a_start "Set a_start" 
+
+      encapsulated model Set_a_start "Set a_start"
         import Modelica;
         extends Modelica.Blocks.Interfaces.BlockIcon;
         Modelica.Blocks.Interfaces.RealInput a_start "Start acceleration" 
         annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{
                 -100,20}}, rotation=0)));
-        
+
       annotation (Diagram(graphics));
         Modelica.Mechanics.Translational.Interfaces.Flange_b flange(s(stateSelect=StateSelect.avoid)) 
             annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
         Modelica.SIunits.Velocity v = der(flange.s)        annotation(HideResult=true);
-      initial equation 
+      initial equation
         der(v) = a_start;
-      equation 
+      equation
         flange.f = 0;
       end Set_a_start;
-      
-      encapsulated model Set_flange_f "Set flange_f to zero" 
+
+      encapsulated model Set_flange_f "Set flange_f to zero"
         import Modelica;
         extends Modelica.Blocks.Interfaces.BlockIcon;
         Modelica.Mechanics.Translational.Interfaces.Flange_b flange 
             annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      equation 
+      equation
         flange.f = 0;
       end Set_flange_f;
-    protected 
+    protected
       Set_s_start set_s_start if use_s_start annotation (Placement(
             transformation(extent={{-20,50},{0,70}}, rotation=0)));
       Set_v_start set_v_start if use_v_start 
@@ -2355,7 +2355,7 @@ provided via a signal bus.
                 -70},{0,-50}}, rotation=0)));
       Set_flange_f set_flange_f annotation (Placement(transformation(extent={
                 {20,-100},{40,-80}}, rotation=0)));
-    equation 
+    equation
       connect(set_s_start.flange, flange) annotation (Line(
           points={{0,60},{60,60},{60,0},{100,0}},
           color={0,0,0},
@@ -2385,21 +2385,21 @@ provided via a signal bus.
           color={0,0,127},
           smooth=Smooth.None));
     end InitializeFlange;
-    
-    model MassWithStopAndFriction 
-      "Sliding mass with hard stop and Stribeck friction" 
+
+    model MassWithStopAndFriction
+      "Sliding mass with hard stop and Stribeck friction"
       extends PartialFrictionWithStop;
-      SI.Velocity v(start=0, stateSelect = StateSelect.always) 
+      SI.Velocity v(start=0, stateSelect = StateSelect.always)
         "Absolute velocity of flange_a and flange_b";
-      SI.Acceleration a(start=0) 
+      SI.Acceleration a(start=0)
         "Absolute acceleration of flange_a and flange_b";
       parameter Modelica.SIunits.Mass m(start=1) "mass";
-      parameter Real F_prop(final unit="N.s/m", final min=0, start = 1) 
+      parameter Real F_prop(final unit="N.s/m", final min=0, start = 1)
         "Velocity dependent friction";
-      parameter Modelica.SIunits.Force F_Coulomb(start=5) 
+      parameter Modelica.SIunits.Force F_Coulomb(start=5)
         "Constant friction: Coulomb force";
       parameter Modelica.SIunits.Force F_Stribeck(start=10) "Stribeck effect";
-      parameter Real fexp(final unit="s/m", final min=0, start = 2) 
+      parameter Real fexp(final unit="s/m", final min=0, start = 2)
         "Exponential decay";
       annotation (
         Documentation(info="
@@ -2480,41 +2480,41 @@ between the stops.</i> </li>
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Polygon(
-              points={{80,-100},{50,-90},{50,-110},{80,-100}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-30,-100},{50,-100}}, color={0,0,0}), 
+              points={{80,-100},{50,-90},{50,-110},{80,-100}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-30,-100},{50,-100}}, color={0,0,0}),
             Rectangle(
-              extent={{-30,30},{35,-35}}, 
-              lineColor={0,0,0}, 
-              fillPattern=FillPattern.Sphere, 
-              fillColor={255,255,255}), 
-            Line(points={{-90,0},{-30,0}}, color={0,127,0}), 
+              extent={{-30,30},{35,-35}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={255,255,255}),
+            Line(points={{-90,0},{-30,0}}, color={0,127,0}),
             Rectangle(
-              extent={{-70,-45},{74,-60}}, 
-              lineColor={0,0,0}, 
-              fillColor={192,192,192}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-70,-45},{74,-60}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{-63,-15},{-55,-45}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-63,-15},{-55,-45}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
             Rectangle(
-              extent={{60,-16},{69,-45}}, 
-              lineColor={0,0,0}, 
-              fillColor={0,0,0}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{35,0},{90,0}}, color={0,127,0}), 
+              extent={{60,-16},{69,-45}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{35,0},{90,0}}, color={0,127,0}),
             Text(
-              extent={{0,100},{0,40}}, 
-              textString="%name", 
-              lineColor={0,0,255}), 
-            Line(points={{-50,-90},{-30,-70}}, color={0,0,0}), 
-            Line(points={{-30,-70},{30,-70}}, color={0,0,0}), 
-            Line(points={{-30,-90},{-10,-70}}, color={0,0,0}), 
-            Line(points={{-10,-90},{10,-70}}, color={0,0,0}), 
+              extent={{0,100},{0,40}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{-50,-90},{-30,-70}}, color={0,0,0}),
+            Line(points={{-30,-70},{30,-70}}, color={0,0,0}),
+            Line(points={{-30,-90},{-10,-70}}, color={0,0,0}),
+            Line(points={{-10,-90},{10,-70}}, color={0,0,0}),
             Line(points={{10,-90},{30,-70}}, color={0,0,0})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -2628,9 +2628,9 @@ between the stops.</i> </li>
               extent={{-11,-46},{26,-36}},
               textString="Length L",
               lineColor={0,0,255})}));
-    encapsulated partial model PartialFrictionWithStop 
-        "Base model of Coulomb friction elements with stop" 
-        
+    encapsulated partial model PartialFrictionWithStop
+        "Base model of Coulomb friction elements with stop"
+
       annotation (Documentation(info="<html>
 <p>
 Basic model for Coulomb friction that models the stuck phase in a reliable way.<br>
@@ -2640,64 +2640,65 @@ Additionally, a left and right stop are handled.
 "));
         import SI = Modelica.SIunits;
         import Modelica.Mechanics.Translational.Interfaces.PartialRigid;
-      parameter SI.Position smax(start= 25) 
+      parameter SI.Position smax(start= 25)
           "Right stop for (right end of) sliding mass";
-      parameter SI.Position smin(start=-25) 
+      parameter SI.Position smin(start=-25)
           "Left stop for (left end of) sliding mass";
-      parameter SI.Velocity v_small=1e-3 
+      parameter SI.Velocity v_small=1e-3
           "Relative velocity near to zero (see model info text)" 
          annotation(Dialog(tab="Advanced"));
     // Equations to define the following variables have to be defined in subclasses
       SI.Velocity v_relfric "Relative velocity between frictional surfaces";
-      SI.Acceleration a_relfric 
+      SI.Acceleration a_relfric
           "Relative acceleration between frictional surfaces";
-      SI.Force f 
+      SI.Force f
           "Friction force (positive, if directed in opposite direction of v_rel)";
       SI.Force f0 "Friction force for v=0 and forward sliding";
       SI.Force f0_max "Maximum friction force for v=0 and locked";
       Boolean free "true, if frictional element is not active";
     // Equations to define the following variables are given in this class
-      Real sa(unit="1") 
+      Real sa(unit="1")
           "Path parameter of friction characteristic f = f(a_relfric)";
-      Boolean startForward(start=false, fixed=true) 
+      Boolean startForward(start=false, fixed=true)
           "= true, if v_rel=0 and start of forward sliding or v_rel > v_small";
-      Boolean startBackward(start=false, fixed=true) 
+      Boolean startBackward(start=false, fixed=true)
           "= true, if v_rel=0 and start of backward sliding or v_rel < -v_small";
       Boolean locked(start=false) "true, if v_rel=0 and not sliding";
       extends PartialRigid(s(start=0, stateSelect = StateSelect.always));
       constant Integer Unknown=3 "Value of mode is not known";
       constant Integer Free=2 "Element is not active";
       constant Integer Forward=1 "v_rel > 0 (forward sliding)";
-      constant Integer Stuck=0 
+      constant Integer Stuck=0
           "v_rel = 0 (forward sliding, locked or backward sliding)";
       constant Integer Backward=-1 "v_rel < 0 (backward sliding)";
       Integer mode(
         final min=Backward,
         final max=Unknown,
         start=Unknown, fixed=true);
-      protected 
+      protected
       constant SI.Acceleration unitAcceleration = 1 annotation(HideResult=true);
       constant SI.Force unitForce = 1 annotation(HideResult=true);
-    equation 
+      Real sa0 = (f0_max + (f0_max - f0))/unitForce
+          "Value of sa when start of forward sliding at w=0";
+    equation
     /* Friction characteristic
    (locked is introduced to help the Modelica translator determining
    the different structural configurations, 
    if for each configuration special code shall be generated)
 */
-      startForward  = pre(mode) == Stuck and 
-        (pre(startForward)  or sa >  f0_max/unitForce and sa >  f0/unitForce and s < (smax - L/2)) or 
+      startForward  = pre(mode) == Stuck and sa >  f0_max/unitForce and s < (smax - L/2) or 
         pre(mode) == Backward and v_relfric >  v_small or initial() and v_relfric > 0;
-      startBackward = pre(mode) == Stuck and 
-        (pre(startBackward) or sa < -f0_max/unitForce and sa < -f0/unitForce and s > (smin + L/2)) or 
+      startBackward = pre(mode) == Stuck and sa < -f0_max/unitForce and s > (smin + L/2) or 
         pre(mode) == Forward  and v_relfric < -v_small or initial() and v_relfric < 0;
       locked = not free and 
         not (pre(mode) == Forward or startForward or pre(mode) == Backward or startBackward);
       a_relfric/unitAcceleration = if locked then               0 else 
                                    if free then                 sa else 
-                                   if startForward then         sa - f0/unitForce else 
-                                   if startBackward then        sa + f0/unitForce else 
-                                   if pre(mode) == Forward then sa - f0/unitForce else 
-                                                                sa + f0/unitForce;
+                                   if startForward then         sa - sa0 else 
+                                   if startBackward then        sa + sa0 else 
+                                   if pre(mode) == Forward then sa - sa0 else 
+                                                                sa + sa0;
+
     /* Friction torque has to be defined in a subclass. Example for a clutch:
    f = if locked then sa else 
        if free then   0 else 
@@ -2714,7 +2715,7 @@ Additionally, a left and right stop are handled.
            Backward else 
            Stuck);
     end PartialFrictionWithStop;
-    equation 
+    equation
       // Constant auxiliary variables
       f0 = (F_Coulomb + F_Stribeck);
       f0_max = f0*1.001;
@@ -2734,21 +2735,21 @@ Additionally, a left and right stop are handled.
                          if pre(mode) == Forward then F_prop*v + F_Coulomb + F_Stribeck*exp(-fexp*abs(v)) else 
                                                       F_prop*v - F_Coulomb - F_Stribeck*exp(-fexp*abs(v)));
     // Define events for hard stops and reinitiliaze the state variables velocity v and position s
-    algorithm 
+    algorithm
       when (initial()) then
         assert(s > smin + L/2 or s >= smin + L/2 and v >= 0,
           "Error in initialization of hard stop. (s - L/2) must be >= smin ");
         assert(s < smax - L/2 or s <= smax - L/2 and v <= 0,
           "Error in initialization of hard stop. (s + L/2) must be <= smax ");
       end when;
-      
+
       when not (s < smax - L/2) then
         reinit(s, smax - L/2);
         if (not initial() or v>0) then
           reinit(v, 0);
         end if;
       end when;
-      
+
       when not (s > smin + L/2) then
         reinit(s, smin + L/2);
         if (not initial() or v<0) then
@@ -2756,14 +2757,14 @@ Additionally, a left and right stop are handled.
         end if;
       end when;
     end MassWithStopAndFriction;
-    
-    model RelativeStates "Definition of relative state variables" 
+
+    model RelativeStates "Definition of relative state variables"
       extends Translational.Interfaces.PartialTwoFlanges;
-      parameter StateSelect stateSelect=StateSelect.prefer 
+      parameter StateSelect stateSelect=StateSelect.prefer
         "Priority to use the relative angle and relative speed as states";
-      SI.Position s_rel(start=0, stateSelect=StateSelect.prefer) 
+      SI.Position s_rel(start=0, stateSelect=StateSelect.prefer)
         "relative position used as state variable";
-      SI.Velocity v_rel(start=0, stateSelect=StateSelect.prefer) 
+      SI.Velocity v_rel(start=0, stateSelect=StateSelect.prefer)
         "relative velocity used as state variable";
       SI.Acceleration a_rel(start=0) "relative angular acceleration";
       annotation (
@@ -2798,25 +2799,25 @@ velocity of model mass1 or of model mass2 as state variables.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Ellipse(
-              extent={{-40,40},{40,-40}}, 
-              lineColor={0,255,255}, 
-              fillColor={0,255,255}, 
-              fillPattern=FillPattern.Solid), 
+              extent={{-40,40},{40,-40}},
+              lineColor={0,255,255},
+              fillColor={0,255,255},
+              fillPattern=FillPattern.Solid),
             Text(
-              extent={{-40,40},{40,-40}}, 
-              textString="S", 
-              lineColor={0,0,255}), 
+              extent={{-40,40},{40,-40}},
+              textString="S",
+              lineColor={0,0,255}),
             Line(
-              points={{-92,0},{-42,0}}, 
-              color={0,0,0}, 
-              pattern=LinePattern.Dot), 
+              points={{-92,0},{-42,0}},
+              color={0,0,0},
+              pattern=LinePattern.Dot),
             Line(
-              points={{40,0},{90,0}}, 
-              color={0,0,0}, 
-              pattern=LinePattern.Dot), 
+              points={{40,0},{90,0}},
+              color={0,0,0},
+              pattern=LinePattern.Dot),
             Text(
-              extent={{0,110},{0,50}}, 
-              textString="%name", 
+              extent={{0,110},{0,50}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -2861,8 +2862,8 @@ velocity of model mass1 or of model mass2 as state variables.
               points={{-90,0},{-40,0}},
               color={0,0,0},
               pattern=LinePattern.Dash)}));
-      
-    equation 
+
+    equation
       s_rel = flange_b.s - flange_a.s;
       v_rel = der(s_rel);
       a_rel = der(v_rel);
@@ -2870,39 +2871,39 @@ velocity of model mass1 or of model mass2 as state variables.
       flange_b.f = 0;
     end RelativeStates;
   end Components;
-  
-  package Sources "Sources to drive 1D translational mechanical components" 
+
+  package Sources "Sources to drive 1D translational mechanical components"
     extends Modelica.Icons.Library2;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Polygon(
             points={{-100,-32},{10,-32},{10,-1},{80,-42},{10,-83},{10,-52},{-100,
-                -52},{-100,-32}}, 
-            lineColor={0,127,0}, 
-            fillColor={0,127,0}, 
+                -52},{-100,-32}},
+            lineColor={0,127,0},
+            fillColor={0,127,0},
             fillPattern=FillPattern.Solid)}),               Documentation(info="<html>
 <p>
 This package contains ideal sources to drive 1D mechanical translational drive trains.
 </p>
 </html>"));
-    
-    model Position 
-      "Forced movement of a flange according to a reference position" 
-      extends 
+
+    model Position
+      "Forced movement of a flange according to a reference position"
+      extends
         Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport(
           s(stateSelect=if exact then StateSelect.default else StateSelect.prefer));
-      parameter Boolean exact=false 
+      parameter Boolean exact=false
         "true/false exact treatment/filtering the input signal";
-      parameter SI.Frequency f_crit=50 
+      parameter SI.Frequency f_crit=50
         "if exact=false, critical frequency of filter to filter input signal" annotation(Dialog(enable=not exact));
-      SI.Velocity v(start=0, stateSelect=if exact then StateSelect.default else StateSelect.prefer) 
+      SI.Velocity v(start=0, stateSelect=if exact then StateSelect.default else StateSelect.prefer)
         "If exact=false, absolute velocity of flange_b else dummy";
-      SI.Acceleration a(start=0) 
+      SI.Acceleration a(start=0)
         "If exact=false, absolute acceleration of flange_b else dummy";
-      Modelica.Blocks.Interfaces.RealInput s_ref 
+      Modelica.Blocks.Interfaces.RealInput s_ref
         "reference position of flange as input signal" annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
-    protected 
-      parameter Modelica.SIunits.AngularFrequency w_crit=2*Modelica.Constants.pi*f_crit 
+    protected
+      parameter Modelica.SIunits.AngularFrequency w_crit=2*Modelica.Constants.pi*f_crit
         "Critical frequency";
       constant Real af=1.3617 "s coefficient of Bessel filter";
       constant Real bf=0.6180 "s*s coefficient of Bessel filter";
@@ -2977,12 +2978,12 @@ blocks of the block library Modelica.Blocks.Sources.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
-      
-    initial equation 
+
+    initial equation
       if not exact then
         s = s_ref;
       end if;
-    equation 
+    equation
       if exact then
         s = s_ref;
         v = 0;
@@ -2994,20 +2995,20 @@ blocks of the block library Modelica.Blocks.Sources.
         a = ((s_ref - s)*w_crit - af*v)*(w_crit/bf);
       end if;
     end Position;
-    
-    model Speed "Forced movement of a flange according to a reference speed" 
-      extends 
+
+    model Speed "Forced movement of a flange according to a reference speed"
+      extends
         Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport(
                 s(start=0, fixed=true, stateSelect=StateSelect.prefer));
-      parameter Boolean exact=false 
+      parameter Boolean exact=false
         "true/false exact treatment/filtering the input signal";
-      parameter SI.Frequency f_crit=50 
+      parameter SI.Frequency f_crit=50
         "if exact=false, critical frequency of filter to filter input signal" annotation(Dialog(enable=not exact));
-      SI.Velocity v(stateSelect=if exact then StateSelect.default else StateSelect.prefer) 
+      SI.Velocity v(stateSelect=if exact then StateSelect.default else StateSelect.prefer)
         "Absolute velocity of flange_b";
-      SI.Acceleration a 
+      SI.Acceleration a
         "If exact=false, absolute acceleration of flange_b else dummy";
-      Modelica.Blocks.Interfaces.RealInput v_ref 
+      Modelica.Blocks.Interfaces.RealInput v_ref
         "reference speed of flange as input signal" annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
       annotation (
@@ -3081,15 +3082,15 @@ blocks of the block library Modelica.Blocks.Sources.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
-      
-    protected 
-      parameter Modelica.SIunits.AngularFrequency w_crit=2*Modelica.Constants.pi*f_crit 
+
+    protected
+      parameter Modelica.SIunits.AngularFrequency w_crit=2*Modelica.Constants.pi*f_crit
         "Critical frequency";
-    initial equation 
+    initial equation
       if not exact then
         v = v_ref;
       end if;
-    equation 
+    equation
       v = der(s);
       if exact then
         v = v_ref;
@@ -3100,17 +3101,17 @@ blocks of the block library Modelica.Blocks.Sources.
         a = (v_ref - v)*w_crit;
       end if;
     end Speed;
-    
-    model Accelerate 
-      "Forced movement of a flange according to an acceleration signal" 
-       extends 
+
+    model Accelerate
+      "Forced movement of a flange according to an acceleration signal"
+       extends
         Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport(
                                                       s(start=0, fixed=true, stateSelect=StateSelect.prefer));
-      SI.Velocity v(start=0, fixed=true, stateSelect=StateSelect.prefer) 
+      SI.Velocity v(start=0, fixed=true, stateSelect=StateSelect.prefer)
         "Absolute velocity of flange_b";
       SI.Acceleration a "Absolute acceleration of flange_b";
-      
-      Modelica.Blocks.Interfaces.RealInput a_ref 
+
+      Modelica.Blocks.Interfaces.RealInput a_ref
         "absolute acceleration of flange as input signal" 
          annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
@@ -3161,18 +3162,18 @@ blocks of the block library Modelica.Blocks.Source.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
-      
-    equation 
+
+    equation
       v = der(s);
       a = der(v);
       a = a_ref;
     end Accelerate;
-    
-    model Move 
-      "Forced movement of a flange according to a position, velocity and acceleration signal" 
-       extends 
+
+    model Move
+      "Forced movement of a flange according to a position, velocity and acceleration signal"
+       extends
         Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport;
-      Modelica.Blocks.Interfaces.RealInput u[3] 
+      Modelica.Blocks.Interfaces.RealInput u[3]
         "position, velocity and acceleration of flange as input signals" 
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
@@ -3234,50 +3235,50 @@ blocks of the block library Modelica.Blocks.Sources.
               extent={{150,60},{-150,100}},
               textString="%name",
               lineColor={0,0,255})}));
-    protected 
-      function position 
-         input Real q_qd_qdd[3] 
+    protected
+      function position
+         input Real q_qd_qdd[3]
           "Required values for position, speed, acceleration";
-         input Real dummy 
+         input Real dummy
           "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
          output Real q;
         annotation (derivative(noDerivative=q_qd_qdd) = position_der,
             __Dymola_InlineAfterIndexReduction=true);
-      algorithm 
+      algorithm
         q :=q_qd_qdd[1];
       end position;
-      
-      function position_der 
-         input Real q_qd_qdd[3] 
+
+      function position_der
+         input Real q_qd_qdd[3]
           "Required values for position, speed, acceleration";
-         input Real dummy 
+         input Real dummy
           "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
          input Real dummy_der;
          output Real qd;
         annotation (derivative(noDerivative=q_qd_qdd) = position_der2,
             __Dymola_InlineAfterIndexReduction=true);
-      algorithm 
+      algorithm
         qd :=q_qd_qdd[2];
       end position_der;
-      
-      function position_der2 
-         input Real q_qd_qdd[3] 
+
+      function position_der2
+         input Real q_qd_qdd[3]
           "Required values for position, speed, acceleration";
-         input Real dummy 
+         input Real dummy
           "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
          input Real dummy_der;
          input Real dummy_der2;
          output Real qdd;
-      algorithm 
+      algorithm
         qdd :=q_qd_qdd[3];
       end position_der2;
-    equation 
+    equation
       s = position(u,time);
     end Move;
-    
-    model Force 
-      "External force acting on a drive train element as input signal" 
-      extends 
+
+    model Force
+      "External force acting on a drive train element as input signal"
+      extends
         Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport;
       Modelica.Blocks.Interfaces.RealInput f "driving force as input signal" 
                                         annotation (Placement(transformation(
@@ -3329,12 +3330,12 @@ blocks of Modelica.Blocks.Source.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
-      
-    equation 
+
+    equation
       flange.f = -f;
     end Force;
-    
-    model Force2 "Input signal acting as torque on two flanges" 
+
+    model Force2 "Input signal acting as torque on two flanges"
       extends Translational.Interfaces.PartialTwoFlanges;
       Modelica.Blocks.Interfaces.RealInput f "driving force as input signal" 
                                         annotation (Placement(transformation(
@@ -3382,23 +3383,23 @@ blocks of Modelica.Blocks.Source.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
-      
-    equation 
+
+    equation
       flange_a.f =  f;
       flange_b.f = -f;
     end Force2;
-    
-    model LinearSpeedDependentForce "Linear dependency of force versus speed" 
+
+    model LinearSpeedDependentForce "Linear dependency of force versus speed"
       extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
-      parameter Modelica.SIunits.Force f_nominal 
+      parameter Modelica.SIunits.Force f_nominal
         "Nominal force (if negative, force is acting as load)";
-      parameter Boolean ForceDirection=true 
+      parameter Boolean ForceDirection=true
         "Same direction of force in both directions of movement";
-      parameter Modelica.SIunits.Velocity v_nominal(min=Modelica.Constants.eps) 
+      parameter Modelica.SIunits.Velocity v_nominal(min=Modelica.Constants.eps)
         "Nominal speed";
-      Modelica.SIunits.Velocity v 
+      Modelica.SIunits.Velocity v
         "Velocity of flange with respect to support (= der(s))";
-      
+
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}},
                 color={0,0,255})}), Documentation(info="<HTML>
@@ -3407,7 +3408,7 @@ Model of force, linearly dependent on velocity of flange.<br>
 Parameter ForceDirection chooses whether direction of force is the same in both directions of movement or not.
 </p>
 </HTML>"));
-    equation 
+    equation
       v = der(s);
       if ForceDirection then
         f = -f_nominal*abs(v/v_nominal);
@@ -3415,17 +3416,17 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
         f = -f_nominal*(v/v_nominal);
       end if;
     end LinearSpeedDependentForce;
-    
-    model QuadraticSpeedDependentForce 
-      "Quadratic dependency of force versus speed" 
+
+    model QuadraticSpeedDependentForce
+      "Quadratic dependency of force versus speed"
       extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
-      parameter Modelica.SIunits.Force f_nominal 
+      parameter Modelica.SIunits.Force f_nominal
         "Nominal force (if negative, force is acting as load)";
-      parameter Boolean ForceDirection=true 
+      parameter Boolean ForceDirection=true
         "Same direction of force in both directions of movement";
-      parameter Modelica.SIunits.Velocity v_nominal(min=Modelica.Constants.eps) 
+      parameter Modelica.SIunits.Velocity v_nominal(min=Modelica.Constants.eps)
         "Nominal speed";
-      Modelica.SIunits.Velocity v 
+      Modelica.SIunits.Velocity v
         "Velocity of flange with respect to support (= der(s))";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-100,-100},{-80,-98},
@@ -3436,7 +3437,7 @@ Model of force, quadratic dependent on velocity of flange.<br>
 Parameter ForceDirection chooses whether direction of force is the same in both directions of movement or not.
 </p>
 </HTML>"));
-    equation 
+    equation
       v = der(s);
       if ForceDirection then
         f = -f_nominal*(v/v_nominal)^2;
@@ -3444,10 +3445,10 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
         f = -f_nominal*smooth(1, if v >= 0 then (v/v_nominal)^2 else -(v/v_nominal)^2);
       end if;
     end QuadraticSpeedDependentForce;
-    
-    model ConstantForce "Constant force, not dependent on speed" 
+
+    model ConstantForce "Constant force, not dependent on speed"
       extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
-      parameter Modelica.SIunits.Force f_constant 
+      parameter Modelica.SIunits.Force f_constant
         "Nominal force (if negative, force is acting as load)";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-100,0},{98,0}},
@@ -3461,15 +3462,15 @@ Model of constant force, not dependent on velocity of flange.<br>
 Positive force acts accelerating.
 </p>
 </HTML>"));
-    equation 
+    equation
       f = -f_constant;
     end ConstantForce;
-    
-    model ConstantSpeed "Constant speed, not dependent on force" 
+
+    model ConstantSpeed "Constant speed, not dependent on force"
       extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
-      parameter Modelica.SIunits.Velocity v_fixed 
+      parameter Modelica.SIunits.Velocity v_fixed
         "Fixed speed (if negative, force is acting as load)";
-      Modelica.SIunits.Velocity v 
+      Modelica.SIunits.Velocity v
         "Velocity of flange with respect to support (= der(s))";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{0,-100},{0,100}},
@@ -3482,17 +3483,17 @@ Positive force acts accelerating.
 Model of <b>fixed</b> verlocity of flange, not dependent on force.
 </p>
 </HTML>"));
-    equation 
+    equation
       v = der(s);
       v = v_fixed;
     end ConstantSpeed;
-    
-    model ForceStep "Constant force, not dependent on speed" 
+
+    model ForceStep "Constant force, not dependent on speed"
       extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
-      parameter Modelica.SIunits.Force stepForce(start=1) 
+      parameter Modelica.SIunits.Force stepForce(start=1)
         "Height of force step (if negative, force is acting as load)";
       parameter Modelica.SIunits.Force offsetForce(start=0) "Offset of force";
-      parameter Modelica.SIunits.Time startTime=0 
+      parameter Modelica.SIunits.Time startTime=0
         "Force = offset for time < startTime";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-80,-60},{0,-60},{0,
@@ -3505,36 +3506,36 @@ Model of a force step at time .<br>
 Positive force acts accelerating.
 </p>
 </HTML>"));
-    equation 
+    equation
       f = -offsetForce - (if time < startTime then 0 else stepForce);
     end ForceStep;
-    
+
   end Sources;
-  
-  package Sensors "Sensors for 1-dim. translational mechanical quantities" 
-    
+
+  package Sensors "Sensors for 1-dim. translational mechanical quantities"
+
     extends Modelica.Icons.Library2;
-    
+
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
-            extent={{-76,-81},{64,-1}}, 
-            lineColor={0,0,0}, 
-            fillColor={255,255,255}, 
-            fillPattern=FillPattern.Solid), 
+            extent={{-76,-81},{64,-1}},
+            lineColor={0,0,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-6,-61},{-16,-37},{4,-37},{-6,-61}}, 
-            lineColor={0,0,0}, 
-            fillColor={0,0,0}, 
-            fillPattern=FillPattern.Solid), 
-          Line(points={{-6,-21},{-6,-37}}, color={0,0,0}), 
-          Line(points={{-76,-21},{-6,-21}}, color={0,0,0}), 
-          Line(points={{-56,-61},{-56,-81}}, color={0,0,0}), 
-          Line(points={{-36,-61},{-36,-81}}, color={0,0,0}), 
-          Line(points={{-16,-61},{-16,-81}}, color={0,0,0}), 
-          Line(points={{4,-61},{4,-81}}, color={0,0,0}), 
-          Line(points={{24,-61},{24,-81}}, color={0,0,0}), 
+            points={{-6,-61},{-16,-37},{4,-37},{-6,-61}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-6,-21},{-6,-37}}, color={0,0,0}),
+          Line(points={{-76,-21},{-6,-21}}, color={0,0,0}),
+          Line(points={{-56,-61},{-56,-81}}, color={0,0,0}),
+          Line(points={{-36,-61},{-36,-81}}, color={0,0,0}),
+          Line(points={{-16,-61},{-16,-81}}, color={0,0,0}),
+          Line(points={{4,-61},{4,-81}}, color={0,0,0}),
+          Line(points={{24,-61},{24,-81}}, color={0,0,0}),
           Line(points={{44,-61},{44,-81}}, color={0,0,0})}),
       Documentation(info="<html>
 <p>
@@ -3543,8 +3544,8 @@ the connector variables as signals for further processing with the
 Modelica.Blocks library.
 </p>
 </html>"));
-    
-    model PositionSensor "Ideal sensor to measure the absolute position" 
+
+    model PositionSensor "Ideal sensor to measure the absolute position"
       extends Translational.Interfaces.PartialAbsoluteSensor;
       Modelica.Blocks.Interfaces.RealOutput s "Absolute position of flange" 
                                     annotation (Placement(transformation(extent={{100,-11},
@@ -3571,14 +3572,14 @@ Modelica.Blocks library).
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
-      
-    equation 
+
+    equation
       s = flange.s;
     end PositionSensor;
-    
-    model SpeedSensor "Ideal sensor to measure the absolute velocity" 
+
+    model SpeedSensor "Ideal sensor to measure the absolute velocity"
       extends Translational.Interfaces.PartialAbsoluteSensor;
-      Modelica.Blocks.Interfaces.RealOutput v 
+      Modelica.Blocks.Interfaces.RealOutput v
         "Absolute velocity of flange as output signal" 
            annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
@@ -3603,15 +3604,15 @@ Modelica.Blocks library).
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
-      
-    equation 
+
+    equation
       v = der(flange.s);
     end SpeedSensor;
-    
-    model AccSensor "Ideal sensor to measure the absolute acceleration" 
+
+    model AccSensor "Ideal sensor to measure the absolute acceleration"
       extends Translational.Interfaces.PartialAbsoluteSensor;
       SI.Velocity v "Absolute velocity of flange";
-      Modelica.Blocks.Interfaces.RealOutput a 
+      Modelica.Blocks.Interfaces.RealOutput a
         "Absolute acceleration of flange as output signal" 
            annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
@@ -3637,15 +3638,15 @@ Modelica.Blocks library).
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
-      
-    equation 
+
+    equation
       v = der(flange.s);
       a = der(v);
     end AccSensor;
-    
-    model RelPositionSensor "Ideal sensor to measure the relative position" 
+
+    model RelPositionSensor "Ideal sensor to measure the relative position"
       extends Translational.Interfaces.PartialRelativeSensor;
-      Modelica.Blocks.Interfaces.RealOutput s_rel 
+      Modelica.Blocks.Interfaces.RealOutput s_rel
         "Distance between two flanges (= flange_b.s - flange_a.s)" 
                                     annotation (Placement(transformation(extent={{-10,-10},
                 {10,10}},            rotation=270,
@@ -3674,17 +3675,17 @@ Modelica.Blocks library).
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
-      
-    equation 
+
+    equation
       s_rel = flange_b.s - flange_a.s;
       0 = flange_a.f;
     end RelPositionSensor;
-    
-    model RelSpeedSensor "Ideal sensor to measure the relative speed" 
+
+    model RelSpeedSensor "Ideal sensor to measure the relative speed"
       extends Translational.Interfaces.PartialRelativeSensor;
-      SI.Position s_rel 
+      SI.Position s_rel
         "distance between the two flanges (flange_b.s - flange_a.s)";
-      Modelica.Blocks.Interfaces.RealOutput v_rel 
+      Modelica.Blocks.Interfaces.RealOutput v_rel
         "Relative velocity between two flanges (= der(flange_b.s) - der(flange_a.s))"
                                     annotation (Placement(transformation(extent={{-10,-10},
                 {10,10}},            rotation=270,
@@ -3720,20 +3721,20 @@ Modelica.Blocks library).
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
-      
-    equation 
+
+    equation
       s_rel = flange_b.s - flange_a.s;
       v_rel = der(s_rel);
       0 = flange_a.f;
     end RelSpeedSensor;
-    
-    model RelAccSensor "Ideal sensor to measure the relative acceleration" 
+
+    model RelAccSensor "Ideal sensor to measure the relative acceleration"
       extends Translational.Interfaces.PartialRelativeSensor;
-      SI.Position s_rel 
+      SI.Position s_rel
         "distance between the two flanges (flange_b.s - flange_a.s)";
-      SI.Velocity v_rel 
+      SI.Velocity v_rel
         "relative velocity between the two flanges (der(flange_b.s) - der(flange_a.s))";
-      Modelica.Blocks.Interfaces.RealOutput a_rel 
+      Modelica.Blocks.Interfaces.RealOutput a_rel
         "Relative acceleration between two flanges (= der(v_rel))" 
                                     annotation (Placement(transformation(extent={{-10,-10},
                 {10,10}},            rotation=270,
@@ -3762,17 +3763,17 @@ Modelica.Blocks library).
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
-      
-    equation 
+
+    equation
       s_rel = flange_b.s - flange_a.s;
       v_rel = der(s_rel);
       a_rel = der(v_rel);
       0 = flange_a.f;
     end RelAccSensor;
-    
-    model ForceSensor "Ideal sensor to measure the force between two flanges" 
+
+    model ForceSensor "Ideal sensor to measure the force between two flanges"
       extends Translational.Interfaces.PartialRelativeSensor;
-      Modelica.Blocks.Interfaces.RealOutput f 
+      Modelica.Blocks.Interfaces.RealOutput f
         "force in flange_a and flange_b (f = flange_a.f = -flange_b.f)" 
          annotation (Placement(transformation(
             origin={-80,-110},
@@ -3802,13 +3803,13 @@ with blocks of the Modelica.Blocks library).
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
-    equation 
+    equation
       flange_a.s = flange_b.s;
       flange_a.f = f;
     end ForceSensor;
-    
-    model PowerSensor 
-      "Ideal sensor to measure the power between two flanges (= flange_a.f*der(flange_a.s))" 
+
+    model PowerSensor
+      "Ideal sensor to measure the power between two flanges (= flange_a.f*der(flange_a.s))"
       extends Translational.Interfaces.PartialRelativeSensor;
       Modelica.Blocks.Interfaces.RealOutput power "Power in flange flange_a" 
          annotation (Placement(transformation(
@@ -3838,16 +3839,16 @@ and provides the result as output signal <b>power</b>
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
-    equation 
+    equation
       flange_a.s = flange_b.s;
       power = flange_a.f*der(flange_a.s);
     end PowerSensor;
   end Sensors;
-  
-  package Interfaces 
-    "Interfaces for 1-dim. translational mechanical components" 
+
+  package Interfaces
+    "Interfaces for 1-dim. translational mechanical components"
       extends Modelica.Icons.Library;
-    
+
     annotation (Documentation(info="<html>
 <p>
 This package contains connectors and partial models for 1-dim.
@@ -3857,10 +3858,10 @@ only be used as basic building elements for models.
  
 </html>
 "));
-    
-    connector Flange_a 
-      "(left) 1D translational flange (flange axis directed INTO cut plane, e. g. from left to right)" 
-      
+
+    connector Flange_a
+      "(left) 1D translational flange (flange axis directed INTO cut plane, e. g. from left to right)"
+
       annotation(defaultComponentName = "flange_a",
         Documentation(info="<html>
 This is a flange for 1D translational mechanical systems. In the cut plane of
@@ -3882,27 +3883,27 @@ The following variables are transported through this connector:
 </HTML>
 "),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Rectangle(
-              extent={{-100,-100},{100,100}}, 
-              lineColor={0,127,0}, 
-              fillColor={0,127,0}, 
+              extent={{-100,-100},{100,100}},
+              lineColor={0,127,0},
+              fillColor={0,127,0},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Rectangle(
-              extent={{-40,-40},{40,40}}, 
-              lineColor={0,127,0}, 
-              fillColor={0,127,0}, 
+              extent={{-40,-40},{40,40}},
+              lineColor={0,127,0},
+              fillColor={0,127,0},
               fillPattern=FillPattern.Solid), Text(
-              extent={{-160,110},{40,50}}, 
-              lineColor={0,127,0}, 
+              extent={{-160,110},{40,50}},
+              lineColor={0,127,0},
               textString="%name")}));
-      
+
       SI.Position s "absolute position of flange";
       flow SI.Force f "cut force directed into flange";
     end Flange_a;
-    
-    connector Flange_b 
-      "right 1D translational flange (flange axis directed OUT OF cut plane)" 
-      
+
+    connector Flange_b
+      "right 1D translational flange (flange axis directed OUT OF cut plane)"
+
       SI.Position s "absolute position of flange";
       flow SI.Force f "cut force directed into flange";
       annotation(defaultComponentName = "flange_b",
@@ -3927,75 +3928,75 @@ The following variables are transported through this connector:
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-100,-100},{100,100}}, 
-              lineColor={0,127,0}, 
-              fillColor={255,255,255}, 
+              extent={{-100,-100},{100,100}},
+              lineColor={0,127,0},
+              fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
-              extent={{-40,-40},{40,40}}, 
-              lineColor={0,127,0}, 
-              fillColor={255,255,255}, 
+              extent={{-40,-40},{40,40}},
+              lineColor={0,127,0},
+              fillColor={255,255,255},
               fillPattern=FillPattern.Solid), Text(
-              extent={{-40,110},{160,50}}, 
-              lineColor={0,127,0}, 
+              extent={{-40,110},{160,50}},
+              lineColor={0,127,0},
               textString="%name")}));
     end Flange_b;
-    
-    connector Support "Support/housing 1D translational flange" 
-      
+
+    connector Support "Support/housing 1D translational flange"
+
       SI.Position s "absolute position of flange";
       flow SI.Force f "cut force directed into flange";
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
-              extent={{-60,60},{60,-60}}, 
-              fillColor={175,175,175}, 
-              fillPattern=FillPattern.Solid, 
-              pattern=LinePattern.None), 
+              extent={{-60,60},{60,-60}},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid,
+              pattern=LinePattern.None),
             Text(
-              extent={{-160,110},{40,50}}, 
-              lineColor={0,127,0}, 
-              textString="%name"), 
+              extent={{-160,110},{40,50}},
+              lineColor={0,127,0},
+              textString="%name"),
             Rectangle(
-              extent={{-40,-40},{40,40}}, 
-              lineColor={0,127,0}, 
-              fillColor={0,127,0}, 
+              extent={{-40,-40},{40,40}},
+              lineColor={0,127,0},
+              fillColor={0,127,0},
               fillPattern=FillPattern.Solid)}), Icon(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={Rectangle(
-              extent={{-150,150},{150,-150}}, 
-              fillColor={175,175,175}, 
-              fillPattern=FillPattern.Solid, 
+              extent={{-150,150},{150,-150}},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid,
               pattern=LinePattern.None), Rectangle(
-              extent={{-90,-90},{90,90}}, 
-              lineColor={0,127,0}, 
-              fillColor={0,127,0}, 
+              extent={{-90,-90},{90,90}},
+              lineColor={0,127,0},
+              fillColor={0,127,0},
               fillPattern=FillPattern.Solid)}));
     end Support;
-    
-    model InternalSupport 
-      "Adapter model to utilize conditional support connector" 
-      input SI.Force f 
+
+    model InternalSupport
+      "Adapter model to utilize conditional support connector"
+      input SI.Force f
         "External support force (must be computed via force balance in model where InternalSupport is used; = flange.f)";
       SI.Position s "External support position (= flange.s)";
-      Flange_a flange 
+      Flange_a flange
         "Internal support flange (must be connected to the conditional support connector for useSupport=true and to conditional fixed model for useSupport=false)"
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics), Icon(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={Text(
-              extent={{-200,80},{200,40}}, 
-              lineColor={0,0,255}, 
-              fillColor={175,175,175}, 
-              fillPattern=FillPattern.Solid, 
+              extent={{-200,80},{200,40}},
+              lineColor={0,0,255},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid,
               textString="%name"), Rectangle(
-              extent={{-20,20},{20,-20}}, 
-              lineColor={0,127,0}, 
-              fillColor={175,175,175}, 
+              extent={{-20,20},{20,-20}},
+              lineColor={0,127,0},
+              fillColor={175,175,175},
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
 <p>
@@ -4034,18 +4035,18 @@ the support force can always be accessed as internalSupport.f.
 
 
 </html>"));
-    equation 
+    equation
       flange.f = f;
       flange.s = s;
     end InternalSupport;
-    
-    partial model PartialTwoFlanges 
-      "Component with two translational 1D flanges " 
-      Flange_a flange_a 
+
+    partial model PartialTwoFlanges
+      "Component with two translational 1D flanges "
+      Flange_a flange_a
         "(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)"
          annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
-      Flange_b flange_b 
+      Flange_b flange_b
         "(right) driven flange (flange axis directed out of cut plane)" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
@@ -4063,10 +4064,10 @@ of several base components.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
     end PartialTwoFlanges;
-    
-    partial model PartialOneFlangeAndSupport 
-      "Partial model for a component with one translational 1-dim. shaft flange and a support used for graphical modeling, i.e., the model is build up by drag-and-drop from elementary components" 
-      parameter Boolean useSupport=false 
+
+    partial model PartialOneFlangeAndSupport
+      "Partial model for a component with one translational 1-dim. shaft flange and a support used for graphical modeling, i.e., the model is build up by drag-and-drop from elementary components"
+      parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded" 
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
       Flange_b flange "Flange of component" 
@@ -4102,33 +4103,33 @@ and instead the component is internally fixed to ground.
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
-              visible=not useSupport, 
-              points={{-50,-120},{-30,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{-50,-120},{-30,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{-30,-120},{-10,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{-30,-120},{-10,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{-10,-120},{10,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{-10,-120},{10,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{10,-120},{30,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{10,-120},{30,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{-30,-100},{30,-100}}, 
+              visible=not useSupport,
+              points={{-30,-100},{30,-100}},
               color={0,0,0})}));
-    protected 
-      Support internalSupport 
+    protected
+      Support internalSupport
         "Internal support/housing of component (either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
         annotation (Placement(transformation(extent={{-3,-83},{3,-77}})));
-      Components.Fixed fixed if not useSupport 
+      Components.Fixed fixed if not useSupport
         "Fixed support/housing, if not useSupport" 
         annotation (Placement(transformation(extent={{10,-94},{30,-74}})));
-    equation 
+    equation
       connect(fixed.flange, internalSupport) annotation (Line(
           points={{20,-84},{20,-80},{0,-80}},
           color={0,127,0},
@@ -4138,10 +4139,10 @@ and instead the component is internally fixed to ground.
           pattern=LinePattern.None,
           smooth=Smooth.None));
     end PartialOneFlangeAndSupport;
-    
-    partial model PartialTwoFlangesAndSupport 
-      "Partial model for a component with two translational 1-dim. shaft flanges and a support used for graphical modeling, i.e., the model is build up by drag-and-drop from elementary components" 
-      parameter Boolean useSupport=false 
+
+    partial model PartialTwoFlangesAndSupport
+      "Partial model for a component with two translational 1-dim. shaft flanges and a support used for graphical modeling, i.e., the model is build up by drag-and-drop from elementary components"
+      parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded" 
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
       Flange_a flange_a "Flange of left end" 
@@ -4179,33 +4180,33 @@ and instead the component is internally fixed to ground.
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
-              visible=not useSupport, 
-              points={{-50,-120},{-30,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{-50,-120},{-30,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{-30,-120},{-10,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{-30,-120},{-10,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{-10,-120},{10,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{-10,-120},{10,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{10,-120},{30,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{10,-120},{30,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{-30,-100},{30,-100}}, 
+              visible=not useSupport,
+              points={{-30,-100},{30,-100}},
               color={0,0,0})}));
-    protected 
-      Support internalSupport 
+    protected
+      Support internalSupport
         "Internal support/housing of component (either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
         annotation (Placement(transformation(extent={{-3,-83},{3,-77}})));
-      Components.Fixed fixed if not useSupport 
+      Components.Fixed fixed if not useSupport
         "Fixed support/housing, if not useSupport" 
         annotation (Placement(transformation(extent={{10,-97},{30,-77}})));
-    equation 
+    equation
       connect(fixed.flange, internalSupport) annotation (Line(
           points={{20,-87},{20,-80},{0,-80}},
           color={0,127,0},
@@ -4215,12 +4216,12 @@ and instead the component is internally fixed to ground.
           pattern=LinePattern.None,
           smooth=Smooth.None));
     end PartialTwoFlangesAndSupport;
-    
-    partial model PartialRigid 
-      "Rigid connection of two translational 1D flanges " 
-      SI.Position s 
+
+    partial model PartialRigid
+      "Rigid connection of two translational 1D flanges "
+      SI.Position s
         "Absolute position of center of component (s = flange_a.s + L/2 = flange_b.s - L/2)";
-      parameter SI.Length L(start=0) 
+      parameter SI.Length L(start=0)
         "Length of component, from left flange to right flange (= flange_b.s - flange_a.s)";
       Flange_a flange_a "Left flange of translational component" 
          annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
@@ -4241,25 +4242,25 @@ It is used e.g. to built up sliding masses.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
-    equation 
+    equation
       flange_a.s = s - L/2;
       flange_b.s = s + L/2;
     end PartialRigid;
-    
-    partial model PartialCompliant 
-      "Compliant connection of two translational 1D flanges" 
-      
-      Flange_a flange_a 
+
+    partial model PartialCompliant
+      "Compliant connection of two translational 1D flanges"
+
+      Flange_a flange_a
         "Left flange of compliant 1-dim. translational component" 
          annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
-      Flange_b flange_b 
+      Flange_b flange_b
         "Right flange of compliant 1-dim. translational component" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
-      SI.Distance s_rel(start=0) 
+      SI.Distance s_rel(start=0)
         "relative distance (= flange_b.s - flange_a.s)";
-      SI.Force f 
+      SI.Force f
         "force between flanges (positive in direction of flange axis R)";
       annotation (
         Documentation(info="<html>
@@ -4280,33 +4281,33 @@ flange is the same. It is used to built up springs, dampers etc.
               fillColor={128,128,128},
               fillPattern=FillPattern.Solid), Line(points={{-60,-90},{20,-90}},
                 color={0,0,0})}));
-      
-    equation 
+
+    equation
       s_rel = flange_b.s - flange_a.s;
       flange_b.f = f;
       flange_a.f = -f;
     end PartialCompliant;
-    
-    partial model PartialCompliantWithRelativeStates 
-      "Base model for the compliant connection of two translational 1-dim. shaft flanges where the relative position and relative velocities are used as states" 
-      
-      parameter StateSelect stateSelect=StateSelect.prefer 
+
+    partial model PartialCompliantWithRelativeStates
+      "Base model for the compliant connection of two translational 1-dim. shaft flanges where the relative position and relative velocities are used as states"
+
+      parameter StateSelect stateSelect=StateSelect.prefer
         "Priority to use phi_rel and w_rel as states" 
       annotation(HideResult=true, Dialog(tab="Advanced"));
-      parameter SI.Distance s_nominal=1e-4 
+      parameter SI.Distance s_nominal=1e-4
         "Nominal value of s_rel (used for scaling)"   annotation(Dialog(tab="Advanced"));
-      
-      SI.Distance s_rel(start=0, stateSelect=stateSelect, nominal=s_nominal) 
+
+      SI.Distance s_rel(start=0, stateSelect=stateSelect, nominal=s_nominal)
         "Relative distance (= flange_b.s - flange_a.s)";
-      SI.Velocity v_rel(start=0, stateSelect=stateSelect) 
+      SI.Velocity v_rel(start=0, stateSelect=stateSelect)
         "Relative velocity (= der(s_rel))";
-      
+
       SI.Force f "Forces between flanges (= flange_b.f)";
-      Translational.Interfaces.Flange_a flange_a 
+      Translational.Interfaces.Flange_a flange_a
         "Left flange of compliant 1-dim. translational component" 
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
-      Translational.Interfaces.Flange_b flange_b 
+      Translational.Interfaces.Flange_b flange_b
         "Right flange of compliant 1-dim. transational component" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
@@ -4346,20 +4347,20 @@ and c have more meaningful values for the user.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
-      
-    equation 
+
+    equation
       s_rel = flange_b.s - flange_a.s;
       v_rel = der(s_rel);
       flange_b.f =  f;
       flange_a.f = -f;
     end PartialCompliantWithRelativeStates;
-    
-    partial model PartialElementaryOneFlangeAndSupport 
-      "Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models" 
-      parameter Boolean useSupport=false 
+
+    partial model PartialElementaryOneFlangeAndSupport
+      "Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models"
+      parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded" 
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-      Modelica.SIunits.Length s = flange.s - internalSupport.s 
+      Modelica.SIunits.Length s = flange.s - internalSupport.s
         "distance between flange and support (= flange.s - support.s)";
       Flange_b flange "Flange of component" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
@@ -4384,46 +4385,46 @@ and instead the component is internally fixed to ground.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
-              extent={{-38,-98},{-6,-96}}, 
-              lineColor={95,95,95}, 
+              extent={{-38,-98},{-6,-96}},
+              lineColor={95,95,95},
               textString="(if useSupport)"), Text(
-              extent={{24,-97},{64,-98}}, 
-              lineColor={95,95,95}, 
+              extent={{24,-97},{64,-98}},
+              lineColor={95,95,95},
               textString="(if not useSupport)")}),
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
-              visible=not useSupport, 
-              points={{-50,-120},{-30,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{-50,-120},{-30,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{-30,-120},{-10,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{-30,-120},{-10,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{-10,-120},{10,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{-10,-120},{10,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{10,-120},{30,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{10,-120},{30,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{-30,-100},{30,-100}}, 
+              visible=not useSupport,
+              points={{-30,-100},{30,-100}},
               color={0,0,0})}));
-      
-    protected 
-      InternalSupport internalSupport(f=-flange.f) 
+
+    protected
+      InternalSupport internalSupport(f=-flange.f)
         "Internal support/housing of component as a model with connector flange (flange is either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
         annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
-      Components.Fixed fixed if not useSupport 
+      Components.Fixed fixed if not useSupport
         "Fixed support/housing, if not useSupport" 
         annotation (Placement(transformation(extent={{10,-97},{30,-77}})));
-    public 
+    public
       Support support if useSupport "Support/housing of component" 
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-    equation 
+    equation
       connect(internalSupport.flange, support) annotation (Line(
           points={{0,-80},{0,-100}},
           color={0,127,0},
@@ -4433,19 +4434,19 @@ and instead the component is internally fixed to ground.
           color={0,127,0},
           smooth=Smooth.None));
     end PartialElementaryOneFlangeAndSupport;
-    
-    partial model PartialElementaryTwoFlangesAndSupport 
-      "Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models" 
-      parameter Boolean useSupport=false 
+
+    partial model PartialElementaryTwoFlangesAndSupport
+      "Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models"
+      parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded" 
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
       Flange_a flange_a "Flange of left shaft" 
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
       Flange_b flange_b "Flange of right shaft" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      SI.Distance s_a = flange_a.s - internalSupport.s 
+      SI.Distance s_a = flange_a.s - internalSupport.s
         "Distance between left flange and support";
-      SI.Distance s_b = flange_b.s - internalSupport.s 
+      SI.Distance s_b = flange_b.s - internalSupport.s
         "Distance between right flange and support";
       annotation (Documentation(info="<html>
 <p>
@@ -4462,45 +4463,45 @@ connector is not connected).
 </HTML>
 "),     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
                 {100,100}}), graphics={Text(
-              extent={{-38,-98},{-6,-96}}, 
-              lineColor={95,95,95}, 
+              extent={{-38,-98},{-6,-96}},
+              lineColor={95,95,95},
               textString="(if useSupport)"), Text(
-              extent={{24,-97},{64,-98}}, 
-              lineColor={95,95,95}, 
+              extent={{24,-97},{64,-98}},
+              lineColor={95,95,95},
               textString="(if not useSupport)")}),
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
-              visible=not useSupport, 
-              points={{-50,-120},{-30,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{-50,-120},{-30,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{-30,-120},{-10,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{-30,-120},{-10,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{-10,-120},{10,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{-10,-120},{10,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{10,-120},{30,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{10,-120},{30,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{-30,-100},{30,-100}}, 
+              visible=not useSupport,
+              points={{-30,-100},{30,-100}},
               color={0,0,0})}));
-    protected 
-      InternalSupport internalSupport(f=-flange_a.f - flange_b.f) 
+    protected
+      InternalSupport internalSupport(f=-flange_a.f - flange_b.f)
         "Internal support/housing of component as a model with connector flange (flange is either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
         annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
-      Components.Fixed fixed if not useSupport 
+      Components.Fixed fixed if not useSupport
         "Fixed support/housing, if not useSupport" 
         annotation (Placement(transformation(extent={{10,-97},{30,-77}})));
-    public 
+    public
       Support support if useSupport "Support/housing of component" 
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-    equation 
+    equation
       connect(internalSupport.flange, support) annotation (Line(
           points={{0,-80},{0,-100}},
           color={0,127,0},
@@ -4510,16 +4511,16 @@ connector is not connected).
           color={0,127,0},
           smooth=Smooth.None));
     end PartialElementaryTwoFlangesAndSupport;
-    
-    partial model PartialElementaryRotationalToTranslational 
-      extends 
+
+    partial model PartialElementaryRotationalToTranslational
+      extends
         Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational;
     end PartialElementaryRotationalToTranslational;
-    
-  partial model PartialForce 
-      "Partial model of a force acting at the flange (accelerates the flange)" 
+
+  partial model PartialForce
+      "Partial model of a force acting at the flange (accelerates the flange)"
     extends PartialElementaryOneFlangeAndSupport;
-    Modelica.SIunits.Force f = flange.f 
+    Modelica.SIunits.Force f = flange.f
         "Accelerating force acting at flange (= flange.f)";
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
@@ -4528,46 +4529,46 @@ connector is not connected).
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
             Rectangle(
-              extent={{-96,96},{96,-96}}, 
-              lineColor={255,255,255}, 
-              fillColor={255,255,255}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{0,-60},{0,-100}}, color={0,0,0}), 
+              extent={{-96,96},{96,-96}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,-60},{0,-100}}, color={0,0,0}),
             Text(
-              extent={{-150,140},{150,100}}, 
-              lineColor={0,0,255}, 
-              textString="%name"), 
-            Line(points={{-78,80},{51,80}}, color={0,0,0}), 
+              extent={{-150,140},{150,100}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Line(points={{-78,80},{51,80}}, color={0,0,0}),
             Polygon(
-              points={{81,80},{51,90},{51,70},{81,80}}, 
-              lineColor={0,0,0}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-52,-60},{77,-60}}, color={0,0,0}), 
+              points={{81,80},{51,90},{51,70},{81,80}},
+              lineColor={0,0,0},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-52,-60},{77,-60}}, color={0,0,0}),
             Polygon(
-              points={{-82,-60},{-51,-50},{-51,-70},{-82,-60}}, 
-              lineColor={0,0,0}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
+              points={{-82,-60},{-51,-50},{-51,-70},{-82,-60}},
+              lineColor={0,0,0},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
             Line(
-              visible=not useSupport, 
-              points={{-50,-120},{-30,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{-50,-120},{-30,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{-30,-120},{-10,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{-30,-120},{-10,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{-10,-120},{10,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{-10,-120},{10,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{10,-120},{30,-100}}, 
-              color={0,0,0}), 
+              visible=not useSupport,
+              points={{10,-120},{30,-100}},
+              color={0,0,0}),
             Line(
-              visible=not useSupport, 
-              points={{-30,-100},{30,-100}}, 
+              visible=not useSupport,
+              points={{-30,-100},{30,-100}},
               color={0,0,0})}),
       Documentation(info="<HTML>
 <p>
@@ -4582,13 +4583,13 @@ and instead the component is internally fixed to ground.
 </p>
 </HTML>"));
   end PartialForce;
-    
-    partial model PartialAbsoluteSensor 
-      "Device to measure a single absolute flange variable" 
-      
+
+    partial model PartialAbsoluteSensor
+      "Device to measure a single absolute flange variable"
+
       extends Modelica.Icons.TranslationalSensor;
-      
-      Interfaces.Flange_a flange 
+
+      Interfaces.Flange_a flange
         "flange to be measured (flange axis directed in to cut plane, e. g. from left to right)"
          annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
@@ -4605,37 +4606,37 @@ with the Modelica.Blocks blocks.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
-            Line(points={{-100,-90},{-20,-90}}, color={0,0,0}), 
+            Line(points={{-100,-90},{-20,-90}}, color={0,0,0}),
             Polygon(
-              points={{10,-90},{-20,-80},{-20,-100},{10,-90}}, 
-              lineColor={128,128,128}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-            Line(points={{70,0},{100,0}}, color={0,0,127}), 
+              points={{10,-90},{-20,-80},{-20,-100},{10,-90}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            Line(points={{70,0},{100,0}}, color={0,0,127}),
             Text(
-              extent={{-118,99},{118,40}}, 
-              textString="%name", 
+              extent={{-118,99},{118,40}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
-      
-    equation 
+
+    equation
       0 = flange.f;
     end PartialAbsoluteSensor;
-    
-    partial model PartialRelativeSensor 
-      "Device to measure a single relative variable between two flanges" 
-      
+
+    partial model PartialRelativeSensor
+      "Device to measure a single relative variable between two flanges"
+
       extends Modelica.Icons.TranslationalSensor;
-      
-      Interfaces.Flange_a flange_a 
+
+      Interfaces.Flange_a flange_a
         "(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)"
          annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
-      Interfaces.Flange_b flange_b 
+      Interfaces.Flange_b flange_b
         "(right) driven flange (flange axis directed out of cut plane)" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
@@ -4653,29 +4654,29 @@ with the Modelica.Blocks blocks.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
-            Line(points={{-51,34},{29,34}}, color={0,0,0}), 
+            Line(points={{-51,34},{29,34}}, color={0,0,0}),
             Polygon(
-              points={{59,34},{29,44},{29,24},{59,34}}, 
-              lineColor={0,0,0}, 
-              fillColor={128,128,128}, 
-              fillPattern=FillPattern.Solid), 
-            Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
-            Line(points={{70,0},{90,0}}, color={0,0,0}), 
+              points={{59,34},{29,44},{29,24},{59,34}},
+              lineColor={0,0,0},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            Line(points={{70,0},{90,0}}, color={0,0,0}),
             Text(
-              extent={{-117,116},{115,52}}, 
-              textString="%name", 
+              extent={{-117,116},{115,52}},
+              textString="%name",
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
-      
-    equation 
+
+    equation
       0 = flange_a.f + flange_b.f;
     end PartialRelativeSensor;
-    
-    partial model PartialFriction "Base model of Coulomb friction elements" 
-      
+
+    partial model PartialFriction "Base model of Coulomb friction elements"
+
       annotation (Documentation(info="<html>
 <p>
 Basic model for Coulomb friction that models the stuck phase in a reliable way.
@@ -4683,58 +4684,59 @@ Basic model for Coulomb friction that models the stuck phase in a reliable way.
 </html>
 "));
     //extends Translational.Interfaces.PartialRigid;
-      parameter SI.Velocity v_small=1e-3 
+      parameter SI.Velocity v_small=1e-3
         "Relative velocity near to zero (see model info text)" 
          annotation(Dialog(tab="Advanced"));
     // Equations to define the following variables have to be defined in subclasses
       SI.Velocity v_relfric "Relative velocity between frictional surfaces";
-      SI.Acceleration a_relfric 
+      SI.Acceleration a_relfric
         "Relative acceleration between frictional surfaces";
     //SI.Force f "Friction force (positive, if directed in opposite direction of v_rel)";
       SI.Force f0 "Friction force for v=0 and forward sliding";
       SI.Force f0_max "Maximum friction force for v=0 and locked";
       Boolean free "true, if frictional element is not active";
     // Equations to define the following variables are given in this class
-      Real sa(unit="1") 
+      Real sa(unit="1")
         "Path parameter of friction characteristic f = f(a_relfric)";
-      Boolean startForward(start=false, fixed=true) 
+      Boolean startForward(start=false, fixed=true)
         "true, if v_rel=0 and start of forward sliding";
-      Boolean startBackward(start=false, fixed=true) 
+      Boolean startBackward(start=false, fixed=true)
         "true, if v_rel=0 and start of backward sliding";
       Boolean locked(start=false) "true, if v_rel=0 and not sliding";
       constant Integer Unknown=3 "Value of mode is not known";
       constant Integer Free=2 "Element is not active";
       constant Integer Forward=1 "v_rel > 0 (forward sliding)";
-      constant Integer Stuck=0 
+      constant Integer Stuck=0
         "v_rel = 0 (forward sliding, locked or backward sliding)";
       constant Integer Backward=-1 "v_rel < 0 (backward sliding)";
       Integer mode(
         final min=Backward,
         final max=Unknown,
         start=Unknown, fixed=true);
-    protected 
+    protected
       constant SI.Acceleration unitAcceleration = 1 annotation(HideResult=true);
       constant SI.Force unitForce = 1 annotation(HideResult=true);
-    equation 
+      Real sa0 = (f0_max + (f0_max - f0))/unitForce
+        "Value of sa when start of forward sliding at w=0";
+    equation
     /* Friction characteristic
    (locked is introduced to help the Modelica translator determining
    the different structural configurations, 
    if for each configuration special code shall be generated)
 */
-      startForward  = pre(mode) == Stuck and 
-        (pre(startForward)  or sa >  f0_max/unitForce and sa >  f0/unitForce) or 
+      startForward  = pre(mode) == Stuck and sa >  f0_max/unitForce or 
         pre(mode) == Backward and v_relfric >  v_small or initial() and v_relfric > 0;
-      startBackward = pre(mode) == Stuck and 
-        (pre(startBackward) or sa < -f0_max/unitForce and sa < -f0/unitForce) or 
+      startBackward = pre(mode) == Stuck and sa < -f0_max/unitForce or 
         pre(mode) == Forward  and v_relfric < -v_small or initial() and v_relfric < 0;
       locked = not free and 
         not (pre(mode) == Forward or startForward or pre(mode) == Backward or startBackward);
       a_relfric/unitAcceleration = if locked then               0 else 
                                    if free then                 sa else 
-                                   if startForward then         sa - f0/unitForce else 
-                                   if startBackward then        sa + f0/unitForce else 
-                                   if pre(mode) == Forward then sa - f0/unitForce else 
-                                                                sa + f0/unitForce;
+                                   if startForward then         sa - sa0 else 
+                                   if startBackward then        sa + sa0 else 
+                                   if pre(mode) == Forward then sa - sa0 else 
+                                                                sa + sa0;
+
     /* Friction torque has to be defined in a subclass. Example for a clutch:
    f = if locked then sa else 
        if free then   0 else 
@@ -4751,7 +4753,7 @@ Basic model for Coulomb friction that models the stuck phase in a reliable way.
            Backward else 
            Stuck);
     end PartialFriction;
-    
+
   end Interfaces;
-  
+
 end Translational;

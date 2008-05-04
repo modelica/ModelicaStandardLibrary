@@ -660,6 +660,28 @@ units are wrong or errors in documentation):
 </p>
  
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>Mechanics.Rotational.Interfaces.</b></td></tr>
+  <tr><td valign=\"top\"> PartialFriction </td>
+      <td valign=\"top\"> Corrected and simplified parameterized curve description.
+                        The previous formulation could lead to an inconsistent mixed system
+                        of equations if peak > 1 and then an additional event iteration
+                        was needed to find the solution. The change therefore enhances
+                        efficiency in some situations. </td> 
+  </tr>
+  <tr><td colspan=\"2\"><b>Mechanics.Translational.Interfaces.</b></td></tr>
+  <tr><td valign=\"top\"> PartialFriction </td>
+      <td valign=\"top\"> Corrected and simplified parameterized curve description.
+                        The previous formulation could lead to an inconsistent mixed system
+                        of equations if peak > 1 and then an additional event iteration
+                        was needed to find the solution. The change therefore enhances
+                        efficiency in some situations. </td> </tr>
+  <tr><td colspan=\"2\"><b>Mechanics.Translational.Components.</b></td></tr>
+  <tr><td valign=\"top\"> MassWithStopAndFriction </td>
+      <td valign=\"top\"> Corrected and simplified parameterized curve description.
+                        The previous formulation could lead to an inconsistent mixed system
+                        of equations if peak > 1 and then an additional event iteration
+                        was needed to find the solution. The change therefore enhances
+                        efficiency in some situations. </td> </tr>
   <tr><td colspan=\"2\"><b>Media.Interfaces.PartialSimpleMedium</b></td></tr>
   <tr><td valign=\"top\"> pressure<br> 
                         temperature<br>
