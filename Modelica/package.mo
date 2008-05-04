@@ -665,11 +665,13 @@ units are wrong or errors in documentation):
 </p>
  
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-  <tr><td colspan=\"2\"><b>XXXX</b></td></tr>
-  <tr><td valign=\"top\"> XXX</td>
-      <td valign=\"top\"> XXX </td> 
-  </tr>
-</table>
+  <tr><td colspan=\"2\"><b>Media.Interfaces.PartialSimpleMedium</b></td></tr>
+  <tr><td valign=\"top\"> pressure<br> 
+                        temperature<br>
+                        density<br>
+                        specificEnthalpy </td>
+      <td valign=\"top\"> Missing functions added.</td> 
+  </tr></table>
                                                 
 </html>"));
   end Version_3_0_BugFixes;
