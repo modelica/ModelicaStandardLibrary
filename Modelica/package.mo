@@ -1,7 +1,6 @@
 within ;
-package Modelica "Modelica Standard Library (Version 3.0)"
+package Modelica "Modelica Standard Library (Version 3.0.1 development)"
 extends Icons.Library;
-  
 
 annotation (
   preferredView="info",
@@ -46,7 +45,7 @@ For an introduction, have especially a look at:
 <li> The <b>Examples</b> packages in the various libraries, demonstrate
      how to use the components of the corresponding sublibrary.</li>
 </ul>
-
+ 
 <p>
 This version of the Modelica Standard Library consists of
 </p>
@@ -57,7 +56,7 @@ This version of the Modelica Standard Library consists of
 <p>
 that are directly usable (= number of public, non-partial classes).
 </p>
-
+ 
 <p>
 Copyright &copy; 1998-2008, Modelica Association.
 </p>
@@ -69,7 +68,6 @@ and the accompanying <b>disclaimer</b>
 </p>
 </HTML>
 "));
-
 
 package UsersGuide "User's Guide of Modelica library"
 
@@ -626,6 +624,49 @@ instead of a warning.
   end ParameterDefaults;
 
   package ReleaseNotes "Release notes"
+  class Version_3_0_1_development "Version 3.0.1 (development)"
+
+      annotation (Documentation(info="<html>
+
+<p><br>
+The following <b style=\"color:red\">critical errors</b> have been fixed (i.e. errors
+that can lead to wrong simulation results):
+</p>
+ 
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Forces</b></td></tr>
+  <tr><td valign=\"top\"> WorldTorque </td>
+      <td valign=\"top\"> Parameter \"ResolveInFrame\" was not propagated and therefore
+                        always the default (resolved in world frame) was used, independently
+                        of the setting of this parameter. </td> 
+  </tr>
+  <tr><td valign=\"top\"> WorldForceAndTorque </td>
+      <td valign=\"top\"> Parameter \"ResolveInFrame\" was not propagated and therefore
+                        always the default (resolved in world frame) was used, independently
+                        of the setting of this parameter.<br>
+                        Furthermore, internally WorldTorque was used instead of
+                        Internal.BasicWorldTorque and therefore the visualization of
+                        worldTorque was performed twice. </td> 
+  </tr>
+</table>
+ 
+ 
+<p><br>
+The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e. errors
+that do <b style=\"color:red\">not</b> lead to wrong simulation results, but, e.g., 
+units are wrong or errors in documentation):
+</p>
+ 
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>XXXX</b></td></tr>
+  <tr><td valign=\"top\"> XXX</td>
+      <td valign=\"top\"> XXX </td> 
+  </tr>
+</table>
+                       
+                               
+</html>"));
+  end Version_3_0_1_development;
 
     annotation (Documentation(info="<html>
 
