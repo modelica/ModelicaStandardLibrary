@@ -5992,6 +5992,35 @@ quantities are assumed to be constant.
       lambda := lambda_const;
     end thermalConductivity;
 
+    
+    redeclare function extends pressure "Return pressure" 
+      
+    annotation(Documentation(info="<html></html>"));
+    algorithm 
+      p := state.p;
+    end pressure;
+
+    redeclare function extends temperature "Return temperature" 
+      
+    annotation(Documentation(info="<html></html>"));
+    algorithm 
+      T := state.T;
+    end temperature;
+
+    redeclare function extends density "Return density" 
+      
+    annotation(Documentation(info="<html></html>"));
+    algorithm 
+      d := d_const;
+    end density;
+
+    redeclare function extends specificEnthalpy "Return specific enthalpy" 
+      
+    annotation(Documentation(info="<html></html>"));
+    algorithm 
+      h := cp_const*(state.T-T0);
+    end specificEnthalpy;
+
     redeclare function extends specificHeatCapacityCp
       "Return specific heat capacity at constant pressure"
 

@@ -2,6 +2,7 @@ within ;
 package Modelica "Modelica Standard Library (Version 3.0.1 development)"
 extends Icons.Library;
 
+
 annotation (
   preferredView="info",
   version="3.0.1 development",
@@ -68,6 +69,7 @@ and the accompanying <b>disclaimer</b>
 </p>
 </HTML>
 "));
+
 
 package UsersGuide "User's Guide of Modelica library"
 
@@ -658,9 +660,12 @@ units are wrong or errors in documentation):
 </p>
  
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
-  <tr><td colspan=\"2\"><b>XXXX</b></td></tr>
-  <tr><td valign=\"top\"> XXX</td>
-      <td valign=\"top\"> XXX </td> 
+  <tr><td colspan=\"2\"><b>Media.Interfaces.PartialSimpleMedium</b></td></tr>
+  <tr><td valign=\"top\"> pressure<br> 
+                        temperature<br>
+                        density<br>
+                        specificEnthalpy </td>
+      <td valign=\"top\"> Missing functions added.</td> 
   </tr>
 </table>
                        
