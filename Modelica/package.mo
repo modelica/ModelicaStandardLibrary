@@ -1,7 +1,7 @@
 within ;
 package Modelica "Modelica Standard Library"
-extends Icons.Library;  
- 
+extends Icons.Library;
+
 
 annotation(preferedView="info",
   Window(
@@ -633,11 +633,27 @@ units are wrong or errors in documentation):
   <tr><td valign=\"top\"> CombiTable2D</td>
       <td valign=\"top\"> Documentation improved and \"model\" changed to \"block\"</td> 
   </tr>
+
+  <tr><td colspan=\"2\"><b>Math.Matrices.</b></td></tr>
+  <tr><td valign=\"top\"> eigenvalues<br>
+                        rank<br>
+                        singularValues</td>
+      <td valign=\"top\"> Matrices with zero dimensions lead to a crash.
+                        This has been fixed. </td> 
+  </tr>
+
   <tr><td colspan=\"2\"><b>Mechanics.MultiBody</b></td></tr>
   <tr><td valign=\"top\"> * </td>
       <td valign=\"top\"> Added (each final unit=\"1\") as unit for all unit vectors, 
                         since in Dymola 7 unit propagation sometimes leads otherwise
                         to warnings.</td> 
+  </tr>
+  <tr><td colspan=\"2\"><b>Media.Interfaces.PartialSimpleMedium</b></td></tr>
+  <tr><td valign=\"top\"> pressure<br> 
+                        temperature<br>
+                        density<br>
+                        specificEnthalpy </td>
+      <td valign=\"top\"> Missing functions added.</td> 
   </tr>
 </table>
                                
