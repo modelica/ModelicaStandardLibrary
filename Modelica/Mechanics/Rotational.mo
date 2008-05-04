@@ -723,7 +723,7 @@ locked, forward sliding.</p>
         w_start=10)  annotation (extent=[-45, -5; -35, 5]);
       Modelica.Mechanics.Rotational.Torque torque 
                                annotation (extent=[-65, -5; -55, 5]);
-      Modelica.Mechanics.Rotational.Clutch clutch1(peak=1.1, fn_max=20) 
+      Modelica.Mechanics.Rotational.Clutch clutch1(          fn_max=20, peak=1.1)
         annotation (extent=[-25, -5; -15, 5]);
       Modelica.Blocks.Sources.Sine sin1(amplitude=10, freqHz=5) 
         annotation (extent=[-85, -5; -75, 5]);
@@ -731,11 +731,11 @@ locked, forward sliding.</p>
         annotation (extent=[15, 15; 25, 25], rotation=-90);
       Modelica.Mechanics.Rotational.Inertia J2(J=1, initType=Modelica.Mechanics.Rotational.Types.Init.InitialState) 
                                  annotation (extent=[-5, -5; 5, 5]);
-      Modelica.Mechanics.Rotational.Clutch clutch2(peak=1.1, fn_max=20) 
+      Modelica.Mechanics.Rotational.Clutch clutch2(          fn_max=20, peak=1.1)
         annotation (extent=[15, -5; 25, 5]);
       Modelica.Mechanics.Rotational.Inertia J3(J=1, initType=Modelica.Mechanics.Rotational.Types.Init.InitialState) 
                                  annotation (extent=[35, -5; 45, 5]);
-      Modelica.Mechanics.Rotational.Clutch clutch3(peak=1.1, fn_max=20) 
+      Modelica.Mechanics.Rotational.Clutch clutch3(          fn_max=20, peak=1.1)
         annotation (extent=[55, -5; 65, 5]);
       Modelica.Mechanics.Rotational.Inertia J4(J=1, initType=Modelica.Mechanics.Rotational.Types.Init.InitialState) 
                                  annotation (extent=[75, -5; 85, 5]);
@@ -1816,26 +1816,26 @@ of several base components.</p>
     protected 
       constant SI.AngularAcceleration unitAngularAcceleration = 1;
       constant SI.Torque unitTorque = 1;
-      
+      Real sa0 = (tau0_max + (tau0_max - tau0))/unitTorque 
+        "Value of sa when start of forward sliding at w=0";
     equation 
       /* Friction characteristic
       (locked is introduced to help the Modelica translator determining
       the different structural configurations, if for each configuration
       special code shall be generated) */
       
-      startForward = pre(mode) == Stuck and (sa > tau0_max/unitTorque or pre(startForward)
-         and sa > tau0/unitTorque) or pre(mode) == Backward and w_relfric > w_small or 
-        initial() and (w_relfric > 0);
-      startBackward = pre(mode) == Stuck and (sa < -tau0_max/unitTorque or pre(
-        startBackward) and sa < -tau0/unitTorque) or pre(mode) == Forward and w_relfric <
-        -w_small or initial() and (w_relfric < 0);
-      locked = not free and not (pre(mode) == Forward or startForward or pre(
-        mode) == Backward or startBackward);
+      startForward = pre(mode) == Stuck and sa > tau0_max/unitTorque or 
+                     pre(mode) == Backward and w_relfric > w_small or 
+                     initial() and (w_relfric > 0);
+      startBackward = pre(mode) == Stuck and sa < -tau0_max/unitTorque or 
+                      pre(mode) == Forward and w_relfric < -w_small or 
+                      initial() and (w_relfric < 0);
+      locked = not free and not (pre(mode) == Forward or startForward or pre(mode) == Backward or startBackward);
       
       a_relfric = unitAngularAcceleration *
-              (if locked then 0 else if free then sa else if startForward then 
-              sa - tau0/unitTorque else if startBackward then sa + tau0/unitTorque else if pre(mode)
-         == Forward then sa - tau0/unitTorque else sa + tau0/unitTorque);
+              (if locked then 0 else if free then sa else 
+              if startForward then sa - sa0 else if startBackward then sa + sa0 else 
+              if pre(mode)== Forward then sa - sa0 else sa + sa0);
       
       /* Friction torque has to be defined in a subclass. Example for a clutch:
        tau = if locked then sa else if free then 0 else cgeo*fn*

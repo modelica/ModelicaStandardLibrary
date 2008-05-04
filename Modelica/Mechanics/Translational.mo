@@ -301,13 +301,13 @@ combination). In this case the system is not at rest.
       Translational.SlidingMass M1(L=1) annotation (extent=[-20, -20; 0, 0]);
       Translational.Spring S1(
         s_rel0=1,
-        c=1e3, 
+        c=1e3,
         s_rel(start=1, fixed=false)) 
                         annotation (extent=[-58, -20; -38, 0]);
       Translational.Fixed Fixed2(s0=-1) annotation (extent=[-100, -20; -80, 0]);
       Translational.SpringDamper SD1(
         s_rel0=1,
-        c=111, 
+        c=111,
         s_rel(start=1, fixed=true)) 
                         annotation (extent=[20, -20; 40, 0]);
       Translational.SlidingMass M2(L=2) annotation (extent=[60, -20; 80, 0]);
@@ -1525,9 +1525,11 @@ with the Modelica.Blocks blocks.
 (based on Translational.FrictionBase from Martin Otter)</i> </li>
 </ul>
 </html>"));
-      
+    protected 
       constant SI.Acceleration unitAcceleration = 1;
       constant SI.Force unitForce = 1;
+      Real sa0 = (f0_max + (f0_max - f0))/unitForce 
+        "Value of sa when start of forward sliding at w=0";
     equation 
       /* Friction characteristic
      (locked is introduced to help the Modelica translator determining
@@ -1535,19 +1537,16 @@ with the Modelica.Blocks blocks.
       special code shall be generated)
   */
       
-      startForward = pre(mode) == Stuck and (sa > f0_max/unitForce and s < (smax - L/2) or 
-            pre(startForward) and sa > f0/unitForce and s < (smax - L/2)) or pre(mode)
-         == Backward and v_relfric > v_small or initial() and (v_relfric > 0);
-      startBackward = pre(mode) == Stuck and (sa < -f0_max/unitForce and s > (smin + L/2) or 
-            pre(startBackward) and sa < -f0/unitForce and s > (smin + L/2)) or pre(mode)
-         == Forward and v_relfric < -v_small or initial() and (v_relfric < 0);
+      startForward = pre(mode) == Stuck and sa > f0_max/unitForce and s < (smax - L/2) or 
+                     pre(mode) == Backward and v_relfric > v_small or initial() and (v_relfric > 0);
+      startBackward = pre(mode) == Stuck and sa < -f0_max/unitForce and s > (smin + L/2) or 
+                      pre(mode) == Forward and v_relfric < -v_small or initial() and (v_relfric < 0);
       
       locked = not free and not (pre(mode) == Forward or startForward or pre(
         mode) == Backward or startBackward);
       
       a_relfric = unitAcceleration*(if locked then 0 else if free then sa else if startForward then 
-              sa - f0/unitForce else if startBackward then sa + f0/unitForce else if pre(mode) ==
-        Forward then sa - f0/unitForce else sa + f0/unitForce);
+              sa - sa0 else if startBackward then sa + sa0 else if pre(mode) == Forward then sa - sa0 else sa + sa0);
       
       /* Friction torque has to be defined in a subclass. Example for a clutch:
        f = if locked then sa else if free then 0 else cgeo*fn*
