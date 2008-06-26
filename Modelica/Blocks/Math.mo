@@ -615,10 +615,10 @@ All other blocks convert exactly between two different units.
           origin={170,0}),  iconTransformation(extent={{180,-10},{160,10}})));
 
     annotation(__Dymola_structurallyIncomplete=true,
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-200,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-200,-100},{
               200,100}}),
               graphics),
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-200,-100},{200,
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-200,-100},{200,
               100}}), graphics={
           Line(
             points={{180,0},{200,0}},
@@ -640,13 +640,13 @@ block inputs. This block is used to construct inverse models.
 Its usage is demonstrated in example:
 <a href=\"Modelica://Modelica.Blocks.Examples.InverseModel\">Modelica.Blocks.Examples.InverseModel</a>.
 </p>
-
+ 
 <p>
 Note, if a block shall be inverted that has several input and output blocks,
 then this can be easily achieved by using a vector of InverseBlockConstraints 
 instances:
 </p>
-
+ 
 <pre>
    InverseBlockConstraint invert[3];  // Block to be inverted has 3 input signals
 </pre>
@@ -655,7 +655,6 @@ instances:
     u1 = u2;
     y1 = y2;
   end InverseBlockConstraints;
-
 
       block Gain "Output the product of a gain value with the input signal"
 

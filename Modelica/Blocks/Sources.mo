@@ -11,9 +11,8 @@ package Sources
               100,-10},{120,10}}, rotation=0)));
 
     annotation (
-      
       Icon(coordinateSystem(
-          preserveAspectRatio=true,
+          preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(
@@ -60,9 +59,8 @@ Variable <b>y</b> is both a variable and a connector.
               100,-10},{120,10}}, rotation=0)));
 
     annotation (
-      
       Icon(coordinateSystem(
-          preserveAspectRatio=true,
+          preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(
@@ -109,9 +107,8 @@ Variable <b>y</b> is both a variable and a connector.
               100,-10},{120,10}}, rotation=0)));
 
     annotation (
-      
       Icon(coordinateSystem(
-          preserveAspectRatio=true,
+          preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
           Rectangle(
@@ -161,7 +158,6 @@ Variable <b>y</b> is both a variable and a connector.
       extends Modelica.Icons.Library;
 
       annotation (
-        
         Documentation(info="<HTML>
 <p>
 This package contains <b>source</b> components, i.e., blocks which
@@ -217,6 +213,7 @@ usually requires a trimming calculation.
        of Dieter Moormann and Hilding Elmqvist.</li>
 </ul>
 </html>"));
+
       block Clock "Generate actual time signal "
         parameter Modelica.SIunits.Time offset=0 "Offset of output signal";
         parameter Modelica.SIunits.Time startTime=0
@@ -224,7 +221,6 @@ usually requires a trimming calculation.
         extends Interfaces.SO;
 
         annotation (
-          
           Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -342,8 +338,7 @@ The Real output y is a clock signal:
         parameter Real k(start=1) "Constant output value";
         extends Interfaces.SO;
 
-        annotation (defaultComponentName="const"
-          ,
+        annotation (defaultComponentName="const",
           Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -420,7 +415,6 @@ The Real output y is a constant signal:
         parameter Real height=1 "Height of step";
         extends Interfaces.SignalSource;
         annotation (
-          
           Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -545,7 +539,6 @@ The Real output y is a step signal:
         extends Interfaces.SO;
 
         annotation (
-          
           Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -683,6 +676,7 @@ The Real output y is a ramp signal:
 <img src=\"../Images/Blocks/Sources/Ramp.png\">
 </p>
 </html>"));
+
       equation
         y = offset + (if time < startTime then 0 else if time < (startTime +
           duration) then (time - startTime)*height/duration else height);
@@ -699,7 +693,6 @@ The Real output y is a ramp signal:
   protected
         constant Real pi=Modelica.Constants.pi;
         annotation (
-          
           Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -806,6 +799,7 @@ The Real output y is a sine signal:
 <img src=\"../Images/Blocks/Sources/Sine.png\">
 </p>
 </html>"));
+
       equation
         y = offset + (if time < startTime then 0 else amplitude*
           Modelica.Math.sin(2*pi*freqHz*(time - startTime) + phase));
@@ -824,7 +818,6 @@ The Real output y is a sine signal:
   protected
         constant Real pi=Modelica.Constants.pi;
         annotation (
-          
           Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -956,6 +949,7 @@ The Real output y is a sine signal with exponentially changing amplitude:
 <img src=\"../Images/Blocks/Sources/ExpSine.png\">
 </p>
 </html>"));
+
       equation
         y = offset + (if time < startTime then 0 else amplitude*
           Modelica.Math.exp(-(time - startTime)*damping)*Modelica.Math.sin(2*pi
@@ -977,7 +971,6 @@ The Real output y is a sine signal with exponentially changing amplitude:
   protected
         Real y_riseTime;
         annotation (
-          
           Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1097,6 +1090,7 @@ by a falling exponential signal:
 <img src=\"../Images/Blocks/Sources/Exponentials.png\">
 </p>
 </html>"));
+
       equation
         y_riseTime = outMax*(1 - Modelica.Math.exp(-riseTime/riseTimeConst));
         y = offset + (if (time < startTime) then 0 else if (time < (startTime
@@ -1118,7 +1112,6 @@ by a falling exponential signal:
       "Output = offset for time < startTime";
         extends Modelica.Blocks.Interfaces.SO;
         annotation (
-          
           Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1266,6 +1259,7 @@ The Real output y is a pulse signal:
 <img src=\"../Images/Blocks/Sources/Pulse.png\">
 </p>
 </html>"));
+
   protected
         Modelica.SIunits.Time T0(final start=startTime)
       "Start time of current period";
@@ -1289,7 +1283,6 @@ The Real output y is a pulse signal:
   protected
         SIunits.Time T0(final start=startTime) "Start time of current period";
         annotation (
-          
           Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1414,6 +1407,7 @@ The Real output y is a saw tooth signal:
 <img src=\"../Images/Blocks/Sources/SawTooth.png\">
 </p>
 </html>"));
+
       equation
         when sample(startTime, period) then
           T0 = time;
@@ -1449,7 +1443,6 @@ The Real output y is a saw tooth signal:
         Integer counter(start=nperiod) "Period counter";
         Integer counter2(start=nperiod);
         annotation (
-          
           Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1652,6 +1645,7 @@ The Real output y is a trapezoid signal:
 <img src=\"../Images/Blocks/Sources/Trapezoid.png\">
 </p>
 </html>"));
+
       equation
         when pre(counter2) <> 0 and sample(startTime, period) then
           T0 = time;
@@ -1696,7 +1690,6 @@ The Real output y is a trapezoid signal:
         SIunits.Time Te;
         Boolean noWphase;
         annotation (
-          
           Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1810,6 +1803,7 @@ a flange according to a given acceleration.
        realized.</li>
 </ul>
 </html>"));
+
       equation
         for i in 1:nout loop
           aux1[i] = p_deltaq[i]/p_qd_max[i];
@@ -1870,8 +1864,7 @@ a flange according to a given acceleration.
       annotation (Placement(transformation(extent={{100,-90},{120,-70}},
             rotation=0)));
 
-    annotation (defaultComponentName="kinematicPTP"
-      ,
+    annotation (defaultComponentName="kinematicPTP",
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2188,7 +2181,6 @@ a flange according to a given acceleration.
         Integer last(start=1) "Last used lower grid index";
         SIunits.Time nextEvent(start=0, fixed=true) "Next event instant";
         annotation (
-          
           Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2354,6 +2346,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
        Realized.</li>
 </ul>
 </html>"));
+
         function getInterpolationCoefficients
       "Determine interpolation coefficients and next time event"
           input Real table[:, 2] "Table for interpolation";
@@ -2653,7 +2646,7 @@ Several matrices may be defined one after another.
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-20,-30},{-20,90},{80,90},{80,-30},{-20,-30},{-20,0},{
-                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{20,90},{20,-30}}, 
+                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{20,90},{20,-30}},
               color={0,0,0}),
           Text(
             extent={{-71,-42},{-32,-54}},
@@ -2780,7 +2773,6 @@ Several matrices may be defined one after another.
       parameter Boolean k=true "Constant output value";
       extends Interfaces.partialBooleanSource;
       annotation (
-        
         Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2824,6 +2816,7 @@ The Boolean output y is a constant signal:
 <img src=\"../Images/Blocks/Sources/BooleanConstant.png\">
 </p>
 </html>"));
+
     equation
       y = k;
     end BooleanConstant;
@@ -2891,7 +2884,6 @@ The Boolean output y is a step signal:
       parameter Modelica.SIunits.Time startTime=0 "Time instant of first pulse";
       extends Modelica.Blocks.Interfaces.partialBooleanSource;
       annotation (
-        
         Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2974,6 +2966,7 @@ The Boolean output y is a pulse signal:
 <img src=\"../Images/Blocks/Sources/Pulse.png\">
 </p>
 </html>"));
+
   protected
       parameter Modelica.SIunits.Time Twidth=period*width/100
       "width of one pulse"                                              annotation(HideResult=true);
@@ -2996,7 +2989,6 @@ The Boolean output y is a pulse signal:
       extends Interfaces.partialBooleanSource;
 
       annotation (
-        
         Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -3078,6 +3070,7 @@ at sample times (defined by parameter <b>period</b>) and is otherwise
 <img src=\"../Images/Blocks/Sources/SampleTrigger.png\">
 </p>
 </html>"));
+
     equation
       y = sample(startTime, period);
     end SampleTrigger;

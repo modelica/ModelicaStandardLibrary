@@ -692,6 +692,18 @@ units are wrong or errors in documentation):
 </p>
  
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>Blocks.Math.</b></td></tr>
+  <tr><td valign=\"top\"> InverseBlockConstraint </td>
+      <td valign=\"top\"> Changed annotation preserveAspectRatio from true to false.</td> 
+  </tr>
+
+  <tr><td colspan=\"2\"><b>Blocks.Sources.</b></td></tr>
+  <tr><td valign=\"top\"> RealExpression<br>
+                        IntegerExpression<br>
+                        BooleanExpression </td>
+      <td valign=\"top\"> Changed annotation preserveAspectRatio from true to false.</td> 
+  </tr>
+
   <tr><td colspan=\"2\"><b>Mechanics.Rotational.Interfaces.</b></td></tr>
   <tr><td valign=\"top\"> PartialFriction </td>
       <td valign=\"top\"> Corrected and simplified parameterized curve description.
