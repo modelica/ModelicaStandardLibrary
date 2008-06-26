@@ -631,6 +631,32 @@ instead of a warning.
       annotation (Documentation(info="<html>
 
 <p><br>
+The following <b style=\"color:blue\">new components</b> have been added 
+to <b style=\"color:blue\">existing</b> libraries:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>Mechanics.Translational.Components.Examples.</b></td></tr>
+  <tr><td valign=\"top\">Brake</td>
+      <td valign=\"top\"> Demonstrates the usage of the translational brake component.</td> </tr>
+</table>
+
+
+<p><br>
+The following <b style=\"color:blue\">existing components</b>
+have been <b style=\"color:blue\">changed</b> (in a
+<b style=\"color:blue\">backward compatible</b> way):
+</p>
+ 
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>Mechanics.Translational.Components.Examples.</b></td></tr>
+  <tr><td valign=\"top\"> Friction </td>
+      <td valign=\"top\"> Added a third variant, where friction is modelled with
+                        the SupportFriction component.</td> </tr>
+</table>
+
+
+<p><br>
 The following <b style=\"color:red\">critical errors</b> have been fixed (i.e. errors
 that can lead to wrong simulation results):
 </p>
@@ -649,6 +675,12 @@ that can lead to wrong simulation results):
                         Furthermore, internally WorldTorque was used instead of
                         Internal.BasicWorldTorque and therefore the visualization of
                         worldTorque was performed twice. </td> 
+  </tr>
+  <tr><td colspan=\"2\"><b>Mechanics.Translational.Components.</b></td></tr>
+  <tr><td valign=\"top\"> SupportFriction<br>
+                        Brake </td>
+      <td valign=\"top\"> The sign of the friction force was wrong and therefore friction accelerated
+                        instead of decelerated. This was fixed. </td> 
   </tr>
 </table>
  
