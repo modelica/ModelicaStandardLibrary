@@ -4,8 +4,7 @@ package Translational
   extends Modelica.Icons.Library2;
   import SI = Modelica.SIunits;
   annotation (
-  version="1.1.1", versionDate="2007-11-22"
-    ,
+  version="1.1.1", versionDate="2007-11-22",
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
         Line(points={{-84,-73},{66,-73}}, color={0,0,0}),
@@ -158,7 +157,6 @@ and the accompanying <b>disclaimer</b>
     extends Modelica.Icons.Library;
 
     annotation (
-      
       Documentation(info="<html>
 <p>
 This package contains example models to demonstrate the usage of the
@@ -168,6 +166,7 @@ simulate them according to the provided description in the models.
  
 </HTML>
 "));
+
     model SignConvention "Examples for the used sign conventions."
       extends Modelica.Icons.Example;
       annotation (Documentation(info="<html>
@@ -276,7 +275,6 @@ the two other examples).
 
       extends Modelica.Icons.Example;
       annotation (
-        
         Documentation(info="<html> 
 <p>
 There are several ways to set initial conditions.
@@ -398,7 +396,6 @@ combination). In this case the system is not at rest.
 
       extends Modelica.Icons.Example;
       annotation (
-        
         Documentation(info="<html>
 <p>
 When using the models of the translational sublibrary
@@ -436,6 +433,7 @@ problems.
               thickness=0.5,
               color={0,0,255})}),
         experiment(StopTime=1));
+
       Translational.Components.Fixed fixed 
                                  annotation (Placement(transformation(extent={{
                 -20,20},{0,40}}, rotation=0)));
@@ -628,7 +626,6 @@ Demonstrate usage of damper components in different variants.
 
       extends Modelica.Icons.Example;
       annotation (
-        
         Documentation(info="<html>
 <p>
 A spring - mass system is a mechanical oscillator. If no
@@ -657,6 +654,7 @@ If damping is added the amplitudes are bounded.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics),
         experiment(StopTime=1));
+
       Translational.Components.Mass mass1(
         L=1,
         s(start=-0.5, fixed=true),
@@ -729,7 +727,6 @@ If damping is added the amplitudes are bounded.
 
       extends Modelica.Icons.Example;
       annotation (
-        
         Documentation(info="<html>
 <p>
 These sensors measure
@@ -757,6 +754,7 @@ to see the difference.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics),
         experiment(StopTime=1));
+
       Translational.Sensors.ForceSensor forceSensor  annotation (Placement(
             transformation(extent={{-20,40},{0,60}}, rotation=0)));
       Translational.Sensors.SpeedSensor speedSensor1 annotation (Placement(
@@ -814,25 +812,30 @@ to see the difference.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-56,-88},{62,-100}},
-              textString="simulate 5 s",
-              lineColor={0,0,255}),
-            Text(
               extent={{-100,80},{-80,60}},
               textString="1)",
               lineColor={0,0,255}),
             Text(
               extent={{-100,20},{-80,0}},
               textString="2)",
-              lineColor={0,0,255})})
-        ,
+              lineColor={0,0,255}),
+            Text(
+              extent={{-100,-40},{-80,-60}},
+              lineColor={0,0,255},
+              textString="3)")}),
         Documentation(info="<html>
 <ol>
-<li> Simulate and then plot Stop1.f as a function of Stop1.v
+<li> Simulate and then plot stop1.f as a function of stop1.v
      This gives the Stribeck curve.</li>
-<li> This model gives an example for a hard stop. However there
+<li> The same model is also available by modeling the system with a Mass and
+     a SupportFriction model. The SupportFriction model defines the friction characteristic
+     with a table. The table is constructed with function
+     Examples.Utilities.GenerateStribeckFrictionTable(..) to generate the
+     same friction characteristic as with stop1.
+     The simulation results of stop1 and of model mass are therefore identical.</li>
+<li> Model stop2 gives an example for a hard stop. However there
      can arise some problems with the used modeling approach (use of
-     Reinit, convergence problems). In this case use the ElastoGap
+     <b>reinit</b>(..), convergence problems). In this case use the ElastoGap
      to model a stop (see example Preload).</li>
 </ol>
 </html>
@@ -847,14 +850,15 @@ to see the difference.
         F_prop=1,
         F_Coulomb=5,
         F_Stribeck=10,
-        fexp=2)                     annotation (Placement(transformation(extent=
-               {{60,60},{80,80}}, rotation=0)));
+        fexp=2)                     annotation (Placement(transformation(extent={{20,60},
+                {40,80}},         rotation=0)));
       Translational.Sources.Force force 
-                                 annotation (Placement(transformation(extent={{20,60},
-                {40,80}},        rotation=0)));
+                                 annotation (Placement(transformation(extent={{-20,60},
+                {0,80}},         rotation=0)));
       Modelica.Blocks.Sources.Sine sineForce(amplitude=25, freqHz=0.25) 
                                                                     annotation (Placement(
-            transformation(extent={{-20,60},{0,80}}, rotation=0)));
+            transformation(extent={{-60,60},{-40,80}},
+                                                     rotation=0)));
       Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop2
         (
         L=1,
@@ -863,29 +867,64 @@ to see the difference.
         F_Coulomb=3,
         F_Stribeck=5,
         s(start=0, fixed=true),
-        v(start=-5, fixed=true),
         m=1,
         F_prop=1,
-        fexp=2)      annotation (Placement(transformation(extent={{60,0},{80,20}},
+        fexp=2,
+        v(start=-5, fixed=true)) 
+                     annotation (Placement(transformation(extent={{42,-60},{62,
+                -40}},
               rotation=0)));
       Translational.Components.Spring spring(s_rel0=1, c=500) 
                                                     annotation (Placement(
-            transformation(extent={{20,0},{40,20}}, rotation=0)));
+            transformation(extent={{2,-60},{22,-40}},
+                                                    rotation=0)));
       Translational.Components.Fixed fixed2(s0=-1.75) 
                                            annotation (Placement(transformation(
-              extent={{-22,0},{-2,20}}, rotation=0)));
+              extent={{-40,-60},{-20,-40}},
+                                        rotation=0)));
+      Translational.Sources.Force force2 
+                                 annotation (Placement(transformation(extent={{-22,0},
+                {-2,20}},        rotation=0)));
+      Components.Mass mass(
+        m=1,
+        L=1,
+        s(fixed=true),
+        v(fixed=true))
+        annotation (Placement(transformation(extent={{10,0},{30,20}})));
+      Components.SupportFriction supportFriction(f_pos=
+            Examples.Utilities.GenerateStribeckFrictionTable(
+                F_prop=1, 
+                F_Coulomb=5, 
+                F_Stribeck=10, 
+                fexp=2, 
+                v_max=12, 
+                nTable=50))
+        annotation (Placement(transformation(extent={{40,0},{60,20}})));
     equation
-      connect(spring.flange_b, stop2.flange_a)  annotation (Line(points={{40,10},
-              {60,10}}, color={0,191,0}));
+      connect(spring.flange_b, stop2.flange_a)  annotation (Line(points={{22,-50},
+              {42,-50}},color={0,191,0}));
       connect(sineForce.y, force.f) 
-        annotation (Line(points={{1,70},{18,70}}, color={0,0,127}));
+        annotation (Line(points={{-39,70},{-22,70}},
+                                                  color={0,0,127}));
       connect(spring.flange_a, fixed2.flange) annotation (Line(
-          points={{20,10},{-12,10}},
+          points={{2,-50},{-30,-50}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(force.flange, stop1.flange_a) annotation (Line(
-          points={{40,70},{60,70}},
+          points={{0,70},{20,70}},
           color={0,127,0},
+          smooth=Smooth.None));
+      connect(force2.flange, mass.flange_a) annotation (Line(
+          points={{-2,10},{10,10}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(mass.flange_b, supportFriction.flange_a) annotation (Line(
+          points={{30,10},{40,10}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(sineForce.y, force2.f) annotation (Line(
+          points={{-39,70},{-30,70},{-30,10},{-24,10}},
+          color={0,0,127},
           smooth=Smooth.None));
     end Friction;
 
@@ -894,14 +933,14 @@ to see the difference.
       extends Modelica.Icons.Example;
 
       annotation (
-        
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
               extent={{-98,-68},{102,-94}},
-              textString="positive force => spool moves in positive direction ",
+              textString="positive force => spool moves in positive direction ", 
+
               lineColor={0,0,255}),
             Text(
               extent={{-32,-46},{38,-62}},
@@ -1175,6 +1214,100 @@ mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
           color={0,127,0},
           smooth=Smooth.None));
     end ElastoGap;
+
+    model Brake "Demonstrate braking of a translational moving mass"
+      extends Modelica.Icons.Example;
+
+      annotation (Diagram(coordinateSystem(
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),
+        experiment(StopTime=2),
+        Documentation(info="<html>
+<p>
+This model consists of a mass with an initial velocity of 1 m/s.
+After 0.1 s, a brake is activated and it is shown that the mass decelerates until
+it arrives at rest and remains at rest. Two versions of this system are present,
+one where the brake is implicitly grounded and one where it is explicitly grounded.
+</p>
+
+</html>"));
+      Modelica.Mechanics.Translational.Components.Brake brake(fn_max=1, useSupport=
+            false) 
+        annotation (Placement(transformation(extent={{6,40},{26,20}})));
+      Modelica.Mechanics.Translational.Components.Mass mass1(m=1,
+        s(fixed=true),
+        v(start=1, fixed=true)) 
+        annotation (Placement(transformation(extent={{-34,20},{-14,40}})));
+      Modelica.Blocks.Sources.Step step(startTime=0.1, height=2) 
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={-24,-10})));
+      Modelica.Mechanics.Translational.Components.Brake brake1(
+                                                              fn_max=1, useSupport=
+            true) 
+        annotation (Placement(transformation(extent={{6,-60},{26,-40}})));
+      Modelica.Mechanics.Translational.Components.Mass mass2(m=1,
+        s(fixed=true),
+        v(start=1, fixed=true)) 
+        annotation (Placement(transformation(extent={{-34,-60},{-14,-40}})));
+      Modelica.Mechanics.Translational.Components.Fixed fixed 
+        annotation (Placement(transformation(extent={{6,-80},{26,-60}})));
+    equation
+      connect(mass1.flange_b, brake.flange_a) 
+                                             annotation (Line(
+          points={{-14,30},{6,30}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(step.y, brake.f_normalized) annotation (Line(
+          points={{-13,-10},{16,-10},{16,19}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(mass2.flange_b, brake1.flange_a) 
+                                             annotation (Line(
+          points={{-14,-50},{6,-50}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(step.y, brake1.f_normalized) annotation (Line(
+          points={{-13,-10},{16,-10},{16,-39}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(fixed.flange, brake1.support) annotation (Line(
+          points={{16,-70},{16,-60}},
+          color={0,127,0},
+          smooth=Smooth.None));
+    end Brake;
+
+    package Utilities "Utility classes used by the Example models"
+      extends Modelica.Icons.Library;
+      function GenerateStribeckFrictionTable
+        "Generate stribeck friction table for example Friction for the SupportFriction"
+         input Real F_prop(final unit="N.s/m", final min=0)
+          "Velocity dependent friction coefficient";
+         input Modelica.SIunits.Force F_Coulomb
+          "Constant friction: Coulomb force";
+         input Modelica.SIunits.Force F_Stribeck "Stribeck effect";
+         input Real fexp(final unit="s/m", final min=0) "Exponential decay";
+         input Real v_max "Generate table from v=0 ... v_max";
+         input Integer nTable(min=2)=100 "Number of table points";
+         output Real table[nTable,2] "Friction table";
+      algorithm
+         for i in 1:nTable loop
+            table[i,1] :=v_max*(i - 1)/(nTable - 1);
+            table[i,2] :=F_Coulomb + F_prop*table[i, 1] +
+                         F_Stribeck*exp(-fexp*table[i, 1]);
+         end for;
+        annotation (Documentation(info="<html>
+<p>
+Returns a table with the friction characteristic table[nTable,2] = [0, f1; ....; v_max, fn], where the first
+column is the velocity v in the range 0..v_max and the second column is the friction force
+according to the stribeck curve:
+</p>
+<pre>
+  F_Coulomb + F_prop*v + F_Stribeck*exp(-fexp*v);
+</pre>
+
+</html>"));
+      end GenerateStribeckFrictionTable;
+    end Utilities;
   end Examples;
 
   package Components "Components for 1D translational mechanical drive trains"
@@ -1194,7 +1327,6 @@ This package contains basic components 1D mechanical translational drive trains.
       parameter SI.Position s0=0 "fixed offset position of housing";
 
       annotation (
-        
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1227,6 +1359,7 @@ at an position s0 in the <i>housing</i>. May be used:
  
 </HTML>
 "));
+
       Interfaces.Flange_b flange   annotation (Placement(transformation(
             origin={0,0},
             extent={{-10,10},{10,-10}},
@@ -1245,7 +1378,6 @@ at an position s0 in the <i>housing</i>. May be used:
       SI.Acceleration a(start=0) "absolute acceleration of component";
 
       annotation (
-        
         Documentation(info="<html>
 <p>
 Sliding mass with <i>inertia, without friction</i> and two rigidly connected flanges.
@@ -1327,6 +1459,7 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
               extent={{-61,53},{-9,42}},
               textString="Position s",
               lineColor={0,0,255})}));
+
     equation
       v = der(s);
       a = der(v);
@@ -1337,7 +1470,6 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
       extends Translational.Interfaces.PartialRigid;
 
       annotation (
-        
         Documentation(info="<html>
 <p>
 Rod <i>without inertia</i> and two rigidly connected flanges.
@@ -1403,6 +1535,7 @@ Rod <i>without inertia</i> and two rigidly connected flanges.
               extent={{-44,-41},{51,-57}},
               textString="Length L",
               lineColor={0,0,255})}));
+
     equation
       0 = flange_a.f + flange_b.f;
     end Rod;
@@ -1414,7 +1547,6 @@ Rod <i>without inertia</i> and two rigidly connected flanges.
       parameter SI.Distance s_rel0=0 "unstretched spring length";
 
       annotation (
-        
         Documentation(info="<html>
 <p>
 A <i>linear 1D translational spring</i>. The component can be connected either
@@ -1458,6 +1590,7 @@ a coupling of the sliding mass with the housing via a spring.
               textString="s_rel"),
             Line(points={{-86,0},{-60,0},{-44,-30},{-16,30},{14,-30},{44,30},{
                   60,0},{84,0}}, color={0,0,0})}));
+
     equation
       f = c*(s_rel - s_rel0);
     end Spring;
@@ -1467,7 +1600,6 @@ a coupling of the sliding mass with the housing via a spring.
       parameter SI.TranslationalDampingConstant d(final min=0, start = 0)
         "damping constant";
       annotation (
-        
         Documentation(info="<html>
 <p>
 <i>Linear, velocity dependent damper</i> element. It can be either connected
@@ -1524,6 +1656,7 @@ between two sliding masses.
               extent={{-40,68},{38,90}},
               lineColor={128,128,128},
               textString="der(s_rel)")}));
+
     equation
       f = d*v_rel;
     end Damper;
@@ -1536,7 +1669,6 @@ between two sliding masses.
         "damping constant";
       parameter SI.Position s_rel0=0 "unstretched spring length";
       annotation (
-        
         Documentation(info="<html>
 <p>
 A <i>spring and damper element connected in parallel</i>.
@@ -1609,6 +1741,7 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
             Line(points={{80,32},{80,-50}}, color={0,0,0}),
             Line(points={{-90,0},{-80,0}}, color={0,0,0}),
             Line(points={{90,0},{80,0}}, color={0,0,0})}));
+
     equation
       f = c*(s_rel - s_rel0) + d*v_rel;
     end SpringDamper;
@@ -1622,7 +1755,6 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
       parameter SI.Position s_rel0=0 "Unstretched spring length";
 
       annotation (
-        
         Documentation(info="<html>
 <p>
 A linear spring damper combination that can lift off.
@@ -1788,6 +1920,7 @@ where the different effects are visualized:
               extent={{0,120},{0,60}},
               textString="%name",
               lineColor={0,0,255})}));
+
     /*
 Please note that initialization might fail due to the nonlinear spring characteristic
 (spring force is zero for s_rel > s_rel0) 
@@ -1990,7 +2123,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       a_relfric = a;
 
     // Friction force
-      flange_a.f + flange_b.f + f = 0;
+      flange_a.f + flange_b.f - f = 0;
 
     // Friction force
       f = if locked then sa*unitForce else 
@@ -2176,7 +2309,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       a_relfric = a;
 
     // Friction force, normal force and friction force for v_rel=0
-      flange_a.f + flange_b.f + f = 0;
+      flange_a.f + flange_b.f - f = 0;
       fn = fn_max*f_normalized;
       f0 = mue0*cgeo*fn;
       f0_max = peak*f0;
@@ -2476,8 +2609,7 @@ modified event logic such if you have friction parameters equal to zero you do n
 between the stops.</i> </li>
 <li><i>June 10, 2002 by P. Beater, StateSelect.always for variables s and v (instead of fixed=true). </i> </li>
 </ul>
-</html>")
-        ,
+</html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -2770,7 +2902,6 @@ Additionally, a left and right stop are handled.
         "relative velocity used as state variable";
       SI.Acceleration a_rel(start=0) "relative angular acceleration";
       annotation (
-        
         Documentation(info="<html>
 <p>
 Usually, the absolute position and the absolute velocity of
@@ -2865,6 +2996,7 @@ velocity of model mass1 or of model mass2 as state variables.
               points={{-90,0},{-40,0}},
               color={0,0,0},
               pattern=LinePattern.Dash)}));
+
     equation
       s_rel = flange_b.s - flange_a.s;
       v_rel = der(s_rel);
@@ -2910,7 +3042,6 @@ This package contains ideal sources to drive 1D mechanical translational drive t
       constant Real af=1.3617 "s coefficient of Bessel filter";
       constant Real bf=0.6180 "s*s coefficient of Bessel filter";
       annotation (
-        
         Documentation(info="<HTML>
 <p>
 The input signal <b>s_ref</b> defines the <b>reference
@@ -2981,6 +3112,7 @@ blocks of the block library Modelica.Blocks.Sources.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
+
     initial equation
       if not exact then
         s = s_ref;
@@ -3014,7 +3146,6 @@ blocks of the block library Modelica.Blocks.Sources.
         "reference speed of flange as input signal" annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
       annotation (
-        
         Documentation(info="<HTML>
 <p>
 The input signal <b>v_ref</b> defines the <b>reference
@@ -3085,6 +3216,7 @@ blocks of the block library Modelica.Blocks.Sources.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
+
     protected
       parameter Modelica.SIunits.AngularFrequency w_crit=2*Modelica.Constants.pi*f_crit
         "Critical frequency";
@@ -3118,7 +3250,6 @@ blocks of the block library Modelica.Blocks.Sources.
          annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
       annotation (
-        
         Documentation(info="<html>
 <p>
 The input signal <b>a</b> in [m/s2] moves the 1D translational flange
@@ -3165,6 +3296,7 @@ blocks of the block library Modelica.Blocks.Source.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
+
     equation
       v = der(s);
       a = der(v);
@@ -3236,8 +3368,7 @@ blocks of the block library Modelica.Blocks.Sources.
             Text(
               extent={{150,60},{-150,100}},
               textString="%name",
-              lineColor={0,0,255})})
-        );
+              lineColor={0,0,255})}));
     protected
       function position
          input Real q_qd_qdd[3]
@@ -3287,7 +3418,6 @@ blocks of the block library Modelica.Blocks.Sources.
                                         annotation (Placement(transformation(
               extent={{-140,-20},{-100,20}}, rotation=0)));
       annotation (
-        
         Documentation(info="<html>
 <p>
 The input signal \"f\" in [N] characterizes an <i>external
@@ -3334,6 +3464,7 @@ blocks of Modelica.Blocks.Source.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
+
     equation
       flange.f = -f;
     end Force;
@@ -3348,7 +3479,6 @@ blocks of Modelica.Blocks.Source.
             rotation=270,
             origin={0,40})));
       annotation (
-        
         Documentation(info="<html>
 <p>
 The input signal \"f\" in [N] characterizes an <i>external
@@ -3387,6 +3517,7 @@ blocks of Modelica.Blocks.Source.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
+
     equation
       flange_a.f =  f;
       flange_b.f = -f;
@@ -3520,7 +3651,6 @@ Positive force acts accelerating.
     extends Modelica.Icons.Library2;
 
     annotation (
-      
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
@@ -3556,7 +3686,6 @@ Modelica.Blocks library.
                 {120,9}},            rotation=0), iconTransformation(extent={{100,
                 -10},{120,10}})));
       annotation (
-        
         Documentation(info="<html>
 <p>
 Measures the <i>absolute position s</i> of a flange in an ideal way and provides the result as
@@ -3568,7 +3697,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
               Text(
               extent={{80,-28},{114,-62}},
               lineColor={0,0,0},
@@ -3577,6 +3706,7 @@ Modelica.Blocks library).
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
+
     equation
       s = flange.s;
     end PositionSensor;
@@ -3588,7 +3718,6 @@ Modelica.Blocks library).
            annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
       annotation (
-        
         Documentation(info="<html>
 <p>
 Measures the <i>absolute velocity v</i> of a flange in an ideal way and provides the result as
@@ -3600,7 +3729,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
               Text(
               extent={{80,-28},{111,-61}},
               lineColor={0,0,0},
@@ -3609,6 +3738,7 @@ Modelica.Blocks library).
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
+
     equation
       v = der(flange.s);
     end SpeedSensor;
@@ -3621,7 +3751,6 @@ Modelica.Blocks library).
            annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
       annotation (
-        
         Documentation(info="<html>
 <p>
 Measures the <i>absolute acceleration a</i>
@@ -3634,7 +3763,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
               Text(
               extent={{80,-28},{115,-60}},
               lineColor={0,0,0},
@@ -3643,6 +3772,7 @@ Modelica.Blocks library).
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
+
     equation
       v = der(flange.s);
       a = der(v);
@@ -3656,7 +3786,6 @@ Modelica.Blocks library).
                 {10,10}},            rotation=270,
             origin={0,-110})));
       annotation (
-        
         Documentation(info="<html>
 <p>
 Measures the <i>relative position s</i> of a flange in an ideal way and provides the result as
@@ -3680,6 +3809,7 @@ Modelica.Blocks library).
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
+
     equation
       s_rel = flange_b.s - flange_a.s;
       0 = flange_a.f;
@@ -3695,7 +3825,6 @@ Modelica.Blocks library).
                 {10,10}},            rotation=270,
             origin={0,-110})));
       annotation (
-        
         Documentation(info="<html>
 <p>
 Measures the <i>relative speed v</i> of a flange in an ideal way and provides the result as
@@ -3726,6 +3855,7 @@ Modelica.Blocks library).
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
+
     equation
       s_rel = flange_b.s - flange_a.s;
       v_rel = der(s_rel);
@@ -3744,7 +3874,6 @@ Modelica.Blocks library).
                 {10,10}},            rotation=270,
             origin={0,-110})));
       annotation (
-        
         Documentation(info="<html>
 <p>
 Measures the <i>relative acceleration a</i> of a flange in an ideal way and provides the result as
@@ -3768,6 +3897,7 @@ Modelica.Blocks library).
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
+
     equation
       s_rel = flange_b.s - flange_a.s;
       v_rel = der(s_rel);
@@ -3802,8 +3932,7 @@ with blocks of the Modelica.Blocks library).
               textString="f"),
             Line(points={{-70,0},{-90,0}}, color={0,0,0}),
             Line(points={{70,0},{90,0}}, color={0,0,0}),
-            Line(points={{-80,-100},{-80,0}}, color={0,0,127})})
-        ,
+            Line(points={{-80,-100},{-80,0}}, color={0,0,127})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -3839,8 +3968,7 @@ and provides the result as output signal <b>power</b>
               textString="power"),
             Line(points={{-70,0},{-90,0}}, color={0,0,0}),
             Line(points={{70,0},{90,0}}, color={0,0,0}),
-            Line(points={{-80,-100},{-80,0}}, color={0,0,127})})
-        ,
+            Line(points={{-80,-100},{-80,0}}, color={0,0,127})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -3868,8 +3996,7 @@ only be used as basic building elements for models.
     connector Flange_a
       "(left) 1D translational flange (flange axis directed INTO cut plane, e. g. from left to right)"
 
-      annotation(defaultComponentName = "flange_a"
-        ,
+      annotation(defaultComponentName = "flange_a",
         Documentation(info="<html>
 This is a flange for 1D translational mechanical systems. In the cut plane of
 the flange a unit vector n, called flange axis, is defined which is directed
@@ -3913,8 +4040,7 @@ The following variables are transported through this connector:
 
       SI.Position s "absolute position of flange";
       flow SI.Force f "cut force directed into flange";
-      annotation(defaultComponentName = "flange_b"
-        ,
+      annotation(defaultComponentName = "flange_b",
         Documentation(info="<html>
 This is a flange for 1D translational mechanical systems. In the cut plane of
 the flange a unit vector n, called flange axis, is defined which is directed
@@ -4070,8 +4196,7 @@ of several base components.
 "),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics)
-        );
+            grid={2,2}), graphics));
     end PartialTwoFlanges;
 
     partial model PartialOneFlangeAndSupport
@@ -4108,8 +4233,7 @@ and instead the component is internally fixed to ground.
               textString="(if useSupport)"), Text(
               extent={{21,-95},{61,-96}},
               lineColor={95,95,95},
-              textString="(if not useSupport)")})
-        ,
+              textString="(if not useSupport)")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -4186,8 +4310,7 @@ and instead the component is internally fixed to ground.
               textString="(if useSupport)"), Text(
               extent={{24,-97},{64,-98}},
               lineColor={95,95,95},
-              textString="(if not useSupport)")})
-        ,
+              textString="(if not useSupport)")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -4252,8 +4375,7 @@ It is used e.g. to built up sliding masses.
 "),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics)
-        );
+            grid={2,2}), graphics));
     equation
       flange_a.s = s - L/2;
       flange_b.s = s + L/2;
@@ -4275,7 +4397,6 @@ It is used e.g. to built up sliding masses.
       SI.Force f
         "force between flanges (positive in direction of flange axis R)";
       annotation (
-        
         Documentation(info="<html>
 <p>
 This is a 1D translational component with a <i>compliant </i>connection of two
@@ -4294,6 +4415,7 @@ flange is the same. It is used to built up springs, dampers etc.
               fillColor={128,128,128},
               fillPattern=FillPattern.Solid), Line(points={{-60,-90},{20,-90}},
                 color={0,0,0})}));
+
     equation
       s_rel = flange_b.s - flange_a.s;
       flange_b.f = f;
@@ -4324,7 +4446,6 @@ flange is the same. It is used to built up springs, dampers etc.
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
       annotation (
-        
         Documentation(info="<html>
 <p>
 This is a 1-dim. translational component with a compliant connection of two
@@ -4360,6 +4481,7 @@ and c have more meaningful values for the user.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
+
     equation
       s_rel = flange_b.s - flange_a.s;
       v_rel = der(s_rel);
@@ -4378,7 +4500,6 @@ and c have more meaningful values for the user.
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
       annotation (
-        
         Documentation(info="<html>
 <p>
 This is a 1-dim. translational component with one flange and a support/housing.
@@ -4426,6 +4547,7 @@ and instead the component is internally fixed to ground.
               visible=not useSupport,
               points={{-30,-100},{30,-100}},
               color={0,0,0})}));
+
     protected
       InternalSupport internalSupport(f=-flange.f)
         "Internal support/housing of component as a model with connector flange (flange is either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
@@ -4606,7 +4728,6 @@ and instead the component is internally fixed to ground.
          annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
       annotation (
-        
         Documentation(info="<html>
 <p>
 This is the superclass of a 1D translational component with one flange and one
@@ -4635,6 +4756,7 @@ with the Modelica.Blocks blocks.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
+
     equation
       0 = flange.f;
     end PartialAbsoluteSensor;
@@ -4653,7 +4775,6 @@ with the Modelica.Blocks blocks.
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
       annotation (
-        
         Documentation(info="<html>
 <p>
 This is a superclass for 1D translational components with two rigidly connected
@@ -4683,6 +4804,7 @@ with the Modelica.Blocks blocks.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
+
     equation
       0 = flange_a.f + flange_b.f;
     end PartialRelativeSensor;

@@ -655,6 +655,15 @@ that can lead to wrong simulation results):
                         Internal.BasicWorldTorque and therefore the visualization of
                         worldTorque was performed twice. </td> 
   </tr>
+  <tr><td colspan=\"2\"><b>Mechanics.Translational.Components</b></td></tr>
+  <tr><td valign=\"top\"> SupportFriction<br>
+                        Brake </td>
+      <td valign=\"top\"> The sign of the friction force was wrong and therefore friction accelerated
+                        instead of decelerated. This was fixed. In order to test the changes,
+                        Translational.Examples.Friction was enhanced to use also the SupportFriction
+                        component and a new example Translational.Examples.Brake was introduced. </td> 
+  </tr>
+
 </table>
  
  
