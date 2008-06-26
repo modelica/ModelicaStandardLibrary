@@ -655,7 +655,7 @@ that can lead to wrong simulation results):
                         Internal.BasicWorldTorque and therefore the visualization of
                         worldTorque was performed twice. </td> 
   </tr>
-  <tr><td colspan=\"2\"><b>Mechanics.Translational.Components</b></td></tr>
+  <tr><td colspan=\"2\"><b>Mechanics.Translational.Components.</b></td></tr>
   <tr><td valign=\"top\"> SupportFriction<br>
                         Brake </td>
       <td valign=\"top\"> The sign of the friction force was wrong and therefore friction accelerated
@@ -674,13 +674,26 @@ units are wrong or errors in documentation):
 </p>
  
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>Blocks.Math.</b></td></tr>
+  <tr><td valign=\"top\"> InverseBlockConstraint </td>
+      <td valign=\"top\"> Changed annotation preserveAspectRatio from true to false.</td> 
+  </tr>
+
+  <tr><td colspan=\"2\"><b>Blocks.Sources.</b></td></tr>
+  <tr><td valign=\"top\"> RealExpression<br>
+                        IntegerExpression<br>
+                        BooleanExpression </td>
+      <td valign=\"top\"> Changed annotation preserveAspectRatio from true to false.</td> 
+  </tr>
+
   <tr><td colspan=\"2\"><b>Media.Interfaces.PartialSimpleMedium</b></td></tr>
   <tr><td valign=\"top\"> pressure<br> 
                         temperature<br>
                         density<br>
                         specificEnthalpy </td>
       <td valign=\"top\"> Missing functions added.</td> 
-  </tr></table>
+  </tr>
+</table>
                                                 
 </html>"));
   end Version_3_0_BugFixes;
