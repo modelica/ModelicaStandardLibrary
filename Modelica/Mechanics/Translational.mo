@@ -812,24 +812,30 @@ to see the difference.
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
             Text(
-              extent={{-56,-88},{62,-100}},
-              textString="simulate 5 s",
-              lineColor={0,0,255}),
-            Text(
               extent={{-100,80},{-80,60}},
               textString="1)",
               lineColor={0,0,255}),
             Text(
               extent={{-100,20},{-80,0}},
               textString="2)",
-              lineColor={0,0,255})}),
+              lineColor={0,0,255}),
+            Text(
+              extent={{-100,-40},{-80,-60}},
+              lineColor={0,0,255},
+              textString="3)")}),
         Documentation(info="<html>
 <ol>
-<li> Simulate and then plot Stop1.f as a function of Stop1.v
+<li> Simulate and then plot stop1.f as a function of stop1.v
      This gives the Stribeck curve.</li>
-<li> This model gives an example for a hard stop. However there
+<li> The same model is also available by modeling the system with a Mass and
+     a SupportFriction model. The SupportFriction model defines the friction characteristic
+     with a table. The table is constructed with function
+     Examples.Utilities.GenerateStribeckFrictionTable(..) to generate the
+     same friction characteristic as with stop1.
+     The simulation results of stop1 and of model mass are therefore identical.</li>
+<li> Model stop2 gives an example for a hard stop. However there
      can arise some problems with the used modeling approach (use of
-     Reinit, convergence problems). In this case use the ElastoGap
+     <b>reinit</b>(..), convergence problems). In this case use the ElastoGap
      to model a stop (see example Preload).</li>
 </ol>
 </html>
@@ -844,14 +850,15 @@ to see the difference.
         F_prop=1,
         F_Coulomb=5,
         F_Stribeck=10,
-        fexp=2)                     annotation (Placement(transformation(extent=
-               {{60,60},{80,80}}, rotation=0)));
+        fexp=2)                     annotation (Placement(transformation(extent={{20,60},
+                {40,80}},         rotation=0)));
       Translational.Sources.Force force 
-                                 annotation (Placement(transformation(extent={{20,60},
-                {40,80}},        rotation=0)));
+                                 annotation (Placement(transformation(extent={{-20,60},
+                {0,80}},         rotation=0)));
       Modelica.Blocks.Sources.Sine sineForce(amplitude=25, freqHz=0.25) 
                                                                     annotation (Placement(
-            transformation(extent={{-20,60},{0,80}}, rotation=0)));
+            transformation(extent={{-60,60},{-40,80}},
+                                                     rotation=0)));
       Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop2
         (
         L=1,
@@ -860,29 +867,64 @@ to see the difference.
         F_Coulomb=3,
         F_Stribeck=5,
         s(start=0, fixed=true),
-        v(start=-5, fixed=true),
         m=1,
         F_prop=1,
-        fexp=2)      annotation (Placement(transformation(extent={{60,0},{80,20}},
+        fexp=2,
+        v(start=-5, fixed=true)) 
+                     annotation (Placement(transformation(extent={{42,-60},{62,
+                -40}},
               rotation=0)));
       Translational.Components.Spring spring(s_rel0=1, c=500) 
                                                     annotation (Placement(
-            transformation(extent={{20,0},{40,20}}, rotation=0)));
+            transformation(extent={{2,-60},{22,-40}},
+                                                    rotation=0)));
       Translational.Components.Fixed fixed2(s0=-1.75) 
                                            annotation (Placement(transformation(
-              extent={{-22,0},{-2,20}}, rotation=0)));
+              extent={{-40,-60},{-20,-40}},
+                                        rotation=0)));
+      Translational.Sources.Force force2 
+                                 annotation (Placement(transformation(extent={{-22,0},
+                {-2,20}},        rotation=0)));
+      Components.Mass mass(
+        m=1,
+        L=1,
+        s(fixed=true),
+        v(fixed=true)) 
+        annotation (Placement(transformation(extent={{10,0},{30,20}})));
+      Components.SupportFriction supportFriction(f_pos=
+            Examples.Utilities.GenerateStribeckFrictionTable(
+                F_prop=1,
+                F_Coulomb=5,
+                F_Stribeck=10,
+                fexp=2,
+                v_max=12,
+                nTable=50)) 
+        annotation (Placement(transformation(extent={{40,0},{60,20}})));
     equation
-      connect(spring.flange_b, stop2.flange_a)  annotation (Line(points={{40,10},
-              {60,10}}, color={0,191,0}));
+      connect(spring.flange_b, stop2.flange_a)  annotation (Line(points={{22,-50},
+              {42,-50}},color={0,191,0}));
       connect(sineForce.y, force.f) 
-        annotation (Line(points={{1,70},{18,70}}, color={0,0,127}));
+        annotation (Line(points={{-39,70},{-22,70}},
+                                                  color={0,0,127}));
       connect(spring.flange_a, fixed2.flange) annotation (Line(
-          points={{20,10},{-12,10}},
+          points={{2,-50},{-30,-50}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(force.flange, stop1.flange_a) annotation (Line(
-          points={{40,70},{60,70}},
+          points={{0,70},{20,70}},
           color={0,127,0},
+          smooth=Smooth.None));
+      connect(force2.flange, mass.flange_a) annotation (Line(
+          points={{-2,10},{10,10}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(mass.flange_b, supportFriction.flange_a) annotation (Line(
+          points={{30,10},{40,10}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(sineForce.y, force2.f) annotation (Line(
+          points={{-39,70},{-30,70},{-30,10},{-24,10}},
+          color={0,0,127},
           smooth=Smooth.None));
     end Friction;
 
@@ -1171,6 +1213,100 @@ mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
           color={0,127,0},
           smooth=Smooth.None));
     end ElastoGap;
+
+    model Brake "Demonstrate braking of a translational moving mass"
+      extends Modelica.Icons.Example;
+
+      annotation (Diagram(coordinateSystem(
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),
+        experiment(StopTime=2),
+        Documentation(info="<html>
+<p>
+This model consists of a mass with an initial velocity of 1 m/s.
+After 0.1 s, a brake is activated and it is shown that the mass decelerates until
+it arrives at rest and remains at rest. Two versions of this system are present,
+one where the brake is implicitly grounded and one where it is explicitly grounded.
+</p>
+ 
+</html>"));
+      Modelica.Mechanics.Translational.Components.Brake brake(fn_max=1, useSupport=
+            false) 
+        annotation (Placement(transformation(extent={{6,40},{26,20}})));
+      Modelica.Mechanics.Translational.Components.Mass mass1(m=1,
+        s(fixed=true),
+        v(start=1, fixed=true)) 
+        annotation (Placement(transformation(extent={{-34,20},{-14,40}})));
+      Modelica.Blocks.Sources.Step step(startTime=0.1, height=2) 
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={-24,-10})));
+      Modelica.Mechanics.Translational.Components.Brake brake1(
+                                                              fn_max=1, useSupport=
+            true) 
+        annotation (Placement(transformation(extent={{6,-60},{26,-40}})));
+      Modelica.Mechanics.Translational.Components.Mass mass2(m=1,
+        s(fixed=true),
+        v(start=1, fixed=true)) 
+        annotation (Placement(transformation(extent={{-34,-60},{-14,-40}})));
+      Modelica.Mechanics.Translational.Components.Fixed fixed 
+        annotation (Placement(transformation(extent={{6,-80},{26,-60}})));
+    equation
+      connect(mass1.flange_b, brake.flange_a) 
+                                             annotation (Line(
+          points={{-14,30},{6,30}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(step.y, brake.f_normalized) annotation (Line(
+          points={{-13,-10},{16,-10},{16,19}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(mass2.flange_b, brake1.flange_a) 
+                                             annotation (Line(
+          points={{-14,-50},{6,-50}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(step.y, brake1.f_normalized) annotation (Line(
+          points={{-13,-10},{16,-10},{16,-39}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(fixed.flange, brake1.support) annotation (Line(
+          points={{16,-70},{16,-60}},
+          color={0,127,0},
+          smooth=Smooth.None));
+    end Brake;
+
+    package Utilities "Utility classes used by the Example models"
+      extends Modelica.Icons.Library;
+      function GenerateStribeckFrictionTable
+        "Generate stribeck friction table for example Friction for the SupportFriction"
+         input Real F_prop(final unit="N.s/m", final min=0)
+          "Velocity dependent friction coefficient";
+         input Modelica.SIunits.Force F_Coulomb
+          "Constant friction: Coulomb force";
+         input Modelica.SIunits.Force F_Stribeck "Stribeck effect";
+         input Real fexp(final unit="s/m", final min=0) "Exponential decay";
+         input Real v_max "Generate table from v=0 ... v_max";
+         input Integer nTable(min=2)=100 "Number of table points";
+         output Real table[nTable,2] "Friction table";
+      algorithm
+         for i in 1:nTable loop
+            table[i,1] :=v_max*(i - 1)/(nTable - 1);
+            table[i,2] :=F_Coulomb + F_prop*table[i, 1] +
+                         F_Stribeck*exp(-fexp*table[i, 1]);
+         end for;
+        annotation (Documentation(info="<html>
+<p>
+Returns a table with the friction characteristic table[nTable,2] = [0, f1; ....; v_max, fn], where the first
+column is the velocity v in the range 0..v_max and the second column is the friction force
+according to the stribeck curve:
+</p>
+<pre>
+  F_Coulomb + F_prop*v + F_Stribeck*exp(-fexp*v);
+</pre>
+ 
+</html>"));
+      end GenerateStribeckFrictionTable;
+    end Utilities;
   end Examples;
 
   package Components "Components for 1D translational mechanical drive trains"
@@ -1987,7 +2123,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       a_relfric = a;
 
     // Friction force
-      flange_a.f + flange_b.f + f = 0;
+      flange_a.f + flange_b.f - f = 0;
 
     // Friction force
       f = if locked then sa*unitForce else 
@@ -2174,7 +2310,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       a_relfric = a;
 
     // Friction force, normal force and friction force for v_rel=0
-      flange_a.f + flange_b.f + f = 0;
+      flange_a.f + flange_b.f - f = 0;
       fn = fn_max*f_normalized;
       f0 = mue0*cgeo*fn;
       f0_max = peak*f0;
