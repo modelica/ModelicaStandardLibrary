@@ -515,7 +515,6 @@ component <i>ModelicaAdditions.Blocks.Discrete.TriggeredSampler</i>.
     extends Blocks.Interfaces.partialBooleanSI3SO;
 
     annotation (
-      
       Documentation(info="<html>
 <p>The LogicalSwitch switches, depending on the
 Boolean u2 connector (the middle connector),
@@ -561,6 +560,7 @@ u1, else it is set equal to u2.</p>
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics));
+
   equation
     y = if u2 then u1 else u3;
   end LogicalSwitch;
@@ -580,8 +580,7 @@ u1, else it is set equal to u2.</p>
                                    annotation (Placement(transformation(extent=
               {{100,-10},{120,10}}, rotation=0)));
 
-    annotation (defaultComponentName="switch1"
-      ,
+    annotation (defaultComponentName="switch1",
       Documentation(info="<html>
 <p>The Logical.Switch switches, depending on the
 logical connector u2 (the middle connector)
@@ -662,7 +661,7 @@ u1, else it is set equal to u3.</p>
           Text(
             extent={{70,-80},{94,-100}},
             lineColor={160,160,164},
-            textString="time"),
+            textString="u"),
           Text(
             extent={{-65,93},{-12,75}},
             lineColor={160,160,164},
@@ -1107,7 +1106,6 @@ input becomes false.
     parameter String terminationText = "... End condition reached"
       "Text that will be displayed when simulation is terminated";
     annotation (
-      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-200,-20},{200,20}},
@@ -1155,6 +1153,7 @@ parameter \"terminationText\".
 </p>
  
 </html>"));
+
   equation
     when condition then
        terminate(terminationText);
