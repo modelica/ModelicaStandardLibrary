@@ -704,6 +704,11 @@ units are wrong or errors in documentation):
       <td valign=\"top\"> Changed annotation preserveAspectRatio from true to false.</td> 
   </tr>
 
+  <tr><td colspan=\"2\"><b>Electrical.Analog.Basic.</b></td></tr>
+  <tr><td valign=\"top\"> SaturatingInductor</td>
+      <td valign=\"top\"> Replaced non-standard \"arctan\" by \"atan\" function.</td> 
+  </tr>
+
   <tr><td colspan=\"2\"><b>Mechanics.Rotational.Interfaces.</b></td></tr>
   <tr><td valign=\"top\"> PartialFriction </td>
       <td valign=\"top\"> Corrected and simplified parameterized curve description.
