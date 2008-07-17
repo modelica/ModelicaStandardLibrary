@@ -1,7 +1,7 @@
 within ;
 package Modelica "Modelica Standard Library (Version 3.0)"
 extends Icons.Library;
- 
+
 
 annotation (
   preferredView="info",
@@ -684,6 +684,11 @@ units are wrong or errors in documentation):
                         IntegerExpression<br>
                         BooleanExpression </td>
       <td valign=\"top\"> Changed annotation preserveAspectRatio from true to false.</td> 
+  </tr>
+
+  <tr><td colspan=\"2\"><b>Electrical.Analog.Basic.</b></td></tr>
+  <tr><td valign=\"top\"> SaturatingInductor</td>
+      <td valign=\"top\"> Replaced non-standard \"arctan\" by \"atan\" function.</td> 
   </tr>
 
   <tr><td colspan=\"2\"><b>Media.Interfaces.PartialSimpleMedium</b></td></tr>
