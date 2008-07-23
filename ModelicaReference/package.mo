@@ -186,7 +186,7 @@ The inputs to the derivative function of order 1 are constructed as follows:
      in order append one derivative for each input containing reals.<br>&nbsp;</li>
 <li> The outputs are constructed by starting with an empty list and then in
      order appending one derivative for each output containing reals.<br>&nbsp;</li>
-<li> If the Modelica function call is a nth derivative (n>=1), i.e. this
+<li> If the Modelica function call is a nth derivative (n>=1), i.e., this
      function call has been derived from an (n-1)th derivative, an
      annotation(order=n+1)=?,  specifies the (n+1)th derivative, and the
      (n+1)th derivative call is constructed as follows:<br>&nbsp;</li>
@@ -258,7 +258,7 @@ An input or output to the function may be any simple type (Real, Boolean, Intege
 <li> zeroDerivative=input_var1<br>
     The derivative function is only valid if input_var1 is independent
     of the variables the function call is  differentiated with respect to
-    (i.e. that the derivative of input_var1 is \"zero\").
+    (i.e., that the derivative of input_var1 is \"zero\").
     The derivative of input_var1 is excluded from the argument list of the derivative-function.
     Assume that function f takes a matrix and a scalar. Since the matrix argument is
     usually a parameter expression it is then useful to define the function
@@ -413,7 +413,7 @@ Together with scheme \"Modelica\" the (URI)  fragment specifiers #diagram, #info
   annotation (Documentation(info="<html>
 <p>
 In this package annotations are described.
-Annotations are intended for storing extra information about a model, such as graphics, documentation or versioning, etc. A Modelica tool is free to define and use other annotations, in addition to those defined here. The only requirement is that any tool shall save files with all annotations from this chapter and all vendor-specific annotations intact. To ensure this, annotations must be represented with constructs according to the Modelica grammar. The Modelica language specification defines the semantic meaning if a tool implements any of these annotations.
+Annotations are intended for storing extra information about a model, such as graphics, documentation or versioning. A Modelica tool is free to define and use other annotations, in addition to those defined here. The only requirement is that any tool shall save files with all annotations from this chapter and all vendor-specific annotations intact. To ensure this, annotations must be represented with constructs according to the Modelica grammar. The Modelica language specification defines the semantic meaning if a tool implements any of these annotations.
 </p>
 
 </html>"));
@@ -443,7 +443,7 @@ The level of a tank is animated by a rectangle expanding in vertical direction a
 <h4><font color=\"#008000\">Description</font></h4>
 
 <p>
-Any value (coordinates, color, text, etc) in graphical annotations can be dependent on class variables using the DynamicSelect expression. DynamicSelect has the syntax of a function call with two arguments, where the first argument specifies the value of the editing state and the second argument the value of the non-editing state. The first argument must be a literal expression
+Any value (coordinates, color, text, etc.) in graphical annotations can be dependent on class variables using the DynamicSelect expression. DynamicSelect has the syntax of a function call with two arguments, where the first argument specifies the value of the editing state and the second argument the value of the non-editing state. The first argument must be a literal expression
 and this value is used for the annotation when editing and/or browsing the diagram layer.
 The second argument may contain references to variables to enable a dynamic behavior
 and the actual value is used for the annotation for schematic animation
@@ -699,7 +699,7 @@ smoothOrder defines the minimum number of differentations of the function, in or
 </p>
 
 <p>
-This means that the function is at least C<sup>smoothOrder</sup>. smoothOrder = 1 means that the function can be differentiated at least once in order that all output arguments are still continuous, provided the input arguments are continuous. If a tool needs the derivative of a function, e.g. for index reduction or to compute an analytic Jacobian, the function can be differentiated analytically at least smoothOrder times.
+This means that the function is at least C<sup>smoothOrder</sup>. smoothOrder = 1 means that the function can be differentiated at least once in order that all output arguments are still continuous, provided the input arguments are continuous. If a tool needs the derivative of a function, e.g., for index reduction or to compute an analytic Jacobian, the function can be differentiated analytically at least smoothOrder times.
 </p>
 
 </html>"));
@@ -1010,7 +1010,7 @@ either an algorithm clause or an external function interface.</p>
 <p>
 The syntax and semantics of a function have many similarities to those of the block
 specialized class. A function has many of the properties of a general class,
-e.g. being able to inherit other functions, or to redeclare or modify
+e.g., being able to inherit other functions, or to redeclare or modify
 elements of a function declaration.
 </p>
 
@@ -1051,7 +1051,7 @@ general Modelica class:
      of those</li>
 
 <li> The local variables of a function are not automatically initialized to
-     the implicit default values of the data type [(e.g. 0.0 for Real)
+     the implicit default values of the data type [(e.g., 0.0 for Real)
      for performance reasons. It is the responsibility of the user to
      provide explicit defaults or to define the values of such variables
      before they are referenced.]</li>
@@ -2239,7 +2239,7 @@ Indicate rising edge
 <h4><font color=\"#008000\">Description</font></h4>
 <P>Is expanded into &quot;(b <B>and not pre</B>(b))&quot;
 for Boolean variable b. The same restrictions as for the
-<B>pre</B> operator apply (e.g. not to be used in function
+<B>pre</B> operator apply (e.g., not to be used in function
 classes).</P>
 <h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>model</b> RisingEdge
@@ -2410,7 +2410,7 @@ Returns true if the formal input or output argument of a function is present
 Returns true if the formal input or output argument ident is present
 as an actual argument of the function call. If the argument is not
 present, isPresent(ident) may return false <i>[but may also return
-true e.g. for implementations that always compute all results]</i>.
+true e.g., for implementations that always compute all results]</i>.
 isPresent() should be used for optimisation only and should not
 influence the results of outputs that are present in the output
 list. It can only be used in functions.
@@ -2615,7 +2615,7 @@ Integer modulus of a division of two Real numbers
 <h4><font color=\"#008000\">Syntax</font></h4>
 <blockquote><pre><b>mod</b>(x, y)</pre></blockquote>
 <h4><font color=\"#008000\">Description</font></h4>
-<P>Returns the integer modulus of <TT>x/y</TT>, i.e. mod(x, y) = x - floor(x/y)*y.
+<P>Returns the integer modulus of <TT>x/y</TT>, i.e., mod(x, y) = x - floor(x/y)*y.
 Result and arguments shall have type Real or Integer. If either of the
 arguments is Real the result is Real otherwise Integer. <I>[Note, outside of
 a when clause state events are triggered when the return value changes
@@ -3232,11 +3232,11 @@ The arguments have the following meaning
 <tr>
   <td> Integer significantDigits = 6 </td>
   <td> defines the number of significant digits in the result string<br>
-       (e.g. \"12.3456\", \"0.0123456\", \"12345600\", \"1.23456E-10\")</td></tr>
+       (e.g., \"12.3456\", \"0.0123456\", \"12345600\", \"1.23456E-10\")</td></tr>
 <tr>
   <td> String format </td>
   <td> defines the string formating according to ANSI-C without \"%\" and \"*\" character<br>
-       (e.g. \".6g\", \"14.5e\", \"+6f\"). In particular:<br>
+       (e.g., \".6g\", \"14.5e\", \"+6f\"). In particular:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;
 format = \"[&lt;flags&gt;] [&lt;width&gt;] [.&lt;precision&gt;] &lt;conversion&gt;\"<br>
 with
@@ -3539,7 +3539,7 @@ In Modelica 3.0, model UseCorrelation is no longer allowed and the translator wi
 <h4><font color=\"#008000\">Description</font></h4>
 
 <p>
-The restrictions below apply after flattening \" i.e. inherited components are included \" possibly modified.
+The restrictions below apply after flattening \" i.e., inherited components are included \" possibly modified.
 </p>
 
 <p>
@@ -3551,7 +3551,7 @@ The local number of unknowns of a model or block class is the sum based on the c
 </p>
 
 <ul>
-<li> For each declared component of specialized class type (Real, Integer, String, Boolean, enumeration and arrays of those, etc) or record, not declared as outer, it is the \"number of unknown variables\" inside it (i.e., excluding parameters and constants and counting the elements after expanding all records and arrays to a set of scalars of primitive types). </li>
+<li> For each declared component of specialized class type (Real, Integer, String, Boolean, enumeration and arrays of those, etc.) or record, not declared as outer, it is the \"number of unknown variables\" inside it (i.e., excluding parameters and constants and counting the elements after expanding all records and arrays to a set of scalars of primitive types). </li>
 
 <li> Each declared component  of specialized class type or record declared as outer is ignored [i.e., all variables inside the component are treated as known].</li>
 
@@ -3570,7 +3570,7 @@ The local equation size of a model or block class is the sum of the following nu
 </p>
 
 <ul>
-<li>The number of equations defined locally (i.e. not in any model or block component), including binding equations, and equations generated from connect-equations. This includes the proper count for when-clauses, and algorithms, and is also used for the flat Hybrid DAE formulation.</li>
+<li>The number of equations defined locally (i.e., not in any model or block component), including binding equations, and equations generated from connect-equations. This includes the proper count for when-clauses, and algorithms, and is also used for the flat Hybrid DAE formulation.</li>
 
 <li> The number of input and flow-variables present in each (top-level) public connector component. [This represents
 the number of connection equations that will be provided when the class is used.]</li>
@@ -3590,7 +3590,7 @@ Here \"u\" and \"u2\" are top-level inputs and not connectors. The variable u2 h
 </p>
 
 <p>
-A model or block class is \"locally balanced\" if the \"local number of unknowns\" is identical to the \"local equation size\" for all legal values of constants and parameters [respecting final bindings and min/max-restrictions. A tool shall verify the \"locally balanced\" property for the actual values of parameters and constants in the simulation model. It is a quality of implementation  for a tool to verify this property in general, due to arrays of (locally) undefined sizes, conditional declarations, for loops etc].
+A model or block class is \"locally balanced\" if the \"local number of unknowns\" is identical to the \"local equation size\" for all legal values of constants and parameters [respecting final bindings and min/max-restrictions. A tool shall verify the \"locally balanced\" property for the actual values of parameters and constants in the simulation model. It is a quality of implementation  for a tool to verify this property in general, due to arrays of (locally) undefined sizes, conditional declarations, for loops, etc.].
 </p>
 
 
@@ -3599,7 +3599,7 @@ A model or block class is \"locally balanced\" if the \"local number of unknowns
 </p>
 
 <p>
-Similarly as locally balanced, but including all unknowns and equations from all components. The global number of unknowns is computed by expanding all unknowns (i.e. excluding parameters and constants) into a set of scalars of primitive types. This should match the global equation size defined as:
+Similarly as locally balanced, but including all unknowns and equations from all components. The global number of unknowns is computed by expanding all unknowns (i.e., excluding parameters and constants) into a set of scalars of primitive types. This should match the global equation size defined as:
 </p>
 
 <ul>
@@ -3613,7 +3613,7 @@ The following restrictions hold:
 </p>
 
 <ul>
-<li>In a non-partial model or block, all non-connector inputs of model or block components must have binding equations. [E.g. if the model contains a component, firstOrder (of specialized class model) and firstOrder has  \"input Real u\" then there must be a binding equation for firstOrder.u.] </li>
+<li>In a non-partial model or block, all non-connector inputs of model or block components must have binding equations. [E.g., if the model contains a component, firstOrder (of specialized class model) and firstOrder has  \"input Real u\" then there must be a binding equation for firstOrder.u.] </li>
 <li>A component declared with the inner or outer prefix shall not be of a class having top-level public connectors containing inputs.</li>
 <li>Modifiers for components shall only contain redeclarations of replaceable elements and binding equations for parameters, constants (that do not yet have binding equations), inputs and variables having a default binding equation.</li>
 <li>All non-partial model and block classes must be locally balanced [this means that the local number of unknowns equals the local equation size].</li>
@@ -3660,7 +3660,7 @@ Local equations:  0 = p.i + n.i;
 </pre>
 
 <p>
-These are 5 equations in 5 unknowns (locally balanced model). A more detailed analysis would reveal that this is structurally non-singular, i.e. that the hybrid DAE will not contain a singularity independent of actual values.
+These are 5 equations in 5 unknowns (locally balanced model). A more detailed analysis would reveal that this is structurally non-singular, i.e., that the hybrid DAE will not contain a singularity independent of actual values.
 If the equation \"u = p.v - n.v\" would be missing in the Capacitor model, there would be 4 equations in 5 unknowns and the model would be locally unbalanced and thus simulation models in which this model is used would be usually  structurally singular and  thus not solvable.
 If the equation \"u = p.v - n.v\" would be replaced by the equation \"u = 0\" and the equation C*der(u) = p.i would be replaced by the equation \"C*der(u) = 0\", there would be 5 equations in 5 unknowns (locally balanced), but the equations would be singular, regardless of how the equations corresponding to the flow-variables are constructed because the information that \"u\" is constant is given twice in a slightly different form.
 </p>
@@ -4026,7 +4026,7 @@ looked up sequentially in each member of the ordered set of parents
 until a match is found or a parent is encapsulated. In the latter case
 the lookup stops except for the predefined types, functions and
 operators defined in this specification. For these cases the lookup
-continues in the global scope, where they are defined. <i>[E.g. abs is
+continues in the global scope, where they are defined. <i>[E.g., abs is
 searched upwards in the hierarchy as usual. If an encapsulated boundary
 is reached, abs is searched in the global scope instead. The operator
 abs cannot be redefined in the global scope, because an existing class
@@ -4608,7 +4608,7 @@ specialized classes </span><span class=\"CODE\"><span
 >, </span><span class=\"CODE\"><span
  style=\"font-size: 9.5pt;\">type</span></span><span
 > and record can only be derived from their own
-kind [<i>(e.g. a
+kind [<i>(e.g., a
 package can only be base class for packages. All other kinds of classes
 can use
 the import statement to use the contents of a package)</i>]<i>.</i></span></p>
@@ -5379,7 +5379,7 @@ the equations within the when-clause have one of the following forms:</P>
      y3 := 2*x + y1 + y2;
    <B>end when</B>;</PRE>
 
-<P><I>For when in equation sections the order between the equations does not matter, e.g.</I></P>
+<P><I>For when in equation sections the order between the equations does not matter, e.g.,</I></P>
 <PRE> <B>equation
    when</B> x &gt; 2 <B>then</B>
      y3 = 2*x +y1+y2; // Order of y1 and y3 equations does not matter
@@ -5412,7 +5412,7 @@ is computed from the first equation using the value of y from the previous event
 
 <P><i>For when in algorithm sections the order is significant and it is advisable to have only
 one assignment within the when-clause and instead use several algorithms having when-clauses
-with identical conditions, e.g.</I></P>
+with identical conditions, e.g.,</I></P>
 
 <PRE> <B>algorithm</B>
    <B>when</B> x &gt; 2 <B>then</B>
