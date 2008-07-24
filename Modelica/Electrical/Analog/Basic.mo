@@ -450,13 +450,13 @@ The parameters are:
             fillColor=3,
             rgbfillColor={0,0,255}))));
   initial equation 
-    (Lnom - Linf) = (Lzer - Linf)*Ipar/Inom*(Modelica.Constants.pi/2-arctan(Ipar/Inom));
+    (Lnom - Linf) = (Lzer - Linf)*Ipar/Inom*(Modelica.Constants.pi/2-atan(Ipar/Inom));
   equation 
     assert(Lzer > Lnom+Modelica.Constants.eps,
            "Lzer (= " + String(Lzer) + ") has to be > Lnom (= " + String(Lnom) + ")");
     assert(Linf < Lnom-Modelica.Constants.eps,
            "Linf (= " + String(Linf) + ") has to be < Lnom (= " + String(Lnom) + ")");
-    (Lact - Linf)*i/Ipar = (Lzer - Linf)*noEvent(arctan(i/Ipar));
+    (Lact - Linf)*i/Ipar = (Lzer - Linf)*noEvent(atan(i/Ipar));
     Psi = Lact*i;
     v = der(Psi);
   end SaturatingInductor;
