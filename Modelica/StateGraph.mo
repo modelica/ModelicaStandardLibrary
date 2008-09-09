@@ -103,7 +103,7 @@ and the accompanying <b>disclaimer</b>
 
 package UsersGuide "User's Guide of StateGraph Library"
 
-  annotation (DocumentationClass=true, Documentation(info="<html>
+  annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
 <p>
 Library <b>StateGraph</b> is a <b>free</b> Modelica package providing
 components to model <b>discrete event</b> and <b>reactive</b> 

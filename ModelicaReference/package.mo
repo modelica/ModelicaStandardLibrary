@@ -1,6 +1,6 @@
 within ;
 package ModelicaReference "Modelica Reference"
-annotation (DocumentationClass=true,
+annotation (__Dymola_DocumentationClass=true,
     versionBuild="$Rev$",
     versionDate="$Date::                            $",
     Documentation(info="<html>

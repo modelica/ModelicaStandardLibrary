@@ -61,7 +61,7 @@ and the accompanying <b>disclaimer</b>
 
 package UsersGuide "User's Guide of Media Library"
 
-  annotation (DocumentationClass=true, Documentation(info="<HTML>
+  annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
 <p>
 Library <b>Modelica.Media</b> is a <b>free</b> Modelica package providing
 a standardized interface to fluid media models and specific
@@ -138,7 +138,7 @@ This User's Guide has the following main parts:
 
   package MediumUsage "Medium usage"
 
-    annotation (DocumentationClass=true, Documentation(info="<HTML>
+    annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
 <p>
 Content:
 </p>
@@ -1262,7 +1262,7 @@ exist:
 
   package MediumDefinition "Medium definition"
 
-    annotation (DocumentationClass=true, Documentation(info="<HTML>
+    annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
 <p>
 If a new medium model shall be introduced, copy package
 <a href=\"Modelica://Modelica.Media.Interfaces.TemplateMedium\">
