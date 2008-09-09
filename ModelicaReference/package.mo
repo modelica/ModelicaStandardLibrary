@@ -2457,7 +2457,7 @@ be Real or Integer scalar expressions.
 </p>
 <h4><font color=\"#008000\">Examples</font></h4>
 <blockquote><pre>
-Real v[:] = linspace(1,7,2);  // = {1, 3, 5, 7}
+Real v[:] = linspace(1,7,4);  // = {1, 3, 5, 7}
 </pre></blockquote>
 </html>"));
 end Linspace;
