@@ -55,7 +55,7 @@ and the accompanying <b>disclaimer</b>
 
 package UsersGuide "User's Guide of Utilities Library"
 
-  annotation (DocumentationClass=true, Documentation(info="<HTML>
+  annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
 <p>
 Library <b>Modelica.Utilities</b> contains Modelica <b>functions</b> that are
 especially suited for <b>scripting</b>. Currently, only a rudimentary

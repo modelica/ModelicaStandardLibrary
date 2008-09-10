@@ -73,7 +73,7 @@ and the accompanying <b>disclaimer</b>
 
 package UsersGuide "User's Guide of Modelica library"
 
-  annotation (DocumentationClass=true, Documentation(info="<html>
+  annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
 <p>
 Package <b>Modelica</b> is a <b>standardized</b> and <b>pre-defined</b> package
 that is developed together with the Modelica language from the

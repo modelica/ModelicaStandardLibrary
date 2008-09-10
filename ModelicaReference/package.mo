@@ -1,6 +1,9 @@
 within ;
 package ModelicaReference "Modelica Reference"
-annotation (DocumentationClass=true, Documentation(info="<html>
+annotation (__Dymola_DocumentationClass=true,
+    versionBuild="$Rev$",
+    versionDate="$Date::                            $",
+    Documentation(info="<html>
 <p>
 This package is a reference to Modelica keywords and Modelica builtin 
 operators and is based on the 

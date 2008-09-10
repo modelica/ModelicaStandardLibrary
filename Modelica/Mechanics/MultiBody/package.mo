@@ -50,7 +50,7 @@ extends Modelica.Icons.Library;
 
 package UsersGuide "User's Guide of MultiBody Library"
 
-  annotation (DocumentationClass=true, Documentation(info="<HTML>
+  annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
 <p>
 Library <b>MultiBody</b> is a <b>free</b> Modelica package providing
 3-dimensional mechanical components to model in a convenient way
@@ -86,7 +86,7 @@ gives an introduction into the most important aspects of the library.
 
   package Tutorial "Tutorial"
 
-    annotation (DocumentationClass=true, Documentation(info="<HTML>
+    annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
 <p>
 This tutorial provides an introduction into the
 MultiBody library.
@@ -330,7 +330,7 @@ in the middle of the light blue sphere.
 
       class Introduction "Introduction"
 
-        annotation (DocumentationClass=true, Documentation(info="<HTML>
+        annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
 <p>
 In principal, now special action is needed, if
 loop structures occur (contrary to the ModelicaAdditions.MultiBody library).

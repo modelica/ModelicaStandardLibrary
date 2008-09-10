@@ -76,7 +76,7 @@ and the accompanying <b>disclaimer</b>
 
 package UsersGuide "User's Guide of Rotational Library"
 
-  annotation (DocumentationClass=true, Documentation(info="<HTML>
+  annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
 <p>
 Library <b>Rotational</b> is a <b>free</b> Modelica package providing
 1-dimensional, rotational mechanical components to model in a convenient way
@@ -87,7 +87,7 @@ drive trains with frictional losses.
 
   class Overview "Overview"
 
-    annotation (DocumentationClass=true, Documentation(info="<HTML>
+    annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
  
 <p>
 This package contains components to model <b>1-dimensional rotational
@@ -150,7 +150,7 @@ together, see figure below.
 
   class FlangeConnectors "Flange Connectors"
 
-    annotation (DocumentationClass=true, Documentation(info="<HTML>
+    annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
 <p>
 A flange is described by the connector class
 Interfaces.<b>Flange_a</b>
@@ -177,7 +177,7 @@ determined by differentiation of the flange angle <tt>phi</tt>:
 
   class SupportTorques "Support Torques"
 
-    annotation (DocumentationClass=true, Documentation(info="<HTML>
+    annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
  
 <p>The following figure shows examples of components equipped with
 a support flange (framed flange in the lower center), which can be used
@@ -206,7 +206,7 @@ identical results.</p>
 
   class SignConventions "Sign Conventions"
 
-    annotation (DocumentationClass=true, Documentation(info="<HTML>
+    annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
  
 <p>
 The variables of a component of this library can be accessed in the
@@ -266,7 +266,7 @@ is as indicated with the additional grey arrows.
 
   class UserDefinedComponents "User Defined Components"
 
-    annotation (DocumentationClass=true, Documentation(info="<HTML>
+    annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
 <p>
 In this section some hints are given to define your own
 1-dimensional rotational components which are compatible with the
@@ -397,7 +397,7 @@ diagram and is therefore less convenient to use.
 
   class RequirementsForSimulationTool "Requirements for Simulation Tools"
 
-    annotation (DocumentationClass=true, Documentation(info="<HTML>
+    annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
  
 <p>
 This library is designed in a fully object oriented way in order that
