@@ -31,6 +31,9 @@
 
      (2) Read from a file (tableName, fileName have to be supplied).
 
+   Tables may be linearly interpolated or the first derivative may be continuous.
+   In the second case, Akima-Splines are used
+   (algorithm 433 of ACM, http://portal.acm.org/citation.cfm?id=355605)
 */
 
 extern int ModelicaTables_CombiTimeTable_init(
