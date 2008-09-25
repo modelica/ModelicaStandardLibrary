@@ -629,12 +629,12 @@ instead of a warning.
   class Version_3_0_BugFixes "Version 3.0 with bug fixes"
 
       annotation (Documentation(info="<html>
-
+ 
 <p>
 In this section bug fixes are summarized that have been incorporated
 since the release of version 3.0.
 </p>
-
+ 
 <p><br>
 The following <b style=\"color:red\">critical errors</b> have been fixed (i.e. errors
 that can lead to wrong simulation results):
@@ -655,6 +655,21 @@ that can lead to wrong simulation results):
                         Internal.BasicWorldTorque and therefore the visualization of
                         worldTorque was performed twice. </td> 
   </tr>
+  <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Sensors</b></td></tr>
+  <tr><td valign=\"top\"> AbsoluteSensor </td>
+      <td valign=\"top\"> Velocity, acceleration and angular acceleration have been computed
+                          by differentiating in the resolveInFrame frame. This has been corrected, by
+                          first transforming the vectors in to the world frame, differentiating here
+                          and then transforming into resolveInFrame. The parameter in the Advanced menue
+                          resolveInFrameAfterDifferentiation is then superfluous and was removed . </td> 
+  </tr>
+  <tr><td valign=\"top\"> AbsoluteVelocity </td>
+      <td valign=\"top\"> The velocity has have been computed
+                          by differentiating in the resolveInFrame frame. This has been corrected, by
+                          first transforming the velocity in to the world frame, differentiating here
+                          and then transforming into resolveInFrame </td> 
+  </tr>
+
   <tr><td colspan=\"2\"><b>Mechanics.Translational.Components.</b></td></tr>
   <tr><td valign=\"top\"> SupportFriction<br>
                         Brake </td>
@@ -663,7 +678,7 @@ that can lead to wrong simulation results):
                         Translational.Examples.Friction was enhanced to use also the SupportFriction
                         component and a new example Translational.Examples.Brake was introduced. </td> 
   </tr>
-
+ 
 </table>
  
  
@@ -678,19 +693,19 @@ units are wrong or errors in documentation):
   <tr><td valign=\"top\"> InverseBlockConstraint </td>
       <td valign=\"top\"> Changed annotation preserveAspectRatio from true to false.</td> 
   </tr>
-
+ 
   <tr><td colspan=\"2\"><b>Blocks.Sources.</b></td></tr>
   <tr><td valign=\"top\"> RealExpression<br>
                         IntegerExpression<br>
                         BooleanExpression </td>
       <td valign=\"top\"> Changed annotation preserveAspectRatio from true to false.</td> 
   </tr>
-
+ 
   <tr><td colspan=\"2\"><b>Electrical.Analog.Basic.</b></td></tr>
   <tr><td valign=\"top\"> SaturatingInductor</td>
       <td valign=\"top\"> Replaced non-standard \"arctan\" by \"atan\" function.</td> 
   </tr>
-
+ 
   <tr><td colspan=\"2\"><b>Media.Interfaces.PartialSimpleMedium</b></td></tr>
   <tr><td valign=\"top\"> pressure<br> 
                         temperature<br>
