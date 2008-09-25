@@ -657,7 +657,7 @@ that can lead to wrong simulation results):
   </tr>
   <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Sensors</b></td></tr>
   <tr><td valign=\"top\"> AbsoluteSensor </td>
-      <td valign=\"top\"> Velocity, acceleration and angular acceleration was computed
+      <td valign=\"top\"> Velocity, acceleration and angular acceleration were computed
                           by differentiating in the resolveInFrame frame. This has been corrected, by
                           first transforming the vectors in to the world frame, differentiating here
                           and then transforming into resolveInFrame. The parameter in the Advanced menue
