@@ -669,6 +669,23 @@ that can lead to wrong simulation results):
                           first transforming the velocity in to the world frame, differentiating here
                           and then transforming into resolveInFrame </td> 
   </tr>
+  <tr><td valign=\"top\"> RelativeSensor </td>
+      <td valign=\"top\"> If resolveInFrame &lt;&gt; frame_resolve and 
+                           resolveInFrameAfterDifferentiation = frame_resolve, a translation
+                        error occured, since frame_resolve was not enabled in this situation.
+                        This has been corrected.</td> 
+  </tr>
+  <tr><td valign=\"top\"> RelativeVelocity </td>
+      <td valign=\"top\"> The velocity has have been computed
+                          by differentiating in the resolveInFrame frame. This has been corrected, by
+                          first transforming the relative position in to frame_a, differentiating here
+                          and then transforming into resolveInFrame </td> 
+  </tr>
+  <tr><td valign=\"top\"> TransformRelativeVector </td>
+      <td valign=\"top\"> The transformation was wrong, since the parameters frame_r_in and frame_r_out
+                        have not been propagated to the submodel that performs the transformation.
+                        This has been corrected. </td> 
+  </tr>
 
   <tr><td colspan=\"2\"><b>Mechanics.Translational.Components.</b></td></tr>
   <tr><td valign=\"top\"> SupportFriction<br>
