@@ -1,9 +1,9 @@
 within Modelica.Electrical.Analog;
-package Basic 
-  "Basic electrical components such as resistor, capacitor, transformer" 
-  
+package Basic
+  "Basic electrical components such as resistor, capacitor, transformer"
+
   extends Modelica.Icons.Library;
-  
+
   annotation (
 Documentation(info="<HTML>
 <p>
@@ -27,7 +27,7 @@ This package contains basic analog electrical components.
 <p>
 </dl>
 </html>"));
-  model Ground "Ground node" 
+  model Ground "Ground node"
     Interfaces.Pin p annotation (Placement(transformation(
           origin={0,100},
           extent={{10,-10},{-10,10}},
@@ -84,13 +84,12 @@ at least one ground object.
           Text(
             extent={{-24,-38},{22,-6}},
             textString="p.v=0",
-            lineColor={0,0,255})})
-      );
-  equation 
+            lineColor={0,0,255})}));
+  equation
     p.v = 0;
   end Ground;
-  
-  model Resistor "Ideal linear electrical resistor" 
+
+  model Resistor "Ideal linear electrical resistor"
     extends Interfaces.OnePort;
     parameter SI.Resistance R(start=1) "Resistance";
     annotation (
@@ -135,20 +134,19 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
           grid={2,2}), graphics={
           Rectangle(extent={{-70,30},{70,-30}}, lineColor={0,0,255}),
           Line(points={{-96,0},{-70,0}}, color={0,0,255}),
-          Line(points={{70,0},{96,0}}, color={0,0,255})})
-      );
-  equation 
+          Line(points={{70,0},{96,0}}, color={0,0,255})}));
+  equation
     R*i = v;
   end Resistor;
-  
-    model HeatingResistor "Temperature dependent electrical resistor" 
+
+    model HeatingResistor "Temperature dependent electrical resistor"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    
+
       parameter SI.Resistance R_ref(start=1) "Resistance at temperature T_ref";
       parameter SI.Temperature T_ref(start=300) "Reference temperature";
-      parameter SI.LinearTemperatureCoefficient alpha(start=0) 
+      parameter SI.LinearTemperatureCoefficient alpha(start=0)
       "Temperature coefficient of resistance (R = R_ref*(1 + alpha*(heatPort.T - T_ref))";
-    
+
       SI.Resistance R "Resistance = R_ref*(1 + alpha*(heatPort.T - T_ref));";
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort annotation (Placement(
           transformation(
@@ -232,14 +230,14 @@ If the heatPort connector is enabled, it must be connected.
        </li>
 </ul>
 </html>"));
-    equation 
+    equation
       assert(cardinality(heatPort) > 0, "Connector heatPort of HeatingResistor must be connected");
       R = R_ref*(1 + alpha*(heatPort.T - T_ref));
       v = R*i;
       heatPort.Q_flow = -v*i;
     end HeatingResistor;
-  
-  model Conductor "Ideal linear electrical conductor" 
+
+  model Conductor "Ideal linear electrical conductor"
     extends Interfaces.OnePort;
     parameter SI.Conductance G(start=1) "Conductance";
     annotation (
@@ -286,17 +284,15 @@ The Conductance <i>G</i> is allowed to be positive, zero, or negative.
           grid={2,2}), graphics={
           Line(points={{-96,0},{-70,0}}, color={0,0,255}),
           Line(points={{70,0},{96,0}}, color={0,0,255}),
-          Rectangle(extent={{-70,30},{70,-30}}, lineColor={0,0,255})})
-      );
-  equation 
+          Rectangle(extent={{-70,30},{70,-30}}, lineColor={0,0,255})}));
+  equation
     i = G*v;
   end Conductor;
-  
-  model Capacitor "Ideal linear electrical capacitor" 
+
+  model Capacitor "Ideal linear electrical capacitor"
     extends Interfaces.OnePort;
     parameter SI.Capacitance C(start=1) "Capacitance";
     annotation (
-      
       Documentation(info="<HTML>
 <p>
 The linear capacitor connects the branch voltage <i>v</i> with the
@@ -349,11 +345,12 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
             color={0,0,255}),
           Line(points={{-96,0},{-20,0}}, color={0,0,255}),
           Line(points={{20,0},{96,0}}, color={0,0,255})}));
-  equation 
+
+  equation
     i = C*der(v);
   end Capacitor;
-  
-  model Inductor "Ideal linear electrical inductor" 
+
+  model Inductor "Ideal linear electrical inductor"
     extends Interfaces.OnePort;
     parameter SI.Inductance L(start=1) "Inductance";
     annotation (
@@ -410,24 +407,23 @@ The Inductance <i>L</i> is allowed to be positive, zero, or negative.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{60,0},{96,0}}, color={0,0,255}),
-          Line(points={{-96,0},{-60,0}}, color={0,0,255})})
-      );
-  equation 
+          Line(points={{-96,0},{-60,0}}, color={0,0,255})}));
+  equation
     L*der(i) = v;
   end Inductor;
-  
-  model SaturatingInductor "Simple model of an inductor with saturation" 
+
+  model SaturatingInductor "Simple model of an inductor with saturation"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     parameter Modelica.SIunits.Current Inom(start=1) "Nominal current";
-    parameter Modelica.SIunits.Inductance Lnom(start=1) 
+    parameter Modelica.SIunits.Inductance Lnom(start=1)
       "Nominal inductance at Nominal current";
-    parameter Modelica.SIunits.Inductance Lzer(start=2*Lnom) 
+    parameter Modelica.SIunits.Inductance Lzer(start=2*Lnom)
       "Inductance near current=0";
-    parameter Modelica.SIunits.Inductance Linf(start=Lnom/2) 
+    parameter Modelica.SIunits.Inductance Linf(start=Lnom/2)
       "Inductance at large currents";
     Modelica.SIunits.Inductance Lact(start=Lzer);
     Modelica.SIunits.MagneticFlux Psi;
-  protected 
+  protected
     parameter Modelica.SIunits.Current Ipar(start=Inom/10, fixed=false);
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
@@ -506,9 +502,9 @@ The parameters are:
             lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={0,0,255})}));
-  initial equation 
+  initial equation
     (Lnom - Linf) = (Lzer - Linf)*Ipar/Inom*(Modelica.Constants.pi/2-atan(Ipar/Inom));
-  equation 
+  equation
     assert(Lzer > Lnom+Modelica.Constants.eps,
            "Lzer (= " + String(Lzer) + ") has to be > Lnom (= " + String(Lnom) + ")");
     assert(Linf < Lnom-Modelica.Constants.eps,
@@ -517,8 +513,8 @@ The parameters are:
     Psi = Lact*i;
     v = der(Psi);
   end SaturatingInductor;
-  
-  model Transformer "Transformer with two ports" 
+
+  model Transformer "Transformer with two ports"
     extends Interfaces.TwoPort;
     parameter SI.Inductance L1(start=1) "Primary inductance";
     parameter SI.Inductance L2(start=1) "Secondary inductance";
@@ -609,14 +605,13 @@ relation:</p>
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{32,50},{96,50}}, color={0,0,255}),
-          Line(points={{32,-50},{96,-50}}, color={0,0,255})})
-      );
-  equation 
+          Line(points={{32,-50},{96,-50}}, color={0,0,255})}));
+  equation
     v1 = L1*der(i1) + M*der(i2);
     v2 = M*der(i1) + L2*der(i2);
   end Transformer;
-  
-  model Gyrator "Gyrator" 
+
+  model Gyrator "Gyrator"
     extends Interfaces.TwoPort;
     parameter SI.Conductance G1(start=1) "Gyration conductance";
     parameter SI.Conductance G2(start=1) "Gyration conductance";
@@ -731,22 +726,21 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
           Text(
             extent={{-20,-35},{20,-50}},
             textString="G2",
-            lineColor={0,0,255})})
-      );
-  equation 
+            lineColor={0,0,255})}));
+  equation
     i1 = G2*v2;
     i2 = -G1*v1;
   end Gyrator;
-  
-  model EMF "Electromotoric force (electric/mechanic transformer)" 
-    parameter Boolean useSupport=false 
+
+  model EMF "Electromotoric force (electric/mechanic transformer)"
+    parameter Boolean useSupport=false
       "= true, if support flange enabled, otherwise implicitly grounded" 
-        annotation(Evaluate=true, HideResult=true, choices(  Dymola_checkBox=true));
-    parameter SI.ElectricalTorqueConstant k(start=1) 
+        annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+    parameter SI.ElectricalTorqueConstant k(start=1)
       "Transformation coefficient";
     SI.Voltage v "Voltage drop between the two pins";
     SI.Current i "Current flowing from positive to negative pin";
-    SI.Angle phi 
+    SI.Angle phi
       "Angle of shaft flange with respect to support (= flange.phi - support.phi)";
     SI.AngularVelocity w "Angular velocity of flange relatuve to support";
     Interfaces.PositivePin p annotation (Placement(transformation(
@@ -759,7 +753,7 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
           rotation=90)));
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange 
       annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-    Mechanics.Rotational.Interfaces.Support support if useSupport 
+    Mechanics.Rotational.Interfaces.Support support if useSupport
       "Support/housing of emf shaft" 
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
     annotation (
@@ -842,8 +836,7 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
             lineColor={160,160,164},
             textString="i"),
           Line(points={{8,-79},{18,-79}}, color={192,192,192}),
-          Line(points={{14,80},{14,70}}, color={192,192,192})})
-      ,
+          Line(points={{14,80},{14,70}}, color={192,192,192})}),
       Documentation(info="<HTML>
 <p>
 EMF transforms electrical energy into rotational mechanical energy.
@@ -862,16 +855,16 @@ flange.phi is the angle at the rotational connection.
        </li>
 </ul>
 </html>"));
-  protected 
+  protected
     Mechanics.Rotational.Components.Fixed fixed if not useSupport 
       annotation (Placement(transformation(extent={{-90,-20},{-70,0}})));
     Mechanics.Rotational.Interfaces.InternalSupport internalSupport(tau=-flange.tau) 
       annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
-  equation 
+  equation
     v = p.v - n.v;
     0 = p.i + n.i;
     i = p.i;
-    
+
     phi = flange.phi - internalSupport.phi;
     w = der(phi);
     k*w = v;
@@ -885,8 +878,8 @@ flange.phi is the angle at the rotational connection.
         color={0,0,0},
         smooth=Smooth.None));
   end EMF;
-  
-  model VCV "Linear voltage-controlled voltage source" 
+
+  model VCV "Linear voltage-controlled voltage source"
     extends Interfaces.TwoPort;
     parameter Real gain(start=1) "Voltage gain";
     annotation (
@@ -911,8 +904,7 @@ The left port current is zero. Any voltage gain can be chosen.
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
-</html>")
-      ,
+</html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -951,12 +943,12 @@ The left port current is zero. Any voltage gain can be chosen.
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255})}));
-  equation 
+  equation
     v2 = v1*gain;
     i1 = 0;
   end VCV;
-  
-  model VCC "Linear voltage-controlled current source" 
+
+  model VCC "Linear voltage-controlled current source"
     extends Interfaces.TwoPort;
     parameter SI.Conductance transConductance(start=1) "Transconductance";
     annotation (
@@ -1023,16 +1015,15 @@ The left port current is zero. Any transConductance can be chosen.
             lineColor={0,0,255}),
           Line(points={{96,50},{30,50},{30,20}}, color={0,0,255}),
           Line(points={{96,-50},{30,-50},{30,-20}}, color={0,0,255}),
-          Line(points={{10,0},{50,0}}, color={0,0,255})})
-      );
-  equation 
+          Line(points={{10,0},{50,0}}, color={0,0,255})}));
+  equation
     i2 = v1*transConductance;
     i1 = 0;
   end VCC;
-  
-  model CCV "Linear current-controlled voltage source" 
+
+  model CCV "Linear current-controlled voltage source"
     extends Interfaces.TwoPort;
-    
+
     parameter SI.Resistance transResistance(start=1) "Transresistance";
     annotation (
       Documentation(info="<HTML>
@@ -1092,14 +1083,13 @@ The left port voltage is zero. Any transResistance can be chosen.
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
           Line(points={{96,50},{30,50},{30,-50},{96,-50}}, color={0,0,255}),
-          Line(points={{-96,50},{-30,50},{-30,-50},{-96,-50}}, color={0,0,255})})
-      );
-  equation 
+          Line(points={{-96,50},{-30,50},{-30,-50},{-96,-50}}, color={0,0,255})}));
+  equation
     v2 = i1*transResistance;
     v1 = 0;
   end CCV;
-  
-  model CCC "Linear current-controlled current source" 
+
+  model CCC "Linear current-controlled current source"
     extends Interfaces.TwoPort;
     parameter Real gain(start=1) "Current gain";
     annotation (
@@ -1138,7 +1128,8 @@ The left port voltage is zero. Any current gain can be chosen.
             extent={{-104,-76},{97,-127}},
             textString="%name",
             lineColor={0,0,255}),
-          Line(points={{-100,50},{-30,50},{-30,-50},{-100,-50}}, color={0,0,255}),
+          Line(points={{-100,50},{-30,50},{-30,-50},{-100,-50}}, color={0,0,255}), 
+
           Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
           Line(points={{-20,60},{20,60}}, color={0,0,255}),
           Polygon(
@@ -1164,34 +1155,33 @@ The left port voltage is zero. Any current gain can be chosen.
           Line(points={{96,50},{30,50},{30,20}}, color={0,0,255}),
           Line(points={{96,-50},{30,-50},{30,-20}}, color={0,0,255}),
           Line(points={{10,0},{50,0}}, color={0,0,255}),
-          Line(points={{-96,50},{-30,50},{-30,-50},{-96,-50}}, color={0,0,255})})
-      );
-    
-  equation 
+          Line(points={{-96,50},{-30,50},{-30,-50},{-96,-50}}, color={0,0,255})}));
+
+  equation
     i2 = i1*gain;
     v1 = 0;
   end CCC;
-  
-  model OpAmp "Simple nonideal model of an OpAmp with limitation" 
-    parameter Real Slope(start=1) 
+
+  model OpAmp "Simple nonideal model of an OpAmp with limitation"
+    parameter Real Slope(start=1)
       "Slope of the out.v/vin characteristic at vin=0";
-    Modelica.Electrical.Analog.Interfaces.PositivePin in_p 
+    Modelica.Electrical.Analog.Interfaces.PositivePin in_p
       "Positive pin of the input port" annotation (Placement(transformation(
             extent={{-110,-60},{-90,-40}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.NegativePin in_n 
+    Modelica.Electrical.Analog.Interfaces.NegativePin in_n
       "Negative pin of the input port" annotation (Placement(transformation(
             extent={{-90,40},{-110,60}}, rotation=0)));
     Modelica.Electrical.Analog.Interfaces.PositivePin out "Output pin" 
       annotation (Placement(transformation(extent={{110,-10},{90,10}}, rotation=
              0)));
-    Modelica.Electrical.Analog.Interfaces.PositivePin VMax 
+    Modelica.Electrical.Analog.Interfaces.PositivePin VMax
       "Positive output voltage limitation" annotation (Placement(transformation(
             extent={{-10,60},{10,80}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.NegativePin VMin 
+    Modelica.Electrical.Analog.Interfaces.NegativePin VMin
       "Negative output voltage limitation" annotation (Placement(transformation(
             extent={{-10,-80},{10,-60}}, rotation=0)));
     SI.Voltage vin "input voltagae";
-  protected 
+  protected
     Real f "auxiliary variable";
     Real absSlope;
     annotation (
@@ -1288,9 +1278,8 @@ value of Slope is taken into calculation.)
             lineColor={160,160,164},
             fillColor={160,160,164},
             fillPattern=FillPattern.Solid,
-            textString="vin")})
-      );
-  equation 
+            textString="vin")}));
+  equation
     in_p.i = 0;
     in_n.i = 0;
     VMax.i = 0;
@@ -1301,9 +1290,9 @@ value of Slope is taken into calculation.)
     out.v = (VMax.v + VMin.v)/2 + absSlope*vin/(1 + absSlope*smooth(0,(if (f*vin
        < 0) then -f*vin else f*vin)));
   end OpAmp;
-  
-        model VariableResistor 
-    "Ideal linear electrical resistor with variable resistance" 
+
+        model VariableResistor
+    "Ideal linear electrical resistor with variable resistance"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
           Modelica.Blocks.Interfaces.RealInput R 
             annotation (Placement(transformation(
@@ -1363,12 +1352,12 @@ The Resistance <i>R</i> is given as input signal.
           Line(points={{-96,0},{-70,0}}, color={0,0,255}),
           Line(points={{0,90},{0,30}}, color={0,0,255}),
           Line(points={{70,0},{96,0}}, color={0,0,255})}));
-        equation 
+        equation
           v = R*i;
         end VariableResistor;
-  
-        model VariableConductor 
-    "Ideal linear electrical conductor with variable conductance" 
+
+        model VariableConductor
+    "Ideal linear electrical conductor with variable conductance"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
           Modelica.Blocks.Interfaces.RealInput G 
             annotation (Placement(transformation(
@@ -1426,19 +1415,19 @@ The Conductance <i>G</i> is given as input signal.
             lineColor={0,0,255},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid)}));
-        equation 
+        equation
           i = G*v;
         end VariableConductor;
-  
-        model VariableCapacitor 
-    "Ideal linear electrical capacitor with variable capacitance" 
+
+        model VariableCapacitor
+    "Ideal linear electrical capacitor with variable capacitance"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
           Modelica.Blocks.Interfaces.RealInput C 
             annotation (Placement(transformation(
           origin={0,110},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-          parameter Modelica.SIunits.Capacitance Cmin=Modelica.Constants.eps 
+          parameter Modelica.SIunits.Capacitance Cmin=Modelica.Constants.eps
       "lower bound for variable capacitance";
           Modelica.SIunits.ElectricCharge Q;
           annotation (
@@ -1498,17 +1487,17 @@ Cmin is a parameter with default value Modelica.Constants.eps.
             points={{14,28},{14,-28}},
             thickness=0.5,
             color={0,0,255})}));
-        equation 
+        equation
           assert(C>=0,"Capacitance C (= " +
                  String(C) + ") has to be >= 0!");
           // protect solver from index change
           Q = noEvent(max(C,Cmin))*v;
           i = der(Q);
         end VariableCapacitor;
-  
-        model VariableInductor 
-    "Ideal linear electrical inductor with variable inductance" 
-    
+
+        model VariableInductor
+    "Ideal linear electrical inductor with variable inductance"
+
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
           Modelica.Blocks.Interfaces.RealInput L 
             annotation (Placement(transformation(
@@ -1516,7 +1505,7 @@ Cmin is a parameter with default value Modelica.Constants.eps.
           extent={{-20,-20},{20,20}},
           rotation=270)));
           Modelica.SIunits.MagneticFlux Psi;
-          parameter Modelica.SIunits.Inductance Lmin=Modelica.Constants.eps 
+          parameter Modelica.SIunits.Inductance Lmin=Modelica.Constants.eps
       "lower bound for variable inductance";
           annotation (
             Documentation(info="<HTML>
@@ -1577,12 +1566,12 @@ Lmin is a parameter with default value Modelica.Constants.eps.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{60,0},{96,0}}, color={0,0,255})}));
-        equation 
+        equation
           assert(L>=0,"Inductance L_ (= " +
                  String(L) + ") has to be >= 0!");
           // protect solver from index change
           Psi = noEvent(max(L,Lmin))*i;
           v = der(Psi);
         end VariableInductor;
-  
+
 end Basic;
