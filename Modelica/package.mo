@@ -676,7 +676,7 @@ that can lead to wrong simulation results):
                         This has been corrected.</td> 
   </tr>
   <tr><td valign=\"top\"> RelativeVelocity </td>
-      <td valign=\"top\"> The velocity has have been computed
+      <td valign=\"top\"> The velocity was computed
                           by differentiating in the resolveInFrame frame. This has been corrected, by
                           first transforming the relative position in to frame_a, differentiating here
                           and then transforming into resolveInFrame </td> 
