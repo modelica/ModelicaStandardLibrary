@@ -4,7 +4,7 @@ extends Icons.Library;
 
 
 annotation (
-  preferredView="info",
+  preferredView="info", 
   version="3.0",
   versionBuild="$Rev$",
   versionDate="$Date::                            $",

@@ -502,7 +502,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
     parameter Boolean get_r_rel=false
       "= true, to measure the relative position vector from the origin of frame_a to frame_b"
       annotation(HideResult=true, choices(__Dymola_checkBox=true));
-    parameter Boolean get_v_rel=true
+    parameter Boolean get_v_rel=false
       "= true, to measure the relative velocity of the origin of frame_b with respect to frame_a"
       annotation(HideResult=true, choices(__Dymola_checkBox=true));
     parameter Boolean get_a_rel=false
