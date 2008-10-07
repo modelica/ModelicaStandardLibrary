@@ -1021,12 +1021,10 @@ according to chapter 3 of the book:
 </p>
 
 <dl>
-<dt>Astroem K.J., and Haegglund T.:</dt>
+<dt>&Aring;str&ouml;m K.J., and H&auml;gglund T.:</dt>
 <dd> <b>PID Controllers: Theory, Design, and Tuning</b>.
      Instrument Society of America, 2nd edition, 1995.
-     Information from:
-     <a href=\"http://www.control.lth.se/publications/books/asthagg95.html\">http://www.control.lth.se/publications/books/asthagg95.html</a>
-     </dd>
+</dd>
 </dl>
 
 <p>
