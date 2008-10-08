@@ -611,7 +611,7 @@ Temperature is returned from the thermodynamic state record input as a simple as
   end Internal;
 
   algorithm
-    T := Internal.solve(h, 200, 6000, p, X[1:nXi], steam);
+    T := Internal.solve(h, 240, 400, p, X[1:nXi], steam);
       annotation (Documentation(info="<html>
 Temperature is computed from pressure, specific enthalpy and composition via numerical inversion of function <a href=Modelica:Modelica.Media.Air.MoistAir.h_pTX>h_pTX</a>.
 </html>"));
