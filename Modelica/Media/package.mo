@@ -4861,7 +4861,7 @@ partial package PartialLinearFluid
         d = (1 + (p-reference_p)*kappa_const - (T-reference_T)*beta_const)*reference_d;
         h = reference_h +
             (T-reference_T)*cp_const +
-            (p-reference_p)*(1-beta_const*reference_T)/d;
+            (p-reference_p)*(1-beta_const*reference_T)/reference_d;
         u = h - p/d;
         p = state.p;
         T = state.T;
@@ -4922,7 +4922,7 @@ partial package PartialLinearFluid
       algorithm
       h := reference_h +
           (state.T-reference_T)*cp_const +
-          (state.p-reference_p)*(1-beta_const*reference_T)/density(state);
+          (state.p-reference_p)*(1-beta_const*reference_T)/reference_d;
       end specificEnthalpy;
 
       redeclare function extends specificEntropy
@@ -4930,13 +4930,13 @@ partial package PartialLinearFluid
       algorithm
       s := reference_s +
           (state.T-reference_T)*cp_const/state.T +
-          (state.p-reference_p)*(-beta_const/density(state));
+          (state.p-reference_p)*(-beta_const/reference_d);
       end specificEntropy;
 
       redeclare function extends specificInternalEnergy
       "Return the specific internal energy from the thermodynamic state"
       algorithm
-        u := specificEnthalpy(state)-state.p/density(state);
+        u := specificEnthalpy(state)-state.p/reference_d;
       end specificInternalEnergy;
 
       redeclare function extends specificGibbsEnergy
@@ -4995,7 +4995,7 @@ one, which would require a numeric solution.
       "Return specific heat capacity at constant volume from the thermodynamic state"
       algorithm
         cv := if constantJacobian then cp_const - reference_T*beta_const*beta_const/(kappa_const*reference_d) else 
-              state.T*beta_const*beta_const/(kappa_const*density(state));
+              state.T*beta_const*beta_const/(kappa_const*reference_d);
       end specificHeatCapacityCv;
 
       redeclare function extends isothermalCompressibility
@@ -5071,6 +5071,7 @@ one, which would require a numeric solution.
 <li>The isobaric expansion coefficient (beta) is constant</li>
 <li>The isothermal compressibility (kappa) is constant</li>
 <li>Pressure and temperature are used as states</li>
+<li>The influence of density on specific enthalpy (h), entropy (s), inner energy (u) and heat capacity (cv) at constant volume is neglected.    
 </ul>
 <p>
 That means that the density is a linear function in temperature and in pressure. 
@@ -5090,6 +5091,12 @@ Note that it is possible to define a fluid by computing the reference
 values from a full non-linear fluid model by computing the package constants 
 using the standard functions defined in a fluid package (see example in liquids package).
 </p>
+<p>
+In order to avoid numerical inversion of the temperature in the T_ph and T_ps functions, the density
+is always taken to be the reference density in the computation of h, s, u and cv. For liquids (and this 
+model is intended only for liquids) the relative error of doing so is 1e-3 to 1e-4 at most. The model would			    
+be more \"correct\" based on the other assumptions, if occurences of reference_d in the computations of h,s,u
+and cv would be replaced by a call to density(state). That would require a numerical solution for T_ps, while T_ph can be solved symbolicallyfrom a quadratic function. Errors from this approximation are small because liquid density varies little.</p>
 <h4>Efficiency considerations</h4>
 <p>One of the main reasons to use a simple, linear fluid model is to achieve high performance 
 in simulations. There are a number of possible compromises and possibilities to improve performance. 
