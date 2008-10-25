@@ -1662,9 +1662,9 @@ The Real output y is a trapezoid signal:
     "Move as fast as possible along a distance within given kinematic constraints"
 
         parameter Real deltaq[:] "Distance to move";
-        parameter Real qd_max[:](final min=Modelica.Constants.small)
+        parameter Real qd_max[:](each final min=Modelica.Constants.small)
       "Maximum velocities der(q)";
-        parameter Real qdd_max[:](final min=Modelica.Constants.small)
+        parameter Real qdd_max[:](each final min=Modelica.Constants.small)
       "Maximum accelerations der(qd)";
         parameter SIunits.Time startTime=0
       "Time instant at which movement starts";
@@ -1834,9 +1834,9 @@ a flange according to a given acceleration.
     import SI = Modelica.SIunits;
     parameter Real q_begin[:] = {0} "Start position";
     parameter Real q_end[:] "End position";
-    parameter Real qd_max[:](final min=Modelica.Constants.small)
+    parameter Real qd_max[:](each final min=Modelica.Constants.small)
       "Maximum velocities der(q)";
-    parameter Real qdd_max[:](final min=Modelica.Constants.small)
+    parameter Real qdd_max[:](each final min=Modelica.Constants.small)
       "Maximum accelerations der(qd)";
     parameter Modelica.SIunits.Time startTime=0
       "Time instant at which movement starts";
