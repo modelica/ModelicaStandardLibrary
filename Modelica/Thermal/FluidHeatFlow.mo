@@ -1,4 +1,3 @@
-within Modelica.Thermal;
 
 
 package FluidHeatFlow 
@@ -1411,7 +1410,7 @@ Flow resistance under real conditions is calculated by<br>
       assert(kv0<1-eps, "Valve characteristic: kv0 has to be < 1 !");
     equation 
       // evaluate standard characteristic
-      Kv/Kv1 = if LinearCharacteristic then (kv0 + (1-kv0)*yLim/y1) else kv0*exp(ln(1/kv0)*yLim/y1);
+      Kv/Kv1 = if LinearCharacteristic then (kv0 + (1-kv0)*yLim/y1) else kv0*exp(Modelica.Math.log(1/kv0)*yLim/y1);
       // pressure drop under real conditions
       dp/dp0 = medium.rho/rho0*(V_flow/Kv)*abs(V_flow/Kv);
       // no energy exchange with medium
