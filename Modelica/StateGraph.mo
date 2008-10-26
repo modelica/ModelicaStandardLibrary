@@ -81,9 +81,7 @@ and the accompanying <b>disclaimer</b>
 </p><br>
  
 </HTML>
-")
-  ,
-    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
         Rectangle(extent={{-88,-20},{-50,-54}}, lineColor={0,0,0}),
         Line(points={{-50,-38},{-24,-38}}, color={0,0,0}),
@@ -2063,7 +2061,9 @@ package Interfaces "Connectors and partial models"
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
                      graphics),
-                      Diagram(graphics));
+                      Diagram(coordinateSystem(preserveAspectRatio=false,
+              extent={{-100,-100},{100,100}}),
+                              graphics));
   end CompositeStepStatePort_out;
 
   partial block PartialStep
@@ -2104,15 +2104,13 @@ package Interfaces "Connectors and partial models"
     for i in 1:nIn loop
 
     assert(cardinality(inPort[i]) <= 1,
-  "Connector inPort[" + String(i) + "] of the step is connected 
-to more than one transition");
+           "Connector is connected to more than one transition (this is not allowed)");
     end for;
 
     for i in 1:nOut loop
 
     assert(cardinality(outPort[i]) <= 1,
-  "Connector outPort[" + String(i) + "] of the step is connected 
-to more than one transition");
+           "Connector is connected to more than one transition (this is not allowed)");
     end for;
 
     // set active state
@@ -2157,8 +2155,8 @@ to more than one transition");
         outPort[i].reset = false;
       end if;
     end for;
-    annotation(Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
-                -100,-100},{100,100}}),
+    annotation(Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}),
                        graphics),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}),
@@ -2287,7 +2285,6 @@ block InitialStep "Initial step (= step that is active when simulation starts)"
   extends Interfaces.PartialStep;
 
   annotation (
-    
     Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2327,7 +2324,7 @@ block InitialStepWithSignal
   extends Interfaces.PartialStep;
 
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={Rectangle(extent={{-100,100},{100,-100}},
+              -100},{100,100}}), graphics={Rectangle(extent={{-100,100},{100,-100}}, 
               lineColor={0,0,0}), Rectangle(extent={{-80,80},{80,-80}},
               lineColor={0,0,0})}),
        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -2372,7 +2369,6 @@ block Step "Ordinary step (= step that is not active when simulation starts)"
   extends Interfaces.PartialStep;
 
   annotation (
-    
     Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2395,6 +2391,7 @@ block Step "Ordinary step (= step that is not active when simulation starts)"
       Documentation(info="<html>
   
 </html>"));
+
 initial equation
   active = false;
 equation
@@ -2452,7 +2449,6 @@ block Transition
   extends Interfaces.PartialTransition(final localCondition=condition);
 
   annotation (
-    
     Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2505,7 +2501,6 @@ block TransitionWithSignal
   extends Interfaces.PartialTransition(final localCondition=condition);
 
   annotation (
-    
     Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2569,7 +2564,7 @@ block Alternative
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-100,0},{-80,0}}, color={0,0,0}),
+          grid={1,1}), graphics={Line(points={{-100,0},{-80,0}}, color={0,0,0}), 
             Line(points={{80,0},{100,0}}, color={0,0,0})}),
       Documentation(info="<html>
   
@@ -2653,10 +2648,10 @@ equation
   for i in 1:nBranches loop
 
      assert(cardinality(split[i]) == 1,
-       "Connector split[" + String(i) + "] is not connected to exactly one other connector");
+       "Connector is not connected to exactly one other connector");
 
      assert(cardinality(join[i]) == 1,
-       "Connector join[" + String(i) + "] is not connected to exactly one other connector");
+       "Connector is not connected to exactly one other connector");
 
   end for;
 
@@ -2693,7 +2688,7 @@ block Parallel
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-100,0},{-80,0}}, color={0,0,0}),
+          grid={1,1}), graphics={Line(points={{-100,0},{-80,0}}, color={0,0,0}), 
             Line(points={{80,0},{100,0}}, color={0,0,0})}),
       Documentation(info="<html>
   
@@ -2825,10 +2820,10 @@ equation
   for i in 1:nBranches loop
 
      assert(cardinality(split[i]) == 1,
-       "Connector split[" + String(i) + "] is not connected to exactly one other connector");
+       "Connector is not connected to exactly one other connector");
 
      assert(cardinality(join[i]) == 1,
-       "Connector join[" + String(i) + "] is not connected to exactly one other connector");
+       "Connector is not connected to exactly one other connector");
 
   end for;
 
@@ -2871,7 +2866,6 @@ partial block PartialCompositeStep
           rotation=90)));
 
   annotation (
-    
     Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-150,-150},{150,150}},
@@ -2904,6 +2898,7 @@ partial block PartialCompositeStep
       Documentation(info="<html>
   
 </html>"));
+
   block OuterState
       "Block containing the port that is connected to the outer stateGraphRoot"
     Interfaces.CompositeStepStatePort_in subgraphStatePort
@@ -3095,8 +3090,7 @@ type SetRealParameter = Real "Define Real parameter (GUI not yet satisfactory)"
   annotation (
   Dialog,
   defaultComponentName="name",
-  defaultComponentPrefixes="parameter"
-  ,
+  defaultComponentPrefixes="parameter",
   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -3241,8 +3235,8 @@ value, still requires to go in to the text layer.
               borderPattern=BorderPattern.Raised), Text(
               extent={{-90,-46},{90,34}},
               textString=DynamicSelect(" ", realString(
-                    Value,
-                    1,
+                    Value, 
+                    1, 
                     integer(precision))),
               lineColor={0,0,255})}),
         Diagram(graphics),
@@ -3267,8 +3261,8 @@ value, still requires to go in to the text layer.
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Ellipse(
               extent={{-100,-100},{100,100}},
-              fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0} else 
-                        {235,235,235}),
+              fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0}
+                   else {235,235,235}),
               lineColor={0,0,0},
               pattern=LinePattern.None,
               fillPattern=FillPattern.Sphere), Text(
