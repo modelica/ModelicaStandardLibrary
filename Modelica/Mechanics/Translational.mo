@@ -1,4 +1,3 @@
-within Modelica.Mechanics; 
 
 
 package Translational 
@@ -301,13 +300,13 @@ combination). In this case the system is not at rest.
       Translational.SlidingMass M1(L=1) annotation (extent=[-20, -20; 0, 0]);
       Translational.Spring S1(
         s_rel0=1,
-        c=1e3, 
+        c=1e3,
         s_rel(start=1, fixed=false)) 
                         annotation (extent=[-58, -20; -38, 0]);
       Translational.Fixed Fixed2(s0=-1) annotation (extent=[-100, -20; -80, 0]);
       Translational.SpringDamper SD1(
         s_rel0=1,
-        c=111, 
+        c=111,
         s_rel(start=1, fixed=true)) 
                         annotation (extent=[20, -20; 40, 0]);
       Translational.SlidingMass M2(L=2) annotation (extent=[60, -20; 80, 0]);
@@ -1525,7 +1524,7 @@ with the Modelica.Blocks blocks.
 (based on Translational.FrictionBase from Martin Otter)</i> </li>
 </ul>
 </html>"));
-protected
+    protected 
       constant SI.Acceleration unitAcceleration = 1;
       constant SI.Force unitForce = 1;
     equation 
@@ -1658,7 +1657,7 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
   
   model Stop "Sliding mass with hard stop and Stribeck friction" 
     extends Modelica.Mechanics.Translational.Interfaces.FrictionBase(
-  s(stateSelect = StateSelect.always));
+      s(stateSelect = StateSelect.always));
     Modelica.SIunits.Velocity v(stateSelect = StateSelect.always) 
       "Absolute velocity of flange_a and flange_b";
     Modelica.SIunits.Acceleration a 
@@ -1674,7 +1673,7 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
     parameter Real fexp(
       final unit="1/ (m/s)",
       final min=0) = 2 "exponential decay";
-    
+    Integer stopped = if s <= smin + L/2 then -1 else if s >= smax - L/2 then +1 else 0;
     annotation (
       Documentation(info="
 <HTML>
@@ -1893,20 +1892,27 @@ between the stops.</i> </li>
       assert(s < smax - L/2 or s <= smax - L/2 and v <= 0,
         "Error in initialization of hard stop. (s + L/2) must be <= smax ");
     end when;
-    
-    when not (s < smax - L/2) then
-      reinit(s, smax - L/2);
-      if (not initial() or v>0) then
+    when stopped <> 0 then
+      reinit(s, if stopped < 0 then smin + L/2 else smax - L/2);
+      if (not initial() or stopped*v>0) then
         reinit(v, 0);
       end if;
     end when;
-    
-    when not (s > smin + L/2) then
-      reinit(s, smin + L/2);
-      if (not initial() or v<0) then
-        reinit(v, 0);
-      end if;
-    end when;
+  /*
+  when not (s < smax - L/2) then
+    reinit(s, smax - L/2);
+    if (not initial() or v>0) then
+      reinit(v, 0);
+    end if;
+  end when;
+  
+  when not (s > smin + L/2) then
+    reinit(s, smin + L/2);
+    if (not initial() or v<0) then
+      reinit(v, 0);
+    end if;
+  end when;
+*/
   end Stop;
   
   model Rod "Rod without inertia" 
