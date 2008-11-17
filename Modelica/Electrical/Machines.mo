@@ -3360,7 +3360,7 @@ Shunt or separate excitation is defined by the user's external circuit.
 <td valign=\"top\">0.05</td><td valign=\"top\">Ohm in warm condition</td>
 </tr>
 <tr>
-<td valign=\"top\">aramture inductance</td>
+<td valign=\"top\">armature inductance</td>
 <td valign=\"top\">0.0015</td><td valign=\"top\">H</td>
 </tr>
 <tr>
@@ -3499,7 +3499,7 @@ Series excitation has to be connected by the user's external circuit.
 <td valign=\"top\">0.05</td><td valign=\"top\">Ohm in warm condition</td>
 </tr>
 <tr>
-<td valign=\"top\">aramture inductance</td>
+<td valign=\"top\">armature inductance</td>
 <td valign=\"top\">0.0015</td><td valign=\"top\">H</td>
 </tr>
 <tr>
