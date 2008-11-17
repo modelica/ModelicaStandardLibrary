@@ -889,16 +889,16 @@ to see the difference.
         m=1,
         L=1,
         s(fixed=true),
-        v(fixed=true))
+        v(fixed=true)) 
         annotation (Placement(transformation(extent={{10,0},{30,20}})));
       Components.SupportFriction supportFriction(f_pos=
             Examples.Utilities.GenerateStribeckFrictionTable(
-                F_prop=1, 
-                F_Coulomb=5, 
-                F_Stribeck=10, 
-                fexp=2, 
-                v_max=12, 
-                nTable=50))
+                F_prop=1,
+                F_Coulomb=5,
+                F_Stribeck=10,
+                fexp=2,
+                v_max=12,
+                nTable=50)) 
         annotation (Placement(transformation(extent={{40,0},{60,20}})));
     equation
       connect(spring.flange_b, stop2.flange_a)  annotation (Line(points={{22,-50},
@@ -939,8 +939,7 @@ to see the difference.
             grid={2,2}), graphics={
             Text(
               extent={{-98,-68},{102,-94}},
-              textString="positive force => spool moves in positive direction ", 
-
+              textString="positive force => spool moves in positive direction ",
               lineColor={0,0,255}),
             Text(
               extent={{-32,-46},{38,-62}},
@@ -2113,8 +2112,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       f0_max = peak*f0;
       free = false;
 
-      s = s_a;
-      s = s_b;
+      s = s_a - internalSupport.s;
+      s_a = s_b;
 
     // velocity and acceleration of flanges
       v = der(s);
@@ -3697,7 +3696,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
               Text(
               extent={{80,-28},{114,-62}},
               lineColor={0,0,0},
@@ -3729,7 +3728,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
               Text(
               extent={{80,-28},{111,-61}},
               lineColor={0,0,0},
@@ -3763,7 +3762,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
               Text(
               extent={{80,-28},{115,-60}},
               lineColor={0,0,0},
