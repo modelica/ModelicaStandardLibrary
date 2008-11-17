@@ -2113,8 +2113,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       f0_max = peak*f0;
       free = false;
 
-      s = s_a;
-      s = s_b;
+      s = s_a - internalSupport.s;
+      s_a = s_b;
 
     // velocity and acceleration of flanges
       v = der(s);
@@ -3537,7 +3537,7 @@ blocks of Modelica.Blocks.Source.
         "Velocity of flange with respect to support (= der(s))";
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}},
+                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}}, 
                 color={0,0,255})}), Documentation(info="<HTML>
 <p>
 Model of force, linearly dependent on velocity of flange.<br>
