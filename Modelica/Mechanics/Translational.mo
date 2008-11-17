@@ -2537,6 +2537,7 @@ provided via a signal bus.
       parameter Modelica.SIunits.Force F_Stribeck(start=10) "Stribeck effect";
       parameter Real fexp(final unit="s/m", final min=0, start = 2)
         "Exponential decay";
+      Integer stopped = if s <= smin + L/2 then -1 else if s >= smax - L/2 then +1 else 0;
       annotation (
         Documentation(info="
 <HTML>
@@ -2878,20 +2879,27 @@ Additionally, a left and right stop are handled.
         assert(s < smax - L/2 or s <= smax - L/2 and v <= 0,
           "Error in initialization of hard stop. (s + L/2) must be <= smax ");
       end when;
-
-      when not (s < smax - L/2) then
-        reinit(s, smax - L/2);
-        if (not initial() or v>0) then
+      when stopped <> 0 then
+        reinit(s, if stopped < 0 then smin + L/2 else smax - L/2);
+        if (not initial() or stopped*v>0) then
           reinit(v, 0);
         end if;
       end when;
-
-      when not (s > smin + L/2) then
-        reinit(s, smin + L/2);
-        if (not initial() or v<0) then
-          reinit(v, 0);
-        end if;
-      end when;
+    /* 
+  when not (s < smax - L/2) then
+    reinit(s, smax - L/2);
+    if (not initial() or v>0) then
+      reinit(v, 0);
+    end if;
+  end when;
+ 
+  when not (s > smin + L/2) then
+    reinit(s, smin + L/2);
+    if (not initial() or v<0) then
+      reinit(v, 0);
+    end if;
+  end when;
+*/
     end MassWithStopAndFriction;
 
     model RelativeStates "Definition of relative state variables"
@@ -3537,7 +3545,7 @@ blocks of Modelica.Blocks.Source.
         "Velocity of flange with respect to support (= der(s))";
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}}, 
+                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}},
                 color={0,0,255})}), Documentation(info="<HTML>
 <p>
 Model of force, linearly dependent on velocity of flange.<br>
