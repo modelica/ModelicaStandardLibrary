@@ -483,7 +483,7 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
         annotation (points=[-6.12323e-016,70; -6.12323e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12323e-016,50; 0,48; 1.22461e-015,46; 
+        annotation (points=[6.12323e-016,50; 0,48; 1.22461e-015,46;
             6.12323e-016,46; 6.12323e-016,40], style(color=3));
       connect(Star3.pin_n, Ground3.p) 
         annotation (points=[-70,-90; -80,-90],   style(color=3));
@@ -716,7 +716,7 @@ Default machine parameters of model <i>SM_ReluctanceRotorDamperCage</i> are used
       connect(LoadInertia.flange_b, TorqueStep1.flange) 
         annotation (points=[60,-40; 70,-40], style(color=0, rgbcolor={0,0,0}));
       connect(CurrentRMSsensor1.plug_p, SignalVoltage1.plug_p) annotation (
-          points=[6.12323e-016,40; 6.12323e-016,42.5; 6.12303e-016,42.5; 
+          points=[6.12323e-016,40; 6.12323e-016,42.5; 6.12303e-016,42.5;
             6.12303e-016,45; 6.12303e-016,50; 6.12323e-016,50], style(color=3,
             rgbcolor={0,0,255}));
       connect(SMR1.plug_sn, RotorAngle1.plug_n)  annotation (points=[-16,-30;
@@ -825,7 +825,7 @@ Default machine parameters of model <i>SM_PermanentMagnetDamperCage</i> are used
             rgbcolor={0,0,255}));
       connect(RotorAngle1.plug_n, SMPM1.plug_sn)  annotation (points=[-16,-20;
             -16,-30], style(color=3, rgbcolor={0,0,255}));
-      connect(RotorAngle1.plug_p, SMPM1.plug_sp)  annotation (points=[-4,-20; 
+      connect(RotorAngle1.plug_p, SMPM1.plug_sp)  annotation (points=[-4,-20;
             -4,-30],                 style(color=3, rgbcolor={0,0,255}));
       connect(RotorAngle1.flange, SMPM1.flange_a) 
         annotation (points=[0,-10; 0,-40], style(color=0, rgbcolor={0,0,0}));
@@ -888,7 +888,7 @@ Simulate for 30 seconds and plot (versus RotorAngle1.rotorAngle):
 Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are used.
 </HTML>"));
       Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage
-        SMEE1(phi_mechanical(start=-(Modelica.Constants.pi + 
+        SMEE1(phi_mechanical(start=-(Modelica.Constants.pi +
               Modelica.SIunits.Conversions.from_deg(gamma0))/SMEE1.p, fixed=
               true)) 
         annotation (extent=[-20,-50; 0,-30],     rotation=0);
@@ -923,7 +923,7 @@ Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are us
     equation 
       connect(RotorAngle1.plug_n, SMEE1.plug_sn)  annotation (points=[-16,-20;
             -16,-30], style(color=3, rgbcolor={0,0,255}));
-      connect(RotorAngle1.plug_p, SMEE1.plug_sp)  annotation (points=[-4,-20; 
+      connect(RotorAngle1.plug_p, SMEE1.plug_sp)  annotation (points=[-4,-20;
             -4,-25; -4,-25; -4,-30], style(color=3, rgbcolor={0,0,255}));
       connect(RotorAngle1.flange, SMEE1.flange_a) 
         annotation (points=[0,-10; 0,-40], style(color=0, rgbcolor={0,0,0}));
@@ -932,7 +932,7 @@ Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are us
       connect(Star1.plug_p, SineVoltage1.plug_n) annotation (points=[-50,90;
             -40,90], style(color=3, rgbcolor={0,0,255}));
       connect(ElectricalPowerSensor1.plug_ni, CurrentRMSsensor1.plug_p) 
-        annotation (points=[6.12323e-016,50; 1.76911e-022,46; 6.12323e-016,46; 
+        annotation (points=[6.12323e-016,50; 1.76911e-022,46; 6.12323e-016,46;
             6.12323e-016,40], style(color=3, rgbcolor={0,0,255}));
       connect(SMEE1.flange_a, MechanicalPowerSensor1.flange_a) 
         annotation (points=[0,-40; 10,-40], style(color=0, rgbcolor={0,0,0}));
@@ -4304,8 +4304,8 @@ Rotates space phasors of left connector to right connector by the angle provided
       equation 
         spacePhasor_b.v_ = RotationMatrix*spacePhasor_a.v_;
       //spacePhasor_a.v_ = InverseRotator*spacePhasor_b.v_;
-        spacePhasor_b.i_ = RotationMatrix*spacePhasor_a.i_;
-      //spacePhasor_a.i_ = InverseRotator*spacePhasor_b.i_;
+        spacePhasor_b.i_ + RotationMatrix*spacePhasor_a.i_ = zeros(2);
+      //spacePhasor_a.i_ + InverseRotator*spacePhasor_b.i_ = zeros(2);
       end Rotator;
     end Components;
     
