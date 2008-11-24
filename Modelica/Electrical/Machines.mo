@@ -1,4 +1,3 @@
-within Modelica.Electrical;
 
 
 package Machines "Library for electric machines" 
@@ -907,7 +906,7 @@ Simulate for 30 seconds and plot (versus RotorAngle1.rotorAngle):
 Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are used.
 </HTML>"));
       Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage
-        SMEE1(phi_mechanical(start=-(Modelica.Constants.pi + 
+        SMEE1(phi_mechanical(start=-(Modelica.Constants.pi +
               Modelica.SIunits.Conversions.from_deg(gamma0))/SMEE1.p, fixed=
               true)) 
         annotation (extent=[-20,-50; 0,-30],     rotation=0);
@@ -953,7 +952,7 @@ Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are us
       connect(Star1.plug_p, SineVoltage1.plug_n) annotation (points=[-50,90;
             -40,90], style(color=3, rgbcolor={0,0,255}));
       connect(ElectricalPowerSensor1.plug_ni, CurrentRMSsensor1.plug_p) 
-        annotation (points=[6.12323e-016,50; 1.76911e-022,46; 6.12323e-016,46; 
+        annotation (points=[6.12323e-016,50; 1.76911e-022,46; 6.12323e-016,46;
             6.12323e-016,40], style(color=3, rgbcolor={0,0,255}));
       connect(SMEE1.flange_a, MechanicalPowerSensor1.flange_a) 
         annotation (points=[0,-40; 40,-40], style(color=0, rgbcolor={0,0,0}));
@@ -6478,8 +6477,8 @@ Rotates space phasors of left connector to right connector by the angle provided
       equation 
         spacePhasor_b.v_ = RotationMatrix*spacePhasor_a.v_;
       //spacePhasor_a.v_ = InverseRotator*spacePhasor_b.v_;
-        spacePhasor_b.i_ = RotationMatrix*spacePhasor_a.i_;
-      //spacePhasor_a.i_ = InverseRotator*spacePhasor_b.i_;
+        spacePhasor_b.i_ + RotationMatrix*spacePhasor_a.i_ = zeros(2);
+      //spacePhasor_a.i_ + InverseRotator*spacePhasor_b.i_ = zeros(2);
       end Rotator;
       
     end Components;
