@@ -50,9 +50,13 @@ and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
-</html>")
-    ,
-    experiment(StopTime=1e-007));
+</html>"),
+    experiment(StopTime=1e-007),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+            100,100}}), graphics={Text(
+          extent={{-90,98},{-12,66}},
+          lineColor={0,0,255},
+          textString="NAND Gate")}));
   Sources.TrapezoidVoltage VIN1(
     V=3.5,
     startTime=20e-9,

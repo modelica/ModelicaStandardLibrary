@@ -74,12 +74,14 @@ and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
-</html>")
-    ,
+</html>"),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics));
+        grid={1,1}), graphics={Text(
+          extent={{-94,93},{-44,70}},
+          lineColor={0,0,255},
+          textString="NAND")}));
   Semiconductors.PMOS TP1(
     W=6.5e-6,
     L=3.1e-6,

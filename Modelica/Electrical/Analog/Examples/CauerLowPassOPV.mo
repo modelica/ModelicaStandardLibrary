@@ -1,8 +1,8 @@
 within Modelica.Electrical.Analog.Examples;
 model CauerLowPassOPV "Cauer low pass filter with operational amplifiers"
 
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-250,-200},{
-            250,200}}), graphics={Text(
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-250,
+            -200},{250,200}}), graphics={Text(
           extent={{-130,172},{80,120}},
           textString="CauerLowPassOPV",
           lineColor={0,0,255})}),

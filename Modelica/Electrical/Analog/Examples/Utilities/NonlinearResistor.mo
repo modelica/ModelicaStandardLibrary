@@ -2,7 +2,6 @@ within Modelica.Electrical.Analog.Examples.Utilities;
 model NonlinearResistor "Chua's resistor"
   extends Interfaces.OnePort;
   annotation (
-    
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -36,6 +35,7 @@ model NonlinearResistor "Chua's resistor"
     Documentation(info="<html>
   
 </html>"));
+
   parameter SI.Conductance Ga "conductance in inner voltage range";
   parameter SI.Conductance Gb "conductance in outer voltage range";
   parameter SI.Voltage Ve "inner voltage range limit";

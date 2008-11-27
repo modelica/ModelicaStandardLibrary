@@ -98,8 +98,8 @@ model Rp "positive resistance"
             lineColor={0,0,0},
             textString="R=%R"),
           Line(points={{-74,0},{-80,0},{-60,0}}, color={85,255,85}),
-          Line(points={{-80,-20},{-60,-20},{-60,-16},{-40,-10},{-4,-10}}, color=
-               {85,255,85}),
+          Line(points={{-80,-20},{-60,-20},{-60,-16},{-40,-10},{-4,-10}}, color
+              ={85,255,85}),
           Line(points={{4,-10},{40,-10},{60,-16},{60,-20},{80,-20}}, color={85,
                 255,85}),
           Line(points={{80,0},{60,0}}, color={85,255,85}),
@@ -156,8 +156,8 @@ equation
         points={{60,5},{80,5},{80,2},{100,2}},
         color={0,0,255}));
 end Rp;
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-250,-200},{
-            250,200}}), graphics={Text(
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-250,
+            -200},{250,200}}), graphics={Text(
           extent={{-100,180},{94,140}},
           textString="CauerLowPassSC",
           lineColor={0,0,255})}),

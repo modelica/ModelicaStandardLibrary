@@ -51,9 +51,13 @@ and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
-</html>")
-    ,
-    experiment(StopTime=1));
+</html>"),
+    experiment(StopTime=1),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+            100,100}}), graphics={Text(
+          extent={{-98,106},{22,60}},
+          lineColor={0,0,255},
+          textString="Difference Amplifier")}));
   Sources.ExpSineVoltage V1(
     V=0.2,
     freqHz=0.2e9,
@@ -124,7 +128,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 equation
   connect(V1.n, Gnd1.p) annotation (Line(points={{-90,-60},{-90,-70}}));
   connect(C1.n, Gnd2.p) annotation (Line(points={{-60,-60},{-60,-70}}));
-  connect(I1.n, Gnd7.p) annotation (Line(points={{-10,-60},{-10,-70}}));
+  connect(I1.n, Gnd7.p) annotation (Line(points={{-10,-60},{-10,-65},{-10,-65},
+          {-10,-70}}));
   connect(C5.n, Gnd8.p) annotation (Line(points={{10,-60},{10,-70}}));
   connect(C3.n, Gnd5.p) annotation (Line(points={{60,-60},{60,-70}}));
   connect(R3.n, Gnd4.p) annotation (Line(points={{90,-10},{90,-40}}));

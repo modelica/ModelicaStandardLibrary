@@ -18,7 +18,8 @@ model CharacteristicThyristors "Characteristic of ideal thyristors"
   Modelica.Electrical.Analog.Basic.Resistor R3(R=1.e-3) 
   annotation (Placement(transformation(extent={{40,0},{60,20}}, rotation=0)));
 
-annotation (Diagram(graphics={Text(
+annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+            -100},{100,100}}), graphics={Text(
           extent={{-96,100},{98,60}},
           textString="Characteristic Thyristors",
           lineColor={0,0,255})}),        Documentation(info="<HTML>

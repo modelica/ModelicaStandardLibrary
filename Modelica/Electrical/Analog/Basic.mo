@@ -9,7 +9,7 @@ Documentation(info="<HTML>
 <p>
 This package contains basic analog electrical components.
 </p>
-
+ 
 </HTML>
 ", revisions="<html>
 <dl>
@@ -610,6 +610,242 @@ relation:</p>
     v1 = L1*der(i1) + M*der(i2);
     v2 = M*der(i1) + L2*der(i2);
   end Transformer;
+
+model M_Transformer
+
+  parameter Integer N(final min=1)=3 "number of inductors";
+  protected
+  parameter Integer dimL=div(N*(N+1),2);
+  public
+  parameter Real L[dimL]={1, 0.1, 0.2, 2, 0.3, 3}
+      "inductances and coupling inductances";
+  Modelica.Electrical.Analog.Interfaces.PositivePin p[N] "Positive pin" 
+              annotation (extent=[-80,-40; -62,40], Placement(transformation(
+          extent={{-80,-40},{-62,40}}, rotation=0)));
+  Modelica.Electrical.Analog.Interfaces.NegativePin n[N] "Negative pin" 
+              annotation (extent=[62,-40; 80,40], Placement(transformation(
+          extent={{62,-40},{80,40}}, rotation=0)));
+
+  Real v[N];
+  Real i[N];
+  Real Lm[N,N];
+algorithm
+  for s in 1:N loop
+     for z in 1:N loop
+       Lm[z,s]:= if (z>=s) then L[(s-1)*N+z-div((s-1)*s,2)] else 
+                 Lm[s,z];
+     end for;
+  end for;
+
+equation
+  for j in 1:N loop
+    v[j] = p[j].v - n[j].v;
+    0 = p[j].i + n[j].i;
+    i[j] = p[j].i;
+  end for;
+
+  v =Lm*der(i);
+
+  annotation (Icon(
+      coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
+
+        graphics={
+          Ellipse(extent={{-36,24},{-18,42}}),
+          Text(
+            extent={{-70,44},{68,86}},
+            lineColor={0,0,255},
+            pattern=LinePattern.None,
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            textString="%name"),
+          Ellipse(extent={{18,24},{36,42}}),
+          Ellipse(extent={{0,24},{18,42}}),
+          Ellipse(extent={{-18,24},{0,42}}),
+          Rectangle(
+            extent={{42,24},{-44,34}},
+            lineColor={0,0,255},
+            pattern=LinePattern.None,
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(
+            points={{-36,34},{-62,34}},
+            color={0,0,255},
+            pattern=LinePattern.None),
+          Line(
+            points={{62,34},{36,34}},
+            color={0,0,255},
+            pattern=LinePattern.None),
+          Ellipse(extent={{-36,8},{-18,26}}),
+          Ellipse(extent={{18,8},{36,26}}),
+          Ellipse(extent={{0,8},{18,26}}),
+          Ellipse(extent={{-18,8},{0,26}}),
+          Rectangle(
+            extent={{42,6},{-44,18}},
+            lineColor={0,0,255},
+            pattern=LinePattern.None,
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(
+            points={{-36,18},{-62,18}},
+            color={0,0,255},
+            pattern=LinePattern.None),
+          Line(
+            points={{62,18},{36,18}},
+            color={0,0,255},
+            pattern=LinePattern.None),
+          Line(
+            points={{-36,-29},{-62,-29}},
+            color={0,0,255},
+            pattern=LinePattern.None),
+          Ellipse(extent={{-36,-40},{-18,-22}}),
+          Ellipse(extent={{-18,-40},{0,-22}}),
+          Ellipse(extent={{0,-40},{18,-22}}),
+          Ellipse(extent={{18,-40},{36,-22}}),
+          Line(
+            points={{62,-29},{36,-29}},
+            color={0,0,255},
+            pattern=LinePattern.None),
+          Rectangle(
+            extent={{42,-42},{-44,-30}},
+            lineColor={0,0,255},
+            pattern=LinePattern.None,
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(
+            points={{0,8},{0,-18}},
+            color={0,0,255},
+            pattern=LinePattern.Dot)},
+      Ellipse(extent=[-36,24; -18,42]),
+      Text(
+        extent=[-70,44; 68,86],
+        style(
+          pattern=0,
+          fillColor=7,
+          rgbfillColor={255,255,255},
+          fillPattern=1),
+        string="%name"),
+      Ellipse(extent=[18,24; 36,42]),
+      Ellipse(extent=[0,24; 18,42]),
+      Ellipse(extent=[-18,24; 0,42]),
+      Rectangle(extent=[42,24; -44,34], style(
+          pattern=0,
+          fillColor=7,
+          rgbfillColor={255,255,255})),
+      Line(points=[-36,34; -62,34], style(
+          pattern=0,
+          fillColor=7,
+          rgbfillColor={255,255,255},
+          fillPattern=1)),
+      Line(points=[62,34; 36,34], style(
+          pattern=0,
+          fillColor=7,
+          rgbfillColor={255,255,255},
+          fillPattern=1)),
+      Ellipse(extent=[-36,8; -18,26]),
+      Ellipse(extent=[18,8; 36,26]),
+      Ellipse(extent=[0,8; 18,26]),
+      Ellipse(extent=[-18,8; 0,26]),
+      Rectangle(extent=[42,6; -44,18], style(
+          pattern=0,
+          fillColor=7,
+          rgbfillColor={255,255,255})),
+      Line(points=[-36,18; -62,18], style(
+          pattern=0,
+          fillColor=7,
+          rgbfillColor={255,255,255},
+          fillPattern=1)),
+      Line(points=[62,18; 36,18], style(
+          pattern=0,
+          fillColor=7,
+          rgbfillColor={255,255,255},
+          fillPattern=1)),
+      Line(points=[-36,-29; -62,-29], style(
+          pattern=0,
+          fillColor=7,
+          rgbfillColor={255,255,255},
+          fillPattern=1)),
+      Ellipse(extent=[-36,-40; -18,-22]),
+      Ellipse(extent=[-18,-40; 0,-22]),
+      Ellipse(extent=[0,-40; 18,-22]),
+      Ellipse(extent=[18,-40; 36,-22]),
+      Line(points=[62,-29; 36,-29], style(
+          pattern=0,
+          fillColor=7,
+          rgbfillColor={255,255,255},
+          fillPattern=1)),
+      Rectangle(extent=[42,-42; -44,-30], style(
+          pattern=0,
+          fillColor=7,
+          rgbfillColor={255,255,255})),
+      Line(points=[0,8; 0,-18], style(
+          pattern=3,
+          fillColor=7,
+          rgbfillColor={255,255,255},
+          fillPattern=1))), Diagram(coordinateSystem(preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}),
+                                    graphics),
+    uses(Modelica(version="3.0")),
+    Documentation(info="<html>
+The model <i> M_Transformer </i> is a model of a transformer with the posibility to choose the 
+number of inductors. Inside the model, an inductance matrix is built based on the  
+inductance of the inductors and the coupling inductances between the inductors given as a
+parameter vector from the user of the model.<br>
+<br>
+An example shows that approach: <br>
+<br>
+The user chooses a model with <b>three</b> inductors, that means the parameter <b><i> N </i></b> has to be <b>3</b>. 
+Then he has to specify the inductances of the three inductors and the three coupling inductances. The coupling 
+inductances are no real existing devices, but effects that occur between two inductors.
+ 
+The inductivities (main diagonal of the inductance matrix) and the coupling inductivities have 
+to be specified in the parameter vector <i> L </i> .  The length <i> dimL </i> of the parameter vector is calculated as follows: <b><i> dimL=(N*(N+1))/2 </i></b> <br> The following example shows how the parameter vector is used to fill in the inductance matrix. 
+For example: To specify the inductance matrix of a three inductances transformer (<i> N=3 </i>), e.g.<br><br> 
+<center>
+<table>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>1</td>
+    <td>0.1</td>
+    <td>0.2</td> 
+  </tr>
+  <tr>
+    <td>Lm</td>
+    <td>=</td>
+    <td>0.1</td>
+    <td>2</td>
+    <td>0.3</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>0.2</td>
+    <td>0.3</td>
+    <td>3</td>
+  </tr>
+</table>
+</center>
+ 
+the user has to allocate the parameter vector <i>L[6] </i>, since <i> Nv=(N*(N+1))/2=(3*(3+1))/2=6</i>. The parameter vector must be filled like this: <i> L=[1,0.1,0.2,2,0.3,3] </i>. <br>
+<br>
+Inside the model, two loops are used to fill the inductance matrix to guarantee that it is filled in a symmetric way.
+</html>",
+        revisions="
+<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> November 24, 2008   </i> docu added, K. Majetta
+       </li>
+<li><i> September 16, 2008   </i>
+       by Kristin Majetta<br> initially implemented<br>
+       </li>
+</ul>
+</html>
+"), version="1",
+    conversion(noneFromVersion=""));
+
+end M_Transformer;
 
   model Gyrator "Gyrator"
     extends Interfaces.TwoPort;

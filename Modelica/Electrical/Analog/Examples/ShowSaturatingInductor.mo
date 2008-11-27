@@ -15,9 +15,12 @@ model ShowSaturatingInductor
   output Modelica.SIunits.Voltage v "voltage drop over saturating inductor";
   output Modelica.SIunits.Current i "current across saturating inductor";
   annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}}),
-            graphics),
+    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+            100}}),
+            graphics={Text(
+          extent={{-80,84},{70,38}},
+          lineColor={0,0,255},
+          textString="Show Saturating Inductor")}),
     experiment(StopTime=6.2832, Interval=0.01),
     Documentation(info="<html>
   

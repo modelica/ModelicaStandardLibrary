@@ -13,11 +13,15 @@ model Transistor "transistor with resistance an capacitance"
         Line(points={{-60,0},{-10,0}}, color={0,0,255}),
         Line(points={{-10,40},{-10,-40}}, color={0,0,255}),
         Line(points={{60,60},{40,60},{-10,10}}, color={0,0,255}),
-        Line(points={{-10,-10},{40,-60},{60,-60}}, color={0,0,255})})
-    ,
+        Line(points={{-10,-10},{40,-60},{60,-60}}, color={0,0,255})}),
     Documentation(info="<html>
   
-</html>"));
+</html>"),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+            100,100}}), graphics={Text(
+          extent={{-76,82},{-2,54}},
+          lineColor={0,0,255},
+          textString="Transistor")}));
   Basic.Resistor rtb(R=0.05) annotation (Placement(transformation(extent={{-80,
             -10},{-60,10}}, rotation=0)));
   Basic.Resistor rtc(R=0.1) annotation (Placement(transformation(extent={{40,0},
