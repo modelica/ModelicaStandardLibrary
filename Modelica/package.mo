@@ -72,8 +72,8 @@ Modelica license 2, see the license conditions (including the
 disclaimer of warranty)
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a></u>
 or at
-<a href=\"http://www.Modelica.org/modelica-legal-documents/ModelicaLicense2.html\">
-http://www.Modelica.org/modelica-legal-documents/ModelicaLicense2.html</a>.
+<a href=\"http://www.Modelica.org/licenses/ModelicaLicense2\">
+http://www.Modelica.org/licenses/ModelicaLicense2</a>.
 </p>
 
 </HTML>
@@ -3659,10 +3659,10 @@ section.</P>
 <P STYLE=\"text-indent: 0pt; line-height: 150%\">
 <A HREF=\"#1. The Modelica License 2|outline\">             The Modelica License 2</A>
    (in other formats: 
-   <A HREF=\"http://www.modelica.org/modelica-legal-documents/ModelicaLicense2-standalone.html\">standalone html</A>,
-   <A HREF=\"http://www.modelica.org/modelica-legal-documents/ModelicaLicense2.pdf\">pdf</A>,
-   <A HREF=\"http://www.modelica.org/modelica-legal-documents/ModelicaLicense2.odt\">odt</A>,
-   <A HREF=\"http://www.modelica.org/modelica-legal-documents/ModelicaLicense2.doc\">doc</A>)<br>
+   <A HREF=\"http://www.modelica.org/licenses/ModelicaLicense2.html\">standalone html</A>,
+   <A HREF=\"http://www.modelica.org/licenses/ModelicaLicense2.pdf\">pdf</A>,
+   <A HREF=\"http://www.modelica.org/licenses/ModelicaLicense2.odt\">odt</A>,
+   <A HREF=\"http://www.modelica.org/licenses/ModelicaLicense2.doc\">doc</A>)<br>
    <A HREF=\"#2. How to Apply the Modelica License 2|outline\">How to Apply the Modelica License 2</A><br>
    <A HREF=\"#3. Frequently Asked Questions|outline\">         Frequently Asked Questions</A><br>&nbsp;</P>
 
@@ -3963,15 +3963,15 @@ Modelica license 2, see the license conditions (including the
 disclaimer of warranty)
 <A HREF=\"modelica://Library.UsersGuide.ModelicaLicense2\">here</A></U>
 or at
-<A HREF=\"http://www.Modelica.org/modelica-legal-documents/ModelicaLicense2.html\">
-http://www.Modelica.org/modelica-legal-documents/ModelicaLicense2.html</A>.
+<A HREF=\"http://www.modelica.org/licenses/ModelicaLicense2\">
+http://www.modelica.org/licenses/ModelicaLicense2</A>.
 </td></tr></table>
 
 <P STYLE=\"text-indent: 0pt; font-weight: medium\">Include
 a copy of the Modelica License 2 under
 <B>&lt;library&gt;.UsersGuide.ModelicaLicense2</B> 
-(use <A HREF=\"http://www.modelica.org/modelica-legal-documents/ModelicaLicense2.mo\">
-http://www.modelica.org/modelica-legal-documents/ModelicaLicense2.mo</A>). Furthermore, add
+(use <A HREF=\"http://www.modelica.org/licenses/ModelicaLicense2.mo\">
+http://www.modelica.org/licenses/ModelicaLicense2.mo</A>). Furthermore, add
 the list of authors and contributors under
 <B>&lt;library&gt;.UsersGuide.Contributors</B> or 
 <B>&lt;library&gt;.UsersGuide.Contact</B>.</P>
@@ -3993,8 +3993,8 @@ Modelica license 2, see the license conditions (including the
 disclaimer of warranty)
 <A HREF=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</A></U>
 or at
-<A HREF=\"http://www.Modelica.org/modelica-legal-documents/ModelicaLicense2.html\">
-http://www.Modelica.org/modelica-legal-documents/ModelicaLicense2.html</A>.</I>
+<A HREF=\"http://www.modelica.org/licenses/ModelicaLicense2\">
+http://www.modelica.org/licenses/ModelicaLicense2</A>.</I>
 </td></tr></table>
 
 
@@ -4010,8 +4010,8 @@ the images are stored and include a similar notice in this file.</P>
 <P STYLE=\"text-indent: 0pt; font-weight: medium\">In
 these cases, save a copy of the Modelica License 2 in one directory
 of the distribution, e.g., 
-<A HREF=\"http://www.modelica.org/modelica-legal-documents/ModelicaLicense2-standalone.html\">
-http://www.modelica.org/modelica-legal-documents/ModelicaLicense2-standalone.html</A>
+<A HREF=\"http://www.modelica.org/licenses/ModelicaLicense2.html\">
+http://www.modelica.org/licenses/ModelicaLicense2.html</A>
 in directory <B>&lt;library&gt;/help/documentation/ModelicaLicense2.html</B>.</P>
 
 
@@ -4186,7 +4186,7 @@ by its run-time libraries, significant new functionality is added (a
 model can be simulated whereas previously it could not be simulated)
 and functionality available in the package is removed (e.g., to build
 up a new model by dragging components of the package is no longer
-poss" + "ible with the executable).</P>
+poss"   + "ible with the executable).</P>
 
 <P STYLE=\"text-indent: 0pt\"><B>Is my modification to
 a Modelica package (under Modelica License 2) a Derivative Work?</B></P>
