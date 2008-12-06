@@ -4609,7 +4609,7 @@ Section 4.7 (Balanced Models) of the Modelica 3.0 specification. </p>
       "Type for unspecified, mass-specific property transported by flow";
     type CumulativeExtraProperty = Real (min=0.0, start=1.0)
       "Type for conserved integral of unspecified, mass specific property";
-    type ExtraPropertyFlowRate = Real
+    type ExtraPropertyFlowRate = Real(unit="kg/s")
       "Type for flow rate of unspecified, mass-specific property";
     type IsobaricExpansionCoefficient = Real (
         min=1e-8,
