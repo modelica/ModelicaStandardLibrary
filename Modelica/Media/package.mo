@@ -5199,6 +5199,7 @@ partial package PartialMixtureMedium
       input MolarMass[:] MMX "molar masses of components";
       output SI.MassFraction X[size(moleFractions, 1)]
         "Mass fractions of gas mixture";
+      annotation(smoothOrder=5);
     protected
       MolarMass Mmix =  moleFractions*MMX "molar mass of mixture";
     algorithm
@@ -5213,6 +5214,7 @@ partial package PartialMixtureMedium
       input SI.MolarMass[:] MMX "molar masses of components";
       output SI.MoleFraction moleFractions[size(X, 1)]
         "Mole fractions of gas mixture";
+      annotation(smoothOrder=5);
     protected
       Real invMMX[size(X, 1)] "inverses of molar weights";
       SI.MolarMass Mmix "molar mass of mixture";

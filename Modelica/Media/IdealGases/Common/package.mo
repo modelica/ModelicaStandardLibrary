@@ -421,7 +421,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input IdealGases.Common.DataRecord data "Ideal gas data";
     input SI.Temperature T "Temperature";
     output SI.SpecificHeatCapacity cp "Specific heat capacity at temperature T";
-    annotation (InlineNoEvent=false);
+    annotation (InlineNoEvent=false,smoothOrder=2);
   algorithm
     cp := smooth(0,if T < data.Tlimit then data.R*(1/(T*T)*(data.alow[1] + T*(
       data.alow[2] + T*(1.*data.alow[3] + T*(data.alow[4] + T*(data.alow[5] + T
@@ -558,7 +558,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input IdealGases.Common.DataRecord data "Ideal gas data";
     input SI.Temperature T "Temperature";
     output SI.SpecificEntropy s "Specific entropy at temperature T";
-    //    annotation (InlineNoEvent=false);
+    annotation (InlineNoEvent=false,smoothOrder=1);
   algorithm
     s := noEvent(if T < data.Tlimit then data.R*(data.blow[2] - 0.5*data.alow[
       1]/(T*T) - data.alow[2]/T + data.alow[3]*Math.log(T) + T*(
@@ -573,7 +573,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input IdealGases.Common.DataRecord data "Ideal gas data";
     input SI.Temperature T "Temperature";
     output SI.SpecificEntropy s "Specific entropy at temperature T";
-    //    annotation (InlineNoEvent=false);
+    annotation (InlineNoEvent=false,smoothOrder=1);
   algorithm
     s := data.R*(data.blow[2] - 0.5*data.alow[
       1]/(T*T) - data.alow[2]/T + data.alow[3]*Math.log(T) + T*(
@@ -592,6 +592,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     input DipoleMoment mu "Dipole moment of gas molecule";
     input Real k =  0.0 "Special correction for highly polar substances";
     output SI.DynamicViscosity eta "Dynamic viscosity of gas";
+    annotation (smoothOrder=2);
   protected
     parameter Real Const1_SI=40.785*10^(-9.5)
       "Constant in formula for eta converted to SI units";
@@ -637,6 +638,7 @@ transform the formula to SI units:
   end dynamicViscosityLowPressure;
 
   redeclare replaceable function extends dynamicViscosity "dynamic viscosity"
+    annotation (smoothOrder=2);
   algorithm
     assert(fluidConstants[1].hasCriticalData,
     "Failed to compute dynamicViscosity: For the species \"" + mediumName + "\" no critical data is available.");
@@ -658,6 +660,7 @@ transform the formula to SI units:
     input Integer method(min=1,max=2)=1
       "1: Eucken Method, 2: Modified Eucken Method";
     output ThermalConductivity lambda "Thermal conductivity [W/(m.k)]";
+    annotation (smoothOrder=2);
   algorithm
     lambda := if method == 1 then eta*(Cp - data.R + (9/4)*data.R) else eta*(Cp
        - data.R)*(1.32 + 1.77/((Cp/Modelica.Constants.R) - 1.0));
@@ -678,6 +681,7 @@ thermal conductivity (lambda) at low temperatures.
   redeclare replaceable function extends thermalConductivity
     "thermal conductivity of gas"
     input Integer method=1 "1: Eucken Method, 2: Modified Eucken Method";
+    annotation (smoothOrder=2);
   algorithm
     assert(fluidConstants[1].hasCriticalData,
     "Failed to compute thermalConductivity: For the species \"" + mediumName + "\" no critical data is available.");
@@ -1063,6 +1067,7 @@ function gasMixtureViscosity
   input MolarMass[:] M "Mole masses";
   input DynamicViscosity[:] eta "Pure component viscosities";
   output DynamicViscosity etam "Viscosity of the mixture";
+  annotation (smoothOrder=2);
   protected
   Real fi[size(yi,1),size(yi,1)];
 algorithm
@@ -1116,6 +1121,7 @@ end gasMixtureViscosity;
     "Return mixture dynamic viscosity"
   protected
       DynamicViscosity[nX] etaX "component dynamic viscosities";
+      annotation (smoothOrder=2);
     algorithm
       for i in 1:nX loop
     etaX[i] := SingleGasNasa.dynamicViscosityLowPressure(state.T,
@@ -1168,6 +1174,7 @@ end gasMixtureViscosity;
   Real omegav;
   Real Tmstar;
   Real etam "Mixture viscosity in microP";
+    annotation (smoothOrder=2);
   algorithm
   //combining rules
   for i in 1:n loop
@@ -1338,6 +1345,7 @@ function lowPressureThermalConductivity
   Real[size(y,1)] Tr "Reduced temperature";
   Real[size(y,1),size(y,1)] A "Mason and Saxena Modification";
   constant Real epsilon =  1.0 "Numerical constant near unity";
+  annotation (smoothOrder=2);
 algorithm
   for i in 1:size(y,1) loop
     gamma[i] := 210*(Tc[i]*M[i]^3/Pc[i]^4)^(1/6);
@@ -1382,6 +1390,7 @@ end lowPressureThermalConductivity;
       ThermalConductivity[nX] lambdaX "component thermal conductivities";
       DynamicViscosity[nX] eta "component thermal dynamic viscosities";
       SpecificHeatCapacity[nX] cp "component heat capacity";
+      annotation (smoothOrder=2);
     algorithm
       for i in 1:nX loop
     assert(fluidConstants[i].hasCriticalData, "Critical data for "+ fluidConstants[i].chemicalFormula +

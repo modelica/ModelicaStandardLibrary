@@ -172,6 +172,7 @@ required from medium model \""       + mediumName + "\".");
       input Temperature T "Temperature";
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state "Thermodynamic state";
+      annotation(smoothOrder=2);
     algorithm
       state := if size(X,1) == nX then ThermodynamicState(p=p,T=T, X=X) else 
              ThermodynamicState(p=p,T=T, X=cat(1,X,{1-sum(X)}));
@@ -187,6 +188,7 @@ The <a href=Modelica:Modelica.Media.Air.MoistAir.ThermodynamicState>thermodynami
       input SpecificEnthalpy h "Specific enthalpy";
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state "Thermodynamic state";
+      annotation(smoothOrder=2);
     algorithm
       state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_phX(p,h,X),X=X) else 
              ThermodynamicState(p=p,T=T_phX(p,h,X), X=cat(1,X,{1-sum(X)}));
@@ -202,6 +204,7 @@ The <a href=Modelica:Modelica.Media.Air.MoistAir.ThermodynamicState>thermodynami
       input Temperature T "Temperature";
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state "Thermodynamic state";
+      annotation(smoothOrder=2);
     algorithm
       state := if size(X,1) == nX then ThermodynamicState(p=d*({steam.R,dryair.R}*X)*T,T=T,X=X) else 
              ThermodynamicState(p=d*({steam.R,dryair.R}*cat(1,X,{1-sum(X)}))*T,T=T, X=cat(1,X,{1-sum(X)}));
@@ -214,6 +217,7 @@ The <a href=Modelica:Modelica.Media.Air.MoistAir.ThermodynamicState>thermodynami
       "Return absolute humitity per unit mass of moist air at saturation as a function of the thermodynamic state record"
       input ThermodynamicState state "Thermodynamic state record";
       output MassFraction X_sat "Steam mass fraction of sat. boundary";
+      annotation(smoothOrder=2);
     algorithm
       X_sat := k_mair/(state.p/min(saturationPressure(state.T),0.999*state.p) - 1 + k_mair);
       annotation (Documentation(info="<html>
@@ -225,6 +229,7 @@ Absolute humidity per unit mass of moist air at saturation is computed from pres
       "Return absolute humitity per unit mass of dry air at saturation as a function of the thermodynamic state record"
       input ThermodynamicState state "Thermodynamic state record";
       output MassFraction x_sat "Absolute humidity per unit mass of dry air";
+      annotation(smoothOrder=2);
     algorithm
       x_sat:=k_mair*saturationPressure(state.T)/max(100*Constants.eps,state.p - saturationPressure(state.T));
       annotation (Documentation(info="<html>
@@ -237,6 +242,7 @@ Absolute humidity per unit mass of dry air at saturation is computed from pressu
       input AbsolutePressure p "Pressure";
       input SI.Temperature T "Temperature";
       output MassFraction x_sat "Absolute humidity per unit mass of dry air";
+      annotation(smoothOrder=2);
     algorithm
       x_sat:=k_mair*saturationPressure(T)/max(100*Constants.eps,p - saturationPressure(T));
       annotation (Documentation(info="<html>
@@ -250,6 +256,7 @@ Absolute humidity per unit mass of dry air at saturation is computed from pressu
       input Temperature T "Temperature";
       input Real phi "Relative humidity (0 ... 1.0)";
       output MassFraction X_steam "Absolute humidity, steam mass fraction";
+      annotation(smoothOrder=2);
     protected
       constant Real k = 0.621964713077499 "Ratio of molar masses";
       AbsolutePressure psat = saturationPressure(T) "Saturation pressure";
@@ -269,6 +276,7 @@ Absolute humidity per unit mass of moist air is computed from temperature, press
     protected
       SI.Pressure p_steam_sat "Saturation pressure";
       SI.MassFraction X_air "Dry air mass fraction";
+      annotation(smoothOrder=2);
     algorithm
       p_steam_sat :=min(saturationPressure(T), 0.999*p);
       X_air    :=1 - X[Water];
@@ -282,6 +290,7 @@ Relative humidity is computed from pressure, temperature and composition with 1.
       "Return relative humidity as a function of the thermodynamic state record"
       input ThermodynamicState state "Thermodynamic state";
       output Real phi "Relative humidity";
+      annotation(smoothOrder=2);
     algorithm
       phi:=relativeHumidity_pTX(state.p, state.T, state.X);
       annotation (Documentation(info="<html>
@@ -304,6 +313,7 @@ Relative humidity is computed from the thermodynamic state record with 1.0 as th
 
     redeclare function extends gasConstant
       "Return ideal gas constant as a function from thermodynamic state, only valid for phi<1"
+      annotation(smoothOrder=2);
     algorithm
       R := dryair.R*(1-state.X[Water]) + steam.R*state.X[Water];
       annotation (Documentation(info="<html>
@@ -315,6 +325,7 @@ The ideal gas constant for moist air is computed from <a href=Modelica:Modelica.
       "Return ideal gas constant as a function from composition X"
       input SI.MassFraction X[:] "Gas phase composition";
       output SI.SpecificHeatCapacity R "Ideal gas constant";
+      annotation(smoothOrder=2);
     algorithm
       R := dryair.R*(1-X[Water]) + steam.R*X[Water];
       annotation (Documentation(info="<html>
@@ -455,6 +466,7 @@ Derivative function of <a href=Modelica:Modelica.Media.Air.MoistAir.saturationPr
 
    redeclare function extends enthalpyOfVaporization
       "Return enthalpy of vaporization of water as a function of temperature T, 0 - 130 degC"
+     annotation(smoothOrder=2);
    algorithm
     /*r0 := 1e3*(2501.0145 - (T - 273.15)*(2.3853 + (T - 273.15)*(0.002969 - (T
       - 273.15)*(7.5293e-5 + (T - 273.15)*4.6084e-7))));*/
@@ -475,6 +487,7 @@ Enthalpy of vaporization of water is computed from temperature in the region of 
 The specific heat capacity of water (liquid and solid) is calculated using a
                  polynomial approach and data from VDI-Waermeatlas 8. Edition (Db1)
 </html>"));
+      annotation(smoothOrder=2);
     algorithm
       cp_fl := 1e3*(4.2166 - (T - 273.15)*(0.0033166 + (T - 273.15)*(0.00010295
          - (T - 273.15)*(1.3819e-6 + (T - 273.15)*7.3221e-9))));
@@ -518,7 +531,7 @@ Specific enthalpy of steam is computed from temperature.
    redeclare function extends enthalpyOfNonCondensingGas
       "Return specific enthalpy of dry air as a function of temperature T"
 
-     annotation(Inline=false,smoothOrder=5,
+     annotation(Inline=false,smoothOrder=1,
         Documentation(info="<html>
 Specific enthalpy of dry air is computed from temperature.
 </html>"));
@@ -568,6 +581,7 @@ Derivative function for <a href=Modelica:Modelica.Media.Air.MoistAir.enthalpyOfW
 
    redeclare function extends pressure
       "Returns pressure of ideal gas as a function of the thermodynamic state record"
+     annotation(smoothOrder=2);
    algorithm
     p := state.p;
       annotation (Documentation(info="<html>
@@ -577,6 +591,7 @@ Pressure is returned from the thermodynamic state record input as a simple assig
 
    redeclare function extends temperature
       "Return temperature of ideal gas as a function of the thermodynamic state record"
+     annotation(smoothOrder=2);
    algorithm
      T := state.T;
       annotation (Documentation(info="<html>
@@ -619,6 +634,7 @@ Temperature is computed from pressure, specific enthalpy and composition via num
 
    redeclare function extends density
       "Returns density of ideal gas as a function of the thermodynamic state record"
+     annotation(smoothOrder=2);
    algorithm
      d := state.p/(gasConstant(state)*state.T);
       annotation (Documentation(info="<html>
@@ -628,6 +644,7 @@ Density is computed from pressure, temperature and composition in the thermodyna
 
   redeclare function extends specificEnthalpy
       "Return specific enthalpy of moist air as a function of the thermodynamic state record"
+    annotation(smoothOrder=2);
   algorithm
     h := h_pTX(state.p, state.T, state.X);
       annotation (Documentation(info="<html>
@@ -642,8 +659,8 @@ Specific enthalpy of moist air is computed from the thermodynamic state record. 
     input SI.Temperature T "Temperature";
     input SI.MassFraction X[:] "Mass fractions of moist air";
     output SI.SpecificEnthalpy h "Specific enthalpy at p, T, X";
-    annotation(Inline=false,smoothOrder=1,
-        Documentation(derivative=h_pTX_der,info="<html>
+    annotation(derivative=h_pTX_der, Inline=false,
+        Documentation(info="<html>
 Specific enthalpy of moist air is computed from pressure, temperature and composition with X[1] as the total water mass fraction. The fog region is included for both, ice and liquid fog.
 </html>"));
     protected
@@ -724,6 +741,7 @@ Derivative function for <a href=Modelica:Modelica.Media.Air.MoistAir.h_pTX>h_pTX
       "Return specific internal energy of moist air as a function of the thermodynamic state record"
     extends Modelica.Icons.Function;
     output SI.SpecificInternalEnergy u "Specific internal energy";
+    annotation(smoothOrder=2);
   algorithm
      u := specificInternalEnergy_pTX(state.p,state.T,state.X);
 
@@ -839,6 +857,7 @@ Specific entropy is calculated from the thermodynamic state record, assuming ide
   redeclare function extends specificGibbsEnergy
       "Return specific Gibbs energy as a function of the thermodynamic state record, only valid for phi<1"
     extends Modelica.Icons.Function;
+    annotation(smoothOrder=2);
   algorithm
     g := h_pTX(state.p,state.T,state.X) - state.T*specificEntropy(state);
       annotation (Documentation(info="<html>
@@ -849,6 +868,7 @@ The Gibbs Energy is computed from the thermodynamic state record for moist air w
   redeclare function extends specificHelmholtzEnergy
       "Return specific Helmholtz energy as a function of the thermodynamic state record, only valid for phi<1"
     extends Modelica.Icons.Function;
+    annotation(smoothOrder=2);
   algorithm
     f := h_pTX(state.p,state.T,state.X) - gasConstant(state)*state.T - state.T*specificEntropy(state);
       annotation (Documentation(info="<html>
@@ -859,7 +879,7 @@ The Specific Helmholtz Energy is computed from the thermodynamic state record fo
    redeclare function extends specificHeatCapacityCp
       "Return specific heat capacity at constant pressure as a function of the thermodynamic state record"
 
-     annotation(Inline=false,smoothOrder=5,
+     annotation(Inline=false,smoothOrder=2,
         Documentation(info="<html>
 The specific heat capacity at constant pressure <b>cp</b> is computed from temperature and composition for a mixture of steam (X[1]) and dry air. All water is assumed to be in the vapor state.
 </html>"));
@@ -871,7 +891,7 @@ The specific heat capacity at constant pressure <b>cp</b> is computed from tempe
   redeclare function extends specificHeatCapacityCv
       "Return specific heat capacity at constant volume as a function of the thermodynamic state record"
 
-     annotation(Inline=false,smoothOrder=5,
+     annotation(Inline=false,smoothOrder=2,
         Documentation(info="<html>
 The specific heat capacity at constant density <b>cv</b> is computed from temperature and composition for a mixture of steam (X[1]) and dry air. All water is assumed to be in the vapor state.
 </html>"));
@@ -885,6 +905,7 @@ The specific heat capacity at constant density <b>cv</b> is computed from temper
       "Return dynamic viscosity as a function of the thermodynamic state record, valid from 73.15 K to 373.15 K"
 
       import Modelica.Media.Incompressible.TableBased.Polynomials_Temp;
+    annotation(smoothOrder=2);
   algorithm
     eta := Polynomials_Temp.evaluate({(-4.96717436974791E-011), 5.06626785714286E-008, 1.72937731092437E-005},
          Cv.to_degC(state.T));
@@ -897,6 +918,7 @@ Dynamic viscosity is computed from temperature using a simple polynomial for dry
       "Return thermal conductivity as a function of the thermodynamic state record, valid from 73.15 K to 373.15 K"
 
       import Modelica.Media.Incompressible.TableBased.Polynomials_Temp;
+    annotation(smoothOrder=2);
   algorithm
     lambda := Polynomials_Temp.evaluate({(-4.8737307422969E-008), 7.67803133753502E-005, 0.0241814385504202},
      Cv.to_degC(state.T));
