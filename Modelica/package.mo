@@ -4282,16 +4282,16 @@ printing and shipping costs may be recovered.</P>
     <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica License 2</a>
     by:<br>&nbsp;</dt>
 <dd>Modelica Association<br>
-    (Ideella Föreningar 822003-8858 in Linköping) <br>
-    c/o PELAB, IDA, Linköpings Universitet<br> 
-    S-58183 Linköping<br> 
+    (Ideella F&ouml;reningar 822003-8858 in Link&ouml;ping) <br>
+    c/o PELAB, IDA, Link&ouml;pings Universitet<br> 
+    S-58183 Link&ouml;ping<br> 
     Sweden<br>
     email: <a href=\"mailto:Board@Modelica.org\">Board@Modelica.org</a><br>
     web: <a href=\"http://www.Modelica.org\">http://www.Modelica.org</a><br>&nbsp;<br>&nbsp;</dd>
 </dl>
 
 <dl>
-<dt>The development of thís Modelica package is organized by<br>&nbsp;</dt>
+<dt>The development of this Modelica package is organized by<br>&nbsp;</dt>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
     Institut f&uuml;r Robotik und Mechatronik<br> 
