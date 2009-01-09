@@ -357,7 +357,7 @@ and the accompanying <b>disclaimer</b>
             extent={{-33,-7},{-92,-67}},
             lineColor={0,0,0},
             lineThickness=1,
-            textString="ï¿½C"),
+            textString="°C"),
           Text(
             extent={{82,-7},{22,-67}},
             lineColor={0,0,0},
@@ -457,7 +457,7 @@ still kept in Modelica.SIunits.</p>
               textString="[km/h]")}));
     end NonSIunits;
 
-    function to_degC "Convert from Kelvin to ï¿½Celsius"
+    function to_degC "Convert from Kelvin to °Celsius"
       extends ConversionIcon;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degC Celsius "Celsius value";
@@ -468,12 +468,12 @@ still kept in Modelica.SIunits.</p>
               textString="K"), Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
-              textString="ï¿½C")}));
+              textString="°C")}));
     algorithm
       Celsius := Kelvin + Modelica.Constants.T_zero;
     end to_degC;
 
-    function from_degC "Convert from ï¿½Celsius to Kelvin"
+    function from_degC "Convert from °Celsius to Kelvin"
       extends ConversionIcon;
       input NonSIunits.Temperature_degC Celsius "Celsius value";
       output Temperature Kelvin "Kelvin value";
@@ -481,7 +481,7 @@ still kept in Modelica.SIunits.</p>
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
-              textString="ï¿½C"), Text(
+              textString="°C"), Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="K")}));
@@ -489,7 +489,7 @@ still kept in Modelica.SIunits.</p>
       Kelvin := Celsius - Modelica.Constants.T_zero;
     end from_degC;
 
-    function to_degF "Convert from Kelvin to ï¿½Fahrenheit"
+    function to_degF "Convert from Kelvin to °Fahrenheit"
       extends ConversionIcon;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degF Fahrenheit "Fahrenheit value";
@@ -500,12 +500,12 @@ still kept in Modelica.SIunits.</p>
               textString="K"), Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
-              textString="ï¿½F")}));
+              textString="°F")}));
     algorithm
       Fahrenheit := (Kelvin + Modelica.Constants.T_zero)*(9/5) + 32;
     end to_degF;
 
-    function from_degF "Convert from ï¿½Fahrenheit to Kelvin"
+    function from_degF "Convert from °Fahrenheit to Kelvin"
       extends ConversionIcon;
       input NonSIunits.Temperature_degF Fahrenheit "Fahrenheit value";
       output Temperature Kelvin "Kelvin value";
@@ -513,7 +513,7 @@ still kept in Modelica.SIunits.</p>
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
-              textString="ï¿½F"), Text(
+              textString="°F"), Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="K")}));
@@ -521,7 +521,7 @@ still kept in Modelica.SIunits.</p>
       Kelvin := (Fahrenheit - 32)*(5/9) - Modelica.Constants.T_zero;
     end from_degF;
 
-    function to_degRk "Convert from Kelvin to ï¿½Rankine"
+    function to_degRk "Convert from Kelvin to °Rankine"
       extends ConversionIcon;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degRk Rankine "Rankine value";
@@ -532,12 +532,12 @@ still kept in Modelica.SIunits.</p>
               textString="K"), Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
-              textString="ï¿½Rk")}));
+              textString="°Rk")}));
     algorithm
       Rankine := (9/5)*Kelvin;
     end to_degRk;
 
-    function from_degRk "Convert from ï¿½Rankine to Kelvin"
+    function from_degRk "Convert from °Rankine to Kelvin"
       extends ConversionIcon;
       input NonSIunits.Temperature_degRk Rankine "Rankine value";
       output Temperature Kelvin "Kelvin value";
@@ -545,7 +545,7 @@ still kept in Modelica.SIunits.</p>
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
-              textString="ï¿½Rk"), Text(
+              textString="°Rk"), Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="K")}));
