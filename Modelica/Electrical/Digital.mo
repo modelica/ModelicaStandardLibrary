@@ -12,13 +12,6 @@ way. This package contains the <b>User's Guide</b> for
 the library and has the following content:
 </p>
 <ol>
-<li><a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide.OverView\">Overview of library</a>
-     gives an overview of the library.</li>
-<li> <a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide.FirstExample\">A first example</a>
-     demonstrates at hand of a first example how to use this library.</li>
-<li> <a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide.ApplicationExample\">An
-     application example</a> demonstrates a generic n-bit adder.
-     .</li>
 <li><a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide.ReleaseNotes\">Release Notes</a>
     summarizes the differences between different versions of this library.</li>
 <li><a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide.Literature\">Literature</a>
@@ -30,44 +23,15 @@ the library and has the following content:
 </ol>
 </html>"));
 
-  class OverView "Overview of library"
-
-    annotation (Documentation(info="<html>
-<p>
-In this section, an overview of the most important features
-of this library is given.
-</p>
-<p>(will be added as soon as possible). </p>
-</html>
-"));
-  end OverView;
-
-  class FirstExample "A first example"
-
-    annotation (Documentation(info="<html>
-<p>
-A first example will be given here (not yet done).
-</p>
-</html>
-"));
-  end FirstExample;
-
-  class ApplicationExample "An application example"
-
-    annotation (Documentation(info="<html>
-<p>
-An application example will be given here (not yet done).
-</p>
-</html>
-"));
-  end ApplicationExample;
-
   class ReleaseNotes "Release notes"
 
     annotation (Documentation(info="<html>
 <h4>Version 1.0.7, 2005-07-01</h4>
 <ul>
-<li> xxxx</li>
+<li>InertialDelaySensitive improved</li>
+<li>Minor errors fixed in basic and delay models (final introduced)</li>
+<li>Sources.Pulse rewritten to avoid a warning</li>
+<li>Minor errors in default values of sources fixed</li>
 </ul>
 <h4>Version 1.0.6, 2004-10-18</h4>
 <ul>

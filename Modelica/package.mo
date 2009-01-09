@@ -749,6 +749,12 @@ units are wrong or errors in documentation):
       <td valign=\"top\"> Replaced non-standard \"arctan\" by \"atan\" function.</td> 
   </tr>
 
+  <tr><td colspan=\"2\"><b>Modelica.Electrical.Digital.</b></td></tr>
+  <tr><td valign=\"top\"> UsersGuide</td>
+      <td valign=\"top\"> Removed empty documentation placeholders and added the missing 
+                          release comment for version 1.0.7</td> 
+  </tr>
+
   <tr><td colspan=\"2\"><b>Mechanics.Rotational.Interfaces.</b></td></tr>
   <tr><td valign=\"top\"> PartialFriction </td>
       <td valign=\"top\"> Corrected and simplified parameterized curve description.
