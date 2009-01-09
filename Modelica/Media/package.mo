@@ -46,7 +46,7 @@ The following parts are useful, when newly starting with this library:
      contains examples that demonstrate the usage of this library.</li>
 </ul>
 <p>
-Copyright &copy; 1998-2008, Modelica Association.
+Copyright &copy; 1998-2009, Modelica Association.
 </p>
 <p>
 <i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -703,7 +703,7 @@ medium implementation package if they are useful)
       <td valign=\"top\">K</td>
       <td valign=\"top\">Temperature at p, h, X</td></tr>
   <tr><td valign=\"top\">Medium.density_phX(p,h,X)</td>
-      <td valign=\"top\">kg/m³</td>
+      <td valign=\"top\">kg/mï¿½</td>
       <td valign=\"top\">Density at p, h, X</td></tr>
   <tr><td valign=\"top\">Medium.temperature_psX(p,s,X)</td>
       <td valign=\"top\">K</td>

@@ -444,7 +444,7 @@ of data points.
 </p>
 <p>
 
-<p><b>Copyright &copy; 2004-2008, Modelica Association and DLR.</b></p>
+<p><b>Copyright &copy; 2004-2009, Modelica Association and DLR.</b></p>
 
 <p><i>
 This package is <b>free</b> software. It can be redistributed and/or modified

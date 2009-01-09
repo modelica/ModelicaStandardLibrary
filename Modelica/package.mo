@@ -61,7 +61,7 @@ that are directly usable (= number of public, non-partial classes).
  
 <p>
 <b>Licensed by the Modelica Association under the Modelica License 2</b><br>
-Copyright &copy; 1998-2008, ABB, arsenal research, DLR, Dynasim, Fraunhofer, Modelon, TU Hamburg-Harburg, Politecnico di Milano.
+Copyright &copy; 1998-2009, ABB, arsenal research, DLR, Dynasim, Fraunhofer, Modelon, TU Hamburg-Harburg, Politecnico di Milano.
 </p>
 
 <p>
@@ -3988,7 +3988,7 @@ may have the following notices:</P>
 
 <table border=\"0\"><tr><td>&nbsp;&nbsp;&nbsp;</td><td>
 Licensed by Modelica Association under the Modelica License 2<br>
-Copyright &copy; 1998-2008, Modelica Association. 
+Copyright &copy; 1998-2009, Modelica Association. 
 </td></tr></table>
 
 <table border=\"0\"><tr><td>&nbsp;&nbsp;&nbsp;</td><td>

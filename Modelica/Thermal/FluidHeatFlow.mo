@@ -62,7 +62,7 @@ Outlet temperature is defined by variable T of the corresponding component.</li>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2008, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2009, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -171,7 +171,7 @@ This package contains test examples:
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2008, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2009, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -1315,7 +1315,7 @@ This package contains utility components used for the test examples.<br>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2008, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2009, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -1430,7 +1430,7 @@ Thermodynamic equations are defined in partial models (package Partials).<br>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2008, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2009, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -1651,7 +1651,7 @@ This package contains definitions of medium properties.<br>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2008, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2009, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -1772,7 +1772,7 @@ All fans / pumps are considered without losses, they do not change enthalpy flow
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2008, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2009, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -2143,7 +2143,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2008, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2009, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -2355,7 +2355,7 @@ This package contains connectors and partial models:
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2008, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2009, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -2494,7 +2494,7 @@ This package contains partial models, defining in a very compact way the basic t
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2008, Modelica Association, Anton Haumer and arsenal research.
+Copyright &copy; 1998-2009, Modelica Association, Anton Haumer and arsenal research.
 </p>
 <p>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
@@ -2572,7 +2572,7 @@ See also sketch at diagram layer.
               Text(
                 extent={{30,60},{60,40}},
                 lineColor={0,0,255},
-                textString="dp ~ V_flow²")}));
+                textString="dp ~ V_flowï¿½")}));
         parameter Modelica.SIunits.VolumeFlowRate V_flowLaminar(min=Modelica.Constants.small, start=0.1)
           "Laminar volume flow" 
           annotation(Dialog(group="Simple Friction"));
