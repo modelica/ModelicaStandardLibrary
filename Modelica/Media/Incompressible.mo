@@ -37,6 +37,7 @@ package Incompressible
     import Poly = Modelica.Media.Incompressible.TableBased.Polynomials_Temp;
 
     extends Modelica.Media.Interfaces.PartialMedium(
+       ThermoStates = Choices.IndependentVariables.pT,
        final reducedX=true,
        final fixedX = true,
        mediumName="tableMedium",
@@ -79,13 +80,13 @@ This is the base package for medium models of incompressible fluids based on
 tables. The minimal data to provide for a useful medium description is tables
 of density and heat capacity as functions of temperature.
 </p>
-
+ 
 <h4>Using the package TableBased</h4>
 <p>
 To implement a new medium model, create a package that <b>extends</b> TableBased
 and provides one or more of the constant tables:
 </p>
-
+ 
 <pre>
 tableDensity        = [T, d];
 tableHeatCapacity   = [T, Cp];
@@ -93,7 +94,7 @@ tableConductivity   = [T, lam];
 tableViscosity      = [T, eta];
 tableVaporPressure  = [T, pVap];
 </pre>
-
+ 
 <p>
 The table data is used to fit constant polynomials of order <b>npol</b>, the
 temperature data points do not need to be same for different properties. Properties

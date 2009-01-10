@@ -1,4 +1,4 @@
-within Modelica; 
+within Modelica;
 package Media "Library of media property models"
 extends Modelica.Icons.Library;
 import SI = Modelica.SIunits;
@@ -130,6 +130,9 @@ This User's Guide has the following main parts:
      model has to be implemented.</li>
 <li> <a href=\"Modelica://Modelica.Media.UsersGuide.ReleaseNotes\">ReleaseNotes</a>
      summarizes the changes of the library releases.</li>
+<li><a href=\"Modelica://Modelica.Media.UsersGuide.Future\">Future</a> 
+    provides information about the upcoming version 3.1 of Modelica.Media and
+    some changes to this version to enable forward compatibility.</li>
 <li><a href=\"Modelica://Modelica.Media.UsersGuide.Contact\">Contact</a> 
     provides information about the authors of the library as well as
     acknowledgements.</li>
@@ -2139,6 +2142,33 @@ for the Modelica'2003 conference (for evaluation).
 
   end ReleaseNotes;
 
+  class Future "Future"
+
+    annotation (Documentation(info="<html>
+ 
+<h4>Planned changes for version 3.1</h4>
+
+<p>Several changes are planned for version 3.1 of Modelica.Media. In order to have an easy transition, the current verison is moved 
+  to the ObsoleteModelica-package and current users can continue to use ot for many years. The goal for the new version is to cover many more fluids, be easier to use for users and less for implementors that want to include their own models. A beta-version of the new media libray will be available in the first quarter of 2009.</p>
+
+<p>The main user-visible changes are:</p>
+<ul>
+<li>No distinction between pure fluids and mixtures on the interface level: pure fluids are mixtures with 1 component</li>
+<li>Compressibility will in the future be a flag that can be set for those media where it makes sense. It will thus be possible to treat an ideal gas as incompressible, which is adequate for certain applications, and also use the same medium model for thermal-only applications, and thermal-hydraulic ones.</li>
+<li>All functions will have derivatives to enable analytic Jacobians.</li>
+<li>Mole-fraction based media for process applications</li>
+</ul>
+<p>For further information on the upcoming version, please contact the <a href=\"Modelica://Modelica.Media.UsersGuide.Contact\">Author</a></p>
+
+<h4>Forward compatibility</h4>
+<p> In order to simplify transition to the upcoming version of
+Modelica.Media for Modelica 3.1, a new enumeration has been
+introduced:  <a href=\"Modelica://Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables\">IndependentVariables</a> with the
+entries ph, pT, pTX, phX and dTX. Users are advised to use this enumeration to determine the independent variables of a medium. If they are going to use the function based interface of the current Modelica.Media (and not use the BaseProperties from Modelica.Media), they should not have any trouble using the next version without any need for changes in their code.</p> 
+
+</html>"));
+  end Future;
+
 class Contact "Contact"
 
     annotation (Documentation(info="<html>
@@ -4000,6 +4030,9 @@ Modelica source.
     extends Modelica.Icons.Library;
 
     // Constants to be set in Medium
+    constant
+      Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables
+      ThermoStates "Enumeration type for independent variables";
     constant String mediumName = "unusablePartialMedium" "Name of the medium";
     constant String substanceNames[:]={mediumName}
       "Names of the mixture substances. Set substanceNames={mediumName} if only one substance.";
@@ -4632,6 +4665,19 @@ Section 4.7 (Balanced Models) of the Modelica 3.0 specification. </p>
       "Type for partial derivative of density with resect to temperature with medium specific attributes";
 
     package Choices "Types, constants to define menu choices"
+
+      type IndependentVariables = enumeration(
+          pT "Pressure, Temperature",
+          ph "Pressure, Specific Enthalpy",
+          phX "Pressure, Specific Enthalpy, Mass Fraction",
+          pTX "Pressure, Temperature, Mass Fractions",
+          dTX "Density, Temperature, Mass Fractions")
+        "Enumeration defining the independent variables of a medium";
+      annotation (Documentation(info="<html>
+<h2>Enumerations and data types for all types of fluids</h2>
+<p>Note: Reference enthalpy might have to be extended with enthalpy of formation. </p>
+</html>"));
+
       type Init = enumeration(
           NoInit "NoInit (no initialization)",
           InitialStates "InitialStates (initialize medium states)",
@@ -4830,6 +4876,7 @@ partial package PartialLinearFluid
     import SI = Modelica.SIunits;
 
       extends Interfaces.PartialPureSubstance(
+        ThermoStates = Choices.IndependentVariables.pTX,
         singleState = false);
       constant SpecificHeatCapacity cp_const
       "Specific heat capacity at constant pressure";
@@ -4847,7 +4894,7 @@ partial package PartialLinearFluid
       "if true, entries in thermodynamic Jacobian are constant, taken at reference conditions";
 
       redeclare record ThermodynamicState
-      "a selction of variables that uniquely defines the thermodynamic state"
+      "a selection of variables that uniquely defines the thermodynamic state"
         AbsolutePressure p "Absolute pressure of medium";
         Temperature T "Temperature of medium";
       end ThermodynamicState;
@@ -5094,7 +5141,7 @@ using the standard functions defined in a fluid package (see example in liquids 
 <p>
 In order to avoid numerical inversion of the temperature in the T_ph and T_ps functions, the density
 is always taken to be the reference density in the computation of h, s, u and cv. For liquids (and this 
-model is intended only for liquids) the relative error of doing so is 1e-3 to 1e-4 at most. The model would			    
+model is intended only for liquids) the relative error of doing so is 1e-3 to 1e-4 at most. The model would                            
 be more \"correct\" based on the other assumptions, if occurences of reference_d in the computations of h,s,u
 and cv would be replaced by a call to density(state). That would require a numerical solution for T_ps, while T_ph can be solved symbolicallyfrom a quadratic function. Errors from this approximation are small because liquid density varies little.</p>
 <h4>Efficiency considerations</h4>
@@ -5232,7 +5279,8 @@ end PartialMixtureMedium;
 
   partial package PartialCondensingGases
     "Base class for mixtures of condensing and non-condensing gases"
-    extends PartialMixtureMedium;
+    extends PartialMixtureMedium(
+         ThermoStates = Choices.IndependentVariables.pTX);
 
   replaceable partial function saturationPressure
       "Return saturation pressure of condensing fluid"
@@ -5886,7 +5934,9 @@ end PartialMixtureMedium;
   partial package PartialSimpleMedium
     "Medium model with linear dependency of u, h from temperature. All other quantities, especially density, are constant."
 
-    extends Interfaces.PartialPureSubstance(final singleState=true);
+    extends Interfaces.PartialPureSubstance(
+          final ThermoStates = Choices.IndependentVariables.pT,
+          final singleState=true);
 
     import SI = Modelica.SIunits;
     constant SpecificHeatCapacity cp_const
@@ -6001,32 +6051,31 @@ quantities are assumed to be constant.
       lambda := lambda_const;
     end thermalConductivity;
 
-    
-    redeclare function extends pressure "Return pressure" 
-      
+    redeclare function extends pressure "Return pressure"
+
     annotation(Documentation(info="<html></html>"));
-    algorithm 
+    algorithm
       p := state.p;
     end pressure;
 
-    redeclare function extends temperature "Return temperature" 
-      
+    redeclare function extends temperature "Return temperature"
+
     annotation(Documentation(info="<html></html>"));
-    algorithm 
+    algorithm
       T := state.T;
     end temperature;
 
-    redeclare function extends density "Return density" 
-      
+    redeclare function extends density "Return density"
+
     annotation(Documentation(info="<html></html>"));
-    algorithm 
+    algorithm
       d := d_const;
     end density;
 
-    redeclare function extends specificEnthalpy "Return specific enthalpy" 
-      
+    redeclare function extends specificEnthalpy "Return specific enthalpy"
+
     annotation(Documentation(info="<html></html>"));
-    algorithm 
+    algorithm
       h := cp_const*(state.T-T0);
     end specificEnthalpy;
 
@@ -6100,7 +6149,9 @@ quantities are assumed to be constant.
   partial package PartialSimpleIdealGasMedium
     "Medium model of Ideal gas with constant cp and cv. All other quantities, e.g. transport properties, are constant."
 
-    extends Interfaces.PartialPureSubstance(final singleState=false);
+    extends Interfaces.PartialPureSubstance(
+         ThermoStates = Choices.IndependentVariables.pT,
+         final singleState=false);
 
     import SI = Modelica.SIunits;
     constant SpecificHeatCapacity cp_const

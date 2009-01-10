@@ -151,6 +151,7 @@ and adapted to the Modelica.Media package.
             graphics));
 
   extends Interfaces.PartialPureSubstance(
+     ThermoStates = Choices.IndependentVariables.pT,
      mediumName=data.name,
      substanceNames={data.name},
      singleState=false,
@@ -787,6 +788,7 @@ It has been developed by Hubertus Tummescheit.
   import Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy;
 
   extends Modelica.Media.Interfaces.PartialMixtureMedium(
+     ThermoStates = Choices.IndependentVariables.pTX,
      substanceNames=data[:].name,
      reducedX = false,
      singleState=false,
