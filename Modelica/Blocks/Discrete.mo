@@ -88,7 +88,6 @@ via parameter <b>samplePeriod</b>.
     extends Interfaces.DiscreteSISO;
     output Real ySample(start=0, fixed=true);
     annotation (
-      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -103,6 +102,7 @@ sample instant during the sample points.
 </p>
 </HTML>
 "));
+
   equation
     when {sampleTrigger, initial()} then
       ySample = u;
@@ -121,7 +121,6 @@ sample instant during the sample points.
     Modelica.SIunits.Time tSample;
     Real c;
     annotation (
-      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -135,6 +134,7 @@ values of the last two sampled input signals.
 </p>
 </HTML>
 "));
+
   equation
     when sampleTrigger then
       ySample = u;
@@ -153,7 +153,6 @@ values of the last two sampled input signals.
     extends Interfaces.DiscreteSISO;
 
     annotation (
-      
       Documentation(info="<html>
 <p>
 This block describes a unit delay:
@@ -207,6 +206,7 @@ the output y is identical to parameter yStart.
             extent={{-55,-5},{55,-55}},
             lineColor={0,0,0},
             textString="z")}));
+
   equation
     when sampleTrigger then
       y = pre(u);
@@ -228,7 +228,6 @@ the output y is identical to parameter yStart.
     Real x1;
     Real xext[size(a, 1)];
     annotation (
-      
       Documentation(info="<html>
 <p>The <b>discrete transfer function</b> block defines the
 transfer function between the input signal u and the output
@@ -296,6 +295,7 @@ states can be set as start values of <b>x</b>.<p>
             textString="a(z)"),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255})}));
+
   equation
     when sampleTrigger then
       /* State variables x are defined according to
@@ -331,7 +331,6 @@ states can be set as start values of <b>x</b>.<p>
     output Real x[size(A, 1)] "State vector";
 
     annotation (
-      
       Documentation(info="<html>
 <p>
 The <b>discrete state space</b> block defines the relation
@@ -415,6 +414,7 @@ results in the following equations:
             textString="  y=Cx+Du"),
           Line(points={{-102,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255})}));
+
   equation
     when sampleTrigger then
       x = A*pre(x) + B*u;

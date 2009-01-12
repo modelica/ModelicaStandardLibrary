@@ -8,7 +8,7 @@ Documentation(info="
 This package contains functions to interact with the environment.
 </p>
 </HTML>
-")   );
+"));
 
 function getWorkDirectory "Get full path name of work directory"
   extends Modelica.Icons.Function;

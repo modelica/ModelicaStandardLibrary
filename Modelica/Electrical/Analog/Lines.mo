@@ -226,9 +226,9 @@ equation
     connect(inductance.n[lines],G[dim_vector_lgc].p);
     connect(G[dim_vector_lgc].n,M.p);
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(extent={{40,-40},{-40,40}}, 
+                -100},{100,100}}), graphics={Rectangle(extent={{40,-40},{-40,40}},
                 lineColor={0,0,255})}),
-                            Diagram(coordinateSystem(preserveAspectRatio=false, 
+                            Diagram(coordinateSystem(preserveAspectRatio=false,
               extent={{-100,-100},{100,100}}),
                                     graphics),
     uses(Modelica(version="2.2.1")));
@@ -261,7 +261,7 @@ equation
     connect(inductance.n[lines],R[lines].p);
     connect(R[lines].n,n[lines]);
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(extent={{20,-40},{-20,40}}, 
+                -100},{100,100}}), graphics={Rectangle(extent={{20,-40},{-20,40}},
                 lineColor={0,0,255})}),
                             uses(Modelica(version="2.2.1")));
 end segment_last;

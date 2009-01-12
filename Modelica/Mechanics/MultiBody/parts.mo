@@ -147,7 +147,6 @@ definition of the colors used in the MultiBody library
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
 
     annotation (
-      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -268,7 +267,6 @@ animation = <b>false</b>.
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
 
     annotation (
-      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -361,6 +359,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
 </p>
 <IMG SRC=\"../Images/MultiBody/FixedTranslation.png\" ALT=\"Parts.FixedTranslation\">
 </HTML>"));
+
   protected
     outer Modelica.Mechanics.MultiBody.World world;
     Visualizers.Advanced.Shape shape(
@@ -509,7 +508,6 @@ the animation may be switched off via parameter animation = <b>false</b>.
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation;
     annotation (
-      
       Documentation(info="<HTML>
 <p>
 Component for a <b>fixed translation</b> and <b>fixed rotation</b> of frame_b with respect
@@ -637,8 +635,8 @@ the animation may be switched off via parameter animation = <b>false</b>.
             lineColor={0,0,0},
             fillColor={0,0,0},
             fillPattern=FillPattern.Solid)}));
-  equation
 
+  equation
     Connections.branch(frame_a.R, frame_b.R);
     assert(cardinality(frame_a) > 0 or cardinality(frame_b) > 0,
       "Neither connector frame_a nor frame_b of FixedRotation object is connected");
@@ -1162,7 +1160,6 @@ to the setting of parameters \"useQuaternions\" and
        annotation (Evaluate=true, Dialog(tab="Advanced", enable=not 
             useQuaternions));
     annotation (
-      
       Documentation(info="<HTML>
 <p>
 <b>Rigid body</b> with mass and inertia tensor and <b>two frame connectors</b>.
@@ -1471,7 +1468,6 @@ states and of the \"Advanced\" menu parameters, see model
      specularCoefficient=specularCoefficient) annotation (Placement(
           transformation(extent={{-30,-20},{10,20}}, rotation=0)));
     annotation (
-      
       Documentation(info="<HTML>
 <p>
 <b>Rigid body</b> with <b>box</b> shape.
@@ -1699,7 +1695,6 @@ states and of the \"Advanced\" menu parameters, see model
       widthDirection={0,1,0}) annotation (Placement(transformation(extent={{-30,
               -20},{10,20}}, rotation=0)));
     annotation (
-      
       Documentation(info="<HTML>
 <p>
 <b>Rigid body</b> with <b>cylinder</b> shape.

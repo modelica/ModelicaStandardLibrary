@@ -237,6 +237,13 @@ which is only exactly true for a fluid with constant density d=d0.
       state :=ThermodynamicState(p=p,T=T_ps(p,s));
     end setState_ps;
 
+        redeclare function extends setSmoothState
+      "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
+        algorithm
+          state :=ThermodynamicState(p=Media.Common.smoothStep(x, state_a.p, state_b.p, x_small),
+                                     T=Media.Common.smoothStep(x, state_a.T, state_b.T, x_small));
+        end setSmoothState;
+
     redeclare function extends specificHeatCapacityCv
       "Specific heat capacity at constant volume (or pressure) of medium"
 

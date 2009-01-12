@@ -182,8 +182,7 @@ component.</p></html>", revisions="<html>
             lineColor={160,160,164},
             fillColor={160,160,164},
             fillPattern=FillPattern.Solid,
-            textString="n.i")})
-      ,
+            textString="n.i")}),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -252,8 +251,7 @@ This current is provided explicitly as current i.
           Text(
             extent={{90,45},{110,25}},
             lineColor={160,160,164},
-            textString="i")})
-      );
+            textString="i")}));
   equation
     v = p.v - n.v;
     0 = p.i + n.i;
@@ -330,8 +328,7 @@ This current is provided explicitly as current i.
             lineColor={160,160,164},
             fillColor={160,160,164},
             fillPattern=FillPattern.Solid,
-            textString="i1")})
-      ,
+            textString="i1")}),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -362,7 +359,6 @@ This current is provided explicitly as current i.
       "Measured quantity as Real output signal"                                       annotation (Placement(
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
     annotation (
-      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -387,6 +383,7 @@ This current is provided explicitly as current i.
        </li>
 </ul>
 </html>"));
+
   end AbsoluteSensor;
 
   partial model RelativeSensor
@@ -463,8 +460,7 @@ This current is provided explicitly as current i.
           Text(
             extent={{20,50},{120,0}},
             lineColor={0,0,255},
-            textString="-")})
-      ,
+            textString="-")}),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>
@@ -506,8 +502,7 @@ This current is provided explicitly as current i.
             points={{90,0},{60,10},{60,-10},{90,0}},
             lineColor={0,0,255},
             fillColor={0,0,255},
-            fillPattern=FillPattern.Solid)})
-      ,
+            fillPattern=FillPattern.Solid)}),
       Documentation(revisions="<html>
 <ul>
 <li><i>  </i>

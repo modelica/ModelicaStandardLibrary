@@ -1499,7 +1499,7 @@ buttons:
     connector inflow1
         "Inflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
-      import Units = Modelica.SIunits;
+        import Units = Modelica.SIunits;
 
       input Units.VolumeFlowRate Fi "inflow";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1514,7 +1514,7 @@ buttons:
     connector inflow2
         "Inflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
-      import Units = Modelica.SIunits;
+        import Units = Modelica.SIunits;
 
       output Units.VolumeFlowRate Fi "inflow";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1529,7 +1529,7 @@ buttons:
     connector outflow1
         "Outflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
-      import Units = Modelica.SIunits;
+        import Units = Modelica.SIunits;
 
       output Units.VolumeFlowRate Fo "outflow";
       input Boolean open "valve open";
@@ -1545,7 +1545,7 @@ buttons:
     connector outflow2
         "Outflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
-      import Units = Modelica.SIunits;
+        import Units = Modelica.SIunits;
 
       input Units.VolumeFlowRate Fo "outflow";
       output Boolean open "valve open";
@@ -2324,7 +2324,7 @@ block InitialStepWithSignal
   extends Interfaces.PartialStep;
 
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={Rectangle(extent={{-100,100},{100,-100}}, 
+              -100},{100,100}}), graphics={Rectangle(extent={{-100,100},{100,-100}},
               lineColor={0,0,0}), Rectangle(extent={{-80,80},{80,-80}},
               lineColor={0,0,0})}),
        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -2455,8 +2455,8 @@ block Transition
           grid={1,1}), graphics={
           Rectangle(
             extent={{-10,100},{10,-100}},
-            fillColor=DynamicSelect({0,0,0}, if enableFire > 0.5 then {0,255,0}
-                 else {0,0,0}),
+            fillColor=DynamicSelect({0,0,0}, if enableFire > 0.5 then {0,255,0} else 
+                      {0,0,0}),
             lineColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(points={{-30,0},{-10,0}}, color={0,0,0}),
@@ -2471,8 +2471,8 @@ block Transition
             textString="%waitTime"),
           Text(
             extent={{-200,-120},{200,-145}},
-            lineColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0}
-                 else {0,0,0}),
+            lineColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0} else 
+                      {0,0,0}),
             textString="%condition")}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -2512,8 +2512,8 @@ block TransitionWithSignal
             textString="%waitTime"),
           Rectangle(
             extent={{-10,100},{10,-100}},
-            fillColor=DynamicSelect({0,0,0}, if enableFire > 0.5 then {0,255,0}
-                 else {0,0,0}),
+            fillColor=DynamicSelect({0,0,0}, if enableFire > 0.5 then {0,255,0} else 
+                      {0,0,0}),
             lineColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(points={{-30,0},{-10,0}}, color={0,0,0}),
@@ -2523,10 +2523,10 @@ block TransitionWithSignal
             lineColor={0,0,255}),
           Ellipse(
             extent={{7,-81},{-7,-95}},
-            lineColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0}
-                 else {0,0,0}),
-            fillColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0}
-                 else {0,0,0}),
+            lineColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0} else 
+                      {0,0,0}),
+            fillColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0} else 
+                      {0,0,0}),
             fillPattern=FillPattern.Solid)}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -2564,7 +2564,7 @@ block Alternative
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-100,0},{-80,0}}, color={0,0,0}), 
+          grid={1,1}), graphics={Line(points={{-100,0},{-80,0}}, color={0,0,0}),
             Line(points={{80,0},{100,0}}, color={0,0,0})}),
       Documentation(info="<html>
   
@@ -2688,7 +2688,7 @@ block Parallel
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-100,0},{-80,0}}, color={0,0,0}), 
+          grid={1,1}), graphics={Line(points={{-100,0},{-80,0}}, color={0,0,0}),
             Line(points={{80,0},{100,0}}, color={0,0,0})}),
       Documentation(info="<html>
   
@@ -3191,9 +3191,9 @@ value, still requires to go in to the text layer.
                 100}}),
           graphics={Rectangle(
               extent={{-100,-100},{100,100}},
-              fillColor=DynamicSelect({192,192,192}, if on > 0.5 then {0,255,0}
-                   else {192,192,192}),
-              fillPattern=DynamicSelect(FillPattern.Solid, if on > 0.5 then
+              fillColor=DynamicSelect({192,192,192}, if on > 0.5 then {0,255,0} else 
+                        {192,192,192}),
+              fillPattern=DynamicSelect(FillPattern.Solid, if on > 0.5 then 
                   FillPattern.Solid else FillPattern.Solid),
               lineColor={128,128,128},
               lineThickness=0.5), Text(
@@ -3235,8 +3235,8 @@ value, still requires to go in to the text layer.
               borderPattern=BorderPattern.Raised), Text(
               extent={{-90,-46},{90,34}},
               textString=DynamicSelect(" ", realString(
-                    Value, 
-                    1, 
+                    Value,
+                    1,
                     integer(precision))),
               lineColor={0,0,255})}),
         Diagram(graphics),
@@ -3261,8 +3261,8 @@ value, still requires to go in to the text layer.
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Ellipse(
               extent={{-100,-100},{100,100}},
-              fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0}
-                   else {235,235,235}),
+              fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0} else 
+                        {235,235,235}),
               lineColor={0,0,0},
               pattern=LinePattern.None,
               fillPattern=FillPattern.Sphere), Text(

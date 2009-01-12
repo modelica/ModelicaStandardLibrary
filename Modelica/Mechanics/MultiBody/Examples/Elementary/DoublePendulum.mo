@@ -4,8 +4,7 @@ model DoublePendulum
 
   extends Modelica.Icons.Example;
   annotation (
-    experiment(StopTime=3)
-    ,
+    experiment(StopTime=3),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},

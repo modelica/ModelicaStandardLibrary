@@ -898,6 +898,20 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       h=specificEnthalpy_pT(p,T),
       p=p);
   end setState_pTX;
+
+      redeclare function extends setSmoothState
+    "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
+        import Modelica.Media.Common.smoothStep;
+      algorithm
+        state :=ThermodynamicState(
+          p=smoothStep(x, state_a.p, state_b.p, x_small),
+          h=smoothStep(x, state_a.h, state_b.h, x_small),
+          d=density_ph(smoothStep(x, state_a.p, state_b.p, x_small),
+                       smoothStep(x, state_a.h, state_b.h, x_small)),
+          T=temperature_ph(smoothStep(x, state_a.p, state_b.p, x_small),
+                           smoothStep(x, state_a.h, state_b.h, x_small)),
+          phase=0);
+      end setSmoothState;
 end WaterIF97_base;
 
 
@@ -1487,6 +1501,19 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       p=p);
   end setState_pTX;
 
+      redeclare function extends setSmoothState
+    "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
+        import Modelica.Media.Common.smoothStep;
+      algorithm
+        state :=ThermodynamicState(
+          p=smoothStep(x, state_a.p, state_b.p, x_small),
+          h=smoothStep(x, state_a.h, state_b.h, x_small),
+          d=density_ph(smoothStep(x, state_a.p, state_b.p, x_small),
+                       smoothStep(x, state_a.h, state_b.h, x_small)),
+          T=temperature_ph(smoothStep(x, state_a.p, state_b.p, x_small),
+                           smoothStep(x, state_a.h, state_b.h, x_small)),
+          phase=0);
+      end setSmoothState;
 end WaterIF97_fixedregion;
 
 

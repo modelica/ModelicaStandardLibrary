@@ -3,8 +3,7 @@ model FreeBody "Free flying body attached by two springs to environment"
   extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
   annotation (
-    experiment(StopTime=10)
-    ,
+    experiment(StopTime=10),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},

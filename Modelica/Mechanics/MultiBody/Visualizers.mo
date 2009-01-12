@@ -169,8 +169,7 @@ definition of the colors used in the MultiBody library
             fillColor={0,127,255},
             fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-98,34},{-64,46},{0,30},{74,56},{50,32},{-10,12},{-98,34}}, 
-
+            points={{-98,34},{-64,46},{0,30},{74,56},{50,32},{-10,12},{-98,34}},
             lineColor={255,255,255},
             fillColor={160,160,164},
             fillPattern=FillPattern.Solid),

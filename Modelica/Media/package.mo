@@ -2247,6 +2247,12 @@ package Examples
     Medium.BaseProperties medium(
       T(start=300,fixed=true));
 
+    Medium.BaseProperties medium2;
+    Medium.ThermodynamicState state;
+    Real m_flow_ext2;
+    Real der_p;
+    Real der_T;
+
     SI.Mass m(start = 1.0);
     SI.InternalEnergy U;
 
@@ -2264,6 +2270,14 @@ package Examples
 
     // Energy balance
     der(U) = H_flow_ext;
+
+    // Smooth state
+    medium2.p = 1e5*time/10;
+    medium2.T = 330;
+    m_flow_ext2 = time - 30;
+    state = Medium.setSmoothState(m_flow_ext2, medium.state, medium2.state, 10);
+    der_p = der(state.p);
+    der_T = der(state.T);
   end SimpleLiquidWater;
 
   model IdealGasH2O "IdealGas H20 medium model"
@@ -2280,12 +2294,12 @@ package Examples
     Real beta = Medium.isobaricExpansionCoefficient(state);
     Real gamma = Medium.isothermalCompressibility(state);
     Medium.SpecificEnthalpy h_is = Medium.isentropicEnthalpyApproximation(2.0, state);
-  equation
-    state.p = 100000.0;
-    state.T = 200 + 1000*time;
-    state2.p = 2.0e5;
-    state2.T = 500.0;
-    //  s2 = s;
+
+    Medium.ThermodynamicState smoothState;
+    Real m_flow_ext;
+    Real der_p;
+    Real der_T;
+
     annotation (Documentation(info="<html>
 <p>An example for using ideal gas properties and how to compute 
   isentropic enthalpy changes.
@@ -2295,6 +2309,20 @@ package Examples
 </p>
 </html>"),
       experiment(StopTime=1));
+
+  equation
+    state.p = 100000.0;
+    state.T = 200 + 1000*time;
+    state2.p = 2.0e5;
+    state2.T = 500.0;
+    //  s2 = s;
+
+    // Smooth state
+    m_flow_ext = time - 0.5;
+    smoothState = Medium.setSmoothState(m_flow_ext, state, state2, 0.1);
+    der_p = der(smoothState.p);
+    der_T = der(smoothState.T);
+
   end IdealGasH2O;
 
   model WaterIF97 "WaterIF97 medium model"
@@ -2314,6 +2342,17 @@ package Examples
       "Fixed enthalpy flow rate into volume";
     Modelica.SIunits.Mass m "Mass of volume";
     Modelica.SIunits.InternalEnergy U "Internal energy of volume";
+    annotation (Documentation(info="<html>
+  
+</html>"),
+      experiment(StopTime=1));
+
+    Medium.ThermodynamicState state2;
+    Medium.ThermodynamicState state;
+    Real m_flow_ext2;
+    Real der_p;
+    Real der_T;
+
   equation
     der(V) = dV;
     m = medium.d*V;
@@ -2324,10 +2363,13 @@ package Examples
 
     // Energy balance
     der(U) = H_flow_ext;
-    annotation (Documentation(info="<html>
-  
-</html>"),
-      experiment(StopTime=1));
+
+    // smooth states
+    m_flow_ext2 = time - 0.5;
+    state2 = Medium.setState_pT(1e5*(1+time), 300+200*time);
+    state = Medium.setSmoothState(m_flow_ext2, medium.state, state2, 0.05);
+    der_p = der(state.p);
+    der_T = der(state.T);
   end WaterIF97;
 
   model MixtureGases "Test gas mixtures"
@@ -2361,6 +2403,16 @@ package Examples
     Medium2.DynamicViscosity eta2= Medium2.dynamicViscosity(medium2.state);
     Medium2.ThermalConductivity lambda2= Medium2.thermalConductivity(medium2.state);
 
+    Medium2.ThermodynamicState state2 = Medium2.setState_pTX(1.005e5, 302, {0.3,0.2,0.2,0.1,0.1,0.1});
+    Medium2.ThermodynamicState smoothState;
+    Real m_flow_ext2;
+    Real der_p;
+    Real der_T;
+
+    annotation (Documentation(info="<html>
+  
+</html>"),
+      experiment(StopTime=1));
   equation
     medium1.X = {0.8,0.2};
     m1 = medium1.d*V;
@@ -2373,10 +2425,12 @@ package Examples
     U2 = m2*medium2.u;
     der(m2) = m_flow_ext;
     der(U2) = H_flow_ext;
-    annotation (Documentation(info="<html>
-  
-</html>"),
-      experiment(StopTime=1));
+
+    // Smooth state
+    m_flow_ext2 = time - 0.5;
+    smoothState = Medium2.setSmoothState(m_flow_ext2, medium2.state, state2, 0.2);
+    der_p = der(smoothState.p);
+    der_T = der(smoothState.T);
   end MixtureGases;
 
 model MoistAir "Ideal gas flue gas  model"
@@ -2399,7 +2453,15 @@ The function that is implemented is approximate, but usually very good: the seco
 is given to compare the approximation.
 </p>
 </html>"),
-      experiment(Tolerance=1e-005));
+      experiment(Tolerance=1e-005),
+      experimentSetupOutput);
+
+  Medium.ThermodynamicState state1;
+  Medium.ThermodynamicState state2;
+  Medium.ThermodynamicState smoothState;
+  Real m_flow_ext;
+  Real der_p;
+  Real der_T;
 equation
     der(medium.p) = 0.0;
     der(medium.T) = 90;
@@ -2407,6 +2469,18 @@ equation
     //    medium.X[Medium.Water] = 0.05;
     // one simple assumption only for quick testing:
   //  medium.X_liquidWater = if medium.X_sat < medium.X[2] then medium.X[2] - medium.X_sat else 0.0;
+
+   // Smooth state
+   m_flow_ext = time - 0.5;
+   state1.p = 1.e5*(1+time);
+   state1.T = 300 + 10*time;
+   state1.X = {time, 1-time};
+   state2.p = 1.e5*(1+time/2);
+   state2.T = 340 - 20*time;
+   state2.X = {0.5*time, 1-0.5*time};
+   smoothState = Medium.setSmoothState(m_flow_ext, state1, state2, 0.2);
+   der_p = der(smoothState.p);
+   der_T = der(smoothState.T);
 end MoistAir;
 
   package TwoPhaseWater "extension of the StandardWater package"
@@ -4256,6 +4330,79 @@ Section 4.7 (Balanced Models) of the Modelica 3.0 specification. </p>
       annotation(Documentation(info="<html></html>"));
     end setState_dTX;
 
+    replaceable partial function setSmoothState
+      "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
+      extends Modelica.Icons.Function;
+      input Real x "m_flow or dp";
+      input ThermodynamicState state_a "Thermodynamic state if x > 0";
+      input ThermodynamicState state_b "Thermodynamic state if x < 0";
+      input Real x_small(min=0)
+        "Smooth transition in the region -x_small < x < x_small";
+      output ThermodynamicState state
+        "Smooth thermodynamic state for all x (continuous and differentiable)";
+      annotation(Documentation(info="<html>
+<p>
+This function is used to approximate the equation
+</p>
+<pre>
+    state = <b>if</b> x &gt; 0 <b>then</b> state_a <b>else</b> state_b;
+</pre>
+
+<p>
+by a smooth characteristic, so that the expression is continuous and differentiable:
+</p>
+
+<pre>
+   state := <b>smooth</b>(1, <b>if</b> x &gt;  x_small <b>then</b> state_a <b>else</b> 
+                      <b>if</b> x &lt; -x_small <b>then</b> state_b <b>else</b> f(state_a, state_b));
+</pre>
+
+<p>
+This is performed by applying function <b>Media.Common.smoothStep</b>(..) 
+on every element of the thermodynamic state record.
+</p>
+
+<p>
+If <b>mass fractions</b> X[:] are approximated with this function then this can be performed
+for all <b>nX</b> mass fractions, instead of applying it for nX-1 mass fractions and computing
+the last one by the mass fraction constraint sum(X)=1. The reason is that the approximating function has the
+property that sum(state.X) = 1, provided sum(state_a.X) = sum(state_b.X) = 1.
+This can be shown by evaluating the approximating function in the abs(x) &lt; x_small
+region (otherwise state.X is either state_a.X or state_b.X):
+</p>
+
+<pre>
+    X[1]  = smoothStep(x, X_a[1] , X_b[1] , x_small);
+    X[2]  = smoothStep(x, X_a[2] , X_b[2] , x_small);
+       ...
+    X[nX] = smoothStep(x, X_a[nX], X_b[nX], x_small);
+</pre>
+
+<p>
+or
+</p>
+
+<pre>
+    X[1]  = c*(X_a[1]  - X_b[1])  + (X_a[1]  + X_b[1])/2
+    X[2]  = c*(X_a[2]  - X_b[2])  + (X_a[2]  + X_b[2])/2;
+       ...
+    X[nX] = c*(X_a[nX] - X_b[nX]) + (X_a[nX] + X_b[nX])/2;
+    c     = (x/x_small)*((x/x_small)^2 - 3)/4
+</pre>
+
+<p>
+Summing all mass fractions together results in 
+</p>
+
+<pre>
+    sum(X) = c*(sum(X_a) - sum(X_b)) + (sum(X_a) + sum(X_b))/2
+           = c*(1 - 1) + (1 + 1)/2
+           = 1
+</pre>
+
+</html>"));
+    end setSmoothState;
+
     replaceable partial function dynamicViscosity "Return dynamic viscosity"
       extends Modelica.Icons.Function;
       input ThermodynamicState state "thermodynamic state record";
@@ -4919,32 +5066,40 @@ partial package PartialLinearFluid
       redeclare function extends setState_pTX
       "set the thermodynamic state record from p and T (X not needed)"
       algorithm
-        state.p := p;
-        state.T := T;
+        state := ThermodynamicState(p=p,T=T);
       end setState_pTX;
 
       redeclare function extends setState_phX
       "set the thermodynamic state record from p and h (X not needed)"
       algorithm
-        state.p := p;
-        state.T :=(h - reference_h - (p - reference_p)*((1 - beta_const*reference_T)
-          /reference_d))/cp_const + reference_T;
+        state := ThermodynamicState(p=p,
+                                    T=(h - reference_h - (p - reference_p)*((1 - beta_const*reference_T)
+                                      /reference_d))/cp_const + reference_T);
       end setState_phX;
-
-      redeclare function extends setState_dTX
-      "set the thermodynamic state record from d and T (X not needed)"
-      algorithm
-        state.p := ((d-reference_d) + (state.T-reference_T)*beta_const*reference_d)
-                   /(reference_d*kappa_const) + reference_p;
-        state.T := T;
-      end setState_dTX;
 
       redeclare function extends setState_psX
       "set the thermodynamic state record from p and s (X not needed)"
       algorithm
-        state.p := p;
-        state.T :=reference_T*cp_const/(s-reference_s -(p-reference_p)*(-beta_const/reference_d) - cp_const);
+        state := ThermodynamicState(p=p,
+                                    T=reference_T*cp_const/(s-reference_s -(p-reference_p)*
+                                      (-beta_const/reference_d) - cp_const));
       end setState_psX;
+
+      redeclare function extends setState_dTX
+      "set the thermodynamic state record from d and T (X not needed)"
+      algorithm
+        state := ThermodynamicState(p=((d-reference_d) + (state.T-reference_T)*beta_const*reference_d)
+                                      /(reference_d*kappa_const) + reference_p,
+                                    T=T);
+      end setState_dTX;
+
+
+      redeclare function extends setSmoothState
+      "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
+      algorithm
+        state := ThermodynamicState(p= Media.Common.smoothStep(x, state_a.p, state_b.p, x_small),
+                                    T= Media.Common.smoothStep(x, state_a.T, state_b.T, x_small));
+      end setSmoothState;
 
       redeclare function extends pressure
       "Return the pressure from the thermodynamic state"
@@ -5275,6 +5430,13 @@ partial package PartialMixtureMedium
       end for;
     end massToMoleFractions;
 
+      redeclare function extends setSmoothState
+      "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
+      algorithm
+        state := ThermodynamicState(p=Media.Common.smoothStep(x, state_a.p, state_b.p, x_small),
+                                    T=Media.Common.smoothStep(x, state_a.T, state_b.T, x_small),
+                                    X=Media.Common.smoothStep(x, state_a.X, state_b.X, x_small));
+      end setSmoothState;
 end PartialMixtureMedium;
 
   partial package PartialCondensingGases
@@ -6036,6 +6198,13 @@ quantities are assumed to be constant.
       assert(false,"pressure can not be computed from temperature and density for an incompressible fluid!");
     end setState_dTX;
 
+        redeclare function extends setSmoothState
+      "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
+        algorithm
+          state :=ThermodynamicState(p=Media.Common.smoothStep(x, state_a.p, state_b.p, x_small),
+                                     T=Media.Common.smoothStep(x, state_a.T, state_b.T, x_small));
+        end setSmoothState;
+
     redeclare function extends dynamicViscosity "Return dynamic viscosity"
 
     annotation(Documentation(info="<html></html>"));
@@ -6249,6 +6418,13 @@ quantities are assumed to be constant.
     algorithm
       state := ThermodynamicState(p=d*R_gas*T,T=T);
     end setState_dTX;
+
+        redeclare function extends setSmoothState
+      "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
+        algorithm
+          state := ThermodynamicState(p=Media.Common.smoothStep(x, state_a.p, state_b.p, x_small),
+                                      T=Media.Common.smoothStep(x, state_a.T, state_b.T, x_small));
+        end setSmoothState;
 
     redeclare function extends pressure "Return pressure of ideal gas"
 
@@ -7860,6 +8036,92 @@ end BridgmansTablesForWater;
     nderivs.st := cv/f.T;
     nderivs.sd := -nderivs.pt/(f.d*f.d);
   end Helmholtz_ps;
+
+  function smoothStep
+    "Approximation of a general step, such that the characteristic is continuous and differentiable"
+    extends Modelica.Icons.Function;
+    input Real x "Abszissa value";
+    input Real y1 "Ordinate value for x > 0";
+    input Real y2 "Ordinate value for x < 0";
+    input Real x_small(min=0) = 1e-5
+      "Approximation of step for -x_small <= x <= x_small; x_small > 0 required";
+    output Real y "Ordinate value to approximate y = if x > 0 then y1 else y2";
+    annotation(Documentation(revisions="<html>
+<ul>
+<li><i>April 29, 2008</i>
+    by <a href=\"mailto:Martin.Otter@DLR.de\">Martin Otter</a>:<br>
+    Designed and implemented.</li>
+<li><i>August 12, 2008</i>
+    by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br>
+    Minor modification to cover the limit case <code>x_small -> 0</code> without division by zero.</li>
+</ul>
+</html>", info="<html>
+<p>
+This function is used to approximate the equation
+</p>
+<pre>
+    y = <b>if</b> x &gt; 0 <b>then</b> y1 <b>else</b> y2;
+</pre>
+
+<p>
+by a smooth characteristic, so that the expression is continuous and differentiable:
+</p>
+
+<pre>
+   y = <b>smooth</b>(1, <b>if</b> x &gt;  x_small <b>then</b> y1 <b>else</b> 
+                 <b>if</b> x &lt; -x_small <b>then</b> y2 <b>else</b> f(y1, y2));
+</pre>
+
+<p>
+In the region -x_small &lt; x &lt; x_small a 2nd order polynomial is used
+for a smooth transition from y1 to y2.
+</p>
+
+<p>
+If <b>mass fractions</b> X[:] are approximated with this function then this can be performed
+for all <b>nX</b> mass fractions, instead of applying it for nX-1 mass fractions and computing
+the last one by the mass fraction constraint sum(X)=1. The reason is that the approximating function has the
+property that sum(X) = 1, provided sum(X_a) = sum(X_b) = 1 
+(and y1=X_a[i], y2=X_b[i]).
+This can be shown by evaluating the approximating function in the abs(x) &lt; x_small
+region (otherwise X is either X_a or X_b):
+</p>
+
+<pre>
+    X[1]  = smoothStep(x, X_a[1] , X_b[1] , x_small);
+    X[2]  = smoothStep(x, X_a[2] , X_b[2] , x_small);
+       ...
+    X[nX] = smoothStep(x, X_a[nX], X_b[nX], x_small);
+</pre>
+
+<p>
+or
+</p>
+
+<pre>
+    X[1]  = c*(X_a[1]  - X_b[1])  + (X_a[1]  + X_b[1])/2
+    X[2]  = c*(X_a[2]  - X_b[2])  + (X_a[2]  + X_b[2])/2;
+       ...
+    X[nX] = c*(X_a[nX] - X_b[nX]) + (X_a[nX] + X_b[nX])/2;
+    c     = (x/x_small)*((x/x_small)^2 - 3)/4
+</pre>
+
+<p>
+Summing all mass fractions together results in 
+</p>
+
+<pre>
+    sum(X) = c*(sum(X_a) - sum(X_b)) + (sum(X_a) + sum(X_b))/2
+           = c*(1 - 1) + (1 + 1)/2
+           = 1
+</pre>
+</html>"));
+  algorithm
+    y := smooth(1, if x >  x_small then y1 else 
+                   if x < -x_small then y2 else 
+                   if abs(x_small)>0 then (x/x_small)*((x/x_small)^2 - 3)*(y2-y1)/4 + (y1+y2)/2 else (y1+y2)/2);
+
+  end smoothStep;
 
  package OneNonLinearEquation
     "Determine solution of a non-linear algebraic equation in one unknown without derivatives in a reliable and efficient way"

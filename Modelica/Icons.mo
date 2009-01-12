@@ -2,7 +2,6 @@ within Modelica;
 package Icons "Library of icons"
 
   annotation (
-    
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
         Rectangle(
@@ -128,6 +127,7 @@ and the accompanying <b>disclaimer</b>
 </ul>
 <br>
 </html>"));
+
   partial model Info "Icon for an information class"
 
     annotation (

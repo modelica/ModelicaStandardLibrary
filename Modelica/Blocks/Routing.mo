@@ -6,7 +6,6 @@ block ExtractSignal "Extract signals from an input signal vector"
   extends Modelica.Blocks.Interfaces.MIMO;
   parameter Integer extract[nout]=1:nout "Extracting vector";
   annotation (
-    
     Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -336,7 +335,6 @@ end Extractor;
       "Connector of Real output signals" annotation (Placement(transformation(
             extent={{100,-10},{120,10}}, rotation=0)));
     annotation (
-      
       Documentation(info="<HTML>
 <p>
 The output connector is the <b>concatenation</b> of the two input connectors.
@@ -368,6 +366,7 @@ explicitly defined via parameters n1 and n2.
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255})}));
+
   equation
     [y] = [u1; u2];
   end Multiplex2;
@@ -390,7 +389,6 @@ explicitly defined via parameters n1 and n2.
       "Connector of Real output signals" annotation (Placement(transformation(
             extent={{100,-10},{120,10}}, rotation=0)));
     annotation (
-      
       Documentation(info="<HTML>
 <p>
 The output connector is the <b>concatenation</b> of the three input connectors.
@@ -423,6 +421,7 @@ explicitly defined via parameters n1, n2 and n3.
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
           Line(points={{-100,0},{-12,0}}, color={0,0,255})}));
+
   equation
     [y] = [u1; u2; u3];
   end Multiplex3;
@@ -449,7 +448,6 @@ explicitly defined via parameters n1, n2 and n3.
       "Connector of Real output signals" annotation (Placement(transformation(
             extent={{100,-10},{120,10}}, rotation=0)));
     annotation (
-      
       Documentation(info="<HTML>
 <p>
 The output connector is the <b>concatenation</b> of the four input connectors.
@@ -485,6 +483,7 @@ explicitly defined via parameters n1, n2, n3 and n4.
             lineColor={0,0,255}),
           Line(points={{-100,30},{-60,30},{-9,0}}, color={0,0,255}),
           Line(points={{-99,-30},{-59,-30},{-10,-5}}, color={0,0,255})}));
+
   equation
     [y] = [u1; u2; u3; u4];
   end Multiplex4;
@@ -515,7 +514,6 @@ explicitly defined via parameters n1, n2, n3 and n4.
       "Connector of Real output signals" annotation (Placement(transformation(
             extent={{100,-10},{120,10}}, rotation=0)));
     annotation (
-      
       Documentation(info="<HTML>
 <p>
 The output connector is the <b>concatenation</b> of the five input connectors.
@@ -553,6 +551,7 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
           Line(points={{-99,50},{-60,50},{-8,5}}, color={0,0,255}),
           Line(points={{-100,0},{-7,0}}, color={0,0,255}),
           Line(points={{-99,-50},{-60,-50},{-9,-6}}, color={0,0,255})}));
+
   equation
     [y] = [u1; u2; u3; u4; u5];
   end Multiplex5;
@@ -588,7 +587,6 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
       "Connector of Real output signals" annotation (Placement(transformation(
             extent={{100,-10},{120,10}}, rotation=0)));
     annotation (
-      
       Documentation(info="<HTML>
 <p>
 The output connector is the <b>concatenation</b> of the six input connectors.
@@ -628,6 +626,7 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
           Line(points={{-99,-50},{-60,-50},{-9,-6}}, color={0,0,255}),
           Line(points={{-101,17},{-60,17},{-9,2}}, color={0,0,255}),
           Line(points={{-100,-18},{-60,-18},{-11,-4}}, color={0,0,255})}));
+
   equation
     [y] = [u1; u2; u3; u4; u5; u6];
   end Multiplex6;
@@ -646,7 +645,6 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
       "Connector of Real output signals 2" annotation (Placement(transformation(
             extent={{100,-70},{120,-50}}, rotation=0)));
     annotation (
-      
       Documentation(info="<HTML>
 <p>
 The input connector is <b>splitted</b> up into two output connectors.
@@ -678,6 +676,7 @@ explicitly defined via parameters n1 and n2.
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255})}));
+
   equation
     [u] = [y1; y2];
   end DeMultiplex2;
@@ -700,7 +699,6 @@ explicitly defined via parameters n1 and n2.
       "Connector of Real output signals 3" annotation (Placement(transformation(
             extent={{100,-80},{120,-60}}, rotation=0)));
     annotation (
-      
       Documentation(info="<HTML>
 <p>
 The input connector is <b>splitted</b> up into three output connectors.
@@ -734,6 +732,7 @@ explicitly defined via parameters n1, n2 and n3.
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
           Line(points={{0,0},{101,0}}, color={0,0,255})}));
+
   equation
     [u] = [y1; y2; y3];
   end DeMultiplex3;
@@ -761,7 +760,6 @@ explicitly defined via parameters n1, n2 and n3.
       "Connector of Real output signals 4" annotation (Placement(transformation(
             extent={{100,-100},{120,-80}}, rotation=0)));
     annotation (
-      
       Documentation(info="<HTML>
 <p>
 The input connector is <b>splitted</b> up into four output connectors.
@@ -796,6 +794,7 @@ explicitly defined via parameters n1, n2, n3 and n4.
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255})}));
+
   equation
     [u] = [y1; y2; y3; y4];
   end DeMultiplex4;
@@ -827,7 +826,6 @@ explicitly defined via parameters n1, n2, n3 and n4.
       "Connector of Real output signals 5" annotation (Placement(transformation(
             extent={{100,-90},{120,-70}}, rotation=0)));
     annotation (
-      
       Documentation(info="<HTML>
 <p>
 The input connector is <b>splitted</b> up into five output connectors.
@@ -864,6 +862,7 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
           Line(points={{100,40},{60,40},{10,3}}, color={0,0,255}),
           Line(points={{100,0},{10,0}}, color={0,0,255}),
           Line(points={{100,-40},{61,-40},{11,-7}}, color={0,0,255})}));
+
   equation
     [u] = [y1; y2; y3; y4; y5];
   end DeMultiplex5;
@@ -898,7 +897,6 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
       "Connector of Real output signals 6" annotation (Placement(transformation(
             extent={{100,-100},{120,-80}}, rotation=0)));
     annotation (
-      
       Documentation(info="<HTML>
 <p>
 The input connector is <b>splitted</b> up into six output connectors.
@@ -937,6 +935,7 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
           Line(points={{99,-54},{60,-54},{9,-1}}, color={0,0,255}),
           Line(points={{100,18},{59,18},{7,2}}, color={0,0,255}),
           Line(points={{100,-19},{60,-19},{13,-2}}, color={0,0,255})}));
+
   equation
     [u] = [y1; y2; y3; y4; y5; y6];
   end DeMultiplex6;

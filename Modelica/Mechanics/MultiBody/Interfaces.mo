@@ -4,7 +4,7 @@ package Interfaces
 
   extends Modelica.Icons.Library;
 
-  annotation(  Documentation(info="<html>
+  annotation ( Documentation(info="<html>
 <p>
 This package contains connectors and partial models (i.e. models
 that are only used to build other models) of the MultiBody library.
@@ -66,8 +66,7 @@ different icons.
             extent={{-12,40},{12,-40}},
             lineColor={0,0,0},
             fillColor={192,192,192},
-            fillPattern=FillPattern.Solid)})
-      ,
+            fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
 Basic definition of a coordinate system that is fixed to a mechanical
@@ -106,8 +105,7 @@ This component has a filled rectangular icon.
             extent={{-12,40},{12,-40}},
             lineColor={0,0,0},
             fillColor={255,255,255},
-            fillPattern=FillPattern.Solid)})
-      ,
+            fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
 Basic definition of a coordinate system that is fixed to a mechanical
@@ -147,8 +145,7 @@ coordinate system a vector is resolved (non-filled rectangular icon)"
             lineColor={95,95,95},
             pattern=LinePattern.Dot,
             fillColor={255,255,255},
-            fillPattern=FillPattern.Solid)})
-    ,
+            fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>
 <p>
 Basic definition of a coordinate system that is fixed to a mechanical
@@ -690,7 +687,6 @@ has to be defined. Example:
   protected
     outer Modelica.Mechanics.MultiBody.World world;
     annotation (
-      
       Documentation(info="
 <HTML>
 <p>
@@ -714,6 +710,7 @@ with the blocks of package Modelica.Blocks.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics));
+
   equation
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of absolute sensor object is not connected");
@@ -737,7 +734,6 @@ with the blocks of package Modelica.Blocks.
   protected
     outer Modelica.Mechanics.MultiBody.World world;
     annotation (
-      
       Documentation(info="
 <HTML>
 <p>
@@ -771,8 +767,8 @@ with the blocks of package Modelica.Blocks.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics));
-  equation
 
+  equation
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of relative sensor object is not connected");
     assert(cardinality(frame_b) > 0,

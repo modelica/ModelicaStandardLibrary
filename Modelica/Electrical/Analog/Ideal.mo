@@ -1,9 +1,9 @@
 within Modelica.Electrical.Analog;
-package Ideal 
-  "Ideal electrical elements such as switches, diode, transformer, operational amplifier" 
-  
+package Ideal
+  "Ideal electrical elements such as switches, diode, transformer, operational amplifier"
+
   extends Modelica.Icons.Library;
-  
+
   annotation (Documentation(info="<html>
 <p>
 This package contains electrical components with idealized behaviour:
@@ -35,14 +35,14 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
 </html>"));
-  
-          model IdealThyristor "Ideal thyristor" 
+
+          model IdealThyristor "Ideal thyristor"
             extends Modelica.Electrical.Analog.Interfaces.OnePort;
-            parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5 
+            parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
       "Closed thyristor resistance";
-            parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5 
+            parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
       "Opened thyristor conductance";
-            parameter Modelica.SIunits.Voltage Vknee(final min=0, start=0) 
+            parameter Modelica.SIunits.Voltage Vknee(final min=0, start=0)
       "Forward threshold voltage";
             Boolean off(start=true) "Switching state";
             Modelica.Blocks.Interfaces.BooleanInput fire 
@@ -50,8 +50,8 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           origin={70,110},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-  protected 
-            Real s(final unit="1") 
+  protected
+            Real s(final unit="1")
       "Auxiliary variable: if on then current, if opened then voltage";
             constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
             constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
@@ -166,21 +166,20 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
           Line(
             points={{20,10},{70,40}},
             color={0,0,0},
-            thickness=0.5)})
-              );
-          equation 
+            thickness=0.5)}));
+          equation
             off = s < 0 or pre(off) and not fire;
             v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
             i = (s*unitVoltage)*(if off then Goff else 1) + Goff*Vknee;
           end IdealThyristor;
-  
-          model IdealGTOThyristor "Ideal GTO thyristor" 
+
+          model IdealGTOThyristor "Ideal GTO thyristor"
             extends Modelica.Electrical.Analog.Interfaces.OnePort;
-            parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5 
+            parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
       "Closed thyristor resistance";
-            parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5 
+            parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
       "Opened thyristor conductance";
-            parameter Modelica.SIunits.Voltage Vknee(final min=0, start=0) 
+            parameter Modelica.SIunits.Voltage Vknee(final min=0, start=0)
       "Forward threshold voltage";
             Boolean off(start=true) "Switching state";
             Modelica.Blocks.Interfaces.BooleanInput fire 
@@ -188,8 +187,8 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
           origin={70,110},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-  protected 
-            Real s(final unit="1") 
+  protected
+            Real s(final unit="1")
       "Auxiliary variable: if on then current, if opened then voltage";
             constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
             constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
@@ -304,17 +303,16 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
           Line(
             points={{20,10},{70,40}},
             color={0,0,0},
-            thickness=0.5)})
-              );
-          equation 
+            thickness=0.5)}));
+          equation
             off = s < 0 or not fire;
             v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
             i = (s*unitVoltage)*(if off then Goff else 1) + Goff*Vknee;
           end IdealGTOThyristor;
-  
-  model IdealCommutingSwitch "Ideal commuting switch" 
+
+  model IdealCommutingSwitch "Ideal commuting switch"
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.E-5 
+    parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance";
     Interfaces.PositivePin p annotation (Placement(transformation(extent={{-110,
               -10},{-90,10}}, rotation=0)));
@@ -322,13 +320,13 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
               -10},{110,10}}, rotation=0)));
     Interfaces.NegativePin n1 annotation (Placement(transformation(extent={{90,
               40},{110,60}}, rotation=0)));
-    Modelica.Blocks.Interfaces.BooleanInput control 
+    Modelica.Blocks.Interfaces.BooleanInput control
       "true => p--n2 connected, false => p--n1 connected" annotation (Placement(
           transformation(
           origin={0,80},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-  protected 
+  protected
     Real s1(final unit="1");
     Real s2(final unit="1") "Auxiliary variables";
     constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
@@ -395,20 +393,19 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
           Line(points={{40,50},{96,50}}, color={0,0,255}),
           Line(points={{0,60},{0,25}}, color={0,0,255}),
-          Line(points={{40,0},{96,0}}, color={0,0,255})})
-      );
-  equation 
+          Line(points={{40,0},{96,0}}, color={0,0,255})}));
+  equation
     0 = p.i + n2.i + n1.i;
-    
+
     p.v - n1.v = (s1*unitCurrent)*(if (control) then 1 else Ron);
     n1.i = -(s1*unitVoltage)*(if (control) then Goff else 1);
     p.v - n2.v = (s2*unitCurrent)*(if (control) then Ron else 1);
     n2.i = -(s2*unitVoltage)*(if (control) then 1 else Goff);
   end IdealCommutingSwitch;
-  
-  model IdealIntermediateSwitch "Ideal intermediate switch" 
+
+  model IdealIntermediateSwitch "Ideal intermediate switch"
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.E-5 
+    parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance";
     Interfaces.PositivePin p1 annotation (Placement(transformation(extent={{
               -110,40},{-90,60}}, rotation=0)));
@@ -418,13 +415,13 @@ where a description with zero Ron or zero Goff is not possible.
               40},{110,60}}, rotation=0)));
     Interfaces.NegativePin n2 annotation (Placement(transformation(extent={{90,
               -10},{110,10}}, rotation=0)));
-    Modelica.Blocks.Interfaces.BooleanInput control 
+    Modelica.Blocks.Interfaces.BooleanInput control
       "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2  connected" 
       annotation (Placement(transformation(
           origin={0,80},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-  protected 
+  protected
     Real s1(final unit="1");
     Real s2(final unit="1");
     Real s3(final unit="1");
@@ -506,24 +503,23 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points={{-40,50},{40,0}}, color={0,0,255}),
           Line(points={{40,50},{96,50}}, color={0,0,255}),
           Line(points={{0,60},{0,25}}, color={0,0,255}),
-          Line(points={{40,0},{96,0}}, color={0,0,255})})
-      );
-  equation 
+          Line(points={{40,0},{96,0}}, color={0,0,255})}));
+  equation
     p1.v - n1.v = (s1*unitCurrent)*(if (control) then 1 else Ron);
     p2.v - n2.v = (s2*unitCurrent)*(if (control) then 1 else Ron);
     p1.v - n2.v = (s3*unitCurrent)*(if (control) then Ron else 1);
     p2.v - n1.v = (s4*unitCurrent)*(if (control) then Ron else 1);
-    
+
     p1.i = if control then s1*unitVoltage*Goff + s3*unitCurrent else s1*unitCurrent + s3*unitVoltage*Goff;
     p2.i = if control then s2*unitVoltage*Goff + s4*unitCurrent else s2*unitCurrent + s4*unitVoltage*Goff;
     n1.i = if control then -s1*unitVoltage*Goff - s4*unitCurrent else -s1*unitCurrent - s4*unitVoltage*Goff;
     n2.i = if control then -s2*unitVoltage*Goff - s3*unitCurrent else -s2*unitCurrent - s3*unitVoltage*Goff;
   end IdealIntermediateSwitch;
-  
-  model ControlledIdealCommutingSwitch "Controlled ideal commuting switch" 
+
+  model ControlledIdealCommutingSwitch "Controlled ideal commuting switch"
     parameter SI.Voltage level=0.5 "Switch level";
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.E-5 
+    parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance";
     Interfaces.PositivePin p annotation (Placement(transformation(extent={{-110,
               -10},{-90,10}}, rotation=0)));
@@ -531,13 +527,13 @@ where a description with zero Ron or zero Goff is not possible.
               -10},{110,10}}, rotation=0)));
     Interfaces.NegativePin n1 annotation (Placement(transformation(extent={{90,
               40},{110,60}}, rotation=0)));
-    Interfaces.Pin control 
+    Interfaces.Pin control
       "Control pin: if control.v > level p--n2 connected, otherwise p--n1 connected"
        annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-  protected 
+  protected
     Real s1(final unit="1");
     Real s2(final unit="1") "Auxiliary variables";
     constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
@@ -605,23 +601,22 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
           Line(points={{40,50},{96,50}}, color={0,0,255}),
           Line(points={{0,96},{0,25}}, color={0,0,255}),
-          Line(points={{40,0},{96,0}}, color={0,0,255})})
-      );
-  equation 
+          Line(points={{40,0},{96,0}}, color={0,0,255})}));
+  equation
     control.i = 0;
     0 = p.i + n2.i + n1.i;
-    
+
     p.v - n1.v = (s1*unitCurrent)*(if (control.v > level) then 1 else Ron);
     n1.i = -(s1*unitVoltage)*(if (control.v > level) then Goff else 1);
     p.v - n2.v = (s2*unitCurrent)*(if (control.v > level) then Ron else 1);
     n2.i = -(s2*unitVoltage)*(if (control.v > level) then 1 else Goff);
   end ControlledIdealCommutingSwitch;
-  
-  model ControlledIdealIntermediateSwitch 
-    "Controlled ideal intermediate switch" 
+
+  model ControlledIdealIntermediateSwitch
+    "Controlled ideal intermediate switch"
     parameter SI.Voltage level=0.5 "Switch level";
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.E-5 
+    parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance";
     Interfaces.PositivePin p1 annotation (Placement(transformation(extent={{
               -110,40},{-90,60}}, rotation=0)));
@@ -637,7 +632,7 @@ where a description with zero Ron or zero Goff is not possible.
           origin={0,100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-  protected 
+  protected
     Real s1(final unit="1");
     Real s2(final unit="1");
     Real s3(final unit="1");
@@ -720,23 +715,22 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points={{-40,50},{40,0}}, color={0,0,255}),
           Line(points={{40,50},{96,50}}, color={0,0,255}),
           Line(points={{0,96},{0,25}}, color={0,0,255}),
-          Line(points={{40,0},{96,0}}, color={0,0,255})})
-      );
-  equation 
+          Line(points={{40,0},{96,0}}, color={0,0,255})}));
+  equation
     control.i = 0;
-    
+
     p1.v - n1.v = (s1*unitCurrent)*(if (control.v > level) then 1 else Ron);
     p2.v - n2.v = (s2*unitCurrent)*(if (control.v > level) then 1 else Ron);
     p1.v - n2.v = (s3*unitCurrent)*(if (control.v > level) then Ron else 1);
     p2.v - n1.v = (s4*unitCurrent)*(if (control.v > level) then Ron else 1);
-    
+
     p1.i = if control.v > level then s1*unitVoltage*Goff + s3*unitCurrent else s1*unitCurrent + s3*unitVoltage*Goff;
     p2.i = if control.v > level then s2*unitVoltage*Goff + s4*unitCurrent else s2*unitCurrent + s4*unitVoltage*Goff;
     n1.i = if control.v > level then -s1*unitVoltage*Goff - s4*unitCurrent else -s1*unitCurrent - s4*unitVoltage*Goff;
     n2.i = if control.v > level then -s2*unitVoltage*Goff - s3*unitCurrent else -s2*unitCurrent - s3*unitVoltage*Goff;
   end ControlledIdealIntermediateSwitch;
-  
-  model IdealOpAmp "Ideal operational amplifier (norator-nullator pair)" 
+
+  model IdealOpAmp "Ideal operational amplifier (norator-nullator pair)"
     SI.Voltage v1 "Voltage drop over the left port";
     SI.Voltage v2 "Voltage drop over the right port";
     SI.Current i1 "Current flowing from pos. to neg. pin of the left port";
@@ -840,9 +834,8 @@ are possible (norator).
             lineColor={0,0,0},
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={160,160,164},
-            textString="i2")})
-      );
-  equation 
+            textString="i2")}));
+  equation
     v1 = p1.v - n1.v;
     v2 = p2.v - n2.v;
     0 = p1.i + n1.i;
@@ -852,9 +845,9 @@ are possible (norator).
     v1 = 0;
     i1 = 0;
   end IdealOpAmp;
-  
-  model IdealOpAmp3Pin 
-    "Ideal operational amplifier (norator-nullator pair), but 3 pins" 
+
+  model IdealOpAmp3Pin
+    "Ideal operational amplifier (norator-nullator pair), but 3 pins"
     Interfaces.PositivePin in_p "Positive pin of the input port" annotation (Placement(
           transformation(extent={{-110,-60},{-90,-40}}, rotation=0)));
     Interfaces.NegativePin in_n "Negative pin of the input port" annotation (Placement(
@@ -937,15 +930,14 @@ are possible.
             lineColor={160,160,164},
             fillColor={160,160,164},
             fillPattern=FillPattern.Solid,
-            textString="n1.i=0")})
-      );
-  equation 
+            textString="n1.i=0")}));
+  equation
     in_p.v = in_n.v;
     in_p.i = 0;
     in_n.i = 0;
   end IdealOpAmp3Pin;
-  
-  model IdealOpAmpLimited "Ideal operational amplifier with limitation" 
+
+  model IdealOpAmpLimited "Ideal operational amplifier with limitation"
     Interfaces.PositivePin in_p "Positive pin of the input port" annotation (Placement(
           transformation(extent={{-110,-60},{-90,-40}}, rotation=0)));
     Interfaces.NegativePin in_n "Negative pin of the input port" annotation (Placement(
@@ -959,7 +951,7 @@ are possible.
       annotation (Placement(transformation(extent={{-10,-80},{10,-60}},
             rotation=0)));
     SI.Voltage vin "input voltage";
-  protected 
+  protected
     Real s(final unit="1") "Auxiliary variable";
     constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
     annotation (
@@ -1044,10 +1036,9 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
             lineColor={160,160,164},
             fillColor={160,160,164},
             fillPattern=FillPattern.Solid,
-            textString="n1.i=0")})
-      );
-    
-  equation 
+            textString="n1.i=0")}));
+
+  equation
     in_p.i = 0;
     in_n.i = 0;
     VMax.i = 0;
@@ -1056,18 +1047,18 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
     in_p.v - in_n.v = unitVoltage*smooth(0,(if s < -1 then s + 1 else if s > 1 then s - 1 else 0));
     out.v = smooth(0,if s < -1 then VMin.v else if s > 1 then VMax.v else (VMax.v - VMin.v)*s/2 + (VMax.v + VMin.v)/2);
   end IdealOpAmpLimited;
-  
-        model IdealDiode "Ideal diode" 
+
+        model IdealDiode "Ideal diode"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5 
+          parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
       "Forward state-on differential resistance (closed diode resistance)";
-          parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5 
+          parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
       "Backward state-off conductance (opened diode conductance)";
-          parameter Modelica.SIunits.Voltage Vknee(final min=0, start=0) 
+          parameter Modelica.SIunits.Voltage Vknee(final min=0, start=0)
       "Forward threshold voltage";
           Boolean off(start=true) "Switching state";
-  protected 
-          Real s(final unit="1") 
+  protected
+          Real s(final unit="1")
       "Auxiliary variable: if on then current, if opened then voltage";
           constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
           constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
@@ -1177,15 +1168,14 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
           Ellipse(
             extent={{18,12},{22,8}},
             pattern=LinePattern.Dot,
-            lineColor={0,0,255})})
-            );
-        equation 
+            lineColor={0,0,255})}));
+        equation
           off = s < 0;
           v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
           i = (s*unitVoltage)*(if off then Goff else 1) + Goff*Vknee;
         end IdealDiode;
-  
-  model IdealTransformer "Ideal electrical transformer" 
+
+  model IdealTransformer "Ideal electrical transformer"
     extends Interfaces.TwoPort;
     parameter Real n(start=1) "Turns ratio";
     annotation (
@@ -1270,14 +1260,13 @@ where <i>n</i> is a real number called the turns ratio.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{32,50},{96,50}}, color={0,0,255}),
-          Line(points={{32,-50},{96,-50}}, color={0,0,255})})
-      );
-  equation 
+          Line(points={{32,-50},{96,-50}}, color={0,0,255})}));
+  equation
     v1 = n*v2;
     i2 = -n*i1;
   end IdealTransformer;
-  
-  model IdealGyrator "Ideal gyrator" 
+
+  model IdealGyrator "Ideal gyrator"
     extends Interfaces.TwoPort;
     parameter SI.Conductance G(start=1) "Gyration conductance";
     annotation (
@@ -1360,13 +1349,13 @@ where the constant <i>G</i> is called the gyration conductance.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{96,50},{40,50},{40,-50},{96,-50}}, color={0,0,255})}));
-    
-  equation 
+
+  equation
     i1 = G*v2;
     i2 = -G*v1;
   end IdealGyrator;
-  
-  model Idle "Idle branch" 
+
+  model Idle "Idle branch"
     extends Interfaces.OnePort;
     annotation (
       Documentation(info="<html>
@@ -1404,13 +1393,12 @@ The model Idle is a simple idle running branch.
           grid={1,1}), graphics={
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Line(points={{-96,0},{-41,0}}, color={0,0,255}),
-          Line(points={{96,0},{40,0}}, color={0,0,255})})
-      );
-  equation 
+          Line(points={{96,0},{40,0}}, color={0,0,255})}));
+  equation
     i = 0;
   end Idle;
-  
-  model Short "Short cut branch" 
+
+  model Short "Short cut branch"
     extends Interfaces.OnePort;
     annotation (
       Documentation(info="<html>
@@ -1450,27 +1438,26 @@ The model Short is a simple short cut branch.
           Text(
             extent={{-100,100},{100,70}},
             textString="Short",
-            lineColor={0,0,255})})
-      );
-  equation 
+            lineColor={0,0,255})}));
+  equation
     v = 0;
   end Short;
-  
- model IdealOpeningSwitch "Ideal electrical opener" 
+
+ model IdealOpeningSwitch "Ideal electrical opener"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
        annotation (Placement(transformation(extent={{-56.6667,10},{-10,56.6667}},
             rotation=0)));
-    parameter SI.Conductance Goff(final min=0) = 1.E-5 
+    parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance" annotation (Placement(transformation(extent={
               {10,10},{56.6667,56.6667}}, rotation=0)));
-    Modelica.Blocks.Interfaces.BooleanInput control 
+    Modelica.Blocks.Interfaces.BooleanInput control
       "true => switch open, false => p--n connected" annotation (Placement(
           transformation(
           origin={0,70},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-  protected 
+  protected
    Real s(final unit="1") "Auxiliary variable";
    constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
    constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
@@ -1501,8 +1488,7 @@ where a description with zero Ron or zero Goff is not possible.
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
-</html>")
-      ,
+</html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1531,27 +1517,27 @@ where a description with zero Ron or zero Goff is not possible.
             lineColor={0,0,255}),
           Line(points={{0,51},{0,26}}, color={0,0,255}),
           Line(points={{40,20},{40,0}}, color={0,0,255})}));
- equation 
+ equation
     v = (s*unitCurrent)*(if control then 1 else Ron);
     i = (s*unitVoltage)*(if control then Goff else 1);
  end IdealOpeningSwitch;
-  
-    model IdealClosingSwitch "Ideal electrical closer" 
+
+    model IdealClosingSwitch "Ideal electrical closer"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
-      parameter SI.Resistance Ron(final min=0) = 1.E-5 
+      parameter SI.Resistance Ron(final min=0) = 1.E-5
       "Closed switch resistance" 
          annotation (Placement(transformation(extent={{-56.6667,10},{-10,
               56.6667}}, rotation=0)));
-      parameter SI.Conductance Goff(final min=0) = 1.E-5 
+      parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance"   annotation (Placement(transformation(extent=
              {{10,10},{56.6667,56.6667}}, rotation=0)));
-      Modelica.Blocks.Interfaces.BooleanInput control 
+      Modelica.Blocks.Interfaces.BooleanInput control
       "true => p--n connected, false => switch open"   annotation (Placement(
           transformation(
           origin={0,70},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-  protected 
+  protected
       Real s(final unit="1") "Auxiliary variable";
       constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
       constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
@@ -1583,8 +1569,7 @@ where a description with zero Ron or zero Goff is not possible.
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
-</html>")
-        ,
+</html>"),
         Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1611,32 +1596,32 @@ where a description with zero Ron or zero Goff is not possible.
             textString="%name",
             lineColor={0,0,255}),
           Line(points={{0,51},{0,26}}, color={0,0,255})}));
-    equation 
+    equation
       v = (s*unitCurrent)*(if control then Ron else 1);
       i = (s*unitVoltage)*(if control then 1 else Goff);
     end IdealClosingSwitch;
-  
-  model ControlledIdealOpeningSwitch "Controlled ideal electrical opener" 
-    
+
+  model ControlledIdealOpeningSwitch "Controlled ideal electrical opener"
+
     parameter SI.Voltage level=0.5 "Switch level" annotation (Placement(
           transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
        annotation (Placement(transformation(extent={{10,10},{56.6667,56.6667}},
             rotation=0)));
-    parameter SI.Conductance Goff(final min=0) = 1.E-5 
+    parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance" annotation (Placement(transformation(extent={
               {-56.6667,-56.6667},{-10,-10}}, rotation=0)));
     Interfaces.PositivePin p annotation (Placement(transformation(extent={{-110,
               -10},{-90,10}}, rotation=0)));
     Interfaces.NegativePin n annotation (Placement(transformation(extent={{90,
               -10},{110,10}}, rotation=0)));
-    Interfaces.Pin control 
+    Interfaces.Pin control
       "Control pin: control.v > level switch open, otherwise p--n connected" 
       annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-  protected 
+  protected
     Real s(final unit="1") "Auxiliary variable";
     constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
     constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
@@ -1668,8 +1653,7 @@ where a description with zero Ron or zero Goff is not possible.
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
-</html>")
-      ,
+</html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1694,35 +1678,35 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points={{40,0},{96,0}}, color={0,0,255}),
           Line(points={{0,96},{0,25}}, color={0,0,255}),
           Line(points={{40,20},{40,0}}, color={0,0,255})}));
-  equation 
+  equation
     control.i = 0;
     0 = p.i + n.i;
     p.v - n.v = (s*unitCurrent)*(if (control.v > level) then 1 else Ron);
     p.i = (s*unitVoltage)*(if (control.v > level) then Goff else 1);
   end ControlledIdealOpeningSwitch;
-  
-    model ControlledIdealClosingSwitch "Controlled ideal electrical closer" 
-    
+
+    model ControlledIdealClosingSwitch "Controlled ideal electrical closer"
+
       parameter SI.Voltage level=0.5 "Switch level" annotation (Placement(
           transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
-      parameter SI.Resistance Ron(final min=0) = 1.E-5 
+      parameter SI.Resistance Ron(final min=0) = 1.E-5
       "Closed switch resistance" 
          annotation (Placement(transformation(extent={{10,10},{56.6667,56.6667}},
             rotation=0)));
-      parameter SI.Conductance Goff(final min=0) = 1.E-5 
+      parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance"   annotation (Placement(transformation(extent=
              {{-56.6667,-56.6667},{-10,-10}}, rotation=0)));
       Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
       Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      Modelica.Electrical.Analog.Interfaces.Pin control 
+      Modelica.Electrical.Analog.Interfaces.Pin control
       "Control pin: control.v > level switch closed, otherwise switch open" 
         annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-  protected 
+  protected
       Real s(final unit="1") "Auxiliary variable";
       constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
       constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
@@ -1755,8 +1739,7 @@ where a description with zero Ron or zero Goff is not possible.
        by Christoph Clauss<br> initially implemented<br>
        </li>
 </ul>
-</html>")
-        ,
+</html>"),
         Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1779,11 +1762,11 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
           Line(points={{40,0},{96,0}}, color={0,0,255}),
           Line(points={{0,96},{0,25}}, color={0,0,255})}));
-    equation 
+    equation
       control.i = 0;
       0 = p.i + n.i;
       p.v - n.v = (s*unitCurrent)*(if (control.v > level) then Ron else 1);
       p.i = (s*unitVoltage)*(if (control.v > level) then 1 else Goff);
     end ControlledIdealClosingSwitch;
-  
+
 end Ideal;

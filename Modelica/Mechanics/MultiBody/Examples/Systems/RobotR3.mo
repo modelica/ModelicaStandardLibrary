@@ -22,7 +22,6 @@ package RobotR3
       "Maximum reference acceleration";
 
     annotation (
-      
       Documentation(info="<HTML>
 <p>
 With this model one axis of the r3 robot is checked.
@@ -506,8 +505,7 @@ the connection to this bus) are defined
             Text(
               extent={{-73,-44},{82,-69}},
               lineColor={0,0,0},
-              textString="1 axis")})
-        ,
+              textString="1 axis")}),
         Documentation(info="<html>
 <p>
 Given
@@ -654,8 +652,7 @@ motion on the controlBus of the r3 robot.
             Text(
               extent={{-70,-43},{85,-68}},
               lineColor={0,0,0},
-              textString="6 axes")})
-        ,
+              textString="6 axes")}),
         Documentation(info="<html>
 <p>
 Given
@@ -927,7 +924,6 @@ motion on the controlBus of the r3 robot.
       constant SI.Torque unitTorque = 1;
 
       annotation (
-        
         Documentation(info="<html>
 <p>
 Models the gearbox used in the first three joints with all its effects,
@@ -1055,7 +1051,6 @@ the definition of initial values considerably.
       parameter Real peak=(26.7/21.8)
         "Maximum static friction torque is peak*Rv0 (peak >= 1)";
       annotation (
-        
         Documentation(info="<html>
 <p>
 The elasticity and damping in the gearboxes of the outermost
@@ -1153,7 +1148,6 @@ Default values for all parameters are given for joint 4.
       parameter SI.Current i_max=9 "Maximum current of motor";
 
       annotation (
-        
         Documentation(info="<html>
 <p>
 Default values are given for the motor of joint 1.
@@ -1407,8 +1401,7 @@ produced by the motor).
             Text(
               extent={{-100,150},{100,110}},
               textString="%name",
-              lineColor={0,0,255})})
-        ,
+              lineColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 This controller has an inner PI-controller to control the motor speed,
@@ -1504,7 +1497,6 @@ reference signals. All signals are communicated via the
         "Maximum static friction torque is peak*Rv0 (peak >= 1)" 
         annotation (Dialog(group="Gear"));
       annotation (
-        
         Documentation(info="<HTML>
 <p>
 The axis model consists of the <b>controller</b>, the <b>motor</b> including current
@@ -1656,7 +1648,6 @@ Default values of the parameters are given for the axis of joint 1.
       SI.Torque tau[6] "Joint driving torques";
       //r0={0,0.351,0},
       annotation (
-        
         Documentation(info="<HTML>
 <p>
 This model contains the mechanical components of the r3 robot

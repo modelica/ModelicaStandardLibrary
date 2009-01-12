@@ -403,7 +403,8 @@ with
   function planarRotation "Return orientation object of a planar rotation"
     import Modelica.Math;
     extends Modelica.Icons.Function;
-    input Real e[3](each final unit="1") "Normalized axis of rotation (must have length=1)";
+    input Real e[3](each final unit="1")
+      "Normalized axis of rotation (must have length=1)";
     input Modelica.SIunits.Angle angle
       "Rotation angle to rotate frame 1 into frame 2 along axis e";
     input Modelica.SIunits.AngularVelocity der_angle "= der(angle)";
@@ -605,10 +606,14 @@ and sequence[2] &ne; sequence[3]. Often used values are:
 </pre>
 </HTML>"));
   protected
-    Real e1_1[3](each final unit="1") "First rotation axis, resolved in frame 1";
-    Real e2_1a[3](each final unit="1") "Second rotation axis, resolved in frame 1a";
-    Real e3_1[3](each final unit="1") "Third rotation axis, resolved in frame 1";
-    Real e3_2[3](each final unit="1") "Third rotation axis, resolved in frame 2";
+    Real e1_1[3](each final unit="1")
+      "First rotation axis, resolved in frame 1";
+    Real e2_1a[3](each final unit="1")
+      "Second rotation axis, resolved in frame 1a";
+    Real e3_1[3](each final unit="1")
+      "Third rotation axis, resolved in frame 1";
+    Real e3_2[3](each final unit="1")
+      "Third rotation axis, resolved in frame 2";
     Real A
       "Coefficient A in the equation A*cos(angles[1])+B*sin(angles[1]) = 0";
     Real B
@@ -1244,7 +1249,8 @@ confused with Modelica \"parameters\".
       "Return quaternions orientation object of a planar rotation"
       import Modelica.Math;
       extends Modelica.Icons.Function;
-      input Real e[3](each final unit="1") "Normalized axis of rotation (must have length=1)";
+      input Real e[3](each final unit="1")
+        "Normalized axis of rotation (must have length=1)";
       input Modelica.SIunits.Angle angle
         "Rotation angle to rotate frame 1 into frame 2 along axis e";
       output Quaternions.Orientation Q
@@ -1659,7 +1665,8 @@ Rotation can be defined by adapting this package correspondingly.
     function planarRotation "Return orientation object of a planar rotation"
       import Modelica.Math;
       extends Modelica.Icons.Function;
-      input Real e[3](each final unit="1") "Normalized axis of rotation (must have length=1)";
+      input Real e[3](each final unit="1")
+        "Normalized axis of rotation (must have length=1)";
       input Modelica.SIunits.Angle angle
         "Rotation angle to rotate frame 1 into frame 2 along axis e";
       output TransformationMatrices.Orientation T
@@ -1849,10 +1856,14 @@ and sequence[2] &ne; sequence[3]. Often used values are:
 </pre>
 </HTML>"));
     protected
-      Real e1_1[3](each final unit="1") "First rotation axis, resolved in frame 1";
-      Real e2_1a[3](each final unit="1") "Second rotation axis, resolved in frame 1a";
-      Real e3_1[3](each final unit="1") "Third rotation axis, resolved in frame 1";
-      Real e3_2[3](each final unit="1") "Third rotation axis, resolved in frame 2";
+      Real e1_1[3](each final unit="1")
+        "First rotation axis, resolved in frame 1";
+      Real e2_1a[3](each final unit="1")
+        "Second rotation axis, resolved in frame 1a";
+      Real e3_1[3](each final unit="1")
+        "Third rotation axis, resolved in frame 1";
+      Real e3_2[3](each final unit="1")
+        "Third rotation axis, resolved in frame 2";
       Real A
         "Coefficient A in the equation A*cos(angles[1])+B*sin(angles[1]) = 0";
       Real B

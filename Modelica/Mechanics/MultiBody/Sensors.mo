@@ -1,4 +1,4 @@
-within Modelica.Mechanics.MultiBody; 
+within Modelica.Mechanics.MultiBody;
 package Sensors "Sensors to measure variables"
   extends Modelica.Icons.Library;
 
@@ -1026,8 +1026,8 @@ and sequence[2] &ne; sequence[3]. Often used values are:
 
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
-          ={
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
+           {
           Line(
             points={{70,0},{100,0}},
             color={0,0,127},
@@ -1142,8 +1142,8 @@ computed as:
 
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}),                                              graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
-          ={
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
+           {
           Line(
             points={{70,0},{100,0}},
             color={0,0,127},
@@ -1508,8 +1508,8 @@ computed as:
 
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
-          ={
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
+           {
           Line(
             points={{0,-70},{0,-100}},
             color={0,0,127},
@@ -1879,8 +1879,8 @@ and sequence[2] &ne; sequence[3]. Often used values are:
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
-          ={
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
+           {
           Line(
             points={{0,-70},{0,-100}},
             color={0,0,127},
@@ -2738,8 +2738,8 @@ transformed output vector as \"Real r_out[3]\";
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
-          ={
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
+           {
           Line(
             points={{0,-70},{0,-100}},
             color={0,0,127},

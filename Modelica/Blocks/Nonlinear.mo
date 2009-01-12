@@ -5,7 +5,6 @@ package Nonlinear
       extends Modelica.Icons.Library;
 
       annotation (
-        
         Documentation(info="
 <HTML>
 <p>
@@ -26,6 +25,7 @@ This package contains <b>discontinuous</b> and
 </ul>
 </html>
 "));
+
       block Limiter "Limit the range of a signal"
         parameter Real uMax(start=1) "Upper limits of input signals";
         parameter Real uMin= -uMax "Lower limits of input signals";
@@ -34,7 +34,6 @@ This package contains <b>discontinuous</b> and
         extends Interfaces.SISO;
 
         annotation (
-          
           Documentation(info="
 <HTML>
 <p>
@@ -102,6 +101,7 @@ as output.
             extent={{26,40},{66,56}},
             lineColor={128,128,128},
             textString="uMax")}));
+
       equation
         assert(uMax >= uMin, "Limiter: Limits must be consistent. However, uMax (=" + String(uMax) +
                              ") < uMin (=" + String(uMin) + ")");
@@ -228,7 +228,6 @@ is passed as output.
         extends Interfaces.SISO;
 
         annotation (
-          
           Documentation(info="
 <HTML>
 <p>
@@ -298,6 +297,7 @@ function of the input with a slope of 1.
             extent={{27,21},{52,5}},
             lineColor={128,128,128},
             textString="uMax")}));
+
       equation
         assert(uMax >= uMin, "DeadZone: Limits must be consistent. However, uMax (=" + String(uMax) +
                              ") < uMin (=" + String(uMin) + ")");
@@ -315,7 +315,6 @@ function of the input with a slope of 1.
       "Delay time of output with respect to input signal";
 
     annotation (
-      
       Documentation(info="<html>
 <p>
 The Input signal is delayed by a given time instant, or more precisely:
@@ -424,7 +423,6 @@ The Input signal is delayed by a given time instant, or more precisely:
     final output Real x[n]
       "State of transfer function from controller canonical form";
     annotation (
-      
       Documentation(info="<html>
 <p>
 The Input signal is delayed by a given time instant, or more precisely:
@@ -589,7 +587,6 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
     extends Modelica.Blocks.Interfaces.SISO;
     parameter Real delayMax(min=0, start=1) "maximum delay time";
     annotation (
-      
       Documentation(info="<html>
 <p>
 The Input signal is delayed by a given time instant, or more precisely:

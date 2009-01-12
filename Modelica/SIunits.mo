@@ -223,7 +223,6 @@ end UsersGuide;
   extends Modelica.Icons.Library2;
 
   annotation (
-    
     Invisible=true,
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={Text(

@@ -955,7 +955,7 @@ clarity this is not shown in the animation):
             pattern=LinePattern.Dot),
           Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,85}},
               color={0,0,0}),
-          Line(points={{77,45},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}}, 
+          Line(points={{77,45},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}},
               color={0,0,0})}),
       Documentation(info="<HTML>
 <p>
@@ -1186,7 +1186,7 @@ clarity this is not shown in the animation):
           Line(points={{20,0},{65,0}}, color={0,0,0}),
           Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,85}},
               color={0,0,0}),
-          Line(points={{76,47},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}}, 
+          Line(points={{76,47},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}},
               color={0,0,0}),
           Text(
             extent={{-144,124},{-106,102}},
@@ -1460,8 +1460,8 @@ clarity this is not shown in the animation):
             fillColor={192,192,192}),
           Line(points={{-56,0},{-56,23},{-30,23},{-30,70},{-60,70},{-60,101}},
               color={0,0,0}),
-          Line(points={{55,-1},{55,20},{30,20},{30,70},{60,70},{60,100}}, color
-              ={0,0,0}),
+          Line(points={{55,-1},{55,20},{30,20},{30,70},{60,70},{60,100}}, color=
+               {0,0,0}),
           Line(
             points={{-56,0},{55,-1}},
             color={0,0,0},
@@ -2834,9 +2834,9 @@ values from the outside in order that the model remains balanced
               points={{-60,100},{40,100}},
               color={95,95,95},
               pattern=LinePattern.Dot),
-            Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,85}}, 
+            Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,85}},
                 color={0,0,0}),
-            Line(points={{77,45},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}}, 
+            Line(points={{77,45},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}},
                 color={0,0,0})}),
         Documentation(info="<HTML>
 <p>

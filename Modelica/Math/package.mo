@@ -1,6 +1,6 @@
 within Modelica;
 package Math "Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices"
-  import SI = Modelica.SIunits;
+import SI = Modelica.SIunits;
 
 
 extends Modelica.Icons.Library2;
@@ -4385,7 +4385,7 @@ end atan2;
 
 function atan3
   "Four quadrant inverse tangens (select solution that is closest to given angle y0)"
-    import Modelica.Math;
+  import Modelica.Math;
   extends Modelica.Math.baseIcon2;
   input Real u1;
   input Real u2;
@@ -4825,7 +4825,7 @@ end asinh;
 
 
 function acosh "Inverse of cosh (area hyperbolic cosine)"
-    import Modelica.Utilities.Streams.*;
+  import Modelica.Utilities.Streams.*;
   extends Modelica.Math.baseIcon1;
   input Real u;
   output Real y;
@@ -5024,7 +5024,7 @@ function log "Natural (base e) logarithm (u shall be > 0)"
           fillPattern=FillPattern.Solid),
         Line(points={{-80,-80},{-79.2,-50.6},{-78.4,-37},{-77.6,-28},{-76.8,-21.3},
               {-75.2,-11.4},{-72.8,-1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},
-              {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}, 
+              {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}},
             color={0,0,0}),
         Text(
           extent={{-6,-24},{66,-72}},
@@ -5110,7 +5110,7 @@ function log10 "Base 10 logarithm (u shall be > 0)"
           fillPattern=FillPattern.Solid),
         Line(points={{-79.8,-80},{-79.2,-50.6},{-78.4,-37},{-77.6,-28},{-76.8,-21.3},
               {-75.2,-11.4},{-72.8,-1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},
-              {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}, 
+              {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}},
             color={0,0,0}),
         Text(
           extent={{-30,-22},{60,-70}},

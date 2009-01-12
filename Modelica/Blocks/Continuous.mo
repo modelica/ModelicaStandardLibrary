@@ -784,8 +784,7 @@ This is discussed in the description of package
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,-80},{-80,50},{-80,-20},{60,80}}, color={0,0,127}), 
-
+          Line(points={{-80,-80},{-80,50},{-80,-20},{60,80}}, color={0,0,127}),
           Text(
             extent={{-20,-20},{80,-60}},
             lineColor={192,192,192},
@@ -1521,7 +1520,7 @@ results in the following equations:
       extends Interfaces.SISO;
 
       annotation (defaultComponentName="der1",
-   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
+   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
           graphics={Text(
             extent={{-80,76},{80,-82}},
             textString="der()",

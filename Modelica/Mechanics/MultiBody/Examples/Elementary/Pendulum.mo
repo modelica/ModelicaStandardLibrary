@@ -2,8 +2,7 @@ within Modelica.Mechanics.MultiBody.Examples.Elementary;
 model Pendulum "Simple pendulum with one revolute joint and one body"
   extends Modelica.Icons.Example;
   annotation (
-    experiment(StopTime=5)
-    ,
+    experiment(StopTime=5),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},

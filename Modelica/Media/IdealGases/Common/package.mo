@@ -286,6 +286,13 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
       state := ThermodynamicState(p=d*data.R*T,T=T);
     end setState_dTX;
 
+      redeclare function extends setSmoothState
+    "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
+      algorithm
+        state := ThermodynamicState(p=Media.Common.smoothStep(x, state_a.p, state_b.p, x_small),
+                                    T=Media.Common.smoothStep(x, state_a.T, state_b.T, x_small));
+      end setSmoothState;
+
   redeclare function extends pressure "return pressure of ideal gas"
   algorithm
     p := state.p;

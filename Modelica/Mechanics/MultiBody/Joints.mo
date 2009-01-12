@@ -1778,8 +1778,7 @@ frame_b of the joint.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(
-            points={{-86,31},{-74,61},{-49,83},{-17,92},{19,88},{40,69},{59,48}}, 
-
+            points={{-86,31},{-74,61},{-49,83},{-17,92},{19,88},{40,69},{59,48}},
             color={160,160,164},
             thickness=0.5),
           Polygon(
@@ -1821,8 +1820,7 @@ frame_b of the joint.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(
-            points={{-86,31},{-74,61},{-49,83},{-17,92},{19,88},{40,69},{59,48}}, 
-
+            points={{-86,31},{-74,61},{-49,83},{-17,92},{19,88},{40,69},{59,48}},
             color={160,160,164},
             thickness=0.5),
           Polygon(
@@ -3561,8 +3559,7 @@ component).
               points={{-40,0},{-40,90},{-80,90},{-80,99}},
               color={95,95,95},
               thickness=0.5),
-            Polygon(points={{7,-1},{-5,2},{-5,-4},{7,-1}}, lineColor={0,0,255}), 
-
+            Polygon(points={{7,-1},{-5,2},{-5,-4},{7,-1}}, lineColor={0,0,255}),
             Line(points={{-50,19},{-30,57}}, color={0,0,255}),
             Text(
               extent={{-24,74},{7,53}},
@@ -3629,8 +3626,7 @@ component).
               lineColor={0,0,0},
               textString="nAxis"),
             Line(points={{-61,1},{-2,1}}, color={0,0,255}),
-            Polygon(points={{10,1},{-2,4},{-2,-2},{10,1}}, lineColor={0,0,255}), 
-
+            Polygon(points={{10,1},{-2,4},{-2,-2},{10,1}}, lineColor={0,0,255}),
             Line(
               points={{60,-1},{60,90},{80,90},{80,99}},
               color={95,95,95},
@@ -6468,7 +6464,8 @@ and 1 prismatic joint are connected by rigid rods.
         annotation (Placement(transformation(extent={{-50,90},{-70,110}},
               rotation=0)));
 
-      Modelica.Blocks.Interfaces.RealInput position_a[3](each final quantity="Position", each final unit="m")
+      Modelica.Blocks.Interfaces.RealInput position_a[3](each final quantity="Position", each
+          final unit =                                                                                   "m")
         "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint"
         annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
               rotation=0)));

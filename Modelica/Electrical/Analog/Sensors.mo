@@ -4,7 +4,6 @@ package Sensors "Potential, voltage, current, and power sensors"
   extends Modelica.Icons.Library;
 
   annotation (
-    
     Documentation(info="<html>
 <p>
 This package contains potential, voltage, and current sensors.
@@ -60,8 +59,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           Text(
             extent={{-150,80},{150,120}},
             textString="%name",
-            lineColor={0,0,255})})
-      ,
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -95,7 +93,6 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           extent={{10,-10},{-10,10}},
           rotation=90)));
     annotation (
-      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -127,6 +124,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        </li>
 </ul>
 </html>"));
+
   equation
     p.i = 0;
     n.i = 0;
@@ -147,7 +145,6 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           extent={{10,-10},{-10,10}},
           rotation=90)));
     annotation (
-      
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -183,6 +180,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
        </li>
 </ul>
 </html>"));
+
   equation
     p.v = n.v;
     p.i = i;

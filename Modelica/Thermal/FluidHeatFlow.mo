@@ -131,8 +131,7 @@ and the accompanying <b>disclaimer</b>
           fillColor={255,0,0},
           fillPattern=FillPattern.Solid),
         Polygon(
-          points={{-20,10},{0,-10},{-20,-30},{40,-30},{60,-10},{40,10},{-20,10}}, 
-
+          points={{-20,10},{0,-10},{-20,-30},{40,-30},{60,-10},{40,10},{-20,10}},
           lineColor={255,128,0},
           fillColor={255,128,0},
           fillPattern=FillPattern.Solid)}));
@@ -1480,7 +1479,7 @@ leads to neglection of temperature transient cv*m*der(T).
               extent={{-90,20},{90,-20}},
               lineColor={255,0,0},
               fillColor={0,0,255},
-              fillPattern=FillPattern.Solid), Text(extent={{-150,100},{150,40}}, 
+              fillPattern=FillPattern.Solid), Text(extent={{-150,100},{150,40}},
                 textString="%name")}),                          Diagram(
             coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}),                                             graphics));
@@ -1516,8 +1515,7 @@ temperature rise defined by storing heat in medium's mass.
               fillPattern=FillPattern.Solid),
             Text(extent={{-150,100},{150,40}}, textString="%name"),
             Polygon(
-              points={{-10,-90},{-10,-40},{0,-20},{10,-40},{10,-90},{-10,-90}}, 
-
+              points={{-10,-90},{-10,-40},{0,-20},{10,-40},{10,-90},{-10,-90}},
               lineColor={255,0,0},
               fillColor={255,0,0},
               fillPattern=FillPattern.Solid)}),
@@ -2382,8 +2380,8 @@ and the accompanying <b>disclaimer</b>
   </ul>
 </HTML>
 "), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={Rectangle(extent={{-60,10},{40,-90}}, lineColor
-              ={255,0,0}), Ellipse(
+              100}}), graphics={Rectangle(extent={{-60,10},{40,-90}}, lineColor=
+               {255,0,0}), Ellipse(
             extent={{-58,8},{38,-88}},
             lineColor={0,0,255},
             fillColor={0,0,255},
@@ -2454,7 +2452,7 @@ Same as FlowPort, but icon allows to differentiate direction of flow.
               extent={{-100,100},{100,-100}},
               lineColor={255,0,0},
               fillColor={255,255,255},
-              fillPattern=FillPattern.Solid), Ellipse(extent={{-98,98},{98,-98}}, 
+              fillPattern=FillPattern.Solid), Ellipse(extent={{-98,98},{98,-98}},
                 lineColor={0,0,255})}),      Diagram(coordinateSystem(
               preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={

@@ -1,7 +1,6 @@
 within ;
-package Modelica "Modelica Standard Library (Version 3.0.1 development)"
+package Modelica "Modelica Standard Library (Version 3.0.1)"
 extends Icons.Library;
-
 
 annotation (
   preferredView="info",
@@ -78,7 +77,6 @@ http://www.Modelica.org/licenses/ModelicaLicense2</a>.
 
 </HTML>
 "));
-
 
 package UsersGuide "User's Guide of Modelica library"
 
