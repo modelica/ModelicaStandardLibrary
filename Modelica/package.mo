@@ -2,12 +2,14 @@ within ;
 package Modelica "Modelica Standard Library (Version 3.0.1)"
 extends Icons.Library;
 
+
 annotation (
   preferredView="info",
-  version="3.0.1 development",
+  version="3.0.1",
   versionBuild="$Rev$",
   versionDate="$Date::                            $",
   conversion(
+    noneFromVersion="3.0",
     from(version="2.1", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
     from(version="2.2", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
     from(version="2.2.1", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
@@ -77,6 +79,7 @@ http://www.Modelica.org/licenses/ModelicaLicense2</a>.
 
 </HTML>
 "));
+
 
 package UsersGuide "User's Guide of Modelica library"
 
@@ -633,9 +636,48 @@ instead of a warning.
   end ParameterDefaults;
 
   package ReleaseNotes "Release notes"
-  class Version_3_0_1_development "Version 3.0.1 (development)"
+  class Version_3_0_1_development "Version 3.0.1 (Jan. 2009)"
 
       annotation (Documentation(info="<html>
+
+<p>
+This Modelica package is provided under the
+<a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica License 2</a>
+and no longer under Modelica License 1.1. There are the following reasons
+why the Modelica Association changes from Modelica License 1.1 to this
+new license text (note, the text below is not a legal interpretation of the
+Modelica License 2. In case of a conflict, the language of the license shall prevail):
+</p>
+
+<ol>
+<li> The rights of licensor and licensee are much more clearly defined. For example:
+     <ul>
+     <li> The licensed work (Original Work) can be used in unmodified form in
+          open source and commercial software (the licensee cannot change the
+          license and the work must be provided without fees)</li>
+     <li> If a model component is copied out of a Modelica package under
+          Modelica License 2 and is modified in order to adapt it to the needs
+          of the modeler, then the result can be licensed under any license
+          (including a commercial license).</li>
+     <li> It is practically not possible to change the license of a
+          Modelica package under Modelica License 2 to another license, i.e., a
+          licensee cannot change the license by adding material or changing classes,
+          so the work must remain under Modelica License 2 (to be more precise, 
+          if the licensee makes modifications to the Original Work \"which represents, 
+          as a whole, an original work of authorship\", he/she can change the license
+          to another license. However, for a Modelica package this would
+          require a lot of changes which is usually unrealistic).</li>
+     <li> If an executable is constructed using a Modelica package under
+          Modelica License 2, then this executable can be licensed under any
+          license (including a commercial license).</li>
+     </ul>
+     We hope that this compromise between open source contributors, commercial
+     Modelica environments and Modelica users will motivate even more people to
+     provide their Modelica packages freely under the Modelica License 2.<br><br></li>
+<li> There are several new provisions that shall make law suites against licensors and licensees more unlikely (so the small risk is further reduced).</li>
+</ol>
+
+
 
 <p><br>
 The following <b style=\"color:blue\">new components</b> have been added 
@@ -646,6 +688,24 @@ to <b style=\"color:blue\">existing</b> libraries:
   <tr><td colspan=\"2\"><b>Mechanics.Translational.Components.Examples.</b></td></tr>
   <tr><td valign=\"top\">Brake</td>
       <td valign=\"top\"> Demonstrates the usage of the translational brake component.</td> </tr>
+  <tr><td colspan=\"2\"><b>Media.Interfaces.PartialMedium.</b></td></tr>
+  <tr><td valign=\"top\">ThermoStates</td>
+      <td valign=\"top\"> Enumeration type for independent variables to identify the independent
+                        variables of the medium (pT, ph, phX, pTX, dTX).<br>
+                        An implementation of this enumeration is provided for every medium.
+                        (This is useful for fluid libraries that do not use the
+                        PartialMedium.BaseProperties model). </td> </tr>
+  <tr><td valign=\"top\">setSmoothState</td>
+      <td valign=\"top\"> Function that returns the thermodynamic state which smoothly approximates: 
+                        if x > 0 then state_a else state_b.<br>
+                        (This is useful for pressure drop components in fluid libraries
+                         where the upstream density and/or viscosity has to be computed
+                         and these properties should be smooth a zero mass flow rate)<br>
+                        An implementation of this function is provided for every medium.</td> </tr>
+  <tr><td colspan=\"2\"><b>Media.Common.</b></td></tr>
+  <tr><td valign=\"top\">smoothStep</td>
+      <td valign=\"top\"> Approximation of a general step, such that the characteristic 
+                        is continuous and differentiable.</td> </tr>
 </table>
 
 
@@ -660,6 +720,14 @@ have been <b style=\"color:blue\">changed</b> (in a
   <tr><td valign=\"top\"> Friction </td>
       <td valign=\"top\"> Added a third variant, where friction is modelled with
                         the SupportFriction component.</td> </tr>
+  <tr><td colspan=\"2\"><b>Media.Examples.</b></td></tr>
+  <tr><td valign=\"top\"> SimpleLiquidWater <br>
+                        IdealGasH20 <br>
+                        WaterIF97 <br>
+                        MixtureGases <br>
+                        MoistAir </td>
+      <td valign=\"top\"> Added equations to test the new setSmoothState(..) functions
+                        including the analytic derivatives of these functions.</td> </tr>
 </table>
 
 
