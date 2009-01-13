@@ -829,7 +829,7 @@ Incorporation of bug fixes (subversion \"commit\") shall be performed in the fol
      branch (see above) as well.</li>
 <li> Every change to the maintenance branch requires introducing a
      description of the bug fix under
-     Modelica.UsersGuide.ReleaseNotes.&lt;release-number&gt;_bugFixes.</li>
+     Modelica.UsersGuide.ReleaseNotes.Version_&lt;release-number&gt;_BugFixes.</li>
 <li> Every change to the maintenance branch requires changing the date 
      and the subversion build number in the version annotation. This is automatically
      performed once a committ of file Modelica\\package.mo is performed.
