@@ -3048,8 +3048,7 @@ transport.
                 extent={{-26,30},{-18,22}},
                 lineColor={255,0,0},
                 fillColor={255,0,0},
-                fillPattern=FillPattern.Solid)})
-          ,
+                fillPattern=FillPattern.Solid)}),
           Diagram(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},
@@ -5896,7 +5895,10 @@ end PartialMixtureMedium;
     end ThermodynamicState;
 
     redeclare replaceable model extends BaseProperties(
-            T(stateSelect=StateSelect.prefer)) "Base properties"
+            T(stateSelect=if preferredMediumStates then StateSelect.prefer else 
+                               StateSelect.default),
+            p(stateSelect=if preferredMediumStates then StateSelect.prefer else 
+                               StateSelect.default)) "Base properties"
     equation
           assert(T >= T_min and T <= T_max, "
 Temperature T (= "     + String(T) + " K) is not
@@ -5987,34 +5989,34 @@ quantities are assumed to be constant.
       lambda := lambda_const;
     end thermalConductivity;
 
-    
-    redeclare function extends pressure "Return pressure" 
-      
+    redeclare function extends pressure "Return pressure"
+
     annotation(Documentation(info="<html></html>"));
-    algorithm 
+    algorithm
       p := state.p;
     end pressure;
 
-    redeclare function extends temperature "Return temperature" 
-      
+    redeclare function extends temperature "Return temperature"
+
     annotation(Documentation(info="<html></html>"));
-    algorithm 
+    algorithm
       T := state.T;
     end temperature;
 
-    redeclare function extends density "Return density" 
-      
+    redeclare function extends density "Return density"
+
     annotation(Documentation(info="<html></html>"));
-    algorithm 
+    algorithm
       d := d_const;
     end density;
 
-    redeclare function extends specificEnthalpy "Return specific enthalpy" 
-      
+    redeclare function extends specificEnthalpy "Return specific enthalpy"
+
     annotation(Documentation(info="<html></html>"));
-    algorithm 
+    algorithm
       h := cp_const*(state.T-T0);
     end specificEnthalpy;
+
     redeclare function extends specificHeatCapacityCp
       "Return specific heat capacity at constant pressure"
 
@@ -6110,7 +6112,11 @@ quantities are assumed to be constant.
     end FluidConstants;
 
     redeclare replaceable model extends BaseProperties(
-            T(stateSelect=StateSelect.prefer)) "Base properties of ideal gas"
+            T(stateSelect=if preferredMediumStates then StateSelect.prefer else 
+                               StateSelect.default),
+            p(stateSelect=if preferredMediumStates then StateSelect.prefer else 
+                               StateSelect.default))
+      "Base properties of ideal gas"
     equation
           assert(T >= T_min and T <= T_max, "
 Temperature T (= "     + String(T) + " K) is not
