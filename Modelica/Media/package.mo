@@ -4813,12 +4813,13 @@ Summing all mass fractions together results in
 
     package Choices "Types, constants to define menu choices"
 
-      type IndependentVariables = enumeration(
-          pT "Pressure, Temperature",
-          ph "Pressure, Specific Enthalpy",
-          phX "Pressure, Specific Enthalpy, Mass Fraction",
-          pTX "Pressure, Temperature, Mass Fractions",
-          dTX "Density, Temperature, Mass Fractions")
+      type IndependentVariables = enumeration
+	(T "Temperature",
+	 pT "Pressure, Temperature",
+	 ph "Pressure, Specific Enthalpy",
+	 phX "Pressure, Specific Enthalpy, Mass Fraction",
+	 pTX "Pressure, Temperature, Mass Fractions",
+	 dTX "Density, Temperature, Mass Fractions")
         "Enumeration defining the independent variables of a medium";
       annotation (Documentation(info="<html>
 <h2>Enumerations and data types for all types of fluids</h2>

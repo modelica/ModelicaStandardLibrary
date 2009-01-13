@@ -37,7 +37,7 @@ package Incompressible
     import Poly = Modelica.Media.Incompressible.TableBased.Polynomials_Temp;
 
     extends Modelica.Media.Interfaces.PartialMedium(
-       ThermoStates = Choices.IndependentVariables.pT,
+       ThermoStates = if enthalpyOfT then Choices.IndependentVariables.T else Choices.IndependentVariables.pT,
        final reducedX=true,
        final fixedX = true,
        mediumName="tableMedium",
@@ -81,6 +81,12 @@ tables. The minimal data to provide for a useful medium description is tables
 of density and heat capacity as functions of temperature.
 </p>
  
+<p>It should be noted that incompressible media only have 1 state per control volume (usually T),
+but have both T and p as inputs for fully correct properties. The error of using only T-dependent
+properties is small, therefore a Boolean flag enthalpyOfT exists. If it is true, the
+enumeration Choices.independentVariables  is set to  Choices.independentVariables.T otherwise
+it is set to Choices.independentVariables.pT. </p> 
+
 <h4>Using the package TableBased</h4>
 <p>
 To implement a new medium model, create a package that <b>extends</b> TableBased
@@ -147,7 +153,11 @@ p-reference_p)/rho*(T/rho)*(partial rho /partial T). This is very small for
 liquids due to proportionality to 1/d^2, but can be problematic for gases that are
 modeled incompressible.
 </p>
- 
+<p>It should be noted that incompressible media only have 1 state per control volume (usually T),
+but have both T and p as inputs for fully correct properties. The error of using only T-dependent
+properties is small, therefore a Boolean flag enthalpyOfT exists. If it is true, the
+enumeration Choices.independentVariables  is set to  Choices.independentVariables.T otherwise
+it is set to Choices.independentVariables.pT. </p> 
 <p>                               
 Enthalpy is never a function of T only (h = h(T) + (p-reference_p)/d), but the
 error is also small and non-linear systems can be avoided. In particular,

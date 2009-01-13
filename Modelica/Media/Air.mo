@@ -313,6 +313,7 @@ Relative humidity is computed from the thermodynamic state record with 1.0 as th
 
     redeclare function extends gasConstant
       "Return ideal gas constant as a function from thermodynamic state, only valid for phi<1"
+
       annotation(smoothOrder=2);
     algorithm
       R := dryair.R*(1-state.X[Water]) + steam.R*state.X[Water];
@@ -466,6 +467,7 @@ Derivative function of <a href=Modelica:Modelica.Media.Air.MoistAir.saturationPr
 
    redeclare function extends enthalpyOfVaporization
       "Return enthalpy of vaporization of water as a function of temperature T, 0 - 130 degC"
+
      annotation(smoothOrder=2);
    algorithm
     /*r0 := 1e3*(2501.0145 - (T - 273.15)*(2.3853 + (T - 273.15)*(0.002969 - (T
@@ -581,6 +583,7 @@ Derivative function for <a href=Modelica:Modelica.Media.Air.MoistAir.enthalpyOfW
 
    redeclare function extends pressure
       "Returns pressure of ideal gas as a function of the thermodynamic state record"
+
      annotation(smoothOrder=2);
    algorithm
     p := state.p;
@@ -591,6 +594,7 @@ Pressure is returned from the thermodynamic state record input as a simple assig
 
    redeclare function extends temperature
       "Return temperature of ideal gas as a function of the thermodynamic state record"
+
      annotation(smoothOrder=2);
    algorithm
      T := state.T;
@@ -634,6 +638,7 @@ Temperature is computed from pressure, specific enthalpy and composition via num
 
    redeclare function extends density
       "Returns density of ideal gas as a function of the thermodynamic state record"
+
      annotation(smoothOrder=2);
    algorithm
      d := state.p/(gasConstant(state)*state.T);
@@ -644,6 +649,7 @@ Density is computed from pressure, temperature and composition in the thermodyna
 
   redeclare function extends specificEnthalpy
       "Return specific enthalpy of moist air as a function of the thermodynamic state record"
+
     annotation(smoothOrder=2);
   algorithm
     h := h_pTX(state.p, state.T, state.X);
@@ -736,6 +742,32 @@ Derivative function for <a href=Modelica:Modelica.Media.Air.MoistAir.h_pTX>h_pTX
             dX_liq*enthalpyOfWater(T);
 
   end h_pTX_der;
+
+  redeclare function extends isentropicExponent
+      "Return isentropic exponent (only for gas fraction!)"
+  algorithm
+    gamma := specificHeatCapacityCp(state)/specificHeatCapacityCv(state);
+  end isentropicExponent;
+
+  function isentropicEnthalpyApproximation
+      "Approximate calculation of h_is from upstream properties, downstream pressure, gas part only"
+    extends Modelica.Icons.Function;
+    input AbsolutePressure p2 "downstream pressure";
+    input ThermodynamicState state "thermodynamic state at upstream location";
+    output SpecificEnthalpy h_is "isentropic enthalpy";
+    protected
+    SpecificEnthalpy h "specific enthalpy at upstream location";
+    IsentropicExponent gamma =  isentropicExponent(state) "Isentropic exponent";
+    protected
+    MassFraction[nX] X "complete X-vector";
+  algorithm
+    X := if reducedX then cat(1,state.X,{1-sum(state.X)}) else state.X;
+    h := {SingleGasNasa.h_Tlow(data=steam,  T=state.T, refChoice=3, h_off=46479.819+2501014.5),
+        SingleGasNasa.h_Tlow(data=dryair, T=state.T, refChoice=3, h_off=25104.684)}*X;
+
+    h_is := h + gamma/(gamma - 1.0)*(state.T*gasConstant(state))*
+      ((p2/state.p)^((gamma - 1)/gamma) - 1.0);
+  end isentropicEnthalpyApproximation;
 
   redeclare function extends specificInternalEnergy
       "Return specific internal energy of moist air as a function of the thermodynamic state record"
