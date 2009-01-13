@@ -788,6 +788,20 @@ that can lead to wrong simulation results):
       <td valign=\"top\"> The sign of the friction force was wrong and therefore friction accelerated
                         instead of decelerated. This was fixed. </td> 
   </tr>
+
+  <tr><td colspan=\"2\"><b>Media.Interfaces.</b></td></tr>
+  <tr><td valign=\"top\"> PartialSimpleMedium<br>
+                        PartialSimpleIdealGasMedium </td>
+      <td valign=\"top\"> BaseProperties.p was not defined as preferred state and BaseProperties.T was
+                        always defined as preferred state. This has been fixed by
+                        Defining p,T as preferred state if parameter preferredMediumState = true.
+                        This error had the effect that mass m is selected as state instead of p
+                        and if default initialization is used then m=0 could give not the expected
+                        behavior. This means, simulation is not wrong but the numerics is not as good
+                        and if a model relies on default initial values, the result could be not
+                        as expected. </td> 
+  </tr>
+
 </table>
  
  
