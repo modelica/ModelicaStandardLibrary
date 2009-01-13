@@ -636,10 +636,10 @@ instead of a warning.
   end ParameterDefaults;
 
   package ReleaseNotes "Release notes"
-  class Version_3_0_1_development "Version 3.0.1 (Jan. 2009)"
+  class Version_3_0_1 "Version 3.0.1 (Jan. 2009)"
 
       annotation (Documentation(info="<html>
-
+ 
 <p>
 This Modelica package is provided under the
 <a href=\"Modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica License 2</a>
@@ -648,7 +648,7 @@ why the Modelica Association changes from Modelica License 1.1 to this
 new license text (note, the text below is not a legal interpretation of the
 Modelica License 2. In case of a conflict, the language of the license shall prevail):
 </p>
-
+ 
 <ol>
 <li> The rights of licensor and licensee are much more clearly defined. For example:
      <ul>
@@ -676,14 +676,14 @@ Modelica License 2. In case of a conflict, the language of the license shall pre
      provide their Modelica packages freely under the Modelica License 2.<br><br></li>
 <li> There are several new provisions that shall make law suites against licensors and licensees more unlikely (so the small risk is further reduced).</li>
 </ol>
-
-
-
+ 
+ 
+ 
 <p><br>
 The following <b style=\"color:blue\">new components</b> have been added 
 to <b style=\"color:blue\">existing</b> libraries:
 </p>
-
+ 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
   <tr><td colspan=\"2\"><b>Mechanics.Translational.Components.Examples.</b></td></tr>
   <tr><td valign=\"top\">Brake</td>
@@ -707,8 +707,8 @@ to <b style=\"color:blue\">existing</b> libraries:
       <td valign=\"top\"> Approximation of a general step, such that the characteristic 
                         is continuous and differentiable.</td> </tr>
 </table>
-
-
+ 
+ 
 <p><br>
 The following <b style=\"color:blue\">existing components</b>
 have been <b style=\"color:blue\">changed</b> (in a
@@ -729,8 +729,8 @@ have been <b style=\"color:blue\">changed</b> (in a
       <td valign=\"top\"> Added equations to test the new setSmoothState(..) functions
                         including the analytic derivatives of these functions.</td> </tr>
 </table>
-
-
+ 
+ 
 <p><br>
 The following <b style=\"color:red\">critical errors</b> have been fixed (i.e. errors
 that can lead to wrong simulation results):
@@ -788,7 +788,7 @@ that can lead to wrong simulation results):
       <td valign=\"top\"> The sign of the friction force was wrong and therefore friction accelerated
                         instead of decelerated. This was fixed. </td> 
   </tr>
-
+ 
   <tr><td colspan=\"2\"><b>Media.Interfaces.</b></td></tr>
   <tr><td valign=\"top\"> PartialSimpleMedium<br>
                         PartialSimpleIdealGasMedium </td>
@@ -801,7 +801,7 @@ that can lead to wrong simulation results):
                         and if a model relies on default initial values, the result could be not
                         as expected. </td> 
   </tr>
-
+ 
 </table>
  
  
@@ -816,25 +816,25 @@ units are wrong or errors in documentation):
   <tr><td valign=\"top\"> InverseBlockConstraint </td>
       <td valign=\"top\"> Changed annotation preserveAspectRatio from true to false.</td> 
   </tr>
-
+ 
   <tr><td colspan=\"2\"><b>Blocks.Sources.</b></td></tr>
   <tr><td valign=\"top\"> RealExpression<br>
                         IntegerExpression<br>
                         BooleanExpression </td>
       <td valign=\"top\"> Changed annotation preserveAspectRatio from true to false.</td> 
   </tr>
-
+ 
   <tr><td colspan=\"2\"><b>Electrical.Analog.Basic.</b></td></tr>
   <tr><td valign=\"top\"> SaturatingInductor</td>
       <td valign=\"top\"> Replaced non-standard \"arctan\" by \"atan\" function.</td> 
   </tr>
-
+ 
   <tr><td colspan=\"2\"><b>Modelica.Electrical.Digital.</b></td></tr>
   <tr><td valign=\"top\"> UsersGuide</td>
       <td valign=\"top\"> Removed empty documentation placeholders and added the missing 
                           release comment for version 1.0.7</td> 
   </tr>
-
+ 
   <tr><td colspan=\"2\"><b>Mechanics.Rotational.Interfaces.</b></td></tr>
   <tr><td valign=\"top\"> PartialFriction </td>
       <td valign=\"top\"> Corrected and simplified parameterized curve description.
@@ -868,7 +868,7 @@ units are wrong or errors in documentation):
                        
                                
 </html>"));
-  end Version_3_0_1_development;
+  end Version_3_0_1;
 
     annotation (Documentation(info="<html>
 
@@ -878,7 +878,8 @@ on the Modelica standard library.
 </p>
 
 <ul>
-<li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_0\">Version 3.0</a> (Jan., 2008)</li>
+<li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_0_1\">Version 3.0.1</a> (Jan., 2009)</li>
+<li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_3_0\">Version 3.0</a> (Feb., 2008)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2_2\">Version 2.2.2</a> (Aug. 31, 2007)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2_1\">Version 2.2.1</a> (March 24, 2006)</li>
 <li> <a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes.Version_2_2\">Version 2.2</a> (April 6, 2005)</li>
@@ -951,7 +952,7 @@ Incorporation of bug fixes (subversion \"commit\") shall be performed in the fol
      branch (see above) as well.</li>
 <li> Every change to the maintenance branch requires introducing a
      description of the bug fix under
-     Modelica.UsersGuide.ReleaseNotes.&lt;release-number&gt;_bugFixes.</li>
+     Modelica.UsersGuide.ReleaseNotes.Version_<release-number>_BugFixes.</li>
 <li> Every change to the maintenance branch requires changing the date 
      and the subversion build number in the version annotation. This is automatically
      performed once a committ of file Modelica\\package.mo is performed.
