@@ -5093,7 +5093,6 @@ partial package PartialLinearFluid
                                     T=T);
       end setState_dTX;
 
-
       redeclare function extends setSmoothState
       "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
       algorithm
@@ -6122,7 +6121,10 @@ end PartialMixtureMedium;
     end ThermodynamicState;
 
     redeclare replaceable model extends BaseProperties(
-            T(stateSelect=StateSelect.prefer)) "Base properties"
+      T(stateSelect=if preferredMediumStates then StateSelect.prefer else 
+                         StateSelect.default),
+      p(stateSelect=if preferredMediumStates then StateSelect.prefer else 
+                         StateSelect.default)) "Base properties"
     equation
           assert(T >= T_min and T <= T_max, "
 Temperature T (= "     + String(T) + " K) is not
@@ -6345,7 +6347,10 @@ quantities are assumed to be constant.
     end FluidConstants;
 
     redeclare replaceable model extends BaseProperties(
-            T(stateSelect=StateSelect.prefer)) "Base properties of ideal gas"
+      T(stateSelect=if preferredMediumStates then StateSelect.prefer else 
+                         StateSelect.default),
+      p(stateSelect=if preferredMediumStates then StateSelect.prefer else 
+                         StateSelect.default)) "Base properties of ideal gas"
     equation
           assert(T >= T_min and T <= T_max, "
 Temperature T (= "     + String(T) + " K) is not

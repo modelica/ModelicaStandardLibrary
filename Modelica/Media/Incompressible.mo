@@ -134,6 +134,8 @@ function calls can not be used.
       final standardOrderComponents=true,
       p_bar=Cv.to_bar(p),
       T_degC(start = T_start-273.15)=Cv.to_degC(T),
+      p(stateSelect=if preferredMediumStates then StateSelect.prefer else 
+                         StateSelect.default),
       T(start = T_start,
         stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default))
       "Base properties of T dependent medium"
