@@ -3256,8 +3256,8 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
             color={0,0,0},
             smooth=Smooth.None));
 
-        connect(airGapDC.shaft, inertiaRotor.flange_a) annotation (Line(
-            points={{10,-1.83697e-015},{34,-1.83697e-015},{34,1.22465e-015},{60,
+        connect(airGapDC.flange, inertiaRotor.flange_a) annotation (Line(
+            points={{10,-1.83697e-015},{36,-1.83697e-015},{36,1.22465e-015},{60,
                 1.22465e-015}},
             color={0,0,0},
             smooth=Smooth.None));
@@ -3405,8 +3405,8 @@ Armature current does not cover excitation current of a shunt excitation; in thi
                 -100},{20,-100}},
             color={0,0,0},
             smooth=Smooth.None));
-        connect(airGapDC.shaft, inertiaRotor.flange_a) annotation (Line(
-            points={{10,-1.83697e-015},{34,-1.83697e-015},{34,1.22465e-015},{60,
+        connect(airGapDC.flange, inertiaRotor.flange_a) annotation (Line(
+            points={{10,-1.83697e-015},{35,-1.83697e-015},{35,1.22465e-015},{60,
                 1.22465e-015}},
             color={0,0,0},
             smooth=Smooth.None));
@@ -3539,7 +3539,7 @@ ve = voltage drop of series excitation
                 -100},{20,-100}},
             color={0,0,0},
             smooth=Smooth.None));
-        connect(airGapDC.shaft, inertiaRotor.flange_a) annotation (Line(
+        connect(airGapDC.flange, inertiaRotor.flange_a) annotation (Line(
             points={{10,-1.83697e-015},{36,-1.83697e-015},{36,1.22465e-015},{60,
                 1.22465e-015}},
             color={0,0,0},
@@ -3627,7 +3627,7 @@ and the accompanying <b>disclaimer</b>
        first stable release</li>
   </ul>
 </HTML>"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Ellipse(extent={{-100,30},{20,-90}},
+                -100},{100,100}}), graphics={Ellipse(extent={{-100,30},{20,-90}}, 
                 lineColor={0,0,255}), Ellipse(extent={{-40,30},{80,-90}},
                 lineColor={0,0,255})}));
 
@@ -5599,8 +5599,8 @@ These models use package SpacePhasors.
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={
               Ellipse(
                 extent={{-90,90},{90,-92}},
                 lineColor={0,0,255},
@@ -5649,8 +5649,8 @@ Partial model of the airgap, using only equations.
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={Text(
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={Text(
                 extent={{-80,40},{0,-40}},
                 lineColor={0,0,0},
                 fillPattern=FillPattern.VerticalCylinder,
@@ -5686,8 +5686,8 @@ Model of the airgap in stator-fixed coordinate system, using only equations.
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={Text(
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={Text(
                 extent={{0,40},{80,-40}},
                 lineColor={0,0,0},
                 fillPattern=FillPattern.VerticalCylinder,
@@ -5719,8 +5719,8 @@ Model of the airgap in rotor-fixed coordinate system, using only equations.
                 rotation=0)));
         annotation (
           Diagram(graphics),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={
               Ellipse(extent={{-60,45},{-30,75}}, lineColor={0,0,255}),
               Ellipse(extent={{-30,45},{0,75}}, lineColor={0,0,255}),
               Ellipse(extent={{0,45},{30,75}}, lineColor={0,0,255}),
@@ -5767,8 +5767,8 @@ Model of a squirrel cage / damper cage in two axis.
                 rotation=0)));
         annotation (
           Diagram(graphics),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={
               Line(points={{60,60},{100,60}}, color={0,0,255}),
               Line(points={{70,40},{90,40}}, color={0,0,255}),
               Line(points={{66,50},{94,50}}, color={0,0,255}),
@@ -5823,8 +5823,8 @@ Model of an unsymmetrical damper cage cage in two axis.
                 rotation=0)));
         annotation (
           Diagram(graphics),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={
               Text(
                 extent={{-150,-90},{150,-150}},
                 lineColor={0,0,255},
@@ -5867,8 +5867,8 @@ Model of an electrical excitation, converting excitation to space phasor.
                 rotation=0)));
         annotation (
           Diagram(graphics),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={
               Ellipse(
                 extent={{-60,60},{60,20}},
                 lineColor={255,0,0},
@@ -5922,7 +5922,7 @@ Model of a permanent magnet excitation, characterized by an equivalent excitatio
         Modelica.SIunits.Voltage vai "Induced armature voltage";
         Modelica.SIunits.Current ia "Armature current";
         output Modelica.SIunits.Torque tauElectrical;
-        Modelica.Mechanics.Rotational.Interfaces.Flange_a shaft 
+        Modelica.Mechanics.Rotational.Interfaces.Flange_a flange 
           annotation (Placement(transformation(extent={{-10,110},{10,90}},
                 rotation=0)));
         Modelica.Mechanics.Rotational.Interfaces.Flange_a support
@@ -5942,11 +5942,11 @@ Model of a permanent magnet excitation, characterized by an equivalent excitatio
           annotation (Placement(transformation(extent={{90,-110},{110,-90}},
                 rotation=0)));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}),
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                  {100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={
               Ellipse(
                 extent={{-90,90},{90,-92}},
                 lineColor={0,0,255},
@@ -5995,12 +5995,12 @@ Induced armature voltage is calculated from flux times angular velocity.
         // induced voltage across field excitation inductance
         vei = der(psi_e);
         // mechanical speed
-        w = der(shaft.phi)-der(support.phi);
+        w = der(flange.phi)-der(support.phi);
         // induced armature voltage
         vai = turnsRatio * psi_e * w;
         // electrical torque (ia is perpendicular to flux)
         tauElectrical = turnsRatio * psi_e * ia;
-        shaft.tau = -tauElectrical;
+        flange.tau = -tauElectrical;
         support.tau = tauElectrical;
       end PartialAirGapDC;
 
@@ -6011,8 +6011,8 @@ Induced armature voltage is calculated from flux times angular velocity.
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={Text(
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={Text(
                 extent={{-150,-100},{150,-160}},
                 lineColor={0,0,255},
                 textString="%name")}),
@@ -6903,8 +6903,7 @@ a ground has to be used where necessary for currents flowing back.
                     -20},{-13.33,-17.32},{-6.67,-10},{0,0}}, color={0,0,255}),
               Line(points={{-90,0},{-83.33,10},{-76.67,17.32},{-70,20},{-63.33,
                     17.32},{-56.67,10},{-50,0},{-43.33,-10},{-36.67,-17.32},{-30,
-                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}}, color={0,0,255}), 
-
+                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}}, color={0,0,255}),
               Line(points={{-70,0},{-63.33,10},{-56.67,17.32},{-50,20},{-43.33,
                     17.32},{-36.67,10},{-30,0},{-23.33,-10},{-16.67,-17.32},{-10,
                     -20},{-3.33,-17.32},{3.33,-10},{10,0}}, color={0,0,255}),
@@ -7711,7 +7710,7 @@ Partial model for DC machine models.
                 {100,100}}),
                 graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}},
+                100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}}, 
                 color={0,0,255}), Line(points={{50,100},{20,100},{20,70}},
                 color={0,0,255})}));
       Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap 
