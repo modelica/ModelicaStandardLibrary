@@ -1,6 +1,6 @@
 within ;
 package Modelica "Modelica Standard Library (Version 3.0.1)"
-extends Icons.Library; 
+extends Icons.Library;
 
 
 annotation (
@@ -716,10 +716,29 @@ have been <b style=\"color:blue\">changed</b> (in a
 </p>
  
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>Mechanics.Rotational.Interfaces.</b></td></tr>
+  <tr><td valign=\"top\"> PartialFriction </td>
+      <td valign=\"top\"> Improvement of friction model so that in certain situations
+                        the number of iterations is much smaller.</td>
+  </tr>
+
   <tr><td colspan=\"2\"><b>Mechanics.Translational.Components.Examples.</b></td></tr>
   <tr><td valign=\"top\"> Friction </td>
       <td valign=\"top\"> Added a third variant, where friction is modelled with
                         the SupportFriction component.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Mechanics.Translational.Components.</b></td></tr>
+  <tr><td valign=\"top\"> MassWithStopAndFriction </td>
+      <td valign=\"top\"> Improvement of friction model so that in certain situations
+                        the number of iterations is much smaller.</td>
+  </tr>
+
+  <tr><td colspan=\"2\"><b>Mechanics.Translational.Interfaces.</b></td></tr>
+  <tr><td valign=\"top\"> PartialFriction </td>
+      <td valign=\"top\"> Improvement of friction model so that in certain situations
+                        the number of iterations is much smaller.</td>
+  </tr>
+
   <tr><td colspan=\"2\"><b>Media.Examples.</b></td></tr>
   <tr><td valign=\"top\"> SimpleLiquidWater <br>
                         IdealGasH20 <br>

@@ -4590,10 +4590,8 @@ blocks of Modelica.Blocks.Sources.
             Line(points={{-30,-50},{-10,-30}}, color={0,0,0}),
             Line(points={{-10,-50},{10,-30}}, color={0,0,0}),
             Line(points={{10,-50},{30,-30}}, color={0,0,0}),
-            Line(
-              points={{-54,-42},{-38,-28},{-16,-16},{4,-14},{22,-18},{36,-26},{
-                  48,-36},{56,-46},{64,-58}},
-              color={0,0,0}),
+            Line(points={{-54,-42},{-38,-28},{-16,-16},{4,-14},{22,-18},{36,-26},
+                  {48,-36},{56,-46},{64,-58}}, color={0,0,0}),
             Polygon(
               points={{-61,-66},{-44,-42},{-58,-36},{-61,-66}},
               lineColor={0,0,0},
@@ -6272,26 +6270,28 @@ Basic model for Coulomb friction that models the stuck phase in a reliable way.
     protected
       constant SI.AngularAcceleration unitAngularAcceleration = 1 annotation(HideResult=true);
       constant SI.Torque unitTorque = 1 annotation(HideResult=true);
-      Real sa0 = (tau0_max + (tau0_max - tau0))/unitTorque
-        "Value of sa when start of forward sliding at w=0";
     equation
     /* Friction characteristic
    locked is introduced to help the Modelica translator determining
    the different structural configurations, 
    if for each configuration special code shall be generated)
 */
-      startForward  = pre(mode) == Stuck and sa >  tau0_max/unitTorque or 
-        pre(mode) == Backward and w_relfric >  w_small or initial() and w_relfric > 0;
-      startBackward = pre(mode) == Stuck and sa < -tau0_max/unitTorque or 
-        pre(mode) == Forward  and w_relfric < -w_small or initial() and w_relfric < 0;
-      locked = not free and 
-        not (pre(mode) == Forward or startForward or pre(mode) == Backward or startBackward);
+      startForward = pre(mode) == Stuck and (sa > tau0_max/unitTorque or pre(startForward)
+         and sa > tau0/unitTorque) or pre(mode) == Backward and w_relfric > w_small or 
+        initial() and (w_relfric > 0);
+      startBackward = pre(mode) == Stuck and (sa < -tau0_max/unitTorque or pre(
+        startBackward) and sa < -tau0/unitTorque) or pre(mode) == Forward and w_relfric <
+        -w_small or initial() and (w_relfric < 0);
+      locked = not free and not (pre(mode) == Forward or startForward or pre(
+        mode) == Backward or startBackward);
+
       a_relfric/unitAngularAcceleration = if locked then               0 else 
                                           if free then                 sa else 
-                                          if startForward then         sa - sa0 else 
-                                          if startBackward then        sa + sa0 else 
-                                          if pre(mode) == Forward then sa - sa0 else 
-                                                                       sa + sa0;
+                                          if startForward then         sa - tau0_max/unitTorque else 
+                                          if startBackward then        sa + tau0_max/unitTorque else 
+                                          if pre(mode) == Forward then sa - tau0_max/unitTorque else 
+                                                                       sa + tau0_max/unitTorque;
+
     /* Friction torque has to be defined in a subclass. Example for a clutch:
    tau = if locked then sa else 
          if free then   0 else 

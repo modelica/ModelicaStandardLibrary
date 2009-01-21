@@ -2815,26 +2815,27 @@ Additionally, a left and right stop are handled.
       protected
       constant SI.Acceleration unitAcceleration = 1 annotation(HideResult=true);
       constant SI.Force unitForce = 1 annotation(HideResult=true);
-      Real sa0 = (f0_max + (f0_max - f0))/unitForce
-          "Value of sa when start of forward sliding at w=0";
     equation
     /* Friction characteristic
    (locked is introduced to help the Modelica translator determining
    the different structural configurations, 
    if for each configuration special code shall be generated)
 */
-      startForward  = pre(mode) == Stuck and sa >  f0_max/unitForce and s < (smax - L/2) or 
-        pre(mode) == Backward and v_relfric >  v_small or initial() and v_relfric > 0;
-      startBackward = pre(mode) == Stuck and sa < -f0_max/unitForce and s > (smin + L/2) or 
-        pre(mode) == Forward  and v_relfric < -v_small or initial() and v_relfric < 0;
+      startForward = pre(mode) == Stuck and (sa > f0_max/unitForce and s < (smax - L/2) or 
+            pre(startForward) and sa > f0/unitForce and s < (smax - L/2)) or pre(mode)
+         == Backward and v_relfric > v_small or initial() and (v_relfric > 0);
+      startBackward = pre(mode) == Stuck and (sa < -f0_max/unitForce and s > (smin + L/2) or 
+            pre(startBackward) and sa < -f0/unitForce and s > (smin + L/2)) or pre(mode)
+         == Forward and v_relfric < -v_small or initial() and (v_relfric < 0);
       locked = not free and 
         not (pre(mode) == Forward or startForward or pre(mode) == Backward or startBackward);
+
       a_relfric/unitAcceleration = if locked then               0 else 
                                    if free then                 sa else 
-                                   if startForward then         sa - sa0 else 
-                                   if startBackward then        sa + sa0 else 
-                                   if pre(mode) == Forward then sa - sa0 else 
-                                                                sa + sa0;
+                                   if startForward then         sa - f0_max/unitForce else 
+                                   if startBackward then        sa + f0_max/unitForce else 
+                                   if pre(mode) == Forward then sa - f0_max/unitForce else 
+                                                                sa + f0_max/unitForce;
 
     /* Friction torque has to be defined in a subclass. Example for a clutch:
    f = if locked then sa else 
@@ -4860,26 +4861,27 @@ Basic model for Coulomb friction that models the stuck phase in a reliable way.
     protected
       constant SI.Acceleration unitAcceleration = 1 annotation(HideResult=true);
       constant SI.Force unitForce = 1 annotation(HideResult=true);
-      Real sa0 = (f0_max + (f0_max - f0))/unitForce
-        "Value of sa when start of forward sliding at w=0";
     equation
     /* Friction characteristic
    (locked is introduced to help the Modelica translator determining
    the different structural configurations, 
    if for each configuration special code shall be generated)
 */
-      startForward  = pre(mode) == Stuck and sa >  f0_max/unitForce or 
-        pre(mode) == Backward and v_relfric >  v_small or initial() and v_relfric > 0;
-      startBackward = pre(mode) == Stuck and sa < -f0_max/unitForce or 
-        pre(mode) == Forward  and v_relfric < -v_small or initial() and v_relfric < 0;
-      locked = not free and 
-        not (pre(mode) == Forward or startForward or pre(mode) == Backward or startBackward);
+      startForward = pre(mode) == Stuck and (sa > f0_max/unitForce or pre(startForward)
+         and sa > f0/unitForce) or pre(mode) == Backward and v_relfric > v_small or 
+        initial() and (v_relfric > 0);
+      startBackward = pre(mode) == Stuck and (sa < -f0_max/unitForce or pre(
+        startBackward) and sa < -f0/unitForce) or pre(mode) == Forward and v_relfric <
+        -v_small or initial() and (v_relfric < 0);
+      locked = not free and not (pre(mode) == Forward or startForward or pre(
+        mode) == Backward or startBackward);
+
       a_relfric/unitAcceleration = if locked then               0 else 
                                    if free then                 sa else 
-                                   if startForward then         sa - sa0 else 
-                                   if startBackward then        sa + sa0 else 
-                                   if pre(mode) == Forward then sa - sa0 else 
-                                                                sa + sa0;
+                                   if startForward then         sa - f0_max/unitForce else 
+                                   if startBackward then        sa + f0_max/unitForce else 
+                                   if pre(mode) == Forward then sa - f0_max/unitForce else 
+                                                                sa + f0_max/unitForce;
 
     /* Friction torque has to be defined in a subclass. Example for a clutch:
    f = if locked then sa else 
