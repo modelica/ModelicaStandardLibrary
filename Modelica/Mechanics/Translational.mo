@@ -1545,8 +1545,8 @@ with the Modelica.Blocks blocks.
         mode) == Backward or startBackward);
       
       a_relfric = unitAcceleration*(if locked then 0 else if free then sa else if startForward then 
-              sa - f0/unitForce else if startBackward then sa + f0/unitForce else if pre(mode) ==
-        Forward then sa - f0/unitForce else sa + f0/unitForce);
+              sa - f0_max/unitForce else if startBackward then sa + f0_max/unitForce else if pre(mode) ==
+        Forward then sa - f0_max/unitForce else sa + f0_max/unitForce);
       
       /* Friction torque has to be defined in a subclass. Example for a clutch:
        f = if locked then sa else if free then 0 else cgeo*fn*

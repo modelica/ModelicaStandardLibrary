@@ -1,4 +1,3 @@
-within Modelica.Mechanics;
 
 
 package Rotational 
@@ -1834,8 +1833,8 @@ of several base components.</p>
       
       a_relfric = unitAngularAcceleration *
               (if locked then 0 else if free then sa else if startForward then 
-              sa - tau0/unitTorque else if startBackward then sa + tau0/unitTorque else if pre(mode)
-         == Forward then sa - tau0/unitTorque else sa + tau0/unitTorque);
+              sa - tau0_max/unitTorque else if startBackward then sa + tau0_max/unitTorque else if pre(mode)
+         == Forward then sa - tau0_max/unitTorque else sa + tau0_max/unitTorque);
       
       /* Friction torque has to be defined in a subclass. Example for a clutch:
        tau = if locked then sa else if free then 0 else cgeo*fn*
