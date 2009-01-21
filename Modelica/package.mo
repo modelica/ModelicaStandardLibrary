@@ -1,5 +1,5 @@
 package Modelica "Modelica Standard Library"
-extends Icons.Library;
+extends Icons.Library; 
 
  
 annotation(preferedView="info",
