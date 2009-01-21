@@ -736,13 +736,33 @@ units are wrong or errors in documentation):
       <td valign=\"top\"> Replaced non-standard \"arctan\" by \"atan\" function.</td> 
   </tr>
  
-  <tr><td colspan=\"2\"><b>Media.Interfaces.PartialSimpleMedium</b></td></tr>
+  <tr><td colspan=\"2\"><b>Media.Interfaces.PartialSimpleMedium.</b></td></tr>
   <tr><td valign=\"top\"> pressure<br> 
                         temperature<br>
                         density<br>
                         specificEnthalpy </td>
       <td valign=\"top\"> Missing functions added.</td> 
   </tr>
+
+
+  <tr><td colspan=\"2\"><b>Mechanics.Rotational.Interfaces.</b></td></tr>
+  <tr><td valign=\"top\"> PartialFriction </td>
+      <td valign=\"top\"> Improvement of friction model so that in certain situations
+                        the number of iterations is much smaller.</td>
+  </tr>
+
+  <tr><td colspan=\"2\"><b>Mechanics.Translational.Interfaces.</b></td></tr>
+  <tr><td valign=\"top\"> PartialFriction </td>
+      <td valign=\"top\"> Improvement of friction model so that in certain situations
+                        the number of iterations is much smaller.</td>
+  </tr>
+
+  <tr><td colspan=\"2\"><b>Mechanics.Translational.Components.</b></td></tr>
+  <tr><td valign=\"top\"> MassWithStopAndFriction </td>
+      <td valign=\"top\"> Improvement of friction model so that in certain situations
+                        the number of iterations is much smaller.</td>
+  </tr>
+
 </table>
                                                 
 </html>"));

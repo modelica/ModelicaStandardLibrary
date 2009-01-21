@@ -939,8 +939,7 @@ to see the difference.
             grid={2,2}), graphics={
             Text(
               extent={{-98,-68},{102,-94}},
-              textString="positive force => spool moves in positive direction ", 
-
+              textString="positive force => spool moves in positive direction ",
               lineColor={0,0,255}),
             Text(
               extent={{-32,-46},{38,-62}},
@@ -2820,20 +2819,21 @@ Additionally, a left and right stop are handled.
    the different structural configurations, 
    if for each configuration special code shall be generated)
 */
-      startForward  = pre(mode) == Stuck and 
-        (pre(startForward)  or sa >  f0_max/unitForce and sa >  f0/unitForce and s < (smax - L/2)) or 
-        pre(mode) == Backward and v_relfric >  v_small or initial() and v_relfric > 0;
-      startBackward = pre(mode) == Stuck and 
-        (pre(startBackward) or sa < -f0_max/unitForce and sa < -f0/unitForce and s > (smin + L/2)) or 
-        pre(mode) == Forward  and v_relfric < -v_small or initial() and v_relfric < 0;
+      startForward = pre(mode) == Stuck and (sa > f0_max/unitForce and s < (smax - L/2) or 
+            pre(startForward) and sa > f0/unitForce and s < (smax - L/2)) or pre(mode)
+         == Backward and v_relfric > v_small or initial() and (v_relfric > 0);
+      startBackward = pre(mode) == Stuck and (sa < -f0_max/unitForce and s > (smin + L/2) or 
+            pre(startBackward) and sa < -f0/unitForce and s > (smin + L/2)) or pre(mode)
+         == Forward and v_relfric < -v_small or initial() and (v_relfric < 0);
       locked = not free and 
         not (pre(mode) == Forward or startForward or pre(mode) == Backward or startBackward);
+
       a_relfric/unitAcceleration = if locked then               0 else 
                                    if free then                 sa else 
-                                   if startForward then         sa - f0/unitForce else 
-                                   if startBackward then        sa + f0/unitForce else 
-                                   if pre(mode) == Forward then sa - f0/unitForce else 
-                                                                sa + f0/unitForce;
+                                   if startForward then         sa - f0_max/unitForce else 
+                                   if startBackward then        sa + f0_max/unitForce else 
+                                   if pre(mode) == Forward then sa - f0_max/unitForce else 
+                                                                sa + f0_max/unitForce;
     /* Friction torque has to be defined in a subclass. Example for a clutch:
    f = if locked then sa else 
        if free then   0 else 
@@ -3543,7 +3543,7 @@ blocks of Modelica.Blocks.Source.
         "Velocity of flange with respect to support (= der(s))";
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}},
+                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}}, 
                 color={0,0,255})}), Documentation(info="<HTML>
 <p>
 Model of force, linearly dependent on velocity of flange.<br>
@@ -4865,20 +4865,22 @@ Basic model for Coulomb friction that models the stuck phase in a reliable way.
    the different structural configurations, 
    if for each configuration special code shall be generated)
 */
-      startForward  = pre(mode) == Stuck and 
-        (pre(startForward)  or sa >  f0_max/unitForce and sa >  f0/unitForce) or 
-        pre(mode) == Backward and v_relfric >  v_small or initial() and v_relfric > 0;
-      startBackward = pre(mode) == Stuck and 
-        (pre(startBackward) or sa < -f0_max/unitForce and sa < -f0/unitForce) or 
-        pre(mode) == Forward  and v_relfric < -v_small or initial() and v_relfric < 0;
-      locked = not free and 
-        not (pre(mode) == Forward or startForward or pre(mode) == Backward or startBackward);
+      startForward = pre(mode) == Stuck and (sa > f0_max/unitForce or pre(startForward)
+         and sa > f0/unitForce) or pre(mode) == Backward and v_relfric > v_small or 
+        initial() and (v_relfric > 0);
+      startBackward = pre(mode) == Stuck and (sa < -f0_max/unitForce or pre(
+        startBackward) and sa < -f0/unitForce) or pre(mode) == Forward and v_relfric <
+        -v_small or initial() and (v_relfric < 0);
+      locked = not free and not (pre(mode) == Forward or startForward or pre(
+        mode) == Backward or startBackward);
+
       a_relfric/unitAcceleration = if locked then               0 else 
                                    if free then                 sa else 
-                                   if startForward then         sa - f0/unitForce else 
-                                   if startBackward then        sa + f0/unitForce else 
-                                   if pre(mode) == Forward then sa - f0/unitForce else 
-                                                                sa + f0/unitForce;
+                                   if startForward then         sa - f0_max/unitForce else 
+                                   if startBackward then        sa + f0_max/unitForce else 
+                                   if pre(mode) == Forward then sa - f0_max/unitForce else 
+                                                                sa + f0_max/unitForce;
+
     /* Friction torque has to be defined in a subclass. Example for a clutch:
    f = if locked then sa else 
        if free then   0 else 

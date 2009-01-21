@@ -5,8 +5,7 @@ package Rotational
   import SI = Modelica.SIunits;
 
   annotation (
-  version="1.1.1", versionDate="2007-11-22"
-    ,
+  version="1.1.1", versionDate="2007-11-22",
     Documentation(info="<html>
  
 <p>
@@ -841,7 +840,8 @@ frictional mode of clutches (clutchX.mode) where
 mode = -1/0/+1 means backward sliding,
 locked, forward sliding.</p>
  
-</HTML>"), __Dymola_Commands(file="Scripts/__Dymola_CoupledClutches.mos" "Simulate and Plot"),
+</HTML>"), __Dymola_Commands(file="Scripts/__Dymola_CoupledClutches.mos"
+            "Simulate and Plot"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-140,-80},{
                 140,80}},
             grid={2,2}),
@@ -1345,7 +1345,6 @@ This package contains basic components 1D mechanical rotational drive trains.
         annotation (Placement(transformation(extent={{10,-10},{-10,10}}, rotation=
                0)));
       annotation (
-        
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1383,6 +1382,7 @@ at an angle phi0 in the <b>housing</b>. May be used:
             Line(points={{0,-40},{-40,-80}}, color={0,0,0}),
             Line(points={{-40,-40},{-80,-80}}, color={0,0,0}),
             Line(points={{0,-40},{0,-4}}, color={0,0,0})}));
+
     equation
       flange.phi = phi0;
     end Fixed;
@@ -1406,7 +1406,6 @@ at an angle phi0 in the <b>housing</b>. May be used:
         "Absolute angular acceleration of component (= der(w))" annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
 
       annotation (
-        
         Documentation(info="<html>
 <p>
 Rotational component with <b>inertia</b> and two rigidly connected flanges.
@@ -1453,6 +1452,7 @@ Rotational component with <b>inertia</b> and two rigidly connected flanges.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
+
     equation
       phi = flange_a.phi;
       phi = flange_b.phi;
@@ -1469,7 +1469,6 @@ Rotational component with <b>inertia</b> and two rigidly connected flanges.
         "Fixed rotation of left flange with respect to right flange (= flange_b.phi - flange_a.phi)";
       SI.Angle phi "Absolute rotation angle of component";
       annotation (
-        
         Documentation(info="<html>
 <p>
 Rotational component with two rigidly connected flanges without <b>inertia</b>.
@@ -1514,6 +1513,7 @@ flange.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
+
     equation
       flange_a.phi = phi - deltaPhi/2;
       flange_b.phi = phi + deltaPhi/2;
@@ -1527,7 +1527,6 @@ flange.
       parameter SI.Angle phi_rel0=0 "Unstretched spring angle";
 
       annotation (
-        
         Documentation(info="<html>
 <p>
 A <b>linear 1D rotational spring</b>. The component can be connected either
@@ -1574,6 +1573,7 @@ a coupling of the element with the housing via a spring.
               textString="phi_rel"),
             Line(points={{-96,0},{-60,0},{-42,-32},{-12,30},{18,-30},{48,28},{
                   62,0},{96,0}}, color={0,0,255})}));
+
     equation
       tau = c*(phi_rel - phi_rel0);
     end Spring;
@@ -1584,7 +1584,6 @@ a coupling of the element with the housing via a spring.
       parameter SI.RotationalDampingConstant d(final min=0, start=0)
         "Damping constant";
       annotation (
-        
         Documentation(info="<html>
 <p>
 <b>Linear, velocity dependent damper</b> element. It can be either connected
@@ -1641,6 +1640,7 @@ between two inertia/gear elements.
               lineColor={128,128,128},
               fillColor={128,128,128},
               fillPattern=FillPattern.Solid)}));
+
     equation
       tau = d*w_rel;
     end Damper;
@@ -1656,7 +1656,6 @@ between two inertia/gear elements.
         Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates;
 
       annotation (
-        
         Documentation(info="<html>
 <p>
 A <b>spring</b> and <b>damper</b> element <b>connected in parallel</b>.
@@ -1732,6 +1731,7 @@ to describe a coupling of the element with the housing via a spring/damper.
             Line(points={{80,32},{80,-50}}, color={0,0,0}),
             Line(points={{-96,0},{-80,0}}, color={0,0,0}),
             Line(points={{96,0},{80,0}}, color={0,0,0})}));
+
     equation
       tau = c*(phi_rel - phi_rel0) + d*w_rel;
     end SpringDamper;
@@ -1762,7 +1762,6 @@ to describe a coupling of the element with the housing via a spring/damper.
       // number of state events if backlash b is set to zero.
       constant SI.Angle bEps = 1e-10 "minimum backlash";
       annotation (
-        
         Documentation(info="<html>
 <p>
 This element consists of a <b>backlash</b> element <b>connected in series</b>
@@ -2036,6 +2035,7 @@ where the different effects are visualized:
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid,
               textString="b")}));
+
     equation
         if initial() then
          /* During initialization the characteristic is modified, in order that
@@ -2193,8 +2193,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
  
  
 </HTML>
-")     ,
-        Icon(coordinateSystem(
+"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -2320,7 +2319,6 @@ following references, especially (Armstrong and Canudas de Witt 1996):
             extent={{20,-20},{-20,20}},
             rotation=90)));
       annotation (
-        
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -2518,7 +2516,6 @@ following references, especially (Armstrong and Canudas de Witt 1996):
             extent={{20,-20},{-20,20}},
             rotation=90)));
       annotation (
-        
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -2652,6 +2649,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
+
     equation
       // Constant auxiliary variable
       mue0 = Modelica.Math.tempInterpol1(0, mue_pos, 2);
@@ -2716,7 +2714,6 @@ following references, especially (Armstrong and Canudas de Witt 1996):
             extent={{20,-20},{-20,20}},
             rotation=90)));
       annotation (
-        
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -2850,6 +2847,7 @@ are dynamically coupled. The method is described in:
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
+
     equation
       // Constant auxiliary variable
       mue0 = Modelica.Math.tempInterpol1(0, mue_pos, 2);
@@ -2890,7 +2888,6 @@ are dynamically coupled. The method is described in:
         "Angle between right shaft flange and support";
 
       annotation (
-        
         Documentation(info="<html>
 <p>
 This element characterices any type of gear box which is fixed in the
@@ -2962,6 +2959,7 @@ connected to other elements in an appropriate way.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
+
     equation
       phi_a = flange_a.phi - internalSupport.phi;
       phi_b = flange_b.phi - internalSupport.phi;
@@ -3317,7 +3315,6 @@ Modelica.Constants.eps).
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=
                0)));
       annotation (
-        
         Documentation(info="<HTML>
 <p>
 The IdealPlanetary gear box is an ideal gear without inertia,
@@ -3505,6 +3502,7 @@ in the flanges, are along the axis vector displayed in the icon.
               extent={{-96,-71},{-28,-84}},
               lineColor={128,128,128},
               textString="rotation axis")}));
+
     equation
       (1 + ratio)*carrier.phi = sun.phi + ratio*ring.phi;
 
@@ -3642,7 +3640,6 @@ Gearbox.
       parameter Real ratio(final unit="rad/m", start=1)
         "Transmission ratio (flange_a.phi/flange_b.s)";
       annotation (
-        
         Documentation(info="<html>
 This is an ideal mass- and inertialess gearbox which transforms a
 1D-rotational into a 1D-translational motion. If elasticity, damping
@@ -3719,6 +3716,7 @@ This component defines the kinematic constraint:
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
+
     equation
       (flangeR.phi - internalSupportR.phi) = ratio*(flangeT.s - internalSupportT.s);
       0 = ratio*flangeR.tau + flangeT.f;
@@ -4017,7 +4015,6 @@ provided via a signal bus.
         "Relative angular velocity used as state variable";
       SI.AngularAcceleration a_rel(start=0) "Relative angular acceleration";
       annotation (
-        
         Documentation(info="<html>
 <p>
 Usually, the absolute angle and the absolute angular velocity of
@@ -4112,6 +4109,7 @@ velocity of model inertia1 or of model inertia2 as state variables.
               points={{-96,0},{-40,0}},
               color={0,0,0},
               pattern=LinePattern.Dash)}));
+
     equation
       phi_rel = flange_b.phi - flange_a.phi;
       w_rel = der(phi_rel);
@@ -4159,7 +4157,6 @@ This package contains ideal sources to drive 1D mechanical rotational drive trai
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
       annotation (
-        
         Documentation(info="<HTML>
 <p>
 The input signal <b>phi_ref</b> defines the <b>reference
@@ -4230,6 +4227,7 @@ blocks of the block library Modelica.Blocks.Sources.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
+
     protected
       parameter Modelica.SIunits.AngularFrequency w_crit=2*Modelica.Constants.pi*f_crit
         "Critical frequency";
@@ -4273,7 +4271,6 @@ blocks of the block library Modelica.Blocks.Sources.
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
       annotation (
-        
         Documentation(info="<html>
 <p>
 The input signal <b>w_ref</b> defines the <b>reference
@@ -4344,6 +4341,7 @@ blocks of the block library Modelica.Blocks.Sources.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
+
     protected
       parameter Modelica.SIunits.AngularFrequency w_crit=2*Modelica.Constants.pi*f_crit
         "Critical frequency";
@@ -4381,7 +4379,6 @@ blocks of the block library Modelica.Blocks.Sources.
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
       annotation (
-        
         Documentation(info="<html>
 <p>
 The input signal <b>a</b> defines an <b>angular acceleration</b>
@@ -4428,6 +4425,7 @@ blocks of the block library Modelica.Blocks.Sources.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
+
     equation
       phi = flange.phi - internalSupport.phi;
       w = der(phi);
@@ -4504,8 +4502,7 @@ blocks of the block library Modelica.Blocks.Sources.
             Text(
               extent={{-150,100},{150,60}},
               textString="%name",
-              lineColor={0,0,255})})
-        );
+              lineColor={0,0,255})}));
     protected
       function position
          input Real q_qd_qdd[3]
@@ -4555,7 +4552,6 @@ blocks of the block library Modelica.Blocks.Sources.
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
       annotation (
-        
         Documentation(info="<HTML>
 <p>
 The input signal <b>tau</b> defines an external
@@ -4595,10 +4591,8 @@ blocks of Modelica.Blocks.Sources.
             Line(points={{-30,-50},{-10,-30}}, color={0,0,0}),
             Line(points={{-10,-50},{10,-30}}, color={0,0,0}),
             Line(points={{10,-50},{30,-30}}, color={0,0,0}),
-            Line(
-              points={{-54,-42},{-38,-28},{-16,-16},{4,-14},{22,-18},{36,-26},{
-                  48,-36},{56,-46},{64,-58}},
-              color={0,0,0}),
+            Line(points={{-54,-42},{-38,-28},{-16,-16},{4,-14},{22,-18},{36,-26},
+                  {48,-36},{56,-46},{64,-58}}, color={0,0,0}),
             Polygon(
               points={{-61,-66},{-44,-42},{-58,-36},{-61,-66}},
               lineColor={0,0,0},
@@ -4628,6 +4622,7 @@ blocks of Modelica.Blocks.Sources.
               lineColor={0,0,0},
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}));
+
     equation
       flange.tau = -tau;
     end Torque;
@@ -4643,7 +4638,6 @@ blocks of Modelica.Blocks.Sources.
             rotation=270)));
 
       annotation (
-        
         Documentation(info="<HTML>
 <p>
 The input signal <b>tau</b> defines an external
@@ -4719,6 +4713,7 @@ blocks of Modelica.Blocks.Sources.</p>
               lineColor={0,0,0},
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}));
+
     equation
       flange_a.tau =  tau;
       flange_b.tau = -tau;
@@ -4940,8 +4935,7 @@ way and provides the result as output signal <b>phi</b>
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics)
-        );
+            grid={1,1}), graphics));
     equation
       phi = flange.phi;
     end AngleSensor;
@@ -4974,8 +4968,7 @@ way and provides the result as output signal <b>w</b>
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics)
-        );
+            grid={1,1}), graphics));
     equation
       w = der(flange.phi);
     end SpeedSensor;
@@ -5009,8 +5002,7 @@ blocks of the Modelica.Blocks library).
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics)
-        );
+            grid={1,1}), graphics));
     equation
       w = der(flange.phi);
       a = der(w);
@@ -5047,8 +5039,7 @@ in an ideal way and provides the result as output signal <b>phi_rel</b>
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics)
-        );
+            grid={1,1}), graphics));
     equation
       phi_rel = flange_b.phi - flange_a.phi;
       0 = flange_a.tau;
@@ -5088,8 +5079,7 @@ in an ideal way and provides the result as output signal <b>w_rel</b>
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics)
-        );
+            grid={1,1}), graphics));
     equation
       phi_rel = flange_b.phi - flange_a.phi;
       w_rel = der(phi_rel);
@@ -5131,8 +5121,7 @@ in an ideal way and provides the result as output signal <b>a_rel</b>
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics)
-        );
+            grid={1,1}), graphics));
     equation
       phi_rel = flange_b.phi - flange_a.phi;
       w_rel = der(phi_rel);
@@ -5171,8 +5160,7 @@ and provides the result as output signal <b>tau</b>
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics)
-        );
+            grid={1,1}), graphics));
     equation
       flange_a.phi = flange_b.phi;
       flange_a.tau = tau;
@@ -5207,8 +5195,7 @@ and provides the result as output signal <b>power</b>
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics)
-        );
+            grid={1,1}), graphics));
     equation
       flange_a.phi = flange_b.phi;
       power = flange_a.tau*der(flange_a.phi);
@@ -5233,8 +5220,7 @@ only be used as basic building elements for models.
       "1-dim. rotational flange of a shaft (filled square icon)"
       SI.Angle phi "Absolute rotation angle of flange";
       flow SI.Torque tau "Cut torque in the flange";
-      annotation(defaultComponentName = "flange_a"
-        ,
+      annotation(defaultComponentName = "flange_a",
         Documentation(info="<html>
 <p>
 This is a connector for 1-dim. rotational mechanical systems and models
@@ -5295,8 +5281,7 @@ differentiation of the flange angle phi:
       "1-dim. rotational flange of a shaft (non-filled square icon)"
       SI.Angle phi "Absolute rotation angle of flange";
       flow SI.Torque tau "Cut torque in the flange";
-      annotation(defaultComponentName = "flange_b"
-        ,
+      annotation(defaultComponentName = "flange_b",
         Documentation(info="<html>
 <p>
 This is a connector for 1-dim. rotational mechanical systems and models
@@ -5519,8 +5504,7 @@ of several components.
 "),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics)
-        );
+            grid={2,2}), graphics));
     end PartialTwoFlanges;
 
     partial model PartialOneFlangeAndSupport
@@ -5557,8 +5541,7 @@ and instead the component is internally fixed to ground.
               textString="(if useSupport)"), Text(
               extent={{21,-95},{61,-96}},
               lineColor={95,95,95},
-              textString="(if not useSupport)")})
-        ,
+              textString="(if not useSupport)")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -5635,8 +5618,7 @@ and instead the component is internally fixed to ground.
               textString="(if useSupport)"), Text(
               extent={{24,-97},{64,-98}},
               lineColor={95,95,95},
-              textString="(if not useSupport)")})
-        ,
+              textString="(if not useSupport)")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -5691,7 +5673,6 @@ and instead the component is internally fixed to ground.
               rotation=0)));
 
       annotation (
-        
         Documentation(info="<html>
 <p>
 This is a 1-dim. rotational component with a compliant connection of two
@@ -5707,6 +5688,7 @@ is used to built up force elements such as springs, dampers, friction.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
+
     equation
       phi_rel = flange_b.phi - flange_a.phi;
       flange_b.tau = tau;
@@ -5737,7 +5719,6 @@ is used to built up force elements such as springs, dampers, friction.
       annotation(HideResult=true, Dialog(tab="Advanced"));
 
       annotation (
-        
         Documentation(info="<html>
 <p>
 This is a 1-dim. rotational component with a compliant connection of two
@@ -5773,6 +5754,7 @@ and c are more meaningful for the user.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics));
+
     equation
       phi_rel = flange_b.phi - flange_a.phi;
       w_rel = der(phi_rel);
@@ -5815,8 +5797,7 @@ and instead the component is internally fixed to ground.
               textString="(if not useSupport)"), Text(
               extent={{-38,-98},{-6,-96}},
               lineColor={95,95,95},
-              textString="(if useSupport)")})
-        ,
+              textString="(if useSupport)")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -5893,8 +5874,7 @@ and instead the component is internally fixed to ground.
               textString="(if not useSupport)"), Text(
               extent={{-38,-98},{-6,-96}},
               lineColor={95,95,95},
-              textString="(if useSupport)")})
-        ,
+              textString="(if useSupport)")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -5958,7 +5938,6 @@ and instead the component is internally fixed to ground.
               rotation=0), iconTransformation(extent={{90,-110},{110,-90}})));
 
       annotation (
-        
         Documentation(info="<html>
  
 <p>
@@ -6031,6 +6010,7 @@ and instead the translational part is internally fixed to ground.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
+
     protected
       Rotational.Interfaces.InternalSupport internalSupportR(tau = - flangeR.tau) 
         annotation (Placement(transformation(extent={{-110,-90},{-90,-70}})));
@@ -6088,10 +6068,8 @@ and instead the translational part is internally fixed to ground.
               lineColor={0,0,0},
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
-            Line(
-              points={{-58,-82},{-42,-68},{-20,-56},{0,-54},{18,-56},{34,-62},{
-                  44,-72},{54,-82},{60,-94}},
-              color={0,0,0}),
+            Line(points={{-58,-82},{-42,-68},{-20,-56},{0,-54},{18,-56},{34,-62},
+                  {44,-72},{54,-82},{60,-94}}, color={0,0,0}),
             Polygon(
               points={{-65,-98},{-46,-80},{-58,-72},{-65,-98}},
               lineColor={0,0,0},
@@ -6143,7 +6121,6 @@ and instead the component is internally fixed to ground.
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
       annotation (
-        
         Documentation(info="<html>
 <p>
 This is a partial model of a 1-dim. rotational component with one flange of a shaft 
@@ -6188,6 +6165,7 @@ with the blocks of package Modelica.Blocks.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
+
     equation
       0 = flange.tau;
     end PartialAbsoluteSensor;
@@ -6202,7 +6180,6 @@ with the blocks of package Modelica.Blocks.
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
       annotation (
-        
         Documentation(info="<html>
 <p>
 This is a partial model for 1-dim. rotational components with two rigidly connected
@@ -6248,6 +6225,7 @@ with the blocks of package Modelica.Blocks.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics));
+
     equation
       0 = flange_a.tau + flange_b.tau;
     end PartialRelativeSensor;
@@ -6300,20 +6278,21 @@ Basic model for Coulomb friction that models the stuck phase in a reliable way.
    the different structural configurations, 
    if for each configuration special code shall be generated)
 */
-      startForward  = pre(mode) == Stuck and 
-        (pre(startForward)  or sa >  tau0_max/unitTorque and sa >  tau0/unitTorque) or 
-        pre(mode) == Backward and w_relfric >  w_small or initial() and w_relfric > 0;
-      startBackward = pre(mode) == Stuck and 
-        (pre(startBackward) or sa < -tau0_max/unitTorque and sa < -tau0/unitTorque) or 
-        pre(mode) == Forward  and w_relfric < -w_small or initial() and w_relfric < 0;
-      locked = not free and 
-        not (pre(mode) == Forward or startForward or pre(mode) == Backward or startBackward);
+      startForward = pre(mode) == Stuck and (sa > tau0_max/unitTorque or pre(startForward)
+         and sa > tau0/unitTorque) or pre(mode) == Backward and w_relfric > w_small or 
+        initial() and (w_relfric > 0);
+      startBackward = pre(mode) == Stuck and (sa < -tau0_max/unitTorque or pre(
+        startBackward) and sa < -tau0/unitTorque) or pre(mode) == Forward and w_relfric <
+        -w_small or initial() and (w_relfric < 0);
+      locked = not free and not (pre(mode) == Forward or startForward or pre(
+        mode) == Backward or startBackward);
+
       a_relfric/unitAngularAcceleration = if locked then               0 else 
                                           if free then                 sa else 
-                                          if startForward then         sa - tau0/unitTorque else 
-                                          if startBackward then        sa + tau0/unitTorque else 
-                                          if pre(mode) == Forward then sa - tau0/unitTorque else 
-                                                                       sa + tau0/unitTorque;
+                                          if startForward then         sa - tau0_max/unitTorque else 
+                                          if startBackward then        sa + tau0_max/unitTorque else 
+                                          if pre(mode) == Forward then sa - tau0_max/unitTorque else 
+                                                                       sa + tau0_max/unitTorque;
     /* Friction torque has to be defined in a subclass. Example for a clutch:
    tau = if locked then sa else 
          if free then   0 else 
