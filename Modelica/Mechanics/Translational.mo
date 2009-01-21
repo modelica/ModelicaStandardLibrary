@@ -281,8 +281,8 @@ combination). In this case the system is not at rest.
 <li><i>First Version from December 10, 1999 by P. Beater </i> </li>
 <li><i>Parameters and documentation modified, July 17, 2001 by P. Beater </i> </li>
 </ul>
-</html>"), 
-        experiment(StopTime=5), 
+</html>"),
+        experiment(StopTime=5),
         experimentSetupOutput);
       Translational.SlidingMass M3(L=3, s(start=4.5)) annotation (extent=[-20,
             60; 0, 80]);
@@ -296,13 +296,13 @@ combination). In this case the system is not at rest.
       Translational.SlidingMass M1(L=1) annotation (extent=[-20, -20; 0, 0]);
       Translational.Spring S1(
         s_rel0=1,
-        c=1e3, 
+        c=1e3,
         s_rel(start=1, fixed=false)) 
                         annotation (extent=[-58, -20; -38, 0]);
       Translational.Fixed Fixed2(s0=-1) annotation (extent=[-100, -20; -80, 0]);
       Translational.SpringDamper SD1(
         s_rel0=1,
-        c=111, 
+        c=111,
         s_rel(start=1, fixed=true)) 
                         annotation (extent=[20, -20; 40, 0]);
       Translational.SlidingMass M2(L=2) annotation (extent=[60, -20; 80, 0]);
@@ -694,8 +694,8 @@ to see the difference.
 <li><i>First Version from December 10, 1999 by P. Beater </i> </li>
 </ul>
 
-</html>"), 
-        experiment(StopTime=5), 
+</html>"),
+        experiment(StopTime=5),
         experimentSetupOutput);
       Translational.Stop Stop1(L=1) annotation (extent=[60, 60; 80, 80]);
       Translational.Force Force1 annotation (extent=[18, 60; 38, 80]);
@@ -787,8 +787,8 @@ Spool position s as a function of working force f.
 <li><i>Ocotber 5, 2002, object diagram and parameters changed, by P. Beater </i> </li>
 </ul>
 
-</html>"), 
-        experiment(StopTime=100), 
+</html>"),
+        experiment(StopTime=100),
         experimentSetupOutput);
       Translational.ElastoGap InnerContactA(
         s_rel0=1e-3,
@@ -1529,8 +1529,8 @@ with the Modelica.Blocks blocks.
         mode) == Backward or startBackward);
       
       a_relfric = unitAcceleration*(if locked then 0 else if free then sa else if startForward then 
-              sa - f0/unitForce else if startBackward then sa + f0/unitForce else if pre(mode) ==
-        Forward then sa - f0/unitForce else sa + f0/unitForce);
+              sa - f0_max/unitForce else if startBackward then sa + f0_max/unitForce else if pre(mode) ==
+        Forward then sa - f0_max/unitForce else sa + f0_max/unitForce);
       
       /* Friction torque has to be defined in a subclass. Example for a clutch:
        f = if locked then sa else if free then 0 else cgeo*fn*
