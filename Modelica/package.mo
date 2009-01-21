@@ -747,6 +747,20 @@ have been <b style=\"color:blue\">changed</b> (in a
                         MoistAir </td>
       <td valign=\"top\"> Added equations to test the new setSmoothState(..) functions
                         including the analytic derivatives of these functions.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Media.Interfaces.PartialLinearFluid.</b></td></tr>
+  <tr><td valign=\"top\"> setState_pTX <br>
+                        setState_phX <br>
+                        setState_psX <br>
+                        setState_dTX </td>
+      <td valign=\"top\"> Rewritten function in one statement so that it is usually inlined.</td> </tr>
+
+
+  <tr><td colspan=\"2\"><b>Media.Air.MoistAir.</b></td></tr>
+  <tr><td valign=\"top\"> T_phX </td>
+      <td valign=\"top\"> Interval of nonlinear solver to compute T from p,h,X changed
+                        from 200..6000 to 240 ..400 K.</td> </tr>
+
 </table>
  
  
@@ -806,6 +820,9 @@ that can lead to wrong simulation results):
                         Brake </td>
       <td valign=\"top\"> The sign of the friction force was wrong and therefore friction accelerated
                         instead of decelerated. This was fixed. </td> 
+  <tr><td valign=\"top\"> SupportFriction</td>
+      <td valign=\"top\"> The component was only correct for fixed support. 
+                        This was corrected. </td> 
   </tr>
  
   <tr><td colspan=\"2\"><b>Media.Interfaces.</b></td></tr>
@@ -853,29 +870,15 @@ units are wrong or errors in documentation):
       <td valign=\"top\"> Removed empty documentation placeholders and added the missing 
                           release comment for version 1.0.7</td> 
   </tr>
+
  
-  <tr><td colspan=\"2\"><b>Mechanics.Rotational.Interfaces.</b></td></tr>
-  <tr><td valign=\"top\"> PartialFriction </td>
-      <td valign=\"top\"> Corrected and simplified parameterized curve description.
-                        The previous formulation could lead to an inconsistent mixed system
-                        of equations if peak > 1 and then an additional event iteration
-                        was needed to find the solution. The change therefore enhances
-                        efficiency in some situations. </td> 
-  </tr>
-  <tr><td colspan=\"2\"><b>Mechanics.Translational.Interfaces.</b></td></tr>
-  <tr><td valign=\"top\"> PartialFriction </td>
-      <td valign=\"top\"> Corrected and simplified parameterized curve description.
-                        The previous formulation could lead to an inconsistent mixed system
-                        of equations if peak > 1 and then an additional event iteration
-                        was needed to find the solution. The change therefore enhances
-                        efficiency in some situations. </td> </tr>
-  <tr><td colspan=\"2\"><b>Mechanics.Translational.Components.</b></td></tr>
+  <tr><td colspan=\"2\"><b>Modelica.Mechanics.Translational.Components.</b></td></tr>
   <tr><td valign=\"top\"> MassWithStopAndFriction </td>
-      <td valign=\"top\"> Corrected and simplified parameterized curve description.
-                        The previous formulation could lead to an inconsistent mixed system
-                        of equations if peak > 1 and then an additional event iteration
-                        was needed to find the solution. The change therefore enhances
-                        efficiency in some situations. </td> </tr>
+      <td valign=\"top\"> Changed usage of reinit(..), in order that it appears
+                        only once for one variable according to the language specification
+                        (if a tool could simulate the model, there is no difference).</td> 
+  </tr>
+
   <tr><td colspan=\"2\"><b>Media.Interfaces.PartialSimpleMedium</b></td></tr>
   <tr><td valign=\"top\"> pressure<br> 
                         temperature<br>
@@ -883,6 +886,7 @@ units are wrong or errors in documentation):
                         specificEnthalpy </td>
       <td valign=\"top\"> Missing functions added.</td> 
   </tr>
+
 </table>
                        
                                
