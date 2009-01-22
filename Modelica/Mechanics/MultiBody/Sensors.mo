@@ -187,40 +187,40 @@ For example, if parameter \"get_r = <b>true</b>\", the connector
 to the origin of frame_a. The following quantities can be provided
 as output signals:
 </p>
-
+ 
 <ol>
 <li> Absolute position vector (= r) </li>
 <li> Absolute velocity vector (= v)</li>
-<li> Absolute acceleration vector (= a)</li>
+<li> Absolute acceleration vector (= a)</li> 
 <li> Three angles to rotate world frame into frame_a (= angles)</li>
 <li> Absolute angular velocity vector (= w)</li>
 <li> Absolute angular acceleration vector (= z)</li>
 </ol>
-
+ 
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
+Via parameter <b>resolveInFrame</b> it is defined, in which frame 
 a vector is resolved:
 </p>
-
+ 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>resolveInFrame =<br>Types.ResolveInFrameA.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vectors in world frame</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_a</td>
     <td valign=\"top\">Resolve vectors in frame_a</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_resolve</td>
     <td valign=\"top\">Resolve vectors in frame_resolve</td></tr>
 </table>
-
+ 
 <p>
 If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the conditional connector
 \"frame_resolve\" is enabled and the vectors are resolved in the frame, to
 which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
 </p>
-
+ 
 <p>
 In the following figure the animation of an AbsoluteSensor
 component is shown. The light blue coordinate system is
@@ -229,7 +229,7 @@ frame_a and the yellow arrow is the animated sensor.
 <p align=\"center\">
 <IMG SRC=\"../Images/MultiBody/Sensors/AbsoluteSensor.png\">
 </p>
-
+ 
 <p>
 Velocity, acceleration, angular velocity and angular acceleration are
 determined by differentiating them in the world frame and then transforming
@@ -243,14 +243,14 @@ For example, if resolveInFrame = <b>Types.ResolveInFrameA.frame_a</b>, then
    v  = resolve2(frame_a.R, v0);
 </pre>
 is returned, i.e., the derivative of the absolute distance from the
-world frame to the origin of frame_a, resolved in frame_a.
+world frame to the origin of frame_a, resolved in frame_a. 
 </p>
-
+ 
 <p>
 The cut-force and the cut-torque in frame_resolve are
 always zero, whether frame_resolve is connected or not.
 </p>
-
+ 
 <p>
 If <b>get_angles</b> = <b>true</b>, the 3 angles to rotate the world
 frame into frame_a along the axes defined by parameter <b>sequence</b>
@@ -267,7 +267,7 @@ The 3 angles are returned in the range
 There are <b>two solutions</b> for \"angles[1]\" in this range.
 Via parameter <b>guessAngle1</b> (default = 0) the
 returned solution is selected such that |angles[1] - guessAngle1| is
-minimal. The absolute transformation matrix of frame_a
+minimal. The absolute transformation matrix of frame_a 
 may be in a singular configuration with respect to \"sequence\", i.e.,
 there is an infinite number of angle values leading to the same absolute
 transformation matrix. In this case, the returned solution is
@@ -282,7 +282,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
 <pre>
   sequence = <b>{1,2,3}</b>  // Cardan or Tait-Bryan angle sequence
            = <b>{3,1,3}</b>  // Euler angle sequence
-           = <b>{3,2,1}</b>
+           = <b>{3,2,1}</b> 
 </pre>
 </html>"));
 
@@ -660,47 +660,47 @@ and sequence[2] &ne; sequence[3]. Often used values are:
 Relative kinematic quantities between frame_a and frame_b are
 determined and provided at the conditional output signal connectors.
 For example, if parameter \"get_r_rel = <b>true</b>\", the connector
-\"r_rel\" is enabled and contains the relative vector from
+\"r_rel\" is enabled and contains the relative vector from 
 frame_a to frame_b. The following quantities can be provided
 as output signals:
 </p>
-
+ 
 <ol>
 <li> Relative position vector (= r_rel) </li>
 <li> Relative velocity vector (= v_rel)</li>
-<li> Relative acceleration vector (= a_rel)</li>
+<li> Relative acceleration vector (= a_rel)</li> 
 <li> Three angles to rotate frame_a into frame_b (= angles)</li>
 <li> Relative angular velocity vector (= w_rel)</li>
 <li> Relative angular acceleration vector (= z_rel)</li>
 </ol>
-
+ 
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
+Via parameter <b>resolveInFrame</b> it is defined, in which frame 
 a vector is resolved (before differentiation):
 </p>
-
+ 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vectors in world frame</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_a</td>
     <td valign=\"top\">Resolve vectors in frame_a</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_b</td>
     <td valign=\"top\">Resolve vectors in frame_b</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_resolve</td>
     <td valign=\"top\">Resolve vectors in frame_resolve</td></tr>
 </table>
-
+ 
 <p>
 If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector
 \"frame_resolve\" is enabled and the vectors are resolved in the frame, to
 which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
 </p>
-
+ 
 <p>
 In the following figure the animation of a RelativeSensor
 component is shown. The light blue coordinate system is
@@ -727,21 +727,21 @@ For example, if resolveInFrame = <b>Types.ResolveInFrameAB.frame_b</b>, then
    v_rel = <b>der</b>(r_rel);
 </pre>
 is returned (r_rel = resolve2(frame_b.R, frame_b.r_0 - frame_a.r0)), i.e.,
-the derivative of the relative distance from frame_a to frame_b,
-resolved in frame_b. If
+the derivative of the relative distance from frame_a to frame_b, 
+resolved in frame_b. If 
 <b>resolveInFrameAfterDifferentiation</b> = Types.ResolveInFrameAB.world, then
 v_rel is additionally transformed to:
 </p>
 <pre>
    v_rel = resolve1(frame_b.R, <b>der</b>(r_rel))
 </pre>
-
-
+ 
+ 
 <p>
 The cut-force and the cut-torque in frame_resolve are
 always zero, whether frame_resolve is connected or not.
 </p>
-
+ 
 <p>
 If <b>get_angles</b> = <b>true</b>, the 3 angles to rotate frame_a
 into frame_b along the axes defined by parameter <b>sequence</b>
@@ -773,7 +773,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
 <pre>
   sequence = <b>{1,2,3}</b>  // Cardan or Tait-Bryan angle sequence
            = <b>{3,1,3}</b>  // Euler angle sequence
-           = <b>{3,2,1}</b>
+           = <b>{3,2,1}</b> 
 </pre>
 </html>"));
 
@@ -1026,8 +1026,8 @@ and sequence[2] &ne; sequence[3]. Often used values are:
 
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
-          ={
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
+           {
           Line(
             points={{70,0},{100,0}},
             color={0,0,127},
@@ -1054,36 +1054,36 @@ and sequence[2] &ne; sequence[3]. Often used values are:
 The absolute position vector of the origin of frame_a is
 determined and provided at the output signal connector <b>r</b>.
 </p>
-
+ 
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
+Via parameter <b>resolveInFrame</b> it is defined, in which frame 
 the position vector is resolved:
 </p>
-
+ 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>resolveInFrame =<br>Types.ResolveInFrameA.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_a</td>
     <td valign=\"top\">Resolve vector in frame_a</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_resolve</td>
     <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
-
+ 
 <p>
 If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the conditional connector
 \"frame_resolve\" is enabled and r is resolved in the frame, to
 which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
 </p>
-
+ 
 <p>
-Example: If resolveInFrame = Types.ResolveInFrameA.frame_a, the output vector is
+Example: If resolveInFrame = Types.ResolveInFrameA.frame_a, the output vector is 
 computed as:
 </p>
-
+ 
 <pre>
     r = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0);
 </pre>
@@ -1142,8 +1142,8 @@ computed as:
 
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}),                                              graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
-          ={
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
+           {
           Line(
             points={{70,0},{100,0}},
             color={0,0,127},
@@ -1170,41 +1170,41 @@ computed as:
 The absolute velocity vector of the origin of frame_a is
 determined and provided at the output signal connector <b>v</b>.
 </p>
-
+ 
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
+Via parameter <b>resolveInFrame</b> it is defined, in which frame 
 the velocity vector is resolved:
 </p>
-
+ 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>resolveInFrame =<br>Types.ResolveInFrameA.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_a</td>
     <td valign=\"top\">Resolve vector in frame_a</td></tr>
-
+  
 <tr><td valign=\"top\">frame_resolve</td>
     <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
-
+ 
 <p>
 If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the conditional connector
 \"frame_resolve\" is enabled and v is resolved in the frame, to
 which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
 </p>
-
+ 
 <p>
-Example: If resolveInFrame = Types.ResolveInFrameA.frame_a, the output vector is
+Example: If resolveInFrame = Types.ResolveInFrameA.frame_a, the output vector is 
 computed as:
 </p>
-
+ 
 <pre>
     v0 = der(frame_a.r_0);
     v  = MultiBody.Frames.resolve2(frame_a.R, v0);
 </pre>
-
+ 
 </html>"));
 
   protected
@@ -1214,8 +1214,7 @@ computed as:
           extent={{-20,-20},{0,0}},
           rotation=0,
           origin={10,10})));
-    Modelica.Mechanics.MultiBody.Sensors.TansformAbsoluteVector
-      transformAbsoluteVector(
+    TansformAbsoluteVector tansformAbsoluteVector(
       frame_r_in=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world,
         frame_r_out=resolveInFrame) annotation (Placement(transformation(
           extent={{10,-10},{-10,10}},
@@ -1237,11 +1236,11 @@ computed as:
         color={95,95,95},
         thickness=0.5,
         smooth=Smooth.None));
-    connect(der1.y, transformAbsoluteVector.r_in) annotation (Line(
+    connect(der1.y, tansformAbsoluteVector.r_in) annotation (Line(
         points={{11,0},{19.5,0},{19.5,7.34788e-016},{38,7.34788e-016}},
         color={0,0,127},
         smooth=Smooth.None));
-    connect(transformAbsoluteVector.r_out, v) annotation (Line(
+    connect(tansformAbsoluteVector.r_out, v) annotation (Line(
         points={{61,-6.73556e-016},{71.5,-6.73556e-016},{71.5,0},{110,0}},
         color={0,0,127},
         smooth=Smooth.None));
@@ -1250,18 +1249,18 @@ computed as:
         color={95,95,95},
         pattern=LinePattern.Dot,
         smooth=Smooth.None));
-    connect(transformAbsoluteVector.frame_a, frame_a) annotation (Line(
+    connect(tansformAbsoluteVector.frame_a, frame_a) annotation (Line(
         points={{50,10},{50,20},{-70,20},{-70,0},{-100,0}},
         color={95,95,95},
         thickness=0.5,
         smooth=Smooth.None));
-    connect(transformAbsoluteVector.frame_resolve, zeroPosition1.frame_resolve) 
+    connect(tansformAbsoluteVector.frame_resolve, zeroPosition1.frame_resolve) 
       annotation (Line(
         points={{49.9,-10},{50,-10},{50,-50},{60,-50}},
         color={95,95,95},
         pattern=LinePattern.Dot,
         smooth=Smooth.None));
-    connect(transformAbsoluteVector.frame_resolve, frame_resolve) annotation (Line(
+    connect(tansformAbsoluteVector.frame_resolve, frame_resolve) annotation (Line(
         points={{49.9,-10},{50,-10},{50,-50},{0,-50},{0,-100}},
         color={95,95,95},
         pattern=LinePattern.Dot,
@@ -1346,7 +1345,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
 <pre>
   sequence = <b>{1,2,3}</b>  // Cardan or Tait-Bryan angle sequence
            = <b>{3,1,3}</b>  // Euler angle sequence
-           = <b>{3,2,1}</b>
+           = <b>{3,2,1}</b> 
 </pre>
 </html>"));
   equation
@@ -1420,40 +1419,40 @@ The absolute angular velocity of frame_a with respect to the
 world frame is
 determined and provided at the output signal connector <b>w</b>.
 </p>
-
+ 
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
+Via parameter <b>resolveInFrame</b> it is defined, in which frame 
 the angular velocity is resolved:
 </p>
-
+ 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_a</td>
     <td valign=\"top\">Resolve vector in frame_a</td></tr>
-
+  
 <tr><td valign=\"top\">frame_resolve</td>
     <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
-
+ 
 <p>
 If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the conditional connector
 \"frame_resolve\" is enabled and w is resolved in the frame, to
 which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
 </p>
-
+ 
 <p>
-Example: If resolveInFrame = Types.ResolveInFrameA.frame_a, the output vector is
+Example: If resolveInFrame = Types.ResolveInFrameA.frame_a, the output vector is 
 computed as:
 </p>
-
+ 
 <pre>
     w = MultiBody.Frames.angularVelocity2(frame_a.R);
 </pre>
-
+ 
 </html>"));
     Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if 
       not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve) 
@@ -1509,8 +1508,8 @@ computed as:
 
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
-          ={
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
+           {
           Line(
             points={{0,-70},{0,-100}},
             color={0,0,127},
@@ -1528,39 +1527,39 @@ computed as:
 The relative position vector between the origins of frame_a and frame_b are
 determined and provided at the output signal connector <b>r_rel</b>.
 </p>
-
+ 
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
+Via parameter <b>resolveInFrame</b> it is defined, in which frame 
 the position vector is resolved:
 </p>
-
+ 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_a</td>
     <td valign=\"top\">Resolve vector in frame_a</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_b</td>
     <td valign=\"top\">Resolve vector in frame_b</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_resolve</td>
     <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
-
+ 
 <p>
 If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector
 \"frame_resolve\" is enabled and r_rel is resolved in the frame, to
 which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
 </p>
-
+ 
 <p>
-Example: If resolveInFrame = Types.ResolveInFrameAB.frame_a, the output vector is
+Example: If resolveInFrame = Types.ResolveInFrameAB.frame_a, the output vector is 
 computed as:
 </p>
-
+ 
 <pre>
     r_rel = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
 </pre>
@@ -1649,43 +1648,43 @@ This vector is defined as:
 </pre>
 
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
+Via parameter <b>resolveInFrame</b> it is defined, in which frame 
 the velocity vector is resolved:
 </p>
-
+ 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_a</td>
     <td valign=\"top\">Resolve vector in frame_a</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_b</td>
     <td valign=\"top\">Resolve vector in frame_b</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_resolve</td>
     <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
-
+ 
 <p>
 If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector
 \"frame_resolve\" is enabled and v_rel is resolved in the frame, to
 which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
 </p>
-
+ 
 <p>
-Example: If resolveInFrame = Types.ResolveInFrameAB.frame_b, the output vector is
+Example: If resolveInFrame = Types.ResolveInFrameAB.frame_b, the output vector is 
 computed as:
 </p>
-
+ 
 <pre>
     r_rel   = MultiBody.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
     v_rel_a = <b>der</b>(r_rel);
     v_rel   = MultiBody.Frames.resolveRelative(frame_a.R, frame_b.R, v_rel_a);
 </pre>
-
+ 
 </html>"));
   protected
     RelativePosition relativePosition(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a) 
@@ -1697,8 +1696,7 @@ computed as:
           extent={{-20,-20},{0,0}},
           rotation=-90,
           origin={10,-40})));
-    Modelica.Mechanics.MultiBody.Sensors.TansformRelativeVector
-      transformRelativeVector(
+    TansformRelativeVector tansformRelativeVector(
         frame_r_in= Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a,
         frame_r_out=resolveInFrame) 
       annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
@@ -1718,30 +1716,30 @@ computed as:
         points={{0,-11},{0,-18},{3.98072e-015,-18}},
         color={0,0,127},
         smooth=Smooth.None));
-    connect(der_r_rel.y, transformRelativeVector.r_in) annotation (Line(
+    connect(der_r_rel.y, tansformRelativeVector.r_in) annotation (Line(
         points={{-2.4431e-016,-41},{-2.4431e-016,-50},{0,-50},{0,-58}},
         color={0,0,127},
         smooth=Smooth.None));
-    connect(transformRelativeVector.r_out, v_rel) annotation (Line(
+    connect(tansformRelativeVector.r_out, v_rel) annotation (Line(
         points={{0,-81},{0,-110}},
         color={0,0,127},
         smooth=Smooth.None));
-    connect(transformRelativeVector.frame_a, frame_a) annotation (Line(
+    connect(tansformRelativeVector.frame_a, frame_a) annotation (Line(
         points={{-10,-70},{-70,-70},{-70,0},{-100,0}},
         color={95,95,95},
         thickness=0.5,
         smooth=Smooth.None));
-    connect(transformRelativeVector.frame_b, frame_b) annotation (Line(
+    connect(tansformRelativeVector.frame_b, frame_b) annotation (Line(
         points={{10,-70},{80,-70},{80,0},{100,0}},
         color={95,95,95},
         thickness=0.5,
         smooth=Smooth.None));
-    connect(transformRelativeVector.frame_resolve, frame_resolve) annotation (Line(
+    connect(tansformRelativeVector.frame_resolve, frame_resolve) annotation (Line(
         points={{10,-61.9},{35,-61.9},{35,80},{100,80}},
         color={95,95,95},
         pattern=LinePattern.Dot,
         smooth=Smooth.None));
-    connect(zeroPosition.frame_resolve, transformRelativeVector.frame_resolve) 
+    connect(zeroPosition.frame_resolve, tansformRelativeVector.frame_resolve) 
       annotation (Line(
         points={{50,-50},{35,-50},{35,-61.9},{10,-61.9}},
         color={95,95,95},
@@ -1838,7 +1836,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
 <pre>
   sequence = <b>{1,2,3}</b>  // Cardan or Tait-Bryan angle sequence
            = <b>{3,1,3}</b>  // Euler angle sequence
-           = <b>{3,2,1}</b>
+           = <b>{3,2,1}</b> 
 </pre>
 </html>"));
   equation
@@ -1881,8 +1879,8 @@ and sequence[2] &ne; sequence[3]. Often used values are:
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
-          ={
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
+           {
           Line(
             points={{0,-70},{0,-100}},
             color={0,0,127},
@@ -1900,47 +1898,47 @@ and sequence[2] &ne; sequence[3]. Often used values are:
 The relative angular velocity between frame_a and frame_b is
 determined and provided at the output signal connector <b>w_rel</b>.
 </p>
-
+ 
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
+Via parameter <b>resolveInFrame</b> it is defined, in which frame 
 the angular velocity is resolved:
 </p>
-
+ 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_a</td>
     <td valign=\"top\">Resolve vector in frame_a</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_b</td>
     <td valign=\"top\">Resolve vector in frame_b</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_resolve</td>
     <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
-
+ 
 <p>
 If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector
 \"frame_resolve\" is enabled and w_rel is resolved in the frame, to
 which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
 </p>
-
+ 
 <p>
-Example: If resolveInFrame = Types.ResolveInFrameAB.frame_a, the output vector is
+Example: If resolveInFrame = Types.ResolveInFrameAB.frame_a, the output vector is 
 computed as:
 </p>
-
+ 
 <pre>
     // Relative orientation object from frame_a to frame_b
     R_rel = MultiBody.Frames.relativeRotation(frame_a.R, frame_b.R);
-
+    
     // Angular velocity resolved in frame_a
     w_rel = MultiBody.Frames.angularVelocity1(R_rel);
 </pre>
-
+ 
 </html>"));
     Modelica.Mechanics.MultiBody.Interfaces.ZeroPosition zeroPosition if 
       not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve) 
@@ -2043,11 +2041,11 @@ computed as:
       Documentation(info="<HTML>
 <p>
 The <b>distance</b> between the origins of frame_a
-and of frame_b are determined and provided at the
-output signal connector <b>distance</b>. This
+and of frame_b are determined and provided at the 
+output signal connector <b>distance</b>. This 
 distance is always positive. <b>Derivatives</b> of this
 signal can be easily obtained by connecting the
-block
+block 
 <a href=\"Modelica://Modelica.Blocks.Continuous.Der\">Modelica.Blocks.Continuous.Der</a>
 to \"distance\" (this block performs analytic differentiation
 of the input signal using the der(..) operator).
@@ -2134,40 +2132,40 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
       Documentation(info="<HTML>
 <p>
 The cut-force acting between the two frames to which this
-model is connected, is determined and provided at the output signal connector
+model is connected, is determined and provided at the output signal connector 
 <b>force</b> (= frame_a.f). If parameter <b>positiveSign</b> =
 <b>false</b>, the negative cut-force is provided (= frame_b.f).
-
+ 
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
+Via parameter <b>resolveInFrame</b> it is defined, in which frame 
 the force vector is resolved:
 </p>
-
+ 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_a</td>
     <td valign=\"top\">Resolve vector in frame_a</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_b</td>
     <td valign=\"top\">Resolve vector in frame_b</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_resolve</td>
     <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
-
+ 
 <p>
 If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector
 \"frame_resolve\" is enabled and output force is resolved in the frame, to
 which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
 </p>
-
+ 
 <p>
 In the following figure the animation of a CutForce
-sensor is shown. The dark blue coordinate system is frame_b,
+sensor is shown. The dark blue coordinate system is frame_b, 
 and the green arrow is the cut force acting at frame_b and
 with negative sign at frame_a.
 </p>
@@ -2263,31 +2261,31 @@ with negative sign at frame_a.
       Documentation(info="<HTML>
 <p>
 The cut-torque acting between the two frames to which this
-model is connected, is determined and provided at the output signal connector
+model is connected, is determined and provided at the output signal connector 
 <b>torque</b> (= frame_a.t). If parameter <b>positiveSign</b> =
 <b>false</b>, the negative cut-torque is provided (= frame_b.t).
 </p>
 
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
+Via parameter <b>resolveInFrame</b> it is defined, in which frame 
 the torque vector is resolved:
 </p>
-
+ 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vector in world frame</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_a</td>
     <td valign=\"top\">Resolve vector in frame_a</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_b</td>
     <td valign=\"top\">Resolve vector in frame_b</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_resolve</td>
     <td valign=\"top\">Resolve vector in frame_resolve</td></tr>
 </table>
-
+ 
 <p>
 If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector
 \"frame_resolve\" is enabled and output torque is resolved in the frame, to
@@ -2298,7 +2296,7 @@ be connected.
 
 <p>
 In the following figure the animation of a CutTorque
-sensor is shown. The dark blue coordinate system is frame_b,
+sensor is shown. The dark blue coordinate system is frame_b, 
 and the green arrow is the cut torque acting at frame_b and
 with negative sign at frame_a.
 </p>
@@ -2414,32 +2412,32 @@ with negative sign at frame_a.
       Documentation(info="<HTML>
 <p>
 The cut-force and cut-torque acting between the two frames to which this
-model is connected, are determined and provided at the output signal connectors
+model is connected, are determined and provided at the output signal connectors 
 <b>force</b> (= frame_a.f) and <b>torque</b> (= frame_a.t).
 If parameter <b>positiveSign</b> =
-<b>false</b>, the negative cut-force and cut-torque is provided
+<b>false</b>, the negative cut-force and cut-torque is provided 
 (= frame_b.f, frame_b.t).
 
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
+Via parameter <b>resolveInFrame</b> it is defined, in which frame 
 the two vectors are resolved:
 </p>
-
+ 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
 <tr><td valign=\"top\">world</td>
     <td valign=\"top\">Resolve vectors in world frame</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_a</td>
     <td valign=\"top\">Resolve vectors in frame_a</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_b</td>
     <td valign=\"top\">Resolve vectors in frame_b</td></tr>
-
+ 
 <tr><td valign=\"top\">frame_resolve</td>
     <td valign=\"top\">Resolve vectors in frame_resolve</td></tr>
 </table>
-
+ 
 <p>
 If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector
 \"frame_resolve\" is enabled and the output vectors force and torque are resolved in the frame, to
@@ -2450,7 +2448,7 @@ be connected.
 
 <p>
 In the following figure the animation of a CutForceAndTorque
-sensor is shown. The dark blue coordinate system is frame_b,
+sensor is shown. The dark blue coordinate system is frame_b, 
 and the green arrows are the cut force and the cut torque,
 respectively, acting at frame_b and
 with negative sign at frame_a.
@@ -2587,7 +2585,7 @@ quantities, as well as cut-forces, cut-torques and power. All
 measured quantities can be provided in every desired
 coordinate system.
 </p>
-
+ 
 </html>"));
   model TansformAbsoluteVector "Transform absolute vector in to another frame"
     extends Modelica.Icons.RotationalSensor;
@@ -2740,8 +2738,8 @@ transformed output vector as \"Real r_out[3]\";
       annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
-          ={
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
+           {
           Line(
             points={{0,-70},{0,-100}},
             color={0,0,127},
@@ -2761,7 +2759,7 @@ transformed output vector as \"Real r_out[3]\";
       Documentation(info="<html>
 <p>
 The input vector \"Real r_in[3]\" is assumed to be a relative kinematic quantity
-between frame_a and frame_b
+between frame_a and frame_b 
 that is defined to be resolved in the frame defined
 with parameter \"frame_r_in\". This model resolves vector r_in in the
 coordinate system defined with parameter \"frame_r_out\" and returns the
@@ -3550,7 +3548,7 @@ with the blocks of package Modelica.Blocks.
             grid={1,1}),
                 graphics),
         Documentation(info="<HTML>
-
+ 
 </HTML>"));
     protected
       parameter Integer csign=if positiveSign then +1 else -1;
@@ -3597,7 +3595,7 @@ with the blocks of package Modelica.Blocks.
                 {100,100}}),
                 graphics),
         Documentation(info="<HTML>
-
+ 
 </HTML>"));
     protected
       parameter Integer csign=if positiveSign then +1 else -1;
