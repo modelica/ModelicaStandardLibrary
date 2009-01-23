@@ -706,6 +706,15 @@ to <b style=\"color:blue\">existing</b> libraries:
   <tr><td valign=\"top\">smoothStep</td>
       <td valign=\"top\"> Approximation of a general step, such that the characteristic 
                         is continuous and differentiable.</td> </tr>
+  <tr><td colspan=\"2\"><b>Media.UsersGuide.</b></td></tr>
+  <tr><td valign=\"top\">Future</td>
+      <td valign=\"top\"> Short description of goals and changes of upcoming release of Modelica.Media. </td> </tr>
+  <tr><td colspan=\"2\"><b>Media.Media.Air.MoistAir.</b></td></tr>
+  <tr><td valign=\"top\">isentropicExponent</td>
+      <td valign=\"top\"> Implemented Missing Function from interface. </td> </tr>
+  <tr><td valign=\"top\">isentropicEnthalpyApproximation</td>
+<td valign=\"top\"> Implemented function that approximates the isentropic enthalpy change.
+This is only correct as long as there is no liquid in the stream.</td> </tr>
 </table>
  
  
@@ -754,6 +763,10 @@ have been <b style=\"color:blue\">changed</b> (in a
                         setState_psX <br>
                         setState_dTX </td>
       <td valign=\"top\"> Rewritten function in one statement so that it is usually inlined.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Media.Interfaces.PartialLinearFluid.</b></td></tr>
+  <tr><td valign=\"top\"> consistent use of reference_d instead of density(state </td>
+      <td valign=\"top\"> Change was done to achieve consistency with analytic inverse functions.</td> </tr>
 
 
   <tr><td colspan=\"2\"><b>Media.Air.MoistAir.</b></td></tr>
