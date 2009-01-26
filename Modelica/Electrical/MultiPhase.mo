@@ -1,4 +1,3 @@
-within Modelica.Electrical;
 
 
 package MultiPhase "Library for electrical components with 2, 3 or more phases" 
@@ -1243,28 +1242,27 @@ Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
           final n=n) annotation (extent=[-10, -10; 10, 10]);
       annotation (
         Icon(
-          Ellipse(extent=[-45, -50; -20, -25]),
-          Ellipse(extent=[-45, -25; -20, 0]),
-          Ellipse(extent=[-45, 0; -20, 25]),
-          Ellipse(extent=[-45, 25; -20, 50]),
-          Rectangle(extent=[-72, -60; -33, 60], style(color=7, fillColor=7)),
-          Line(points=[-90, 50; -32, 50]),
-          Line(points=[-90, -50; -32, -50]),
-          Ellipse(extent=[20, -50; 45, -25]),
-          Ellipse(extent=[20, -25; 45, 0]),
-          Ellipse(extent=[20, 0; 45, 25]),
-          Ellipse(extent=[20, 25; 45, 50]),
-          Rectangle(extent=[33, -60; 72, 60], style(color=7, fillColor=7)),
-          Line(points=[32, 50; 90, 50]),
-          Line(points=[32, -50; 90, -50]),
           Text(extent=[-80, 100; 80, 60], string="m=%m",
             style(color=0, rgbcolor={0,0,0})),
-          Text(extent=[-100,-110; 100,-50],
+          Text(extent=[-100,-100; 100,-40],
             style(color=3, rgbcolor={0,0,255}),
-            string="%name")),
+            string="%name"),
+          Ellipse(extent=[-80,50; 20,-50], style(color=3, rgbcolor={0,0,255})),
+          Ellipse(extent=[-20,50; 80,-50], style(color=3, rgbcolor={0,0,255})),
+          Text(
+            extent=[-20,20; 20,-20],
+            style(color=3, rgbcolor={0,0,255}),
+            string="="),
+          Line(points=[-96,50; -30,50], style(color=3, rgbcolor={0,0,255})),
+          Line(points=[30,50; 96,50], style(color=3, rgbcolor={0,0,255})),
+          Line(points=[30,-50; 96,-50], style(color=3, rgbcolor={0,0,255})),
+          Line(points=[-96,-50; -30,-50], style(color=3, rgbcolor={0,0,255}))),
         Documentation(info="<HTML>
 <p>
 Contains m ideal transformers (Modelica.Electrical.Analog.Ideal.IdealTransformer).
+</p>
+<p>
+<b>Note:</b> Due to the above equations, also DC signals will be transformed!
 </p>
 </HTML>"),
         Diagram);

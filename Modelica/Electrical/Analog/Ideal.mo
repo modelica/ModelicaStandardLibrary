@@ -1,4 +1,3 @@
-within Modelica.Electrical.Analog;
 package Ideal 
   "Ideal electrical elements such as switches, diode, transformer, operational amplifier" 
   
@@ -1123,6 +1122,9 @@ which is characterized by the following two equations:
 <P>
 where <i>n</i> is a real number called the turns ratio.
 </P>
+<p>
+<b>Note:</b> Due to the above equations, also DC signals will be transformed!
+</p>
 </HTML>
 ", revisions="<html>
 <ul>
@@ -1136,36 +1138,28 @@ where <i>n</i> is a real number called the turns ratio.
       Coordsys(extent=[-100, -100; 100, 100], grid=[1, 1]),
       Icon(
         Text(extent=[-100, 100; 100, 80], string="%name"),
-        Ellipse(extent=[-45, -50; -20, -25]),
-        Ellipse(extent=[-45, -25; -20, 0]),
-        Ellipse(extent=[-45, 0; -20, 25]),
-        Ellipse(extent=[-45, 25; -20, 50]),
-        Rectangle(extent=[-72, -60; -33, 60], style(color=7, fillColor=7)),
-        Line(points=[-90, 50; -32, 50]),
-        Line(points=[-90, -50; -32, -50]),
-        Ellipse(extent=[20, -50; 45, -25]),
-        Ellipse(extent=[20, -25; 45, 0]),
-        Ellipse(extent=[20, 0; 45, 25]),
-        Ellipse(extent=[20, 25; 45, 50]),
-        Rectangle(extent=[33, -60; 72, 60], style(color=7, fillColor=7)),
-        Line(points=[32, 50; 90, 50]),
-        Line(points=[32, -50; 90, -50]),
-        Text(extent=[-100, -80; 100, -100], string="n=%n")),
+        Text(extent=[-100, -80; 100, -100], string="n=%n"), 
+        Ellipse(extent=[-80,50; 20,-50], style(color=3, rgbcolor={0,0,255})), 
+        Ellipse(extent=[-20,50; 80,-50], style(color=3, rgbcolor={0,0,255})), 
+        Text(
+          extent=[-20,20; 20,-20], 
+          style(color=3, rgbcolor={0,0,255}), 
+          string="="), 
+        Line(points=[-96,50; -30,50], style(color=3, rgbcolor={0,0,255})), 
+        Line(points=[30,50; 96,50], style(color=3, rgbcolor={0,0,255})), 
+        Line(points=[30,-50; 96,-50], style(color=3, rgbcolor={0,0,255})), 
+        Line(points=[-96,-50; -30,-50], style(color=3, rgbcolor={0,0,255}))),
       Diagram(
-        Ellipse(extent=[-45, -50; -20, -25]),
-        Ellipse(extent=[-45, -25; -20, 0]),
-        Ellipse(extent=[-45, 0; -20, 25]),
-        Ellipse(extent=[-45, 25; -20, 50]),
-        Rectangle(extent=[-72, -60; -33, 60], style(color=7, fillColor=7)),
-        Line(points=[-96,50; -32,50]),
-        Line(points=[-96,-50; -32,-50]),
-        Ellipse(extent=[20, -50; 45, -25]),
-        Ellipse(extent=[20, -25; 45, 0]),
-        Ellipse(extent=[20, 0; 45, 25]),
-        Ellipse(extent=[20, 25; 45, 50]),
-        Rectangle(extent=[33, -60; 72, 60], style(color=7, fillColor=7)),
-        Line(points=[32,50; 96,50]),
-        Line(points=[32,-50; 96,-50])),
+        Ellipse(extent=[-80,50; 20,-50], style(color=3, rgbcolor={0,0,255})), 
+        Ellipse(extent=[-20,50; 80,-50], style(color=3, rgbcolor={0,0,255})), 
+        Text(
+          extent=[-20,20; 20,-20], 
+          style(color=3, rgbcolor={0,0,255}), 
+          string="="), 
+        Line(points=[-96,50; -30,50], style(color=3, rgbcolor={0,0,255})), 
+        Line(points=[30,50; 96,50], style(color=3, rgbcolor={0,0,255})), 
+        Line(points=[30,-50; 96,-50], style(color=3, rgbcolor={0,0,255})), 
+        Line(points=[-96,-50; -30,-50], style(color=3, rgbcolor={0,0,255}))),
       Window(
         x=0.29,
         y=0.07,
