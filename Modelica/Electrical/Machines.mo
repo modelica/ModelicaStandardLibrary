@@ -271,11 +271,11 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       connect(Star1.pin_n, Ground1.p) 
         annotation (points=[-70, 90; -80, 90], style(color=3));
       connect(SineVoltage1.plug_n, Star1.plug_p) 
-        annotation (points=[-6.12323e-016,70; -6.12323e-016,90; -50,90],
+        annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12323e-016,50; 0,48; 1.22461e-015,46;
-            6.12323e-016,46; 6.12323e-016,40], style(color=3));
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
+            6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(AIMC1.flange_a, LoadInertia.flange_a)  annotation (points=[0,-40;
             40,-40], style(color=0, rgbcolor={0,0,0}));
       connect(LoadInertia.flange_b, QuadraticLoadTorque1.flange) 
@@ -298,7 +298,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           rgbfillColor={135,135,135},
           fillPattern=1));
       connect(TerminalBox1.plugToGrid, CurrentRMSsensor1.plug_n) annotation (
-          points=[-10,-28; -10,-20; -6.12323e-016,-20; -6.12323e-016,-10],
+          points=[-10,-28; -10,-20; -6.12303e-016,-20; -6.12303e-016,-10],
           style(
           color=3,
           rgbcolor={0,0,255},
@@ -306,7 +306,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           rgbfillColor={135,135,135},
           fillPattern=1));
       connect(IdealCloser1.plug_n, CurrentRMSsensor1.plug_p) annotation (points=[
-            -6.12323e-016,20; -6.12323e-016,17; 6.12323e-016,17; 6.12323e-016,
+            -6.12303e-016,20; -6.12303e-016,17; 6.12303e-016,17; 6.12303e-016,
             10], style(
           color=3,
           rgbcolor={0,0,255},
@@ -494,11 +494,11 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
       connect(Star1.pin_n, Ground1.p) 
         annotation (points=[-70, 90; -80, 90], style(color=3));
       connect(SineVoltage1.plug_n, Star1.plug_p) 
-        annotation (points=[-6.12323e-016,70; -6.12323e-016,90; -50,90],
+        annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12323e-016,50; 0,48; 1.22461e-015,46;
-            6.12323e-016,46; 6.12323e-016,40], style(color=3));
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
+            6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(Star3.pin_n, Ground3.p) 
         annotation (points=[-70,-90; -80,-90],   style(color=3));
       connect(Star4.plug_p, Resistor1.plug_n) annotation (points=[-80,-70; -70,
@@ -535,7 +535,7 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
       connect(BooleanStep2.y, IdealCommutingSwitch1.control) annotation (points=[
             -59,-40; -48,-40], style(color=5, rgbcolor={255,0,255}));
       connect(IdealCloser1.plug_n, CurrentRMSsensor1.plug_p) annotation (points=[
-            -6.12323e-016,20; -6.12323e-016,16; 6.12323e-016,16; 6.12323e-016,
+            -6.12303e-016,20; -6.12303e-016,16; 6.12303e-016,16; 6.12303e-016,
             10], style(
           color=3,
           rgbcolor={0,0,255},
@@ -557,7 +557,7 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
           rgbfillColor={135,135,135},
           fillPattern=1));
       connect(TerminalBox1.plugToGrid, CurrentRMSsensor1.plug_n) annotation (
-          points=[-10,-28; -10,-20; -6.12323e-016,-20; -6.12323e-016,-10],
+          points=[-10,-28; -10,-20; -6.12303e-016,-20; -6.12303e-016,-10],
           style(
           color=3,
           rgbcolor={0,0,255},
@@ -718,7 +718,7 @@ Default machine parameters of model <i>SM_ReluctanceRotorDamperCage</i> are used
       Utilities.TerminalBox TerminalBox1 annotation (extent=[-20,-30; 0,-10]);
     equation 
       connect(SignalVoltage1.plug_n, Star1.plug_p) 
-        annotation (points=[-6.12323e-016,70; -6.12323e-016,90; -50,90],
+        annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(Star1.pin_n, Ground1.p) 
         annotation (points=[-70, 90; -80, 90], style(color=3));
@@ -731,8 +731,8 @@ Default machine parameters of model <i>SM_ReluctanceRotorDamperCage</i> are used
       connect(LoadInertia.flange_b, TorqueStep1.flange) 
         annotation (points=[60,-40; 70,-40], style(color=0, rgbcolor={0,0,0}));
       connect(CurrentRMSsensor1.plug_p, SignalVoltage1.plug_p) annotation (
-          points=[6.12323e-016,40; 6.12323e-016,42.5; 6.12303e-016,42.5;
-            6.12303e-016,45; 6.12303e-016,50; 6.12323e-016,50], style(color=3,
+          points=[6.12303e-016,40; 6.12303e-016,42.5; 6.12303e-016,42.5; 
+            6.12303e-016,45; 6.12303e-016,50; 6.12303e-016,50], style(color=3,
             rgbcolor={0,0,255}));
       connect(SMR1.plug_sn, RotorAngle1.plug_n)  annotation (points=[-16,-30;
             -16,-20; 26,-20; 26,-30],
@@ -756,7 +756,7 @@ Default machine parameters of model <i>SM_ReluctanceRotorDamperCage</i> are used
           rgbfillColor={135,135,135},
           fillPattern=1));
       connect(TerminalBox1.plugToGrid, CurrentRMSsensor1.plug_n) annotation (
-          points=[-10,-28; -10,20; -6.12323e-016,20],        style(
+          points=[-10,-28; -10,20; -6.12303e-016,20],        style(
           color=3,
           rgbcolor={0,0,255},
           fillColor=10,
@@ -827,7 +827,7 @@ Default machine parameters of model <i>SM_PermanentMagnetDamperCage</i> are used
       Utilities.TerminalBox TerminalBox1 annotation (extent=[-20,-30; 0,-10]);
     equation 
       connect(SignalVoltage1.plug_n, Star1.plug_p) 
-        annotation (points=[-6.12323e-016,70; -6.12323e-016,90; -50,90],
+        annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(Star1.pin_n, Ground1.p) 
         annotation (points=[-70, 90; -80, 90], style(color=3));
@@ -838,7 +838,7 @@ Default machine parameters of model <i>SM_PermanentMagnetDamperCage</i> are used
       connect(LoadInertia.flange_b, TorqueStep1.flange) 
         annotation (points=[60,-40; 70,-40], style(color=0, rgbcolor={0,0,0}));
       connect(SignalVoltage1.plug_p, CurrentRMSsensor1.plug_p) annotation (points=[
-            6.12323e-016,50; 0,50; 0,40; 6.12323e-016,40], style(color=3,
+            6.12303e-016,50; 0,50; 0,40; 6.12303e-016,40], style(color=3,
             rgbcolor={0,0,255}));
       connect(RotorAngle1.plug_n, SMPM1.plug_sn)  annotation (points=[26,-30;
             26,-20; -16,-20; -16,-30],
@@ -864,7 +864,7 @@ Default machine parameters of model <i>SM_PermanentMagnetDamperCage</i> are used
           rgbfillColor={135,135,135},
           fillPattern=1));
       connect(TerminalBox1.plugToGrid, CurrentRMSsensor1.plug_n) annotation (
-          points=[-10,-28; -10,20; -6.12323e-016,20],        style(
+          points=[-10,-28; -10,20; -6.12303e-016,20],        style(
           color=3,
           rgbcolor={0,0,255},
           fillColor=10,
@@ -952,14 +952,14 @@ Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are us
       connect(Star1.plug_p, SineVoltage1.plug_n) annotation (points=[-50,90;
             -40,90], style(color=3, rgbcolor={0,0,255}));
       connect(ElectricalPowerSensor1.plug_ni, CurrentRMSsensor1.plug_p) 
-        annotation (points=[6.12323e-016,50; 1.76911e-022,46; 6.12323e-016,46;
-            6.12323e-016,40], style(color=3, rgbcolor={0,0,255}));
+        annotation (points=[6.12303e-016,50; 1.76911e-022,46; 6.12303e-016,46; 
+            6.12303e-016,40], style(color=3, rgbcolor={0,0,255}));
       connect(SMEE1.flange_a, MechanicalPowerSensor1.flange_a) 
         annotation (points=[0,-40; 40,-40], style(color=0, rgbcolor={0,0,0}));
       connect(MechanicalPowerSensor1.flange_b, ConstantSpeed1.flange) 
         annotation (points=[60,-40; 70,-40], style(color=0, rgbcolor={0,0,0}));
       connect(SineVoltage1.plug_p, ElectricalPowerSensor1.plug_p) annotation (
-          points=[-20,90; -6.12323e-016,90; -6.12323e-016,70], style(color=3,
+          points=[-20,90; -6.12303e-016,90; -6.12303e-016,70], style(color=3,
             rgbcolor={0,0,255}));
       connect(RampCurrent1.p, Ground3.p) annotation (points=[-50,-50; -80,-50],
           style(color=3, rgbcolor={0,0,255}));
@@ -982,7 +982,7 @@ Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are us
           rgbfillColor={135,135,135},
           fillPattern=1));
       connect(TerminalBox1.plugToGrid, CurrentRMSsensor1.plug_n) annotation (
-          points=[-10,-28; -10,20; -6.12323e-016,20],        style(
+          points=[-10,-28; -10,20; -6.12303e-016,20],        style(
           color=3,
           rgbcolor={0,0,255},
           fillColor=10,
@@ -2045,7 +2045,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           annotation (extent=[60,50; 40,70]);
         Modelica.Electrical.MultiPhase.Basic.Inductor lssigma(final m=m, final L=fill(Lssigma, m)) 
           annotation (extent=[30,50; 10,70]);
-        SpacePhasors.Components.SpacePhasor spacePhasorS 
+        SpacePhasors.Components.SpacePhasor spacePhasorS(final turnsRatio=1) 
           annotation (extent=[10,40; -10,20],   rotation=90);
       equation 
         connect(squirrelCageR.spacePhasor_r, airGapS.spacePhasor_r) annotation (
@@ -2059,13 +2059,13 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             rgbcolor={0,0,255},
             smooth=0));
         connect(airGapS.flange_a, inertiaRotor.flange_a) annotation (points=[10,
-              6.12323e-016; 36,6.12323e-016; 36,-1.22465e-015; 60,-1.22465e-015],
+              6.12303e-016; 36,6.12303e-016; 36,-1.22461e-015; 60,-1.22461e-015],
             style(
             color=0,
             rgbcolor={0,0,0},
             smooth=0));
         connect(airGapS.support, internalSupport) annotation (points=[-10,
-              -6.12323e-016; -90,-6.12323e-016; -90,-100; 20,-100], style(
+              -6.12303e-016; -90,-6.12303e-016; -90,-100; 20,-100], style(
             color=0,
             rgbcolor={0,0,0},
             smooth=0));
@@ -2090,8 +2090,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
-              -10,14; -6.12323e-016,14; -6.12323e-016,20],     style(
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
+              -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
             fillColor=3,
@@ -2151,16 +2151,9 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
       public 
         Components.AirGapS airGapS(            final p=p, final m=3, final Lm=Lm) 
           annotation (extent=[-10,-10; 10,10], rotation=-90);
-        Machines.SpacePhasors.Components.SpacePhasor spacePhasorR 
-          annotation (extent=[10, -40; -10, -20], rotation=90);
-        Modelica.Electrical.MultiPhase.Ideal.IdealTransformer IdealTransformer1
-          (                                                                     final m=m, final n=
-              fill(1/internalTurnsRatio, m)) 
-          annotation (extent=[10,-70; -10,-50], rotation=90);
-        Modelica.Electrical.MultiPhase.Basic.Star Star1(final m=m) 
-          annotation (extent=[-20,-60; -40,-40]);
-        Modelica.Electrical.Analog.Basic.Ground Ground1 
-          annotation (extent=[-60,-70; -40,-50], rotation=0);
+        Machines.SpacePhasors.Components.SpacePhasor spacePhasorR(final 
+            turnsRatio=internalTurnsRatio) 
+          annotation (extent=[10,-40; -10,-20],   rotation=90);
         Modelica.Electrical.MultiPhase.Basic.Inductor lrsigma(final m=m, final L=fill(Lrsigma, m)) 
           annotation (extent=[30,-90; 10,-70]);
         Modelica.Electrical.MultiPhase.Basic.Resistor rr(final m=m, final R=fill(Rr, m)) 
@@ -2274,28 +2267,15 @@ TurnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
           annotation (extent=[60,50; 40,70]);
         Modelica.Electrical.MultiPhase.Basic.Inductor lssigma(final m=m, final L=fill(Lssigma, m)) 
           annotation (extent=[30,50; 10,70]);
-        SpacePhasors.Components.SpacePhasor spacePhasorS 
+        SpacePhasors.Components.SpacePhasor spacePhasorS(final turnsRatio=1) 
           annotation (extent=[10,40; -10,20],   rotation=90);
       equation 
         connect(rr.plug_n, lrsigma.plug_p) 
           annotation (points=[40,-80; 30,-80],   style(color=3));
-        connect(spacePhasorR.plug_n, IdealTransformer1.plug_n2) annotation (
-            points=[-10,-40; -10,-50], style(color=3, rgbcolor={0,0,255}));
-        connect(spacePhasorR.plug_p, IdealTransformer1.plug_p2) annotation (
-            points=[10,-40; 10,-50], style(color=3, rgbcolor={0,0,255}));
-        connect(IdealTransformer1.plug_p1, lrsigma.plug_n)    annotation (points=[10,
-              -70; 10,-80],             style(color=3, rgbcolor={0,0,255}));
-        connect(Star1.pin_n, Ground1.p) annotation (points=[-40,-50; -50,-50],
-            style(color=3, rgbcolor={0,0,255}));
-        connect(Star1.plug_p, IdealTransformer1.plug_n2) annotation (points=[-20,
-              -50; -10,-50], style(color=3, rgbcolor={0,0,255}));
-        connect(IdealTransformer1.plug_n1, plug_rn) annotation (points=[-10,-70;
-              -10,-80; -60,-80; -60,-60; -100,-60], style(color=3, rgbcolor={0,0,
-                255}));
         connect(rr.plug_p, plug_rp)        annotation (points=[60,-80; 60,-90;
               -80,-90; -80,60; -100,60],  style(color=3, rgbcolor={0,0,255}));
-        connect(spacePhasorR.ground, spacePhasorR.zero) annotation (points=[-10,-20;
-              -10,-14; -6.12323e-016,-14; -6.12323e-016,-20],      style(
+        connect(spacePhasorR.ground, spacePhasorR.zero) annotation (points=[-10,-20; 
+              -10,-14; -6.12303e-016,-14; -6.12303e-016,-20],      style(
             color=3,
             rgbcolor={0,0,255},
             fillColor=3,
@@ -2309,13 +2289,13 @@ TurnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
             rgbcolor={0,0,255},
             smooth=0));
         connect(airGapS.flange_a, inertiaRotor.flange_a) annotation (points=[10,
-              6.12323e-016; 36,6.12323e-016; 36,-1.22465e-015; 60,-1.22465e-015],
+              6.12303e-016; 36,6.12303e-016; 36,-1.22461e-015; 60,-1.22461e-015],
             style(
             color=0,
             rgbcolor={0,0,0},
             smooth=0));
         connect(airGapS.support, internalSupport) annotation (points=[-10,
-              -6.12323e-016; -56,-6.12323e-016; -56,0; -90,0; -90,-100; 20,-100],
+              -6.12303e-016; -56,-6.12303e-016; -56,0; -90,0; -90,-100; 20,-100],
             style(
             color=0,
             rgbcolor={0,0,0},
@@ -2341,13 +2321,17 @@ TurnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
-              -10,14; -6.12323e-016,14; -6.12323e-016,20],     style(
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
+              -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
             fillColor=3,
             rgbfillColor={0,0,255},
             fillPattern=1));
+        connect(lrsigma.plug_n, spacePhasorR.plug_p) annotation (points=[10,-80; 
+              10,-40], style(color=3, rgbcolor={0,0,255}));
+        connect(spacePhasorR.plug_n, plug_rn) annotation (points=[-10,-40; -10,
+              -60; -100,-60], style(color=3, rgbcolor={0,0,255}));
       end AIM_SlipRing;
       
     end AsynchronousInductionMachines;
@@ -2612,7 +2596,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           annotation (extent=[60,50; 40,70]);
         Modelica.Electrical.MultiPhase.Basic.Inductor lssigma(final m=m, final L=fill(Lssigma, m)) 
           annotation (extent=[30,50; 10,70]);
-        SpacePhasors.Components.SpacePhasor spacePhasorS 
+        SpacePhasors.Components.SpacePhasor spacePhasorS(final turnsRatio=1) 
           annotation (extent=[10,40; -10,20],   rotation=90);
       equation 
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) annotation (
@@ -2626,13 +2610,13 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             rgbcolor={0,0,255},
             smooth=0));
         connect(airGapR.flange_a, inertiaRotor.flange_a) annotation (points=[10,
-              6.12323e-016; 36,6.12323e-016; 36,-1.22465e-015; 60,-1.22465e-015],
+              6.12303e-016; 36,6.12303e-016; 36,-1.22461e-015; 60,-1.22461e-015],
             style(
             color=0,
             rgbcolor={0,0,0},
             smooth=0));
         connect(airGapR.support, internalSupport) annotation (points=[-10,
-              -6.12323e-016; -46,-6.12323e-016; -46,0; -90,0; -90,-100; 20,-100],
+              -6.12303e-016; -46,-6.12303e-016; -46,0; -90,0; -90,-100; 20,-100],
             style(
             color=0,
             rgbcolor={0,0,0},
@@ -2658,8 +2642,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
-              -10,14; -6.12323e-016,14; -6.12323e-016,20],     style(
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
+              -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
             fillColor=3,
@@ -2900,7 +2884,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           annotation (extent=[60,50; 40,70]);
         Modelica.Electrical.MultiPhase.Basic.Inductor lssigma(final m=m, final L=fill(Lssigma, m)) 
           annotation (extent=[30,50; 10,70]);
-        SpacePhasors.Components.SpacePhasor spacePhasorS 
+        SpacePhasors.Components.SpacePhasor spacePhasorS(final turnsRatio=1) 
           annotation (extent=[10,40; -10,20],   rotation=90);
       equation 
         connect(electricalExcitation.pin_en, pin_en) annotation (points=[-10,-70; -70,
@@ -2922,13 +2906,13 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             rgbcolor={0,0,255},
             smooth=0));
         connect(airGapR.flange_a, inertiaRotor.flange_a) annotation (points=[10,
-              6.12323e-016; 36,6.12323e-016; 36,-1.22465e-015; 60,-1.22465e-015],
+              6.12303e-016; 36,6.12303e-016; 36,-1.22461e-015; 60,-1.22461e-015],
             style(
             color=0,
             rgbcolor={0,0,0},
             smooth=0));
         connect(airGapR.support, internalSupport) annotation (points=[-10,
-              -6.12323e-016; -56,-6.12323e-016; -56,0; -90,0; -90,-100; 20,-100],
+              -6.12303e-016; -56,-6.12303e-016; -56,0; -90,0; -90,-100; 20,-100],
             style(
             color=0,
             rgbcolor={0,0,0},
@@ -2954,8 +2938,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
-              -10,14; -6.12323e-016,14; -6.12323e-016,20],     style(
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
+              -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
             fillColor=3,
@@ -3137,7 +3121,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           annotation (extent=[60,50; 40,70]);
         Modelica.Electrical.MultiPhase.Basic.Inductor lssigma(final m=m, final L=fill(Lssigma, m)) 
           annotation (extent=[30,50; 10,70]);
-        SpacePhasors.Components.SpacePhasor spacePhasorS 
+        SpacePhasors.Components.SpacePhasor spacePhasorS(final turnsRatio=1) 
           annotation (extent=[10,40; -10,20],   rotation=90);
       equation 
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) 
@@ -3148,13 +3132,13 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             rgbcolor={0,0,255},
             smooth=0));
         connect(airGapR.flange_a, inertiaRotor.flange_a) annotation (points=[10,
-              6.12323e-016; 36,6.12323e-016; 36,-1.22465e-015; 60,-1.22465e-015],
+              6.12303e-016; 36,6.12303e-016; 36,-1.22461e-015; 60,-1.22461e-015],
             style(
             color=0,
             rgbcolor={0,0,0},
             smooth=0));
         connect(airGapR.support, internalSupport) annotation (points=[-10,
-              -6.12323e-016; -56,-6.12323e-016; -56,0; -90,0; -90,-100; 20,-100],
+              -6.12303e-016; -56,-6.12303e-016; -56,0; -90,0; -90,-100; 20,-100],
             style(
             color=0,
             rgbcolor={0,0,0},
@@ -3180,8 +3164,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
-              -10,14; -6.12323e-016,14; -6.12323e-016,20],     style(
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
+              -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
             fillColor=3,
@@ -3338,13 +3322,13 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
         connect(airGapDC.pin_en, eGround.p) annotation (points=[-10,-10; -10,
               -50], style(color=3, rgbcolor={0,0,255}));
         connect(airGapDC.flange_a, inertiaRotor.flange_a) annotation (points=[10,
-              6.12323e-016; 36,6.12323e-016; 36,-1.22465e-015; 60,-1.22465e-015],
+              6.12303e-016; 36,6.12303e-016; 36,-1.22461e-015; 60,-1.22461e-015],
                               style(
             color=0,
             rgbcolor={0,0,0},
             smooth=0));
         connect(airGapDC.support, internalSupport) annotation (points=[-10,
-              -6.12323e-016; -56,-6.12323e-016; -56,0; -90,0; -90,-100; 20,-100],
+              -6.12303e-016; -56,-6.12303e-016; -56,0; -90,0; -90,-100; 20,-100],
             style(
             color=0,
             rgbcolor={0,0,0},
@@ -3503,13 +3487,13 @@ Armature current does not cover excitation current of a shunt excitation; in thi
         connect(re.n, airGapDC.pin_ep) annotation (points=[-40,-40; 10,-40; 10,
               -10], style(color=3, rgbcolor={0,0,255}));
         connect(airGapDC.flange_a, inertiaRotor.flange_a) annotation (points=[10,
-              6.12323e-016; 36,6.12323e-016; 36,-1.22465e-015; 60,-1.22465e-015],
+              6.12303e-016; 36,6.12303e-016; 36,-1.22461e-015; 60,-1.22461e-015],
                               style(
             color=0,
             rgbcolor={0,0,0},
             smooth=0));
         connect(airGapDC.support, internalSupport) annotation (points=[-10,
-              -6.12323e-016; -56,-6.12323e-016; -56,0; -90,0; -90,-100; 20,-100],
+              -6.12303e-016; -56,-6.12303e-016; -56,0; -90,0; -90,-100; 20,-100],
             style(
             color=0,
             rgbcolor={0,0,0},
@@ -3653,7 +3637,7 @@ ve = voltage drop of series excitation
         connect(re.n, airGapDC.pin_ep) annotation (points=[-40,-40; 10,-40; 10,
               -10], style(color=3, rgbcolor={0,0,255}));
         connect(airGapDC.flange_a, inertiaRotor.flange_a) annotation (points=[10,
-              6.12323e-016; 35,6.12323e-016; 35,-1.22465e-015; 60,-1.22465e-015],
+              6.12303e-016; 35,6.12303e-016; 35,-1.22461e-015; 60,-1.22461e-015],
                               style(
             color=0,
             rgbcolor={0,0,0},
@@ -3669,7 +3653,7 @@ ve = voltage drop of series excitation
             rgbcolor={0,0,255},
             smooth=0));
         connect(airGapDC.support, internalSupport) annotation (points=[-10,
-              -6.12323e-016; -56,-6.12323e-016; -56,0; -90,0; -90,-100; 20,-100],
+              -6.12303e-016; -56,-6.12303e-016; -56,0; -90,0; -90,-100; 20,-100],
             style(
             color=0,
             rgbcolor={0,0,0},
@@ -6343,6 +6327,7 @@ a ground has to be used where necessary for currents flowing back.
         "Physical transformation: three phase <-> space phasors" 
         constant Integer m=3 "number of phases";
         constant Real pi=Modelica.Constants.pi;
+        parameter Real turnsRatio=1;
         Modelica.SIunits.Voltage v[m] "instantaneous phase voltages";
         Modelica.SIunits.Current i[m] "instantaneous phase currents";
       protected 
@@ -6425,9 +6410,9 @@ Zero-sequence voltage and current are present at pin zero. An additional zero-se
 </HTML>"));
         Interfaces.SpacePhasor spacePhasor annotation (extent=[90,90; 110,110]);
       equation 
-        v = plug_p.pin.v - plug_n.pin.v;
-        i = +plug_p.pin.i;
-        i = -plug_n.pin.i;
+        v/turnsRatio = plug_p.pin.v - plug_n.pin.v;
+        i*turnsRatio = +plug_p.pin.i;
+        i*turnsRatio = -plug_n.pin.i;
         zero.v = 1/m*sum(v);
         spacePhasor.v_ = TransformationMatrix *v;
       //v  = fill(zero.v,m) + InverseTransformation*spacePhasor.v_;
@@ -7000,7 +6985,7 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
         Diagram);
     equation 
       connect(inertiaRotor.flange_b, flange_a) annotation (points=[80,
-            1.22465e-015; 92,1.22465e-015; 92,0; 100,0],
+            1.22461e-015; 92,1.22461e-015; 92,0; 100,0],
                                            style(color=0, rgbcolor={0,0,0}));
       connect(inertiaStator.flange_b, support) 
         annotation (points=[80,-100; 100,-100], style(color=0, rgbcolor={0,0,0}));
