@@ -2161,7 +2161,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           final idq_sr = airGapS.i_sr,
           final idq_rs = airGapS.i_rs,
           final idq_rr = airGapS.i_rr);
-        Components.AirGapS airGapS(            final p=p, final m=3, final Lm=Lm) 
+        Components.AirGapS airGapS(final p=p, final m=3, final Lm=Lm) 
           annotation (Placement(transformation(
               origin={0,0},
               extent={{-10,-10},{10,10}},
@@ -2196,24 +2196,12 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         final parameter Real internalTurnsRatio=if useTurnsRatio then turnsRatio else 
           VsNominal/VrLockedRotor*(2*pi*fsNominal*Lm)/sqrt(Rs^2+(2*pi*fsNominal*(Lm+Lssigma))^2);
       public
-        Machines.SpacePhasors.Components.SpacePhasor spacePhasorR 
+        Machines.SpacePhasors.Components.SpacePhasor spacePhasorR(final
+            turnsRatio =                                                           internalTurnsRatio) 
           annotation (Placement(transformation(
               origin={0,-30},
               extent={{-10,10},{10,-10}},
               rotation=90)));
-        Modelica.Electrical.MultiPhase.Ideal.IdealTransformer IdealTransformer1
-          (                                                                     final m=m, final n=
-              fill(1/internalTurnsRatio, m)) 
-          annotation (Placement(transformation(
-              origin={0,-60},
-              extent={{-10,10},{10,-10}},
-              rotation=90)));
-        Modelica.Electrical.MultiPhase.Basic.Star Star1(final m=m) 
-          annotation (Placement(transformation(extent={{-20,-60},{-40,-40}},
-                rotation=0)));
-        Modelica.Electrical.Analog.Basic.Ground Ground1 
-          annotation (Placement(transformation(extent={{-60,-70},{-40,-50}},
-                rotation=0)));
         Modelica.Electrical.MultiPhase.Basic.Inductor lrsigma(final m=m, final L=fill(Lrsigma, m)) 
           annotation (Placement(transformation(extent={{30,-90},{10,-70}},
                 rotation=0)));
@@ -2326,26 +2314,13 @@ turnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
 </HTML>"),   Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
                   -100},{100,100}}),
                      graphics),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={Line(points={{-100,50},{-100,20},{-60,
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={Line(points={{-100,50},{-100,20},{-60,
                     20}}, color={0,0,255}), Line(points={{-100,-50},{-100,-20},
                     {-60,-20}}, color={0,0,255})}));
       equation
         connect(rr.plug_n, lrsigma.plug_p) 
           annotation (Line(points={{40,-80},{30,-80}}, color={0,0,255}));
-        connect(spacePhasorR.plug_n, IdealTransformer1.plug_n2) annotation (Line(
-              points={{-10,-40},{-10,-50}}, color={0,0,255}));
-        connect(spacePhasorR.plug_p, IdealTransformer1.plug_p2) annotation (Line(
-              points={{10,-40},{10,-50}}, color={0,0,255}));
-        connect(IdealTransformer1.plug_p1, lrsigma.plug_n)    annotation (Line(
-              points={{10,-70},{10,-80}}, color={0,0,255}));
-        connect(Star1.pin_n, Ground1.p) annotation (Line(points={{-40,-50},{-50,
-                -50}}, color={0,0,255}));
-        connect(Star1.plug_p, IdealTransformer1.plug_n2) annotation (Line(
-              points={{-20,-50},{-10,-50}}, color={0,0,255}));
-        connect(IdealTransformer1.plug_n1, plug_rn) annotation (Line(points={{
-                -10,-70},{-10,-80},{-60,-80},{-60,-60},{-100,-60}}, color={0,0,
-                255}));
         connect(rr.plug_p, plug_rp)        annotation (Line(points={{60,-80},{
                 60,-90},{-80,-90},{-80,60},{-100,60}}, color={0,0,255}));
         connect(spacePhasorR.ground, spacePhasorR.zero) annotation (Line(
@@ -2368,6 +2343,14 @@ turnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
             points={{10,-1.83697e-015},{34,-1.83697e-015},{34,1.22465e-015},{60,
                 1.22465e-015}},
             color={0,0,0},
+            smooth=Smooth.None));
+        connect(lrsigma.plug_n, spacePhasorR.plug_p) annotation (Line(
+            points={{10,-80},{10,-40}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(spacePhasorR.plug_n, plug_rn) annotation (Line(
+            points={{-10,-40},{-10,-60},{-100,-60}},
+            color={0,0,255},
             smooth=Smooth.None));
       end AIM_SlipRing;
 
@@ -2498,8 +2481,8 @@ These models use package SpacePhasors.
           Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
                   -100},{100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={
               Rectangle(
                 extent={{-130,10},{-100,-10}},
                 lineColor={0,0,0},
@@ -2720,7 +2703,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               turnsRatio) 
           annotation (Placement(transformation(
               origin={0,-60},
-              extent={{10,-10},{-10,10}},
+              extent={{10,10},{-10,-10}},
               rotation=90)));
         Modelica.Electrical.Analog.Basic.Resistor re(final R=Re) 
           annotation (Placement(transformation(
@@ -2740,8 +2723,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
                   -100},{100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255}),
               Line(points={{-100,50},{-100,20},{-130,20},{-130,-4}}, color={0,0,
                     255}),
@@ -2887,20 +2870,20 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 </table>
 </HTML>"));
       equation
-        connect(electricalExcitation.pin_en, pin_en) annotation (Line(points={{10,-70},
+        connect(electricalExcitation.pin_en, pin_en) annotation (Line(points={{-10,-70},
                 {-70,-70},{-70,-60},{-100,-60}},          color={0,0,255}));
         connect(pin_ep, re.p) annotation (Line(points={{-100,60},{-80,60},{-80,
                 -90},{60,-90},{60,-80}}, color={0,0,255}));
         connect(lesigma.p, re.n) 
           annotation (Line(points={{30,-80},{40,-80}}, color={0,0,255}));
         connect(lesigma.n, electricalExcitation.pin_ep) 
-          annotation (Line(points={{10,-80},{10,-75},{10,-70},{-10,-70}},
+          annotation (Line(points={{10,-80},{10,-75},{10,-70},{10,-70}},
                                                        color={0,0,255}));
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) 
           annotation (Line(points={{10,-10},{10,-12.5},{10,-12.5},{10,-15},{10,
                 -20},{10,-20}},                        color={0,0,255}));
         connect(airGapR.spacePhasor_r, electricalExcitation.spacePhasor_r) 
-          annotation (Line(points={{10,-10},{20,-10},{20,-50},{-10,-50}},color=
+          annotation (Line(points={{10,-10},{20,-10},{20,-50},{10,-50}}, color=
                 {0,0,255}));
         connect(spacePhasorS.spacePhasor, airGapR.spacePhasor_s) annotation (Line(
             points={{10,20},{10,15},{10,10},{10,10}},
@@ -2965,8 +2948,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
                   -100},{100,100}}),
                   graphics),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}), graphics={
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={
               Rectangle(
                 extent={{-130,10},{-100,-10}},
                 lineColor={0,0,0},
@@ -6865,6 +6848,7 @@ a ground has to be used where necessary for currents flowing back.
         "Physical transformation: three phase <-> space phasors"
         constant Integer m=3 "number of phases";
         constant Real pi=Modelica.Constants.pi;
+        parameter Real turnsRatio=1;
         Modelica.SIunits.Voltage v[m] "instantaneous phase voltages";
         Modelica.SIunits.Current i[m] "instantaneous phase currents";
       protected
@@ -6889,8 +6873,8 @@ a ground has to be used where necessary for currents flowing back.
           annotation (Placement(transformation(extent={{60,-110},{80,-90}},
                 rotation=0)));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}),
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                  {100,100}}),
                   graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
@@ -6903,7 +6887,8 @@ a ground has to be used where necessary for currents flowing back.
                     -20},{-13.33,-17.32},{-6.67,-10},{0,0}}, color={0,0,255}),
               Line(points={{-90,0},{-83.33,10},{-76.67,17.32},{-70,20},{-63.33,
                     17.32},{-56.67,10},{-50,0},{-43.33,-10},{-36.67,-17.32},{-30,
-                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}}, color={0,0,255}),
+                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}}, color={0,0,255}), 
+
               Line(points={{-70,0},{-63.33,10},{-56.67,17.32},{-50,20},{-43.33,
                     17.32},{-36.67,10},{-30,0},{-23.33,-10},{-16.67,-17.32},{-10,
                     -20},{-3.33,-17.32},{3.33,-10},{10,0}}, color={0,0,255}),
@@ -6935,9 +6920,9 @@ Zero-sequence voltage and current are present at pin zero. An additional zero-se
         Interfaces.SpacePhasor spacePhasor annotation (Placement(transformation(
                 extent={{90,90},{110,110}}, rotation=0)));
       equation
-        v = plug_p.pin.v - plug_n.pin.v;
-        i = +plug_p.pin.i;
-        i = -plug_n.pin.i;
+        v/turnsRatio = plug_p.pin.v - plug_n.pin.v;
+        i*turnsRatio = +plug_p.pin.i;
+        i*turnsRatio = -plug_n.pin.i;
         zero.v = 1/m*sum(v);
         spacePhasor.v_ = TransformationMatrix *v;
       //v  = fill(zero.v,m) + InverseTransformation*spacePhasor.v_;
@@ -7645,7 +7630,7 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
       Modelica.Electrical.MultiPhase.Basic.Inductor lssigma(final m=m, final L=fill(Lssigma, m)) 
         annotation (Placement(transformation(extent={{30,50},{10,70}}, rotation=
                0)));
-      SpacePhasors.Components.SpacePhasor spacePhasorS 
+      SpacePhasors.Components.SpacePhasor spacePhasorS(final turnsRatio=1) 
         annotation (Placement(transformation(
             origin={0,30},
             extent={{10,10},{-10,-10}},
@@ -7657,7 +7642,7 @@ Partial model for induction machine models
                 {100,100}}),
                 graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}},
+                100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}}, 
                 color={0,0,255}), Line(points={{50,100},{20,100},{20,70}},
                 color={0,0,255})}));
     equation
@@ -7670,7 +7655,7 @@ Partial model for induction machine models
           color={0,0,255},
           smooth=Smooth.None));
       connect(lssigma.plug_n, spacePhasorS.plug_p) annotation (Line(
-          points={{10,60},{10,50},{10,40},{10,40}},
+          points={{10,60},{10,40}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(spacePhasorS.plug_n, plug_sn) annotation (Line(
