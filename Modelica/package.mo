@@ -685,6 +685,18 @@ to <b style=\"color:blue\">existing</b> libraries:
 </p>
  
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+  <tr><td colspan=\"2\"><b>Electrical.Analog.Basic.</b></td></tr>
+  <tr><td valign=\"top\">M_Transformer</td>
+      <td valign=\"top\"> Transformer, with the possibility to
+	choose the number of inductors. The inductances and the coupled inductances
+	can be chosen arbitrarily.</td> </tr>
+
+  <tr><td colspan=\"2\"><b>Electrical.Analog.Lines.</b></td></tr>
+  <tr><td valign=\"top\">M_OLine</td>
+      <td valign=\"top\"> Segmented line model that enables the use of
+	multiple lines, that means, the number of segments and the number of
+	single lines can be chosen by the user. The model allows to investigate
+	phenomena at multiple lines like mutual magnetic or capacitive influence.</td> </tr>
   <tr><td colspan=\"2\"><b>Mechanics.Translational.Components.Examples.</b></td></tr>
   <tr><td valign=\"top\">Brake</td>
       <td valign=\"top\"> Demonstrates the usage of the translational brake component.</td> </tr>
