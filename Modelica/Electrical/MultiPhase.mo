@@ -1183,7 +1183,8 @@ like thyristor, diode, switch, transformer.
                Ron, final Goff=Goff, final Vknee=Vknee) annotation (Placement(
             transformation(extent={{-10,-10},{10,10}}, rotation=0)));
       annotation (
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Text(
               extent={{-150,-40},{150,-100}},
               textString="%name",
@@ -1233,7 +1234,8 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
           final Ron=Ron, final Goff=Goff, final Vknee=Vknee) annotation (Placement(
             transformation(extent={{-10,-10},{10,10}}, rotation=0)));
       annotation (
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Text(
               extent={{-150,-40},{150,-100}},
               textString="%name",
@@ -1292,7 +1294,8 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=0)));
       annotation (
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Text(
               extent={{-150,-40},{150,-100}},
               textString="%name",
@@ -1364,7 +1367,8 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=0)));
       annotation (
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Text(
               extent={{-150,-40},{150,-100}},
               textString="%name",
@@ -1424,7 +1428,8 @@ Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIn
            final Goff=Goff, final Vknee=Vknee) annotation (Placement(
             transformation(extent={{-10,-10},{10,10}}, rotation=0)));
       annotation (
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Text(
               extent={{-150,-40},{150,-100}},
               textString="%name",
@@ -1460,43 +1465,49 @@ Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
           final n=n) annotation (Placement(transformation(extent={{-10,-10},{10,
                 10}}, rotation=0)));
       annotation (
-        Icon(graphics={
-            Ellipse(extent={{-45,-50},{-20,-25}}, lineColor={0,0,255}),
-            Ellipse(extent={{-45,-25},{-20,0}}, lineColor={0,0,255}),
-            Ellipse(extent={{-45,0},{-20,25}}, lineColor={0,0,255}),
-            Ellipse(extent={{-45,25},{-20,50}}, lineColor={0,0,255}),
-            Rectangle(
-              extent={{-72,-60},{-33,60}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-90,50},{-32,50}}, color={0,0,255}),
-            Line(points={{-90,-50},{-32,-50}}, color={0,0,255}),
-            Ellipse(extent={{20,-50},{45,-25}}, lineColor={0,0,255}),
-            Ellipse(extent={{20,-25},{45,0}}, lineColor={0,0,255}),
-            Ellipse(extent={{20,0},{45,25}}, lineColor={0,0,255}),
-            Ellipse(extent={{20,25},{45,50}}, lineColor={0,0,255}),
-            Rectangle(
-              extent={{33,-60},{72,60}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{32,50},{90,50}}, color={0,0,255}),
-            Line(points={{32,-50},{90,-50}}, color={0,0,255}),
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Text(
               extent={{-80,100},{80,60}},
               lineColor={0,0,0},
               textString="m=%m"),
             Text(
-              extent={{-100,-110},{100,-50}},
+              extent={{-100,-100},{100,-40}},
               lineColor={0,0,255},
-              textString="%name")}),
+              textString="%name"),
+            Ellipse(extent={{-80,50},{20,-50}}, lineColor={0,0,255}),
+            Ellipse(extent={{-20,50},{80,-50}}, lineColor={0,0,255}),
+            Text(
+              extent={{-20,20},{20,-20}},
+              lineColor={0,0,255},
+              textString="="),
+            Line(
+              points={{-96,50},{-30,50}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Line(
+              points={{30,50},{96,50}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Line(
+              points={{30,-50},{96,-50}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Line(
+              points={{-96,-50},{-30,-50}},
+              color={0,0,255},
+              smooth=Smooth.None)}),
         Documentation(info="<HTML>
 <p>
 Contains m ideal transformers (Modelica.Electrical.Analog.Ideal.IdealTransformer).
 </p>
+<p>
+<b>Note:</b> Due to the above equations, also DC signals will be transformed!
+</p>
 </HTML>"),
-        Diagram(graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),
+                graphics));
     equation
       connect(plug_p1.pin, idealTransformer.p1) 
         annotation (Line(points={{-100,100},{-10,100},{-10,5}}, color={0,0,255}));
@@ -1515,7 +1526,8 @@ Contains m ideal transformers (Modelica.Electrical.Analog.Ideal.IdealTransformer
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=0)));
       annotation (
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Text(
               extent={{-150,50},{150,110}},
               textString="%name",
@@ -1553,7 +1565,8 @@ Contains m idles (Modelica.Electrical.Analog.Ideal.Idle)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=0)));
       annotation (
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Text(
               extent={{-150,50},{150,110}},
               textString="%name",
@@ -1600,7 +1613,8 @@ Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
            final Goff=Goff) annotation (Placement(transformation(extent={{-10,
                 -10},{10,10}}, rotation=0)));
       annotation (
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Text(
               extent={{-150,-40},{150,-100}},
               textString="%name",
@@ -1654,7 +1668,8 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpening
            final Goff=Goff) annotation (Placement(transformation(extent={{-10,
                 -10},{10,10}}, rotation=0)));
       annotation (
-        Icon(graphics={
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={
             Text(
               extent={{-150,-40},{150,-100}},
               textString="%name",
@@ -1761,7 +1776,8 @@ Usually, connector PositivePlug is used for the positive and
 connector NegativePlug for the negative plug of an electrical component.<br>
 Connector Plug is a composite connector containing m Pins (Modelica.Electrical.Analog.Interfaces.Pin).
 </p>
-</HTML>"), Diagram(graphics={Text(
+</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Text(
               extent={{-100,-99},{100,-179}},
               lineColor={0,0,255},
               textString="%name")}));
@@ -1770,12 +1786,14 @@ Connector Plug is a composite connector containing m Pins (Modelica.Electrical.A
     connector PositivePlug "Positive plug with m pins"
       extends Plug;
       annotation (
-        Icon(graphics={Ellipse(
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={Ellipse(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid)}),
-        Diagram(graphics={Ellipse(
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics={Ellipse(
               extent={{-40,40},{40,-40}},
               lineColor={0,0,255},
               fillColor={0,0,255},
@@ -1796,12 +1814,14 @@ Connector Plug is a composite connector containing m Pins (Modelica.Electrical.A
     connector NegativePlug "Negative plug with m pins"
       extends Plug;
       annotation (
-        Icon(graphics={Ellipse(
+        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}), graphics={Ellipse(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
-        Diagram(graphics={Ellipse(
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics={Ellipse(
               extent={{-40,40},{40,-40}},
               lineColor={0,0,255},
               fillColor={255,255,255},

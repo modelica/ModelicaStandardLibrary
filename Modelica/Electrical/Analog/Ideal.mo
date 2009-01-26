@@ -986,7 +986,8 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}),
+          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}), 
+
           Line(points={{0,35},{0,80}}, color={0,0,255}),
           Line(points={{0,-35},{0,-80}}, color={0,0,255}),
           Line(points={{-90,50},{-60,50}}, color={0,0,255}),
@@ -1191,6 +1192,9 @@ which is characterized by the following two equations:
 <P>
 where <i>n</i> is a real number called the turns ratio.
 </P>
+<p>
+<b>Note:</b> Due to the above equations, also DC signals will be transformed!
+</p>
 </HTML>
 ", revisions="<html>
 <ul>
@@ -1209,58 +1213,58 @@ where <i>n</i> is a real number called the turns ratio.
             extent={{-100,100},{100,80}},
             textString="%name",
             lineColor={0,0,255}),
-          Ellipse(extent={{-45,-50},{-20,-25}}, lineColor={0,0,255}),
-          Ellipse(extent={{-45,-25},{-20,0}}, lineColor={0,0,255}),
-          Ellipse(extent={{-45,0},{-20,25}}, lineColor={0,0,255}),
-          Ellipse(extent={{-45,25},{-20,50}}, lineColor={0,0,255}),
-          Rectangle(
-            extent={{-72,-60},{-33,60}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,50},{-32,50}}, color={0,0,255}),
-          Line(points={{-90,-50},{-32,-50}}, color={0,0,255}),
-          Ellipse(extent={{20,-50},{45,-25}}, lineColor={0,0,255}),
-          Ellipse(extent={{20,-25},{45,0}}, lineColor={0,0,255}),
-          Ellipse(extent={{20,0},{45,25}}, lineColor={0,0,255}),
-          Ellipse(extent={{20,25},{45,50}}, lineColor={0,0,255}),
-          Rectangle(
-            extent={{33,-60},{72,60}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{32,50},{90,50}}, color={0,0,255}),
-          Line(points={{32,-50},{90,-50}}, color={0,0,255}),
           Text(
             extent={{-100,-80},{100,-100}},
             textString="n=%n",
-            lineColor={0,0,255})}),
+            lineColor={0,0,255}),
+          Ellipse(extent={{-80,50},{20,-50}}, lineColor={0,0,255}),
+          Ellipse(extent={{-20,50},{80,-50}}, lineColor={0,0,255}),
+          Text(
+            extent={{-20,20},{20,-20}},
+            lineColor={0,0,255},
+            textString="="),
+          Line(
+            points={{-96,50},{-30,50}},
+            color={0,0,255},
+            smooth=Smooth.None),
+          Line(
+            points={{30,50},{96,50}},
+            color={0,0,255},
+            smooth=Smooth.None),
+          Line(
+            points={{30,-50},{96,-50}},
+            color={0,0,255},
+            smooth=Smooth.None),
+          Line(
+            points={{-96,-50},{-30,-50}},
+            color={0,0,255},
+            smooth=Smooth.None)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Ellipse(extent={{-45,-50},{-20,-25}}, lineColor={0,0,255}),
-          Ellipse(extent={{-45,-25},{-20,0}}, lineColor={0,0,255}),
-          Ellipse(extent={{-45,0},{-20,25}}, lineColor={0,0,255}),
-          Ellipse(extent={{-45,25},{-20,50}}, lineColor={0,0,255}),
-          Rectangle(
-            extent={{-72,-60},{-33,60}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-96,50},{-32,50}}, color={0,0,255}),
-          Line(points={{-96,-50},{-32,-50}}, color={0,0,255}),
-          Ellipse(extent={{20,-50},{45,-25}}, lineColor={0,0,255}),
-          Ellipse(extent={{20,-25},{45,0}}, lineColor={0,0,255}),
-          Ellipse(extent={{20,0},{45,25}}, lineColor={0,0,255}),
-          Ellipse(extent={{20,25},{45,50}}, lineColor={0,0,255}),
-          Rectangle(
-            extent={{33,-60},{72,60}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{32,50},{96,50}}, color={0,0,255}),
-          Line(points={{32,-50},{96,-50}}, color={0,0,255})}));
+          Ellipse(extent={{-80,50},{20,-50}}, lineColor={0,0,255}),
+          Ellipse(extent={{-20,50},{80,-50}}, lineColor={0,0,255}),
+          Text(
+            extent={{-20,20},{20,-20}},
+            lineColor={0,0,255},
+            textString="="),
+          Line(
+            points={{-96,50},{-30,50}},
+            color={0,0,255},
+            smooth=Smooth.None),
+          Line(
+            points={{30,50},{96,50}},
+            color={0,0,255},
+            smooth=Smooth.None),
+          Line(
+            points={{30,-50},{96,-50}},
+            color={0,0,255},
+            smooth=Smooth.None),
+          Line(
+            points={{-96,-50},{-30,-50}},
+            color={0,0,255},
+            smooth=Smooth.None)}));
   equation
     v1 = n*v2;
     i2 = -n*i1;
@@ -1303,7 +1307,8 @@ where the constant <i>G</i> is called the gyration conductance.
             lineThickness=0.25,
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{-90,50},{-40,50},{-40,-50},{-90,-50}}, color={0,0,255}),
+          Line(points={{-90,50},{-40,50},{-40,-50},{-90,-50}}, color={0,0,255}), 
+
           Text(
             extent={{-100,100},{100,70}},
             textString="%name",
