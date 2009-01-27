@@ -9,11 +9,11 @@ version="3.0.1",
 versionBuild="$Rev$",
 versionDate="$Date::                            $",
 conversion(
-	noneFromVersion="3.0",
-	from(version="2.1", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
-	from(version="2.2", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
-	from(version="2.2.1", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
-	from(version="2.2.2", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos")),
+ noneFromVersion="3.0",
+ from(version="2.1", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
+ from(version="2.2", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
+ from(version="2.2.1", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
+ from(version="2.2.2", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos")),
 Settings(NewStateSelection=true),
 Documentation(info="<HTML>
 <p>
@@ -139,7 +139,7 @@ User's Guides that can be accessed by the following links:
 
 class Overview "Overview of Modelica Library"
 
-	annotation (Documentation(info="<html>
+ annotation (Documentation(info="<html>
 <p>
 The Modelica Standard Library consists of the following
 main sub-libraries:
@@ -299,7 +299,7 @@ end Overview;
 
 class Connectors "Connectors"
 
-	annotation (Documentation(info="<html>
+ annotation (Documentation(info="<html>
 
 <p>
 The Modelica standard library defines the most important
@@ -478,7 +478,7 @@ end Connectors;
 
 class Conventions "Conventions"
 
-	annotation (Documentation(info="<html>
+ annotation (Documentation(info="<html>
 
 <p>
 Note, in the html documentation of any Modelica library,
@@ -540,7 +540,7 @@ end Conventions;
 
 class ParameterDefaults "Parameter defaults"
 
-	annotation (Documentation(info="<html>
+ annotation (Documentation(info="<html>
 
 <p>
 In this section the convention is summarized how default parameters are
@@ -636,9 +636,9 @@ instead of a warning.
 end ParameterDefaults;
 
 package ReleaseNotes "Release notes"
-class Version_3_0_1 "Version 3.0.1 (Jan. 2009)"
+class Version_3_0_1 "Version 3.0.1 (Jan.27, 2009)"
 
-	  annotation (Documentation(info="<html>
+   annotation (Documentation(info="<html>
 
 <p>
 This Modelica package is provided under the
@@ -918,7 +918,7 @@ units are wrong or errors in documentation):
 </html>"));
 end Version_3_0_1;
 
-	annotation (Documentation(info="<html>
+ annotation (Documentation(info="<html>
 
 <p>
 This section summarizes the changes that have been performed
@@ -1034,7 +1034,7 @@ more of the following changes.
 
 class Version_3_0 "Version 3.0 (Feb., 2008)"
 
-	  annotation (Documentation(info="<html>
+   annotation (Documentation(info="<html>
 <p>
 Version 3.0 is <b>not</b> backward compatible to previous versions.
 A conversion script is provided to transform models and libraries
@@ -1799,7 +1799,7 @@ end Version_3_0;
 
 class Version_2_2_2 "Version 2.2.2 (Aug. 31, 2007)"
 
-	  annotation (Documentation(info="<html>
+   annotation (Documentation(info="<html>
 <p>
 Version 2.2.2 is backward compatible to version 2.2.1 and 2.2 with
 the following exceptions:
@@ -2794,7 +2794,7 @@ end Version_2_2_2;
 
 class Version_2_2_1 "Version 2.2.1 (March 24, 2006)"
 
-	  annotation (Documentation(info="<html>
+   annotation (Documentation(info="<html>
 
 <p>
 Version 2.2.1 is backward compatible to version 2.2.
@@ -3172,7 +3172,7 @@ end Version_2_2_1;
 
 class Version_2_2 "Version 2.2 (April 6, 2005)"
 
-	  annotation (Documentation(info="<html>
+   annotation (Documentation(info="<html>
 
 <p>
 Version 2.2 is backward compatible to version 2.1.
@@ -3236,7 +3236,7 @@ end Version_2_2;
 
 class Version_2_1 "Version 2.1 (Nov. 11, 2004)"
 
-	  annotation (Documentation(info="<html>
+   annotation (Documentation(info="<html>
 
 <p> This is a major change with respect to previous versions of the
 	Modelica Standard Library, because <b>many new libraries</b> and components
@@ -3429,7 +3429,7 @@ end Version_2_1;
 
 class Version_1_6 "Version 1.6 (June 21, 2004)"
 
-	  annotation (Documentation(info="<html>
+   annotation (Documentation(info="<html>
 
 <p> Added 1 new library (Electrical.MultiPhase), 17 new components,
 	improved 3 existing components
@@ -3508,7 +3508,7 @@ end Version_1_6;
 
 class Version_1_5 "Version 1.5 (Dec. 16, 2002)"
 
-	  annotation (Documentation(info="<html>
+   annotation (Documentation(info="<html>
 
 <p> Added 55 new components. In particular, added new package
 	<b>Thermal.HeatTransfer</b> for modeling of lumped
@@ -3779,7 +3779,7 @@ end ReleaseNotes;
 
 class ModelicaLicense2 "Modelica License 2"
 
-	annotation (Documentation(info="<html>
+ annotation (Documentation(info="<html>
 
 <P STYLE=\"text-indent: 0pt; font-weight: medium\">
 This page contains the &ldquo;Modelica License 2&rdquo; which was
@@ -4402,7 +4402,7 @@ end ModelicaLicense2;
 
 class Contact "Contact"
 
-	annotation (Documentation(info="<html>
+ annotation (Documentation(info="<html>
 
 <dl>
 <dt>The Modelica Standard Library (this Modelica package)
