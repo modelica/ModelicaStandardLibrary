@@ -1,0 +1,456 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Mechanics.MultiBody.Examples.Loops</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Examples with kinematic loops&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Loops<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.MultiBody.Examples.Loops"></A><A HREF="Modelica_Mechanics_MultiBody_Examples.html#Modelica.Mechanics.MultiBody.Examples"
+>Modelica.Mechanics.MultiBody.Examples</A>.Loops</H2>
+<B>Examples with kinematic loops</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains different examples to show how
+mechanical systems with kinematic loops can be modeled.
+</p>
+<h4>Content</h4>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><th><b><i>Model</i></b></th><th><b><i>Description</i></b></th></tr>
+  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops.Engine1a"
+>Engine1a</a><br>
+             <A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b"
+>Engine1b</a><br>
+             <A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b_analytic"
+>Engine1b_analytic</a></td>
+      <td valign="top"> Model of one cylinder engine (Engine1a: simple, without combustion; Engine1b: with combustion;
+           Engine1b_analytic: same as Engine1b but analytic loop handling)<br>
+      <img src="../Images/MultiBody/Examples/Loops/Engine.png">
+      </td>
+  </tr>
+  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6"
+>EngineV6</a><br>
+<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_analytic"
+>EngineV6_analytic</a></td>
+      <td valign="top"> V6 engine with 6 cylinders, 6 planar loops and 1 degree-of-freedom.
+           Second version with analytic handling of kinematic loops and CAD data
+           animation.<br>
+      <img src="../Images/MultiBody/Examples/Loops/EngineV6_small.png">
+      <img src="../Images/MultiBody/Examples/Loops/EngineV6_CAD_smaller.png">
+      </td>
+  </tr>
+  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar1"
+>Fourbar1</a></td>
+      <td valign="top"> One kinematic loop with four bars (with only revolute joints;
+           5 non-linear equations)<br>
+      <img src="../Images/MultiBody/Examples/Loops/Fourbar1_small.png">
+      </td>
+  </tr>
+  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar2"
+>Fourbar2</a></td>
+      <td valign="top"> One kinematic loop with four bars (with UniversalSpherical
+           joint; 1 non-linear equation) <br>
+      <img src="../Images/MultiBody/Examples/Loops/Fourbar2_small.png">
+      </td>
+  </tr>
+  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar_analytic"
+>Fourbar_analytic</a></td>
+      <td valign="top"> One kinematic loop with four bars (with JointSSP joint;
+           analytic solution of non-linear algebraic loop)  <br>
+      <img src="../Images/MultiBody/Examples/Loops/Fourbar_analytic_small.png">
+      </td>
+  </tr>
+  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops.PlanarLoops_analytic"
+>PlanarLoops_analytic</a></td>
+      <td valign="top"> Mechanism with three planar kinematic loops and one
+           degree-of-freedom with analytic loop handling
+           (with JointRRR joints) <br>
+      <img src="../Images/MultiBody/Examples/Loops/PlanarLoops_small.png">
+      </td>
+  </tr>
+</table>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Library.html#Modelica.Icons.Library"
+>Modelica.Icons.Library</A> (Icon for library).
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1a" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops.Engine1a"
+>Engine1a</A>
+</TD><TD>Model of one cylinder engine</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b"
+>Engine1b</A>
+</TD><TD>Model of one cylinder engine with gas force and preparation for assembly joint JointRRP</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b_analytic" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b_analytic"
+>Engine1b_analytic</A>
+</TD><TD>Model of one cylinder engine with gas force and analytic loop handling</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6"
+>EngineV6</A>
+</TD><TD>V6 engine with 6 cylinders, 6 planar loops and 1 degree-of-freedom</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_analytic" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_analytic"
+>EngineV6_analytic</A>
+</TD><TD>V6 engine with 6 cylinders, 6 planar loops, 1 degree-of-freedom and analytic handling of kinematic loops</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar1"
+>Fourbar1</A>
+</TD><TD>One kinematic loop with four bars (with only revolute joints; 5 non-linear equations)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar2"
+>Fourbar2</A>
+</TD><TD>One kinematic loop with four bars (with UniversalSpherical joint; 1 non-linear equation)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar_analytic" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar_analytic"
+>Fourbar_analytic</A>
+</TD><TD>One kinematic loop with four bars (with JointSSP joint; analytic solution of non-linear algebraic loop)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.PlanarLoops_analytic" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops.PlanarLoops_analytic"
+>PlanarLoops_analytic</A>
+</TD><TD>Mechanism with three planar kinematic loops and one degree-of-freedom with analytic loop handling (with JointRRR joints)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.UtilitiesS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities"
+>Utilities</A>
+</TD><TD>Utility models for Examples.Loops</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Engine1a<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1aI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1a" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1a"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops"
+>Modelica.Mechanics.MultiBody.Examples.Loops</A>.Engine1a</H2>
+<B>Model of one cylinder engine</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This is a model of the mechanical part of one cylinder of an engine.
+The combustion is not modelled. The "inertia" component at the lower
+left part is the output inertia of the engine driving the gearbox.
+The angular velocity of the output inertia has a start value of 10 rad/s
+in order to demonstrate the movement of the engine.
+</p>
+<p>
+The engine is modeled solely by revolute and prismatic joints.
+Since this results in a <b>planar</b> loop there is the well known
+difficulty that the cut-forces perpendicular to the loop cannot be
+uniquely computed, as well as the cut-torques within the plane.
+This ambiguity is resolved by using the option <b>planarCutJoint</b>
+in the <b>Advanced</b> menu of one revolute joint in every planar loop
+(here: joint B1). This option sets the cut-force in direction of the
+axis of rotation, as well as the cut-torques perpendicular to the axis
+of rotation at this joint to zero and makes the problem mathematically
+well-formed.
+</p>
+<p>
+An animation of this example is shown in the figure below.
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Examples/Loops/Engine.png" ALT="model Examples.Loops.Engine">
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for an example model).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Engine1b<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1aI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops"
+>Modelica.Mechanics.MultiBody.Examples.Loops</A>.Engine1b</H2>
+<B>Model of one cylinder engine with gas force and preparation for assembly joint JointRRP</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This is a model of the mechanical part of one cylinder of an engine.
+It is similiar to
+<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#diagram"
+>Loops.Engine1a</a>.
+The difference is that a simple
+model for the gas force in the cylinder is added and that the
+model is restructured in such a way, that the central part of
+the planar kinematic loop can be easily replaced by the
+assembly joint "Modelica.Mechanics.MultiBody.Joints.Assemblies.<b>JointRRP</b>".
+This exchange of the kinematic loop is shown in
+<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#diagram"
+>Loops.Engine1b_analytic</a>.
+The advantage of using JointRRP is, that the
+non-linear algebraic equation of this loop is solved analytically, and
+not numerically as in this model (Engine1b).
+</p>
+<p>
+An animation of this example is shown in the figure below.
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Examples/Loops/Engine.png" ALT="model Examples.Loops.Engine">
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for an example model), <A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Engine1bBase"
+>Utilities.Engine1bBase</A> (Model of one cylinder engine with gas force).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Engine1b_analytic<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1aI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b_analytic" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b_analytic"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops"
+>Modelica.Mechanics.MultiBody.Examples.Loops</A>.Engine1b_analytic</H2>
+<B>Model of one cylinder engine with gas force and analytic loop handling</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This is the same model as
+<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#diagram"
+>Loops.Engine1b</a>.
+The only difference is that the central part of
+the planar kinematic loop has been replaced by the
+assembly joint "Modelica.Mechanics.MultiBody.Joints.Assemblies.<b>JointRRP</b>".
+The advantage of using JointRRP is, that the
+non-linear algebraic equation of this loop is solved analytically, and
+not numerically as in
+<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#diagram"
+>Loops.Engine1b</a>.
+</p>
+<p>
+An animation of this example is shown in the figure below.
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Examples/Loops/Engine.png" ALT="model Examples.Loops.Engine">
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for an example model), <A HREF="Modelica_Mechanics_MultiBody_Examples_Loops_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Engine1bBase"
+>Utilities.Engine1bBase</A> (Model of one cylinder engine with gas force).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE EngineV6<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1aI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops"
+>Modelica.Mechanics.MultiBody.Examples.Loops</A>.EngineV6</H2>
+<B>V6 engine with 6 cylinders, 6 planar loops and 1 degree-of-freedom</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This is a V6 engine with 6 cylinders. It is hierarchically built
+up by using instances of one cylinder. For more details on the
+modeling of one cylinder, see example
+<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b"
+>Engine1b</a>.
+An animation of the engine is shown in the figure below.
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Examples/Loops/EngineV6.png" ALT="model Examples.Loops.EngineV6">
+</p>
+
+<p>
+Simulate for 5 s, and plot the variables <b>engineSpeed_rpm</b>,
+<b>engineTorque</b>, and <b>filteredEngineTorque</b>. Note, the result file has
+a size of about 50 Mbyte (for 5000 output intervalls).
+</p>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for an example model).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>animation</TD><TD>= true, if animation shall be enabled</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE EngineV6_analytic<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1aI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_analytic" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_analytic"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops"
+>Modelica.Mechanics.MultiBody.Examples.Loops</A>.EngineV6_analytic</H2>
+<B>V6 engine with 6 cylinders, 6 planar loops, 1 degree-of-freedom and analytic handling of kinematic loops</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This is a similar model as the example "EngineV6". However, the cylinders
+have been built up with component Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR that
+solves the non-linear system of equations in an aggregation of 3 revolution
+joints <b>analytically</b> and only one body is used that holds the total
+mass of the crank shaft:
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Examples/Loops/EngineV6_CAD_small.png">
+</p>
+<p>
+This model is about 20 times faster as the EngineV6 example and <b>no</b> linear or
+non-linear system of equations occur. In contrast, the "EngineV6" example
+leads to 6 systems of nonlinear equations (every system has dimension = 5, with
+Evaluate=false and dimension=1 with Evaluate=true) and a linear system of equations
+of about 40. This shows the power of the analytic loop handling.
+</p>
+
+<p>
+Simulate for 5 s, and plot the variables <b>engineSpeed_rpm</b>,
+<b>engineTorque</b>, and <b>filteredEngineTorque</b>. Note, the result file has
+a size of about 50 Mbyte (for 5000 output intervalls).
+</p>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for an example model).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>animation</TD><TD>= true, if animation shall be enabled</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Fourbar1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1aI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar1"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops"
+>Modelica.Mechanics.MultiBody.Examples.Loops</A>.Fourbar1</H2>
+<B>One kinematic loop with four bars (with only revolute joints; 5 non-linear equations)</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This is a simple kinematic loop consisting of 6 revolute joints, 1 prismatic joint
+and 4 bars that is often used as basic constructing unit in mechanisms.
+This example demonstrates that usually no particular knowledge
+of the user is needed to handle kinematic loops.
+Just connect the joints and bodies together according
+to the real system. In particular <b>no</b> cut-joints or a spanning tree has
+to be determined. In this case, the initial condition of the angular velocity
+of revolute joint j1 is set to 300 deg/s in order to drive this loop.
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Examples/Loops/Fourbar1.png" ALT="model Examples.Loops.Fourbar1">
+</p>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for an example model).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Fourbar2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1aI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar2"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops"
+>Modelica.Mechanics.MultiBody.Examples.Loops</A>.Fourbar2</H2>
+<B>One kinematic loop with four bars (with UniversalSpherical joint; 1 non-linear equation)</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This is a second version of the "four-bar" mechanism, see figure:
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Examples/Loops/Fourbar2.png" ALT="model Examples.Loops.Fourbar2">
+</p>
+<p>
+In this case
+the three revolute joints on the left top-side and the two revolute
+joints on the right top side have been replaced by the joint <b>UniversalSpherical</b>
+that is a rod connecting a spherical and a universal joint. This joint is defined
+by <b>1 constraint</b> stating that the distance between the two spherical joints is
+constant. Using this joint in a kinematic loop reduces the sizes of
+non-linear algebraic equations. For this loop, only one non-linear
+algebraic system of equations of order 1 remains.
+</p>
+<p>
+At the UniversalSpherical joint an additional frame_ia fixed to the rod
+is present where components can be attached to the connecting rod. In this
+example just a coordinate system is attached to visualize frame_ia (coordinate
+system on the right in blue color).
+</p>
+<p>
+Another feature is that the length of the connecting rod can be
+automatically calculated during <b>initialization</b>. In order to do this,
+another initialization condition has to be given. In this example, the
+initial value of the distance of the prismatic joint j2 has been fixed
+(via the "Initialization" menu) and the rod length of joint
+"UniversalSpherical" is computed during initialization since parameter
+<b>computeLength</b> = <b>true</b> is set in the joint parameter
+menu. The main advantage is that during initialization no non-linear
+system of equation is solved and therefore initialization always works.
+To be precise, the following trivial non-linear equation is actually solved
+for rodLength:
+</p>
+<pre>
+   rodLength*rodLength = f(angle of revolute joint, distance of prismatic joint)
+</pre>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for an example model).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Fourbar_analytic<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1aI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar_analytic" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar_analytic"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops"
+>Modelica.Mechanics.MultiBody.Examples.Loops</A>.Fourbar_analytic</H2>
+<B>One kinematic loop with four bars (with JointSSP joint; analytic solution of non-linear algebraic loop)</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This is a third version of the "four-bar" mechanism, see figure:
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Examples/Loops/Fourbar_analytic.png" ALT="model Examples.Loops.Fourbar_analytic">
+</p>
+<p>
+In this case
+the three revolute joints on the left top-side and the two revolute
+joints on the right top side have been replaced by the assembly joint
+<b>Joints.Assemblies.JointSSP</b>
+which consists of two spherical joints and one prismatic joint.
+Since JointSSP solves the non-linear constraint equation internally
+analytically, no non-linear equation appears any more and a Modelica
+translator, such as Dymola, can transform the system into state space
+form without solving a system of equations. For more details, see
+<A HREF="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling"
+>
+MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for an example model).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PlanarLoops_analytic<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Engine1aI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Loops.PlanarLoops_analytic" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Loops.PlanarLoops_analytic"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops"
+>Modelica.Mechanics.MultiBody.Examples.Loops</A>.PlanarLoops_analytic</H2>
+<B>Mechanism with three planar kinematic loops and one degree-of-freedom with analytic loop handling (with JointRRR joints)</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+It is demonstrated how the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR joint can be
+used to solve the non-linear equations of coupled planar loops analytically.
+In the mechanism below no non-linear equation occurs any more from the tool
+view, since these equations are solved analytically in the JointRRR joints.
+For more details, see
+<A HREF="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling"
+>
+MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
+</p>
+
+<p>
+In the following figure the parameter vectors of this example are visualized in the
+animation view.
+</p>
+
+<p align="center">
+<IMG SRC="../Images/MultiBody/Examples/Loops/PlanarLoops2.png" ALT="model Examples.Loops.PlanarLoops2">
+</p>
+
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for an example model).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>rh[3]</TD><TD>Position vector from &#39;lower left&#39; revolute to &#39;lower right&#39; revolute joint for all the 3 loops [m]</TD></TR>
+<TR><TD>rv[3]</TD><TD>Position vector from &#39;lower left&#39; revolute to &#39;upper left&#39; revolute joint in the first loop [m]</TD></TR>
+<TR><TD>r1b[3]</TD><TD>Position vector from &#39;lower right&#39; revolute to &#39;upper right&#39; revolute joint in the first loop [m]</TD></TR>
+<TR><TD>r2b[3]</TD><TD>Position vector from &#39;lower right&#39; revolute to &#39;upper right&#39; revolute joint in the second loop [m]</TD></TR>
+<TR><TD>r3b[3]</TD><TD>Position vector from &#39;lower right&#39; revolute to &#39;upper right&#39; revolute joint in the third loop [m]</TD></TR>
+</TABLE>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Thu Jan 29 17:27:05 2009.
+</address></BODY>
+</HTML>

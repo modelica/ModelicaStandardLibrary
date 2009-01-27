@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.UsersGuide.ReleaseNotes.Version_2_2</title>
+</head>
+<body>
+<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.UsersGuide.html">UsersGuide</a>.<a href="Modelica.UsersGuide.ReleaseNotes.html">ReleaseNotes</a>.Version_2_2</h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Version 2.2 is backward compatible to version 2.1.</p>
+<p>The following <b>new libraries</b> have been added:</p>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<td valign="top"><a href="Modelica.Media.html">Modelica.Media</a></td>
+<td valign="top">Property models of liquids and gases, especially
+<ul>
+<li>1241 detailed gas models,</li>
+<li>moist air,</li>
+<li>high precision water model (according to IAPWS/IF97
+standard),</li>
+<li>incompressible media defined by tables (cp(T), rho(t), eta(T),
+etc. are defined by tables).</li>
+</ul>
+The user can conveniently define mixtures of gases between the 1241
+gas models. The models are designed to work well in dynamic
+simulations. They are based on a new standard interface for media
+with single and multiple substances and one or multiple phases with
+the following features:
+<ul>
+<li>The independent variables of a medium model do not influence
+the definition of a fluid connector port or how the balance
+equations have to be implemented.<br />
+Used independent variables: "p,T", "p,T,X", "p,h", "d,T".</li>
+<li>Optional variables, e.g., dynamic viscosity, are only computed
+if needed.</li>
+<li>The medium models are implemented with regards to efficient
+dynamic simulation.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td valign="top"><a href="Modelica.Thermal.FluidHeatFlow.html">Modelica.Thermal.FluidHeatFlow</a></td>
+<td valign="top">Simple components for 1-dim., incompressible
+thermo-fluid flow to model coolant flows, e.g., of electrical
+machines. Components can be connected arbitrarily together (= ideal
+mixing at connection points) and fluid may reverse direction of
+flow.</td>
+</tr>
+</table>
+<p>The following <b>changes</b> have been performed in the
+<b>Modelica.Mechanics.MultiBody</b> library:</p>
+<ul>
+<li>Component MultiBody.World has a new parameter
+<b>driveTrainMechanics3D</b>. If set to <b>true</b>, 3D mechanical
+effects of MultiBody.Parts.Mounting1D/Rotor1D/BevelGear1D are taken
+into account. If set to <b>false</b> (= default), 3D mechanical
+effects in these elements are not taken into account and the frame
+connectors to connect to 3D parts are disabled (all connections to
+such a disabled connector are also disabled, due to the new feature
+of conditional declarations in Modelica language 2.2)</li>
+<li>All references to "MultiBody.xxx" have been changed to
+"Modelica.Mechanics.MultiBodys.xxx" in order that after copying of
+a component outside of the Modelica library, the references still
+remain valid.</li>
+</ul>
+<hr />
+Generated at 2013-04-02T18:30:15Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r15723)
+using <a href="GenerateDoc.mos">GenerateDoc.mos</a>
+</body>
+</html>

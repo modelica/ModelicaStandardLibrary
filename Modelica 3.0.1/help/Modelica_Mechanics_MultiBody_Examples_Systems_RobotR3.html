@@ -1,0 +1,213 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Library to demonstrate robot system models based on the Manutec r3 robot&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RobotR3<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Systems.html#Modelica.Mechanics.MultiBody.Examples.Systems"
+>Modelica.Mechanics.MultiBody.Examples.Systems</A>.RobotR3</H2>
+<B>Library to demonstrate robot system models based on the Manutec r3 robot</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains models of the robot r3 of the company Manutec.
+These models are used to demonstrate in which way complex
+robot models might be built up by testing first the component
+models individually before composing them together.
+Furthermore, it is shown how CAD data can be used
+for animation.
+</p>
+<IMG SRC="../Images/MultiBody/Examples/Systems/robot_kr15.bmp"
+ALT="model Examples.Systems.RobotR3">
+<p>
+The following models are available:
+</p>
+<pre>
+   <b>oneAxis</b>   Test one axis (controller, motor, gearbox).
+   <b>fullRobot</b> Test complete robot model.
+</pre>
+<p>
+The r3 robot is no longer manufactured. In fact the company
+Manutec does no longer exist.
+The parameters of this robot have been determined by measurements
+in the laboratory of DLR. The measurement procedure is described in:
+</p>
+<pre>
+   Tuerk S. (1990): Zur Modellierung der Dynamik von Robotern mit
+       rotatorischen Gelenken. Fortschrittberichte VDI, Reihe 8, Nr. 211,
+       VDI-Verlag 1990.
+</pre>
+<p>
+The robot model is described in detail in
+</p>
+<pre>
+   Otter M. (1995): Objektorientierte Modellierung mechatronischer
+       Systeme am Beispiel geregelter Roboter. Dissertation,
+       Fortschrittberichte VDI, Reihe 20, Nr. 147, VDI-Verlag 1995.
+       This report can be downloaded as compressed postscript file
+       from: <a href="http://www.robotic.dlr.de/Martin.Otter/publications.html">http://www.robotic.dlr.de/Martin.Otter/publications.html</a>.
+</pre>
+<p>
+The path planning is performed in a simple way by using essentially
+the Modelica.Mechanics.Rotational.KinematicPTP block. A user defines
+a path by start and end angle of every axis. A path is planned such
+that all axes are moving as fast as possible under the given
+restrictions of maximum joint speeds and maximum joint accelerations.
+The actual r3 robot from Manutec had a different path planning strategy.
+Todays path planning algorithms from robot companies are much
+more involved.
+</p>
+<p>
+In order to get a nice animation, CAD data from a KUKA robot
+is used, since CAD data of the original r3 robot was not available.
+The KUKA CAD data was derived from public data of KUKA available at:
+<a href="http://www.kuka-roboter.de/english/produkte/cad/low_payloads.html">
+http://www.kuka-roboter.de/english/produkte/cad/low_payloads.html</a>.
+Since dimensions of the corresponding KUKA robot are similar but not
+identical to the r3 robot, the data of the r3 robot (such as arm lengths) have been modified, such that it matches the CAD data.
+</p>
+<p>
+In this model, a simplified P-PI cascade controller for every
+axes is used. The parameters have been manually adjusted by
+simulations. The original r3 controllers are more complicated.
+The reason to use simplified controllers is to have a simpler demo.
+</p>
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons_Library.html#Modelica.Icons.Library"
+>Modelica.Icons.Library</A> (Icon for library).
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.oneAxisS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.oneAxis" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.oneAxis"
+>oneAxis</A>
+</TD><TD>Model of one axis of robot (controller, motor, gearbox) with simple load</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.fullRobotS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.fullRobot" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.fullRobot"
+>fullRobot</A>
+</TD><TD>6 degree of freedom robot with path planning, controllers, motors, brakes, gears and mechanics</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.ComponentsS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Components.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components"
+>Components</A>
+</TD><TD>Library of components of the robot</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE oneAxis<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.oneAxisI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.oneAxis" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.oneAxis"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3"
+>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3</A>.oneAxis</H2>
+<B>Model of one axis of robot (controller, motor, gearbox) with simple load</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+With this model one axis of the r3 robot is checked.
+The mechanical structure is replaced by a simple
+load inertia.
+</p>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for an example model).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>mLoad</TD><TD>Mass of load [kg]</TD></TR>
+<TR><TD>kp</TD><TD>Gain of position controller of axis 2</TD></TR>
+<TR><TD>ks</TD><TD>Gain of speed controller of axis 2</TD></TR>
+<TR><TD>Ts</TD><TD>Time constant of integrator of speed controller of axis 2 [s]</TD></TR>
+<TR><TD>startAngle</TD><TD>Start angle of axis 2 [deg]</TD></TR>
+<TR><TD>endAngle</TD><TD>End angle of axis 2 [deg]</TD></TR>
+<TR><TD>swingTime</TD><TD>Additional time after reference motion is in rest before simulation is stopped [s]</TD></TR>
+<TR><TD>refSpeedMax</TD><TD>Maximum reference speed [rad/s]</TD></TR>
+<TR><TD>refAccMax</TD><TD>Maximum reference acceleration [rad/s2]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE fullRobot<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.fullRobotI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.fullRobot" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.fullRobot"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3"
+>Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3</A>.fullRobot</H2>
+<B>6 degree of freedom robot with path planning, controllers, motors, brakes, gears and mechanics</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This is a detailed model of the robot. For animation CAD data
+is used. Translate and simulate with the default settings
+(default simulation time = 3 s). Use command script "Scripts\ExamplesfullRobotPlot.mos"
+to plot variables.
+</p>
+<p align="center">
+<IMG SRC="../Images/MultiBody/Examples/Systems/r3_fullRobot.png" ALT="model Examples.Loops.Systems.RobotR3.fullRobot">
+</p>
+<pre></PRE>
+
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>mLoad</TD><TD>Mass of load [kg]</TD></TR>
+<TR><TD>rLoad[3]</TD><TD>Distance from last flange to load mass [m]</TD></TR>
+<TR><TD>g</TD><TD>Gravity acceleration [m/s2]</TD></TR>
+<TR><TD>refStartTime</TD><TD>Start time of reference motion [s]</TD></TR>
+<TR><TD>refSwingTime</TD><TD>Additional time after reference motion is in rest before simulation is stopped [s]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Reference</B></TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>startAngles</TD></TR>
+<TR><TD>startAngle1</TD><TD>Start angle of axis 1 [deg]</TD></TR>
+<TR><TD>startAngle2</TD><TD>Start angle of axis 2 [deg]</TD></TR>
+<TR><TD>startAngle3</TD><TD>Start angle of axis 3 [deg]</TD></TR>
+<TR><TD>startAngle4</TD><TD>Start angle of axis 4 [deg]</TD></TR>
+<TR><TD>startAngle5</TD><TD>Start angle of axis 5 [deg]</TD></TR>
+<TR><TD>startAngle6</TD><TD>Start angle of axis 6 [deg]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>endAngles</TD></TR>
+<TR><TD>endAngle1</TD><TD>End angle of axis 1 [deg]</TD></TR>
+<TR><TD>endAngle2</TD><TD>End angle of axis 2 [deg]</TD></TR>
+<TR><TD>endAngle3</TD><TD>End angle of axis 3 [deg]</TD></TR>
+<TR><TD>endAngle4</TD><TD>End angle of axis 4 [deg]</TD></TR>
+<TR><TD>endAngle5</TD><TD>End angle of axis 5 [deg]</TD></TR>
+<TR><TD>endAngle6</TD><TD>End angle of axis 6 [deg]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Limits</TD></TR>
+<TR><TD>refSpeedMax[6]</TD><TD>Maximum reference speeds of all joints [rad/s]</TD></TR>
+<TR><TD>refAccMax[6]</TD><TD>Maximum reference accelerations of all joints [rad/s2]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=2><B>Controller</B></TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Axis 1</TD></TR>
+<TR><TD>kp1</TD><TD>Gain of position controller</TD></TR>
+<TR><TD>ks1</TD><TD>Gain of speed controller</TD></TR>
+<TR><TD>Ts1</TD><TD>Time constant of integrator of speed controller [s]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Axis 2</TD></TR>
+<TR><TD>kp2</TD><TD>Gain of position controller</TD></TR>
+<TR><TD>ks2</TD><TD>Gain of speed controller</TD></TR>
+<TR><TD>Ts2</TD><TD>Time constant of integrator of speed controller [s]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Axis 3</TD></TR>
+<TR><TD>kp3</TD><TD>Gain of position controller</TD></TR>
+<TR><TD>ks3</TD><TD>Gain of speed controller</TD></TR>
+<TR><TD>Ts3</TD><TD>Time constant of integrator of speed controller [s]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Axis 4</TD></TR>
+<TR><TD>kp4</TD><TD>Gain of position controller</TD></TR>
+<TR><TD>ks4</TD><TD>Gain of speed controller</TD></TR>
+<TR><TD>Ts4</TD><TD>Time constant of integrator of speed controller [s]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Axis 5</TD></TR>
+<TR><TD>kp5</TD><TD>Gain of position controller</TD></TR>
+<TR><TD>ks5</TD><TD>Gain of speed controller</TD></TR>
+<TR><TD>Ts5</TD><TD>Time constant of integrator of speed controller [s]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Axis 6</TD></TR>
+<TR><TD>kp6</TD><TD>Gain of position controller</TD></TR>
+<TR><TD>ks6</TD><TD>Gain of speed controller</TD></TR>
+<TR><TD>Ts6</TD><TD>Time constant of integrator of speed controller [s]</TD></TR>
+</TABLE>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Thu Jan 29 17:27:07 2009.
+</address></BODY>
+</HTML>

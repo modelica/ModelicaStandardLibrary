@@ -1,0 +1,154 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Media.Common.OneNonLinearEquation</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Determine solution of a non-linear algebraic equation in one unknown without derivatives in a reliable and efficient way&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE OneNonLinearEquation<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common.OneNonLinearEquation"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.OneNonLinearEquation</H2>
+<B>Determine solution of a non-linear algebraic equation in one unknown without derivatives in a reliable and efficient way</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This function should currently only be used in Modelica.Media,
+since it might be replaced in the future by another strategy,
+where the tool is responsible for the solution of the non-linear
+equation.
+</p>
+
+<p>
+This library determines the solution of one non-linear algebraic equation "y=f(x)"
+in one unknown "x" in a reliable way. As input, the desired value y of the
+non-linear function has to be given, as well as an interval x_min, x_max that
+contains the solution, i.e., "f(x_min) - y" and "f(x_max) - y" must
+have a different sign. If possible, a smaller interval is computed by
+inverse quadratic interpolation (interpolating with a quadratic polynomial
+through the last 3 points and computing the zero). If this fails,
+bisection is used, which always reduces the interval by a factor of 2.
+The inverse quadratic interpolation method has superlinear convergence.
+This is roughly the same convergence rate as a globally convergent Newton
+method, but without the need to compute derivatives of the non-linear
+function. The solver function is a direct mapping of the Algol 60 procedure
+"zero" to Modelica, from:
+</p>
+
+<dl>
+<dt> Brent R.P.:</dt>
+<dd> <b>Algorithms for Minimization without derivatives</b>.
+     Prentice Hall, 1973, pp. 58-59.</dd>
+</dl>
+
+<p>
+Due to current limitations of the
+Modelica language (not possible to pass a function reference to a function),
+the construction to use this solver on a user-defined function is a bit
+complicated (this method is from Hans Olsson, Dynasim AB). A user has to
+provide a package in the following way:
+</p>
+
+<pre>
+  <b>package</b> MyNonLinearSolver
+    <b>extends</b> OneNonLinearEquation;
+
+    <b>redeclare record extends</b> Data
+      // Define data to be passed to user function
+      ...
+    <b>end</b> Data;
+
+    <b>redeclare function extends</b> f_nonlinear
+    <b>algorithm</b>
+       // Compute the non-linear equation: y = f(x, Data)
+    <b>end</b> f_nonlinear;
+
+    // Dummy definition that has to be present for current Dymola
+    <b>redeclare function extends</b> solve
+    <b>end</b> solve;
+  <b>end</b> MyNonLinearSolver;
+
+  x_zero = MyNonLinearSolver.solve(y_zero, x_min, x_max, data=data);
+</pre>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Library.html#Modelica.Icons.Library"
+>Modelica.Icons.Library</A> (Icon for library).
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.OneNonLinearEquation.f_nonlinear_DataS.png" ALT="Modelica.Media.Common.OneNonLinearEquation.f_nonlinear_Data" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_OneNonLinearEquation.html#Modelica.Media.Common.OneNonLinearEquation.f_nonlinear_Data"
+>f_nonlinear_Data</A>
+</TD><TD>Data specific for function f_nonlinear</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.OneNonLinearEquation.f_nonlinearS.png" ALT="Modelica.Media.Common.OneNonLinearEquation.f_nonlinear" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_OneNonLinearEquation.html#Modelica.Media.Common.OneNonLinearEquation.f_nonlinear"
+>f_nonlinear</A>
+</TD><TD>Nonlinear algebraic equation in one unknown: y = f_nonlinear(x,p,X)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.OneNonLinearEquation.f_nonlinearS.png" ALT="Modelica.Media.Common.OneNonLinearEquation.solve" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_OneNonLinearEquation.html#Modelica.Media.Common.OneNonLinearEquation.solve"
+>solve</A>
+</TD><TD>Solve f_nonlinear(x_zero)=y_zero; f_nonlinear(x_min) - y_zero and f_nonlinear(x_max)-y_zero must have different sign</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE f_nonlinear_Data<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.OneNonLinearEquation.f_nonlinear_DataI.png" ALT="Modelica.Media.Common.OneNonLinearEquation.f_nonlinear_Data" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.OneNonLinearEquation.f_nonlinear_Data"></A><A HREF="Modelica_Media_Common_OneNonLinearEquation.html#Modelica.Media.Common.OneNonLinearEquation"
+>Modelica.Media.Common.OneNonLinearEquation</A>.f_nonlinear_Data</H2>
+<B>Data specific for function f_nonlinear</B><p>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE f_nonlinear<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.OneNonLinearEquation.f_nonlinearI.png" ALT="Modelica.Media.Common.OneNonLinearEquation.f_nonlinear" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.OneNonLinearEquation.f_nonlinear"></A><A HREF="Modelica_Media_Common_OneNonLinearEquation.html#Modelica.Media.Common.OneNonLinearEquation"
+>Modelica.Media.Common.OneNonLinearEquation</A>.f_nonlinear</H2>
+<B>Nonlinear algebraic equation in one unknown: y = f_nonlinear(x,p,X)</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>x</TD><TD>Independent variable of function</TD></TR>
+<TR><TD>p</TD><TD>disregaded variables (here always used for pressure)</TD></TR>
+<TR><TD>X[:]</TD><TD>disregaded variables (her always used for composition)</TD></TR>
+<TR><TD>f_nonlinear_data</TD><TD>Additional data for the function</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>= f_nonlinear(x)</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE solve<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.OneNonLinearEquation.f_nonlinearI.png" ALT="Modelica.Media.Common.OneNonLinearEquation.solve" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.OneNonLinearEquation.solve"></A><A HREF="Modelica_Media_Common_OneNonLinearEquation.html#Modelica.Media.Common.OneNonLinearEquation"
+>Modelica.Media.Common.OneNonLinearEquation</A>.solve</H2>
+<B>Solve f_nonlinear(x_zero)=y_zero; f_nonlinear(x_min) - y_zero and f_nonlinear(x_max)-y_zero must have different sign</B><p>
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y_zero</TD><TD>Determine x_zero, such that f_nonlinear(x_zero) = y_zero</TD></TR>
+<TR><TD>x_min</TD><TD>Minimum value of x</TD></TR>
+<TR><TD>x_max</TD><TD>Maximum value of x</TD></TR>
+<TR><TD>pressure</TD><TD>disregaded variables (here always used for pressure)</TD></TR>
+<TR><TD>X[:]</TD><TD>disregaded variables (here always used for composition)</TD></TR>
+<TR><TD>f_nonlinear_data</TD><TD>Additional data for function f_nonlinear</TD></TR>
+<TR><TD>x_tol</TD><TD>Relative tolerance of the result</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>x_zero</TD><TD>f_nonlinear(x_zero) = y_zero</TD></TR>
+</TABLE>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Thu Jan 29 17:31:14 2009.
+</address></BODY>
+</HTML>

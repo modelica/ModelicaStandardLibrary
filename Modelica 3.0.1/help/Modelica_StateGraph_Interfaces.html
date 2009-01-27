@@ -1,0 +1,295 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.StateGraph.Interfaces</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Connectors and partial models&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Interfaces<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.StateGraph.Interfaces"></A><A HREF="Modelica_StateGraph.html#Modelica.StateGraph"
+>Modelica.StateGraph</A>.Interfaces</H2>
+<B>Connectors and partial models</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Library.html#Modelica.Icons.Library"
+>Modelica.Icons.Library</A> (Icon for library).
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.StateGraph.Interfaces.Step_inS.png" ALT="Modelica.StateGraph.Interfaces.Step_in" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces.Step_in"
+>Step_in</A>
+</TD><TD>Input port of a step</TD></TR>
+<TR><TD><IMG SRC="Modelica.StateGraph.Interfaces.Step_outS.png" ALT="Modelica.StateGraph.Interfaces.Step_out" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces.Step_out"
+>Step_out</A>
+</TD><TD>Output port of a step</TD></TR>
+<TR><TD><IMG SRC="Modelica.StateGraph.Interfaces.Transition_inS.png" ALT="Modelica.StateGraph.Interfaces.Transition_in" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces.Transition_in"
+>Transition_in</A>
+</TD><TD>Input port of a transition</TD></TR>
+<TR><TD><IMG SRC="Modelica.StateGraph.Interfaces.Transition_outS.png" ALT="Modelica.StateGraph.Interfaces.Transition_out" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces.Transition_out"
+>Transition_out</A>
+</TD><TD>Output port of a transition</TD></TR>
+<TR><TD><IMG SRC="Modelica.StateGraph.Interfaces.CompositeStep_resumeS.png" ALT="Modelica.StateGraph.Interfaces.CompositeStep_resume" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces.CompositeStep_resume"
+>CompositeStep_resume</A>
+</TD><TD>Input port of a step (used for resume connector of a CompositeStep)</TD></TR>
+<TR><TD><IMG SRC="Modelica.StateGraph.Interfaces.CompositeStep_suspendS.png" ALT="Modelica.StateGraph.Interfaces.CompositeStep_suspend" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces.CompositeStep_suspend"
+>CompositeStep_suspend</A>
+</TD><TD>Output port of a step (used for suspend connector of a CompositeStep)</TD></TR>
+<TR><TD><IMG SRC="Modelica.StateGraph.Interfaces.CompositeStepStatePort_inS.png" ALT="Modelica.StateGraph.Interfaces.CompositeStepStatePort_in" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces.CompositeStepStatePort_in"
+>CompositeStepStatePort_in</A>
+</TD><TD>Communication port between a CompositeStep and the ordinary steps within the CompositeStep (suspend/resume are inputs)</TD></TR>
+<TR><TD><IMG SRC="Modelica.StateGraph.Interfaces.CompositeStepStatePort_inS.png" ALT="Modelica.StateGraph.Interfaces.CompositeStepStatePort_out" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces.CompositeStepStatePort_out"
+>CompositeStepStatePort_out</A>
+</TD><TD>Communication port between a CompositeStep and the ordinary steps within the CompositeStep (suspend/resume are outputs)</TD></TR>
+<TR><TD><IMG SRC="Modelica.StateGraph.Interfaces.PartialStepS.png" ALT="Modelica.StateGraph.Interfaces.PartialStep" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces.PartialStep"
+>PartialStep</A>
+</TD><TD>Partial step with one input and one output transition port</TD></TR>
+<TR><TD><IMG SRC="Modelica.StateGraph.Interfaces.PartialTransitionS.png" ALT="Modelica.StateGraph.Interfaces.PartialTransition" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces.PartialTransition"
+>PartialTransition</A>
+</TD><TD>Partial transition with input and output connections</TD></TR>
+<TR><TD><IMG SRC="Modelica.StateGraph.Interfaces.PartialStateGraphIconS.png" ALT="Modelica.StateGraph.Interfaces.PartialStateGraphIcon" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces.PartialStateGraphIcon"
+>PartialStateGraphIcon</A>
+</TD><TD>Icon for a StateGraph object</TD></TR>
+<TR><TD><A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces.CompositeStepState"
+>CompositeStepState</A>
+</TD><TD>Communication channel between CompositeSteps and steps in the CompositeStep</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Step_in<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.StateGraph.Interfaces.Step_inI.png" ALT="Modelica.StateGraph.Interfaces.Step_in" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.StateGraph.Interfaces.Step_in"></A><A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces"
+>Modelica.StateGraph.Interfaces</A>.Step_in</H2>
+<B>Input port of a step</B><p>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+
+<H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>occupied</TD><TD>true, if step is active</TD></TR>
+<TR><TD>set</TD><TD>true, if transition fires and step is activated</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Step_out<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.StateGraph.Interfaces.Step_outI.png" ALT="Modelica.StateGraph.Interfaces.Step_out" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.StateGraph.Interfaces.Step_out"></A><A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces"
+>Modelica.StateGraph.Interfaces</A>.Step_out</H2>
+<B>Output port of a step</B><p>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+
+<H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>available</TD><TD>true, if step is active</TD></TR>
+<TR><TD>reset</TD><TD>true, if transition fires and step is deactivated</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Transition_in<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.StateGraph.Interfaces.Transition_inI.png" ALT="Modelica.StateGraph.Interfaces.Transition_in" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.StateGraph.Interfaces.Transition_in"></A><A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces"
+>Modelica.StateGraph.Interfaces</A>.Transition_in</H2>
+<B>Input port of a transition</B><p>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+
+<H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>available</TD><TD>true, if step connected to the transition input is active</TD></TR>
+<TR><TD>reset</TD><TD>true, if transition fires and the step connected to the transition input is deactivated</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Transition_out<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.StateGraph.Interfaces.Transition_outI.png" ALT="Modelica.StateGraph.Interfaces.Transition_out" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.StateGraph.Interfaces.Transition_out"></A><A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces"
+>Modelica.StateGraph.Interfaces</A>.Transition_out</H2>
+<B>Output port of a transition</B><p>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+
+<H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>occupied</TD><TD>true, if step connected to the transition output is active</TD></TR>
+<TR><TD>set</TD><TD>true, if transition fires and step connected to the transition output becomes active</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CompositeStep_resume<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.StateGraph.Interfaces.CompositeStep_resumeI.png" ALT="Modelica.StateGraph.Interfaces.CompositeStep_resume" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.StateGraph.Interfaces.CompositeStep_resume"></A><A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces"
+>Modelica.StateGraph.Interfaces</A>.CompositeStep_resume</H2>
+<B>Input port of a step (used for resume connector of a CompositeStep)</B><p>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+
+<H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>occupied</TD><TD>true, if step is active</TD></TR>
+<TR><TD>set</TD><TD>true, if transition fires and step is activated</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CompositeStep_suspend<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.StateGraph.Interfaces.CompositeStep_suspendI.png" ALT="Modelica.StateGraph.Interfaces.CompositeStep_suspend" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.StateGraph.Interfaces.CompositeStep_suspend"></A><A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces"
+>Modelica.StateGraph.Interfaces</A>.CompositeStep_suspend</H2>
+<B>Output port of a step (used for suspend connector of a CompositeStep)</B><p>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+
+<H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>available</TD><TD>true, if step is active</TD></TR>
+<TR><TD>reset</TD><TD>true, if transition fires and step is deactived</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CompositeStepStatePort_in<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.StateGraph.Interfaces.CompositeStepStatePort_in"></A><A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces"
+>Modelica.StateGraph.Interfaces</A>.CompositeStepStatePort_in</H2>
+<B>Communication port between a CompositeStep and the ordinary steps within the CompositeStep (suspend/resume are inputs)</B><p>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+
+<H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>suspend</TD><TD>= true, if suspend transition of CompositeStep fires</TD></TR>
+<TR><TD>resume</TD><TD>= true, if resume transition of CompositeStep fires</TD></TR>
+<TR><TD>activeSteps</TD><TD>Number of active steps in the CompositeStep</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CompositeStepStatePort_out<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.StateGraph.Interfaces.CompositeStepStatePort_out"></A><A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces"
+>Modelica.StateGraph.Interfaces</A>.CompositeStepStatePort_out</H2>
+<B>Communication port between a CompositeStep and the ordinary steps within the CompositeStep (suspend/resume are outputs)</B><p>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+
+<H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>suspend</TD><TD>= true, if suspend transition of CompositeStep fires</TD></TR>
+<TR><TD>resume</TD><TD>= true, if resume transition of CompositeStep fires</TD></TR>
+<TR><TD>activeSteps</TD><TD>Number of active steps in the CompositeStep</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialStep<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.StateGraph.Interfaces.PartialStepI.png" ALT="Modelica.StateGraph.Interfaces.PartialStep" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.StateGraph.Interfaces.PartialStep"></A><A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces"
+>Modelica.StateGraph.Interfaces</A>.PartialStep</H2>
+<B>Partial step with one input and one output transition port</B><p>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>nIn</TD><TD>Number of input connections</TD></TR>
+<TR><TD>nOut</TD><TD>Number of output connections</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>inPort[nIn]</TD><TD>Vector of step input connectors</TD></TR>
+<TR><TD>outPort[nOut]</TD><TD>Vector of step output connectors</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialTransition<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.StateGraph.Interfaces.PartialTransitionI.png" ALT="Modelica.StateGraph.Interfaces.PartialTransition" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.StateGraph.Interfaces.PartialTransition"></A><A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces"
+>Modelica.StateGraph.Interfaces</A>.PartialTransition</H2>
+<B>Partial transition with input and output connections</B><p>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=2>Timer</TD></TR>
+<TR><TD>enableTimer</TD><TD>= true, if timer is enabled</TD></TR>
+<TR><TD>waitTime</TD><TD>Wait time before transition fires [s]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>inPort</TD><TD>Vector of transition input connectors</TD></TR>
+<TR><TD>outPort</TD><TD>Vector of transition output connectors</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialStateGraphIcon<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.StateGraph.Interfaces.PartialStateGraphIconI.png" ALT="Modelica.StateGraph.Interfaces.PartialStateGraphIcon" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.StateGraph.Interfaces.PartialStateGraphIcon"></A><A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces"
+>Modelica.StateGraph.Interfaces</A>.PartialStateGraphIcon</H2>
+<B>Icon for a StateGraph object</B><p>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CompositeStepState<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.StateGraph.Interfaces.CompositeStepState"></A><A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces"
+>Modelica.StateGraph.Interfaces</A>.CompositeStepState</H2>
+<B>Communication channel between CompositeSteps and steps in the CompositeStep</B><p>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>subgraphStatePort</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Thu Jan 29 17:33:05 2009.
+</address></BODY>
+</HTML>

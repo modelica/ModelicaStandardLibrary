@@ -1,0 +1,295 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Digital.Sources</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Time-dependend digital signal sources&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Sources<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Digital.Sources"></A><A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</A>.Sources</H2>
+<B>Time-dependend digital signal sources</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE><P>
+
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.Sources.SetS.png" ALT="Modelica.Electrical.Digital.Sources.Set" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Sources.html#Modelica.Electrical.Digital.Sources.Set"
+>Set</A>
+</TD><TD>Digital Set Source</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.Sources.StepS.png" ALT="Modelica.Electrical.Digital.Sources.Step" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Sources.html#Modelica.Electrical.Digital.Sources.Step"
+>Step</A>
+</TD><TD>Digital Step Source</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.Sources.TableS.png" ALT="Modelica.Electrical.Digital.Sources.Table" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Sources.html#Modelica.Electrical.Digital.Sources.Table"
+>Table</A>
+</TD><TD>Digital Tabular Source</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.Sources.PulseS.png" ALT="Modelica.Electrical.Digital.Sources.Pulse" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Sources.html#Modelica.Electrical.Digital.Sources.Pulse"
+>Pulse</A>
+</TD><TD>Digital Pulse Source</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Digital.Sources.ClockS.png" ALT="Modelica.Electrical.Digital.Sources.Clock" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Sources.html#Modelica.Electrical.Digital.Sources.Clock"
+>Clock</A>
+</TD><TD>Digital Clock Source</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Set<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.Sources.SetI.png" ALT="Modelica.Electrical.Digital.Sources.Set" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Sources.Set"></A><A HREF="Modelica_Electrical_Digital_Sources.html#Modelica.Electrical.Digital.Sources"
+>Modelica.Electrical.Digital.Sources</A>.Set</H2>
+<B>Digital Set Source</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<P>
+Sets a nine valued digital signal, which is specified by the <i>setval</i> parameter.
+</P>
+<P>
+To specify <i>setval</i>, the integer code has to be used.
+</P>
+<p><b>Code Table</b></p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign="top"><b>Logic value</b></td>
+      <td valign="top"><b>Integer code</b></td>
+      <td valign="top"><b>Meaning</b></td>
+  </tr>
+
+  <tr><td valign="top">'U'</td> <td valign="top">1</td> <td valign="top">Uninitialized</td></tr>
+  <tr><td valign="top">'X'</td> <td valign="top">2</td> <td valign="top">Forcing Unknown</td></tr>
+  <tr><td valign="top">'0'</td> <td valign="top">3</td> <td valign="top">Forcing 0</td></tr>
+  <tr><td valign="top">'1'</td> <td valign="top">4</td> <td valign="top">Forcing 1</td></tr>
+  <tr><td valign="top">'Z'</td> <td valign="top">5</td> <td valign="top">High Impedance</td></tr>
+  <tr><td valign="top">'W'</td> <td valign="top">6</td> <td valign="top">Weak Unknown</td></tr>
+  <tr><td valign="top">'L'</td> <td valign="top">7</td> <td valign="top">Weak 0</td></tr>
+  <tr><td valign="top">'H'</td> <td valign="top">8</td> <td valign="top">Weak 1</td></tr>
+  <tr><td valign="top">'-'</td> <td valign="top">9</td> <td valign="top">Don't care</td></tr>
+</table>
+
+<P>
+If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.Logic; </b> <br>
+they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
+</P>
+<pre>
+</PRE>
+
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>x</TD><TD>Logic value to be set</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Step<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.Sources.StepI.png" ALT="Modelica.Electrical.Digital.Sources.Step" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Sources.Step"></A><A HREF="Modelica_Electrical_Digital_Sources.html#Modelica.Electrical.Digital.Sources"
+>Modelica.Electrical.Digital.Sources</A>.Step</H2>
+<B>Digital Step Source</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The step source output signal steps from the value <i>before</i> to the value <i>after</i>
+at the time <i>stepTime</i>.
+</P>
+<P>
+To specify the logic value parameters, the integer code has to be used.
+</P>
+<p><b>Code Table</b></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign="top"><b>Logic value</b></td>
+      <td valign="top"><b>Integer code</b></td>
+      <td valign="top"><b>Meaning</b></td>
+  </tr>
+
+  <tr><td valign="top">'U'</td> <td valign="top">1</td> <td valign="top">Uninitialized</td></tr>
+  <tr><td valign="top">'X'</td> <td valign="top">2</td> <td valign="top">Forcing Unknown</td></tr>
+  <tr><td valign="top">'0'</td> <td valign="top">3</td> <td valign="top">Forcing 0</td></tr>
+  <tr><td valign="top">'1'</td> <td valign="top">4</td> <td valign="top">Forcing 1</td></tr>
+  <tr><td valign="top">'Z'</td> <td valign="top">5</td> <td valign="top">High Impedance</td></tr>
+  <tr><td valign="top">'W'</td> <td valign="top">6</td> <td valign="top">Weak Unknown</td></tr>
+  <tr><td valign="top">'L'</td> <td valign="top">7</td> <td valign="top">Weak 0</td></tr>
+  <tr><td valign="top">'H'</td> <td valign="top">8</td> <td valign="top">Weak 1</td></tr>
+  <tr><td valign="top">'-'</td> <td valign="top">9</td> <td valign="top">Don't care</td></tr>
+</table>
+<P>
+If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.Logic; </b> <br>
+they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
+</P>
+<pre>
+</PRE>
+
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>before</TD><TD>Logic value before step</TD></TR>
+<TR><TD>after</TD><TD>Logic value after step</TD></TR>
+<TR><TD>stepTime</TD><TD>step time</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Table<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.Sources.TableI.png" ALT="Modelica.Electrical.Digital.Sources.Table" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Sources.Table"></A><A HREF="Modelica_Electrical_Digital_Sources.html#Modelica.Electrical.Digital.Sources"
+>Modelica.Electrical.Digital.Sources</A>.Table</H2>
+<B>Digital Tabular Source</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The table source output signal <i>y</i> steps to the values of the  <i>x</i> table at the corresponding
+timepoints in the <i>t</i> table. <br>The initial value is specified by <i>y0</i>.
+</P>
+<P>
+To specify the logic value parameters, the integer code has to be used.
+</P>
+<p><b>Code Table</b></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign="top"><b>Logic value</b></td>
+      <td valign="top"><b>Integer code</b></td>
+      <td valign="top"><b>Meaning</b></td>
+  </tr>
+
+  <tr><td valign="top">'U'</td> <td valign="top">1</td> <td valign="top">Uninitialized</td></tr>
+  <tr><td valign="top">'X'</td> <td valign="top">2</td> <td valign="top">Forcing Unknown</td></tr>
+  <tr><td valign="top">'0'</td> <td valign="top">3</td> <td valign="top">Forcing 0</td></tr>
+  <tr><td valign="top">'1'</td> <td valign="top">4</td> <td valign="top">Forcing 1</td></tr>
+  <tr><td valign="top">'Z'</td> <td valign="top">5</td> <td valign="top">High Impedance</td></tr>
+  <tr><td valign="top">'W'</td> <td valign="top">6</td> <td valign="top">Weak Unknown</td></tr>
+  <tr><td valign="top">'L'</td> <td valign="top">7</td> <td valign="top">Weak 0</td></tr>
+  <tr><td valign="top">'H'</td> <td valign="top">8</td> <td valign="top">Weak 1</td></tr>
+  <tr><td valign="top">'-'</td> <td valign="top">9</td> <td valign="top">Don't care</td></tr>
+</table>
+<P>
+If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.Logic; </b> <br>
+they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
+</P>
+<pre>
+</PRE>
+
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>x[:]</TD><TD>vector of values</TD></TR>
+<TR><TD>t[size(x, 1)]</TD><TD>vector of corresponding time points</TD></TR>
+<TR><TD>y0</TD><TD>initial output value</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Pulse<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.Sources.PulseI.png" ALT="Modelica.Electrical.Digital.Sources.Pulse" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Sources.Pulse"></A><A HREF="Modelica_Electrical_Digital_Sources.html#Modelica.Electrical.Digital.Sources"
+>Modelica.Electrical.Digital.Sources</A>.Pulse</H2>
+<B>Digital Pulse Source</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The pulse source forms pulses between the  <i>quiet</i> value and the <i>pulse</i> value.
+The pulse length <i>width</i> is specified in percent of the period length <i>period</i>.
+The number of periods is specified by <i>nperiod</i>. If <i>nperiod</i> is less than zero,
+the number of periods is unlimited.
+</P>
+<P>
+To specify the logic value parameters, the integer code has to be used.
+</P>
+<p><b>Code Table</b></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign="top"><b>Logic value</b></td>
+      <td valign="top"><b>Integer code</b></td>
+      <td valign="top"><b>Meaning</b></td>
+  </tr>
+
+  <tr><td valign="top">'U'</td> <td valign="top">1</td> <td valign="top">Uninitialized</td></tr>
+  <tr><td valign="top">'X'</td> <td valign="top">2</td> <td valign="top">Forcing Unknown</td></tr>
+  <tr><td valign="top">'0'</td> <td valign="top">3</td> <td valign="top">Forcing 0</td></tr>
+  <tr><td valign="top">'1'</td> <td valign="top">4</td> <td valign="top">Forcing 1</td></tr>
+  <tr><td valign="top">'Z'</td> <td valign="top">5</td> <td valign="top">High Impedance</td></tr>
+  <tr><td valign="top">'W'</td> <td valign="top">6</td> <td valign="top">Weak Unknown</td></tr>
+  <tr><td valign="top">'L'</td> <td valign="top">7</td> <td valign="top">Weak 0</td></tr>
+  <tr><td valign="top">'H'</td> <td valign="top">8</td> <td valign="top">Weak 1</td></tr>
+  <tr><td valign="top">'-'</td> <td valign="top">9</td> <td valign="top">Don't care</td></tr>
+</table>
+<P>
+If the logic values are imported by <br><b> import L = Modelica.Electrical.Digital.Interfaces.Logic; </b> <br>
+they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
+</P>
+<pre>
+</PRE>
+
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>width</TD><TD>Widths of pulses in % of periods</TD></TR>
+<TR><TD>period</TD><TD>Time for one period [s]</TD></TR>
+<TR><TD>startTime</TD><TD>Output = quiet for time &lt; startTime [s]</TD></TR>
+<TR><TD>pulse</TD><TD>pulsed value</TD></TR>
+<TR><TD>quiet</TD><TD>quiet value</TD></TR>
+<TR><TD>nperiod</TD><TD>Number of periods (&lt; 0 means infinite number of periods)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Clock<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Digital.Sources.ClockI.png" ALT="Modelica.Electrical.Digital.Sources.Clock" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Digital.Sources.Clock"></A><A HREF="Modelica_Electrical_Digital_Sources.html#Modelica.Electrical.Digital.Sources"
+>Modelica.Electrical.Digital.Sources</A>.Clock</H2>
+<B>Digital Clock Source</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The clock source forms pulses between the  <i>'0'</i> value (forcing 0) and the <i>'1'</i> value (forcing 1).
+The pulse length <i>width</i> is specified in percent of the period length <i>period</i>.
+The number of periods is unlimited. The first pulse starts at startTime.
+</P>
+<P> The clock source is a special but often used variant of the pulse source.
+</P>
+<pre>
+</PRE>
+
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>startTime</TD><TD>Output = offset for time &lt; startTime [s]</TD></TR>
+<TR><TD>period</TD><TD>Time for one period [s]</TD></TR>
+<TR><TD>width</TD><TD>Width of pulses in % of period</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
+</TABLE>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Thu Jan 29 17:26:32 2009.
+</address></BODY>
+</HTML>

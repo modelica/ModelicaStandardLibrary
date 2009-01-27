@@ -1,0 +1,88 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Media.IdealGases.Common</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Common packages and data for the ideal gas models&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Common<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.IdealGases.Common"></A><A HREF="Modelica_Media_IdealGases.html#Modelica.Media.IdealGases"
+>Modelica.Media.IdealGases</A>.Common</H2>
+<B>Common packages and data for the ideal gas models</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Library.html#Modelica.Icons.Library"
+>Modelica.Icons.Library</A> (Icon for library).
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Media.IdealGases.Common.DataRecordS.png" ALT="Modelica.Media.IdealGases.Common.DataRecord" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_IdealGases_Common.html#Modelica.Media.IdealGases.Common.DataRecord"
+>DataRecord</A>
+</TD><TD>Coefficient data record for properties of ideal gases based on NASA source</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.IdealGases.Common.SingleGasNasaS.png" ALT="Modelica.Media.IdealGases.Common.SingleGasNasa" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_IdealGases_Common_SingleGasNasa.html#Modelica.Media.IdealGases.Common.SingleGasNasa"
+>SingleGasNasa</A>
+</TD><TD>Medium model of an ideal gas based on NASA source</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.IdealGases.Common.SingleGasNasaS.png" ALT="Modelica.Media.IdealGases.Common.MixtureGasNasa" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_IdealGases_Common_MixtureGasNasa.html#Modelica.Media.IdealGases.Common.MixtureGasNasa"
+>MixtureGasNasa</A>
+</TD><TD>Medium model of a mixture of ideal gases based on NASA source</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.IdealGases.Common.SingleGasNasaS.png" ALT="Modelica.Media.IdealGases.Common.FluidData" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_IdealGases_Common_FluidData.html#Modelica.Media.IdealGases.Common.FluidData"
+>FluidData</A>
+</TD><TD>Critical data, dipole moments and related data</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.IdealGases.Common.SingleGasNasaS.png" ALT="Modelica.Media.IdealGases.Common.SingleGasesData" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_IdealGases_Common_SingleGasesData.html#Modelica.Media.IdealGases.Common.SingleGasesData"
+>SingleGasesData</A>
+</TD><TD>Ideal gas data based on the NASA Glenn coefficients</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DataRecord<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.IdealGases.Common.DataRecordI.png" ALT="Modelica.Media.IdealGases.Common.DataRecord" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.IdealGases.Common.DataRecord"></A><A HREF="Modelica_Media_IdealGases_Common.html#Modelica.Media.IdealGases.Common"
+>Modelica.Media.IdealGases.Common</A>.DataRecord</H2>
+<B>Coefficient data record for properties of ideal gases based on NASA source</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This data record contains the coefficients for the
+ideal gas equations according to:
+</p>
+<blockquote>
+  <p>McBride B.J., Zehe M.J., and Gordon S. (2002): <b>NASA Glenn Coefficients
+  for Calculating Thermodynamic Properties of Individual Species</b>. NASA
+  report TP-2002-211556</p>
+</blockquote>
+<p>
+The equations have the following structure:
+</p>
+<IMG SRC="../Images/Media/IdealGases/singleEquations.png">
+<p>
+The polynomials for h(T) and s0(T) are derived via integration from the one for cp(T)  and contain the integration constants b1, b2 that define the reference specific enthalpy and entropy. For entropy differences the reference pressure p0 is arbitrary, but not for absolute entropies. It is chosen as 1 standard atmosphere (101325 Pa).
+</p>
+<p>
+For most gases, the region of validity is from 200 K to 6000 K.
+The equations are splitted into two regions that are separated
+by Tlimit (usually 1000 K). In both regions the gas is described
+by the data above. The two branches are continuous and in most
+gases also differentiable at Tlimit.
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for a record).
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Thu Jan 29 17:31:25 2009.
+</address></BODY>
+</HTML>

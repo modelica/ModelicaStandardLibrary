@@ -1,0 +1,398 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Math.Vectors</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Library of functions operating on vectors&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Vectors<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Math.Vectors"></A><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.Vectors</H2>
+<B>Library of functions operating on vectors</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<h4>Library content</h4>
+<p>
+This library provides functions operating on vectors:
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><th><i>Function</i></th>
+      <th><i>Description</i></th>
+  </tr>
+  <tr><td valign="top"><A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.isEqual"
+>isEqual</a>(v1, v2)</td>
+      <td valign="top">Determines whether two vectors have the same size and elements</td>
+  </tr>
+  <tr><td valign="top"><A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.norm"
+>norm</a>(v,p)</td>
+      <td valign="top">p-norm of vector v</td>
+  </tr>
+  <tr><td valign="top"><A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.length"
+>length</a>(v)</td>
+      <td valign="top">Length of vector v (= norm(v,2), but inlined and therefore usable in
+          symbolic manipulations) </td>
+  </tr>
+  <tr><td valign="top"><A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.normalize"
+>normalize</a>(v)</td>
+      <td valign="top">Return normalized vector such that length = 1 and prevent
+          zero-division for zero vector</td>
+  </tr>
+  <tr><td valign="top"><A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.reverse"
+>reverse</a>(v)</td>
+      <td valign="top">Reverse vector elements</td>
+  </tr>
+  <tr><td valign="top"><A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.sort"
+>sort</a>(v)</td>
+      <td valign="top">Sort elements of vector in ascending or descending order</td>
+  </tr>
+</table>
+<h4>See also</h4>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Matrices</a>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Library.html#Modelica.Icons.Library"
+>Modelica.Icons.Library</A> (Icon for library).
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Math.Vectors.isEqualS.png" ALT="Modelica.Math.Vectors.isEqual" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.isEqual"
+>isEqual</A>
+</TD><TD>Determine if two Real vectors are numerically identical</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Vectors.isEqualS.png" ALT="Modelica.Math.Vectors.norm" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.norm"
+>norm</A>
+</TD><TD>Return the p-norm of a vector</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Vectors.isEqualS.png" ALT="Modelica.Math.Vectors.length" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.length"
+>length</A>
+</TD><TD>Return length of a vectorReturn length of a vector (better as norm(), if further symbolic processing is performed)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Vectors.isEqualS.png" ALT="Modelica.Math.Vectors.normalize" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.normalize"
+>normalize</A>
+</TD><TD>Return normalized vector such that length = 1Return normalized vector such that length = 1 and prevent zero-division for zero vector</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Vectors.isEqualS.png" ALT="Modelica.Math.Vectors.reverse" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.reverse"
+>reverse</A>
+</TD><TD>Reverse vector elements (e.g. v[1] becomes last element)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Vectors.isEqualS.png" ALT="Modelica.Math.Vectors.sort" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.sort"
+>sort</A>
+</TD><TD>Sort elements of vector in ascending or descending order</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE isEqual<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Vectors.isEqualI.png" ALT="Modelica.Math.Vectors.isEqual" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Vectors.isEqual"></A><A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
+>Modelica.Math.Vectors</A>.isEqual</H2>
+<B>Determine if two Real vectors are numerically identical</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.<b>isEqual</b>(v1, v2);
+Vectors.<b>isEqual</b>(v1, v2, eps=0);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call "<code>Vectors.isEqual(v1, v2)</code>" returns <b>true</b>,
+if the two Real vectors v1 and v2 have the same dimensions and
+the same elements. Otherwise the function
+returns <b>false</b>. Two elements e1 and e2 of the two vectors
+are checked on equality by the test "abs(e1-e2) &le; eps", where "eps"
+can be provided as third argument of the function. Default is "eps = 0".
+</p>Modelica.Utilities.Strings.isEqual
+<h4>Example</h4>
+<blockquote><pre>
+  Real v1[3] = {1, 2, 3};
+  Real v2[3] = {1, 2, 3, 4};
+  Real v3[3] = {1, 2, 3.0001};
+  Boolean result;
+<b>algorithm</b>
+  result := Vectors.isEqual(v1,v2);     // = <b>false</b>
+  result := Vectors.isEqual(v1,v3);     // = <b>false</b>
+  result := Vectors.isEqual(v1,v1);     // = <b>true</b>
+  result := Vectors.isEqual(v1,v3,0.1); // = <b>true</b>
+</pre></blockquote>
+<h4>See also</h4>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.isEqual"
+>Matrices.isEqual</a>,
+<A HREF="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.isEqual"
+>Strings.isEqual</a>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for a function).
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>v1[:]</TD><TD>First vector</TD></TR>
+<TR><TD>v2[:]</TD><TD>Second vector (may have different length as v1</TD></TR>
+<TR><TD>eps</TD><TD>Two elements e1 and e2 of the two vectors are identical if abs(e1-e2) &lt;= eps</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>result</TD><TD>= true, if vectors have the same length and the same elements</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE norm<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Vectors.isEqualI.png" ALT="Modelica.Math.Vectors.norm" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Vectors.norm"></A><A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
+>Modelica.Math.Vectors</A>.norm</H2>
+<B>Return the p-norm of a vector</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.<b>norm</b>(v);
+Vectors.<b>norm</b>(v,p=2);   // 1 &le; p &le; &#8734;
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call "<code>Vectors.<b>norm</b>(v)</code>" returns the
+<b>Euclidean norm</b> "<code>sqrt(v*v)</code>" of vector v.
+With the optional
+second argument "p", any other p-norm can be computed:
+</p>
+<center>
+<IMG SRC="../Images/Math/vectorNorm.png" ALT="function Vectors.norm">
+</center>
+<p>
+Besides the Euclidean norm (p=2), also the 1-norm and the
+infinity-norm are sometimes used:
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign="top"><b>1-norm</b></td>
+      <td valign="top">= sum(abs(v))</td>
+      <td valign="top"><b>norm</b>(v,1)</td>
+  </tr>
+  <tr><td valign="top"><b>2-norm</b></td>
+      <td valign="top">= sqrt(v*v)</td>
+      <td valign="top"><b>norm</b>(v) or <b>norm</b>(v,2)</td>
+  </tr>
+  <tr><td valign="top"><b>infinity-norm</b></td>
+      <td valign="top">= max(abs(v))</td>
+      <td valign="top"><b>norm</b>(v,Modelica.Constants.<b>inf</b>)</td>
+  </tr>
+</table>
+<p>
+Note, for any vector norm the following inequality holds:
+</p>
+<blockquote><pre>
+<b>norm</b>(v1+v2,p) &le; <b>norm</b>(v1,p) + <b>norm</b>(v2,p)
+</pre></blockquote>
+<h4>Example</h4>
+<blockquote><pre>
+  v = {2, -4, -2, -1};
+  <b>norm</b>(v,1);    // = 9
+  <b>norm</b>(v,2);    // = 5
+  <b>norm</b>(v);      // = 5
+  <b>norm</b>(v,10.5); // = 4.00052597412635
+  <b>norm</b>(v,Modelica.Constants.inf);  // = 4
+</pre></blockquote>
+<h4>See also</h4>
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.norm"
+>Matrices.norm</a>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for a function).
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>v[:]</TD><TD>Vector</TD></TR>
+<TR><TD>p</TD><TD>Type of p-norm (often used: 1, 2, or Modelica.Constants.inf)</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>result</TD><TD>p-norm of vector v</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE length<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Vectors.isEqualI.png" ALT="Modelica.Math.Vectors.length" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Vectors.length"></A><A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
+>Modelica.Math.Vectors</A>.length</H2>
+<B>Return length of a vectorReturn length of a vector (better as norm(), if further symbolic processing is performed)</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.<b>length</b>(v);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call "<code>Vectors.<b>length</b>(v)</code>" returns the
+<b>Euclidean length</b> "<code>sqrt(v*v)</code>" of vector v.
+The function call is equivalent to Vectors.norm(v). The advantage of
+length(v) over norm(v)"is that function length(..) is implemented
+in one statement and therefore the function is usually automatically
+inlined. Further symbolic processing is therefore possible, which is
+not the case with function norm(..).
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  v = {2, -4, -2, -1};
+  <b>length</b>(v);  // = 5
+</pre></blockquote>
+<h4>See also</h4>
+<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.norm"
+>Vectors.norm</a>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for a function).
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>v[:]</TD><TD>Vector</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>result</TD><TD>Length of vector v</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE normalize<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Vectors.isEqualI.png" ALT="Modelica.Math.Vectors.normalize" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Vectors.normalize"></A><A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
+>Modelica.Math.Vectors</A>.normalize</H2>
+<B>Return normalized vector such that length = 1Return normalized vector such that length = 1 and prevent zero-division for zero vector</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.<b>normalize</b>(v);
+Vectors.<b>normalize</b>(v,eps=100*Modelica.Constants.eps);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call "<code>Vectors.<b>normalize</b>(v)</code>" returns the
+<b>unit vector</b> "<code>v/length(v)</code>" of vector v.
+If length(v) is close to zero (more precisely, if length(v) &lt; eps),
+v/eps is returned in order to avoid
+a division by zero. For many applications this is useful, because
+often the unit vector <b>e</b> = <b>v</b>/length(<b>v</b>) is used to compute
+a vector x*<b>e</b>, where the scalar x is in the order of length(<b>v</b>),
+i.e., x*<b>e</b> is small, when length(<b>v</b>) is small and then
+it is fine to replace <b>e</b> by <b>v</b> to avoid a division by zero.
+</p>
+<p>
+Since the function is implemented in one statement,
+it is usually inlined and therefore symbolic processing is
+possible.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  <b>normalize</b>({1,2,3});  // = {0.267, 0.534, 0.802}
+  <b>normalize</b>({0,0,0});  // = {0,0,0}
+</pre></blockquote>
+<h4>See also</h4>
+<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.length"
+>Vectors.length</a>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for a function).
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>v[:]</TD><TD>Vector</TD></TR>
+<TR><TD>eps</TD><TD>if |v| &lt; eps then result = v/eps</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>result[size(v, 1)]</TD><TD>Input vector v normalized to length=1</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE reverse<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Vectors.isEqualI.png" ALT="Modelica.Math.Vectors.reverse" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Vectors.reverse"></A><A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
+>Modelica.Math.Vectors</A>.reverse</H2>
+<B>Reverse vector elements (e.g. v[1] becomes last element)</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.<b>reverse</b>(v);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call "<code>Vectors.<b>reverse</b>(v)</code>" returns the
+vector elements in reverse order.
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  <b>reverse</b>({1,2,3,4});  // = {4,3,2,1}
+</pre></blockquote>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for a function).
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>v[:]</TD><TD>Vector</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>result[size(v, 1)]</TD><TD>Elements of vector v in reversed order</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE sort<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.Vectors.isEqualI.png" ALT="Modelica.Math.Vectors.sort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.Vectors.sort"></A><A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
+>Modelica.Math.Vectors</A>.sort</H2>
+<B>Sort elements of vector in ascending or descending order</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+           sorted_v = Vectors.<b>sort</b>(v);
+(sorted_v, indices) = Vectors.<b>sort</b>(v, ascending=true);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Function <b>sort</b>(..) sorts a Real vector v
+in ascending order and returns the result in sorted_v.
+If the optional argument "ascending" is <b>false</b>, the vector
+is sorted in descending order. In the optional second
+output argument the indices of the sorted vector with respect
+to the original vector are given, such that sorted_v = v[indices].
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  (v2, i2) := Vectors.sort({-1, 8, 3, 6, 2});
+       -> v2 = {-1, 2, 3, 6, 8}
+          i2 = {1, 5, 3, 4, 2}
+</pre></blockquote>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for a function).
+<H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>v[:]</TD><TD>Vector to be sorted</TD></TR>
+<TR><TD>ascending</TD><TD>= true if ascending order, otherwise descending order</TD></TR>
+</TABLE>
+<H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>sorted_v[size(v, 1)]</TD><TD>Sorted vector</TD></TR>
+<TR><TD>indices[size(v, 1)]</TD><TD>sorted_v = v[indices]</TD></TR>
+</TABLE>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Thu Jan 29 17:26:59 2009.
+</address></BODY>
+</HTML>

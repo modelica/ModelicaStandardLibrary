@@ -1,0 +1,725 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Analog.Semiconductors</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Semiconductor devices such as diode, MOS and bipolar transistor&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Semiconductors<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Analog.Semiconductors"></A><A HREF="Modelica_Electrical_Analog.html#Modelica.Electrical.Analog"
+>Modelica.Electrical.Analog</A>.Semiconductors</H2>
+<B>Semiconductor devices such as diode, MOS and bipolar transistor</B>
+<P>
+<H3>Information</H3>
+<PRE>
+</pre>
+<p>
+This package contains semiconductor devices:
+<ul>
+<li>diode</li>
+<li>MOS transistors</li>
+<li>bipolar transistors</li>
+<li>diode, MOS and bipolar transistors with temperature
+    dependent characteristic and a heatPort for connection
+    to the thermal domain</li>
+</ul>
+</p>
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons_Library.html#Modelica.Icons.Library"
+>Modelica.Icons.Library</A> (Icon for library).
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Semiconductors.DiodeS.png" ALT="Modelica.Electrical.Analog.Semiconductors.Diode" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.Diode"
+>Diode</A>
+</TD><TD>Simple diode</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Semiconductors.PMOSS.png" ALT="Modelica.Electrical.Analog.Semiconductors.PMOS" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.PMOS"
+>PMOS</A>
+</TD><TD>Simple MOS Transistor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Semiconductors.PMOSS.png" ALT="Modelica.Electrical.Analog.Semiconductors.NMOS" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.NMOS"
+>NMOS</A>
+</TD><TD>Simple MOS Transistor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Semiconductors.NPNS.png" ALT="Modelica.Electrical.Analog.Semiconductors.NPN" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.NPN"
+>NPN</A>
+</TD><TD>Simple BJT according to Ebers-Moll</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Semiconductors.PNPS.png" ALT="Modelica.Electrical.Analog.Semiconductors.PNP" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.PNP"
+>PNP</A>
+</TD><TD>Simple BJT according to Ebers-Moll</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Semiconductors.HeatingDiodeS.png" ALT="Modelica.Electrical.Analog.Semiconductors.HeatingDiode" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.HeatingDiode"
+>HeatingDiode</A>
+</TD><TD>Simple diode with heating port</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Semiconductors.HeatingNMOSS.png" ALT="Modelica.Electrical.Analog.Semiconductors.HeatingNMOS" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.HeatingNMOS"
+>HeatingNMOS</A>
+</TD><TD>Simple MOS Transistor with heating port</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Semiconductors.HeatingNMOSS.png" ALT="Modelica.Electrical.Analog.Semiconductors.HeatingPMOS" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.HeatingPMOS"
+>HeatingPMOS</A>
+</TD><TD>Simple PMOS Transistor with heating port</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Semiconductors.HeatingNPNS.png" ALT="Modelica.Electrical.Analog.Semiconductors.HeatingNPN" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.HeatingNPN"
+>HeatingNPN</A>
+</TD><TD>Simple NPN BJT according to Ebers-Moll with heating port</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Semiconductors.HeatingPNPS.png" ALT="Modelica.Electrical.Analog.Semiconductors.HeatingPNP" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.HeatingPNP"
+>HeatingPNP</A>
+</TD><TD>Simple PNP BJT according to Ebers-Moll with heating port</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Diode<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Semiconductors.DiodeI.png" ALT="Modelica.Electrical.Analog.Semiconductors.Diode" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Semiconductors.Diode"></A><A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</A>.Diode</H2>
+<B>Simple diode</B><p>
+<H3>Information</H3>
+<PRE>
+</pre>
+<P>
+The simple diode is a one port. It consists of the diode itself and an parallel ohmic
+resistance <i>R</i>. The diode formula is:
+</P>
+<PRE>
+                v/vt
+  i  =  ids ( e      - 1).
+</PRE>
+<P>
+If the exponent <i>v/vt</i> reaches the limit <i>maxex</i>, the diode characterisic is linearly
+continued to avoid overflow.
+</P>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Ids</TD><TD>Saturation current [A]</TD></TR>
+<TR><TD>Vt</TD><TD>Voltage equivalent of temperature (kT/qn) [V]</TD></TR>
+<TR><TD>Maxexp</TD><TD>Max. exponent for linear continuation</TD></TR>
+<TR><TD>R</TD><TD>Parallel ohmic resistance [Ohm]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
+<TR><TD>n</TD><TD>Negative pin</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PMOS<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Semiconductors.PMOSI.png" ALT="Modelica.Electrical.Analog.Semiconductors.PMOS" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Semiconductors.PMOS"></A><A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</A>.PMOS</H2>
+<B>Simple MOS Transistor</B><p>
+<H3>Information</H3>
+<PRE>
+</pre>
+<P>
+The PMOS model is a simple model of a p-channel metal-oxide semiconductor
+FET. It differs slightly from the device used in the SPICE simulator.
+For more details please care for H. Spiro.
+</P>
+<P>
+The model does not consider capacitances. A high drain-source resistance RDS
+is included to avoid numerical difficulties.
+</P>
+<DL>
+<DT><b>References:</b>
+<DD>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag
+  Muenchen Wien 1990.
+</DL>
+<P>
+Some typical parameter sets are:
+</P>
+<PRE>
+  W       L      Beta        Vt       K2       K5       DW         DL
+  m       m      A/V^2       V        -        -        m          m
+  50.e-6  8.e-6  .0085e-3   -.15     .41      .839    -3.8e-6    -4.0e-6
+  20.e-6  6.e-6  .0105e-3  -1.0      .41      .839    -2.5e-6    -2.1e-6
+  30.e-6  5.e-6  .0059e-3   -.3      .98     1.01      0         -3.9e-6
+  30.e-6  5.e-6  .0152e-3   -.69     .104    1.1       -.8e-6     -.4e-6
+  30.e-6  5.e-6  .0163e-3   -.69     .104    1.1       -.8e-6     -.4e-6
+  30.e-6  5.e-6  .0182e-3   -.69     .086    1.06      -.1e-6     -.6e-6
+  20.e-6  6.e-6  .0074e-3  -1.       .4       .59      0          0
+</PRE>
+<pre>
+</PRE>
+
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>W</TD><TD>Width [m]</TD></TR>
+<TR><TD>L</TD><TD>Length [m]</TD></TR>
+<TR><TD>Beta</TD><TD>Transconductance parameter [A/V2]</TD></TR>
+<TR><TD>Vt</TD><TD>Zero bias threshold voltage [V]</TD></TR>
+<TR><TD>K2</TD><TD>Bulk threshold parameter</TD></TR>
+<TR><TD>K5</TD><TD>Reduction of pinch-off region</TD></TR>
+<TR><TD>dW</TD><TD>Narrowing of channel [m]</TD></TR>
+<TR><TD>dL</TD><TD>Shortening of channel [m]</TD></TR>
+<TR><TD>RDS</TD><TD>Drain-Source-Resistance [Ohm]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>D</TD><TD>Drain</TD></TR>
+<TR><TD>G</TD><TD>Gate</TD></TR>
+<TR><TD>S</TD><TD>Source</TD></TR>
+<TR><TD>B</TD><TD>Bulk</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE NMOS<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Semiconductors.NMOSI.png" ALT="Modelica.Electrical.Analog.Semiconductors.NMOS" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Semiconductors.NMOS"></A><A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</A>.NMOS</H2>
+<B>Simple MOS Transistor</B><p>
+<H3>Information</H3>
+<PRE>
+</pre>
+<P>
+The NMos model is a simple model of a n-channel metal-oxide semiconductor
+FET. It differs slightly from the device used in the SPICE simulator.
+For more details please care for H. Spiro.
+</P>
+<P>
+The model does not consider capacitances. A high drain-source resistance RDS
+is included to avoid numerical difficulties.
+</P>
+<P>
+<PRE>
+  W       L      Beta        Vt       K2      K5       DW         DL
+  m       m      A/V^2       V        -       -        m          m
+  12.e-6  4.e-6  .062e-3   -4.5      .24     .61     -1.2e-6     -.9e-6      depletion
+  60.e-6  3.e-6  .048e-3     .1      .08     .68     -1.2e-6     -.9e-6      enhancement
+  12.e-6  4.e-6  .0625e-3   -.8      .21     .78     -1.2e-6     -.9e-6      zero
+  50.e-6  8.e-6  .0299e-3    .24    1.144    .7311   -5.4e-6    -4.e-6
+  20.e-6  6.e-6  .041e-3     .8     1.144    .7311   -2.5e-6    -1.5e-6
+  30.e-6  9.e-6  .025e-3   -4.       .861    .878    -3.4e-6    -1.74e-6
+  30.e-6  5.e-6  .031e-3     .6     1.5      .72      0         -3.9e-6
+  50.e-6  6.e-6  .0414e-3  -3.8      .34     .8      -1.6e-6    -2.e-6       depletion
+  50.e-6  5.e-6  .03e-3      .37     .23     .86     -1.6e-6    -2.e-6       enhancement
+  50.e-6  6.e-6  .038e-3    -.9      .23     .707    -1.6e-6    -2.e-6       zero
+  20.e-6  4.e-6  .06776e-3   .5409   .065    .71      -.8e-6     -.2e-6
+  20.e-6  4.e-6  .06505e-3   .6209   .065    .71      -.8e-6     -.2e-6
+  20.e-6  4.e-6  .05365e-3   .6909   .03     .8       -.3e-6     -.2e-6
+  20.e-6  4.e-6  .05365e-3   .4909   .03     .8       -.3e-6     -.2e-6
+  12.e-6  4.e-6  .023e-3   -4.5      .29     .6       0          0           depletion
+  60.e-6  3.e-6  .022e-3     .1      .11     .65      0          0           enhancement
+  12.e-6  4.e-6  .038e-3    -.8      .33     .6       0          0           zero
+  20.e-6  6.e-6  .022e-3     .8     1        .66      0          0
+</PRE>
+<P>
+<DL>
+<DT><b>References:</b>
+<DD>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag
+Muenchen Wien 1990.
+</DL>
+<pre>
+</PRE>
+
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>W</TD><TD>Width [m]</TD></TR>
+<TR><TD>L</TD><TD>Length [m]</TD></TR>
+<TR><TD>Beta</TD><TD>Transconductance parameter [A/V2]</TD></TR>
+<TR><TD>Vt</TD><TD>Zero bias threshold voltage [V]</TD></TR>
+<TR><TD>K2</TD><TD>Bulk threshold parameter</TD></TR>
+<TR><TD>K5</TD><TD>Reduction of pinch-off region</TD></TR>
+<TR><TD>dW</TD><TD>narrowing of channel [m]</TD></TR>
+<TR><TD>dL</TD><TD>shortening of channel [m]</TD></TR>
+<TR><TD>RDS</TD><TD>Drain-Source-Resistance [Ohm]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>D</TD><TD>Drain</TD></TR>
+<TR><TD>G</TD><TD>Gate</TD></TR>
+<TR><TD>S</TD><TD>Source</TD></TR>
+<TR><TD>B</TD><TD>Bulk</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE NPN<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Semiconductors.NPNI.png" ALT="Modelica.Electrical.Analog.Semiconductors.NPN" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Semiconductors.NPN"></A><A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</A>.NPN</H2>
+<B>Simple BJT according to Ebers-Moll</B><p>
+<H3>Information</H3>
+<PRE>
+</pre>
+<P>
+This model is a simple model of a bipolar npn junction transistor according
+to Ebers-Moll.
+</P>
+<P>
+A typical parameter set is:
+</P>
+<PRE>
+  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe    Vt
+  -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS     V
+  50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15  0.02585
+</PRE>
+<P>
+<DL>
+<DT><b>References:</b>
+<DD>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
+Van Nostrand Reinhold, New York 1983
+on page 317 ff.
+</DL>
+<P>
+<pre>
+</PRE>
+
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Bf</TD><TD>Forward beta</TD></TR>
+<TR><TD>Br</TD><TD>Reverse beta</TD></TR>
+<TR><TD>Is</TD><TD>Transport saturation current [A]</TD></TR>
+<TR><TD>Vak</TD><TD>Early voltage (inverse), 1/Volt [1/V]</TD></TR>
+<TR><TD>Tauf</TD><TD>Ideal forward transit time [s]</TD></TR>
+<TR><TD>Taur</TD><TD>Ideal reverse transit time [s]</TD></TR>
+<TR><TD>Ccs</TD><TD>Collector-substrat(ground) cap. [F]</TD></TR>
+<TR><TD>Cje</TD><TD>Base-emitter zero bias depletion cap. [F]</TD></TR>
+<TR><TD>Cjc</TD><TD>Base-coll. zero bias depletion cap. [F]</TD></TR>
+<TR><TD>Phie</TD><TD>Base-emitter diffusion voltage [V]</TD></TR>
+<TR><TD>Me</TD><TD>Base-emitter gradation exponent</TD></TR>
+<TR><TD>Phic</TD><TD>Base-collector diffusion voltage [V]</TD></TR>
+<TR><TD>Mc</TD><TD>Base-collector gradation exponent</TD></TR>
+<TR><TD>Gbc</TD><TD>Base-collector conductance [S]</TD></TR>
+<TR><TD>Gbe</TD><TD>Base-emitter conductance [S]</TD></TR>
+<TR><TD>Vt</TD><TD>Voltage equivalent of temperature [V]</TD></TR>
+<TR><TD>EMin</TD><TD>if x &lt; EMin, the exp(x) function is linearized</TD></TR>
+<TR><TD>EMax</TD><TD>if x &gt; EMax, the exp(x) function is linearized</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>C</TD><TD>Collector</TD></TR>
+<TR><TD>B</TD><TD>Base</TD></TR>
+<TR><TD>E</TD><TD>Emitter</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PNP<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Semiconductors.PNPI.png" ALT="Modelica.Electrical.Analog.Semiconductors.PNP" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Semiconductors.PNP"></A><A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</A>.PNP</H2>
+<B>Simple BJT according to Ebers-Moll</B><p>
+<H3>Information</H3>
+<PRE>
+</pre>
+<P>
+This model is a simple model of a bipolar pnp junction transistor according
+to Ebers-Moll.
+<P>
+A typical parameter set is:
+</P>
+<PRE>
+  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe    Vt
+  -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS     V
+  50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15  0.02585
+</PRE>
+<P>
+<DL>
+<DT><b>References:</b>
+<DD>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
+Van Nostrand Reinhold, New York 1983
+on page 317 ff.
+</DL>
+<P>
+<pre>
+</PRE>
+
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Bf</TD><TD>Forward beta</TD></TR>
+<TR><TD>Br</TD><TD>Reverse beta</TD></TR>
+<TR><TD>Is</TD><TD>Transport saturation current [A]</TD></TR>
+<TR><TD>Vak</TD><TD>Early voltage (inverse), 1/Volt [1/V]</TD></TR>
+<TR><TD>Tauf</TD><TD>Ideal forward transit time [s]</TD></TR>
+<TR><TD>Taur</TD><TD>Ideal reverse transit time [s]</TD></TR>
+<TR><TD>Ccs</TD><TD>Collector-substrat(ground) cap. [F]</TD></TR>
+<TR><TD>Cje</TD><TD>Base-emitter zero bias depletion cap. [F]</TD></TR>
+<TR><TD>Cjc</TD><TD>Base-coll. zero bias depletion cap. [F]</TD></TR>
+<TR><TD>Phie</TD><TD>Base-emitter diffusion voltage [V]</TD></TR>
+<TR><TD>Me</TD><TD>Base-emitter gradation exponent</TD></TR>
+<TR><TD>Phic</TD><TD>Base-collector diffusion voltage [V]</TD></TR>
+<TR><TD>Mc</TD><TD>Base-collector gradation exponent</TD></TR>
+<TR><TD>Gbc</TD><TD>Base-collector conductance [S]</TD></TR>
+<TR><TD>Gbe</TD><TD>Base-emitter conductance [S]</TD></TR>
+<TR><TD>Vt</TD><TD>Voltage equivalent of temperature [V]</TD></TR>
+<TR><TD>EMin</TD><TD>if x &lt; EMin, the exp(x) function is linearized</TD></TR>
+<TR><TD>EMax</TD><TD>if x &gt; EMax, the exp(x) function is linearized</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>C</TD><TD>Collector</TD></TR>
+<TR><TD>B</TD><TD>Base</TD></TR>
+<TR><TD>E</TD><TD>Emitter</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatingDiode<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Semiconductors.HeatingDiodeI.png" ALT="Modelica.Electrical.Analog.Semiconductors.HeatingDiode" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Semiconductors.HeatingDiode"></A><A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</A>.HeatingDiode</H2>
+<B>Simple diode with heating port</B><p>
+<H3>Information</H3>
+<PRE>
+</pre>
+<P>
+The simple diode is an electrical one port, where a heat port is added, which is
+defined in the Modelica.Thermal library. It consists of the diode itself and an parallel ohmic
+resistance <i>R</i>. The diode formula is:
+</P>
+<PRE>
+                v/vt_t
+  i  =  ids ( e        - 1).
+</PRE>
+where vt_t depends on the temperature of the heat port:
+<PRE>
+  vt_t = k*temp/q
+</PRE>
+<P>
+If the exponent <i>v/vt_t</i> reaches the limit <i>maxex</i>, the diode characterisic is linearly
+continued to avoid overflow.<br>
+The thermal power is calculated by <i>i*v</i>.
+</P>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Ids</TD><TD>Saturation current [A]</TD></TR>
+<TR><TD>Maxexp</TD><TD>Max. exponent for linear continuation</TD></TR>
+<TR><TD>R</TD><TD>Parallel ohmic resistance [Ohm]</TD></TR>
+<TR><TD>EG</TD><TD>activation energy</TD></TR>
+<TR><TD>N</TD><TD>Emission coefficient</TD></TR>
+<TR><TD>TNOM</TD><TD>Parameter measurement temperature [K]</TD></TR>
+<TR><TD>XTI</TD><TD>Temperature exponent of saturation current</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
+<TR><TD>n</TD><TD>Negative pin</TD></TR>
+<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatingNMOS<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Semiconductors.HeatingNMOSI.png" ALT="Modelica.Electrical.Analog.Semiconductors.HeatingNMOS" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Semiconductors.HeatingNMOS"></A><A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</A>.HeatingNMOS</H2>
+<B>Simple MOS Transistor with heating port</B><p>
+<H3>Information</H3>
+<PRE>
+</pre>
+<P>
+The NMos model is a simple model of a n-channel metal-oxide semiconductor
+FET. It differs slightly from the device used in the SPICE simulator.
+For more details please care for H. Spiro.
+</P>
+<P>
+A heating port is added for thermal electric simulation. The heating port
+is defined in the Modelica.Thermal library.
+</P>
+<P>
+The model does not consider capacitances. A high drain-source resistance RDS
+is included to avoid numerical difficulties.
+</P>
+<P>
+<PRE>
+  W       L      Beta        Vt       K2      K5       DW         DL
+  m       m      A/V^2       V        -       -        m          m
+  12.e-6  4.e-6  .062e-3   -4.5      .24     .61     -1.2e-6     -.9e-6      depletion
+  60.e-6  3.e-6  .048e-3     .1      .08     .68     -1.2e-6     -.9e-6      enhancement
+  12.e-6  4.e-6  .0625e-3   -.8      .21     .78     -1.2e-6     -.9e-6      zero
+  50.e-6  8.e-6  .0299e-3    .24    1.144    .7311   -5.4e-6    -4.e-6
+  20.e-6  6.e-6  .041e-3     .8     1.144    .7311   -2.5e-6    -1.5e-6
+  30.e-6  9.e-6  .025e-3   -4.       .861    .878    -3.4e-6    -1.74e-6
+  30.e-6  5.e-6  .031e-3     .6     1.5      .72      0         -3.9e-6
+  50.e-6  6.e-6  .0414e-3  -3.8      .34     .8      -1.6e-6    -2.e-6       depletion
+  50.e-6  5.e-6  .03e-3      .37     .23     .86     -1.6e-6    -2.e-6       enhancement
+  50.e-6  6.e-6  .038e-3    -.9      .23     .707    -1.6e-6    -2.e-6       zero
+  20.e-6  4.e-6  .06776e-3   .5409   .065    .71      -.8e-6     -.2e-6
+  20.e-6  4.e-6  .06505e-3   .6209   .065    .71      -.8e-6     -.2e-6
+  20.e-6  4.e-6  .05365e-3   .6909   .03     .8       -.3e-6     -.2e-6
+  20.e-6  4.e-6  .05365e-3   .4909   .03     .8       -.3e-6     -.2e-6
+  12.e-6  4.e-6  .023e-3   -4.5      .29     .6       0          0           depletion
+  60.e-6  3.e-6  .022e-3     .1      .11     .65      0          0           enhancement
+  12.e-6  4.e-6  .038e-3    -.8      .33     .6       0          0           zero
+  20.e-6  6.e-6  .022e-3     .8     1        .66      0          0
+</PRE>
+<P>
+<DL>
+<DT><b>References:</b>
+<DD>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag
+Muenchen Wien 1990.
+</DL>
+</P>
+<pre>
+</PRE>
+
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>W</TD><TD>Width [m]</TD></TR>
+<TR><TD>L</TD><TD>Length [m]</TD></TR>
+<TR><TD>Beta</TD><TD>Transconductance parameter [A/V2]</TD></TR>
+<TR><TD>Vt</TD><TD>Zero bias threshold voltage [V]</TD></TR>
+<TR><TD>K2</TD><TD>Bulk threshold parameter</TD></TR>
+<TR><TD>K5</TD><TD>Reduction of pinch-off region</TD></TR>
+<TR><TD>dW</TD><TD>narrowing of channel [m]</TD></TR>
+<TR><TD>dL</TD><TD>shortening of channel [m]</TD></TR>
+<TR><TD>RDS</TD><TD>Drain-Source-Resistance [Ohm]</TD></TR>
+<TR><TD>Tnom</TD><TD>Parameter measurement temperature [K]</TD></TR>
+<TR><TD>kvt</TD><TD>fitting parameter for Vt</TD></TR>
+<TR><TD>kk2</TD><TD>fitting parameter for K22</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>D</TD><TD>Drain</TD></TR>
+<TR><TD>G</TD><TD>Gate</TD></TR>
+<TR><TD>S</TD><TD>Source</TD></TR>
+<TR><TD>B</TD><TD>Bulk</TD></TR>
+<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatingPMOS<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Semiconductors.HeatingPMOSI.png" ALT="Modelica.Electrical.Analog.Semiconductors.HeatingPMOS" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Semiconductors.HeatingPMOS"></A><A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</A>.HeatingPMOS</H2>
+<B>Simple PMOS Transistor with heating port</B><p>
+<H3>Information</H3>
+<PRE>
+</pre>
+<P>
+The PMOS model is a simple model of a p-channel metal-oxide semiconductor
+FET. It differs slightly from the device used in the SPICE simulator.
+For more details please care for H. Spiro.
+</P>
+<P>
+A heating port is added for thermal electric simulation. The heating port
+is defined in the Modelica.Thermal library.
+</P>
+<P>
+The model does not consider capacitances. A high drain-source resistance RDS
+is included to avoid numerical difficulties.
+</P>
+<DL>
+<DT><b>References:</b>
+<DD>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag
+  Muenchen Wien 1990.
+</DL>
+<P>
+Some typical parameter sets are:
+</P>
+<PRE>
+  W       L      Beta        Vt       K2       K5       DW         DL
+  m       m      A/V^2       V        -        -        m          m
+  50.e-6  8.e-6  .0085e-3   -.15     .41      .839    -3.8e-6    -4.0e-6
+  20.e-6  6.e-6  .0105e-3  -1.0      .41      .839    -2.5e-6    -2.1e-6
+  30.e-6  5.e-6  .0059e-3   -.3      .98     1.01      0         -3.9e-6
+  30.e-6  5.e-6  .0152e-3   -.69     .104    1.1       -.8e-6     -.4e-6
+  30.e-6  5.e-6  .0163e-3   -.69     .104    1.1       -.8e-6     -.4e-6
+  30.e-6  5.e-6  .0182e-3   -.69     .086    1.06      -.1e-6     -.6e-6
+  20.e-6  6.e-6  .0074e-3  -1.       .4       .59      0          0
+</PRE>
+</P>
+<pre>
+</PRE>
+
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>W</TD><TD>Width [m]</TD></TR>
+<TR><TD>L</TD><TD>Length [m]</TD></TR>
+<TR><TD>Beta</TD><TD>Transconductance parameter [A/V2]</TD></TR>
+<TR><TD>Vt</TD><TD>Zero bias threshold voltage [V]</TD></TR>
+<TR><TD>K2</TD><TD>Bulk threshold parameter</TD></TR>
+<TR><TD>K5</TD><TD>Reduction of pinch-off region</TD></TR>
+<TR><TD>dW</TD><TD>Narrowing of channel [m]</TD></TR>
+<TR><TD>dL</TD><TD>Shortening of channel [m]</TD></TR>
+<TR><TD>RDS</TD><TD>Drain-Source-Resistance [Ohm]</TD></TR>
+<TR><TD>Tnom</TD><TD>Parameter measurement temperature [K]</TD></TR>
+<TR><TD>kvt</TD><TD>fitting parameter for Vt</TD></TR>
+<TR><TD>kk2</TD><TD>fitting parameter for Kk2</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>D</TD><TD>Drain</TD></TR>
+<TR><TD>G</TD><TD>Gate</TD></TR>
+<TR><TD>S</TD><TD>Source</TD></TR>
+<TR><TD>B</TD><TD>Bulk</TD></TR>
+<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatingNPN<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Semiconductors.HeatingNPNI.png" ALT="Modelica.Electrical.Analog.Semiconductors.HeatingNPN" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Semiconductors.HeatingNPN"></A><A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</A>.HeatingNPN</H2>
+<B>Simple NPN BJT according to Ebers-Moll with heating port</B><p>
+<H3>Information</H3>
+<PRE>
+</pre>
+<P>
+This model is a simple model of a bipolar npn junction transistor according
+to Ebers-Moll.
+</P>
+<P>
+A heating port is added for thermal electric simulation. The heating port
+is defined in the Modelica.Thermal library.
+</P>
+<P>
+A typical parameter set is (the parameter Vt is no longer used):
+</P>
+<PRE>
+  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe
+  -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS
+  50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15
+</PRE>
+<P>
+<DL>
+<DT><b>References:</b>
+<DD>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
+Van Nostrand Reinhold, New York 1983
+on page 317 ff.
+</DL>
+</P>
+<pre>
+</PRE>
+
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Bf</TD><TD>Forward beta</TD></TR>
+<TR><TD>Br</TD><TD>Reverse beta</TD></TR>
+<TR><TD>Is</TD><TD>Transport saturation current [A]</TD></TR>
+<TR><TD>Vak</TD><TD>Early voltage (inverse), 1/Volt [1/V]</TD></TR>
+<TR><TD>Tauf</TD><TD>Ideal forward transit time [s]</TD></TR>
+<TR><TD>Taur</TD><TD>Ideal reverse transit time [s]</TD></TR>
+<TR><TD>Ccs</TD><TD>Collector-substrat(ground) cap. [F]</TD></TR>
+<TR><TD>Cje</TD><TD>Base-emitter zero bias depletion cap. [F]</TD></TR>
+<TR><TD>Cjc</TD><TD>Base-coll. zero bias depletion cap. [F]</TD></TR>
+<TR><TD>Phie</TD><TD>Base-emitter diffusion voltage [V]</TD></TR>
+<TR><TD>Me</TD><TD>Base-emitter gradation exponent</TD></TR>
+<TR><TD>Phic</TD><TD>Base-collector diffusion voltage [V]</TD></TR>
+<TR><TD>Mc</TD><TD>Base-collector gradation exponent</TD></TR>
+<TR><TD>Gbc</TD><TD>Base-collector conductance [S]</TD></TR>
+<TR><TD>Gbe</TD><TD>Base-emitter conductance [S]</TD></TR>
+<TR><TD>EMin</TD><TD>if x &lt; EMin, the exp(x) function is linearized</TD></TR>
+<TR><TD>EMax</TD><TD>if x &gt; EMax, the exp(x) function is linearized</TD></TR>
+<TR><TD>Tnom</TD><TD>Parameter measurement temperature [K]</TD></TR>
+<TR><TD>XTI</TD><TD>Temperature exponent for effect on Is</TD></TR>
+<TR><TD>XTB</TD><TD>Forward and reverse beta temperature exponent</TD></TR>
+<TR><TD>EG</TD><TD>Energy gap for temperature effect on Is</TD></TR>
+<TR><TD>NF</TD><TD>Forward current emission coefficient</TD></TR>
+<TR><TD>NR</TD><TD>Reverse current emission coefficient</TD></TR>
+<TR><TD>K</TD><TD>Boltzmann&#39;s constant</TD></TR>
+<TR><TD>q</TD><TD>Elementary electronic charge</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>C</TD><TD>Collector</TD></TR>
+<TR><TD>B</TD><TD>Base</TD></TR>
+<TR><TD>E</TD><TD>Emitter</TD></TR>
+<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatingPNP<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Semiconductors.HeatingPNPI.png" ALT="Modelica.Electrical.Analog.Semiconductors.HeatingPNP" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Semiconductors.HeatingPNP"></A><A HREF="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</A>.HeatingPNP</H2>
+<B>Simple PNP BJT according to Ebers-Moll with heating port</B><p>
+<H3>Information</H3>
+<PRE>
+</pre>
+<P>
+This model is a simple model of a bipolar pnp junction transistor according
+to Ebers-Moll.
+<P>
+A heating port is added for thermal electric simulation. The heating port
+is defined in the Modelica.Thermal library.
+</P>
+<P>
+A typical parameter set is  (the parameter Vt is no longer used):
+</P>
+<PRE>
+  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe
+  -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS
+  50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15
+</PRE>
+<P>
+<DL>
+<DT><b>References:</b>
+<DD>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
+Van Nostrand Reinhold, New York 1983
+on page 317 ff.
+</DL>
+<pre>
+</PRE>
+
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Bf</TD><TD>Forward beta</TD></TR>
+<TR><TD>Br</TD><TD>Reverse beta</TD></TR>
+<TR><TD>Is</TD><TD>Transport saturation current [A]</TD></TR>
+<TR><TD>Vak</TD><TD>Early voltage (inverse), 1/Volt [1/V]</TD></TR>
+<TR><TD>Tauf</TD><TD>Ideal forward transit time [s]</TD></TR>
+<TR><TD>Taur</TD><TD>Ideal reverse transit time [s]</TD></TR>
+<TR><TD>Ccs</TD><TD>Collector-substrat(ground) cap. [F]</TD></TR>
+<TR><TD>Cje</TD><TD>Base-emitter zero bias depletion cap. [F]</TD></TR>
+<TR><TD>Cjc</TD><TD>Base-coll. zero bias depletion cap. [F]</TD></TR>
+<TR><TD>Phie</TD><TD>Base-emitter diffusion voltage [V]</TD></TR>
+<TR><TD>Me</TD><TD>Base-emitter gradation exponent</TD></TR>
+<TR><TD>Phic</TD><TD>Base-collector diffusion voltage [V]</TD></TR>
+<TR><TD>Mc</TD><TD>Base-collector gradation exponent</TD></TR>
+<TR><TD>Gbc</TD><TD>Base-collector conductance [S]</TD></TR>
+<TR><TD>Gbe</TD><TD>Base-emitter conductance [S]</TD></TR>
+<TR><TD>EMin</TD><TD>if x &lt; EMin, the exp(x) function is linearized</TD></TR>
+<TR><TD>EMax</TD><TD>if x &gt; EMax, the exp(x) function is linearized</TD></TR>
+<TR><TD>Tnom</TD><TD>Parameter measurement temperature [K]</TD></TR>
+<TR><TD>XTI</TD><TD>Temperature exponent for effect on Is</TD></TR>
+<TR><TD>XTB</TD><TD>Forward and reverse beta temperature exponent</TD></TR>
+<TR><TD>EG</TD><TD>Energy gap for temperature effect on Is</TD></TR>
+<TR><TD>NF</TD><TD>Forward current emission coefficient</TD></TR>
+<TR><TD>NR</TD><TD>Reverse current emission coefficient</TD></TR>
+<TR><TD>K</TD><TD>Boltzmann&#39;s constant</TD></TR>
+<TR><TD>q</TD><TD>Elementary electronic charge</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>C</TD><TD>Collector</TD></TR>
+<TR><TD>B</TD><TD>Base</TD></TR>
+<TR><TD>E</TD><TD>Emitter</TD></TR>
+<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Thu Jan 29 17:26:23 2009.
+</address></BODY>
+</HTML>

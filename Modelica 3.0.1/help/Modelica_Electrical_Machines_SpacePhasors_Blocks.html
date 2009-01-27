@@ -1,0 +1,185 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Machines.SpacePhasors.Blocks</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Blocks for space phasor transformation&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Blocks<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Machines.SpacePhasors.Blocks"></A><A HREF="Modelica_Electrical_Machines_SpacePhasors.html#Modelica.Electrical.Machines.SpacePhasors"
+>Modelica.Electrical.Machines.SpacePhasors</A>.Blocks</H2>
+<B>Blocks for space phasor transformation</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+This package contains space phasor transformation blocks for use in controllers:
+<ul>
+<li>ToSpacePhasor: transforms a set of threephase values to space phasor and zero sequence system</li>
+<li>FromSpacePhasor: transforms a space phasor and zero sequence system to a set of threephase values</li>
+<li>Rotator: rotates a space phasor (from one coordinate system into another)</li>
+<li>ToPolar: Converts a space phasor from rectangular coordinates to polar coordinates</li>
+<li>FromPolar: Converts a space phasor from polar coordinates to rectangular coordinates</li>
+</ul>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Library.html#Modelica.Icons.Library"
+>Modelica.Icons.Library</A> (Icon for library).
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasorS.png" ALT="Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_SpacePhasors_Blocks.html#Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor"
+>ToSpacePhasor</A>
+</TD><TD>Conversion: three phase -&gt; space phasor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.SpacePhasors.Blocks.FromSpacePhasorS.png" ALT="Modelica.Electrical.Machines.SpacePhasors.Blocks.FromSpacePhasor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_SpacePhasors_Blocks.html#Modelica.Electrical.Machines.SpacePhasors.Blocks.FromSpacePhasor"
+>FromSpacePhasor</A>
+</TD><TD>Conversion: space phasor -&gt; three phase</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.SpacePhasors.Blocks.RotatorS.png" ALT="Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_SpacePhasors_Blocks.html#Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator"
+>Rotator</A>
+</TD><TD>Rotates space phasor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolarS.png" ALT="Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolar" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_SpacePhasors_Blocks.html#Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolar"
+>ToPolar</A>
+</TD><TD>Converts a space phasor to polar coordinates</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.SpacePhasors.Blocks.FromPolarS.png" ALT="Modelica.Electrical.Machines.SpacePhasors.Blocks.FromPolar" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_SpacePhasors_Blocks.html#Modelica.Electrical.Machines.SpacePhasors.Blocks.FromPolar"
+>FromPolar</A>
+</TD><TD>Converts a space phasor from polar coordinates</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ToSpacePhasor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasorI.png" ALT="Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor"></A><A HREF="Modelica_Electrical_Machines_SpacePhasors_Blocks.html#Modelica.Electrical.Machines.SpacePhasors.Blocks"
+>Modelica.Electrical.Machines.SpacePhasors.Blocks</A>.ToSpacePhasor</H2>
+<B>Conversion: three phase -&gt; space phasor</B><p>
+<H3>Information</H3>
+<PRE></pre>
+Transformation of threephase values (voltages or currents) to space phasor and zero sequence value.
+<pre></PRE>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMO"
+>Modelica.Blocks.Interfaces.MIMO</A> (Multiple Input Multiple Output continuous control block).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>nin</TD><TD>Number of inputs</TD></TR>
+<TR><TD>nout</TD><TD>Number of outputs</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u[nin]</TD><TD>Connector of Real input signals</TD></TR>
+<TR><TD>y[nout]</TD><TD>Connector of Real output signals</TD></TR>
+<TR><TD>zero</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FromSpacePhasor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.SpacePhasors.Blocks.FromSpacePhasorI.png" ALT="Modelica.Electrical.Machines.SpacePhasors.Blocks.FromSpacePhasor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.SpacePhasors.Blocks.FromSpacePhasor"></A><A HREF="Modelica_Electrical_Machines_SpacePhasors_Blocks.html#Modelica.Electrical.Machines.SpacePhasors.Blocks"
+>Modelica.Electrical.Machines.SpacePhasors.Blocks</A>.FromSpacePhasor</H2>
+<B>Conversion: space phasor -&gt; three phase</B><p>
+<H3>Information</H3>
+<PRE></pre>
+Transformation of space phasor and zero sequence value to threephase values (voltages or currents).
+<pre></PRE>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMO"
+>Modelica.Blocks.Interfaces.MIMO</A> (Multiple Input Multiple Output continuous control block).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>nin</TD><TD>Number of inputs</TD></TR>
+<TR><TD>nout</TD><TD>Number of outputs</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u[nin]</TD><TD>Connector of Real input signals</TD></TR>
+<TR><TD>y[nout]</TD><TD>Connector of Real output signals</TD></TR>
+<TR><TD>zero</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Rotator<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.SpacePhasors.Blocks.RotatorI.png" ALT="Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator"></A><A HREF="Modelica_Electrical_Machines_SpacePhasors_Blocks.html#Modelica.Electrical.Machines.SpacePhasors.Blocks"
+>Modelica.Electrical.Machines.SpacePhasors.Blocks</A>.Rotator</H2>
+<B>Rotates space phasor</B><p>
+<H3>Information</H3>
+<PRE></pre>
+Rotates a space phasor (voltage or current) by the angle provided by the input signal "angle" from one coordinate system into another.
+<pre></PRE>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMOs"
+>Modelica.Blocks.Interfaces.MIMOs</A> (Multiple Input Multiple Output continuous control block with same number of inputs and outputs).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>n</TD><TD>Number of inputs (= number of outputs)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u[n]</TD><TD>Connector of Real input signals</TD></TR>
+<TR><TD>y[n]</TD><TD>Connector of Real output signals</TD></TR>
+<TR><TD>angle</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ToPolar<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolarI.png" ALT="Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolar" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolar"></A><A HREF="Modelica_Electrical_Machines_SpacePhasors_Blocks.html#Modelica.Electrical.Machines.SpacePhasors.Blocks"
+>Modelica.Electrical.Machines.SpacePhasors.Blocks</A>.ToPolar</H2>
+<B>Converts a space phasor to polar coordinates</B><p>
+<H3>Information</H3>
+<PRE></pre>
+Converts a space phasor from rectangular coordinates to polar coordinates.
+<pre></PRE>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMOs"
+>Modelica.Blocks.Interfaces.MIMOs</A> (Multiple Input Multiple Output continuous control block with same number of inputs and outputs).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>n</TD><TD>Number of inputs (= number of outputs)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u[n]</TD><TD>Connector of Real input signals</TD></TR>
+<TR><TD>y[n]</TD><TD>Connector of Real output signals</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FromPolar<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.SpacePhasors.Blocks.FromPolarI.png" ALT="Modelica.Electrical.Machines.SpacePhasors.Blocks.FromPolar" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.SpacePhasors.Blocks.FromPolar"></A><A HREF="Modelica_Electrical_Machines_SpacePhasors_Blocks.html#Modelica.Electrical.Machines.SpacePhasors.Blocks"
+>Modelica.Electrical.Machines.SpacePhasors.Blocks</A>.FromPolar</H2>
+<B>Converts a space phasor from polar coordinates</B><p>
+<H3>Information</H3>
+<PRE></pre>
+Converts a space phasor from polar coordinates to rectangular coordinates.
+<pre></PRE>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMOs"
+>Modelica.Blocks.Interfaces.MIMOs</A> (Multiple Input Multiple Output continuous control block with same number of inputs and outputs).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>n</TD><TD>Number of inputs (= number of outputs)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u[n]</TD><TD>Connector of Real input signals</TD></TR>
+<TR><TD>y[n]</TD><TD>Connector of Real output signals</TD></TR>
+</TABLE>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Thu Jan 29 17:26:45 2009.
+</address></BODY>
+</HTML>

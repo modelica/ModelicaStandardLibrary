@@ -1,0 +1,295 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Blocks.Nonlinear</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Library of discontinuous or non-differentiable algebraic control blocks&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Nonlinear<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Blocks.Nonlinear"></A><A HREF="Modelica_Blocks.html#Modelica.Blocks"
+>Modelica.Blocks</A>.Nonlinear</H2>
+<B>Library of discontinuous or non-differentiable algebraic control blocks</B>
+<P>
+<H3>Information</H3>
+<PRE>
+</pre>
+<p>
+This package contains <b>discontinuous</b> and
+<b>non-differentiable, algebraic</b> input/output blocks.
+</p>
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons_Library.html#Modelica.Icons.Library"
+>Modelica.Icons.Library</A> (Icon for library).
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Nonlinear.LimiterS.png" ALT="Modelica.Blocks.Nonlinear.Limiter" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear.Limiter"
+>Limiter</A>
+</TD><TD>Limit the range of a signal</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Nonlinear.VariableLimiterS.png" ALT="Modelica.Blocks.Nonlinear.VariableLimiter" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear.VariableLimiter"
+>VariableLimiter</A>
+</TD><TD>Limit the range of a signal with variable limits</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Nonlinear.DeadZoneS.png" ALT="Modelica.Blocks.Nonlinear.DeadZone" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear.DeadZone"
+>DeadZone</A>
+</TD><TD>Provide a region of zero output</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Nonlinear.FixedDelayS.png" ALT="Modelica.Blocks.Nonlinear.FixedDelay" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear.FixedDelay"
+>FixedDelay</A>
+</TD><TD>Delay block with fixed DelayTime</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Nonlinear.PadeDelayS.png" ALT="Modelica.Blocks.Nonlinear.PadeDelay" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear.PadeDelay"
+>PadeDelay</A>
+</TD><TD>Pade approximation of delay block with fixed DelayTime </TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.Nonlinear.VariableDelayS.png" ALT="Modelica.Blocks.Nonlinear.VariableDelay" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear.VariableDelay"
+>VariableDelay</A>
+</TD><TD>Delay block with variable DelayTime</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Limiter<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Nonlinear.LimiterI.png" ALT="Modelica.Blocks.Nonlinear.Limiter" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Nonlinear.Limiter"></A><A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear"
+>Modelica.Blocks.Nonlinear</A>.Limiter</H2>
+<B>Limit the range of a signal</B><p>
+<H3>Information</H3>
+<PRE>
+</pre>
+<p>
+The Limiter block passes its input signal as output signal
+as long as the input is within the specified upper and lower
+limits. If this is not the case, the corresponding limits are passed
+as output.
+</p>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A> (Single Input Single Output continuous control block).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>uMax</TD><TD>Upper limits of input signals</TD></TR>
+<TR><TD>uMin</TD><TD>Lower limits of input signals</TD></TR>
+<TR><TD>limitsAtInit</TD><TD>= false, if limits are ignored during initializiation (i.e., y=u)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VariableLimiter<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Nonlinear.VariableLimiterI.png" ALT="Modelica.Blocks.Nonlinear.VariableLimiter" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Nonlinear.VariableLimiter"></A><A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear"
+>Modelica.Blocks.Nonlinear</A>.VariableLimiter</H2>
+<B>Limit the range of a signal with variable limits</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The Limiter block passes its input signal as output signal
+as long as the input is within the upper and lower
+limits specified by the two additional inputs limit1 and
+limit2. If this is not the case, the corresponding limit
+is passed as output.
+</p>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A> (Single Input Single Output continuous control block).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>limitsAtInit</TD><TD>= false, if limits are ignored during initializiation (i.e., y=u)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+<TR><TD>limit1</TD><TD>Connector of Real input signal used as maximum of input u</TD></TR>
+<TR><TD>limit2</TD><TD>Connector of Real input signal used as minimum of input u</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DeadZone<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Nonlinear.DeadZoneI.png" ALT="Modelica.Blocks.Nonlinear.DeadZone" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Nonlinear.DeadZone"></A><A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear"
+>Modelica.Blocks.Nonlinear</A>.DeadZone</H2>
+<B>Provide a region of zero output</B><p>
+<H3>Information</H3>
+<PRE>
+</pre>
+<p>
+The DeadZone block defines a region of zero output.
+</p>
+<p>
+If the input is within uMin ... uMax, the output
+is zero. Outside of this zone, the output is a linear
+function of the input with a slope of 1.
+</p>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Interfaces.SISO</A> (Single Input Single Output continuous control block).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>uMax</TD><TD>Upper limits of dead zones</TD></TR>
+<TR><TD>uMin</TD><TD>Lower limits of dead zones</TD></TR>
+<TR><TD>deadZoneAtInit</TD><TD>= false, if dead zone is ignored during initializiation (i.e., y=u)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FixedDelay<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Nonlinear.FixedDelayI.png" ALT="Modelica.Blocks.Nonlinear.FixedDelay" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Nonlinear.FixedDelay"></A><A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear"
+>Modelica.Blocks.Nonlinear</A>.FixedDelay</H2>
+<B>Delay block with fixed DelayTime</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The Input signal is delayed by a given time instant, or more precisely:
+</p>
+<pre>
+   y = u(time - delayTime) for time &gt; time.start + delayTime
+     = u(time.start)       for time &le; time.start + delayTime
+</pre>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Modelica.Blocks.Interfaces.SISO</A> (Single Input Single Output continuous control block).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>delayTime</TD><TD>Delay time of output with respect to input signal [s]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PadeDelay<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Nonlinear.PadeDelayI.png" ALT="Modelica.Blocks.Nonlinear.PadeDelay" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Nonlinear.PadeDelay"></A><A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear"
+>Modelica.Blocks.Nonlinear</A>.PadeDelay</H2>
+<B>Pade approximation of delay block with fixed DelayTime </B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The Input signal is delayed by a given time instant, or more precisely:
+</p>
+<pre>
+   y = u(time - delayTime) for time &gt; time.start + delayTime
+     = u(time.start)       for time &le; time.start + delayTime
+</pre>
+<p>
+The delay is approximated by a Pade approximation, i.e., by
+a transfer function
+</p>
+<pre>
+           b[1]*s^m + b[2]*s^[m-1] + ... + b[m+1]
+   y(s) = --------------------------------------------- * u(s)
+           a[1]*s^n + a[2]*s^[n-1] + ... + a[n+1]
+</pre>
+<p>
+where the coefficients b[:] and a[:] are calculated such that the
+coefficients of the Taylor expansion of the delay exp(-T*s) around s=0
+are identical upto order n+m.
+</p>
+<p>
+The main advantage of this approach is that the delay is
+approximated by a linear differential equation system, which
+is continuous and continuously differentiable. For example, it
+is uncritical to linearize a system containing a Pade-approximated
+delay.
+</p>
+<p>
+The standard text book version uses order "m=n", which is
+also the default setting of this block. The setting
+"m=n-1" may yield a better approximation in certain cases.
+<p>
+<p>
+Literature:<br>
+Otto Foellinger: Regelungstechnik, 8. Auflage,
+chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
+</p>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Modelica.Blocks.Interfaces.SISO</A> (Single Input Single Output continuous control block).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>delayTime</TD><TD>Delay time of output with respect to input signal [s]</TD></TR>
+<TR><TD>n</TD><TD>Order of pade approximation</TD></TR>
+<TR><TD>m</TD><TD>Order of numerator</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VariableDelay<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.Nonlinear.VariableDelayI.png" ALT="Modelica.Blocks.Nonlinear.VariableDelay" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.Nonlinear.VariableDelay"></A><A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear"
+>Modelica.Blocks.Nonlinear</A>.VariableDelay</H2>
+<B>Delay block with variable DelayTime</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The Input signal is delayed by a given time instant, or more precisely:
+</p>
+<pre>
+   y = u(time - delayTime) for time &gt; time.start + delayTime
+     = u(time.start)       for time &le; time.start + delayTime
+</pre>
+<p>
+where delayTime is an additional input signal which must follow
+the following relationship:
+</p>
+<pre>  0 &le; delayTime &le; delayMax
+</pre>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SISO"
+>Modelica.Blocks.Interfaces.SISO</A> (Single Input Single Output continuous control block).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>delayMax</TD><TD>maximum delay time</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
+<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
+<TR><TD>delayTime</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Thu Jan 29 17:26:09 2009.
+</address></BODY>
+</HTML>

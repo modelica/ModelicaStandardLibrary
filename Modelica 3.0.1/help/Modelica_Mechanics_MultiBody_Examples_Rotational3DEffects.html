@@ -1,0 +1,122 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Demonstrates the usage of 1-dim. rotational elements with all 3-dim. effects included&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Rotational3DEffects<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects"></A><A HREF="Modelica_Mechanics_MultiBody_Examples.html#Modelica.Mechanics.MultiBody.Examples"
+>Modelica.Mechanics.MultiBody.Examples</A>.Rotational3DEffects</H2>
+<B>Demonstrates the usage of 1-dim. rotational elements with all 3-dim. effects included</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This library demonstrates the usage of elements of the Mechanics.Rotational library
+by taking into account all 3-dim. effects. The reason for this type of modeling is
+to speedup the simulation drastically. This is possible if moving bodies have
+rotational symmetry. A typical application area are drive trains, driving joints of
+a multi-body system.
+</p>
+<pre></PRE><P>
+
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Engine1bBaseS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffects" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Rotational3DEffects.html#Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffects"
+>GyroscopicEffects</A>
+</TD><TD>Demonstrates that a cylindrical body can be replaced by Rotor1D model</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Engine1bBaseS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.ActuatedDrive" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Rotational3DEffects.html#Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.ActuatedDrive"
+>ActuatedDrive</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Engine1bBaseS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.MovingActuatedDrive" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Rotational3DEffects.html#Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.MovingActuatedDrive"
+>MovingActuatedDrive</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Engine1bBaseS.png" ALT="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GearConstraint" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Rotational3DEffects.html#Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GearConstraint"
+>GearConstraint</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE GyroscopicEffects<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffectsI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffects" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffects"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Rotational3DEffects.html#Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects"
+>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</A>.GyroscopicEffects</H2>
+<B>Demonstrates that a cylindrical body can be replaced by Rotor1D model</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This example consists of a body that is attached to the world system
+with a spherical joint. On this body, a "rotor", i.e., a body with rotational
+symmetry is present. Two kinds of models are shown:
+</p>
+
+<ul>
+<li> In the upper part of the diagram layer, only multi-body components are used.</li>
+<li> In the lower part of the diagram layer, the same model is implemented,
+     but by a different modeling of the cylindrical body:
+     The cylindrical body is included, but it is rigidly attached to its mount.
+     This part takes into account the movement of the center of mass and of
+     the inertia tensor of the cylindrical body. Note, since the cylindrical body
+     has rotational symmetry, its center of mass and its inertia tensor is independent
+     of the angle of the inertia and can therefore be rigidly attached to its mount.
+     Additionally, with a "MultiBody.Parts.Rotor1D" model, a primarily 1-dim.
+     inertia is included that takes into account the additional effects when the
+     cylindrical body is moving relatively to its mounts</li>
+</ul>
+
+<p>
+The simulation reveals that both the kinematic movement and the reaction forces on the
+environment (object "world" and "fixed" respectively) are identical for both models.
+</p>
+
+<p>
+A typical usage scenario is to model a complete drive train of a vehicle, including
+the automatic gearbox, with elements of the "Mechanics.Rotational" library, but using
+the "Rotor1D" model instead of the "Rotational.Components.Inertia" component.
+This drive train model can be mounted on a 3-dim. multi-body model of the vehicle.
+Additionally, one rigid body has to be fixed to the vehicle that has the mass, center
+of mass and inertia tensor of the complete drive train. Both models together, give
+exactly the same effect, as if every part of the drive train would have been modelled
+solely with mult-body components. One benefit of this modeling is that the simulation
+is much faster.
+</p>
+
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for an example model).
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ActuatedDrive<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffectsI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.ActuatedDrive" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.ActuatedDrive"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Rotational3DEffects.html#Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects"
+>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</A>.ActuatedDrive</H2>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MovingActuatedDrive<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffectsI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.MovingActuatedDrive" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.MovingActuatedDrive"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Rotational3DEffects.html#Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects"
+>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</A>.MovingActuatedDrive</H2>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE GearConstraint<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GyroscopicEffectsI.png" ALT="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GearConstraint" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GearConstraint"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Rotational3DEffects.html#Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects"
+>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</A>.GearConstraint</H2>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Thu Jan 29 17:27:06 2009.
+</address></BODY>
+</HTML>

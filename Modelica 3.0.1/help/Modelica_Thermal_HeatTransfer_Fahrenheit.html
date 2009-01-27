@@ -1,0 +1,195 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Thermal.HeatTransfer.Fahrenheit</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Components with Fahrenheit input and/or output&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Fahrenheit<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Thermal.HeatTransfer.Fahrenheit"></A><A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer"
+>Modelica.Thermal.HeatTransfer</A>.Fahrenheit</H2>
+<B>Components with Fahrenheit input and/or output</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The components of this package are provided for the convenience of
+people working mostly with Fahrenheit units, since all models
+in package HeatTransfer are based on Kelvin units.
+</p>
+<p>
+Note, that in package SIunits.Conversions, functions are provided
+to convert between the units Kelvin, degree Celsius, degree Fahrenheit
+and degree Rankine. These functions allow, e.g., a direct conversion
+of units at all places where Kelvin is required as parameter.
+Example:
+</p>
+<pre>
+    <b>import</b> SIunits.Conversions.*;
+    Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degF(70));
+</pre>
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons_Library2.html#Modelica.Icons.Library2"
+>Modelica.Icons.Library2</A> (Icon for library where additional icon elements shall be added).
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.Fahrenheit.ToKelvinS.png" ALT="Modelica.Thermal.HeatTransfer.Fahrenheit.ToKelvin" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Fahrenheit.html#Modelica.Thermal.HeatTransfer.Fahrenheit.ToKelvin"
+>ToKelvin</A>
+</TD><TD>Conversion block from °Fahrenheit to Kelvin</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.Fahrenheit.ToKelvinS.png" ALT="Modelica.Thermal.HeatTransfer.Fahrenheit.FromKelvin" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Fahrenheit.html#Modelica.Thermal.HeatTransfer.Fahrenheit.FromKelvin"
+>FromKelvin</A>
+</TD><TD>Conversion from Kelvin to °Fahrenheit</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.Fahrenheit.FixedTemperatureS.png" ALT="Modelica.Thermal.HeatTransfer.Fahrenheit.FixedTemperature" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Fahrenheit.html#Modelica.Thermal.HeatTransfer.Fahrenheit.FixedTemperature"
+>FixedTemperature</A>
+</TD><TD>Fixed temperature boundary condition in °Fahrenheit</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.Fahrenheit.PrescribedTemperatureS.png" ALT="Modelica.Thermal.HeatTransfer.Fahrenheit.PrescribedTemperature" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Fahrenheit.html#Modelica.Thermal.HeatTransfer.Fahrenheit.PrescribedTemperature"
+>PrescribedTemperature</A>
+</TD><TD>Variable temperature boundary condition in °Fahrenheit</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.HeatTransfer.Fahrenheit.TemperatureSensorS.png" ALT="Modelica.Thermal.HeatTransfer.Fahrenheit.TemperatureSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Fahrenheit.html#Modelica.Thermal.HeatTransfer.Fahrenheit.TemperatureSensor"
+>TemperatureSensor</A>
+</TD><TD>Absolute temperature sensor in °Fahrenheit</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ToKelvin<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.HeatTransfer.Fahrenheit.ToKelvinI.png" ALT="Modelica.Thermal.HeatTransfer.Fahrenheit.ToKelvin" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.HeatTransfer.Fahrenheit.ToKelvin"></A><A HREF="Modelica_Thermal_HeatTransfer_Fahrenheit.html#Modelica.Thermal.HeatTransfer.Fahrenheit"
+>Modelica.Thermal.HeatTransfer.Fahrenheit</A>.ToKelvin</H2>
+<B>Conversion block from °Fahrenheit to Kelvin</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This component converts a input signal from degree Fahrenheit to Kelvin
+and provides is as output signal.
+</p>
+<pre>
+</PRE>
+
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Fahrenheit</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Kelvin</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FromKelvin<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.HeatTransfer.Fahrenheit.FromKelvinI.png" ALT="Modelica.Thermal.HeatTransfer.Fahrenheit.FromKelvin" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.HeatTransfer.Fahrenheit.FromKelvin"></A><A HREF="Modelica_Thermal_HeatTransfer_Fahrenheit.html#Modelica.Thermal.HeatTransfer.Fahrenheit"
+>Modelica.Thermal.HeatTransfer.Fahrenheit</A>.FromKelvin</H2>
+<B>Conversion from Kelvin to °Fahrenheit</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This component converts all input signals from Kelvin to Fahrenheit
+and provides them as output signals.
+</p>
+<pre>
+</PRE>
+
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>n</TD><TD>Number of inputs (= number of outputs)</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Kelvin</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Fahrenheit</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FixedTemperature<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.HeatTransfer.Fahrenheit.FixedTemperatureI.png" ALT="Modelica.Thermal.HeatTransfer.Fahrenheit.FixedTemperature" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.HeatTransfer.Fahrenheit.FixedTemperature"></A><A HREF="Modelica_Thermal_HeatTransfer_Fahrenheit.html#Modelica.Thermal.HeatTransfer.Fahrenheit"
+>Modelica.Thermal.HeatTransfer.Fahrenheit</A>.FixedTemperature</H2>
+<B>Fixed temperature boundary condition in °Fahrenheit</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This model defines a fixed temperature T at its port in [degF],
+i.e., it defines a fixed temperature as a boundary condition.
+</p>
+<pre>
+</PRE>
+
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>T</TD><TD>Fixed Temperature at the port [degF]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>port</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PrescribedTemperature<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.HeatTransfer.Fahrenheit.PrescribedTemperatureI.png" ALT="Modelica.Thermal.HeatTransfer.Fahrenheit.PrescribedTemperature" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.HeatTransfer.Fahrenheit.PrescribedTemperature"></A><A HREF="Modelica_Thermal_HeatTransfer_Fahrenheit.html#Modelica.Thermal.HeatTransfer.Fahrenheit"
+>Modelica.Thermal.HeatTransfer.Fahrenheit</A>.PrescribedTemperature</H2>
+<B>Variable temperature boundary condition in °Fahrenheit</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This model represents a variable temperature boundary condition
+The temperature value in [degF] is given by the input signal
+to the model. The effect is that an instance of this model acts as
+an infinite reservoir able to absorb or generate as much energy
+as required to keep the temperature at the specified value.
+</p>
+<pre>
+</PRE>
+
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>port</TD><TD>&nbsp;</TD></TR>
+<TR><TD>T</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TemperatureSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.HeatTransfer.Fahrenheit.TemperatureSensorI.png" ALT="Modelica.Thermal.HeatTransfer.Fahrenheit.TemperatureSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.HeatTransfer.Fahrenheit.TemperatureSensor"></A><A HREF="Modelica_Thermal_HeatTransfer_Fahrenheit.html#Modelica.Thermal.HeatTransfer.Fahrenheit"
+>Modelica.Thermal.HeatTransfer.Fahrenheit</A>.TemperatureSensor</H2>
+<B>Absolute temperature sensor in °Fahrenheit</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This is an ideal absolute temperature sensor which returns
+the temperature of the connected port in Fahrenheit as an output
+signal.  The sensor itself has no thermal interaction with
+whatever it is connected to.  Furthermore, no
+thermocouple-like lags are associated with this
+sensor model.
+</p>
+<pre>
+</PRE>
+
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>T</TD><TD>&nbsp;</TD></TR>
+<TR><TD>port</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Thu Jan 29 17:33:19 2009.
+</address></BODY>
+</HTML>

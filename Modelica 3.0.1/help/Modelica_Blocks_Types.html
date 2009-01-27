@@ -1,0 +1,123 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Blocks.Types</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Library of constants and types with choices, especially to build menus&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Types<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Blocks.Types"></A><A HREF="Modelica_Blocks.html#Modelica.Blocks"
+>Modelica.Blocks</A>.Types</H2>
+<B>Library of constants and types with choices, especially to build menus</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+In this package <b>types</b> and <b>constants</b> are defined that are used
+in library Modelica.Blocks. The types have additional annotation choices
+definitions that define the menus to be built up in the graphical
+user interface when the type is used as parameter in a declaration.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Library.html#Modelica.Icons.Library"
+>Modelica.Icons.Library</A> (Icon for library).
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Blocks_Types.html#Modelica.Blocks.Types.Smoothness"
+>Smoothness</A>
+</TD><TD>Enumeration defining the smoothness of table interpolation</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Types.html#Modelica.Blocks.Types.Extrapolation"
+>Extrapolation</A>
+</TD><TD>Enumeration defining the extrapolation of time table interpolation</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Types.html#Modelica.Blocks.Types.Init"
+>Init</A>
+</TD><TD>Enumeration defining initialization of a block</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Types.html#Modelica.Blocks.Types.InitPID"
+>InitPID</A>
+</TD><TD>Enumeration defining initialization of PID and LimPID blocks</TD></TR>
+<TR><TD><A HREF="Modelica_Blocks_Types.html#Modelica.Blocks.Types.SimpleController"
+>SimpleController</A>
+</TD><TD>Enumeration defining P, PI, PD, or PID simple controller type</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Smoothness<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Blocks.Types.Smoothness"></A><A HREF="Modelica_Blocks_Types.html#Modelica.Blocks.Types"
+>Modelica.Blocks.Types</A>.Smoothness</H2>
+<B>Enumeration defining the smoothness of table interpolation</B><p>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Extrapolation<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Blocks.Types.Extrapolation"></A><A HREF="Modelica_Blocks_Types.html#Modelica.Blocks.Types"
+>Modelica.Blocks.Types</A>.Extrapolation</H2>
+<B>Enumeration defining the extrapolation of time table interpolation</B><p>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Init<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Blocks.Types.Init"></A><A HREF="Modelica_Blocks_Types.html#Modelica.Blocks.Types"
+>Modelica.Blocks.Types</A>.Init</H2>
+<B>Enumeration defining initialization of a block</B><p>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE InitPID<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Blocks.Types.InitPID"></A><A HREF="Modelica_Blocks_Types.html#Modelica.Blocks.Types"
+>Modelica.Blocks.Types</A>.InitPID</H2>
+<B>Enumeration defining initialization of PID and LimPID blocks</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This initialization type is identical to Types.Init and has just one
+additional option <b>DoNotUse_InitialIntegratorState</b>. This option
+is introduced in order that the default initialization for the
+Continuous.PID and Continuous.LimPID blocks are backward
+compatible. In Modelica 2.2, the integrators have been initialized
+with their given states where as the D-part has not been initialized.
+The option "DoNotUse_InitialIntegratorState" leads to this
+initialization definition.
+</p>
+
+<pre></PRE>
+
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SimpleController<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Blocks.Types.SimpleController"></A><A HREF="Modelica_Blocks_Types.html#Modelica.Blocks.Types"
+>Modelica.Blocks.Types</A>.SimpleController</H2>
+<B>Enumeration defining P, PI, PD, or PID simple controller type</B><p>
+<H3>Information</H3>
+<PRE></pre>
+
+<pre></PRE>
+
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Thu Jan 29 17:26:14 2009.
+</address></BODY>
+</HTML>

@@ -1,0 +1,417 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Thermal.FluidHeatFlow.Examples</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Examples that demonstrate the usage of the FluidHeatFlow components&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Examples<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Thermal.FluidHeatFlow.Examples"></A><A HREF="Modelica_Thermal_FluidHeatFlow.html#Modelica.Thermal.FluidHeatFlow"
+>Modelica.Thermal.FluidHeatFlow</A>.Examples</H2>
+<B>Examples that demonstrate the usage of the FluidHeatFlow components</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+This package contains test examples:
+<ul>
+<li>1.SimpleCooling: heat is dissipated through a media flow</li>
+<li>2.ParallelCooling: two heat sources dissipate through merged media flows</li>
+<li>3.IndirectCooling: heat is disspated through two cooling cycles</li>
+<li>4.PumpAndValve: demonstrates usage of an IdealPump and a Valve</li>
+<li>5.PumpDropOut: demonstrates shutdown and restart of a pump</li>
+<li>6.ParallelPumpDropOut: demonstrates shutdown and restart of a pump in a parallel circuit</li>
+<li>7.OneMass: cooling of a mass (thermal capacity) by a coolant flow</li>
+<li>8.TwoMass: cooling of two masses (thermal capacities) by two parallel coolant flows</li>
+</ul>
+<dl>
+  <dt><b>Main Authors:</b></dt>
+  <dd>
+  <p>
+  <a href="http://www.haumer.at/">Anton Haumer</a><br>
+  Technical Consulting & Electrical Engineering<br>
+  A-3423 St.Andrae-Woerdern, Austria<br>
+  email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a>
+  </p>
+  <p>
+  Dr.Christian Kral<br>
+  &Ouml;sterreichisches Forschungs- und Pr&uuml;fzentrum Arsenal Ges.m.b.H.<br>
+  <a href="http://www.arsenal.ac.at/">arsenal research</a><br>
+  Giefinggasse 2<br>
+  A-1210 Vienna, Austria
+  </p>
+  </dd>
+</dl>
+<p>
+Copyright &copy; 1998-2009, Modelica Association, Anton Haumer and arsenal research.
+</p>
+<p>
+<i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+under the terms of the <b>Modelica license</b>, see the license conditions
+and the accompanying <b>disclaimer</b>
+<a href="Modelica://Modelica.UsersGuide.ModelicaLicense">here</a>.</i>
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Library2.html#Modelica.Icons.Library2"
+>Modelica.Icons.Library2</A> (Icon for library where additional icon elements shall be added).
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingS.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCooling" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples.SimpleCooling"
+>SimpleCooling</A>
+</TD><TD>Example: simple cooling circuit</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingS.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.ParallelCooling" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples.ParallelCooling"
+>ParallelCooling</A>
+</TD><TD>Example: coolig circuit with parallel branches</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingS.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.IndirectCooling" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples.IndirectCooling"
+>IndirectCooling</A>
+</TD><TD>Example: indirect cooling circuit</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingS.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.PumpAndValve" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples.PumpAndValve"
+>PumpAndValve</A>
+</TD><TD>Example: cooling circuit with pump and valve</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingS.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.PumpDropOut" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples.PumpDropOut"
+>PumpDropOut</A>
+</TD><TD>Example: cooling circuit with drop out of pump</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingS.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.ParallelPumpDropOut" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples.ParallelPumpDropOut"
+>ParallelPumpDropOut</A>
+</TD><TD>Example: cooling circuit with parallel branches and drop out of pump</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingS.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.OneMass" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples.OneMass"
+>OneMass</A>
+</TD><TD>Example: ccoling of one hot mass</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingS.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.TwoMass" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples.TwoMass"
+>TwoMass</A>
+</TD><TD>Example: cooling of two hot masses</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.UtilitiesS.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.Utilities" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Examples_Utilities.html#Modelica.Thermal.FluidHeatFlow.Examples.Utilities"
+>Utilities</A>
+</TD><TD>Utility models for examples</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SimpleCooling<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingI.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCooling" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCooling"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples"
+>Modelica.Thermal.FluidHeatFlow.Examples</A>.SimpleCooling</H2>
+<B>Example: simple cooling circuit</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+1st test example: SimpleCooling
+</p>
+A prescribed heat source dissipates its heat through a thermal conductor to a coolant flow. The coolant flow is taken from an ambient and driven by a pump with prescribed mass flow.<br>
+<b>Results</b>:<br>
+<table>
+<tr>
+<td valign="top"><b>output</b></td>
+<td valign="top"><b>explanation</b></td>
+<td valign="top"><b>formula</b></td>
+<td valign="top"><b>actual steady-state value</b></td>
+</tr>
+<tr>
+<td valign="top">dTSource</td>
+<td valign="top">Source over Ambient</td>
+<td valign="top">dtCoolant + dtToPipe</td>
+<td valign="top">20 K</td>
+</tr>
+<tr>
+<td valign="top">dTtoPipe</td>
+<td valign="top">Source over Coolant</td>
+<td valign="top">Losses / ThermalConductor.G</td>
+<td valign="top">10 K</td>
+</tr>
+<tr>
+<td valign="top">dTCoolant</td>
+<td valign="top">Coolant's temperature increase</td>
+<td valign="top">Losses * cp * massFlow</td>
+<td valign="top">10 K</td>
+</tr>
+</table>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for an example model).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>medium</TD><TD>Cooling medium</TD></TR>
+<TR><TD>TAmb</TD><TD>Ambient temperature [K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ParallelCooling<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingI.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.ParallelCooling" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.FluidHeatFlow.Examples.ParallelCooling"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples"
+>Modelica.Thermal.FluidHeatFlow.Examples</A>.ParallelCooling</H2>
+<B>Example: coolig circuit with parallel branches</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+2nd test example: ParallelCooling
+</p>
+Two prescribed heat sources dissipate their heat through thermal conductors to coolant flows. The coolant flow is taken from an ambient and driven by a pump with prescribed mass flow, then splitted into two coolant flows connected to the two heat sources, and afterwards merged. Splitting of coolant flows is determined by pressure drop characteristic of the two pipes.<br>
+<b>Results</b>:<br>
+<table>
+<tr>
+<td valign="top"><b>output</b></td>
+<td valign="top"><b>explanation</b></td>
+<td valign="top"><b>formula</b></td>
+<td valign="top"><b>actual steady-state value</b></td>
+</tr>
+<tr>
+<td valign="top">dTSource1</td>
+<td valign="top">Source1 over Ambient</td>
+<td valign="top">dTCoolant1 + dTtoPipe1</td>
+<td valign="top">15 K</td>
+</tr>
+<tr>
+<td valign="top">dTtoPipe1</td>
+<td valign="top">Source1 over Coolant1</td>
+<td valign="top">Losses1 / ThermalConductor1.G</td>
+<td valign="top"> 5 K</td>
+</tr>
+<tr>
+<td valign="top">dTCoolant1</td>
+<td valign="top">Coolant's temperature increase</td>
+<td valign="top">Losses * cp * totalMassFlow/2</td>
+<td valign="top">10 K</td>
+</tr>
+<tr>
+<td valign="top">dTSource2</td>
+<td valign="top">Source2 over Ambient</td>
+<td valign="top">dTCoolant2 + dTtoPipe2</td>
+<td valign="top">30 K</td>
+</tr>
+<tr>
+<td valign="top">dTtoPipe2</td>
+<td valign="top">Source2 over Coolant2</td>
+<td valign="top">Losses2 / ThermalConductor2.G</td>
+<td valign="top">10 K</td>
+</tr>
+<tr>
+<td valign="top">dTCoolant2</td>
+<td valign="top">Coolant's temperature increase</td>
+<td valign="top">Losses * cp * totalMassFlow/2</td>
+<td valign="top">20 K</td>
+</tr>
+<tr>
+<td valign="top">dTmixedCoolant</td>
+<td valign="top">mixed Coolant's temperature increase</td>
+<td valign="top">(dTCoolant1+dTCoolant2)/2</td>
+<td valign="top">15 K</td>
+</tr>
+</table>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for an example model).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>medium</TD><TD>Cooling medium</TD></TR>
+<TR><TD>TAmb</TD><TD>Ambient temperature [K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IndirectCooling<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingI.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.IndirectCooling" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.FluidHeatFlow.Examples.IndirectCooling"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples"
+>Modelica.Thermal.FluidHeatFlow.Examples</A>.IndirectCooling</H2>
+<B>Example: indirect cooling circuit</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+3rd test example: IndirectCooling
+</p>
+A prescribed heat sources dissipates its heat through a thermal conductor to the inner coolant cycle. It is necessary to define the pressure level of the inner coolant cycle. The inner coolant cycle is coupled to the outer coolant flow through a thermal conductor.<br>
+Inner coolant's temperature rise near the source is the same as temperature drop near the cooler.<br>
+<b>Results</b>:<br>
+<table>
+<tr>
+<td valign="top"><b>output</b></td>
+<td valign="top"><b>explanation</b></td>
+<td valign="top"><b>formula</b></td>
+<td valign="top"><b>actual steady-state value</b></td>
+</tr>
+<tr>
+<td valign="top">dTSource</td>
+<td valign="top">Source over Ambient</td>
+<td valign="top">dtouterCoolant + dtCooler + dTinnerCoolant + dtToPipe</td>
+<td valign="top">40 K</td>
+</tr>
+<tr>
+<td valign="top">dTtoPipe</td>
+<td valign="top">Source over inner Coolant</td>
+<td valign="top">Losses / ThermalConductor.G</td>
+<td valign="top">10 K</td>
+</tr>
+<tr>
+<td valign="top">dTinnerColant</td>
+<td valign="top">inner Coolant's temperature increase</td>
+<td valign="top">Losses * cp * innerMassFlow</td>
+<td valign="top">10 K</td>
+</tr>
+<tr>
+<td valign="top">dTCooler</td>
+<td valign="top">Cooler's temperature rise between inner and outer pipes</td>
+<td valign="top">Losses * (innerGc + outerGc)</td>
+<td valign="top">10 K</td>
+</tr>
+<tr>
+<td valign="top">dTouterColant</td>
+<td valign="top">outer Coolant's temperature increase</td>
+<td valign="top">Losses * cp * outerMassFlow</td>
+<td valign="top">10 K</td>
+</tr>
+</table>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for an example model).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>outerMedium</TD><TD>Outer medium</TD></TR>
+<TR><TD>innerMedium</TD><TD>Inner medium</TD></TR>
+<TR><TD>TAmb</TD><TD>Ambient temperature [K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PumpAndValve<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingI.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.PumpAndValve" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.FluidHeatFlow.Examples.PumpAndValve"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples"
+>Modelica.Thermal.FluidHeatFlow.Examples</A>.PumpAndValve</H2>
+<B>Example: cooling circuit with pump and valve</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+4th test example: PumpAndValve
+</p>
+The pump is running with half speed for 0.4 s,
+afterwards with full speed (using a ramp of 0.1 s).<br>
+The valve is half open for 0.9 s, afterwards full open (using a ramp of 0.1 s).<br>
+You may try to:
+<ul>
+<li>drive the pump with variable speed and let the valve full open
+    to regulate the volume flow rate of coolant</li>
+<li>drive the pump with constant speed and throttle the valve
+    to regulate the volume flow rate of coolant</li>
+</ul>
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for an example model).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>medium</TD><TD>Cooling medium</TD></TR>
+<TR><TD>TAmb</TD><TD>Ambient temperature [K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PumpDropOut<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingI.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.PumpDropOut" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.FluidHeatFlow.Examples.PumpDropOut"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples"
+>Modelica.Thermal.FluidHeatFlow.Examples</A>.PumpDropOut</H2>
+<B>Example: cooling circuit with drop out of pump</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+5th test example: PumpDropOut
+</p>
+Same as 1st test example, but with a drop out of the pump:<br>
+The pump is running for 0.2 s, then shut down (using a ramp of 0.2 s) for 0.2 s,
+then started again (using a ramp of 0.2 s).
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for an example model).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>medium</TD><TD>Cooling medium</TD></TR>
+<TR><TD>TAmb</TD><TD>Ambient temperature [K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ParallelPumpDropOut<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingI.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.ParallelPumpDropOut" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.FluidHeatFlow.Examples.ParallelPumpDropOut"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples"
+>Modelica.Thermal.FluidHeatFlow.Examples</A>.ParallelPumpDropOut</H2>
+<B>Example: cooling circuit with parallel branches and drop out of pump</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+6th test example: ParallelPumpDropOut
+</p>
+Same as 2nd test example, but with a drop out of the pump:<br>
+The pump is running for 0.2 s, then shut down (using a ramp of 0.2 s) for 0.2 s,
+then started again (using a ramp of 0.2 s).
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for an example model).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>medium</TD><TD>Cooling medium</TD></TR>
+<TR><TD>TAmb</TD><TD>Ambient temperature [K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE OneMass<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingI.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.OneMass" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.FluidHeatFlow.Examples.OneMass"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples"
+>Modelica.Thermal.FluidHeatFlow.Examples</A>.OneMass</H2>
+<B>Example: ccoling of one hot mass</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+7th test example: OneMass
+</p>
+A thermal capacity is coupled with a coolant flow.
+Different inital temperatures of thermal capacity and pipe's coolant get ambient's temperature,
+the time behaviour depending on coolant flow.
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for an example model).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>medium</TD><TD>Cooling medium</TD></TR>
+<TR><TD>TAmb</TD><TD>Ambient temperature [K]</TD></TR>
+<TR><TD>TMass</TD><TD>Inital temperature of mass [K]</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TwoMass<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingI.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.TwoMass" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.FluidHeatFlow.Examples.TwoMass"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples"
+>Modelica.Thermal.FluidHeatFlow.Examples</A>.TwoMass</H2>
+<B>Example: cooling of two hot masses</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+8th test example: TwoMass
+</p>
+Two thermal capacities are coupled with two parallel coolant flow.
+Different inital temperatures of thermal capacities and pipe's coolants get ambient's temperature,
+the time behaviour depending on coolant flow.
+<pre></PRE>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for an example model).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>medium</TD><TD>Cooling medium</TD></TR>
+<TR><TD>TAmb</TD><TD>Ambient temperature [K]</TD></TR>
+<TR><TD>TMass1</TD><TD>Inital temperature of mass1 [K]</TD></TR>
+<TR><TD>TMass2</TD><TD>Inital temperature of mass2 [K]</TD></TR>
+</TABLE>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Thu Jan 29 17:33:08 2009.
+</address></BODY>
+</HTML>

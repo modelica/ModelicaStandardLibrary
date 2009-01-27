@@ -13,30 +13,33 @@ Note, the usage of a Modelica library requires a Modelica simulation environment
 
 ## Current release
 
-Download [Modelica Standard Library v3.0 (2008-03-01)](../../archive/v3.0.zip)
+Download [Modelica Standard Library v3.0.1 (2009-01-27)](../../archive/v3.0.1.zip)
 
 #### Release notes
 
+* [Version v3.0.1 (2009-01-27)](../../archive/v3.0.1.zip)
+  * Summary: Slightly improved version of the Modelica Standard Library 3.0 (several new components added, existing components improved, bugs corrected, backward compatible).
+  * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%203.0.1/help/Modelica.UsersGuide.ReleaseNotes.Version_3_0_1.html)
 * [Version v3.0 (2008-03-01)](../../archive/v3.0.zip)
   * Summary: Version 3.0 is not backward compatible to previous versions. A conversion script is provided to transform models and libraries of previous versions to the new version.
-  * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%203.0/help/Modelica.UsersGuide.ReleaseNotes.Version_3_0.html)
+  * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%203.0.1/help/Modelica.UsersGuide.ReleaseNotes.Version_3_0.html)
 * [Version v2.2.2 (2007-08-31)](../../archive/v2.2.2.zip)
   * Summary: Version 2.2.2 is backward compatible to version 2.2.1 and 2.2 with the following exceptions:
     * Removal of package Modelica.Media.Interfaces.PartialTwoPhaseMediumWithCache (this was not yet utilized).
     * Removal of the media packages in Modelica.Media.IdealGases.SingleGases that are not type compatible to Modelica.Media.Interfaces.PartialMedium, because a FluidConstants record definition is missing.
-  * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%203.0/help/Modelica.UsersGuide.ReleaseNotes.Version_2_2_2.html)
+  * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%203.0.1/help/Modelica.UsersGuide.ReleaseNotes.Version_2_2_2.html)
 * [Version v2.2.1 (2006-03-24)](../../archive/v2.2.1.zip)
   * Summary: Version 2.2.1 is backward compatible to version 2.2. In this version, no new libraries have been added.
-  * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%203.0/help/Modelica.UsersGuide.ReleaseNotes.Version_2_2_1.html)
+  * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%203.0.1/help/Modelica.UsersGuide.ReleaseNotes.Version_2_2_1.html)
 * [Version v2.2 (2005-04-06)](../../archive/v2.2.zip)
   * Summary: Version 2.2 is backward compatible to version 2.1. Two new packages have been added, `Modelica.Media` and `Modelica.Thermal.FluidHeatFlow`.
-  * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%203.0/help/Modelica.UsersGuide.ReleaseNotes.Version_2_2.html)
+  * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%203.0.1/help/Modelica.UsersGuide.ReleaseNotes.Version_2_2.html)
 * [Version v2.1 (2004-11-11)](../../archive/v2.1.zip)
   * Summary: This is a major change with respect to previous versions of the Modelica Standard Library, because many new libraries and components are included and because the input/output blocks (Modelica.Blocks) have been considerably simplified.
-  * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%203.0/help/Modelica.UsersGuide.ReleaseNotes.Version_2_1.html)
+  * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%203.0.1/help/Modelica.UsersGuide.ReleaseNotes.Version_2_1.html)
 * [Version v1.6 (2004-06-21)](../../archive/v1.6.zip)
   * Summary: Added 1 new library (Electrical.MultiPhase), 17 new components, improved 3 existing components in the Modelica.Electrical library and improved 3 types in the Modelica.SIunits library.
-  * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%203.0/help/Modelica.UsersGuide.ReleaseNotes.Version_1_6.html)
+  * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%203.0.1/help/Modelica.UsersGuide.ReleaseNotes.Version_1_6.html)
 
 
 ## License

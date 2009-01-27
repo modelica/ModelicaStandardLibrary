@@ -1,0 +1,269 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.SIunits.UsersGuide</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;User&#39;s Guide of SIunits Library&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE UsersGuide<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.SIunits.UsersGuideI.png" ALT="Modelica.SIunits.UsersGuide" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.SIunits.UsersGuide"></A><A HREF="Modelica_SIunits.html#Modelica.SIunits"
+>Modelica.SIunits</A>.UsersGuide</H2>
+<PRE></pre>
+<p>
+Library <b>SIunits</b> is a <b>free</b> Modelica package providing
+predefined types, such as <i>Mass</i>,
+<i>Length</i>, <i>Time</i>, based on the international standard
+on units.</p>
+
+<pre></PRE><P>
+
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.SIunits.UsersGuide.HowToUseSIunitsS.png" ALT="Modelica.SIunits.UsersGuide.HowToUseSIunits" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_SIunits_UsersGuide.html#Modelica.SIunits.UsersGuide.HowToUseSIunits"
+>HowToUseSIunits</A>
+</TD><TD>How to use SIunits</TD></TR>
+<TR><TD><IMG SRC="Modelica.SIunits.UsersGuide.HowToUseSIunitsS.png" ALT="Modelica.SIunits.UsersGuide.Conventions" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_SIunits_UsersGuide.html#Modelica.SIunits.UsersGuide.Conventions"
+>Conventions</A>
+</TD><TD>Conventions</TD></TR>
+<TR><TD><IMG SRC="Modelica.SIunits.UsersGuide.HowToUseSIunitsS.png" ALT="Modelica.SIunits.UsersGuide.Literature" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_SIunits_UsersGuide.html#Modelica.SIunits.UsersGuide.Literature"
+>Literature</A>
+</TD><TD>Literature</TD></TR>
+<TR><TD><IMG SRC="Modelica.SIunits.UsersGuide.HowToUseSIunitsS.png" ALT="Modelica.SIunits.UsersGuide.Contact" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_SIunits_UsersGuide.html#Modelica.SIunits.UsersGuide.Contact"
+>Contact</A>
+</TD><TD>Contact</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HowToUseSIunits<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.SIunits.UsersGuideI.png" ALT="Modelica.SIunits.UsersGuide.HowToUseSIunits" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.SIunits.UsersGuide.HowToUseSIunits"></A><A HREF="Modelica_SIunits_UsersGuide.html#Modelica.SIunits.UsersGuide"
+>Modelica.SIunits.UsersGuide</A>.HowToUseSIunits</H2>
+<PRE></pre>
+<p>
+When implementing a Modelica model, every variable needs to
+be declared. Physical variables should be declared with a unit.
+The basic approach in Modelica is that the unit attribute of
+a variable is the <b>unit</b> in which the <b>equations</b> are <b>written</b>,
+for example:
+</p>
+
+<pre>   <b>model</b> MassOnGround
+     <b>parameter</b> Real m(quantity="Mass", unit="kg") "Mass";
+     <b>parameter</b> Real f(quantity="Force", unit="N") "Driving force";
+     Real s(unit="m") "Position of mass";
+     Real v(unit="m/s") "Velocity of mass";
+   <b>equation</b>
+     <b>der</b>(s) = v;
+     m*<b>der</b>(v) = f;
+   <b>end</b> MassOnGround;
+</pre>
+
+<p>
+This means that the equations in the equation section are only correct
+for the specified units. A different issue is the user interface, i.e.,
+in which unit the variable is presented to the user in graphical
+user interfaces, both for input (e.g., parameter menu), as well as
+for output (e.g., in the plot window). Preferably, the Modelica tool
+should provide a list of units from which the user can select, e.g.,
+"m", "cm", "km", "inch" for quantity "Length". When storing the value in
+the model as a Modelica modifier, it has to be converted to the unit defined
+in the declaration. Additionally, the unit used in the graphical
+user interface has to be stored. In order to have a standardized way
+of doing this, Modelica provides the following three attributs
+for a variable of type Real:
+</p>
+
+<ul>
+<li><b>quantity</b> to define the physical quantity (e.g. "Length", or "Energy").</li>
+<li><b>unit</b> to define the unit that has to be used
+    in order that the equations are correct (e.g. "N.m").</li>
+<li><b>displayUnit</b> to define the unit used in the graphical
+    user interface as default display unit for input and/or output.</li>
+</ul>
+
+<p>
+Note, a unit, such as "N.m", is not sufficient to define uniquely the
+physical quantity, since, e.g., "N.m" might be either "torque" or
+"energy". The "quantity" attribute might therefore be used by a tool
+to select the corresponding menu from which the user can select
+a unit for the corresponding variable.
+</p>
+
+<p>
+For example, after providing a value for "m" and "f" in a parameter
+menu of an instance of MassOnGround, a tool might generate the following code:
+</p>
+
+<pre>
+   MassOnGround myObject(m(displayUnit="g")=2, f=3);
+</pre>
+
+<p>
+The meaning is that in the equations a value of "2" is used
+and that in the graphical user interface a value of "2000" should be used,
+together with the unit "g" from the unit set "Mass" (= the quantity name).
+Note, according to the Modelica specification
+a tool might ignore the "displayUnit" attribute.
+</p>
+
+<p>
+In order to help the Modelica model developer, the Modelica.SIunits
+library provides about 450 predefined type names,
+together with values for the attributes <b>quantity</b>, <b>unit</b> and sometimes
+<b>displayUnit</b> and <b>min</b>. The unit is always selected as SI-unit according to the
+ISO standard. The type and the quantity names are the
+quantity names used in the ISO standard. "quantity" and "unit" are defined
+as "<b>final</b>" in order that they cannot be modified. Attributes "displayUnit"
+and "min" can, however, be changed in a model via a modification. The example above,
+might therefore be alternatively also defined as:
+</p>
+
+<pre>   <b>model</b> MassOnGround
+     <b>parameter</b> Modelica.SIunits.Mass  m "Mass";
+     <b>parameter</b> Modelica.SIunits.Force f "Driving force";
+     ...
+   <b>end</b> MassOnGround;
+</pre>
+
+<p>
+or in a short hand notation as
+</p>
+
+<pre>
+   <b>model</b> MassOnGround
+     <b>import</b> SI = Modelica.SIunits;
+     <b>parameter</b> SI.Mass  m "Mass";
+     <b>parameter</b> SI.Force f "Driving force";
+     ...
+   <b>end</b> MassOnGround;
+</pre>
+
+<p>
+For some often
+used Non SI-units (like hour), some additional type definitions are
+present as Modelica.SIunits.Conversions.NonSIunits. If this is not sufficient,
+the user has to define its own types or use the attributes directly
+in the declaration as in the example at the beginning.
+</p>
+
+<pre></PRE>
+
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Conventions<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.SIunits.UsersGuideI.png" ALT="Modelica.SIunits.UsersGuide.Conventions" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.SIunits.UsersGuide.Conventions"></A><A HREF="Modelica_SIunits_UsersGuide.html#Modelica.SIunits.UsersGuide"
+>Modelica.SIunits.UsersGuide</A>.Conventions</H2>
+<PRE></pre>
+<p>The following conventions are used in package SIunits:</p>
+<ul>
+<li>Modelica quantity names are defined according to the recommendations
+    of ISO 31. Some of these name are rather long, such as
+    "ThermodynamicTemperature". Shorter alias names are defined, e.g.,
+    "type Temp_K = ThermodynamicTemperature;".</li>
+<li>Modelica units are defined according to the SI base units without
+    multiples (only exception "kg").</li>
+<li>For some quantities, more convenient units for an engineer are
+    defined as "displayUnit", i.e., the default unit for display
+    purposes (e.g., displayUnit="deg" for quantity="Angle").</li>
+<li>The type name is identical to the quantity name, following
+    the convention of type names.</li>
+<li>All quantity and unit attributes are defined as final in order
+    that they cannot be redefined to another value.</li>
+<li>Similiar quantities, such as "Length, Breadth, Height, Thickness,
+    Radius" are defined as the same quantity (here: "Length").</li>
+<li>The ordering of the type declarations in this package follows ISO 31:
+<pre>
+  Chapter  1: <b>Space and Time</b>
+  Chapter  2: <b>Periodic and Related Phenomena</b>
+  Chapter  3: <b>Mechanics</b>
+  Chapter  4: <b>Heat</b>
+  Chapter  5: <b>Electricity and Magnetism</b>
+  Chapter  6: <b>Light and Related Electro-Magnetic Radiations</b>
+  Chapter  7: <b>Acoustics</b>
+  Chapter  8: <b>Physical Chemistry</b>
+  Chapter  9: <b>Atomic and Nuclear Physics</b>
+  Chapter 10: <b>Nuclear Reactions and Ionizing Radiations</b>
+  Chapter 11: (not defined in ISO 31-1992)
+  Chapter 12: <b>Characteristic Numbers</b>
+  Chapter 13: <b>Solid State Physics</b>
+</pre>
+</li>
+<li>Conversion functions between SI and non-SI units are available in subpackage
+    <b>Conversions</b>.</li>
+</ul>
+<pre></PRE>
+
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Literature<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.SIunits.UsersGuideI.png" ALT="Modelica.SIunits.UsersGuide.Literature" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.SIunits.UsersGuide.Literature"></A><A HREF="Modelica_SIunits_UsersGuide.html#Modelica.SIunits.UsersGuide"
+>Modelica.SIunits.UsersGuide</A>.Literature</H2>
+<PRE></pre>
+<p> This package is based on the following references
+</p>
+
+<dl>
+<dt>ISO 31-1992:</dt>
+<dd> <b>General principles concerning
+    quantities, units and symbols</b>.<br>&nbsp;</dd>
+
+<dt>ISO 1000-1992:</dt>
+<dd> <b>SI units and recommendations for the use
+    of their multiples and of certain other units</b>.<br>&nbsp;</dd>
+
+<dt>Cardarelli F.:</dt>
+<dd> <b>Scientific Unit Conversion - A Practical
+     Guide to Metrication</b>. Springer 1997.</dd>
+</dl>
+
+<pre>
+</PRE>
+
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Contact<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.SIunits.UsersGuideI.png" ALT="Modelica.SIunits.UsersGuide.Contact" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.SIunits.UsersGuide.Contact"></A><A HREF="Modelica_SIunits_UsersGuide.html#Modelica.SIunits.UsersGuide"
+>Modelica.SIunits.UsersGuide</A>.Contact</H2>
+<PRE></pre>
+<dl>
+<dt><b>Main Author:</b>
+<dd><a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a><br>
+    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
+    Institut f&uuml;r Robotik und Mechatronik<br>
+    Abteilung f&uuml;r Entwurfsorientierte Regelungstechnik<br>
+    Postfach 1116<br>
+    D-82230 Wessling<br>
+    Germany<br>
+    email: <A HREF="mailto:Martin.Otter@dlr.de">Martin.Otter@dlr.de</A><br>
+</dl>
+
+
+<p><b>Acknowledgements:</b></p>
+<ul>
+<li> Astrid Jaschinski, Hubertus Tummescheit and Christian Schweiger
+     contributed to the implementation of this package.</li>
+</ul>
+<pre>
+</PRE>
+
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Thu Jan 29 17:32:52 2009.
+</address></BODY>
+</HTML>

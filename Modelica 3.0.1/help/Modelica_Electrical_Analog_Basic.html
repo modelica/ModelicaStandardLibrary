@@ -1,0 +1,819 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Analog.Basic</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Basic electrical components such as resistor, capacitor, transformer&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Basic<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Analog.Basic"></A><A HREF="Modelica_Electrical_Analog.html#Modelica.Electrical.Analog"
+>Modelica.Electrical.Analog</A>.Basic</H2>
+<B>Basic electrical components such as resistor, capacitor, transformer</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains basic analog electrical components.
+</p>
+
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons_Library.html#Modelica.Icons.Library"
+>Modelica.Icons.Library</A> (Icon for library).
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Basic.GroundS.png" ALT="Modelica.Electrical.Analog.Basic.Ground" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Ground</A>
+</TD><TD>Ground node</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Basic.ResistorS.png" ALT="Modelica.Electrical.Analog.Basic.Resistor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
+>Resistor</A>
+</TD><TD>Ideal linear electrical resistor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Basic.HeatingResistorS.png" ALT="Modelica.Electrical.Analog.Basic.HeatingResistor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.HeatingResistor"
+>HeatingResistor</A>
+</TD><TD>Temperature dependent electrical resistor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Basic.ConductorS.png" ALT="Modelica.Electrical.Analog.Basic.Conductor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Conductor"
+>Conductor</A>
+</TD><TD>Ideal linear electrical conductor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Basic.CapacitorS.png" ALT="Modelica.Electrical.Analog.Basic.Capacitor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Capacitor"
+>Capacitor</A>
+</TD><TD>Ideal linear electrical capacitor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Basic.InductorS.png" ALT="Modelica.Electrical.Analog.Basic.Inductor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Inductor"
+>Inductor</A>
+</TD><TD>Ideal linear electrical inductor</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Basic.SaturatingInductorS.png" ALT="Modelica.Electrical.Analog.Basic.SaturatingInductor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.SaturatingInductor"
+>SaturatingInductor</A>
+</TD><TD>Simple model of an inductor with saturation</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Basic.TransformerS.png" ALT="Modelica.Electrical.Analog.Basic.Transformer" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Transformer"
+>Transformer</A>
+</TD><TD>Transformer with two ports</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Basic.M_TransformerS.png" ALT="Modelica.Electrical.Analog.Basic.M_Transformer" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.M_Transformer"
+>M_Transformer</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Basic.GyratorS.png" ALT="Modelica.Electrical.Analog.Basic.Gyrator" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Gyrator"
+>Gyrator</A>
+</TD><TD>Gyrator</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Basic.EMFS.png" ALT="Modelica.Electrical.Analog.Basic.EMF" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.EMF"
+>EMF</A>
+</TD><TD>Electromotoric force (electric/mechanic transformer)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Basic.VCVS.png" ALT="Modelica.Electrical.Analog.Basic.VCV" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.VCV"
+>VCV</A>
+</TD><TD>Linear voltage-controlled voltage source</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Basic.VCCS.png" ALT="Modelica.Electrical.Analog.Basic.VCC" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.VCC"
+>VCC</A>
+</TD><TD>Linear voltage-controlled current source</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Basic.CCVS.png" ALT="Modelica.Electrical.Analog.Basic.CCV" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.CCV"
+>CCV</A>
+</TD><TD>Linear current-controlled voltage source</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Basic.CCCS.png" ALT="Modelica.Electrical.Analog.Basic.CCC" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.CCC"
+>CCC</A>
+</TD><TD>Linear current-controlled current source</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Basic.OpAmpS.png" ALT="Modelica.Electrical.Analog.Basic.OpAmp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.OpAmp"
+>OpAmp</A>
+</TD><TD>Simple nonideal model of an OpAmp with limitation</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Basic.VariableResistorS.png" ALT="Modelica.Electrical.Analog.Basic.VariableResistor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.VariableResistor"
+>VariableResistor</A>
+</TD><TD>Ideal linear electrical resistor with variable resistance</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Basic.VariableResistorS.png" ALT="Modelica.Electrical.Analog.Basic.VariableConductor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.VariableConductor"
+>VariableConductor</A>
+</TD><TD>Ideal linear electrical conductor with variable conductance</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Basic.VariableCapacitorS.png" ALT="Modelica.Electrical.Analog.Basic.VariableCapacitor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.VariableCapacitor"
+>VariableCapacitor</A>
+</TD><TD>Ideal linear electrical capacitor with variable capacitance</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Analog.Basic.VariableInductorS.png" ALT="Modelica.Electrical.Analog.Basic.VariableInductor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.VariableInductor"
+>VariableInductor</A>
+</TD><TD>Ideal linear electrical inductor with variable inductance</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Ground<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.GroundI.png" ALT="Modelica.Electrical.Analog.Basic.Ground" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.Ground"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.Ground</H2>
+<B>Ground node</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<P>
+Ground of an electrical circuit. The potential at the
+ground node is zero. Every electrical circuit has to contain
+at least one ground object.
+</P>
+<pre>
+</PRE>
+
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Resistor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.ResistorI.png" ALT="Modelica.Electrical.Analog.Basic.Resistor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.Resistor"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.Resistor</H2>
+<B>Ideal linear electrical resistor</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The linear resistor connects the branch voltage <i>v</i> with the
+branch current <i>i</i> by <i>i*R = v</i>.
+The Resistance <i>R</i> is allowed to be positive, zero, or negative.
+</P>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>R</TD><TD>Resistance [Ohm]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
+<TR><TD>n</TD><TD>Negative pin</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatingResistor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.HeatingResistorI.png" ALT="Modelica.Electrical.Analog.Basic.HeatingResistor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.HeatingResistor"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.HeatingResistor</H2>
+<B>Temperature dependent electrical resistor</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>This is a model for an electrical resistor where the generated heat
+is dissipated to the environment via connector <b>heatPort</b> and where
+the resistance R is temperature dependent according to the following
+equation:</p>
+<pre>    R = R_ref*(1 + alpha*(heatPort.T - T_ref))
+</pre>
+<p><b>alpha</b> is the <b>temperature coefficient of resistance</b>, which
+is often abbreviated as <b>TCR</b>. In resistor catalogues, it is usually
+defined as <b>X [ppm/K]</b> (parts per million, similarly to per centage)
+meaning <b>X*1.e-6 [1/K]</b>. Resistors are available for 1 .. 7000 ppm/K,
+i.e., alpha = 1e-6 .. 7e-3 1/K;</p>
+
+<p>
+Via parameter <b>useHeatPort</b> the heatPort connector can be enabled and disabled
+(default = enabled). If it is disabled, the generated heat is transported implicitly
+to an internal temperature source with a fixed temperature of T_ref.<br>
+If the heatPort connector is enabled, it must be connected.
+</p>
+
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>R_ref</TD><TD>Resistance at temperature T_ref [Ohm]</TD></TR>
+<TR><TD>T_ref</TD><TD>Reference temperature [K]</TD></TR>
+<TR><TD>alpha</TD><TD>Temperature coefficient of resistance (R = R_ref*(1 + alpha*(heatPort.T - T_ref)) [1/K]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
+<TR><TD>n</TD><TD>Negative pin</TD></TR>
+<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Conductor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.ConductorI.png" ALT="Modelica.Electrical.Analog.Basic.Conductor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.Conductor"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.Conductor</H2>
+<B>Ideal linear electrical conductor</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The linear conductor connects the branch voltage <i>v</i> with the
+branch current <i>i</i> by <i>i = v*G</i>.
+The Conductance <i>G</i> is allowed to be positive, zero, or negative.
+</P>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>G</TD><TD>Conductance [S]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
+<TR><TD>n</TD><TD>Negative pin</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Capacitor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.CapacitorI.png" ALT="Modelica.Electrical.Analog.Basic.Capacitor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.Capacitor"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.Capacitor</H2>
+<B>Ideal linear electrical capacitor</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The linear capacitor connects the branch voltage <i>v</i> with the
+branch current <i>i</i> by <i>i = C * dv/dt</i>.
+The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
+</p>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>C</TD><TD>Capacitance [F]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
+<TR><TD>n</TD><TD>Negative pin</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Inductor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.InductorI.png" ALT="Modelica.Electrical.Analog.Basic.Inductor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.Inductor"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.Inductor</H2>
+<B>Ideal linear electrical inductor</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The linear inductor connects the branch voltage <i>v</i> with the
+branch current <i>i</i> by  <i>v = L * di/dt</i>.
+The Inductance <i>L</i> is allowed to be positive, zero, or negative.
+</p>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>L</TD><TD>Inductance [H]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
+<TR><TD>n</TD><TD>Negative pin</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SaturatingInductor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.SaturatingInductorI.png" ALT="Modelica.Electrical.Analog.Basic.SaturatingInductor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.SaturatingInductor"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.SaturatingInductor</H2>
+<B>Simple model of an inductor with saturation</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This model approximates the behaviour of an inductor with the influence of saturation,
+i.e. the value of the inductance depends on the current flowing through the inductor.
+The inductance decreases as current increases.<br>
+The parameters are:
+<ul>
+<li>Inom...nominal current</li>
+<li>Lnom...nominal inductance at nominal current</li>
+<li>Lzer...inductance near current = 0; Lzer has to be greater than Lnom</li>
+<li>Linf...inductance at large currents; Linf has to be less than Lnom</li>
+</ul>
+</p>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Inom</TD><TD>Nominal current [A]</TD></TR>
+<TR><TD>Lnom</TD><TD>Nominal inductance at Nominal current [H]</TD></TR>
+<TR><TD>Lzer</TD><TD>Inductance near current=0 [H]</TD></TR>
+<TR><TD>Linf</TD><TD>Inductance at large currents [H]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
+<TR><TD>n</TD><TD>Negative pin</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Transformer<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.TransformerI.png" ALT="Modelica.Electrical.Analog.Basic.Transformer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.Transformer"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.Transformer</H2>
+<B>Transformer with two ports</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>The transformer is a two port. The left port voltage <i>v1</i>, left port current <i>i1</i>,
+right port voltage <i>v2</i> and right port current <i>i2</i> are connected by the following
+relation:</p>
+<pre>         | v1 |         | L1   M  |  | i1' |
+         |    |    =    |         |  |     |
+         | v2 |         | M    L2 |  | i2' |</pre>
+<p><i>L1</i>, <i>L2</i>, and <i>M</i> are the primary, secondary, and coupling inductances respectively.</p>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
+>Interfaces.TwoPort</A> (Component with two electrical ports, including current).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>L1</TD><TD>Primary inductance [H]</TD></TR>
+<TR><TD>L2</TD><TD>Secondary inductance [H]</TD></TR>
+<TR><TD>M</TD><TD>Coupling inductance [H]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p1</TD><TD>Positive pin of the left port (potential p1.v &gt; n1.v for positive voltage drop v1)</TD></TR>
+<TR><TD>n1</TD><TD>Negative pin of the left port</TD></TR>
+<TR><TD>p2</TD><TD>Positive pin of the right port (potential p2.v &gt; n2.v for positive voltage drop v2)</TD></TR>
+<TR><TD>n2</TD><TD>Negative pin of the right port</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE M_Transformer<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.M_TransformerI.png" ALT="Modelica.Electrical.Analog.Basic.M_Transformer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.M_Transformer"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.M_Transformer</H2>
+<H3>Information</H3>
+<PRE></pre>
+The model <i> M_Transformer </i> is a model of a transformer with the posibility to choose the
+number of inductors. Inside the model, an inductance matrix is built based on the
+inductance of the inductors and the coupling inductances between the inductors given as a
+parameter vector from the user of the model.<br>
+<br>
+An example shows that approach: <br>
+<br>
+The user chooses a model with <b>three</b> inductors, that means the parameter <b><i> N </i></b> has to be <b>3</b>.
+Then he has to specify the inductances of the three inductors and the three coupling inductances. The coupling
+inductances are no real existing devices, but effects that occur between two inductors.
+
+The inductivities (main diagonal of the inductance matrix) and the coupling inductivities have
+to be specified in the parameter vector <i> L </i> .  The length <i> dimL </i> of the parameter vector is calculated as follows: <b><i> dimL=(N*(N+1))/2 </i></b> <br> The following example shows how the parameter vector is used to fill in the inductance matrix.
+For example: To specify the inductance matrix of a three inductances transformer (<i> N=3 </i>), e.g.<br><br>
+<center>
+<table>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>1</td>
+    <td>0.1</td>
+    <td>0.2</td>
+  </tr>
+  <tr>
+    <td>Lm</td>
+    <td>=</td>
+    <td>0.1</td>
+    <td>2</td>
+    <td>0.3</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>0.2</td>
+    <td>0.3</td>
+    <td>3</td>
+  </tr>
+</table>
+</center>
+
+the user has to allocate the parameter vector <i>L[6] </i>, since <i> Nv=(N*(N+1))/2=(3*(3+1))/2=6</i>. The parameter vector must be filled like this: <i> L=[1,0.1,0.2,2,0.3,3] </i>. <br>
+<br>
+Inside the model, two loops are used to fill the inductance matrix to guarantee that it is filled in a symmetric way.
+<pre></PRE>
+
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>N</TD><TD>number of inductors</TD></TR>
+<TR><TD>L[dimL]</TD><TD>inductances and coupling inductances</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p[N]</TD><TD>Positive pin</TD></TR>
+<TR><TD>n[N]</TD><TD>Negative pin</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Gyrator<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.GyratorI.png" ALT="Modelica.Electrical.Analog.Basic.Gyrator" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.Gyrator"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.Gyrator</H2>
+<B>Gyrator</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<P>
+A gyrator is a two-port element defined by the following equations:
+</P>
+<PRE>
+    i1 =  G2 * v2
+    i2 = -G1 * v1
+</PRE>
+<P>
+where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
+</P>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
+>Interfaces.TwoPort</A> (Component with two electrical ports, including current).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>G1</TD><TD>Gyration conductance [S]</TD></TR>
+<TR><TD>G2</TD><TD>Gyration conductance [S]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p1</TD><TD>Positive pin of the left port (potential p1.v &gt; n1.v for positive voltage drop v1)</TD></TR>
+<TR><TD>n1</TD><TD>Negative pin of the left port</TD></TR>
+<TR><TD>p2</TD><TD>Positive pin of the right port (potential p2.v &gt; n2.v for positive voltage drop v2)</TD></TR>
+<TR><TD>n2</TD><TD>Negative pin of the right port</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE EMF<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.EMFI.png" ALT="Modelica.Electrical.Analog.Basic.EMF" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.EMF"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.EMF</H2>
+<B>Electromotoric force (electric/mechanic transformer)</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+EMF transforms electrical energy into rotational mechanical energy.
+It is used as basic building block of an electrical motor. The mechanical
+connector shaft can be connected to elements of the
+Modelica.Mechanics.Rotational library. shaft.tau is the cut-torque,
+flange.phi is the angle at the rotational connection.
+</p>
+<pre>
+</PRE>
+
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>useSupport</TD><TD>= true, if support flange enabled, otherwise implicitly grounded</TD></TR>
+<TR><TD>k</TD><TD>Transformation coefficient [N.m/A]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>n</TD><TD>&nbsp;</TD></TR>
+<TR><TD>flange</TD><TD>&nbsp;</TD></TR>
+<TR><TD>support</TD><TD>Support/housing of emf shaft</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VCV<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.VCVI.png" ALT="Modelica.Electrical.Analog.Basic.VCV" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.VCV"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.VCV</H2>
+<B>Linear voltage-controlled voltage source</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The linear voltage-controlled voltage source is a TwoPort.
+The right port voltage v2 is controlled by the left port voltage v1
+via
+</p>
+<pre>
+    v2 = v1 * gain.
+</pre>
+<p>
+The left port current is zero. Any voltage gain can be chosen.
+</p>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
+>Interfaces.TwoPort</A> (Component with two electrical ports, including current).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>gain</TD><TD>Voltage gain</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p1</TD><TD>Positive pin of the left port (potential p1.v &gt; n1.v for positive voltage drop v1)</TD></TR>
+<TR><TD>n1</TD><TD>Negative pin of the left port</TD></TR>
+<TR><TD>p2</TD><TD>Positive pin of the right port (potential p2.v &gt; n2.v for positive voltage drop v2)</TD></TR>
+<TR><TD>n2</TD><TD>Negative pin of the right port</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VCC<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.VCCI.png" ALT="Modelica.Electrical.Analog.Basic.VCC" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.VCC"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.VCC</H2>
+<B>Linear voltage-controlled current source</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The linear voltage-controlled current source is a TwoPort.
+The right port current i2 is controlled by the left port voltage v1
+via
+</p>
+<pre>
+    i2 = v1 * transConductance.
+</pre>
+<p>
+The left port current is zero. Any transConductance can be chosen.
+</p>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
+>Interfaces.TwoPort</A> (Component with two electrical ports, including current).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>transConductance</TD><TD>Transconductance [S]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p1</TD><TD>Positive pin of the left port (potential p1.v &gt; n1.v for positive voltage drop v1)</TD></TR>
+<TR><TD>n1</TD><TD>Negative pin of the left port</TD></TR>
+<TR><TD>p2</TD><TD>Positive pin of the right port (potential p2.v &gt; n2.v for positive voltage drop v2)</TD></TR>
+<TR><TD>n2</TD><TD>Negative pin of the right port</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CCV<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.CCVI.png" ALT="Modelica.Electrical.Analog.Basic.CCV" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.CCV"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.CCV</H2>
+<B>Linear current-controlled voltage source</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The linear current-controlled voltage source is a TwoPort.
+The right port voltage v2 is controlled by the left port current i1
+via
+</p>
+<pre>
+    v2 = i1 * transResistance.
+</pre>
+<p>
+The left port voltage is zero. Any transResistance can be chosen.
+</p>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
+>Interfaces.TwoPort</A> (Component with two electrical ports, including current).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>transResistance</TD><TD>Transresistance [Ohm]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p1</TD><TD>Positive pin of the left port (potential p1.v &gt; n1.v for positive voltage drop v1)</TD></TR>
+<TR><TD>n1</TD><TD>Negative pin of the left port</TD></TR>
+<TR><TD>p2</TD><TD>Positive pin of the right port (potential p2.v &gt; n2.v for positive voltage drop v2)</TD></TR>
+<TR><TD>n2</TD><TD>Negative pin of the right port</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CCC<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.CCCI.png" ALT="Modelica.Electrical.Analog.Basic.CCC" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.CCC"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.CCC</H2>
+<B>Linear current-controlled current source</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+The linear current-controlled current source is a TwoPort.
+The right port current i2 is controlled by the left port current i1
+via
+</p>
+<pre>
+    i2 = i1 * gain.
+</pre>
+<p>
+The left port voltage is zero. Any current gain can be chosen.
+</p>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
+>Interfaces.TwoPort</A> (Component with two electrical ports, including current).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>gain</TD><TD>Current gain</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p1</TD><TD>Positive pin of the left port (potential p1.v &gt; n1.v for positive voltage drop v1)</TD></TR>
+<TR><TD>n1</TD><TD>Negative pin of the left port</TD></TR>
+<TR><TD>p2</TD><TD>Positive pin of the right port (potential p2.v &gt; n2.v for positive voltage drop v2)</TD></TR>
+<TR><TD>n2</TD><TD>Negative pin of the right port</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE OpAmp<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.OpAmpI.png" ALT="Modelica.Electrical.Analog.Basic.OpAmp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.OpAmp"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.OpAmp</H2>
+<B>Simple nonideal model of an OpAmp with limitation</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The OpAmp is a simle nonideal model with a smooth out.v = f(vin) characteristic,
+where "vin = in_p.v - in_n.v".
+The characteristic is limited by VMax.v and VMin.v. Its slope at vin=0
+is the parameter Slope, which must be positive. (Therefore, the absolute
+value of Slope is taken into calculation.)
+</P>
+<pre>
+</PRE>
+
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Slope</TD><TD>Slope of the out.v/vin characteristic at vin=0</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>in_p</TD><TD>Positive pin of the input port</TD></TR>
+<TR><TD>in_n</TD><TD>Negative pin of the input port</TD></TR>
+<TR><TD>out</TD><TD>Output pin</TD></TR>
+<TR><TD>VMax</TD><TD>Positive output voltage limitation</TD></TR>
+<TR><TD>VMin</TD><TD>Negative output voltage limitation</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VariableResistor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.VariableResistorI.png" ALT="Modelica.Electrical.Analog.Basic.VariableResistor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.VariableResistor"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.VariableResistor</H2>
+<B>Ideal linear electrical resistor with variable resistance</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The linear resistor connects the branch voltage <i>v</i> with the
+branch current <i>i</i> by <br><br>
+      <b> <i>i*R = v</i></b>
+</P>
+<P>
+The Resistance <i>R</i> is given as input signal.
+<P>
+<b>Attention!!!</b><br>
+  It is recommended that the R signal should not cross the zero value. Otherwise
+  depending on the surrounding circuit the probability of singularities is high. <br>
+</P>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
+<TR><TD>n</TD><TD>Negative pin</TD></TR>
+<TR><TD>R</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VariableConductor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.VariableResistorI.png" ALT="Modelica.Electrical.Analog.Basic.VariableConductor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.VariableConductor"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.VariableConductor</H2>
+<B>Ideal linear electrical conductor with variable conductance</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The linear conductor connects the branch voltage <i>v</i> with the
+branch current <i>i</i> by <br><br>
+      <b> <i>i = G*v</i></b>
+</P>
+<P>
+The Conductance <i>G</i> is given as input signal.
+</P>
+<P>
+<b>Attention!!!</b><br>
+  It is recommended that the G signal should not cross the zero value. Otherwise
+  depending on the surrounding circuit the probability of singularities is high. <br>
+</P>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
+<TR><TD>n</TD><TD>Negative pin</TD></TR>
+<TR><TD>G</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VariableCapacitor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.VariableCapacitorI.png" ALT="Modelica.Electrical.Analog.Basic.VariableCapacitor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.VariableCapacitor"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.VariableCapacitor</H2>
+<B>Ideal linear electrical capacitor with variable capacitance</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The linear capacitor connects the branch voltage <i>v</i> with the
+branch current <i>i</i> by <br><br>
+      <b> <i>i = dQ/dt</i></b>  with <b><i>Q = C * v</i> </b>.
+</P>
+<P>
+The capacitance <i>C</i> is given as input signal.
+</P>
+<P>
+It is required that C &ge; 0, otherwise an
+assertion is raised. To avoid a variable index system,<br>
+C = Cmin, if 0 &le; C &lt; Cmin, where
+Cmin is a parameter with default value Modelica.Constants.eps.
+</P>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Cmin</TD><TD>lower bound for variable capacitance [F]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
+<TR><TD>n</TD><TD>Negative pin</TD></TR>
+<TR><TD>C</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VariableInductor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Analog.Basic.VariableInductorI.png" ALT="Modelica.Electrical.Analog.Basic.VariableInductor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Analog.Basic.VariableInductor"></A><A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</A>.VariableInductor</H2>
+<B>Ideal linear electrical inductor with variable inductance</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<P>
+The linear inductor connects the branch voltage <i>v</i> with the
+branch current <i>i</i> by <br><br>
+      <b> <i>v = d Psi/dt </i></b>   with  <b><i>Psi = L * i </i></b>.
+</P>
+<P>
+The inductance <i>L</i> is as input signal.
+</P>
+<P>
+It is required that L &ge; 0, otherwise an
+assertion is raised. To avoid a variable index system,<br>
+L = Lmin, if 0 &le; L &lt; Lmin, where
+Lmin is a parameter with default value Modelica.Constants.eps.
+</P>
+<pre>
+</PRE>
+Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Lmin</TD><TD>lower bound for variable inductance [H]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
+<TR><TD>n</TD><TD>Negative pin</TD></TR>
+<TR><TD>L</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Thu Jan 29 17:26:18 2009.
+</address></BODY>
+</HTML>

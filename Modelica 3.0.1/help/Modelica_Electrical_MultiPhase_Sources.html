@@ -1,0 +1,235 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.MultiPhase.Sources</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Multiphase voltage and current sources&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Sources<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.MultiPhase.Sources"></A><A HREF="Modelica_Electrical_MultiPhase.html#Modelica.Electrical.MultiPhase"
+>Modelica.Electrical.MultiPhase</A>.Sources</H2>
+<B>Multiphase voltage and current sources</B>
+<P>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+This package contains time-dependend and controlled multiphase voltage and current sources:
+<ul>
+<li>SignalVoltage: fed by Modelica.Blocks.Sources arbitrary waveforms of voltages are possible</li>
+<li>SineVoltage : phase shift between consecutive voltages by default <tt>= pi/m</tt></li>
+<li>SignalCurrent: fed by Modelica.Blocks.Sources arbitrary waveforms of currents are possible</li>
+<li>SineCurrent : phase shift between consecutive currents by default <tt>= pi/m</tt></li>
+</ul>
+</p>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Library2.html#Modelica.Icons.Library2"
+>Modelica.Icons.Library2</A> (Icon for library where additional icon elements shall be added).
+<H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.Sources.SignalVoltageS.png" ALT="Modelica.Electrical.MultiPhase.Sources.SignalVoltage" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Sources.html#Modelica.Electrical.MultiPhase.Sources.SignalVoltage"
+>SignalVoltage</A>
+</TD><TD>Multiphase signal voltage source</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.Sources.ConstantVoltageS.png" ALT="Modelica.Electrical.MultiPhase.Sources.ConstantVoltage" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Sources.html#Modelica.Electrical.MultiPhase.Sources.ConstantVoltage"
+>ConstantVoltage</A>
+</TD><TD>Multiphase constant voltage source</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.Sources.SineVoltageS.png" ALT="Modelica.Electrical.MultiPhase.Sources.SineVoltage" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Sources.html#Modelica.Electrical.MultiPhase.Sources.SineVoltage"
+>SineVoltage</A>
+</TD><TD>Multiphase sine voltage source</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.Sources.SignalCurrentS.png" ALT="Modelica.Electrical.MultiPhase.Sources.SignalCurrent" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Sources.html#Modelica.Electrical.MultiPhase.Sources.SignalCurrent"
+>SignalCurrent</A>
+</TD><TD>Multiphase sine current source</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.Sources.ConstantCurrentS.png" ALT="Modelica.Electrical.MultiPhase.Sources.ConstantCurrent" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Sources.html#Modelica.Electrical.MultiPhase.Sources.ConstantCurrent"
+>ConstantCurrent</A>
+</TD><TD>Multiphase constant current source</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.Sources.SineCurrentS.png" ALT="Modelica.Electrical.MultiPhase.Sources.SineCurrent" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Sources.html#Modelica.Electrical.MultiPhase.Sources.SineCurrent"
+>SineCurrent</A>
+</TD><TD>Multiphase sine current source</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SignalVoltage<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Sources.SignalVoltageI.png" ALT="Modelica.Electrical.MultiPhase.Sources.SignalVoltage" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Sources.SignalVoltage"></A><A HREF="Modelica_Electrical_MultiPhase_Sources.html#Modelica.Electrical.MultiPhase.Sources"
+>Modelica.Electrical.MultiPhase.Sources</A>.SignalVoltage</H2>
+<B>Multiphase signal voltage source</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m signal controlled voltage sources (Modelica.Electrical.Analog.Sources.SignalVoltage)
+</p>
+<pre></PRE>
+
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>number of phases</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD>v[m]</TD><TD>Voltage between pin p and n (= p.v - n.v) as input signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ConstantVoltage<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Sources.ConstantVoltageI.png" ALT="Modelica.Electrical.MultiPhase.Sources.ConstantVoltage" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Sources.ConstantVoltage"></A><A HREF="Modelica_Electrical_MultiPhase_Sources.html#Modelica.Electrical.MultiPhase.Sources"
+>Modelica.Electrical.MultiPhase.Sources</A>.ConstantVoltage</H2>
+<B>Multiphase constant voltage source</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.ConstantVoltage)
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A> (Component with one m-phase electric port).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>number of phases</TD></TR>
+<TR><TD>V[m]</TD><TD>Value of constant voltage [V]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SineVoltage<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Sources.SineVoltageI.png" ALT="Modelica.Electrical.MultiPhase.Sources.SineVoltage" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Sources.SineVoltage"></A><A HREF="Modelica_Electrical_MultiPhase_Sources.html#Modelica.Electrical.MultiPhase.Sources"
+>Modelica.Electrical.MultiPhase.Sources</A>.SineVoltage</H2>
+<B>Multiphase sine voltage source</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m sine voltage sources (Modelica.Electrical.Analog.Sources.SineVoltage)
+with a default phase shift of -(j-1)/m * 2*pi for j in 1:m.
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A> (Component with one m-phase electric port).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>number of phases</TD></TR>
+<TR><TD>V[m]</TD><TD>Amplitudes of sine waves [V]</TD></TR>
+<TR><TD>phase[m]</TD><TD>Phases of sine waves [rad]</TD></TR>
+<TR><TD>freqHz[m]</TD><TD>Frequencies of sine waves [Hz]</TD></TR>
+<TR><TD>offset[m]</TD><TD>Voltage offsets [V]</TD></TR>
+<TR><TD>startTime[m]</TD><TD>Time offsets [s]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SignalCurrent<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Sources.SignalCurrentI.png" ALT="Modelica.Electrical.MultiPhase.Sources.SignalCurrent" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Sources.SignalCurrent"></A><A HREF="Modelica_Electrical_MultiPhase_Sources.html#Modelica.Electrical.MultiPhase.Sources"
+>Modelica.Electrical.MultiPhase.Sources</A>.SignalCurrent</H2>
+<B>Multiphase sine current source</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m signal controlled current sources (Modelica.Electrical.Analog.Sources.SignalCurrent)
+</p>
+<pre></PRE>
+
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>number of phases</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD>i[m]</TD><TD>Current flowing from pin p to pin n as input signal</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ConstantCurrent<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Sources.ConstantCurrentI.png" ALT="Modelica.Electrical.MultiPhase.Sources.ConstantCurrent" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Sources.ConstantCurrent"></A><A HREF="Modelica_Electrical_MultiPhase_Sources.html#Modelica.Electrical.MultiPhase.Sources"
+>Modelica.Electrical.MultiPhase.Sources</A>.ConstantCurrent</H2>
+<B>Multiphase constant current source</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m constant current sources (Modelica.Electrical.Analog.Sources.ConstantCurrent)
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A> (Component with one m-phase electric port).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>number of phases</TD></TR>
+<TR><TD>I[m]</TD><TD>Value of constant current [A]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SineCurrent<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.MultiPhase.Sources.SineCurrentI.png" ALT="Modelica.Electrical.MultiPhase.Sources.SineCurrent" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.MultiPhase.Sources.SineCurrent"></A><A HREF="Modelica_Electrical_MultiPhase_Sources.html#Modelica.Electrical.MultiPhase.Sources"
+>Modelica.Electrical.MultiPhase.Sources</A>.SineCurrent</H2>
+<B>Multiphase sine current source</B><p>
+<H3>Information</H3>
+<PRE></pre>
+<p>
+Contains m sine current sources (Modelica.Electrical.Analog.Sources.SineCurrent)
+with a default phase shift of -(j-1)/m * 2*pi for j in 1:m.
+</p>
+<pre></PRE>
+Extends from <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</A> (Component with one m-phase electric port).
+<H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>m</TD><TD>number of phases</TD></TR>
+<TR><TD>I[m]</TD><TD>Amplitudes of sine waves [A]</TD></TR>
+<TR><TD>phase[m]</TD><TD>Phases of sine waves [rad]</TD></TR>
+<TR><TD>freqHz[m]</TD><TD>Frequencies of sine waves [Hz]</TD></TR>
+<TR><TD>offset[m]</TD><TD>Current offsets [A]</TD></TR>
+<TR><TD>startTime[m]</TD><TD>Time offsets [s]</TD></TR>
+</TABLE>
+<H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<address>HTML-documentation generated by <a href="http://www.dynasim.se/">Dymola</a> Thu Jan 29 17:26:54 2009.
+</address></BODY>
+</HTML>
