@@ -1523,13 +1523,13 @@ The simulation stop time has to be 5s.
                                annotation (Line(points={{20,62},{60,62},{60,70},
                 {100,70}}, color={127,0,127}));
                 connect(b, AND.x[1]) 
-                                  annotation (Line(points={{-100,-70},{-12,-70}}, 
+                                  annotation (Line(points={{-100,-70},{-12,-70}},
               color={127,0,127}));
                 connect(b, XOR.x[1]) 
                                   annotation (Line(points={{-100,-70},{-30,-70},
                 {-30,54},{-12,54}}, color={127,0,127}));
                 connect(a, XOR.x[2]) 
-                                  annotation (Line(points={{-100,70},{-12,70}}, 
+                                  annotation (Line(points={{-100,70},{-12,70}},
               color={127,0,127}));
                 connect(a, AND.x[2]) 
                                   annotation (Line(points={{-100,70},{-40,70},{
@@ -2053,8 +2053,8 @@ components of the Electrical.Digital library.
 </html>"));
 
     connector DigitalSignal = Logic "Digital port (both input/output possible)"
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{
-              -100,-100},{100,100}}),
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+              -100},{100,100}}),
                        graphics),
                         Diagram(coordinateSystem(preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}),
@@ -2090,15 +2090,15 @@ components of the Electrical.Digital library.
     connector DigitalOutput = output DigitalSignal
       "output DigitalSignal as connector" 
       annotation (defaultComponentName="y", Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
-           {Polygon(
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
+          ={Polygon(
             points={{-100,100},{100,0},{-100,-100},{-100,100}},
             lineColor={127,0,127},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid)}),
                                        Diagram(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
-           {Polygon(
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
+          ={Polygon(
             points={{-100,100},{100,0},{-100,-100},{-100,100}},
             lineColor={127,0,127},
             fillColor={255,255,255},
@@ -2115,11 +2115,11 @@ components of the Electrical.Digital library.
       D.Interfaces.DigitalOutput y "Connector of Digital output signal" 
                     annotation (Placement(transformation(extent={{90,-10},{110,
                 10}}, rotation=0)));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
-                -100,-100},{100,100}}),
+      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}),
                           graphics),                                          Icon(
-            coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Rectangle(
+            coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+                100}}), graphics={Rectangle(
               extent={{-50,100},{50,-100}},
               lineColor={0,0,0},
               lineThickness=0.5,
@@ -2306,8 +2306,8 @@ This package contains interface definitions
       D.Interfaces.Logic x_delayed;
       annotation (Documentation(info="<HTML>
 <P>
-Provide the input as output exactly delayed by <i>Tdel</i>.
-If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
+Provide the input as output exactly delayed by <i>delayTime</i>.
+If time less than <i>delayTime</i> the initial value <i>y0</i> holds.
 </P>
 </HTML>
 ", revisions="<HTML>
@@ -2332,7 +2332,8 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
               lineThickness=0.5,
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
-            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
+            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}), 
+
             Line(points={{0,60},{20,60}}, color={0,0,0}),
             Line(points={{10,60},{10,40}}, color={0,0,0}),
             Text(
@@ -2399,7 +2400,8 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
               lineThickness=0.5,
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
-            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
+            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}), 
+
             Line(points={{10,60},{10,40}}, color={0,0,0}),
             Line(points={{0,60},{20,60}}, color={0,0,0}),
             Text(
@@ -2497,7 +2499,8 @@ is used, if it is zero, the input is not delayed.
               lineColor={0,0,0},
               lineThickness=0.5,
               textString="sensitive"),
-            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
+            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}), 
+
             Line(points={{10,60},{10,40}}, color={0,0,0}),
             Line(points={{0,60},{20,60}}, color={0,0,0})}));
 
