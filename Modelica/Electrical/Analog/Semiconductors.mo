@@ -107,6 +107,100 @@ continued to avoid overflow.
       v/R else Ids*(exp(v/Vt) - 1) + v/R));
   end Diode;
 
+ model ZDiode "Zener Diode with 3 working areas"
+    extends Modelica.Electrical.Analog.Interfaces.OnePort;
+    parameter Modelica.SIunits.Current Ids=1.e-6 "Saturation current";
+    parameter Modelica.SIunits.Voltage Vt=0.04
+      "Voltage equivalent of temperature (kT/qn)";
+    parameter Real Maxexp(final min=Modelica.Constants.small) = 30
+      "Max. exponent for linear continuation";
+    parameter Modelica.SIunits.Resistance R=1.e8 "Parallel ohmic resistance";
+    parameter Modelica.SIunits.Voltage Bv=5.1
+      "Breakthrough voltage = Zener- or Z-voltage";
+    parameter Modelica.SIunits.Current Ibv=0.7 "Breakthrough knee current";
+    parameter Real Nbv=0.74 "Breakthrough emission coefficient";
+    annotation (
+      Documentation(info="
+<HTML>
+<P>
+The simple zener diode is a one port. It consists of the diode itself and an parallel ohmic
+resistance <i>R</i>. The diode formula is:
+</P>
+<PRE>
+                v/Vt                -(v+Bv)/(Nbv*Vt)
+  i  =  Ids ( e      - 1) - Ibv ( e                  ).
+</PRE>
+<P>
+If the exponent  in one of the two branches reaches the limit <i>Maxexp</i>, the diode characterisic is linearly
+continued to avoid overflow.
+</P>
+ 
+<P>
+The zener diode model permits (in contrast to the simple diode model) 
+current in reverse direction if the breakdown voltage Bv (also known zener knee voltage) is exceeded.
+<\\P>
+ 
+ 
+</HTML>
+", revisions="<html>
+<ul>
+<li><i> January 8, 2009   </i>
+       by Matthias Franke <br>
+       initially implemented
+       </li>
+</ul>
+</html>"),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Polygon(
+            points={{30,0},{-30,40},{-30,-40},{30,0}},
+            lineColor={0,0,0},
+            fillColor={255,255,255}),
+          Line(points={{-90,0},{40,0}}, color={0,0,255}),
+          Line(points={{40,0},{90,0}}, color={0,0,255}),
+          Line(points={{30,40},{30,-40}}, color={0,0,255}),
+          Text(
+            extent={{-98,-58},{102,-100}},
+            lineColor={0,0,0},
+            textString="Bv=%Bv"),
+          Text(
+            extent={{-100,100},{100,70}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(
+            points={{30,-40},{20,-40}},
+            color={0,0,255},
+            smooth=Smooth.None)}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Polygon(
+            points={{30,0},{-30,40},{-30,-40},{30,0}},
+            lineColor={0,0,0},
+            fillColor={255,0,0},
+            fillPattern=FillPattern.None),
+          Line(points={{-96,0},{40,0}}, color={0,0,255}),
+          Line(points={{40,0},{96,0}}, color={0,0,255}),
+          Line(points={{30,40},{30,-40}}, color={0,0,255}),
+          Line(
+            points={{30,-40},{20,-40}},
+            color={0,0,255},
+            smooth=Smooth.None)}),
+      uses(Modelica(version="3.0.1")));
+
+ equation
+   i = smooth(1, if (v>Maxexp*Vt) then 
+             Ids*( exp(Maxexp)*(1 + v/Vt - Maxexp)-1) + v/R else 
+          if ( (v+Bv)<-Maxexp*(Nbv*Vt)) then 
+             -Ids -Ibv* exp(Maxexp)*(1 - (v+Bv)/(Nbv*Vt) - Maxexp) +v/R else 
+             Ids*(exp(v/Vt)-1) - Ibv*exp(-(v+Bv)/(Nbv*Vt)) + v/R);
+
+    annotation (uses(Modelica(version="3.0")));
+ end ZDiode;
+
   model PMOS "Simple MOS Transistor"
     Interfaces.Pin D "Drain" annotation (Placement(transformation(extent={{90,
               40},{110,60}}, rotation=0)));
