@@ -123,8 +123,13 @@ solved, i.e., robustly and efficiently).
       "Relative distance between frame_a and frame_b" 
       annotation (unassignedMessage="
 The relative distance s of a prismatic joint cannot be determined.
-A non-zero mass might be missing on either side of the parts
-connected to the prismatic joint.");
+Possible reasons:
+- A non-zero mass might be missing on either side of the parts
+  connected to the prismatic joint.
+- Too many StateSelect.always are defined and the model
+  has less degrees of freedom as specified with this setting
+  (remove all StateSelect.always settings).
+");
 
     SI.Velocity v(start=0,final stateSelect=stateSelect)
       "First derivative of s (relative velocity)";
@@ -339,8 +344,12 @@ vector \"n\" defining the translation axis
       "Relative rotation angle from frame_a to frame_b" 
        annotation (unassignedMessage="
 The rotation angle phi of a revolute joint cannot be determined.
-A non-zero mass might be missing on either side of the parts
-connected to the revolute joint.
+Possible reasons:
+- A non-zero mass might be missing on either side of the parts
+  connected to the revolute joint.
+- Too many StateSelect.always are defined and the model
+  has less degrees of freedom as specified with this setting
+  (remove all StateSelect.always settings).
 ");
     SI.AngularVelocity w(start=0, stateSelect=stateSelect)
       "First derivative of angle phi (relative angular velocity)";
@@ -524,6 +533,7 @@ vector \"n\" defining the translation axis
       r=frame_a.r_0,
       R=frame_a.R) if world.enableAnimation and animation;
 
+  protected
     Modelica.Mechanics.Rotational.Components.Fixed fixed
       "support flange is fixed to ground" 
       annotation (Placement(transformation(extent={{-70,70},{-50,90}})));
@@ -1778,7 +1788,8 @@ frame_b of the joint.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(
-            points={{-86,31},{-74,61},{-49,83},{-17,92},{19,88},{40,69},{59,48}},
+            points={{-86,31},{-74,61},{-49,83},{-17,92},{19,88},{40,69},{59,48}}, 
+
             color={160,160,164},
             thickness=0.5),
           Polygon(
