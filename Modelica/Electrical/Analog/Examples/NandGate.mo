@@ -14,7 +14,7 @@ The nand gate is a basic CMOS building block. It consists of four CMOS transisto
 The output voltage Nand.y.v is low if and only if the two input voltages at Nand.x1.v and Nand.x2.v
 are both high. In this way the nand functionality is realized.
 <p>
-The simulation end time should be set to 1e-7. Please plot the input voltages Nand.x1.v,
+The simulation end time should be set to 1e-7. Please  plot the input voltages Nand.x1.v,
 d Nand.x2.v, and the output voltage Nand.y.v.
 <p>
 <dl>
