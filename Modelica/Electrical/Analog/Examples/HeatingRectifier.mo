@@ -1,7 +1,8 @@
 within Modelica.Electrical.Analog.Examples;
 model HeatingRectifier "Heating rectifier"
   extends Modelica.Icons.Example;
-  Modelica.Electrical.Analog.Semiconductors.HeatingDiode HeatingDiode1 
+  Modelica.Electrical.Analog.Semiconductors.HeatingDiode HeatingDiode1(
+      useHeatPort=true) 
                 annotation (Placement(transformation(extent={{-20,40},{0,60}},
           rotation=0)));
   Modelica.Electrical.Analog.Basic.Ground G 
@@ -65,7 +66,7 @@ equation
   annotation (Line(points={{0,50},{20,50}}, color={0,0,255}));
   connect(HeatingDiode1.heatPort, ThermalConductor1.port_a) 
                                                           annotation (Line(
-        points={{-10,40},{-10,20.5},{-10,0},{-10,0}}, color={191,0,0}));
+        points={{-10,40},{-10,0},{-10,0}},            color={191,0,0}));
   connect(ThermalConductor1.port_b, HeatCapacitor1.port) 
                                                        annotation (Line(points={{-10,-20},
           {-10,-25.75},{-10,-25.75},{-10,-30.5},{-10,-40},{-10,-40}},

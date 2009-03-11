@@ -48,9 +48,9 @@ H_PMOS.heatPort.Q_flow and H_NMOS.heatPort.Q_flow<br>
         rotation=270)));
   Modelica.Thermal.HeatTransfer.Components.ThermalConductor TC1(G=0.01) 
   annotation (Placement(transformation(extent={{0,-50},{20,-30}}, rotation=0)));
-  Semiconductors.HeatingPMOS H_PMOS 
+  Semiconductors.HeatingPMOS H_PMOS(useHeatPort=true) 
   annotation (Placement(transformation(extent={{-40,40},{-20,60}}, rotation=0)));
-  Semiconductors.HeatingNMOS H_NMOS 
+  Semiconductors.HeatingNMOS H_NMOS(useHeatPort=true) 
   annotation (Placement(transformation(extent={{-40,0},{-20,20}}, rotation=0)));
   Modelica.Electrical.Analog.Sources.RampVoltage V(V=5, duration=1.e-2) 
   annotation (Placement(transformation(

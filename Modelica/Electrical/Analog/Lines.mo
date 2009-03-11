@@ -7,6 +7,8 @@ package Lines
 <p>
 This package contains lossy and lossless segmented transmission lines,
 and LC distributed line models.
+
+The line models do not yet possess a conditional heating port.
 </p>
  
 </HTML>
@@ -95,8 +97,6 @@ Lossy Transmission Line.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -226,7 +226,7 @@ equation
     connect(inductance.n[lines],G[dim_vector_lgc].p);
     connect(G[dim_vector_lgc].n,M.p);
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(extent={{40,-40},{-40,40}},
+                -100},{100,100}}), graphics={Rectangle(extent={{40,-40},{-40,40}}, 
                 lineColor={0,0,255})}),
                             Diagram(coordinateSystem(preserveAspectRatio=false,
               extent={{-100,-100},{100,100}}),
@@ -261,7 +261,7 @@ equation
     connect(inductance.n[lines],R[lines].p);
     connect(R[lines].n,n[lines]);
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(extent={{20,-40},{-20,40}},
+                -100},{100,100}}), graphics={Rectangle(extent={{20,-40},{-20,40}}, 
                 lineColor={0,0,255})}),
                             uses(Modelica(version="2.2.1")));
 end segment_last;
@@ -595,8 +595,6 @@ lumped segments.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -691,8 +689,6 @@ Lossless transmission line with characteristic impedance Z0 and transmission del
 </html>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Joachim Haase<br> initially implemented<br>
        </li>
@@ -792,9 +788,6 @@ Lossless transmission line with characteristic impedance Z0, frequency F and nor
  
 </html>
 ", revisions="<html>
-<ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Joachim Haase<br> initially implemented<br>
        </li>
@@ -891,8 +884,6 @@ Lossless transmission line with characteristic impedance Z0 and frequency F
 </html>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Joachim Haase<br> initially implemented<br>
        </li>

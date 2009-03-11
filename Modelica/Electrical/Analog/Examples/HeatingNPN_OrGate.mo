@@ -153,7 +153,8 @@ T1.heatPort.Q_flow and T2.heatPort.Q_flow<br>
     Gbc=1.e-12,
     Gbe=1.e-12,
     EMax=40,
-    vt_t(start=0.01, fixed=false)) 
+    vt_t(start=0.01, fixed=false),
+    useHeatPort=true) 
            annotation (Placement(transformation(extent={{-20,48},{0,68}},
           rotation=0)));
   Semiconductors.HeatingNPN T2(
@@ -173,7 +174,8 @@ T1.heatPort.Q_flow and T2.heatPort.Q_flow<br>
     Gbc=1.e-12,
     Gbe=1.e-12,
     EMax=40,
-    vt_t(start=0.01, fixed=false)) 
+    vt_t(start=0.01, fixed=false),
+    useHeatPort=true) 
            annotation (Placement(transformation(extent={{20,-22},{40,-2}},
           rotation=0)));
 equation

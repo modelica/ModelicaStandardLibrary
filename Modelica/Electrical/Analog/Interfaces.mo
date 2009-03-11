@@ -65,8 +65,6 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             textString="%name")}),
       Documentation(revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -86,8 +84,6 @@ connector PositivePin is used for the positive and
 connector NegativePin for the negative pin of an electrical
 component.</p></html>", revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -121,9 +117,6 @@ to identify more easily the pins of a component. Usually,
 connector PositivePin is used for the positive and
 connector NegativePin for the negative pin of an electrical
 component.</p></html>", revisions="<html>
-<ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -185,8 +178,6 @@ component.</p></html>", revisions="<html>
             textString="n.i")}),
       Documentation(revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -218,8 +209,6 @@ This current is provided explicitly as current i.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -331,8 +320,6 @@ This current is provided explicitly as current i.
             textString="i1")}),
       Documentation(revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -348,6 +335,115 @@ This current is provided explicitly as current i.
     i1 = p1.i;
     i2 = p2.i;
   end TwoPort;
+
+  partial model ConditionalHeatingPort
+    "partial model to include conditional thermal hearting connection"
+
+  model InternalHeatPort "Adapter model to utilize conditional heat connector"
+    input Modelica.SIunits.HeatFlowRate Q_flow
+        "External supported heat flow rate, to be computed via current balance; = heatPort.Q_flow";
+    output Modelica.SIunits.Temperature T
+        "External Port temperature; = heatPort.T";
+    annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}),
+                                 graphics), Icon(coordinateSystem(
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
+            ={Text(
+              extent={{-200,80},{200,40}},
+              lineColor={0,0,255},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid,
+              textString="%name"), Rectangle(
+              extent={{-20,20},{20,-20}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid)}),
+      Documentation(info="<html>
+<p>
+This is an adapter model to utilize a conditional support connector
+in an elementary component, i.e., where the component equations are
+defined textually:
+</p>
+ 
+<ul>
+<li> If <i>useSupport = true</i>, the flange has to be connected to the conditional 
+     support connector.</li>
+<li> If <i>useSupport = false</i>, the flange has to be connected to the conditional 
+     fixed model.</li>
+</ul>
+ 
+<p>
+Variable <b>tau</b> is defined as <b>input</b> and must be provided when using
+this component as a modifier (computed via a torque balance in
+the model where InternalSupport is used). Usually, model InternalSupport is 
+utilized via the partial models:
+</p>
+ 
+<blockquote>
+<a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport\">
+PartialElementaryOneFlangeAndSupport</a>,<br>
+<a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport\">
+PartialElementaryTwoFlangesAndSupport</a>,<br>
+<a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational\">
+PartialElementaryRotationalToTranslational</a>.</li>
+</blockquote>
+ 
+<p>
+Note, the support angle can always be accessed as internalSupport.phi, and
+the support torque can always be accessed as internalSupport.tau.
+</p>
+ 
+ 
+</html>"),
+      uses(Modelica(version="3.0")));
+    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort 
+      annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+  equation
+    heatPort.T = T;
+    heatPort.Q_flow = Q_flow;
+  end InternalHeatPort;
+
+    parameter Boolean useHeatPort = false
+      "true, if HeatPort enabled, otherwise implicitly grounded";
+    annotation (uses(Modelica(version="3.0")),
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+              100}}), graphics),
+      DymolaStoredErrors,
+      Documentation(revisions="<html>
+<ul>
+<li><i> February 17, 2009   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>",   info="<html>
+<P>
+This partial model provides a conditional heating port for connection a thermal network.
+</P>
+<P>
+If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal 
+loss power flows internally to ground. In this case, the parameter <i>T</i> allows to specify 
+a default working temperature.
+</P>
+<P>
+If <b>useHeatPort</b> is set to <b>true</b>, a heat port is available.
+</P>
+<P>
+If this model is used, the loss power has to be provided by the model which includes the ConditionalHeatingPort model, e.g. by  <i>lossPower = ...</i> . As a device temperature <i>internalHeatPort.T</i> can be used.
+</P>
+</html>"));
+    parameter Modelica.SIunits.Temperature T=293.15 if not useHeatPort
+      "fixed Temperature if no HeatPort is used";
+    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort 
+      annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
+          iconTransformation(extent={{-10,-110},{10,-90}})));
+    Modelica.SIunits.Power LossPower;
+  protected
+    InternalHeatPort internalHeatPort(Q_flow = - LossPower);
+    Modelica.Thermal.HeatTransfer.Sources.FixedTemperature fixedTemperature(T=T) if not useHeatPort;
+  equation
+    connect(internalHeatPort.heatPort, heatPort);
+    connect(internalHeatPort.heatPort, fixedTemperature.port);
+  end ConditionalHeatingPort;
 
   partial model AbsoluteSensor
     "Base class to measure the absolute value of a pin variable"
@@ -372,12 +468,10 @@ This current is provided explicitly as current i.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}),
+          grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
             Line(points={{70,0},{100,0}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -421,8 +515,6 @@ This current is provided explicitly as current i.
           Line(points={{70,0},{96,0}}, color={0,0,0})}),
       Documentation(revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -463,8 +555,6 @@ This current is provided explicitly as current i.
             textString="-")}),
       Documentation(revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -505,8 +595,6 @@ This current is provided explicitly as current i.
             fillPattern=FillPattern.Solid)}),
       Documentation(revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>

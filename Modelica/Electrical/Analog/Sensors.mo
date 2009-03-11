@@ -63,12 +63,10 @@ Modelica in file \"Modelica/package.mo\".</i><br>
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}),
+          grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
             Line(points={{100,0},{70,0}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -117,8 +115,6 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           Line(points={{0,-90},{0,-70}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -173,8 +169,6 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           Line(points={{0,-90},{0,-70}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -266,8 +260,6 @@ This power sensor measures instantaneous electrical power of a singlephase syste
 </p>
 </html>", revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> January 12, 2006   </i>
        by Anton Haumer<br> implemented<br>
        </li>

@@ -13,10 +13,16 @@ This package contains semiconductor devices:
 <li>diode</li>
 <li>MOS transistors</li>
 <li>bipolar transistors</li>
-<li>diode, MOS and bipolar transistors with temperature
-    dependent characteristic and a heatPort for connection
-    to the thermal domain</li>
 </ul>
+
+All semiconductor devices contain a conditional heat port, which is
+not active by default. If it is active the loss power is calculated
+to be used in a thermal net.
+
+The heating variants of the semiconductor devices are provided to
+use the thermal pot temperature in the electric calculation. That means that for a true thermal electric
+interaction the heating device models have to be used.
+
 </p>
 </HTML>
 ", revisions="<html>
@@ -39,6 +45,7 @@ This package contains semiconductor devices:
 
   model Diode "Simple diode"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
+    extends Interfaces.ConditionalHeatingPort;
     parameter SIunits.Current Ids=1.e-6 "Saturation current";
     parameter SIunits.Voltage Vt=0.04
       "Voltage equivalent of temperature (kT/qn)";
@@ -63,6 +70,9 @@ continued to avoid overflow.
 </HTML>
 ", revisions="<html>
 <ul>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
+       </li>
 <li><i> November 15, 2005   </i>
        by Christoph Clauss<br> smooth function added<br>
        </li>
@@ -105,10 +115,13 @@ continued to avoid overflow.
   equation
     i = smooth(1,(if (v/Vt > Maxexp) then Ids*(exp(Maxexp)*(1 + v/Vt - Maxexp) - 1) +
       v/R else Ids*(exp(v/Vt) - 1) + v/R));
+
+    LossPower = v*i;
   end Diode;
 
  model ZDiode "Zener Diode with 3 working areas"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
+   extends Interfaces.ConditionalHeatingPort;
     parameter Modelica.SIunits.Current Ids=1.e-6 "Saturation current";
     parameter Modelica.SIunits.Voltage Vt=0.04
       "Voltage equivalent of temperature (kT/qn)";
@@ -144,6 +157,9 @@ current in reverse direction if the breakdown voltage Bv (also known zener knee 
 </HTML>
 ", revisions="<html>
 <ul>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
+       </li>
 <li><i> January 8, 2009   </i>
        by Matthias Franke <br>
        initially implemented
@@ -198,10 +214,13 @@ current in reverse direction if the breakdown voltage Bv (also known zener knee 
              -Ids -Ibv* exp(Maxexp)*(1 - (v+Bv)/(Nbv*Vt) - Maxexp) +v/R else 
              Ids*(exp(v/Vt)-1) - Ibv*exp(-(v+Bv)/(Nbv*Vt)) + v/R);
 
+   LossPower = v*i;
+
     annotation (uses(Modelica(version="3.0")));
  end ZDiode;
 
   model PMOS "Simple MOS Transistor"
+    extends Interfaces.ConditionalHeatingPort;
     Interfaces.Pin D "Drain" annotation (Placement(transformation(extent={{90,
               40},{110,60}}, rotation=0)));
     Interfaces.Pin G "Gate" annotation (Placement(transformation(extent={{-90,
@@ -263,6 +282,9 @@ Some typical parameter sets are:
 </HTML>
 ", revisions="<html>
 <ul>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
+       </li>
 <li><i>December 7, 2005   </i>
        by Christoph Clauss<br>
        error in RDS calculation deleted</li>
@@ -325,9 +347,12 @@ Some typical parameter sets are:
     D.i = smooth(0,if (D.v > S.v) then -id else id);
     S.i = smooth(0,if (D.v > S.v) then id else -id);
     B.i = 0;
+
+    LossPower = D.i * (D.v - S.v);
   end PMOS;
 
   model NMOS "Simple MOS Transistor"
+    extends Interfaces.ConditionalHeatingPort;
     Interfaces.Pin D "Drain" annotation (Placement(transformation(extent={{90,
               40},{110,60}}, rotation=0)));
     Interfaces.Pin G "Gate" annotation (Placement(transformation(extent={{-90,
@@ -399,6 +424,9 @@ Muenchen Wien 1990.
 </HTML>
 ", revisions="<html>
 <ul>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
+       </li>
 <li><i>December 7, 2005   </i>
        by Christoph Clauss<br>
        error in RDS calculation deleted</li>
@@ -461,9 +489,12 @@ Muenchen Wien 1990.
     D.i = smooth(0,if (D.v < S.v) then -id else id);
     S.i = smooth(0,if (D.v < S.v) then id else -id);
     B.i = 0;
+
+    LossPower = D.i * (D.v - S.v);
   end NMOS;
 
   model NPN "Simple BJT according to Ebers-Moll"
+    extends Interfaces.ConditionalHeatingPort;
     parameter Real Bf=50 "Forward beta";
     parameter Real Br=0.1 "Reverse beta";
     parameter SIunits.Current Is=1.e-16 "Transport saturation current";
@@ -537,8 +568,10 @@ on page 317 ff.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
        </li>
+
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -604,9 +637,12 @@ on page 317 ff.
     C.i = (ibe - ibc)*qbk - ibc/Br - cbc*der(vbc) + Ccs*der(C.v);
     B.i = ibe/Bf + ibc/Br + cbc*der(vbc) + cbe*der(vbe);
     E.i = -B.i - C.i + Ccs*der(C.v);
+
+    LossPower = C.i * C.v + B.i * B.v + E.i * E.v;
   end NPN;
 
   model PNP "Simple BJT according to Ebers-Moll"
+    extends Interfaces.ConditionalHeatingPort;
     parameter Real Bf=50 "Forward beta";
     parameter Real Br=0.1 "Reverse beta";
     parameter SIunits.Current Is=1.e-16 "Transport saturation current";
@@ -679,8 +715,10 @@ on page 317 ff.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
        </li>
+
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -748,16 +786,14 @@ on page 317 ff.
     C.i = -((ibe - ibc)*qbk - ibc/Br - cbc*der(vbc) - Ccs*der(C.v));
     B.i = -(ibe/Bf + ibc/Br + cbe*der(vbe) + cbc*der(vbc));
     E.i = -B.i - C.i + Ccs*der(C.v);
+
+    LossPower = C.i * C.v + B.i * B.v + E.i * E.v;
   end PNP;
 
         model HeatingDiode "Simple diode with heating port"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=
-                  300.15)) 
-            annotation (Placement(transformation(
-          origin={0,-100},
-          extent={{10,-10},{-10,10}},
-          rotation=270)));
+          extends Interfaces.ConditionalHeatingPort;
+
           parameter Modelica.SIunits.Current Ids=1.e-6 "Saturation current";
 
             /* parameter Modelica.SIunits.Voltage Vt=0.04 "Voltage equivalent of temperature (kT/qn)"; */
@@ -801,8 +837,11 @@ continued to avoid overflow.<br>
 The thermal power is calculated by <i>i*v</i>.
 </P>
 </HTML>
-", revisions="<html>
+",         revisions="<html>
 <ul>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
+       </li>
 <li><i>April 5, 2004   </i>
        by Christoph Clauss<br> implemented<br>
        </li>
@@ -837,8 +876,8 @@ The thermal power is calculated by <i>i*v</i>.
           Line(points={{30,40},{30,-40}}, color={0,0,255}),
           Line(points={{0,-20},{0,-91}}, color={191,0,0})}));
         equation
-          assert( heatPort.T > 0,"temperature must be positive");
-          htemp = heatPort.T;
+          assert( internalHeatPort.T > 0,"temperature must be positive");
+          htemp = internalHeatPort.T;
           vt_t = k*htemp/q;
 
           id = exlin((v/(N*vt_t)), Maxexp) - 1;
@@ -848,10 +887,11 @@ The thermal power is calculated by <i>i*v</i>.
 
           i = Ids*id*pow(htemp/TNOM, XTI/N)*auxp + v/R;
 
-          heatPort.Q_flow = -i*v;
+          LossPower = i*v;
         end HeatingDiode;
 
         model HeatingNMOS "Simple MOS Transistor with heating port"
+          extends Interfaces.ConditionalHeatingPort;
           Modelica.Electrical.Analog.Interfaces.Pin D "Drain" 
             annotation (Placement(transformation(extent={{90,40},{110,60}},
             rotation=0)));
@@ -864,12 +904,6 @@ The thermal power is calculated by <i>i*v</i>.
           Modelica.Electrical.Analog.Interfaces.Pin B "Bulk" 
             annotation (Placement(transformation(extent={{90,-10},{110,10}},
             rotation=0)));
-          Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=
-                  300.15)) 
-            annotation (Placement(transformation(
-          origin={0,-100},
-          extent={{10,-10},{-10,10}},
-          rotation=270)));
           parameter Modelica.SIunits.Length W=20.e-6 "Width";
           parameter Modelica.SIunits.Length L=6.e-6 "Length";
           parameter Modelica.SIunits.Transconductance Beta=0.041e-3
@@ -945,9 +979,11 @@ Muenchen Wien 1990.
 </DL>
 </P>
 </HTML>
-",         revisions=
-             "<html>
+",         revisions="<html>
 <ul>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
+       </li>
 <li><i>December 7, 2005   </i>
        by Christoph Clauss<br>
        error in RDS calculation deleted</li>
@@ -998,7 +1034,7 @@ Muenchen Wien 1990.
         equation
           assert(L + dL > 0, "Effective length must be positive");
           assert(W + dW > 0, "Effective width  must be positive");
-          assert( heatPort.T > 0,"temperature must be positive");
+          assert( internalHeatPort.T > 0,"temperature must be positive");
           gds = if (RDS < 1.e-20 and RDS > -1.e-20) then 1.e20 else 1/RDS;
           v = beta_t*(W + dW)/(L + dL);
           ud = smooth(0,if (D.v < S.v) then S.v else D.v);
@@ -1009,19 +1045,20 @@ Muenchen Wien 1990.
           id = smooth(0,if (ugst <= 0) then uds*gds else if (ugst > uds) then v*uds*(
             ugst - uds/2) + uds*gds else v*ugst*ugst/2 + uds*gds);
 
-          beta_t = Beta*pow((heatPort.T/Tnom), -1.5);
-          vt_t = Vt*(1 + (heatPort.T - Tnom)*kvt);
-          k2_t = K2*(1 + (heatPort.T - Tnom)*kk2);
+          beta_t = Beta*pow((internalHeatPort.T/Tnom), -1.5);
+          vt_t = Vt*(1 + (internalHeatPort.T - Tnom)*kvt);
+          k2_t = K2*(1 + (internalHeatPort.T - Tnom)*kk2);
 
           G.i = 0;
           D.i = smooth(0,if (D.v < S.v) then -id else id);
           S.i = smooth(0,if (D.v < S.v) then id else -id);
           B.i = 0;
-          heatPort.Q_flow = -D.i*(D.v - S.v);
+          LossPower = D.i*(D.v - S.v);
         end HeatingNMOS;
 
         model HeatingPMOS "Simple PMOS Transistor with heating port"
-         Modelica.Electrical.Analog.Interfaces.Pin D "Drain" 
+          extends Interfaces.ConditionalHeatingPort;
+          Modelica.Electrical.Analog.Interfaces.Pin D "Drain" 
             annotation (Placement(transformation(extent={{90,40},{110,60}},
             rotation=0)));
           Modelica.Electrical.Analog.Interfaces.Pin G "Gate" 
@@ -1033,12 +1070,6 @@ Muenchen Wien 1990.
           Modelica.Electrical.Analog.Interfaces.Pin B "Bulk" 
             annotation (Placement(transformation(extent={{90,-10},{110,10}},
             rotation=0)));
-          Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=
-                  300.15)) 
-            annotation (Placement(transformation(
-          origin={0,-100},
-          extent={{10,-10},{-10,10}},
-          rotation=270)));
           parameter Modelica.SIunits.Length W=20.0e-6 "Width";
           parameter Modelica.SIunits.Length L=6.0e-6 "Length";
           parameter Modelica.SIunits.Transconductance Beta=0.0105e-3
@@ -1104,9 +1135,11 @@ Some typical parameter sets are:
 </PRE>
 </P>
 </HTML>
-",         revisions=
-             "<html>
+",         revisions="<html>
 <ul>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
+       </li>
 <li><i>December 7, 2005   </i>
        by Christoph Clauss<br>
        error in RDS calculation deleted</li>
@@ -1157,7 +1190,7 @@ Some typical parameter sets are:
         equation
           assert(L + dL > 0, "Effective length must be positive");
           assert(W + dW > 0, "Effective width  must be positive");
-          assert( heatPort.T > 0,"temperature must be positive");
+          assert( internalHeatPort.T > 0,"temperature must be positive");
           gds = if (RDS < 1.e-20 and RDS > -1.e-20) then 1.e20 else 1/RDS;
           v = beta_t*(W + dW)/(L + dL);
           ud = smooth(0,if (D.v > S.v) then S.v else D.v);
@@ -1168,19 +1201,20 @@ Some typical parameter sets are:
           id = smooth(0,if (ugst >= 0) then uds*gds else if (ugst < uds) then -v*uds*(
             ugst - uds/2) + uds*gds else -v*ugst*ugst/2 + uds*gds);
 
-          beta_t = Beta*pow((heatPort.T/Tnom), -1.5);
-          vt_t = Vt*(1 + (heatPort.T - Tnom)*kvt);
-          k2_t = K2*(1 + (heatPort.T - Tnom)*kk2);
+          beta_t = Beta*pow((internalHeatPort.T/Tnom), -1.5);
+          vt_t = Vt*(1 + (internalHeatPort.T - Tnom)*kvt);
+          k2_t = K2*(1 + (internalHeatPort.T - Tnom)*kk2);
 
           G.i = 0;
           D.i = smooth(0,if (D.v > S.v) then -id else id);
           S.i = smooth(0,if (D.v > S.v) then id else -id);
           B.i = 0;
-          heatPort.Q_flow = -D.i*(D.v - S.v);
+          LossPower = D.i*(D.v - S.v);
         end HeatingPMOS;
 
         model HeatingNPN
     "Simple NPN BJT according to Ebers-Moll with heating port"
+          extends Interfaces.ConditionalHeatingPort;
           parameter Real Bf=50 "Forward beta";
           parameter Real Br=0.1 "Reverse beta";
           parameter Modelica.SIunits.Current Is=1.e-16
@@ -1248,12 +1282,6 @@ Some typical parameter sets are:
           Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" 
             annotation (Placement(transformation(extent={{90,-40},{110,-60}},
             rotation=0)));
-          Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=
-                  300.15)) 
-            annotation (Placement(transformation(
-          origin={0,-100},
-          extent={{10,-10},{-10,10}},
-          rotation=270)));
           annotation (
             Documentation(info="
 <HTML>
@@ -1282,9 +1310,11 @@ on page 317 ff.
 </DL>
 </P>
 </HTML>
-",         revisions=
-             "<html>
+",         revisions="<html>
 <ul>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
+       </li>
 <li><i>March 20, 2004   </i>
        by Christoph Clauss<br> implemented<br>
        </li>
@@ -1326,21 +1356,21 @@ on page 317 ff.
             lineColor={0,0,255}),
           Line(points={{0,-94},{0,-32}}, color={191,0,0})}));
         equation
-          assert( heatPort.T > 0,"temperature must be positive");
+          assert( internalHeatPort.T > 0,"temperature must be positive");
           ExMin = exp(EMin);
           ExMax = exp(EMax);
           vbc = B.v - C.v;
           vbe = B.v - E.v;
           qbk = 1 - vbc*Vak;
 
-          hexp = (heatPort.T/Tnom - 1)*EG/vt_t;
+          hexp = (internalHeatPort.T/Tnom - 1)*EG/vt_t;
           htempexp = smooth(1,if (hexp < EMin) then ExMin*(hexp - EMin + 1) else if (
             hexp > EMax) then ExMax*(hexp - EMax + 1) else exp(hexp));
 
-          is_t = Is*pow((heatPort.T/Tnom), XTI)*htempexp;
-          br_t = Br*pow((heatPort.T/Tnom), XTB);
-          bf_t = Bf*pow((heatPort.T/Tnom), XTB);
-          vt_t = (K/q)*heatPort.T;
+          is_t = Is*pow((internalHeatPort.T/Tnom), XTI)*htempexp;
+          br_t = Br*pow((internalHeatPort.T/Tnom), XTB);
+          bf_t = Bf*pow((internalHeatPort.T/Tnom), XTB);
+          vt_t = (K/q)*internalHeatPort.T;
 
           ibc = smooth(1,(if (vbc/(NR*vt_t) < EMin) then is_t*(ExMin*(vbc/(NR*vt_t) -
             EMin + 1) - 1) + vbc*Gbc else if (vbc/(NR*vt_t) > EMax) then is_t*(
@@ -1366,13 +1396,12 @@ on page 317 ff.
           B.i = ibe/bf_t + ibc/br_t + cbc*der(vbc) + cbe*der(vbe);
           E.i = -B.i - C.i + Ccs*der(C.v);
 
-          heatPort.Q_flow = -(vbc*ibc/br_t + vbe*ibe/bf_t + (ibe - ibc)*qbk*(C.v
-             - E.v));
+          LossPower = -(vbc*ibc/br_t + vbe*ibe/bf_t + (ibe - ibc)*qbk*(C.v - E.v));
         end HeatingNPN;
 
         model HeatingPNP
     "Simple PNP BJT according to Ebers-Moll with heating port"
-
+          extends Interfaces.ConditionalHeatingPort;
           parameter Real Bf=50 "Forward beta";
           parameter Real Br=0.1 "Reverse beta";
           parameter Modelica.SIunits.Current Is=1.e-16
@@ -1440,12 +1469,6 @@ on page 317 ff.
           Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" 
             annotation (Placement(transformation(extent={{90,-40},{110,-60}},
             rotation=0)));
-          Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=
-                  300.15)) 
-            annotation (Placement(transformation(
-          origin={0,-100},
-          extent={{10,-10},{-10,10}},
-          rotation=270)));
           annotation (
             Documentation(info="
 <HTML>
@@ -1472,9 +1495,11 @@ Van Nostrand Reinhold, New York 1983
 on page 317 ff.
 </DL>
 </HTML>
-",         revisions=
-             "<html>
+",         revisions="<html>
 <ul>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
+       </li>
 <li><i>March 20, 2004   </i>
        by Christoph Clauss<br> implemented<br>
        </li>
@@ -1516,21 +1541,21 @@ on page 317 ff.
             lineColor={0,0,255}),
           Line(points={{0,-91},{0,-30}}, color={191,0,0})}));
         equation
-          assert( heatPort.T > 0,"temperature must be positive");
+          assert( internalHeatPort.T > 0,"temperature must be positive");
           ExMin = exp(EMin);
           ExMax = exp(EMax);
           vcb = C.v - B.v;
           veb = E.v - B.v;
           qbk = 1 - vcb*Vak;
 
-          hexp = (heatPort.T/Tnom - 1)*EG/vt_t;
+          hexp = (internalHeatPort.T/Tnom - 1)*EG/vt_t;
           htempexp = smooth(1,if (hexp < EMin) then ExMin*(hexp - EMin + 1) else if (
             hexp > EMax) then ExMax*(hexp - EMax + 1) else exp(hexp));
 
-          is_t = Is*pow((heatPort.T/Tnom), XTI)*htempexp;
-          br_t = Br*pow((heatPort.T/Tnom), XTB);
-          bf_t = Bf*pow((heatPort.T/Tnom), XTB);
-          vt_t = (K/q)*heatPort.T;
+          is_t = Is*pow((internalHeatPort.T/Tnom), XTI)*htempexp;
+          br_t = Br*pow((internalHeatPort.T/Tnom), XTB);
+          bf_t = Bf*pow((internalHeatPort.T/Tnom), XTB);
+          vt_t = (K/q)*internalHeatPort.T;
 
           icb = smooth(1,(if (vcb/(NR*vt_t) < EMin) then is_t*(ExMin*(vcb/(NR*vt_t) -
             EMin + 1) - 1) + vcb*Gbc else if (vcb/(NR*vt_t) > EMax) then is_t*(
@@ -1558,8 +1583,7 @@ on page 317 ff.
           B.i = -ieb/bf_t - icb/br_t - ceb*der(veb) - ccb*der(vcb);
           E.i = -B.i - C.i + Ccs*der(C.v);
 
-          heatPort.Q_flow = -(vcb*icb/br_t + veb*ieb/bf_t + (icb - ieb)*qbk*(E.v
-             - C.v));
+          LossPower = -(vcb*icb/br_t + veb*ieb/bf_t + (icb - ieb)*qbk*(E.v- C.v));
         end HeatingPNP;
 
 protected

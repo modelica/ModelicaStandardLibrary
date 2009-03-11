@@ -38,6 +38,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 
           model IdealThyristor "Ideal thyristor"
             extends Modelica.Electrical.Analog.Interfaces.OnePort;
+            extends Interfaces.ConditionalHeatingPort;
             parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
       "Closed thyristor resistance";
             parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
@@ -75,9 +76,11 @@ the knee point <br>
 along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
 </p>
 </HTML>
-",           revisions=
-               "<html>
+",           revisions="<html>
 <ul>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
+       </li>
 <li><i>Mai 7, 2004   </i>
        by Christoph Clauss and Anton Haumer<br> Vknee added<br>
        </li>
@@ -171,10 +174,12 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
             off = s < 0 or pre(off) and not fire;
             v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
             i = (s*unitVoltage)*(if off then Goff else 1) + Goff*Vknee;
+            LossPower = v*i;
           end IdealThyristor;
 
           model IdealGTOThyristor "Ideal GTO thyristor"
             extends Modelica.Electrical.Analog.Interfaces.OnePort;
+            extends Interfaces.ConditionalHeatingPort;
             parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
       "Closed thyristor resistance";
             parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
@@ -212,9 +217,11 @@ the knee point <br>
 along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
 </p>
 </HTML>
-",           revisions=
-               "<html>
+",           revisions="<html>
 <ul>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
+       </li>
 <li><i>Mai 7, 2004   </i>
        by Christoph Clauss and Anton Haumer<br> Vknee added<br>
        </li>
@@ -308,9 +315,11 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
             off = s < 0 or not fire;
             v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
             i = (s*unitVoltage)*(if off then Goff else 1) + Goff*Vknee;
+            LossPower = v*i;
           end IdealGTOThyristor;
 
   model IdealCommutingSwitch "Ideal commuting switch"
+    extends Interfaces.ConditionalHeatingPort;
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance";
@@ -351,7 +360,8 @@ where a description with zero Ron or zero Goff is not possible.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
        </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
@@ -401,9 +411,11 @@ where a description with zero Ron or zero Goff is not possible.
     n1.i = -(s1*unitVoltage)*(if (control) then Goff else 1);
     p.v - n2.v = (s2*unitCurrent)*(if (control) then Ron else 1);
     n2.i = -(s2*unitVoltage)*(if (control) then 1 else Goff);
+    LossPower = p.i * p.v + n1.i *n1.v + n2.i * n2.v;
   end IdealCommutingSwitch;
 
   model IdealIntermediateSwitch "Ideal intermediate switch"
+    extends Interfaces.ConditionalHeatingPort;
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance";
@@ -453,7 +465,8 @@ where a description with zero Ron or zero Goff is not possible.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
        </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
@@ -514,9 +527,12 @@ where a description with zero Ron or zero Goff is not possible.
     p2.i = if control then s2*unitVoltage*Goff + s4*unitCurrent else s2*unitCurrent + s4*unitVoltage*Goff;
     n1.i = if control then -s1*unitVoltage*Goff - s4*unitCurrent else -s1*unitCurrent - s4*unitVoltage*Goff;
     n2.i = if control then -s2*unitVoltage*Goff - s3*unitCurrent else -s2*unitCurrent - s3*unitVoltage*Goff;
+
+    LossPower = p1.i * p1.v + p2.i * p2.v + n1.i *n1.v + n2.i * n2.v;
   end IdealIntermediateSwitch;
 
   model ControlledIdealCommutingSwitch "Controlled ideal commuting switch"
+    extends Interfaces.ConditionalHeatingPort;
     parameter SI.Voltage level=0.5 "Switch level";
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5
@@ -559,7 +575,8 @@ where a description with zero Ron or zero Goff is not possible.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
        </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
@@ -610,10 +627,12 @@ where a description with zero Ron or zero Goff is not possible.
     n1.i = -(s1*unitVoltage)*(if (control.v > level) then Goff else 1);
     p.v - n2.v = (s2*unitCurrent)*(if (control.v > level) then Ron else 1);
     n2.i = -(s2*unitVoltage)*(if (control.v > level) then 1 else Goff);
+    LossPower = p.i * p.v + n1.i *n1.v + n2.i * n2.v;
   end ControlledIdealCommutingSwitch;
 
   model ControlledIdealIntermediateSwitch
     "Controlled ideal intermediate switch"
+    extends Interfaces.ConditionalHeatingPort;
     parameter SI.Voltage level=0.5 "Switch level";
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5
@@ -665,7 +684,8 @@ where a description with zero Ron or zero Goff is not possible.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
        </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
@@ -728,6 +748,8 @@ where a description with zero Ron or zero Goff is not possible.
     p2.i = if control.v > level then s2*unitVoltage*Goff + s4*unitCurrent else s2*unitCurrent + s4*unitVoltage*Goff;
     n1.i = if control.v > level then -s1*unitVoltage*Goff - s4*unitCurrent else -s1*unitCurrent - s4*unitVoltage*Goff;
     n2.i = if control.v > level then -s2*unitVoltage*Goff - s3*unitCurrent else -s2*unitCurrent - s3*unitVoltage*Goff;
+
+    LossPower = p1.i * p1.v + p2.i * p2.v + n1.i *n1.v + n2.i * n2.v;
   end ControlledIdealIntermediateSwitch;
 
   model IdealOpAmp "Ideal operational amplifier (norator-nullator pair)"
@@ -756,8 +778,6 @@ are possible (norator).
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -866,8 +886,6 @@ are possible.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 2002   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -966,8 +984,6 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -1005,7 +1021,8 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}),
+          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}), 
+
           Line(points={{0,35},{0,80}}, color={0,0,255}),
           Line(points={{0,-35},{0,-80}}, color={0,0,255}),
           Line(points={{-96,50},{-60,50}}, color={0,0,255}),
@@ -1051,6 +1068,7 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
 
         model IdealDiode "Ideal diode"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
+          extends Interfaces.ConditionalHeatingPort;
           parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
       "Forward state-on differential resistance (closed diode resistance)";
           parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
@@ -1084,9 +1102,11 @@ the knee point <br>
 along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
 </p>
 </HTML>
-",         revisions=
-             "<html>
+",         revisions="<html>
 <ul>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
+       </li>
 <li><i>Mai 7, 2004   </i>
        by Christoph Clauss and Anton Haumer<br> Vknee added<br>
        </li>
@@ -1174,6 +1194,8 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
           off = s < 0;
           v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
           i = (s*unitVoltage)*(if off then Goff else 1) + Goff*Vknee;
+
+          LossPower = v*i;
         end IdealDiode;
 
   model IdealTransformer "Ideal electrical transformer"
@@ -1198,8 +1220,6 @@ where <i>n</i> is a real number called the turns ratio.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -1288,8 +1308,6 @@ where the constant <i>G</i> is called the gyration conductance.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -1340,7 +1358,8 @@ where the constant <i>G</i> is called the gyration conductance.
             lineColor={255,255,255},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{-96,50},{-40,50},{-40,-50},{-96,-50}}, color={0,0,255}),
+          Line(points={{-96,50},{-40,50},{-40,-50},{-96,-50}}, color={0,0,255}), 
+
           Line(points={{-30,60},{20,60}}, color={0,0,255}),
           Polygon(
             points={{20,63},{30,60},{20,57},{20,63}},
@@ -1370,8 +1389,6 @@ The model Idle is a simple idle running branch.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -1413,8 +1430,6 @@ The model Short is a simple short cut branch.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -1449,14 +1464,15 @@ The model Short is a simple short cut branch.
   end Short;
 
  model IdealOpeningSwitch "Ideal electrical opener"
-    extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
+   extends Modelica.Electrical.Analog.Interfaces.OnePort;
+   extends Interfaces.ConditionalHeatingPort;
+   parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance" 
        annotation (Placement(transformation(extent={{-56.6667,10},{-10,56.6667}},
             rotation=0)));
-    parameter SI.Conductance Goff(final min=0) = 1.E-5
+   parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance" annotation (Placement(transformation(extent={
               {10,10},{56.6667,56.6667}}, rotation=0)));
-    Modelica.Blocks.Interfaces.BooleanInput control
+   Modelica.Blocks.Interfaces.BooleanInput control
       "true => switch open, false => p--n connected" annotation (Placement(
           transformation(
           origin={0,70},
@@ -1487,7 +1503,8 @@ where a description with zero Ron or zero Goff is not possible.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
        </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
@@ -1523,12 +1540,15 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points={{0,51},{0,26}}, color={0,0,255}),
           Line(points={{40,20},{40,0}}, color={0,0,255})}));
  equation
-    v = (s*unitCurrent)*(if control then 1 else Ron);
-    i = (s*unitVoltage)*(if control then Goff else 1);
+   v = (s*unitCurrent)*(if control then 1 else Ron);
+   i = (s*unitVoltage)*(if control then Goff else 1);
+
+   LossPower = v*i;
  end IdealOpeningSwitch;
 
     model IdealClosingSwitch "Ideal electrical closer"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
+      extends Interfaces.ConditionalHeatingPort;
       parameter SI.Resistance Ron(final min=0) = 1.E-5
       "Closed switch resistance" 
          annotation (Placement(transformation(extent={{-56.6667,10},{-10,
@@ -1565,10 +1585,10 @@ open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible. 
 </P>
 </HTML>
-",     revisions=
-             "<html>
+",     revisions="<html>
 <ul>
-<li><i>  </i>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
        </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
@@ -1604,10 +1624,12 @@ where a description with zero Ron or zero Goff is not possible.
     equation
       v = (s*unitCurrent)*(if control then Ron else 1);
       i = (s*unitVoltage)*(if control then 1 else Goff);
+
+      LossPower = v*i;
     end IdealClosingSwitch;
 
   model ControlledIdealOpeningSwitch "Controlled ideal electrical opener"
-
+    extends Interfaces.ConditionalHeatingPort;
     parameter SI.Voltage level=0.5 "Switch level" annotation (Placement(
           transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
@@ -1652,7 +1674,8 @@ where a description with zero Ron or zero Goff is not possible.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
        </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
@@ -1688,10 +1711,12 @@ where a description with zero Ron or zero Goff is not possible.
     0 = p.i + n.i;
     p.v - n.v = (s*unitCurrent)*(if (control.v > level) then 1 else Ron);
     p.i = (s*unitVoltage)*(if (control.v > level) then Goff else 1);
+
+    LossPower = v*i;
   end ControlledIdealOpeningSwitch;
 
     model ControlledIdealClosingSwitch "Controlled ideal electrical closer"
-
+      extends Interfaces.ConditionalHeatingPort;
       parameter SI.Voltage level=0.5 "Switch level" annotation (Placement(
           transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
       parameter SI.Resistance Ron(final min=0) = 1.E-5
@@ -1735,10 +1760,10 @@ open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible. 
 </P>
 </HTML>
-",     revisions=
-             "<html>
+",     revisions="<html>
 <ul>
-<li><i>  </i>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
        </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
@@ -1772,6 +1797,8 @@ where a description with zero Ron or zero Goff is not possible.
       0 = p.i + n.i;
       p.v - n.v = (s*unitCurrent)*(if (control.v > level) then Ron else 1);
       p.i = (s*unitVoltage)*(if (control.v > level) then 1 else Goff);
+
+      LossPower = v*i;
     end ControlledIdealClosingSwitch;
 
 end Ideal;

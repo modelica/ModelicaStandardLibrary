@@ -42,8 +42,6 @@ at least one ground object.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -91,6 +89,7 @@ at least one ground object.
 
   model Resistor "Ideal linear electrical resistor"
     extends Interfaces.OnePort;
+    extends Interfaces.ConditionalHeatingPort;
     parameter SI.Resistance R(start=1) "Resistance";
     annotation (
       Documentation(info="<HTML>
@@ -102,7 +101,8 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
        </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
@@ -137,22 +137,19 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
           Line(points={{70,0},{96,0}}, color={0,0,255})}));
   equation
     R*i = v;
+    LossPower = v*i;
   end Resistor;
 
     model HeatingResistor "Temperature dependent electrical resistor"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
-
+      extends Interfaces.ConditionalHeatingPort;
       parameter SI.Resistance R_ref(start=1) "Resistance at temperature T_ref";
-      parameter SI.Temperature T_ref(start=300) "Reference temperature";
+      parameter SI.Temperature T_ref(start=300.15) "Reference temperature";
       parameter SI.LinearTemperatureCoefficient alpha(start=0)
       "Temperature coefficient of resistance (R = R_ref*(1 + alpha*(heatPort.T - T_ref))";
 
-      SI.Resistance R "Resistance = R_ref*(1 + alpha*(heatPort.T - T_ref));";
-      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort annotation (Placement(
-          transformation(
-          origin={0,-100},
-          extent={{10,-10},{-10,10}},
-          rotation=270)));
+      SI.Resistance R
+      "Resistance = R_ref*(1 + alpha*(intenalHeatPort.T - T_ref));";
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
@@ -192,7 +189,6 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
             lineColor={0,0,255},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{0,-30},{0,-91}}, color={191,0,0}),
           Line(points={{-52,-50},{48,50}}, color={0,0,255}),
           Polygon(
             points={{40,52},{50,42},{54,56},{40,52}},
@@ -220,10 +216,10 @@ If the heatPort connector is enabled, it must be connected.
 </p>
  
 </HTML>
-",     revisions=
-             "<html>
+",     revisions="<html>
 <ul>
-<li><i>  </i>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
        </li>
 <li><i> 2002   </i>
        by Anton Haumer<br> initially implemented<br>
@@ -231,14 +227,14 @@ If the heatPort connector is enabled, it must be connected.
 </ul>
 </html>"));
     equation
-      assert(cardinality(heatPort) > 0, "Connector heatPort of HeatingResistor must be connected");
-      R = R_ref*(1 + alpha*(heatPort.T - T_ref));
+      R = R_ref*(1 + alpha*(internalHeatPort.T - T_ref));
       v = R*i;
-      heatPort.Q_flow = -v*i;
+      LossPower = v*i;
     end HeatingResistor;
 
   model Conductor "Ideal linear electrical conductor"
     extends Interfaces.OnePort;
+    extends Interfaces.ConditionalHeatingPort;
     parameter SI.Conductance G(start=1) "Conductance";
     annotation (
       Documentation(info="<HTML>
@@ -250,7 +246,8 @@ The Conductance <i>G</i> is allowed to be positive, zero, or negative.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
        </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
@@ -287,6 +284,7 @@ The Conductance <i>G</i> is allowed to be positive, zero, or negative.
           Rectangle(extent={{-70,30},{70,-30}}, lineColor={0,0,255})}));
   equation
     i = G*v;
+    LossPower = v*i;
   end Conductor;
 
   model Capacitor "Ideal linear electrical capacitor"
@@ -302,8 +300,6 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -363,8 +359,6 @@ The Inductance <i>L</i> is allowed to be positive, zero, or negative.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -531,8 +525,6 @@ relation:</p>
 </html>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -647,7 +639,8 @@ equation
   v =Lm*der(i);
 
   annotation (Icon(
-      coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+      coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
+
         graphics={
           Ellipse(extent={{-36,24},{-18,42}}),
           Text(
@@ -832,8 +825,6 @@ Inside the model, two loops are used to fill the inductance matrix to guarantee 
         revisions="
 <html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> November 24, 2008   </i> docu added, K. Majetta
        </li>
 <li><i> September 16, 2008   </i>
@@ -865,8 +856,6 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -1083,8 +1072,6 @@ flange.phi is the angle at the rotational connection.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Martin Otter<br> initially implemented<br>
        </li>
@@ -1133,8 +1120,6 @@ The left port current is zero. Any voltage gain can be chosen.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -1202,8 +1187,6 @@ The left port current is zero. Any transConductance can be chosen.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -1276,8 +1259,6 @@ The left port voltage is zero. Any transResistance can be chosen.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -1343,8 +1324,6 @@ The left port voltage is zero. Any current gain can be chosen.
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -1363,7 +1342,8 @@ The left port voltage is zero. Any current gain can be chosen.
             extent={{-104,-76},{97,-127}},
             textString="%name",
             lineColor={0,0,255}),
-          Line(points={{-100,50},{-30,50},{-30,-50},{-100,-50}}, color={0,0,255}),
+          Line(points={{-100,50},{-30,50},{-30,-50},{-100,-50}}, color={0,0,255}), 
+
           Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
           Line(points={{-20,60},{20,60}}, color={0,0,255}),
           Polygon(
@@ -1430,8 +1410,6 @@ value of Slope is taken into calculation.)
 </HTML>
 ", revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 2000   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -1528,6 +1506,7 @@ value of Slope is taken into calculation.)
         model VariableResistor
     "Ideal linear electrical resistor with variable resistance"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
+          extends Interfaces.ConditionalHeatingPort;
           Modelica.Blocks.Interfaces.RealInput R 
             annotation (Placement(transformation(
           origin={0,110},
@@ -1548,9 +1527,11 @@ The Resistance <i>R</i> is given as input signal.
   depending on the surrounding circuit the probability of singularities is high. <br>
 </P>
 </HTML>
-",         revisions=
-             "<html>
+",         revisions="<html>
 <ul>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
+       </li>
 <li><i>June 7, 2004   </i>
        by Christoph Clauss<br>changed, docu added<br>
        </li>
@@ -1588,11 +1569,13 @@ The Resistance <i>R</i> is given as input signal.
           Line(points={{70,0},{96,0}}, color={0,0,255})}));
         equation
           v = R*i;
+          LossPower = v*i;
         end VariableResistor;
 
         model VariableConductor
     "Ideal linear electrical conductor with variable conductance"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
+          extends Interfaces.ConditionalHeatingPort;
           Modelica.Blocks.Interfaces.RealInput G 
             annotation (Placement(transformation(
           origin={0,110},
@@ -1614,9 +1597,11 @@ The Conductance <i>G</i> is given as input signal.
   depending on the surrounding circuit the probability of singularities is high. <br>
 </P>
 </HTML>
-",         revisions=
-             "<html>
+",         revisions="<html>
 <ul>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
+       </li>
 <li><i>June 7, 2004   </i>
        by Christoph Clauss<br> implemented<br>
        </li>
@@ -1648,9 +1633,11 @@ The Conductance <i>G</i> is given as input signal.
             extent={{-70,30},{70,-30}},
             lineColor={0,0,255},
             fillColor={255,255,255},
-            fillPattern=FillPattern.Solid)}));
+            fillPattern=FillPattern.Solid)}),
+            DymolaStoredErrors);
         equation
           i = G*v;
+          LossPower = v*i;
         end VariableConductor;
 
         model VariableCapacitor
