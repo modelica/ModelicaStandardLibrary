@@ -45,13 +45,13 @@ interaction the heating device models have to be used.
 
   model Diode "Simple diode"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    extends Interfaces.ConditionalHeatingPort;
     parameter SIunits.Current Ids=1.e-6 "Saturation current";
     parameter SIunits.Voltage Vt=0.04
       "Voltage equivalent of temperature (kT/qn)";
     parameter Real Maxexp(final min=Modelica.Constants.small) = 15
       "Max. exponent for linear continuation";
     parameter SIunits.Resistance R=1.e8 "Parallel ohmic resistance";
+    extends Interfaces.ConditionalHeatingPort;
     annotation (
       Documentation(info="
 <HTML>
@@ -115,23 +115,22 @@ continued to avoid overflow.
   equation
     i = smooth(1,(if (v/Vt > Maxexp) then Ids*(exp(Maxexp)*(1 + v/Vt - Maxexp) - 1) +
       v/R else Ids*(exp(v/Vt) - 1) + v/R));
-
     LossPower = v*i;
   end Diode;
 
  model ZDiode "Zener Diode with 3 working areas"
-    extends Modelica.Electrical.Analog.Interfaces.OnePort;
-   extends Interfaces.ConditionalHeatingPort;
-    parameter Modelica.SIunits.Current Ids=1.e-6 "Saturation current";
-    parameter Modelica.SIunits.Voltage Vt=0.04
+   extends Modelica.Electrical.Analog.Interfaces.OnePort;
+   parameter Modelica.SIunits.Current Ids=1.e-6 "Saturation current";
+   parameter Modelica.SIunits.Voltage Vt=0.04
       "Voltage equivalent of temperature (kT/qn)";
-    parameter Real Maxexp(final min=Modelica.Constants.small) = 30
+   parameter Real Maxexp(final min=Modelica.Constants.small) = 30
       "Max. exponent for linear continuation";
-    parameter Modelica.SIunits.Resistance R=1.e8 "Parallel ohmic resistance";
-    parameter Modelica.SIunits.Voltage Bv=5.1
+   parameter Modelica.SIunits.Resistance R=1.e8 "Parallel ohmic resistance";
+   parameter Modelica.SIunits.Voltage Bv=5.1
       "Breakthrough voltage = Zener- or Z-voltage";
-    parameter Modelica.SIunits.Current Ibv=0.7 "Breakthrough knee current";
-    parameter Real Nbv=0.74 "Breakthrough emission coefficient";
+   parameter Modelica.SIunits.Current Ibv=0.7 "Breakthrough knee current";
+   parameter Real Nbv=0.74 "Breakthrough emission coefficient";
+   extends Interfaces.ConditionalHeatingPort;
     annotation (
       Documentation(info="
 <HTML>
@@ -206,21 +205,17 @@ current in reverse direction if the breakdown voltage Bv (also known zener knee 
             color={0,0,255},
             smooth=Smooth.None)}),
       uses(Modelica(version="3.0.1")));
-
  equation
    i = smooth(1, if (v>Maxexp*Vt) then 
              Ids*( exp(Maxexp)*(1 + v/Vt - Maxexp)-1) + v/R else 
           if ( (v+Bv)<-Maxexp*(Nbv*Vt)) then 
              -Ids -Ibv* exp(Maxexp)*(1 - (v+Bv)/(Nbv*Vt) - Maxexp) +v/R else 
              Ids*(exp(v/Vt)-1) - Ibv*exp(-(v+Bv)/(Nbv*Vt)) + v/R);
-
    LossPower = v*i;
-
     annotation (uses(Modelica(version="3.0")));
  end ZDiode;
 
   model PMOS "Simple MOS Transistor"
-    extends Interfaces.ConditionalHeatingPort;
     Interfaces.Pin D "Drain" annotation (Placement(transformation(extent={{90,
               40},{110,60}}, rotation=0)));
     Interfaces.Pin G "Gate" annotation (Placement(transformation(extent={{-90,
@@ -239,6 +234,7 @@ current in reverse direction if the breakdown voltage Bv (also known zener knee 
     parameter SIunits.Length dW=-2.5e-6 "Narrowing of channel";
     parameter SIunits.Length dL=-2.1e-6 "Shortening of channel";
     parameter SIunits.Resistance RDS=1.e+7 "Drain-Source-Resistance";
+    extends Interfaces.ConditionalHeatingPort;
   protected
     Real v;
     Real uds;
@@ -347,12 +343,10 @@ Some typical parameter sets are:
     D.i = smooth(0,if (D.v > S.v) then -id else id);
     S.i = smooth(0,if (D.v > S.v) then id else -id);
     B.i = 0;
-
     LossPower = D.i * (D.v - S.v);
   end PMOS;
 
   model NMOS "Simple MOS Transistor"
-    extends Interfaces.ConditionalHeatingPort;
     Interfaces.Pin D "Drain" annotation (Placement(transformation(extent={{90,
               40},{110,60}}, rotation=0)));
     Interfaces.Pin G "Gate" annotation (Placement(transformation(extent={{-90,
@@ -371,6 +365,7 @@ Some typical parameter sets are:
     parameter SIunits.Length dW=-2.5e-6 "narrowing of channel";
     parameter SIunits.Length dL=-1.5e-6 "shortening of channel";
     parameter SIunits.Resistance RDS=1.e+7 "Drain-Source-Resistance";
+    extends Interfaces.ConditionalHeatingPort;
   protected
     Real v;
     Real uds;
@@ -489,12 +484,10 @@ Muenchen Wien 1990.
     D.i = smooth(0,if (D.v < S.v) then -id else id);
     S.i = smooth(0,if (D.v < S.v) then id else -id);
     B.i = 0;
-
     LossPower = D.i * (D.v - S.v);
   end NMOS;
 
   model NPN "Simple BJT according to Ebers-Moll"
-    extends Interfaces.ConditionalHeatingPort;
     parameter Real Bf=50 "Forward beta";
     parameter Real Br=0.1 "Reverse beta";
     parameter SIunits.Current Is=1.e-16 "Transport saturation current";
@@ -516,6 +509,7 @@ Muenchen Wien 1990.
     parameter SIunits.Voltage Vt=0.02585 "Voltage equivalent of temperature";
     parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
     parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
+    extends Interfaces.ConditionalHeatingPort;
   protected
     Real vbc;
     Real vbe;
@@ -642,7 +636,6 @@ on page 317 ff.
   end NPN;
 
   model PNP "Simple BJT according to Ebers-Moll"
-    extends Interfaces.ConditionalHeatingPort;
     parameter Real Bf=50 "Forward beta";
     parameter Real Br=0.1 "Reverse beta";
     parameter SIunits.Current Is=1.e-16 "Transport saturation current";
@@ -664,6 +657,7 @@ on page 317 ff.
     parameter SIunits.Voltage Vt=0.02585 "Voltage equivalent of temperature";
     parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
     parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
+    extends Interfaces.ConditionalHeatingPort;
   protected
     Real vbc;
     Real vbe;
@@ -792,11 +786,8 @@ on page 317 ff.
 
         model HeatingDiode "Simple diode with heating port"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          extends Interfaces.ConditionalHeatingPort;
-
           parameter Modelica.SIunits.Current Ids=1.e-6 "Saturation current";
-
-            /* parameter Modelica.SIunits.Voltage Vt=0.04 "Voltage equivalent of temperature (kT/qn)"; */
+          /* parameter Modelica.SIunits.Voltage Vt=0.04 "Voltage equivalent of temperature (kT/qn)"; */
           parameter Real Maxexp(final min=Modelica.Constants.small) = 15
       "Max. exponent for linear continuation";
           parameter Modelica.SIunits.Resistance R=1.e8
@@ -806,6 +797,8 @@ on page 317 ff.
           parameter Modelica.SIunits.Temperature TNOM=300.15
       "Parameter measurement temperature";
           parameter Real XTI=3 "Temperature exponent of saturation current";
+          extends Interfaces.ConditionalHeatingPort;
+
           Modelica.SIunits.Temperature vt_t "Temperature voltage";
           Modelica.SIunits.Current id "diode current";
   protected
@@ -860,8 +853,7 @@ The thermal power is calculated by <i>i*v</i>.
           Text(
             extent={{-142,101},{143,51}},
             textString="%name",
-            lineColor={0,0,255}),
-          Line(points={{0,-20},{0,-91}}, color={191,0,0})}),
+            lineColor={0,0,255})}),
             Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -873,8 +865,7 @@ The thermal power is calculated by <i>i*v</i>.
             fillPattern=FillPattern.None),
           Line(points={{-99,0},{39,0}}, color={0,0,255}),
           Line(points={{40,0},{96,0}}, color={0,0,255}),
-          Line(points={{30,40},{30,-40}}, color={0,0,255}),
-          Line(points={{0,-20},{0,-91}}, color={191,0,0})}));
+          Line(points={{30,40},{30,-40}}, color={0,0,255})}));
         equation
           assert( internalHeatPort.T > 0,"temperature must be positive");
           htemp = internalHeatPort.T;
@@ -891,7 +882,6 @@ The thermal power is calculated by <i>i*v</i>.
         end HeatingDiode;
 
         model HeatingNMOS "Simple MOS Transistor with heating port"
-          extends Interfaces.ConditionalHeatingPort;
           Modelica.Electrical.Analog.Interfaces.Pin D "Drain" 
             annotation (Placement(transformation(extent={{90,40},{110,60}},
             rotation=0)));
@@ -920,6 +910,7 @@ The thermal power is calculated by <i>i*v</i>.
       "Parameter measurement temperature";
           parameter Real kvt=-6.96e-3 "fitting parameter for Vt";
           parameter Real kk2=6.0e-4 "fitting parameter for K22";
+          extends Interfaces.ConditionalHeatingPort;
   protected
           Real v;
           Real uds;
@@ -1011,8 +1002,7 @@ Muenchen Wien 1990.
             points={{40,0},{60,5},{60,-5},{40,0}},
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{0,-91},{0,-50}}, color={191,0,0})}),
+            lineColor={0,0,255})}),
             Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1029,8 +1019,7 @@ Muenchen Wien 1990.
             points={{40,0},{60,5},{60,-5},{40,0}},
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{0,-90},{0,-49}}, color={191,0,0})}));
+            lineColor={0,0,255})}));
         equation
           assert(L + dL > 0, "Effective length must be positive");
           assert(W + dW > 0, "Effective width  must be positive");
@@ -1057,7 +1046,6 @@ Muenchen Wien 1990.
         end HeatingNMOS;
 
         model HeatingPMOS "Simple PMOS Transistor with heating port"
-          extends Interfaces.ConditionalHeatingPort;
           Modelica.Electrical.Analog.Interfaces.Pin D "Drain" 
             annotation (Placement(transformation(extent={{90,40},{110,60}},
             rotation=0)));
@@ -1086,6 +1074,7 @@ Muenchen Wien 1990.
       "Parameter measurement temperature";
           parameter Real kvt=-2.9e-3 "fitting parameter for Vt";
           parameter Real kk2=6.2e-4 "fitting parameter for Kk2";
+          extends Interfaces.ConditionalHeatingPort;
   protected
           Real v;
           Real uds;
@@ -1167,8 +1156,7 @@ Some typical parameter sets are:
             points={{60,0},{40,5},{40,-5},{60,0}},
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{0,-91},{0,-50}}, color={191,0,0})}),
+            lineColor={0,0,255})}),
             Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1185,8 +1173,7 @@ Some typical parameter sets are:
             points={{60,0},{40,5},{40,-5},{60,0}},
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{0,-95},{0,-50}}, color={191,0,0})}));
+            lineColor={0,0,255})}));
         equation
           assert(L + dL > 0, "Effective length must be positive");
           assert(W + dW > 0, "Effective width  must be positive");
@@ -1214,7 +1201,6 @@ Some typical parameter sets are:
 
         model HeatingNPN
     "Simple NPN BJT according to Ebers-Moll with heating port"
-          extends Interfaces.ConditionalHeatingPort;
           parameter Real Bf=50 "Forward beta";
           parameter Real Br=0.1 "Reverse beta";
           parameter Modelica.SIunits.Current Is=1.e-16
@@ -1254,6 +1240,7 @@ Some typical parameter sets are:
           parameter Real NR=1.0 "Reverse current emission coefficient";
           parameter Real K=1.3806226e-23 "Boltzmann's constant";
           parameter Real q=1.6021918e-19 "Elementary electronic charge";
+          extends Interfaces.ConditionalHeatingPort;
           /*protected*/
           Real vbc;
           Real vbe;
@@ -1337,8 +1324,7 @@ on page 317 ff.
             points={{30,-50},{24,-36},{16,-44},{30,-50}},
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{0,-91},{0,-30}}, color={191,0,0})}),
+            lineColor={0,0,255})}),
             Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1353,8 +1339,7 @@ on page 317 ff.
             points={{30,-50},{24,-36},{16,-44},{30,-50}},
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{0,-94},{0,-32}}, color={191,0,0})}));
+            lineColor={0,0,255})}));
         equation
           assert( internalHeatPort.T > 0,"temperature must be positive");
           ExMin = exp(EMin);
@@ -1401,7 +1386,6 @@ on page 317 ff.
 
         model HeatingPNP
     "Simple PNP BJT according to Ebers-Moll with heating port"
-          extends Interfaces.ConditionalHeatingPort;
           parameter Real Bf=50 "Forward beta";
           parameter Real Br=0.1 "Reverse beta";
           parameter Modelica.SIunits.Current Is=1.e-16
@@ -1441,6 +1425,7 @@ on page 317 ff.
           parameter Real NR=1.0 "Reverse current emission coefficient";
           parameter Real K=1.3806226e-23 "Boltzmann's constant";
           parameter Real q=1.6021918e-19 "Elementary electronic charge";
+          extends Interfaces.ConditionalHeatingPort;
   protected
           Real vcb;
           Real veb;
@@ -1522,8 +1507,7 @@ on page 317 ff.
             points={{-10,-10},{5,-17},{-3,-25},{-10,-10}},
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{0,-91},{0,-30}}, color={191,0,0})}),
+            lineColor={0,0,255})}),
             Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1538,8 +1522,7 @@ on page 317 ff.
             points={{-10,-10},{5,-17},{-3,-25},{-10,-10}},
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{0,-91},{0,-30}}, color={191,0,0})}));
+            lineColor={0,0,255})}));
         equation
           assert( internalHeatPort.T > 0,"temperature must be positive");
           ExMin = exp(EMin);

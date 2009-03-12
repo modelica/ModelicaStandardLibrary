@@ -89,8 +89,8 @@ at least one ground object.
 
   model Resistor "Ideal linear electrical resistor"
     extends Interfaces.OnePort;
-    extends Interfaces.ConditionalHeatingPort;
     parameter SI.Resistance R(start=1) "Resistance";
+    extends Interfaces.ConditionalHeatingPort;
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -142,12 +142,11 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
 
     model HeatingResistor "Temperature dependent electrical resistor"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
-      extends Interfaces.ConditionalHeatingPort;
       parameter SI.Resistance R_ref(start=1) "Resistance at temperature T_ref";
       parameter SI.Temperature T_ref(start=300.15) "Reference temperature";
       parameter SI.LinearTemperatureCoefficient alpha(start=0)
       "Temperature coefficient of resistance (R = R_ref*(1 + alpha*(heatPort.T - T_ref))";
-
+      extends Interfaces.ConditionalHeatingPort;
       SI.Resistance R
       "Resistance = R_ref*(1 + alpha*(intenalHeatPort.T - T_ref));";
       annotation (
@@ -234,8 +233,8 @@ If the heatPort connector is enabled, it must be connected.
 
   model Conductor "Ideal linear electrical conductor"
     extends Interfaces.OnePort;
-    extends Interfaces.ConditionalHeatingPort;
     parameter SI.Conductance G(start=1) "Conductance";
+    extends Interfaces.ConditionalHeatingPort;
     annotation (
       Documentation(info="<HTML>
 <P>
@@ -497,13 +496,13 @@ The parameters are:
             fillPattern=FillPattern.Sphere,
             fillColor={0,0,255})}));
   initial equation
-    (Lnom - Linf) = (Lzer - Linf)*Ipar/Inom*(Modelica.Constants.pi/2-atan(Ipar/Inom));
+    (Lnom - Linf) = (Lzer - Linf)*Ipar/Inom*(Modelica.Constants.pi/2-Modelica.Math.atan(Ipar/Inom));
   equation
     assert(Lzer > Lnom+Modelica.Constants.eps,
            "Lzer (= " + String(Lzer) + ") has to be > Lnom (= " + String(Lnom) + ")");
     assert(Linf < Lnom-Modelica.Constants.eps,
            "Linf (= " + String(Linf) + ") has to be < Lnom (= " + String(Lnom) + ")");
-    (Lact - Linf)*i/Ipar = (Lzer - Linf)*noEvent(atan(i/Ipar));
+    (Lact - Linf)*i/Ipar = (Lzer - Linf)*noEvent(Modelica.Math.atan(i/Ipar));
     Psi = Lact*i;
     v = der(Psi);
   end SaturatingInductor;
@@ -1506,12 +1505,12 @@ value of Slope is taken into calculation.)
         model VariableResistor
     "Ideal linear electrical resistor with variable resistance"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          extends Interfaces.ConditionalHeatingPort;
           Modelica.Blocks.Interfaces.RealInput R 
             annotation (Placement(transformation(
           origin={0,110},
           extent={{-20,-20},{20,20}},
           rotation=270)));
+          extends Interfaces.ConditionalHeatingPort;
           annotation (
             Documentation(info="<HTML>
 <P>
@@ -1575,12 +1574,12 @@ The Resistance <i>R</i> is given as input signal.
         model VariableConductor
     "Ideal linear electrical conductor with variable conductance"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          extends Interfaces.ConditionalHeatingPort;
           Modelica.Blocks.Interfaces.RealInput G 
             annotation (Placement(transformation(
           origin={0,110},
           extent={{-20,-20},{20,20}},
           rotation=270)));
+          extends Interfaces.ConditionalHeatingPort;
           annotation (
             Documentation(info="<HTML>
 <P>

@@ -403,8 +403,7 @@ the support torque can always be accessed as internalSupport.tau.
     heatPort.Q_flow = Q_flow;
   end InternalHeatPort;
 
-    parameter Boolean useHeatPort = false
-      "true, if HeatPort enabled, otherwise implicitly grounded";
+    parameter Boolean useHeatPort = false "true, if HeatPort enabled";
     annotation (uses(Modelica(version="3.0")),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics),
@@ -417,22 +416,22 @@ the support torque can always be accessed as internalSupport.tau.
 </ul>
 </html>",   info="<html>
 <P>
-This partial model provides a conditional heating port for connection a thermal network.
+This partial model provides a conditional heating port for the connection to a thermal network.
 </P>
 <P>
 If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal 
-loss power flows internally to ground. In this case, the parameter <i>T</i> allows to specify 
-a default working temperature.
+loss power flows internally to the ground. In this case, the parameter <i>T</i> allows to specify 
+a fixed default temperature which can be used by the model via <i>internalHeatPort.T</i>.
 </P>
 <P>
 If <b>useHeatPort</b> is set to <b>true</b>, a heat port is available.
 </P>
 <P>
-If this model is used, the loss power has to be provided by the model which includes the ConditionalHeatingPort model, e.g. by  <i>lossPower = ...</i> . As a device temperature <i>internalHeatPort.T</i> can be used.
+If this model is used, the loss power has to be provided by the model which includes the ConditionalHeatingPort model, e.g. by  <i>lossPower = ...</i> . As a device temperature <i>internalHeatPort.T</i> can be used to describe the influence of the device temperature to the model behaviour.
 </P>
 </html>"));
     parameter Modelica.SIunits.Temperature T=293.15 if not useHeatPort
-      "fixed Temperature if no HeatPort is used";
+      "fixed device Temperature if no HeatPort is enabled";
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort 
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
           iconTransformation(extent={{-10,-110},{10,-90}})));
@@ -468,7 +467,7 @@ If this model is used, the loss power has to be provided by the model which incl
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}), 
+          grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}),
             Line(points={{70,0},{100,0}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
