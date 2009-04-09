@@ -1381,7 +1381,7 @@ on page 317 ff.
           B.i = ibe/bf_t + ibc/br_t + cbc*der(vbc) + cbe*der(vbe);
           E.i = -B.i - C.i + Ccs*der(C.v);
 
-          LossPower = -(vbc*ibc/br_t + vbe*ibe/bf_t + (ibe - ibc)*qbk*(C.v - E.v));
+          LossPower = (vbc*ibc/br_t + vbe*ibe/bf_t + (ibe - ibc)*qbk*(C.v - E.v));
         end HeatingNPN;
 
         model HeatingPNP
@@ -1566,7 +1566,7 @@ on page 317 ff.
           B.i = -ieb/bf_t - icb/br_t - ceb*der(veb) - ccb*der(vcb);
           E.i = -B.i - C.i + Ccs*der(C.v);
 
-          LossPower = -(vcb*icb/br_t + veb*ieb/bf_t + (icb - ieb)*qbk*(E.v- C.v));
+          LossPower = (vcb*icb/br_t + veb*ieb/bf_t + (icb - ieb)*qbk*(E.v- C.v));
         end HeatingPNP;
 
 protected
