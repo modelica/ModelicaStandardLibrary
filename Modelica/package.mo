@@ -940,25 +940,26 @@ on the Modelica standard library.
 
 <p>
 Maintenance of the Modelica Standard Library is performed with
-three branches on the subversion server of the Modelica Association:
+three branches on the subversion server of the Modelica Association
+(<a href=\"https://svn.modelica.org/projects/Modelica\">https://svn.modelica.org/projects/Modelica</a>):
 </p>
 
 <h4>Released branch</h4>
 <p>
-Example: \"Modelica/tags/V2_2_1/Modelica\"
+Example: \"/tags/v3.0.1/Modelica\"
 </p>
 
 <p>
-This branch contains the released Modelica versions (e.g. version 2.2.1),
+This branch contains the released Modelica versions (e.g., version 3.0.1),
 where all available test cases and compatibility checks with other Modelica
 libraries have been performed on the respective release. This version is
-usually shipped with a Modelica modelling and simulation environment and
+usually shipped with a Modelica modeling and simulation environment and
 utilized by a Modelica user.
 </p>
 
 <h4>Development branch</h4>
 <p>
-Example: \"Modelica/trunk/Modelica\"
+Example: \"/trunk/Modelica\"
 </p>
 
 <p>
@@ -973,11 +974,11 @@ Modelica Standard Library and is not utilized by Modelica users.
 
 <h4>Maintenance branch</h4>
 <p>
-Example: \"Modelica/branches/maintenance/2.2.1/Modelica\"
+Example: \"/branches/maintenance/3.0.1/Modelica\"
 </p>
 
 <p>
-This branch contains the released Modelica version (e.g. version 2.2.1)
+This branch contains the released Modelica version (e.g., version 3.0.1)
 where all bug fixes since this release date are included (up to a  new release,
 when becoming available; i.e., after a new release, the previous maintenance
 versions are no longer changed).
@@ -1003,9 +1004,11 @@ Incorporation of bug fixes (subversion \"commit\") shall be performed in the fol
 	 Modelica.UsersGuide.ReleaseNotes.Version_<release-number>_BugFixes.</li>
 <li> Every change to the maintenance branch requires changing the date
 	 and the subversion build number in the version annotation. This is automatically
-	 performed once a committ of file Modelica\\package.mo is performed.
-	 Example:<br>
-	 <pre>annotation(version=\"3.0\", versionBuild=\"$Rev$\",versionDate=\"$Date::                            $\").</pre></li>
+	 performed once a commit of file Modelica\\package.mo is performed.
+	 <ul>
+	 <li> Example:
+	 <pre>annotation(version=\"3.1\", versionBuild=\"$Rev$\",versionDate=\"$Date::                            $\").</pre></li>
+	 </ul></li>
 <li> If time does not permit, a vendor makes the bug fix in its local version
 	 and then has to include it in the maintenance version. It would be best to make these
 	 changes at a new branch in order to get a unique release number.</li>
