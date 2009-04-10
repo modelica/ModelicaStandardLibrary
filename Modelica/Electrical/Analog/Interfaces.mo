@@ -325,7 +325,7 @@ This current is provided explicitly as current i.
        </li>
 </ul>
 </html>", info="<html>
- 
+
 </html>"));
   equation
     v1 = p1.v - n1.v;
@@ -364,21 +364,21 @@ This is an adapter model to utilize a conditional support connector
 in an elementary component, i.e., where the component equations are
 defined textually:
 </p>
- 
+
 <ul>
-<li> If <i>useSupport = true</i>, the flange has to be connected to the conditional 
+<li> If <i>useSupport = true</i>, the flange has to be connected to the conditional
      support connector.</li>
-<li> If <i>useSupport = false</i>, the flange has to be connected to the conditional 
+<li> If <i>useSupport = false</i>, the flange has to be connected to the conditional
      fixed model.</li>
 </ul>
- 
+
 <p>
 Variable <b>tau</b> is defined as <b>input</b> and must be provided when using
 this component as a modifier (computed via a torque balance in
-the model where InternalSupport is used). Usually, model InternalSupport is 
+the model where InternalSupport is used). Usually, model InternalSupport is
 utilized via the partial models:
 </p>
- 
+
 <blockquote>
 <a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport\">
 PartialElementaryOneFlangeAndSupport</a>,<br>
@@ -387,16 +387,15 @@ PartialElementaryTwoFlangesAndSupport</a>,<br>
 <a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational\">
 PartialElementaryRotationalToTranslational</a>.</li>
 </blockquote>
- 
+
 <p>
 Note, the support angle can always be accessed as internalSupport.phi, and
 the support torque can always be accessed as internalSupport.tau.
 </p>
- 
- 
-</html>"),
-      uses(Modelica(version="3.0")));
-    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort 
+
+
+</html>");
+    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
       annotation (Placement(transformation(extent={{90,-10},{110,10}})));
   equation
     heatPort.T = T;
@@ -404,9 +403,7 @@ the support torque can always be accessed as internalSupport.tau.
   end InternalHeatPort;
 
     parameter Boolean useHeatPort = false "true, if HeatPort enabled";
-    annotation (uses(Modelica(version="3.0")),
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics),
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),
       DymolaStoredErrors,
       Documentation(revisions="<html>
 <ul>
@@ -419,8 +416,8 @@ the support torque can always be accessed as internalSupport.tau.
 This partial model provides a conditional heating port for the connection to a thermal network.
 </P>
 <P>
-If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal 
-loss power flows internally to the ground. In this case, the parameter <i>T</i> allows to specify 
+If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal
+loss power flows internally to the ground. In this case, the parameter <i>T</i> allows to specify
 a fixed default temperature which can be used by the model via <i>internalHeatPort.T</i>.
 </P>
 <P>
@@ -432,7 +429,7 @@ If this model is used, the loss power has to be provided by the model which incl
 </html>"));
     parameter Modelica.SIunits.Temperature T=293.15 if not useHeatPort
       "fixed device Temperature if no HeatPort is enabled";
-    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort 
+    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
           iconTransformation(extent={{-10,-110},{10,-90}})));
     Modelica.SIunits.Power LossPower;
@@ -527,7 +524,7 @@ If this model is used, the loss power has to be provided by the model which incl
     parameter SI.Voltage offset=0 "Voltage offset";
     parameter SI.Time startTime=0 "Time offset";
     replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
-        final offset = offset, final startTime=startTime) 
+        final offset = offset, final startTime=startTime)
     annotation (Placement(transformation(extent={{70,70},{90,90}}, rotation=0)));
     annotation (
       Icon(coordinateSystem(

@@ -1,8 +1,7 @@
 within Modelica.Electrical.Analog.Examples;
 model OvervoltageProtection
 
- annotation (uses(Modelica(version="3.0.1")),
-                                            Diagram(coordinateSystem(
+ annotation (Diagram(coordinateSystem(
          preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),
    experiment(StopTime=0.4),
    experimentSetupOutput,
@@ -11,7 +10,7 @@ This example is a simple circuit for overvoltage protection. If the voltage zDio
 The simulation end time should be set to 0.4. To get the typical behaviour please plot sineVoltage.p.v, RL.p.v, zDiode_2.n.v and zDiode_1.n.i.
 </html>",revisions="<html>
 <ul>
-<li><i>February 02, 2009</i> 
+<li><i>February 02, 2009</i>
        by Kristin Majetta<br>
        documentation added</li>
 <li><i> January 08, 2009   </i>
@@ -51,24 +50,24 @@ The simulation end time should be set to 0.4. To get the typical behaviour pleas
        extent={{-10,-10},{10,10}},
        rotation=270,
        origin={-66,6})));
- Modelica.Electrical.Analog.Basic.Resistor Rv(R=20) 
+ Modelica.Electrical.Analog.Basic.Resistor Rv(R=20)
    annotation (Placement(transformation(extent={{-56,32},{-36,52}})));
  Modelica.Electrical.Analog.Basic.Resistor RL(R=2000) annotation (Placement(
        transformation(
        extent={{-10,-10},{10,10}},
        rotation=270,
        origin={26,4})));
- Modelica.Electrical.Analog.Semiconductors.ZDiode zDiode_1 
+ Modelica.Electrical.Analog.Semiconductors.ZDiode zDiode_1
                        annotation (Placement(transformation(
        extent={{-10,-10},{10,10}},
        rotation=90,
        origin={-20,-10})));
- Modelica.Electrical.Analog.Semiconductors.ZDiode zDiode_2 
+ Modelica.Electrical.Analog.Semiconductors.ZDiode zDiode_2
                        annotation (Placement(transformation(
        extent={{-10,-10},{10,10}},
        rotation=270,
        origin={-20,22})));
- Modelica.Electrical.Analog.Basic.Ground ground 
+ Modelica.Electrical.Analog.Basic.Ground ground
    annotation (Placement(transformation(extent={{-30,-82},{-10,-62}})));
  Modelica.Electrical.Analog.Basic.Capacitor CL(C=1e-7) annotation (Placement(
        transformation(

@@ -9,7 +9,7 @@ Documentation(info="<HTML>
 <p>
 This package contains basic analog electrical components.
 </p>
- 
+
 </HTML>
 ", revisions="<html>
 <dl>
@@ -206,14 +206,14 @@ is often abbreviated as <b>TCR</b>. In resistor catalogues, it is usually
 defined as <b>X [ppm/K]</b> (parts per million, similarly to per centage)
 meaning <b>X*1.e-6 [1/K]</b>. Resistors are available for 1 .. 7000 ppm/K,
 i.e., alpha = 1e-6 .. 7e-3 1/K;</p>
- 
+
 <p>
 Via parameter <b>useHeatPort</b> the heatPort connector can be enabled and disabled
 (default = enabled). If it is disabled, the generated heat is transported implicitly
 to an internal temperature source with a fixed temperature of T_ref.<br>
 If the heatPort connector is enabled, it must be connected.
 </p>
- 
+
 </HTML>
 ",     revisions="<html>
 <ul>
@@ -610,10 +610,10 @@ model M_Transformer
   public
   parameter Real L[dimL]={1, 0.1, 0.2, 2, 0.3, 3}
       "inductances and coupling inductances";
-  Modelica.Electrical.Analog.Interfaces.PositivePin p[N] "Positive pin" 
+  Modelica.Electrical.Analog.Interfaces.PositivePin p[N] "Positive pin"
               annotation (extent=[-80,-40; -62,40], Placement(transformation(
           extent={{-80,-40},{-62,40}}, rotation=0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin n[N] "Negative pin" 
+  Modelica.Electrical.Analog.Interfaces.NegativePin n[N] "Negative pin"
               annotation (extent=[62,-40; 80,40], Placement(transformation(
           extent={{62,-40},{80,40}}, rotation=0)));
 
@@ -623,7 +623,7 @@ model M_Transformer
 algorithm
   for s in 1:N loop
      for z in 1:N loop
-       Lm[z,s]:= if (z>=s) then L[(s-1)*N+z-div((s-1)*s,2)] else 
+       Lm[z,s]:= if (z>=s) then L[(s-1)*N+z-div((s-1)*s,2)] else
                  Lm[s,z];
      end for;
   end for;
@@ -638,7 +638,7 @@ equation
   v =Lm*der(i);
 
   annotation (Icon(
-      coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
+      coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
 
         graphics={
           Ellipse(extent={{-36,24},{-18,42}}),
@@ -775,22 +775,21 @@ equation
           fillPattern=1))), Diagram(coordinateSystem(preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}),
                                     graphics),
-    uses(Modelica(version="3.0")),
-    Documentation(info="<html>
-The model <i> M_Transformer </i> is a model of a transformer with the posibility to choose the 
-number of inductors. Inside the model, an inductance matrix is built based on the  
+Documentation(info="<html>
+The model <i> M_Transformer </i> is a model of a transformer with the posibility to choose the
+number of inductors. Inside the model, an inductance matrix is built based on the
 inductance of the inductors and the coupling inductances between the inductors given as a
 parameter vector from the user of the model.<br>
 <br>
 An example shows that approach: <br>
 <br>
-The user chooses a model with <b>three</b> inductors, that means the parameter <b><i> N </i></b> has to be <b>3</b>. 
-Then he has to specify the inductances of the three inductors and the three coupling inductances. The coupling 
+The user chooses a model with <b>three</b> inductors, that means the parameter <b><i> N </i></b> has to be <b>3</b>.
+Then he has to specify the inductances of the three inductors and the three coupling inductances. The coupling
 inductances are no real existing devices, but effects that occur between two inductors.
- 
-The inductivities (main diagonal of the inductance matrix) and the coupling inductivities have 
-to be specified in the parameter vector <i> L </i> .  The length <i> dimL </i> of the parameter vector is calculated as follows: <b><i> dimL=(N*(N+1))/2 </i></b> <br> The following example shows how the parameter vector is used to fill in the inductance matrix. 
-For example: To specify the inductance matrix of a three inductances transformer (<i> N=3 </i>), e.g.<br><br> 
+
+The inductivities (main diagonal of the inductance matrix) and the coupling inductivities have
+to be specified in the parameter vector <i> L </i> .  The length <i> dimL </i> of the parameter vector is calculated as follows: <b><i> dimL=(N*(N+1))/2 </i></b> <br> The following example shows how the parameter vector is used to fill in the inductance matrix.
+For example: To specify the inductance matrix of a three inductances transformer (<i> N=3 </i>), e.g.<br><br>
 <center>
 <table>
   <tr>
@@ -798,7 +797,7 @@ For example: To specify the inductance matrix of a three inductances transformer
     <td></td>
     <td>1</td>
     <td>0.1</td>
-    <td>0.2</td> 
+    <td>0.2</td>
   </tr>
   <tr>
     <td>Lm</td>
@@ -816,7 +815,7 @@ For example: To specify the inductance matrix of a three inductances transformer
   </tr>
 </table>
 </center>
- 
+
 the user has to allocate the parameter vector <i>L[6] </i>, since <i> Nv=(N*(N+1))/2=(3*(3+1))/2=6</i>. The parameter vector must be filled like this: <i> L=[1,0.1,0.2,2,0.3,3] </i>. <br>
 <br>
 Inside the model, two loops are used to fill the inductance matrix to guarantee that it is filled in a symmetric way.
@@ -957,7 +956,7 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
 
   model EMF "Electromotoric force (electric/mechanic transformer)"
     parameter Boolean useSupport=false
-      "= true, if support flange enabled, otherwise implicitly grounded" 
+      "= true, if support flange enabled, otherwise implicitly grounded"
         annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
     parameter SI.ElectricalTorqueConstant k(start=1)
       "Transformation coefficient";
@@ -974,10 +973,10 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
           origin={0,-100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica.Mechanics.Rotational.Interfaces.Flange_b flange 
+    Modelica.Mechanics.Rotational.Interfaces.Flange_b flange
       annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
     Mechanics.Rotational.Interfaces.Support support if useSupport
-      "Support/housing of emf shaft" 
+      "Support/housing of emf shaft"
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
     annotation (
       defaultComponentName="emf",
@@ -1077,9 +1076,9 @@ flange.phi is the angle at the rotational connection.
 </ul>
 </html>"));
   protected
-    Mechanics.Rotational.Components.Fixed fixed if not useSupport 
+    Mechanics.Rotational.Components.Fixed fixed if not useSupport
       annotation (Placement(transformation(extent={{-90,-20},{-70,0}})));
-    Mechanics.Rotational.Interfaces.InternalSupport internalSupport(tau=-flange.tau) 
+    Mechanics.Rotational.Interfaces.InternalSupport internalSupport(tau=-flange.tau)
       annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
   equation
     v = p.v - n.v;
@@ -1341,7 +1340,7 @@ The left port voltage is zero. Any current gain can be chosen.
             extent={{-104,-76},{97,-127}},
             textString="%name",
             lineColor={0,0,255}),
-          Line(points={{-100,50},{-30,50},{-30,-50},{-100,-50}}, color={0,0,255}), 
+          Line(points={{-100,50},{-30,50},{-30,-50},{-100,-50}}, color={0,0,255}),
 
           Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
           Line(points={{-20,60},{20,60}}, color={0,0,255}),
@@ -1384,7 +1383,7 @@ The left port voltage is zero. Any current gain can be chosen.
     Modelica.Electrical.Analog.Interfaces.NegativePin in_n
       "Negative pin of the input port" annotation (Placement(transformation(
             extent={{-90,40},{-110,60}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.PositivePin out "Output pin" 
+    Modelica.Electrical.Analog.Interfaces.PositivePin out "Output pin"
       annotation (Placement(transformation(extent={{110,-10},{90,10}}, rotation=
              0)));
     Modelica.Electrical.Analog.Interfaces.PositivePin VMax
@@ -1403,7 +1402,7 @@ The left port voltage is zero. Any current gain can be chosen.
 The OpAmp is a simle nonideal model with a smooth out.v = f(vin) characteristic,
 where \"vin = in_p.v - in_n.v\".
 The characteristic is limited by VMax.v and VMin.v. Its slope at vin=0
-is the parameter Slope, which must be positive. (Therefore, the absolute 
+is the parameter Slope, which must be positive. (Therefore, the absolute
 value of Slope is taken into calculation.)
 </P>
 </HTML>
@@ -1505,7 +1504,7 @@ value of Slope is taken into calculation.)
         model VariableResistor
     "Ideal linear electrical resistor with variable resistance"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.RealInput R 
+          Modelica.Blocks.Interfaces.RealInput R
             annotation (Placement(transformation(
           origin={0,110},
           extent={{-20,-20},{20,20}},
@@ -1522,7 +1521,7 @@ branch current <i>i</i> by <br><br>
 The Resistance <i>R</i> is given as input signal.
 <P>
 <b>Attention!!!</b><br>
-  It is recommended that the R signal should not cross the zero value. Otherwise 
+  It is recommended that the R signal should not cross the zero value. Otherwise
   depending on the surrounding circuit the probability of singularities is high. <br>
 </P>
 </HTML>
@@ -1574,7 +1573,7 @@ The Resistance <i>R</i> is given as input signal.
         model VariableConductor
     "Ideal linear electrical conductor with variable conductance"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.RealInput G 
+          Modelica.Blocks.Interfaces.RealInput G
             annotation (Placement(transformation(
           origin={0,110},
           extent={{-20,-20},{20,20}},
@@ -1592,7 +1591,7 @@ The Conductance <i>G</i> is given as input signal.
 </P>
 <P>
 <b>Attention!!!</b><br>
-  It is recommended that the G signal should not cross the zero value. Otherwise 
+  It is recommended that the G signal should not cross the zero value. Otherwise
   depending on the surrounding circuit the probability of singularities is high. <br>
 </P>
 </HTML>
@@ -1642,7 +1641,7 @@ The Conductance <i>G</i> is given as input signal.
         model VariableCapacitor
     "Ideal linear electrical capacitor with variable capacitance"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.RealInput C 
+          Modelica.Blocks.Interfaces.RealInput C
             annotation (Placement(transformation(
           origin={0,110},
           extent={{-20,-20},{20,20}},
@@ -1661,7 +1660,7 @@ branch current <i>i</i> by <br><br>
 The capacitance <i>C</i> is given as input signal.
 </P>
 <P>
-It is required that C &ge; 0, otherwise an 
+It is required that C &ge; 0, otherwise an
 assertion is raised. To avoid a variable index system,<br>
 C = Cmin, if 0 &le; C &lt; Cmin, where
 Cmin is a parameter with default value Modelica.Constants.eps.
@@ -1719,7 +1718,7 @@ Cmin is a parameter with default value Modelica.Constants.eps.
     "Ideal linear electrical inductor with variable inductance"
 
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.RealInput L 
+          Modelica.Blocks.Interfaces.RealInput L
             annotation (Placement(transformation(
           origin={0,108},
           extent={{-20,-20},{20,20}},
@@ -1738,7 +1737,7 @@ branch current <i>i</i> by <br><br>
 The inductance <i>L</i> is as input signal.
 </P>
 <P>
-It is required that L &ge; 0, otherwise an 
+It is required that L &ge; 0, otherwise an
 assertion is raised. To avoid a variable index system,<br>
 L = Lmin, if 0 &le; L &lt; Lmin, where
 Lmin is a parameter with default value Modelica.Constants.eps.
