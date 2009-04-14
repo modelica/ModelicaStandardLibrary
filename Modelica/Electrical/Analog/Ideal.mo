@@ -1021,8 +1021,7 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}), 
-
+          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}),
           Line(points={{0,35},{0,80}}, color={0,0,255}),
           Line(points={{0,-35},{0,-80}}, color={0,0,255}),
           Line(points={{-96,50},{-60,50}}, color={0,0,255}),
@@ -1358,8 +1357,7 @@ where the constant <i>G</i> is called the gyration conductance.
             lineColor={255,255,255},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{-96,50},{-40,50},{-40,-50},{-96,-50}}, color={0,0,255}), 
-
+          Line(points={{-96,50},{-40,50},{-40,-50},{-96,-50}}, color={0,0,255}),
           Line(points={{-30,60},{20,60}}, color={0,0,255}),
           Polygon(
             points={{20,63},{30,60},{20,57},{20,63}},
@@ -1712,7 +1710,7 @@ where a description with zero Ron or zero Goff is not possible.
     p.v - n.v = (s*unitCurrent)*(if (control.v > level) then 1 else Ron);
     p.i = (s*unitVoltage)*(if (control.v > level) then Goff else 1);
 
-    LossPower = v*i;
+    LossPower = (p.v - n.v)*p.i;
   end ControlledIdealOpeningSwitch;
 
     model ControlledIdealClosingSwitch "Controlled ideal electrical closer"
@@ -1798,7 +1796,7 @@ where a description with zero Ron or zero Goff is not possible.
       p.v - n.v = (s*unitCurrent)*(if (control.v > level) then Ron else 1);
       p.i = (s*unitVoltage)*(if (control.v > level) then 1 else Goff);
 
-      LossPower = v*i;
+      LossPower = (p.v - n.v)*p.i;
     end ControlledIdealClosingSwitch;
 
 end Ideal;
