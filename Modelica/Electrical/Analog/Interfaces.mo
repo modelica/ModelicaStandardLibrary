@@ -394,7 +394,7 @@ the support torque can always be accessed as internalSupport.tau.
 </p>
 
 
-</html>");
+</html>"));
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
       annotation (Placement(transformation(extent={{90,-10},{110,10}})));
   equation

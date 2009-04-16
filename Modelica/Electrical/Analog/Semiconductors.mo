@@ -203,7 +203,7 @@ current in reverse direction if the breakdown voltage Bv (also known zener knee 
           Line(
             points={{30,-40},{20,-40}},
             color={0,0,255},
-            smooth=Smooth.None)});
+            smooth=Smooth.None)}));
  equation
    i = smooth(1, if (v>Maxexp*Vt) then
              Ids*( exp(Maxexp)*(1 + v/Vt - Maxexp)-1) + v/R else

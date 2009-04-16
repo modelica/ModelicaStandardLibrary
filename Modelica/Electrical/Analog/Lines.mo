@@ -229,7 +229,7 @@ equation
                 -100},{100,100}}), graphics={Rectangle(extent={{40,-40},{-40,40}},
                 lineColor={0,0,255})}),
                             Diagram(coordinateSystem(preserveAspectRatio=false,
-              extent={{-100,-100},{100,100}}),graphics);
+              extent={{-100,-100},{100,100}}),graphics));
 end segment;
 
 model segment_last
@@ -260,7 +260,7 @@ equation
     connect(R[lines].n,n[lines]);
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(extent={{20,-40},{-20,40}},
-                lineColor={0,0,255})});
+                lineColor={0,0,255})}));
 end segment_last;
 
   segment s[N - 1](
