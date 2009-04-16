@@ -723,10 +723,14 @@ package Examples
               rotation=0)));
     Transition transition2(enableTimer=true, waitTime=1) 
       annotation (Placement(transformation(extent={{40,0},{60,20}}, rotation=0)));
+      inner StateGraphRoot stateGraphRoot
+        annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
   equation
 
     annotation (
-      Diagram(graphics),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}),
+              graphics),
       experiment(StopTime=5),
         Documentation(info="<html>
   
@@ -761,10 +765,14 @@ package Examples
     Modelica.Blocks.Logical.GreaterEqualThreshold greaterEqual(threshold=1) 
       annotation (Placement(transformation(extent={{36,-40},{56,-20}}, rotation=
                0)));
+      inner StateGraphRoot stateGraphRoot
+        annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
   equation
 
     annotation (
-      Diagram(graphics),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}),
+              graphics),
       experiment(StopTime=5),
         Documentation(info="<html>
   
@@ -808,10 +816,14 @@ package Examples
             transformation(extent={{28,-40},{60,-20}}, rotation=0)));
     Modelica.Blocks.Sources.BooleanExpression SetBoolean2(y=step.active) annotation (Placement(
             transformation(extent={{-68,-40},{-36,-20}}, rotation=0)));
+      inner StateGraphRoot stateGraphRoot
+        annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
   equation
 
     annotation (
-      Diagram(graphics),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                100,100}}),
+              graphics),
       experiment(StopTime=5),
         Documentation(info="<html>
   
@@ -916,6 +928,8 @@ has a higher priority to fire as alternative.split[2]).
               extent={{-70,-10},{72,110}}, rotation=0)));
     Parallel Parallel1 annotation (Placement(transformation(extent={{-154,-50},
                 {152,120}}, rotation=0)));
+      inner StateGraphRoot stateGraphRoot
+        annotation (Placement(transformation(extent={{-160,120},{-140,140}})));
   equation
     connect(transition3.outPort, step3.inPort[1]) 
       annotation (Line(points={{-30.5,90},{-9,90}}, color={0,0,0}));
@@ -938,18 +952,18 @@ has a higher priority to fire as alternative.split[2]).
     connect(setReal.y, NumericValue1.Value) annotation (Line(
           points={{42,-150},{59,-150}},
           color={0,0,255}));
-    connect(transition3.inPort, alternative.split[1])  annotation (Line(points=
-              {{-36,90},{-55.09,90}}, color={0,0,0}));
-    connect(transition4.inPort, alternative.split[2])  annotation (Line(points=
-              {{-36,50},{-55.09,50}}, color={0,0,0}));
-    connect(transition4a.inPort, alternative.split[3])  annotation (Line(points=
-             {{-36,10},{-45.0125,10},{-45.0125,10},{-55.09,10}}, color={0,0,0}));
-    connect(transition5.outPort, alternative.join[1])  annotation (Line(points=
-              {{37.5,90},{57.09,90}}, color={0,0,0}));
-    connect(transition6.outPort, alternative.join[2])  annotation (Line(points=
-              {{37.5,50},{57.09,50}}, color={0,0,0}));
-    connect(transition6a.outPort, alternative.join[3])  annotation (Line(points=
-             {{37.5,10},{46.7625,10},{46.7625,10},{57.09,10}}, color={0,0,0}));
+    connect(transition3.inPort, alternative.split[1])  annotation (Line(points={{-36,90},
+              {-55.09,90}},           color={0,0,0}));
+    connect(transition4.inPort, alternative.split[2])  annotation (Line(points={{-36,50},
+              {-55.09,50}},           color={0,0,0}));
+    connect(transition4a.inPort, alternative.split[3])  annotation (Line(points={{-36,10},
+              {-45.0125,10},{-45.0125,10},{-55.09,10}},          color={0,0,0}));
+    connect(transition5.outPort, alternative.join[1])  annotation (Line(points={{37.5,90},
+              {57.09,90}},            color={0,0,0}));
+    connect(transition6.outPort, alternative.join[2])  annotation (Line(points={{37.5,50},
+              {57.09,50}},            color={0,0,0}));
+    connect(transition6a.outPort, alternative.join[3])  annotation (Line(points={{37.5,10},
+              {46.7625,10},{46.7625,10},{57.09,10}},           color={0,0,0}));
     connect(step2.outPort[1], alternative.inPort)  annotation (Line(points={{
               -77.5,50},{-72.13,50}}, color={0,0,0}));
     connect(alternative.outPort, step5.inPort[1]) 
@@ -1015,6 +1029,8 @@ is that the alternative paths are included in a \"CompositeStep\".
     Modelica.Blocks.Sources.BooleanExpression setCondition(y=time > 7) 
       annotation (Placement(transformation(extent={{-40,-90},{-10,-70}},
               rotation=0)));
+      inner StateGraphRoot stateGraphRoot
+        annotation (Placement(transformation(extent={{-90,50},{-70,70}})));
   equation
     connect(step0.outPort[1], transition1.inPort) 
       annotation (Line(points={{-68.5,0},{-53,0}}, color={0,0,0}));
@@ -1085,6 +1101,8 @@ according to their setting before leaving the \"compositeStep\" via its
     Transition transition4(enableTimer=true, waitTime=1) 
       annotation (                                             Placement(
             transformation(extent={{10,-30},{30,-10}}, rotation=0)));
+      inner StateGraphRoot stateGraphRoot
+        annotation (Placement(transformation(extent={{-90,-80},{-70,-60}})));
   equation
 
     connect(transition1.outPort, compositeStep.inPort) 
@@ -1191,6 +1209,8 @@ buttons:
             origin={73.5,-77},
             extent={{-7,-8},{7,8}},
             rotation=270)));
+      inner StateGraphRoot stateGraphRoot
+        annotation (Placement(transformation(extent={{-90,75},{-70,95}})));
   equation
     connect(tank1.outflow1, valve2.outflow1) annotation (Line(
           points={{50,33.75},{50,26.875},{46.5,26.875},{46.5,16.5}},
@@ -2045,25 +2065,25 @@ package Interfaces "Connectors and partial models"
     input Boolean suspend
         "= true, if suspend transition of CompositeStep fires";
     input Boolean resume "= true, if resume transition of CompositeStep fires";
-    flow output Real activeSteps "Number of active steps in the CompositeStep";
+    Real activeStepsDummy
+        "Dummy variable in order that connector fulfills restriction of connector"
+                                                                                annotation(HideResult=true);
+    flow Real activeSteps "Number of active steps in the CompositeStep";
   end CompositeStepStatePort_in;
 
   connector CompositeStepStatePort_out
       "Communication port between a CompositeStep and the ordinary steps within the CompositeStep (suspend/resume are outputs)"
 
-    annotation(Documentation(info="<html>
- 
-</html>"));
     output Boolean suspend
         "= true, if suspend transition of CompositeStep fires";
     output Boolean resume "= true, if resume transition of CompositeStep fires";
-    flow input Real activeSteps "Number of active steps in the CompositeStep";
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),
-                     graphics),
-                      Diagram(coordinateSystem(preserveAspectRatio=false,
-              extent={{-100,-100},{100,100}}),
-                              graphics));
+    Real activeStepsDummy
+        "Dummy variable in order that connector fulfills restriction of connector"
+                                                                                 annotation(HideResult=true);
+    flow Real activeSteps "Number of active steps in the CompositeStep";
+    annotation (Documentation(info="<html>
+ 
+</html>"));
   end CompositeStepStatePort_out;
 
   partial block PartialStep
@@ -2248,12 +2268,12 @@ package Interfaces "Connectors and partial models"
 
   end PartialStateGraphIcon;
 
-  block CompositeStepState
+  model CompositeStepState
       "Communication channel between CompositeSteps and steps in the CompositeStep"
 
     output Boolean suspend = false;
     output Boolean resume =  false;
-    StateGraph.Interfaces.CompositeStepStatePort_out subgraphStatePort;
+    CompositeStepStatePort_out subgraphStatePort;
     annotation (
       defaultComponentName="stateGraphRoot",
       defaultComponentPrefixes="inner",
@@ -2271,6 +2291,7 @@ top level your model.");
   equation
     suspend = subgraphStatePort.suspend;
     resume  = subgraphStatePort.resume;
+    subgraphStatePort.activeStepsDummy = 0;
   end CompositeStepState;
     annotation (Documentation(info="<html>
  
@@ -2455,8 +2476,8 @@ block Transition
           grid={1,1}), graphics={
           Rectangle(
             extent={{-10,100},{10,-100}},
-            fillColor=DynamicSelect({0,0,0}, if enableFire > 0.5 then {0,255,0} else 
-                      {0,0,0}),
+            fillColor=DynamicSelect({0,0,0}, if enableFire > 0.5 then {0,255,0}
+                 else {0,0,0}),
             lineColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(points={{-30,0},{-10,0}}, color={0,0,0}),
@@ -2471,8 +2492,8 @@ block Transition
             textString="%waitTime"),
           Text(
             extent={{-200,-120},{200,-145}},
-            lineColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0} else 
-                      {0,0,0}),
+            lineColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0}
+                 else {0,0,0}),
             textString="%condition")}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -2512,8 +2533,8 @@ block TransitionWithSignal
             textString="%waitTime"),
           Rectangle(
             extent={{-10,100},{10,-100}},
-            fillColor=DynamicSelect({0,0,0}, if enableFire > 0.5 then {0,255,0} else 
-                      {0,0,0}),
+            fillColor=DynamicSelect({0,0,0}, if enableFire > 0.5 then {0,255,0}
+                 else {0,0,0}),
             lineColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(points={{-30,0},{-10,0}}, color={0,0,0}),
@@ -2523,10 +2544,10 @@ block TransitionWithSignal
             lineColor={0,0,255}),
           Ellipse(
             extent={{7,-81},{-7,-95}},
-            lineColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0} else 
-                      {0,0,0}),
-            fillColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0} else 
-                      {0,0,0}),
+            lineColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0}
+                 else {0,0,0}),
+            fillColor=DynamicSelect({0,0,0}, if condition > 0.5 then {0,255,0}
+                 else {0,0,0}),
             fillPattern=FillPattern.Solid)}),
     Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -2834,7 +2855,7 @@ equation
   outPort.available = StateGraph.Temporary.allTrue(join.available);
 end Parallel;
 
-partial block PartialCompositeStep
+partial model PartialCompositeStep
     "Superclass of a subgraph, i.e., a composite step that has internally a StateGraph"
 
   parameter Integer nSuspend = 1 "Number of suspend ports" annotation(Dialog(group="Exception connections"));
@@ -2899,7 +2920,7 @@ partial block PartialCompositeStep
   
 </html>"));
 
-  block OuterState
+  model OuterState
       "Block containing the port that is connected to the outer stateGraphRoot"
     Interfaces.CompositeStepStatePort_in subgraphStatePort
         "Port connected to outer stateGraphRoot";
@@ -3020,7 +3041,7 @@ inside the CompositeStep to the outPort connector.");
 
 end PartialCompositeStep;
 
-block StateGraphRoot
+model StateGraphRoot
     "Root of a StateGraph (has to be present on the highest level of a StateGraph)"
 
   extends StateGraph.Interfaces.CompositeStepState;
@@ -3191,9 +3212,9 @@ value, still requires to go in to the text layer.
                 100}}),
           graphics={Rectangle(
               extent={{-100,-100},{100,100}},
-              fillColor=DynamicSelect({192,192,192}, if on > 0.5 then {0,255,0} else 
-                        {192,192,192}),
-              fillPattern=DynamicSelect(FillPattern.Solid, if on > 0.5 then 
+              fillColor=DynamicSelect({192,192,192}, if on > 0.5 then {0,255,0}
+                   else {192,192,192}),
+              fillPattern=DynamicSelect(FillPattern.Solid, if on > 0.5 then
                   FillPattern.Solid else FillPattern.Solid),
               lineColor={128,128,128},
               lineThickness=0.5), Text(
@@ -3235,8 +3256,8 @@ value, still requires to go in to the text layer.
               borderPattern=BorderPattern.Raised), Text(
               extent={{-90,-46},{90,34}},
               textString=DynamicSelect(" ", realString(
-                    Value,
-                    1,
+                    Value, 
+                    1, 
                     integer(precision))),
               lineColor={0,0,255})}),
         Diagram(graphics),
@@ -3261,8 +3282,8 @@ value, still requires to go in to the text layer.
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Ellipse(
               extent={{-100,-100},{100,100}},
-              fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0} else 
-                        {235,235,235}),
+              fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0}
+                   else {235,235,235}),
               lineColor={0,0,0},
               pattern=LinePattern.None,
               fillPattern=FillPattern.Sphere), Text(
