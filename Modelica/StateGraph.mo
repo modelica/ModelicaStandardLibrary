@@ -723,7 +723,7 @@ package Examples
               rotation=0)));
     Transition transition2(enableTimer=true, waitTime=1) 
       annotation (Placement(transformation(extent={{40,0},{60,20}}, rotation=0)));
-      inner StateGraphRoot stateGraphRoot
+      inner StateGraphRoot stateGraphRoot 
         annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
   equation
 
@@ -765,7 +765,7 @@ package Examples
     Modelica.Blocks.Logical.GreaterEqualThreshold greaterEqual(threshold=1) 
       annotation (Placement(transformation(extent={{36,-40},{56,-20}}, rotation=
                0)));
-      inner StateGraphRoot stateGraphRoot
+      inner StateGraphRoot stateGraphRoot 
         annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
   equation
 
@@ -816,7 +816,7 @@ package Examples
             transformation(extent={{28,-40},{60,-20}}, rotation=0)));
     Modelica.Blocks.Sources.BooleanExpression SetBoolean2(y=step.active) annotation (Placement(
             transformation(extent={{-68,-40},{-36,-20}}, rotation=0)));
-      inner StateGraphRoot stateGraphRoot
+      inner StateGraphRoot stateGraphRoot 
         annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
   equation
 
@@ -928,7 +928,7 @@ has a higher priority to fire as alternative.split[2]).
               extent={{-70,-10},{72,110}}, rotation=0)));
     Parallel Parallel1 annotation (Placement(transformation(extent={{-154,-50},
                 {152,120}}, rotation=0)));
-      inner StateGraphRoot stateGraphRoot
+      inner StateGraphRoot stateGraphRoot 
         annotation (Placement(transformation(extent={{-160,120},{-140,140}})));
   equation
     connect(transition3.outPort, step3.inPort[1]) 
@@ -1029,7 +1029,7 @@ is that the alternative paths are included in a \"CompositeStep\".
     Modelica.Blocks.Sources.BooleanExpression setCondition(y=time > 7) 
       annotation (Placement(transformation(extent={{-40,-90},{-10,-70}},
               rotation=0)));
-      inner StateGraphRoot stateGraphRoot
+      inner StateGraphRoot stateGraphRoot 
         annotation (Placement(transformation(extent={{-90,50},{-70,70}})));
   equation
     connect(step0.outPort[1], transition1.inPort) 
@@ -1101,7 +1101,7 @@ according to their setting before leaving the \"compositeStep\" via its
     Transition transition4(enableTimer=true, waitTime=1) 
       annotation (                                             Placement(
             transformation(extent={{10,-30},{30,-10}}, rotation=0)));
-      inner StateGraphRoot stateGraphRoot
+      inner StateGraphRoot stateGraphRoot 
         annotation (Placement(transformation(extent={{-90,-80},{-70,-60}})));
   equation
 
@@ -1209,7 +1209,7 @@ buttons:
             origin={73.5,-77},
             extent={{-7,-8},{7,8}},
             rotation=270)));
-      inner StateGraphRoot stateGraphRoot
+      inner StateGraphRoot stateGraphRoot 
         annotation (Placement(transformation(extent={{-90,75},{-70,95}})));
   equation
     connect(tank1.outflow1, valve2.outflow1) annotation (Line(
@@ -2110,7 +2110,11 @@ package Interfaces "Connectors and partial models"
                 0)));
     protected
     outer Interfaces.CompositeStepState stateGraphRoot;
-    CompositeStepStatePort_in subgraphStatePort;
+    model OuterStatePort
+      CompositeStepStatePort_in subgraphStatePort;
+    end OuterStatePort;
+    OuterStatePort outerStatePort;
+
     Boolean newActive "Value of active in the next iteration" 
       annotation (HideResult=true);
     Boolean oldActive "Value of active when CompositeStep was aborted";
@@ -2118,7 +2122,7 @@ package Interfaces "Connectors and partial models"
     pre(newActive) = pre(localActive);
     pre(oldActive) = pre(localActive);
   equation
-    connect(subgraphStatePort, stateGraphRoot.subgraphStatePort);
+    connect(outerStatePort.subgraphStatePort, stateGraphRoot.subgraphStatePort);
 
     // Check that connections to the connector are correct
     for i in 1:nIn loop
@@ -2135,20 +2139,20 @@ package Interfaces "Connectors and partial models"
 
     // set active state
     localActive = pre(newActive);
-    newActive = if subgraphStatePort.resume then 
+    newActive = if outerStatePort.subgraphStatePort.resume then 
                      oldActive else 
                      ( StateGraph.Temporary.anyTrue(inPort.set) or 
                           localActive
                        and not StateGraph.Temporary.anyTrue(outPort.reset))
-                     and not subgraphStatePort.suspend;
+                     and not outerStatePort.subgraphStatePort.suspend;
 
     // Remember state for suspend action
-    when subgraphStatePort.suspend then
+    when outerStatePort.subgraphStatePort.suspend then
       oldActive = localActive;
     end when;
 
     // Report state to CompositeStep
-    subgraphStatePort.activeSteps = if localActive then 1.0 else 0.0;
+    outerStatePort.subgraphStatePort.activeSteps = if localActive then 1.0 else 0.0;
 
     // Report state to input and output transitions
     for i in 1:nIn loop
@@ -3212,9 +3216,9 @@ value, still requires to go in to the text layer.
                 100}}),
           graphics={Rectangle(
               extent={{-100,-100},{100,100}},
-              fillColor=DynamicSelect({192,192,192}, if on > 0.5 then {0,255,0}
-                   else {192,192,192}),
-              fillPattern=DynamicSelect(FillPattern.Solid, if on > 0.5 then
+              fillColor=DynamicSelect({192,192,192}, if on > 0.5 then {0,255,0} else 
+                        {192,192,192}),
+              fillPattern=DynamicSelect(FillPattern.Solid, if on > 0.5 then 
                   FillPattern.Solid else FillPattern.Solid),
               lineColor={128,128,128},
               lineThickness=0.5), Text(
@@ -3256,8 +3260,8 @@ value, still requires to go in to the text layer.
               borderPattern=BorderPattern.Raised), Text(
               extent={{-90,-46},{90,34}},
               textString=DynamicSelect(" ", realString(
-                    Value, 
-                    1, 
+                    Value,
+                    1,
                     integer(precision))),
               lineColor={0,0,255})}),
         Diagram(graphics),
@@ -3282,8 +3286,8 @@ value, still requires to go in to the text layer.
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Ellipse(
               extent={{-100,-100},{100,100}},
-              fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0}
-                   else {235,235,235}),
+              fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0} else 
+                        {235,235,235}),
               lineColor={0,0,0},
               pattern=LinePattern.None,
               fillPattern=FillPattern.Sphere), Text(
