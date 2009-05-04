@@ -3,8 +3,7 @@ model SpringMassSystem "Mass attached with a spring to the world frame"
   extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
   annotation (
-    experiment(StopTime=5)
-    ,
+    experiment(StopTime=5),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -55,7 +54,8 @@ ALT=\"model Examples.Elementary.SpringMassSystem\">
   Modelica.Mechanics.MultiBody.Parts.Body body1(
     m=1,
     sphereDiameter=0.2,
-    animation=animation) annotation (Placement(transformation(
+    animation=animation,
+    r_CM={0,0,0})        annotation (Placement(transformation(
         origin={-20,-50},
         extent={{-10,10},{10,-10}},
         rotation=270)));
@@ -66,7 +66,8 @@ ALT=\"model Examples.Elementary.SpringMassSystem\">
   Modelica.Mechanics.MultiBody.Parts.Body body2(
     m=1,
     sphereDiameter=0.2,
-    animation=animation) annotation (Placement(transformation(
+    animation=animation,
+    r_CM={0,0,0})        annotation (Placement(transformation(
         origin={50,-50},
         extent={{-10,10},{10,-10}},
         rotation=270)));
@@ -90,7 +91,7 @@ ALT=\"model Examples.Elementary.SpringMassSystem\">
 equation
   connect(body1.frame_a, p1.frame_b) 
     annotation (Line(
-      points={{-20,-40},{-20,-20},{-20,-20}},
+      points={{-20,-40},{-20,-35},{-20,-35},{-20,-30},{-20,-20},{-20,-20}},
       color={95,95,95},
       thickness=0.5));
   connect(world.frame_b, bar1.frame_a) 

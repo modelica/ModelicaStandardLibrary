@@ -84,7 +84,7 @@ animation view.
         rotation=90)));
   Modelica.Mechanics.Rotational.Sources.Position position(useSupport=true) 
     annotation (Placement(transformation(extent={{-90,-20},{-70,0}}, rotation=0)));
-  Modelica.Blocks.Sources.Sine sine(amplitude=0.7) 
+  Modelica.Blocks.Sources.Sine sine(amplitude=0.7, freqHz=1) 
     annotation (Placement(transformation(
         origin={-96,30},
         extent={{-10,-10},{10,10}},

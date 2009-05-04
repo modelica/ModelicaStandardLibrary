@@ -187,7 +187,8 @@ is much faster.
       shapeType="cylinder",
       width=0.1,
       animateSphere=false,
-      r_shape={0.1,0,0}) 
+      r_shape={0.1,0,0},
+      r_CM={0,0,0}) 
                  annotation (Placement(transformation(extent={{8,0},{28,20}},
             rotation=0)));
     Joints.Revolute revolute(                             n={1,0,0},
@@ -200,7 +201,7 @@ is much faster.
             rotation=0)));
     Forces.Torque torque 
       annotation (Placement(transformation(extent={{8,30},{28,50}}, rotation=0)));
-    Blocks.Sources.Sine sine[         3](amplitude={1,0,0}) 
+    Blocks.Sources.Sine sine[         3](amplitude={1,0,0}, freqHz={1,1,1}) 
       annotation (Placement(transformation(extent={{-80,60},{-60,80}}, rotation=
              0)));
     inner Parts.Fixed fixed 
@@ -286,7 +287,8 @@ is much faster.
       shapeType="cylinder",
       width=0.1,
       animateSphere=false,
-      r_shape={0.1,0,0}) 
+      r_shape={0.1,0,0},
+      r_CM={0,0,0}) 
                  annotation (Placement(transformation(extent={{50,10},{70,30}},
             rotation=0)));
     Joints.Revolute revolute(                             n={1,0,0},
@@ -299,7 +301,7 @@ is much faster.
             rotation=0)));
     Forces.Torque torque 
       annotation (Placement(transformation(extent={{50,40},{70,60}}, rotation=0)));
-    Blocks.Sources.Sine sine1[         3](amplitude={1,0,0}) 
+    Blocks.Sources.Sine sine1[         3](amplitude={1,0,0}, freqHz={1,1,1}) 
       annotation (Placement(transformation(extent={{16,70},{36,90}}, rotation=0)));
     Parts.Rotor1D rotor1D(                             J=2,
       phi(fixed=true),
@@ -318,7 +320,7 @@ is much faster.
     Rotational.Sources.Position position1(useSupport=true) 
       annotation (Placement(transformation(extent={{-46,60},{-26,80}}, rotation=
              0)));
-    Blocks.Sources.Sine sine2(         amplitude=2) 
+    Blocks.Sources.Sine sine2(         amplitude=2, freqHz=1) 
       annotation (Placement(transformation(extent={{-100,60},{-80,80}},
             rotation=0)));
     Parts.Mounting1D mounting1D1 
@@ -457,7 +459,7 @@ is much faster.
     Forces.Torque torque1 
       annotation (Placement(transformation(extent={{-26,40},{-6,60}}, rotation=
               0)));
-    Blocks.Sources.Sine sine[         3](amplitude={2,0,0}) 
+    Blocks.Sources.Sine sine[         3](amplitude={2,0,0}, freqHz={1,1,1}) 
       annotation (Placement(transformation(extent={{-100,60},{-80,80}},
             rotation=0)));
     Parts.Fixed fixed 

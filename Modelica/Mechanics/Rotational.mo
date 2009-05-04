@@ -975,7 +975,7 @@ gear.mode  :  1 = forward rolling
         useSupport=true) 
         annotation (Placement(transformation(extent={{-10,0},{10,20}}, rotation=
                0)));
-      Rotational.Components.Inertia Inertia1 
+      Rotational.Components.Inertia Inertia1(J=1) 
                                   annotation (Placement(transformation(extent={
                 {-40,0},{-20,20}}, rotation=0)));
       Rotational.Components.Inertia Inertia2(        J=1.5,
@@ -1068,7 +1068,7 @@ as component LossyGear includes the functionality of component BearingFriction
         useSupport=true) 
         annotation (Placement(transformation(extent={{-20,0},{0,20}}, rotation=
                 0)));
-      Rotational.Components.Inertia Inertia1 
+      Rotational.Components.Inertia Inertia1(J=1) 
                                   annotation (Placement(transformation(extent={{-50,0},
                 {-30,20}},         rotation=0)));
       Rotational.Components.Inertia Inertia2(        J=1.5,
@@ -1129,7 +1129,8 @@ as component LossyGear includes the functionality of component BearingFriction
     model ElasticBearing "Example to show possible usage of support flange"
       extends Modelica.Icons.Example;
       Rotational.Components.Inertia shaft(        phi(fixed=true, start=0), w(
-            fixed=true)) 
+            fixed=true),
+        J=1) 
         annotation (Placement(transformation(extent={{-20,40},{0,60}}, rotation=
                0)));
       Rotational.Components.Inertia load(        J=50,
@@ -2365,8 +2366,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Line(points={{0,90},{80,70},{80,-40},{70,-40}}, color={0,0,127}),
-            Line(points={{0,90},{-80,70},{-80,-40},{-70,-40}}, color={0,0,127}), 
-
+            Line(points={{0,90},{-80,70},{-80,-40},{-70,-40}}, color={0,0,127}),
             Text(
               extent={{-150,-180},{150,-140}},
               textString="%name",
@@ -3579,8 +3579,7 @@ Gearbox.
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={192,192,192}),
             Polygon(
-              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}}, 
-
+              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
               lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={128,128,128}),

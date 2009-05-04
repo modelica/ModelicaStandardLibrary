@@ -22,7 +22,6 @@ package RobotR3
       "Maximum reference acceleration";
 
     annotation (
-      
       Documentation(info="<HTML>
 <p>
 With this model one axis of the r3 robot is checked.
@@ -102,7 +101,8 @@ load inertia.
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Bitmap(extent={{-75.5,98.25},{87,-96.75}}, fileName=
-                "../../../../Images/MultiBody/Examples/Systems/robot_kr15.bmp"),
+                "../../../../Images/MultiBody/Examples/Systems/robot_kr15.bmp"), 
+
           Text(
             extent={{-111.5,130},{108.5,100}},
             textString="%name",
@@ -506,8 +506,7 @@ the connection to this bus) are defined
             Text(
               extent={{-73,-44},{82,-69}},
               lineColor={0,0,0},
-              textString="1 axis")})
-        ,
+              textString="1 axis")}),
         Documentation(info="<html>
 <p>
 Given
@@ -654,8 +653,7 @@ motion on the controlBus of the r3 robot.
             Text(
               extent={{-70,-43},{85,-68}},
               lineColor={0,0,0},
-              textString="6 axes")})
-        ,
+              textString="6 axes")}),
         Documentation(info="<html>
 <p>
 Given
@@ -927,7 +925,6 @@ motion on the controlBus of the r3 robot.
       constant SI.Torque unitTorque = 1;
 
       annotation (
-        
         Documentation(info="<html>
 <p>
 Models the gearbox used in the first three joints with all its effects,
@@ -961,7 +958,8 @@ the definition of initial values considerably.
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={192,192,192}),
             Polygon(
-              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
+              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}}, 
+
               lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={128,128,128}),
@@ -1055,7 +1053,6 @@ the definition of initial values considerably.
       parameter Real peak=(26.7/21.8)
         "Maximum static friction torque is peak*Rv0 (peak >= 1)";
       annotation (
-        
         Documentation(info="<html>
 <p>
 The elasticity and damping in the gearboxes of the outermost
@@ -1073,7 +1070,8 @@ Default values for all parameters are given for joint 4.
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={192,192,192}),
             Polygon(
-              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
+              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}}, 
+
               lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={128,128,128}),
@@ -1153,7 +1151,6 @@ Default values for all parameters are given for joint 4.
       parameter SI.Current i_max=9 "Maximum current of motor";
 
       annotation (
-        
         Documentation(info="<html>
 <p>
 Default values are given for the motor of joint 1.
@@ -1280,9 +1277,11 @@ produced by the motor).
         axisControlBus 
         annotation (Placement(transformation(extent={{60,-120},{100,-80}},
               rotation=0)));
-      Blocks.Math.Gain convert1 annotation (Placement(transformation(extent={{
+      Blocks.Math.Gain convert1(k=1) 
+                                annotation (Placement(transformation(extent={{
                 -30,-56},{-42,-44}}, rotation=0)));
-      Blocks.Math.Gain convert2 annotation (Placement(transformation(extent={{
+      Blocks.Math.Gain convert2(k=1) 
+                                annotation (Placement(transformation(extent={{
                 -30,-101},{-42,-89}}, rotation=0)));
     initial equation
       // initialize motor in steady state
@@ -1392,7 +1391,8 @@ produced by the motor).
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{-31,-41},{-78,-41},{-78,39},{-30,39}}, color={0,0,255}),
+            Line(points={{-31,-41},{-78,-41},{-78,39},{-30,39}}, color={0,0,255}), 
+
             Rectangle(
               extent={{-30,-26},{30,-56}},
               fillColor={255,255,255},
@@ -1407,8 +1407,7 @@ produced by the motor).
             Text(
               extent={{-100,150},{100,110}},
               textString="%name",
-              lineColor={0,0,255})})
-        ,
+              lineColor={0,0,255})}),
         Documentation(info="<html>
 <p>
 This controller has an inner PI-controller to control the motor speed,
@@ -1504,7 +1503,6 @@ reference signals. All signals are communicated via the
         "Maximum static friction torque is peak*Rv0 (peak >= 1)" 
         annotation (Dialog(group="Gear"));
       annotation (
-        
         Documentation(info="<HTML>
 <p>
 The axis model consists of the <b>controller</b>, the <b>motor</b> including current
@@ -1656,7 +1654,6 @@ Default values of the parameters are given for the axis of joint 1.
       SI.Torque tau[6] "Joint driving torques";
       //r0={0,0.351,0},
       annotation (
-        
         Documentation(info="<HTML>
 <p>
 This model contains the mechanical components of the r3 robot
@@ -1777,7 +1774,9 @@ This model contains the mechanical components of the r3 robot
         height=0.3,
         color={0,0,255},
         animation=animation,
-        animateSphere=false) 
+        animateSphere=false,
+        r_CM={0,0,0},
+        m=0) 
         annotation (Placement(transformation(
             origin={-30,-170},
             extent={{-10,-10},{10,10}},
@@ -1793,7 +1792,9 @@ This model contains the mechanical components of the r3 robot
         height=0.2,
         animation=animation,
         animateSphere=false,
-        color={255,0,0}) annotation (Placement(transformation(
+        color={255,0,0},
+        r_CM={0,0,0},
+        m=0)             annotation (Placement(transformation(
             origin={-70,-118},
             extent={{-10,-10},{10,10}},
             rotation=90)));

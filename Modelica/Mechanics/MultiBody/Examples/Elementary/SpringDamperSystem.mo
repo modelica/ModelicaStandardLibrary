@@ -3,8 +3,7 @@ model SpringDamperSystem "Simple spring/damper/mass system"
   extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
   annotation (
-    experiment(StopTime=10)
-    ,
+    experiment(StopTime=10),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -56,7 +55,8 @@ ALT=\"model Examples.Elementary.SpringDamperSystem\">
     m=1,
     animation=animation,
     cylinderDiameter=0.05,
-    sphereDiameter=0.15) annotation (Placement(transformation(
+    sphereDiameter=0.15,
+    r_CM={0,0,0})        annotation (Placement(transformation(
         origin={50,-50},
         extent={{-10,10},{10,-10}},
         rotation=270)));

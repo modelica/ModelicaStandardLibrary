@@ -64,7 +64,8 @@ model EngineV6
       fixed=true), w(
       start=10,
       fixed=true),
-    stateSelect=StateSelect.always)    annotation (Placement(transformation(
+    stateSelect=StateSelect.always,
+    J=1)                               annotation (Placement(transformation(
           extent={{-44,-30},{-24,-10}}, rotation=0)));
   Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque load2(
                                                  tau_nominal=-100, w_nominal=
