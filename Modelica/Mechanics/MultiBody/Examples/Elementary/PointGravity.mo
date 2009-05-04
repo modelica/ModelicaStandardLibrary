@@ -17,7 +17,8 @@ model PointGravity "Two point masses in a point gravity field"
     r_0(start={0,0.6,0}, fixed=true),
     v_0(start={1,0,0}, fixed=true),
     angles_fixed=true,
-    w_0_fixed=true) 
+    w_0_fixed=true,
+    r_CM={0,0,0}) 
     annotation (Placement(transformation(extent={{-20,20},{0,40}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.Body body2(
     m=1,
@@ -28,13 +29,14 @@ model PointGravity "Two point masses in a point gravity field"
     r_0(start={0.6,0.6,0}, fixed=true),
     v_0(start={0.6,0,0}, fixed=true),
     angles_fixed=true,
-    w_0_fixed=true) 
+    w_0_fixed=true,
+    r_CM={0,0,0}) 
     annotation (Placement(transformation(extent={{20,20},{40,40}}, rotation=0)));
 equation
 
   annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}}),
+    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+            100}}),
             graphics),
     experiment(StopTime=5),
     Documentation(info="<HTML>

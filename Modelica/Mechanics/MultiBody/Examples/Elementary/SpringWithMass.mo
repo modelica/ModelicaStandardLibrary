@@ -29,7 +29,9 @@ ALT=\"model Examples.Elementary.SpringWithMass\">
     r_0(start={0,-0.3,0}, fixed=true),
     v_0(fixed=true),
     angles_fixed=true,
-    w_0_fixed=true)         annotation (Placement(transformation(
+    w_0_fixed=true,
+    r_CM={0,0,0},
+    m=1)                    annotation (Placement(transformation(
         origin={10,-10},
         extent={{-10,-10},{10,10}},
         rotation=270)));

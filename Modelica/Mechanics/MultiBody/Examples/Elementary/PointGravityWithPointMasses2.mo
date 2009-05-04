@@ -93,17 +93,23 @@ model SystemWithStandardBodies
       r_0(start={3,0,0}, fixed=true),
       v_0(start={0,0,-1}, fixed=true),
       angles_fixed=true,
-      w_0_fixed=true)  annotation (Placement(transformation(extent={{40,-20},{
+      w_0_fixed=true,
+      r_CM={0,0,0})    annotation (Placement(transformation(extent={{40,-20},{
               60,0}}, rotation=0)));
-  PointMass pointMass2 annotation (Placement(transformation(extent={{-60,-20},{
+  PointMass pointMass2(r_CM={0,0,0}) 
+                       annotation (Placement(transformation(extent={{-60,-20},{
               -80,0}}, rotation=0)));
-  PointMass pointMass3 annotation (Placement(transformation(extent={{40,10},{60,
+  PointMass pointMass3(r_CM={0,0,0}) 
+                       annotation (Placement(transformation(extent={{40,10},{60,
               30}}, rotation=0)));
-  PointMass pointMass4 annotation (Placement(transformation(extent={{-50,-50},{
+  PointMass pointMass4(r_CM={0,0,0}) 
+                       annotation (Placement(transformation(extent={{-50,-50},{
               -70,-30}}, rotation=0)));
-  PointMass pointMass5 annotation (Placement(transformation(extent={{0,60},{20,
+  PointMass pointMass5(r_CM={0,0,0}) 
+                       annotation (Placement(transformation(extent={{0,60},{20,
               80}}, rotation=0)));
-  PointMass pointMass6 annotation (Placement(transformation(extent={{2,-102},{
+  PointMass pointMass6(r_CM={0,0,0}) 
+                       annotation (Placement(transformation(extent={{2,-102},{
               22,-82}}, rotation=0)));
 
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation( r={1,0,0}) 

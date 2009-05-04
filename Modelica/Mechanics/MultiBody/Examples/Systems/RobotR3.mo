@@ -101,7 +101,8 @@ load inertia.
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Bitmap(extent={{-75.5,98.25},{87,-96.75}}, fileName=
-                "../../../../Images/MultiBody/Examples/Systems/robot_kr15.bmp"),
+                "../../../../Images/MultiBody/Examples/Systems/robot_kr15.bmp"), 
+
           Text(
             extent={{-111.5,130},{108.5,100}},
             textString="%name",
@@ -957,7 +958,8 @@ the definition of initial values considerably.
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={192,192,192}),
             Polygon(
-              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
+              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}}, 
+
               lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={128,128,128}),
@@ -1068,7 +1070,8 @@ Default values for all parameters are given for joint 4.
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={192,192,192}),
             Polygon(
-              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
+              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}}, 
+
               lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={128,128,128}),
@@ -1274,9 +1277,11 @@ produced by the motor).
         axisControlBus 
         annotation (Placement(transformation(extent={{60,-120},{100,-80}},
               rotation=0)));
-      Blocks.Math.Gain convert1 annotation (Placement(transformation(extent={{
+      Blocks.Math.Gain convert1(k=1) 
+                                annotation (Placement(transformation(extent={{
                 -30,-56},{-42,-44}}, rotation=0)));
-      Blocks.Math.Gain convert2 annotation (Placement(transformation(extent={{
+      Blocks.Math.Gain convert2(k=1) 
+                                annotation (Placement(transformation(extent={{
                 -30,-101},{-42,-89}}, rotation=0)));
     initial equation
       // initialize motor in steady state
@@ -1386,7 +1391,8 @@ produced by the motor).
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{-31,-41},{-78,-41},{-78,39},{-30,39}}, color={0,0,255}),
+            Line(points={{-31,-41},{-78,-41},{-78,39},{-30,39}}, color={0,0,255}), 
+
             Rectangle(
               extent={{-30,-26},{30,-56}},
               fillColor={255,255,255},
@@ -1620,7 +1626,7 @@ Default values of the parameters are given for the axis of joint 1.
           index=-1,
           extent=[-6,3; -6,3],
           style(color=0, rgbcolor={0,0,0})), Line(points={{-100,0},{-100,-7},{
-              -97,-7},{-97,-44},{-42,-44}}, color={0,0,0}));
+              -97,-7},{-97,-42},{-42,-42}}, color={0,0,0}));
       connect(axisControlBus.speed_ref, initializeFlange.w_start) annotation (
         Text(
           string="%first",
@@ -1630,8 +1636,8 @@ Default values of the parameters are given for the axis of joint 1.
               -50},{-42,-50}}, color={0,0,127}));
       connect(initializeFlange.flange, flange) annotation (Line(points={{-20,
               -50},{80,-50},{80,0},{100,0}}, color={0,0,0}));
-      connect(const.y, initializeFlange.a_start) annotation (Line(points={{
-              -54.5,-60},{-48,-60},{-48,-56},{-42,-56}}, color={0,0,127}));
+      connect(const.y, initializeFlange.a_start) annotation (Line(points={{-54.5,
+              -60},{-48,-60},{-48,-58},{-42,-58}},       color={0,0,127}));
     end AxisType2;
 
     model MechanicalStructure
@@ -1768,7 +1774,9 @@ This model contains the mechanical components of the r3 robot
         height=0.3,
         color={0,0,255},
         animation=animation,
-        animateSphere=false) 
+        animateSphere=false,
+        r_CM={0,0,0},
+        m=1) 
         annotation (Placement(transformation(
             origin={-30,-170},
             extent={{-10,-10},{10,10}},
@@ -1784,7 +1792,9 @@ This model contains the mechanical components of the r3 robot
         height=0.2,
         animation=animation,
         animateSphere=false,
-        color={255,0,0}) annotation (Placement(transformation(
+        color={255,0,0},
+        r_CM={0,0,0},
+        m=1)             annotation (Placement(transformation(
             origin={-70,-118},
             extent={{-10,-10},{10,10}},
             rotation=90)));

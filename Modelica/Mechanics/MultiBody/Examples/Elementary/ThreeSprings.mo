@@ -96,7 +96,7 @@ equation
       thickness=0.5));
   connect(spring2.frame_b, body1.frame_a) 
     annotation (Line(
-      points={{30,-48},{30,-51},{30,-60},{30,-60}},
+      points={{30,-48},{30,-51},{30,-60}},
       color={0,0,0},
       thickness=0.5));
   connect(spring3.frame_b, spring1.frame_b) 

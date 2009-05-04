@@ -784,7 +784,8 @@ This is discussed in the description of package
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,-80},{-80,50},{-80,-20},{60,80}}, color={0,0,127}),
+          Line(points={{-80,-80},{-80,50},{-80,-20},{60,80}}, color={0,0,127}), 
+
           Text(
             extent={{-20,-20},{80,-60}},
             lineColor={192,192,192},
@@ -878,7 +879,7 @@ to compute u by an algebraic equation.
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics));
 
-    Blocks.Math.Gain P "Proportional part of PID controller" 
+    Blocks.Math.Gain P(k=1) "Proportional part of PID controller" 
       annotation (Placement(transformation(extent={{-60,60},{-20,100}},
             rotation=0)));
     Blocks.Continuous.Integrator I(k=1/Ti, y_start=xi_start,
@@ -1171,7 +1172,8 @@ to use <b>limitAtInit</b> = <b>false</b>.
     Blocks.Math.Add addD(k1=wd, k2=-1) if with_D 
       annotation (Placement(transformation(extent={{-80,-10},{-60,10}},
             rotation=0)));
-    Blocks.Math.Gain P annotation (Placement(transformation(extent={{-40,40},{
+    Blocks.Math.Gain P(k=1) 
+                       annotation (Placement(transformation(extent={{-40,40},{
               -20,60}}, rotation=0)));
     Blocks.Continuous.Integrator I(k=1/Ti, y_start=xi_start,
       initType=if initType==InitPID.SteadyState then 
@@ -1520,7 +1522,7 @@ results in the following equations:
       extends Interfaces.SISO;
 
       annotation (defaultComponentName="der1",
-   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
           graphics={Text(
             extent={{-80,76},{80,-82}},
             textString="der()",

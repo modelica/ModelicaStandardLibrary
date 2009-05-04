@@ -55,7 +55,8 @@ ALT=\"model Examples.Elementary.SpringDamperSystem\">
     m=1,
     animation=animation,
     cylinderDiameter=0.05,
-    sphereDiameter=0.15) annotation (Placement(transformation(
+    sphereDiameter=0.15,
+    r_CM={0,0,0})        annotation (Placement(transformation(
         origin={50,-50},
         extent={{-10,10},{10,-10}},
         rotation=270)));
@@ -75,7 +76,7 @@ ALT=\"model Examples.Elementary.SpringDamperSystem\">
     s_unstretched=0.1,
     coilWidth=0.01,
     width=0.1) annotation (Placement(transformation(
-        origin={90,-10},
+        origin={82,-10},
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Forces.Spring spring1(
@@ -115,11 +116,11 @@ equation
       thickness=0.5));
   connect(bar2.frame_b, spring2.frame_a) 
     annotation (Line(
-      points={{20,30},{90,30},{90,0}},
+      points={{20,30},{82,30},{82,0}},
       color={95,95,95},
       thickness=0.5));
   connect(body2.frame_a, spring2.frame_b) annotation (Line(
-      points={{50,-40},{90,-40},{90,-20}},
+      points={{50,-40},{82,-40},{82,-20}},
       color={95,95,95},
       thickness=0.5));
   connect(damper1.frame_a, bar1.frame_b) annotation (Line(

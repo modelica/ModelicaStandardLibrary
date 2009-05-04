@@ -107,12 +107,14 @@ package Examples
       Ni=0.1,
       initType=Modelica.Blocks.Types.Init.SteadyState,
       limitsAtInit=false,
-      controllerType=Modelica.Blocks.Types.SimpleController.PI) 
+      controllerType=Modelica.Blocks.Types.SimpleController.PI,
+      Td=0.1) 
       annotation (Placement(transformation(extent={{-56,-20},{-36,0}}, rotation=
              0)));
     Modelica.Mechanics.Rotational.Components.Inertia inertia1(
                                                    a(fixed=true), phi(fixed=
-            true, start=0))                   annotation (Placement(
+            true, start=0),
+      J=1)                                    annotation (Placement(
           transformation(extent={{2,-20},{22,0}}, rotation=0)));
     annotation (
       Diagram(coordinateSystem(
@@ -266,8 +268,8 @@ is forced back to its limit after a transient phase.
       offset=1,
       startTime=0.2) 
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
-              -100,-100},{100,100}}), graphics), Documentation(info="<html>
+    annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+              -100},{100,100}}),      graphics), Documentation(info="<html>
 <p>
 This example demonstrates how to construct an inverse model in Modelica
 (for more details see <a href=\"http://www.modelica.org/events/Conference2005/online_proceedings/Session3/Session3c3.pdf\">Looye, Th&uuml;mmel, Kurze, Otter, Bals: Nonlinear Inverse Models for Control</a>).
@@ -600,14 +602,14 @@ just potential signals. The user might still add different signal names.
     Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=0.5) 
                                                                annotation (Placement(
           transformation(extent={{-58,0},{-38,20}}, rotation=0)));
-    Modelica.Blocks.Sources.Sine sine 
+    Modelica.Blocks.Sources.Sine sine(freqHz=1) 
                                      annotation (Placement(transformation(
             extent={{-60,40},{-40,60}}, rotation=0)));
 
     Modelica.Blocks.Examples.BusUsage_Utilities.Part part 
               annotation (Placement(transformation(extent={{-60,-80},{-40,-60}},
             rotation=0)));
-    Modelica.Blocks.Math.Gain gain 
+    Modelica.Blocks.Math.Gain gain(k=1) 
       annotation (Placement(transformation(extent={{-40,70},{-60,90}}, rotation=
              0)));
   protected
@@ -623,20 +625,20 @@ just potential signals. The user might still add different signal names.
         color={0,0,127},
         smooth=Smooth.None));
     connect(booleanStep.y, controlBus.booleanSignal) annotation (Line(
-        points={{-37,10},{28,10}},
+        points={{-37,10},{30,10}},
         color={255,0,255},
         smooth=Smooth.None));
     connect(integerStep.y, controlBus.integerSignal) annotation (Line(
-        points={{-39,-30},{0,-30},{0,6},{30,6}},
+        points={{-39,-30},{0,-30},{0,10},{30,10}},
         color={255,127,0},
         smooth=Smooth.None));
     connect(part.subControlBus, controlBus.subControlBus) annotation (Line(
-        points={{-40,-70},{30,-70},{30,2}},
+        points={{-40,-70},{30,-70},{30,10}},
         color={255,204,51},
         thickness=0.5,
         smooth=Smooth.None));
     connect(gain.u, controlBus.realSignal1) annotation (Line(
-        points={{-38,80},{20,80},{20,18},{28,18}},
+        points={{-38,80},{20,80},{20,10},{30,10}},
         color={0,0,127},
         smooth=Smooth.None));
   end BusUsage;

@@ -64,7 +64,8 @@ An animation of this example is shown in the figure below.
   Modelica.Mechanics.Rotational.Components.Inertia Inertia(
       stateSelect=StateSelect.always,
       phi(fixed=true, start=0),
-      w(fixed=true, start=10))         annotation (Placement(transformation(
+      w(fixed=true, start=10),
+    J=1)                               annotation (Placement(transformation(
           extent={{-28,-120},{-8,-100}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.BodyBox Crank4(
     height=0.05,
