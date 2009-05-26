@@ -340,8 +340,8 @@ The ideal gas constant for moist air is computed from the gas phase composition.
       extends Modelica.Icons.Function;
       input SI.Temperature Tsat "saturation temperature";
       output SI.AbsolutePressure psat "saturation pressure";
-      annotation(Inline=false,smoothOrder=5,
-        Documentation(derivative=saturationPressureLiquid_der,info="<html>
+      annotation(Inline=false,smoothOrder=5,derivative=saturationPressureLiquid_der,
+        Documentation(info="<html>
 Saturation pressure of water above the triple point temperature is computed from temperature. It's range of validity is between
 273.16 and 373.16 K. Outside these limits a less accurate result is returned.
 </html>"));
@@ -372,8 +372,8 @@ Derivative function of <a href=Modelica:Modelica.Media.Air.MoistAir.saturationPr
       extends Modelica.Icons.Function;
       input SI.Temperature Tsat "sublimation temperature";
       output SI.AbsolutePressure psat "sublimation pressure";
-      annotation(Inline=false,smoothOrder=5,
-        Documentation(derivative=sublimationPressureIce_der,info="<html>
+      annotation(Inline=false,smoothOrder=5,derivative=sublimationPressureIce_der,
+        Documentation(info="<html>
 Sublimation pressure of water below the triple point temperature is computed from temperature. It's range of validity is between
  223.16 and 273.16 K. Outside of these limits a less accurate result is returned.
 </html>"));
@@ -400,8 +400,8 @@ Derivative function of <a href=Modelica:Modelica.Media.Air.MoistAir.sublimationP
     redeclare function extends saturationPressure
       "Return saturation pressure of water as a function of temperature T between 223.16 and 373.16 K"
 
-      annotation(Inline=false,smoothOrder=5,
-        Documentation(derivative=saturationPressure_der,info="<html>
+      annotation(Inline=false,smoothOrder=5,derivative=saturationPressure_der,
+        Documentation(info="<html>
 Saturation pressure of water in the liquid and the solid region is computed using an Antoine-type correlation. It's range of validity is between 223.16 and 373.16 K. Outside of these limits a (less accurate) result is returned. Functions for the 
 <a href=Modelica.Media.Air.MoistAir.sublimationPressureIce>solid</a> and the <a href=\"Modelica.Media.MoistAir.saturationPressureLiquid\"> liquid</a> region, respectively, are combined using the first derivative continuous <a href=Modelica.Media.MoistAir.Utilities.spliceFunction>spliceFunction</a>.
 </html>"));
