@@ -106,7 +106,7 @@ User's Guides that can be accessed by the following links:
 		 (2-,3-,4-,9-valued logic)</td>
 </tr>
 <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.UsersGuide\">MultiBody</a>
-			 </td>
+		</td>
 	  <td valign=\"top\">Library to model 3-dimensional mechanical systems</td>
 </tr>
 
