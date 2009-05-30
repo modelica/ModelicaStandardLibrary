@@ -101,7 +101,7 @@ User's Guides that can be accessed by the following links:
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Electrical.Digital.UsersGuide\">Digital</a>
-	</td>
+	  </td>
 	  <td valign=\"top\">Library for digital electrical components based on the VHDL standard
 		 (2-,3-,4-,9-valued logic)</td>
 </tr>
