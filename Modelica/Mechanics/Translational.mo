@@ -2341,7 +2341,6 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 
     model InitializeFlange
       "Initializes a flange with pre-defined position, speed and acceleration (usually, this is reference data from a control bus)"
-      import Modelica.Blocks.Types.StateSelection;
       extends Modelica.Blocks.Interfaces.BlockIcon;
       parameter Boolean use_s_start = true
         "= true, if initial position is defined by input s_start, otherwise not initialized";
