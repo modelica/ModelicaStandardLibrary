@@ -2339,7 +2339,6 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 
     model InitializeFlange
       "Initializes a flange with pre-defined position, speed and acceleration (usually, this is reference data from a control bus)"
-      import Modelica.Blocks.Types.StateSelection;
       extends Modelica.Blocks.Interfaces.BlockIcon;
       parameter Boolean use_s_start = true
         "= true, if initial position is defined by input s_start, otherwise not initialized";
@@ -3543,7 +3542,7 @@ blocks of Modelica.Blocks.Source.
         "Velocity of flange with respect to support (= der(s))";
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}}, 
+                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}},
                 color={0,0,255})}), Documentation(info="<HTML>
 <p>
 Model of force, linearly dependent on velocity of flange.<br>
