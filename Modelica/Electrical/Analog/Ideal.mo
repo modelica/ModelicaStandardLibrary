@@ -1197,96 +1197,118 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
           LossPower = v*i;
         end IdealDiode;
 
-  model IdealTransformer "Ideal electrical transformer"
-    extends Interfaces.TwoPort;
-    parameter Real n(start=1) "Turns ratio";
+
+  model IdealTransformer "Ideal transformer core with or without magnetization"
+    extends Modelica.Electrical.Analog.Interfaces.TwoPort;
+    parameter Real n(start=1) "Turns ratio primary:secondary voltage";
+    parameter Boolean considerMagnetization=false;
+    parameter Modelica.SIunits.Inductance Lm1(start=1)
+      "Magnetization inductance w.r.t. primary side" 
+      annotation(Dialog(enable=considerMagnetization));
     annotation (
       Documentation(info="<html>
-<P>
-The ideal transformer is an ideal two-port resistive circuit element
-which is characterized by the following two equations:
-</P>
-<PRE>
-    v1 =  n * v2
-    i2 = -n * i1
-</PRE>
-<P>
-where <i>n</i> is a real number called the turns ratio.
-</P>
 <p>
-<b>Note:</b> Due to the above equations, also DC signals will be transformed!
+The ideal transformer is a two-port circuit element; 
+in case of Boolean parameter <code>considerMagnetization = false</code> it is characterized by the following equations:
 </p>
-</HTML>
-", revisions="<html>
+<pre><code>
+ i2 = -i1*n;
+ v2 =  v1/n;
+</code></pre>
+<p>
+where <code>n</code> is a real number called the turns ratio. 
+Due to this equations, also DC voltages and currents are transformed - which is not the case for technical transformers.
+</p>
+<p>
+In case of Boolean parameter <code>considerMagnetization = true</code> it is characterized by the following equations:
+</p>
+<pre><code>
+ im1  = i1 + i2/n \"Magnetizing current w.r.t. primary side\";
+ psim1= Lm1*im1   \"Magnetic flux w.r.t. primary side\";
+ v1 = der(psim1)  \"Primary voltage\";
+ v2 = v1/n        \"Secondary voltage\";
+</code></pre>
+<p>
+where <code>Lm</code> denotes the magnetizing inductance. 
+Due to this equations, the DC offset of secondary voltages and currents decrement according to the time constant defined by the connected circuit.
+</p>
+<p>
+Taking primary <code>L1sigma</code> and secondary <code>L2ssigma</code> leakage inductances into account, 
+compared with the <a href=\"Modelica://Modelica.Electrical.Analog.Basic.Transformer/\">basic transformer</a> 
+the following parameter conversion can be applied (which leads to identical results):
+</p>
+<pre><code>
+  L1 = L1sigma + M*n \"Primary inductance at secondary no-load\";
+  L2 = L2sigma + M/n \"Secondary inductance at primary no-load\";
+  M  = Lm1/n         \"Mutual inductance\";
+</code></pre>
+<p>
+For the backward conversion, one has to decide about the partitioning of the leakage to primary and secondary side.
+</p>
+</html>", revisions="<html>
 <ul>
-<li><i> 1998   </i>
-       by Christoph Clauss<br> initially implemented<br>
+<li><i>June 3, 2009   </i>
+       magnetisation current added by Anton Haumer<br>
+       </li>
+<li><i>1998   </i>
+       initially implemented by Christoph Clauss<br> 
        </li>
 </ul>
 </html>"),
-      Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}}), graphics={
+          Text(extent={{-100,100},{100,80}}, textString="%name"),
+          Ellipse(extent={{-45,-50},{-20,-25}}),
+          Ellipse(extent={{-45,-25},{-20,0}}),
+          Ellipse(extent={{-45,0},{-20,25}}),
+          Ellipse(extent={{-45,25},{-20,50}}),
+          Rectangle(
+            extent={{-72,-60},{-33,60}},
+            lineColor={255,255,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,50},{-32,50}}),
+          Line(points={{-90,-50},{-32,-50}}),
+          Ellipse(extent={{20,-50},{45,-25}}),
+          Ellipse(extent={{20,-25},{45,0}}),
+          Ellipse(extent={{20,0},{45,25}}),
+          Ellipse(extent={{20,25},{45,50}}),
+          Rectangle(
+            extent={{33,-60},{72,60}},
+            lineColor={255,255,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{32,50},{90,50}}),
+          Line(points={{32,-50},{90,-50}}),
+          Text(extent={{-100,-80},{100,-100}}, textString="n=%n"),
           Text(
-            extent={{-100,100},{100,80}},
-            textString="%name",
-            lineColor={0,0,255}),
-          Text(
-            extent={{-100,-80},{100,-100}},
-            textString="n=%n",
-            lineColor={0,0,255}),
-          Ellipse(extent={{-80,50},{20,-50}}, lineColor={0,0,255}),
-          Ellipse(extent={{-20,50},{80,-50}}, lineColor={0,0,255}),
-          Text(
-            extent={{-20,20},{20,-20}},
+            extent={{-100,10},{-80,-10}},
             lineColor={0,0,255},
-            textString="="),
-          Line(
-            points={{-96,50},{-30,50}},
-            color={0,0,255},
-            smooth=Smooth.None),
-          Line(
-            points={{30,50},{96,50}},
-            color={0,0,255},
-            smooth=Smooth.None),
-          Line(
-            points={{30,-50},{96,-50}},
-            color={0,0,255},
-            smooth=Smooth.None),
-          Line(
-            points={{-96,-50},{-30,-50}},
-            color={0,0,255},
-            smooth=Smooth.None)}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
-          Ellipse(extent={{-80,50},{20,-50}}, lineColor={0,0,255}),
-          Ellipse(extent={{-20,50},{80,-50}}, lineColor={0,0,255}),
+            textString="1"),
           Text(
-            extent={{-20,20},{20,-20}},
+            extent={{80,10},{100,-10}},
             lineColor={0,0,255},
-            textString="="),
-          Line(
-            points={{-96,50},{-30,50}},
-            color={0,0,255},
-            smooth=Smooth.None),
-          Line(
-            points={{30,50},{96,50}},
-            color={0,0,255},
-            smooth=Smooth.None),
-          Line(
-            points={{30,-50},{96,-50}},
-            color={0,0,255},
-            smooth=Smooth.None),
-          Line(
-            points={{-96,-50},{-30,-50}},
-            color={0,0,255},
-            smooth=Smooth.None)}));
+            textString="2")}),
+      Diagram(graphics={Text(
+            extent={{-100,10},{0,-10}},
+            lineColor={0,0,255},
+            textString="1=primary"), Text(
+            extent={{0,10},{100,-10}},
+            lineColor={0,0,255},
+            textString="2=secondary")}));
+  protected
+    Modelica.SIunits.Current im1 "Magnetization current w.r.t. primary side";
+    Modelica.SIunits.MagneticFlux psim1 "Magnetic flux w.r.t primary side";
   equation
-    v1 = n*v2;
-    i2 = -n*i1;
+    im1 = i1 + i2/n;
+    if considerMagnetization then
+      psim1 = Lm1*im1;
+      v1 = der(psim1);
+    else
+      psim1= 0;
+      im1 = 0;
+    end if;
+    v1 =  n*v2;
   end IdealTransformer;
 
   model IdealGyrator "Ideal gyrator"
