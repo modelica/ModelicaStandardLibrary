@@ -7,6 +7,9 @@ package Plot "Functions for generation of 2D-plots"
   function plotDiagram "Plot one diagram"
      input ModelicaServices.Plot.Records.FigureDiagram figure
       "Properties of figure with one diagram" annotation(Dialog);
+     input ModelicaServices.Plot.Records.Device device=
+        ModelicaServices.Plot.Records.Device()
+      "Properties of device where figure is shown" annotation(Dialog);
 
   algorithm
     annotation (Documentation(info="<html>
@@ -22,8 +25,11 @@ For an overview, see the documentation of package
   function plotVectorDiagrams "Plot several diagrams in vector layout"
      input ModelicaServices.Plot.Records.FigureVectorDiagrams figure
       "Properties of figure" annotation(Dialog);
-  algorithm
+     input ModelicaServices.Plot.Records.Device device=
+        ModelicaServices.Plot.Records.Device()
+      "Properties of device where figure is shown" annotation(Dialog);
 
+  algorithm
     annotation (Documentation(info="<html>
 
 <p>
@@ -34,7 +40,6 @@ in a figure. For an overview, see the documentation of package
  
 </html>"));
   end plotVectorDiagrams;
-
 
   package Types "Types used for the plotting functions"
 
@@ -52,6 +57,16 @@ then the width of the diagram in the document is 120 mm.
  
 </html>"));
     end DrawingUnit_mm;
+
+  type ImageResolution_dpi
+      "Resolution of image in pixel per inch (screen) or dots per inch (printer)"
+     extends Modelica.Icons.TypeReal(final quantity="ImageResolution");
+    annotation (Documentation(info="<html>
+<p>\"ImageResolution_dpi\" defines the mapping of a length coordinate to the resolution of the output device. The resolution [dpi] is defined as \"dots-per-inch\" and therefore a length L_mm defined in [mm] is mapped to a length L_dot in dots (or pixel) with the formula: </p>
+<pre>  L_dot = round(ImageResolution_dpi/0.0254 * L_mm) </pre>
+<p>where function round(..) rounds to the nearest integer. Typical values are \"96 dpi\" (for screen) or \"600 dpi\" for printer. For example if an \"ImageResolution = 96 dpi\" shall be used for a screen, then 1 mm is mapped to 4 pixel. </p>
+</html>"));
+  end ImageResolution_dpi;
 
   type LinePattern = enumeration(
         None,
@@ -83,12 +98,6 @@ then the width of the diagram in the document is 120 mm.
                                   ModelicaServices.Plot.Records.Diagram()
         "Properties of the diagram";
 
-      ModelicaServices.Plot.Types.DrawingUnit_mm xTopLeft=0
-        "Horizontal position of top left figure corner if applicable (e.g. window)"
-        annotation(Dialog(enable=device=="screen" or device=="svg"));
-      ModelicaServices.Plot.Types.DrawingUnit_mm yTopLeft=0
-        "Vertical position of top left figure corner if applicable (e.g. window)"
-        annotation(Dialog(enable=device=="window" or device=="svg"));
       ModelicaServices.Plot.Types.DrawingUnit_mm diagramWidth=150
         "Width of diagram" annotation(Dialog);
 
@@ -98,16 +107,9 @@ then the width of the diagram in the document is 120 mm.
       "Properties of a figure containing a vector of diagrams"
       extends Modelica.Icons.Record;
 
-      ModelicaServices.Plot.Records.Diagram diagram[
-                                :] = fill(ModelicaServices.Plot.Records.Diagram(),          1)
+      ModelicaServices.Plot.Records.Diagram diagram[:]=
+           fill(ModelicaServices.Plot.Records.Diagram(), 1)
         "Properties of the diagrams in one figure";
-
-      ModelicaServices.Plot.Types.DrawingUnit_mm xTopLeft=0
-        "Horizontal position of top left figure corner if applicable (e.g. window)"
-        annotation(Dialog(enable=device=="screen" or device=="svg"));
-      ModelicaServices.Plot.Types.DrawingUnit_mm yTopLeft=0
-        "Vertical position of top left figure corner if applicable (e.g. window)"
-        annotation(Dialog(enable=device=="window" or device=="svg"));
 
       ModelicaServices.Plot.Types.DrawingUnit_mm diagramWidth=150
         "Width of a diagram in the figure" annotation(Dialog);
@@ -122,21 +124,31 @@ then the width of the diagram in the document is 120 mm.
                             :]=fill(ModelicaServices.Plot.Records.Curve(),          1)
         "Properties of the curves in one diagram of the figure"    annotation(Dialog);
 
-      String heading="" "Heading displayed above diagram" annotation(Dialog);
       Real heightRatio = 0.5 "Height of diagram = heightRatio*diagramWidth" annotation(Dialog);
+      String heading="" "Heading displayed above diagram" annotation(Dialog);
+      String xLabel="" "String displayed at horizontal axis" annotation(Dialog);
+      String yLabel="" "String displayed at vertical axis" annotation(Dialog);
+
       Boolean grid=true "= true, if grid is shown" annotation(Dialog,  choices(__Dymola_checkBox=true));
+      Boolean autoProperties = true
+        "= true, if automatic line properties of curves" 
+         annotation(Dialog,  choices(__Dymola_checkBox=true));
+      Boolean autoColor = true
+        "if autoProperties: distinguish curves by color otherwise by line style"
+           annotation(Dialog,choices(__Dymola_checkBox=true));
+      Boolean logX = false "= true, if logarithmic scale of x-axis" annotation(Dialog,choices(__Dymola_checkBox=true));
+      Boolean logY = false "= true, if logarithmic scale of y-axis" annotation(Dialog,choices(__Dymola_checkBox=true));
+      Boolean uniformScaling = false
+        "= true, if same vertical and horizontal axis increment"                              annotation(Dialog,choices(__Dymola_checkBox=true));
+
       Boolean legend = true "= true, if legend is shown" annotation(Dialog,choices(__Dymola_checkBox=true));
-      Boolean drawLegendFrame=true "= true, draw frame around legend" 
+      Boolean legendFrame=true "= true, if frame around legend" 
             annotation(Dialog,   choices(__Dymola_checkBox=true));
 
       ModelicaServices.Plot.Types.LegendLocation legendLocation=
                                                     ModelicaServices.Plot.Types.LegendLocation.Above
         "Legend placement if legend = true" annotation(Dialog(enable=legend));
 
-      ModelicaServices.Plot.Records.Axis xAxis "Properties of horizontal axis" 
-                                         annotation(Dialog);
-      ModelicaServices.Plot.Records.Axis yAxis "Properties of vertical axis" 
-                                       annotation(Dialog);
     end Diagram;
 
   record Axis "Properties of an axis in a subdiagram"
@@ -169,10 +181,9 @@ then the width of the diagram in the document is 120 mm.
   record Line "Properties of a line"
     extends Modelica.Icons.Record;
 
-  /*
-   Integer color[3]={0,0,255} "Color of curve as rgb values" 
-                                   annotation(Dialog(group="If autoProperties = false (otherwise ignored)", __Dymola_colorSelector, __Dymola_treeView=false));
-*/
+     Integer color[3]={0,0,255} "Color of curve as rgb values" 
+                                     annotation(Dialog(group="If autoProperties = false (otherwise ignored)", __Dymola_colorSelector, __Dymola_treeView=false));
+
      ModelicaServices.Plot.Types.LinePattern linePattern=ModelicaServices.Plot.Types.LinePattern.Solid
         "Line pattern of curve" 
                               annotation(Dialog(group="If autoProperties = false (otherwise ignored)"));
@@ -196,6 +207,19 @@ are used.
 </html>"));
   end Line;
 
+    record Device "Properties of a device"
+      extends Modelica.Icons.Record;
+
+      ModelicaServices.Plot.Types.DrawingUnit_mm xTopLeft=0
+        "Horizontal position of top left figure corner if applicable (e.g. window)"
+        annotation(Dialog);
+      ModelicaServices.Plot.Types.DrawingUnit_mm yTopLeft=0
+        "Vertical position of top left figure corner if applicable (e.g. window)"
+        annotation(Dialog);
+      ModelicaServices.Plot.Types.ImageResolution_dpi windowResolution=96
+        "[dpi] Image resolution in window if applicable (e.g. unscaled window)"
+                                                                                  annotation(Dialog);
+    end Device;
   end Records;
   annotation (Documentation(info="<html>
 <p>
@@ -394,31 +418,30 @@ package Import "Functions to import data in a Modelica environment"
       "Modelica names of states";
   algorithm
 
-    annotation ( 
-Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>This function initializes a Modelica model and then simulates the model with its default experiment options until time instant \"t_linearize\". If t_linearize=0, no simulation takes place (only initialization). At the simulation stop time, the model is linearized in such a form that </p>
 <p><ul>
-<li>all top-level signals with the prefix \"input\" are treated as inputs <b>u</b>(t) of the model ,</li>
-<li>all top-level signals with the prefix \"output\" are treated as outputs <b>y</b>(t) of the model,</li>
+<li>all top-level signals with prefix \"input\" are treated as inputs <b>u</b>(t) of the model ,</li>
+<li>all top-level signals with prefix \"output\" are treated as outputs <b>y</b>(t) of the model,</li>
 <li>all variables that appear differentiated and that are selected as states at this time instant are treated as states <b>x</b> of the model.</li>
 </ul></p>
 <p>Formally, the non-linear hybrid differential-algebraic equation system is therefore treated as the following ordinary equation system at time instant t_linearize: </p>
-<pre>    <b>der</b>(<b>x</b>) = <b>f</b>(<b>x</b>,<b>u</b>)</pre>
+<pre>    der(<b>x</b>) = <b>f</b>(<b>x</b>,<b>u</b>)</pre>
 <pre>         <b>y</b> = <b>g</b>(<b>x</b>,<b>u</b>) </pre>
-<p>Linearization of this model around the simulation stop time t_linearize: </p>
+<p>Taylor series expansion (linearization) of this model around the simulation stop time t_linearize: </p>
 <pre>   <b>u</b>0 = <b>u</b>(t_linearize)</pre>
 <pre>   <b>y</b>0 = <b>y</b>(t_linearize)</pre>
 <pre>   <b>x</b>0 = <b>x</b>(t_linearize) </pre>
-<p>results in the following system: </p>
-<pre>   der(<b>x</b>0) + der(d<b>x</b>) = der(<b>f</b>,<b>x</b>)*(<b>x</b>0+d<b>x</b>) + der(<b>f</b>,<b>u</b>)*(<b>u</b>0+d<b>u</b>)</pre>
-<pre>             <b>y</b>0 + d<b>y</b> = der(<b>g</b>,<b>x</b>)*(<b>x</b>0+d<b>x</b>) + der(<b>g</b>,<b>u</b>)*(<b>u</b>0+d<b>u</b>)</pre>
-<p>where der(<b>f</b>,<b>x</b>) is the partial derivative of <b>f</b> with respect to <b>x</b>, and the partial derivatives are computed at the linearization point t_linearize. Re-ordering of terms gives: </p>
-<pre>   der(d<b>x</b>) = der(<b>f</b>,<b>x</b>)*d<b>x</b> + der(<b>f</b>,<b>u</b>)*d<b>u</b> + (der(<b>f</b>,<b>x</b>)*<b>x</b>0 + der(<b>f</b>,<b>u</b>)*<b>u</b>0 - der(<b>x</b>0))</pre>
-<pre>         <b>y</b> = der(<b>g</b>,<b>x</b>)*d<b>x</b> + der(<b>g</b>,<b>u</b>)*d<b>u</b> + (der(<b>g</b>,<b>x</b>)*<b>x</b>0 + der(<b>g</b>,<b>u</b>)*<b>u</b>0 - <b>y</b>0)</pre>
+<p>and neglecting higher order terms results in the following system: </p>
+<pre>   der(<b>x</b>0+d<b>x</b>) = <b>f</b>(<b>x</b>0,<b>u</b>0) + der(<b>f</b>,<b>x</b>)*d<b>x</b> + der(<b>f</b>,<b>u</b>)*d<b>u</b></pre>
+<pre>      <b>y</b>0 + d<b>y</b> = <b>g</b>(<b>x</b>0,<b>u</b>0) + der(<b>g</b>,<b>x</b>)*d<b>x</b> + der(<b>g</b>,<b>u</b>)*d<b>u</b></pre>
+<p>where der(<b>f</b>,<b>x</b>) is the partial derivative of <b>f</b> with respect to <b>x</b>, and the partial derivatives are computed at the linearization point t_linearize. Re-ordering of terms gives (note <b>der</b>(<b>x</b>0) = <b>0</b>): </p>
+<pre>   der(d<b>x</b>) = der(<b>f</b>,<b>x</b>)*d<b>x</b> + der(<b>f</b>,<b>u</b>)*d<b>u</b> + <b>f</b>(<b>x</b>0,<b>u</b>0)</pre>
+<pre>        d<b>y</b> = der(<b>g</b>,<b>x</b>)*d<b>x</b> + der(<b>g</b>,<b>u</b>)*d<b>u</b> + (<b>g</b>(<b>x</b>0,<b>u</b>0) - <b>y</b>0)</pre>
 <p>or </p>
-<pre>   der(d<b>x</b>) = <b>A</b>*d<b>x</b> + <b>B</b>*d<b>u</b> + <b>f</b>_err</pre>
-<pre>         <b>y</b> = C*d<b>x</b> + <b>D</b>*d<b>u</b> + <b>g</b>_err</pre>
-<p>This function returns the matrices <b>A</b>, <b>B</b>, <b>C</b>, <b>D</b> and assumes that the errors \"<b>f</b>_err\" and \"<b>g</b>_err\" can be neglected (this assumption is true if t_linearize is a steady-state point of the simulation). Additionally, the full Modelica names of all inputs, outputs and states shall be returned if possible (default is to return empty name strings).</p>
+<pre>   der(d<b>x</b>) = <b>A</b>*d<b>x</b> + <b>B</b>*d<b>u</b> + <b>f</b>0</pre>
+<pre>        d<b>y</b> = <b>C</b>*d<b>x</b> + <b>D</b>*d<b>u</b></pre>
+<p>This function returns the matrices <b>A</b>, <b>B</b>, <b>C</b>, <b>D</b> and assumes that the linearization point is a steady-state point of the simulation (i.e., <b>f</b>(<b>x</b>0,<b>u</b>0) = 0). Additionally, the full Modelica names of all inputs, outputs and states shall be returned if possible (default is to return empty name strings).</p>
 </html>"));
   end linearizeModel;
 end Import;
