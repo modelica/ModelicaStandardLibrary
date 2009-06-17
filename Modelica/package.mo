@@ -1,12 +1,12 @@
 within ;
-package Modelica "Modelica Standard Library (Version 3.0.1)"
+package Modelica "Modelica Standard Library (Version 3.1)"
 extends Icons.Library;
 
 annotation (
 preferredView="info",
-version="3.1 RC1",
+version="3.1",
 versionDate="2009-06-22",
-dateModified = "2009-05-26 13:25:54Z",
+dateModified = "2009-06-17 15:35:58Z",
 revisionID="$Id::                                       $",
 conversion(
  noneFromVersion="3.0",
