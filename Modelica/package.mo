@@ -4,11 +4,13 @@ extends Icons.Library;
 
 annotation (
 preferredView="info",
-version="3.0.1",
-versionBuild="$Rev$",
-versionDate="$Date::                            $",
+version="3.1 RC1",
+versionDate="2009-06-22",
+dateModified = "2009-05-26 13:25:54Z",
+revisionID="$Id::                                       $",
 conversion(
  noneFromVersion="3.0",
+ noneFromVersion="3.0.1",
  from(version="2.1", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
  from(version="2.2", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
  from(version="2.2.1", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
