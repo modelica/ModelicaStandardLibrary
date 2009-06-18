@@ -73,7 +73,7 @@ the suddenly switching.
         origin={80,-60},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  ModelicaElectricalAnalogExtensions3.CloserWithArc switch2 
+  Modelica.Electrical.Analog.Ideal.CloserWithArc switch2 
                    annotation (Placement(transformation(extent={{0,-50},{20,
             -30}}, rotation=0)));
 equation
