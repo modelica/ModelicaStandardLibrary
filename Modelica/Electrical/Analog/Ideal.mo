@@ -1197,7 +1197,6 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
           LossPower = v*i;
         end IdealDiode;
 
-
   model IdealTransformer "Ideal transformer core with or without magnetization"
     extends Modelica.Electrical.Analog.Interfaces.TwoPort;
     parameter Real n(start=1) "Turns ratio primary:secondary voltage";
@@ -1821,4 +1820,546 @@ where a description with zero Ron or zero Goff is not possible.
       LossPower = (p.v - n.v)*p.i;
     end ControlledIdealClosingSwitch;
 
+  model OpenerWithArc "Ideal opening witch with simple arc model"
+    extends Modelica.Electrical.Analog.Interfaces.OnePort;
+    parameter Modelica.SIunits.Resistance Ron= 1E-5 "Closed switch resistance";
+    parameter Modelica.SIunits.Conductance Goff=1E-5
+      "Opened switch conductance";
+    parameter Modelica.SIunits.Voltage V0=30 "Initial arc voltage";
+    parameter Modelica.SIunits.VoltageSlope dVdt=10E3 "Arc voltage slope";
+    parameter Modelica.SIunits.Voltage Vmax=60 "Max. arc voltage";
+    Modelica.Blocks.Interfaces.BooleanInput control
+      "false => p--n connected, true => switch open" 
+      annotation (Placement(transformation(
+          origin={0,100},
+          extent={{-10,-10},{10,10}},
+          rotation=270)));
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
+              -100},{100,100}}), graphics={
+          Line(points={{40,50},{32,32},{48,28},{40,18}}, color={255,0,0}),
+          Ellipse(extent={{-44,4},{-36,-4}}),
+          Line(points={{-90,0},{-44,0}}),
+          Line(points={{-37,2},{40,50}}),
+          Line(points={{40,0},{90,0}}),
+          Line(points={{0,90},{0,26}}, color={255,85,255}),
+          Text(
+            extent={{-120,-40},{120,-100}},
+            lineColor={0,0,255},
+            textString="%name"),
+          Line(points={{40,18},{40,0}})}),      Diagram(graphics={
+          Line(points={{-60,60},{-60,-60},{60,-60}}, color={0,0,255}),
+          Line(points={{-60,-60},{-40,-60},{-40,-40},{-20,40},{40,40}}, color={
+                0,0,0}),
+          Text(
+            extent={{30,-60},{50,-70}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid,
+            textString="time"),
+          Text(
+            extent={{-60,60},{-20,50}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid,
+            textString="voltage"),
+          Text(
+            extent={{-60,-30},{-40,-40}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid,
+            textString="V0"),
+          Text(
+            extent={{-50,40},{-30,30}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid,
+            textString="Vmax"),
+          Text(
+            extent={{-40,10},{-20,0}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid,
+            textString="dVdt"),
+          Polygon(
+            points={{-60,60},{-62,52},{-58,52},{-60,60}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
+          Polygon(
+            points={{60,-60},{54,-58},{54,-62},{60,-60}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid)}),
+      Documentation(info="<html>
+<p>
+This model is an extension to the <a href=\"Modelica://Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch\">IdealOpeningSwitch</a>.
+</p>
+<p>
+The basic model interupts the current through the switch in an infinitesimal time span. 
+If an inductive circuit is connected, the voltage across the swicth is limited only by numerics. 
+In order to give a better idea for the voltage across the switch, a simple arc model is added:
+</p>
+<p>
+When the Boolean input <code>control</code> signals to open the switch, a voltage across the opened switch is impressed. 
+This voltage starts with <code>V0</code> (simulating the voltage drop of the arc roots), then rising with slope <code>dVdt</code> 
+(simulating the rising voltage of an extending arc) until a maximum voltage <code>Vmax</code> is reached.
+</p>
+<pre><code>
+     | voltage
+Vmax |      +-----
+     |     /
+     |    /
+V0   |   +
+     |   |
+     +---+-------- time
+</pre></code>
+<p>
+This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched. 
+Once the arc is quenched, i.e. the current flowing through the switch gets zero, the equation for the off-state is activated 
+<code>i=Goff*v</code>.
+</p>
+<p>
+When the Boolean input <code>control</code> signals to close the switch again, the switch is closed immediately, 
+i.e. the equation for the on-state is activated <code>v=Ron*i</code>.
+</p>
+<p>
+Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs. 
+In a DC circuit, the arc will not quench if the arc voltage is not sufficient that a zero-crossing of the current occurs.
+</p>
+</html>", revisions="<html>
+<ul>
+<li><i>June, 2009   </i>
+       by Christoph Clauss<br> adapted to OpenerWithArc<br>
+       </li>
+<li><i>May, 2009   </i>
+       by Anton Haumer<br> CloserWithArc initially implemented<br>
+       </li>
+</ul>
+</html>"));
+
+  protected
+    Boolean off=control;
+    Boolean on=not off;
+    discrete Modelica.SIunits.Time tSwitch;
+    Boolean quenched;
+  equation
+    when edge(off) then
+      tSwitch=time;
+    end when;
+    quenched=off and (abs(i)<=abs(v)*Goff or pre(quenched));
+    if on then
+      v=Ron*i;
+    else
+      if quenched then
+        i=Goff*v;
+      else
+        v=min(Vmax, V0 + dVdt*(time - tSwitch))*sign(i);
+      end if;
+    end if;
+  end OpenerWithArc;
+
+  model CloserWithArc "Ideal closing witch with simple arc model"
+    extends Modelica.Electrical.Analog.Interfaces.OnePort;
+    parameter Modelica.SIunits.Resistance Ron= 1E-5 "Closed switch resistance";
+    parameter Modelica.SIunits.Conductance Goff=1E-5
+      "Opened switch conductance";
+    parameter Modelica.SIunits.Voltage V0=30 "Initial arc voltage";
+    parameter Modelica.SIunits.VoltageSlope dVdt=10E3 "Arc voltage slope";
+    parameter Modelica.SIunits.Voltage Vmax=60 "Max. arc voltage";
+    Modelica.Blocks.Interfaces.BooleanInput control
+      "true => p--n connected, false => switch open" 
+      annotation (Placement(transformation(
+          origin={0,100},
+          extent={{-10,-10},{10,10}},
+          rotation=270)));
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
+          Line(points={{40,50},{32,24},{48,28},{40,0}}, color={255,0,0}),
+          Ellipse(extent={{-44,4},{-36,-4}}),
+          Line(points={{-90,0},{-44,0}}),
+          Line(points={{-37,2},{40,50}}),
+          Line(points={{40,0},{90,0}}),
+          Line(points={{0,90},{0,26}}, color={255,85,255}),
+          Text(
+            extent={{-120,-40},{120,-100}},
+            lineColor={0,0,255},
+            textString="%name")}),              Diagram(graphics={
+          Line(points={{-60,60},{-60,-60},{60,-60}}, color={0,0,255}),
+          Line(points={{-60,-60},{-40,-60},{-40,-40},{-20,40},{40,40}}, color={
+                0,0,0}),
+          Text(
+            extent={{30,-60},{50,-70}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid,
+            textString="time"),
+          Text(
+            extent={{-60,60},{-20,50}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid,
+            textString="voltage"),
+          Text(
+            extent={{-60,-30},{-40,-40}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid,
+            textString="V0"),
+          Text(
+            extent={{-50,40},{-30,30}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid,
+            textString="Vmax"),
+          Text(
+            extent={{-40,10},{-20,0}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid,
+            textString="dVdt"),
+          Polygon(
+            points={{-60,60},{-62,52},{-58,52},{-60,60}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
+          Polygon(
+            points={{60,-60},{54,-58},{54,-62},{60,-60}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid)}),
+      Documentation(info="<html>
+<p>
+This model is an extension to the <a href=\"Modelica://Modelica.Electrical.Analog.Ideal.IdealClosingSwitch\">IdealClosingSwitch</a>.
+</p>
+<p>
+The basic model interupts the current through the switch in an infinitesimal time span. 
+If an inductive circuit is connected, the voltage across the swicth is limited only by numerics. 
+In order to give a better idea for the voltage across the switch, a simple arc model is added:
+</p>
+<p>
+When the Boolean input <code>control</code> signals to open the switch, a voltage across the opened switch is impressed. 
+This voltage starts with <code>V0</code> (simulating the voltage drop of the arc roots), then rising with slope <code>dVdt</code> 
+(simulating the rising voltage of an extending arc) until a maximum voltage <code>Vmax</code> is reached.
+</p>
+<pre><code>
+     | voltage
+Vmax |      +-----
+     |     /
+     |    /
+V0   |   +
+     |   |
+     +---+-------- time
+</pre></code>
+<p>
+This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched. 
+Once the arc is quenched, i.e. the current flowing through the switch gets zero, the equation for the off-state is activated 
+<code>i=Goff*v</code>.
+</p>
+<p>
+When the Boolean input <code>control</code> signals to close the switch again, the switch is closed immediately, 
+i.e. the equation for the on-state is activated <code>v=Ron*i</code>.
+</p>
+<p>
+Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs. 
+In a DC circuit, the arc will not quench if the arc voltage is not sufficient that a zero-crossing of the current occurs.
+</p>
+</html>", revisions="<html>
+<ul>
+<li><i>May, 2009   </i>
+       by Anton Haumer<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
+
+  protected
+    Boolean on=control;
+    Boolean off=not on;
+    discrete Modelica.SIunits.Time tSwitch;
+    Boolean quenched;
+  equation
+    when edge(off) then
+      tSwitch=time;
+    end when;
+    quenched=off and (abs(i)<=abs(v)*Goff or pre(quenched));
+    if on then
+      v=Ron*i;
+    else
+      if quenched then
+        i=Goff*v;
+      else
+        v=min(Vmax, V0 + dVdt*(time - tSwitch))*sign(i);
+      end if;
+    end if;
+  end CloserWithArc;
+
+  model ControlledOpenerWithArc
+    "Controlled ideal electrical opener with simple arc model"
+
+    parameter Modelica.SIunits.Voltage level=0.5 "Switch level" 
+                                                  annotation (Placement(
+          transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
+    parameter Modelica.SIunits.Resistance Ron(final min=0)=1.E-5
+      "Closed switch resistance" 
+       annotation (Placement(transformation(extent={{10,10},{56.6667,56.6667}},
+            rotation=0)));
+    parameter Modelica.SIunits.Conductance Goff(final min=0)=1.E-5
+      "Opened switch conductance" annotation (Placement(transformation(extent={
+              {-56.6667,-56.6667},{-10,-10}}, rotation=0)));
+    parameter Modelica.SIunits.Voltage V0=30 "Initial arc voltage";
+    parameter Modelica.SIunits.VoltageSlope dVdt=10E3 "Arc voltage slope";
+    parameter Modelica.SIunits.Voltage Vmax=60 "Max. arc voltage";
+
+    Modelica.Electrical.Analog.Interfaces.PositivePin p 
+                             annotation (Placement(transformation(extent={{-110,
+              -10},{-90,10}}, rotation=0)));
+    Modelica.Electrical.Analog.Interfaces.NegativePin n 
+                             annotation (Placement(transformation(extent={{90,
+              -10},{110,10}}, rotation=0)));
+    Modelica.Electrical.Analog.Interfaces.Pin control
+      "Control pin: control.v > level switch open, otherwise p--n connected" 
+      annotation (Placement(transformation(
+          origin={0,100},
+          extent={{-10,-10},{10,10}},
+          rotation=90)));
+    Modelica.SIunits.Current i;
+    Modelica.SIunits.Voltage v;
+  protected
+    constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
+    constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
+    Boolean off=(control.v > level);
+    Boolean on=not off;
+    discrete Modelica.SIunits.Time tSwitch;
+    Boolean quenched;
+    annotation (
+      Documentation(info="
+<HTML>
+
+<p>
+This model is an extension to the <a href=\"Modelica://Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch\">IdealOpeningSwitch</a>.
+</p>
+
+
+<p>
+The basic model interupts the current through the switch in an infinitesimal time span. 
+If an inductive circuit is connected, the voltage across the swicth is limited only by numerics. 
+In order to give a better idea for the voltage across the switch, a simple arc model is added:
+</p>
+<p>
+When the control pin voltage <code>control.v</code> signals to open the switch, a voltage across the opened switch is impressed. 
+This voltage starts with <code>V0</code> (simulating the voltage drop of the arc roots), then rising with slope <code>dVdt</code> 
+(simulating the rising voltage of an extending arc) until a maximum voltage <code>Vmax</code> is reached.
+</p>
+<pre><code>
+     | voltage
+Vmax |      +-----
+     |     /
+     |    /
+V0   |   +
+     |   |
+     +---+-------- time
+</pre></code>
+<p>
+This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched. 
+Once the arc is quenched, i.e. the current flowing through the switch gets zero, the equation for the off-state is activated 
+<code>i=Goff*v</code>.
+</p>
+<p>
+When the control pin <code>control.v</code> signals to close the switch again, the switch is closed immediately, 
+i.e. the equation for the on-state is activated <code>v=Ron*i</code>.
+</p>
+<p>
+Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs. 
+In a DC circuit, the arc will not quench if the arc voltage is not sufficient that a zero-crossing of the current occurs.
+</p>
+</HTML>
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
+          Line(points={{-90,0},{-44,0}}, color={0,0,255}),
+          Line(points={{-37,2},{40,50}}, color={0,0,255}),
+          Line(points={{40,0},{90,0}}, color={0,0,255}),
+          Line(points={{0,90},{0,25}}, color={0,0,255}),
+          Text(
+            extent={{-100,-70},{100,-100}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(points={{40,20},{40,0}}, color={0,0,255}),
+          Line(points={{40,50},{32,34},{48,30},{40,20}}, color={255,0,0})}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
+          Line(points={{-96,0},{-44,0}}, color={0,0,255}),
+          Line(points={{-37,2},{40,50}}, color={0,0,255}),
+          Line(points={{40,0},{96,0}}, color={0,0,255}),
+          Line(points={{0,96},{0,25}}, color={0,0,255}),
+          Line(points={{40,20},{40,0}}, color={0,0,255})}));
+  equation
+    control.i = 0;
+    0 = p.i + n.i;
+    i = p.i;
+    p.v - n.v = v;
+
+    when edge(off) then
+      tSwitch=time;
+    end when;
+    quenched=off and (abs(i)<=abs(v)*Goff or pre(quenched));
+    if on then
+      v=Ron*i;
+    else
+      if quenched then
+        i=Goff*v;
+      else
+        v=min(Vmax, V0 + dVdt*(time - tSwitch))*sign(i);
+      end if;
+    end if;
+
+  end ControlledOpenerWithArc;
+
+    model ControlledCloserWithArc
+    "Controlled ideal electrical closer with simple arc model"
+
+      parameter Modelica.SIunits.Voltage level=0.5 "Switch level" 
+                                                    annotation (Placement(
+          transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
+      parameter Modelica.SIunits.Resistance Ron(final min=0)=1.E-5
+      "Closed switch resistance" 
+         annotation (Placement(transformation(extent={{10,10},{56.6667,56.6667}},
+            rotation=0)));
+      parameter Modelica.SIunits.Conductance Goff(final min=0)=1.E-5
+      "Opened switch conductance"   annotation (Placement(transformation(extent=
+             {{-56.6667,-56.6667},{-10,-10}}, rotation=0)));
+      parameter Modelica.SIunits.Voltage V0=30 "Initial arc voltage";
+      parameter Modelica.SIunits.VoltageSlope dVdt=10E3 "Arc voltage slope";
+      parameter Modelica.SIunits.Voltage Vmax=60 "Max. arc voltage";
+
+      Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (Placement(
+          transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+      Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (Placement(
+          transformation(extent={{90,-10},{110,10}}, rotation=0)));
+      Modelica.Electrical.Analog.Interfaces.Pin control
+      "Control pin: control.v > level switch closed, otherwise switch open" 
+        annotation (Placement(transformation(
+          origin={0,100},
+          extent={{-10,-10},{10,10}},
+          rotation=90)));
+      Modelica.SIunits.Current i;
+      Modelica.SIunits.Voltage v;
+  protected
+      constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
+      constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
+      Boolean off=(control.v < level);
+      Boolean on=not off;
+      discrete Modelica.SIunits.Time tSwitch;
+      Boolean quenched;
+      annotation (
+        Documentation(info="
+<HTML>
+
+<p>
+This model is an extension to the <a href=\"Modelica://Modelica.Electrical.Analog.Ideal.IdealClosingSwitch\">IdealClosingSwitch</a>.
+</p>
+
+
+<p>
+The basic model interupts the current through the switch in an infinitesimal time span. 
+If an inductive circuit is connected, the voltage across the swicth is limited only by numerics. 
+In order to give a better idea for the voltage across the switch, a simple arc model is added:
+</p>
+<p>
+When the control pin voltage <code>control.v</code> signals to open the switch, a voltage across the opened switch is impressed. 
+This voltage starts with <code>V0</code> (simulating the voltage drop of the arc roots), then rising with slope <code>dVdt</code> 
+(simulating the rising voltage of an extending arc) until a maximum voltage <code>Vmax</code> is reached.
+</p>
+<pre><code>
+     | voltage
+Vmax |      +-----
+     |     /
+     |    /
+V0   |   +
+     |   |
+     +---+-------- time
+</pre></code>
+<p>
+This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched. 
+Once the arc is quenched, i.e. the current flowing through the switch gets zero, the equation for the off-state is activated 
+<code>i=Goff*v</code>.
+</p>
+<p>
+When the control pin <code>control.v</code> signals to close the switch again, the switch is closed immediately, 
+i.e. the equation for the on-state is activated <code>v=Ron*i</code>.
+</p>
+<p>
+Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs. 
+In a DC circuit, the arc will not quench if the arc voltage is not sufficient that a zero-crossing of the current occurs.
+</p>
+
+</HTML>
+",     revisions=
+             "<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+        Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
+          Line(points={{-90,0},{-44,0}}, color={0,0,255}),
+          Line(points={{-37,2},{40,50}}, color={0,0,255}),
+          Line(points={{40,0},{90,0}}, color={0,0,255}),
+          Line(points={{0,90},{0,25}}, color={0,0,255}),
+          Text(
+            extent={{-100,-70},{100,-100}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(points={{40,50},{32,24},{48,28},{40,0}}, color={255,0,0})}),
+        Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
+          Line(points={{-96,0},{-44,0}}, color={0,0,255}),
+          Line(points={{-37,2},{40,50}}, color={0,0,255}),
+          Line(points={{40,0},{96,0}}, color={0,0,255}),
+          Line(points={{0,96},{0,25}}, color={0,0,255})}),
+      uses(Modelica(version="3.0")));
+    equation
+      control.i = 0;
+      0 = p.i + n.i;
+      i = p.i;
+      p.v - n.v = v;
+
+      when edge(off) then
+        tSwitch=time;
+      end when;
+      quenched=off and (abs(i)<=abs(v)*Goff or pre(quenched));
+      if on then
+        v=Ron*i;
+      else
+        if quenched then
+          i=Goff*v;
+        else
+          v=min(Vmax, V0 + dVdt*(time - tSwitch))*sign(i);
+        end if;
+      end if;
+
+    end ControlledCloserWithArc;
 end Ideal;

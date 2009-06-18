@@ -205,10 +205,10 @@ current in reverse direction if the breakdown voltage Bv (also known zener knee 
             color={0,0,255},
             smooth=Smooth.None)}));
  equation
-   i = smooth(1, if (v>Maxexp*Vt) then
-             Ids*( exp(Maxexp)*(1 + v/Vt - Maxexp)-1) + v/R else
-          if ( (v+Bv)<-Maxexp*(Nbv*Vt)) then
-             -Ids -Ibv* exp(Maxexp)*(1 - (v+Bv)/(Nbv*Vt) - Maxexp) +v/R else
+   i = smooth(1, if (v>Maxexp*Vt) then 
+             Ids*( exp(Maxexp)*(1 + v/Vt - Maxexp)-1) + v/R else 
+          if ( (v+Bv)<-Maxexp*(Nbv*Vt)) then 
+             -Ids -Ibv* exp(Maxexp)*(1 - (v+Bv)/(Nbv*Vt) - Maxexp) +v/R else 
              Ids*(exp(v/Vt)-1) - Ibv*exp(-(v+Bv)/(Nbv*Vt)) + v/R);
    LossPower = v*i;
  end ZDiode;
@@ -610,10 +610,10 @@ on page 317 ff.
     vbe = B.v - E.v;
     qbk = 1 - vbc*Vak;
 
-    ibc = smooth(1,if (vbc/Vt < EMin) then Is*(ExMin*(vbc/Vt - EMin + 1) - 1) + vbc*Gbc else
+    ibc = smooth(1,if (vbc/Vt < EMin) then Is*(ExMin*(vbc/Vt - EMin + 1) - 1) + vbc*Gbc else 
             if (vbc/Vt > EMax) then Is*(ExMax*(vbc/Vt - EMax + 1) - 1) + vbc*
       Gbc else Is*(exp(vbc/Vt) - 1) + vbc*Gbc);
-    ibe = smooth(1,if (vbe/Vt < EMin) then Is*(ExMin*(vbe/Vt - EMin + 1) - 1) + vbe*Gbe else
+    ibe = smooth(1,if (vbe/Vt < EMin) then Is*(ExMin*(vbe/Vt - EMin + 1) - 1) + vbe*Gbe else 
             if (vbe/Vt > EMax) then Is*(ExMax*(vbe/Vt - EMax + 1) - 1) + vbe*
       Gbe else Is*(exp(vbe/Vt) - 1) + vbe*Gbe);
     Capcjc = smooth(1,(if (vbc/Phic > 0) then Cjc*(1 + Mc*vbc/Phic) else Cjc*pow(1 - vbc
@@ -757,11 +757,11 @@ on page 317 ff.
     vbe = E.v - B.v;
     qbk = 1 - vbc*Vak;
 
-    ibc = smooth(1,(if (vbc/Vt < EMin) then Is*(ExMin*(vbc/Vt - EMin + 1) - 1) + vbc*Gbc else
+    ibc = smooth(1,(if (vbc/Vt < EMin) then Is*(ExMin*(vbc/Vt - EMin + 1) - 1) + vbc*Gbc else 
             if (vbc/Vt > EMax) then Is*(ExMax*(vbc/Vt - EMax + 1) - 1) + vbc*
       Gbc else Is*(exp(vbc/Vt) - 1) + vbc*Gbc));
 
-    ibe = smooth(1,(if (vbe/Vt < EMin) then Is*(ExMin*(vbe/Vt - EMin + 1) - 1) + vbe*Gbe else
+    ibe = smooth(1,(if (vbe/Vt < EMin) then Is*(ExMin*(vbe/Vt - EMin + 1) - 1) + vbe*Gbe else 
             if (vbe/Vt > EMax) then Is*(ExMax*(vbe/Vt - EMax + 1) - 1) + vbe*
       Gbe else Is*(exp(vbe/Vt) - 1) + vbe*Gbe));
 
@@ -880,16 +880,16 @@ The thermal power is calculated by <i>i*v</i>.
         end HeatingDiode;
 
         model HeatingNMOS "Simple MOS Transistor with heating port"
-          Modelica.Electrical.Analog.Interfaces.Pin D "Drain"
+          Modelica.Electrical.Analog.Interfaces.Pin D "Drain" 
             annotation (Placement(transformation(extent={{90,40},{110,60}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin G "Gate"
+          Modelica.Electrical.Analog.Interfaces.Pin G "Gate" 
             annotation (Placement(transformation(extent={{-90,-40},{-110,-60}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin S "Source"
+          Modelica.Electrical.Analog.Interfaces.Pin S "Source" 
             annotation (Placement(transformation(extent={{90,-40},{110,-60}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin B "Bulk"
+          Modelica.Electrical.Analog.Interfaces.Pin B "Bulk" 
             annotation (Placement(transformation(extent={{90,-10},{110,10}},
             rotation=0)));
           parameter Modelica.SIunits.Length W=20.e-6 "Width";
@@ -1044,16 +1044,16 @@ Muenchen Wien 1990.
         end HeatingNMOS;
 
         model HeatingPMOS "Simple PMOS Transistor with heating port"
-          Modelica.Electrical.Analog.Interfaces.Pin D "Drain"
+          Modelica.Electrical.Analog.Interfaces.Pin D "Drain" 
             annotation (Placement(transformation(extent={{90,40},{110,60}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin G "Gate"
+          Modelica.Electrical.Analog.Interfaces.Pin G "Gate" 
             annotation (Placement(transformation(extent={{-90,-40},{-110,-60}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin S "Source"
+          Modelica.Electrical.Analog.Interfaces.Pin S "Source" 
             annotation (Placement(transformation(extent={{90,-40},{110,-60}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin B "Bulk"
+          Modelica.Electrical.Analog.Interfaces.Pin B "Bulk" 
             annotation (Placement(transformation(extent={{90,-10},{110,10}},
             rotation=0)));
           parameter Modelica.SIunits.Length W=20.0e-6 "Width";
@@ -1258,13 +1258,13 @@ Some typical parameter sets are:
           Real hexp;
           Real htempexp;
   public
-          Modelica.Electrical.Analog.Interfaces.Pin C "Collector"
+          Modelica.Electrical.Analog.Interfaces.Pin C "Collector" 
             annotation (Placement(transformation(extent={{90,40},{110,60}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin B "Base"
+          Modelica.Electrical.Analog.Interfaces.Pin B "Base" 
             annotation (Placement(transformation(extent={{-90,-10},{-110,10}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin E "Emitter"
+          Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" 
             annotation (Placement(transformation(extent={{90,-40},{110,-60}},
             rotation=0)));
           annotation (
@@ -1368,12 +1368,12 @@ on page 317 ff.
           Capcje = smooth(1,(if (vbe/Phie > 0) then Cje*(1 + Me*vbe/Phie) else Cje*pow(1
              - vbe/Phie, -Me)));
           cbc = smooth(1,(if (vbc/(NR*vt_t) < EMin) then Taur*is_t/(NR*vt_t)*ExMin*(vbc/(
-            NR*vt_t) - EMin + 1) + Capcjc else if (vbc/(NR*vt_t) > EMax) then
-            Taur*is_t/(NR*vt_t)*ExMax*(vbc/(NR*vt_t) - EMax + 1) + Capcjc else
+            NR*vt_t) - EMin + 1) + Capcjc else if (vbc/(NR*vt_t) > EMax) then 
+            Taur*is_t/(NR*vt_t)*ExMax*(vbc/(NR*vt_t) - EMax + 1) + Capcjc else 
             Taur*is_t/(NR*vt_t)*exp(vbc/(NR*vt_t)) + Capcjc));
           cbe = smooth(1,(if (vbe/(NF*vt_t) < EMin) then Tauf*is_t/(NF*vt_t)*ExMin*(vbe/(
-            NF*vt_t) - EMin + 1) + Capcje else if (vbe/(NF*vt_t) > EMax) then
-            Tauf*is_t/(NF*vt_t)*ExMax*(vbe/(NF*vt_t) - EMax + 1) + Capcje else
+            NF*vt_t) - EMin + 1) + Capcje else if (vbe/(NF*vt_t) > EMax) then 
+            Tauf*is_t/(NF*vt_t)*ExMax*(vbe/(NF*vt_t) - EMax + 1) + Capcje else 
             Tauf*is_t/(NF*vt_t)*exp(vbe/(NF*vt_t)) + Capcje));
           C.i = (ibe - ibc)*qbk - ibc/br_t - cbc*der(vbc) + Ccs*der(C.v);
           B.i = ibe/bf_t + ibc/br_t + cbc*der(vbc) + cbe*der(vbe);
@@ -1443,13 +1443,13 @@ on page 317 ff.
           Real hexp;
           Real htempexp;
   public
-          Modelica.Electrical.Analog.Interfaces.Pin C "Collector"
+          Modelica.Electrical.Analog.Interfaces.Pin C "Collector" 
             annotation (Placement(transformation(extent={{90,40},{110,60}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin B "Base"
+          Modelica.Electrical.Analog.Interfaces.Pin B "Base" 
             annotation (Placement(transformation(extent={{-90,-10},{-110,10}},
             rotation=0)));
-          Modelica.Electrical.Analog.Interfaces.Pin E "Emitter"
+          Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" 
             annotation (Placement(transformation(extent={{90,-40},{110,-60}},
             rotation=0)));
           annotation (
@@ -1553,12 +1553,12 @@ on page 317 ff.
           Capcje = smooth(1,(if (veb/Phie > 0) then Cje*(1 + Me*veb/Phie) else Cje*pow(1
              - veb/Phie, -Me)));
           ccb = smooth(1,(if (vcb/(NR*vt_t) < EMin) then Taur*is_t/(NR*vt_t)*ExMin*(vcb/(
-            NR*vt_t) - EMin + 1) + Capcjc else if (vcb/(NR*vt_t) > EMax) then
-            Taur*is_t/(NR*vt_t)*ExMax*(vcb/(NR*vt_t) - EMax + 1) + Capcjc else
+            NR*vt_t) - EMin + 1) + Capcjc else if (vcb/(NR*vt_t) > EMax) then 
+            Taur*is_t/(NR*vt_t)*ExMax*(vcb/(NR*vt_t) - EMax + 1) + Capcjc else 
             Taur*is_t/(NR*vt_t)*exp(vcb/(NR*vt_t)) + Capcjc));
           ceb = smooth(1,(if (veb/(NF*vt_t) < EMin) then Tauf*is_t/(NF*vt_t)*ExMin*(veb/(
-            NF*vt_t) - EMin + 1) + Capcje else if (veb/(NF*vt_t) > EMax) then
-            Tauf*is_t/(NF*vt_t)*ExMax*(veb/(NF*vt_t) - EMax + 1) + Capcje else
+            NF*vt_t) - EMin + 1) + Capcje else if (veb/(NF*vt_t) > EMax) then 
+            Tauf*is_t/(NF*vt_t)*ExMax*(veb/(NF*vt_t) - EMax + 1) + Capcje else 
             Tauf*is_t/(NF*vt_t)*exp(veb/(NF*vt_t)) + Capcje));
           C.i = icb/br_t + ccb*der(vcb) + Ccs*der(C.v) + (icb - ieb)*qbk;
           B.i = -ieb/bf_t - icb/br_t - ceb*der(veb) - ccb*der(vcb);
@@ -1587,4 +1587,216 @@ protected
           z := if x > Maxexp then exp(Maxexp)*(1 + x - Maxexp) else exp(x);
         end exlin;
 
+public
+  model Thyristor "Simple Thyristor Model"
+    parameter Modelica.SIunits.Voltage VDRM(final min=0) = 100
+      "Forward breakthrough voltage";
+    parameter Modelica.SIunits.Voltage VRRM(final min=0) = 100
+      "Reverse breakthrough voltage";
+    parameter Modelica.SIunits.Current IDRM=0.1 "Saturation current";
+    parameter Modelica.SIunits.Voltage VTM= 1.7 "Conducting voltage";
+    parameter Modelica.SIunits.Current IH=6e-3 "Holding current";
+    parameter Modelica.SIunits.Current ITM= 25 "Conducting current";
+
+    parameter Modelica.SIunits.Voltage VGT= 0.7 "Gate trigger voltage";
+    parameter Modelica.SIunits.Current IGT= 5e-3 "Gate trigger current";
+
+    parameter Modelica.SIunits.Time TON = 1e-6 "Switch on time";
+    parameter Modelica.SIunits.Time TOFF = 15e-6 "Switch off time";
+    parameter Modelica.SIunits.Voltage Vt=0.04
+      "Voltage equivalent of temperature (kT/qn)";
+    parameter Real Nbv=0.74 "Reverse Breakthrough emission coefficient";
+
+    Real iGK "gate current";
+    Real vGK "voltage between gate and cathode";
+    Real vAK "voltage between anode and cathode";
+    Real vControl(start=0);
+    Real vContot;
+    Real vConmain;
+
+   annotation (
+     Documentation(info="<html>
+This is a simple thyristor model with three pins: Anode, Cathode and Gate. 
+There are three operating modes: <br>
+conducting, blocking and reverse breakthrough. <br>
+</P>
+<p>
+As long as the thyristor is in blocking mode it behaves like a linear resistance Roff=VDRM^2/(VTM*IH). <br>
+But if the voltage between anode and cathode exceeds VDRM or a positive gate current flows for a sufficient time the mode changes to conducting mode. <br>
+The model stays in conducting mode until the anode current falls below the holding current IH. There is no way to switch off the thyristor via the gate. <br>
+If the voltage between anode and cathode is negative, the model represents a diode (parameters Vt, Nbv) with reverse breakthrough voltage VRRM. <br>
+</P>
+<P>
+The dV/dt switch on is not taken into account in this model. The gate circuit is not influenced by the main circuit.
+</p>
+</HTML>
+",  revisions=
+      "<html>
+<ul>
+<li><i>May 12, 2009   </i>
+       by Matthias Franke
+       </li>
+</ul>
+</html>"),
+     Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Text(
+            extent={{-100,-70},{100,-100}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Polygon(
+            points={{30,0},{-30,40},{-30,-40},{30,0}},
+            lineColor={0,0,0},
+            fillColor={255,255,255}),
+          Line(points={{-90,0},{40,0}}, color={0,0,255}),
+          Line(points={{40,0},{90,0}}, color={0,0,255}),
+          Line(points={{30,40},{30,-40}}, color={0,0,255}),
+          Line(points={{30,20},{70,60},{70,90}}, color={0,0,255}),
+          Line(points={{40,50},{60,30}}, color={0,0,255})}),
+     Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Line(points={{-80,0},{80,0}}, color={128,128,128}),
+          Polygon(
+            points={{70,4},{80,0},{70,-4},{70,4}},
+            lineColor={128,128,128},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid),
+          Line(points={{0,80},{0,-80}}, color={128,128,128}),
+          Polygon(
+            points={{-4,70},{0,80},{4,70},{-4,70}},
+            lineColor={128,128,128},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{5,81},{15,71}},
+            lineColor={128,128,128},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid,
+            textString="i"),
+          Text(
+            extent={{70,-10},{80,-20}},
+            lineColor={128,128,128},
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid,
+            textString="v"),
+          Line(
+            points={{20,9},{20,0}},
+            color={128,128,128},
+            pattern=LinePattern.Dot),
+          Text(
+            extent={{25,64},{45,54}},
+            lineColor={128,128,128},
+            pattern=LinePattern.Dot,
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid,
+            textString="Ron"),
+          Line(
+            points={{14,20},{25,73}},
+            color={0,0,0},
+            thickness=0.5),
+          Line(
+            points={{-57,-11},{55,9}},
+            color={0,0,0},
+            smooth=Smooth.None,
+            thickness=0.5),
+          Line(
+            points={{-57,-11},{-59,-13},{-60,-18},{-63,-65}},
+            color={0,0,0},
+            thickness=0.5,
+            smooth=Smooth.None),
+          Text(
+            extent={{-67,11},{-47,1}},
+            lineColor={128,128,128},
+            pattern=LinePattern.Dot,
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid,
+            textString="VRRM"),
+          Text(
+            extent={{44,-2},{64,-12}},
+            lineColor={128,128,128},
+            pattern=LinePattern.Dot,
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid,
+            textString="VDRM"),
+          Line(
+            points={{-57,1},{-57,-1}},
+            color={0,0,0},
+            smooth=Smooth.None),
+          Line(
+            points={{54,1},{54,-1}},
+            color={0,0,0},
+            smooth=Smooth.None),
+          Line(
+            points={{55,9},{54,11},{50,13},{17,17},{15,18},{14,20}},
+            color={0,0,0},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot),
+          Text(
+            extent={{-28,-9},{-8,-19}},
+            lineColor={128,128,128},
+            pattern=LinePattern.Dot,
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid,
+            textString="Roff"),
+          Line(
+            points={{2,20},{-2,20}},
+            color={0,0,0},
+            smooth=Smooth.None),
+          Text(
+            extent={{-14,23},{-2,16}},
+            lineColor={128,128,128},
+            pattern=LinePattern.Dot,
+            fillColor={128,128,128},
+            fillPattern=FillPattern.Solid,
+            textString="IH")}),
+      uses(Modelica(version="3.0.1")),
+      DymolaStoredErrors);
+
+  public
+    Modelica.Electrical.Analog.Interfaces.PositivePin Anode annotation (Placement(
+          transformation(extent={{-95,-12},{-75,8}}),
+                                                    iconTransformation(extent={{
+              -100,-10},{-80,10}})));
+    Modelica.Electrical.Analog.Interfaces.NegativePin Cathode annotation (Placement(
+          transformation(extent={{80,-10},{100,10}}), iconTransformation(extent={
+              {80,-10},{100,10}})));
+    Modelica.Electrical.Analog.Interfaces.PositivePin Gate annotation (Placement(
+          transformation(extent={{60,80},{80,100}}), iconTransformation(extent={{60,80},
+              {80,100}})));
+
+  protected
+    parameter Modelica.SIunits.Voltage Von=5;
+    parameter Modelica.SIunits.Voltage Voff= 1.5;
+    parameter Modelica.SIunits.Resistance Ron=(VTM-0.7)/ITM
+      "Forward conducting mode resistance";
+    parameter Modelica.SIunits.Resistance Roff=(VDRM^2)/VTM/IH
+      "Blocking mode resistance";
+
+  equation
+    //Kirchhoff's equations
+    Anode.i+Gate.i+Cathode.i=0;
+    vGK=Gate.v-Cathode.v;
+    vAK=Anode.v-Cathode.v;
+
+    // Gate and Control voltage
+    iGK = Gate.i;
+    vGK = smooth(0,(if vGK < 0.65 then VGT/IGT*iGK else 
+          0.65^2/VGT+iGK*(VGT-0.65)/IGT));
+    vContot = vConmain + smooth(0, if iGK < 0.95 * IGT then 0 else if iGK < 0.95*IGT + 1e-3 then 10000*(iGK-0.95*IGT)*vAK else 10* vAK);
+    der(vControl)= (vContot - vControl) / (if (vContot - vControl) > 0 then 1.87*TON else 0.638*TOFF);
+
+    // Anode-Cathode characteristics
+    Anode.i= smooth(1, if vAK < -VRRM then -VRRM/Roff*exp(-(vAK+VRRM)/(Nbv*Vt)) else 
+           if vControl<Voff then vAK/Roff else 
+           if vControl<Von then vAK/(sqrt(Ron*Roff)*(Ron/Roff)^((3*((2*vControl-Von-Voff)/(2*(Von-Voff)))-4*((2*vControl-Von-Voff)/(2*(Von-Voff)))^3)/2)) else 
+            vAK/Ron);
+
+    // holding effect and forward breakthrough
+    vConmain = (if Anode.i>IH or vAK>VDRM then Von else 0);
+
+  end Thyristor;
 end Semiconductors;

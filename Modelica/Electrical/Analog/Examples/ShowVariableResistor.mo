@@ -41,7 +41,8 @@ Simulate until T=1 s.
 </ul>
 </html>"),
   experiment(StopTime=1),
-    Diagram(graphics={Text(
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+            100,100}}), graphics={Text(
           extent={{-100,112},{80,40}},
           lineColor={0,0,255},
           textString="Example VariableResistor")}));
@@ -77,6 +78,6 @@ equation
           {-60,50}}, color={0,0,255}));
   connect(SineVoltage1.n, R4.p)      annotation (Line(points={{-90,-20},{-90,
           -10},{-60,-10}}, color={0,0,255}));
-  connect(Ramp1.y, VariableResistor.R)           annotation (Line(points={{-10,
-          9},{-10,4.5},{-10,1},{-10,1}}, color={0,0,255}));
+  connect(Ramp1.y, VariableResistor.R)           annotation (Line(points={{-10,9},
+          {-10,4.5},{-10,1},{-10,1}},    color={0,0,255}));
 end ShowVariableResistor;
