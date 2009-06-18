@@ -76,13 +76,27 @@ Modelica in file \"Modelica/package.mo\".</i><br>
       Documentation(info="<html>
 <P>
 Lossy Transmission Line.
-  The lossy transmission line OLine consists of segments of
+  As can be seen in the picture below, the lossy transmission line OLine consists of segments of
   lumped resistances and inductances in series
   and conductances and capacitances that are
   connected with the reference pin p3. The precision
   of the model depends on the number N of
   lumped segments.
 </P>
+To get a symmetric line model, the first resistor and inductor are cut into two parts (R1 and R_Nplus1, L1 and L_Nplu21)<br>
+The two new resistors and inductors have the half of the resistance/inductance the original resistor/inductor had. <br>
+The resistor R1/inductor L1 are at the beginning of the line and R_Nplus1/L_Nplu1 are at the end of the line.
+<p align=\"center\">
+<IMG SRC=\"../Images/Electrical/Analog/Schaltbild_OLine.png\" width=\"600\"
+ALT=\"model Analog.Lines.OLine\">
+</p>
+The values of the capacitances are calculated with: C=c*length/N with c given by the user, \"lenght=length of line\" and \"N=number of segments\".<br>
+The values of the conductances are calculated in the same way the capacitances are, but with g instead of c.<br>
+The values of the resistors and inductors are calculated with :R=r*length/(N+1) and L=l*length/(N+1).<br>
+For all capacitances, conductances, resistors and inductances the values of each segment are the same exept<br>
+of the first and last resistor and inductor, that only have the half of the value of the rest.<br>
+Note, this is different to the lumped line model of SPICE.
+
 <DL>
 <DT>
 <b>References:</b>
@@ -182,10 +196,10 @@ model segment
 
   parameter Integer lines(final min=1)=3;       //number of lines
   parameter Integer dim_vector_lgc=div(lines*(lines+1),2);
-  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
+  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin" 
               annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
             rotation=0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
+  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin" 
               annotation (Placement(transformation(extent={{40,-10},{60,10}},
             rotation=0)));
 
@@ -234,10 +248,10 @@ end segment;
 
 model segment_last
 
-  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
+  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin" 
               annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
             rotation=0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
+  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin" 
               annotation (Placement(transformation(extent={{20,-10},{40,10}},
             rotation=0)));
   parameter Integer lines(final min=1)=3;
@@ -281,10 +295,10 @@ end segment_last;
     lines=lines,
     Rl=r*length/(2*N),
     Ll=l*length/(2*N));
-  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
+  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin" 
               annotation (Placement(transformation(extent={{-100,-80},{-80,80}},
           rotation=0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
+  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin" 
               annotation (Placement(transformation(extent={{80,-80},{100,80}},
           rotation=0)));
 
@@ -570,13 +584,24 @@ end M_OLine;
     annotation (
       Documentation(info="<html>
 <P>
-The lossy RC line ULine consists of segments of
+As can be seen in the picture below, the lossy RC line ULine consists of segments of
 lumped series resistances and capacitances that are
-connected with the reference pin p3. The precision
+connected with the reference pin p3. <br>The precision
 of the model depends on the number N of
 lumped segments.
 </P>
-
+To get a symmetric line model, the first Resistor is cut into two parts (R1 and R_Nplus1)<br>
+The two new resistors have the half of the resistance of the original Resistor had. The Resistor R1<br>
+is at the beginning of the line and R_Nplus1 is at the end of the line.
+<p align=\"center\">
+<IMG SRC=\"../Images/Electrical/Analog/Schaltbild_ULine.png\" width=\"400\"
+ALT=\"model Analog.Lines.ULine\">
+</p>
+The values of the capacitances are calculated with: C=c*length/N with c given by the user, \"lenght=length of line\" and \"N=number of segments\".<br>
+The values of the resistors are calculated with :R=r*length/(N+1).<br>
+For all capacitances and resistors the values of each segment are the same exept<br>
+of the first and last resistor, that only hase the half of the value of the other resistors.<br>
+Note, this is different to the lumped line model of SPICE.
 <p>
 <b>References</b></dt>
 </p>
