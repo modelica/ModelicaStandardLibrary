@@ -83,7 +83,7 @@ Lossy Transmission Line.
   of the model depends on the number N of
   lumped segments.
 </P>
-To get a symmetric line model, the first resistor and inductor are cut into two parts (R1 and R_Nplus1, L1 and L_Nplu21)<br>
+To get a symmetric line model, the first resistor and inductor are cut into two parts (R1 and R_Nplus1, L1 and L_Nplus1)<br>
 The two new resistors and inductors have the half of the resistance/inductance the original resistor/inductor had. <br>
 The resistor R1/inductor L1 are at the beginning of the line and R_Nplus1/L_Nplu1 are at the end of the line.
 <p align=\"center\">
