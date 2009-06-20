@@ -346,7 +346,7 @@ which is only exactly true for a fluid with constant density d=d0.
       input Boolean densityOfT = false
         "include or neglect density derivative dependence of enthalpy" annotation(Evaluate);
       output SI.SpecificEnthalpy h "Specific enthalpy at p, T";
-     annotation(smoothOrder=2);
+     annotation(Inline=false, LateInline=true,smoothOrder=2);
     algorithm
       h :=h0 + Poly.integralValue(poly_Cp, if TinK then T else Cv.to_degC(T), if TinK then 
       T0 else Cv.to_degC(T0)) + (p - reference_p)/Poly.evaluate(poly_rho, if TinK then 
@@ -399,6 +399,7 @@ which is only exactly true for a fluid with constant density d=d0.
       input AbsolutePressure p "pressure";
       input SpecificEnthalpy h "specific enthalpy";
       output Temperature T "temperature";
+      annotation(Inline=false, LateInline=true, inverse=h_pT(p,T));
     protected
       package Internal
         "Solve h(T) for T with given h (use only indirectly via temperature_phX)"

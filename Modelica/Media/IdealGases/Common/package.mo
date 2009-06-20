@@ -809,6 +809,14 @@ It has been developed by Hubertus Tummescheit.
     redeclare record extends ThermodynamicState "thermodynamic state variables"
     end ThermodynamicState;
 
+      redeclare function extends setSmoothState
+    "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
+      algorithm
+        state := ThermodynamicState(p=Media.Common.smoothStep(x, state_a.p, state_b.p, x_small),
+                                    T=Media.Common.smoothStep(x, state_a.T, state_b.T, x_small),
+                                    X=Media.Common.smoothStep(x, state_a.X, state_b.X, x_small));
+      end setSmoothState;
+
   redeclare record extends FluidConstants "fluid constants"
   end FluidConstants;
 
