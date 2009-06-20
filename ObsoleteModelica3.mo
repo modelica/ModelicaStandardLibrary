@@ -518,15 +518,10 @@ connectors are set to zero.</p>
               pattern=LinePattern.Dash,
               lineThickness=0.5)}),        Documentation(info="<html>
 <p>
-This partial class is intended to design a <em>default icon
-for an obsolete class</em> that will be removed from the
-PowerTrain library later on.
+This partial block is intended to provide a <u>default icon
+for an obsolete block</u> that will be removed from the 
+corresponding library in a future release.
 <p>
-</html>",
-        revisions="<html>
-<img src=\"../Extras/Images/dlr_logo.png\"  width=60 >
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <b>      Copyright &copy; 1999-2007, DLR Institute of Robotics and Mechatronics</b>
 </html>"));
     equation
 
@@ -543,15 +538,10 @@ PowerTrain library later on.
               pattern=LinePattern.Dash,
               lineThickness=0.5)}),        Documentation(info="<html>
 <p>
-This partial class is intended to design a <em>default icon
-for an obsolete class</em> that will be removed from the
-PowerTrain library later on.
+This partial model is intended to provide a <u>default icon
+for an obsolete model</u> that will be removed from the 
+corresponding library in a future release.
 <p>
-</html>",
-        revisions="<html>
-<img src=\"../Extras/Images/dlr_logo.png\"  width=60 >
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <b>      Copyright &copy; 1999-2007, DLR Institute of Robotics and Mechatronics</b>
 </html>"));
     equation
 
