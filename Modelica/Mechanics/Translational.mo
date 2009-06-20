@@ -3545,7 +3545,7 @@ blocks of Modelica.Blocks.Source.
         "Velocity of flange with respect to support (= der(s))";
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}}, 
+                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}},
                 color={0,0,255})}), Documentation(info="<HTML>
 <p>
 Model of force, linearly dependent on velocity of flange.<br>
@@ -3707,7 +3707,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
               Text(
               extent={{80,-28},{114,-62}},
               lineColor={0,0,0},
@@ -3739,7 +3739,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
               Text(
               extent={{80,-28},{111,-61}},
               lineColor={0,0,0},
@@ -3773,7 +3773,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
               Text(
               extent={{80,-28},{115,-60}},
               lineColor={0,0,0},

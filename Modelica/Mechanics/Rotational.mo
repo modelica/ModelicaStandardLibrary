@@ -2367,8 +2367,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Line(points={{0,90},{80,70},{80,-40},{70,-40}}, color={0,0,127}),
-            Line(points={{0,90},{-80,70},{-80,-40},{-70,-40}}, color={0,0,127}), 
-
+            Line(points={{0,90},{-80,70},{-80,-40},{-70,-40}}, color={0,0,127}),
             Text(
               extent={{-150,-180},{150,-140}},
               textString="%name",
@@ -3583,8 +3582,7 @@ Gearbox.
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={192,192,192}),
             Polygon(
-              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}}, 
-
+              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
               lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={128,128,128}),
@@ -5587,7 +5585,6 @@ and instead the component is internally fixed to ground.
           smooth=Smooth.None));
     end PartialOneFlangeAndSupport;
 
-
     partial model PartialTwoFlangesAndSupport
       "Partial model for a component with two rotational 1-dim. shaft flanges and a support used for graphical modeling, i.e., the model is build up by drag-and-drop from elementary components"
       parameter Boolean useSupport=false
@@ -5664,7 +5661,6 @@ and instead the component is internally fixed to ground.
           color={0,0,0},
           smooth=Smooth.None));
     end PartialTwoFlangesAndSupport;
-
 
     partial model PartialCompliant
       "Partial model for the compliant connection of two rotational 1-dim. shaft flanges"

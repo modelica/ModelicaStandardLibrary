@@ -39,7 +39,7 @@ The following main sublibraries are available:
      E.g., get or set the working directory or environment 
      variables and to send a command to the default shell.</li>
 </ul>
-
+ 
 <p>
 Copyright &copy; 1998-2009, Modelica Association, DLR and Dynasim.
 </p>
@@ -209,102 +209,4 @@ First version implemented.
   end Contact;
 
 end UsersGuide;
-
-// Temporarily removed "protected" since this gives warning in the
-// newest Dymola release
-
-
-protected 
-package Internal "Internal package as interface to the operating system"
- extends Modelica.Icons.Library;
-  annotation (
-Documentation(info="<html>
-<p>
-Package <b>Internal</b> is an internal package that contains 
-low level functions as interface to the operating system.
-These functions should not be called directly in a scripting
-environment since more convenient functions are provided
-in packages Files and Systems.
-</p>
-<p>
-Note, the functions in this package are direct interfaces to
-functions of POSIX and of the standard C library. Errors
-occuring in these functions are treated by triggering
-a Modelica assert. Therefore, the functions in this package
-return only for a successful operation. Furthermore, the
-representation of a string is hidden by this interface,
-especially if the operating system supports Unicode characters.
-</p>
-</html>"));
-
-  function mkdir "Make directory (POSIX: 'mkdir')"
-    extends Modelica.Icons.Function;
-    input String directoryName "Make a new directory";
-  external "C" ModelicaInternal_mkdir(directoryName);
-  annotation(Library="ModelicaExternalC");
-  end mkdir;
-
-  function rmdir "Remove empty directory (POSIX function 'rmdir')"
-    extends Modelica.Icons.Function;
-    input String directoryName "Empty directory to be removed";
-  external "C" ModelicaInternal_rmdir(directoryName);
-  annotation(Library="ModelicaExternalC");
-  end rmdir;
-
-  function stat "Inquire file information (POSIX function 'stat')"
-    extends Modelica.Icons.Function;
-    input String name "Name of file, directory, pipe etc.";
-    output Types.FileType fileType "Type of file";
-  external "C" fileType=  ModelicaInternal_stat(name);
-  annotation(Library="ModelicaExternalC");
-  end stat;
-
-  function rename "Rename existing file or directory (C function 'rename')"
-    extends Modelica.Icons.Function;
-    input String oldName "Current name";
-    input String newName "New name";
-  external "C" ModelicaInternal_rename(oldName, newName);
-  annotation(Library="ModelicaExternalC");
-  end rename;
-
-  function removeFile "Remove existing file (C function 'remove')"
-    extends Modelica.Icons.Function;
-    input String fileName "File to be removed";
-  external "C" ModelicaInternal_removeFile(fileName);
-  annotation(Library="ModelicaExternalC");
-  end removeFile;
-
-  function copyFile
-    "Copy existing file (C functions 'fopen', 'getc', 'putc', 'fclose')"
-    extends Modelica.Icons.Function;
-    input String fromName "Name of file to be copied";
-    input String toName "Name of copy of file";
-  external "C" ModelicaInternal_copyFile(fromName, toName);
-  annotation(Library="ModelicaExternalC");
-  end copyFile;
-
-  function readDirectory
-    "Read names of a directory (POSIX functions opendir, readdir, closedir)"
-    extends Modelica.Icons.Function;
-    input String directory
-      "Name of the directory from which information is desired";
-    input Integer nNames
-      "Number of names that are returned (inquire with getNumberOfFiles)";
-    output String names[nNames]
-      "All file and directory names in any order from the desired directory";
-    external "C" ModelicaInternal_readDirectory(directory,nNames,names);
-  annotation(Library="ModelicaExternalC");
-  end readDirectory;
-
-function getNumberOfFiles
-    "Get number of files and directories in a directory (POSIX functions opendir, readdir, closedir)"
-  extends Modelica.Icons.Function;
-  input String directory "Directory name";
-  output Integer result
-      "Number of files and directories present in 'directory'";
-  external "C" result = ModelicaInternal_getNumberOfFiles(directory);
-  annotation(Library="ModelicaExternalC");
-end getNumberOfFiles;
-
-end Internal;
 end Utilities;

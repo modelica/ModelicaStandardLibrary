@@ -3610,7 +3610,7 @@ and the accompanying <b>disclaimer</b>
        first stable release</li>
   </ul>
 </HTML>"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Ellipse(extent={{-100,30},{20,-90}}, 
+                -100},{100,100}}), graphics={Ellipse(extent={{-100,30},{20,-90}},
                 lineColor={0,0,255}), Ellipse(extent={{-40,30},{80,-90}},
                 lineColor={0,0,255})}));
 
@@ -6879,8 +6879,7 @@ a ground has to be used where necessary for currents flowing back.
                     -20},{-13.33,-17.32},{-6.67,-10},{0,0}}, color={0,0,255}),
               Line(points={{-90,0},{-83.33,10},{-76.67,17.32},{-70,20},{-63.33,
                     17.32},{-56.67,10},{-50,0},{-43.33,-10},{-36.67,-17.32},{-30,
-                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}}, color={0,0,255}), 
-
+                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}}, color={0,0,255}),
               Line(points={{-70,0},{-63.33,10},{-56.67,17.32},{-50,20},{-43.33,
                     17.32},{-36.67,10},{-30,0},{-23.33,-10},{-16.67,-17.32},{-10,
                     -20},{-3.33,-17.32},{3.33,-10},{10,0}}, color={0,0,255}),
@@ -7628,7 +7627,7 @@ Partial model for induction machine models
                 {100,100}}),
                 graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}}, 
+                100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}},
                 color={0,0,255}), Line(points={{50,100},{20,100},{20,70}},
                 color={0,0,255})}));
     equation
@@ -7681,7 +7680,7 @@ Partial model for DC machine models.
                 {100,100}}),
                 graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}}, 
+                100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}},
                 color={0,0,255}), Line(points={{50,100},{20,100},{20,70}},
                 color={0,0,255})}));
       Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap 

@@ -133,7 +133,7 @@ content, closes the file and returns the content as a vector of strings. Lines a
 </html>"));
 
   algorithm
-    for i in 1:size(stringVector, 1) loop
+    for i in  1:size(stringVector, 1) loop
       stringVector[i] := readLine(fileName, i);
     end for;
     Streams.close(fileName);

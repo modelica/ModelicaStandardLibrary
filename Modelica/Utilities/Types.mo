@@ -38,6 +38,6 @@ package Types "Type definitions used in package Modelica.Utilities"
 <p>
 This package contains type definitions used in Modelica.Utilities.
 </p>
-
+ 
 </html>"));
 end Types;

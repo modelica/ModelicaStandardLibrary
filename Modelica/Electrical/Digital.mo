@@ -1990,15 +1990,15 @@ components of the Electrical.Digital library.
     connector DigitalOutput = output DigitalSignal
       "output DigitalSignal as connector" 
       annotation (defaultComponentName="y", Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
-          ={Polygon(
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
+           {Polygon(
             points={{-100,100},{100,0},{-100,-100},{-100,100}},
             lineColor={127,0,127},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid)}),
                                        Diagram(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
-          ={Polygon(
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
+           {Polygon(
             points={{-100,100},{100,0},{-100,-100},{-100,100}},
             lineColor={127,0,127},
             fillColor={255,255,255},
@@ -2232,8 +2232,7 @@ If time less than <i>delayTime</i> the initial value <i>y0</i> holds.
               lineThickness=0.5,
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
-            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}), 
-
+            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
             Line(points={{0,60},{20,60}}, color={0,0,0}),
             Line(points={{10,60},{10,40}}, color={0,0,0}),
             Text(
@@ -2300,8 +2299,7 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
               lineThickness=0.5,
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
-            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}), 
-
+            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
             Line(points={{10,60},{10,40}}, color={0,0,0}),
             Line(points={{0,60},{20,60}}, color={0,0,0}),
             Text(
@@ -2399,8 +2397,7 @@ is used, if it is zero, the input is not delayed.
               lineColor={0,0,0},
               lineThickness=0.5,
               textString="sensitive"),
-            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}), 
-
+            Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
             Line(points={{10,60},{10,40}}, color={0,0,0}),
             Line(points={{0,60},{20,60}}, color={0,0,0})}));
 

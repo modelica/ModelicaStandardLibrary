@@ -45,7 +45,6 @@ package Icons "Library of icons"
         Text(
           extent={{-90,40},{70,10}},
           lineColor={160,160,164},
-
           textString="Library"),
         Polygon(
           points={{-64,-20},{-50,-4},{50,-4},{36,-20},{-64,-20},{-64,-20}},

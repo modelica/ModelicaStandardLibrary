@@ -996,8 +996,7 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}), 
-
+          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}),
           Line(points={{0,35},{0,80}}, color={0,0,255}),
           Line(points={{0,-35},{0,-80}}, color={0,0,255}),
           Line(points={{-90,50},{-60,50}}, color={0,0,255}),
@@ -1019,8 +1018,7 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}), 
-
+          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}),
           Line(points={{0,35},{0,80}}, color={0,0,255}),
           Line(points={{0,-35},{0,-80}}, color={0,0,255}),
           Line(points={{-96,50},{-60,50}}, color={0,0,255}),
@@ -1338,8 +1336,7 @@ where the constant <i>G</i> is called the gyration conductance.
             lineThickness=0.25,
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{-90,50},{-40,50},{-40,-50},{-90,-50}}, color={0,0,255}), 
-
+          Line(points={{-90,50},{-40,50},{-40,-50},{-90,-50}}, color={0,0,255}),
           Line(points={{-30,60},{20,60}}, color={0,0,255}),
           Polygon(
             points={{20,63},{30,60},{20,57},{20,63}},
@@ -1371,8 +1368,7 @@ where the constant <i>G</i> is called the gyration conductance.
             lineColor={255,255,255},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{-96,50},{-40,50},{-40,-50},{-96,-50}}, color={0,0,255}), 
-
+          Line(points={{-96,50},{-40,50},{-40,-50},{-96,-50}}, color={0,0,255}),
           Line(points={{-30,60},{20,60}}, color={0,0,255}),
           Polygon(
             points={{20,63},{30,60},{20,57},{20,63}},

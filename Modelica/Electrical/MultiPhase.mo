@@ -2294,8 +2294,7 @@ This package contains time-dependend and controlled multiphase voltage and curre
               lineColor={0,0,255}),
             Text(
               extent={{-100,100},{-20,60}},
-              lineColor={0,0,0},,
-              textString="m="),
+              lineColor={0,0,0}),
             Text(
               extent={{20,100},{100,60}},
               lineColor={0,0,0},

@@ -658,8 +658,7 @@ equation
   v =Lm*der(i);
 
   annotation (Icon(
-      coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
-
+      coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
         graphics={
           Ellipse(extent={{-36,24},{-18,42}}),
           Ellipse(extent={{18,24},{36,42}}),
@@ -1278,8 +1277,7 @@ The left port voltage is zero. Any transResistance can be chosen.
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-90,50},{-20,50},{-20,-50},{-90,-50}}, color={0,0,255}), 
-
+          Line(points={{-90,50},{-20,50},{-20,-50},{-90,-50}}, color={0,0,255}),
           Text(
             extent={{-140,-82},{160,-122}},
             textString="%name",
@@ -1337,8 +1335,7 @@ The left port voltage is zero. Any current gain can be chosen.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-100,50},{-30,50},{-30,-50},{-100,-50}}, color={0,0,255}), 
-
+          Line(points={{-100,50},{-30,50},{-30,-50},{-100,-50}}, color={0,0,255}),
           Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
           Line(points={{-20,60},{20,60}}, color={0,0,255}),
           Polygon(

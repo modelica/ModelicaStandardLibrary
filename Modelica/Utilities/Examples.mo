@@ -1,6 +1,7 @@
 within Modelica.Utilities;
 package Examples
   "Examples to demonstrate the usage of package Modelica.Utilities"
+
   annotation (Documentation(info="<html>
 <p>
 This package contains quite involved examples that demonstrate how to

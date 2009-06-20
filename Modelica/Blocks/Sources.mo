@@ -123,10 +123,10 @@ Variable <b>y</b> is both a variable and a connector.
             lineColor={0,0,255}),
           Polygon(
             points={{100,10},{120,0},{100,-10},{100,10}},
-            lineColor=DynamicSelect({255,0,255}, if y > 0.5 then {0,255,0}
-                 else {255,0,255}),
-            fillColor=DynamicSelect({255,255,255}, if y > 0.5 then {0,255,0}
-                 else {255,255,255}),
+            lineColor=DynamicSelect({255,0,255}, if y > 0.5 then {0,255,0} else 
+                      {255,0,255}),
+            fillColor=DynamicSelect({255,255,255}, if y > 0.5 then {0,255,0} else 
+                      {255,255,255}),
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -2064,7 +2064,7 @@ a flange according to a given acceleration.
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-48,-50},{-48,70},{52,70},{52,-50},{-48,-50},{-48,-20},
-                {52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-51}}, 
+                {52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-51}},
               color={0,0,0}),
           Text(
             extent={{-150,-150},{150,-110}},
@@ -2092,7 +2092,7 @@ a flange according to a given acceleration.
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-20,-30},{-20,90},{80,90},{80,-30},{-20,-30},{-20,0},{
-                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{30,90},{30,-31}}, 
+                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{30,90},{30,-31}},
               color={0,0,0}),
           Text(
             extent={{-70,-42},{-32,-54}},
@@ -2477,7 +2477,7 @@ Several matrices may be defined one after another.
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Line(points={{-48,-50},{-48,70},{52,70},{52,-50},{-48,-50},{-48,-20},
-                {52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-51}}, 
+                {52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-51}},
               color={0,0,0})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
@@ -2499,7 +2499,7 @@ Several matrices may be defined one after another.
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-20,-30},{-20,90},{80,90},{80,-30},{-20,-30},{-20,0},{
-                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{20,90},{20,-30}}, 
+                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{20,90},{20,-30}},
               color={0,0,0}),
           Text(
             extent={{-71,-42},{-32,-54}},
@@ -2915,7 +2915,7 @@ at sample times (defined by parameter <b>period</b>) and is otherwise
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-34,-54},{-34,66},{16,66},{16,-54},{-34,-54},{-34,-24},
-                {16,-24},{16,6},{-34,6},{-34,36},{16,36},{16,66},{16,66},{16,-55}}, 
+                {16,-24},{16,6},{-34,6},{-34,36},{16,36},{16,66},{16,66},{16,-55}},
               color={0,0,0}),
           Text(
             extent={{-29,59},{10,44}},

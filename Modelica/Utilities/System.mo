@@ -72,6 +72,7 @@ function exit "Terminate execution of Modelica environment"
   input Integer status=0
       "Result to be returned by environment (0 means success)";
   external "C" ModelicaInternal_exit(status);
+
   annotation(Library="ModelicaExternalC");
 end exit;
 end System;

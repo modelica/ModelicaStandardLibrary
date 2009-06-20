@@ -42,7 +42,8 @@ function list "List content of file or directory"
      nDirectories := 0;
      nFiles := 0;
      for i in 1:nEntries loop
-        if Internal.stat(directory2 + names[i]) == Types.FileType.Directory then
+        if Modelica.Utilities.Internal.FileSystem.stat(
+                         directory2 + names[i]) == Types.FileType.Directory then
            nDirectories := nDirectories + 1;
            orderedNames[nDirectories] := names[i];
         else
@@ -70,7 +71,8 @@ function list "List content of file or directory"
   algorithm
      if nEntries > 0 then
         Streams.print("\nDirectory \"" + directoryName + "\":");
-        files :=  Internal.readDirectory(directoryName, nEntries);
+        files :=  Modelica.Utilities.Internal.FileSystem.readDirectory(
+                                         directoryName, nEntries);
         (files, nDirectories) := sortDirectory(directoryName, files);
 
         // List directories
@@ -94,11 +96,13 @@ function list "List content of file or directory"
      end if;
   end listDirectory;
 algorithm
-  fileType := Internal.stat(name);
+  fileType := Modelica.Utilities.Internal.FileSystem.stat(
+                            name);
   if fileType == Types.FileType.RegularFile then
      listFile(name);
   elseif fileType == Types.FileType.Directory then
-     listDirectory(name, Internal.getNumberOfFiles(name));
+     listDirectory(name, Modelica.Utilities.Internal.FileSystem.getNumberOfFiles(
+                                                   name));
   elseif fileType == Types.FileType.SpecialFile then
      Streams.error("Cannot list file \"" + name + "\"\n" +
                    "since it is not a regular file (pipe, device, ...)");
@@ -106,6 +110,7 @@ algorithm
      Streams.error("Cannot list file or directory \"" + name + "\"\n" +
                    "since it does not exist");
   end if;
+
   annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -202,12 +207,14 @@ function copy "Generate a copy of a file or of a directory"
         "New diretory name without trailing '/'; directory was already created";
      input Boolean replace "= true, if an existing newName may be replaced";
     protected
-     Integer nNames = Internal.getNumberOfFiles(oldName);
+     Integer nNames = Modelica.Utilities.Internal.FileSystem.getNumberOfFiles(
+                                                oldName);
      String oldNames[nNames];
      String oldName_i;
      String newName_i;
   algorithm
-     oldNames :=Internal.readDirectory(oldName, nNames);
+     oldNames :=Modelica.Utilities.Internal.FileSystem.readDirectory(
+                                       oldName, nNames);
      for i in 1:nNames loop
         oldName_i := oldName + "/" + oldNames[i];
         newName_i := newName + "/" + oldNames[i];
@@ -222,14 +229,16 @@ function copy "Generate a copy of a file or of a directory"
                        Strings.substring(oldName,1,lenOldName-1) else oldName;
   String newName2 = if Strings.substring(newName,lenNewName,lenNewName) == "/" then 
                        Strings.substring(newName,1,lenNewName-1) else newName;
-  Types.FileType oldFileType = Internal.stat(oldName2);
+  Types.FileType oldFileType = Modelica.Utilities.Internal.FileSystem.stat(
+                                             oldName2);
   Types.FileType newFileType;
 algorithm
   if oldFileType == Types.FileType.NoFile then
      Streams.error("It is not possible to copy the file or directory\n" +
                    "\"" + oldName2 + "\" because it does not exist.");
   elseif oldFileType == Types.FileType.Directory then
-     newFileType :=Internal.stat(newName2);
+     newFileType :=Modelica.Utilities.Internal.FileSystem.stat(
+                                 newName2);
      if newFileType == Types.FileType.NoFile then
         createDirectory(newName2);
      elseif newFileType == Types.FileType.RegularFile or 
@@ -252,8 +261,10 @@ algorithm
                                   "\"" + newName2 + "\" which is an existing file or directory.\n" +
                                   "Since argument replace=false, this is not allowed");
      end if;
-     Internal.copyFile(oldName2, newName2);
+     Modelica.Utilities.Internal.FileSystem.copyFile(
+                       oldName2, newName2);
   end if;
+
   annotation (Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -299,11 +310,13 @@ algorithm
   // if both oldName and newName are in the current directory
   // use Internal.renameFile
   if Strings.find(oldName,"/") == 0 and Strings.find(newName,"/") == 0 then
-     Internal.rename(oldName, newName);
+     Modelica.Utilities.Internal.FileSystem.rename(
+                     oldName, newName);
   else
      Files.copy(oldName, newName, replace);
      Files.remove(oldName);
   end if;
+
   annotation (Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -348,29 +361,35 @@ function remove "Remove file or directory (ignore call, if it does not exist)"
   function removeDirectory "Remove a directory, even if it is not empty"
      input String name;
     protected
-     Integer nNames = Internal.getNumberOfFiles(name);
+     Integer nNames = Modelica.Utilities.Internal.FileSystem.getNumberOfFiles(
+                                                name);
      Integer lenName = Strings.length(name);
      String fileNames[nNames];
      // remove an optional trailing "/"
      String name2 = if Strings.substring(name,lenName,lenName) == "/" then 
                        Strings.substring(name,lenName-1,lenName-1) else name;
   algorithm
-     fileNames :=Internal.readDirectory(name2, nNames);
+     fileNames :=Modelica.Utilities.Internal.FileSystem.readDirectory(
+                                        name2, nNames);
      for i in 1:nNames loop
         Files.remove(name2 + "/" + fileNames[i]);
      end for;
-     Internal.rmdir(name2);
+     Modelica.Utilities.Internal.FileSystem.rmdir(
+                    name2);
   end removeDirectory;
 //..............................................................
   String fullName = Files.fullPathName(name);
-  Types.FileType fileType=Internal.stat(fullName);
+  Types.FileType fileType=Modelica.Utilities.Internal.FileSystem.stat(
+                                        fullName);
 algorithm
   if fileType == Types.FileType.RegularFile or 
      fileType == Types.FileType.SpecialFile then
-     Internal.removeFile(fullName);
+     Modelica.Utilities.Internal.FileSystem.removeFile(
+                         fullName);
   elseif fileType == Types.FileType.Directory then
      removeDirectory(fullName);
   end if;
+
   annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -393,10 +412,12 @@ function removeFile "Remove file (ignore call, if it does not exist)"
   extends Modelica.Icons.Function;
   input String fileName "Name of file that should be removed";
   protected
-  Types.FileType fileType = Internal.stat(fileName);
+  Types.FileType fileType = Modelica.Utilities.Internal.FileSystem.stat(
+                                          fileName);
 algorithm
   if fileType == Types.FileType.RegularFile then
-     Internal.removeFile(fileName);
+     Modelica.Utilities.Internal.FileSystem.removeFile(
+                         fileName);
   elseif fileType == Types.FileType.Directory then
      Streams.error("File \"" + fileName + "\" should be removed.\n" +
                    "This is not possible, because it is a directory");
@@ -404,6 +425,7 @@ algorithm
      Streams.error("File \"" + fileName + "\" should be removed.\n" +
                    "This is not possible, because it is a special file (pipe, device, etc.)");
   end if;
+
   annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -434,7 +456,8 @@ function createDirectory
      input String directoryName;
      output Boolean exists "true if directory exists";
     protected
-     Types.FileType fileType = Internal.stat(directoryName);
+     Types.FileType fileType = Modelica.Utilities.Internal.FileSystem.stat(
+                                             directoryName);
   algorithm
      if fileType == Types.FileType.RegularFile or 
         fileType == Types.FileType.SpecialFile then
@@ -502,7 +525,8 @@ algorithm
      // Create directories
         finished := false;
         while not finished loop
-           Internal.mkdir(Strings.substring(fullName,1,index));
+           Modelica.Utilities.Internal.FileSystem.mkdir(
+                          Strings.substring(fullName,1,index));
            if index >= lastIndex then
               finished := true;
            elseif index < lastIndex then
@@ -513,6 +537,7 @@ algorithm
            end if;
         end while;
   end if;
+
   annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -541,7 +566,9 @@ function exist "Inquire whether file or directory exists"
   input String name "Name of file or directory";
   output Boolean result "= true, if file or directory exists";
 algorithm
-  result := Internal.stat(name) > Types.FileType.NoFile;
+  result := Modelica.Utilities.Internal.FileSystem.stat(
+                          name) > Types.FileType.NoFile;
+
   annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -561,7 +588,8 @@ function assertNew "Trigger an assert, if a file or directory exists"
   input String message="This is not allowed."
       "Message that should be printed after the default message in a new line";
   protected
-  Types.FileType fileType = Internal.stat(name);
+  Types.FileType fileType = Modelica.Utilities.Internal.FileSystem.stat(
+                                          name);
 algorithm
   if fileType == Types.FileType.RegularFile then
      Streams.error("File \"" + name + "\" already exists.\n" + message);
@@ -570,6 +598,7 @@ algorithm
   elseif fileType == Types.FileType.SpecialFile then
      Streams.error("A special file (pipe, device, etc.) \"" + name + "\" already exists.\n" + message);
   end if;
+
   annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -594,6 +623,7 @@ function fullPathName "Get full path name of file or directory name"
   input String name "Absolute or relative file or directory name";
   output String fullName "Full path of 'name'";
 external "C" fullName = ModelicaInternal_fullPathName(name);
+
   annotation (Library="ModelicaExternalC",Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -613,6 +643,7 @@ function splitPathName
   output String directory "Name of the directory including a trailing '/'";
   output String name "Name of the file without the extension";
   output String extension "Extension of the file name. Starts with '.'";
+
   annotation (Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -682,6 +713,7 @@ function temporaryFileName
   extends Modelica.Icons.Function;
   output String fileName "Full path name of temporary file";
   external "C" fileName=ModelicaInternal_temporaryFileName(0);
+
   annotation (Library="ModelicaExternalC",Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
