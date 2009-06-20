@@ -2096,7 +2096,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
               smooth=Smooth.None,
               fillColor={175,175,175})}));
       extends
-        Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport;
+        Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
       parameter Real f_pos[:, 2]=[0, 1]
         "[v, f] Positive sliding friction characteristic (v>=0)";
       parameter Real peak(final min=1) = 1
@@ -2113,7 +2113,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       f0_max = peak*f0;
       free = false;
 
-      s = s_a - internalSupport.s;
+      s = s_a - s_support;
       s_a = s_b;
 
     // velocity and acceleration of flanges
@@ -2272,7 +2272,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics));
       extends
-        Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport;
+        Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
       parameter Real mue_pos[:, 2]=[0, 0.5]
         "[v, f] Positive sliding friction characteristic (v>=0)";
       parameter Real peak(final min=1) = 1
@@ -3033,8 +3033,8 @@ This package contains ideal sources to drive 1D mechanical translational drive t
     model Position
       "Forced movement of a flange according to a reference position"
       extends
-        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport(
-          s(stateSelect=if exact then StateSelect.default else StateSelect.prefer));
+        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2
+        ( s(stateSelect=if exact then StateSelect.default else StateSelect.prefer));
       parameter Boolean exact=false
         "true/false exact treatment/filtering the input signal";
       parameter SI.Frequency f_crit=50
@@ -3142,8 +3142,8 @@ blocks of the block library Modelica.Blocks.Sources.
 
     model Speed "Forced movement of a flange according to a reference speed"
       extends
-        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport(
-                s(start=0, fixed=true, stateSelect=StateSelect.prefer));
+        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2
+        (       s(start=0, fixed=true, stateSelect=StateSelect.prefer));
       parameter Boolean exact=false
         "true/false exact treatment/filtering the input signal";
       parameter SI.Frequency f_crit=50
@@ -3249,8 +3249,8 @@ blocks of the block library Modelica.Blocks.Sources.
     model Accelerate
       "Forced movement of a flange according to an acceleration signal"
        extends
-        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport(
-                                                      s(start=0, fixed=true, stateSelect=StateSelect.prefer));
+        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2
+        (s(start=0, fixed=true, stateSelect=StateSelect.prefer));
       SI.Velocity v(start=0, fixed=true, stateSelect=StateSelect.prefer)
         "Absolute velocity of flange_b";
       SI.Acceleration a "Absolute acceleration of flange_b";
@@ -3316,7 +3316,7 @@ blocks of the block library Modelica.Blocks.Source.
     model Move
       "Forced movement of a flange according to a position, velocity and acceleration signal"
        extends
-        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport;
+        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2;
       Modelica.Blocks.Interfaces.RealInput u[3]
         "position, velocity and acceleration of flange as input signals" 
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
@@ -3423,7 +3423,7 @@ blocks of the block library Modelica.Blocks.Sources.
     model Force
       "External force acting on a drive train element as input signal"
       extends
-        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport;
+        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2;
       Modelica.Blocks.Interfaces.RealInput f "driving force as input signal" 
                                         annotation (Placement(transformation(
               extent={{-140,-20},{-100,20}}, rotation=0)));
@@ -3545,7 +3545,7 @@ blocks of Modelica.Blocks.Source.
         "Velocity of flange with respect to support (= der(s))";
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}},
+                -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}}, 
                 color={0,0,255})}), Documentation(info="<HTML>
 <p>
 Model of force, linearly dependent on velocity of flange.<br>
@@ -3707,7 +3707,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
               Text(
               extent={{80,-28},{114,-62}},
               lineColor={0,0,0},
@@ -3739,7 +3739,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
               Text(
               extent={{80,-28},{111,-61}},
               lineColor={0,0,0},
@@ -3773,7 +3773,7 @@ Modelica.Blocks library).
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}), 
               Text(
               extent={{80,-28},{115,-60}},
               lineColor={0,0,0},
@@ -4500,7 +4500,9 @@ and c have more meaningful values for the user.
     end PartialCompliantWithRelativeStates;
 
     partial model PartialElementaryOneFlangeAndSupport
-      "Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models"
+      "Obsolete partial model. Use PartialElementaryOneFlangeAndSupport2."
+      extends Modelica.Icons.ObsoleteModel;
+
       parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded" 
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
@@ -4579,8 +4581,73 @@ and instead the component is internally fixed to ground.
           smooth=Smooth.None));
     end PartialElementaryOneFlangeAndSupport;
 
-    partial model PartialElementaryTwoFlangesAndSupport
+    partial model PartialElementaryOneFlangeAndSupport2
       "Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models"
+      parameter Boolean useSupport=false
+        "= true, if support flange enabled, otherwise implicitly grounded" 
+          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      Modelica.SIunits.Length s = flange.s - s_support
+        "distance between flange and support (= flange.s - support.s)";
+      Flange_b flange "Flange of component" 
+        annotation (Placement(transformation(extent={{90,-10},{110,10}},
+              rotation=0)));
+      Support support(s=s_support, f=-flange.f) if useSupport
+        "Support/housing of component" 
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+    protected
+      Modelica.SIunits.Length s_support "Absolute position of support flange";
+    equation
+      if not useSupport then
+         s_support = 0;
+      end if;
+
+      annotation (
+        Documentation(info="<html>
+<p>
+This is a 1-dim. translational component with one flange and a support/housing.
+It is used to build up elementary components of a drive train with
+equations in the text layer.
+</p>
+ 
+<p>
+If <i>useSupport=true</i>, the support connector is conditionally enabled
+and needs to be connected.<br>
+If <i>useSupport=false</i>, the support connector is conditionally disabled
+and instead the component is internally fixed to ground.
+</p>
+ 
+</HTML>
+"),     Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics),
+        Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
+                100,100}}), graphics={
+            Line(
+              visible=not useSupport,
+              points={{-50,-120},{-30,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-30,-120},{-10,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-10,-120},{10,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{10,-120},{30,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-30,-100},{30,-100}},
+              color={0,0,0})}));
+    end PartialElementaryOneFlangeAndSupport2;
+
+    partial model PartialElementaryTwoFlangesAndSupport
+      "Obsolete partial model. Use PartialElementaryTwoFlangesAndSupport2."
+      extends Modelica.Icons.ObsoleteModel;
       parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded" 
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
@@ -4588,9 +4655,9 @@ and instead the component is internally fixed to ground.
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
       Flange_b flange_b "Flange of right shaft" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      SI.Distance s_a = flange_a.s - internalSupport.s
+      Modelica.SIunits.Length s_a = flange_a.s - internalSupport.s
         "Distance between left flange and support";
-      SI.Distance s_b = flange_b.s - internalSupport.s
+      Modelica.SIunits.Length s_b = flange_b.s - internalSupport.s
         "Distance between right flange and support";
       annotation (Documentation(info="<html>
 <p>
@@ -4656,6 +4723,74 @@ connector is not connected).
           smooth=Smooth.None));
     end PartialElementaryTwoFlangesAndSupport;
 
+    partial model PartialElementaryTwoFlangesAndSupport2
+      "Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models"
+      parameter Boolean useSupport=false
+        "= true, if support flange enabled, otherwise implicitly grounded" 
+          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      Flange_a flange_a "Flange of left shaft" 
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+      Flange_b flange_b "Flange of right shaft" 
+        annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
+      Support support(s=s_support, f = -flange_a.f - flange_b.f) if useSupport
+        "Support/housing of component" 
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+      Modelica.SIunits.Length s_a = flange_a.s - s_support
+        "Distance between left flange and support";
+      Modelica.SIunits.Length s_b = flange_b.s - s_support
+        "Distance between right flange and support";
+    protected
+      Modelica.SIunits.Length s_support "Absolute position of support flange";
+    equation
+      if not useSupport then
+         s_support = 0;
+      end if;
+
+      annotation (Documentation(info="<html>
+<p>
+This is a 1-dim. translational component with two flanges and an additional support.
+It is used e.g. to build up elementary ideal gear components. The component
+contains the force balance, i.e., the sum of the forces of the connectors
+is zero (therefore, components that are based on PartialGear cannot have
+a mass). The support connector needs to be connected
+to avoid the unphysical behavior that the
+support force is required to be zero (= the default value, if the
+connector is not connected).
+</p>
+ 
+</HTML>
+"),     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
+                {100,100}}), graphics={Text(
+              extent={{-38,-98},{-6,-96}},
+              lineColor={95,95,95},
+              textString="(if useSupport)"), Text(
+              extent={{24,-97},{64,-98}},
+              lineColor={95,95,95},
+              textString="(if not useSupport)")}),
+        Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
+                100,100}}), graphics={
+            Line(
+              visible=not useSupport,
+              points={{-50,-120},{-30,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-30,-120},{-10,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-10,-120},{10,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{10,-120},{30,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-30,-100},{30,-100}},
+              color={0,0,0})}));
+    end PartialElementaryTwoFlangesAndSupport2;
+
     partial model PartialElementaryRotationalToTranslational
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational;
@@ -4663,7 +4798,7 @@ connector is not connected).
 
   partial model PartialForce
       "Partial model of a force acting at the flange (accelerates the flange)"
-    extends PartialElementaryOneFlangeAndSupport;
+    extends PartialElementaryOneFlangeAndSupport2;
     Modelica.SIunits.Force f = flange.f
         "Accelerating force acting at flange (= flange.f)";
     annotation (

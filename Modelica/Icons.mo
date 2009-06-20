@@ -749,4 +749,24 @@ This icon is designed for a <b>sub-bus</b> in a signal connector.
 </html>"));
 
   end SignalSubBus;
+
+  partial model ObsoleteModel
+    "Icon for an obsolete model (use only for this case)"
+
+    annotation (__Dymola_obsolete="Only used to mark an obsolete model. Do not use otherwise.",
+            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+              {100,100}}), graphics={Rectangle(
+            extent={{-102,102},{102,-102}},
+            lineColor={255,0,0},
+            pattern=LinePattern.Dash,
+            lineThickness=0.5)}),        Documentation(info="<html>
+<p>
+This partial model is intended to provide a <u>default icon
+for an obsolete model</u> that will be removed from the 
+corresponding library in a future release.
+<p>
+</html>"));
+  equation
+
+  end ObsoleteModel;
 end Icons;
