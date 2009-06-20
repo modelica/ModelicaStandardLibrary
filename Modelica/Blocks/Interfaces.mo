@@ -1010,16 +1010,16 @@ in the Blocks.Logical library.
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Ellipse(
             extent={{-71,7},{-85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0} else 
-                      {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0} else 
-                      {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0}
+                 else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0}
+                 else {235,235,235}),
             fillPattern=FillPattern.Solid), Ellipse(
             extent={{71,7},{85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
-                      {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
-                      {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
+                 else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
+                 else {235,235,235}),
             fillPattern=FillPattern.Solid)}),
                               Documentation(info="<html>
 <p>
@@ -1051,24 +1051,24 @@ with a 3D icon (e.g. used in Blocks.Logical library).
           grid={1,1}), graphics={
           Ellipse(
             extent={{-71,7},{-85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if u1 > 0.5 then {0,255,0} else 
-                      {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if u1 > 0.5 then {0,255,0} else 
-                      {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if u1 > 0.5 then {0,255,0}
+                 else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if u1 > 0.5 then {0,255,0}
+                 else {235,235,235}),
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-71,-74},{-85,-88}},
-            lineColor=DynamicSelect({235,235,235}, if u2 > 0.5 then {0,255,0} else 
-                      {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if u2 > 0.5 then {0,255,0} else 
-                      {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if u2 > 0.5 then {0,255,0}
+                 else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if u2 > 0.5 then {0,255,0}
+                 else {235,235,235}),
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{71,7},{85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
-                      {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
-                      {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
+                 else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
+                 else {235,235,235}),
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 <p>
@@ -1104,31 +1104,31 @@ with a 3D icon (e.g. used in Blocks.Logical library).
           grid={1,1}), graphics={
           Ellipse(
             extent={{-71,74},{-85,88}},
-            lineColor=DynamicSelect({235,235,235}, if u1 > 0.5 then {0,255,0} else 
-                      {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if u1 > 0.5 then {0,255,0} else 
-                      {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if u1 > 0.5 then {0,255,0}
+                 else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if u1 > 0.5 then {0,255,0}
+                 else {235,235,235}),
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-71,7},{-85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if u2 > 0.5 then {0,255,0} else 
-                      {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if u2 > 0.5 then {0,255,0} else 
-                      {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if u2 > 0.5 then {0,255,0}
+                 else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if u2 > 0.5 then {0,255,0}
+                 else {235,235,235}),
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{-71,-74},{-85,-88}},
-            lineColor=DynamicSelect({235,235,235}, if u3 > 0.5 then {0,255,0} else 
-                      {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if u3 > 0.5 then {0,255,0} else 
-                      {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if u3 > 0.5 then {0,255,0}
+                 else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if u3 > 0.5 then {0,255,0}
+                 else {235,235,235}),
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{71,7},{85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
-                      {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
-                      {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
+                 else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
+                 else {235,235,235}),
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 Block has three continuous Boolean input and one continuous Boolean output signal
@@ -1148,10 +1148,10 @@ with a 3D icon (e.g. used in Blocks.Logical library).
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Ellipse(
             extent={{-71,7},{-85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0} else 
-                      {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0} else 
-                      {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0}
+                 else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0}
+                 else {235,235,235}),
             fillPattern=FillPattern.Solid)}),
                               Documentation(info="<html>
 <p>
@@ -1172,10 +1172,10 @@ with a 3D icon (e.g. used in Blocks.Logical library).
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Ellipse(
             extent={{71,7},{85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
-                      {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
-                      {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
+                 else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
+                 else {235,235,235}),
             fillPattern=FillPattern.Solid)}),
                               Documentation(info="<html>
 <p>
@@ -1210,10 +1210,10 @@ with a 3D icon (e.g. used in Blocks.Logical library).
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{71,7},{85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
-                      {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
-                      {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
+                 else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
+                 else {235,235,235}),
             fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
@@ -1232,14 +1232,10 @@ with a 3D icon (e.g. used in Blocks.Logical library).
           Text(
             extent={{54,-80},{106,-92}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="time"),
           Text(
             extent={{-64,92},{-46,74}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="y")}),
       Documentation(info="<html>
 <p>
@@ -1277,10 +1273,10 @@ and a 3D icon (e.g. used in Blocks.Logical library).
             textString="%threshold"),
           Ellipse(
             extent={{71,7},{85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
-                      {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
-                      {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
+                 else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
+                 else {235,235,235}),
             fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}),
@@ -1317,10 +1313,10 @@ as well as a 3D icon (e.g. used in Blocks.Logical library).
             borderPattern=BorderPattern.Raised),
           Ellipse(
             extent={{73,7},{87,-7}},
-            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
-                      {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
-                      {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
+                 else {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
+                 else {235,235,235}),
             fillPattern=FillPattern.Solid),
           Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,255}),
           Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,255})}),
@@ -1361,8 +1357,6 @@ package Adaptors
             Text(
               extent={{-100,30},{100,-30}},
               lineColor={0,0,255},
-              fillColor={191,0,0},
-              fillPattern=FillPattern.Solid,
               textString="send")}),        Documentation(info="<html>
 <p>
 Obsolete block that was previously used to connect a Real signal
@@ -1400,8 +1394,6 @@ for signal buses, see example
             Text(
               extent={{-100,30},{100,-30}},
               lineColor={255,0,255},
-              fillColor={191,0,0},
-              fillPattern=FillPattern.Solid,
               textString="send")}),        Documentation(info="<html>
 <p>
 Obsolete block that was previously used to connect a Boolean signal
@@ -1439,8 +1431,6 @@ for signal buses, see example
             Text(
               extent={{-100,30},{100,-30}},
               lineColor={255,127,0},
-              fillColor={191,0,0},
-              fillPattern=FillPattern.Solid,
               textString="send")}),        Documentation(info="<html>
 <p>
 Obsolete block that was previously used to connect an Integer signal
@@ -1473,8 +1463,6 @@ for signal buses, see example
             Text(
               extent={{-100,30},{100,-30}},
               lineColor={0,0,255},
-              fillColor={191,0,0},
-              fillPattern=FillPattern.Solid,
               textString="receive"),
             Text(
               extent={{-144,96},{144,46}},
@@ -1512,8 +1500,6 @@ for signal buses, see example
             Text(
               extent={{-100,30},{100,-30}},
               lineColor={255,0,255},
-              fillColor={191,0,0},
-              fillPattern=FillPattern.Solid,
               textString="receive"),
             Text(
               extent={{-144,96},{144,46}},
@@ -1551,8 +1537,6 @@ for signal buses, see example
             Text(
               extent={{-100,30},{100,-30}},
               lineColor={255,127,0},
-              fillColor={191,0,0},
-              fillPattern=FillPattern.Solid,
               textString="receive"),
             Text(
               extent={{-144,96},{144,46}},

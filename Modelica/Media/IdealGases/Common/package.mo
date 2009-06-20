@@ -818,8 +818,8 @@ It has been developed by Hubertus Tummescheit.
 
   constant Boolean excludeEnthalpyOfFormation=true
     "If true, enthalpy of formation Hf is not included in specific enthalpy h";
-  constant Choices.ReferenceEnthalpy referenceChoice=Choices.
-      ReferenceEnthalpy.ZeroAt0K "Choice of reference enthalpy";
+  constant ReferenceEnthalpy referenceChoice=ReferenceEnthalpy.ZeroAt0K
+    "Choice of reference enthalpy";
   constant SpecificEnthalpy h_offset=0.0
     "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
 

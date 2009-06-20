@@ -892,14 +892,10 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
           Text(
             extent={{-44,50},{-44,40}},
             lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid,
             textString="rising"),
           Text(
             extent={{24,-10},{24,-20}},
             lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid,
             textString="falling"),
           Polygon(
             points={{-60,40},{-56,42},{-56,38},{-60,40}},
@@ -949,8 +945,6 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
           Text(
             extent={{-20,6},{-20,-4}},
             lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid,
             textString="amplitude"),
           Rectangle(
             extent={{-40,-48},{0,-58}},
@@ -960,8 +954,6 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
           Text(
             extent={{-20,-48},{-20,-58}},
             lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid,
             textString="offset"),
           Text(
             extent={{60,-82},{94,-92}},
@@ -1120,8 +1112,6 @@ input becomes false.
           Text(
             extent={{-166,15},{194,-15}},
             lineColor={0,0,0},
-            fillColor={0,255,0},
-            fillPattern=FillPattern.Solid,
             textString="%condition"),
           Rectangle(
             extent={{-194,14},{-168,-14}},
@@ -1132,8 +1122,6 @@ input becomes false.
           Text(
             extent={{-200,46},{200,22}},
             lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
             textString="%name")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,

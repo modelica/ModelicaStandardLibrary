@@ -1043,8 +1043,6 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
           Text(
             extent={{-40,110},{-30,90}},
             lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
             textString="i"),
           Line(points={{9,75},{19,75}}, color={192,192,192}),
           Line(points={{-20,-110},{-20,-85}}, color={160,160,164}),
@@ -1461,8 +1459,6 @@ value of Slope is taken into calculation.)
           Text(
             extent={{-112,-93},{-91,-73}},
             lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
             textString="in_p.i=0"),
           Polygon(
             points={{120,3},{110,0},{120,-3},{120,3}},
@@ -1473,14 +1469,10 @@ value of Slope is taken into calculation.)
           Text(
             extent={{118,2},{135,17}},
             lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={160,160,164},
             textString="i2"),
           Text(
             extent={{-111,60},{-85,80}},
             lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
             textString="in_n.i=0"),
           Line(
             points={{-100,-35},{-100,23},{-100,24}},
@@ -1489,8 +1481,6 @@ value of Slope is taken into calculation.)
           Text(
             extent={{-97,-16},{-74,4}},
             lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
             textString="vin")}));
   equation
     in_p.i = 0;
@@ -1947,8 +1937,6 @@ Now one of these models, the model amp(macro) was transfered into Modelica.
           Text(
             extent={{114,2},{131,17}},
             lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={160,160,164},
             textString="i2"),
           Line(
             points={{-100,-35},{-100,23},{-100,24}},
@@ -1957,8 +1945,6 @@ Now one of these models, the model amp(macro) was transfered into Modelica.
           Text(
             extent={{-97,-16},{-74,4}},
             lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
             textString="vin")}),
       uses(Modelica(version="3.0.1")));
 

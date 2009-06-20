@@ -3137,8 +3137,6 @@ transport.
               Text(
                 extent={{-54,32},{16,-30}},
                 lineColor={255,0,0},
-                fillColor={255,0,0},
-                fillPattern=FillPattern.Solid,
                 textString="m"),
               Text(
                 extent={{-142,142},{156,88}},
@@ -3298,8 +3296,6 @@ with exception of ambient pressure, do not have an effect.
               Text(
                 extent={{-150,140},{150,80}},
                 lineColor={0,0,0},
-                fillPattern=FillPattern.HorizontalCylinder,
-                fillColor={0,127,255},
                 textString="%name"),
               Text(
                 extent={{-136,-62},{122,-108}},

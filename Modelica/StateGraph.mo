@@ -1346,50 +1346,34 @@ buttons:
               Text(
                 extent={{-100,68},{-32,54}},
                 lineColor={0,0,0},
-                fillColor={0,0,0},
-                fillPattern=FillPattern.Solid,
                 textString="start"),
               Text(
                 extent={{-100,6},{-32,-8}},
                 lineColor={0,0,0},
-                fillColor={0,0,0},
-                fillPattern=FillPattern.Solid,
                 textString="stop"),
               Text(
                 extent={{-100,-54},{-32,-68}},
                 lineColor={0,0,0},
-                fillColor={0,0,0},
-                fillPattern=FillPattern.Solid,
                 textString="shut"),
               Text(
                 extent={{-94,-82},{-18,-96}},
                 lineColor={0,0,0},
-                fillColor={0,0,0},
-                fillPattern=FillPattern.Solid,
                 textString="level1"),
               Text(
                 extent={{24,-84},{96,-98}},
-                lineColor={0,0,0},
-                fillColor={0,0,0},
-                fillPattern=FillPattern.Solid,
+                lineColor={0,0,0},d,
                 textString="level2"),
               Text(
                 extent={{31,68},{99,54}},
                 lineColor={0,0,0},
-                fillColor={0,0,0},
-                fillPattern=FillPattern.Solid,
                 textString="valve1"),
               Text(
                 extent={{33,9},{101,-5}},
                 lineColor={0,0,0},
-                fillColor={0,0,0},
-                fillPattern=FillPattern.Solid,
                 textString="valve2"),
               Text(
                 extent={{34,-53},{102,-67}},
                 lineColor={0,0,0},
-                fillColor={0,0,0},
-                fillPattern=FillPattern.Solid,
                 textString="valve3")}));
       connect(s1.outPort[1], T1.inPort) 
                                      annotation (Line(
@@ -1598,8 +1582,6 @@ buttons:
               Text(
                 extent={{-131,125},{136,67}},
                 lineColor={0,0,255},
-                fillColor={191,0,95},
-                fillPattern=FillPattern.Solid,
                 textString="%name"),
               Line(points={{0,0},{0,-60}}, color={255,0,255})}));
       Modelica.Blocks.Interfaces.BooleanInput valveControl 
@@ -1646,8 +1628,6 @@ buttons:
               grid={1,1}), graphics={
               Text(
                 extent={{-122,-82},{88,-42}},
-                fillColor={191,0,95},
-                fillPattern=FillPattern.Solid,
                 textString="%name",
                 lineColor={0,0,255}),
               Rectangle(
@@ -1694,8 +1674,6 @@ buttons:
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid), Text(
                 extent={{-144,54},{152,114}},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="%name",
                 lineColor={0,0,255})}), Diagram(coordinateSystem(
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
@@ -2316,8 +2294,6 @@ block InitialStep "Initial step (= step that is active when simulation starts)"
           grid={1,1}), graphics={
           Text(
             extent={{-200,110},{200,150}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="%name",
             lineColor={0,0,255}),
           Rectangle(
@@ -2356,8 +2332,6 @@ block InitialStepWithSignal
               100}}), graphics={
           Text(
             extent={{-200,110},{200,150}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="%name",
             lineColor={0,0,255}),
           Rectangle(
@@ -2399,8 +2373,6 @@ block Step "Ordinary step (= step that is not active when simulation starts)"
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={Text(
             extent={{-200,110},{200,150}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="%name",
             lineColor={0,0,255}), Rectangle(
             extent={{-100,100},{100,-100}},
@@ -2435,8 +2407,6 @@ block StepWithSignal
               100}}), graphics={
           Text(
             extent={{-200,110},{200,150}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="%name",
             lineColor={0,0,255}),
           Rectangle(
@@ -2897,8 +2867,6 @@ partial model PartialCompositeStep
           grid={1,1}), graphics={
           Text(
             extent={{-250,160},{250,200}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="%name",
             lineColor={0,0,255}),
           Rectangle(
@@ -3058,8 +3026,6 @@ model StateGraphRoot
               100}}), graphics={
           Text(
             extent={{-200,110},{200,150}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="%name",
             lineColor={0,0,255}),
           Rectangle(
@@ -3130,8 +3096,6 @@ type SetRealParameter = Real "Define Real parameter (GUI not yet satisfactory)"
           Text(
             extent={{-96,15},{96,-15}},
             lineColor={0,0,0},
-            fillColor={0,255,0},
-            fillPattern=FillPattern.Solid,
             textString="%value")}),
   Diagram(coordinateSystem(
           preserveAspectRatio=true,

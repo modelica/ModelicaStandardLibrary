@@ -2033,8 +2033,6 @@ where the different effects are visualized:
             Text(
               extent={{39,60},{68,46}},
               lineColor={160,160,164},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid,
               textString="b")}));
 
     equation
@@ -5448,8 +5446,6 @@ It is most convenient to utilize it
               fillPattern=FillPattern.Solid), Text(
               extent={{-200,80},{200,40}},
               lineColor={0,0,255},
-              fillColor={175,175,175},
-              fillPattern=FillPattern.Solid,
               textString="%name")}),
         Documentation(info="<html>
 <p>

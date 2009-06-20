@@ -131,7 +131,8 @@ and the accompanying <b>disclaimer</b>
           fillColor={255,0,0},
           fillPattern=FillPattern.Solid),
         Polygon(
-          points={{-20,10},{0,-10},{-20,-30},{40,-30},{60,-10},{40,10},{-20,10}},
+          points={{-20,10},{0,-10},{-20,-30},{40,-30},{60,-10},{40,10},{-20,10}}, 
+
           lineColor={255,128,0},
           fillColor={255,128,0},
           fillPattern=FillPattern.Solid)}));
@@ -1460,11 +1461,7 @@ and the accompanying <b>disclaimer</b>
             lineColor={0,0,127},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid),
-          Line(
-            points={{-6,-10},{-6,-40},{-6,-38}},
-            color={0,0,127},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid)}));
+          Line(points={{-6,-10},{-6,-40},{-6,-38}}, color={0,0,127})}));
 
     model IsolatedPipe "Pipe without heat exchange"
 
@@ -1479,7 +1476,7 @@ leads to neglection of temperature transient cv*m*der(T).
               extent={{-90,20},{90,-20}},
               lineColor={255,0,0},
               fillColor={0,0,255},
-              fillPattern=FillPattern.Solid), Text(extent={{-150,100},{150,40}},
+              fillPattern=FillPattern.Solid), Text(extent={{-150,100},{150,40}}, 
                 textString="%name")}),                          Diagram(
             coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}),                                             graphics));
@@ -1515,7 +1512,8 @@ temperature rise defined by storing heat in medium's mass.
               fillPattern=FillPattern.Solid),
             Text(extent={{-150,100},{150,40}}, textString="%name"),
             Polygon(
-              points={{-10,-90},{-10,-40},{0,-20},{10,-40},{10,-90},{-10,-90}},
+              points={{-10,-90},{-10,-40},{0,-20},{10,-40},{10,-90},{-10,-90}}, 
+
               lineColor={255,0,0},
               fillColor={255,0,0},
               fillPattern=FillPattern.Solid)}),
@@ -1570,11 +1568,7 @@ Flow resistance under real conditions is calculated by<br>
               lineColor={255,0,0},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid),
-            Line(
-              points={{0,80},{0,0}},
-              color={0,0,127},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid)}),
+            Line(points={{0,80},{0,0}}, color={0,0,127})}),
                                 Diagram(coordinateSystem(preserveAspectRatio=false,
                        extent={{-100,-100},{100,100}}),
                                         graphics));
@@ -1672,18 +1666,9 @@ and the accompanying <b>disclaimer</b>
             lineColor={0,0,127},
             fillColor={85,170,255},
             fillPattern=FillPattern.Solid),
-          Line(
-            points={{-10,8},{-10,-88},{-10,-88}},
-            color={0,0,127},
-            fillPattern=FillPattern.Solid),
-          Line(
-            points={{-80,-24},{60,-24}},
-            color={0,0,127},
-            fillPattern=FillPattern.Solid),
-          Line(
-            points={{-80,-56},{60,-56}},
-            color={0,0,127},
-            fillPattern=FillPattern.Solid)}));
+          Line(points={{-10,8},{-10,-88},{-10,-88}}, color={0,0,127}),
+          Line(points={{-80,-24},{60,-24}}, color={0,0,127}),
+          Line(points={{-80,-56},{60,-56}}, color={0,0,127})}));
 
     record Medium "Record containing media properties"
       extends Modelica.Icons.Record;
@@ -2162,26 +2147,11 @@ and the accompanying <b>disclaimer</b>
             lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(
-            points={{-10,7},{-10,-10}},
-            color={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Line(
-            points={{-50,-16},{-36,-25}},
-            color={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Line(
-            points={{30,-15},{16,-25}},
-            color={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Line(
-            points={{-35,0},{-25,-14}},
-            color={0,0,0},
-            fillPattern=FillPattern.Solid),
-          Line(
-            points={{15,0},{5,-14}},
-            color={0,0,0},
-            fillPattern=FillPattern.Solid),
+          Line(points={{-10,7},{-10,-10}}, color={0,0,0}),
+          Line(points={{-50,-16},{-36,-25}}, color={0,0,0}),
+          Line(points={{30,-15},{16,-25}}, color={0,0,0}),
+          Line(points={{-35,0},{-25,-14}}, color={0,0,0}),
+          Line(points={{15,0},{5,-14}}, color={0,0,0}),
           Ellipse(
             extent={{-15,-35},{-5,-45}},
             lineColor={0,0,0},
@@ -2380,8 +2350,8 @@ and the accompanying <b>disclaimer</b>
   </ul>
 </HTML>
 "), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={Rectangle(extent={{-60,10},{40,-90}}, lineColor=
-               {255,0,0}), Ellipse(
+              100}}), graphics={Rectangle(extent={{-60,10},{40,-90}}, lineColor
+              ={255,0,0}), Ellipse(
             extent={{-58,8},{38,-88}},
             lineColor={0,0,255},
             fillColor={0,0,255},
@@ -2452,7 +2422,7 @@ Same as FlowPort, but icon allows to differentiate direction of flow.
               extent={{-100,100},{100,-100}},
               lineColor={255,0,0},
               fillColor={255,255,255},
-              fillPattern=FillPattern.Solid), Ellipse(extent={{-98,98},{98,-98}},
+              fillPattern=FillPattern.Solid), Ellipse(extent={{-98,98},{98,-98}}, 
                 lineColor={0,0,255})}),      Diagram(coordinateSystem(
               preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={

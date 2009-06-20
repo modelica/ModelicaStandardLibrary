@@ -136,8 +136,6 @@ and the accompanying <b>disclaimer</b>
         Text(
           extent={{210,302},{370,272}},
           lineColor={160,160,164},
-          fillColor={0,0,0},
-          fillPattern=FillPattern.Solid,
           textString="Library"),
         Line(
           points={{266,224},{312,224}},

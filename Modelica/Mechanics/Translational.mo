@@ -4135,8 +4135,6 @@ The following variables are transported through this connector:
             graphics={Text(
               extent={{-200,80},{200,40}},
               lineColor={0,0,255},
-              fillColor={175,175,175},
-              fillPattern=FillPattern.Solid,
               textString="%name"), Rectangle(
               extent={{-20,20},{20,-20}},
               lineColor={0,127,0},

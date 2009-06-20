@@ -3851,8 +3851,6 @@ function sin "Sine"
         Text(
           extent={{82,-6},{102,-26}},
           lineColor={95,95,95},
-          fillColor={95,95,95},
-          fillPattern=FillPattern.Solid,
           textString="u"),
         Line(
           points={{-80,80},{-28,80}},
@@ -3935,8 +3933,6 @@ function cos "Cosine"
         Text(
           extent={{78,-6},{98,-26}},
           lineColor={95,95,95},
-          fillColor={95,95,95},
-          fillPattern=FillPattern.Solid,
           textString="u"),
         Line(
           points={{-80,-80},{18,-80}},
@@ -4013,8 +4009,6 @@ function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
         Text(
           extent={{82,22},{102,2}},
           lineColor={95,95,95},
-          fillColor={95,95,95},
-          fillPattern=FillPattern.Solid,
           textString="u"),
         Line(
           points={{0,80},{86,80}},
@@ -4098,8 +4092,6 @@ function asin "Inverse sine (-1 <= u <= 1)"
         Text(
           extent={{82,24},{102,4}},
           lineColor={95,95,95},
-          fillColor={95,95,95},
-          fillPattern=FillPattern.Solid,
           textString="u"),
         Line(
           points={{0,80},{86,80}},
@@ -4178,8 +4170,6 @@ function acos "Inverse cosine (-1 <= u <= 1)"
         Text(
           extent={{82,-56},{102,-76}},
           lineColor={95,95,95},
-          fillColor={95,95,95},
-          fillPattern=FillPattern.Solid,
           textString="u"),
         Line(
           points={{-2,80},{84,80}},
@@ -4256,8 +4246,6 @@ function atan "Inverse tangent"
         Text(
           extent={{84,-4},{104,-24}},
           lineColor={95,95,95},
-          fillColor={95,95,95},
-          fillPattern=FillPattern.Solid,
           textString="u"),
         Line(
           points={{-2,80},{84,80}},
@@ -4353,8 +4341,6 @@ function atan2 "Four quadrant inverse tangent"
         Text(
           extent={{62,-4},{94,-26}},
           lineColor={95,95,95},
-          fillColor={95,95,95},
-          fillPattern=FillPattern.Solid,
           textString="u1, u2"),
         Line(
           points={{-88,40},{86,40}},
@@ -4453,8 +4439,6 @@ function atan3
         Text(
           extent={{38,-68},{78,-84}},
           lineColor={95,95,95},
-          fillColor={95,95,95},
-          fillPattern=FillPattern.Solid,
           textString="u1, u2, y0"),
         Line(
           points={{-84,40},{88,40}},
@@ -4551,8 +4535,6 @@ function sinh "Hyperbolic sine"
         Text(
           extent={{80,26},{100,6}},
           lineColor={95,95,95},
-          fillColor={95,95,95},
-          fillPattern=FillPattern.Solid,
           textString="u"),
         Line(
           points={{0,80},{86,80}},
@@ -4637,8 +4619,6 @@ function cosh "Hyperbolic cosine"
         Text(
           extent={{80,-60},{100,-80}},
           lineColor={95,95,95},
-          fillColor={95,95,95},
-          fillPattern=FillPattern.Solid,
           textString="u"),
         Line(
           points={{0,80},{88,80}},
@@ -4715,8 +4695,6 @@ function tanh "Hyperbolic tangent"
         Text(
           extent={{82,-2},{102,-22}},
           lineColor={95,95,95},
-          fillColor={95,95,95},
-          fillPattern=FillPattern.Solid,
           textString="u"),
         Line(
           points={{0,80},{88,80}},
@@ -4795,8 +4773,6 @@ function asinh "Inverse of sinh (area hyperbolic sine)"
         Text(
           extent={{80,22},{100,2}},
           lineColor={95,95,95},
-          fillColor={95,95,95},
-          fillPattern=FillPattern.Solid,
           textString="u"),
         Line(
           points={{0,80},{88,80}},
@@ -4883,8 +4859,6 @@ function acosh "Inverse of cosh (area hyperbolic cosine)"
         Text(
           extent={{74,-44},{94,-64}},
           lineColor={95,95,95},
-          fillColor={95,95,95},
-          fillPattern=FillPattern.Solid,
           textString="u"),
         Line(
           points={{-80,80},{100,80}},
@@ -4980,8 +4954,6 @@ function exp "Exponential, base e"
         Text(
           extent={{78,-54},{98,-74}},
           lineColor={95,95,95},
-          fillColor={95,95,95},
-          fillPattern=FillPattern.Solid,
           textString="u"),
         Line(
           points={{0,80},{88,80}},
@@ -5061,8 +5033,6 @@ function log "Natural (base e) logarithm (u shall be > 0)"
         Text(
           extent={{84,26},{104,6}},
           lineColor={95,95,95},
-          fillColor={95,95,95},
-          fillPattern=FillPattern.Solid,
           textString="u"),
         Text(
           extent={{-100,9},{-80,-11}},
@@ -5147,8 +5117,6 @@ function log10 "Base 10 logarithm (u shall be > 0)"
         Text(
           extent={{80,24},{100,4}},
           lineColor={95,95,95},
-          fillColor={95,95,95},
-          fillPattern=FillPattern.Solid,
           textString="u"),
         Text(
           extent={{-100,9},{-80,-11}},
@@ -5247,8 +5215,6 @@ partial function baseIcon2
         Text(
           extent={{5,104},{25,84}},
           lineColor={95,95,95},
-          fillColor={95,95,95},
-          fillPattern=FillPattern.Solid,
           textString="y"),
         Polygon(
           points={{0,98},{-6,82},{6,82},{0,98}},

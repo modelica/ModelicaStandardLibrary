@@ -5636,8 +5636,6 @@ Partial model of the airgap, using only equations.
                   100,100}}), graphics={Text(
                 extent={{-80,40},{0,-40}},
                 lineColor={0,0,0},
-                fillPattern=FillPattern.VerticalCylinder,
-                fillColor={128,128,128},
                 textString="S"), Text(
                 extent={{-150,-90},{150,-150}},
                 lineColor={0,0,255},
@@ -5673,8 +5671,6 @@ Model of the airgap in stator-fixed coordinate system, using only equations.
                   100,100}}), graphics={Text(
                 extent={{0,40},{80,-40}},
                 lineColor={0,0,0},
-                fillPattern=FillPattern.VerticalCylinder,
-                fillColor={128,128,128},
                 textString="R"), Text(
                 extent={{-150,-90},{150,-150}},
                 lineColor={0,0,255},
@@ -5948,8 +5944,6 @@ Model of a permanent magnet excitation, characterized by an equivalent excitatio
               Text(
                 extent={{0,40},{80,-40}},
                 lineColor={0,0,0},
-                fillPattern=FillPattern.VerticalCylinder,
-                fillColor={128,128,128},
                 textString="E"),
               Text(
                 extent={{-150,-100},{150,-160}},
@@ -5958,8 +5952,6 @@ Model of a permanent magnet excitation, characterized by an equivalent excitatio
               Text(
                 extent={{-80,40},{0,-40}},
                 lineColor={0,0,0},
-                fillPattern=FillPattern.VerticalCylinder,
-                fillColor={128,128,128},
                 textString="A")}),
           Documentation(info="<HTML>
 Linear model of the airgap (without saturation effects) of a DC machine, using only equations.<br>
@@ -6899,8 +6891,6 @@ a ground has to be used where necessary for currents flowing back.
               Text(
                 extent={{40,10},{90,-10}},
                 lineColor={0,0,255},
-                fillColor={0,0,255},
-                fillPattern=FillPattern.Solid,
                 textString="zero"),
               Line(points={{90,-100},{60,-100}}, color={0,0,255}),
               Line(points={{60,-84},{60,-116}}, color={0,0,255}),
@@ -7435,8 +7425,6 @@ This package contains the space phasor connector and partial models for machine 
               fillPattern=FillPattern.Solid), Text(
               extent={{-150,-90},{150,-150}},
               lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="%name")}),     Icon(coordinateSystem(
               preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={Polygon(
@@ -7525,8 +7513,6 @@ Connector for Space Phasors:
             Text(
               extent={{-150,-120},{150,-180}},
               lineColor={0,0,255},
-              fillColor={95,95,95},
-              fillPattern=FillPattern.Solid,
               textString="%name"),
             Rectangle(
               extent={{80,-80},{120,-120}},
@@ -7902,8 +7888,6 @@ If <i>control</i> is true, plug_sp and plug_sn are delta connected and they are 
               fillPattern=FillPattern.Solid), Text(
               extent={{-40,-90},{40,-130}},
               lineColor={0,0,0},
-              fillColor={135,135,135},
-              fillPattern=FillPattern.Solid,
               textString="%terminalConnection")}),
         Documentation(info="<html>
 TerminalBox: at the bottom connected to both machine plugs, connect at the top to the grid as usual,<br>

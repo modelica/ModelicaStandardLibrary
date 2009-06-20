@@ -361,7 +361,7 @@ Example:
      parameter: B = [2, 7;3, 1]
      parameter: C = [0.1, 2]
      parameter: D = zeros(ny,nu)
-
+ 
 results in the following equations:
   [x[1]]   [0.12  2.00] [pre(x[1])]   [2.0  7.0] [u[1]]
   [    ] = [          ]*[         ] + [        ]*[    ]
@@ -403,14 +403,10 @@ results in the following equations:
           Text(
             extent={{-54,50},{52,-10}},
             lineColor={0,0,0},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.None,
             textString="zx=Ax+Bu"),
           Text(
             extent={{-56,14},{54,-50}},
             lineColor={0,0,0},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid,
             textString="  y=Cx+Du"),
           Line(points={{-102,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255})}));

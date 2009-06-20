@@ -574,8 +574,6 @@ MultiBody.Visualizers.FixedShape2 object is connected");
           Text(
             extent={{16,93},{67,43}},
             lineColor={0,191,0},
-            fillColor={0,191,0},
-            fillPattern=FillPattern.Solid,
             textString="y"),
           Text(
             extent={{43,11},{92,-38}},
@@ -602,8 +600,6 @@ MultiBody.Visualizers.FixedShape2 object is connected");
             lineColor={0,0,255}),
           Text(
             extent={{-138,164},{146,102}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="%name",
             lineColor={0,0,255})}),
       Documentation(info="<HTML>

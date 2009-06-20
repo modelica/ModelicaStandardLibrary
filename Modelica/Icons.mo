@@ -26,8 +26,6 @@ package Icons "Library of icons"
         Text(
           extent={{-90,40},{70,10}},
           lineColor={160,160,164},
-          fillColor={0,0,0},
-          fillPattern=FillPattern.Solid,
           textString="Library"),
         Rectangle(
           extent={{-100,-100},{80,50}},
@@ -47,8 +45,7 @@ package Icons "Library of icons"
         Text(
           extent={{-90,40},{70,10}},
           lineColor={160,160,164},
-          fillColor={0,0,0},
-          fillPattern=FillPattern.Solid,
+
           textString="Library"),
         Polygon(
           points={{-64,-20},{-50,-4},{50,-4},{36,-20},{-64,-20},{-64,-20}},
@@ -63,8 +60,6 @@ package Icons "Library of icons"
         Text(
           extent={{-60,-24},{32,-38}},
           lineColor={128,128,128},
-          fillColor={128,128,128},
-          fillPattern=FillPattern.Solid,
           textString="Library"),
         Polygon(
           points={{50,-4},{50,-70},{36,-84},{36,-20},{50,-4}},
@@ -243,8 +238,6 @@ This icon is designed for a <b>library</b>.
           Text(
             extent={{-90,40},{70,10}},
             lineColor={160,160,164},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid,
             textString="Library")}),
       Documentation(info="<html>
 <p>
@@ -350,8 +343,6 @@ This icon is designed for a <b>record</b>
             fillPattern=FillPattern.Solid), Text(
             extent={{-94,94},{94,-94}},
             lineColor={0,0,0},
-            fillColor={181,181,181},
-            fillPattern=FillPattern.Solid,
             textString="R")}),
                         Documentation(info="<html>
 <p>
@@ -370,8 +361,6 @@ This icon is designed for a <b>Real</b> type.
             fillPattern=FillPattern.Solid), Text(
             extent={{-94,94},{94,-94}},
             lineColor={0,0,0},
-            fillColor={181,181,181},
-            fillPattern=FillPattern.Solid,
             textString="I")}),
                         Documentation(info="<html>
 <p>
@@ -390,8 +379,6 @@ This icon is designed for an <b>Integer</b> type.
             fillPattern=FillPattern.Solid), Text(
             extent={{-94,94},{94,-94}},
             lineColor={0,0,0},
-            fillColor={181,181,181},
-            fillPattern=FillPattern.Solid,
             textString="B")}),
                         Documentation(info="<html>
 <p>
@@ -410,8 +397,6 @@ This icon is designed for a <b>Boolean</b> type.
             fillPattern=FillPattern.Solid), Text(
             extent={{-94,94},{94,-94}},
             lineColor={0,0,0},
-            fillColor={181,181,181},
-            fillPattern=FillPattern.Solid,
             textString="S")}),
                         Documentation(info="<html>
 <p>

@@ -1303,14 +1303,10 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
             Text(
               extent={{-100,100},{-20,60}},
               lineColor={0,0,0},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="m="),
             Text(
               extent={{20,100},{100,60}},
               lineColor={0,0,0},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="%m"),
             Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
             Line(points={{-90,0},{-44,0}}, color={0,0,255}),
@@ -1376,14 +1372,10 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
             Text(
               extent={{-100,100},{-20,60}},
               lineColor={0,0,0},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="m="),
             Text(
               extent={{20,100},{100,60}},
               lineColor={0,0,0},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="%m"),
             Ellipse(extent={{-4,30},{4,22}}, lineColor={0,0,255}),
             Line(points={{-90,0},{-44,0}}, color={0,0,255}),
@@ -1627,14 +1619,10 @@ Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
             Text(
               extent={{-100,100},{-20,60}},
               lineColor={0,0,0},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="m="),
             Text(
               extent={{20,100},{100,60}},
               lineColor={0,0,0},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="%m"),
             Line(points={{40,20},{40,0}}, color={0,0,255})}),
         Documentation(info="<HTML>
@@ -1682,14 +1670,10 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpening
             Text(
               extent={{-100,100},{-20,60}},
               lineColor={0,0,0},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="m="),
             Text(
               extent={{20,100},{100,60}},
               lineColor={0,0,0},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="%m")}),
         Documentation(info="<HTML>
 <p>
@@ -1998,8 +1982,6 @@ This package contains multiphase potential, voltage, and current sensors.
             Text(
               extent={{-100,-70},{100,-110}},
               lineColor={0,0,0},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="m=%m"),
             Text(
               extent={{-150,60},{150,120}},
@@ -2048,8 +2030,6 @@ thus measuring the m potentials <i>phi[m]</i> of the m pins of plug_p.
             Text(
               extent={{-100,-60},{-20,-100}},
               lineColor={0,0,0},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="m="),
             Line(points={{-70,0},{-90,0}}, color={0,0,0}),
             Line(points={{70,0},{90,0}}, color={0,0,0}),
@@ -2057,8 +2037,6 @@ thus measuring the m potentials <i>phi[m]</i> of the m pins of plug_p.
             Text(
               extent={{20,-60},{100,-100}},
               lineColor={0,0,0},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="%m")}),
         Documentation(info="<HTML>
 <p>
@@ -2105,8 +2083,6 @@ thus measuring the m potential differences <i>v[m]</i> between the m pins of plu
             Text(
               extent={{-100,-60},{-20,-100}},
               lineColor={0,0,0},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="m="),
             Line(points={{-70,0},{-90,0}}, color={0,0,0}),
             Line(points={{70,0},{90,0}}, color={0,0,0}),
@@ -2114,8 +2090,6 @@ thus measuring the m potential differences <i>v[m]</i> between the m pins of plu
             Text(
               extent={{20,-60},{100,-100}},
               lineColor={0,0,0},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="%m")}),
         Documentation(info="<HTML>
 <p>
@@ -2147,8 +2121,6 @@ thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to t
             Text(
               extent={{0,-80},{140,-120}},
               lineColor={0,0,0},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="m=%m"),
             Ellipse(
               extent={{-70,70},{70,-70}},
@@ -2322,15 +2294,11 @@ This package contains time-dependend and controlled multiphase voltage and curre
               lineColor={0,0,255}),
             Text(
               extent={{-100,100},{-20,60}},
-              lineColor={0,0,0},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              lineColor={0,0,0},,
               textString="m="),
             Text(
               extent={{20,100},{100,60}},
               lineColor={0,0,0},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="%m"),
             Text(
               extent={{30,60},{110,0}},
@@ -2380,8 +2348,6 @@ Contains m signal controlled voltage sources (Modelica.Electrical.Analog.Sources
             Text(
               extent={{-100,100},{100,60}},
               lineColor={0,0,0},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="m=%m"),
             Text(
               extent={{30,60},{110,0}},
@@ -2444,8 +2410,6 @@ Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.Constant
             Text(
               extent={{-100,100},{100,60}},
               lineColor={0,0,0},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="m=%m"),
             Text(
               extent={{30,60},{110,0}},
@@ -2502,14 +2466,10 @@ with a default phase shift of -(j-1)/m * 2*pi for j in 1:m.
             Text(
               extent={{-100,100},{-20,60}},
               lineColor={0,0,0},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="m="),
             Text(
               extent={{20,100},{100,60}},
               lineColor={0,0,0},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="%m"),
             Polygon(
               points={{90,0},{60,10},{60,-10},{90,0}},
@@ -2556,8 +2516,6 @@ Contains m signal controlled current sources (Modelica.Electrical.Analog.Sources
             Text(
               extent={{-100,100},{100,60}},
               lineColor={0,0,0},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="m=%m"),
             Polygon(
               points={{90,0},{60,10},{60,-10},{90,0}},
@@ -2617,8 +2575,6 @@ Contains m constant current sources (Modelica.Electrical.Analog.Sources.Constant
             Text(
               extent={{-100,100},{100,60}},
               lineColor={0,0,0},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="m=%m"),
             Polygon(
               points={{90,0},{60,10},{60,-10},{90,0}},

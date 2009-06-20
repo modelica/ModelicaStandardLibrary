@@ -258,13 +258,9 @@ package ConstantPropertyLiquidWater
             -100},{100,100}}), graphics={Text(
           extent={{-90,88},{90,18}},
           lineColor={0,0,0},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
           textString="liquid"), Text(
           extent={{-90,-22},{90,-90}},
           lineColor={0,0,0},
-          fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
           textString="water")}),
                             Diagram(coordinateSystem(preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}),

@@ -161,8 +161,6 @@ component.</p></html>", revisions="<html>
           Text(
             extent={{-134,5},{-117,20}},
             lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
             textString="p.i"),
           Line(points={{110,0},{135,0}}, color={160,160,164}),
           Polygon(
@@ -173,8 +171,6 @@ component.</p></html>", revisions="<html>
           Text(
             extent={{117,3},{134,18}},
             lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
             textString="n.i")}),
       Documentation(revisions="<html>
 <ul>
@@ -285,14 +281,10 @@ This current is provided explicitly as current i.
           Text(
             extent={{112,-44},{128,-29}},
             lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
             textString="i2"),
           Text(
             extent={{118,52},{135,67}},
             lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={160,160,164},
             textString="i2"),
           Polygon(
             points={{120,53},{110,50},{120,47},{120,53}},
@@ -309,14 +301,10 @@ This current is provided explicitly as current i.
           Text(
             extent={{-127,-46},{-110,-31}},
             lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
             textString="i1"),
           Text(
             extent={{-136,53},{-119,68}},
             lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
             textString="i1")}),
       Documentation(revisions="<html>
 <ul>

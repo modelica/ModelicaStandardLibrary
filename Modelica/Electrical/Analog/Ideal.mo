@@ -131,14 +131,10 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
           Text(
             extent={{10,80},{20,70}},
             lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
             textString="i"),
           Text(
             extent={{70,-10},{80,-20}},
             lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
             textString="v"),
           Line(
             points={{-80,-40},{-20,-10},{20,10},{40,70}},
@@ -152,22 +148,16 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
             extent={{20,0},{40,-10}},
             lineColor={128,128,128},
             pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
             textString="Vknee"),
           Text(
             extent={{20,70},{40,60}},
             lineColor={128,128,128},
             pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
             textString="Ron"),
           Text(
             extent={{-20,10},{0,0}},
             lineColor={128,128,128},
             pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
             textString="Goff"),
           Ellipse(
             extent={{18,12},{22,8}},
@@ -279,14 +269,10 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
           Text(
             extent={{10,80},{20,70}},
             lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
             textString="i"),
           Text(
             extent={{70,-10},{80,-20}},
             lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
             textString="v"),
           Line(
             points={{-80,-40},{-20,-10},{20,10},{40,70}},
@@ -300,22 +286,16 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
             extent={{20,0},{40,-10}},
             lineColor={128,128,128},
             pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
             textString="Vknee"),
           Text(
             extent={{20,70},{40,60}},
             lineColor={128,128,128},
             pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
             textString="Ron"),
           Text(
             extent={{-20,10},{0,0}},
             lineColor={128,128,128},
             pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
             textString="Goff"),
           Ellipse(
             extent={{18,12},{22,8}},
@@ -854,8 +834,6 @@ are possible (norator).
           Text(
             extent={{-111,-39},{-90,-19}},
             lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
             textString="p1.i=0"),
           Polygon(
             points={{120,3},{110,0},{120,-3},{120,3}},
@@ -866,14 +844,10 @@ are possible (norator).
           Text(
             extent={{118,2},{135,17}},
             lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={160,160,164},
             textString="i2"),
           Text(
             extent={{-111,60},{-90,80}},
             lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
             textString="n1.i=0"),
           Line(points={{18,-111},{18,-86}}, color={160,160,164}),
           Polygon(
@@ -884,8 +858,6 @@ are possible (norator).
           Text(
             extent={{22,-100},{39,-85}},
             lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={160,160,164},
             textString="i2")}));
   equation
     v1 = p1.v - n1.v;
@@ -960,8 +932,6 @@ are possible.
           Text(
             extent={{-111,-39},{-90,-19}},
             lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
             textString="p1.i=0"),
           Polygon(
             points={{120,3},{110,0},{120,-3},{120,3}},
@@ -972,14 +942,10 @@ are possible.
           Text(
             extent={{118,2},{135,17}},
             lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={160,160,164},
             textString="i2"),
           Text(
             extent={{-111,60},{-90,80}},
             lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
             textString="n1.i=0")}));
   equation
     in_p.v = in_n.v;
@@ -1066,8 +1032,6 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
           Text(
             extent={{-111,-39},{-90,-19}},
             lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
             textString="p1.i=0"),
           Polygon(
             points={{120,3},{110,0},{120,-3},{120,3}},
@@ -1078,14 +1042,10 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
           Text(
             extent={{118,2},{135,17}},
             lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={160,160,164},
             textString="i2"),
           Text(
             extent={{-111,60},{-90,80}},
             lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
             textString="n1.i=0")}));
 
   equation
@@ -1187,14 +1147,10 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
           Text(
             extent={{10,80},{20,70}},
             lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
             textString="i"),
           Text(
             extent={{70,-10},{80,-20}},
             lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
             textString="v"),
           Line(
             points={{-80,-40},{-20,-10},{20,10},{40,70}},
@@ -1208,22 +1164,16 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
             extent={{20,0},{40,-10}},
             lineColor={128,128,128},
             pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
             textString="Vknee"),
           Text(
             extent={{20,70},{40,60}},
             lineColor={128,128,128},
             pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
             textString="Ron"),
           Text(
             extent={{-20,10},{0,0}},
             lineColor={128,128,128},
             pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
             textString="Goff"),
           Ellipse(
             extent={{18,12},{22,8}},
@@ -1921,32 +1871,22 @@ where a description with zero Ron or zero Goff is not possible.
           Text(
             extent={{30,-60},{50,-70}},
             lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid,
             textString="time"),
           Text(
             extent={{-60,60},{-20,50}},
             lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid,
             textString="voltage"),
           Text(
             extent={{-60,-30},{-40,-40}},
             lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid,
             textString="V0"),
           Text(
             extent={{-50,40},{-30,30}},
             lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid,
             textString="Vmax"),
           Text(
             extent={{-40,10},{-20,0}},
             lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid,
             textString="dVdt"),
           Polygon(
             points={{-60,60},{-62,52},{-58,52},{-60,60}},
@@ -2058,32 +1998,22 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
           Text(
             extent={{30,-60},{50,-70}},
             lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid,
             textString="time"),
           Text(
             extent={{-60,60},{-20,50}},
             lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid,
             textString="voltage"),
           Text(
             extent={{-60,-30},{-40,-40}},
             lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid,
             textString="V0"),
           Text(
             extent={{-50,40},{-30,30}},
             lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid,
             textString="Vmax"),
           Text(
             extent={{-40,10},{-20,0}},
             lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid,
             textString="dVdt"),
           Polygon(
             points={{-60,60},{-62,52},{-58,52},{-60,60}},

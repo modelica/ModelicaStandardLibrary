@@ -1019,14 +1019,14 @@ demonstrates the usage of this controller.
 Several practical aspects of PID controller design are incorporated
 according to chapter 3 of the book:
 </p>
-
+ 
 <dl>
 <dt>&Aring;str&ouml;m K.J., and H&auml;gglund T.:</dt>
 <dd> <b>PID Controllers: Theory, Design, and Tuning</b>.
      Instrument Society of America, 2nd edition, 1995.
 </dd>
 </dl>
-
+ 
 <p>
 Besides the additive <b>proportional, integral</b> and <b>derivative</b>
 part of this controller, the following features are present:
@@ -1046,13 +1046,13 @@ part of this controller, the following features are present:
      for the derivative part to zero, if steps may occur in the
      setpoint signal.</li>
 </ul>
-
+ 
 <p>
 The parameters of the controller can be manually adjusted by performing
 simulations of the closed loop system (= controller + plant connected
 together) and using the following strategy:
 </p>
-
+ 
 <ol>
 <li> Set very large limits, e.g., yMax = Modelica.Constants.inf</li>
 <li> Select a <b>P</b>-controller and manually enlarge parameter <b>k</b>
@@ -1080,7 +1080,7 @@ together) and using the following strategy:
 <p>
 <b>Initialization</b>
 </p>
-
+ 
 <p>
 This block can be initialized in different
 ways controlled by parameter <b>initType</b>. The possible
@@ -1151,7 +1151,7 @@ initialize it with zero. As sketched this is, however, not possible.
 The solution is to not initialize u_m or the variable that is used
 to compute u_m by an algebraic equation.
 </p>
-
+ 
 <p>
 If parameter <b>limitAtInit</b> = <b>false</b>, the limits at the
 output of this controller block are removed from the initialization problem which 
@@ -1192,13 +1192,13 @@ to use <b>limitAtInit</b> = <b>false</b>.
             rotation=0)));
     Blocks.Math.Gain gainPID(k=k) annotation (Placement(transformation(extent={
               {30,-10},{50,10}}, rotation=0)));
-    Blocks.Math.Add3 addPID annotation (Evaluate=true, Placement(transformation(
+    Blocks.Math.Add3 addPID annotation (Placement(transformation(
             extent={{0,-10},{20,10}}, rotation=0)));
-    Blocks.Math.Add3 addI(k2=-1) if with_I annotation (Evaluate=true, Placement(
+    Blocks.Math.Add3 addI(k2=-1) if with_I annotation (Placement(
           transformation(extent={{-80,-60},{-60,-40}}, rotation=0)));
     Blocks.Math.Add addSat(k1=+1, k2=-1) if 
                                      with_I 
-      annotation (Evaluate=true, Placement(transformation(
+      annotation (Placement(transformation(
           origin={80,-50},
           extent={{-10,-10},{10,10}},
           rotation=270)));

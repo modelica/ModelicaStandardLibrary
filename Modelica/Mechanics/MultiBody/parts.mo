@@ -1979,8 +1979,6 @@ November 3-4, 2003, pp. 149-158</p>
               fillPattern=FillPattern.Solid), Text(
               extent={{-150,110},{150,150}},
               lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="%name")}));
     equation
       frame_a.f=zeros(3);
@@ -2464,8 +2462,6 @@ November 3-4, 2003, pp. 149-158</p>
               fillPattern=FillPattern.Solid), Text(
               extent={{-150,110},{150,150}},
               lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="%name")}));
     equation
       frame_a.f=zeros(3);

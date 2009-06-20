@@ -781,8 +781,6 @@ This package contains the bus definitions needed for the
               fillPattern=FillPattern.Solid,
               lineColor={0,0,255}), Text(
               extent={{-106,124},{114,68}},
-              fillColor={159,159,223},
-              fillPattern=FillPattern.Solid,
               textString="%name",
               lineColor={0,0,255})}),
                               Diagram(coordinateSystem(preserveAspectRatio=true,
@@ -808,12 +806,12 @@ This model is used to demonstrate the bus usage in example
               rotation=0)));
    equation
       connect(realExpression.y, subControlBus.myRealSignal) annotation (Line(
-          points={{21.3,10},{88,10},{88,4},{96,4}},
+          points={{21.3,10},{88,10},{88,0},{100,0}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(booleanExpression.y, subControlBus.myBooleanSignal) annotation (
           Line(
-          points={{21.3,-20},{60,-20},{60,-2},{98,-2}},
+          points={{21.3,-20},{60,-20},{60,0},{100,0}},
           color={255,0,255},
           smooth=Smooth.None));
    end Part;

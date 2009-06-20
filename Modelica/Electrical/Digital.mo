@@ -279,8 +279,6 @@ and the accompanying <b>disclaimer</b>
         Text(
           extent={{-90,40},{70,10}},
           lineColor={160,160,164},
-          fillColor={0,0,0},
-          fillPattern=FillPattern.Solid,
           textString="Library")}));
 
   package Examples
@@ -857,21 +855,15 @@ The simulation stop time has to be 5s.
                 extent={{-86,80},{-64,60}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="D0"),
               Text(
                 extent={{64,12},{86,-8}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="D"),
               Text(
                 extent={{-150,-100},{150,-160}},
                 lineColor={0,0,255},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textString="%name"),
               Text(
                 extent={{-60,100},{60,40}},
@@ -881,36 +873,26 @@ The simulation stop time has to be 5s.
                 extent={{-86,-60},{-64,-80}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="A1"),
               Text(
                 extent={{-86,54},{-64,34}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="D1"),
               Text(
                 extent={{-86,28},{-64,8}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="D2"),
               Text(
                 extent={{-86,2},{-64,-18}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="D3"),
               Text(
                 extent={{-86,-36},{-64,-56}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="A0")}));
 
       parameter Modelica.SIunits.Time delayTime=0.001 "delay time";
@@ -1036,35 +1018,25 @@ The simulation stop time has to be 5s.
                 extent={{-86,-60},{-64,-80}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="R"),
               Text(
                 extent={{-86,80},{-64,60}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="S"),
               Text(
                 extent={{64,80},{86,60}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="Q"),
               Text(
                 extent={{64,-60},{86,-80}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="QN"),
               Text(
                 extent={{-150,-100},{150,-160}},
                 lineColor={0,0,255},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textString="%name")}));
       parameter Modelica.SIunits.Time delayTime=0 "delay time";
       parameter D.Interfaces.Logic q0=L.'U' "initial value of output";
@@ -1135,36 +1107,26 @@ The simulation stop time has to be 5s.
                 extent={{-86,-60},{-64,-80}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="R"),
               Text(
                 extent={{-86,80},{-64,60}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="S"),
               Text(
                 extent={{64,80},{86,60}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="Q"),
               Text(
                 extent={{64,-60},{86,-80}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="QN"),
               Line(points={{-90,20},{-60,0},{-90,-20}}, color={0,0,0}),
               Text(
                 extent={{-150,-100},{150,-160}},
                 lineColor={0,0,255},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textString="%name")}));
 
       parameter Modelica.SIunits.Time delayTime=0.01 "delay time";
@@ -1245,29 +1207,21 @@ The simulation stop time has to be 5s.
                 extent={{-86,80},{-64,60}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="D"),
               Text(
                 extent={{64,80},{86,60}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="Q"),
               Text(
                 extent={{64,-60},{86,-80}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="QN"),
               Line(points={{-90,20},{-60,0},{-90,-20}}, color={0,0,0}),
               Text(
                 extent={{-150,-100},{150,-160}},
                 lineColor={0,0,255},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textString="%name"),
               Text(
                 extent={{-100,100},{100,40}},
@@ -1345,29 +1299,21 @@ The simulation stop time has to be 5s.
                 extent={{-86,80},{-64,60}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="J"),
               Text(
                 extent={{64,80},{86,60}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="Q"),
               Text(
                 extent={{64,-60},{86,-80}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="QN"),
               Line(points={{-90,20},{-60,0},{-90,-20}}, color={0,0,0}),
               Text(
                 extent={{-150,-100},{150,-160}},
                 lineColor={0,0,255},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textString="%name"),
               Text(
                 extent={{-100,100},{100,40}},
@@ -1377,8 +1323,6 @@ The simulation stop time has to be 5s.
                 extent={{-86,-60},{-64,-80}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="K")}));
 
       parameter Modelica.SIunits.Time delayTime=0.001 "delay time";
@@ -1571,36 +1515,26 @@ The simulation stop time has to be 5s.
                 extent={{-86,80},{-64,60}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="a"),
               Text(
                 extent={{-86,40},{-64,20}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="b"),
               Text(
                 extent={{-86,-60},{-64,-80}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="c_in"),
               Text(
                 extent={{60,-60},{90,-80}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="c_out"),
               Text(
                 extent={{64,80},{86,60}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="s"),
               Text(
                 extent={{-100,100},{100,0}},
@@ -1695,14 +1629,10 @@ The simulation stop time has to be 5s.
                 extent={{68,80},{88,60}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="S"),
               Text(
                 extent={{-150,-100},{150,-160}},
                 lineColor={0,0,255},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textString="%name"),
               Text(
                 extent={{-40,60},{40,20}},
@@ -1712,29 +1642,21 @@ The simulation stop time has to be 5s.
                 extent={{48,-60},{88,-80}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="Cout"),
               Text(
                 extent={{-90,-60},{-50,-80}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="Cin"),
               Text(
                 extent={{-88,80},{-68,60}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="A"),
               Text(
                 extent={{-88,40},{-68,20}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="B")}),
         Diagram(coordinateSystem(
               preserveAspectRatio=true,
@@ -1787,28 +1709,20 @@ The simulation stop time has to be 5s.
                 extent={{-80,80},{-40,60}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="ENABLE"),
               Text(
                 extent={{64,80},{86,60}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="Q2"),
               Text(
                 extent={{64,-60},{86,-80}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="Q0"),
               Text(
                 extent={{-150,-100},{150,-160}},
                 lineColor={0,0,255},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textString="%name"),
               Text(
                 extent={{-60,40},{60,0}},
@@ -1818,15 +1732,11 @@ The simulation stop time has to be 5s.
                 extent={{-80,-60},{-40,-80}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="COUNT"),
               Text(
                 extent={{62,8},{84,-12}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="Q1")}));
       D.Interfaces.DigitalInput enable 
                                      annotation (Placement(transformation(
@@ -1926,21 +1836,15 @@ The simulation stop time has to be 5s.
                 extent={{-80,80},{-40,60}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="ENABLE"),
               Text(
                 extent={{66,8},{88,-12}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="Q"),
               Text(
                 extent={{-150,-100},{150,-160}},
                 lineColor={0,0,255},
-                fillColor={255,255,170},
-                fillPattern=FillPattern.Solid,
                 textString="%name"),
               Text(
                 extent={{-40,40},{40,0}},
@@ -1950,8 +1854,6 @@ The simulation stop time has to be 5s.
                 extent={{-80,-60},{-40,-80}},
                 lineColor={0,0,0},
                 lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="COUNT")}));
       parameter Integer n=3 "number of bits";
       parameter Modelica.SIunits.Time delayTime=0.001 "delay of each JKFF";
@@ -2076,8 +1978,6 @@ components of the Electrical.Digital library.
               {100,100}}), graphics={Text(
             extent={{-150,-100},{150,-160}},
             lineColor={127,0,127},
-            fillColor={127,0,127},
-            fillPattern=FillPattern.Solid,
             textString="%name"), Rectangle(
             extent={{-100,-100},{100,100}},
             lineColor={127,0,127},
@@ -2941,8 +2841,6 @@ InvGate with 1 input value, composed by Not and sensitive intertial delay.
               extent={{-50,80},{50,40}},
               lineColor={0,0,0},
               lineThickness=0.5,
-              fillColor={255,191,127},
-              fillPattern=FillPattern.Solid,
               textString="1"),
             Text(
               extent={{-18,-60},{20,-100}},
@@ -3416,8 +3314,6 @@ BufGate with 1 input value, composed by Not and sensitive intertial delay.
               extent={{-50,80},{50,40}},
               lineColor={0,0,0},
               lineThickness=0.5,
-              fillColor={255,191,127},
-              fillPattern=FillPattern.Solid,
               textString="1")}));
     equation
       connect(G1.y, y)                      annotation (Line(points={{10,0},{

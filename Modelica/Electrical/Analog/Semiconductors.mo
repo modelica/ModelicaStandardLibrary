@@ -1746,14 +1746,10 @@ The dV/dt switch on is not taken into account in this model. The gate circuit is
           Text(
             extent={{5,81},{15,71}},
             lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
             textString="i"),
           Text(
             extent={{70,-10},{80,-20}},
             lineColor={128,128,128},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
             textString="v"),
           Line(
             points={{20,9},{20,0}},
@@ -1763,8 +1759,6 @@ The dV/dt switch on is not taken into account in this model. The gate circuit is
             extent={{25,64},{45,54}},
             lineColor={128,128,128},
             pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
             textString="Ron"),
           Line(
             points={{14,20},{25,73}},
@@ -1784,15 +1778,11 @@ The dV/dt switch on is not taken into account in this model. The gate circuit is
             extent={{-67,11},{-47,1}},
             lineColor={128,128,128},
             pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
             textString="VRRM"),
           Text(
             extent={{44,-2},{64,-12}},
             lineColor={128,128,128},
             pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
             textString="VDRM"),
           Line(
             points={{-57,1},{-57,-1}},
@@ -1811,8 +1801,6 @@ The dV/dt switch on is not taken into account in this model. The gate circuit is
             extent={{-28,-9},{-8,-19}},
             lineColor={128,128,128},
             pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
             textString="Roff"),
           Line(
             points={{2,20},{-2,20}},
@@ -1822,8 +1810,6 @@ The dV/dt switch on is not taken into account in this model. The gate circuit is
             extent={{-14,23},{-2,16}},
             lineColor={128,128,128},
             pattern=LinePattern.Dot,
-            fillColor={128,128,128},
-            fillPattern=FillPattern.Solid,
             textString="IH")}),
       uses(Modelica(version="3.0.1")),
       DymolaStoredErrors);

@@ -24,8 +24,6 @@ package Sources
           Text(
             extent={{-96,15},{96,-15}},
             lineColor={0,0,0},
-            fillColor={0,255,0},
-            fillPattern=FillPattern.Solid,
             textString="%y"),
           Text(
             extent={{-150,90},{140,50}},
@@ -72,8 +70,6 @@ Variable <b>y</b> is both a variable and a connector.
           Text(
             extent={{-96,15},{96,-15}},
             lineColor={0,0,0},
-            fillColor={0,255,0},
-            fillPattern=FillPattern.Solid,
             textString="%y"),
           Text(
             extent={{-150,90},{140,50}},
@@ -120,8 +116,6 @@ Variable <b>y</b> is both a variable and a connector.
           Text(
             extent={{-96,15},{96,-15}},
             lineColor={0,0,0},
-            fillColor={0,255,0},
-            fillPattern=FillPattern.Solid,
             textString="%y"),
           Text(
             extent={{-150,90},{140,50}},
@@ -129,10 +123,10 @@ Variable <b>y</b> is both a variable and a connector.
             lineColor={0,0,255}),
           Polygon(
             points={{100,10},{120,0},{100,-10},{100,10}},
-            lineColor=DynamicSelect({255,0,255}, if y > 0.5 then {0,255,0} else 
-                      {255,0,255}),
-            fillColor=DynamicSelect({255,255,255}, if y > 0.5 then {0,255,0} else 
-                      {255,255,255}),
+            lineColor=DynamicSelect({255,0,255}, if y > 0.5 then {0,255,0}
+                 else {255,0,255}),
+            fillColor=DynamicSelect({255,255,255}, if y > 0.5 then {0,255,0}
+                 else {255,255,255}),
             fillPattern=FillPattern.Solid)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -284,26 +278,18 @@ usually requires a trimming calculation.
           Text(
             extent={{-77,-28},{-35,-40}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="offset"),
           Text(
             extent={{-30,-73},{18,-86}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="startTime"),
           Text(
             extent={{-81,91},{-40,71}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="y"),
           Text(
             extent={{63,-79},{94,-89}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="time"),
           Line(points={{-10,0},{-10,-70}}, color={95,95,95}),
           Line(points={{-10,0},{50,0}}, color={95,95,95}),
@@ -311,20 +297,16 @@ usually requires a trimming calculation.
           Text(
             extent={{35,33},{50,23}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="1"),
           Text(
             extent={{14,13},{32,1}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="1")}),
       Documentation(info="<html>
 <p>
 The Real output y is a clock signal:
 </p>
-
+ 
 <p>
 <img src=\"../Images/Blocks/Sources/Clock.png\">
 </p>
@@ -383,26 +365,20 @@ The Real output y is a clock signal:
           Text(
             extent={{-83,92},{-30,74}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="y"),
           Text(
             extent={{70,-80},{94,-100}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="time"),
           Text(
             extent={{-101,8},{-81,-12}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="k")}),
       Documentation(info="<html>
 <p>
 The Real output y is a constant signal:
 </p>
-
+ 
 <p>
 <img src=\"../Images/Blocks/Sources/Constant.png\">
 </p>
@@ -459,21 +435,15 @@ The Real output y is a constant signal:
           Text(
             extent={{70,-80},{94,-100}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="time"),
           Text(
             extent={{-21,-72},{25,-90}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="startTime"),
           Line(points={{0,-17},{0,-71}}, color={95,95,95}),
           Text(
             extent={{-68,-36},{-22,-54}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="offset"),
           Line(points={{-13,50},{-13,-17}}, color={95,95,95}),
           Polygon(
@@ -494,8 +464,6 @@ The Real output y is a constant signal:
           Text(
             extent={{-68,26},{-22,8}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="height"),
           Polygon(
             points={{-13,-69},{-16,-56},{-10,-56},{-13,-69},{-13,-69}},
@@ -511,18 +479,16 @@ The Real output y is a constant signal:
           Text(
             extent={{-72,100},{-31,80}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="y")}),
       Documentation(info="<html>
 <p>
 The Real output y is a step signal:
 </p>
-
+ 
 <p>
 <img src=\"../Images/Blocks/Sources/Step.png\">
 </p>
-
+ 
 </html>"));
 
       equation
@@ -599,26 +565,18 @@ The Real output y is a step signal:
           Text(
             extent={{-72,-39},{-34,-50}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="offset"),
           Text(
             extent={{-38,-72},{6,-83}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="startTime"),
           Text(
             extent={{-78,92},{-37,72}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="y"),
           Text(
             extent={{70,-80},{94,-91}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="time"),
           Line(points={{-20,-20},{-20,-70}}, color={95,95,95}),
           Line(
@@ -658,20 +616,16 @@ The Real output y is a step signal:
           Text(
             extent={{53,23},{82,10}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="height"),
           Text(
             extent={{-2,-21},{37,-33}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="duration")}),
       Documentation(info="<html>
 <p>
 The Real output y is a ramp signal:
 </p>
-
+ 
 <p>
 <img src=\"../Images/Blocks/Sources/Ramp.png\">
 </p>
@@ -749,27 +703,19 @@ The Real output y is a ramp signal:
           Text(
             extent={{-87,12},{-40,0}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="offset"),
           Line(points={{-41,-2},{-41,-40}}, color={95,95,95}),
           Text(
             extent={{-60,-43},{-14,-54}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="startTime"),
           Text(
             extent={{75,-47},{100,-60}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="time"),
           Text(
             extent={{-80,99},{-40,82}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="y"),
           Line(points={{-9,79},{43,79}}, color={95,95,95}),
           Line(points={{-41,-2},{50,-2}}, color={95,95,95}),
@@ -781,8 +727,6 @@ The Real output y is a ramp signal:
           Text(
             extent={{37,57},{83,39}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="amplitude"),
           Polygon(
             points={{33,-2},{30,11},{36,11},{33,-2},{33,-2}},
@@ -794,7 +738,7 @@ The Real output y is a ramp signal:
 <p>
 The Real output y is a sine signal:
 </p>
-
+ 
 <p>
 <img src=\"../Images/Blocks/Sources/Sine.png\">
 </p>
@@ -874,26 +818,18 @@ The Real output y is a sine signal:
           Text(
             extent={{-80,17},{-57,-3}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="offset"),
           Text(
             extent={{-72,-43},{-25,-53}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="startTime"),
           Text(
             extent={{77,-53},{101,-64}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="time"),
           Text(
             extent={{-89,99},{-49,82}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="y"),
           Line(points={{-50,0},{18,0}}, color={95,95,95}),
           Line(
@@ -906,8 +842,6 @@ The Real output y is a sine signal:
           Text(
             extent={{-42,83},{9,74}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="1/freqHz"),
           Polygon(
             points={{-49,73},{-40,75},{-40,71},{-49,73}},
@@ -928,14 +862,10 @@ The Real output y is a sine signal:
           Text(
             extent={{-51,-63},{-27,-75}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="t"),
           Text(
             extent={{-83,-69},{100,-96}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="amplitude*exp(-damping*t)*sin(2*pi*freqHz*t+phase)"),
           Line(points={{-50,0},{-50,-40}}, color={95,95,95}),
           Line(points={{-50,-54},{-50,-72}}, color={95,95,95}),
@@ -944,7 +874,7 @@ The Real output y is a sine signal:
 <p>
 The Real output y is a sine signal with exponentially changing amplitude:
 </p>
-
+ 
 <p>
 <img src=\"../Images/Blocks/Sources/ExpSine.png\">
 </p>
@@ -1026,14 +956,10 @@ The Real output y is a sine signal with exponentially changing amplitude:
           Text(
             extent={{-81,87},{-40,67}},
             lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="y"),
           Text(
             extent={{-71,-46},{-38,-55}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="offset"),
           Polygon(
             points={{-40,-74},{-43,-64},{-38,-64},{-40,-74},{-40,-74}},
@@ -1053,8 +979,6 @@ The Real output y is a sine signal with exponentially changing amplitude:
           Text(
             extent={{-62,-76},{-17,-85}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="startTime"),
           Polygon(
             points={{-41,-34},{-32,-32},{-32,-36},{-41,-34}},
@@ -1070,14 +994,10 @@ The Real output y is a sine signal with exponentially changing amplitude:
           Text(
             extent={{-26,-22},{19,-32}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="riseTime"),
           Text(
             extent={{75,-79},{98,-90}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="time"),
           Line(points={{30,96},{30,-38}}, color={95,95,95})}),
       Documentation(info="<html>
@@ -1085,7 +1005,7 @@ The Real output y is a sine signal with exponentially changing amplitude:
 The Real output y is a rising exponential followed
 by a falling exponential signal:
 </p>
-
+ 
 <p>
 <img src=\"../Images/Blocks/Sources/Exponentials.png\">
 </p>
@@ -1164,26 +1084,18 @@ by a falling exponential signal:
           Text(
             extent={{-78,-24},{-35,-36}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="offset"),
           Text(
             extent={{-30,-72},{16,-81}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="startTime"),
           Text(
             extent={{-82,96},{-49,79}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="y"),
           Text(
             extent={{66,-79},{87,-89}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="time"),
           Line(points={{-10,0},{-10,-70}}, color={95,95,95}),
           Line(
@@ -1199,22 +1111,16 @@ by a falling exponential signal:
           Text(
             extent={{-3,93},{39,84}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="period"),
           Text(
             extent={{-7,78},{30,69}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="width"),
           Line(points={{-43,50},{-10,50}}, color={95,95,95}),
           Line(points={{-34,50},{-34,1}}, color={95,95,95}),
           Text(
             extent={{-77,30},{-37,21}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="amplitude"),
           Polygon(
             points={{-34,49},{-37,36},{-30,36},{-34,49}},
@@ -1254,7 +1160,7 @@ by a falling exponential signal:
 <p>
 The Real output y is a pulse signal:
 </p>
-
+ 
 <p>
 <img src=\"../Images/Blocks/Sources/Pulse.png\">
 </p>
@@ -1335,26 +1241,18 @@ The Real output y is a pulse signal:
           Text(
             extent={{-65,-39},{-29,-47}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="offset"),
           Text(
             extent={{-29,-72},{13,-80}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="startTime"),
           Text(
             extent={{-82,92},{-43,76}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="y"),
           Text(
             extent={{67,-78},{88,-87}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="time"),
           Line(points={{-10,-20},{-10,-70}}, color={95,95,95}),
           Line(points={{-10,88},{-10,-20}}, color={95,95,95}),
@@ -1363,16 +1261,12 @@ The Real output y is a pulse signal:
           Text(
             extent={{-12,94},{34,85}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="period"),
           Line(points={{-44,60},{30,60}}, color={95,95,95}),
           Line(points={{-34,47},{-34,-7}}, color={95,95,95}),
           Text(
             extent={{-73,25},{-36,16}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="amplitude"),
           Polygon(
             points={{-34,60},{-37,47},{-30,47},{-34,60}},
@@ -1402,7 +1296,7 @@ The Real output y is a pulse signal:
 <p>
 The Real output y is a saw tooth signal:
 </p>
-
+ 
 <p>
 <img src=\"../Images/Blocks/Sources/SawTooth.png\">
 </p>
@@ -1499,26 +1393,18 @@ The Real output y is a saw tooth signal:
           Text(
             extent={{-80,-46},{-42,-55}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="offset"),
           Text(
             extent={{-49,-71},{-6,-81}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="startTime"),
           Text(
             extent={{-80,95},{-47,80}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="y"),
           Text(
             extent={{66,-78},{89,-89}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="time"),
           Line(
             points={{-30,82},{-31,-70}},
@@ -1541,14 +1427,10 @@ The Real output y is a saw tooth signal:
           Text(
             extent={{-3,86},{24,77}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="period"),
           Text(
             extent={{-11,68},{18,59}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="width"),
           Line(
             points={{-43,40},{-11,40}},
@@ -1562,8 +1444,6 @@ The Real output y is a saw tooth signal:
           Text(
             extent={{-77,11},{-44,1}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="amplitude"),
           Polygon(
             points={{-30,56},{-23,58},{-23,54},{-30,56}},
@@ -1627,20 +1507,16 @@ The Real output y is a saw tooth signal:
           Text(
             extent={{-35,68},{-6,60}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="rising"),
           Text(
             extent={{16,68},{44,60}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="falling")}),
       Documentation(info="<html>
 <p>
 The Real output y is a trapezoid signal:
 </p>
-
+ 
 <p>
 <img src=\"../Images/Blocks/Sources/Trapezoid.png\">
 </p>
@@ -1743,14 +1619,10 @@ The Real output y is a trapezoid signal:
           Text(
             extent={{-73,95},{-16,80}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="acceleration"),
           Text(
             extent={{66,20},{88,8}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="time")}),
           Documentation(info="<HTML>
 <p>
@@ -1761,11 +1633,11 @@ angular range. In robotics such a movement is called <b>PTP</b> (Point-To-Point)
 This source block generates the <b>acceleration</b> qdd of this signal
 as output:
 </p>
-
+ 
 <p>
 <img src=\"../Images/Blocks/Sources/KinematicPTP.png\">
 </p>
-
+ 
 <p>
 After integrating the output two times, the position q is
 obtained. The signal is constructed in such a way that it is not possible
@@ -1780,16 +1652,17 @@ and deceleration phase. This means that only one of the signals
 is at its limits whereas the others are sychnronized in such a way
 that the end point is reached at the same time instant.
 </p>
-
+ 
 <p>
 This element is useful to generate a reference signal for a controller
 which controls a drive train or in combination with model
 Modelica.Mechanics.Rotational.<b>Accelerate</b> to drive
 a flange according to a given acceleration.
 </p>
-
+ 
 </HTML>
-", revisions="<html>
+",       revisions=
+             "<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>June 27, 2001</i>
@@ -1884,26 +1757,18 @@ a flange according to a given acceleration.
           Text(
             extent={{34,96},{94,66}},
             lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid,
             textString="q"),
           Text(
             extent={{40,44},{96,14}},
             lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid,
             textString="qd"),
           Text(
             extent={{32,-18},{99,-44}},
             lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid,
             textString="qdd"),
           Text(
             extent={{-32,-74},{97,-96}},
             lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid,
             textString="moving")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1929,14 +1794,10 @@ a flange according to a given acceleration.
           Text(
             extent={{-72,96},{-15,81}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="acceleration"),
           Text(
             extent={{69,18},{91,6}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="time")}),
       Documentation(info="<html>
 <p>
@@ -1950,11 +1811,11 @@ as output. The signals are constructed in such a way that it is not possible
 to move faster, given the <b>maximally</b> allowed <b>velocity</b> qd_max and
 the <b>maximally</b> allowed <b>acceleration</b> qdd_max:
 </p>
-
+ 
 <p>
 <img src=\"../Images/Blocks/Sources/KinematicPTP2.png\">
 </p>
-
+ 
 <p>
 If vectors q_begin/q_end have more than 1 element,
 the output vectors are constructed such that all signals
@@ -1963,7 +1824,7 @@ and deceleration phase. This means that only one of the signals
 is at its limits whereas the others are sychnronized in such a way
 that the end point is reached at the same time instant.
 </p>
-
+ 
 <p>
 This element is useful to generate a reference signal for a controller
 which controls, e.g., a drive train, or to drive
@@ -2203,7 +2064,7 @@ a flange according to a given acceleration.
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-48,-50},{-48,70},{52,70},{52,-50},{-48,-50},{-48,-20},
-                {52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-51}},
+                {52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-51}}, 
               color={0,0,0}),
           Text(
             extent={{-150,-150},{150,-110}},
@@ -2231,13 +2092,11 @@ a flange according to a given acceleration.
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-20,-30},{-20,90},{80,90},{80,-30},{-20,-30},{-20,0},{
-                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{30,90},{30,-31}},
+                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{30,90},{30,-31}}, 
               color={0,0,0}),
           Text(
             extent={{-70,-42},{-32,-54}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="offset"),
           Polygon(
             points={{-31,-30},{-33,-40},{-28,-40},{-31,-30}},
@@ -2254,21 +2113,15 @@ a flange according to a given acceleration.
           Text(
             extent={{-38,-73},{8,-83}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="startTime"),
           Line(points={{-20,-30},{-80,-30}}, color={95,95,95}),
           Text(
             extent={{-76,93},{-44,75}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="y"),
           Text(
             extent={{66,-78},{90,-88}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="time"),
           Text(
             extent={{-15,83},{24,68}},
@@ -2624,7 +2477,7 @@ Several matrices may be defined one after another.
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
           Line(points={{-48,-50},{-48,70},{52,70},{52,-50},{-48,-50},{-48,-20},
-                {52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-51}},
+                {52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-51}}, 
               color={0,0,0})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
@@ -2646,13 +2499,11 @@ Several matrices may be defined one after another.
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-20,-30},{-20,90},{80,90},{80,-30},{-20,-30},{-20,0},{
-                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{20,90},{20,-30}},
+                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{20,90},{20,-30}}, 
               color={0,0,0}),
           Text(
             extent={{-71,-42},{-32,-54}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="offset"),
           Polygon(
             points={{-31,-30},{-33,-40},{-28,-40},{-31,-30}},
@@ -2669,21 +2520,15 @@ Several matrices may be defined one after another.
           Text(
             extent={{-42,-74},{6,-84}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="startTime"),
           Line(points={{-20,-30},{-80,-30}}, color={95,95,95}),
           Text(
             extent={{-73,93},{-44,74}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="y"),
           Text(
             extent={{66,-81},{92,-92}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="time"),
           Text(
             extent={{-19,83},{20,68}},
@@ -2792,26 +2637,20 @@ Several matrices may be defined one after another.
           Text(
             extent={{-69,20},{-49,0}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="k"),
           Text(
             extent={{-96,6},{-76,-4}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="true"),
           Text(
             extent={{-98,-58},{-72,-68}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="false")}),
         Documentation(info="<html>
 <p>
 The Boolean output y is a constant signal:
 </p>
-
+ 
 <p>
 <img src=\"../Images/Blocks/Sources/BooleanConstant.png\">
 </p>
@@ -2832,8 +2671,8 @@ The Boolean output y is a constant signal:
             extent={{-150,-140},{150,-110}},
             lineColor={0,0,0},
             textString="%startTime")}),
-                              Diagram(coordinateSystem(preserveAspectRatio=
-              false, extent={{-100,-100},{100,100}}), graphics={
+                              Diagram(coordinateSystem(preserveAspectRatio=false,
+                     extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{-80,-70},{0,-70},{0,50},{80,50}},
             color={0,0,255},
@@ -2841,8 +2680,6 @@ The Boolean output y is a constant signal:
           Text(
             extent={{-15,-74},{20,-82}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="startTime"),
           Polygon(
             points={{2,50},{-80,50},{2,50}},
@@ -2852,20 +2689,16 @@ The Boolean output y is a constant signal:
           Text(
             extent={{-66,62},{-22,48}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="not startValue"),
           Text(
             extent={{-68,-58},{-36,-72}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="startValue")}),
         Documentation(info="<html>
 <p>
 The Boolean output y is a step signal:
 </p>
-
+ 
 <p>
 <img src=\"../Images/Blocks/Sources/BooleanStep.png\">
 </p>
@@ -2899,8 +2732,6 @@ The Boolean output y is a step signal:
           Text(
             extent={{-60,-74},{-19,-82}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="startTime"),
           Line(
             points={{-78,-70},{-40,-70},{-40,20},{20,20},{20,-70},{50,-70},{50,
@@ -2915,14 +2746,10 @@ The Boolean output y is a step signal:
           Text(
             extent={{-30,65},{16,55}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="period"),
           Text(
             extent={{-33,47},{14,37}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="width"),
           Line(points={{-70,20},{-41,20}}, color={95,95,95}),
           Polygon(
@@ -2948,20 +2775,16 @@ The Boolean output y is a step signal:
           Text(
             extent={{-95,26},{-66,17}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="true"),
           Text(
             extent={{-96,-60},{-75,-69}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="false")}),
         Documentation(info="<html>
 <p>
 The Boolean output y is a pulse signal:
 </p>
-
+ 
 <p>
 <img src=\"../Images/Blocks/Sources/Pulse.png\">
 </p>
@@ -3008,8 +2831,6 @@ The Boolean output y is a pulse signal:
           Text(
             extent={{-51,-72},{-11,-81}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="startTime"),
           Line(points={{-30,47},{-30,19}}, color={95,95,95}),
           Line(points={{0,47},{0,18}}, color={95,95,95}),
@@ -3017,8 +2838,6 @@ The Boolean output y is a pulse signal:
           Text(
             extent={{-37,61},{9,49}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="period"),
           Line(points={{-73,19},{-30,19}}, color={95,95,95}),
           Polygon(
@@ -3034,14 +2853,10 @@ The Boolean output y is a pulse signal:
           Text(
             extent={{-91,23},{-71,13}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="true"),
           Text(
             extent={{-90,-59},{-70,-68}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="false"),
           Line(
             points={{0,-70},{0,19}},
@@ -3065,7 +2880,7 @@ The Boolean output y is a trigger signal where the output y is only <b>true</b>
 at sample times (defined by parameter <b>period</b>) and is otherwise
 <b>false</b>.
 </p>
-
+ 
 <p>
 <img src=\"../Images/Blocks/Sources/SampleTrigger.png\">
 </p>
@@ -3100,7 +2915,7 @@ at sample times (defined by parameter <b>period</b>) and is otherwise
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-34,-54},{-34,66},{16,66},{16,-54},{-34,-54},{-34,-24},
-                {16,-24},{16,6},{-34,6},{-34,36},{16,36},{16,66},{16,66},{16,-55}},
+                {16,-24},{16,6},{-34,6},{-34,36},{16,36},{16,66},{16,66},{16,-55}}, 
               color={0,0,0}),
           Text(
             extent={{-29,59},{10,44}},
@@ -3239,26 +3054,20 @@ changes its value to the negated value of the previous one.
           Text(
             extent={{-81,92},{-38,74}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="y"),
           Text(
             extent={{66,-82},{94,-94}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="time"),
           Text(
             extent={{-101,8},{-81,-12}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="k")}),
       Documentation(info="<html>
 <p>
 The Integer output y is a constant signal:
 </p>
-
+ 
 <p>
 <img src=\"../Images/Blocks/Sources/IntegerConstant.png\">
 </p>
@@ -3310,21 +3119,15 @@ The Integer output y is a constant signal:
           Text(
             extent={{66,-78},{92,-88}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="time"),
           Text(
             extent={{-21,-76},{26,-88}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="startTime"),
           Line(points={{0,-17},{0,-71}}, color={95,95,95}),
           Text(
             extent={{-60,-36},{-12,-48}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="offset"),
           Line(points={{-13,50},{-13,-17}}, color={95,95,95}),
           Polygon(
@@ -3345,8 +3148,6 @@ The Integer output y is a constant signal:
           Text(
             extent={{-58,22},{-12,10}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="height"),
           Polygon(
             points={{-13,-69},{-16,-56},{-10,-56},{-13,-69},{-13,-69}},
@@ -3362,14 +3163,12 @@ The Integer output y is a constant signal:
           Text(
             extent={{-78,96},{-44,80}},
             lineColor={0,0,0},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
             textString="y")}),
       Documentation(info="<html>
 <p>
 The Integer output y is a step signal:
 </p>
-
+ 
 <p>
 <img src=\"../Images/Blocks/Sources/IntegerStep.png\">
 </p>

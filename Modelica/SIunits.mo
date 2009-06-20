@@ -333,8 +333,6 @@ and the accompanying <b>disclaimer</b>
         Text(
           extent={{179,226},{339,196}},
           lineColor={160,160,164},
-          fillColor={0,0,0},
-          fillPattern=FillPattern.Solid,
           textString="Library"),
         Text(
           extent={{206,173},{314,119}},
