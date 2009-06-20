@@ -175,18 +175,18 @@ function can be used as part of another scan operation.
     protected
     Real result2;
     Boolean scanning=true;
-    String operator;
+    String opString;
   algorithm
     // scan for "primary * primary" or "primary / primary"
     (result, nextIndex) := primary(string, startIndex, message);
     while scanning loop
-      (operator, nextIndex) := Strings.scanDelimiter(
+      (opString, nextIndex) := Strings.scanDelimiter(
                                       string, nextIndex, {"*","/",""}, message);
-      if operator == "" then
+      if opString == "" then
          scanning := false;
       else
          (result2, nextIndex) := primary(string, nextIndex, message);
-         result := if operator == "*" then result*result2 else result/result2;
+         result := if opString == "*" then result*result2 else result/result2;
       end if;
     end while;
   end term;
@@ -251,7 +251,7 @@ function can be used as part of another scan operation.
     Real result2;
     String signOfNumber;
     Boolean scanning=true;
-    String operator;
+    String opString;
   algorithm
     // scan for optional leading "+" or "-" sign
     (signOfNumber, nextIndex) :=Strings.scanDelimiter(
@@ -264,13 +264,13 @@ function can be used as part of another scan operation.
     end if;
 
     while scanning loop
-      (operator, nextIndex) := Strings.scanDelimiter(
+      (opString, nextIndex) := Strings.scanDelimiter(
                                       string, nextIndex, {"+","-",""}, message);
-      if operator == "" then
+      if opString == "" then
          scanning := false;
       else
          (result2, nextIndex) := term(string, nextIndex, message);
-         result := if operator == "+" then result+result2 else result-result2;
+         result := if opString == "+" then result+result2 else result-result2;
       end if;
     end while;
 
