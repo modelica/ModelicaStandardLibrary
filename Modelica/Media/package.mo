@@ -5335,7 +5335,8 @@ partial package PartialMixtureMedium
     "Base class for pure substances of several chemical substances"
     extends PartialMedium;
 
-    redeclare record extends ThermodynamicState "thermodynamic state variables"
+    redeclare replaceable record extends ThermodynamicState
+      "thermodynamic state variables"
       AbsolutePressure p "Absolute pressure of medium";
       Temperature T "Temperature of medium";
       MassFraction X[nX]

@@ -169,7 +169,8 @@ definition of the colors used in the MultiBody library
             fillColor={0,127,255},
             fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-98,34},{-64,46},{0,30},{74,56},{50,32},{-10,12},{-98,34}},
+            points={{-98,34},{-64,46},{0,30},{74,56},{50,32},{-10,12},{-98,34}}, 
+
             lineColor={255,255,255},
             fillColor={160,160,164},
             fillPattern=FillPattern.Solid),
@@ -1075,65 +1076,15 @@ library (will be replaced by a color editor).
     model Shape
       "Different visual shapes with variable size; all data have to be set as modifiers (see info layer)"
 
-      import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
-      import SI = Modelica.SIunits;
-      import Modelica.Mechanics.MultiBody.Frames;
-      import Modelica.Mechanics.MultiBody.Types;
+       extends
+        Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialShape;
+       extends ModelicaServices.Animation.Shape;
 
-      parameter Types.ShapeType shapeType="box"
-        "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring)";
-      input Frames.Orientation R=Frames.nullRotation()
-        "Orientation object to rotate the world frame into the object frame"  annotation(Dialog);
-      input SI.Position r[3]={0,0,0}
-        "Position vector from origin of world frame to origin of object frame, resolved in world frame"
-                                                                                                        annotation(Dialog);
-      input SI.Position r_shape[3]={0,0,0}
-        "Position vector from origin of object frame to shape origin, resolved in object frame"
-                                                                                                annotation(Dialog);
-      input Real lengthDirection[3](each final unit="1")={1,0,0}
-        "Vector in length direction, resolved in object frame"  annotation(Dialog);
-      input Real widthDirection[3](each final unit="1")={0,1,0}
-        "Vector in width direction, resolved in object frame"  annotation(Dialog);
-      input SI.Length length=0 "Length of visual object"  annotation(Dialog);
-      input SI.Length width=0 "Width of visual object"  annotation(Dialog);
-      input SI.Length height=0 "Height of visual object"  annotation(Dialog);
-      input Types.ShapeExtra extra=0.0
-        "Additional size data for some of the shape types"                                 annotation(Dialog);
-      input Real color[3]={255,0,0} "Color of shape"               annotation(Dialog);
-      input Types.SpecularCoefficient specularCoefficient = 0.7
-        "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog);
-      // Real rxry[3, 2];
-    protected
-      Real abs_n_x(final unit="1")=Modelica.Math.Vectors.length(
-                                 lengthDirection) annotation (HideResult=true);
-      Real e_x[3](each final unit="1")=noEvent(if abs_n_x < 1.e-10 then {1,0,0} else lengthDirection
-          /abs_n_x) annotation (HideResult=true);
-      Real n_z_aux[3](each final unit="1")=cross(e_x, widthDirection) annotation (HideResult=true);
-      Real e_y[3](each final unit="1")=noEvent(cross(Modelica.Math.Vectors.normalize(
-                                                 cross(e_x, if n_z_aux*n_z_aux
-           > 1.0e-6 then widthDirection else (if abs(e_x[1]) > 1.0e-6 then {0,1,
-          0} else {1,0,0}))), e_x)) annotation (HideResult=true);
-      output Real Form annotation (HideResult=false);
-    public
-      output Real rxvisobj[3](each final unit="1")
-        "x-axis unit vector of shape, resolved in world frame" 
-        annotation (HideResult=false);
-      output Real ryvisobj[3](each final unit="1")
-        "y-axis unit vector of shape, resolved in world frame" 
-        annotation (HideResult=false);
-      output SI.Position rvisobj[3]
-        "position vector from world frame to shape frame, resolved in world frame"
-        annotation (HideResult=false);
-    protected
-      output SI.Length size[3] "{length,width,height} of shape" 
-        annotation (HideResult=false);
-      output Real Material annotation (HideResult=false);
-      output Real Extra annotation (HideResult=false);
-      annotation (
-        Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+        annotation (
+         Icon(coordinateSystem(
+             preserveAspectRatio=true,
+             extent={{-100,-100},{100,100}},
+             grid={2,2}), graphics={
             Rectangle(
               extent={{-100,-100},{80,60}},
               lineColor={0,0,255},
@@ -1157,7 +1108,7 @@ library (will be replaced by a color editor).
               extent={{-132,160},{128,100}},
               textString="%name",
               lineColor={0,0,255})}),
-        Documentation(info="<HTML>
+         Documentation(info="<HTML>
 <p>
 Model <b>Shape</b> defines a visual shape that is
 shown at the location of its reference coordinate system, called
@@ -1247,23 +1198,6 @@ model where a <b>Shape</b> instance is used, e.g., in the form
 </pre>
 </HTML>
 "));
-    equation
-      /* Outputs to file. */
-      Form = (987000 + PackShape(shapeType))*1E20;
-      /*
-  rxry = Frames.TransformationMatrices.to_exy(
-    Frames.TransformationMatrices.absoluteRotation(R.T, 
-    Frames.TransformationMatrices.from_nxy(lengthDirection, widthDirection)));
-  rxvisobj = rxry[:, 1];
-  ryvisobj = rxry[:, 2];
-*/
-      rxvisobj = transpose(R.T)*e_x;
-      ryvisobj = transpose(R.T)*e_y;
-      rvisobj = r + T.resolve1(R.T, r_shape);
-      size = {length,width,height};
-      Material = PackMaterial(color[1]/255.0, color[2]/255.0, color[3]/255.0,
-        specularCoefficient);
-      Extra = extra;
     end Shape;
 
   end Advanced;
