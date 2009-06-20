@@ -48,7 +48,7 @@ Tietze, U.; Schenk, Ch.: Halbleiter-Schaltungstechnik. Springer-Verlag Berlin He
 <p>
 </dd>
 </dl>
-
+ 
 </HTML>
 ", revisions="<html>
 <dl>

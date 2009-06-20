@@ -214,6 +214,7 @@ model PowerSensor "Sensor to measure the power"
           origin={-30,-50},
           extent={{-10,-10},{10,10}},
           rotation=270)));
+
   annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},

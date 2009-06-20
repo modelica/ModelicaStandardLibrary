@@ -72,6 +72,7 @@ equation
   annotation (Line(points={{-70,-10},{-70,-20}}, color={0,0,255}));
   connect(Capacitor1.n, G.p) 
   annotation (Line(points={{30,0},{30,-20},{-70,-20}}, color={0,0,255}));
+
 annotation (Documentation(info="<HTML>
 <P>
 The heating MOS inverter shows a heat flow always if a transistor is leading.

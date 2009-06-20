@@ -7,10 +7,10 @@ package Lines
 <p>
 This package contains lossy and lossless segmented transmission lines,
 and LC distributed line models.
-
+ 
 The line models do not yet possess a conditional heating port.
 </p>
-
+ 
 </HTML>
 ", revisions="<html>
 <dl>
@@ -96,7 +96,7 @@ The values of the resistors and inductors are calculated with :R=r*length/(N+1) 
 For all capacitances, conductances, resistors and inductances the values of each segment are the same exept<br>
 of the first and last resistor and inductor, that only have the half of the value of the rest.<br>
 Note, this is different to the lumped line model of SPICE.
-
+ 
 <DL>
 <DT>
 <b>References:</b>
@@ -132,7 +132,7 @@ Note, this is different to the lumped line model of SPICE.
           Line(points={{-30,40},{-30,20}}, color={0,0,255}),
           Line(points={{30,40},{30,20}}, color={0,0,255}),
           Text(
-            extent={{-100,100},{100,70}},
+            extent={{-155,112},{145,72}},
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
@@ -239,8 +239,9 @@ equation
     connect(C[dim_vector_lgc].n,M.p);
     connect(inductance.n[lines],G[dim_vector_lgc].p);
     connect(G[dim_vector_lgc].n,M.p);
+
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(extent={{40,-40},{-40,40}},
+                -100},{100,100}}), graphics={Rectangle(extent={{40,-40},{-40,40}}, 
                 lineColor={0,0,255})}),
                             Diagram(coordinateSystem(preserveAspectRatio=false,
               extent={{-100,-100},{100,100}}),graphics));
@@ -272,8 +273,9 @@ equation
     connect(p[lines],inductance.p[lines]);
     connect(inductance.n[lines],R[lines].p);
     connect(R[lines].n,n[lines]);
+
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(extent={{20,-40},{-20,40}},
+                -100},{100,100}}), graphics={Rectangle(extent={{20,-40},{-20,40}}, 
                 lineColor={0,0,255})}));
 end segment_last;
 
@@ -310,10 +312,15 @@ equation
   end for;
     connect(s[N-1].n,s_last.p);
     connect(s_last.n,n);
+
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
-          Rectangle(extent={{60,80},{-60,-80}}, lineColor={0,0,255}),
+          Rectangle(
+            extent={{60,80},{-60,-80}},
+            lineColor={0,0,255},
+            fillPattern=FillPattern.Solid,
+            fillColor={255,255,255}),
           Line(points={{40,60},{40,40}}),
           Line(points={{40,50},{-40,50}}),
           Line(points={{-40,60},{-40,40}}),
@@ -328,13 +335,12 @@ equation
             color={0,0,255},
             pattern=LinePattern.Dot),
           Text(
-            extent={{-46,102},{38,80}},
-            lineColor={0,0,255},
-            pattern=LinePattern.Dot,
-            textString="%name")}),
+            extent={{-146,135},{154,95}},
+            textString="%name",
+            lineColor={0,0,255})}),
     Documentation(revisions="<HTML>
 <ul>
-
+ 
 <li><i> November 24, 2008   </i> docu added, cosmetic, K. Majetta
        </li>
 <li><i>February 26, 2007</i>
@@ -359,7 +365,7 @@ The complete multi line consists of N segments and an auxiliary segment_last:<br
 -- segment_1 -- segment_2 -- ... -- segment_N -- segment_last -- <br>
 </center>
 <br>
-
+ 
 In the picture of the segment can be seen, that a single segment is unsymmetric. Connecting such unsymmetric segments in a series forces also an unsymmetric multi line. To get a symmetric model which
 is useful for coupling and which guaranties the same pin properties, in the segment_1 only half valued resistors and inductors are used. The remaining resistors and inductors are at the other end of the line within the auxiliary segment_last. For the example with 4 lines the schematic of segment_last is like this:<br>
 <br>
@@ -371,14 +377,14 @@ ALT=\"model Analog.Lines.M_OLine\">
  The number of the capacitors
 and conductors depends on the number of single lines that are used, because each line is connected to every other line by both a capacitor and a conductor. One line consists of <b>at least two segements</b>.
 </p>
-
+ 
 Inside the model M_OLine the model <i>segment</i> is used. This model represents one segment which is build as described above. For modelling the inductances and their mutual couplings the model M_Transformer is used.
-
-
+ 
+ 
 To fill the resistance vector, resistance values as many as lines are needed, e.g. if there are four lines,
 four resistances are needed. For example for a microelectronic line of 0.1m lenght, a sensible resistance-vector
 would be R=[4.76e5, 1.72e5, 1.72e5, 1.72e5].
-
+ 
 <p>
 Filling the matrixes of the inductances, capacitances and conductances is a bit more complicated, because
 those components occur also between two lines and not only (like the resistor) in one line. The entries of
@@ -637,7 +643,7 @@ Note, this is different to the lumped line model of SPICE.
           Line(points={{-30,40},{-30,20}}, color={0,0,255}),
           Line(points={{30,40},{30,20}}, color={0,0,255}),
           Text(
-            extent={{-100,100},{100,70}},
+            extent={{-154,117},{146,77}},
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
@@ -692,8 +698,8 @@ Lossless transmission line with characteristic impedance Z0 and transmission del
   Z0 = sqrt(L'/C') and TD = sqrt(L'*C')*length_of_line. Resistance R'
   and conductance C' per meter are assumed to be zero.
 </p>
-
-
+ 
+ 
 <p>
 <b>References:</b>
 </p>
@@ -706,7 +712,7 @@ Lossless transmission line with characteristic impedance Z0 and transmission del
   Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985.
 </dd>
 </dl>
-
+ 
 </html>
 ", revisions="<html>
 <ul>
@@ -719,7 +725,11 @@ Lossless transmission line with characteristic impedance Z0 and transmission del
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
+          Rectangle(
+            extent={{-60,60},{60,-60}},
+            lineColor={0,0,255},
+            fillPattern=FillPattern.Solid,
+            fillColor={255,255,255}),
           Line(points={{60,-50},{90,-50}}, color={0,0,255}),
           Line(points={{60,50},{90,50}}, color={0,0,255}),
           Line(points={{-60,50},{-90,50}}, color={0,0,255}),
@@ -728,12 +738,12 @@ Lossless transmission line with characteristic impedance Z0 and transmission del
           Line(points={{-30,40},{-30,20}}, color={0,0,255}),
           Line(points={{30,40},{30,20}}, color={0,0,255}),
           Text(
-            extent={{-100,100},{100,70}},
+            extent={{-50,0},{50,-20}},
             textString="TLine1",
-            lineColor={0,0,255}),
+            lineColor={0,0,0}),
           Text(
-            extent={{-30,10},{30,-20}},
-            textString="TLine1",
+            extent={{-152,122},{148,82}},
+            textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -792,8 +802,8 @@ Lossless transmission line with characteristic impedance Z0, frequency F and nor
   by the wavelength corresponding to the frequency F, i. e. the
   transmission delay TD is the quotient of NL and F.
 </p>
-
-
+ 
+ 
 <p>
 <b>References:</b>
 </p>
@@ -806,7 +816,7 @@ Lossless transmission line with characteristic impedance Z0, frequency F and nor
   Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985.
 </dd>
 </dl>
-
+ 
 </html>
 ", revisions="<html>
 <li><i> 1998   </i>
@@ -818,7 +828,11 @@ Lossless transmission line with characteristic impedance Z0, frequency F and nor
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
+          Rectangle(
+            extent={{-60,60},{60,-60}},
+            lineColor={0,0,255},
+            fillPattern=FillPattern.Solid,
+            fillColor={255,255,255}),
           Line(points={{60,-50},{90,-50}}, color={0,0,255}),
           Line(points={{60,50},{90,50}}, color={0,0,255}),
           Line(points={{-60,50},{-90,50}}, color={0,0,255}),
@@ -827,12 +841,12 @@ Lossless transmission line with characteristic impedance Z0, frequency F and nor
           Line(points={{-30,40},{-30,20}}, color={0,0,255}),
           Line(points={{30,40},{30,20}}, color={0,0,255}),
           Text(
-            extent={{-100,100},{100,70}},
+            extent={{-51,-10},{50,-31}},
             textString="TLine2",
-            lineColor={0,0,255}),
+            lineColor={0,0,0}),
           Text(
-            extent={{-30,10},{30,-20}},
-            textString="TLine2",
+            extent={{-148,119},{152,79}},
+            textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -887,8 +901,8 @@ Lossless transmission line with characteristic impedance Z0 and frequency F
   transmission delay is the quotient of 4 and F.
   In this case, the caracteristic impedance is called natural impedance.
 </p>
-
-
+ 
+ 
 <p>
 <b>References:</b>
 </p>
@@ -901,7 +915,7 @@ Lossless transmission line with characteristic impedance Z0 and frequency F
   Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985.
 </dd>
 </dl>
-
+ 
 </html>
 ", revisions="<html>
 <ul>
@@ -914,7 +928,11 @@ Lossless transmission line with characteristic impedance Z0 and frequency F
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
+          Rectangle(
+            extent={{-60,60},{60,-60}},
+            lineColor={0,0,255},
+            fillPattern=FillPattern.Solid,
+            fillColor={255,255,255}),
           Line(points={{60,-50},{90,-50}}, color={0,0,255}),
           Line(points={{60,50},{90,50}}, color={0,0,255}),
           Line(points={{-60,50},{-90,50}}, color={0,0,255}),
@@ -923,12 +941,12 @@ Lossless transmission line with characteristic impedance Z0 and frequency F
           Line(points={{-30,40},{-30,20}}, color={0,0,255}),
           Line(points={{30,40},{30,20}}, color={0,0,255}),
           Text(
-            extent={{-100,100},{100,70}},
+            extent={{-50,-10},{51,-30}},
             textString="TLine3",
-            lineColor={0,0,255}),
+            lineColor={0,0,0}),
           Text(
-            extent={{-29,-1},{30,-31}},
-            textString="TLine3",
+            extent={{-155,124},{145,84}},
+            textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,

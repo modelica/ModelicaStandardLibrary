@@ -15,7 +15,7 @@ model SwitchWithArc
 <P>
 This example is to compare the behaviour of switch models with 
 and without an electric arc taking into consideration.<br><br>
-
+ 
 </P>
 <P>
 Simulate until T=2 s.
@@ -23,10 +23,10 @@ Simulate until T=2 s.
 <P>
 Plot in one windows:<br> <br>
 switch1.i and switch2.i <br><br>
-
+ 
 The difference in the closing area shows that the simple arc model avoids
 the suddenly switching.
-
+ 
 </P>
 </html>",
         revisions="<html>

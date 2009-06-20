@@ -16,14 +16,17 @@ model Rectifier "B6 diode bridge"
   output Modelica.SIunits.Power Losses;
 
 annotation (
-  Diagram(graphics={
+  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+            100}}), graphics={
         Text(
           extent={{-80,90},{80,70}},
           lineColor={0,0,0},
           textString="Rectifier"),
-        Line(points={{-16,18},{-16,2},{-18,6},{-14,6},{-16,2}}, color={0,0,0}),
+        Line(points={{-16,18},{-16,2},{-18,6},{-14,6},{-16,2}}, color={0,0,0}), 
+
         Line(points={{-30,22},{-26,20},{-30,18},{-30,22}}, color={0,0,0}),
-        Line(points={{32,30},{32,-30},{30,-26},{34,-26},{32,-30}}, color={0,0,0}),
+        Line(points={{32,30},{32,-30},{30,-26},{34,-26},{32,-30}}, color={0,0,0}), 
+
         Text(
           extent={{-38,16},{-22,8}},
           lineColor={0,0,0},
@@ -203,7 +206,8 @@ equation
   connect(SignalCurrent1.n, Capacitor2.n) 
     annotation (Line(points={{60,-10},{60,-50},{40,-50}}, color={0,0,255}));
   connect(Constant1.y, SignalCurrent1.i) 
-    annotation (Line(points={{79,0},{79,4.28626e-016},{67,4.28626e-016}}, color=
+    annotation (Line(points={{79,0},{79,-1.28588e-015},{67,-1.28588e-015}},
+                                                                          color=
          {0,0,255}));
   connect(Inductor1.n, IdealDiode1.p) 
     annotation (Line(points={{-40,20},{-20,20},{-20,30}}, color={0,0,255}));

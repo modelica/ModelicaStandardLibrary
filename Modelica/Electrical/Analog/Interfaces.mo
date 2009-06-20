@@ -7,7 +7,7 @@ package Interfaces
 This package contains connectors and interfaces (partial models) for
 analog electrical components.
 </p>
-
+ 
 </HTML>
 ", revisions="<html>
 <dl>
@@ -25,7 +25,7 @@ analog electrical components.
 <p>
 <dt>
 </dl>
-
+ 
 <b>Copyright:</b>
 <dl>
 <dd>
@@ -36,7 +36,7 @@ and the accompanying <b>disclaimer</b> in the documentation of package
 Modelica in file \"Modelica/package.mo\".</i><br>
 <p>
 </dl>
-
+ 
 <ul>
 <li><i> 1998</i>
        by Christoph Clauss<br> initially implemented<br>
@@ -325,7 +325,7 @@ This current is provided explicitly as current i.
        </li>
 </ul>
 </html>", info="<html>
-
+ 
 </html>"));
   equation
     v1 = p1.v - n1.v;
@@ -336,74 +336,26 @@ This current is provided explicitly as current i.
     i2 = p2.i;
   end TwoPort;
 
-  partial model ConditionalHeatingPort
-    "partial model to include conditional thermal hearting connection"
+  partial model ConditionalHeatPort
+    "Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network"
 
-  model InternalHeatPort "Adapter model to utilize conditional heat connector"
-    input Modelica.SIunits.HeatFlowRate Q_flow
-        "External supported heat flow rate, to be computed via current balance; = heatPort.Q_flow";
-    output Modelica.SIunits.Temperature T
-        "External Port temperature; = heatPort.T";
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),
-                                 graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
-            ={Text(
-              extent={{-200,80},{200,40}},
-              lineColor={0,0,255},
-              fillColor={175,175,175},
-              fillPattern=FillPattern.Solid,
-              textString="%name"), Rectangle(
-              extent={{-20,20},{20,-20}},
-              lineColor={191,0,0},
-              fillColor={191,0,0},
-              fillPattern=FillPattern.Solid)}),
-      Documentation(info="<html>
-<p>
-This is an adapter model to utilize a conditional support connector
-in an elementary component, i.e., where the component equations are
-defined textually:
-</p>
-
-<ul>
-<li> If <i>useSupport = true</i>, the flange has to be connected to the conditional
-     support connector.</li>
-<li> If <i>useSupport = false</i>, the flange has to be connected to the conditional
-     fixed model.</li>
-</ul>
-
-<p>
-Variable <b>tau</b> is defined as <b>input</b> and must be provided when using
-this component as a modifier (computed via a torque balance in
-the model where InternalSupport is used). Usually, model InternalSupport is
-utilized via the partial models:
-</p>
-
-<blockquote>
-<a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport\">
-PartialElementaryOneFlangeAndSupport</a>,<br>
-<a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport\">
-PartialElementaryTwoFlangesAndSupport</a>,<br>
-<a href=\"Modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational\">
-PartialElementaryRotationalToTranslational</a>.</li>
-</blockquote>
-
-<p>
-Note, the support angle can always be accessed as internalSupport.phi, and
-the support torque can always be accessed as internalSupport.tau.
-</p>
-
-
-</html>"));
-    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
-      annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+    parameter Boolean useHeatPort = false "=true, if HeatPort is enabled" 
+    annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+    parameter Modelica.SIunits.Temperature T=293.15
+      "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
+    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=T)=T_heatPort, Q_flow=-LossPower) if useHeatPort 
+      annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
+          iconTransformation(extent={{-10,-110},{10,-90}})));
+    Modelica.SIunits.Power LossPower
+      "Loss power leaving component via HeatPort";
+    Modelica.SIunits.Temperature T_heatPort "Temperature of HeatPort";
   equation
-    heatPort.T = T;
-    heatPort.Q_flow = Q_flow;
-  end InternalHeatPort;
+    if not useHeatPort then
+       T_heatPort = T;
+    end if;
 
-    parameter Boolean useHeatPort = false "true, if HeatPort enabled";
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+              -100},{100,100}}),                                                                 graphics),
       DymolaStoredErrors,
       Documentation(revisions="<html>
 <ul>
@@ -412,34 +364,24 @@ the support torque can always be accessed as internalSupport.tau.
        </li>
 </ul>
 </html>",   info="<html>
-<P>
+<p>
 This partial model provides a conditional heating port for the connection to a thermal network.
-</P>
-<P>
-If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal
-loss power flows internally to the ground. In this case, the parameter <i>T</i> allows to specify
-a fixed default temperature which can be used by the model via <i>internalHeatPort.T</i>.
-</P>
-<P>
-If <b>useHeatPort</b> is set to <b>true</b>, a heat port is available.
-</P>
-<P>
-If this model is used, the loss power has to be provided by the model which includes the ConditionalHeatingPort model, e.g. by  <i>lossPower = ...</i> . As a device temperature <i>internalHeatPort.T</i> can be used to describe the influence of the device temperature to the model behaviour.
-</P>
+</p>  
+<ul>
+<li> If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal
+     loss power flows internally to the ground. In this case, the parameter <b>T</b> specifies
+     the fixed device temperature (the default for T = 20<sup>o</sup>C)</li>.
+<li> If <b>useHeatPort</b> is set to <b>true</b>, a heat port is available.</li>
+</ul>
+ 
+<p>
+If this model is used, the loss power has to be provided by an equation in the model which inherits from
+ConditionalHeatingPort model (<b>lossPower = ...</b>). As device temperature 
+<b>T_heatPort</b> can be used to describe the influence of the device temperature
+on the model behaviour.
+</p>
 </html>"));
-    parameter Modelica.SIunits.Temperature T=293.15 if not useHeatPort
-      "fixed device Temperature if no HeatPort is enabled";
-    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
-      annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
-          iconTransformation(extent={{-10,-110},{10,-90}})));
-    Modelica.SIunits.Power LossPower;
-  protected
-    InternalHeatPort internalHeatPort(Q_flow = - LossPower);
-    Modelica.Thermal.HeatTransfer.Sources.FixedTemperature fixedTemperature(T=T) if not useHeatPort;
-  equation
-    connect(internalHeatPort.heatPort, heatPort);
-    connect(internalHeatPort.heatPort, fixedTemperature.port);
-  end ConditionalHeatingPort;
+  end ConditionalHeatPort;
 
   partial model AbsoluteSensor
     "Base class to measure the absolute value of a pin variable"
@@ -524,7 +466,7 @@ If this model is used, the loss power has to be provided by the model which incl
     parameter SI.Voltage offset=0 "Voltage offset";
     parameter SI.Time startTime=0 "Time offset";
     replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
-        final offset = offset, final startTime=startTime)
+        final offset = offset, final startTime=startTime) 
     annotation (Placement(transformation(extent={{70,70},{90,90}}, rotation=0)));
     annotation (
       Icon(coordinateSystem(

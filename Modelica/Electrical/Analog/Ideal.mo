@@ -8,7 +8,7 @@ package Ideal
 <p>
 This package contains electrical components with idealized behaviour:
 </p>
-
+ 
 </HTML>
 ", revisions="<html>
 <dl>
@@ -38,7 +38,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 
           model IdealThyristor "Ideal thyristor"
             extends Modelica.Electrical.Analog.Interfaces.OnePort;
-            extends Interfaces.ConditionalHeatingPort;
+            extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
             parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
       "Closed thyristor resistance";
             parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
@@ -93,18 +93,25 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Text(
-            extent={{-100,-70},{100,-100}},
+            extent={{-150,-47},{150,-87}},
             textString="%name",
             lineColor={0,0,255}),
           Polygon(
             points={{30,0},{-30,40},{-30,-40},{30,0}},
             lineColor={0,0,0},
-            fillColor={255,255,255}),
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Line(points={{-90,0},{40,0}}, color={0,0,255}),
           Line(points={{40,0},{90,0}}, color={0,0,255}),
           Line(points={{30,40},{30,-40}}, color={0,0,255}),
           Line(points={{30,20},{70,60},{70,90}}, color={0,0,255}),
-          Line(points={{40,50},{60,30}}, color={0,0,255})}),
+          Line(points={{40,50},{60,30}}, color={0,0,255}),
+          Line(
+            visible=useHeatPort,
+            points={{0,-100},{0,-20}},
+            color={127,0,0},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot)}),
               Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -179,7 +186,7 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
 
           model IdealGTOThyristor "Ideal GTO thyristor"
             extends Modelica.Electrical.Analog.Interfaces.OnePort;
-            extends Interfaces.ConditionalHeatingPort;
+            extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
             parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
       "Closed thyristor resistance";
             parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
@@ -233,19 +240,26 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Text(
-            extent={{-100,-70},{100,-100}},
-            textString="%name",
-            lineColor={0,0,255}),
           Polygon(
             points={{30,0},{-30,40},{-30,-40},{30,0}},
             lineColor={0,0,0},
-            fillColor={255,255,255}),
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Line(points={{-90,0},{40,0}}, color={0,0,255}),
           Line(points={{40,0},{90,0}}, color={0,0,255}),
           Line(points={{30,40},{30,-40}}, color={0,0,255}),
           Line(points={{30,20},{70,60},{70,90}}, color={0,0,255}),
-          Line(points={{40,50},{60,30}}, color={0,0,255})}),
+          Line(points={{40,50},{60,30}}, color={0,0,255}),
+          Line(
+            visible=useHeatPort,
+            points={{0,-100},{0,-20}},
+            color={127,0,0},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot),
+          Text(
+            extent={{-149,-43},{151,-83}},
+            textString="%name",
+            lineColor={0,0,255})}),
               Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -319,7 +333,7 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
           end IdealGTOThyristor;
 
   model IdealCommutingSwitch "Ideal commuting switch"
-    extends Interfaces.ConditionalHeatingPort;
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance";
@@ -390,8 +404,14 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points={{40,50},{90,50}}, color={0,0,255}),
           Line(points={{0,90},{0,25}}, color={0,0,255}),
           Line(points={{40,0},{90,0}}, color={0,0,255}),
+          Line(
+            visible=useHeatPort,
+            points={{0,-100},{0,25}},
+            color={127,0,0},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot),
           Text(
-            extent={{-100,-70},{100,-100}},
+            extent={{-148,-22},{152,-62}},
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
@@ -415,7 +435,7 @@ where a description with zero Ron or zero Goff is not possible.
   end IdealCommutingSwitch;
 
   model IdealIntermediateSwitch "Ideal intermediate switch"
-    extends Interfaces.ConditionalHeatingPort;
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance";
@@ -502,7 +522,7 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points={{0,90},{0,25}}, color={0,0,255}),
           Line(points={{40,0},{90,0}}, color={0,0,255}),
           Text(
-            extent={{-100,-70},{100,-100}},
+            extent={{-151,-24},{149,-64}},
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
@@ -532,7 +552,7 @@ where a description with zero Ron or zero Goff is not possible.
   end IdealIntermediateSwitch;
 
   model ControlledIdealCommutingSwitch "Controlled ideal commuting switch"
-    extends Interfaces.ConditionalHeatingPort;
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
     parameter SI.Voltage level=0.5 "Switch level";
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5
@@ -605,8 +625,14 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points={{40,50},{90,50}}, color={0,0,255}),
           Line(points={{0,90},{0,25}}, color={0,0,255}),
           Line(points={{40,0},{90,0}}, color={0,0,255}),
+          Line(
+            visible=useHeatPort,
+            points={{0,-99},{0,25}},
+            color={127,0,0},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot),
           Text(
-            extent={{-100,-70},{100,-100}},
+            extent={{-145,-21},{155,-61}},
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
@@ -632,7 +658,7 @@ where a description with zero Ron or zero Goff is not possible.
 
   model ControlledIdealIntermediateSwitch
     "Controlled ideal intermediate switch"
-    extends Interfaces.ConditionalHeatingPort;
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
     parameter SI.Voltage level=0.5 "Switch level";
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5
@@ -720,8 +746,14 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points={{40,50},{90,50}}, color={0,0,255}),
           Line(points={{0,90},{0,25}}, color={0,0,255}),
           Line(points={{40,0},{90,0}}, color={0,0,255}),
+          Line(
+            visible=useHeatPort,
+            points={{0,-100},{0,22}},
+            color={127,0,0},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot),
           Text(
-            extent={{-100,-70},{100,-100}},
+            extent={{-150,-23},{150,-63}},
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
@@ -787,10 +819,6 @@ are possible (norator).
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Text(
-            extent={{-100,80},{100,100}},
-            textString="%name",
-            lineColor={0,0,255}),
           Polygon(
             points={{60,0},{-60,70},{-60,-70},{60,0}},
             fillColor={255,255,255},
@@ -802,7 +830,11 @@ are possible (norator).
           Line(points={{0,-35},{0,-91}}, color={0,0,255}),
           Line(points={{-48,32},{-28,32}}, color={0,0,255}),
           Line(points={{-39,-20},{-39,-41}}, color={0,0,255}),
-          Line(points={{-50,-31},{-28,-31}}, color={0,0,255})}),
+          Line(points={{-50,-31},{-28,-31}}, color={0,0,255}),
+          Text(
+            extent={{-150,126},{150,86}},
+            textString="%name",
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -895,10 +927,6 @@ are possible.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Text(
-            extent={{-100,80},{100,100}},
-            textString="%name",
-            lineColor={0,0,255}),
           Polygon(
             points={{60,0},{-60,70},{-60,-70},{60,0}},
             fillColor={255,255,255},
@@ -909,7 +937,11 @@ are possible.
           Line(points={{60,0},{90,0}}, color={0,0,255}),
           Line(points={{-48,32},{-28,32}}, color={0,0,255}),
           Line(points={{-39,-20},{-39,-41}}, color={0,0,255}),
-          Line(points={{-50,-31},{-28,-31}}, color={0,0,255})}),
+          Line(points={{-50,-31},{-28,-31}}, color={0,0,255}),
+          Text(
+            extent={{-149,117},{151,77}},
+            textString="%name",
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -993,10 +1025,6 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Text(
-            extent={{-110,80},{100,90}},
-            textString="%name",
-            lineColor={0,0,255}),
           Polygon(
             points={{60,0},{-60,70},{-60,-70},{60,0}},
             fillColor={255,255,255},
@@ -1011,7 +1039,11 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
           Line(points={{60,0},{90,0}}, color={0,0,255}),
           Line(points={{-48,32},{-28,32}}, color={0,0,255}),
           Line(points={{-39,-20},{-39,-41}}, color={0,0,255}),
-          Line(points={{-50,-31},{-28,-31}}, color={0,0,255})}),
+          Line(points={{-50,-31},{-28,-31}}, color={0,0,255}),
+          Text(
+            extent={{-152,135},{148,95}},
+            textString="%name",
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1021,7 +1053,8 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}),
+          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}), 
+
           Line(points={{0,35},{0,80}}, color={0,0,255}),
           Line(points={{0,-35},{0,-80}}, color={0,0,255}),
           Line(points={{-96,50},{-60,50}}, color={0,0,255}),
@@ -1067,7 +1100,7 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
 
         model IdealDiode "Ideal diode"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          extends Interfaces.ConditionalHeatingPort;
+          extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
           parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
       "Forward state-on differential resistance (closed diode resistance)";
           parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
@@ -1120,12 +1153,19 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
           Polygon(
             points={{30,0},{-30,40},{-30,-40},{30,0}},
             lineColor={0,0,0},
-            fillColor={255,255,255}),
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Line(points={{-90,0},{40,0}}, color={0,0,255}),
           Line(points={{40,0},{90,0}}, color={0,0,255}),
           Line(points={{30,40},{30,-40}}, color={0,0,255}),
+          Line(
+            visible=useHeatPort,
+            points={{0,-100},{0,-20}},
+            color={127,0,0},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot),
           Text(
-            extent={{-100,100},{100,70}},
+            extent={{-156,101},{144,61}},
             textString="%name",
             lineColor={0,0,255})}),
             Diagram(coordinateSystem(
@@ -1256,7 +1296,6 @@ For the backward conversion, one has to decide about the partitioning of the lea
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
-          Text(extent={{-100,100},{100,80}}, textString="%name"),
           Ellipse(extent={{-45,-50},{-20,-25}}),
           Ellipse(extent={{-45,-25},{-20,0}}),
           Ellipse(extent={{-45,0},{-20,25}}),
@@ -1287,7 +1326,11 @@ For the backward conversion, one has to decide about the partitioning of the lea
           Text(
             extent={{80,10},{100,-10}},
             lineColor={0,0,255},
-            textString="2")}),
+            textString="2"),
+          Text(
+            extent={{-146,115},{154,75}},
+            textString="%name",
+            lineColor={0,0,255})}),
       Diagram(graphics={Text(
             extent={{-100,10},{0,-10}},
             lineColor={0,0,255},
@@ -1347,10 +1390,6 @@ where the constant <i>G</i> is called the gyration conductance.
             fillPattern=FillPattern.Solid),
           Line(points={{-90,50},{-40,50},{-40,-50},{-90,-50}}, color={0,0,255}), 
 
-          Text(
-            extent={{-100,100},{100,70}},
-            textString="%name",
-            lineColor={0,0,255}),
           Line(points={{-30,60},{20,60}}, color={0,0,255}),
           Polygon(
             points={{20,63},{30,60},{20,57},{20,63}},
@@ -1367,7 +1406,11 @@ where the constant <i>G</i> is called the gyration conductance.
             lineThickness=0.25,
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{90,50},{40,50},{40,-50},{90,-50}}, color={0,0,255})}),
+          Line(points={{90,50},{40,50},{40,-50},{90,-50}}, color={0,0,255}),
+          Text(
+            extent={{-152,116},{148,76}},
+            textString="%name",
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1378,7 +1421,8 @@ where the constant <i>G</i> is called the gyration conductance.
             lineColor={255,255,255},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{-96,50},{-40,50},{-40,-50},{-96,-50}}, color={0,0,255}),
+          Line(points={{-96,50},{-40,50},{-40,-50},{-96,-50}}, color={0,0,255}), 
+
           Line(points={{-30,60},{20,60}}, color={0,0,255}),
           Polygon(
             points={{20,63},{30,60},{20,57},{20,63}},
@@ -1425,7 +1469,7 @@ The model Idle is a simple idle running branch.
           Line(points={{-90,0},{-41,0}}, color={0,0,255}),
           Line(points={{91,0},{40,0}}, color={0,0,255}),
           Text(
-            extent={{-100,100},{100,70}},
+            extent={{-153,112},{147,72}},
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
@@ -1465,7 +1509,7 @@ The model Short is a simple short cut branch.
             lineColor={0,0,255}),
           Line(points={{91,0},{-90,0}}, color={0,0,255}),
           Text(
-            extent={{-100,100},{100,70}},
+            extent={{-151,113},{149,73}},
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
@@ -1484,7 +1528,7 @@ The model Short is a simple short cut branch.
 
  model IdealOpeningSwitch "Ideal electrical opener"
    extends Modelica.Electrical.Analog.Interfaces.OnePort;
-   extends Interfaces.ConditionalHeatingPort;
+   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance" 
        annotation (Placement(transformation(extent={{-56.6667,10},{-10,56.6667}},
             rotation=0)));
@@ -1538,12 +1582,18 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points={{-90,0},{-44,0}}, color={0,0,255}),
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
           Line(points={{40,0},{90,0}}, color={0,0,255}),
-          Text(
-            extent={{-100,-70},{100,-100}},
-            textString="%name",
-            lineColor={0,0,255}),
           Line(points={{0,51},{0,26}}, color={0,0,255}),
-          Line(points={{40,20},{40,0}}, color={0,0,255})}),
+          Line(points={{40,20},{40,0}}, color={0,0,255}),
+          Line(
+            visible=useHeatPort,
+            points={{0,-100},{0,25}},
+            color={127,0,0},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot),
+          Text(
+            extent={{-151,-21},{149,-61}},
+            textString="%name",
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1567,7 +1617,7 @@ where a description with zero Ron or zero Goff is not possible.
 
     model IdealClosingSwitch "Ideal electrical closer"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
-      extends Interfaces.ConditionalHeatingPort;
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
       parameter SI.Resistance Ron(final min=0) = 1.E-5
       "Closed switch resistance" 
          annotation (Placement(transformation(extent={{-56.6667,10},{-10,
@@ -1622,11 +1672,17 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points={{-90,0},{-44,0}}, color={0,0,255}),
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
           Line(points={{40,0},{90,0}}, color={0,0,255}),
+          Line(points={{0,51},{0,26}}, color={0,0,255}),
+          Line(
+            visible=useHeatPort,
+            points={{0,-100},{0,25}},
+            color={127,0,0},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot),
           Text(
-            extent={{-100,-70},{100,-100}},
+            extent={{-152,-28},{148,-68}},
             textString="%name",
-            lineColor={0,0,255}),
-          Line(points={{0,51},{0,26}}, color={0,0,255})}),
+            lineColor={0,0,255})}),
         Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1648,7 +1704,7 @@ where a description with zero Ron or zero Goff is not possible.
     end IdealClosingSwitch;
 
   model ControlledIdealOpeningSwitch "Controlled ideal electrical opener"
-    extends Interfaces.ConditionalHeatingPort;
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
     parameter SI.Voltage level=0.5 "Switch level" annotation (Placement(
           transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
@@ -1710,11 +1766,17 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
           Line(points={{40,0},{90,0}}, color={0,0,255}),
           Line(points={{0,90},{0,25}}, color={0,0,255}),
+          Line(points={{40,20},{40,0}}, color={0,0,255}),
+          Line(
+            visible=useHeatPort,
+            points={{0,-100},{0,25}},
+            color={127,0,0},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot),
           Text(
-            extent={{-100,-70},{100,-100}},
+            extent={{-150,-34},{150,-74}},
             textString="%name",
-            lineColor={0,0,255}),
-          Line(points={{40,20},{40,0}}, color={0,0,255})}),
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1735,7 +1797,7 @@ where a description with zero Ron or zero Goff is not possible.
   end ControlledIdealOpeningSwitch;
 
     model ControlledIdealClosingSwitch "Controlled ideal electrical closer"
-      extends Interfaces.ConditionalHeatingPort;
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
       parameter SI.Voltage level=0.5 "Switch level" annotation (Placement(
           transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
       parameter SI.Resistance Ron(final min=0) = 1.E-5
@@ -1798,8 +1860,14 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
           Line(points={{40,0},{90,0}}, color={0,0,255}),
           Line(points={{0,90},{0,25}}, color={0,0,255}),
+          Line(
+            visible=useHeatPort,
+            points={{0,-100},{0,25}},
+            color={127,0,0},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot),
           Text(
-            extent={{-100,-70},{100,-100}},
+            extent={{-149,-32},{151,-72}},
             textString="%name",
             lineColor={0,0,255})}),
         Diagram(coordinateSystem(
@@ -1842,11 +1910,11 @@ where a description with zero Ron or zero Goff is not possible.
           Line(points={{-37,2},{40,50}}),
           Line(points={{40,0},{90,0}}),
           Line(points={{0,90},{0,26}}, color={255,85,255}),
+          Line(points={{40,18},{40,0}}),
           Text(
-            extent={{-120,-40},{120,-100}},
-            lineColor={0,0,255},
-            textString="%name"),
-          Line(points={{40,18},{40,0}})}),      Diagram(graphics={
+            extent={{-150,-35},{150,-75}},
+            textString="%name",
+            lineColor={0,0,255})}),             Diagram(graphics={
           Line(points={{-60,60},{-60,-60},{60,-60}}, color={0,0,255}),
           Line(points={{-60,-60},{-40,-60},{-40,-40},{-20,40},{40,40}}, color={
                 0,0,0}),
@@ -1981,9 +2049,9 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
           Line(points={{40,0},{90,0}}),
           Line(points={{0,90},{0,26}}, color={255,85,255}),
           Text(
-            extent={{-120,-40},{120,-100}},
-            lineColor={0,0,255},
-            textString="%name")}),              Diagram(graphics={
+            extent={{-152,-29},{148,-69}},
+            textString="%name",
+            lineColor={0,0,255})}),             Diagram(graphics={
           Line(points={{-60,60},{-60,-60},{60,-60}}, color={0,0,255}),
           Line(points={{-60,-60},{-40,-60},{-40,-40},{-20,40},{40,40}}, color={
                 0,0,0}),
@@ -2133,12 +2201,12 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
     annotation (
       Documentation(info="
 <HTML>
-
+ 
 <p>
 This model is an extension to the <a href=\"Modelica://Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch\">IdealOpeningSwitch</a>.
 </p>
-
-
+ 
+ 
 <p>
 The basic model interupts the current through the switch in an infinitesimal time span. 
 If an inductive circuit is connected, the voltage across the swicth is limited only by numerics. 
@@ -2190,12 +2258,12 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
           Line(points={{40,0},{90,0}}, color={0,0,255}),
           Line(points={{0,90},{0,25}}, color={0,0,255}),
-          Text(
-            extent={{-100,-70},{100,-100}},
-            textString="%name",
-            lineColor={0,0,255}),
           Line(points={{40,20},{40,0}}, color={0,0,255}),
-          Line(points={{40,50},{32,34},{48,30},{40,20}}, color={255,0,0})}),
+          Line(points={{40,50},{32,34},{48,30},{40,20}}, color={255,0,0}),
+          Text(
+            extent={{-148,-34},{152,-74}},
+            textString="%name",
+            lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -2267,12 +2335,12 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
       annotation (
         Documentation(info="
 <HTML>
-
+ 
 <p>
 This model is an extension to the <a href=\"Modelica://Modelica.Electrical.Analog.Ideal.IdealClosingSwitch\">IdealClosingSwitch</a>.
 </p>
-
-
+ 
+ 
 <p>
 The basic model interupts the current through the switch in an infinitesimal time span. 
 If an inductive circuit is connected, the voltage across the swicth is limited only by numerics. 
@@ -2305,7 +2373,7 @@ i.e. the equation for the on-state is activated <code>v=Ron*i</code>.
 Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs. 
 In a DC circuit, the arc will not quench if the arc voltage is not sufficient that a zero-crossing of the current occurs.
 </p>
-
+ 
 </HTML>
 ",     revisions=
              "<html>

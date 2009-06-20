@@ -14,15 +14,15 @@ This package contains semiconductor devices:
 <li>MOS transistors</li>
 <li>bipolar transistors</li>
 </ul>
-
+ 
 All semiconductor devices contain a conditional heat port, which is
 not active by default. If it is active the loss power is calculated
 to be used in a thermal net.
-
+ 
 The heating variants of the semiconductor devices are provided to
 use the thermal pot temperature in the electric calculation. That means that for a true thermal electric
 interaction the heating device models have to be used.
-
+ 
 </p>
 </HTML>
 ", revisions="<html>
@@ -51,7 +51,7 @@ interaction the heating device models have to be used.
     parameter Real Maxexp(final min=Modelica.Constants.small) = 15
       "Max. exponent for linear continuation";
     parameter SIunits.Resistance R=1.e8 "Parallel ohmic resistance";
-    extends Interfaces.ConditionalHeatingPort;
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
     annotation (
       Documentation(info="
 <HTML>
@@ -88,18 +88,25 @@ continued to avoid overflow.
           Polygon(
             points={{30,0},{-30,40},{-30,-40},{30,0}},
             lineColor={0,0,0},
-            fillColor={255,255,255}),
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Line(points={{-90,0},{40,0}}, color={0,0,255}),
           Line(points={{40,0},{90,0}}, color={0,0,255}),
           Line(points={{30,40},{30,-40}}, color={0,0,255}),
           Text(
-            extent={{-98,-58},{102,-100}},
+            extent={{-150,-49},{149,-77}},
             lineColor={0,0,0},
             textString="Vt=%Vt"),
           Text(
-            extent={{-100,100},{100,70}},
+            extent={{-154,100},{146,60}},
             textString="%name",
-            lineColor={0,0,255})}),
+            lineColor={0,0,255}),
+          Line(
+            visible=useHeatPort,
+            points={{0,-100},{0,-20}},
+            color={127,0,0},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -130,7 +137,7 @@ continued to avoid overflow.
       "Breakthrough voltage = Zener- or Z-voltage";
    parameter Modelica.SIunits.Current Ibv=0.7 "Breakthrough knee current";
    parameter Real Nbv=0.74 "Breakthrough emission coefficient";
-   extends Interfaces.ConditionalHeatingPort;
+   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
     annotation (
       Documentation(info="
 <HTML>
@@ -146,13 +153,13 @@ resistance <i>R</i>. The diode formula is:
 If the exponent  in one of the two branches reaches the limit <i>Maxexp</i>, the diode characterisic is linearly
 continued to avoid overflow.
 </P>
-
+ 
 <P>
 The zener diode model permits (in contrast to the simple diode model)
 current in reverse direction if the breakdown voltage Bv (also known zener knee voltage) is exceeded.
 <\\P>
-
-
+ 
+ 
 </HTML>
 ", revisions="<html>
 <ul>
@@ -172,22 +179,29 @@ current in reverse direction if the breakdown voltage Bv (also known zener knee 
           Polygon(
             points={{30,0},{-30,40},{-30,-40},{30,0}},
             lineColor={0,0,0},
-            fillColor={255,255,255}),
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Line(points={{-90,0},{40,0}}, color={0,0,255}),
           Line(points={{40,0},{90,0}}, color={0,0,255}),
           Line(points={{30,40},{30,-40}}, color={0,0,255}),
           Text(
-            extent={{-98,-58},{102,-100}},
+            extent={{-127,-51},{135,-79}},
             lineColor={0,0,0},
             textString="Bv=%Bv"),
-          Text(
-            extent={{-100,100},{100,70}},
-            textString="%name",
-            lineColor={0,0,255}),
           Line(
             points={{30,-40},{20,-40}},
             color={0,0,255},
-            smooth=Smooth.None)}),
+            smooth=Smooth.None),
+          Text(
+            extent={{-150,96},{150,56}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(
+            visible=useHeatPort,
+            points={{0,-100},{0,-20}},
+            color={127,0,0},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -232,7 +246,7 @@ current in reverse direction if the breakdown voltage Bv (also known zener knee 
     parameter SIunits.Length dW=-2.5e-6 "Narrowing of channel";
     parameter SIunits.Length dL=-2.1e-6 "Shortening of channel";
     parameter SIunits.Resistance RDS=1.e+7 "Drain-Source-Resistance";
-    extends Interfaces.ConditionalHeatingPort;
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
   protected
     Real v;
     Real uds;
@@ -291,10 +305,6 @@ Some typical parameter sets are:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Text(
-            extent={{-100,60},{100,100}},
-            textString="%name",
-            lineColor={0,0,255}),
           Line(points={{-90,-50},{-10,-50}}, color={0,0,255}),
           Line(points={{-10,-50},{-10,50}}, color={0,0,255}),
           Line(points={{10,70},{10,29}}, color={0,0,255}),
@@ -307,7 +317,17 @@ Some typical parameter sets are:
             points={{60,0},{40,5},{40,-5},{60,0}},
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255})}),
+            lineColor={0,0,255}),
+          Text(
+            extent={{-149,117},{151,77}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(
+            visible=useHeatPort,
+            points={{0,-90},{0,0}},
+            color={127,0,0},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -363,7 +383,7 @@ Some typical parameter sets are:
     parameter SIunits.Length dW=-2.5e-6 "narrowing of channel";
     parameter SIunits.Length dL=-1.5e-6 "shortening of channel";
     parameter SIunits.Resistance RDS=1.e+7 "Drain-Source-Resistance";
-    extends Interfaces.ConditionalHeatingPort;
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
   protected
     Real v;
     Real uds;
@@ -432,10 +452,6 @@ Muenchen Wien 1990.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Text(
-            extent={{-100,80},{100,100}},
-            textString="%name",
-            lineColor={0,0,255}),
           Line(points={{-90,-50},{-10,-50}}, color={0,0,255}),
           Line(points={{-10,-50},{-10,50}}, color={0,0,255}),
           Line(points={{10,70},{10,29}}, color={0,0,255}),
@@ -448,7 +464,17 @@ Muenchen Wien 1990.
             points={{40,0},{60,5},{60,-5},{40,0}},
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255})}),
+            lineColor={0,0,255}),
+          Text(
+            extent={{-155,119},{145,79}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(
+            visible=useHeatPort,
+            points={{0,-100},{0,0}},
+            color={127,0,0},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -507,7 +533,7 @@ Muenchen Wien 1990.
     parameter SIunits.Voltage Vt=0.02585 "Voltage equivalent of temperature";
     parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
     parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
-    extends Interfaces.ConditionalHeatingPort;
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
   protected
     Real vbc;
     Real vbe;
@@ -563,7 +589,7 @@ on page 317 ff.
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-
+ 
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -573,10 +599,6 @@ on page 317 ff.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Text(
-            extent={{-100,80},{100,100}},
-            textString="%name",
-            lineColor={0,0,255}),
           Line(points={{-10,40},{-10,-40}}, color={0,0,255}),
           Line(points={{-10,0},{-90,0}}, color={0,0,255}),
           Line(points={{91,50},{30,50}}, color={0,0,255}),
@@ -587,7 +609,17 @@ on page 317 ff.
             points={{30,-50},{24,-36},{16,-44},{30,-50}},
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255})}),
+            lineColor={0,0,255}),
+          Text(
+            extent={{-152,117},{148,77}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(
+            visible=useHeatPort,
+            points={{0,-100},{0,-20}},
+            color={127,0,0},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -655,7 +687,7 @@ on page 317 ff.
     parameter SIunits.Voltage Vt=0.02585 "Voltage equivalent of temperature";
     parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
     parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
-    extends Interfaces.ConditionalHeatingPort;
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
   protected
     Real vbc;
     Real vbe;
@@ -710,7 +742,7 @@ on page 317 ff.
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
-
+ 
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -720,10 +752,6 @@ on page 317 ff.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Text(
-            extent={{-100,80},{100,100}},
-            textString="%name",
-            lineColor={0,0,255}),
           Line(points={{-10,40},{-10,-40}}, color={0,0,255}),
           Line(points={{-10,0},{-90,0}}, color={0,0,255}),
           Line(points={{91,50},{30,50}}, color={0,0,255}),
@@ -734,7 +762,17 @@ on page 317 ff.
             points={{-10,-10},{5,-17},{-3,-25},{-10,-10}},
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255})}),
+            lineColor={0,0,255}),
+          Text(
+            extent={{-158,119},{142,79}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(
+            visible=useHeatPort,
+            points={{0,-100},{0,-20}},
+            color={127,0,0},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -795,7 +833,7 @@ on page 317 ff.
           parameter Modelica.SIunits.Temperature TNOM=300.15
       "Parameter measurement temperature";
           parameter Real XTI=3 "Temperature exponent of saturation current";
-          extends Interfaces.ConditionalHeatingPort;
+          extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=true);
 
           Modelica.SIunits.Temperature vt_t "Temperature voltage";
           Modelica.SIunits.Current id "diode current";
@@ -806,7 +844,7 @@ on page 317 ff.
           Real aux;
           Real auxp;
           Real maxexp=exp(Maxexp);
-          annotation (
+          annotation (__Dymola_structurallyIncomplete=true,
             Documentation(info="
 <HTML>
 <P>
@@ -844,14 +882,21 @@ The thermal power is calculated by <i>i*v</i>.
           Polygon(
             points={{30,0},{-30,40},{-30,-40},{30,0}},
             lineColor={0,0,0},
-            fillColor={255,255,255}),
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Line(points={{-90,0},{40,0}}, color={0,0,255}),
           Line(points={{40,0},{90,0}}, color={0,0,255}),
           Line(points={{30,40},{30,-40}}, color={0,0,255}),
           Text(
-            extent={{-142,101},{143,51}},
+            extent={{-152,114},{148,74}},
             textString="%name",
-            lineColor={0,0,255})}),
+            lineColor={0,0,255}),
+          Line(
+            visible=useHeatPort,
+            points={{0,-101},{0,-20}},
+            color={127,0,0},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot)}),
             Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -865,8 +910,8 @@ The thermal power is calculated by <i>i*v</i>.
           Line(points={{40,0},{96,0}}, color={0,0,255}),
           Line(points={{30,40},{30,-40}}, color={0,0,255})}));
         equation
-          assert( internalHeatPort.T > 0,"temperature must be positive");
-          htemp = internalHeatPort.T;
+          assert( T_heatPort > 0,"temperature must be positive");
+          htemp = T_heatPort;
           vt_t = k*htemp/q;
 
           id = exlin((v/(N*vt_t)), Maxexp) - 1;
@@ -880,6 +925,7 @@ The thermal power is calculated by <i>i*v</i>.
         end HeatingDiode;
 
         model HeatingNMOS "Simple MOS Transistor with heating port"
+
           Modelica.Electrical.Analog.Interfaces.Pin D "Drain" 
             annotation (Placement(transformation(extent={{90,40},{110,60}},
             rotation=0)));
@@ -908,7 +954,7 @@ The thermal power is calculated by <i>i*v</i>.
       "Parameter measurement temperature";
           parameter Real kvt=-6.96e-3 "fitting parameter for Vt";
           parameter Real kk2=6.0e-4 "fitting parameter for K22";
-          extends Interfaces.ConditionalHeatingPort;
+          extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=true);
   protected
           Real v;
           Real uds;
@@ -921,7 +967,7 @@ The thermal power is calculated by <i>i*v</i>.
           Real beta_t;
           Real vt_t;
           Real k2_t;
-          annotation (
+          annotation (__Dymola_structurallyIncomplete=true,
             Documentation(info="
 <HTML>
 <P>
@@ -984,10 +1030,6 @@ Muenchen Wien 1990.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Text(
-            extent={{-100,80},{100,100}},
-            textString="%name",
-            lineColor={0,0,255}),
           Line(points={{-90,-50},{-10,-50}}, color={0,0,255}),
           Line(points={{-10,-50},{-10,50}}, color={0,0,255}),
           Line(points={{10,70},{10,29}}, color={0,0,255}),
@@ -1000,7 +1042,17 @@ Muenchen Wien 1990.
             points={{40,0},{60,5},{60,-5},{40,0}},
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255})}),
+            lineColor={0,0,255}),
+          Text(
+            extent={{-152,118},{148,78}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(
+            visible=useHeatPort,
+            points={{0,-100},{0,0}},
+            color={127,0,0},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot)}),
             Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1021,7 +1073,7 @@ Muenchen Wien 1990.
         equation
           assert(L + dL > 0, "Effective length must be positive");
           assert(W + dW > 0, "Effective width  must be positive");
-          assert( internalHeatPort.T > 0,"temperature must be positive");
+          assert( T_heatPort > 0,"temperature must be positive");
           gds = if (RDS < 1.e-20 and RDS > -1.e-20) then 1.e20 else 1/RDS;
           v = beta_t*(W + dW)/(L + dL);
           ud = smooth(0,if (D.v < S.v) then S.v else D.v);
@@ -1032,9 +1084,9 @@ Muenchen Wien 1990.
           id = smooth(0,if (ugst <= 0) then uds*gds else if (ugst > uds) then v*uds*(
             ugst - uds/2) + uds*gds else v*ugst*ugst/2 + uds*gds);
 
-          beta_t = Beta*pow((internalHeatPort.T/Tnom), -1.5);
-          vt_t = Vt*(1 + (internalHeatPort.T - Tnom)*kvt);
-          k2_t = K2*(1 + (internalHeatPort.T - Tnom)*kk2);
+          beta_t = Beta*pow((T_heatPort/Tnom), -1.5);
+          vt_t = Vt*(1 + (T_heatPort - Tnom)*kvt);
+          k2_t = K2*(1 + (T_heatPort - Tnom)*kk2);
 
           G.i = 0;
           D.i = smooth(0,if (D.v < S.v) then -id else id);
@@ -1044,6 +1096,7 @@ Muenchen Wien 1990.
         end HeatingNMOS;
 
         model HeatingPMOS "Simple PMOS Transistor with heating port"
+
           Modelica.Electrical.Analog.Interfaces.Pin D "Drain" 
             annotation (Placement(transformation(extent={{90,40},{110,60}},
             rotation=0)));
@@ -1072,7 +1125,7 @@ Muenchen Wien 1990.
       "Parameter measurement temperature";
           parameter Real kvt=-2.9e-3 "fitting parameter for Vt";
           parameter Real kk2=6.2e-4 "fitting parameter for Kk2";
-          extends Interfaces.ConditionalHeatingPort;
+          extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=true);
   protected
           Real v;
           Real uds;
@@ -1085,7 +1138,7 @@ Muenchen Wien 1990.
           Real beta_t;
           Real vt_t;
           Real k2_t;
-          annotation (
+          annotation (__Dymola_structurallyIncomplete=true,
             Documentation(info="
 <HTML>
 <P>
@@ -1138,10 +1191,6 @@ Some typical parameter sets are:
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Text(
-            extent={{-100,80},{100,100}},
-            textString="%name",
-            lineColor={0,0,255}),
           Line(points={{-90,-50},{-10,-50}}, color={0,0,255}),
           Line(points={{-10,-50},{-10,50}}, color={0,0,255}),
           Line(points={{10,70},{10,29}}, color={0,0,255}),
@@ -1154,7 +1203,17 @@ Some typical parameter sets are:
             points={{60,0},{40,5},{40,-5},{60,0}},
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255})}),
+            lineColor={0,0,255}),
+          Text(
+            extent={{-155,120},{145,80}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(
+            visible=useHeatPort,
+            points={{0,-100},{0,0}},
+            color={127,0,0},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot)}),
             Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1175,7 +1234,7 @@ Some typical parameter sets are:
         equation
           assert(L + dL > 0, "Effective length must be positive");
           assert(W + dW > 0, "Effective width  must be positive");
-          assert( internalHeatPort.T > 0,"temperature must be positive");
+          assert( T_heatPort > 0,"temperature must be positive");
           gds = if (RDS < 1.e-20 and RDS > -1.e-20) then 1.e20 else 1/RDS;
           v = beta_t*(W + dW)/(L + dL);
           ud = smooth(0,if (D.v > S.v) then S.v else D.v);
@@ -1186,9 +1245,9 @@ Some typical parameter sets are:
           id = smooth(0,if (ugst >= 0) then uds*gds else if (ugst < uds) then -v*uds*(
             ugst - uds/2) + uds*gds else -v*ugst*ugst/2 + uds*gds);
 
-          beta_t = Beta*pow((internalHeatPort.T/Tnom), -1.5);
-          vt_t = Vt*(1 + (internalHeatPort.T - Tnom)*kvt);
-          k2_t = K2*(1 + (internalHeatPort.T - Tnom)*kk2);
+          beta_t = Beta*pow((T_heatPort/Tnom), -1.5);
+          vt_t = Vt*(1 + (T_heatPort - Tnom)*kvt);
+          k2_t = K2*(1 + (T_heatPort - Tnom)*kk2);
 
           G.i = 0;
           D.i = smooth(0,if (D.v > S.v) then -id else id);
@@ -1238,7 +1297,7 @@ Some typical parameter sets are:
           parameter Real NR=1.0 "Reverse current emission coefficient";
           parameter Real K=1.3806226e-23 "Boltzmann's constant";
           parameter Real q=1.6021918e-19 "Elementary electronic charge";
-          extends Interfaces.ConditionalHeatingPort;
+          extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=true);
           /*protected*/
           Real vbc;
           Real vbe;
@@ -1267,7 +1326,7 @@ Some typical parameter sets are:
           Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" 
             annotation (Placement(transformation(extent={{90,-40},{110,-60}},
             rotation=0)));
-          annotation (
+          annotation (__Dymola_structurallyIncomplete=true,
             Documentation(info="
 <HTML>
 <P>
@@ -1308,10 +1367,6 @@ on page 317 ff.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
-          Text(
-            extent={{-100,80},{100,100}},
-            textString="%name",
-            lineColor={0,0,255}),
           Line(points={{-10,40},{-10,-40}}, color={0,0,255}),
           Line(points={{-10,0},{-90,0}}, color={0,0,255}),
           Line(points={{91,50},{30,50}}, color={0,0,255}),
@@ -1322,7 +1377,17 @@ on page 317 ff.
             points={{30,-50},{24,-36},{16,-44},{30,-50}},
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255})}),
+            lineColor={0,0,255}),
+          Text(
+            extent={{-162,125},{138,85}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(
+            visible=useHeatPort,
+            points={{0,-100},{0,-20}},
+            color={127,0,0},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot)}),
             Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1339,21 +1404,21 @@ on page 317 ff.
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255})}));
         equation
-          assert( internalHeatPort.T > 0,"temperature must be positive");
+          assert( T_heatPort > 0,"temperature must be positive");
           ExMin = exp(EMin);
           ExMax = exp(EMax);
           vbc = B.v - C.v;
           vbe = B.v - E.v;
           qbk = 1 - vbc*Vak;
 
-          hexp = (internalHeatPort.T/Tnom - 1)*EG/vt_t;
+          hexp = (T_heatPort/Tnom - 1)*EG/vt_t;
           htempexp = smooth(1,if (hexp < EMin) then ExMin*(hexp - EMin + 1) else if (
             hexp > EMax) then ExMax*(hexp - EMax + 1) else exp(hexp));
 
-          is_t = Is*pow((internalHeatPort.T/Tnom), XTI)*htempexp;
-          br_t = Br*pow((internalHeatPort.T/Tnom), XTB);
-          bf_t = Bf*pow((internalHeatPort.T/Tnom), XTB);
-          vt_t = (K/q)*internalHeatPort.T;
+          is_t = Is*pow((T_heatPort/Tnom), XTI)*htempexp;
+          br_t = Br*pow((T_heatPort/Tnom), XTB);
+          bf_t = Bf*pow((T_heatPort/Tnom), XTB);
+          vt_t = (K/q)*T_heatPort;
 
           ibc = smooth(1,(if (vbc/(NR*vt_t) < EMin) then is_t*(ExMin*(vbc/(NR*vt_t) -
             EMin + 1) - 1) + vbc*Gbc else if (vbc/(NR*vt_t) > EMax) then is_t*(
@@ -1423,7 +1488,7 @@ on page 317 ff.
           parameter Real NR=1.0 "Reverse current emission coefficient";
           parameter Real K=1.3806226e-23 "Boltzmann's constant";
           parameter Real q=1.6021918e-19 "Elementary electronic charge";
-          extends Interfaces.ConditionalHeatingPort;
+          extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=true);
   protected
           Real vcb;
           Real veb;
@@ -1452,7 +1517,7 @@ on page 317 ff.
           Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" 
             annotation (Placement(transformation(extent={{90,-40},{110,-60}},
             rotation=0)));
-          annotation (
+          annotation (__Dymola_structurallyIncomplete=true,
             Documentation(info="
 <HTML>
 <P>
@@ -1491,10 +1556,6 @@ on page 317 ff.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Text(
-            extent={{-100,80},{100,100}},
-            textString="%name",
-            lineColor={0,0,255}),
           Line(points={{-10,40},{-10,-40}}, color={0,0,255}),
           Line(points={{-10,0},{-90,0}}, color={0,0,255}),
           Line(points={{91,50},{30,50}}, color={0,0,255}),
@@ -1505,7 +1566,17 @@ on page 317 ff.
             points={{-10,-10},{5,-17},{-3,-25},{-10,-10}},
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255})}),
+            lineColor={0,0,255}),
+          Text(
+            extent={{-155,117},{145,77}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(
+            visible=useHeatPort,
+            points={{0,-100},{0,-20}},
+            color={127,0,0},
+            smooth=Smooth.None,
+            pattern=LinePattern.Dot)}),
             Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1522,21 +1593,21 @@ on page 317 ff.
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255})}));
         equation
-          assert( internalHeatPort.T > 0,"temperature must be positive");
+          assert( T_heatPort > 0,"temperature must be positive");
           ExMin = exp(EMin);
           ExMax = exp(EMax);
           vcb = C.v - B.v;
           veb = E.v - B.v;
           qbk = 1 - vcb*Vak;
 
-          hexp = (internalHeatPort.T/Tnom - 1)*EG/vt_t;
+          hexp = (T_heatPort/Tnom - 1)*EG/vt_t;
           htempexp = smooth(1,if (hexp < EMin) then ExMin*(hexp - EMin + 1) else if (
             hexp > EMax) then ExMax*(hexp - EMax + 1) else exp(hexp));
 
-          is_t = Is*pow((internalHeatPort.T/Tnom), XTI)*htempexp;
-          br_t = Br*pow((internalHeatPort.T/Tnom), XTB);
-          bf_t = Bf*pow((internalHeatPort.T/Tnom), XTB);
-          vt_t = (K/q)*internalHeatPort.T;
+          is_t = Is*pow((T_heatPort/Tnom), XTI)*htempexp;
+          br_t = Br*pow((T_heatPort/Tnom), XTB);
+          bf_t = Bf*pow((T_heatPort/Tnom), XTB);
+          vt_t = (K/q)*T_heatPort;
 
           icb = smooth(1,(if (vcb/(NR*vt_t) < EMin) then is_t*(ExMin*(vcb/(NR*vt_t) -
             EMin + 1) - 1) + vcb*Gbc else if (vcb/(NR*vt_t) > EMax) then is_t*(
@@ -1642,19 +1713,20 @@ The dV/dt switch on is not taken into account in this model. The gate circuit is
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Text(
-            extent={{-100,-70},{100,-100}},
-            textString="%name",
-            lineColor={0,0,255}),
           Polygon(
             points={{30,0},{-30,40},{-30,-40},{30,0}},
             lineColor={0,0,0},
-            fillColor={255,255,255}),
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
           Line(points={{-90,0},{40,0}}, color={0,0,255}),
           Line(points={{40,0},{90,0}}, color={0,0,255}),
           Line(points={{30,40},{30,-40}}, color={0,0,255}),
           Line(points={{30,20},{70,60},{70,90}}, color={0,0,255}),
-          Line(points={{40,50},{60,30}}, color={0,0,255})}),
+          Line(points={{40,50},{60,30}}, color={0,0,255}),
+          Text(
+            extent={{-142,-59},{158,-99}},
+            textString="%name",
+            lineColor={0,0,255})}),
      Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},

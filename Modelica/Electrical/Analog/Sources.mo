@@ -8,7 +8,7 @@ package Sources "Time-dependend and controlled voltage and current sources"
 <p>
 This package contains time-dependend and controlled voltage and current sources.
 </p>
-
+ 
 </HTML>
 ", revisions="<html>
 <dl>
@@ -64,7 +64,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           Line(points={{50,0},{90,0}}, color={0,0,0}),
           Line(points={{-50,0},{50,0}}, color={0,0,0}),
           Text(
-            extent={{-100,-120},{100,-80}},
+            extent={{-150,-104},{150,-64}},
             textString="%name",
             lineColor={0,0,255}),
           Text(
@@ -136,7 +136,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
           Line(points={{0,30},{0,-30}}, color={0,0,0}),
           Line(points={{0,0},{90,0}}, color={0,0,0}),
           Text(
-            extent={{-100,-120},{100,-80}},
+            extent={{-150,-112},{150,-72}},
             textString="%name=%V",
             lineColor={0,0,255}),
           Text(
@@ -1451,7 +1451,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           Line(points={{50,0},{90,0}}, color={0,0,0}),
           Line(points={{0,-50},{0,50}}, color={0,0,0}),
           Text(
-            extent={{-100,-120},{100,-80}},
+            extent={{-150,-120},{150,-80}},
             textString="%name",
             lineColor={0,0,255}),
           Polygon(
@@ -1501,7 +1501,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           Line(points={{50,0},{90,0}}, color={0,0,0}),
           Line(points={{0,-50},{0,50}}, color={0,0,0}),
           Text(
-            extent={{-100,80},{100,120}},
+            extent={{-150,80},{150,120}},
             textString="%name=%I",
             lineColor={0,0,255}),
           Polygon(

@@ -7,6 +7,7 @@ model Rn "negative resistance"
       "Resistance";
   Modelica.Blocks.Sources.BooleanPulse BooleanPulse1(period=clock) 
     annotation (Placement(transformation(extent={{-10,50},{10,70}}, rotation=0)));
+
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}),
             graphics),
@@ -98,8 +99,8 @@ model Rp "positive resistance"
             lineColor={0,0,0},
             textString="R=%R"),
           Line(points={{-74,0},{-80,0},{-60,0}}, color={85,255,85}),
-          Line(points={{-80,-20},{-60,-20},{-60,-16},{-40,-10},{-4,-10}}, color=
-               {85,255,85}),
+          Line(points={{-80,-20},{-60,-20},{-60,-16},{-40,-10},{-4,-10}}, color
+              ={85,255,85}),
           Line(points={{4,-10},{40,-10},{60,-16},{60,-20},{80,-20}}, color={85,
                 255,85}),
           Line(points={{80,0},{60,0}}, color={85,255,85}),
