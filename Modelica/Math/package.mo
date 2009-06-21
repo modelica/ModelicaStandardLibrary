@@ -1403,8 +1403,9 @@ A = eigenvectors * eigenValueMatrix(eigenvalues) * inv(eigenvectors)
 </blockquote>
 <p>
 provided the eigenvector matrix \"eigenvectors\" can be inverted
-(an inversion is possible, if all eigenvalues are different
-and no eigenvalue is zero).
+(an inversion is possible, if all eigenvalues are different;
+in some cases, an inversion is also possible if some eigenvalues are
+the same).
 </p>
 <h4>Example</h4>
 <blockquote><pre>
@@ -4996,7 +4997,7 @@ function log "Natural (base e) logarithm (u shall be > 0)"
           fillPattern=FillPattern.Solid),
         Line(points={{-80,-80},{-79.2,-50.6},{-78.4,-37},{-77.6,-28},{-76.8,-21.3},
               {-75.2,-11.4},{-72.8,-1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},
-              {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}},
+              {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}, 
             color={0,0,0}),
         Text(
           extent={{-6,-24},{66,-72}},
@@ -5080,7 +5081,7 @@ function log10 "Base 10 logarithm (u shall be > 0)"
           fillPattern=FillPattern.Solid),
         Line(points={{-79.8,-80},{-79.2,-50.6},{-78.4,-37},{-77.6,-28},{-76.8,-21.3},
               {-75.2,-11.4},{-72.8,-1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},
-              {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}},
+              {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}, 
             color={0,0,0}),
         Text(
           extent={{-30,-22},{60,-70}},
