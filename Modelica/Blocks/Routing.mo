@@ -2,6 +2,39 @@ within Modelica.Blocks;
 package Routing "Library of blocks to combine and extract signals"
   extends Icons.Library;
 
+  block Replicator "Signal replicator"
+    extends Modelica.Blocks.Interfaces.SIMO;
+    annotation (
+      Window(
+        x=0.15,
+        y=0.16,
+        width=0.63,
+        height=0.59), Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}},
+          grid={2,2}), graphics={
+          Line(points={{-100,0},{-6,0}}, color={0,0,127}),
+          Line(points={{100,0},{10,0}}, color={0,0,127}),
+          Line(points={{0,0},{100,10}}, color={0,0,127}),
+          Line(points={{0,0},{100,-10}}, color={0,0,127}),
+          Ellipse(
+            extent={{-14,16},{16,-14}},
+            lineColor={0,0,0},
+            fillColor={0,0,127},
+            fillPattern=FillPattern.Solid)}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}},
+          grid={2,2}), graphics),
+      Documentation(info="<html>
+<p>
+This block replicates the input signal to an array of <code>nout</code> identical output signals.
+</p>
+</html>"));
+  equation
+    y = fill(u, nout);
+  end Replicator;
+
 block ExtractSignal "Extract signals from an input signal vector"
   extends Modelica.Blocks.Interfaces.MIMO;
   parameter Integer extract[nout]=1:nout "Extracting vector";
@@ -39,7 +72,8 @@ block ExtractSignal "Extract signals from an input signal vector"
           Line(points={{-72,-2},{-60.0698,-12.907},{-49.0698,-12.907}}, color={
                 0,0,127}),
           Polygon(
-            points={{-48.8808,-11},{-48.8808,-15},{-44.8808,-13},{-48.8808,-11}},
+            points={{-48.8808,-11},{-48.8808,-15},{-44.8808,-13},{-48.8808,-11}}, 
+
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
@@ -247,7 +281,8 @@ block Extractor
           Line(points={{-62,-2},{-50.0698,-12.907},{-39.0698,-12.907}}, color={
                 0,0,127}),
           Polygon(
-            points={{-38.8808,-11},{-38.8808,-15},{-34.8808,-13},{-38.8808,-11}},
+            points={{-38.8808,-11},{-38.8808,-15},{-34.8808,-13},{-38.8808,-11}}, 
+
             lineColor={0,0,127},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),

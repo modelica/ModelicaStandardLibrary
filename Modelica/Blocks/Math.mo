@@ -1675,7 +1675,8 @@ as <b>cos</b> of the input <b>u</b>:
           Line(points={{-80,-80},{-78.4,-68.4},{-76.8,-59.7},{-74.4,-50},{-71.2,
                 -40.9},{-67.1,-33},{-60.7,-24.8},{-51.1,-17.2},{-35.8,-9.98},{-4.42,
                 -1.07},{33.4,9.12},{49.4,16.2},{59.1,23.2},{65.5,30.6},{70.4,
-                39.1},{73.6,47.4},{76,56.1},{77.6,63.8},{80,80}}, color={0,0,0}),
+                39.1},{73.6,47.4},{76,56.1},{77.6,63.8},{80,80}}, color={0,0,0}), 
+
           Line(points={{-90,0},{68,0}}, color={192,192,192}),
           Polygon(
             points={{90,0},{68,8},{68,-8},{90,0}},
@@ -2524,7 +2525,7 @@ This blocks computes the output <b>y</b> as the
             fillPattern=FillPattern.Solid),
           Line(points={{-80,-80},{-79.2,-50.6},{-78.4,-37},{-77.6,-28},{-76.8,-21.3},
                 {-75.2,-11.4},{-72.8,-1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},
-                {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}},
+                {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}, 
               color={0,0,0}),
           Line(points={{-90,0},{68,0}}, color={192,192,192}),
           Polygon(
@@ -3073,4 +3074,111 @@ Integer input <b>u</b> changes:
     y = change(u);
   end IntegerChange;
 
+  block Rec2Pol "Convert rectangular coordinates to polear coordinates"
+    extends Modelica.Blocks.Interfaces.BlockIcon;
+    Modelica.Blocks.Interfaces.RealInput u_re
+      "Real part of rectangular representation" 
+      annotation (Placement(transformation(extent={{-140,40},{-100,80}},
+            rotation=0)));
+    Modelica.Blocks.Interfaces.RealInput u_im
+      "Imaginary part of rectangular representation" 
+      annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
+            rotation=0)));
+    Modelica.Blocks.Interfaces.RealOutput y_abs
+      "Length of polar representation" 
+      annotation (Placement(transformation(extent={{100,50},{120,70}},
+            rotation=0)));
+    Modelica.Blocks.Interfaces.RealOutput y_arg "Angle of polar representation"
+      annotation (Placement(transformation(extent={{100,-70},{120,-50}},
+            rotation=0)));
+    annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+              -100},{100,100}}),
+                        graphics),
+                         Icon(graphics={
+          Text(
+            extent={{-90,80},{-20,40}},
+            lineColor={0,0,0},
+            textString="re"),
+          Text(
+            extent={{-90,-40},{-20,-80}},
+            lineColor={0,0,0},
+            textString="im"),
+          Text(
+            extent={{20,80},{90,40}},
+            lineColor={0,0,0},
+            textString="abs"),
+          Text(
+            extent={{20,-40},{90,-80}},
+            lineColor={0,0,0},
+            textString="arg")}),
+      Documentation(info="<html>
+<p>
+The input values of this block are the rectangular components 
+<code>u_re</code> and <code>u_im</code> of a phasor in two dimensions. 
+This block calculates the length <code>y_abs</code> and 
+the angle <code>y_arg</code> of the polar representation of this phasor.
+</p>
+
+<pre>
+  y_abs = abs(u_re + j*u_im) = sqrt( u_re<sup>2</sup> + u_im<sup>2</sup> )
+  y_arg = arg(u_re + j*u_im) = atan2(u_im, u_re)
+</pre>
+</html>"));
+
+  equation
+     y_abs = sqrt(u_re*u_re + u_im*u_im);
+     y_arg = Modelica.Math.atan2(u_im, u_re);
+  end Rec2Pol;
+
+  block Pol2Rec "Convert polar coordinates to rectangular coordinates"
+    extends Modelica.Blocks.Interfaces.BlockIcon;
+    Modelica.Blocks.Interfaces.RealInput u_abs "Length of polar representation"
+      annotation (Placement(transformation(extent={{-140,40},{-100,80}},
+            rotation=0)));
+    Modelica.Blocks.Interfaces.RealInput u_arg "Angle of polar representation" 
+      annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
+            rotation=0)));
+    Modelica.Blocks.Interfaces.RealOutput y_re
+      "Real part of rectangular representation" 
+      annotation (Placement(transformation(extent={{100,50},{120,70}},
+            rotation=0)));
+    Modelica.Blocks.Interfaces.RealOutput y_im
+      "Imaginary part of rectangular representation" 
+      annotation (Placement(transformation(extent={{100,-70},{120,-50}},
+            rotation=0)));
+    annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}),
+                        graphics),
+                         Icon(graphics={
+          Text(
+            extent={{-90,80},{-20,40}},
+            lineColor={0,0,0},
+            textString="abs"),
+          Text(
+            extent={{-90,-40},{-20,-80}},
+            lineColor={0,0,0},
+            textString="arg"),
+          Text(
+            extent={{20,80},{90,40}},
+            lineColor={0,0,0},
+            textString="re"),
+          Text(
+            extent={{20,-40},{90,-80}},
+            lineColor={0,0,0},
+            textString="im")}),
+      Documentation(info="<html>
+<p>
+The input values of this block are the polar components <code>uabs</code> and <code>uarg</code> of a phasor. 
+This block calculates the components <code>y_re</code> and <code>y_im</code> of the rectangular representation of this phasor.
+</p>
+<pre>
+   y_re = u_abs * cos( u_arg )
+   y_im = u_abs * sin( u_arg )
+</pre>
+</html>"));
+
+  equation
+    y_re = u_abs * Modelica.Math.cos(u_arg);
+    y_im = u_abs * Modelica.Math.sin(u_arg);
+  end Pol2Rec;
 end Math;
