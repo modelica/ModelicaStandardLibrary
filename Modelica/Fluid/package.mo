@@ -1093,7 +1093,7 @@ system, and the typical customizations available in the Modelica.Fluid models.
 <h4><font color=\"#008000\">Version 1.1, 2009-06-21</font></h4>
 
 <p>
-The Modelica_Fluid was included as Modelica.Fluid in the 
+The Modelica_Fluid library (revisionId = r2625) was included as Modelica.Fluid in the 
 Modelica Standard Library 3.1.
 </p>
 
