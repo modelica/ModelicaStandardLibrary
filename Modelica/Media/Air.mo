@@ -213,6 +213,14 @@ The <a href=Modelica:Modelica.Media.Air.MoistAir.ThermodynamicState>thermodynami
 </html>"));
     end setState_dTX;
 
+  redeclare function extends setSmoothState
+      "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
+  algorithm
+    state := ThermodynamicState(p=Media.Common.smoothStep(x, state_a.p, state_b.p, x_small),
+                                T=Media.Common.smoothStep(x, state_a.T, state_b.T, x_small),
+                                X=Media.Common.smoothStep(x, state_a.X, state_b.X, x_small));
+  end setSmoothState;
+
     function Xsaturation
       "Return absolute humitity per unit mass of moist air at saturation as a function of the thermodynamic state record"
       input ThermodynamicState state "Thermodynamic state record";
