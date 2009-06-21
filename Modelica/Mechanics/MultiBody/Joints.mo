@@ -3101,6 +3101,412 @@ November 3-4, 2003, pp. 149-158</p>
         thickness=0.5));
   end GearConstraint;
 
+
+    model RollingWheel
+      "Joint (no mass, no inertia) that describes an ideal rolling wheel (rolling on the plane z=0)"
+
+      import SI = Modelica.SIunits;
+      import Modelica.Mechanics.MultiBody.Frames;
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={
+            Rectangle(
+              extent={{-100,-80},{100,-100}},
+              lineColor={0,0,0},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-154,124},{146,84}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
+              textString="%name"),
+            Ellipse(
+              extent={{-80,80},{80,-80}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid)}));
+
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
+        "Frame fixed in wheel center point. x-Axis: upwards, y-axis: along wheel axis"
+        annotation (Placement(transformation(extent={{-16,-16},{16,16}})));
+
+      parameter SI.Radius wheelRadius "Wheel radius";
+      parameter StateSelect stateSelect=StateSelect.always
+        "Priority to use generalized coordinates as states" annotation(HideResult=true,Evaluate=true);
+
+      SI.Position x(start=0, stateSelect=stateSelect)
+        "x-coordinate of wheel axis";
+
+      SI.Position y(start=0, stateSelect=stateSelect)
+        "y-coordinate of wheel axis";
+      SI.Position z;
+
+      SI.Angle angles[3](start={0,0,0}, stateSelect=stateSelect)
+        "Angles to rotate world-frame in to frame_a around z-, y-, x-axis" 
+        annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
+
+      SI.AngularVelocity der_angles[3](start={0,0,0}, stateSelect=stateSelect)
+        "Derivative of angles" 
+        annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
+
+       SI.Position r_road_0[3]
+        "Position vector from world frame to contact point on road, resolved in world frame";
+
+      // Contact force
+      SI.Force f_wheel_0[3]
+        "Contact force acting on wheel, resolved in world frame";
+      SI.Force f_n "Contact force acting on wheel in normal direction";
+      SI.Force f_lat "Contact force acting on wheel in lateral direction";
+      SI.Force f_long "Contact force acting on wheel in longitudinal direction";
+      SI.Position err
+        "|r_road_0 - frame_a.r_0| - wheelRadius (must be zero; used for checking)";
+    protected
+       Real e_axis_0[3] "Unit vector along wheel axis, resolved in world frame";
+       SI.Position delta_0[3](start={0,0,-wheelRadius})
+        "Distance vector from wheel center to contact point";
+
+       // Coordinate system at contact point
+       Real e_n_0[3]
+        "Unit vector in normal direction of road at contact point, resolved in world frame";
+       Real e_lat_0[3]
+        "Unit vector in lateral direction of wheel at contact point, resolved in world frame";
+       Real e_long_0[3]
+        "Unit vector in longitudinal direction of wheel at contact point, resolved in world frame";
+
+       // Road description
+       SI.Position s "Road surface parameter 1";
+       SI.Position w "Road surface parameter 2";
+       Real e_s_0[3]
+        "Road heading at (s,w), resolved in world frame (unit vector)";
+
+       // Slip velocities
+       SI.Velocity v_0[3] "Velocity of wheel center, resolved in world frame";
+       SI.AngularVelocity w_0[3]
+        "Angular velocity of wheel, resolved in world frame";
+
+       SI.Velocity vContact_0[3]
+        "Velocity of wheel contact point, resolved in world frame";
+
+       // Utility vectors
+       Real aux[3];
+
+    equation
+       // frame_a.R is computed from generalized coordinates
+       Connections.root(frame_a.R);
+       frame_a.r_0 = {x,y,z};
+       der_angles  = der(angles);
+       frame_a.R = Frames.axesRotations({3,2,1}, angles, der_angles);
+
+       // Road description
+       r_road_0 = {s,w,0};
+       e_n_0    = {0,0,1};
+       e_s_0    = {1,0,0};
+
+       // Coordinate system at contact point (e_long_0, e_lat_0, e_n_0)
+       e_axis_0  = Frames.resolve1(frame_a.R, {0,1,0});
+       aux       = cross(e_n_0, e_axis_0);
+       e_long_0 = aux / Modelica.Math.Vectors.length(aux);
+       e_lat_0  = cross(e_long_0, e_n_0);
+
+       // Determine point on road where the wheel is in contact with the road
+       delta_0 = r_road_0 - frame_a.r_0;
+       0 = delta_0*e_axis_0;
+       0 = delta_0*e_long_0;
+
+       // One holonomic positional constraint equation (no penetration in to the ground)
+       0 = wheelRadius - delta_0*cross(e_long_0, e_axis_0);
+
+       // only for testing
+       err = Modelica.Math.Vectors.length(delta_0) - wheelRadius;
+
+       // Slip velocities
+       v_0 = der(frame_a.r_0);
+       w_0 = Frames.angularVelocity1(frame_a.R);
+       vContact_0 = v_0 + cross(w_0, delta_0);
+
+       // Two non-holonomic constraint equations on velocity level (ideal rolling, no slippage)
+       0 = vContact_0*e_long_0;
+       0 = vContact_0*e_lat_0;
+
+       // Contact force
+       f_wheel_0 = f_n*e_n_0 + f_lat*e_lat_0 + f_long*e_long_0;
+
+       // Force and torque balance at the wheel center
+       zeros(3) = frame_a.f + Frames.resolve2(frame_a.R, f_wheel_0);
+       zeros(3) = frame_a.t + Frames.resolve2(frame_a.R, cross(delta_0, f_wheel_0));
+
+       // Guard against singularity
+       assert(abs(e_n_0*e_axis_0) < 0.99, "Wheel lays nearly on the ground (which is a singularity)");
+    end RollingWheel;
+
+    model RollingWheelSet
+      "Joint (no mass, no inertia) that describes an ideal rolling wheel set (two ideal rolling wheels connected together by an axis)"
+      import SI = Modelica.SIunits;
+     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frameMiddle
+        "Frame fixed in middle of axis connecting both wheels (y-axis: along wheel axis, z-Axis: upwards)"
+        annotation (Placement(transformation(extent={{-16,16},{16,-16}}),
+            iconTransformation(extent={{-16,-16},{16,16}})));
+
+      parameter Boolean animation=true
+        "= true, if animation of wheel set shall be enabled";
+
+      parameter SI.Radius wheelRadius "Radius of one wheel";
+      parameter SI.Distance wheelDistance "Distance between the two wheels";
+
+      parameter StateSelect stateSelect = StateSelect.default
+        "Priority to use the generalized coordinates as states";
+
+      Modelica.SIunits.Position x(start=0, stateSelect=stateSelect)
+        "x coordinate for center between wheels";
+      Modelica.SIunits.Position y(start=0, stateSelect=stateSelect)
+        "y coordinate for center between wheels";
+      Modelica.SIunits.Angle phi(start=0, stateSelect=stateSelect)
+        "Orientation angle of wheel axis along z-axis";
+      Modelica.SIunits.Angle theta1(start=0, stateSelect=stateSelect)
+        "Angle of wheel 1";
+      Modelica.SIunits.Angle theta2(start=0, stateSelect=stateSelect)
+        "Angle of wheel 2";
+      Modelica.SIunits.AngularVelocity der_theta1(start=0, stateSelect=stateSelect)
+        "Derivative of theta 1";
+      Modelica.SIunits.AngularVelocity der_theta2(start=0, stateSelect=stateSelect)
+        "Derivative of theta 2";
+
+      annotation (defaultComponentName="wheelSet",Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={
+            Rectangle(
+              extent={{-100,-80},{100,-100}},
+              lineColor={0,0,0},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-146,-98},{154,-138}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Ellipse(
+              extent={{42,80},{118,-80}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{-62,2},{64,-6}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Ellipse(
+              extent={{-118,80},{-42,-80}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(
+              points={{86,24},{64,24},{64,10},{56,10}},
+              color={0,0,0},
+              smooth=Smooth.None),
+            Line(
+              points={{86,-24},{64,-24},{64,-12},{56,-12}},
+              color={0,0,0},
+              smooth=Smooth.None),
+            Line(
+              points={{-96,100},{-80,100},{-80,4}},
+              color={0,0,0},
+              smooth=Smooth.None),
+            Line(
+              points={{100,100},{80,100},{80,-2}},
+              color={0,0,0},
+              smooth=Smooth.None),
+            Line(
+              points={{0,72},{0,40},{-20,40},{-20,2}},
+              color={0,0,0},
+              smooth=Smooth.None),
+            Line(
+              points={{0,40},{20,40},{20,2}},
+              color={0,0,0},
+              smooth=Smooth.None)}),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics={
+            Line(
+              points={{-68,24},{-68,52}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Polygon(
+              points={{-68,70},{-74,52},{-62,52},{-68,70}},
+              lineColor={0,0,255},
+              smooth=Smooth.None,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-56,62},{-38,50}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
+              textString="x"),
+            Line(
+              points={{-62,30},{-94,30}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Polygon(
+              points={{-90,36},{-90,24},{-108,30},{-90,36}},
+              lineColor={0,0,255},
+              smooth=Smooth.None,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-114,50},{-96,38}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
+              textString="y")}));
+
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame1
+        "Frame fixed in center point of left wheel (y-axis: along wheel axis, z-Axis: upwards)"
+        annotation (Placement(transformation(extent={{-96,16},{-64,-16}}),
+            iconTransformation(extent={{-96,16},{-64,-16}})));
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame2
+        "Frame fixed in center point of right wheel (y-axis: along wheel axis, z-Axis: upwards)"
+        annotation (Placement(transformation(extent={{64,16},{96,-16}})));
+      Modelica.Mechanics.MultiBody.Parts.Fixed fixed(                 r={0,0,
+            wheelRadius}, animation=animation) 
+                          annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={0,-90})));
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod1(                 r={
+            0,wheelDistance/2,0}, animation=animation) 
+        annotation (Placement(transformation(extent={{-8,-10},{-28,10}})));
+      Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic1(animation=
+            animation)                   annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={0,-66})));
+      Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic2(
+        n={0,1,0}, animation=animation)  annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=180,
+            origin={-24,-50})));
+      Modelica.Mechanics.MultiBody.Joints.Revolute revolute(animation=animation) 
+                                         annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={0,-22})));
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(                 r={
+            0,-wheelDistance/2,0}, animation=animation) 
+        annotation (Placement(transformation(extent={{12,-10},{32,10}})));
+      Modelica.Mechanics.MultiBody.Joints.Revolute revolute1(
+        n={0,1,0},
+        useAxisFlange=true,
+        animation=animation) 
+        annotation (Placement(transformation(extent={{-34,-10},{-54,10}})));
+      Modelica.Mechanics.MultiBody.Joints.Revolute revolute2(
+        n={0,1,0},
+        useAxisFlange=true,
+        animation=animation) 
+        annotation (Placement(transformation(extent={{40,-10},{60,10}})));
+      Modelica.Mechanics.MultiBody.Joints.Internal.RollingConstraintVerticalWheel rolling1(
+                                            radius=wheelRadius) 
+        annotation (Placement(transformation(extent={{-70,-60},{-50,-40}})));
+      Modelica.Mechanics.MultiBody.Joints.Internal.RollingConstraintVerticalWheel rolling2(
+                                            radius=wheelRadius,
+          lateralSlidingConstraint=false) 
+        annotation (Placement(transformation(extent={{54,-60},{74,-40}})));
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a axis1
+        "1-dim. rotational flange that drives the joint" 
+        annotation (Placement(transformation(extent={{-110,90},{-90,110}})));
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a axis2
+        "1-dim. rotational flange that drives the joint" 
+        annotation (Placement(transformation(extent={{90,90},{110,110}})));
+      Modelica.Mechanics.MultiBody.Parts.Mounting1D mounting1D
+        annotation (Placement(transformation(extent={{-10,38},{10,58}})));
+      Modelica.Mechanics.Rotational.Interfaces.Flange_b support
+        "Support of 1D axes" annotation (Placement(transformation(extent={{-10,
+                70},{10,90}}), iconTransformation(extent={{-10,70},{10,90}})));
+    equation
+      prismatic1.s  = x;
+      prismatic2.s  = y;
+      revolute.phi  = phi;
+      revolute1.phi = theta1;
+      revolute2.phi = theta2;
+      der_theta1 = der(theta1);
+      der_theta2 = der(theta2);
+
+      connect(revolute.frame_b, frameMiddle) annotation (Line(
+          points={{6.12323e-016,-12},{0,-12},{0,0}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(rod1.frame_a, frameMiddle) annotation (Line(
+          points={{-8,0},{0,0}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(rod2.frame_a, frameMiddle) annotation (Line(
+          points={{12,0},{0,0}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(rod1.frame_b, revolute1.frame_a) annotation (Line(
+          points={{-28,0},{-34,0}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(revolute1.frame_b, frame1) annotation (Line(
+          points={{-54,0},{-80,0}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(revolute2.frame_a, rod2.frame_b) annotation (Line(
+          points={{40,0},{32,0}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(revolute2.frame_b, frame2) annotation (Line(
+          points={{60,0},{80,0}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(prismatic1.frame_a, fixed.frame_b) annotation (Line(
+          points={{-6.12323e-016,-76},{6.12323e-016,-76},{6.12323e-016,-80}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(prismatic1.frame_b, prismatic2.frame_a) annotation (Line(
+          points={{6.12323e-016,-56},{6.12323e-016,-50},{-14,-50}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(prismatic2.frame_b, revolute.frame_a) annotation (Line(
+          points={{-34,-50},{-40,-50},{-40,-36},{-6.12323e-016,-36},{
+              -6.12323e-016,-32}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(rolling1.frame_a, revolute1.frame_b) annotation (Line(
+          points={{-60,-48},{-60,0},{-54,0}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(rolling2.frame_a, revolute2.frame_b) annotation (Line(
+          points={{64,-48},{64,0},{60,0}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(revolute1.axis, axis1) annotation (Line(
+          points={{-44,10},{-44,100},{-100,100}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(revolute2.axis, axis2) annotation (Line(
+          points={{50,10},{50,100},{100,100}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(frameMiddle, mounting1D.frame_a) annotation (Line(
+          points={{0,0},{0,38}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(mounting1D.flange_b, support) annotation (Line(
+          points={{10,48},{16,48},{16,80},{0,80}},
+          color={0,0,0},
+          smooth=Smooth.None));
+    end RollingWheelSet;
+
   package Assemblies "Joint aggregations for analytic loop handling"
     import SI = Modelica.SIunits;
     extends Modelica.Icons.Library;
@@ -7230,6 +7636,114 @@ particular knowledge how to set the options in the parameter menu.
 Don't use the models of this package.
 </p>
 </HTML>"));
+
+     model RollingConstraintVerticalWheel
+        "Rolling constraint for wheel that is always perpendicular to x-y plane"
+        import SI = Modelica.SIunits;
+        import Modelica.Mechanics.MultiBody.Frames;
+        annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={
+              Rectangle(
+                extent={{-100,-60},{100,-80}},
+                lineColor={0,0,0},
+                fillColor={175,175,175},
+                fillPattern=FillPattern.Solid),
+              Text(
+                extent={{-148,-86},{152,-126}},
+                lineColor={0,0,255},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid,
+                textString="%name"),
+              Line(
+                points={{0,-60},{0,4}},
+                color={0,0,0},
+                smooth=Smooth.None,
+                pattern=LinePattern.Dot),
+              Line(
+                visible=lateralSlidingConstraint,
+                points={{-98,-30},{-16,-30}},
+                color={0,0,0},
+                smooth=Smooth.None),
+              Polygon(
+                visible=lateralSlidingConstraint,
+                points={{-40,-16},{-40,-42},{-6,-30},{-40,-16}},
+                lineColor={0,0,0},
+                smooth=Smooth.None,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid)}), Diagram(coordinateSystem(
+                preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics));
+
+        Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
+          "Frame fixed in wheel center point. x-Axis: upwards, y-axis: along wheel axis"
+          annotation (Placement(transformation(extent={{-16,4},{16,36}}),
+              iconTransformation(extent={{-16,4},{16,36}})));
+
+        parameter SI.Radius radius "Wheel radius";
+
+        parameter Boolean lateralSlidingConstraint = true
+          "= true, if lateral sliding constraint taken into account, = false if lateral force = 0 (needed to avoid overconstraining if two ideal rolling wheels are connect on one axis)"
+                                                                                                              annotation(choices(__Dymola_checkBox=true),HideResult=true,Evaluate=true);
+
+        // Contact force
+        SI.Force f_wheel_0[3]
+          "Contact force acting on wheel, resolved in world frame";
+        SI.Force f_lat "Contact force acting on wheel in lateral direction";
+        SI.Force f_long
+          "Contact force acting on wheel in longitudinal direction";
+      protected
+         Real e_axis_0[3]
+          "Unit vector along wheel axis, resolved in world frame";
+         SI.Position rContact_0[3]
+          "Distance vector from wheel center to contact point, resolved in world frame";
+
+         // Coordinate system at contact point
+         Real e_n_0[3]
+          "Unit vector in normal direction of road at contact point, resolved in world frame";
+         Real e_lat_0[3]
+          "Unit vector in lateral direction of wheel at contact point, resolved in world frame";
+         Real e_long_0[3]
+          "Unit vector in longitudinal direction of wheel at contact point, resolved in world frame";
+
+         // Slip velocities
+         SI.Velocity v_0[3] "Velocity of wheel center, resolved in world frame";
+         SI.AngularVelocity w_0[3]
+          "Angular velocity of wheel, resolved in world frame";
+
+         SI.Velocity vContact_0[3]
+          "Velocity of wheel contact point, resolved in world frame";
+
+         // Utility vectors
+         Real aux[3];
+
+      equation
+         // Coordinate system at contact point (e_long_0, e_lat_0, e_n_0)
+         e_n_0    = {0,0,1};
+         e_axis_0 = Frames.resolve1(frame_a.R, {0,1,0});
+         aux      = cross(e_n_0, e_axis_0);
+         e_long_0 = aux / Modelica.Math.Vectors.length(aux);
+         e_lat_0  = cross(e_long_0, e_n_0);
+
+         // Slip velocities
+         rContact_0 = {0,0,-radius};
+         v_0 = der(frame_a.r_0);
+         w_0 = Frames.angularVelocity1(frame_a.R);
+         vContact_0 = v_0 + cross(w_0, rContact_0);
+
+         // Two non-holonomic constraint equations on velocity level (ideal rolling, no slippage)
+         0 = vContact_0*e_long_0;
+         if lateralSlidingConstraint then
+            0 = vContact_0*e_lat_0;
+            f_wheel_0 = f_lat*e_lat_0 + f_long*e_long_0;
+         else
+            0 = f_lat;
+            f_wheel_0 = f_long*e_long_0;
+         end if;
+
+         // Force and torque balance at the wheel center
+         zeros(3) = frame_a.f + Frames.resolve2(frame_a.R, f_wheel_0);
+         zeros(3) = frame_a.t + Frames.resolve2(frame_a.R, cross(rContact_0, f_wheel_0));
+      end RollingConstraintVerticalWheel;
+
   end Internal;
 
 end Joints;

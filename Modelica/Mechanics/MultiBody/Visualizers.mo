@@ -806,6 +806,91 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
 
   end SignalArrow;
 
+
+   model Ground "Visualize ground (box in z=0)"
+      parameter Boolean animation=true
+        "= true, if animation of ground shall be enabled";
+      parameter Modelica.SIunits.Position length = 10
+        "Length and width of box (center is at x=y=0)"                annotation (Dialog(enable=animation));
+      parameter Modelica.SIunits.Position height = 0.02
+        "Height of box (upper surface is at z=0, lower surface is at z=-height)"
+                                                                        annotation (Dialog(enable=animation));
+      parameter Modelica.Mechanics.MultiBody.Types.Color groundColor={0,255,0}
+        "Color of box"  annotation (Dialog(enable=animation));
+
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={
+            Polygon(
+              points={{-20,60},{-100,-32},{20,-92},{100,8},{-20,60}},
+              lineColor={0,0,0},
+              smooth=Smooth.None,
+              fillColor={0,255,0},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{2,82},{44,54}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
+              textString="z"),
+            Polygon(
+              points={{100,8},{100,-4},{20,-104},{20,-92},{100,8}},
+              lineColor={0,0,0},
+              smooth=Smooth.None,
+              fillColor={0,255,0},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-100,-32},{-100,-44},{20,-104},{20,-92},{-100,-32}},
+              lineColor={0,0,0},
+              smooth=Smooth.None,
+              fillColor={0,255,0},
+              fillPattern=FillPattern.Solid),
+            Ellipse(
+              extent={{-11,-7},{-1,-12}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(
+              points={{-6,-10},{-6,88}},
+              color={0,0,0},
+              smooth=Smooth.None),
+            Polygon(
+              points={{-6,102},{-14,72},{2,72},{-6,102}},
+              lineColor={0,0,0},
+              smooth=Smooth.None,
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-146,-96},{154,-136}},
+              textString="%name",
+              lineColor={0,0,255})}),           Diagram(coordinateSystem(
+              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+            graphics),
+        Documentation(info="<html>
+<p>
+This shape visualizes the x-y plane by a box
+</p>
+
+</html>"));
+      Modelica.Mechanics.MultiBody.Visualizers.FixedShape ground(
+        lengthDirection={1,0,0},
+        widthDirection={0,1,0},
+        animation=animation,
+        r_shape={-length/2,0,-height},
+        length=length,
+        height=height,
+        color=groundColor,
+        width=length) 
+        annotation (Placement(transformation(extent={{-20,0},{0,20}})));
+      Modelica.Mechanics.MultiBody.Parts.Fixed fixed 
+        annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
+    equation
+
+      connect(fixed.frame_b, ground.frame_a) annotation (Line(
+          points={{-40,10},{-20,10}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+    end Ground;
   package Advanced
     "Visualizers that require basic knowledge about Modelica in order to use them"
 

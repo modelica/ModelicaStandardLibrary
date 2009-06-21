@@ -2480,4 +2480,402 @@ November 3-4, 2003, pp. 149-158</p>
         thickness=0.5,
         smooth=Smooth.None));
   end BevelGear1D;
+
+    model RollingWheel
+      "Ideal rolling wheel on flat surface z=0 (5 positional, 3 velocity degrees of freedom)"
+      import SI = Modelica.SIunits;
+
+      parameter Boolean animation=true
+        "= true, if animation of wheel shall be enabled";
+
+      parameter SI.Radius wheelRadius "Radius of wheel";
+      parameter SI.Mass wheelMass "Mass of wheel";
+      parameter SI.Inertia wheel_I_axis "Inertia along the wheel axis";
+      parameter SI.Inertia wheel_I_long
+        "Inertia perpendicular to the wheel axis";
+      parameter StateSelect stateSelect=StateSelect.always
+        "Priority to use generalized coordinates as states" annotation(HideResult=true,Evaluate=true);
+
+      SI.Position x(start=0, fixed = true, stateSelect=stateSelect)
+        "x-coordinate of wheel axis";
+
+      SI.Position y(start=0, fixed = true, stateSelect=stateSelect)
+        "y-coordinate of wheel axis";
+
+      SI.Angle angles[3](start={0,0,0}, fixed = true, stateSelect=stateSelect)
+        "Angles to rotate world-frame in to frame_a around z-, y-, x-axis" 
+        annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
+
+      SI.AngularVelocity der_angles[3](start={0,0,0}, fixed = true, stateSelect=stateSelect)
+        "Derivative of angles" 
+        annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
+
+      parameter SI.Distance width = 0.035 "Width of wheel" annotation (Dialog(
+          tab="Animation",
+          group="if animation = true", enable=animation));
+      parameter Real hollowFraction = 0.8
+        "1.0: Completely hollow, 0.0: rigid cylinder"   annotation (Dialog(
+          tab="Animation",
+          group="if animation = true", enable=animation));
+      parameter Modelica.Mechanics.MultiBody.Types.Color wheelColor={30,30,30}
+        "Color of wheel"  annotation (Dialog(
+          tab="Animation",
+          group="if animation = true",
+          enable=animation));
+
+      Modelica.Mechanics.MultiBody.Parts.Body body(
+        final r_CM={0,0,0},
+        final m=wheelMass,
+        final I_11=wheel_I_long,
+        final I_22=wheel_I_axis,
+        final I_33=wheel_I_long,
+        final I_21=0,
+        final I_31=0,
+        final I_32=0,
+        animation=false) 
+        annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
+        "Frame fixed in wheel center point. y-axis: along wheel axis, z-Axis: upwards, "
+        annotation (Placement(transformation(extent={{-16,-16},{16,16}})));
+      Modelica.Mechanics.MultiBody.Joints.RollingWheel rollingWheel(wheelRadius=wheelRadius,
+          stateSelect=StateSelect.avoid) 
+        annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
+      Modelica.Mechanics.MultiBody.Visualizers.FixedShape fixedShape(
+        final animation=animation,
+        final r_shape={0,-width,0},
+        final lengthDirection={0,1,0},
+        final widthDirection={1,0,0},
+        final length=2*width,
+        final width=2*wheelRadius,
+        final height=2*wheelRadius,
+        final color=wheelColor,
+        final extra=hollowFraction,
+        final shapeType="pipe") if 
+                      animation annotation (Placement(transformation(extent={{20,20},{40,40}})));
+
+      annotation (defaultComponentName="wheel",Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}),      graphics), Icon(coordinateSystem(
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+            graphics={
+            Rectangle(
+              extent={{-100,-80},{100,-100}},
+              lineColor={0,0,0},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid),
+            Ellipse(
+              extent={{-80,80},{80,-80}},
+              lineColor={0,0,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-150,122},{150,82}},
+              textString="%name",
+              lineColor={0,0,255})}));
+    equation
+      rollingWheel.x = x;
+      rollingWheel.y = y;
+      rollingWheel.angles = angles;
+      rollingWheel.der_angles = der_angles;
+
+      connect(body.frame_a, frame_a) annotation (Line(
+          points={{20,0},{0,0}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(rollingWheel.frame_a, frame_a)      annotation (Line(
+          points={{-50,-50},{-25,-50},{-25,0},{0,0}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(fixedShape.frame_a, frame_a) annotation (Line(
+          points={{20,30},{0,30},{0,0}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+    end RollingWheel;
+
+    model RollingWheelSet
+      "Ideal rolling wheel set consisting of two ideal rolling wheels connected together by an axis"
+      import SI = Modelica.SIunits;
+     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frameMiddle
+        "Frame fixed in middle of axis connecting both wheels (y-axis: along wheel axis, z-Axis: upwards)"
+        annotation (Placement(transformation(extent={{-16,16},{16,-16}}),
+            iconTransformation(extent={{-16,-16},{16,16}})));
+
+      parameter Boolean animation=true
+        "= true, if animation of wheel set shall be enabled";
+
+      parameter SI.Radius wheelRadius "Radius of one wheel";
+      parameter SI.Mass wheelMass "Mass of one wheel";
+      parameter SI.Inertia wheel_I_axis "Inertia along one wheel axis";
+      parameter SI.Inertia wheel_I_long
+        "Inertia perpendicular to one wheel axis";
+      parameter SI.Distance wheelDistance "Distance between the two wheels";
+       parameter StateSelect stateSelect = StateSelect.always
+        "Priority to use the generalized coordinates as states";
+
+      Modelica.SIunits.Position x(start=0, fixed=true, stateSelect=stateSelect)
+        "x coordinate of center between wheels";
+      Modelica.SIunits.Position y(start=0, fixed=true, stateSelect=stateSelect)
+        "y coordinate of center between wheels";
+      Modelica.SIunits.Angle phi(start=0, fixed=true, stateSelect=stateSelect)
+        "Orientation angle of wheel axis along z-axis";
+      Modelica.SIunits.Angle theta1(start=0, fixed=true, stateSelect=stateSelect)
+        "Angle of wheel 1";
+      Modelica.SIunits.Angle theta2(start=0, fixed=true, stateSelect=stateSelect)
+        "Angle of wheel 2";
+      Modelica.SIunits.AngularVelocity der_theta1(start=0, fixed=true, stateSelect=stateSelect)
+        "Derivative of theta 1";
+      Modelica.SIunits.AngularVelocity der_theta2(start=0, fixed=true, stateSelect=stateSelect)
+        "Derivative of theta 2";
+
+      parameter SI.Distance wheelWidth = 0.01 "Width of one wheel" annotation (Dialog( tab="Animation",
+          group="if animation = true", enable=animation));
+      parameter Real hollowFraction = 0.8
+        "1.0: Completely hollow, 0.0: rigid cylinder"   annotation (Dialog(
+          tab="Animation",
+          group="if animation = true", enable=animation));
+      parameter Modelica.Mechanics.MultiBody.Types.Color wheelColor={30,30,30}
+        "Color of wheels"  annotation (Dialog(
+          tab="Animation",
+          group="if animation = true",
+          enable=animation));
+
+      annotation (defaultComponentName="wheelSet",Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={
+            Rectangle(
+              extent={{-100,-80},{100,-100}},
+              lineColor={0,0,0},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-146,-98},{154,-138}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Ellipse(
+              extent={{42,80},{118,-80}},
+              lineColor={0,0,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Sphere),
+            Rectangle(
+              extent={{-62,2},{64,-6}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Ellipse(
+              extent={{-118,80},{-42,-80}},
+              lineColor={0,0,0},
+              fillColor={215,215,215},
+              fillPattern=FillPattern.Sphere),
+            Line(
+              points={{86,24},{64,24},{64,10},{56,10}},
+              color={0,0,0},
+              smooth=Smooth.None),
+            Line(
+              points={{86,-24},{64,-24},{64,-12},{56,-12}},
+              color={0,0,0},
+              smooth=Smooth.None),
+            Line(
+              points={{-96,100},{-80,100},{-80,4}},
+              color={0,0,0},
+              smooth=Smooth.None),
+            Line(
+              points={{100,100},{80,100},{80,-2}},
+              color={0,0,0},
+              smooth=Smooth.None),
+            Line(
+              points={{0,72},{0,40},{-20,40},{-20,2}},
+              color={0,0,0},
+              smooth=Smooth.None),
+            Line(
+              points={{0,40},{20,40},{20,2}},
+              color={0,0,0},
+              smooth=Smooth.None)}),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics={
+            Line(
+              points={{0,-106},{0,-78}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Polygon(
+              points={{0,-60},{-6,-78},{6,-78},{0,-60}},
+              lineColor={0,0,255},
+              smooth=Smooth.None,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{12,-68},{30,-80}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
+              textString="x"),
+            Line(
+              points={{6,-100},{-26,-100}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Polygon(
+              points={{-22,-94},{-22,-106},{-40,-100},{-22,-94}},
+              lineColor={0,0,255},
+              smooth=Smooth.None,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-46,-80},{-28,-92}},
+              lineColor={0,0,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
+              textString="y")}),
+        Documentation(info="<html>
+<p>
+Two wheels are connected by an axis and can rotate around this axis.
+The wheels are rolling on the x-y plane. The coordinate system attached
+to the center of the wheel axis (frameMiddle) is constrained so that it
+is always parallel to the x-y plane. If all generalized coordinates are zero,
+frameMiddle is parallel to the world frame.
+</p>
+</html>"));
+
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame1
+        "Frame fixed in center point of left wheel (y-axis: along wheel axis, z-Axis: upwards)"
+        annotation (Placement(transformation(extent={{-96,16},{-64,-16}}),
+            iconTransformation(extent={{-96,16},{-64,-16}})));
+      Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame2
+        "Frame fixed in center point of right wheel (y-axis: along wheel axis, z-Axis: upwards)"
+        annotation (Placement(transformation(extent={{64,16},{96,-16}})));
+      Modelica.Mechanics.MultiBody.Parts.Body body2(
+        final r_CM={0,0,0},
+        final I_21=0,
+        final I_31=0,
+        final I_32=0,
+        animation=false,
+        final m=wheelMass,
+        final I_11=wheel_I_long,
+        final I_22=wheel_I_axis,
+        final I_33=wheel_I_long) 
+        annotation (Placement(transformation(extent={{10,-10},{-10,10}},
+            rotation=-90,
+            origin={60,30})));
+      Modelica.Mechanics.MultiBody.Visualizers.FixedShape shape2(
+        final animation=animation,
+        final lengthDirection={0,1,0},
+        final widthDirection={1,0,0},
+        final color=wheelColor,
+        final extra=hollowFraction,
+        final shapeType="pipe",
+        final r_shape={0,-wheelWidth,0},
+        final length=2*wheelWidth,
+        final width=2*wheelRadius,
+        final height=2*wheelRadius) if 
+                      animation annotation (Placement(transformation(extent={{10,-10},
+                {-10,10}},
+            rotation=90,
+            origin={60,-38})));
+      Modelica.Mechanics.MultiBody.Parts.Body body1(
+        final r_CM={0,0,0},
+        final I_21=0,
+        final I_31=0,
+        final I_32=0,
+        animation=false,
+        final m=wheelMass,
+        final I_11=wheel_I_long,
+        final I_22=wheel_I_axis,
+        final I_33=wheel_I_long) 
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-60,30})));
+      Modelica.Mechanics.MultiBody.Visualizers.FixedShape shape1(
+        final animation=animation,
+        final lengthDirection={0,1,0},
+        final widthDirection={1,0,0},
+        final color=wheelColor,
+        final extra=hollowFraction,
+        final shapeType="pipe",
+        final r_shape={0,-wheelWidth,0},
+        final length=2*wheelWidth,
+        final width=2*wheelRadius,
+        final height=2*wheelRadius) if 
+                      animation annotation (Placement(transformation(extent={{-10,-10},
+                {10,10}},
+            rotation=-90,
+            origin={-60,-40})));
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a axis1
+        "1-dim. rotational flange that drives the left wheel" 
+        annotation (Placement(transformation(extent={{-110,90},{-90,110}})));
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a axis2
+        "1-dim. rotational flange that drives the right wheel" 
+        annotation (Placement(transformation(extent={{90,90},{110,110}})));
+      Modelica.Mechanics.MultiBody.Joints.RollingWheelSet wheelSetJoint(
+        animation=false,
+        wheelRadius=wheelRadius,
+        wheelDistance=wheelDistance,
+        stateSelect=StateSelect.default,
+        x(fixed=false),
+        y(fixed=false),
+        phi(fixed=false),
+        theta1(fixed=false),
+        theta2(fixed=false),
+        der_theta1(fixed=false),
+        der_theta2(fixed=false)) 
+        annotation (Placement(transformation(extent={{-10,-42},{10,-22}})));
+      Modelica.Mechanics.Rotational.Interfaces.Flange_b support
+        "Support of 1D axes" annotation (Placement(transformation(extent={{-10,
+                70},{10,90}}), iconTransformation(extent={{-10,72},{10,92}})));
+    equation
+      wheelSetJoint.x      = x;
+      wheelSetJoint.y      = y;
+      wheelSetJoint.phi    = phi;
+      wheelSetJoint.theta1 = theta1;
+      wheelSetJoint.theta2 = theta2;
+      der_theta1 = der(theta1);
+      der_theta2 = der(theta2);
+
+      connect(body2.frame_a,frame2)  annotation (Line(
+          points={{60,20},{60,0},{80,0}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(body1.frame_a, frame1) annotation (Line(
+          points={{-60,20},{-60,0},{-80,0}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(shape1.frame_a, frame1) annotation (Line(
+          points={{-60,-30},{-60,0},{-80,0}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(shape2.frame_a, frame2) annotation (Line(
+          points={{60,-28},{60,0},{80,0}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(wheelSetJoint.frame2, frame2) annotation (Line(
+          points={{8,-32},{40,-32},{40,0},{80,0}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(wheelSetJoint.frame1, frame1) annotation (Line(
+          points={{-8,-32},{-40,-32},{-40,0},{-80,0}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(wheelSetJoint.axis1, axis1) annotation (Line(
+          points={{-10,-22},{-20,-22},{-20,50},{-80,50},{-80,100},{-100,100}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(wheelSetJoint.axis2, axis2) annotation (Line(
+          points={{10,-22},{24,-22},{24,50},{80,50},{80,100},{100,100}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(wheelSetJoint.support, support) annotation (Line(
+          points={{0,-24},{0,-14},{16,-14},{16,58},{0,58},{0,80}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(wheelSetJoint.frameMiddle, frameMiddle) annotation (Line(
+          points={{0,-32},{-4,-32},{-4,0},{0,0}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+    end RollingWheelSet;
 end Parts;
