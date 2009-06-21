@@ -6,16 +6,19 @@ extends Icons.Library;
 annotation (
 preferredView="info",
 version="3.1",
+versionBuild=1,
 versionDate="2009-06-22",
 dateModified = "2009-06-17 15:35:58Z",
 revisionID="$Id::                                       $",
 conversion(
- noneFromVersion="3.0",
  noneFromVersion="3.0.1",
+ noneFromVersion="3.0",
  from(version="2.1", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
  from(version="2.2", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
  from(version="2.2.1", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
  from(version="2.2.2", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos")),
+classOrder={"UsersGuide","Blocks","StateGraph","Electrical","Mechanics","Fluid","Media","Thermal",
+      "Math","Utilities","Constants", "Icons", "SIunits"},
 Settings(NewStateSelection=true),
 Documentation(info="<HTML>
 <p>
