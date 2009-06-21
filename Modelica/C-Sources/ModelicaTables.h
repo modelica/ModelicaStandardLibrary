@@ -17,9 +17,9 @@
    Copyright (C) 2008, Modelica Association and DLR.
 
    The content of this file is free software; it can be redistributed 
-   and/or modified under the terms of the Modelica license, see the 
+   and/or modified under the terms of the Modelica License 2, see the 
    license conditions and the accompanying disclaimer in file
-   ModelicaLicense.txt or in Modelica.UsersGuide.ModelicaLicense. 
+   Modelica/ModelicaLicense2.html or in Modelica.UsersGuide.ModelicaLicense2. 
 */
 
 

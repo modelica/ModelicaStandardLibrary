@@ -211,6 +211,7 @@ Several matrices may be defined one after another.
     Integer tableID;
 
     function tableInit
+      "Initialize 1-dim. table defined by matrix (for details see: Modelica/C-Sources/ModelicaTables.h)"
       input String tableName;
       input String fileName;
       input Real table[ :, :];
@@ -223,6 +224,7 @@ Several matrices may be defined one after another.
     end tableInit;
 
     function tableIpo
+      "Interpolate 1-dim. table defined by matrix (for details see: Modelica/C-Sources/ModelicaTables.h)"
       input Integer tableID;
       input Integer icol;
       input Real u;
@@ -457,6 +459,7 @@ Several matrices may be defined one after another.
     Integer tableID;
 
     function tableInit
+      "Initialize 1-dim. table defined by matrix (for details see: Modelica/C-Sources/ModelicaTables.h)"
       input String tableName;
       input String fileName;
       input Real table[ :, :];
@@ -469,6 +472,7 @@ Several matrices may be defined one after another.
     end tableInit;
 
     function tableIpo
+      "Interpolate 1-dim. table defined by matrix (for details see: Modelica/C-Sources/ModelicaTables.h)"
       input Integer tableID;
       input Integer icol;
       input Real u;
@@ -727,6 +731,8 @@ and the first row \"table2D_1[1,2:]\" contains the u[2] grid points.
     Integer tableID;
 
     function tableInit
+      "Initialize 2-dim. table defined by matrix (for details see: Modelica/C-Sources/ModelicaTables.h)"
+
       input String tableName;
       input String fileName;
       input Real table[ :, :];
@@ -739,6 +745,7 @@ and the first row \"table2D_1[1,2:]\" contains the u[2] grid points.
     end tableInit;
 
     function tableIpo
+      "Interpolate 2-dim. table defined by matrix (for details see: Modelica/C-Sources/ModelicaTables.h)"
       input Integer tableID;
       input Real u1;
       input Real u2;
