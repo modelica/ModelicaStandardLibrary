@@ -2973,6 +2973,116 @@ where <b>threshold</b> is a parameter.
     y = u >= threshold;
   end IntegerToBoolean;
 
+  block RectangularToPolar
+    "Convert rectangular coordinates to polar coordinates"
+    extends Modelica.Blocks.Interfaces.BlockIcon;
+    Modelica.Blocks.Interfaces.RealInput u_re
+      "Real part of rectangular representation" 
+      annotation (Placement(transformation(extent={{-140,40},{-100,80}},
+            rotation=0)));
+    Modelica.Blocks.Interfaces.RealInput u_im
+      "Imaginary part of rectangular representation" 
+      annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
+            rotation=0)));
+    Modelica.Blocks.Interfaces.RealOutput y_abs
+      "Length of polar representation" 
+      annotation (Placement(transformation(extent={{100,50},{120,70}},
+            rotation=0)));
+    Modelica.Blocks.Interfaces.RealOutput y_arg "Angle of polar representation"
+      annotation (Placement(transformation(extent={{100,-70},{120,-50}},
+            rotation=0)));
+    annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+              -100},{100,100}}),
+                        graphics),
+                         Icon(graphics={
+          Text(
+            extent={{-90,80},{-20,40}},
+            lineColor={0,0,0},
+            textString="re"),
+          Text(
+            extent={{-90,-40},{-20,-80}},
+            lineColor={0,0,0},
+            textString="im"),
+          Text(
+            extent={{20,80},{90,40}},
+            lineColor={0,0,0},
+            textString="abs"),
+          Text(
+            extent={{20,-40},{90,-80}},
+            lineColor={0,0,0},
+            textString="arg")}),
+      Documentation(info="<html>
+<p>
+The input values of this block are the rectangular components 
+<code>u_re</code> and <code>u_im</code> of a phasor in two dimensions. 
+This block calculates the length <code>y_abs</code> and 
+the angle <code>y_arg</code> of the polar representation of this phasor.
+</p>
+
+<pre>
+  y_abs = abs(u_re + j*u_im) = sqrt( u_re<sup>2</sup> + u_im<sup>2</sup> )
+  y_arg = arg(u_re + j*u_im) = atan2(u_im, u_re)
+</pre>
+</html>"));
+
+  equation
+     y_abs = sqrt(u_re*u_re + u_im*u_im);
+     y_arg = Modelica.Math.atan2(u_im, u_re);
+  end RectangularToPolar;
+
+  block PolarToRectangular
+    "Convert polar coordinates to rectangular coordinates"
+    extends Modelica.Blocks.Interfaces.BlockIcon;
+    Modelica.Blocks.Interfaces.RealInput u_abs "Length of polar representation"
+      annotation (Placement(transformation(extent={{-140,40},{-100,80}},
+            rotation=0)));
+    Modelica.Blocks.Interfaces.RealInput u_arg "Angle of polar representation" 
+      annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
+            rotation=0)));
+    Modelica.Blocks.Interfaces.RealOutput y_re
+      "Real part of rectangular representation" 
+      annotation (Placement(transformation(extent={{100,50},{120,70}},
+            rotation=0)));
+    Modelica.Blocks.Interfaces.RealOutput y_im
+      "Imaginary part of rectangular representation" 
+      annotation (Placement(transformation(extent={{100,-70},{120,-50}},
+            rotation=0)));
+    annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}),
+                        graphics),
+                         Icon(graphics={
+          Text(
+            extent={{-90,80},{-20,40}},
+            lineColor={0,0,0},
+            textString="abs"),
+          Text(
+            extent={{-90,-40},{-20,-80}},
+            lineColor={0,0,0},
+            textString="arg"),
+          Text(
+            extent={{20,80},{90,40}},
+            lineColor={0,0,0},
+            textString="re"),
+          Text(
+            extent={{20,-40},{90,-80}},
+            lineColor={0,0,0},
+            textString="im")}),
+      Documentation(info="<html>
+<p>
+The input values of this block are the polar components <code>uabs</code> and <code>uarg</code> of a phasor. 
+This block calculates the components <code>y_re</code> and <code>y_im</code> of the rectangular representation of this phasor.
+</p>
+<pre>
+   y_re = u_abs * cos( u_arg )
+   y_im = u_abs * sin( u_arg )
+</pre>
+</html>"));
+
+  equation
+    y_re = u_abs * Modelica.Math.cos(u_arg);
+    y_im = u_abs * Modelica.Math.sin(u_arg);
+  end PolarToRectangular;
+
   block Max "Pass through the largest signal"
     extends Interfaces.SI2SO;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -3074,111 +3184,5 @@ Integer input <b>u</b> changes:
     y = change(u);
   end IntegerChange;
 
-  block Rec2Pol "Convert rectangular coordinates to polear coordinates"
-    extends Modelica.Blocks.Interfaces.BlockIcon;
-    Modelica.Blocks.Interfaces.RealInput u_re
-      "Real part of rectangular representation" 
-      annotation (Placement(transformation(extent={{-140,40},{-100,80}},
-            rotation=0)));
-    Modelica.Blocks.Interfaces.RealInput u_im
-      "Imaginary part of rectangular representation" 
-      annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
-            rotation=0)));
-    Modelica.Blocks.Interfaces.RealOutput y_abs
-      "Length of polar representation" 
-      annotation (Placement(transformation(extent={{100,50},{120,70}},
-            rotation=0)));
-    Modelica.Blocks.Interfaces.RealOutput y_arg "Angle of polar representation"
-      annotation (Placement(transformation(extent={{100,-70},{120,-50}},
-            rotation=0)));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}),
-                        graphics),
-                         Icon(graphics={
-          Text(
-            extent={{-90,80},{-20,40}},
-            lineColor={0,0,0},
-            textString="re"),
-          Text(
-            extent={{-90,-40},{-20,-80}},
-            lineColor={0,0,0},
-            textString="im"),
-          Text(
-            extent={{20,80},{90,40}},
-            lineColor={0,0,0},
-            textString="abs"),
-          Text(
-            extent={{20,-40},{90,-80}},
-            lineColor={0,0,0},
-            textString="arg")}),
-      Documentation(info="<html>
-<p>
-The input values of this block are the rectangular components 
-<code>u_re</code> and <code>u_im</code> of a phasor in two dimensions. 
-This block calculates the length <code>y_abs</code> and 
-the angle <code>y_arg</code> of the polar representation of this phasor.
-</p>
 
-<pre>
-  y_abs = abs(u_re + j*u_im) = sqrt( u_re<sup>2</sup> + u_im<sup>2</sup> )
-  y_arg = arg(u_re + j*u_im) = atan2(u_im, u_re)
-</pre>
-</html>"));
-
-  equation
-     y_abs = sqrt(u_re*u_re + u_im*u_im);
-     y_arg = Modelica.Math.atan2(u_im, u_re);
-  end Rec2Pol;
-
-  block Pol2Rec "Convert polar coordinates to rectangular coordinates"
-    extends Modelica.Blocks.Interfaces.BlockIcon;
-    Modelica.Blocks.Interfaces.RealInput u_abs "Length of polar representation"
-      annotation (Placement(transformation(extent={{-140,40},{-100,80}},
-            rotation=0)));
-    Modelica.Blocks.Interfaces.RealInput u_arg "Angle of polar representation" 
-      annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
-            rotation=0)));
-    Modelica.Blocks.Interfaces.RealOutput y_re
-      "Real part of rectangular representation" 
-      annotation (Placement(transformation(extent={{100,50},{120,70}},
-            rotation=0)));
-    Modelica.Blocks.Interfaces.RealOutput y_im
-      "Imaginary part of rectangular representation" 
-      annotation (Placement(transformation(extent={{100,-70},{120,-50}},
-            rotation=0)));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}),
-                        graphics),
-                         Icon(graphics={
-          Text(
-            extent={{-90,80},{-20,40}},
-            lineColor={0,0,0},
-            textString="abs"),
-          Text(
-            extent={{-90,-40},{-20,-80}},
-            lineColor={0,0,0},
-            textString="arg"),
-          Text(
-            extent={{20,80},{90,40}},
-            lineColor={0,0,0},
-            textString="re"),
-          Text(
-            extent={{20,-40},{90,-80}},
-            lineColor={0,0,0},
-            textString="im")}),
-      Documentation(info="<html>
-<p>
-The input values of this block are the polar components <code>uabs</code> and <code>uarg</code> of a phasor. 
-This block calculates the components <code>y_re</code> and <code>y_im</code> of the rectangular representation of this phasor.
-</p>
-<pre>
-   y_re = u_abs * cos( u_arg )
-   y_im = u_abs * sin( u_arg )
-</pre>
-</html>"));
-
-  equation
-    y_re = u_abs * Modelica.Math.cos(u_arg);
-    y_im = u_abs * Modelica.Math.sin(u_arg);
-  end Pol2Rec;
 end Math;
