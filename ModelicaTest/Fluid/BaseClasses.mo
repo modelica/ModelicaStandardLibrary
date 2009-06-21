@@ -23,7 +23,7 @@ package BaseClasses "Specific models used for testing"
         states = {state_a, state_b},
         vs={port_a.m_flow/Medium.density(pressureLoss.states[1])/pressureLoss.crossAreas[1],
             -port_b.m_flow/Medium.density(pressureLoss.states[2])/pressureLoss.crossAreas[2]},
-        final momentumDynamics=Types.Dynamics.SteadyState,
+        final momentumDynamics=Modelica.Fluid.Types.Dynamics.SteadyState,
         final allowFlowReversal=allowFlowReversal,
         dheights = {height_ab},
         dp_nominal = 1,
