@@ -3,7 +3,6 @@ package Modelica "Modelica Standard Library (Version 3.1)"
 extends Icons.Library;
 
 
-
 package UsersGuide "User's Guide of Modelica library"
 
 annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
@@ -135,6 +134,18 @@ main sub-libraries:
 	1-dim. mechanical system library (Rotational).<br>
 	Every component has a default animation.<br>
 	Components can be arbitrarily connected together.
+	</td>
+</tr>
+
+<tr><td valign=\"top\">
+	<img src=\"../Images/UsersGuide/Lib-Fluid.png\">
+	</td>
+	<td valign=\"top\">
+	<a href=\"Modelica://Modelica.Fluid\">Fluid</a><br>
+        1-dim. thermo-fluid flow in networks of vessels, pipes,<br> 
+        fluid machines, valves and fittings. All media from the<br>
+        Modelica.Media library can be used (so incompressible or compressible,<br>
+        single or multiple substance, one or two phase medium). 
 	</td>
 </tr>
 
@@ -301,6 +312,17 @@ that have the flow attribute):
 		   <br>FlowPort, FlowPort_a, FlowPort_b</td>
 	  <td valign=\"top\"><img src=\"../Images/UsersGuide/FluidHeatFlowPorts.png\"></td></tr>
 
+<tr><td valign=\"top\"><b>thermo<br>fluid flow</b></td>
+	  <td valign=\"top\">pressure<br>
+                  <u>stream</u> variables:<br>
+		  &nbsp;&nbsp;specific enthalpy<br>
+		  &nbsp;&nbsp;mass fractions</td>
+	  <td valign=\"top\">mass flow rate</td>
+	  <td valign=\"top\">
+<a href=\"Modelica://Modelica.Fluid.Interfaces\">Modelica.Fluid.Interfaces</a>
+		   <br>FluidPort, FluidPort_a, FluidPort_b</td>
+	  <td valign=\"top\"><img src=\"../Images/UsersGuide/FluidPorts.png\"></td></tr>
+
 <tr><td valign=\"top\"><b>heat<br>transfer</b></td>
 	  <td valign=\"top\">temperature</td>
 	  <td valign=\"top\">heat flow rate</td>
@@ -331,16 +353,6 @@ that have the flow attribute):
 <tr><td colspan=\"5\">&nbsp;<br><b>Connectors from libraries that will be included in one of
 								   the next releases of package Modelica</b></td></tr>
 
-<tr><td valign=\"top\"><b>thermo<br>fluid flow</b></td>
-	  <td valign=\"top\">pressure<br>
-		  specific enthalpy<br>
-		  mass fractions</td>
-	  <td valign=\"top\">mass flow rate<br>
-		  enthalpy flow rate<br>
-		  subst. mass flow rates</td>
-	  <td valign=\"top\">Modelica_Fluid.Interfaces
-		   <br>FluidPort, FluidPort_a, FluidPort_b</td>
-	  <td valign=\"top\"><img src=\"../Images/UsersGuide/FluidPorts.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>magnetic</b></td>
 	  <td valign=\"top\">magnetic potential</td>
@@ -3107,7 +3119,6 @@ The following <b>errors</b> have been fixed:
 "));
 end Version_2_2_1;
 
-
 class Version_2_2 "Version 2.2 (April 6, 2005)"
 
    annotation (Documentation(info="<html>
@@ -4564,6 +4575,7 @@ of the Modelica package (many more people have contributed to the design):
 end Contact;
 
 end UsersGuide;
+
 
 annotation (
 preferredView="info",
