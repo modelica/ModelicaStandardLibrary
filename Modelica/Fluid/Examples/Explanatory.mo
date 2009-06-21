@@ -30,7 +30,7 @@ The total pressures offer an additional perspective on the model. After setting 
  
  
 </html>"),
-      Commands(file=
+      __Dymola_Commands(file=
             "Scripts/Fluid/MomentumBalanceFittings/Plot the model results.mos"
           "Plot the model results"));
     Modelica.Fluid.Sources.Boundary_pT leftBoundary1(

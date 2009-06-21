@@ -5,7 +5,7 @@ model ThyristorBehaviourTest
                                              Diagram(coordinateSystem(
           preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),
     experiment(StopTime=0.0002),
-    experimentSetupOutput,
+    __Dymola_experimentSetupOutput,
     Documentation(info="<html>
 This is a simple testcircuit, to test the behavior of the thysistor model. <br>
 Interesting values to plot are Cathode.v, Gate.v and sineVoltage.p.v. and in another plot window pulseCurrent.p.i<br>

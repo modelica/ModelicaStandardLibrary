@@ -101,7 +101,7 @@ equation
       color={0,0,127},
       smooth=Smooth.None));
   annotation (
-    Commands(file(ensureSimulated=true)="Scripts/Fluid/InverseParameterization/plotResults.mos"
+    __Dymola_Commands(file(ensureSimulated=true)="Scripts/Fluid/InverseParameterization/plotResults.mos"
         "plotResults"),
     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
             100,100}}),

@@ -34,7 +34,7 @@ package ControlledTankSystem
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics),
       experiment(StopTime=900),
-      experimentSetupOutput,
+      __Dymola_experimentSetupOutput,
       Documentation(info="<html>
 <p>
 With this example, the controller of a tank filling/emptying system
@@ -105,7 +105,7 @@ This example is based on
 </p>
  
 </html>"),
-      Commands(file=
+      __Dymola_Commands(file=
             "Scripts/Fluid/ControlledTanks/plot level and ports.m_flow.mos"
           "plot level and ports.m_flow"));
     Modelica.Fluid.Valves.ValveDiscrete valve1(                     redeclare

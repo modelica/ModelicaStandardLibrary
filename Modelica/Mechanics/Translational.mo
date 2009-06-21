@@ -982,7 +982,7 @@ Spool position s as a function of working force f.
 </html>
  
 "),     experiment(StopTime=100),
-        experimentSetupOutput);
+        __Dymola_experimentSetupOutput);
 
       Translational.Components.ElastoGap innerContactA(
         c=1000e3,

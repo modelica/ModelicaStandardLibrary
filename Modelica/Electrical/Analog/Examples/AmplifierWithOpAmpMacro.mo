@@ -9,7 +9,7 @@ model AmplifierWithOpAmpMacro "Simple Amplifier circuit which uses OpAmpMacro"
       StopTime=0.003,
       NumberOfIntervals=2500,
       Tolerance=1e-008),
-    experimentSetupOutput,
+    __Dymola_experimentSetupOutput,
     Documentation(revisions="<html>
 <ul>
 <li><i>  </i>

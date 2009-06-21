@@ -2454,7 +2454,7 @@ is given to compare the approximation.
 </p>
 </html>"),
       experiment(Tolerance=1e-005),
-      experimentSetupOutput);
+      __Dymola_experimentSetupOutput);
 
   Medium.ThermodynamicState state1;
   Medium.ThermodynamicState state2;

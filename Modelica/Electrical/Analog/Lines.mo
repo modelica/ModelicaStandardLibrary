@@ -558,7 +558,7 @@ For the example of a microelectronic line of 0.1m lenght, which is used as defau
       StopTime=1e-009,
       NumberOfIntervals=2000,
       Tolerance=1e-009),
-    experimentSetupOutput,
+    __Dymola_experimentSetupOutput,
     version="1",
     conversion(noneFromVersion=""));
 end M_OLine;

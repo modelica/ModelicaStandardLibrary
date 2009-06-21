@@ -243,7 +243,7 @@ could be additionally introduced to model the fitting between the heater and the
  
 </html>
 "), experiment(StopTime=6000),
-    Commands(file(ensureSimulated=true)=
+    __Dymola_Commands(file(ensureSimulated=true)=
         "Scripts/Fluid/HeatingSystem/plotResults.mos" "plotResults"));
 
 end HeatingSystem;

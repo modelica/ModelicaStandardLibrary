@@ -51,7 +51,7 @@ package DrumBoiler
             fillPattern=FillPattern.Solid,
             textString="boiler")}),
       experiment(StopTime=5400),
-      experimentSetupOutput,
+      __Dymola_experimentSetupOutput,
       Documentation(info="<html>
 <p align=\"center\">
 <img src=\"../Images/Fluid/Examples/DrumBoiler.png\" border=\"1\">

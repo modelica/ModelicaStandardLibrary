@@ -10,7 +10,7 @@ model SwitchWithArc
       StopTime=2,
       Interval=0.00025,
       Tolerance=1e-006),
-    experimentSetupOutput(doublePrecision=true),
+    __Dymola_experimentSetupOutput(doublePrecision=true),
     Documentation(info="<html>
 <P>
 This example is to compare the behaviour of switch models with 

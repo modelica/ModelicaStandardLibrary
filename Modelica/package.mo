@@ -1021,7 +1021,7 @@ The following changes are present for the whole library:
  
 <li> All non-standard annotations removed by:<br>
          (1) Removing the annotation since without effect
-                 (e.g., \"experimentSetupOutput\", \"Window\", \"Terminal\" removed).<br>
+                 (e.g., \"__Dymola_experimentSetupOutput\", \"Window\", \"Terminal\" removed).<br>
          (2) Renaming the annotation to a standard name (e.g., \"Hide\" renamed to \"HideResult\").<br>
          (3) Renaming the annotation to a vendor specific name
                  (e.g., \"checkBox\" renamed to \"__Dymola_checkBox\").<br>&nbsp; </li>

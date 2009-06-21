@@ -34,7 +34,7 @@ load inertia.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics),
       experiment(StopTime=1.6),
-      Commands(file=
+      __Dymola_Commands(file=
             "Mechanics/MultiBody/Examples/Systems/oneAxisPlot.mos"
           "Plot result"));
 
@@ -111,7 +111,7 @@ load inertia.
             lineColor={0,0,0},
             textString="mLoad=%mLoad")}),
       experiment(StopTime=2),
-      Commands(
+      __Dymola_Commands(
         file="Mechanics/MultiBody/Examples/Systems/Run.mos" "Simulate",
         file="Mechanics/MultiBody/Examples/Systems/fullRobotPlot.mos"
           "Plot result of axis 3 + animate"),

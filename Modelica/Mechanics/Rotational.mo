@@ -840,7 +840,7 @@ frictional mode of clutches (clutchX.mode) where
 mode = -1/0/+1 means backward sliding,
 locked, forward sliding.</p>
  
-</HTML>"), __Dymola_Commands(file="Scripts/__Dymola_CoupledClutches.mos"
+</HTML>"), __Dymola___Dymola_Commands(file="Scripts/__Dymola_CoupledClutches.mos"
             "Simulate and Plot"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-140,-80},{
                 140,80}},

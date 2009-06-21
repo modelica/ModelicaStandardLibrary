@@ -83,7 +83,7 @@ concentration of the fresh air.
 </p>
  
 </html>"),
-      Commands(file(ensureSimulated=true)=
+      __Dymola_Commands(file(ensureSimulated=true)=
           "Scripts/Fluid/RoomCO2/plotConcentrations.mos" "plot concentrations"));
   end RoomCO2;
 
@@ -183,7 +183,7 @@ concentration of the fresh air.
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics),
       experiment(StopTime=86400, tolerance=1e-006),
-      Commands(file(ensureSimulated=true)="Scripts/Fluid/RoomCO2WithControls/plotStatesWithControl.mos"
+      __Dymola_Commands(file(ensureSimulated=true)="Scripts/Fluid/RoomCO2WithControls/plotStatesWithControl.mos"
           "plot states and controls"),
       Documentation(info="<html>
 <p>

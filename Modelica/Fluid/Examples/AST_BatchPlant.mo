@@ -109,8 +109,8 @@ present that are regulated by a central control system.
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-300,
               -300},{300,300}}),      graphics),
       experiment(StopTime=3600),
-      experimentSetupOutput,
-      Commands(file=
+      __Dymola_experimentSetupOutput,
+      __Dymola_Commands(file=
             "Scripts/Fluid/AST_BatchPlant_StandardWater/plot level.mos"
           "plot level"),
       Documentation(info="<html>
@@ -2197,8 +2197,8 @@ Implemented trace substances and missing equation for outflow of multi substance
                 -100},{100,100}}),
                           graphics),
         experiment(StopTime=100),
-        experimentSetupOutput,
-        Commands(file="Scripts/Fluid/OneTank/plot level and port.p.mos"
+        __Dymola_experimentSetupOutput,
+        __Dymola_Commands(file="Scripts/Fluid/OneTank/plot level and port.p.mos"
             "plot level and port.p", file=
               "Scripts/Fluid/OneTank/plot level, port.p and port.m_flow.mos"
             "plot level, port.p and port.m_flow"));
@@ -2251,8 +2251,8 @@ Implemented trace substances and missing equation for outflow of multi substance
                 -100},{100,100}}),
                           graphics),
         experiment(StopTime=70),
-        experimentSetupOutput,
-        Commands(file="Scripts/Fluid/TwoTanks/plot level and port.p.mos"
+        __Dymola_experimentSetupOutput,
+        __Dymola_Commands(file="Scripts/Fluid/TwoTanks/plot level and port.p.mos"
             "plot level and port.p"));
       inner Modelica.Fluid.System system 
                             annotation (Placement(transformation(extent={{40,62},
@@ -2313,8 +2313,8 @@ Implemented trace substances and missing equation for outflow of multi substance
                 -100},{100,100}}),
                           graphics),
         experiment(StopTime=35),
-        experimentSetupOutput,
-        Commands(file=
+        __Dymola_experimentSetupOutput,
+        __Dymola_Commands(file=
               "Scripts/Fluid/TankWithEmptyingPipe1/plot level and port.p.mos"
             "plot level and port.p", file=
               "Scripts/Fluid/TankWithEmptyingPipe1/plot level, port.p and port.m_flow.mos"
@@ -2391,8 +2391,8 @@ Implemented trace substances and missing equation for outflow of multi substance
                 -100},{100,100}}),
                           graphics),
         experiment(StopTime=35),
-        experimentSetupOutput,
-        Commands(file=
+        __Dymola_experimentSetupOutput,
+        __Dymola_Commands(file=
               "Scripts/Fluid/TankWithEmptyingPipe2/plot level and port.p.mos"
             "plot level and port.p"));
       inner Modelica.Fluid.System system 
@@ -2469,8 +2469,8 @@ Implemented trace substances and missing equation for outflow of multi substance
                 -100},{100,100}}),
                           graphics),
         experiment(StopTime=35),
-        experimentSetupOutput,
-        Commands(
+        __Dymola_experimentSetupOutput,
+        __Dymola_Commands(
           file=
               "Scripts/Fluid/TanksWithEmptyingPipe1/plot level, port.p and port.m_flow.mos"
             "plot level, port.p and port.m_flow"));
@@ -2584,8 +2584,8 @@ Implemented trace substances and missing equation for outflow of multi substance
                 -100},{100,100}}),
                           graphics),
         experiment(StopTime=300),
-        experimentSetupOutput,
-        Commands(file=
+        __Dymola_experimentSetupOutput,
+        __Dymola_Commands(file=
               "Scripts/Fluid/TanksWithEmptyingPipe2/plot level and port.m_flow.mos"
             "plot level and port.m_flow"));
       inner Modelica.Fluid.System system 
