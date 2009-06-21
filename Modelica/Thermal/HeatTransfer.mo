@@ -2863,47 +2863,5 @@ constitutive equations for many types of heat transfer components.
                                Documentation(info="<html>
   
 </html>"));
-    model InternalHeatPort "Adapter model to utilize conditional heatPort"
-      Modelica.SIunits.Temperature T;
-      input Modelica.SIunits.HeatFlowRate Q_flow;
-      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort 
-        annotation (extent=[-10,-10; 10,10]);
-      annotation (Documentation(info="<html>
-<p>
-This is an adapter model to utilize a conditional heatPort connector
-in an elementary component, i.e., where the component equations are
-defined textually:
-</p>
- 
-<ul>
-<li> If <i>useHeatPort = true</i>, the heatPort has to be connected to the conditional 
-     heatPort connector.</li>
-<li> If <i>useheatPort = false</i>, the heatPort has to be connected to the conditional 
-     fixed model.</li>
-</ul>
- 
-<p>
-Variable <b>Q_flow</b> is defined as <b>input</b> and must be provided when using
-this component as a modifier (computed via a power balance in
-the model where InternalHeatPort is used).
-</p>
-<p>
-Note, the temperature can always be accessed as internalHeatPort.T, and
-the heat flow can always be accessed as internalHeatPort.Q_flow.
-</p>
-</html>"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(
-              extent={{-20,20},{20,-20}},
-              lineColor={255,0,0},
-              fillColor={255,170,170},
-              fillPattern=FillPattern.Solid), Text(
-              extent={{-100,80},{100,40}},
-              textString="%name",
-              pattern=LinePattern.None,
-              lineColor={191,0,0})}));
-    equation
-      heatPort.T = T;
-      heatPort.Q_flow = Q_flow;
-    end InternalHeatPort;
   end Interfaces;
 end HeatTransfer;

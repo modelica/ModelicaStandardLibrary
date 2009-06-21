@@ -679,8 +679,193 @@ class Version_3_1 "Version 3.1 (June, 2009)"
    annotation (Documentation(info="<html>
 
 <p>
-Version 3.1 is backward compatible to version 3.0 and 3.0.1.
+Version 3.1 is backward compatible to version 3.0 and 3.0.1,
+i.e., models developed with version 3.0 or 3.0.1 will work without any
+changes also with version 3.1.
 </p>
+
+<p>
+Version 3.1 is slightly based on the Modelica Specification 3.1. It uses
+the following new language elements (compared to Modelica Specification 3.0):
+</p>
+
+<ul>
+<li> Prefix <u>stream</u> and built-in operators <u>inStream(..)</u> 
+     and <u>actualStream(..)</u> in Modelica.Fluid.</li>
+<li> Annotation <u>connectorSizing</u> in Modelica.Fluid.</li>
+<li> Annotation <u>inverse</u> in Modelica.Media.</li>
+<li> Annotations <u>versionBuild</u>, <u>dateModified</u>,
+     <u>revisionID</u> at the root level annotation of package Modelica,
+     to improve the version handling.</li>
+<li> Modifiers can be used in connectors instances (so balanced models
+     are less restrictive). This allowed to make the implementation
+     of conditional connectors (support and heatPort) in the Rotational,
+     Translational and Electrical libraries simpler.<li>
+<li> 
+</ul>
+
+<p>
+The following <b style=\"color:blue\">new library</b> has been added:
+</p>
+<table border=\"1\" cellspacing=0 cellpadding=2>
+<tr><td valign=\"top\"><a href=\"Modelica://Modelica.Fluid\">Modelica.Fluid</a></td>
+          <td valign=\"top\"> 
+Components to model
+ 1-dim. thermo-fluid flow in networks of vessels, pipes, 
+        fluid machines, valves and fittings. All media from the
+        Modelica.Media library can be used (so incompressible or compressible,
+        single or multiple substance, one or two phase medium). 
+ The library is using the stream-concept from Modelica Specification 3.1.
+          </td>
+</table>
+
+
+<p><br>
+The following <b style=\"color:blue\">new components</b> have been added
+to <b style=\"color:blue\">existing</b> libraries:
+</p>
+ 
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>Modelica.UsersGuide.ReleaseNotes.</b></td></tr>
+<tr><td valign=\"top\"> VersionManagement </td>
+    <td valign=\"top\"> Copied from info layer of previous ReleaseNotes (to make it more
+                      visible) and adapted it to the new possibilities in 
+                      Modelica Specification 3.1.</td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Blocks.Math.</b></td></tr>
+<tr><td valign=\"top\"> RectangularToPolar<br>
+                      PolarToRectangular </td>
+    <td valign=\"top\"> New blocks to convert between rectangular and polar form
+                      of space phasors. </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Blocks.Routing.</b></td></tr>
+<tr><td valign=\"top\"> Replicator </td>
+    <td valign=\"top\"> New block to replicate an input signal to many output signals. </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Examples.</b></td></tr>
+<tr><td valign=\"top\"> AmplifierWIthOpAmpMacro<br>
+                      HeatingResistor<br>
+                      OvervoltageProtection<br>
+                      SwitchWithArc<br>
+                      ThyristorBehaviourTest</td>
+    <td valign=\"top\"> New examples to demonstrate the usage of new components. </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Basic.</b></td></tr>
+<tr><td valign=\"top\"> OpAmpMacro</td>
+    <td valign=\"top\"> New detailed model of an operational amplifier. </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Ideal.</b></td></tr>
+<tr><td valign=\"top\"> OpenerWithArc<br>
+                      CloserWithArc<br>
+                      ControlledOpenerWithArc<br>
+                      ControlledCloserWithArc</td>
+    <td valign=\"top\"> New switches with simple arc model. </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Semiconductors.</b></td></tr>
+<tr><td valign=\"top\"> ZDiode<br>Thyristor</td>
+    <td valign=\"top\"> Zener Diode with 3 working areas and simple thyristor model. </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Interfaces.</b></td></tr>
+<tr><td valign=\"top\"> ConditionalHeatPort</td>
+    <td valign=\"top\"> New partial model to add a conditional HeatPort to
+                      an electrical component. </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Examples.Elementary.</b></td></tr>
+<tr><td valign=\"top\"> RollingWheel<br>
+                      RollingWheelSetDriving<br>
+                      RollingWheelSetPulling</td>
+    <td valign=\"top\"> New examples to demonstrate the usage of new components.</td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Joints.</b></td></tr>
+<tr><td valign=\"top\"> RollingWheel<br>
+                      RollingWheelSet</td>
+    <td valign=\"top\"> New joints (no mass, no inertia) that describe an 
+                      ideal rolling wheel and a ideal rolling wheel set consisting
+                      of two wheels rolling on the plane z=0.</td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Parts.</b></td></tr>
+<tr><td valign=\"top\"> RollingWheel<br>
+                      RollingWheelSet</td>
+    <td valign=\"top\"> New ideal rolling wheel and ideal rolling wheel set consisting
+                      of two wheels rolling on the plane z=0.</td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Visualizers.</b></td></tr>
+<tr><td valign=\"top\"> Ground</td>
+    <td valign=\"top\"> New model to visualize the ground (box at z=0).</td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.Interfaces.</b></td></tr>
+<tr><td valign=\"top\"> PartialElementaryOneFlangeAndSupport2<br>
+                      PartialElementaryTwoFlangesAndSupport2</td>
+    <td valign=\"top\"> New partial model with one and two flanges and the support flange
+                      with a much simpler implementation as previously.</td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.Translational.Interfaces.</b></td></tr>
+<tr><td valign=\"top\"> PartialElementaryOneFlangeAndSupport2<br>
+                      PartialElementaryTwoFlangesAndSupport2</td>
+    <td valign=\"top\"> New partial model with one and two flanges and the support flange
+                      with a much simpler implementation as previously.</td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Media.IdealGases.Common.MixtureGasNasa.</b></td></tr>
+<tr><td valign=\"top\"> setSmoothState</td>
+    <td valign=\"top\"> Return thermodynamic state so that it smoothly approximates:
+                      if x &gt; 0 then state_a else state_b.</td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Utilities.Internal.</b></td></tr>
+<tr><td valign=\"top\"> PartialModelicaServices</td>
+    <td valign=\"top\"> New package containing the interface description of
+                      models and functions that require a tool dependent
+                      implementation (currently only \"Shape\" for 3-dim. animation, 
+                      but will be extended in the future)</td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Icons.</b></td></tr>
+<tr><td valign=\"top\"> VariantLibrary<br>
+                      BaseClassLibrary<br>
+                      ObsoleteModel</td>
+    <td valign=\"top\"> New icons (VariantLibrary and BaseClassLibrary have been moved
+                      from Modelica_Fluid.Icons to this place).</td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.SIunits.Conversions.</b></td></tr>
+<tr><td valign=\"top\"> from_Hz<br>
+                      to_Hz</td>
+    <td valign=\"top\"> New functions to convert between frequency [Hz] and
+                      angular velocity [1/s].</td> </tr>
+
+</table>
+
+ 
+ 
+<p><br>
+The following <b style=\"color:blue\">existing components</b>
+have been <b style=\"color:blue\">improved</b> in a
+<b style=\"color:blue\">backward compatible</b> way:
+</p>
+ 
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>XXX</b></td></tr>
+<tr><td valign=\"top\"> XXX</td>
+    <td valign=\"top\"> XXX</td> </tr>
+</table>
+ 
+<p><br>
+The following <b style=\"color:red\">critical errors</b> have been fixed (i.e. errors
+that can lead to wrong simulation results):
+</p>
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>XXX</b></td></tr>
+<tr><td valign=\"top\"> XXX</td>
+    <td valign=\"top\"> XXX</td> </tr>
+</table>
+
+<p><br>
+The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e. errors
+that do <b style=\"color:red\">not</b> lead to wrong simulation results, but, e.g.,
+units are wrong or errors in documentation):
+</p>
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>XXX</b></td></tr>
+<tr><td valign=\"top\"> XXX</td>
+    <td valign=\"top\"> XXX</td> </tr>
+</table>
 
 </html>"));
 end Version_3_1;
