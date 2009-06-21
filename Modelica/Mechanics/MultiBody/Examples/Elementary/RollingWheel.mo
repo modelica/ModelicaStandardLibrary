@@ -19,7 +19,10 @@ model RollingWheel
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}),      graphics),
     experiment(StopTime=4),
-    __Dymola_experimentSetupOutput);
+    __Dymola_experimentSetupOutput,
+    Documentation(info="<html>
+ 
+</html>"));
   Modelica.Mechanics.MultiBody.Visualizers.Ground ground(length=4) 
     annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
 end RollingWheel;

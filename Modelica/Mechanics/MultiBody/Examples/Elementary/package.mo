@@ -64,6 +64,28 @@ the usage of the MultiBody library
       <img src=\"../Images/MultiBody/Examples/Elementary/PointGravityWithPointMasses2_small.png\">
       </td>
   </tr>
+
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.RollingWheel\">RollingWheel</a></td>
+      <td valign=\"top\"> Single wheel rolling on ground starting from an initial speed <br> 
+      <img src=\"../Images/MultiBody/Examples/Elementary/RollingWheel.png\">
+      </td>
+  </tr>
+
+
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.RollingWheelSetDriving\">RollingWheelSetDriving</a></td>
+      <td valign=\"top\"> Rolling wheel set that is driven by torques driving the wheels <br> 
+      <img src=\"../Images/MultiBody/Examples/Elementary/RollingWheelSetDriving.png\">
+      </td>
+  </tr>
+
+
+  <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.RollingWheelSetPulling\">RollingWheelSetPulling</a></td>
+      <td valign=\"top\"> Rolling wheel set that is pulled by a force <br> 
+      <img src=\"../Images/MultiBody/Examples/Elementary/RollingWheelSetPulling.png\">
+      </td>
+  </tr>
+
+
   <tr><td valign=\"top\"><a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.SpringDamperSystem\">SpringDamperSystem</a></td>
       <td valign=\"top\"> Spring/damper system with a prismatic joint and 
            attached on free flying body <br> 
