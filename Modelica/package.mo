@@ -3706,16 +3706,35 @@ end ReleaseNotes;
 class ModelicaLicense2 "Modelica License 2"
 
   annotation (Documentation(info="<html>
-<p>
-This package with all of its subpackages is released
-under the &ldquo;Modelica License 2&rdquo; (if not explicitely
-otherwise noted).</p>
 
-	<P>
-   <a href=\"#1. The Modelica License 2|outline\">The Modelica License 2</a><br>
-   <a href=\"#2. How to Apply the Modelica License 2|outline\">How to Apply the Modelica License 2</a><br>
-	 <a href=\"#3. Frequently Asked Questions|outline\">Frequently Asked Questions</a></p>
-<p><br>
+<p>All files in this directory (Modelica) and in all
+subdirectories, especially all files that build package \"Modelica\" and all
+files in Modelica\\C-sources, Modelica\\help,
+Modelica\\Images are licensed by the <b><u>Modelica Association</u></b> under the 
+<b><u>Modelica License 2</u></b> (with exception of files
+\"Modelica\\C-sources\\win32_dirent.*\").&nbsp;</p>
+
+<p style=\"margin-left: 40px;\"><b>Licensor:</b><br>
+Modelica Association<br>
+(Ideella Föreningar 822003-8858 in Linköping) <br>
+c/o PELAB, IDA, Linköpings Universitet <br>
+S-58183 Linköping <br>
+Sweden<br>
+email: Board@Modelica.org<br>
+web&nbsp; : http://www.Modelica.org</p>
+<p style=\"margin-left: 40px;\"><b>Copyright notices of the files:</b></p>
+<div style=\"margin-left: 40px;\">Copyright © 1998-2009,
+ABB, arsenal research, DLR, Dynasim, Fraunhofer, Modelon, TU
+Hamburg-Harburg, Politecnico di Milano.<br>
+</div>
+<br>
+</p>
+
+<p> <a href=\"#1.%20The%20Modelica%20License%202%7Coutline\">The
+Modelica License 2</a><br>
+<a href=\"#2.%20Frequently%20Asked%20Questions%7Coutline\">Frequently
+Asked Questions</a><br>
+<br>
 </p>
 
 <hr>
@@ -4006,83 +4025,8 @@ action. This section shall survive the termination of this License.</p>
 </p>
 
 <hr>
-<h4><a name=\"2. How to Apply the Modelica License 2|outline\"></a>
-How to Apply the Modelica License 2</h4>
 
-<p>At
-the top level of your Modelica package and at every important
-subpackage, add the following notices in the info layer of the
-package:</p>
-
-<p>
-Licensed by &lt;Licensor&gt; under the Modelica License 2<br>
-Copyright &copy; &lt;year1&gt;-&lt;year2&gt;, &lt;name of copyright
-holder(s)&gt;. 
-</p>
-
-<p>
-<i>This Modelica package is <u>free</u> software and
-the use is completely at <u>your own risk</u>;
-it can be redistributed and/or modified under the terms of the
-Modelica license 2, see the license conditions (including the
-disclaimer of warranty)
-<a href=\"modelica://Library.UsersGuide.ModelicaLicense2\">here</a></u>
-or at
-<a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">
-http://www.modelica.org/licenses/ModelicaLicense2</a>.</i></p>
-
-<p>Include
-a copy of the Modelica License 2 under
-<b>&lt;library&gt;.UsersGuide.ModelicaLicense2</b> 
-(use <a href=\"http://www.modelica.org/licenses/ModelicaLicense2.mo\">
-http://www.modelica.org/licenses/ModelicaLicense2.mo</a>). 
-Furthermore, add
-the list of authors and contributors under
-<b>&lt;library&gt;.UsersGuide.Contributors</b> or 
-<b>&lt;library&gt;.UsersGuide.Contact</b>.</p>
-
-<p>For
-example, sublibrary Modelica.Blocks of the Modelica Standard Library
-may have the following notices:</p>
-
-<p>
-Licensed by Modelica Association under the Modelica License 2<br>
-Copyright &copy; 1998-2008, Modelica Association. 
-</p>
-
-<p>
-<i>This Modelica package is <u>free</u> software and
-the use is completely at <u>your own risk</u>;
-it can be redistributed and/or modified under the terms of the
-Modelica license 2, see the license conditions (including the
-disclaimer of warranty)
-<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">here</a></u>
-or at
-<a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">
-http://www.modelica.org/licenses/ModelicaLicense2</a>.</i></p>
-
-<p>For
-C-source code and documents, add similar notices in the corresponding
-file.</p>
-
-<p>For
-images, add a &ldquo;readme.txt&rdquo; file to the directories where
-the images are stored and include a similar notice in this file.</p>
-
-<p>In
-these cases, save a copy of the Modelica License 2 in one directory
-of the distribution, e.g., 
-<a href=\"http://www.modelica.org/licenses/ModelicaLicense2.html\">
-http://www.modelica.org/licenses/ModelicaLicense2.html</a>
-in directory <b>&lt;library&gt;/help/documentation/ModelicaLicense2.html</b>.
-</p>
-<p><br>
-</p>
-
-
-<hr>
-
-<h4><a name=\"3. Frequently Asked Questions|outline\"></a>
+<h4><a name=\"2. Frequently Asked Questions|outline\"></a>
 Frequently Asked Questions</h4>
 <p>This
 section contains questions/answer to users and/or distributors of
