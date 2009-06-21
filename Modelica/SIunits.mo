@@ -899,10 +899,10 @@ still kept in Modelica.SIunits.</p>
       annotation (Icon(graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
-              textString="K"), Text(
+              textString="Hz"), Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
-              textString="°C")}));
+              textString="1/s")}));
     algorithm
       w := 2*Modelica.Constants.pi*f;
     end from_Hz;
@@ -914,10 +914,10 @@ still kept in Modelica.SIunits.</p>
       annotation (Icon(graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
-              textString="K"), Text(
+              textString="1/s"), Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
-              textString="°C")}));
+              textString="Hz")}));
     algorithm
       f := w/(2*Modelica.Constants.pi);
     end to_Hz;
