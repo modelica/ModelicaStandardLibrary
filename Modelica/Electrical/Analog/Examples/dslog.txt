@@ -1,0 +1,47 @@
+Log-file of program ./dymosim
+(generated: Tue May 05 15:38:08 2009)
+
+dymosim started
+Model: Modelica.Electrical.Analog.Examples.HeatingNPN_OrGate
+... "dsin.txt" loading (dymosim input file)
+... "HeatingNPN_OrGate.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dynasim))
+ERROR: Failed to solve non-linear system using Newton solver.
+To get more information: Turn on Simulation/Setup/Debug/Nonlinear solver diagnostics/Details
+Solution to systems of equations not found at time = 105.983
+   Nonlinear system of equations number = 1
+   Infinity-norm of residue = 2.57242
+   Iteration is not making good progress.
+   Accumulated number of residue       calc.: 13711
+   Accumulated number of symbolic Jacobian calc.: 3859
+   Last values of solution vector:
+T2.vbc = -5.99434
+TC2.dT = 7.20973E-009
+R2.v = -8.14674E-005
+R1.v = 0.0368106
+TC1.dT = -253.088
+   Last values of residual vector:
+{ -0.0302427, 8.14565E-005, -0.00901811, -2.53308, -5.51073E-014 }
+ 
+Solver will attempt to handle this problem.
+
+Integration terminated successfully at T = 120
+   CPU-time for integration      : 0.141 seconds
+   CPU-time for one GRID interval: 0.0705 milli-seconds
+   Number of result points       : 2028
+   Number of GRID   points       : 2001
+   Number of (successful) steps  : 372
+   Number of F-evaluations       : 787
+   Number of H-evaluations       : 2423
+   Number of Jacobian-evaluations: 312
+   Number of (model) time events : 13
+   Number of (U) time events     : 0
+   Number of state    events     : 7
+   Number of step     events     : 0
+   Minimum integration stepsize  : 1.4e-005
+   Maximum integration stepsize  : 21
+   Maximum integration order     : 3
+Calling terminal section
+... "dsfinal.txt" creating (final states)

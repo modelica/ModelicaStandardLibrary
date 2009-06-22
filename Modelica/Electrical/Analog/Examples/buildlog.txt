@@ -1,0 +1,8 @@
+ 
+Compiling and linking the model (Visual C++). 
+ 
+Setting environment for using Microsoft Visual Studio 2008 x86 tools.
+dsmodel.c
+ 
+Successful generation of Dymosim. 
+ 
