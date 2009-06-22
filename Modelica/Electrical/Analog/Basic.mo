@@ -1786,7 +1786,7 @@ Lmin is a parameter with default value Modelica.Constants.eps.
           v = der(Psi);
         end VariableInductor;
 
-  model OpAmpMacro "Detailed model of an operational amplifier"
+  model OpAmpDetailed "Detailed model of an operational amplifier"
   // literature: Conelly, J.A.; Choi, P.: Macromodelling with SPICE. Englewood Cliffs: Prentice-Hall, 1992
 
     parameter Real Rdm=2.0e6 "input resistance (differential input mode) [Ohm]";
@@ -2086,5 +2086,5 @@ Now one of these models, the model amp(macro) was transfered into Modelica.
     p_supply.i = 0;
     m_supply.i = 0;
 
-  end OpAmpMacro;
+  end OpAmpDetailed;
 end Basic;

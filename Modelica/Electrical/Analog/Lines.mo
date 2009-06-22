@@ -87,7 +87,7 @@ To get a symmetric line model, the first resistor and inductor are cut into two 
 The two new resistors and inductors have the half of the resistance/inductance the original resistor/inductor had. <br>
 The resistor R1/inductor L1 are at the beginning of the line and R_Nplus1/L_Nplu1 are at the end of the line.
 <p align=\"center\">
-<IMG SRC=\"../Images/Electrical/Analog/Schaltbild_OLine.png\" width=\"600\"
+<IMG SRC=\"../Images/Electrical/Analog/OLine.png\" width=\"1000\"
 ALT=\"model Analog.Lines.OLine\">
 </p>
 The values of the capacitances are calculated with: C=c*length/N with c given by the user, \"lenght=length of line\" and \"N=number of segments\".<br>
@@ -600,7 +600,7 @@ To get a symmetric line model, the first Resistor is cut into two parts (R1 and 
 The two new resistors have the half of the resistance of the original Resistor had. The Resistor R1<br>
 is at the beginning of the line and R_Nplus1 is at the end of the line.
 <p align=\"center\">
-<IMG SRC=\"../Images/Electrical/Analog/Schaltbild_ULine.png\" width=\"400\"
+<IMG SRC=\"../Images/Electrical/Analog/ULine.png\" width=\"600\"
 ALT=\"model Analog.Lines.ULine\">
 </p>
 The values of the capacitances are calculated with: C=c*length/N with c given by the user, \"lenght=length of line\" and \"N=number of segments\".<br>
