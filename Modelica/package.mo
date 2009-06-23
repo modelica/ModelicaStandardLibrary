@@ -1,6 +1,6 @@
 within ;
 package Modelica "Modelica Standard Library (Version 3.1)"
-extends Icons.Library;
+extends Modelica.Icons.Library;
 
 
 package UsersGuide "User's Guide of Modelica library"
@@ -4553,6 +4553,11 @@ The following library officers are currently assigned:
 						arsenal research, Vienna, Austria (Christian Kral)</td>
 </tr>
 
+<tr><td valign=\"top\"> Fluid </td>
+	  <td valign=\"top\"> Politecnico di Milano (Francesco Casella), and<br>
+                            Rüdiger Franke (ABB)</td>
+</tr>
+
 <tr><td valign=\"top\"> Icons </td>
 	  <td valign=\"top\"> Modelon AB, Lund, Sweden (Johan Andreasson) </td>
 </tr>
@@ -4625,7 +4630,8 @@ of the Modelica package (many more people have contributed to the design):
 
 <tr><td valign=\"top\"><b>Francesco Casella</b> </td
 	  <td valign=\"top\"> Politecnico di Milano, Milano, Italy</td>
-	  <td valign=\"top\"> Modelica.Media</td>
+	  <td valign=\"top\"> Modelica.Fluid<br>
+                            Modelica.Media</td>
 </tr>
 
 <tr><td valign=\"top\"><b>Christoph Clauss</b> </td
@@ -4642,6 +4648,7 @@ of the Modelica package (many more people have contributed to the design):
 <tr><td valign=\"top\"><b>Hilding Elmqvist</b> </td
 	  <td valign=\"top\"> Dynasim AB, Lund, Sweden</td>
 	  <td valign=\"top\"> Modelica.Mechanics.MultiBody<br>
+                   Modelica.Fluid<br>
 		   Modelica.Media<br>
 		   Modelica.StateGraph<br>
 		   Modelica.Utilities<br>
@@ -4650,7 +4657,15 @@ of the Modelica package (many more people have contributed to the design):
 
 <tr><td valign=\"top\"><b>R&uuml;diger Franke</b> </td
 	  <td valign=\"top\"> ABB Corporate Research,<br>Ladenburg, German</td>
-	  <td valign=\"top\"> Modelica.Media</td>
+	  <td valign=\"top\"> Modelica.Fluid<br>
+                            Modelica.Media</td>
+</tr>
+
+<tr><td valign=\"top\"><b>Manuel Gräber</b> </td
+	  <td valign=\"top\"> Institut f&uuml;r Thermodynamik, <br>
+		   Technische Universit&auml;t Braunschweig, <br>
+		   Germany</td>
+	  <td valign=\"top\"> Modelica.Fluid</td>
 </tr>
 
 <tr><td valign=\"top\"><b>Anton Haumer</b> </td
@@ -4690,11 +4705,13 @@ of the Modelica package (many more people have contributed to the design):
 		   Conversion from 1.6 to 2.0<br>
 		   Conversion from 2.2 to 3.0</td>
 </tr>
+
 <tr><td valign=\"top\"><b>Martin Otter</b> </td
 	  <td valign=\"top\"> Institute of Robotics and Mechatronics<br>
 		   DLR, German Aerospace Center, <br>
 		   Oberpfaffenhofen, Germany</td>
 	  <td valign=\"top\"> Modelica.Blocks<br>
+                   Modelica.Fluid<br>
 		   Modelica.Mechanics.MultiBody<br>
 		   Modelica.Mechanics.Rotational<br>
 		   Modelica.Mechanics.Translational<br>
@@ -4710,16 +4727,20 @@ of the Modelica package (many more people have contributed to the design):
 </tr>
 
 <tr><td valign=\"top\"><b>Katrin Pr&ouml;l&szlig;</b> </td
-	  <td valign=\"top\"> Department of Technical Thermodynamics,<br>
+	  <td valign=\"top\"> Modelon AB, Lund, Sweden<br>
+                            until 2008:<br>
+                            Department of Technical Thermodynamics,<br>
 		   Technical University Hamburg-Harburg,<br>Germany</td>
-	  <td valign=\"top\"> Modelica.Media</td>
+	  <td valign=\"top\"> Modelica.Fluid<br>
+                            Modelica.Media</td>
 </tr>
 
 <tr><td valign=\"top\"><b>Christoph C. Richter</b> </td
 	  <td valign=\"top\"> Institut f&uuml;r Thermodynamik, <br>
 		   Technische Universit&auml;t Braunschweig, <br>
 		   Germany</td>
-	  <td valign=\"top\"> Modelica.Media</td>
+	  <td valign=\"top\"> Modelica.Fluid<br>
+                            Modelica.Media</td>
 </tr>
 
 <tr><td valign=\"top\"><b>Andr&eacute; Schneider</b> </td
@@ -4736,6 +4757,14 @@ of the Modelica package (many more people have contributed to the design):
 		   ModelicaReference<br>
 		   Conversion from 1.6 to 2.0</td>
 </tr>
+
+<tr><td valign=\"top\"><b>Michael Sielemann</b> </td
+	  <td valign=\"top\"> Institute of Robotics and Mechatronics<br>
+		   DLR, German Aerospace Center, <br>
+		   Oberpfaffenhofen, Germany</td>
+	  <td valign=\"top\"> Modelica.Fluid</td>
+</tr>
+
 <tr><td valign=\"top\"><b>Michael Tiller</b> </td
 	  <td valign=\"top\"> Emmeskay, Inc., Dearborn, MI, U.S.A, <br>
 		   (previously Ford Motor Company, Dearborn) </td>
@@ -4752,6 +4781,11 @@ of the Modelica package (many more people have contributed to the design):
 		   (Prof. R. M&uuml;ller) and<br>
 		   DLR Oberpfaffenhofen, Germany</td>
 	  <td valign=\"top\"> Modelica.Math.Matrices</td>
+</tr>
+
+<tr><td valign=\"top\"><b>Manuel Wetter</b> </td
+	  <td valign=\"top\"> Lawrence Berkeley National Laboratory; U.S.A</td>
+	  <td valign=\"top\"> Modelica.Fluid</td>
 </tr>
 </table>
 </html>
@@ -4816,8 +4850,8 @@ For an introduction, have especially a look at:
 This version of the Modelica Standard Library consists of
 </p>
 <ul>
-<li> <b>781</b> models and blocks, and</li>
-<li> <b>553</b> functions
+<li> <b>889</b> models and blocks, and</li>
+<li> <b>614</b> functions
 </ul>
 <p>
 that are directly usable (= number of public, non-partial classes).
