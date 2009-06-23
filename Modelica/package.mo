@@ -743,7 +743,7 @@ to <b style=\"color:blue\">existing</b> libraries:
     <td valign=\"top\"> New block to replicate an input signal to many output signals. </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Examples.</b></td></tr>
-<tr><td valign=\"top\"> AmplifierWIthOpAmpMacro<br>
+<tr><td valign=\"top\"> AmplifierWithOpAmpDetailed<br>
                       HeatingResistor<br>
                       OvervoltageProtection<br>
                       SwitchWithArc<br>
@@ -751,7 +751,7 @@ to <b style=\"color:blue\">existing</b> libraries:
     <td valign=\"top\"> New examples to demonstrate the usage of new components. </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Basic.</b></td></tr>
-<tr><td valign=\"top\"> OpAmpMacro</td>
+<tr><td valign=\"top\"> OpAmpDetailed</td>
     <td valign=\"top\"> New detailed model of an operational amplifier. </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Analog.Ideal.</b></td></tr>
