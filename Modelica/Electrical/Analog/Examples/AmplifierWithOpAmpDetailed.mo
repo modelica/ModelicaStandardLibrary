@@ -1,6 +1,6 @@
 within Modelica.Electrical.Analog.Examples;
 model AmplifierWithOpAmpDetailed
-  "Simple Amplifier circuit which uses OpAmpMacro"
+  "Simple Amplifier circuit which uses OpAmpDetailed"
 
   annotation (
     uses(Modelica(version="3.0.1")),
@@ -20,10 +20,10 @@ model AmplifierWithOpAmpDetailed
        </li>
 </ul>
 </html>", info="<html>
-With the test circuit AmplifierWithOpAmpDetailed a time domain analysis of the example arrangement with a sinusoidal input voltage (12 V amplitude, frequency 1 kHz) using the operational amplifier model OpAmp is carried out. The working voltages are 15 V and -15 V.
 <p>
-</P>
-</P>
+With the test circuit AmplifierWithOpAmpDetailed a time domain analysis of the example arrangement with a sinusoidal input voltage (12 V amplitude, frequency 1 kHz) using the operational amplifier model OpAmpDetailed is carried out. The working voltages are 15 V and -15 V.
+</p>
+
 </HTML>"),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
             100}}), graphics={

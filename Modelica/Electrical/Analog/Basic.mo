@@ -1494,6 +1494,310 @@ value of Slope is taken into calculation.)
        < 0) then -f*vin else f*vin)));
   end OpAmp;
 
+  model OpAmpDetailed "Detailed model of an operational amplifier"
+  // literature: Conelly, J.A.; Choi, P.: Macromodelling with SPICE. Englewood Cliffs: Prentice-Hall, 1992
+    import SI = Modelica.SIunits;
+    parameter SI.Resistance Rdm=2.0e6
+      "input resistance (differential input mode)";
+    parameter SI.Resistance Rcm=2.0e9 "input resistance (common mode)";
+    parameter SI.Capacitance Cin=1.4e-12 "input capacitance";
+    parameter SI.Voltage Vos=1.0e-3 "input offset voltage";
+    parameter SI.Current Ib=80.0e-9 "input bias current";
+    parameter SI.Current Ios=20.0e-9 "input offset current";
+    parameter SI.Voltage vcp=0.0 "correction value for limiting by p_supply";
+    parameter SI.Voltage vcm=0.0 "correction value for limiting by msupply";
+    parameter Real Avd0=106.0 "differential amplifier [dB]";
+    parameter Real CMRR=90.0 "common-mode rejection [dB]";
+    parameter SI.Frequency fp1=5.0 "dominant pole";
+    parameter SI.Frequency fp2=2.0e6 "pole frequency";
+    parameter SI.Frequency fp3=20.0e6 "pole frequency";
+    parameter SI.Frequency fp4=100.0e6 "pole frequency";
+    parameter SI.Frequency fz=5.0e6 "zero frequency";
+    parameter SI.VoltageSlope sr_p=0.5e6 "slew rate for increase";
+    parameter SI.VoltageSlope sr_m=0.5e6 "slew rate for decrease";
+    parameter SI.Resistance Rout=75.0 "output resistance";
+    parameter SI.Current Imaxso=25.0e-3
+      "maximal output current (source current)";
+    parameter SI.Current Imaxsi=25.0e-3 "maximal output current (sink current)";
+
+  // number of intervalls: 2500, stop time: 0.003
+    parameter SI.Time Ts=0.0000012 "sampling time";
+
+  // constant expressions
+    constant Real Pi=3.141592654;
+
+   // power supply
+    final parameter SI.Voltage vcp_abs = abs(vcp);
+    final parameter SI.Voltage vcm_abs = abs(vcm);
+
+  // input stage
+  //  Ib = 0.5*(I1 + I2);
+  //  Ios = I1 - I2;
+    final parameter SI.Current I1 =  Ib + Ios/2.0;
+    final parameter SI.Current I2 =  Ib - Ios/2.0;
+
+  // gain stage (difference and common mode)
+    final parameter Real Avd0_val = 10.0^(Avd0/20.0) "differential mode gain";
+    final parameter Real Avcm_val = (Avd0_val/(10.0^(CMRR/20.0)))/2.0
+      "common mode gain";
+
+  // slew rate stage
+    final parameter SI.VoltageSlope sr_p_val = abs(sr_p);
+    final parameter SI.VoltageSlope sr_m_val = -abs(sr_m);
+
+  // output stage
+    final parameter SI.Current Imaxso_val = abs(Imaxso) "orientation out outp";
+    final parameter SI.Current Imaxsi_val = abs(Imaxsi) "orientation into outp";
+
+    Modelica.Electrical.Analog.Interfaces.PositivePin p
+      "Positive pin of the input port" annotation (Placement(transformation(
+            extent={{-111,-61},{-90,-40}}, rotation=0)));
+    Modelica.Electrical.Analog.Interfaces.NegativePin m
+      "Negative pin of the input port" annotation (Placement(transformation(
+            extent={{-90,40},{-111,61}}, rotation=0)));
+    Modelica.Electrical.Analog.Interfaces.PositivePin outp "Output pin" 
+      annotation (Placement(transformation(extent={{110,-10},{90,10}}, rotation=
+             0)));
+    Modelica.Electrical.Analog.Interfaces.PositivePin p_supply
+      "Positive output voltage limitation" annotation (Placement(transformation(
+            extent={{-8,65},{9,82}},   rotation=0)));
+    Modelica.Electrical.Analog.Interfaces.NegativePin m_supply
+      "Negative output voltage limitation" annotation (Placement(transformation(
+            extent={{-9,-83},{9,-65}},   rotation=0)));
+
+    annotation (
+      Documentation(info="<HTML>
+<P>
+The OpAmpDetailed model is a general operational amplifier model. The emphasis is on separating each important data sheet parameter into a sub-circuit independent of the other parameters. The model is broken down into five functional stages 
+<b>input</b>, <b>frequency response</b>, <b>gain</b>, <b>slew rate</b> and an  <b>output</b> stage. Each stage contains data sheet parameters to be modeled. 
+ 
+This partitioning and the modelling of the separate submodels are based on the description in <b>[CP92]</b>.
+</P>
+</P>
+Using <b>[CP92]</b> Joachim Haase (Fraunhofer Institute for Integrated Circuits,
+Design Automation Division) transfered 2001 operational amplifier models into VHDL-AMS. 
+Now one of these models, the model \"amp(macro)\" was transferred into Modelica.
+</P>
+</P>
+ 
+<dl>
+<dt>
+<b>Reference:</b>
+<dd>
+<b>[CP92]</b> Conelly, J.A.; Choi, P.: Macromodelling with SPICE. Englewood Cliffs: Prentice-Hall, 1992
+</dd>
+</dl>
+</P>
+</P>
+</HTML>
+", revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> Juni 17, 2009   </i>
+       by Susann Wolf<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Polygon(
+            points={{60,0},{-60,70},{-60,-70},{60,0}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Line(points={{0,35},{0,80}}, color={0,0,255}),
+          Line(points={{0,-35},{0,-80}}, color={0,0,255}),
+          Line(points={{-90,50},{-60,50}}, color={0,0,255}),
+          Line(points={{-90,-50},{-60,-50}}, color={0,0,255}),
+          Line(points={{60,0},{90,0}}, color={0,0,255}),
+          Line(points={{-48,32},{-28,32}}, color={0,0,255}),
+          Line(points={{-39,-20},{-39,-41}}, color={0,0,255}),
+          Line(points={{-50,-31},{-28,-31}}, color={0,0,255}),
+          Text(
+            extent={{-151,141},{149,101}},
+            textString="%name",
+            lineColor={0,0,255})}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Polygon(
+            points={{60,0},{-60,70},{-60,-70},{60,0}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Line(points={{0,35},{0,70}}, color={0,0,255}),
+          Line(points={{0,-35},{0,-70}}, color={0,0,255}),
+          Line(points={{-96,50},{-60,50}}, color={0,0,255}),
+          Line(points={{-96,-50},{-60,-50}}, color={0,0,255}),
+          Line(points={{60,0},{96,0}}, color={0,0,255}),
+          Line(points={{-55,50},{-45,50}}, color={0,0,255}),
+          Line(points={{-50,-45},{-50,-55}}, color={0,0,255}),
+          Line(points={{-55,-50},{-45,-50}}, color={0,0,255}),
+          Polygon(
+            points={{120,3},{110,0},{120,-3},{120,3}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={160,160,164}),
+          Line(points={{111,0},{136,0}}, color={0,0,0}),
+          Text(
+            extent={{114,2},{131,17}},
+            lineColor={0,0,0},
+            textString="i2"),
+          Line(
+            points={{-100,-35},{-100,23},{-100,24}},
+            color={160,160,164},
+            arrow={Arrow.None,Arrow.Filled}),
+          Text(
+            extent={{-97,-16},{-74,4}},
+            lineColor={160,160,164},
+            textString="vin")}),
+      uses(Modelica(version="3.0.1")));
+
+  // power supply
+    SI.Voltage v_pos;
+    SI.Voltage v_neg;
+
+  // input stage
+    Modelica.SIunits.Voltage v_vos;
+    Modelica.SIunits.Voltage v_3;
+    Modelica.SIunits.Voltage v_in;
+    Modelica.SIunits.Voltage v_4;
+
+    Modelica.SIunits.Current i_vos;
+    Modelica.SIunits.Current i_3;
+    Modelica.SIunits.Current i_r2;
+    Modelica.SIunits.Current i_c3;
+    Modelica.SIunits.Current i_4;
+
+  // frequency response
+    Real q_fr1;
+    Real q_fr2;
+    Real q_fr3;
+
+  // gain stage
+    SI.Voltage q_sum;
+    SI.Voltage q_sum_help;
+    SI.Voltage q_fp1;
+
+  // slew rate stage
+    SI.Voltage v_source;
+
+    SI.Voltage x "auxiliary variable for slew rate";
+
+  // output stage
+    Modelica.SIunits.Voltage v_out;
+
+    Modelica.SIunits.Current i_out;
+
+  // functions
+    function FCNiout_limit
+      input SI.Voltage v_source;
+      input SI.Voltage v_out;
+      input SI.Resistance Rout;
+      input SI.Current Imaxsi_val;
+      input SI.Current Imaxso_val;
+      output SI.Current result;
+
+    algorithm
+        if  v_out > v_source + Rout*Imaxsi_val then
+            result := Imaxsi_val;
+        elseif v_out < v_source - Rout*Imaxso_val then
+            result := -Imaxso_val;
+        else
+            result := (v_out - v_source)/Rout;
+        end if;
+        return;
+    end FCNiout_limit;
+
+    function FCNq_sum_limit
+      input SI.Voltage q_sum;
+      input SI.Voltage q_sum_ltf;
+      input SI.Voltage v_pos;
+      input SI.Voltage v_neg;
+      input SI.Voltage vcp;
+      input SI.Voltage vcm;
+      output SI.Voltage result;
+
+    algorithm
+        if  q_sum > v_pos - vcp and q_sum_ltf >= v_pos - vcp then
+          result := v_pos - vcp;
+        elseif q_sum < v_neg + vcm and q_sum_ltf <= v_neg + vcm then
+          result := v_neg + vcm;
+        else
+          result := q_sum;
+        end if;
+      return;
+    end FCNq_sum_limit;
+
+  equation
+  assert(Rout > 0.0, "Rout must be > 0.0.");
+
+  // power supply
+    v_pos = p_supply.v;
+    v_neg = m_supply.v;
+
+  // input stage
+    p.i = i_vos;
+    m.i = i_4 - i_r2 - i_c3;
+    0 = i_3 + i_r2 + i_c3 - i_vos;
+    p.v - m.v = v_vos + v_in;
+    v_4 = m.v;
+    v_3 = p.v - v_vos;
+    v_vos = Vos;
+    i_3 = I1 + v_3/Rcm;
+    v_in = Rdm*i_r2;
+    i_c3 = Cin*der(v_in);
+    i_4 = I2 + v_4/Rcm;
+
+  // frequency response
+  // Laplace transformation
+      der(q_fr1) = 2.0*Pi*fp2*(v_in - q_fr1);
+      q_fr2 + (1.0/(2.0*Pi*fp3))*der(q_fr2) = q_fr1 + (1.0/(2.0*Pi*fz))*der(q_fr1);
+      der(q_fr3) = 2.0*Pi*fp4*(q_fr2 - q_fr3);
+
+  // gain stage
+  // Laplace transformation
+    q_sum = Avd0_val*q_fr3 + Avcm_val*(v_3 + v_4);
+    q_sum_help = FCNq_sum_limit(
+      q_sum,
+      q_fp1,
+      v_pos,
+      v_neg,
+      vcp_abs,
+      vcm_abs);
+    der(q_fp1) = 2.0*Pi*fp1*(q_sum_help - q_fp1);
+
+  // slew rate stage
+     if initial() then
+        v_source = q_fp1;
+        x = 0;
+     end if;
+
+     der(x) = (q_fp1 - v_source)/Ts;
+     der(v_source) = smooth(0,noEvent(
+     if der(x) > sr_p_val then sr_p_val else 
+     if der(x) < sr_m_val then sr_m_val else 
+        der(x)));
+
+  // output stage
+    v_out = outp.v;
+    i_out = outp.i;
+    i_out = FCNiout_limit(
+      v_source,
+      v_out,
+      Rout,
+      Imaxsi_val,
+      Imaxso_val);
+
+    p_supply.i = 0;
+    m_supply.i = 0;
+
+  end OpAmpDetailed;
+
         model VariableResistor
     "Ideal linear electrical resistor with variable resistance"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
@@ -1786,305 +2090,4 @@ Lmin is a parameter with default value Modelica.Constants.eps.
           v = der(Psi);
         end VariableInductor;
 
-  model OpAmpDetailed "Detailed model of an operational amplifier"
-  // literature: Conelly, J.A.; Choi, P.: Macromodelling with SPICE. Englewood Cliffs: Prentice-Hall, 1992
-
-    parameter Real Rdm=2.0e6 "input resistance (differential input mode) [Ohm]";
-    parameter Real Rcm=2.0e9 "input resistance (common mode) [Ohm]";
-    parameter Real Cin=1.4e-12 "input capacitance [F]";
-    parameter Real Vos=1.0e-3 "input offset voltage [V]";
-    parameter Real Ib=80.0e-9 "input bias current [A]";
-    parameter Real Ios=20.0e-9 "input offset current [A]";
-    parameter Real vcp=0.0 "correction value for limiting by p_supply [V]";
-    parameter Real vcm=0.0 "correction value for limiting by msupply [V]";
-    parameter Real Avd0=106.0 "differential amplifier [dB]";
-    parameter Real CMRR=90.0 "common-mode rejection [dB]";
-    parameter Real fp1=5.0 "dominant pole [Hz]";
-    parameter Real fp2=2.0e6 "pole frequency [Hz]";
-    parameter Real fp3=20.0e6 "pole frequency [Hz]";
-    parameter Real fp4=100.0e6 "pole frequency [Hz]";
-    parameter Real fz=5.0e6 "zero frequency [Hz]";
-    parameter Real sr_p=0.5e6 "slew rate for increase [V/s]";
-    parameter Real sr_m=0.5e6 "slew rate for decrease [V/s]";
-    parameter Real Rout=75.0 "output resistance [Ohm]";
-    parameter Real Imaxso=25.0e-3 "maximal output current (source current) [A]";
-    parameter Real Imaxsi=25.0e-3 "maximal output current (sink current) [A]";
-
-  // number of intervalls: 2500, stop time: 0.003
-    parameter Real Ts=0.0000012 "sampling time";
-
-  // constant expressions
-    constant Real Pi=3.141592654;
-
-   // power supply
-    parameter Real vcp_abs = abs(vcp);
-    parameter Real vcm_abs = abs(vcm);
-
-  // input stage
-  //  Ib = 0.5*(I1 + I2);
-  //  Ios = I1 - I2;
-    parameter Real I1 = Ib + Ios/2.0;
-    parameter Real I2 = Ib - Ios/2.0;
-
-  // gain stage (difference and common mode)
-    parameter Real Avd0_val = 10.0^(Avd0/20.0) "differential mode gain";
-    parameter Real Avcm_val = (Avd0_val/(10.0^(CMRR/20.0)))/2.0
-      "common mode gain";
-
-  // slew rate stage
-    parameter Real sr_p_val = abs(sr_p);
-    parameter Real sr_m_val = -abs(sr_m);
-
-  // output stage
-    parameter Real Imaxso_val = abs(Imaxso) "orientation out outp";
-    parameter Real Imaxsi_val = abs(Imaxsi) "orientation into outp";
-
-    Modelica.Electrical.Analog.Interfaces.PositivePin p
-      "Positive pin of the input port" annotation (Placement(transformation(
-            extent={{-111,-61},{-90,-40}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.NegativePin m
-      "Negative pin of the input port" annotation (Placement(transformation(
-            extent={{-90,40},{-111,61}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.PositivePin outp "Output pin" 
-      annotation (Placement(transformation(extent={{110,-10},{90,10}}, rotation=
-             0)));
-    Modelica.Electrical.Analog.Interfaces.PositivePin p_supply
-      "Positive output voltage limitation" annotation (Placement(transformation(
-            extent={{-8,65},{9,82}},   rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.NegativePin m_supply
-      "Negative output voltage limitation" annotation (Placement(transformation(
-            extent={{-9,-83},{9,-65}},   rotation=0)));
-
-    annotation (
-      Documentation(info="<HTML>
-<P>
-The OpAmp_macro model is a general operational amplifier model, a generalized amplifier macromodel. The emphasis is on separating each important data sheet parameter into a sub-circuit independent of the other parameters. The macromodel is broken down into five functional stages 
-<b>input</b>, <b>frequency response</b>, <b>gain</b>, <b>slew rate</b> and an  <b>output</b> stage. Each stage contains data sheet parameters to be modeled. 
- 
-This partition and the modelling of the separate blocks are leaned on the description in <b>[CP92]</b>.
-</P>
-</P>
-Using <b>[CP92]</b> Joachim Haase (Fraunhofer Institute for Integrated Circuits,
-Design Automation Division) transfered 2001 operational amplifier models into VHDL-AMS. 
-Now one of these models, the model amp(macro) was transfered into Modelica.
-</P>
-</P>
- 
-<dl>
-<dt>
-<b>Reference:</b>
-<dd>
-<b>[CP92]</b> Conelly, J.A.; Choi, P.: Macromodelling with SPICE. Englewood Cliffs: Prentice-Hall, 1992
-</dd>
-</dl>
-</P>
-</P>
-</HTML>
-", revisions="<html>
-<ul>
-<li><i>  </i>
-       </li>
-<li><i> Juni 17, 2009   </i>
-       by Susann Wolf<br> initially implemented<br>
-       </li>
-</ul>
-</html>"),
-      Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
-          Polygon(
-            points={{60,0},{-60,70},{-60,-70},{60,0}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{0,35},{0,80}}, color={0,0,255}),
-          Line(points={{0,-35},{0,-80}}, color={0,0,255}),
-          Line(points={{-90,50},{-60,50}}, color={0,0,255}),
-          Line(points={{-90,-50},{-60,-50}}, color={0,0,255}),
-          Line(points={{60,0},{90,0}}, color={0,0,255}),
-          Line(points={{-48,32},{-28,32}}, color={0,0,255}),
-          Line(points={{-39,-20},{-39,-41}}, color={0,0,255}),
-          Line(points={{-50,-31},{-28,-31}}, color={0,0,255}),
-          Text(
-            extent={{-151,141},{149,101}},
-            textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
-          Polygon(
-            points={{60,0},{-60,70},{-60,-70},{60,0}},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
-            lineColor={0,0,255}),
-          Line(points={{0,35},{0,70}}, color={0,0,255}),
-          Line(points={{0,-35},{0,-70}}, color={0,0,255}),
-          Line(points={{-96,50},{-60,50}}, color={0,0,255}),
-          Line(points={{-96,-50},{-60,-50}}, color={0,0,255}),
-          Line(points={{60,0},{96,0}}, color={0,0,255}),
-          Line(points={{-55,50},{-45,50}}, color={0,0,255}),
-          Line(points={{-50,-45},{-50,-55}}, color={0,0,255}),
-          Line(points={{-55,-50},{-45,-50}}, color={0,0,255}),
-          Polygon(
-            points={{120,3},{110,0},{120,-3},{120,3}},
-            lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={160,160,164}),
-          Line(points={{111,0},{136,0}}, color={0,0,0}),
-          Text(
-            extent={{114,2},{131,17}},
-            lineColor={0,0,0},
-            textString="i2"),
-          Line(
-            points={{-100,-35},{-100,23},{-100,24}},
-            color={160,160,164},
-            arrow={Arrow.None,Arrow.Filled}),
-          Text(
-            extent={{-97,-16},{-74,4}},
-            lineColor={160,160,164},
-            textString="vin")}),
-      uses(Modelica(version="3.0.1")));
-
-  // power supply
-    Real v_pos;
-    Real v_neg;
-
-  // input stage
-    Modelica.SIunits.Voltage v_vos;
-    Modelica.SIunits.Voltage v_3;
-    Modelica.SIunits.Voltage v_in;
-    Modelica.SIunits.Voltage v_4;
-
-    Modelica.SIunits.Current i_vos;
-    Modelica.SIunits.Current i_3;
-    Modelica.SIunits.Current i_r2;
-    Modelica.SIunits.Current i_c3;
-    Modelica.SIunits.Current i_4;
-
-  // frequency response
-    Real q_fr1;
-    Real q_fr2;
-    Real q_fr3;
-
-  // gain stage
-    Real q_sum;
-    Real q_sum_help;
-    Real q_fp1;
-
-  // slew rate stage
-    Real v_source;
-
-    Real x "auxiliary variable for slew rate";
-
-  // output stage
-    Modelica.SIunits.Voltage v_out;
-
-    Modelica.SIunits.Current i_out;
-
-  // functions
-    function FCNiout_limit
-      input Real v_source;
-      input Real v_out;
-      input Real Rout;
-      input Real Imaxsi_val;
-      input Real Imaxso_val;
-      output Real result;
-
-    algorithm
-        if  v_out > v_source + Rout*Imaxsi_val then
-            result := Imaxsi_val;
-        elseif v_out < v_source - Rout*Imaxso_val then
-            result := -Imaxso_val;
-        else
-            result := (v_out - v_source)/Rout;
-        end if;
-        return;
-    end FCNiout_limit;
-
-    function FCNq_sum_limit
-      input Real q_sum;
-      input Real q_sum_ltf;
-      input Real v_pos;
-      input Real v_neg;
-      input Real vcp;
-      input Real vcm;
-      output Real result;
-
-    algorithm
-        if  q_sum > v_pos - vcp and q_sum_ltf >= v_pos - vcp then
-          result := v_pos - vcp;
-        elseif q_sum < v_neg + vcm and q_sum_ltf <= v_neg + vcm then
-          result := v_neg + vcm;
-        else
-          result := q_sum;
-        end if;
-      return;
-    end FCNq_sum_limit;
-
-  equation
-  assert(Rout > 0.0, "Rout must be > 0.0.");
-
-  // power supply
-    v_pos = p_supply.v;
-    v_neg = m_supply.v;
-
-  // input stage
-    p.i = i_vos;
-    m.i = i_4 - i_r2 - i_c3;
-    0 = i_3 + i_r2 + i_c3 - i_vos;
-    p.v - m.v = v_vos + v_in;
-    v_4 = m.v;
-    v_3 = p.v - v_vos;
-    v_vos = Vos;
-    i_3 = I1 + v_3/Rcm;
-    v_in = Rdm*i_r2;
-    i_c3 = Cin*der(v_in);
-    i_4 = I2 + v_4/Rcm;
-
-  // frequency response
-  // Laplace transformation
-      der(q_fr1) = 2.0*Pi*fp2*(v_in - q_fr1);
-      q_fr2 + (1.0/(2.0*Pi*fp3))*der(q_fr2) = q_fr1 + (1.0/(2.0*Pi*fz))*der(q_fr1);
-      der(q_fr3) = 2.0*Pi*fp4*(q_fr2 - q_fr3);
-
-  // gain stage
-  // Laplace transformation
-    q_sum = Avd0_val*q_fr3 + Avcm_val*(v_3 + v_4);
-    q_sum_help = FCNq_sum_limit(
-      q_sum,
-      q_fp1,
-      v_pos,
-      v_neg,
-      vcp_abs,
-      vcm_abs);
-    der(q_fp1) = 2.0*Pi*fp1*(q_sum_help - q_fp1);
-
-  // slew rate stage
-     if initial() then
-        v_source = q_fp1;
-        x = 0;
-     end if;
-
-     der(x) = (q_fp1 - v_source)/Ts;
-     der(v_source) = smooth(0,noEvent(
-     if der(x) > sr_p_val then sr_p_val else 
-     if der(x) < sr_m_val then sr_m_val else 
-        der(x)));
-
-  // output stage
-    v_out = outp.v;
-    i_out = outp.i;
-    i_out = FCNiout_limit(
-      v_source,
-      v_out,
-      Rout,
-      Imaxsi_val,
-      Imaxso_val);
-
-    p_supply.i = 0;
-    m_supply.i = 0;
-
-  end OpAmpDetailed;
 end Basic;
