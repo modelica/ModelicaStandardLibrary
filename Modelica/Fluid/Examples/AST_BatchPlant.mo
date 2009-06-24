@@ -707,7 +707,7 @@ present that are regulated by a central control system.
   end BatchPlant_StandardWater;
 
   package BaseClasses
-    extends Modelica.Icons.BaseClassLibrary;
+    extends Modelica.Fluid.Icons.BaseClassLibrary;
     block TriggeredTrapezoid "Triggered trapezoid generator"
       extends Modelica.Blocks.Interfaces.partialBooleanBlockIcon;
 

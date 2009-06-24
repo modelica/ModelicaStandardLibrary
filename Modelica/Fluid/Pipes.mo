@@ -1,6 +1,6 @@
 within Modelica.Fluid;
 package Pipes "Devices for conveying fluid"
-    extends Modelica.Icons.VariantLibrary;
+    extends Modelica.Fluid.Icons.VariantLibrary;
 
   model StaticPipe "Basic pipe flow model without storage of mass or energy"
 
@@ -274,7 +274,7 @@ The intended use is for complex networks of pipes and other flow devices, like v
 
   package BaseClasses
     "Base classes used in the Pipes package (only of interest to build new component models)"
-    extends Modelica.Icons.BaseClassLibrary;
+    extends Modelica.Fluid.Icons.BaseClassLibrary;
 
     partial model PartialStraightPipe "Base class for straight pipe models"
       extends Modelica.Fluid.Interfaces.PartialTwoPort;

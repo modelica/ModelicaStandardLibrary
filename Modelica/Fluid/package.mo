@@ -1621,7 +1621,6 @@ standard library.
 
   end ReleaseNotes;
 
-
 class Contact "Contact"
 
     annotation (Documentation(info="<html>
@@ -1710,7 +1709,7 @@ end UsersGuide;
 annotation (
   preferedView="info",
   __Dymola_classOrder={"UsersGuide","Examples","System","Vessels","Pipes","Machines","Valves",
-      "Fittings", "Sources", "Sensors", "Interfaces", "Types", "Utilities", "Icons", "Test", "*"},
+      "Fittings", "Sources", "Sensors", "Interfaces", "Types", "Utilities", "Icons", "*"},
   Documentation(info="<html>
 <p>
 Library <b>Modelica.Fluid</b> is a <b>free</b> Modelica package providing components for

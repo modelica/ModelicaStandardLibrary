@@ -1,7 +1,7 @@
 within Modelica.Fluid;
 package Sensors
   "Ideal sensor components to extract signals from a fluid connector"
-  extends Modelica.Icons.VariantLibrary;
+  extends Modelica.Fluid.Icons.VariantLibrary;
 
   annotation (preferedView="info", Documentation(info="<html>
 <p align = justify>
@@ -1045,7 +1045,7 @@ the two ports of this component and is provided as output signal.
 
   package BaseClasses
     "Base classes used in the Sensors package (only of interest to build new component models)"
-    extends Modelica.Icons.BaseClassLibrary;
+    extends Modelica.Fluid.Icons.BaseClassLibrary;
 
     partial model PartialAbsoluteSensor
       "Partial component to model a sensor that measures a potential variable"

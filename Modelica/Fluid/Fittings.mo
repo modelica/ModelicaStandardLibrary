@@ -1,7 +1,7 @@
 within Modelica.Fluid;
 package Fittings
   "Adaptors for connections of fluid components and the regulation of fluid flow"
-     extends Modelica.Icons.VariantLibrary;
+     extends Modelica.Fluid.Icons.VariantLibrary;
 
   annotation (Documentation(info="<html>
  
@@ -568,7 +568,7 @@ polynomials. The monotonicity is guaranteed using results from:
 
   package BaseClasses
     "Base classes used in the Fittings package (only of interest to build new component models)"
-    extends Modelica.Icons.BaseClassLibrary;
+    extends Modelica.Fluid.Icons.BaseClassLibrary;
 
     function lossConstant_D_zeta "Return the loss constant 8*zeta/(pi^2*D^4)"
           extends Modelica.Icons.Function;

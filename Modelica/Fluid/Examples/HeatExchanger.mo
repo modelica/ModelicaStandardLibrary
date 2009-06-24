@@ -106,7 +106,7 @@ package HeatExchanger "Demo of a heat exchanger model"
   end HeatExchangerSimulation;
 
   package BaseClasses "Additional models for heat exchangers"
-    extends Modelica.Icons.BaseClassLibrary;
+    extends Modelica.Fluid.Icons.BaseClassLibrary;
 
     model BasicHX "Simple heat exchanger model"
       outer Modelica.Fluid.System system "System properties";

@@ -196,7 +196,7 @@ package DrumBoiler
   end DrumBoiler;
 
   package BaseClasses "Additional components for drum boiler example"
-    extends Modelica.Icons.BaseClassLibrary;
+    extends Modelica.Fluid.Icons.BaseClassLibrary;
 
     model EquilibriumDrumBoiler
       "Simple Evaporator with two states, see Astroem, Bell: Drum-boiler dynamics, Automatica 36, 2000, pp.363-378"

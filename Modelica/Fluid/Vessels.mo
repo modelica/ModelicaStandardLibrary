@@ -1,6 +1,6 @@
 within Modelica.Fluid;
 package Vessels "Devices for storing fluid"
-   extends Modelica.Icons.VariantLibrary;
+   extends Modelica.Fluid.Icons.VariantLibrary;
 
     model ClosedVolume
     "Volume of fixed size, closed to the ambient, with inlet/outlet ports"
@@ -136,8 +136,8 @@ initial equation
             extent={{-95,-24},{95,-44}},
             lineColor={0,0,0},
             textString=DynamicSelect("%level_start", realString(
-                level, 
-                1, 
+                level,
+                1,
                 2)))}),
       Documentation(info="<HTML>
 <p> 
@@ -193,7 +193,7 @@ end OpenTank;
 
   package BaseClasses
     "Base classes used in the Vessels package (only of interest to build new component models)"
-    extends Modelica.Icons.BaseClassLibrary;
+    extends Modelica.Fluid.Icons.BaseClassLibrary;
 
       partial model PartialLumpedVessel
       "Lumped volume with a vector of fluid ports and replaceable heat transfer model"
