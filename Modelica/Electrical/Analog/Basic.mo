@@ -628,7 +628,7 @@ model M_Transformer
   protected
   parameter Integer dimL=div(N*(N+1),2);
   public
-  parameter Real L[dimL]={1, 0.1, 0.2, 2, 0.3, 3}
+  parameter Modelica.SIunits.Inductance L[dimL]={1,0.1,0.2,2,0.3,3}
       "inductances and coupling inductances";
   Modelica.Electrical.Analog.Interfaces.PositivePin p[N] "Positive pin" 
               annotation (extent=[-80,-40; -62,40], Placement(transformation(
@@ -637,9 +637,9 @@ model M_Transformer
               annotation (extent=[62,-40; 80,40], Placement(transformation(
           extent={{62,-40},{80,40}}, rotation=0)));
 
-  Real v[N];
-  Real i[N];
-  Real Lm[N,N];
+  Modelica.SIunits.Voltage v[N];
+  Modelica.SIunits.Current i[N];
+  Modelica.SIunits.Inductance Lm[N,N];
 algorithm
   for s in 1:N loop
      for z in 1:N loop
@@ -840,7 +840,8 @@ Inside the model, two loops are used to fill the inductance matrix to guarantee 
 </ul>
 </html>
 "), version="1",
-    conversion(noneFromVersion=""));
+    conversion(noneFromVersion=""),
+    uses(Modelica(version="3.1")));
 
 end M_Transformer;
 
