@@ -521,7 +521,7 @@ Boolean u2 connector (the middle connector),
 between the two possible input signals
 u1 (upper connector) and u3 (lower connector).</p>
 <p>If u2 is true, connector y is set equal to
-u1, else it is set equal to u2.</p>
+u1, else it is set equal to u3.</p>
 </html>
 "),   Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -809,7 +809,7 @@ The default value of this parameter is <b>false</b>.
           Line(points={{-78,-2},{-6,18},{82,-12}}, color={255,0,0}),
           Line(points={{-78,12},{-6,30},{82,0}}, color={0,0,0}),
           Line(points={{-78,-16},{-6,4},{82,-26}}, color={0,0,0}),
-          Line(points={{-82,-18},{-56,-18},{-56,-40},{64,-40},{64,-20},{90,-20}},
+          Line(points={{-82,-18},{-56,-18},{-56,-40},{64,-40},{64,-20},{90,-20}}, 
               color={255,0,255})}),         Documentation(info="<html>
 <p>The block OnOffController sets the output signal <b>y</b> to <b>true</b> when
 the input signal <b>u</b> falls below the <b>reference</b> signal minus half of
@@ -1037,7 +1037,7 @@ handled properly.</p>
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,-70},{-60,-70},{-60,-26},{38,-26},{38,-70},{66,-70}},
+          Line(points={{-80,-70},{-60,-70},{-60,-26},{38,-26},{38,-70},{66,-70}}, 
               color={255,0,255}),
           Line(points={{-80,0},{-62,0},{40,90},{40,0},{68,0}}, color={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
