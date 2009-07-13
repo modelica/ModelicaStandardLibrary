@@ -1281,11 +1281,15 @@ still kept in Modelica.SIunits.</p>
   type ApparentPower = Real (final quantity="Power", final unit="VA");
   type ReactivePower = Real (final quantity="Power", final unit="var");
   type PowerFactor = Real (final quantity="PowerFactor", final unit="1");
+
   // added to ISO-chapter 5
   type Transconductance = Real (final quantity="Transconductance", final unit=
           "A/V2");
   type InversePotential = Real (final quantity="InversePotential", final unit=
           "1/V");
+  type ElectricalForceConstant = Real (
+       final quantity="ElectricalForceConstant",
+       final unit = "N/A");
 
   // Light and Related Electromagnetic Radiations (chapter 6 of ISO 31-1992)"
   type RadiantEnergy = Real (final quantity="Energy", final unit="J");
