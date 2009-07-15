@@ -7,7 +7,7 @@ package Fluid "Library of 1-dim. thermo-fluid flow models using the Modelica.Med
 package UsersGuide "Users Guide"
 
   annotation (DocumentationClass=true, Documentation(info="<HTML>
- 
+
 <p>
 Library <b>Modelica.Fluid</b> is a <b>free</b> Modelica package providing components for
 <b>1-dimensional thermo-fluid flow</b> in networks of pipes. A unique feature is that the
@@ -86,18 +86,18 @@ This library has the following main features:
      are approximated, because kinetic and friction effect are neglected. An explicit fitting
      or junction should be used if these are important for the specific problem at hand.
      In all circuits where friction dominates, or components such as pumps determine the flow rate,
-     kinetic pressure is typically irrelevant. You can consider the 
+     kinetic pressure is typically irrelevant. You can consider the
      <a href=\"Modelica://Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings\">
      Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings</a> model (and its documentation)
      to see one case where the momentum balance essentially depends on kinetic pressure,
-     so it is necessary to use explicit fittings in order to obtain correct results. 
+     so it is necessary to use explicit fittings in order to obtain correct results.
      <br>&nbsp;</li>
 <li> Given the above-mentioned limitations, there is no restriction how components can be connected
      together. The resulting simulation performance however often strongly depends on the
      model structure and modeling assumptions made. In particular the direct connection of
      fluid volumes generally results in high-index DAEs for the pressures. The direct
      connection of flow models generally results in systems of implicit nonlinear algebraic
-     equations.<br>&nbsp;</li> 
+     equations.<br>&nbsp;</li>
 </ul>
 </HTML>
 "));
@@ -108,7 +108,7 @@ This library has the following main features:
   class GettingStarted "Getting started"
 
     annotation (Documentation(info="<html>
- 
+
 <p>
 Please explore the
 <a href=\"Modelica://Modelica.Fluid.Examples\">Examples</a>,
@@ -123,7 +123,7 @@ which provide simple models for a broad variety of applications.
   package ComponentDefinition "Component definition"
 
     annotation (Documentation(info="<html>
- 
+
 <p>
 In this section it is described how the components
 of the Modelica.Fluid library are implemented.
@@ -183,13 +183,13 @@ Modelica.Fluid.Interfaces.FluidPort reduces to
      <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium
               \"Medium model of the fluid\";
      <b>flow</b> Medium.MassFlowRate m_flow;
-              \"Mass flow rate from the connection point into the component\"; 
-     Medium.AbsolutePressure p 
+              \"Mass flow rate from the connection point into the component\";
+     Medium.AbsolutePressure p
               \"Thermodynamic pressure in the connection point\";
      <b>stream</b> Medium.SpecificEnthalpy h_outflow
                \"Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0\";
   <b>end</b> FluidPort;
-</pre> 
+</pre>
 <p>
 The first statement defines the Medium flowing through the connector.
 In a medium, medium specific types such as \"Medium.AbsolutePressure\"
@@ -197,7 +197,7 @@ are defined that contain medium specific values for the min, max and
 nominal attributes. Furthermore, Medium.MassFlowRate is defined as:
 </p>
 <pre>
-   <b>type</b> MassFlowRate = 
+   <b>type</b> MassFlowRate =
       Modelica.SIunits.MassFlowRate(quantity=\"MassFlowRate.\" + mediumName);
 </pre>
 <p>
@@ -209,17 +209,17 @@ if connected FluidPorts do not have a medium with the same medium name.
 In the future, automatic propagation of fluid models through the ports will be
 introduced, but this still not possible with Modelica 3.0.
 </p>
- 
+
 <p>
 The thermodynamic pressure is an <i>effort</i> variable, which means that the connection
-of two or more ports states that the port pressures are the same. 
+of two or more ports states that the port pressures are the same.
 </p>
- 
+
 <p>
 The mass flow rate is a <i>flow </i>variable, which means that the connection of two or
 more ports states that the sum of all flow rates is zero.
 <p>
- 
+
 <p>
 The last variable is a <i>stream</i> variable, i.e., a specific quantity carried by the
 flow variable. The quantity on the connector always
@@ -232,18 +232,18 @@ through the built-in operator actualStream(..).
 </p>
 <p>
 The actual equations corresponding to these operators are introduced and solved automatically
-by the tool. In principle, they correspond to the balance equation 
-sum(flow_variable) = 0 and sum(flow_variable*stream_variable_at_connection) = 0 applied to the set of connected ports. In this case the first equation is the mass balance sum(m_flow) = 0, and the second is the energy balance at the connection point sum(m_flow*h_connection) = 0. 
+by the tool. In principle, they correspond to the balance equation
+sum(flow_variable) = 0 and sum(flow_variable*stream_variable_at_connection) = 0 applied to the set of connected ports. In this case the first equation is the mass balance sum(m_flow) = 0, and the second is the energy balance at the connection point sum(m_flow*h_connection) = 0.
 </p>
 <p>
 In the simpler case of a one-to-one connections between port_a and port_b,
 inStream(port_a.h_outflow) just returns port_b.h_outflow. For multiple-way connections,
 mixing equations are generated, and special care is taken in order to avoid discontinuities
-around zero flow rates. For more details, see this 
+around zero flow rates. For more details, see this
 <a href=\"..\\help\\Documentation\\Fluid\\Stream-Connectors-Overview-Rationale.pdf\">presentation</a>
-which illustrates the stream concept rationale and the underlying technicalities. 
+which illustrates the stream concept rationale and the underlying technicalities.
 </p>
- 
+
 <p>
 A connector should have only the minimal number of variables to
 describe the interface, otherwise there will be connection
@@ -252,13 +252,13 @@ no redundant variables are present, e.g., the temperature T
 is not present because it can be computed from the connector
 variables pressure p and specific enthalpy h.
 </p>
- 
+
 <p>
 Here are two simple examples to illustrate modeling with stream connectors. The first
 one is a rigid adiabatic volume mixing two flows, where the kinetic and gravitational
 terms in the energy balance are neglected for simplicity.
 </p>
- 
+
 <pre>
 model MixingVolume \"Volume that mixes two flows\"
   replaceable package Medium = Modelica.Media.Interfaces.PartialPureSubstance;
@@ -273,7 +273,7 @@ equation
   port_b.p         = medium.p;
   port_a.h_outflow = medium.h;  // The stream variable always corresponds to the
   port_b.h_outflow = medium.h;  // properties of the fluid holdup (outgoing flow)
- 
+
   // Total quantities
   m = V*medium.d;
   U = m*medium.u;
@@ -284,7 +284,7 @@ equation
            port_b.m_flow*actualStream(port_b.h_outflow);
 end MixingVolume;
 </pre>
- 
+
 <p>
 The second example is the model of a component describing a lumped pressure loss
 between two ports, with no energy storage and no heat transfer. An isenthalpic
@@ -313,7 +313,7 @@ equation
   port_a.m_flow = f(port_a.p, port_b.p, d_a, d_b);
 end PressureLoss;
 </pre>
- 
+
 <p>
 If many such components are connected in series between two models with storage, the
 specific enthalpies are propagated in both directions and available to all pressure
@@ -321,31 +321,31 @@ loss components, without problems when the mass flow goes through zero. The func
 f then uses either d_a or d_b depending on the sign of port_a.p-port_b.p, with a
 suitable regularization around zero to avoid discontinuities.
 </p>
- 
+
 <p>
 Please note that these models are highly idealized in order to explain the stream connector
 concept. Device models in the library are much more complete, handling issues such as
 initialization, steady vs. dynamic modelling, heat transfer from the outside, etc.
 </p>
- 
+
 <h4><font color=\"#008000\">Multiple-substance media</font></h4>
 <p>
 Modelica.Fluid can handle models where the fluid contains multiple substances, so that its
-composition can be characterized by mass fraction vectors. 
+composition can be characterized by mass fraction vectors.
 </p>
 <pre>
 <b>connector</b> FluidPort
    <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium
       \"Medium model of the fluid\";
    <b>flow</b> Medium.MassFlowRate m_flow;
-      \"Mass flow rate from the connection point into the component\" 
-   Medium.AbsolutePressure p 
+      \"Mass flow rate from the connection point into the component\"
+   Medium.AbsolutePressure p
       \"Thermodynamic pressure in the connection point\";
    <b>stream</b> Medium.SpecificEnthalpy h_outflow
        \"Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0\";
-   <b>stream</b> Medium.MassFraction Xi_outflow[Medium.nXi] 
+   <b>stream</b> Medium.MassFraction Xi_outflow[Medium.nXi]
        \"Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0\";
-   <b>stream</b> Medium.ExtraProperty C_outflow[Medium.nC] 
+   <b>stream</b> Medium.ExtraProperty C_outflow[Medium.nC]
        \"Properties c_i/m close to the connection point if m_flow &lt; 0\";
   <b>end</b> FluidPort;
 </pre>
@@ -356,7 +356,7 @@ thermodynamic state of the fluid. The vector C contains the mass fraction of the
 which are accounted for in mass balances, but is ignored when computing the fluid properties. This
 allows to easily declare and use medium models with trace components starting from existing medium
 models (e.g. adding CO<sub>2</sub> traces to Moist Air for air conditioning models).
- 
+
 <h4><font color=\"#008000\">Approximations in balance equations at connection point</font></h4>
 <p>
 Summing up, when two or more ports of the type FluidPort are connected, the following
@@ -378,7 +378,7 @@ diameter are connected, because there is no friction and no change in fluid velo
 </ul>
 </p>
 <p>
-In all other cases, i.e., different port diameters and/or multple port connections: 
+In all other cases, i.e., different port diameters and/or multple port connections:
 <ul>
 <li> The momentum balance does not consider friction effects and changes of pressure due to changes
 in velocity. </li>
@@ -398,7 +398,7 @@ all the kinetic phenomena with the appropriate level of detail.
   class BalanceEquations "Balance equations"
 
     annotation (Documentation(info="<html>
- 
+
 <p>
 For one-dimensional flow
 along the coordinate \"x\", the following partial differential
@@ -443,7 +443,7 @@ the \"energy balance 2\":
       <td> <img src=\"../Images/Fluid/UsersGuide/energyBalance2.png\"></td>
   </tr>
 </table>
- 
+
 <p>
 This formulation separates the internal energy of the fluid from the kinetic energy of fluid flow.
 The internal energy is treated by the energy balance 2, the kinetic energy is treated by the momentum balance equally well.
@@ -456,7 +456,7 @@ momentum and energy balance, using the energy balance 2 equation. Other componen
 Fittings, neglect the impact of changes of the kinetic energy and potential energy on the energy
 balance, because they are usually irrelevant compared to changes due to heat flows. The StaticPipe
 component neglects the effect of kinetic energy, but includes the potential energy in the balance,
-which might be substantial. 
+which might be substantial.
 </p>
 <p>
 All modelling assumptions and simplifications are stated in the component documentation; please note that some of the assumptions might be stated in the base classes the
@@ -469,7 +469,7 @@ component inherits from.
   class UpstreamDiscretization "Upstream discretization"
 
     annotation (Documentation(info="<html>
- 
+
 <p>
 When implementing a Fluid component, the difficult arises that
 the value of intensive quantities (such as p, T, &rho;)
@@ -489,34 +489,34 @@ with the following code fragment
 <pre>    <b>replaceable package</b> Medium =
                    Modelica.Media.Interfaces.PartialMedium
                    <b>annotation</b>(choicesAllMatching = <b>true</b>);
- 
+
     Interfaces.FluidPort_a port_a(<b>redeclare package</b> Medium = Medium);
     Interfaces.FluidPort_b port_b(<b>redeclare package</b> Medium = Medium);
- 
+
     Medium.ThermodynamicState port_a_state_inflow
                     \"Medium state close to port_a for inflowing mass flow\";
     Medium.ThermodynamicState port_b_state_inflow
                     \"Medium state close to port_b for inflowing mass flow\";
- 
+
   <b>equation</b>
     // Isenthalpic state transformation (no storage and no loss of energy)
     port_a.h_outflow  = <b>inStream</b>(port_b.h_outflow);
     port_b.h_outflow  = <b>inStream</b>(port_a.h_outflow);
- 
+
     port_a.Xi_outflow = <b>inStream</b>(port_b.Xi_outflow);
     port_b.Xi_outflow = <b>inStream</b>(port_a.Xi_outflow);
- 
+
     // Mass balance
     port_a.m_flow + port_b.m_flow = 0;
- 
+
     // Medium states for inflowing medium
     port_a_state_inflow = Medium.setState_phX(port_a.p, port_b.h_outflow, port_b.Xi_outflow);
     port_b_state_inflow = Medium.setState_phX(port_b.p, port_a.h_outflow, port_a.Xi_outflow);
- 
+
     // Densities close to the parts when mass flows in to the respective port
     port_a_rho_inflow = Medium.density(port_a_state_inflow);
     port_b_rho_inflow = Medium.density(port_b_state_inflow);
- 
+
     // Pressure drop correlation (k_ab, k_ba are the loss factors for the two flow
     // directions; e.g. for a circular device: k = 8*zeta/(pi*diameter)^2)^2)
     m_flow = Utilities.regRoot2(port_a.p - port_b.p, dp_small,
@@ -527,13 +527,13 @@ The medium states for inflowing media can be used to compute density and dynamic
 viscosity which in turn can be use to formulate the pressure drop equation.
 The standard pressure drop equation
 </p>
- 
+
 <pre>
    dp = port_a - port_b;
    m_flow = sqrt(2/(zeta*diameter))*if dp >= 0 then  sqrt(dp)
                                                else -sqrt(-dp)
 </pre>
- 
+
 <p>
 cannot be used, since the function has an infinite derivative at dp=0.
 Instead the region around zero mass flow rate must be regularized using
@@ -542,7 +542,7 @@ This requires to have density and/or other medium properties for both
 flow directions at the same time. These media properties can be computed
 from the medium states of the inflowing fluid at the two ports.
 </p>
- 
+
 <p>
 If the above component is connected between two volumes, i.e.,
 the independent medium variables in port_a and port_b are
@@ -554,7 +554,7 @@ Zero or reversed mass flow rate does not pose any problems because
 the medium properties are always computed for both flow directions
 and are then used in the regularization function.
 </p>
- 
+
 <p>
 If 3 or more components are connected together, it can be shown
 that a system of non-linear algebraic equations appear.
@@ -573,7 +573,7 @@ direction.
   class RegularizingCharacteristics "Regularizing characteristics"
 
     annotation (Documentation(info="<html>
- 
+
 <p>
 Pressure drop equations and other fluid characteristics are usually
 computed by <b>semi-empirical</b> equations. Unfortunately, the developers
@@ -584,7 +584,7 @@ be slightly modified or adapted in order that obvious
 simulation problems are avoided. Below, examples are given to
 demonstrate what problems occur and how to regularize the characteristics:
 </p>
- 
+
 <h4><font color=\"#008000\">Square root function</font></h4>
 <p>
 In several empirical formulae, expressions of the following form
@@ -598,7 +598,7 @@ A plot of this characteristic is shown in the next figure:
 <p align=\"center\">
 <img src=\"../Images/Fluid/UsersGuide/sqrt.png\">
 </p>
-<p>                                                                                                                                                                            
+<p>
 The difficulty with this function is that the derivative at x=0 is infinity.
 In reality, such a function does not exist. E.g., for pipe flow,
 the flow becomes laminar for small velocities and therefore around zero the
@@ -650,8 +650,8 @@ and 0.0025% around x=1.
   class WallFriction "Wall friction"
 
     annotation (Documentation(info="<html>
- 
- 
+
+
 <p>
 One important special case for a pressure loss is the friction at the
 wall of a pipe under the assumption of quasi steady state flow (i.e., the
@@ -663,16 +663,16 @@ as a special case (see
 The treatment is non-standard in order to get a
 numerically well-posed description.
 </p>
- 
+
 <p>
 For pipes with circular cross section the pressure drop is computed as:
 </p>
- 
+
 <pre>
    dp = &lambda;(Re,<font face=\"Symbol\">D</font>)*(L/D)*&rho;*v*|v|/2
       = &lambda;(Re,<font face=\"Symbol\">D</font>)*8*L/(&pi;^2*D^5*&rho;)*m_flow*|m_flow|
       = &lambda;2(Re,<font face=\"Symbol\">D</font>)*k2*sign(m_flow);
- 
+
 with
    Re     = |v|*D*&rho;/&mu;
           = |m_flow|*4/(&pi;*D*&mu;)
@@ -681,7 +681,7 @@ with
    &lambda;2     = &lambda;*Re^2
    k2     = L*&mu;^2/(2*D^3*&rho;)
 </pre>
- 
+
 <p>
 where
 </p>
@@ -707,9 +707,9 @@ where
 The first form with &lambda; is used and presented in textbooks,
 see \"blue\" curve in the next figure:
 </p>
- 
+
 <IMG SRC=\"../Images/Fluid/Components/PipeFriction1.png\" ALT=\"PipeFriction1\">
- 
+
 <p>
 This form is not suited for a simulation program since
 &lambda; = 64/Re if Re &lt; 2000, i.e., a division by zero occurs for
@@ -720,13 +720,13 @@ therefore no problems for zero mass flow rate occur.
 The characteristic of &lambda;2 is shown in the next figure and is
 used in Modelica.Fluid:
 </p>
- 
+
 <IMG SRC=\"../Images/Fluid/Components/PipeFriction2.png\" ALT=\"PipeFriction2\">
- 
+
 <p>
 The pressure loss characteristic is divided into three regions:
 </p>
- 
+
 <ul>
 <li> <b>Region 1</b>:
      For <b>Re &le; 2000</b>, the flow is <b>laminar</b> and the exact solution of the
@@ -736,7 +736,7 @@ The pressure loss characteristic is divided into three regions:
      Therefore:
      <pre> dp = 128*&mu;*L/(&pi;*D^4*&rho;)*m_flow </pre> <br>&nbsp;
 </li>
- 
+
 <li> <b>Region 3</b>:
      For <b>Re &ge; 4000</b>, the flow is <b>turbulent</b>.
      Depending on the calculation direction (see \"inverse formulation\"
@@ -759,7 +759,7 @@ The pressure loss characteristic is divided into three regions:
      <pre> &lambda;2 = 0.25*(Re/lg(<font face=\"Symbol\">D</font>/3.7 + 5.74/Re^0.9))^2 </pre>
      The pressure drop is then computed as dp = k2*&lambda;2*sign(m_flow).
      These are the <b>blue</b> curves in the diagrams above.<br>&nbsp;</li>
- 
+
 <li> <b>Region 2</b>:
      For <b>2000 &le; Re &le; 4000</b> there is a transition region between laminar
      and turbulent flow. The value of &lambda;2 depends on more factors as just
@@ -838,9 +838,9 @@ only for steady state or slowly changing mass flow rate.
 For large fluid acceleration, the pressure drop depends additionally
 on the frequency of the changing mass flow rate.
 </p>
- 
+
 <h4><font color=\"#008000\">Inverse formulation</font></h4>
- 
+
 <p>
 In the \"Advanced menu\" it is possible via parameter
 \"from_dp\" to define in which form the
@@ -854,10 +854,10 @@ pressure drop equation is actually evaluated (<b>default</b> is from_dp = <b>tru
 \"from_dp\" can be useful to avoid nonlinear systems of equations
 in cases where the inverse pressure loss function is needed.
 </p>
- 
- 
+
+
 <h4><font color=\"#008000\">Summary</font></h4>
- 
+
 <p>
 A detailed pressure drop model for pipe wall friction is
 provided in the form m_flow = f1(dp, <font face=\"Symbol\">D</font>) or
@@ -869,9 +869,9 @@ model can be used stand-alone in a static momentum balance and in
 a dynamic momentum balance as the friction pressure drop term.
 It is valid for incompressible and compressible flow up to a Mach number of 0.6.
 </p>
- 
+
 <h4><font color=\"#008000\">References</font></h4>
- 
+
 <dl><dt>Colebrook F. (1939):</dt>
     <dd><b>Turbulent flow in pipes with particular reference to the transition
          region between the smooth and rough pipe laws</b>.
@@ -895,7 +895,7 @@ It is valid for incompressible and compressible flow up to a Mach number of 0.6.
            turbulent gas flow</b>.
            Inzh. Fiz. Zh., vol. 2, no. 11, pp. 81-85.</dd>
 </dl>
- 
+
 </html>
 "));
   end WallFriction;
@@ -910,60 +910,60 @@ have the parameters <b>Kv</b> and <b>Cv</b>. They are defined
 as unit-less variables, but in the description text a unit
 is given. The reason for this definition is the following:
 </p>
- 
+
 <p>
 The basic equation for valves is:
 </p>
- 
+
 <pre>
   q = Av*sqrt(dp/rho)
 </pre>
- 
+
 <p>
 In SI units, [q] is m3/s, [dp] is Pascal, [rho] is [kg/m3], and Av is an area, thus [Av] = m2. Basically, the equation stems from Bernoulli's law. Av is roughly 1.4 times the area of the valve throat. Now, usually valves aren't so big that their throat area is of the order of magnitude of square meters - depending on the applications it is from a few square millimeters to a few square centimeters. Therefore, in the common engineering practice, the following equations are used:
 </p>
- 
+
 <p>
 Europe:
 </p>
- 
+
 <pre>
   q = Kv sqrt(dp/(rho/rho0)) , with [q] = m3/h, [dp] = bar
 </pre>
- 
+
 <p>
 US:
 </p>
- 
+
 <pre>
   q = Cv sqrt(dp/(rho/rho0)) , with [q] = USG/min, [dp] = psi
 </pre>
- 
+
 <p>
 In both cases rho0 is the density of cold water at 4 °C, 999 kg/m3. Note that these equations use relative, not absolute densities.
 </p>
- 
+
 <p>
 It turns out that Kv = 1e6/27.7*Av and Cv = 1e6/24*Av, so both US and EU engineers get more or less the same numbers (just by sheer luck), with a range between a few units and a few hundred units for typical industrial applications, and everybody is happy.
 </p>
- 
+
 <p>
 Now, we've got two problems here. First, depending on the unit, we change the equation: with SI units, we use the density, with non-SI units, we use the relative density. So the quantities (not only the units!) of Av and Cv/Kv are different.
 </p>
- 
+
 <p>
 Second, the units of Kv and Cv are usually labelled \"m3/h\" and \"USG/min\", but as a matter of fact they are different, as can be seen from the equations above: they are actually
 m3/(h*sqrt(bar)) and USG/(min*sqrt(psi)). If I have a valve with Kv = 10 m3/h, it means I get 10 m3/h \"for a pressure drop of 1 bar\". Unfortunately, this is not correct from the point of view of strict dimensional analysis, but nobody uses sqrt(Pa) or sqrt(bar).
 </p>
- 
+
 <p>
 You might think this is crazy (it is, expecially when you try to explain it), but as a matter of fact the valve coefficient is <b>never</b> given in square meters in any catalog or datasheet; Cv is still the most used (even in Europe), followed by Kv. So, it will be very inconvenient for users to type in Av in square meters.
 </p>
- 
+
 <p>
 The pragmatic approach used in Modelica.Fluid.ControlValves is to accept the fact that m3/h and USG/min are not the real units of Cv and Kv, so we can't use the general unit conversion mechanism, put them just as mnemonic labels in the comment, use non-dimensional coefficients in the interface, and then define properly dimensioned unit conversion within the model
 </p>
- 
+
 </html>
 "));
   end ValveCharacteristics;
@@ -974,7 +974,7 @@ The pragmatic approach used in Modelica.Fluid.ControlValves is to accept the fac
     class SystemComponent "System component"
 
       annotation (Documentation(info="<html>
- 
+
 <p>
 The Modelica.Fluid library is designed so that each model of a system must
 include an instance <tt>system</tt> of the <tt>System</tt> component at the top level, in the same way as the <tt>World</tt> model of the MultiBody Library. The System component contains the parameters that
@@ -985,13 +985,13 @@ These parameters are then propagated to the individual components
 using the inner/outer variable mechanism. In case the system model is structured
 hieararchically, it is possible to either put a single System
 component at the top level, or possibly to put many of them at different levels,
-which will only influence the system components from that level down. 
+which will only influence the system components from that level down.
 </p>
 <p>All the parameters defined in the System model are used as default values for the parameters of the individual components of the system model. Note that it is always possible to ovverride these defaults locally by changing the value of the parameters in the specific component instance.
 </p>
 <ul>
 <li>
-The <i>General</i> tab of the System model allows to set the default enviroment variables (pressure, temperature and gravity) 
+The <i>General</i> tab of the System model allows to set the default enviroment variables (pressure, temperature and gravity)
 used by all the components.
 </li>
 <li>
@@ -1014,7 +1014,7 @@ is recognised by all other components.
     class MediumDefinition "Definition of the medium models"
 
       annotation (Documentation(info="<html>
- 
+
 <p>
 All the models in Modelica.Fluid compute fluid properties by using medium
 models defined by Modelica.Media packages. Custom fluid models can also be
@@ -1038,11 +1038,11 @@ components</li>.
     class CustomizingModel "Customizing a system model"
 
       annotation (Documentation(info="<html>
- 
+
 <p>
 Once a system model has been built, it is possible to obtain different approximations by
 appropriately setting the defaults in the System component (and/or the settings of specific
-components. 
+components.
 </p>
 <p>
 The Assumptions | allowFlowReversal parameter determines whether reversing flow conditions
@@ -1057,7 +1057,7 @@ possibly more robust simulation code.
 The flags in the Assumptions | Dynamics tab allow different degrees of approximation on
 the mass, energy, and momentum equations of the components.
 <ul>
-<li>DynamicFreeInitial: dynamic equations are considered (nonzero storage), no 
+<li>DynamicFreeInitial: dynamic equations are considered (nonzero storage), no
 initial equations are provided, and the start values are used as guess values.</li>
 <li>FixedInitial: dynamic equations are considered (nonzero storage) and initial
 equations are included, fixing the states to the start values provided by the
@@ -1072,48 +1072,48 @@ It is then possible to neglect the storage of mass, momentum, and energy in the 
 (or just in parts of it) just by a few mouse clicks in a GUI, and also to change the type of
 initialization when considering dynamic models. Please note that some combinations of the
 options might be contradictory, and will therefore trigger compilation errors.
- 
+
 </p>
 </html>"));
     end CustomizingModel;
     annotation (Documentation(info="<html>
- 
+
 <p>
 This section is a quick primer explaining how to build a system model using Modelica.Fluid.
 It covers some key issues, such as the System component, the definition of medium models in the
 system, and the typical customizations available in the Modelica.Fluid models.
-</p> 
+</p>
 </html>"));
   end BuildingSystemModels;
 
   class ReleaseNotes "Release notes"
 
     annotation (Documentation(info="<HTML>
- 
+
 <h4><font color=\"#008000\">Version 1.1, 2009-06-21</font></h4>
 
 <p>
-The Modelica_Fluid library (revisionId = r2625) was included as Modelica.Fluid in the 
+The Modelica_Fluid library (revisionId = r2625) was included as Modelica.Fluid in the
 Modelica Standard Library 3.1.
 </p>
 
 <h4><font color=\"#008000\">Version 1.0, 2009-01-28</font></h4>
- 
+
 <p>
 Modelica_Fluid was refactored and finalized for the release:
 </p>
- 
+
 <ul>
 <li> Refactoring of the code<br>
      This became necessary as the previous release Modelica.Fluid Streams Beta3
      still reflected the long development history, while the basic concepts had been crystalized.
      Please consult the subversion control (SVN) logs for individual changes.</li>
- 
+
 <li> Device oriented package names<br>
      The former sub-packages Junctions and PressureLosses have been combined into the new subpackage Fittings.
      The former Pumps and Volumes.SweptVolume have become the initial version of fluid Machines.
      The former Volumes package is now called Vessels.</li>
- 
+
 <li> Complete implementation of one-dimenstional fluid flow<br>
      The balance equations as documented in
      <a href=\"Modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.BalanceEquations\">UsersGuide.ComponentDefinition.BalanceEquations</a>
@@ -1143,7 +1143,7 @@ Modelica_Fluid was refactored and finalized for the release:
      The mass and energy balances of Pipes are based on PartialDistributedVolume.<br>
      See <a href=\"Modelica://Modelica.Fluid.Examples.BranchingDynamicPipes\">Examples.BranchingDynamicPipes</a>
      for an example utilizing the complete balance equations.
- 
+
 <li> New approach for the connection of distributed flow models<br>
      The staggered grid approach offers different choices for the connection approach. So far the preferred modeling was to put full mass balances
      into the pipes and expose half momentum balances through the ports (ModelStructure a_v_b).
@@ -1152,9 +1152,9 @@ Modelica_Fluid was refactored and finalized for the release:
      exposing half mass balances through the ports (av_vb replaces the former avb). This way the nonlinear equation systems are avoided.
      High-index DAEs need to be treated instead in connection sets.
      Alternatively a Fitting like SuddenExpansion can be introduced to account for different cross flow areas of connected flow models.</li>
- 
+
 <li> New Vessels.BaseClasses.PartialLumpedVessel treating the ports, including hydraulic resistances, for ClosedVolume, SimpleTank and SweptVolume.</li>
- 
+
 <li> Clarification of modeling assumptions<br>
      The documentation has been extended to better explain the modeling assumptions made. In particular the section
      <a href=\"Modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.FluidConnectors\">UsersGuide.ComponentDefinition.FluidConnectors</a>
@@ -1162,29 +1162,29 @@ Modelica_Fluid was refactored and finalized for the release:
      and thermodynamic or static pressure, as opposed to total pressure. An new package Explanatory has been added to the
      examples to show the difference beteen static pressure and total pressure and possible implications. See
      <a href=\"Modelica://Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings\">Examples.Explanatory.MomentumBalanceFittings</a>.
- 
+
 <li> System (former Ambient)<br>
      The use of the global System object has been extended towards common default values for
      modeling assumptions, initialization, and advanced settings that are different for each application of the library
-     but should nevertheless provide default values for reasons of convenience. 
+     but should nevertheless provide default values for reasons of convenience.
      In particular steady-state initialization and complete steady-state simulation can now be specified system-wide.
      A new Types.Init.Dynamics has been introduced, combining steady-state and initial conditions.
      The former Types.Init has become obsolete.
      <br>See <a href=\"Modelica://Modelica.Fluid.Examples.HeatingSystem\">Examples.HeatingSystem</a></li>.
- 
+
 <li> Extension of pumps for better consideration of zero flow and heat transfer with environment<br>
      The simplified mass and energy balances have been replaced with a rigorous formulation.
      Moreover an optional heat transfer model can be configured for heat exchanged with the environment or the housing.<br>
      See <a href=\"Modelica://Modelica.Fluid.Machines.BaseClasses.PartialPump\">Machines.BaseClasses.PartialPump</a></li>
- 
+
 <li> Refinement of valves for flow reversal<br>
      All valves now use upstream discretization for reverting flow conditions.</li>
- 
+
 <li> Finalization of trace substrances<br>
      Modelica.Fluid now provides a sound implementation for trace substances,
      which can easily be added to existing Media models, in order to study their evolution in a fluid system.</li>
      <br>See <a href=\"Modelica://Modelica.Fluid.Examples.TraceSubstances.RoomCO2WithControls\">Examples.TraceSubstances.RoomCO2WithControls</a></li>.
- 
+
 <li> Vectorized ports for volumes<br>
      The ports of models that typically have large volumes, like Vessels and Sources,
      have been vectorized. Formerly the connection of multiple flow models to the same port
@@ -1194,7 +1194,7 @@ Modelica_Fluid was refactored and finalized for the release:
      <a href=\"Modelica://Modelica.Fluid.Fittings.MultiPort\">Fittings.MultiPort</a>
      has been introduced. It can be attached to components like pipes,
      which don't have vectorized ports on their own.</li>
- 
+
 <li> Inverse parameterization of flow models with nominal operational conditions<br>
      Flow models have been added or extended to support the parameterization with nominal values
      (Machines.ControlledPump, Orifices.SimpleGenericOrifice, Pipes.BaseClasses.FlowModels.NominalTurbulentFlow).
@@ -1203,57 +1203,57 @@ Modelica_Fluid was refactored and finalized for the release:
      they can easily be replaced with more detailed models
      as more information shall be taken into account later on.<br>
      See <a href=\"Modelica://Modelica.Fluid.Examples.InverseParameterization\">Examples.InverseParameterization</a></li>.
- 
+
 <li> Replaceable HeatTransfer models<br>
      The Vessels and the Machines now have replaceable HeatTransfer models,
      besides the Pipes. All HeatTransfer models are optional.
      The heat transfer models are parameterized with the Medium and the ThermodynamicState
      of involved flow segments.<br>
      See <a href=\"Modelica://Modelica.Fluid.Interfaces.PartialHeatTransfer\">Interfaces.PartialHeatTransfer</a>.
- 
+
 <li> All examples are working now (using Dymola 7.1).<br>
      The number of examples has been extended with the former critical test cases
      HeatingSystem and IncompressibleFluidNetwork. Moreover the HeatExchangers have been
      moved into Examples.</li>
- 
+
 </ul>
- 
- 
+
+
 <h4><font color=\"#008000\">Version 1.0 Streams Beta 3, 2008-10-12</font></h4>
- 
+
 <p>
 Modelica.Fluid was further improved:
 </p>
- 
+
 <ul>
 <li> Volumes, tanks, junctions<br>
      Added asserts to require that ports are connected at most once.
      If a user would perform more than one connection, ideal mixing
      takes place for the connected components and this is nearly never
      what the user would like to have </li>
- 
+
 <li> Ambient<br>
      Renamed Ambient to System, including adaptation of models.<br>
      Introduced default values system.flowDirection and
      as a comment system.initType. system.flowDirection is used in
      two port components as default.</li>
- 
+
 <li> GenericJunction<br>
      Corrected specification of flowDirection.<br>
      Added a HeatPort.</li>
- 
+
 <li> PartialDistributedFlow models<br>
      Adapted determination of velocities to usage of
      upstream properties at ports.<br>
      Corrected and unified initialization of p_start[*] values.<li>
- 
+
 <li> DistributedPipe models<br>
      Changed treatment of port densities and viscosities
      to the treatment of the lumped pipe model. This way events are
      avoided if the mass flow rate crosses or approaches zero.<br>
      Correct determination of Reynolds numbers.<br>
      Added test model DistributedPipeClosingValve.</li>
- 
+
 <li> ControlValves<br>
      Changed flowCharacteristic into valveCharacteristic<br>
      Removed parameter Kv and added dp_nom, m_flow_nom from linear
@@ -1261,71 +1261,71 @@ Modelica.Fluid was further improved:
      Adapted Examples to new LinearValve and DiscreteValve,
      using nominal values instead of Kv. <br>
      Changed default flow coefficient selection to OpPoint<li>
- 
+
 <li> Fixed units for Kv and Cv in control valve models.</li>
- 
+
 <li> Updated tests for valves.</li>
- 
+
 <li> Bug in Modelica.Fluid.Test.TestComponents.Pumps.TestWaterPump2 corrected
      (complicated redeclaration issue).</li>
- 
+
 <li> Adapted AST_BatchPlant so that \"Check\" is sucessful.
      Simulation fails after 600 s.</li>
- 
+
 <li> Introduced
      density_pTX(Medium.p_default, Medium.T_default, Medium.X_default)
      as default value for nominal densities (previously it was a literal
      such as 1000).</li>
- 
+
 <li> Pumps<br>
      Updated energy balance equations for pumps (no division by zero anymore,
      fixed several bugs related to Np).<br>
      Added two more test cases for pumps.<br>
      Fixed pump initialization options.</li>
- 
+
 <li> PartialPump<br>
      Explanation for the energy balanced added as comment<br>
      \"h=0\" replaced by \"h=Medium.h_default\" since otherwise an assert is triggered
      if \"h=0\" is not in the medium range.<br>
      Fluid ports positioned in the middle line
      and using the same size as for all other components.</li>
- 
+
 <li> Pumps.Pump <br>
      Resized input connector, so that it has the same size as the
      standard input connectors.<br>
      Changed icon text to input connector to \"N_in [rpm]\".<br>
      Added unit 1/min to the external and internal input connector.</li>
- 
+
 <li> PartialValve<br>
      fillcolor=white added to icon<br>
      made line Thickness = Single,
      since icon does not look nice sometimes</li>
- 
+
 <li> All components<br>
      Changed %name color from black to blue
      (is a conversion bug, since Modelica 2 has blue as default
      color whereas Modelica 3 has black and Dymola is not
      taking care off this).</li>
- 
+
 <li> Sources<br>
      Made icon elements unvisible, if corresponding input is disabled.</li>
- 
+
 <li> Valves, Pipes, PressureLosses, HeatExchangers, two port senors<br>
      Added an arrow in the icon for the \"design flow direction\" from
      port_a to port_b.</li>
- 
+
 <li> Moved default initialization in \"System\" in to a comment, since no effect yet</li>
- 
+
 <li> Added the explanation from Francesco for Kv, Cv for valves in the
      users guide and added links in the corresponding valves to this description</li>
 </ul>
- 
+
 <p>
 \"Check\" for the library is successful. \"Check with Simulation\"
 (i.e., simulating all test models in the library) is successful
 with the exceptions:
 </p>
- 
+
 <ul>
 <li> Examples.AST_BatchPlant.BatchPlant_StandardWater<br>
      Need to be fixed in a later release (requires quite a lot of work).</li>
@@ -1335,16 +1335,16 @@ with the exceptions:
      The goal is to work on methods how this can be handled.
      So, this is a principal problem that these models do not simulate.</li>
 </ul>
- 
- 
- 
+
+
+
 <h4><font color=\"#008000\">Version 1.0 Streams Beta 2, 2008-10-08</font></h4>
- 
+
 <p>
 Modelica.Fluid was transformed to Modelica 3 and to Modelica Standard
 library 3.0 (by automatic conversion). Further changes:
 </p>
- 
+
 <ul>
 <li> Emulated enumerations changed to real enumerations.</li>
 <li> Improved ControlValves code</li>
@@ -1397,14 +1397,14 @@ library 3.0 (by automatic conversion). Further changes:
      No default or start values for \"parameter LossFactorData data\"
      Changed the model to \"partial model\" to avoid warning messages</li>
 </ul>
- 
- 
+
+
 <h4><font color=\"#008000\">Version 1.0 Streams Beta 1, 2008-05-02</font></h4>
- 
+
 <p>
 Changed connectors to stream connectors and adapted the following sublibraries:
 </p>
- 
+
 <ul>
 <li> Volumes</li>
 <li> PressureLosses </li>
@@ -1417,11 +1417,11 @@ Changed connectors to stream connectors and adapted the following sublibraries:
 <li> Pumps </li>
 <li> Test and Exampleas (most of the examples and tests are simulating)</li>
 </ul>
- 
+
 <p>
 Other changes:
 </p>
- 
+
 <ul>
 <li> Introduced HeatPorts with vectorized icon in Modelica.Fluid.Interfaces</li>
 <li> Deleted Modelica.Fluid.WorkInProgress since it seems to be too much work
@@ -1472,21 +1472,21 @@ Other changes:
 <li> VersionBuild introduced, as well as automatic update of
      VersionBuild/VersionDate</li>
 </ul>
- 
- 
- 
+
+
+
 <h4><font color=\"#008000\">Version 1.0 Beta 4, 2008-04-26</font></h4>
- 
+
 <p>
 Changes according to the Modelica Design Meetings since the
 last beta version. This version is used to \"freeze\" the current
 development, in order to change to a version with a new
 connector design using stream variables.
 </p>
- 
- 
+
+
 <h4><font color=\"#008000\">Version 1.0 Beta 3, 2007-06-05</font></h4>
- 
+
 <p>
 Changes according to the Modelica Design Meetings since the
 Modelica'2006 conference, especially, improved initialization,
@@ -1495,18 +1495,18 @@ improved tank component, moved test models from Examples to
 new package Test, many more test models, etc.
 This version is slightly non-backward compatible to version 1.0 Beta 2.
 </p>
- 
- 
+
+
 <h4><font color=\"#008000\">Version 1.0 Beta 2, 2006-08-28</font></h4>
- 
+
 <p>
 Package considerably restructured and some new components added.
 New examples (ControlledTankSystem, AST_BatchPlant).
 </p>
- 
- 
+
+
 <h4><font color=\"#008000\">Version 0.96, 2006-01-08</font></h4>
- 
+
 <ul>
 <li> New package Modelica.Fluid.PressureLosses.</li>
 <li> New package Modelica.Fluid.WorkInProgress.</li>
@@ -1515,7 +1515,7 @@ New examples (ControlledTankSystem, AST_BatchPlant).
 <li> New components in Modelica.Fluid.Examples.</li>
 <li> Improved users guide.</li>
 </ul>
- 
+
 <h4><font color=\"#008000\">Version 0.910, 2005-10-25</font></h4>
 <ul>
 <li> Changes as decided on 41th-45th Modelica Design Meetings
@@ -1624,7 +1624,7 @@ standard library.
 class Contact "Contact"
 
     annotation (Documentation(info="<html>
- 
+
 <dl>
 <dt><b>Library Officers:</b><br>&nbsp;</dt>
 <dd>
@@ -1666,22 +1666,22 @@ and many have contributed.
      Modelica 2003 Conference, Link&ouml;ping, Sweden, pp. 269-286, Nov. 3-4, 2003.<br>
      This design has been partly changed, especially by the introduction of the streams
      concept.</li>
- 
+
 <li> The Fluid library development was organized in 2002-2004 by Martin
      Otter, since 2004 it is organized by Francesco Casella, and
      since 2008 it is organized jointly by Francesco Casella and R&uuml;diger Franke.</li>
- 
+
 <li> Francesco Casella included several components of his ThermoPower
      library with some rewriting. The stream connector concept used in Modelica.Fluid is
      based on a similar concept developed by him for the ThermoPower library.</li>
- 
+
 <li> R&uuml;diger Franke initiated the stream connector concept as an extension
      and improved version of the ThermoPower concept. In Nov. 2008 - Jan. 2009 he
      greatly restructured and improved the library.<li>
- 
+
 <li> Michael Wetter introduced trace constituents in Modelica.Fluid consistently and
      provided corresponding examples under Examples.TraceSubstances.</li>
- 
+
 <li> The following people contributed to the fluid component models,
      examples, and the further design of the library
      (alphabetical list):<br>
@@ -1693,14 +1693,14 @@ and many have contributed.
      Christoph Richter, Michael Sielemann, Mike Tiller, Hubertus Tummescheit,
      Allan Watson, Michael Wetter.</li>
 </ul>
- 
+
 <p>
-  Partial financial support of ABB and DLR by BMBF (BMBF Förderkennzeichen: 01IS07022F) for the further development
+  Partial financial support of ABB and DLR by BMBF (BMBF F&ouml;rderkennzeichen: 01IS07022F) for the further development
      of this library within the <a href=\"http://www.itea2.org\">ITEA</a> project
      <a href=\"http://www.itea2.org/public/project_leaflets/EUROSYSLIB_profile_oct-07.pdf\">EUROSYSLIB</a>
      is highly appreciated.</p>
- 
- 
+
+
 </html>"));
 end Contact;
 end UsersGuide;
@@ -1713,7 +1713,7 @@ annotation (
   Documentation(info="<html>
 <p>
 Library <b>Modelica.Fluid</b> is a <b>free</b> Modelica package providing components for
-<b>1-dimensional thermo-fluid flow</b> in networks of vessels, pipes, fluid machines, valves and fittings. 
+<b>1-dimensional thermo-fluid flow</b> in networks of vessels, pipes, fluid machines, valves and fittings.
 A unique feature is that the component equations and the media models
 as well as pressure loss and heat transfer correlations are decoupled from each other.
 All components are implemented such that they can be used for
@@ -1721,16 +1721,16 @@ media from the Modelica.Media library. This means especially that an
 incompressible or compressible medium, a single or a multiple
 substance medium with one or more phases might be used.
 </p>
- 
+
 <p>
 In the next figure, several features of the library are demonstrated with
 a simple heating system with a closed flow cycle. By just changing one configuration parameter in the system object the equations are changed between steady-state and dynamic simulation with fixed or steady-state initial conditions.
 </p>
- 
+
 <blockquote>
     <img src=\"../Images/Fluid/UsersGuide/HeatingSystem.png\" border=1>
 </blockquote>
- 
+
 <p>
 With respect to previous versions, the design
 of the connectors has been changed in a non-backward compatible way,
@@ -1740,12 +1740,12 @@ of stream connectors that results in much more reliable simulations
 <a href=\"..\\help\\Documentation\\Fluid\\Stream-Connectors-Overview-Rationale.pdf\">here</a>).
 This extension was included in Modelica 3.1.
 As of Jan. 2009, the stream concept is supported in Dymola 7.1.
-It is recommended to use Dymola 7.2 (available since Feb. 2009), or a later Dymola version, 
+It is recommended to use Dymola 7.2 (available since Feb. 2009), or a later Dymola version,
 since this version supports a new annotation to connect very
 conveniently to vectors of connectors.
 Other tool vendors will support the stream concept as well.
 </p>
- 
+
 <p>
 The following parts are useful, when newly starting with this library:
 </p>
@@ -1756,13 +1756,13 @@ The following parts are useful, when newly starting with this library:
 <li> <a href=\"Modelica://Modelica.Fluid.Examples\">Modelica.Fluid.Examples</a>
      contains examples that demonstrate the usage of this library.</li>
 </ul>
- 
- 
+
+
 <p>
 <b>Licensed by the Modelica Association under the Modelica License 2</b><br>
 Copyright &copy; 2002-2009, ABB, DLR, Dynasim, Modelon, TU Braunschweig, TU Hamburg-Harburg, Politecnico di Milano.
 </p>
- 
+
 <p>
 <i>This Modelica package is <u>free</u> software and
 the use is completely at <u>your own risk</u>;
@@ -1774,6 +1774,6 @@ or at
 <a href=\"http://www.Modelica.org/licenses/ModelicaLicense2\">
 http://www.Modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
- 
+
 </html>"));
 end Fluid;
