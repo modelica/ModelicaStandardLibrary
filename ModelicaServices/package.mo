@@ -29,14 +29,14 @@ subdirectories are licensed by the <b><u>Modelica Association</u></b> under the
 
 <p style=\"margin-left: 40px;\"><b>Licensor:</b><br>
 Modelica Association<br>
-(Ideella Föreningar 822003-8858 in Linköping) <br>
-c/o PELAB, IDA, Linköpings Universitet <br>
-S-58183 Linköping <br>
+(Ideella F&ouml;reningar 822003-8858 in Link&ouml;ping) <br>
+c/o PELAB, IDA, Link&ouml;pings Universitet <br>
+S-58183 Link&ouml;ping <br>
 Sweden<br>
 email: Board@Modelica.org<br>
 web&nbsp; : http://www.Modelica.org</p>
 <p style=\"margin-left: 40px;\"><b>Copyright notices of the files:</b></p>
-<div style=\"margin-left: 40px;\">Copyright © 1998-2009,
+<div style=\"margin-left: 40px;\">Copyright &copy; 1998-2009,
 ABB, arsenal research, DLR, Dynasim, Fraunhofer, Modelon, TU
 Hamburg-Harburg, Politecnico di Milano.<br>
 </div>
