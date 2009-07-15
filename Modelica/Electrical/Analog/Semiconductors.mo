@@ -1810,8 +1810,7 @@ The dV/dt switch on is not taken into account in this model. The gate circuit is
             extent={{-14,23},{-2,16}},
             lineColor={128,128,128},
             pattern=LinePattern.Dot,
-            textString="IH")}),
-      DymolaStoredErrors);
+            textString="IH")}));
 
   public
     Modelica.Electrical.Analog.Interfaces.PositivePin Anode annotation (Placement(

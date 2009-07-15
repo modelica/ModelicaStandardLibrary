@@ -1926,8 +1926,7 @@ The Conductance <i>G</i> is given as input signal.
             extent={{-70,30},{70,-30}},
             lineColor={0,0,255},
             fillColor={255,255,255},
-            fillPattern=FillPattern.Solid)}),
-            DymolaStoredErrors);
+            fillPattern=FillPattern.Solid)}));
         equation
           i = G*v;
           LossPower = v*i;
