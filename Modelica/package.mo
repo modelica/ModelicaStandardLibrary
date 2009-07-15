@@ -2,7 +2,7 @@ package Modelica "Modelica Standard Library"
 extends Icons.Library;
 
 
-annotation(preferedView="info",
+annotation(preferedView="info", 
   Window(
     x=0.02,
     y=0.01,

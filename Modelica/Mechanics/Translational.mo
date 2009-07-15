@@ -892,6 +892,81 @@ Spool position s as a function of working force f.
       connect(Sine1.y, Force1.f) annotation (points=[-55,-22; -34,-22], style(
             color=74, rgbcolor={0,0,127}));
     end PreLoad;
+    
+    model ElastoGap "Demonstrate usgae of ElastoGap" 
+      import Modelica;
+    extends Modelica.Icons.Example;
+      
+      parameter Real d(
+        final unit="N/ (m/s)",
+        final min=0) = 1.5 "damping constant";
+      Fixed fixed annotation (extent=[-10,-10; 10,10]);
+      Rod rod1(L=2) annotation (extent=[-40,-10; -20,10]);
+      Rod rod2(L=2) annotation (extent=[20,-10; 40,10]);
+      SlidingMass mass1(
+        L=0,
+        m=1,
+        s(start=2, fixed=true),
+        v(start=0, fixed=true)) annotation (extent=[-10,20; 10,40]);
+      SlidingMass mass2(
+        L=0,
+        m=1,
+        s(start=2, fixed=true),
+        v(start=0, fixed=true)) annotation (extent=[-10,-40; 10,-20]);
+      SpringDamper springDamper1(
+        c=10,
+        s_rel0=1,
+        d=1.5) annotation (extent=[-40,20; -20,40]);
+      SpringDamper springDamper2(
+        c=10,
+        s_rel0=1,
+        d=1.5) annotation (extent=[20,20; 40,40]);
+      Modelica.Mechanics.Translational.ElastoGap elastoGap1(
+        c=10,
+        d=1.5,
+        s_rel0=1.5, 
+        n=0.5)      annotation (extent=[-40,-40; -20,-20]);
+      Modelica.Mechanics.Translational.ElastoGap elastoGap2(
+        c=10,
+        d=1.5,
+        s_rel0=1.5, 
+        n=0.5)      annotation (extent=[20,-40; 40,-20]);
+    equation 
+      
+      annotation (
+        Diagram,
+        experiment(StopTime=10),
+        experimentSetupOutput,
+        Documentation(info="<html>
+<p>
+This model demonstrates the effect of ElastoGaps on eigenfrequency:<br>
+Plot mass1.s and mass2.s as well as mass1.v and mass2.v<br><br>
+mass1 is moved by both spring forces all the time.<br>
+Since elastoGap1 lifts off at s &gt; -0.5 m and elastoGap2 lifts off s &lt; +0.5 m, 
+mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
+</p>
+</html>"));
+      connect(rod1.flange_b, fixed.flange_b) 
+        annotation (points=[-20,0; 0,0], style(color=58, rgbcolor={0,127,0}));
+      connect(fixed.flange_b, rod2.flange_a) 
+        annotation (points=[0,0; 20,0], style(color=58, rgbcolor={0,127,0}));
+      connect(springDamper1.flange_b, mass1.flange_a) annotation (points=[-20,
+            30; -10,30], style(color=58, rgbcolor={0,127,0}));
+      connect(mass1.flange_b, springDamper2.flange_a) annotation (points=[10,30;
+            20,30], style(color=58, rgbcolor={0,127,0}));
+      connect(springDamper1.flange_a, rod1.flange_a) annotation (points=[-40,30;
+            -40,0], style(color=58, rgbcolor={0,127,0}));
+      connect(springDamper2.flange_b, rod2.flange_b) 
+        annotation (points=[40,30; 40,0], style(color=58, rgbcolor={0,127,0}));
+      connect(elastoGap1.flange_a, rod1.flange_a) annotation (points=[-40,-30;
+            -40,0], style(color=58, rgbcolor={0,127,0}));
+      connect(elastoGap1.flange_b, mass2.flange_a) annotation (points=[-20,-30;
+            -10,-30], style(color=58, rgbcolor={0,127,0}));
+      connect(mass2.flange_b, elastoGap2.flange_a) annotation (points=[10,-30;
+            20,-30], style(color=58, rgbcolor={0,127,0}));
+      connect(elastoGap2.flange_b, rod2.flange_b) annotation (points=[40,-30;
+            40,0], style(color=58, rgbcolor={0,127,0}));
+    end ElastoGap;
   end Examples;
   
   package Sensors "Sensors for 1-dim. translational mechanical quantities" 
@@ -2179,6 +2254,10 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
     parameter Real d(
       final unit="N/ (m/s)",
       final min=0) = 1 "damping constant";
+    parameter Real n(final min=0) = 0 "power for nonlinear force" 
+      annotation(Evaluate=true);
+    parameter SI.Length s_ref = 1 "reference length for nonlinear force" 
+      annotation(Dialog(enable=n>0));
     SI.Velocity v_rel "relative velocity between flange_a and flange_b";
     Boolean Contact "false, if s_rel > l ";
     
@@ -2200,12 +2279,19 @@ between
 a sliding mass and the housing (model Fixed), to describe
 the contact of a sliding mass with the housing.
 </p>
- 
+<p>
+With parameter n>0, a nonlinear force can be modeled 
+(for n=0 the behaviour is backwards compatible):
+</p>
+<pre>
+f = (c*(s_rel - s_rel0) + d*v_rel) * (abs(s_rel - s_rel0)/s_ref)^n
+</pre>
 </HTML>
 ", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater</i> </li>
+<li><i>Improved Version from July, 2009 by A. Haumer</i> </li>
 </ul>
 </html>"),
       Diagram(
@@ -2265,7 +2351,7 @@ the contact of a sliding mass with the housing.
     
     v_rel = der(s_rel);
     Contact = s_rel < s_rel0;
-    f = if Contact then (c*(s_rel - s_rel0) + d*v_rel) else 0;
+    f = if Contact then (c*(s_rel - s_rel0) + d*v_rel)*(if n>0 then (noEvent(abs(s_rel - s_rel0))/s_ref)^n else 1) else 0;
   end ElastoGap;
   
   model Position 

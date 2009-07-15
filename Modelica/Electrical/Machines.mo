@@ -274,7 +274,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(AIMC1.flange_a, LoadInertia.flange_a)  annotation (points=[0,-40;
             40,-40], style(color=0, rgbcolor={0,0,0}));
@@ -497,7 +497,7 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
         annotation (points=[-6.12303e-016,70; -6.12303e-016,90; -50,90],
                                                         style(color=3));
       connect(SineVoltage1.plug_p, IdealCloser1.plug_p) 
-        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46; 
+        annotation (points=[6.12303e-016,50; 0,48; 1.22461e-015,46;
             6.12303e-016,46; 6.12303e-016,40], style(color=3));
       connect(Star3.pin_n, Ground3.p) 
         annotation (points=[-70,-90; -80,-90],   style(color=3));
@@ -731,7 +731,7 @@ Default machine parameters of model <i>SM_ReluctanceRotorDamperCage</i> are used
       connect(LoadInertia.flange_b, TorqueStep1.flange) 
         annotation (points=[60,-40; 70,-40], style(color=0, rgbcolor={0,0,0}));
       connect(CurrentRMSsensor1.plug_p, SignalVoltage1.plug_p) annotation (
-          points=[6.12303e-016,40; 6.12303e-016,42.5; 6.12303e-016,42.5; 
+          points=[6.12303e-016,40; 6.12303e-016,42.5; 6.12303e-016,42.5;
             6.12303e-016,45; 6.12303e-016,50; 6.12303e-016,50], style(color=3,
             rgbcolor={0,0,255}));
       connect(SMR1.plug_sn, RotorAngle1.plug_n)  annotation (points=[-16,-30;
@@ -952,7 +952,7 @@ Default machine parameters of model <i>SM_ElectricalExcitedDamperCage</i> are us
       connect(Star1.plug_p, SineVoltage1.plug_n) annotation (points=[-50,90;
             -40,90], style(color=3, rgbcolor={0,0,255}));
       connect(ElectricalPowerSensor1.plug_ni, CurrentRMSsensor1.plug_p) 
-        annotation (points=[6.12303e-016,50; 1.76911e-022,46; 6.12303e-016,46; 
+        annotation (points=[6.12303e-016,50; 1.76911e-022,46; 6.12303e-016,46;
             6.12303e-016,40], style(color=3, rgbcolor={0,0,255}));
       connect(SMEE1.flange_a, MechanicalPowerSensor1.flange_a) 
         annotation (points=[0,-40; 40,-40], style(color=0, rgbcolor={0,0,0}));
@@ -2090,7 +2090,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -2274,7 +2274,7 @@ TurnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
           annotation (points=[40,-80; 30,-80],   style(color=3));
         connect(rr.plug_p, plug_rp)        annotation (points=[60,-80; 60,-90;
               -80,-90; -80,60; -100,60],  style(color=3, rgbcolor={0,0,255}));
-        connect(spacePhasorR.ground, spacePhasorR.zero) annotation (points=[-10,-20; 
+        connect(spacePhasorR.ground, spacePhasorR.zero) annotation (points=[-10,-20;
               -10,-14; -6.12303e-016,-14; -6.12303e-016,-20],      style(
             color=3,
             rgbcolor={0,0,255},
@@ -2321,14 +2321,14 @@ TurnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
             fillColor=3,
             rgbfillColor={0,0,255},
             fillPattern=1));
-        connect(lrsigma.plug_n, spacePhasorR.plug_p) annotation (points=[10,-80; 
+        connect(lrsigma.plug_n, spacePhasorR.plug_p) annotation (points=[10,-80;
               10,-40], style(color=3, rgbcolor={0,0,255}));
         connect(spacePhasorR.plug_n, plug_rn) annotation (points=[-10,-40; -10,
               -60; -100,-60], style(color=3, rgbcolor={0,0,255}));
@@ -2642,7 +2642,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -2938,7 +2938,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -3164,7 +3164,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color=3,
             rgbcolor={0,0,255},
             smooth=0));
-        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20; 
+        connect(spacePhasorS.ground,spacePhasorS. zero) annotation (points=[-10,20;
               -10,14; -6.12303e-016,14; -6.12303e-016,20],     style(
             color=3,
             rgbcolor={0,0,255},
@@ -6327,7 +6327,7 @@ a ground has to be used where necessary for currents flowing back.
         "Physical transformation: three phase <-> space phasors" 
         constant Integer m=3 "number of phases";
         constant Real pi=Modelica.Constants.pi;
-        parameter Real turnsRatio=1;
+        parameter Real turnsRatio=1 annotation(Evaluate=true);
         Modelica.SIunits.Voltage v[m] "instantaneous phase voltages";
         Modelica.SIunits.Current i[m] "instantaneous phase currents";
       protected 
