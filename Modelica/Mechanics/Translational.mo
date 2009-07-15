@@ -924,12 +924,12 @@ Spool position s as a function of working force f.
       Modelica.Mechanics.Translational.ElastoGap elastoGap1(
         c=10,
         d=1.5,
-        s_rel0=1.5, 
+        s_rel0=1.5,
         n=0.5)      annotation (extent=[-40,-40; -20,-20]);
       Modelica.Mechanics.Translational.ElastoGap elastoGap2(
         c=10,
         d=1.5,
-        s_rel0=1.5, 
+        s_rel0=1.5,
         n=0.5)      annotation (extent=[20,-40; 40,-20]);
     equation 
       
@@ -2254,10 +2254,6 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
     parameter Real d(
       final unit="N/ (m/s)",
       final min=0) = 1 "damping constant";
-    parameter Real n(final min=0) = 0 "power for nonlinear force" 
-      annotation(Evaluate=true);
-    parameter SI.Length s_ref = 1 "reference length for nonlinear force" 
-      annotation(Dialog(enable=n>0));
     SI.Velocity v_rel "relative velocity between flange_a and flange_b";
     Boolean Contact "false, if s_rel > l ";
     
@@ -2274,24 +2270,18 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
       Documentation(info="<html>
 <p>
 A <i>linear translational spring damper combination that can lift off</i>.
-The component can be connected
-between
+The component can be connected between
 a sliding mass and the housing (model Fixed), to describe
-the contact of a sliding mass with the housing.
-</p>
-<p>
-With parameter n>0, a nonlinear force can be modeled 
-(for n=0 the behaviour is backwards compatible):
+the contact of a sliding mass with the housing:
 </p>
 <pre>
-f = (c*(s_rel - s_rel0) + d*v_rel) * (abs(s_rel - s_rel0)/s_ref)^n
+f = (c*(s_rel - s_rel0) + d*v_rel)
 </pre>
 </HTML>
 ", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>First Version from August 26, 1999 by P. Beater</i> </li>
-<li><i>Improved Version from July, 2009 by A. Haumer</i> </li>
 </ul>
 </html>"),
       Diagram(
@@ -2351,7 +2341,7 @@ f = (c*(s_rel - s_rel0) + d*v_rel) * (abs(s_rel - s_rel0)/s_ref)^n
     
     v_rel = der(s_rel);
     Contact = s_rel < s_rel0;
-    f = if Contact then (c*(s_rel - s_rel0) + d*v_rel)*(if n>0 then (noEvent(abs(s_rel - s_rel0))/s_ref)^n else 1) else 0;
+    f = if Contact then (c*(s_rel - s_rel0) + d*v_rel) else 0;
   end ElastoGap;
   
   model Position 
