@@ -4,7 +4,7 @@ package Translational
   extends Modelica.Icons.Library2;
   import SI = Modelica.SIunits;
   annotation (
-  version="1.1.1", versionDate="2007-11-22",
+  version="1.2.0", versionDate="2009-07-15",
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
         Line(points={{-84,-73},{66,-73}}, color={0,0,0}),
@@ -1752,6 +1752,10 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
       parameter SI.TranslationalDampingConstant d(final min=0, start = 1)
         "Damping constant";
       parameter SI.Position s_rel0=0 "Unstretched spring length";
+      parameter Real n(final min=0) = 0 "power for nonlinear force" 
+        annotation(Evaluate=true);
+      parameter SI.Length s_ref = 1 "reference length for nonlinear force" 
+        annotation(Dialog(enable=n>0));
 
       annotation (
         Documentation(info="<html>
@@ -1765,11 +1769,12 @@ to describe the contact of a sliding mass with the housing.
 <p>
 As long as s_rel &gt; s_rel0, no force is exerted (s_rel = flange_b.s - flange_a.s).
 If s_rel &le; s_rel0, the contact force is basically computed with a linear
-spring/damper characteristic:
+spring/damper characteristic; with parameter n>0, a nonlinear force can be modeled 
+(for n=0 the behaviour is backwards compatible):
 </p
  
 <pre>
-   desiredContactForce = c*(s_rel - s_rel0) + d*<b>der</b>(s_rel)
+   desiredContactForce = (c*(s_rel - s_rel0) + d*<b>der</b>(s_rel)) * (abs(s_rel - s_rel0)/s_ref)^n
 </pre>
  
 <p>
@@ -1822,7 +1827,7 @@ In the next figure, a typical simulation with the ElastoGap model is shown
 (<a href=\"Modelica://Modelica.Mechanics.Translational.Examples.ElastoGap\">Examples.ElastoGap</a>)
 where the different effects are visualized:
 </p>
-
+ 
 <ol>
 <li> Curve 1 (elastoGap1.f) is the unmodified contact force, i.e., the linear spring/damper
      characteristic. A pulling/sticking force is present at the end of the contact.</li>
@@ -1939,7 +1944,7 @@ if a positive force is acting on the element and no other force balances this fo
       else
          f_c = c*(s_rel - s_rel0);
          f_d = d*v_rel;
-         f   = smooth(0, noEvent(if (f_c + f_d) >= 0 then 0 else f_c + max(f_c, f_d)));
+         f   = smooth(0, noEvent(if (f_c + f_d) >= 0 then 0 else (f_c + max(f_c, f_d))*(if n>0 then (abs(s_rel - s_rel0)/s_ref)^n else 1)));
       end if;
     end ElastoGap;
 
