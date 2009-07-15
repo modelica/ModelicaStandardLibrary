@@ -7,10 +7,10 @@ package Lines
 <p>
 This package contains lossy and lossless segmented transmission lines,
 and LC distributed line models.
- 
+
 The line models do not yet possess a conditional heating port.
 </p>
- 
+
 </HTML>
 ", revisions="<html>
 <dl>
@@ -96,7 +96,7 @@ The values of the resistors and inductors are calculated with :R=r*length/(N+1) 
 For all capacitances, conductances, resistors and inductances the values of each segment are the same exept<br>
 of the first and last resistor and inductor, that only have the half of the value of the rest.<br>
 Note, this is different to the lumped line model of SPICE.
- 
+
 <DL>
 <DT>
 <b>References:</b>
@@ -196,10 +196,10 @@ model segment
 
   parameter Integer lines(final min=1)=3;       //number of lines
   parameter Integer dim_vector_lgc=div(lines*(lines+1),2);
-  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin" 
+  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
               annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
             rotation=0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin" 
+  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
               annotation (Placement(transformation(extent={{40,-10},{60,10}},
             rotation=0)));
 
@@ -249,10 +249,10 @@ end segment;
 
 model segment_last
 
-  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin" 
+  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
               annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
             rotation=0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin" 
+  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
               annotation (Placement(transformation(extent={{20,-10},{40,10}},
             rotation=0)));
   parameter Integer lines(final min=1)=3;
@@ -297,10 +297,10 @@ end segment_last;
     lines=lines,
     Rl=r*length/(2*N),
     Ll=l*length/(2*N));
-  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin" 
+  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
               annotation (Placement(transformation(extent={{-100,-80},{-80,80}},
           rotation=0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin" 
+  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
               annotation (Placement(transformation(extent={{80,-80},{100,80}},
           rotation=0)));
 
@@ -340,7 +340,7 @@ equation
             lineColor={0,0,255})}),
     Documentation(revisions="<HTML>
 <ul>
- 
+
 <li><i> November 24, 2008   </i> docu added, cosmetic, K. Majetta
        </li>
 <li><i>February 26, 2007</i>
@@ -365,7 +365,7 @@ The complete multi line consists of N segments and an auxiliary segment_last:<br
 -- segment_1 -- segment_2 -- ... -- segment_N -- segment_last -- <br>
 </center>
 <br>
- 
+
 In the picture of the segment can be seen, that a single segment is unsymmetric. Connecting such unsymmetric segments in a series forces also an unsymmetric multi line. To get a symmetric model which
 is useful for coupling and which guaranties the same pin properties, in the segment_1 only half valued resistors and inductors are used. The remaining resistors and inductors are at the other end of the line within the auxiliary segment_last. For the example with 4 lines the schematic of segment_last is like this:<br>
 <br>
@@ -377,14 +377,14 @@ ALT=\"model Analog.Lines.M_OLine\">
  The number of the capacitors
 and conductors depends on the number of single lines that are used, because each line is connected to every other line by both a capacitor and a conductor. One line consists of <b>at least two segements</b>.
 </p>
- 
+
 Inside the model M_OLine the model <i>segment</i> is used. This model represents one segment which is build as described above. For modelling the inductances and their mutual couplings the model M_Transformer is used.
- 
- 
+
+
 To fill the resistance vector, resistance values as many as lines are needed, e.g. if there are four lines,
 four resistances are needed. For example for a microelectronic line of 0.1m lenght, a sensible resistance-vector
 would be R=[4.76e5, 1.72e5, 1.72e5, 1.72e5].
- 
+
 <p>
 Filling the matrixes of the inductances, capacitances and conductances is a bit more complicated, because
 those components occur also between two lines and not only (like the resistor) in one line. The entries of
@@ -558,9 +558,7 @@ For the example of a microelectronic line of 0.1m lenght, which is used as defau
       StopTime=1e-009,
       NumberOfIntervals=2000,
       Tolerance=1e-009),
-    __Dymola_experimentSetupOutput,
-    version="1",
-    conversion(noneFromVersion=""));
+    __Dymola_experimentSetupOutput);
 end M_OLine;
 
   model ULine "Lossy RC Line"
@@ -698,8 +696,8 @@ Lossless transmission line with characteristic impedance Z0 and transmission del
   Z0 = sqrt(L'/C') and TD = sqrt(L'*C')*length_of_line. Resistance R'
   and conductance C' per meter are assumed to be zero.
 </p>
- 
- 
+
+
 <p>
 <b>References:</b>
 </p>
@@ -712,7 +710,7 @@ Lossless transmission line with characteristic impedance Z0 and transmission del
   Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985.
 </dd>
 </dl>
- 
+
 </html>
 ", revisions="<html>
 <ul>
@@ -802,8 +800,8 @@ Lossless transmission line with characteristic impedance Z0, frequency F and nor
   by the wavelength corresponding to the frequency F, i. e. the
   transmission delay TD is the quotient of NL and F.
 </p>
- 
- 
+
+
 <p>
 <b>References:</b>
 </p>
@@ -816,7 +814,7 @@ Lossless transmission line with characteristic impedance Z0, frequency F and nor
   Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985.
 </dd>
 </dl>
- 
+
 </html>
 ", revisions="<html>
 <li><i> 1998   </i>
@@ -901,8 +899,8 @@ Lossless transmission line with characteristic impedance Z0 and frequency F
   transmission delay is the quotient of 4 and F.
   In this case, the caracteristic impedance is called natural impedance.
 </p>
- 
- 
+
+
 <p>
 <b>References:</b>
 </p>
@@ -915,7 +913,7 @@ Lossless transmission line with characteristic impedance Z0 and frequency F
   Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985.
 </dd>
 </dl>
- 
+
 </html>
 ", revisions="<html>
 <ul>

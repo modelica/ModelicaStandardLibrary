@@ -8,7 +8,7 @@ package Ideal
 <p>
 This package contains electrical components with idealized behaviour:
 </p>
- 
+
 </HTML>
 ", revisions="<html>
 <dl>
@@ -46,7 +46,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             parameter Modelica.SIunits.Voltage Vknee(final min=0, start=0)
       "Forward threshold voltage";
             Boolean off(start=true) "Switching state";
-            Modelica.Blocks.Interfaces.BooleanInput fire 
+            Modelica.Blocks.Interfaces.BooleanInput fire
               annotation (Placement(transformation(
           origin={70,110},
           extent={{-20,-20},{20,20}},
@@ -72,7 +72,7 @@ resistance <i>Ron</i> which is default.
 </P>
 <P>
 The parameter <i>Vknee</i> which is the forward threshold voltage, allows to displace
-the knee point <br> 
+the knee point <br>
 along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
 </p>
 </HTML>
@@ -184,7 +184,7 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
             parameter Modelica.SIunits.Voltage Vknee(final min=0, start=0)
       "Forward threshold voltage";
             Boolean off(start=true) "Switching state";
-            Modelica.Blocks.Interfaces.BooleanInput fire 
+            Modelica.Blocks.Interfaces.BooleanInput fire
               annotation (Placement(transformation(
           origin={70,110},
           extent={{-20,-20},{20,20}},
@@ -210,7 +210,7 @@ resistance <i>Ron</i> which is default.
 </P>
 <P>
 The parameter <i>Vknee</i> which is the forward threshold voltage, allows to displace
-the knee point <br> 
+the knee point <br>
 along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
 </p>
 </HTML>
@@ -337,19 +337,19 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
     annotation (
       Documentation(info="<HTML>
 <P>
-The commuting switch has a positive pin p and two negative pins n1 and n2. 
+The commuting switch has a positive pin p and two negative pins n1 and n2.
 The switching behaviour is controlled
-by the inpug signal control. If control is true, the pin p is connected 
+by the inpug signal control. If control is true, the pin p is connected
 with the negative pin n2. Otherwise, the pin p is connected to the negative pin n1.
 </P>
 <P>
-In order to prevent singularities during switching, the opened 
+In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
-and the closed switch has a (very low) resistance Ron. 
+and the closed switch has a (very low) resistance Ron.
 The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
-open switch could be also exactly zero. Note, there are circuits, 
-where a description with zero Ron or zero Goff is not possible. 
+open switch could be also exactly zero. Note, there are circuits,
+where a description with zero Ron or zero Goff is not possible.
 </P>
 </HTML>
 ", revisions="<html>
@@ -428,7 +428,7 @@ where a description with zero Ron or zero Goff is not possible.
     Interfaces.NegativePin n2 annotation (Placement(transformation(extent={{90,
               -10},{110,10}}, rotation=0)));
     Modelica.Blocks.Interfaces.BooleanInput control
-      "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2  connected" 
+      "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2  connected"
       annotation (Placement(transformation(
           origin={0,80},
           extent={{-20,-20},{20,20}},
@@ -443,24 +443,24 @@ where a description with zero Ron or zero Goff is not possible.
     annotation (
       Documentation(info="<HTML>
 <P>
-The intermediate switch has four switching contact pins p1, p2, n1, and n2. 
+The intermediate switch has four switching contact pins p1, p2, n1, and n2.
 The switching behaviour is controlled by the input signal control. If control
-is true, the pin p1 is connected to pin n2, and the pin p2 is 
+is true, the pin p1 is connected to pin n2, and the pin p2 is
 connected to the pin n2. Otherwise, the pin p1 is connected to n1, and
 p2 is connected to n2.
 </P>
 <IMG SRC=\"../Images/IdealIntermediateSwitch1.png\" ALT=\"IdealIntermediateSwitch1\">
 <P>
-In order to prevent singularities during switching, the opened 
+In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
-and the closed switch has a (very low) resistance Ron. 
+and the closed switch has a (very low) resistance Ron.
 </P>
 <IMG SRC=\"../Images/IdealIntermediateSwitch2.png\" ALT=\"IdealIntermediateSwitch2\">
 <P>
 The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
-open switch could be also exactly zero. Note, there are circuits, 
-where a description with zero Ron or zero Goff is not possible. 
+open switch could be also exactly zero. Note, there are circuits,
+where a description with zero Ron or zero Goff is not possible.
 </P>
 </HTML>
 ", revisions="<html>
@@ -557,20 +557,20 @@ where a description with zero Ron or zero Goff is not possible.
     annotation (
       Documentation(info="<HTML>
 <P>
-The commuting switch has a positive pin p and two negative pins n1 and n2. 
+The commuting switch has a positive pin p and two negative pins n1 and n2.
 The switching behaviour is controlled
 by the control pin. If its voltage exceeds the value of the parameter level,
-the pin p is connected with the negative pin n2. Otherwise, the pin p is 
+the pin p is connected with the negative pin n2. Otherwise, the pin p is
 connected the negative pin n1.
 </P>
 <P>
-In order to prevent singularities during switching, the opened 
+In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
-and the closed switch has a (very low) resistance Ron. 
+and the closed switch has a (very low) resistance Ron.
 The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
-open switch could be also exactly zero. Note, there are circuits, 
-where a description with zero Ron or zero Goff is not possible. 
+open switch could be also exactly zero. Note, there are circuits,
+where a description with zero Ron or zero Goff is not possible.
 </P>
 </HTML>
 ", revisions="<html>
@@ -667,25 +667,25 @@ where a description with zero Ron or zero Goff is not possible.
     annotation (
       Documentation(info="<HTML>
 <P>
-The intermediate switch has four switching contact pins p1, p2, n1, and n2. 
+The intermediate switch has four switching contact pins p1, p2, n1, and n2.
 The switching behaviour is controlled
-by the control pin. If its voltage exceeds the value of the 
-parameter level, the pin p1 is connected to pin n2, and the pin p2 is 
+by the control pin. If its voltage exceeds the value of the
+parameter level, the pin p1 is connected to pin n2, and the pin p2 is
 connected to the pin n2. Otherwise, the pin p1 is connected to n1, and
 p2 is connected to n2.
 </P>
 <IMG SRC=\"../Images/ControlledIdealIntermediateSwitch1.png\" ALT=\"ControlledIdealIntermediateSwitch1\">
 <P>
-In order to prevent singularities during switching, the opened 
+In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
-and the closed switch has a (very low) resistance Ron. 
+and the closed switch has a (very low) resistance Ron.
 </P>
 <IMG SRC=\"../Images/ControlledIdealIntermediateSwitch2.png\" ALT=\"ControlledIdealIntermediateSwitch2\">
 <P>
 The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
-open switch could be also exactly zero. Note, there are circuits, 
-where a description with zero Ron or zero Goff is not possible. 
+open switch could be also exactly zero. Note, there are circuits,
+where a description with zero Ron or zero Goff is not possible.
 </P>
 </HTML>
 ", revisions="<html>
@@ -960,10 +960,10 @@ are possible.
           transformation(extent={{-110,40},{-90,60}}, rotation=0)));
     Interfaces.PositivePin out "Output pin" annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
-    Interfaces.PositivePin VMax "Positive output voltage limitation" 
+    Interfaces.PositivePin VMax "Positive output voltage limitation"
       annotation (Placement(transformation(extent={{-10,60},{10,80}}, rotation=
               0)));
-    Interfaces.NegativePin VMin "Negative output voltage limitation" 
+    Interfaces.NegativePin VMin "Negative output voltage limitation"
       annotation (Placement(transformation(extent={{-10,-80},{10,-60}},
             rotation=0)));
     SI.Voltage vin "input voltage";
@@ -996,7 +996,7 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}), 
+          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}),
 
           Line(points={{0,35},{0,80}}, color={0,0,255}),
           Line(points={{0,-35},{0,-80}}, color={0,0,255}),
@@ -1089,7 +1089,7 @@ resistance <i>Roff</i> which is default.
 </P>
 <P>
 The parameter <i>Vknee</i> which is the forward threshold voltage, allows to displace
-the knee point <br> 
+the knee point <br>
 along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
 </p>
 </HTML>
@@ -1191,12 +1191,12 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
     parameter Real n(start=1) "Turns ratio primary:secondary voltage";
     parameter Boolean considerMagnetization=false;
     parameter Modelica.SIunits.Inductance Lm1(start=1)
-      "Magnetization inductance w.r.t. primary side" 
+      "Magnetization inductance w.r.t. primary side"
       annotation(Dialog(enable=considerMagnetization));
     annotation (
       Documentation(info="<html>
 <p>
-The ideal transformer is a two-port circuit element; 
+The ideal transformer is a two-port circuit element;
 in case of Boolean parameter <code>considerMagnetization = false</code> it is characterized by the following equations:
 </p>
 <pre><code>
@@ -1204,7 +1204,7 @@ in case of Boolean parameter <code>considerMagnetization = false</code> it is ch
  v2 =  v1/n;
 </code></pre>
 <p>
-where <code>n</code> is a real number called the turns ratio. 
+where <code>n</code> is a real number called the turns ratio.
 Due to this equations, also DC voltages and currents are transformed - which is not the case for technical transformers.
 </p>
 <p>
@@ -1217,12 +1217,12 @@ In case of Boolean parameter <code>considerMagnetization = true</code> it is cha
  v2 = v1/n        \"Secondary voltage\";
 </code></pre>
 <p>
-where <code>Lm</code> denotes the magnetizing inductance. 
+where <code>Lm</code> denotes the magnetizing inductance.
 Due to this equations, the DC offset of secondary voltages and currents decrement according to the time constant defined by the connected circuit.
 </p>
 <p>
-Taking primary <code>L1sigma</code> and secondary <code>L2ssigma</code> leakage inductances into account, 
-compared with the <a href=\"Modelica://Modelica.Electrical.Analog.Basic.Transformer/\">basic transformer</a> 
+Taking primary <code>L1sigma</code> and secondary <code>L2ssigma</code> leakage inductances into account,
+compared with the <a href=\"Modelica://Modelica.Electrical.Analog.Basic.Transformer/\">basic transformer</a>
 the following parameter conversion can be applied (which leads to identical results):
 </p>
 <pre><code>
@@ -1239,7 +1239,7 @@ For the backward conversion, one has to decide about the partitioning of the lea
        magnetisation current added by Anton Haumer<br>
        </li>
 <li><i>1998   </i>
-       initially implemented by Christoph Clauss<br> 
+       initially implemented by Christoph Clauss<br>
        </li>
 </ul>
 </html>"),
@@ -1337,7 +1337,7 @@ where the constant <i>G</i> is called the gyration conductance.
             lineThickness=0.25,
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{-90,50},{-40,50},{-40,-50},{-90,-50}}, color={0,0,255}), 
+          Line(points={{-90,50},{-40,50},{-40,-50},{-90,-50}}, color={0,0,255}),
 
           Line(points={{-30,60},{20,60}}, color={0,0,255}),
           Polygon(
@@ -1477,7 +1477,7 @@ The model Short is a simple short cut branch.
  model IdealOpeningSwitch "Ideal electrical opener"
    extends Modelica.Electrical.Analog.Interfaces.OnePort;
    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
-   parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance" 
+   parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
        annotation (Placement(transformation(extent={{-56.6667,10},{-10,56.6667}},
             rotation=0)));
    parameter SI.Conductance Goff(final min=0) = 1.E-5
@@ -1495,21 +1495,21 @@ The model Short is a simple short cut branch.
    constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
     annotation (
       Documentation(info="<HTML>
-<P> 
-The ideal opening switch has a positive pin p and a negative pin n. 
-The switching behaviour is controlled by the input signal control. 
-If control is true, pin p is not connected 
-with negative pin n. Otherwise, pin p is connected 
+<P>
+The ideal opening switch has a positive pin p and a negative pin n.
+The switching behaviour is controlled by the input signal control.
+If control is true, pin p is not connected
+with negative pin n. Otherwise, pin p is connected
 with negative pin n.
 </P>
 <P>
-In order to prevent singularities during switching, the opened 
+In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
-and the closed switch has a (very low) resistance Ron. 
+and the closed switch has a (very low) resistance Ron.
 The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
-open switch could be also exactly zero. Note, there are circuits, 
-where a description with zero Ron or zero Goff is not possible. 
+open switch could be also exactly zero. Note, there are circuits,
+where a description with zero Ron or zero Goff is not possible.
 </P>
 </HTML>
 ", revisions="<html>
@@ -1567,7 +1567,7 @@ where a description with zero Ron or zero Goff is not possible.
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
       parameter SI.Resistance Ron(final min=0) = 1.E-5
-      "Closed switch resistance" 
+      "Closed switch resistance"
          annotation (Placement(transformation(extent={{-56.6667,10},{-10,
               56.6667}}, rotation=0)));
       parameter SI.Conductance Goff(final min=0) = 1.E-5
@@ -1585,21 +1585,21 @@ where a description with zero Ron or zero Goff is not possible.
       constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
       annotation (
         Documentation(info="<HTML>
-<P> 
-The ideal closing switch has a positive pin p and a negative pin n. 
-The switching behaviour is controlled by input signal control. 
-If control is true, pin p is connected 
-with negative pin n. Otherwise, pin p is not connected 
+<P>
+The ideal closing switch has a positive pin p and a negative pin n.
+The switching behaviour is controlled by input signal control.
+If control is true, pin p is connected
+with negative pin n. Otherwise, pin p is not connected
 with negative pin n.
 </P>
 <P>
-In order to prevent singularities during switching, the opened 
+In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
-and the closed switch has a (very low) resistance Ron. 
+and the closed switch has a (very low) resistance Ron.
 The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
-open switch could be also exactly zero. Note, there are circuits, 
-where a description with zero Ron or zero Goff is not possible. 
+open switch could be also exactly zero. Note, there are circuits,
+where a description with zero Ron or zero Goff is not possible.
 </P>
 </HTML>
 ",     revisions="<html>
@@ -1666,7 +1666,7 @@ where a description with zero Ron or zero Goff is not possible.
     Interfaces.NegativePin n annotation (Placement(transformation(extent={{90,
               -10},{110,10}}, rotation=0)));
     Interfaces.Pin control
-      "Control pin: control.v > level switch open, otherwise p--n connected" 
+      "Control pin: control.v > level switch open, otherwise p--n connected"
       annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
@@ -1679,20 +1679,20 @@ where a description with zero Ron or zero Goff is not possible.
       Documentation(info="
 <HTML>
 <P>
-The ideal switch has a positive pin p and a negative pin n. 
-The switching behaviour is controlled by the control pin. 
+The ideal switch has a positive pin p and a negative pin n.
+The switching behaviour is controlled by the control pin.
 If its voltage exceeds the voltage of the parameter level,
-pin p is not connected with negative pin n. 
+pin p is not connected with negative pin n.
 Otherwise, pin p is connected with negative pin n.
 </P>
 <P>
-In order to prevent singularities during switching, the opened 
+In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
-and the closed switch has a (very low) resistance Ron. 
+and the closed switch has a (very low) resistance Ron.
 The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
-open switch could be also exactly zero. Note, there are circuits, 
-where a description with zero Ron or zero Goff is not possible. 
+open switch could be also exactly zero. Note, there are circuits,
+where a description with zero Ron or zero Goff is not possible.
 </P>
 </HTML>
 ", revisions="<html>
@@ -1749,7 +1749,7 @@ where a description with zero Ron or zero Goff is not possible.
       parameter SI.Voltage level=0.5 "Switch level" annotation (Placement(
           transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
       parameter SI.Resistance Ron(final min=0) = 1.E-5
-      "Closed switch resistance" 
+      "Closed switch resistance"
          annotation (Placement(transformation(extent={{10,10},{56.6667,56.6667}},
             rotation=0)));
       parameter SI.Conductance Goff(final min=0) = 1.E-5
@@ -1760,7 +1760,7 @@ where a description with zero Ron or zero Goff is not possible.
       Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Modelica.Electrical.Analog.Interfaces.Pin control
-      "Control pin: control.v > level switch closed, otherwise switch open" 
+      "Control pin: control.v > level switch closed, otherwise switch open"
         annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
@@ -1773,20 +1773,20 @@ where a description with zero Ron or zero Goff is not possible.
         Documentation(info="
 <HTML>
 <P>
-The closing ideal switch has a positive pin p and a negative pin n. 
-The switching behaviour is controlled by the control pin. 
+The closing ideal switch has a positive pin p and a negative pin n.
+The switching behaviour is controlled by the control pin.
 If its voltage exceeds the voltage of the parameter level,
-pin p is connected with negative pin n. 
+pin p is connected with negative pin n.
 Otherwise, pin p is not connected with negative pin n.
 </P>
 <P>
-In order to prevent singularities during switching, the opened 
+In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
-and the closed switch has a (very low) resistance Ron. 
+and the closed switch has a (very low) resistance Ron.
 The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
-open switch could be also exactly zero. Note, there are circuits, 
-where a description with zero Ron or zero Goff is not possible. 
+open switch could be also exactly zero. Note, there are circuits,
+where a description with zero Ron or zero Goff is not possible.
 </P>
 </HTML>
 ",     revisions="<html>
@@ -1845,7 +1845,7 @@ where a description with zero Ron or zero Goff is not possible.
     parameter Modelica.SIunits.VoltageSlope dVdt=10E3 "Arc voltage slope";
     parameter Modelica.SIunits.Voltage Vmax=60 "Max. arc voltage";
     Modelica.Blocks.Interfaces.BooleanInput control
-      "false => p--n connected, true => switch open" 
+      "false => p--n connected, true => switch open"
       annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
@@ -1901,13 +1901,13 @@ where a description with zero Ron or zero Goff is not possible.
 This model is an extension to the <a href=\"Modelica://Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch\">IdealOpeningSwitch</a>.
 </p>
 <p>
-The basic model interupts the current through the switch in an infinitesimal time span. 
-If an inductive circuit is connected, the voltage across the swicth is limited only by numerics. 
+The basic model interupts the current through the switch in an infinitesimal time span.
+If an inductive circuit is connected, the voltage across the swicth is limited only by numerics.
 In order to give a better idea for the voltage across the switch, a simple arc model is added:
 </p>
 <p>
-When the Boolean input <code>control</code> signals to open the switch, a voltage across the opened switch is impressed. 
-This voltage starts with <code>V0</code> (simulating the voltage drop of the arc roots), then rising with slope <code>dVdt</code> 
+When the Boolean input <code>control</code> signals to open the switch, a voltage across the opened switch is impressed.
+This voltage starts with <code>V0</code> (simulating the voltage drop of the arc roots), then rising with slope <code>dVdt</code>
 (simulating the rising voltage of an extending arc) until a maximum voltage <code>Vmax</code> is reached.
 </p>
 <pre><code>
@@ -1920,16 +1920,16 @@ V0   |   +
      +---+-------- time
 </pre></code>
 <p>
-This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched. 
-Once the arc is quenched, i.e. the current flowing through the switch gets zero, the equation for the off-state is activated 
+This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched.
+Once the arc is quenched, i.e. the current flowing through the switch gets zero, the equation for the off-state is activated
 <code>i=Goff*v</code>.
 </p>
 <p>
-When the Boolean input <code>control</code> signals to close the switch again, the switch is closed immediately, 
+When the Boolean input <code>control</code> signals to close the switch again, the switch is closed immediately,
 i.e. the equation for the on-state is activated <code>v=Ron*i</code>.
 </p>
 <p>
-Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs. 
+Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
 In a DC circuit, the arc will not quench if the arc voltage is not sufficient that a zero-crossing of the current occurs.
 </p>
 </html>", revisions="<html>
@@ -1973,7 +1973,7 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
     parameter Modelica.SIunits.VoltageSlope dVdt=10E3 "Arc voltage slope";
     parameter Modelica.SIunits.Voltage Vmax=60 "Max. arc voltage";
     Modelica.Blocks.Interfaces.BooleanInput control
-      "true => p--n connected, false => switch open" 
+      "true => p--n connected, false => switch open"
       annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
@@ -2028,13 +2028,13 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
 This model is an extension to the <a href=\"Modelica://Modelica.Electrical.Analog.Ideal.IdealClosingSwitch\">IdealClosingSwitch</a>.
 </p>
 <p>
-The basic model interupts the current through the switch in an infinitesimal time span. 
-If an inductive circuit is connected, the voltage across the swicth is limited only by numerics. 
+The basic model interupts the current through the switch in an infinitesimal time span.
+If an inductive circuit is connected, the voltage across the swicth is limited only by numerics.
 In order to give a better idea for the voltage across the switch, a simple arc model is added:
 </p>
 <p>
-When the Boolean input <code>control</code> signals to open the switch, a voltage across the opened switch is impressed. 
-This voltage starts with <code>V0</code> (simulating the voltage drop of the arc roots), then rising with slope <code>dVdt</code> 
+When the Boolean input <code>control</code> signals to open the switch, a voltage across the opened switch is impressed.
+This voltage starts with <code>V0</code> (simulating the voltage drop of the arc roots), then rising with slope <code>dVdt</code>
 (simulating the rising voltage of an extending arc) until a maximum voltage <code>Vmax</code> is reached.
 </p>
 <pre><code>
@@ -2047,16 +2047,16 @@ V0   |   +
      +---+-------- time
 </pre></code>
 <p>
-This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched. 
-Once the arc is quenched, i.e. the current flowing through the switch gets zero, the equation for the off-state is activated 
+This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched.
+Once the arc is quenched, i.e. the current flowing through the switch gets zero, the equation for the off-state is activated
 <code>i=Goff*v</code>.
 </p>
 <p>
-When the Boolean input <code>control</code> signals to close the switch again, the switch is closed immediately, 
+When the Boolean input <code>control</code> signals to close the switch again, the switch is closed immediately,
 i.e. the equation for the on-state is activated <code>v=Ron*i</code>.
 </p>
 <p>
-Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs. 
+Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
 In a DC circuit, the arc will not quench if the arc voltage is not sufficient that a zero-crossing of the current occurs.
 </p>
 </html>", revisions="<html>
@@ -2091,11 +2091,11 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
   model ControlledOpenerWithArc
     "Controlled ideal electrical opener with simple arc model"
 
-    parameter Modelica.SIunits.Voltage level=0.5 "Switch level" 
+    parameter Modelica.SIunits.Voltage level=0.5 "Switch level"
                                                   annotation (Placement(
           transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
     parameter Modelica.SIunits.Resistance Ron(final min=0)=1.E-5
-      "Closed switch resistance" 
+      "Closed switch resistance"
        annotation (Placement(transformation(extent={{10,10},{56.6667,56.6667}},
             rotation=0)));
     parameter Modelica.SIunits.Conductance Goff(final min=0)=1.E-5
@@ -2105,14 +2105,14 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
     parameter Modelica.SIunits.VoltageSlope dVdt=10E3 "Arc voltage slope";
     parameter Modelica.SIunits.Voltage Vmax=60 "Max. arc voltage";
 
-    Modelica.Electrical.Analog.Interfaces.PositivePin p 
+    Modelica.Electrical.Analog.Interfaces.PositivePin p
                              annotation (Placement(transformation(extent={{-110,
               -10},{-90,10}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.NegativePin n 
+    Modelica.Electrical.Analog.Interfaces.NegativePin n
                              annotation (Placement(transformation(extent={{90,
               -10},{110,10}}, rotation=0)));
     Modelica.Electrical.Analog.Interfaces.Pin control
-      "Control pin: control.v > level switch open, otherwise p--n connected" 
+      "Control pin: control.v > level switch open, otherwise p--n connected"
       annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
@@ -2129,20 +2129,20 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
     annotation (
       Documentation(info="
 <HTML>
- 
+
 <p>
 This model is an extension to the <a href=\"Modelica://Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch\">IdealOpeningSwitch</a>.
 </p>
- 
- 
+
+
 <p>
-The basic model interupts the current through the switch in an infinitesimal time span. 
-If an inductive circuit is connected, the voltage across the swicth is limited only by numerics. 
+The basic model interupts the current through the switch in an infinitesimal time span.
+If an inductive circuit is connected, the voltage across the swicth is limited only by numerics.
 In order to give a better idea for the voltage across the switch, a simple arc model is added:
 </p>
 <p>
-When the control pin voltage <code>control.v</code> signals to open the switch, a voltage across the opened switch is impressed. 
-This voltage starts with <code>V0</code> (simulating the voltage drop of the arc roots), then rising with slope <code>dVdt</code> 
+When the control pin voltage <code>control.v</code> signals to open the switch, a voltage across the opened switch is impressed.
+This voltage starts with <code>V0</code> (simulating the voltage drop of the arc roots), then rising with slope <code>dVdt</code>
 (simulating the rising voltage of an extending arc) until a maximum voltage <code>Vmax</code> is reached.
 </p>
 <pre><code>
@@ -2155,16 +2155,16 @@ V0   |   +
      +---+-------- time
 </pre></code>
 <p>
-This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched. 
-Once the arc is quenched, i.e. the current flowing through the switch gets zero, the equation for the off-state is activated 
+This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched.
+Once the arc is quenched, i.e. the current flowing through the switch gets zero, the equation for the off-state is activated
 <code>i=Goff*v</code>.
 </p>
 <p>
-When the control pin <code>control.v</code> signals to close the switch again, the switch is closed immediately, 
+When the control pin <code>control.v</code> signals to close the switch again, the switch is closed immediately,
 i.e. the equation for the on-state is activated <code>v=Ron*i</code>.
 </p>
 <p>
-Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs. 
+Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
 In a DC circuit, the arc will not quench if the arc voltage is not sufficient that a zero-crossing of the current occurs.
 </p>
 </HTML>
@@ -2227,11 +2227,11 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
     model ControlledCloserWithArc
     "Controlled ideal electrical closer with simple arc model"
 
-      parameter Modelica.SIunits.Voltage level=0.5 "Switch level" 
+      parameter Modelica.SIunits.Voltage level=0.5 "Switch level"
                                                     annotation (Placement(
           transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
       parameter Modelica.SIunits.Resistance Ron(final min=0)=1.E-5
-      "Closed switch resistance" 
+      "Closed switch resistance"
          annotation (Placement(transformation(extent={{10,10},{56.6667,56.6667}},
             rotation=0)));
       parameter Modelica.SIunits.Conductance Goff(final min=0)=1.E-5
@@ -2246,7 +2246,7 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
       Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Modelica.Electrical.Analog.Interfaces.Pin control
-      "Control pin: control.v > level switch closed, otherwise switch open" 
+      "Control pin: control.v > level switch closed, otherwise switch open"
         annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
@@ -2263,20 +2263,20 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
       annotation (
         Documentation(info="
 <HTML>
- 
+
 <p>
 This model is an extension to the <a href=\"Modelica://Modelica.Electrical.Analog.Ideal.IdealClosingSwitch\">IdealClosingSwitch</a>.
 </p>
- 
- 
+
+
 <p>
-The basic model interupts the current through the switch in an infinitesimal time span. 
-If an inductive circuit is connected, the voltage across the swicth is limited only by numerics. 
+The basic model interupts the current through the switch in an infinitesimal time span.
+If an inductive circuit is connected, the voltage across the swicth is limited only by numerics.
 In order to give a better idea for the voltage across the switch, a simple arc model is added:
 </p>
 <p>
-When the control pin voltage <code>control.v</code> signals to open the switch, a voltage across the opened switch is impressed. 
-This voltage starts with <code>V0</code> (simulating the voltage drop of the arc roots), then rising with slope <code>dVdt</code> 
+When the control pin voltage <code>control.v</code> signals to open the switch, a voltage across the opened switch is impressed.
+This voltage starts with <code>V0</code> (simulating the voltage drop of the arc roots), then rising with slope <code>dVdt</code>
 (simulating the rising voltage of an extending arc) until a maximum voltage <code>Vmax</code> is reached.
 </p>
 <pre><code>
@@ -2289,19 +2289,19 @@ V0   |   +
      +---+-------- time
 </pre></code>
 <p>
-This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched. 
-Once the arc is quenched, i.e. the current flowing through the switch gets zero, the equation for the off-state is activated 
+This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched.
+Once the arc is quenched, i.e. the current flowing through the switch gets zero, the equation for the off-state is activated
 <code>i=Goff*v</code>.
 </p>
 <p>
-When the control pin <code>control.v</code> signals to close the switch again, the switch is closed immediately, 
+When the control pin <code>control.v</code> signals to close the switch again, the switch is closed immediately,
 i.e. the equation for the on-state is activated <code>v=Ron*i</code>.
 </p>
 <p>
-Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs. 
+Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
 In a DC circuit, the arc will not quench if the arc voltage is not sufficient that a zero-crossing of the current occurs.
 </p>
- 
+
 </HTML>
 ",     revisions=
              "<html>
@@ -2335,8 +2335,7 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
           Line(points={{-96,0},{-44,0}}, color={0,0,255}),
           Line(points={{-37,2},{40,50}}, color={0,0,255}),
           Line(points={{40,0},{96,0}}, color={0,0,255}),
-          Line(points={{0,96},{0,25}}, color={0,0,255})}),
-      uses(Modelica(version="3.0")));
+          Line(points={{0,96},{0,25}}, color={0,0,255})}));
     equation
       control.i = 0;
       0 = p.i + n.i;

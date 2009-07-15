@@ -1,8 +1,7 @@
 within Modelica.Electrical.Analog.Examples;
 model ThyristorBehaviourTest
 
-  annotation (uses(Modelica(version="3.0.1")),
-                                             Diagram(coordinateSystem(
+  annotation (Diagram(coordinateSystem(
           preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),
     experiment(StopTime=0.0002),
     __Dymola_experimentSetupOutput,
@@ -36,10 +35,10 @@ The simulation time should be trom 0 seconds to 2e-4 seconds.
           extent={{-120,134},{120,75}},
           lineColor={255,0,0},
           textString="%name")}));
-  Modelica.Electrical.Analog.Basic.Ground ground 
+  Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{18,-40},{38,-20}})));
   Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(          V=30, freqHz=
-        10000) 
+        10000)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -57,7 +56,7 @@ The simulation time should be trom 0 seconds to 2e-4 seconds.
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={-8,70})));
-  Modelica.Electrical.Analog.Semiconductors.Thyristor thyristor_v4_1 
+  Modelica.Electrical.Analog.Semiconductors.Thyristor thyristor_v4_1
     annotation (Placement(transformation(extent={{-44,30},{-24,50}})));
   Modelica.Electrical.Analog.Basic.Inductor inductor(L=2e-6) annotation (
       Placement(transformation(

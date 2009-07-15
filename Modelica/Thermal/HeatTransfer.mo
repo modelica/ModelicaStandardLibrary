@@ -6,7 +6,8 @@ package HeatTransfer
   import Modelica.SIunits.Conversions.*;
   extends Modelica.Icons.Library2;
   annotation (
-    version="1.1.1", versionDate="2007-11-13",
+  // illegal use of top-level annotation removed:
+  // version="1.1.1", versionDate="2007-11-13",
      Icon(coordinateSystem(preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
         Polygon(
@@ -70,7 +71,7 @@ Example models how to use this library are given in subpackage <b>Examples</b>.<
 For a first simple example, see <b>Examples.TwoMasses</b> where two masses
 with different initial temperatures are getting in contact to each
 other and arriving after some time at a common temperature.<br>
-<b>Examples.ControlledTemperature</b> shows how to hold a temperature 
+<b>Examples.ControlledTemperature</b> shows how to hold a temperature
 within desired limits by switching on and off an electric resistor.<br>
 A more realistic example is provided in <b>Examples.Motor</b> where the
 heating of an electrical motor is modelled, see the following screen shot
@@ -169,11 +170,11 @@ Modelica in file \"Modelica/package.mo\".
       parameter Modelica.SIunits.Temperature T_final_K(fixed=false)
         "Projected final temperature";
       HeatTransfer.Components.HeatCapacitor mass1(
-                                       C=15, T(start=373.15, fixed=true)) 
+                                       C=15, T(start=373.15, fixed=true))
         annotation (Placement(transformation(extent={{-100,20},{-40,80}},
               rotation=0)));
       HeatTransfer.Components.HeatCapacitor mass2(
-                                       C=15, T(start=273.15, fixed=true)) 
+                                       C=15, T(start=273.15, fixed=true))
                                                                     annotation (Placement(
             transformation(extent={{40,20},{100,80}}, rotation=0)));
       HeatTransfer.Components.ThermalConductor conduction(
@@ -241,17 +242,17 @@ An approppriate simulating time would be 10 seconds.
                 100,100}}),
             graphics),
         experiment(StopTime=10));
-      Modelica.Electrical.Analog.Basic.Ground ground 
+      Modelica.Electrical.Analog.Basic.Ground ground
                                   annotation (Placement(transformation(extent={
                 {-100,-100},{-80,-80}}, rotation=0)));
-      Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=10) 
+      Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=10)
                                                             annotation (Placement(
             transformation(
             origin={-90,-50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       HeatTransfer.Components.HeatCapacitor heatCapacitor(
-                                               C=1, T(start=TAmb, fixed=true)) 
+                                               C=1, T(start=TAmb, fixed=true))
         annotation (Placement(transformation(extent={{0,-60},{20,-80}},
               rotation=0)));
       Modelica.Electrical.Analog.Basic.HeatingResistor heatingResistor(
@@ -262,7 +263,7 @@ An approppriate simulating time would be 10 seconds.
             extent={{-10,10},{10,-10}},
             rotation=270)));
       HeatTransfer.Sources.FixedTemperature fixedTemperature(
-                                                     T=TAmb) 
+                                                     T=TAmb)
         annotation (Placement(transformation(extent={{100,-60},{80,-40}},
               rotation=0)));
       HeatTransfer.Celsius.TemperatureSensor temperatureSensor  annotation (Placement(
@@ -273,7 +274,7 @@ An approppriate simulating time would be 10 seconds.
       HeatTransfer.Components.ThermalConductor thermalConductor(
                                                      G=0.1)  annotation (Placement(
             transformation(extent={{40,-60},{60,-40}}, rotation=0)));
-      Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch idealSwitch 
+      Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch idealSwitch
             annotation (Placement(transformation(extent={{-70,-50},{-50,-30}},
               rotation=0)));
       Modelica.Blocks.Sources.Ramp ramp(
@@ -282,10 +283,10 @@ An approppriate simulating time would be 10 seconds.
         offset=25,
         startTime=2) annotation (Placement(transformation(extent={{40,0},{20,20}},
               rotation=0)));
-      Modelica.Blocks.Logical.OnOffController onOffController(bandwidth=TDif) 
+      Modelica.Blocks.Logical.OnOffController onOffController(bandwidth=TDif)
         annotation (Placement(transformation(extent={{0,-20},{-20,0}}, rotation=
                0)));
-      Modelica.Blocks.Logical.Not logicalNot 
+      Modelica.Blocks.Logical.Not logicalNot
                                        annotation (Placement(transformation(
               extent={{-30,-20},{-50,0}}, rotation=0)));
     equation
@@ -309,10 +310,10 @@ An approppriate simulating time would be 10 seconds.
               10},{10,10},{10,-4},{2,-4}}, color={0,0,127}));
       connect(temperatureSensor.T, onOffController.u)   annotation (Line(points=
              {{10,-20},{10,-16},{2,-16}}, color={0,0,127}));
-      connect(onOffController.y, logicalNot.u) 
+      connect(onOffController.y, logicalNot.u)
                                           annotation (Line(points={{-21,-10},{
               -28,-10}}, color={255,0,255}));
-      connect(logicalNot.y, idealSwitch.control) 
+      connect(logicalNot.y, idealSwitch.control)
                                             annotation (Line(points={{-51,-10},
               {-60,-10},{-60,-33}}, color={255,0,255}));
     end ControlledTemperature;
@@ -323,7 +324,7 @@ An approppriate simulating time would be 10 seconds.
         "Ambient temperature";
       annotation (Documentation(info="<HTML>
 <p>
-This example contains a simple second order thermal model of a motor. 
+This example contains a simple second order thermal model of a motor.
 The periodic power losses are described by table \"lossTable\":<br>
 <table>
 <tr><td valign=\"top\">time</td><td valign=\"top\">winding losses</td><td valign=\"top\">core losses</td></tr>
@@ -332,18 +333,18 @@ The periodic power losses are described by table \"lossTable\":<br>
 <tr><td valign=\"top\"> 360</td><td valign=\"top\">          1000</td><td valign=\"top\">        500</td></tr>
 <tr><td valign=\"top\"> 600</td><td valign=\"top\">          1000</td><td valign=\"top\">        500</td></tr>
 </table><br>
-Since constant speed is assumed, the core losses keep constant 
+Since constant speed is assumed, the core losses keep constant
 whereas the winding losses are low for 6 minutes (no-load) and high for 4 minutes (over load).
 <br>
 The winding losses are corrected by (1 + alpha*(T - T_ref)) because the winding's resistance is temperature dependent whereas the core losses are kept constant (alpha = 0).
 </p>
 <p>
-The power dissipation to the environment is approximated by heat flow through 
-a thermal conductance between winding and core, 
-partially storage of the heat in the winding's heat capacity 
+The power dissipation to the environment is approximated by heat flow through
+a thermal conductance between winding and core,
+partially storage of the heat in the winding's heat capacity
 as well as the core's heat capacity and finally by forced convection to the environment.<br>
 Since constant speed is assumed, the cinvective conductance keeps constant.<br>
-Using Modelica.Thermal.FluidHeatFlow it would be possible to model the coolant air flow, too 
+Using Modelica.Thermal.FluidHeatFlow it would be possible to model the coolant air flow, too
 (instead of simple dissipation to a constant ambient's temperature).
 </p>
 <p>
@@ -357,7 +358,7 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
 
       Modelica.Blocks.Sources.CombiTimeTable lossTable(extrapolation=Modelica.
             Blocks.Types.Extrapolation.Periodic, table=[0,100,500; 360,100,500;
-            360,1000,500; 600,1000,500]) 
+            360,1000,500; 600,1000,500])
                                 annotation (Placement(transformation(
             origin={-40,70},
             extent={{-10,-10},{10,10}},
@@ -372,17 +373,17 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
       HeatTransfer.Components.HeatCapacitor winding(               C=2500, T(start=
               TAmb, fixed=true))            annotation (Placement(
             transformation(extent={{-90,-20},{-70,-40}}, rotation=0)));
-      HeatTransfer.Celsius.TemperatureSensor Twinding 
+      HeatTransfer.Celsius.TemperatureSensor Twinding
                                                      annotation (Placement(
             transformation(
             origin={-60,-50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       HeatTransfer.Components.ThermalConductor winding2core(
-                                                 G=10) 
+                                                 G=10)
                                             annotation (Placement(
             transformation(extent={{-50,-20},{-30,0}}, rotation=0)));
-      HeatTransfer.Sources.PrescribedHeatFlow coreLosses 
+      HeatTransfer.Sources.PrescribedHeatFlow coreLosses
                                              annotation (Placement(
             transformation(
             origin={0,10},
@@ -396,12 +397,12 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
             origin={-20,-50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Blocks.Sources.Constant convectionConstant(k=25) 
+      Modelica.Blocks.Sources.Constant convectionConstant(k=25)
         annotation (Placement(transformation(
             origin={40,30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      HeatTransfer.Components.Convection convection 
+      HeatTransfer.Components.Convection convection
                                          annotation (Placement(transformation(
               extent={{30,-20},{50,0}}, rotation=0)));
       HeatTransfer.Sources.FixedTemperature environment(
@@ -417,22 +418,22 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
               -1.83697e-015,0},{-1.83697e-015,-10},{0,-10},{0,-20}},
                                                                    color={191,0,
               0}));
-      connect(winding.port, winding2core.port_a) 
+      connect(winding.port, winding2core.port_a)
                                        annotation (Line(points={{-80,-20},{-80,
               -10},{-50,-10}}, color={191,0,0}));
-      connect(winding2core.port_b, core.port) 
+      connect(winding2core.port_b, core.port)
                                     annotation (Line(points={{-30,-10},{0,-10},
               {0,-20}}, color={191,0,0}));
       connect(winding.port, Twinding.port)  annotation (Line(points={{-80,-20},
               {-80,-10},{-60,-10},{-60,-40}}, color={191,0,0}));
       connect(core.port, Tcore.port)  annotation (Line(points={{0,-20},{0,-10},
               {-20,-10},{-20,-40}}, color={191,0,0}));
-      connect(winding2core.port_b, convection.solid) 
+      connect(winding2core.port_b, convection.solid)
                                           annotation (Line(points={{-30,-10},{
               30,-10}}, color={191,0,0}));
       connect(convection.fluid, environment.port) annotation (Line(points={{50,-10},
               {60,-10},{60,-10},{70,-10}},      color={191,0,0}));
-      connect(convectionConstant.y, convection.Gc) 
+      connect(convectionConstant.y, convection.Gc)
         annotation (Line(points={{40,19},{40,0}}, color={0,0,127}));
       connect(lossTable.y[1], windingLosses.Q_flow) annotation (Line(points={{
               -40,59},{-40,40},{-80,40},{-80,20}}, color={0,0,127}));
@@ -448,7 +449,7 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
             fillColor={135,135,135},
             fillPattern=FillPattern.Solid)}),
                               Documentation(info="<html>
-  
+
 </html>"));
   end Examples;
 
@@ -850,7 +851,7 @@ McGraw-Hill, 1997, p.270):
             Line(points={{56,10},{76,20}}, color={191,0,0}),
             Line(points={{56,30},{76,20}}, color={191,0,0})}));
       Modelica.Blocks.Interfaces.RealInput Gc
-        "Signal representing the convective thermal conductance in [W/K]" 
+        "Signal representing the convective thermal conductance in [W/K]"
         annotation (Placement(transformation(
             origin={0,100},
             extent={{-20,-20},{20,20}},
@@ -1251,7 +1252,7 @@ component to which the component FixedHeatFlow is connected,
 if parameter Q_flow is positive.
 </p>
 <p>
-If parameter alpha is > 0, the heat flow is mulitplied by (1 + alpha*(port.T - T_ref)) 
+If parameter alpha is > 0, the heat flow is mulitplied by (1 + alpha*(port.T - T_ref))
 in order to simulate temperature dependent losses (which are given an reference temperature T_ref).
 </p>
 </HTML>
@@ -1314,7 +1315,7 @@ component to which the component PrescribedHeatFlow is connected,
 if the input signal is positive.
 </p>
 <p>
-If parameter alpha is > 0, the heat flow is mulitplied by (1 + alpha*(port.T - T_ref)) 
+If parameter alpha is > 0, the heat flow is mulitplied by (1 + alpha*(port.T - T_ref))
 in order to simulate temperature dependent losses (which are given an reference temperature T_ref).
 </p>
 </HTML>
@@ -1346,7 +1347,7 @@ in order to simulate temperature dependent losses (which are given an reference 
               lineColor={191,0,0},
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid)}));
-      Modelica.Blocks.Interfaces.RealInput Q_flow 
+      Modelica.Blocks.Interfaces.RealInput Q_flow
             annotation (Placement(transformation(
             origin={-100,0},
             extent={{20,-20},{-20,20}},
@@ -1384,7 +1385,7 @@ in order to simulate temperature dependent losses (which are given an reference 
             lineColor={0,0,0},
             fillColor={0,0,0},
             fillPattern=FillPattern.Solid)}), Documentation(info="<html>
- 
+
 </html>"));
     model TemperatureSensor "Absolute temperature sensor in Kelvin"
 
@@ -1521,7 +1522,7 @@ the two ports of this component and is provided as output signal in Kelvin.
                 -110,-10},{-90,10}}, rotation=0)));
       Interfaces.HeatPort_b port_b annotation (Placement(transformation(extent={{
                 90,-10},{110,10}}, rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput T_rel 
+      Modelica.Blocks.Interfaces.RealOutput T_rel
                             annotation (Placement(transformation(
             origin={0,-90},
             extent={{10,-10},{-10,10}},
@@ -1637,10 +1638,10 @@ and provide is as output signal.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.RealInput Celsius 
+      Modelica.Blocks.Interfaces.RealInput Celsius
          annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput Kelvin 
+      Modelica.Blocks.Interfaces.RealOutput Kelvin
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
     equation
@@ -1698,10 +1699,10 @@ and provides is as output signal.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.RealInput Kelvin 
+      Modelica.Blocks.Interfaces.RealInput Kelvin
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput Celsius 
+      Modelica.Blocks.Interfaces.RealOutput Celsius
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
     equation
@@ -2023,7 +2024,7 @@ and provides is as output signal.
 "));
       Modelica.Blocks.Interfaces.RealInput Fahrenheit annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput Kelvin 
+      Modelica.Blocks.Interfaces.RealOutput Kelvin
           annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
     equation
@@ -2081,10 +2082,10 @@ and provides them as output signals.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.RealInput Kelvin 
+      Modelica.Blocks.Interfaces.RealInput Kelvin
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput Fahrenheit 
+      Modelica.Blocks.Interfaces.RealOutput Fahrenheit
      annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=
                0)));
     equation
@@ -2222,7 +2223,7 @@ as required to keep the temperature at the specified value.
               fillPattern=FillPattern.Solid)}));
       Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{
                 90,-10},{110,10}}, rotation=0)));
-      Modelica.Blocks.Interfaces.RealInput T 
+      Modelica.Blocks.Interfaces.RealInput T
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
     equation
@@ -2404,10 +2405,10 @@ and provides them as output signals.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.RealInput Rankine 
+      Modelica.Blocks.Interfaces.RealInput Rankine
        annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput Kelvin 
+      Modelica.Blocks.Interfaces.RealOutput Kelvin
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
     equation
@@ -2465,10 +2466,10 @@ and provides them as output signals.
 </p>
 </HTML>
 "));
-      Modelica.Blocks.Interfaces.RealInput Kelvin 
+      Modelica.Blocks.Interfaces.RealInput Kelvin
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput Rankine 
+      Modelica.Blocks.Interfaces.RealOutput Rankine
          annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
     equation
@@ -2606,7 +2607,7 @@ as required to keep the temperature at the specified value.
               fillPattern=FillPattern.Solid)}));
       Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{
                 90,-10},{110,10}}, rotation=0)));
-      Modelica.Blocks.Interfaces.RealInput T 
+      Modelica.Blocks.Interfaces.RealInput T
          annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
     equation
@@ -2741,7 +2742,7 @@ sensor model.
       flow Modelica.SIunits.HeatFlowRate Q_flow
         "Heat flow rate (positive if flowing from outside into the component)";
       annotation (Documentation(info="<html>
-  
+
 </html>"));
     end HeatPort;
 
@@ -2754,7 +2755,7 @@ sensor model.
         Documentation(info="<HTML>
 <p>This connector is used for 1-dimensional heat flow between components.
 The variables in the connector are:</p>
-<pre>   
+<pre>
    T       Temperature in [Kelvin].
    Q_flow  Heat flow rate in [Watt].
 </pre>
@@ -2861,7 +2862,7 @@ constitutive equations for many types of heat transfer components.
             fillColor={191,0,0},
             fillPattern=FillPattern.Solid)}),
                                Documentation(info="<html>
-  
+
 </html>"));
   end Interfaces;
 end HeatTransfer;
