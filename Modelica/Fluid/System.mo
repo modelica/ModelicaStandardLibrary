@@ -1,4 +1,4 @@
-within Modelica_Fluid;
+within Modelica.Fluid;
 model System
   "System properties and default values (ambient, flow direction, initialization)"
 
@@ -19,21 +19,21 @@ model System
   parameter Boolean allowFlowReversal = true
     "= false to restrict to design flow direction (port_a -> port_b)" 
     annotation(Dialog(tab="Assumptions"), Evaluate=true);
-  parameter Modelica_Fluid.Types.Dynamics energyDynamics=
-    Modelica_Fluid.Types.Dynamics.DynamicFreeInitial
+  parameter Modelica.Fluid.Types.Dynamics energyDynamics=
+    Modelica.Fluid.Types.Dynamics.DynamicFreeInitial
     "Default formulation of energy balances" 
     annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
-  parameter Modelica_Fluid.Types.Dynamics massDynamics=
+  parameter Modelica.Fluid.Types.Dynamics massDynamics=
     energyDynamics "Default formulation of mass balances" 
     annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
-  final parameter Modelica_Fluid.Types.Dynamics substanceDynamics=
+  final parameter Modelica.Fluid.Types.Dynamics substanceDynamics=
     massDynamics "Default formulation of substance balances" 
     annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
-  final parameter Modelica_Fluid.Types.Dynamics traceDynamics=
+  final parameter Modelica.Fluid.Types.Dynamics traceDynamics=
     massDynamics "Default formulation of trace substance balances" 
     annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
-  parameter Modelica_Fluid.Types.Dynamics momentumDynamics=
-    Modelica_Fluid.Types.Dynamics.SteadyState
+  parameter Modelica.Fluid.Types.Dynamics momentumDynamics=
+    Modelica.Fluid.Types.Dynamics.SteadyState
     "Default formulation of momentum balances, if options available" 
     annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));
 
@@ -62,7 +62,7 @@ model System
     missingInnerMessage="
 Your model is using an outer \"system\" component but
 an inner \"system\" component is not defined.
-For simulation drag Modelica_Fluid.System into your model
+For simulation drag Modelica.Fluid.System into your model
 to specify system properties. The default System setting
 is used for the current simulation.
 ",  Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,

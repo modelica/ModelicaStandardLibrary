@@ -1,4 +1,4 @@
-within Modelica_Fluid.Examples;
+within Modelica.Fluid.Examples;
 package HeatExchanger "Demo of a heat exchanger model"
   model HeatExchangerSimulation "simulation for the heat exchanger model"
 
@@ -8,7 +8,7 @@ package HeatExchanger "Demo of a heat exchanger model"
         Modelica.Media.Water.ConstantPropertyLiquidWater;
   //replaceable package Medium = Modelica.Media.Water.StandardWater;
   //package Medium = Modelica.Media.Incompressible.Examples.Essotherm650;
-    Modelica_Fluid.Examples.HeatExchanger.BaseClasses.BasicHX HEX(
+    Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX HEX(
       c_wall=500,
       use_T_start=true,
       nNodes=20,
@@ -16,8 +16,8 @@ package HeatExchanger "Demo of a heat exchanger model"
       m_flow_start_1=0.2,
       m_flow_start_2=0.2,
       k_wall=100,
-      energyDynamics=Modelica_Fluid.Types.Dynamics.FixedInitial,
-      massDynamics=Modelica_Fluid.Types.Dynamics.SteadyStateInitial,
+      energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
+      massDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial,
       s_wall=0.005,
       crossArea_1=4.5e-4,
       crossArea_2=4.5e-4,
@@ -31,11 +31,11 @@ package HeatExchanger "Demo of a heat exchanger model"
       redeclare package Medium_2 = 
           Medium,
       redeclare model HeatTransfer_1 = 
-          Modelica_Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer
+          Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer
           (                                                                   alpha0=
              1000),
       redeclare model HeatTransfer_2 = 
-          Modelica_Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer
+          Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer
           (alpha0=200),
       Twall_start=300,
       dT=10,
@@ -43,17 +43,17 @@ package HeatExchanger "Demo of a heat exchanger model"
       T_start_2=300)       annotation (Placement(transformation(extent={{
               -26,-14},{34,46}}, rotation=0)));
 
-    Modelica_Fluid.Sources.Boundary_pT ambient2(nPorts=1,
+    Modelica.Fluid.Sources.Boundary_pT ambient2(nPorts=1,
       p=1e5,
       T=280,
       redeclare package Medium = Medium)                              annotation (Placement(
           transformation(extent={{82,-28},{62,-8}}, rotation=0)));
-    Modelica_Fluid.Sources.Boundary_pT ambient1(nPorts=1,
+    Modelica.Fluid.Sources.Boundary_pT ambient1(nPorts=1,
       p=1e5,
       T=300,
       redeclare package Medium = Medium)                              annotation (Placement(
           transformation(extent={{82,24},{62,44}}, rotation=0)));
-    Modelica_Fluid.Sources.MassFlowSource_T massFlowRate2(nPorts=1,
+    Modelica.Fluid.Sources.MassFlowSource_T massFlowRate2(nPorts=1,
       m_flow=0.2,
       T=360,
       redeclare package Medium = Medium,
@@ -62,7 +62,7 @@ package HeatExchanger "Demo of a heat exchanger model"
       use_X_in=false) 
                   annotation (Placement(transformation(extent={{-66,24},{-46,44}},
             rotation=0)));
-    Modelica_Fluid.Sources.MassFlowSource_T massFlowRate1(nPorts=1,
+    Modelica.Fluid.Sources.MassFlowSource_T massFlowRate1(nPorts=1,
       T=300,
       m_flow=0.5,
       redeclare package Medium = Medium) 
@@ -74,7 +74,7 @@ package HeatExchanger "Demo of a heat exchanger model"
                          experiment(StopTime=100, Tolerance=1e-005),
       Documentation(info="<html>
 <p align=\"center\">
-<img src=\"../Images/Examples/HeatExchanger.png\" border=\"1\">
+<img src=\"../Images/Fluid/Examples/HeatExchanger.png\" border=\"1\">
 </p>
 </html>"));
     Modelica.Blocks.Sources.Ramp Ramp1(
@@ -83,7 +83,7 @@ package HeatExchanger "Demo of a heat exchanger model"
       height=-1,
       offset=0.5)   annotation (Placement(transformation(extent={{-98,24},{-78,
               44}}, rotation=0)));
-    inner Modelica_Fluid.System system 
+    inner Modelica.Fluid.System system 
                                      annotation (Placement(transformation(extent=
               {{60,70},{80,90}}, rotation=0)));
   equation
@@ -106,10 +106,10 @@ package HeatExchanger "Demo of a heat exchanger model"
   end HeatExchangerSimulation;
 
   package BaseClasses "Additional models for heat exchangers"
-    extends Modelica_Fluid.Icons.BaseClassLibrary;
+    extends Modelica.Fluid.Icons.BaseClassLibrary;
 
     model BasicHX "Simple heat exchanger model"
-      outer Modelica_Fluid.System system "System properties";
+      outer Modelica.Fluid.System system "System properties";
       //General
       parameter Integer nNodes(min=1) = 2 "Spatial segmentation";
       replaceable package Medium_1 = Modelica.Media.Water.StandardWater constrainedby
@@ -126,15 +126,15 @@ package HeatExchanger "Demo of a heat exchanger model"
       parameter SI.Length s_wall(min=0) "Wall thickness";
       // Heat transfer
       replaceable model HeatTransfer_1 = 
-          Modelica_Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer 
+          Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer 
         constrainedby
-        Modelica_Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer
+        Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer
         "Heat transfer model" annotation(choicesAllMatching, Dialog(tab="General", group="Fluid 1"));
 
       replaceable model HeatTransfer_2 = 
-          Modelica_Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer 
+          Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer 
         constrainedby
-        Modelica_Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer
+        Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer
         "Heat transfer model" annotation(choicesAllMatching, Dialog(tab="General", group="Fluid 2"));
 
       parameter SI.Area area_h_1 "Heat transfer area" annotation(Dialog(tab="General",group="Fluid 1"));
@@ -223,14 +223,14 @@ package HeatExchanger "Demo of a heat exchanger model"
 
       //Pressure drop and heat transfer
       replaceable model FlowModel_1 = 
-          Modelica_Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow 
+          Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow 
         constrainedby
-        Modelica_Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel
+        Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel
         "Characteristic of wall friction"                                                                                                   annotation(choicesAllMatching, Dialog(tab="General", group="Fluid 1"));
       replaceable model FlowModel_2 = 
-          Modelica_Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow 
+          Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow 
         constrainedby
-        Modelica_Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel
+        Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel
         "Characteristic of wall friction"                                                                                                   annotation(choicesAllMatching, Dialog(tab="General", group="Fluid 2"));
       parameter SI.Length roughness_1=2.5e-5
         "Absolute roughness of pipe (default = smooth steel pipe)" annotation(Dialog(tab="General", group="Fluid 1"));
@@ -254,7 +254,7 @@ package HeatExchanger "Demo of a heat exchanger model"
         annotation (Placement(transformation(extent={{-29,-23},{9,35}},  rotation=
                0)));
 
-      Modelica_Fluid.Pipes.DynamicPipe pipe_1(
+      Modelica.Fluid.Pipes.DynamicPipe pipe_1(
         redeclare package Medium = Medium_1,
         isCircular=false,
         diameter=0,
@@ -276,7 +276,7 @@ package HeatExchanger "Demo of a heat exchanger model"
         redeclare model FlowModel = FlowModel_1)   annotation (Placement(transformation(extent={{-40,-80},
                 {20,-20}},        rotation=0)));
 
-      Modelica_Fluid.Pipes.DynamicPipe pipe_2(
+      Modelica.Fluid.Pipes.DynamicPipe pipe_2(
         redeclare package Medium = Medium_2,
         nNodes=nNodes,
         allowFlowReversal=allowFlowReversal,
@@ -362,16 +362,16 @@ For both fluids geometry parameters, such as heat transfer area and cross sectio
 The flow scheme may be concurrent or counterflow, defined by the respective flow directions of the fluids entering the component.
 The design flow direction with positive m_flow variables is counterflow.
 </html>"));
-      Modelica_Fluid.Interfaces.FluidPort_b port_b1(redeclare package Medium = 
+      Modelica.Fluid.Interfaces.FluidPort_b port_b1(redeclare package Medium = 
             Medium_1) annotation (Placement(transformation(extent={{100,-12},{120,
                 8}}, rotation=0)));
-      Modelica_Fluid.Interfaces.FluidPort_a port_a1(redeclare package Medium = 
+      Modelica.Fluid.Interfaces.FluidPort_a port_a1(redeclare package Medium = 
             Medium_1) annotation (Placement(transformation(extent={{-120,-12},{
                 -100,8}}, rotation=0)));
-      Modelica_Fluid.Interfaces.FluidPort_b port_b2(redeclare package Medium = 
+      Modelica.Fluid.Interfaces.FluidPort_b port_b2(redeclare package Medium = 
             Medium_2) annotation (Placement(transformation(extent={{-120,36},{
                 -100,56}}, rotation=0)));
-      Modelica_Fluid.Interfaces.FluidPort_a port_a2(redeclare package Medium = 
+      Modelica.Fluid.Interfaces.FluidPort_a port_a2(redeclare package Medium = 
             Medium_2) annotation (Placement(transformation(extent={{100,-56},{120,
                 -36}}, rotation=0)));
 
@@ -421,7 +421,7 @@ The design flow direction with positive m_flow variables is counterflow.
       parameter SI.Mass[n] m=fill(rho_wall*area_h*s/n,n)
         "Distribution of wall mass";
     //Initialization
-      outer Modelica_Fluid.System system;
+      outer Modelica.Fluid.System system;
       parameter Types.Dynamics energyDynamics=system.energyDynamics
         "Formulation of energy balance" 
         annotation(Evaluate=true, Dialog(tab = "Assumptions", group="Dynamics"));

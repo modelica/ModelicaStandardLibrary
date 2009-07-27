@@ -1,6 +1,5 @@
-within Modelica_Fluid;
-package Icons "Library of resuable icons"
-  extends Modelica.Icons.Library;
+within Modelica.Fluid;
+package Icons
   partial class VariantLibrary
     "Icon for a library that contains several variants of one component"
 
@@ -63,32 +62,4 @@ package Icons "Library of resuable icons"
             lineColor={0,0,255},
             textString="Base classes")}));
   end BaseClassLibrary;
-
-  partial class ObsoleteFunction "Icon for an interal function"
-
-  annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={
-          Text(
-            extent={{-140,162},{136,102}},
-            textString="%name",
-            lineColor={0,0,255}),
-          Ellipse(
-            extent={{-100,100},{100,-100}},
-            lineColor={255,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{-100,100},{100,-100}},
-            lineColor={255,0,0},
-            textString="f")}),
-                      Documentation(info="<html>
-<p>
-This icon is designed for a <b>function</b>
-</p>
-</html>"));
-
-  end ObsoleteFunction;
-  annotation (Documentation(info="<html>
- 
-</html>"));
 end Icons;

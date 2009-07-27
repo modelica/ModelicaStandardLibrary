@@ -1,4 +1,4 @@
-within Modelica_Fluid.Examples;
+within Modelica.Fluid.Examples;
 package TraceSubstances "Library demonstrating the usage of trace substances"
   extends Modelica.Icons.Library;
   model RoomCO2 "Demonstrates a room volume with CO2 accumulation"
@@ -20,21 +20,21 @@ package TraceSubstances "Library demonstrating the usage of trace substances"
       nPorts=2,
       X=Medium.X_default) 
       annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
-    Modelica_Fluid.Vessels.ClosedVolume volume(
+    Modelica.Fluid.Vessels.ClosedVolume volume(
       C_start={1.519E-3},
       V=100,
       redeclare package Medium = Medium,
       nPorts=2,
       X_start={0.015,0.085},
-      massDynamics=Modelica_Fluid.Types.Dynamics.FixedInitial,
+      massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
       use_portsData=false) 
                 annotation (Placement(transformation(extent={{-20,0},{0,20}})));
-    Modelica_Fluid.Pipes.StaticPipe pipe(
+    Modelica.Fluid.Pipes.StaticPipe pipe(
       redeclare package Medium = Medium,
       length=1,
       diameter=0.15,
       redeclare model FlowModel = 
-          Modelica_Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow (
+          Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow (
            show_Res=true)) 
       annotation (Placement(transformation(extent={{20,-20},{40,0}})));
     Sensors.TraceSubstances traceSource(redeclare package Medium = Medium) 
@@ -79,13 +79,12 @@ concentration of the fresh air.
 </p>
  
 <p align=\"center\">
-<img src=\"../Images/Examples/RoomCO2.png\" border=\"1\">
+<img src=\"../Images/Fluid/Examples/RoomCO2.png\" border=\"1\">
 </p>
  
 </html>"),
-      Commands(file(ensureSimulated=true)=
-          "Scripts/Examples/RoomCO2/plotConcentrations.mos"
-          "plot concentrations"));
+      __Dymola_Commands(file(ensureSimulated=true)=
+          "Scripts/Fluid/RoomCO2/plotConcentrations.mos" "plot concentrations"));
   end RoomCO2;
 
   model RoomCO2WithControls "Demonstrates a room volume with CO2 controls"
@@ -106,20 +105,20 @@ concentration of the fresh air.
       nPorts=2,
       use_m_flow_in=true) 
       annotation (Placement(transformation(extent={{-60,-42},{-40,-22}})));
-    Modelica_Fluid.Vessels.ClosedVolume volume(
+    Modelica.Fluid.Vessels.ClosedVolume volume(
       C_start={1.519E-3},
       V=100,
       redeclare package Medium = Medium,
       nPorts=3,
-      massDynamics=Modelica_Fluid.Types.Dynamics.FixedInitial,
+      massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
       use_portsData=false) 
                 annotation (Placement(transformation(extent={{-20,-22},{0,-2}})));
-    Modelica_Fluid.Pipes.StaticPipe pipe(
+    Modelica.Fluid.Pipes.StaticPipe pipe(
       redeclare package Medium = Medium,
       length=1,
       diameter=0.15,
       redeclare model FlowModel = 
-          Modelica_Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow (
+          Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow (
            show_Res=true)) 
       annotation (Placement(transformation(extent={{32,-40},{52,-20}})));
     Sensors.TraceSubstances traceSource(redeclare package Medium = Medium) 
@@ -184,7 +183,7 @@ concentration of the fresh air.
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics),
       experiment(StopTime=86400, tolerance=1e-006),
-      Commands(file(ensureSimulated=true)="Scripts/Examples/RoomCO2WithControls/plotStatesWithControl.mos"
+      __Dymola_Commands(file(ensureSimulated=true)="Scripts/Fluid/RoomCO2WithControls/plotStatesWithControl.mos"
           "plot states and controls"),
       Documentation(info="<html>
 <p>
@@ -217,7 +216,7 @@ and hence its contribution to the volume's energy balance is negligible.
 </p>
  
 <p align=\"center\">
-<img src=\"../Images/Examples/RoomCO2WithControls.png\" border=\"1\">
+<img src=\"../Images/Fluid/Examples/RoomCO2WithControls.png\" border=\"1\">
 </p>
 </html>"));
     connect(NumberOfPeople.y[1], gain.u) annotation (Line(

@@ -1,7 +1,7 @@
-within Modelica_Fluid;
+within Modelica.Fluid;
 package Machines
   "Devices for converting between energy held in a fluid and mechanical energy"
-  extends Modelica_Fluid.Icons.VariantLibrary;
+  extends Modelica.Fluid.Icons.VariantLibrary;
   model SweptVolume
     "varying cylindric volume depending on the postition of the piston"
     import Modelica.Constants.pi;
@@ -12,7 +12,7 @@ package Machines
     SI.Volume V "fluid volume";
 
     // Mass and energy balance, ports
-    extends Modelica_Fluid.Vessels.BaseClasses.PartialLumpedVessel(
+    extends Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel(
       final fluidVolume = V,
       heatTransfer(surfaceAreas={pistonCrossArea+2*sqrt(pistonCrossArea*pi)*(flange.s+clearance/pistonCrossArea)}));
 
@@ -105,7 +105,7 @@ package Machines
   end SweptVolume;
 
   model Pump "Centrifugal pump with mechanical connector for the shaft"
-    extends Modelica_Fluid.Machines.BaseClasses.PartialPump;
+    extends Modelica.Fluid.Machines.BaseClasses.PartialPump;
     SI.Angle phi "Shaft angle";
     SI.AngularVelocity omega "Shaft angular velocity";
     Modelica.Mechanics.Rotational.Interfaces.Flange_a shaft 
@@ -142,11 +142,11 @@ package Machines
   model ControlledPump
     "Centrifugal pump with ideally controlled mass flow rate"
     import Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm;
-    extends Modelica_Fluid.Machines.BaseClasses.PartialPump(
+    extends Modelica.Fluid.Machines.BaseClasses.PartialPump(
       N_nominal=1500,
       N(start=N_nominal),
       redeclare replaceable function flowCharacteristic = 
-          Modelica_Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticFlow
+          Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticFlow
           ( V_flow_nominal={0, V_flow_op, 1.5*V_flow_op},
             head_nominal={2*head_op, head_op, 0}));
 
@@ -247,7 +247,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
   end ControlledPump;
 
   model PrescribedPump "Centrifugal pump with ideally controlled speed"
-    extends Modelica_Fluid.Machines.BaseClasses.PartialPump;
+    extends Modelica.Fluid.Machines.BaseClasses.PartialPump;
     parameter Boolean use_N_in = false
       "Get the rotational speed from the input connector";
     parameter Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm
@@ -300,13 +300,13 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
 
   package BaseClasses
     "Base classes used in the Machines package (only of interest to build new component models)"
-    extends Modelica_Fluid.Icons.BaseClassLibrary;
+    extends Modelica.Fluid.Icons.BaseClassLibrary;
 
   partial model PartialPump "Base model for centrifugal pumps"
       import Modelica.SIunits.Conversions.NonSIunits.*;
       import Modelica.Constants;
 
-    extends Modelica_Fluid.Interfaces.PartialTwoPort(
+    extends Modelica.Fluid.Interfaces.PartialTwoPort(
       port_b_exposesState = energyDynamics<>Types.Dynamics.SteadyState or massDynamics<>Types.Dynamics.SteadyState,
       port_a(
         p(start=p_a_start),
@@ -365,7 +365,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
       annotation(Dialog(tab="Assumptions"),Evaluate=true);
 
     // Energy and mass balance
-    extends Modelica_Fluid.Interfaces.PartialLumpedVolume(
+    extends Modelica.Fluid.Interfaces.PartialLumpedVolume(
         final fluidVolume = V,
         energyDynamics = Types.Dynamics.SteadyState,
         massDynamics = Types.Dynamics.SteadyState,
@@ -376,9 +376,9 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
         "= true to use a HeatTransfer model, e.g. for a housing" 
         annotation (Dialog(tab="Assumptions",group="Heat transfer"));
     replaceable model HeatTransfer = 
-        Modelica_Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer 
+        Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer 
       constrainedby
-        Modelica_Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer
+        Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer
         "Wall heat transfer" 
         annotation (Dialog(tab="Assumptions",group="Heat transfer",enable=use_HeatTransfer),choicesAllMatching=true);
     HeatTransfer heatTransfer(

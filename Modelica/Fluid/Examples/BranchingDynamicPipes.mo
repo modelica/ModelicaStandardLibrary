@@ -1,4 +1,4 @@
-within Modelica_Fluid.Examples;
+within Modelica.Fluid.Examples;
 model BranchingDynamicPipes
   "Multi-way connections of pipes with dynamic momentum balance, pressure wave and flow reversal"
 extends Modelica.Icons.Example;
@@ -32,21 +32,21 @@ derivative would be a dirac impulse.
 </p>
  
 <p align=\"center\">
-<img src=\"../Images/Examples/BranchingDynamicPipes.png\" border=\"1\">
+<img src=\"../Images/Fluid/Examples/BranchingDynamicPipes.png\" border=\"1\">
 </p>
 </html>"));
                                      annotation (points=[-22,42; -2,42; -2,32;
         7.8,32],
       style(color=69, rgbcolor={0,127,255}));
 
-  inner Modelica_Fluid.System system(momentumDynamics=Modelica_Fluid.Types.Dynamics.DynamicFreeInitial) 
+  inner Modelica.Fluid.System system(momentumDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial) 
     annotation (Placement(transformation(extent={{-90,70},{-70,90}},  rotation=
             0)));
-  Modelica_Fluid.Sources.Boundary_pT boundary1(nPorts=1,
+  Modelica.Fluid.Sources.Boundary_pT boundary1(nPorts=1,
     redeclare package Medium = Medium, p=150000)                    annotation (Placement(
         transformation(extent={{-10,-10},{10,10}},    rotation=90,
         origin={0,-80})));
-  Modelica_Fluid.Pipes.DynamicPipe pipe1(
+  Modelica.Fluid.Pipes.DynamicPipe pipe1(
     redeclare package Medium=Medium,
     use_T_start=true,
     nNodes=5,
@@ -59,12 +59,12 @@ derivative would be a dirac impulse.
             annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
         origin={0,-50})));
- Modelica_Fluid.Pipes.DynamicPipe pipe2(
+ Modelica.Fluid.Pipes.DynamicPipe pipe2(
     redeclare package Medium = Medium,
     use_T_start=true,
     nNodes=5,
     redeclare model HeatTransfer = 
-        Modelica_Fluid.Pipes.BaseClasses.HeatTransfer.LocalPipeFlowHeatTransfer,
+        Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.LocalPipeFlowHeatTransfer,
     use_HeatTransfer=true,
     diameter=2.54e-2,
     m_flow_start=0.01,
@@ -76,7 +76,7 @@ derivative would be a dirac impulse.
           rotation=90,
         origin={-20,-10})));
 
-  Modelica_Fluid.Pipes.DynamicPipe pipe3(
+  Modelica.Fluid.Pipes.DynamicPipe pipe3(
     redeclare package Medium=Medium,
     use_T_start=true,
     nNodes=5,
@@ -89,11 +89,11 @@ derivative would be a dirac impulse.
             annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
         origin={20,-10})));
-  Modelica_Fluid.Pipes.DynamicPipe pipe4(
+  Modelica.Fluid.Pipes.DynamicPipe pipe4(
     redeclare package Medium=Medium,
     use_T_start=true,
     nNodes=5,
-    modelStructure=Modelica_Fluid.Types.ModelStructure.av_b,
+    modelStructure=Modelica.Fluid.Types.ModelStructure.av_b,
     diameter=2.54e-2,
     m_flow_start=0.02,
     p_a_start=120000,
@@ -103,7 +103,7 @@ derivative would be a dirac impulse.
             annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
         origin={0,30})));
-  Modelica_Fluid.Sources.Boundary_pT boundary4(nPorts=1,
+  Modelica.Fluid.Sources.Boundary_pT boundary4(nPorts=1,
     redeclare package Medium = Medium,
     use_p_in=true,
     use_T_in=false,
@@ -159,9 +159,9 @@ equation
             -100},{100,100}}),
                       graphics),
                        experiment(StopTime=10),
-    Commands(file(ensureSimulated=true)=
-        "Scripts/Examples/BranchingDynamicPipes/plotResults.mos" "plotResults"),
-    experimentSetupOutput,
+    __Dymola_Commands(file(ensureSimulated=true)=
+        "Scripts/Fluid/BranchingDynamicPipes/plotResults.mos" "plotResults"),
+    __Dymola_experimentSetupOutput,
     Documentation(info="<html>
 <p>
 This model demonstrates the use of distributed pipe models with dynamic energy, mass and momentum balances. 

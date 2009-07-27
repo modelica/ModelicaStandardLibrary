@@ -1,4 +1,4 @@
-within Modelica_Fluid;
+within Modelica.Fluid;
 package Interfaces
   "Interfaces for steady state and unsteady, mixed-phase, multi-substance, incompressible and compressible flow"
 
@@ -9,9 +9,9 @@ package Interfaces
 <li><i>June 9th, 2008</i>
        by Michael Sielemann: Introduced stream keyword after decision at 57th Design Meeting (Lund).</li>
 <li><i>May 30, 2007</i>
-       by Christoph Richter: moved everything back to its original position in Modelica_Fluid.</li>
+       by Christoph Richter: moved everything back to its original position in Modelica.Fluid.</li>
 <li><i>Apr. 20, 2007</i>
-       by Christoph Richter: moved parts of the original package from Modelica_Fluid
+       by Christoph Richter: moved parts of the original package from Modelica.Fluid
        to the development branch of Modelica 2.2.2.</li>
 <li><i>Nov. 2, 2005</i>
        by Francesco Casella: restructured after 45th Design Meeting.</li>
@@ -261,7 +261,7 @@ package Interfaces
 
   partial model PartialTwoPort "Partial component with two ports"
     import Modelica.Constants;
-    outer Modelica_Fluid.System system "System wide properties";
+    outer Modelica.Fluid.System system "System wide properties";
 
     replaceable package Medium = 
         Modelica.Media.Interfaces.PartialMedium "Medium in the component" 
@@ -271,13 +271,13 @@ package Interfaces
       "= true to allow flow reversal, false restricts to design direction (port_a -> port_b)"
       annotation(Dialog(tab="Assumptions"), Evaluate=true);
 
-    Modelica_Fluid.Interfaces.FluidPort_a port_a(
+    Modelica.Fluid.Interfaces.FluidPort_a port_a(
                                   redeclare package Medium = Medium,
                        m_flow(min=if allowFlowReversal then -Constants.inf else 0))
       "Fluid connector a (positive design flow direction is from port_a to port_b)"
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
-    Modelica_Fluid.Interfaces.FluidPort_b port_b(
+    Modelica.Fluid.Interfaces.FluidPort_b port_b(
                                   redeclare package Medium = Medium,
                        m_flow(max=if allowFlowReversal then +Constants.inf else 0))
       "Fluid connector b (positive design flow direction is from port_a to port_b)"
@@ -386,20 +386,20 @@ partial model PartialTwoPortTransport
       "Pressure difference between port_a and port_b (= port_a.p - port_b.p)";
 
   Modelica.SIunits.VolumeFlowRate V_flow=
-      m_flow/Modelica_Fluid.Utilities.regStep(m_flow,
+      m_flow/Modelica.Fluid.Utilities.regStep(m_flow,
                   Medium.density(state_a),
                   Medium.density(state_b),
                   m_flow_small) if show_V_flow
       "Volume flow rate at inflowing port (positive when flow from port_a to port_b)";
 
   Medium.Temperature port_a_T=
-      Modelica_Fluid.Utilities.regStep(port_a.m_flow,
+      Modelica.Fluid.Utilities.regStep(port_a.m_flow,
                   Medium.temperature(state_a),
                   Medium.temperature(Medium.setState_phX(port_a.p, port_a.h_outflow, port_a.Xi_outflow)),
                   m_flow_small) if show_T
       "Temperature close to port_a, if show_T = true";
   Medium.Temperature port_b_T=
-      Modelica_Fluid.Utilities.regStep(port_b.m_flow,
+      Modelica.Fluid.Utilities.regStep(port_b.m_flow,
                   Medium.temperature(state_b),
                   Medium.temperature(Medium.setState_phX(port_b.p, port_b.h_outflow, port_b.Xi_outflow)),
                   m_flow_small) if show_T
@@ -544,10 +544,10 @@ end PartialTwoPortTransport;
       annotation(Dialog(group="Ambient"),Evaluate=true);
     parameter SI.Temperature T_ambient = system.T_ambient "Ambient temperature"
       annotation(Dialog(group="Ambient"));
-    outer Modelica_Fluid.System system "System wide properties";
+    outer Modelica.Fluid.System system "System wide properties";
 
     // Heat ports
-    Modelica_Fluid.Interfaces.HeatPorts_a[n] heatPorts
+    Modelica.Fluid.Interfaces.HeatPorts_a[n] heatPorts
       "Heat port to component boundary" 
       annotation (Placement(transformation(extent={{-10,60},{10,80}},
               rotation=0), iconTransformation(extent={{-20,60},{20,80}})));
@@ -580,10 +580,10 @@ the boundary temperatures <tt>heatPorts[n].T</tt>, and the heat flow rates <tt>Q
 
     partial model PartialLumpedVolume
     "Lumped volume with mass and energy balance"
-    import Modelica_Fluid.Types;
-    import Modelica_Fluid.Types.Dynamics;
+    import Modelica.Fluid.Types;
+    import Modelica.Fluid.Types.Dynamics;
 
-      outer Modelica_Fluid.System system "System properties";
+      outer Modelica.Fluid.System system "System properties";
       replaceable package Medium = 
         Modelica.Media.Interfaces.PartialMedium "Medium in the component" 
           annotation (choicesAllMatching = true);
@@ -756,7 +756,7 @@ Further source terms must be defined by an extending class for fluid flow across
       partial model PartialLumpedFlow
     "Base class for a lumped momentum balance"
 
-        outer Modelica_Fluid.System system "System properties";
+        outer Modelica.Fluid.System system "System properties";
 
         replaceable package Medium = 
           Modelica.Media.Interfaces.PartialMedium "Medium in the component";
@@ -777,7 +777,7 @@ Further source terms must be defined by an extending class for fluid flow across
       "mass flow rates between states";
 
         // Parameters
-        parameter Modelica_Fluid.Types.Dynamics momentumDynamics=system.momentumDynamics
+        parameter Modelica.Fluid.Types.Dynamics momentumDynamics=system.momentumDynamics
       "Formulation of momentum balance" 
           annotation(Dialog(tab="Assumptions", group="Dynamics"), Evaluate=true);
 
@@ -831,9 +831,9 @@ The length of the flow path <tt><b>pathLength</b></tt> is an input that needs to
 
 partial model PartialDistributedVolume
     "Base class for distributed volume models"
-    import Modelica_Fluid.Types;
-    import Modelica_Fluid.Types.Dynamics;
-  outer Modelica_Fluid.System system "System properties";
+    import Modelica.Fluid.Types;
+    import Modelica.Fluid.Types.Dynamics;
+  outer Modelica.Fluid.System system "System properties";
 
   replaceable package Medium = 
     Modelica.Media.Interfaces.PartialMedium "Medium in the component" 
@@ -1045,7 +1045,7 @@ end PartialDistributedVolume;
       partial model PartialDistributedFlow
     "Base class for a distributed momentum balance"
 
-        outer Modelica_Fluid.System system "System properties";
+        outer Modelica.Fluid.System system "System properties";
 
         replaceable package Medium = 
           Modelica.Media.Interfaces.PartialMedium "Medium in the component";
@@ -1069,7 +1069,7 @@ end PartialDistributedVolume;
       "mass flow rates between states";
 
         // Parameters
-        parameter Modelica_Fluid.Types.Dynamics momentumDynamics=system.momentumDynamics
+        parameter Modelica.Fluid.Types.Dynamics momentumDynamics=system.momentumDynamics
       "Formulation of momentum balance" 
           annotation(Dialog(tab="Assumptions", group="Dynamics"), Evaluate=true);
 

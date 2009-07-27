@@ -1,4 +1,4 @@
-within Modelica_Fluid;
+within Modelica.Fluid;
 package Utilities
   "Utility models to construct fluid components (should not be used directly) "
   extends Modelica.Icons.Library;
@@ -262,20 +262,20 @@ Typical screenshots for two different configurations
 are shown below. The first one with k1=k2=1:
 </p>
 <p>
-<img src=\"../Images/Components/regRoot2_a.png\">
+<img src=\"../Images/Fluid/Components/regRoot2_a.png\">
 </p>
 <p>
 and the second one with k1=1 and k2=3:
 </p>
 <p>
-<img src=\"../Images/Components/regRoot2_b.png\">
+<img src=\"../Images/Fluid/Components/regRoot2_b.png\">
 </p>
  
 <p>
 The (smooth) derivative of the function with
 k1=1, k2=3 is shown in the next figure:
 <p>
-<img src=\"../Images/Components/regRoot2_c.png\">
+<img src=\"../Images/Fluid/Components/regRoot2_c.png\">
 </p>
  
 <p>
@@ -297,7 +297,7 @@ k1=1, k2=3 is shown in the next figure:
   protected
     encapsulated function regRoot2_utility
       "Interpolating with two 3-order polynomials with a prescribed derivative at x=0"
-      import Modelica_Fluid.Utilities.evaluatePoly3_derivativeAtZero;
+      import Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero;
        input Real x;
        input Real x1 "approximation of function abs(x) < x1";
        input Real k1 "y = if x>=0 then sqrt(k1*x) else -sqrt(k2*|x|); k1 >= k2";
@@ -439,7 +439,7 @@ such that
 A typical screenshot for k1=1, k2=3 is shown in the next figure:
 </p>
 <p>
-<img src=\"../Images/Components/regSquare2_b.png\">
+<img src=\"../Images/Fluid/Components/regSquare2_b.png\">
 </p>
  
 <p>
@@ -448,7 +448,7 @@ k1=1, k2=3 is shown in the next figure:
 </p>
  
 <p>
-<img src=\"../Images/Components/regSquare2_c.png\">
+<img src=\"../Images/Fluid/Components/regSquare2_c.png\">
 </p>
  
 <p>
@@ -470,7 +470,7 @@ k1=1, k2=3 is shown in the next figure:
   protected
     encapsulated function regSquare2_utility
       "Interpolating with two 3-order polynomials with a prescribed derivative at x=0"
-      import Modelica_Fluid.Utilities.evaluatePoly3_derivativeAtZero;
+      import Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero;
        input Real x;
        input Real x1 "approximation of function abs(x) < x1";
        input Real k1 "y = (if x>=0 then k1 else -k2)*x*|x|; k1 >= k2";
@@ -635,13 +635,13 @@ Typical screenshots for two different configurations
 are shown below. The first one illustrates five different settings of <code>xi</code> and <code>yid</code>:
 </p>
 <p>
-<img src=\"../Images/Components/regFun3_a.png\">
+<img src=\"../Images/Fluid/Components/regFun3_a.png\">
 </p>
 <p>
 The second graph shows the continous derivative of this regularization function:
 </p>
 <p>
-<img src=\"../Images/Components/regFun3_b.png\">
+<img src=\"../Images/Fluid/Components/regFun3_b.png\">
 </p>
  
 <p>

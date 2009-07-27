@@ -1,11 +1,11 @@
-within Modelica_Fluid;
+within Modelica.Fluid;
 package Pipes "Devices for conveying fluid"
-    extends Modelica_Fluid.Icons.VariantLibrary;
+    extends Modelica.Fluid.Icons.VariantLibrary;
 
   model StaticPipe "Basic pipe flow model without storage of mass or energy"
 
     // extending PartialStraightPipe
-    extends Modelica_Fluid.Pipes.BaseClasses.PartialStraightPipe;
+    extends Modelica.Fluid.Pipes.BaseClasses.PartialStraightPipe;
 
     // Initialization
     parameter Medium.AbsolutePressure p_a_start=system.p_start
@@ -59,11 +59,11 @@ package Pipes "Devices for conveying fluid"
   Documentation(info="<html>
 <p>Model of a straight pipe with constant cross section and with steady-state mass, momentum and energy balances, i.e. the model does not store mass or energy. 
 There exist two thermodynamic states, one at each fluid port. The momentum balance is formulated for the two states, taking into account 
-momentum flows, friction and gravity. The same result can be obtained by using <a href=\"Modelica://Modelica_Fluid.Pipes.DynamicPipe\">DynamicPipe</a> with 
+momentum flows, friction and gravity. The same result can be obtained by using <a href=\"Modelica://Modelica.Fluid.Pipes.DynamicPipe\">DynamicPipe</a> with 
 steady-state dynamic settings. The intended use is to provide simple connections of vessels or other devices with storage, as it is done in:
 <ul>
-<li><a href=\"Modelica://Modelica_Fluid.Examples.Tanks.EmptyTanks\">Examples.Tanks.EmptyTanks</a></li>
-<li><a href=\"Modelica://Modelica_Fluid.Examples.InverseParameterization\">Examples.InverseParameterization</a></li>.
+<li><a href=\"Modelica://Modelica.Fluid.Examples.Tanks.EmptyTanks\">Examples.Tanks.EmptyTanks</a></li>
+<li><a href=\"Modelica://Modelica.Fluid.Examples.InverseParameterization\">Examples.InverseParameterization</a></li>.
 </ul>
  
 <h4>Numerical Issues</h4>
@@ -80,10 +80,10 @@ or other flow models without storage, are directly connected.
 
   model DynamicPipe "Dynamic pipe model with storage of mass and energy"
 
-    import Modelica_Fluid.Types.ModelStructure;
+    import Modelica.Fluid.Types.ModelStructure;
 
     // extending PartialStraightPipe
-    extends Modelica_Fluid.Pipes.BaseClasses.PartialStraightPipe(
+    extends Modelica.Fluid.Pipes.BaseClasses.PartialStraightPipe(
       final port_a_exposesState = (modelStructure == ModelStructure.av_b) or (modelStructure == ModelStructure.av_vb),
       final port_b_exposesState = (modelStructure == ModelStructure.a_vb) or (modelStructure == ModelStructure.av_vb));
 
@@ -108,9 +108,9 @@ or other flow models without storage, are directly connected.
       "= true to use the HeatTransfer model" 
         annotation (Dialog(tab="Assumptions", group="Heat transfer"));
     replaceable model HeatTransfer = 
-        Modelica_Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer 
+        Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer 
       constrainedby
-      Modelica_Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer
+      Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer
       "Wall heat transfer" 
         annotation (Dialog(tab="Assumptions", group="Heat transfer",enable=use_HeatTransfer),choicesAllMatching=true);
     Interfaces.HeatPorts_a[nNodes] heatPorts if use_HeatTransfer 
@@ -166,7 +166,7 @@ or other flow models without storage, are directly connected.
   Documentation(info="<html>
 <p>Model of a straight pipe with distributed mass, energy and momentum balances. 
 It provides the complete balance equations for one-dimensional fluid flow as formulated in
-<a href=\"Modelica://Modelica_Fluid.UsersGuide.ComponentDefinition.BalanceEquations\">UsersGuide.ComponentDefinition.BalanceEquations</a>.
+<a href=\"Modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.BalanceEquations\">UsersGuide.ComponentDefinition.BalanceEquations</a>.
 </p>
 <p>
 The partial differential equations are treated with the finite volume method and a staggered grid scheme for momentum balances.
@@ -187,20 +187,20 @@ of nonlinear equation systems, is obtained with the setting <tt>nNodes=1, modelS
 Depending on the configured model structure, the first and the last pipe segment, 
 or the flow path length of the first and the last momentum balance, are of half size. 
 See the documentation of the base class 
-<a href=\"Modelica://Modelica_Fluid.Pipes.BaseClasses.PartialTwoPortFlow\">Pipes.BaseClasses.PartialTwoPortFlow</a>,
+<a href=\"Modelica://Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow\">Pipes.BaseClasses.PartialTwoPortFlow</a>,
 also covering asymmetric configurations.
 </p>
 <p>
 The <b><tt>HeatTransfer</tt></b> component specifies the source term <tt>Qb_flows</tt> of the energy balance. 
 The default component uses a constant coefficient for the heat transfer between the bulk flow and the segment boundaries exposed through the <tt>heatPorts</tt>. 
 The <tt>HeatTransfer</tt> model is replaceable and can be exchanged with any model extended from 
-<a href=\"Modelica://Modelica_Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer\">BaseClasses.HeatTransfer.PartialFlowHeatTransfer</a>.
+<a href=\"Modelica://Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer\">BaseClasses.HeatTransfer.PartialFlowHeatTransfer</a>.
 </p>
 <p>
 The intended use is for complex networks of pipes and other flow devices, like valves. See e.g. 
 <ul>
-<li><a href=\"Modelica://Modelica_Fluid.Examples.BranchingDynamicPipes\">Examples.BranchingDynamicPipes</a>, or </li>
-<li><a href=\"Modelica://Modelica_Fluid.Examples.IncompressibleFluidNetwork\">Examples.IncompressibleFluidNetwork</a>.</li>
+<li><a href=\"Modelica://Modelica.Fluid.Examples.BranchingDynamicPipes\">Examples.BranchingDynamicPipes</a>, or </li>
+<li><a href=\"Modelica://Modelica.Fluid.Examples.IncompressibleFluidNetwork\">Examples.IncompressibleFluidNetwork</a>.</li>
 </ul>
 </p> 
 </html>"),
@@ -274,10 +274,10 @@ The intended use is for complex networks of pipes and other flow devices, like v
 
   package BaseClasses
     "Base classes used in the Pipes package (only of interest to build new component models)"
-    extends Modelica_Fluid.Icons.BaseClassLibrary;
+    extends Modelica.Fluid.Icons.BaseClassLibrary;
 
     partial model PartialStraightPipe "Base class for straight pipe models"
-      extends Modelica_Fluid.Interfaces.PartialTwoPort;
+      extends Modelica.Fluid.Interfaces.PartialTwoPort;
 
       // Geometry
 
@@ -308,9 +308,9 @@ The intended use is for complex networks of pipes and other flow devices, like v
 
       // Pressure loss
       replaceable model FlowModel = 
-        Modelica_Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow 
+        Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow 
         constrainedby
-        Modelica_Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel
+        Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel
         "Wall friction, gravity, momentum flow" 
           annotation(Dialog(group="Pressure loss"), choicesAllMatching=true);
 
@@ -342,15 +342,15 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
 
     partial model PartialTwoPortFlow "Base class for distributed flow models"
 
-      import Modelica_Fluid.Types.ModelStructure;
+      import Modelica.Fluid.Types.ModelStructure;
 
       // extending PartialTwoPort
-      extends Modelica_Fluid.Interfaces.PartialTwoPort(
+      extends Modelica.Fluid.Interfaces.PartialTwoPort(
         final port_a_exposesState = (modelStructure == ModelStructure.av_b) or (modelStructure == ModelStructure.av_vb),
         final port_b_exposesState = (modelStructure == ModelStructure.a_vb) or (modelStructure == ModelStructure.av_vb));
 
       // distributed volume model
-      extends Modelica_Fluid.Interfaces.PartialDistributedVolume(
+      extends Modelica.Fluid.Interfaces.PartialDistributedVolume(
         final n = nNodes,
         final fluidVolumes = {crossAreas[i]*lengths[i] for i in 1:n});
 
@@ -415,9 +415,9 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
 
       // Pressure loss model
       replaceable model FlowModel = 
-        Modelica_Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow 
+        Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow 
         constrainedby
-        Modelica_Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel
+        Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel
         "Wall friction, gravity, momentum flow" 
           annotation(Dialog(group="Pressure loss"), choicesAllMatching=true);
       FlowModel flowModel(
@@ -664,7 +664,7 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
 The default value is nNodes=2.
 </p>
 <p><b>Mass and Energy balances</b></p>
-The mass and energy balances are inherited from <a href=\"Modelica://Modelica_Fluid.Interfaces.PartialDistributedVolume\">Interfaces.PartialDistributedVolume</a>. 
+The mass and energy balances are inherited from <a href=\"Modelica://Modelica.Fluid.Interfaces.PartialDistributedVolume\">Interfaces.PartialDistributedVolume</a>. 
 One total mass and one energy balance is formed across each segment according to the finite volume approach. 
 Substance mass balances are added if the medium contains more than one component.
 <p>
@@ -678,8 +678,8 @@ Moreover it needs to define two vectors of source terms for the distributed ener
  
 <p><b>Momentum balance</b></p>
 The momentum balance is determined by the <b><tt>FlowModel</tt></b> component, which can be replaced with any model extended from 
-<a href=\"Modelica://Modelica_Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel\">BaseClasses.FlowModels.PartialStaggeredFlowModel</a>.
-The default setting is <a href=\"Modelica://Modelica_Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow\">DetailedPipeFlow</a>. 
+<a href=\"Modelica://Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel\">BaseClasses.FlowModels.PartialStaggeredFlowModel</a>.
+The default setting is <a href=\"Modelica://Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow\">DetailedPipeFlow</a>. 
 This considers
 <ul>
 <li>pressure drop due to friction and other dissipative losses, and</li>
@@ -1103,7 +1103,7 @@ This also allows for taking into account friction losses with respect to the act
             parameter Boolean allowFlowReversal=system.allowFlowReversal
           "= true to allow flow reversal, false restricts to design direction (states[1] -> states[n+1])"
               annotation(Dialog(tab="Internal Interface",enable=false,group="Assumptions"), Evaluate=true);
-            parameter Modelica_Fluid.Types.Dynamics momentumDynamics=system.momentumDynamics
+            parameter Modelica.Fluid.Types.Dynamics momentumDynamics=system.momentumDynamics
           "Formulation of momentum balance" 
               annotation(Dialog(tab="Internal Interface",enable=false,group = "Assumptions"), Evaluate=true);
 
@@ -1121,7 +1121,7 @@ This also allows for taking into account friction losses with respect to the act
             //
             // Implementation of momentum balance
             //
-            extends Modelica_Fluid.Interfaces.PartialDistributedFlow(
+            extends Modelica.Fluid.Interfaces.PartialDistributedFlow(
                        final m = n-1);
 
             // Advanced parameters
@@ -1150,7 +1150,7 @@ This also allows for taking into account friction losses with respect to the act
             parameter Boolean show_Res = false
           "= true, if Reynolds numbers are included for plotting" 
                annotation (Evaluate=true, Dialog(group="Diagnostics"));
-            SI.ReynoldsNumber[n] Res=Modelica_Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber(
+            SI.ReynoldsNumber[n] Res=Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber(
                 vs/nParallel,
                 rhos,
                 mus,
@@ -1215,7 +1215,7 @@ The geometry is specified with the <tt>pathLengths[n-1]</tt> between the device 
 with the <tt>crossAreas[n]</tt> and the <tt>roughnesses[n]</tt> of the device segments. 
 Moreover the fluid flow is characterized for different types of devices by the characteristic <tt>dimensions[n]</tt> 
 and the average velocities <tt>vs[n]</tt> of fluid flow in the device segments. 
-See <a href=\"Modelica://Modelica_Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber\">Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber</a>
+See <a href=\"Modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber\">Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber</a>
 for examplary definitions.
 </p>
 <p> 
@@ -1247,7 +1247,7 @@ e.g. with numerical smoothing or by raising events as appropriate.
       model NominalLaminarFlow
         "NominalLaminarFlow: Linear pressure loss for nominal values"
         extends
-          Modelica_Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel(
+          Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel(
            use_mu_nominal=not show_Res);
 
         // Operational conditions
@@ -1286,13 +1286,13 @@ specified nominal values for given geometry parameters <tt>crossAreas</tt>, <tt>
           partial model PartialGenericPipeFlow
         "GenericPipeFlow: Pipe flow pressure loss and gravity with replaceable WallFriction package"
             extends
-          Modelica_Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel(
+          Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel(
            final Re_turbulent=4000);
 
             replaceable package WallFriction = 
-              Modelica_Fluid.Pipes.BaseClasses.WallFriction.Detailed 
+              Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed 
                 constrainedby
-          Modelica_Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction
+          Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction
           "Wall friction model" 
                 annotation(Dialog(group="Wall friction"), choicesAllMatching=true,editButton=false);
 
@@ -1394,7 +1394,7 @@ and due to <b>gravity</b>.
 Correlations of different complexity and validity can be
 seleted via the replaceable package <b>WallFriction</b> (see parameter menu below).
 The details of the pipe wall friction model are described in the
-<a href=\"Modelica://Modelica_Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a>.
+<a href=\"Modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a>.
 Basically, different variants of the equation
 </p>
  
@@ -1450,9 +1450,9 @@ simulation and/or might give a more robust simulation.
           model NominalTurbulentPipeFlow
         "NominalTurbulentPipeFlow: Quadratic turbulent pressure loss for nominal values"
             extends
-          Modelica_Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow(
+          Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow(
           redeclare package WallFriction = 
-              Modelica_Fluid.Pipes.BaseClasses.WallFriction.QuadraticTurbulent,
+              Modelica.Fluid.Pipes.BaseClasses.WallFriction.QuadraticTurbulent,
           use_mu_nominal=not show_Res,
           pathLengths_internal=pathLengths_nominal,
           useUpstreamScheme=false);
@@ -1491,7 +1491,7 @@ specified <tt>dp_nominal</tt> and <tt>m_flow_nominal</tt>.
 It takes into account the fluid density of each flow segment and 
 obtaines appropriate <tt>pathLengths_nominal</tt> values   
 for an inverse parameterization of the 
-<a href=\"Modelica://Modelica_Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow\">
+<a href=\"Modelica://Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow\">
           TurbulentPipeFlow</a>
 model. Per default the upstream and downstream densities are averaged with the setting <tt>useUpstreamScheme = false</tt>,
 in order to avoid discontinuous <tt>pathLengths_nominal</tt> values in the case of flow reversal.
@@ -1527,9 +1527,9 @@ and can be related to <tt>m_flow_small</tt> and <tt>dp_small</tt>.
           model TurbulentPipeFlow
         "TurbulentPipeFlow: Pipe wall friction in the quadratic turbulent regime (simple characteristic, mu not used)"
            extends
-          Modelica_Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow(
+          Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow(
           redeclare package WallFriction = 
-              Modelica_Fluid.Pipes.BaseClasses.WallFriction.QuadraticTurbulent,
+              Modelica.Fluid.Pipes.BaseClasses.WallFriction.QuadraticTurbulent,
           use_mu_nominal=not show_Res,
           pathLengths_internal=pathLengths,
           dp_nominal=1e3*dp_small,
@@ -1551,9 +1551,9 @@ The turbulent pressure loss correlation might be useful to optimize models that 
           model DetailedPipeFlow
         "DetailedPipeFlow: Pipe wall friction in the laminar and turbulent regime (detailed characteristic)"
            extends
-          Modelica_Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow(
+          Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow(
           redeclare package WallFriction = 
-              Modelica_Fluid.Pipes.BaseClasses.WallFriction.Detailed,
+              Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed,
           pathLengths_internal=pathLengths,
           dp_nominal=1e3*dp_small,
           m_flow_nominal=1e2*m_flow_small);
@@ -1562,7 +1562,7 @@ The turbulent pressure loss correlation might be useful to optimize models that 
 <p>
 This component defines the complete regime of wall friction.
 The details are described in the
-<a href=\"Modelica://Modelica_Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a>.
+<a href=\"Modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a>.
 The functional relationship of the friction loss factor &lambda; is
 displayed in the next figure. Function massFlowRate_dp() defines the \"red curve\"
 (\"Swamee and Jain\"), where as function pressureLoss_m_flow() defines the
@@ -1572,7 +1572,7 @@ between Re = 1500 .. 4000, in order to get explicit equations without
 solving a non-linear equation.
 </p>
  
-<img src=\"../Images/Components/PipeFriction1.png\">
+<img src=\"../Images/Fluid/Components/PipeFriction1.png\">
  
 <p>
 Additionally to wall friction, this component properly implements static
@@ -1580,13 +1580,13 @@ head. With respect to the latter, two cases can be distinguished. In the case
 shown next, the change of elevation with the path from a to b has the opposite
 sign of the change of density.</p>
  
-<img src=\"../Images/Components/PipeFrictionStaticHead_case-a.PNG\">
+<img src=\"../Images/Fluid/Components/PipeFrictionStaticHead_case-a.PNG\">
  
 <p>
 In the case illustrated second, the change of elevation with the path from a to 
 b has the same sign of the change of density.</p>
  
-<img src=\"../Images/Components/PipeFrictionStaticHead_case-b.PNG\">
+<img src=\"../Images/Fluid/Components/PipeFrictionStaticHead_case-b.PNG\">
  
 </html>"),    Diagram(coordinateSystem(
                   preserveAspectRatio=false,
@@ -1623,7 +1623,7 @@ b has the same sign of the change of density.</p>
   package HeatTransfer "Heat transfer for flow models"
     partial model PartialFlowHeatTransfer
         "base class for any pipe heat transfer correlation"
-      extends Modelica_Fluid.Interfaces.PartialHeatTransfer;
+      extends Modelica.Fluid.Interfaces.PartialHeatTransfer;
 
       // Additional inputs provided to flow heat transfer model
       input SI.Velocity[n] vs "Mean velocities of fluid flow in segments";
@@ -1643,7 +1643,7 @@ The geometry is specified in the interface with the <tt>surfaceAreas[n]</tt>, th
 and the lengths[n] along the flow path. 
 Moreover the fluid flow is characterized for different types of devices by the characteristic <tt>dimensions[n+1]</tt> 
 and the average velocities <tt>vs[n+1]</tt> of fluid flow. 
-See <a href=\"Modelica://Modelica_Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber\">Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber</a>
+See <a href=\"Modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber\">Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber</a>
 for examplary definitions.
 </p>
 </html>"),Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
@@ -1805,7 +1805,7 @@ The following table gives examples for the characteristic dimension D and the ve
 with
   m_flow = v*&rho;*A
 </pre>
-See also <a href=\"Modelica://Modelica_Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber\">
+See also <a href=\"Modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber\">
           Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber</a>.
 </html>"));
       end ReynoldsNumber_m_flow;
@@ -1951,7 +1951,7 @@ pressure losses due to <b>wall friction</b> in a pipe.
 Every correlation is defined by a package that is derived
 by inheritance from the package WallFriction.PartialWallFriction.
 The details of the underlying pipe wall friction model are described in the
-<a href=\"Modelica://Modelica_Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a>.
+<a href=\"Modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a>.
 Basically, different variants of the equation
 </p>
  
@@ -1964,7 +1964,7 @@ are used, where the friction loss factor &lambda; is shown
 in the next figure:
 </p>
  
-<img src=\"../Images/Components/PipeFriction1.png\">
+<img src=\"../Images/Fluid/Components/PipeFriction1.png\">
  
 </html>"));
       package NoFriction "No pipe wall friction, no static head"
@@ -2055,7 +2055,7 @@ systems of equations can still further be reduced.
 </p>
  
 <p>
-In <a href=\"Modelica://Modelica_Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a> the complete friction regime is illustrated.
+In <a href=\"Modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a> the complete friction regime is illustrated.
 This component describes only the <b>Hagen-Poiseuille</b> equation.
 </p>
 <br>
@@ -2155,7 +2155,7 @@ This component describes only the <b>Hagen-Poiseuille</b> equation.
         /*
   m_flow := if dp<dp_b then dm_flow_ddp_b*(dp-dp_grav_b) else 
               (if dp>dp_a then dm_flow_ddp_a*(dp-dp_grav_a) else 
-                Modelica_Fluid.Utilities.regFun3(dp, dp_b, dp_a, dm_flow_ddp_b*(dp_b - dp_grav_b), dm_flow_ddp_a*(dp_a - dp_grav_a), dm_flow_ddp_b, dm_flow_ddp_a));
+                Modelica.Fluid.Utilities.regFun3(dp, dp_b, dp_a, dm_flow_ddp_b*(dp_b - dp_grav_b), dm_flow_ddp_a*(dp_a - dp_grav_a), dm_flow_ddp_b, dm_flow_ddp_a));
 */
         end massFlowRate_dp_staticHead;
 
@@ -2236,7 +2236,7 @@ This relationship is only valid for large Reynolds numbers.
 </p>
  
 <p>
-In <a href=\"Modelica://Modelica_Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a> the complete friction regime is illustrated.
+In <a href=\"Modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a> the complete friction regime is illustrated.
 This component describes only the asymptotic behaviour for large
 Reynolds numbers, i.e., the values at the right ordinate where
 &lambda; is constant.
@@ -2275,7 +2275,7 @@ Reynolds numbers, i.e., the values at the right ordinate where
                  "roughness > 0 required for quadratic turbulent wall friction characteristic");
           zeta  := (length/diameter)/(2*Math.log10(3.7 /(roughness/diameter)))^2;
           k_inv := (pi*diameter*diameter)^2/(8*zeta);
-          m_flow := Modelica_Fluid.Utilities.regRoot2(dp, dp_small, rho_a*k_inv, rho_b*k_inv);
+          m_flow := Modelica.Fluid.Utilities.regRoot2(dp, dp_small, rho_a*k_inv, rho_b*k_inv);
         end massFlowRate_dp;
 
         redeclare function extends pressureLoss_m_flow
@@ -2303,7 +2303,7 @@ Reynolds numbers, i.e., the values at the right ordinate where
                  "roughness > 0 required for quadratic turbulent wall friction characteristic");
           zeta := (length/diameter)/(2*Math.log10(3.7 /(roughness/diameter)))^2;
           k    := 8*zeta/(pi*diameter*diameter)^2;
-          dp   := Modelica_Fluid.Utilities.regSquare2(m_flow, m_flow_small, k/rho_a, k/rho_b);
+          dp   := Modelica.Fluid.Utilities.regSquare2(m_flow, m_flow_small, k/rho_a, k/rho_b);
         end pressureLoss_m_flow;
 
         redeclare function extends massFlowRate_dp_staticHead
@@ -2542,7 +2542,7 @@ Laminar region:
           k_inv  := (pi*diameter*diameter)^2/(8*zeta);
           yd0    := (rho_a + rho_b)/(k0*(mu_a + mu_b));
           dp_turbulent := ((mu_a + mu_b)*diameter*pi/8)^2*Re_turbulent^2/(k_inv*(rho_a+rho_b)/2);
-          m_flow := Modelica_Fluid.Utilities.regRoot2(dp, dp_turbulent, rho_a*k_inv, rho_b*k_inv,
+          m_flow := Modelica.Fluid.Utilities.regRoot2(dp, dp_turbulent, rho_a*k_inv, rho_b*k_inv,
                                                       use_yd0=true, yd0=yd0);
         end massFlowRate_dp;
 
@@ -2601,7 +2601,7 @@ Laminar region:
           k    := 8*zeta/(pi*diameter*diameter)^2;
           yd0  := k0*(mu_a + mu_b)/(rho_a + rho_b);
           m_flow_turbulent :=(pi/8)*diameter*(mu_a + mu_b)*Re_turbulent;
-          dp :=Modelica_Fluid.Utilities.regSquare2(m_flow, m_flow_turbulent, k/rho_a, k/rho_b,
+          dp :=Modelica.Fluid.Utilities.regSquare2(m_flow, m_flow_turbulent, k/rho_a, k/rho_b,
                                                    use_yd0=true, yd0=yd0);
         end pressureLoss_m_flow;
 
@@ -2933,7 +2933,7 @@ Laminar region:
 <p>
 This component defines the complete regime of wall friction.
 The details are described in the
-<a href=\"Modelica://Modelica_Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a>.
+<a href=\"Modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a>.
 The functional relationship of the friction loss factor &lambda; is
 displayed in the next figure. Function massFlowRate_dp() defines the \"red curve\"
 (\"Swamee and Jain\"), where as function pressureLoss_m_flow() defines the
@@ -2943,7 +2943,7 @@ between Re = 1500 .. 4000, in order to get explicit equations without
 solving a non-linear equation.
 </p>
  
-<img src=\"../Images/Components/PipeFriction1.png\">
+<img src=\"../Images/Fluid/Components/PipeFriction1.png\">
  
 <p>
 Additionally to wall friction, this component properly implements static
@@ -2951,13 +2951,13 @@ head. With respect to the latter, two cases can be distinguished. In the case
 shown next, the change of elevation with the path from a to b has the opposite
 sign of the change of density.</p>
  
-<img src=\"../Images/Components/PipeFrictionStaticHead_case-a.PNG\">
+<img src=\"../Images/Fluid/Components/PipeFrictionStaticHead_case-a.PNG\">
  
 <p>
 In the case illustrated second, the change of elevation with the path from a to 
 b has the same sign of the change of density.</p>
  
-<img src=\"../Images/Components/PipeFrictionStaticHead_case-b.PNG\">
+<img src=\"../Images/Fluid/Components/PipeFrictionStaticHead_case-b.PNG\">
  
  
 </html>"));
@@ -3472,12 +3472,12 @@ b has the same sign of the change of density.</p>
 
       model TestWallFrictionAndGravity
         "Pressure loss in pipe due to wall friction and gravity (only for test purposes; if needed use Pipes.StaticPipe instead)"
-        extends Modelica_Fluid.Interfaces.PartialTwoPortTransport;
+        extends Modelica.Fluid.Interfaces.PartialTwoPortTransport;
 
         replaceable package WallFriction = 
-          Modelica_Fluid.Pipes.BaseClasses.WallFriction.QuadraticTurbulent 
+          Modelica.Fluid.Pipes.BaseClasses.WallFriction.QuadraticTurbulent 
           constrainedby
-          Modelica_Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction
+          Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction
           "Characteristic of wall friction"  annotation(choicesAllMatching=true);
 
         parameter SI.Length length "Length of pipe";
@@ -3509,7 +3509,7 @@ b has the same sign of the change of density.</p>
         parameter SI.AbsolutePressure dp_small = system.dp_small
           "Within regularization if |dp| < dp_small (may be wider for large discontinuities in static head)"
           annotation(Dialog(tab="Advanced", enable=from_dp and WallFriction.use_dp_small));
-        SI.ReynoldsNumber Re = Modelica_Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber_m_flow(
+        SI.ReynoldsNumber Re = Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber_m_flow(
                                                                m_flow, noEvent(if m_flow>0 then mu_a else mu_b), diameter) if 
              show_Re "Reynolds number of pipe flow";
 
@@ -3574,7 +3574,7 @@ It is assumed that no mass or energy is stored in the pipe.
 Correlations of different complexity and validity can be
 seleted via the replaceable package <b>WallFriction</b> (see parameter menu below).
 The details of the pipe wall friction model are described in the
-<a href=\"Modelica://Modelica_Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a>.
+<a href=\"Modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.WallFriction\">UsersGuide</a>.
 Basically, different variants of the equation
 </p>
  
@@ -3587,7 +3587,7 @@ are used, where the friction loss factor &lambda; is shown
 in the next figure:
 </p>
  
-<img src=\"../Images/Components/PipeFriction1.png\">
+<img src=\"../Images/Fluid/Components/PipeFriction1.png\">
  
 <p>
 By default, the correlations are computed with media data

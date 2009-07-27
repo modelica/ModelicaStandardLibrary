@@ -1,7 +1,7 @@
-within Modelica_Fluid;
+within Modelica.Fluid;
 package Fittings
   "Adaptors for connections of fluid components and the regulation of fluid flow"
-     extends Modelica_Fluid.Icons.VariantLibrary;
+     extends Modelica.Fluid.Icons.VariantLibrary;
 
   annotation (Documentation(info="<html>
  
@@ -10,9 +10,9 @@ package Fittings
 model SimpleGenericOrifice
     "Simple generic orifice defined by pressure loss coefficient and diameter (only for flow from port_a to port_b)"
 
-  extends Modelica_Fluid.Interfaces.PartialTwoPortTransport;
+  extends Modelica.Fluid.Interfaces.PartialTwoPortTransport;
 
-  extends Modelica_Fluid.Interfaces.PartialLumpedFlow(
+  extends Modelica.Fluid.Interfaces.PartialLumpedFlow(
     final pathLength = 0,
     final momentumDynamics = Types.Dynamics.SteadyState);
 
@@ -284,7 +284,7 @@ model AbruptAdaptor
               100}},
           grid={1,1}), graphics={Rectangle(
             extent=DynamicSelect({{-100,22},{0,-22}}, {{-100,max(0.1, min(1,
-                diameter_a/max(diameter_a, diameter_b)))*60},{0,-max(0.1, min(1, 
+                diameter_a/max(diameter_a, diameter_b)))*60},{0,-max(0.1, min(1,
                 diameter_a/max(diameter_a, diameter_b)))*60}}),
             lineColor={0,0,0},
             fillPattern=FillPattern.HorizontalCylinder,
@@ -319,11 +319,11 @@ end AbruptAdaptor;
       "Number of outlet ports (mass is distributed evenly between the outlet ports"
       annotation(Dialog(__Dymola_connectorSizing=true));
 
-    Modelica_Fluid.Interfaces.FluidPort_a port_a(
+    Modelica.Fluid.Interfaces.FluidPort_a port_a(
       redeclare package Medium=Medium) 
       annotation (Placement(transformation(extent={{-50,-10},{-30,10}},
             rotation=0)));
-    Modelica_Fluid.Interfaces.FluidPorts_b ports_b[nPorts_b](
+    Modelica.Fluid.Interfaces.FluidPorts_b ports_b[nPorts_b](
       redeclare each package Medium=Medium) 
       annotation (Placement(transformation(extent={{30,40},{50,-40}},
                                   rotation=0)));
@@ -405,7 +405,7 @@ of the modeller. Increase nPorts_b to add an additional port.
 
   model TeeJunctionIdeal
     "Splitting/joining component with static balances for an infinitesimal control volume"
-    extends Modelica_Fluid.Fittings.BaseClasses.PartialTeeJunction;
+    extends Modelica.Fluid.Fittings.BaseClasses.PartialTeeJunction;
 
   equation
     connect(port_1, port_2) annotation (Line(
@@ -439,8 +439,8 @@ of the modeller. Increase nPorts_b to add an additional port.
 
   model TeeJunctionVolume
     "Splitting/joining component with static balances for a dynamic control volume"
-    extends Modelica_Fluid.Fittings.BaseClasses.PartialTeeJunction;
-    extends Modelica_Fluid.Interfaces.PartialLumpedVolume(
+    extends Modelica.Fluid.Fittings.BaseClasses.PartialTeeJunction;
+    extends Modelica.Fluid.Interfaces.PartialLumpedVolume(
       final fluidVolume = V);
 
     parameter SI.Volume V "Mixing volume inside junction";
@@ -527,7 +527,7 @@ loss correlations. All models in this library have the property
 that no mass and no energy is stored in the component. Therefore,
 none of the models has a state. The basic correlations are implemented
 with functions of sublibrary
-<a href=\"Modelica://Modelica_Fluid.PressureLosses.Utilities\">PressureLosses.Utilities</a>
+<a href=\"Modelica://Modelica.Fluid.PressureLosses.Utilities\">PressureLosses.Utilities</a>
 These functions might also be directly called 
 (e.g. in another component implementation).
 </p>
@@ -568,7 +568,7 @@ polynomials. The monotonicity is guaranteed using results from:
 
   package BaseClasses
     "Base classes used in the Fittings package (only of interest to build new component models)"
-    extends Modelica_Fluid.Icons.BaseClassLibrary;
+    extends Modelica.Fluid.Icons.BaseClassLibrary;
 
     function lossConstant_D_zeta "Return the loss constant 8*zeta/(pi^2*D^4)"
           extends Modelica.Icons.Function;
@@ -721,7 +721,7 @@ The used sufficient criteria for monotonicity follows from:
        encapsulated function wallFriction
           "Return pressure loss data due to friction in a straight pipe with walls of nonuniform roughness (not useful for smooth pipes, since zeta is no function of Re)"
           import
-            Modelica_Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
+            Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
           import lg = Modelica.Math.log10;
           import SI = Modelica.SIunits;
 
@@ -866,7 +866,7 @@ As a short summary:
        encapsulated function suddenExpansion
           "Return pressure loss data for sudden expansion or contraction in a pipe (for both flow directions)"
           import
-            Modelica_Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
+            Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
           import SI = Modelica.SIunits;
          input SI.Diameter diameter_a "Inner diameter of pipe at port_a" annotation(Dialog);
          input SI.Diameter diameter_b "Inner diameter of pipe at port_b" annotation(Dialog);
@@ -970,7 +970,7 @@ port_a to port_b as:
           "Return pressure loss data for sharp edged orifice (for both flow directions)"
           import NonSI = Modelica.SIunits.Conversions.NonSIunits;
           import
-            Modelica_Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
+            Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
           import SI = Modelica.SIunits;
           input SI.Diameter diameter
             "Inner diameter of pipe (= same at port_a and port_b)" 
@@ -1104,7 +1104,7 @@ Loss factor for mass flow rate from port_b to port_a
 
       function massFlowRate_dp
         "Return mass flow rate from constant loss factor data and pressure drop (m_flow = f(dp))"
-              //import Modelica_Fluid.PressureLosses.BaseClasses.lossConstant_D_zeta;
+              //import Modelica.Fluid.PressureLosses.BaseClasses.lossConstant_D_zeta;
         extends Modelica.Icons.Function;
 
         input SI.Pressure dp "Pressure drop (dp = port_a.p - port_b.p)";
@@ -1113,9 +1113,9 @@ Loss factor for mass flow rate from port_b to port_a
         input LossFactorData data
           "Constant loss factors for both flow directions" annotation (
             choices(
-            choice=Modelica_Fluid.Fittings.Utilities.QuadraticTurbulent.LossFactorData.wallFriction(),
-            choice=Modelica_Fluid.Fittings.Utilities.QuadraticTurbulent.LossFactorData.suddenExpansion(),
-            choice=Modelica_Fluid.Fittings.Utilities.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice()));
+            choice=Modelica.Fluid.Fittings.Utilities.QuadraticTurbulent.LossFactorData.wallFriction(),
+            choice=Modelica.Fluid.Fittings.Utilities.QuadraticTurbulent.LossFactorData.suddenExpansion(),
+            choice=Modelica.Fluid.Fittings.Utilities.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice()));
         input SI.AbsolutePressure dp_small = 1
           "Turbulent flow if |dp| >= dp_small";
         output SI.MassFlowRate m_flow "Mass flow rate from port_a to port_b";
@@ -1419,8 +1419,8 @@ Laminar region:
       partial model BaseModel
         "Generic pressure drop component with constant turbulent loss factor data and without an icon"
 
-        extends Modelica_Fluid.Interfaces.PartialTwoPortTransport;
-        extends Modelica_Fluid.Interfaces.PartialLumpedFlow(
+        extends Modelica.Fluid.Interfaces.PartialTwoPortTransport;
+        extends Modelica.Fluid.Interfaces.PartialLumpedFlow(
           final pathLength = 0,
           final momentumDynamics = Types.Dynamics.SteadyState);
 
@@ -1444,7 +1444,7 @@ Laminar region:
         parameter Boolean show_Re = false
           "= true, if Reynolds number is included for plotting" 
            annotation (Evaluate=true, Dialog(tab="Advanced", group="Diagnostics"));
-        SI.ReynoldsNumber Re = Modelica_Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber_m_flow(
+        SI.ReynoldsNumber Re = Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber_m_flow(
               m_flow,
               noEvent(if m_flow>0 then Medium.dynamicViscosity(state_a) else Medium.dynamicViscosity(state_b)),
               data.D_Re) if show_Re "Reynolds number at diameter data.D_Re";
@@ -1641,8 +1641,8 @@ The used sufficient criteria for monotonicity follows from:
       partial model BaseModelNonconstantCrossSectionArea
         "Generic pressure drop component with constant turbulent loss factor data and without an icon, for non-constant cross section area"
 
-        extends Modelica_Fluid.Interfaces.PartialTwoPortTransport;
-        extends Modelica_Fluid.Interfaces.PartialLumpedFlow(
+        extends Modelica.Fluid.Interfaces.PartialTwoPortTransport;
+        extends Modelica.Fluid.Interfaces.PartialLumpedFlow(
           final pathLength = 0,
           final momentumDynamics = Types.Dynamics.SteadyState);
 
@@ -1668,7 +1668,7 @@ The used sufficient criteria for monotonicity follows from:
         parameter Boolean show_Re = false
           "= true, if Reynolds number is included for plotting" 
            annotation (Evaluate=true, Dialog(tab="Advanced", group="Diagnostics"));
-        SI.ReynoldsNumber Re = Modelica_Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber_m_flow(
+        SI.ReynoldsNumber Re = Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber_m_flow(
               m_flow,
               noEvent(if m_flow>0 then Medium.dynamicViscosity(state_a) else Medium.dynamicViscosity(state_b)),
               data.D_Re) if show_Re "Reynolds number at diameter data.D_Re";
@@ -1893,26 +1893,26 @@ a polynomial in order to have a finite derivative at zero mass flow rate.
 
     partial model PartialTeeJunction
       "Base class for a splitting/joining component with three ports"
-      import Modelica_Fluid.Types;
-      import Modelica_Fluid.Types.PortFlowDirection;
+      import Modelica.Fluid.Types;
+      import Modelica.Fluid.Types.PortFlowDirection;
 
       replaceable package Medium=Modelica.Media.Interfaces.PartialMedium
         "Medium in the component" 
         annotation (choicesAllMatching=true);
 
-      Modelica_Fluid.Interfaces.FluidPort_a port_1(redeclare package Medium = 
+      Modelica.Fluid.Interfaces.FluidPort_a port_1(redeclare package Medium = 
             Medium, m_flow(min=if (portFlowDirection_1 == PortFlowDirection.Entering) then 
                     0.0 else -Modelica.Constants.inf, max=if (portFlowDirection_1
                == PortFlowDirection.Leaving) then 0.0 else Modelica.Constants.inf)) 
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
-      Modelica_Fluid.Interfaces.FluidPort_b port_2(redeclare package Medium = 
+      Modelica.Fluid.Interfaces.FluidPort_b port_2(redeclare package Medium = 
             Medium, m_flow(min=if (portFlowDirection_2 == PortFlowDirection.Entering) then 
                     0.0 else -Modelica.Constants.inf, max=if (portFlowDirection_2
                == PortFlowDirection.Leaving) then 0.0 else Modelica.Constants.inf)) 
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=
                0)));
-      Modelica_Fluid.Interfaces.FluidPort_a port_3(
+      Modelica.Fluid.Interfaces.FluidPort_a port_3(
         redeclare package Medium=Medium,
         m_flow(min=if (portFlowDirection_3==PortFlowDirection.Entering) then 0.0 else -Modelica.Constants.inf,
         max=if (portFlowDirection_3==PortFlowDirection.Leaving) then 0.0 else Modelica.Constants.inf)) 

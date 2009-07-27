@@ -1,7 +1,7 @@
-within Modelica_Fluid.Examples;
+within Modelica.Fluid.Examples;
 model PumpingSystem "Model of a pumping system for drinking water"
   extends Modelica.Icons.Example;
-  Modelica_Fluid.Sources.FixedBoundary source(
+  Modelica.Fluid.Sources.FixedBoundary source(
     nPorts = 1,
     redeclare package Medium = 
         Modelica.Media.Water.ConstantPropertyLiquidWater,
@@ -11,7 +11,7 @@ model PumpingSystem "Model of a pumping system for drinking water"
     annotation (Placement(transformation(extent={{-100,-80},{-80,-60}},
           rotation=0)));
 
-  Modelica_Fluid.Pipes.StaticPipe pipe(
+  Modelica.Fluid.Pipes.StaticPipe pipe(
     redeclare package Medium = 
         Modelica.Media.Water.ConstantPropertyLiquidWater,
     allowFlowReversal=true,
@@ -29,19 +29,19 @@ model PumpingSystem "Model of a pumping system for drinking water"
         Modelica.Media.Water.ConstantPropertyLiquidWater,
     N_nominal=1200,
     redeclare function flowCharacteristic = 
-        Modelica_Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticFlow (
+        Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticFlow (
           V_flow_nominal={0,0.25,0.5}, head_nominal={100,60,0}),
     V=50/1000,
     T_start=Modelica.SIunits.Conversions.from_degC(20),
     use_N_in=true,
     nParallel=1,
-    energyDynamics=Modelica_Fluid.Types.Dynamics.DynamicFreeInitial,
-    massDynamics=Modelica_Fluid.Types.Dynamics.DynamicFreeInitial) 
+    energyDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial,
+    massDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial) 
     annotation (Placement(transformation(extent={{-68,-80},{-48,-60}}, rotation=
            0)));
 
-  Modelica_Fluid.Vessels.OpenTank reservoir(
-    massDynamics=Modelica_Fluid.Types.Dynamics.FixedInitial,
+  Modelica.Fluid.Vessels.OpenTank reservoir(
+    massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
     redeclare package Medium = 
         Modelica.Media.Water.ConstantPropertyLiquidWater,
     T_start=Modelica.SIunits.Conversions.from_degC(20),
@@ -50,18 +50,18 @@ model PumpingSystem "Model of a pumping system for drinking water"
     level_start=2.2,
     height=3,
     nPorts=3,
-    portsData={Modelica_Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.3),
-        Modelica_Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.3),
-        Modelica_Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.01)}) 
+    portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.3),
+        Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.3),
+        Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.01)}) 
     annotation (Placement(transformation(extent={{-20,-16},{0,4}}, rotation=0)));
 
-  Modelica_Fluid.Valves.ValveLinear userValve(   redeclare package Medium = 
+  Modelica.Fluid.Valves.ValveLinear userValve(   redeclare package Medium = 
         Modelica.Media.Water.ConstantPropertyLiquidWater,
     allowFlowReversal=false,
     dp_nominal=200000,
     m_flow_nominal=400) 
     annotation (Placement(transformation(extent={{58,-38},{74,-22}}, rotation=0)));
-  Modelica_Fluid.Sources.FixedBoundary sink(
+  Modelica.Fluid.Sources.FixedBoundary sink(
                                        redeclare package Medium = 
         Modelica.Media.Water.ConstantPropertyLiquidWater,
     p=system.p_ambient,
@@ -84,7 +84,7 @@ model PumpingSystem "Model of a pumping system for drinking water"
     amplitude=1200,
     offset=0.001) annotation (Placement(transformation(extent={{0,60},{20,80}},
           rotation=0)));
-  Modelica_Fluid.Sensors.RelativePressure reservoirPressure(
+  Modelica.Fluid.Sensors.RelativePressure reservoirPressure(
                                                         redeclare package
       Medium = 
         Modelica.Media.Water.ConstantPropertyLiquidWater) 
@@ -111,7 +111,7 @@ If using Dymola, turn off \"Equidistant time grid\" to avoid numerical errors.
 </p>
  
 <p align=\"center\">
-<img src=\"../Images/Examples/PumpingSystem.png\" border=\"1\">
+<img src=\"../Images/Fluid/Examples/PumpingSystem.png\" border=\"1\">
 </p>
  
 </html>", revisions="<html>
@@ -131,12 +131,12 @@ If using Dymola, turn off \"Equidistant time grid\" to avoid numerical errors.
       StopTime=2000,
       NumberOfIntervals=5000,
       Tolerance=1e-006),
-    experimentSetupOutput(equdistant=false),
+    __Dymola_experimentSetupOutput(equdistant=false),
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={1,1})));
-  inner Modelica_Fluid.System system 
+  inner Modelica.Fluid.System system 
                                    annotation (Placement(transformation(extent=
             {{60,-96},{80,-76}}, rotation=0)));
 equation

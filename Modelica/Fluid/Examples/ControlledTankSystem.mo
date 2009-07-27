@@ -1,4 +1,4 @@
-within Modelica_Fluid.Examples;
+within Modelica.Fluid.Examples;
 package ControlledTankSystem
   "Tank system with controller, start/stop/shut operation and diagram animation"
   model ControlledTanks
@@ -6,24 +6,24 @@ package ControlledTankSystem
     extends Modelica.Icons.Example;
     package Medium = Modelica.Media.Water.ConstantPropertyLiquidWater;
 
-    Modelica_Fluid.Examples.ControlledTankSystem.Utilities.TankController
+    Modelica.Fluid.Examples.ControlledTankSystem.Utilities.TankController
       tankController(
       waitTime=50,
       maxLevel=0.9*tank1.height,
       minLevel=0.01) 
       annotation (Placement(transformation(extent={{-60,-20},{-20,20}},
             rotation=0)));
-    Modelica_Fluid.Examples.ControlledTankSystem.Utilities.RadioButton start(
+    Modelica.Fluid.Examples.ControlledTankSystem.Utilities.RadioButton start(
                                                            reset={stop.on,shut.on},
         buttonTimeTable={20,280}) 
       annotation (Placement(transformation(extent={{-100,20},{-80,40}},
             rotation=0)));
-    Modelica_Fluid.Examples.ControlledTankSystem.Utilities.RadioButton stop(
+    Modelica.Fluid.Examples.ControlledTankSystem.Utilities.RadioButton stop(
                                                           reset={start.on,shut.on},
         buttonTimeTable={220,650}) 
       annotation (Placement(transformation(extent={{-100,-10},{-80,10}},
             rotation=0)));
-    Modelica_Fluid.Examples.ControlledTankSystem.Utilities.RadioButton shut(
+    Modelica.Fluid.Examples.ControlledTankSystem.Utilities.RadioButton shut(
                                                           reset={start.on,stop.on},
         buttonTimeTable={700}) 
       annotation (Placement(transformation(extent={{-100,-40},{-80,-20}},
@@ -34,7 +34,7 @@ package ControlledTankSystem
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics),
       experiment(StopTime=900),
-      experimentSetupOutput,
+      __Dymola_experimentSetupOutput,
       Documentation(info="<html>
 <p>
 With this example, the controller of a tank filling/emptying system
@@ -101,14 +101,14 @@ This example is based on
 </dl>
  
 <p align=\"center\">
-<img src=\"../Images/Examples/ControlledTanks.png\" border=\"1\">
+<img src=\"../Images/Fluid/Examples/ControlledTanks.png\" border=\"1\">
 </p>
  
 </html>"),
-      Commands(file=
-            "../Scripts/Examples/ControlledTanks/plot level and ports.m_flow.mos"
+      __Dymola_Commands(file=
+            "Scripts/Fluid/ControlledTanks/plot level and ports.m_flow.mos"
           "plot level and ports.m_flow"));
-    Modelica_Fluid.Valves.ValveDiscrete valve1(                     redeclare
+    Modelica.Fluid.Valves.ValveDiscrete valve1(                     redeclare
         package Medium = Medium,
       m_flow_nominal=40,
       dp_nominal=100000) 
@@ -116,17 +116,17 @@ This example is based on
           origin={-10,70},
           extent={{10,-10},{-10,10}},
           rotation=180)));
-    Modelica_Fluid.Vessels.OpenTank tank1(
+    Modelica.Fluid.Vessels.OpenTank tank1(
       level_start=0.05,
       redeclare package Medium = Medium,
       crossArea=6,
       height=4,
       nPorts=2,
-      portsData={Modelica_Fluid.Vessels.BaseClasses.VesselPortsData(
+      portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(
             diameter=0.2,
             height=4,
             zeta_out=0,
-            zeta_in=1),Modelica_Fluid.Vessels.BaseClasses.VesselPortsData(
+            zeta_in=1),Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(
             diameter=0.2,
             height=0,
             zeta_out=0,
@@ -135,7 +135,7 @@ This example is based on
     Modelica.Blocks.Sources.RealExpression level1(y=tank1.level) 
       annotation (Placement(transformation(extent={{-90,-60},{-55,-40}},
             rotation=0)));
-    Modelica_Fluid.Valves.ValveDiscrete valve2(        redeclare package Medium
+    Modelica.Fluid.Valves.ValveDiscrete valve2(        redeclare package Medium
         = Medium,
       dp_nominal(displayUnit="Pa") = 1,
       m_flow_nominal=100) 
@@ -143,7 +143,7 @@ This example is based on
           origin={34,0},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-    Modelica_Fluid.Valves.ValveDiscrete valve3(        redeclare package Medium
+    Modelica.Fluid.Valves.ValveDiscrete valve3(        redeclare package Medium
         = Medium,
       dp_nominal(displayUnit="Pa") = 1,
       m_flow_nominal=10) 
@@ -151,23 +151,23 @@ This example is based on
           origin={35,-80},
           extent={{10,-10},{-10,10}},
           rotation=0)));
-    Modelica_Fluid.Vessels.OpenTank tank2(
+    Modelica.Fluid.Vessels.OpenTank tank2(
       level_start=0.05,
       redeclare package Medium = Medium,
       height=5,
       crossArea=6,
       nPorts=2,
-      portsData={Modelica_Fluid.Vessels.BaseClasses.VesselPortsData(
+      portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(
             diameter=0.2,
             height=5,
             zeta_out=0,
-            zeta_in=1),Modelica_Fluid.Vessels.BaseClasses.VesselPortsData(
+            zeta_in=1),Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(
             diameter=0.2,
             height=0,
             zeta_out=0,
             zeta_in=1)})   annotation (Placement(transformation(extent={{50,-60},
               {90,-20}},       rotation=0)));
-    Modelica_Fluid.Sources.Boundary_pT ambient1(redeclare package Medium = 
+    Modelica.Fluid.Sources.Boundary_pT ambient1(redeclare package Medium = 
           Medium,nPorts=1,
       p=system.p_ambient,
       T=system.T_ambient) 
@@ -176,14 +176,14 @@ This example is based on
     Modelica.Blocks.Sources.RealExpression level2(y=tank2.level) 
       annotation (Placement(transformation(extent={{-70,-80},{-33,-60}},
             rotation=0)));
-    Modelica_Fluid.Sources.Boundary_pT source(redeclare package Medium = 
+    Modelica.Fluid.Sources.Boundary_pT source(redeclare package Medium = 
           Medium, p=2.5e6,nPorts=1,
       T=system.T_ambient) 
       annotation (Placement(transformation(
           origin={-40,70},
           extent={{-10,-10},{10,10}},
           rotation=0)));
-    inner Modelica_Fluid.System system 
+    inner Modelica.Fluid.System system 
                           annotation (Placement(transformation(extent={{-90,70},
               {-70,90}}, rotation=0)));
   equation
@@ -242,7 +242,7 @@ This example is based on
       Modelica.StateGraph.InitialStep s1(nIn=2) 
                      annotation (Placement(transformation(extent={{-72,30},{-52,
                 50}}, rotation=0)));
-      Modelica_Fluid.Examples.ControlledTankSystem.Utilities.NormalOperation
+      Modelica.Fluid.Examples.ControlledTankSystem.Utilities.NormalOperation
         normal(
         maxLevel=maxLevel,
         minLevel=minLevel,

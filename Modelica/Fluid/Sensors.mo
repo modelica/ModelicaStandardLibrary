@@ -1,7 +1,7 @@
-within Modelica_Fluid;
+within Modelica.Fluid;
 package Sensors
   "Ideal sensor components to extract signals from a fluid connector"
-  extends Modelica_Fluid.Icons.VariantLibrary;
+  extends Modelica.Fluid.Icons.VariantLibrary;
 
   annotation (preferedView="info", Documentation(info="<html>
 <p align = justify>
@@ -22,7 +22,7 @@ the fluid library provides two different types of sensors: <b>regular one port</
 <li>
 The <b>regular one port</b> sensors have the advantage of easy introduction and removal from a model, as no connections have to be broken. 
 A potential drawback is that the obtained value jumps as flow reverts.
-<a href= \"Modelica_Fluid.Test.TestComponents.Sensors.TestTemperatureSensor\">Modelica_Fluid.Test.TestComponents.Sensors.TestTemperatureSensor </a> provides a test case, 
+<a href= \"Modelica.Fluid.Test.TestComponents.Sensors.TestTemperatureSensor\">Modelica.Fluid.Test.TestComponents.Sensors.TestTemperatureSensor </a> provides a test case, 
 which demonstrates this.</li> 
  
 <li> The <b>two port</b> sensors offer the advantages of an adjustable regularized step function around zero flow.
@@ -117,7 +117,7 @@ ideal, i.e., it does not influence the fluid.
 This component monitors the density of the fluid passing its port. 
 The sensor is ideal, i.e. it does not influence the fluid.
 </p>
-<p>If using the one port sensor please read the <a href = Modelica_Fluid.Sensors>Information</a>  first.</p>
+<p>If using the one port sensor please read the <a href = Modelica.Fluid.Sensors>Information</a>  first.</p>
  
 </HTML>
 "));
@@ -169,7 +169,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
     if allowFlowReversal then
        rho_a_inflow = Medium.density(Medium.setState_phX(port_b.p, port_b.h_outflow, port_b.Xi_outflow));
        rho_b_inflow = Medium.density(Medium.setState_phX(port_a.p, port_a.h_outflow, port_a.Xi_outflow));
-       d = Modelica_Fluid.Utilities.regStep(port_a.m_flow, rho_a_inflow, rho_b_inflow, m_flow_small);
+       d = Modelica.Fluid.Utilities.regStep(port_a.m_flow, rho_a_inflow, rho_b_inflow, m_flow_small);
     else
        d = Medium.density(Medium.setState_phX(port_b.p, port_b.h_outflow, port_b.Xi_outflow));
        rho_a_inflow = d;
@@ -338,7 +338,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
     if allowFlowReversal then
        T_a_inflow = Medium.temperature(Medium.setState_phX(port_b.p, port_b.h_outflow, port_b.Xi_outflow));
        T_b_inflow = Medium.temperature(Medium.setState_phX(port_a.p, port_a.h_outflow, port_a.Xi_outflow));
-       T = Modelica_Fluid.Utilities.regStep(port_a.m_flow, T_a_inflow, T_b_inflow, m_flow_small);
+       T = Modelica.Fluid.Utilities.regStep(port_a.m_flow, T_a_inflow, T_b_inflow, m_flow_small);
     else
        T = Medium.temperature(Medium.setState_phX(port_b.p, port_b.h_outflow, port_b.Xi_outflow));
        T_a_inflow = T;
@@ -418,7 +418,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
 "));
   equation
     if allowFlowReversal then
-       h_out = Modelica_Fluid.Utilities.regStep(port_a.m_flow, port_b.h_outflow, port_a.h_outflow, m_flow_small);
+       h_out = Modelica.Fluid.Utilities.regStep(port_a.m_flow, port_b.h_outflow, port_a.h_outflow, m_flow_small);
     else
        h_out = port_b.h_outflow;
     end if;
@@ -501,7 +501,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
     if allowFlowReversal then
        s_a_inflow = Medium.specificEntropy(Medium.setState_phX(port_b.p, port_b.h_outflow, port_b.Xi_outflow));
        s_b_inflow = Medium.specificEntropy(Medium.setState_phX(port_a.p, port_a.h_outflow, port_a.Xi_outflow));
-       s = Modelica_Fluid.Utilities.regStep(port_a.m_flow, s_a_inflow, s_b_inflow, m_flow_small);
+       s = Modelica.Fluid.Utilities.regStep(port_a.m_flow, s_a_inflow, s_b_inflow, m_flow_small);
     else
        s = Medium.specificEntropy(Medium.setState_phX(port_b.p, port_b.h_outflow, port_b.Xi_outflow));
        s_a_inflow = s;
@@ -609,7 +609,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
            + "Check sensor parameter and medium model.");
   equation
     if allowFlowReversal then
-       C = Modelica_Fluid.Utilities.regStep(port_a.m_flow, port_b.C_outflow[ind], port_a.C_outflow[ind], m_flow_small);
+       C = Modelica.Fluid.Utilities.regStep(port_a.m_flow, port_b.C_outflow[ind], port_a.C_outflow[ind], m_flow_small);
     else
        C = port_b.C_outflow[ind];
     end if;
@@ -691,7 +691,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
     if allowFlowReversal then
        rho_a_inflow = Medium.density(Medium.setState_phX(port_b.p, port_b.h_outflow, port_b.Xi_outflow));
        rho_b_inflow = Medium.density(Medium.setState_phX(port_a.p, port_a.h_outflow, port_a.Xi_outflow));
-       d = Modelica_Fluid.Utilities.regStep(port_a.m_flow, rho_a_inflow, rho_b_inflow, m_flow_small);
+       d = Modelica.Fluid.Utilities.regStep(port_a.m_flow, rho_a_inflow, rho_b_inflow, m_flow_small);
     else
        d = Medium.density(Medium.setState_phX(port_b.p, port_b.h_outflow, port_b.Xi_outflow));
        rho_a_inflow = d;
@@ -706,11 +706,11 @@ The sensor is ideal, i.e. it does not influence the fluid.
       Modelica.Media.Interfaces.PartialMedium "Medium in the sensor"  annotation (
         choicesAllMatching = true);
 
-    Modelica_Fluid.Interfaces.FluidPort_a port_a(m_flow(min=0),
+    Modelica.Fluid.Interfaces.FluidPort_a port_a(m_flow(min=0),
                                   redeclare package Medium = Medium) 
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
             rotation=0)));
-    Modelica_Fluid.Interfaces.FluidPort_b port_b(m_flow(min=0),
+    Modelica.Fluid.Interfaces.FluidPort_b port_b(m_flow(min=0),
                                   redeclare package Medium = Medium) 
       annotation (Placement(transformation(extent={{110,-12},{90,8}}, rotation=
               0), iconTransformation(extent={{110,-10},{90,10}})));
@@ -777,11 +777,11 @@ through the sensor is allowed.
     replaceable package Medium = 
       Modelica.Media.Interfaces.PartialMedium "Medium in the sensor"  annotation (
         choicesAllMatching = true);
-    Modelica_Fluid.Interfaces.FluidPort_a port_a(m_flow(min=0),
+    Modelica.Fluid.Interfaces.FluidPort_a port_a(m_flow(min=0),
                                   redeclare package Medium = Medium) 
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
             rotation=0)));
-    Modelica_Fluid.Interfaces.FluidPort_b port_b(m_flow(min=0),
+    Modelica.Fluid.Interfaces.FluidPort_b port_b(m_flow(min=0),
                                   redeclare package Medium = Medium) 
       annotation (Placement(transformation(extent={{110,-10},{90,10}}, rotation=
              0)));
@@ -1045,7 +1045,7 @@ the two ports of this component and is provided as output signal.
 
   package BaseClasses
     "Base classes used in the Sensors package (only of interest to build new component models)"
-    extends Modelica_Fluid.Icons.BaseClassLibrary;
+    extends Modelica.Fluid.Icons.BaseClassLibrary;
 
     partial model PartialAbsoluteSensor
       "Partial component to model a sensor that measures a potential variable"
@@ -1054,7 +1054,7 @@ the two ports of this component and is provided as output signal.
         "Medium in the sensor" 
         annotation(choicesAllMatching=true);
 
-      Modelica_Fluid.Interfaces.FluidPort_a port(redeclare package Medium=Medium, m_flow(min=0)) 
+      Modelica.Fluid.Interfaces.FluidPort_a port(redeclare package Medium=Medium, m_flow(min=0)) 
         annotation (Placement(transformation(
             origin={0,-100},
             extent={{-10,-10},{10,10}},
@@ -1084,7 +1084,7 @@ as signal.
 
     partial model PartialFlowSensor
       "Partial component to model sensors that measure flow properties"
-      extends Modelica_Fluid.Interfaces.PartialTwoPort;
+      extends Modelica.Fluid.Interfaces.PartialTwoPort;
 
       annotation (Documentation(info="<html>
 <p>

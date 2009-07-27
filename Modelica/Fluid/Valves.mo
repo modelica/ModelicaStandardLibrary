@@ -1,10 +1,10 @@
-within Modelica_Fluid;
+within Modelica.Fluid;
 package Valves "Components for the regulation and control of fluid flow"
-    extends Modelica_Fluid.Icons.VariantLibrary;
+    extends Modelica.Fluid.Icons.VariantLibrary;
 
     model ValveIncompressible "Valve for (almost) incompressible fluids"
       extends BaseClasses.PartialValve;
-    import Modelica_Fluid.Types.CvTypes;
+    import Modelica.Fluid.Types.CvTypes;
 
     initial equation
       if CvData == CvTypes.OpPoint then
@@ -43,7 +43,7 @@ It can also be used with gases, provided that the pressure drop is lower than 0.
 <p>
 The treatment of parameters <b>Kv</b> and <b>Cv</b> is
 explained in detail in the 
-<a href=\"Modelica://Modelica_Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">Users Guide</a>.
+<a href=\"Modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">Users Guide</a>.
 </p>
  
 </html>",
@@ -58,16 +58,16 @@ explained in detail in the
 
   model ValveVaporizing
     "Valve for possibly vaporizing (almost) incompressible fluids, accounts for choked flow conditions"
-    import Modelica_Fluid.Types.CvTypes;
+    import Modelica.Fluid.Types.CvTypes;
     extends BaseClasses.PartialValve(
       redeclare replaceable package Medium = 
           Modelica.Media.Water.WaterIF97_ph                                    constrainedby
         Modelica.Media.Interfaces.PartialTwoPhaseMedium);
     parameter Real Fl_nominal=0.9 "Liquid pressure recovery factor";
     replaceable function FlCharacteristic = 
-        Modelica_Fluid.Valves.BaseClasses.ValveCharacteristics.one 
+        Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.one 
       constrainedby
-      Modelica_Fluid.Valves.BaseClasses.ValveCharacteristics.baseFun
+      Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.baseFun
       "Pressure recovery characteristic";
     Real Ff "Ff coefficient (see IEC/ISA standard)";
     Real Fl "Pressure recovery coefficient Fl (see IEC/ISA standard)";
@@ -117,7 +117,7 @@ explained in detail in the
 <p>
 The treatment of parameters <b>Kv</b> and <b>Cv</b> is
 explained in detail in the 
-<a href=\"Modelica://Modelica_Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">Users Guide</a>.
+<a href=\"Modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">Users Guide</a>.
 </p>
  
 </HTML>",
@@ -133,14 +133,14 @@ explained in detail in the
   model ValveCompressible
     "Valve for compressible fluids, accounts for choked flow conditions"
     extends BaseClasses.PartialValve;
-    import Modelica_Fluid.Types.CvTypes;
+    import Modelica.Fluid.Types.CvTypes;
     parameter Medium.AbsolutePressure p_nominal "Nominal inlet pressure" 
     annotation(Dialog(group="Nominal operating point"));
     parameter Real Fxt_full=0.5 "Fk*xt critical ratio at full opening";
     replaceable function xtCharacteristic = 
-        Modelica_Fluid.Valves.BaseClasses.ValveCharacteristics.one 
+        Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.one 
       constrainedby
-      Modelica_Fluid.Valves.BaseClasses.ValveCharacteristics.baseFun
+      Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.baseFun
       "Critical ratio characteristic";
     Real Fxt;
     Real x "Pressure drop ratio";
@@ -188,7 +188,7 @@ explained in detail in the
         smooth(0, Utilities.regRoot(p*xs, dp_small)*(if xs>=0 then sqrt(Medium.density(state_a)) else sqrt(Medium.density(state_b))));
   /*
     m_flow = valveCharacteristic(opening)*Av*Y*
-                  Modelica_Fluid.Utilities.regRoot2(p*xs, dp_small, Medium.density(state_a), Medium.density(state_b));
+                  Modelica.Fluid.Utilities.regRoot2(p*xs, dp_small, Medium.density(state_a), Medium.density(state_b));
 */
     end if;
 
@@ -209,7 +209,7 @@ explained in detail in the
 <p>
 The treatment of parameters <b>Kv</b> and <b>Cv</b> is
 explained in detail in the 
-<a href=\"Modelica://Modelica_Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">Users Guide</a>.
+<a href=\"Modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">Users Guide</a>.
 </p>
  
 </HTML>",
@@ -223,7 +223,7 @@ explained in detail in the
   end ValveCompressible;
 
   model ValveLinear "Valve for water/steam flows with linear pressure drop"
-    extends Modelica_Fluid.Interfaces.PartialTwoPortTransport;
+    extends Modelica.Fluid.Interfaces.PartialTwoPortTransport;
     parameter SI.AbsolutePressure dp_nominal
       "Nominal pressure drop at full opening";
     parameter Medium.MassFlowRate m_flow_nominal
@@ -291,7 +291,7 @@ a simple model of a variable pressure loss is needed.</p>
   end ValveLinear;
 
   model ValveDiscrete "Valve for water/steam flows with linear pressure drop"
-    extends Modelica_Fluid.Interfaces.PartialTwoPortTransport;
+    extends Modelica.Fluid.Interfaces.PartialTwoPortTransport;
     parameter SI.Pressure dp_nominal "Nominal pressure drop at full opening=1";
     parameter Medium.MassFlowRate m_flow_nominal
       "Nominal mass flowrate at full opening=1";
@@ -354,11 +354,11 @@ it is open.
 
   package BaseClasses
     "Base classes used in the Valves package (only of interest to build new component models)"
-    extends Modelica_Fluid.Icons.BaseClassLibrary;
+    extends Modelica.Fluid.Icons.BaseClassLibrary;
     partial model PartialValve "Base model for valves"
 
-      import Modelica_Fluid.Types.CvTypes;
-      extends Modelica_Fluid.Interfaces.PartialTwoPortTransport(
+      import Modelica.Fluid.Types.CvTypes;
+      extends Modelica.Fluid.Interfaces.PartialTwoPortTransport(
         dp_start = dp_nominal,
         m_flow_start = m_flow_nominal,
         m_flow_small = system.m_flow_small);
@@ -370,7 +370,7 @@ it is open.
         start=m_flow_nominal/(sqrt(rho_nominal*dp_nominal))*valveCharacteristic(
             opening_nominal)) = 0 "Av (metric) flow coefficient" 
        annotation(Dialog(group = "Flow Coefficient",
-                         enable = (CvData==Modelica_Fluid.Types.CvTypes.Av)));
+                         enable = (CvData==Modelica.Fluid.Types.CvTypes.Av)));
       parameter Real Kv = 0 "Kv (metric) flow coefficient [m3/h]" 
       annotation(Dialog(group = "Flow Coefficient",
                         enable = (CvData==CvTypes.Kv)));
@@ -390,9 +390,9 @@ it is open.
         annotation(Dialog(tab="Assumptions"));
 
       replaceable function valveCharacteristic = 
-          Modelica_Fluid.Valves.BaseClasses.ValveCharacteristics.linear 
+          Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.linear 
         constrainedby
-        Modelica_Fluid.Valves.BaseClasses.ValveCharacteristics.baseFun
+        Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.baseFun
         "Inherent flow characteristic" 
         annotation(choicesAllMatching=true);
 
@@ -460,10 +460,10 @@ it is open.
 from inlet to outlet are neglected in the energy balance. </p>
 <p><b>Modelling options</b></p>
 <p>The following options are available to specify the valve flow coefficient in fully open conditions:
-<ul><li><tt>CvData = Modelica_Fluid.Types.CvTypes.Av</tt>: the flow coefficient is given by the metric <tt>Av</tt> coefficient (m^2).
-<li><tt>CvData = Modelica_Fluid.Types.CvTypes.Kv</tt>: the flow coefficient is given by the metric <tt>Kv</tt> coefficient (m^3/h).
-<li><tt>CvData = Modelica_Fluid.Types.CvTypes.Cv</tt>: the flow coefficient is given by the US <tt>Cv</tt> coefficient (USG/min).
-<li><tt>CvData = Modelica_Fluid.Types.CvTypes.OpPoint</tt>: the flow is computed from the nominal operating point specified by <tt>p_nominal</tt>, <tt>dp_nominal</tt>, <tt>m_flow_nominal</tt>, <tt>rho_nominal</tt>, <tt>opening_nominal</tt>.
+<ul><li><tt>CvData = Modelica.Fluid.Types.CvTypes.Av</tt>: the flow coefficient is given by the metric <tt>Av</tt> coefficient (m^2).
+<li><tt>CvData = Modelica.Fluid.Types.CvTypes.Kv</tt>: the flow coefficient is given by the metric <tt>Kv</tt> coefficient (m^3/h).
+<li><tt>CvData = Modelica.Fluid.Types.CvTypes.Cv</tt>: the flow coefficient is given by the US <tt>Cv</tt> coefficient (USG/min).
+<li><tt>CvData = Modelica.Fluid.Types.CvTypes.OpPoint</tt>: the flow is computed from the nominal operating point specified by <tt>p_nominal</tt>, <tt>dp_nominal</tt>, <tt>m_flow_nominal</tt>, <tt>rho_nominal</tt>, <tt>opening_nominal</tt>.
 </ul>
 <p>The nominal pressure drop <tt>dp_nominal</tt> must always be specified; to avoid numerical singularities, the flow characteristic is modified for pressure drops less than <tt>b*dp_nominal</tt> (the default value is 1% of the nominal pressure drop). Increase this parameter if numerical problems occur in valves with very low pressure drops.
 <p>If <tt>checkValve</tt> is true, then the flow is stopped when the outlet pressure is higher than the inlet pressure; otherwise, reverse flow takes place. Use this option only when neede, as it increases the numerical complexity of the problem.
@@ -473,7 +473,7 @@ from inlet to outlet are neglected in the energy balance. </p>
 <p>
 The treatment of parameters <b>Kv</b> and <b>Cv</b> is
 explained in detail in the 
-<a href=\"Modelica://Modelica_Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">Users Guide</a>.
+<a href=\"Modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">Users Guide</a>.
 </p>
  
 </HTML>", revisions="<html>

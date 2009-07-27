@@ -1,6 +1,6 @@
-within Modelica_Fluid;
+within Modelica.Fluid;
 package Sources "Define fixed or prescribed boundary conditions"
-  extends Modelica_Fluid.Icons.VariantLibrary;
+  extends Modelica.Fluid.Icons.VariantLibrary;
   model FixedBoundary "Boundary source component"
     extends Sources.BaseClasses.PartialSource;
     parameter Boolean use_p=true "select p or d" 
@@ -64,7 +64,7 @@ with exception of boundary pressure, do not have an effect.
 </html>"));
 
   equation
-    Modelica_Fluid.Utilities.checkBoundary(Medium.mediumName, Medium.substanceNames,
+    Modelica.Fluid.Utilities.checkBoundary(Medium.mediumName, Medium.substanceNames,
                                           Medium.singleState, use_p, X,
                                           "FixedBoundary");
     if use_p or Medium.singleState then
@@ -231,7 +231,7 @@ with exception of boundary pressure, do not have an effect.
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics));
   equation
-    Modelica_Fluid.Utilities.checkBoundary(Medium.mediumName, Medium.substanceNames,
+    Modelica.Fluid.Utilities.checkBoundary(Medium.mediumName, Medium.substanceNames,
       Medium.singleState, true, X_in_internal, "Boundary_pT");
     connect(p_in, p_in_internal);
     connect(T_in, T_in_internal);
@@ -393,7 +393,7 @@ with exception of boundary pressure, do not have an effect.
     Modelica.Blocks.Interfaces.RealInput C_in_internal[Medium.nC]
       "Needed to connect to conditional connector";
   equation
-    Modelica_Fluid.Utilities.checkBoundary(Medium.mediumName, Medium.substanceNames,
+    Modelica.Fluid.Utilities.checkBoundary(Medium.mediumName, Medium.substanceNames,
       Medium.singleState, true, X_in_internal, "Boundary_ph");
     connect(p_in, p_in_internal);
     connect(h_in, h_in_internal);
@@ -771,7 +771,7 @@ with exception of boundary flow rate, do not have an effect.
 
   package BaseClasses
     "Base classes used in the Sources package (only of interest to build new component models)"
-    extends Modelica_Fluid.Icons.BaseClassLibrary;
+    extends Modelica.Fluid.Icons.BaseClassLibrary;
   partial model PartialSource
       "Partial component source with one fluid connector"
       import Modelica.Constants;

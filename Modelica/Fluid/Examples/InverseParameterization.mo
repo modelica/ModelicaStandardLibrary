@@ -1,17 +1,17 @@
-within Modelica_Fluid.Examples;
+within Modelica.Fluid.Examples;
 model InverseParameterization
   "Demonstrates the parameterization of a pump and a pipe for given nominal values"
   extends Modelica.Icons.Example;
   replaceable package Medium = Modelica.Media.Water.StandardWater;
       //Modelica.Media.Water.ConstantPropertyLiquidWater;
 
-  Modelica_Fluid.Sources.Boundary_pT source(
+  Modelica.Fluid.Sources.Boundary_pT source(
     redeclare package Medium = Medium,
     nPorts=1,
     use_p_in=false,
     p=100000) 
     annotation (Placement(transformation(extent={{-76,14},{-64,26}}, rotation=0)));
-  Modelica_Fluid.Machines.ControlledPump pump(
+  Modelica.Fluid.Machines.ControlledPump pump(
     m_flow_nominal=1,
     control_m_flow=false,
     use_p_set=true,
@@ -19,7 +19,7 @@ model InverseParameterization
     p_a_nominal=100000,
     p_b_nominal=200000) 
     annotation (Placement(transformation(extent={{-40,10},{-20,30}})));
-  Modelica_Fluid.Fittings.SimpleGenericOrifice orifice(
+  Modelica.Fluid.Fittings.SimpleGenericOrifice orifice(
     redeclare package Medium = Medium,
     diameter=2.54e-2,
     m_flow_nominal=1,
@@ -29,26 +29,26 @@ model InverseParameterization
                       annotation (Placement(transformation(extent={{20,10},{40,
             30}}, rotation=0)));
 
-  Modelica_Fluid.Sources.Boundary_pT sink(nPorts=1,redeclare package Medium = Medium, p=
+  Modelica.Fluid.Sources.Boundary_pT sink(nPorts=1,redeclare package Medium = Medium, p=
         100000) 
              annotation (Placement(transformation(extent={{76,14},{64,26}},
           rotation=0)));
 
-  inner Modelica_Fluid.System system 
+  inner Modelica.Fluid.System system 
                         annotation (Placement(transformation(extent={{-90,50},{
             -70,70}},  rotation=0)));
-  Modelica_Fluid.Pipes.StaticPipe pipe1(
+  Modelica.Fluid.Pipes.StaticPipe pipe1(
     redeclare package Medium = Medium,
     diameter=2.54e-2,
     length=0,
     redeclare model FlowModel = 
-        Modelica_Fluid.Pipes.BaseClasses.FlowModels.NominalTurbulentPipeFlow (
+        Modelica.Fluid.Pipes.BaseClasses.FlowModels.NominalTurbulentPipeFlow (
         m_flow_nominal=1,
         show_Res=true,
         dp_nominal=100000)) 
                       annotation (Placement(transformation(extent={{20,-30},{40,
             -10}},rotation=0)));
-  Modelica_Fluid.Sources.Boundary_pT sink1(nPorts=1,
+  Modelica.Fluid.Sources.Boundary_pT sink1(nPorts=1,
     redeclare package Medium = Medium, p=200000) 
              annotation (Placement(transformation(extent={{76,-26},{64,-14}},
           rotation=0)));
@@ -58,18 +58,18 @@ model InverseParameterization
     duration=8,
     startTime=1) 
     annotation (Placement(transformation(extent={{-50,40},{-30,60}})));
-  Modelica_Fluid.Pipes.StaticPipe pipe2(
+  Modelica.Fluid.Pipes.StaticPipe pipe2(
     redeclare package Medium = Medium,
     diameter=2.54e-2,
     length=1000,
     redeclare model FlowModel = 
-        Modelica_Fluid.Pipes.BaseClasses.FlowModels.NominalLaminarFlow (
+        Modelica.Fluid.Pipes.BaseClasses.FlowModels.NominalLaminarFlow (
         show_Res=true,
         dp_nominal=100000,
         m_flow_nominal=1)) 
                       annotation (Placement(transformation(extent={{20,-70},{40,
             -50}},rotation=0)));
-  Modelica_Fluid.Sources.Boundary_pT sink2(nPorts=1,
+  Modelica.Fluid.Sources.Boundary_pT sink2(nPorts=1,
     redeclare package Medium = Medium, p=200000) 
              annotation (Placement(transformation(extent={{76,-66},{64,-54}},
           rotation=0)));
@@ -101,7 +101,7 @@ equation
       color={0,0,127},
       smooth=Smooth.None));
   annotation (
-    Commands(file(ensureSimulated=true)="Scripts/Examples/InverseParameterization/plotResults.mos"
+    __Dymola_Commands(file(ensureSimulated=true)="Scripts/Fluid/InverseParameterization/plotResults.mos"
         "plotResults"),
     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
             100,100}}),
@@ -133,7 +133,7 @@ to investigate a real controller or with a Pump with rotational shaft to investi
 </p>
  
 <p align=\"center\">
-<img src=\"../Images/Examples/InverseParametrization.png\" border=\"1\">
+<img src=\"../Images/Fluid/Examples/InverseParametrization.png\" border=\"1\">
 </p>
  
 </html>"));

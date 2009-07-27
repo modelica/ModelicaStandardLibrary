@@ -1,13 +1,13 @@
-within Modelica_Fluid;
+within Modelica.Fluid;
 package Vessels "Devices for storing fluid"
-   extends Modelica_Fluid.Icons.VariantLibrary;
+   extends Modelica.Fluid.Icons.VariantLibrary;
 
     model ClosedVolume
     "Volume of fixed size, closed to the ambient, with inlet/outlet ports"
     import Modelica.Constants.pi;
 
       // Mass and energy balance, ports
-      extends Modelica_Fluid.Vessels.BaseClasses.PartialLumpedVessel(
+      extends Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel(
         final fluidVolume = V,
         vesselArea = pi*(3/4*V)^(2/3),
         heatTransfer(surfaceAreas={4*pi*(3/4*V/pi)^(2/3)}));
@@ -41,7 +41,7 @@ Ideal heat transfer is assumed per default; the thermal port temperature is equa
 <p>
 If <code>use_portsData=true</code>, the port pressures represent the pressures just after the outlet (or just before the inlet) in the attached pipe. 
 The hydraulic resistances <tt>portsData.zeta_in</tt> and <tt>portsData.zeta_out</tt> determine the dissipative pressure drop between volume and port depending on 
-the direction of mass flow. See <a href=\"Modelica://Modelica_Fluid.Vessels.BaseClasses.VesselPortsData\">VesselPortsData</a> and <i>[Idelchik, Handbook of Hydraulic Resistance, 2004]</i>. 
+the direction of mass flow. See <a href=\"Modelica://Modelica.Fluid.Vessels.BaseClasses.VesselPortsData\">VesselPortsData</a> and <i>[Idelchik, Handbook of Hydraulic Resistance, 2004]</i>. 
 </p>
 </html>"),
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
@@ -75,7 +75,7 @@ model OpenTank "Simple tank with inlet/outlet ports"
     annotation(Dialog(tab="Initialization"));
 
   // Mass and energy balance, ports
-  extends Modelica_Fluid.Vessels.BaseClasses.PartialLumpedVessel(
+  extends Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel(
     final fluidVolume = V,
     final fluidLevel = level,
     final fluidLevel_max = height,
@@ -157,7 +157,7 @@ The following assumptions are made:
 <p>
 The port pressures represent the pressures just after the outlet (or just before the inlet) in the attached pipe. 
 The hydraulic resistances <tt>portsData.zeta_in</tt> and <tt>portsData.zeta_out</tt> determine the dissipative pressure drop between tank and port depending on 
-the direction of mass flow. See <a href=\"Modelica://Modelica_Fluid.Vessels.BaseClasses.VesselPortsData\">VesselPortsData</a> and <i>[Idelchik, Handbook of Hydraulic Resistance, 2004]</i>. 
+the direction of mass flow. See <a href=\"Modelica://Modelica.Fluid.Vessels.BaseClasses.VesselPortsData\">VesselPortsData</a> and <i>[Idelchik, Handbook of Hydraulic Resistance, 2004]</i>. 
 </p>
 <p>
 With the setting <tt>use_portsData=false</tt>, the port pressure represents the static head 
@@ -193,11 +193,11 @@ end OpenTank;
 
   package BaseClasses
     "Base classes used in the Vessels package (only of interest to build new component models)"
-    extends Modelica_Fluid.Icons.BaseClassLibrary;
+    extends Modelica.Fluid.Icons.BaseClassLibrary;
 
       partial model PartialLumpedVessel
       "Lumped volume with a vector of fluid ports and replaceable heat transfer model"
-        extends Modelica_Fluid.Interfaces.PartialLumpedVolume;
+        extends Modelica.Fluid.Interfaces.PartialLumpedVolume;
 
         // Port definitions
         parameter Integer nPorts=0 "Number of ports" 
@@ -211,7 +211,7 @@ end OpenTank;
         parameter Boolean use_portsData=true
         "= false to neglect pressure loss and kinetic energy" 
           annotation(Evaluate=true, Dialog(tab="General",group="Ports"));
-        parameter Modelica_Fluid.Vessels.BaseClasses.VesselPortsData[nPorts]
+        parameter Modelica.Fluid.Vessels.BaseClasses.VesselPortsData[nPorts]
         portsData if   use_portsData "Data of inlet/outlet ports" 
           annotation(Dialog(tab="General",group="Ports",enable= use_portsData));
 
@@ -236,9 +236,9 @@ end OpenTank;
         "= true to use the HeatTransfer model" 
             annotation (Dialog(tab="Assumptions", group="Heat transfer"));
         replaceable model HeatTransfer = 
-            Modelica_Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer 
+            Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer 
           constrainedby
-        Modelica_Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer
+        Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer
         "Wall heat transfer" 
             annotation (Dialog(tab="Assumptions", group="Heat transfer",enable=use_HeatTransfer),choicesAllMatching=true);
         HeatTransfer heatTransfer(
@@ -473,7 +473,7 @@ should be used if these values are needed.
 
     partial model PartialVesselHeatTransfer
         "Base class for vessel heat transfer models"
-      extends Modelica_Fluid.Interfaces.PartialHeatTransfer;
+      extends Modelica.Fluid.Interfaces.PartialHeatTransfer;
 
       annotation(Documentation(info="<html>
 Base class for vessel heat transfer models.

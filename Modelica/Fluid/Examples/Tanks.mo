@@ -1,11 +1,11 @@
-within Modelica_Fluid.Examples;
+within Modelica.Fluid.Examples;
 package Tanks "Library demonstrating the usage of the tank model"
   extends Modelica.Icons.Library;
 
   model ThreeTanks "Demonstrating the usage of SimpleTank"
-    import Modelica_Fluid;
+    import Modelica.Fluid;
     extends Modelica.Icons.Example;
-     // replaceable package Medium = Modelica_Fluid.Media.Water.ConstantPropertyLiquidWater extends
+     // replaceable package Medium = Modelica.Fluid.Media.Water.ConstantPropertyLiquidWater extends
     // replaceable package Medium = Modelica.Media.Water.StandardWaterOnePhase extends
     // replaceable package Medium = Modelica.Media.Incompressible.Examples.Glycol47 extends
      replaceable package Medium = 
@@ -13,41 +13,41 @@ package Tanks "Library demonstrating the usage of the tank model"
       Modelica.Media.Interfaces.PartialMedium "Medium in the component" 
         annotation (choicesAllMatching = true);
 
-    Modelica_Fluid.Vessels.OpenTank tank1(
+    Modelica.Fluid.Vessels.OpenTank tank1(
       crossArea=1,
       redeclare package Medium = Medium,
       use_portsData=true,
       height=12,
       level_start=8,
       nPorts=1,
-      portsData={Modelica_Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
+      portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
           0.1)})     annotation (Placement(transformation(extent={{-80,20},{-40,
               60}}, rotation=0)));
-    Modelica_Fluid.Vessels.OpenTank tank2(
+    Modelica.Fluid.Vessels.OpenTank tank2(
       crossArea=1,
       redeclare package Medium = Medium,
       use_portsData=true,
       height=12,
       level_start=3,
       nPorts=1,
-      portsData={Modelica_Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
+      portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
           0.1)})     annotation (Placement(transformation(extent={{-20,20},{20,
               60}}, rotation=0)));
 
-    inner Modelica_Fluid.System system(energyDynamics=Modelica_Fluid.Types.Dynamics.FixedInitial) 
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial) 
                                      annotation (Placement(transformation(
             extent={{70,-90},{90,-70}}, rotation=0)));
-    Modelica_Fluid.Vessels.OpenTank tank3(
+    Modelica.Fluid.Vessels.OpenTank tank3(
       crossArea=1,
       redeclare package Medium = Medium,
       use_portsData=true,
       height=12,
       level_start=3,
       nPorts=1,
-      portsData={Modelica_Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
+      portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
           0.1)})     annotation (Placement(transformation(extent={{40,10},{80,50}},
                     rotation=0)));
-    Modelica_Fluid.Pipes.StaticPipe pipe1(                    redeclare package
+    Modelica.Fluid.Pipes.StaticPipe pipe1(                    redeclare package
         Medium =                                                                       Medium,
       allowFlowReversal=true,
       height_ab=2,
@@ -57,7 +57,7 @@ package Tanks "Library demonstrating the usage of the tank model"
           origin={-60,-10},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica_Fluid.Pipes.StaticPipe pipe2(                    redeclare package
+    Modelica.Fluid.Pipes.StaticPipe pipe2(                    redeclare package
         Medium =                                                                       Medium,
       allowFlowReversal=true,
       height_ab=2,
@@ -67,7 +67,7 @@ package Tanks "Library demonstrating the usage of the tank model"
           origin={0,-10},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica_Fluid.Pipes.StaticPipe pipe3(                    redeclare package
+    Modelica.Fluid.Pipes.StaticPipe pipe3(                    redeclare package
         Medium =                                                                       Medium,
       allowFlowReversal=true,
       height_ab=-1,
@@ -97,14 +97,14 @@ package Tanks "Library demonstrating the usage of the tank model"
               -100},{100,100}}),
                         graphics),
       experiment(StopTime=200),
-      experimentSetupOutput,
-      Commands(file=
-            "../Scripts/Examples/ThreeTanks/plot level and port.m_flow.mos"
+      __Dymola_experimentSetupOutput,
+      __Dymola_Commands(file=
+            "Scripts/Fluid/ThreeTanks/plot level and port.m_flow.mos"
           "plot level and port.m_flow"),
       Documentation(info="<html>
   
 <p align=\"center\">
-<img src=\"../Images/Examples/ThreeTanks.png\" border=\"1\">
+<img src=\"../Images/Fluid/Examples/ThreeTanks.png\" border=\"1\">
 </p>
  
 </html>"));
@@ -113,31 +113,31 @@ package Tanks "Library demonstrating the usage of the tank model"
 
   model TanksWithOverflow "Two tanks connected with pipes at different heights"
     extends Modelica.Icons.Example;
-    import Modelica_Fluid;
-    Modelica_Fluid.Vessels.OpenTank upperTank(
+    import Modelica.Fluid;
+    Modelica.Fluid.Vessels.OpenTank upperTank(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       height=20,
       level_start=2,
       crossArea=0.2,
       nPorts=3,
-      portsData={Modelica_Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.1),
-          Modelica_Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.1),
-          Modelica_Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.1, height=
+      portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.1),
+          Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.1),
+          Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.1, height=
            10)}) 
       annotation (Placement(transformation(extent={{-40,20},{0,60}}, rotation=0)));
-    Modelica_Fluid.Sources.MassFlowSource_T massFlowRate(nPorts=1,
+    Modelica.Fluid.Sources.MassFlowSource_T massFlowRate(nPorts=1,
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       m_flow=0.2,
       use_m_flow_in=true) 
       annotation (Placement(transformation(extent={{-60,-40},{-40,-20}}, rotation=
              0)));
-    inner Modelica_Fluid.System system(energyDynamics=Modelica_Fluid.Types.Dynamics.FixedInitial) 
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial) 
                                         annotation (Placement(transformation(
             extent={{-150,-112},{-130,-92}},  rotation=0)));
-    Modelica_Fluid.Sensors.Pressure pressure(redeclare package Medium = 
+    Modelica.Fluid.Sensors.Pressure pressure(redeclare package Medium = 
           Modelica.Media.Water.StandardWater) annotation (Placement(
           transformation(extent={{40,16},{60,36}}, rotation=0)));
-    Modelica_Fluid.Pipes.StaticPipe pipe(
+    Modelica.Fluid.Pipes.StaticPipe pipe(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       diameter=0.02,
       height_ab=-20,
@@ -146,14 +146,14 @@ package Tanks "Library demonstrating the usage of the tank model"
           extent={{10,-10},{-10,10}},
           rotation=90)));
 
-    Modelica_Fluid.Vessels.OpenTank lowerTank(
+    Modelica.Fluid.Vessels.OpenTank lowerTank(
       height=20,
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       level_start=2,
       crossArea=1,
       nPorts=2,
-      portsData={Modelica_Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
-          0.1),Modelica_Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.1,
+      portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
+          0.1),Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.1,
           height=10)}) 
       annotation (Placement(transformation(extent={{40,-60},{80,-20}}, rotation=0)));
     Modelica.Blocks.Logical.Hysteresis hysteresis(
@@ -170,7 +170,7 @@ package Tanks "Library demonstrating the usage of the tank model"
     Modelica.Blocks.Sources.Constant m_flow_on(k=2) 
       annotation (Placement(transformation(extent={{-140,-60},{-120,-40}},
             rotation=0)));
-    Modelica_Fluid.Pipes.StaticPipe overflow(
+    Modelica.Fluid.Pipes.StaticPipe overflow(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       diameter=0.02,
       length=200,
@@ -231,9 +231,9 @@ package Tanks "Library demonstrating the usage of the tank model"
           extent={{-160,-120},{100,120}},
           initialScale=0.1), graphics),
       experiment(StopTime=25000, NumberOfIntervals=5000),
-      experimentSetupOutput(equdistant=false),
-      Commands(file=
-            "../Scripts/Examples/TanksWithOverflow/plot level and port.m_flow.mos"
+      __Dymola_experimentSetupOutput(equdistant=false),
+      __Dymola_Commands(file=
+            "Scripts/Fluid/TanksWithOverflow/plot level and port.m_flow.mos"
           "plot level and port.m_flow"),
       Documentation(info="<html>
 <p align=justify>The mass flow rate to the upper tank is controlled by the static pressure at its bottom. 
@@ -250,7 +250,7 @@ simulation accuracy could be increased in order to avoid errors.
 </p>
  
 <p align=\"center\">
-<img src=\"../Images/Examples/TanksWithOverflow.png\" border=\"1\">
+<img src=\"../Images/Fluid/Examples/TanksWithOverflow.png\" border=\"1\">
 </p>
  
 </html>"));
@@ -258,18 +258,18 @@ simulation accuracy could be increased in order to avoid errors.
 
   model EmptyTanks "Show the treatment of empty tanks"
     extends Modelica.Icons.Example;
-    Modelica_Fluid.Vessels.OpenTank tank1(
+    Modelica.Fluid.Vessels.OpenTank tank1(
       redeclare package Medium = 
           Modelica.Media.Water.ConstantPropertyLiquidWater,
       nPorts=1,
       crossArea=1,
       level_start=1,
-      portsData={Modelica_Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
+      portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
           0.1)},
       height=1.1)             annotation (Placement(transformation(extent={{-40,20},
               {0,60}},      rotation=0)));
 
-    Modelica_Fluid.Pipes.StaticPipe pipe(
+    Modelica.Fluid.Pipes.StaticPipe pipe(
       redeclare package Medium = 
           Modelica.Media.Water.ConstantPropertyLiquidWater,
       length=1,
@@ -280,18 +280,18 @@ simulation accuracy could be increased in order to avoid errors.
           extent={{-10,-10},{10,10}},
           rotation=270)));
 
-    Modelica_Fluid.Vessels.OpenTank tank2(
+    Modelica.Fluid.Vessels.OpenTank tank2(
       crossArea=1,
       redeclare package Medium = 
           Modelica.Media.Water.ConstantPropertyLiquidWater,
       nPorts=1,
       height=1.1,
-      portsData={Modelica_Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
+      portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
           0.1, height=0.5)},
       level_start=0) 
       annotation (Placement(transformation(extent={{0,-80},{40,-40}},
             rotation=0)));
-    inner Modelica_Fluid.System system 
+    inner Modelica.Fluid.System system 
                                      annotation (Placement(transformation(
             extent={{60,60},{80,80}}, rotation=0)));
   equation
@@ -309,13 +309,13 @@ simulation accuracy could be increased in order to avoid errors.
               100,100}}),
               graphics),
       experiment(StopTime=50),
-      experimentSetupOutput,
-      Commands(file="../Scripts/Examples/EmptyTanks/plot level and port.p.mos"
+      __Dymola_experimentSetupOutput,
+      __Dymola_Commands(file="Scripts/Fluid/EmptyTanks/plot level and port.p.mos"
           "plot level and port.p"),
       Documentation(info="<html>
  
 <p align=\"center\">
-<img src=\"../Images/Examples/EmptyTanks.png\" border=\"1\">
+<img src=\"../Images/Fluid/Examples/EmptyTanks.png\" border=\"1\">
 </p>
 </html>"));
   end EmptyTanks;

@@ -1,4 +1,4 @@
-within Modelica_Fluid.Examples;
+within Modelica.Fluid.Examples;
 package DrumBoiler
   "Drum boiler example, see Franke, Rode, Krueger: On-line Optimization of Drum Boiler Startup, 3rd International Modelica Conference, Linkoping, 2003"
 
@@ -7,15 +7,15 @@ package DrumBoiler
      extends Modelica.Icons.Example;
     import Modelica.SIunits.Conversions.*;
 
-    Modelica_Fluid.Examples.DrumBoiler.BaseClasses.EquilibriumDrumBoiler
+    Modelica.Fluid.Examples.DrumBoiler.BaseClasses.EquilibriumDrumBoiler
       evaporator(
       m_D=300e3,
       cp_D=500,
       V_t=100,
       V_l_start=67,
       redeclare package Medium = Modelica.Media.Water.StandardWater,
-      energyDynamics=Modelica_Fluid.Types.Dynamics.FixedInitial,
-      massDynamics=Modelica_Fluid.Types.Dynamics.FixedInitial,
+      energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
+      massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
       p_start=100000)     annotation (Placement(transformation(extent={{-46,-30},
               {-26,-10}}, rotation=0)));
     annotation (
@@ -51,10 +51,10 @@ package DrumBoiler
             fillPattern=FillPattern.Solid,
             textString="boiler")}),
       experiment(StopTime=5400),
-      experimentSetupOutput,
+      __Dymola_experimentSetupOutput,
       Documentation(info="<html>
 <p align=\"center\">
-<img src=\"../Images/Examples/DrumBoiler.png\" border=\"1\">
+<img src=\"../Images/Fluid/Examples/DrumBoiler.png\" border=\"1\">
 </p>
 </html>"));
     Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow furnace 
@@ -62,34 +62,34 @@ package DrumBoiler
           origin={-36,-53},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica_Fluid.Sources.FixedBoundary sink(nPorts=1, p=from_bar(0.5),
+    Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1, p=from_bar(0.5),
       redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
       T=500) 
       annotation (Placement(transformation(
           origin={90,-20},
           extent={{-10,-10},{10,10}},
           rotation=180)));
-    Modelica_Fluid.Sensors.MassFlowRate massFlowRate(           redeclare
+    Modelica.Fluid.Sensors.MassFlowRate massFlowRate(           redeclare
         package Medium = 
           Modelica.Media.Water.StandardWater) 
       annotation (Placement(transformation(
           origin={30,-20},
           extent={{10,10},{-10,-10}},
           rotation=180)));
-    Modelica_Fluid.Sensors.Temperature temperature(    redeclare package Medium
+    Modelica.Fluid.Sensors.Temperature temperature(    redeclare package Medium
         = Modelica.Media.Water.StandardWater) 
       annotation (Placement(transformation(
           origin={-3,-1},
           extent={{10,10},{-10,-10}},
           rotation=180)));
-    Modelica_Fluid.Sensors.Pressure pressure(           redeclare package
+    Modelica.Fluid.Sensors.Pressure pressure(           redeclare package
         Medium = 
           Modelica.Media.Water.StandardWater) 
       annotation (Placement(transformation(extent={{10,14},{30,34}}, rotation=0)));
     Modelica.Blocks.Continuous.PI controller(T=120, k=10) 
       annotation (Placement(transformation(extent={{-51,23},{-65,37}}, rotation=
              0)));
-    Modelica_Fluid.Sources.MassFlowSource_h pump(nPorts=1,
+    Modelica.Fluid.Sources.MassFlowSource_h pump(nPorts=1,
                                              h=5e5, redeclare package Medium = 
           Modelica.Media.Water.StandardWater,
       use_m_flow_in=true) 
@@ -126,7 +126,7 @@ package DrumBoiler
           origin={-78,30},
           extent={{-7,-7},{7,7}},
           rotation=180)));
-    Modelica_Fluid.Valves.ValveLinear SteamValve(                  redeclare
+    Modelica.Fluid.Valves.ValveLinear SteamValve(                  redeclare
         package Medium = 
           Modelica.Media.Water.StandardWater,
       dp_nominal=9000000,
@@ -134,7 +134,7 @@ package DrumBoiler
       annotation (Placement(transformation(extent={{50,-10},{70,-30}}, rotation=
              0)));
 
-    inner Modelica_Fluid.System system 
+    inner Modelica.Fluid.System system 
       annotation (Placement(transformation(extent={{-90,70},{-70,90}})));
     Modelica.Blocks.Sources.TimeTable q_F_Tab(table=[0, 0; 3600, 400; 7210,
           400]) annotation (Placement(transformation(extent={{-90,-80},{-70,-60}},
@@ -196,11 +196,11 @@ package DrumBoiler
   end DrumBoiler;
 
   package BaseClasses "Additional components for drum boiler example"
-    extends Modelica_Fluid.Icons.BaseClassLibrary;
+    extends Modelica.Fluid.Icons.BaseClassLibrary;
 
     model EquilibriumDrumBoiler
       "Simple Evaporator with two states, see Astroem, Bell: Drum-boiler dynamics, Automatica 36, 2000, pp.363-378"
-      extends Modelica_Fluid.Interfaces.PartialTwoPort(
+      extends Modelica.Fluid.Interfaces.PartialTwoPort(
         final port_a_exposesState=true,
         final port_b_exposesState=true,
         redeclare replaceable package Medium = 
@@ -208,7 +208,7 @@ package DrumBoiler
             constrainedby Modelica.Media.Interfaces.PartialTwoPhaseMedium);
       import Modelica.SIunits.Conversions.*;
       import Modelica.Constants;
-      import Modelica_Fluid.Types;
+      import Modelica.Fluid.Types;
 
       parameter SI.Mass m_D "mass of surrounding drum metal";
       parameter Medium.SpecificHeatCapacity cp_D
@@ -265,7 +265,7 @@ package DrumBoiler
         "steam enthalpy (specific enthalpy close to steam port when mass flows in to the boiler)";
       SI.MassFlowRate qm_W=port_a.m_flow "feed water mass flow rate";
       SI.MassFlowRate qm_S=port_b.m_flow "steam mass flow rate";
-    /*outer Modelica_Fluid.Components.FluidOptions fluidOptions 
+    /*outer Modelica.Fluid.Components.FluidOptions fluidOptions 
     "Global default options";*/
     equation
     // balance equations
