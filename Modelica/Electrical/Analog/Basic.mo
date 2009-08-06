@@ -630,10 +630,10 @@ model M_Transformer
   public
   parameter Modelica.SIunits.Inductance L[dimL]={1,0.1,0.2,2,0.3,3}
       "inductances and coupling inductances";
-  Modelica.Electrical.Analog.Interfaces.PositivePin p[N] "Positive pin"
+  Modelica.Electrical.Analog.Interfaces.PositivePin p[N] "Positive pin" 
               annotation (extent=[-80,-40; -62,40], Placement(transformation(
           extent={{-80,-40},{-62,40}}, rotation=0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin n[N] "Negative pin"
+  Modelica.Electrical.Analog.Interfaces.NegativePin n[N] "Negative pin" 
               annotation (extent=[62,-40; 80,40], Placement(transformation(
           extent={{62,-40},{80,40}}, rotation=0)));
 
@@ -643,7 +643,7 @@ model M_Transformer
 algorithm
   for s in 1:N loop
      for z in 1:N loop
-       Lm[z,s]:= if (z>=s) then L[(s-1)*N+z-div((s-1)*s,2)] else
+       Lm[z,s]:= if (z>=s) then L[(s-1)*N+z-div((s-1)*s,2)] else 
                  Lm[s,z];
      end for;
   end for;
@@ -658,7 +658,7 @@ equation
   v =Lm*der(i);
 
   annotation (Icon(
-      coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+      coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
 
         graphics={
           Ellipse(extent={{-36,24},{-18,42}}),
@@ -955,7 +955,7 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
 
   model EMF "Electromotoric force (electric/mechanic transformer)"
     parameter Boolean useSupport=false
-      "= true, if support flange enabled, otherwise implicitly grounded"
+      "= true, if support flange enabled, otherwise implicitly grounded" 
         annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
     parameter SI.ElectricalTorqueConstant k(start=1)
       "Transformation coefficient";
@@ -963,7 +963,7 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
     SI.Current i "Current flowing from positive to negative pin";
     SI.Angle phi
       "Angle of shaft flange with respect to support (= flange.phi - support.phi)";
-    SI.AngularVelocity w "Angular velocity of flange relatuve to support";
+    SI.AngularVelocity w "Angular velocity of flange relative to support";
     Interfaces.PositivePin p annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
@@ -972,10 +972,10 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
           origin={0,-100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica.Mechanics.Rotational.Interfaces.Flange_b flange
+    Modelica.Mechanics.Rotational.Interfaces.Flange_b flange 
       annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
     Mechanics.Rotational.Interfaces.Support support if useSupport
-      "Support/housing of emf shaft"
+      "Support/housing of emf shaft" 
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
     annotation (
       defaultComponentName="emf",
@@ -1056,16 +1056,10 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
             textString="i"),
           Line(points={{8,-79},{18,-79}}, color={192,192,192}),
           Line(points={{14,80},{14,70}}, color={192,192,192})}),
-      Documentation(info="<HTML>
-<p>
-EMF transforms electrical energy into rotational mechanical energy.
-It is used as basic building block of an electrical motor. The mechanical
-connector shaft can be connected to elements of the
-Modelica.Mechanics.Rotational library. shaft.tau is the cut-torque,
-flange.phi is the angle at the rotational connection.
-</p>
-</HTML>
-", revisions="<html>
+      Documentation(info="<html>
+<p>EMF transforms electrical energy into rotational mechanical energy. It is used as basic building block of an electrical motor. The mechanical connector flange can be connected to elements of the Modelica.Mechanics.Rotational library. flange.tau is the cut-torque, flange.phi is the angle at the rotational connection. </p>
+</html>",
+   revisions="<html>
 <ul>
 <li><i> 1998   </i>
        by Martin Otter<br> initially implemented<br>
@@ -1073,9 +1067,9 @@ flange.phi is the angle at the rotational connection.
 </ul>
 </html>"));
   protected
-    Mechanics.Rotational.Components.Fixed fixed if not useSupport
+    Mechanics.Rotational.Components.Fixed fixed if not useSupport 
       annotation (Placement(transformation(extent={{-90,-20},{-70,0}})));
-    Mechanics.Rotational.Interfaces.InternalSupport internalSupport(tau=-flange.tau)
+    Mechanics.Rotational.Interfaces.InternalSupport internalSupport(tau=-flange.tau) 
       annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
   equation
     v = p.v - n.v;
@@ -1095,6 +1089,177 @@ flange.phi is the angle at the rotational connection.
         color={0,0,0},
         smooth=Smooth.None));
   end EMF;
+
+  model TranslationalEMF "Electromotoric force (electric/mechanic transformer)"
+    parameter Boolean useSupport=false
+      "= true, if support flange enabled, otherwise implicitly grounded" 
+      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+    parameter Modelica.SIunits.ElectricalForceConstant k(start=1)
+      "Transformation coefficient";
+
+    Modelica.SIunits.Voltage v "Voltage drop between the two pins";
+    Modelica.SIunits.Current i "Current flowing from positive to negative pin";
+    Modelica.SIunits.Position s "Position of flange relative to support";
+    Modelica.SIunits.Velocity vel "Velocity of flange relative to support";
+    annotation (defaultComponentName="emf",
+      Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Rectangle(
+            extent={{-90,51},{-40,-50}},
+            lineColor={135,135,135},
+            fillColor={135,135,135},
+            fillPattern=FillPattern.HorizontalCylinder),
+          Rectangle(
+            extent={{-21,20},{90,-20}},
+            lineColor={135,135,135},
+            fillColor={135,135,135},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{0,80},{148,44}},
+            lineColor={160,160,164},
+            textString="k=%k"),
+          Line(points={{-30,49},{-30,80},{0,80},{0,91}}, color={0,0,255}),
+          Line(points={{20,-49},{20,-80},{0,-80},{0,-89},{0,-90}}, color={0,0,
+                255}),
+          Ellipse(extent={{-21,50},{9,-50}}, lineColor={0,0,255}),
+          Ellipse(extent={{2,50},{32,-50}}, lineColor={0,0,255}),
+          Ellipse(extent={{-43,50},{-13,-50}}, lineColor={0,0,255}),
+          Rectangle(
+            extent={{-4,20},{-1,-20}},
+            lineColor={135,135,135},
+            fillColor={135,135,135},
+            fillPattern=FillPattern.Solid),
+          Rectangle(
+            extent={{7,20},{10,-20}},
+            lineColor={135,135,135},
+            fillColor={135,135,135},
+            fillPattern=FillPattern.Solid),
+          Rectangle(
+            extent={{-14,20},{-11,-20}},
+            lineColor={135,135,135},
+            fillColor={135,135,135},
+            fillPattern=FillPattern.Solid),
+          Rectangle(
+            extent={{19,20},{44,-20}},
+            lineColor={135,135,135},
+            fillColor={135,135,135},
+            fillPattern=FillPattern.Solid),
+          Line(
+            visible=not useSupport,
+            points={{-100,-70},{-40,-70}},
+            color={0,0,0}),
+          Line(
+            visible=not useSupport,
+            points={{-100,-90},{-80,-70}},
+            color={0,0,0}),
+          Line(
+            visible=not useSupport,
+            points={{-80,-90},{-60,-70}},
+            color={0,0,0}),
+          Line(
+            visible=not useSupport,
+            points={{-60,-90},{-40,-70}},
+            color={0,0,0}),
+          Line(
+            visible=not useSupport,
+            points={{-70,-70},{-70,-50}},
+            color={0,0,0}),
+          Text(
+            extent={{0,-50},{199,-90}},
+            textString="%name",
+            lineColor={0,0,255})}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Polygon(
+            points={{-17,95},{-20,85},{-23,95},{-17,95}},
+            lineColor={160,160,164},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-20,110},{-20,85}}, color={160,160,164}),
+          Text(
+            extent={{-40,110},{-30,90}},
+            lineColor={160,160,164},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid,
+            textString="i"),
+          Line(points={{9,75},{19,75}}, color={192,192,192}),
+          Line(points={{-20,-110},{-20,-85}}, color={160,160,164}),
+          Polygon(
+            points={{-17,-100},{-20,-110},{-23,-100},{-17,-100}},
+            lineColor={160,160,164},
+            fillColor={160,160,164},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-40,-110},{-30,-90}},
+            lineColor={160,160,164},
+            textString="i"),
+          Line(points={{8,-79},{18,-79}}, color={192,192,192}),
+          Line(points={{14,80},{14,70}}, color={192,192,192}),
+          Polygon(
+            points={{140,3},{150,0},{140,-3},{140,3},{140,3}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid)}),
+      Window(
+        x=0.21,
+        y=0,
+        width=0.65,
+        height=0.66),
+      Documentation(info="<html>
+<p>EMF transforms electrical energy into translational mechanical energy. It is used as basic building block of an electrical linear motor. The mechanical connector flange can be connected to elements of the Modelica.Mechanics.Translational library. flange.f is the cut-force, flange.s is the distance at the translational connection. </p>
+</html>",
+   revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> 2009   </i>
+       by Anton Haumer<br> initially implemented<br>
+       </li>
+</ul>
+</html>"));
+
+    Modelica.Electrical.Analog.Interfaces.PositivePin p 
+      annotation (Placement(transformation(
+          origin={0,100},
+          extent={{-10,-10},{10,10}},
+          rotation=90)));
+    Modelica.Electrical.Analog.Interfaces.NegativePin n 
+      annotation (Placement(transformation(
+          origin={0,-100},
+          extent={{-10,-10},{10,10}},
+          rotation=90)));
+    Modelica.Mechanics.Translational.Interfaces.Flange_b flange 
+       annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
+    Modelica.Mechanics.Translational.Interfaces.Support support if useSupport
+      "Support/housing" 
+      annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+  protected
+    Modelica.Mechanics.Translational.Components.Fixed fixed if not useSupport 
+      annotation (Placement(transformation(extent={{-90,-20},{-70,0}})));
+    Modelica.Mechanics.Translational.Interfaces.InternalSupport internalSupport(f=-flange.f) 
+      annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
+  equation
+    v = p.v - n.v;
+    0 = p.i + n.i;
+    i = p.i;
+
+    s = flange.s - internalSupport.s;
+    vel = der(s);
+    k*vel = v;
+    flange.f = -k*i;
+    connect(internalSupport.flange, support) annotation (Line(
+        points={{-80,0},{-90,0},{-90,0},{-100,0}},
+        color={0,127,0},
+        smooth=Smooth.None));
+    connect(internalSupport.flange, fixed.flange) annotation (Line(
+        points={{-80,0},{-80,-10}},
+        color={0,127,0},
+        smooth=Smooth.None));
+  end TranslationalEMF;
 
   model VCV "Linear voltage-controlled voltage source"
     extends Interfaces.TwoPort;
@@ -1277,7 +1442,7 @@ The left port voltage is zero. Any transResistance can be chosen.
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-90,50},{-20,50},{-20,-50},{-90,-50}}, color={0,0,255}),
+          Line(points={{-90,50},{-20,50},{-20,-50},{-90,-50}}, color={0,0,255}), 
 
           Text(
             extent={{-140,-82},{160,-122}},
@@ -1336,7 +1501,7 @@ The left port voltage is zero. Any current gain can be chosen.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-100,50},{-30,50},{-30,-50},{-100,-50}}, color={0,0,255}),
+          Line(points={{-100,50},{-30,50},{-30,-50},{-100,-50}}, color={0,0,255}), 
 
           Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
           Line(points={{-20,60},{20,60}}, color={0,0,255}),
@@ -1383,7 +1548,7 @@ The left port voltage is zero. Any current gain can be chosen.
     Modelica.Electrical.Analog.Interfaces.NegativePin in_n
       "Negative pin of the input port" annotation (Placement(transformation(
             extent={{-90,40},{-110,60}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.PositivePin out "Output pin"
+    Modelica.Electrical.Analog.Interfaces.PositivePin out "Output pin" 
       annotation (Placement(transformation(extent={{110,-10},{90,10}}, rotation=
              0)));
     Modelica.Electrical.Analog.Interfaces.PositivePin VMax
@@ -1554,7 +1719,7 @@ value of Slope is taken into calculation.)
     Modelica.Electrical.Analog.Interfaces.NegativePin m
       "Negative pin of the input port" annotation (Placement(transformation(
             extent={{-90,40},{-111,61}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.PositivePin outp "Output pin"
+    Modelica.Electrical.Analog.Interfaces.PositivePin outp "Output pin" 
       annotation (Placement(transformation(extent={{110,-10},{90,10}}, rotation=
              0)));
     Modelica.Electrical.Analog.Interfaces.PositivePin p_supply
@@ -1777,8 +1942,8 @@ Now one of these models, the model \"amp(macro)\" was transferred into Modelica.
 
      der(x) = (q_fp1 - v_source)/Ts;
      der(v_source) = smooth(0,noEvent(
-     if der(x) > sr_p_val then sr_p_val else
-     if der(x) < sr_m_val then sr_m_val else
+     if der(x) > sr_p_val then sr_p_val else 
+     if der(x) < sr_m_val then sr_m_val else 
         der(x)));
 
   // output stage
@@ -1799,7 +1964,7 @@ Now one of these models, the model \"amp(macro)\" was transferred into Modelica.
         model VariableResistor
     "Ideal linear electrical resistor with variable resistance"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.RealInput R
+          Modelica.Blocks.Interfaces.RealInput R 
             annotation (Placement(transformation(
           origin={0,110},
           extent={{-20,-20},{20,20}},
@@ -1868,7 +2033,7 @@ The Resistance <i>R</i> is given as input signal.
         model VariableConductor
     "Ideal linear electrical conductor with variable conductance"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.RealInput G
+          Modelica.Blocks.Interfaces.RealInput G 
             annotation (Placement(transformation(
           origin={0,110},
           extent={{-20,-20},{20,20}},
@@ -1935,7 +2100,7 @@ The Conductance <i>G</i> is given as input signal.
         model VariableCapacitor
     "Ideal linear electrical capacitor with variable capacitance"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.RealInput C
+          Modelica.Blocks.Interfaces.RealInput C 
             annotation (Placement(transformation(
           origin={0,110},
           extent={{-20,-20},{20,20}},
@@ -2012,7 +2177,7 @@ Cmin is a parameter with default value Modelica.Constants.eps.
     "Ideal linear electrical inductor with variable inductance"
 
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.RealInput L
+          Modelica.Blocks.Interfaces.RealInput L 
             annotation (Placement(transformation(
           origin={0,108},
           extent={{-20,-20},{20,20}},
