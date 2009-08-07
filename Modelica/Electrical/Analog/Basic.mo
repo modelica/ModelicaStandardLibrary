@@ -96,8 +96,13 @@ at least one ground object.
 <P>
 The linear resistor connects the branch voltage <i>v</i> with the
 branch current <i>i</i> by <i>i*R = v</i>.
-The Resistance <i>R</i> is allowed to be positive, zero, or negative.
+The Resistance <i>R</i> is allowed to be positive, zero, or negative. 
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled yet.
 </P>
+
 </HTML>
 ", revisions="<html>
 <ul>
@@ -253,6 +258,10 @@ If the heatPort connector is enabled, it must be connected.
 The linear conductor connects the branch voltage <i>v</i> with the
 branch current <i>i</i> by <i>i = v*G</i>.
 The Conductance <i>G</i> is allowed to be positive, zero, or negative.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled yet.
 </P>
 </HTML>
 ", revisions="<html>
@@ -1979,6 +1988,10 @@ branch current <i>i</i> by <br><br>
 </P>
 <P>
 The Resistance <i>R</i> is given as input signal.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled yet.
 <P>
 <b>Attention!!!</b><br>
   It is recommended that the R signal should not cross the zero value. Otherwise
@@ -2048,6 +2061,10 @@ branch current <i>i</i> by <br><br>
 </P>
 <P>
 The Conductance <i>G</i> is given as input signal.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled yet.
 </P>
 <P>
 <b>Attention!!!</b><br>

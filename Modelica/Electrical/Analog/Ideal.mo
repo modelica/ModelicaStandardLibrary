@@ -46,7 +46,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
             parameter Modelica.SIunits.Voltage Vknee(final min=0, start=0)
       "Forward threshold voltage";
             Boolean off(start=true) "Switching state";
-            Modelica.Blocks.Interfaces.BooleanInput fire
+            Modelica.Blocks.Interfaces.BooleanInput fire 
               annotation (Placement(transformation(
           origin={70,110},
           extent={{-20,-20},{20,20}},
@@ -74,6 +74,10 @@ resistance <i>Ron</i> which is default.
 The parameter <i>Vknee</i> which is the forward threshold voltage, allows to displace
 the knee point <br>
 along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled.
 </p>
 </HTML>
 ",           revisions="<html>
@@ -184,7 +188,7 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
             parameter Modelica.SIunits.Voltage Vknee(final min=0, start=0)
       "Forward threshold voltage";
             Boolean off(start=true) "Switching state";
-            Modelica.Blocks.Interfaces.BooleanInput fire
+            Modelica.Blocks.Interfaces.BooleanInput fire 
               annotation (Placement(transformation(
           origin={70,110},
           extent={{-20,-20},{20,20}},
@@ -212,6 +216,10 @@ resistance <i>Ron</i> which is default.
 The parameter <i>Vknee</i> which is the forward threshold voltage, allows to displace
 the knee point <br>
 along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled.
 </p>
 </HTML>
 ",           revisions="<html>
@@ -350,6 +358,10 @@ The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled.
 </P>
 </HTML>
 ", revisions="<html>
@@ -428,7 +440,7 @@ where a description with zero Ron or zero Goff is not possible.
     Interfaces.NegativePin n2 annotation (Placement(transformation(extent={{90,
               -10},{110,10}}, rotation=0)));
     Modelica.Blocks.Interfaces.BooleanInput control
-      "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2  connected"
+      "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2  connected" 
       annotation (Placement(transformation(
           origin={0,80},
           extent={{-20,-20},{20,20}},
@@ -461,6 +473,10 @@ The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled.
 </P>
 </HTML>
 ", revisions="<html>
@@ -571,6 +587,10 @@ The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled.
 </P>
 </HTML>
 ", revisions="<html>
@@ -686,6 +706,10 @@ The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled.
 </P>
 </HTML>
 ", revisions="<html>
@@ -960,10 +984,10 @@ are possible.
           transformation(extent={{-110,40},{-90,60}}, rotation=0)));
     Interfaces.PositivePin out "Output pin" annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
-    Interfaces.PositivePin VMax "Positive output voltage limitation"
+    Interfaces.PositivePin VMax "Positive output voltage limitation" 
       annotation (Placement(transformation(extent={{-10,60},{10,80}}, rotation=
               0)));
-    Interfaces.NegativePin VMin "Negative output voltage limitation"
+    Interfaces.NegativePin VMin "Negative output voltage limitation" 
       annotation (Placement(transformation(extent={{-10,-80},{10,-60}},
             rotation=0)));
     SI.Voltage vin "input voltage";
@@ -996,7 +1020,7 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}),
+          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}), 
 
           Line(points={{0,35},{0,80}}, color={0,0,255}),
           Line(points={{0,-35},{0,-80}}, color={0,0,255}),
@@ -1019,7 +1043,8 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}),
+          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}), 
+
           Line(points={{0,35},{0,80}}, color={0,0,255}),
           Line(points={{0,-35},{0,-80}}, color={0,0,255}),
           Line(points={{-96,50},{-60,50}}, color={0,0,255}),
@@ -1091,6 +1116,10 @@ resistance <i>Roff</i> which is default.
 The parameter <i>Vknee</i> which is the forward threshold voltage, allows to displace
 the knee point <br>
 along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled.
 </p>
 </HTML>
 ",         revisions="<html>
@@ -1191,7 +1220,7 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
     parameter Real n(start=1) "Turns ratio primary:secondary voltage";
     parameter Boolean considerMagnetization=false;
     parameter Modelica.SIunits.Inductance Lm1(start=1)
-      "Magnetization inductance w.r.t. primary side"
+      "Magnetization inductance w.r.t. primary side" 
       annotation(Dialog(enable=considerMagnetization));
     annotation (
       Documentation(info="<html>
@@ -1337,7 +1366,7 @@ where the constant <i>G</i> is called the gyration conductance.
             lineThickness=0.25,
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{-90,50},{-40,50},{-40,-50},{-90,-50}}, color={0,0,255}),
+          Line(points={{-90,50},{-40,50},{-40,-50},{-90,-50}}, color={0,0,255}), 
 
           Line(points={{-30,60},{20,60}}, color={0,0,255}),
           Polygon(
@@ -1477,7 +1506,7 @@ The model Short is a simple short cut branch.
  model IdealOpeningSwitch "Ideal electrical opener"
    extends Modelica.Electrical.Analog.Interfaces.OnePort;
    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
-   parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
+   parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance" 
        annotation (Placement(transformation(extent={{-56.6667,10},{-10,56.6667}},
             rotation=0)));
    parameter SI.Conductance Goff(final min=0) = 1.E-5
@@ -1510,6 +1539,10 @@ The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled.
 </P>
 </HTML>
 ", revisions="<html>
@@ -1567,7 +1600,7 @@ where a description with zero Ron or zero Goff is not possible.
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
       parameter SI.Resistance Ron(final min=0) = 1.E-5
-      "Closed switch resistance"
+      "Closed switch resistance" 
          annotation (Placement(transformation(extent={{-56.6667,10},{-10,
               56.6667}}, rotation=0)));
       parameter SI.Conductance Goff(final min=0) = 1.E-5
@@ -1600,6 +1633,10 @@ The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled.
 </P>
 </HTML>
 ",     revisions="<html>
@@ -1666,7 +1703,7 @@ where a description with zero Ron or zero Goff is not possible.
     Interfaces.NegativePin n annotation (Placement(transformation(extent={{90,
               -10},{110,10}}, rotation=0)));
     Interfaces.Pin control
-      "Control pin: control.v > level switch open, otherwise p--n connected"
+      "Control pin: control.v > level switch open, otherwise p--n connected" 
       annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
@@ -1693,6 +1730,10 @@ The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled.
 </P>
 </HTML>
 ", revisions="<html>
@@ -1749,7 +1790,7 @@ where a description with zero Ron or zero Goff is not possible.
       parameter SI.Voltage level=0.5 "Switch level" annotation (Placement(
           transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
       parameter SI.Resistance Ron(final min=0) = 1.E-5
-      "Closed switch resistance"
+      "Closed switch resistance" 
          annotation (Placement(transformation(extent={{10,10},{56.6667,56.6667}},
             rotation=0)));
       parameter SI.Conductance Goff(final min=0) = 1.E-5
@@ -1760,7 +1801,7 @@ where a description with zero Ron or zero Goff is not possible.
       Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Modelica.Electrical.Analog.Interfaces.Pin control
-      "Control pin: control.v > level switch closed, otherwise switch open"
+      "Control pin: control.v > level switch closed, otherwise switch open" 
         annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
@@ -1787,6 +1828,10 @@ The limiting case is also allowed, i.e., the resistance Ron of the
 closed switch could be exactly zero and the conductance Goff of the
 open switch could be also exactly zero. Note, there are circuits,
 where a description with zero Ron or zero Goff is not possible.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled.
 </P>
 </HTML>
 ",     revisions="<html>
@@ -1845,7 +1890,7 @@ where a description with zero Ron or zero Goff is not possible.
     parameter Modelica.SIunits.VoltageSlope dVdt=10E3 "Arc voltage slope";
     parameter Modelica.SIunits.Voltage Vmax=60 "Max. arc voltage";
     Modelica.Blocks.Interfaces.BooleanInput control
-      "false => p--n connected, true => switch open"
+      "false => p--n connected, true => switch open" 
       annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
@@ -1931,6 +1976,10 @@ i.e. the equation for the on-state is activated <code>v=Ron*i</code>.
 <p>
 Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
 In a DC circuit, the arc will not quench if the arc voltage is not sufficient that a zero-crossing of the current occurs.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled.
 </p>
 </html>", revisions="<html>
 <ul>
@@ -1973,7 +2022,7 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
     parameter Modelica.SIunits.VoltageSlope dVdt=10E3 "Arc voltage slope";
     parameter Modelica.SIunits.Voltage Vmax=60 "Max. arc voltage";
     Modelica.Blocks.Interfaces.BooleanInput control
-      "true => p--n connected, false => switch open"
+      "true => p--n connected, false => switch open" 
       annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
@@ -2058,6 +2107,10 @@ i.e. the equation for the on-state is activated <code>v=Ron*i</code>.
 <p>
 Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
 In a DC circuit, the arc will not quench if the arc voltage is not sufficient that a zero-crossing of the current occurs.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled.
 </p>
 </html>", revisions="<html>
 <ul>
@@ -2091,11 +2144,11 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
   model ControlledOpenerWithArc
     "Controlled ideal electrical opener with simple arc model"
 
-    parameter Modelica.SIunits.Voltage level=0.5 "Switch level"
+    parameter Modelica.SIunits.Voltage level=0.5 "Switch level" 
                                                   annotation (Placement(
           transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
     parameter Modelica.SIunits.Resistance Ron(final min=0)=1.E-5
-      "Closed switch resistance"
+      "Closed switch resistance" 
        annotation (Placement(transformation(extent={{10,10},{56.6667,56.6667}},
             rotation=0)));
     parameter Modelica.SIunits.Conductance Goff(final min=0)=1.E-5
@@ -2105,14 +2158,14 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
     parameter Modelica.SIunits.VoltageSlope dVdt=10E3 "Arc voltage slope";
     parameter Modelica.SIunits.Voltage Vmax=60 "Max. arc voltage";
 
-    Modelica.Electrical.Analog.Interfaces.PositivePin p
+    Modelica.Electrical.Analog.Interfaces.PositivePin p 
                              annotation (Placement(transformation(extent={{-110,
               -10},{-90,10}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.NegativePin n
+    Modelica.Electrical.Analog.Interfaces.NegativePin n 
                              annotation (Placement(transformation(extent={{90,
               -10},{110,10}}, rotation=0)));
     Modelica.Electrical.Analog.Interfaces.Pin control
-      "Control pin: control.v > level switch open, otherwise p--n connected"
+      "Control pin: control.v > level switch open, otherwise p--n connected" 
       annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
@@ -2166,6 +2219,10 @@ i.e. the equation for the on-state is activated <code>v=Ron*i</code>.
 <p>
 Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
 In a DC circuit, the arc will not quench if the arc voltage is not sufficient that a zero-crossing of the current occurs.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled.
 </p>
 </HTML>
 ", revisions="<html>
@@ -2227,11 +2284,11 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
     model ControlledCloserWithArc
     "Controlled ideal electrical closer with simple arc model"
 
-      parameter Modelica.SIunits.Voltage level=0.5 "Switch level"
+      parameter Modelica.SIunits.Voltage level=0.5 "Switch level" 
                                                     annotation (Placement(
           transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
       parameter Modelica.SIunits.Resistance Ron(final min=0)=1.E-5
-      "Closed switch resistance"
+      "Closed switch resistance" 
          annotation (Placement(transformation(extent={{10,10},{56.6667,56.6667}},
             rotation=0)));
       parameter Modelica.SIunits.Conductance Goff(final min=0)=1.E-5
@@ -2246,7 +2303,7 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
       Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Modelica.Electrical.Analog.Interfaces.Pin control
-      "Control pin: control.v > level switch closed, otherwise switch open"
+      "Control pin: control.v > level switch closed, otherwise switch open" 
         annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
@@ -2300,6 +2357,10 @@ i.e. the equation for the on-state is activated <code>v=Ron*i</code>.
 <p>
 Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
 In a DC circuit, the arc will not quench if the arc voltage is not sufficient that a zero-crossing of the current occurs.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled.
 </p>
 
 </HTML>
