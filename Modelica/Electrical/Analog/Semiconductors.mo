@@ -51,7 +51,7 @@ interaction the heating device models have to be used.
     parameter Real Maxexp(final min=Modelica.Constants.small) = 15
       "Max. exponent for linear continuation";
     parameter SIunits.Resistance R=1.e8 "Parallel ohmic resistance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
     annotation (
       Documentation(info="
 <HTML>
@@ -69,7 +69,7 @@ continued to avoid overflow.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled yet.
+behavior is <b> not </b> modelled yet. The parameters are not temperature dependent.
 </P>
 </HTML>
 ", revisions="<html>
@@ -141,7 +141,7 @@ behavior is <b> not </b> modelled yet.
       "Breakthrough voltage = Zener- or Z-voltage";
    parameter Modelica.SIunits.Current Ibv=0.7 "Breakthrough knee current";
    parameter Real Nbv=0.74 "Breakthrough emission coefficient";
-   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
+   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
     annotation (
       Documentation(info="
 <HTML>
@@ -164,7 +164,7 @@ current in reverse direction if the breakdown voltage Bv (also known zener knee 
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled yet.
+behavior is <b> not </b> modelled yet. The parameters are not temperature dependent.
 <\\P>
 
 
@@ -254,7 +254,7 @@ behavior is <b> not </b> modelled yet.
     parameter SIunits.Length dW=-2.5e-6 "Narrowing of channel";
     parameter SIunits.Length dL=-2.1e-6 "Shortening of channel";
     parameter SIunits.Resistance RDS=1.e+7 "Drain-Source-Resistance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
   protected
     Real v;
     Real uds;
@@ -278,7 +278,7 @@ is included to avoid numerical difficulties.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled yet.
+behavior is <b> not </b> modelled yet. The parameters are not temperature dependent.
 </P>
 <DL>
 <DT><b>References:</b>
@@ -396,7 +396,7 @@ Some typical parameter sets are:
     parameter SIunits.Length dW=-2.5e-6 "narrowing of channel";
     parameter SIunits.Length dL=-1.5e-6 "shortening of channel";
     parameter SIunits.Resistance RDS=1.e+7 "Drain-Source-Resistance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
   protected
     Real v;
     Real uds;
@@ -420,7 +420,7 @@ is included to avoid numerical difficulties.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled yet.
+behavior is <b> not </b> modelled yet. The parameters are not temperature dependent.
 </P>
 <P>
 <PRE>
@@ -551,7 +551,7 @@ Muenchen Wien 1990.
     parameter SIunits.Voltage Vt=0.02585 "Voltage equivalent of temperature";
     parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
     parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
   protected
     Real vbc;
     Real vbe;
@@ -587,7 +587,7 @@ to Ebers-Moll.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled yet.
+behavior is <b> not </b> modelled yet. The parameters are not temperature dependent.
 </P>
 <P>
 A typical parameter set is:
@@ -710,7 +710,7 @@ on page 317 ff.
     parameter SIunits.Voltage Vt=0.02585 "Voltage equivalent of temperature";
     parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
     parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
   protected
     Real vbc;
     Real vbe;
@@ -746,7 +746,7 @@ to Ebers-Moll.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled yet.
+behavior is <b> not </b> modelled yet. The parameters are not temperature dependent.
 <P>
 A typical parameter set is:
 </P>

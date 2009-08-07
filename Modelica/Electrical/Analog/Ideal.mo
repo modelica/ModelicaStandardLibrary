@@ -38,7 +38,7 @@ Modelica in file \"Modelica/package.mo\".</i><br>
 
           model IdealThyristor "Ideal thyristor"
             extends Modelica.Electrical.Analog.Interfaces.OnePort;
-            extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
+            extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
             parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
       "Closed thyristor resistance";
             parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
@@ -77,7 +77,7 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled.
+behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </p>
 </HTML>
 ",           revisions="<html>
@@ -180,7 +180,7 @@ behavior is <b> not </b> modelled.
 
           model IdealGTOThyristor "Ideal GTO thyristor"
             extends Modelica.Electrical.Analog.Interfaces.OnePort;
-            extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
+            extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
             parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
       "Closed thyristor resistance";
             parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
@@ -219,7 +219,7 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled.
+behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </p>
 </HTML>
 ",           revisions="<html>
@@ -321,7 +321,7 @@ behavior is <b> not </b> modelled.
           end IdealGTOThyristor;
 
   model IdealCommutingSwitch "Ideal commuting switch"
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance";
@@ -361,7 +361,7 @@ where a description with zero Ron or zero Goff is not possible.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled.
+behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </P>
 </HTML>
 ", revisions="<html>
@@ -427,7 +427,7 @@ behavior is <b> not </b> modelled.
   end IdealCommutingSwitch;
 
   model IdealIntermediateSwitch "Ideal intermediate switch"
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance";
@@ -476,7 +476,7 @@ where a description with zero Ron or zero Goff is not possible.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled.
+behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </P>
 </HTML>
 ", revisions="<html>
@@ -548,7 +548,7 @@ behavior is <b> not </b> modelled.
   end IdealIntermediateSwitch;
 
   model ControlledIdealCommutingSwitch "Controlled ideal commuting switch"
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
     parameter SI.Voltage level=0.5 "Switch level";
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5
@@ -590,7 +590,7 @@ where a description with zero Ron or zero Goff is not possible.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled.
+behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </P>
 </HTML>
 ", revisions="<html>
@@ -658,7 +658,7 @@ behavior is <b> not </b> modelled.
 
   model ControlledIdealIntermediateSwitch
     "Controlled ideal intermediate switch"
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
     parameter SI.Voltage level=0.5 "Switch level";
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5
@@ -709,7 +709,7 @@ where a description with zero Ron or zero Goff is not possible.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled.
+behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </P>
 </HTML>
 ", revisions="<html>
@@ -1043,8 +1043,7 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}), 
-
+          Line(points={{-45,-10},{-10,-10},{-10,10},{20,10}}, color={0,0,255}),
           Line(points={{0,35},{0,80}}, color={0,0,255}),
           Line(points={{0,-35},{0,-80}}, color={0,0,255}),
           Line(points={{-96,50},{-60,50}}, color={0,0,255}),
@@ -1505,7 +1504,7 @@ The model Short is a simple short cut branch.
 
  model IdealOpeningSwitch "Ideal electrical opener"
    extends Modelica.Electrical.Analog.Interfaces.OnePort;
-   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
+   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance" 
        annotation (Placement(transformation(extent={{-56.6667,10},{-10,56.6667}},
             rotation=0)));
@@ -1542,7 +1541,7 @@ where a description with zero Ron or zero Goff is not possible.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled.
+behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </P>
 </HTML>
 ", revisions="<html>
@@ -1598,7 +1597,7 @@ behavior is <b> not </b> modelled.
 
     model IdealClosingSwitch "Ideal electrical closer"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
       parameter SI.Resistance Ron(final min=0) = 1.E-5
       "Closed switch resistance" 
          annotation (Placement(transformation(extent={{-56.6667,10},{-10,
@@ -1636,7 +1635,7 @@ where a description with zero Ron or zero Goff is not possible.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled.
+behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </P>
 </HTML>
 ",     revisions="<html>
@@ -1689,7 +1688,7 @@ behavior is <b> not </b> modelled.
     end IdealClosingSwitch;
 
   model ControlledIdealOpeningSwitch "Controlled ideal electrical opener"
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
     parameter SI.Voltage level=0.5 "Switch level" annotation (Placement(
           transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
@@ -1733,7 +1732,7 @@ where a description with zero Ron or zero Goff is not possible.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled.
+behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </P>
 </HTML>
 ", revisions="<html>
@@ -1786,7 +1785,7 @@ behavior is <b> not </b> modelled.
   end ControlledIdealOpeningSwitch;
 
     model ControlledIdealClosingSwitch "Controlled ideal electrical closer"
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
       parameter SI.Voltage level=0.5 "Switch level" annotation (Placement(
           transformation(extent={{-56.6667,10},{-10,56.6667}}, rotation=0)));
       parameter SI.Resistance Ron(final min=0) = 1.E-5
@@ -1831,7 +1830,7 @@ where a description with zero Ron or zero Goff is not possible.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled.
+behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </P>
 </HTML>
 ",     revisions="<html>
@@ -1889,12 +1888,14 @@ behavior is <b> not </b> modelled.
     parameter Modelica.SIunits.Voltage V0=30 "Initial arc voltage";
     parameter Modelica.SIunits.VoltageSlope dVdt=10E3 "Arc voltage slope";
     parameter Modelica.SIunits.Voltage Vmax=60 "Max. arc voltage";
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
     Modelica.Blocks.Interfaces.BooleanInput control
       "false => p--n connected, true => switch open" 
       annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
           rotation=270)));
+
     annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
               -100},{100,100}}), graphics={
           Line(points={{40,50},{32,32},{48,28},{40,18}}, color={255,0,0}),
@@ -1979,7 +1980,7 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled.
+behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </p>
 </html>", revisions="<html>
 <ul>
@@ -2011,6 +2012,7 @@ behavior is <b> not </b> modelled.
         v=min(Vmax, V0 + dVdt*(time - tSwitch))*sign(i);
       end if;
     end if;
+   LossPower = v*i;
   end OpenerWithArc;
 
   model CloserWithArc "Ideal closing switch with simple arc model"
@@ -2021,6 +2023,7 @@ behavior is <b> not </b> modelled.
     parameter Modelica.SIunits.Voltage V0=30 "Initial arc voltage";
     parameter Modelica.SIunits.VoltageSlope dVdt=10E3 "Arc voltage slope";
     parameter Modelica.SIunits.Voltage Vmax=60 "Max. arc voltage";
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
     Modelica.Blocks.Interfaces.BooleanInput control
       "true => p--n connected, false => switch open" 
       annotation (Placement(transformation(
@@ -2110,7 +2113,7 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled.
+behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </p>
 </html>", revisions="<html>
 <ul>
@@ -2139,6 +2142,7 @@ behavior is <b> not </b> modelled.
         v=min(Vmax, V0 + dVdt*(time - tSwitch))*sign(i);
       end if;
     end if;
+  LossPower = v*i;
   end CloserWithArc;
 
   model ControlledOpenerWithArc
@@ -2157,7 +2161,7 @@ behavior is <b> not </b> modelled.
     parameter Modelica.SIunits.Voltage V0=30 "Initial arc voltage";
     parameter Modelica.SIunits.VoltageSlope dVdt=10E3 "Arc voltage slope";
     parameter Modelica.SIunits.Voltage Vmax=60 "Max. arc voltage";
-
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
     Modelica.Electrical.Analog.Interfaces.PositivePin p 
                              annotation (Placement(transformation(extent={{-110,
               -10},{-90,10}}, rotation=0)));
@@ -2222,7 +2226,7 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled.
+behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </p>
 </HTML>
 ", revisions="<html>
@@ -2278,7 +2282,7 @@ behavior is <b> not </b> modelled.
         v=min(Vmax, V0 + dVdt*(time - tSwitch))*sign(i);
       end if;
     end if;
-
+   LossPower = v*i;
   end ControlledOpenerWithArc;
 
     model ControlledCloserWithArc
@@ -2297,7 +2301,7 @@ behavior is <b> not </b> modelled.
       parameter Modelica.SIunits.Voltage V0=30 "Initial arc voltage";
       parameter Modelica.SIunits.VoltageSlope dVdt=10E3 "Arc voltage slope";
       parameter Modelica.SIunits.Voltage Vmax=60 "Max. arc voltage";
-
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
       Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
       Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (Placement(
@@ -2360,7 +2364,7 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled.
+behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </p>
 
 </HTML>
@@ -2416,6 +2420,6 @@ behavior is <b> not </b> modelled.
           v=min(Vmax, V0 + dVdt*(time - tSwitch))*sign(i);
         end if;
       end if;
-
+     LossPower = v*i;
     end ControlledCloserWithArc;
 end Ideal;

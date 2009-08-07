@@ -87,25 +87,32 @@ at least one ground object.
     p.v = 0;
   end Ground;
 
-  model Resistor "Ideal linear electrical resistor"
-    extends Interfaces.OnePort;
-    parameter SI.Resistance R(start=1) "Resistance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
-    annotation (
-      Documentation(info="<HTML>
+
+model Resistor "Ideal linear electrical resistor"
+  extends Modelica.Electrical.Analog.Interfaces.OnePort;
+  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
+  parameter Modelica.SIunits.Resistance R(start=1)
+      "Resistance R_ref at temperature T_ref";
+  parameter Modelica.SIunits.Temperature T_ref(start=300.15)
+      "Reference temperature";
+  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha(start=0)
+      "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha*(heatPort.T - T_ref))";
+  Modelica.SIunits.Resistance R_actual
+      "Resistance = R_ref*(1 + alpha*(intenalHeatPort.T - T_ref))";
+  annotation (
+    Documentation(info="<HTML>
 <P>
 The linear resistor connects the branch voltage <i>v</i> with the
 branch current <i>i</i> by <i>i*R = v</i>.
-The Resistance <i>R</i> is allowed to be positive, zero, or negative. 
-<br> <br>
-<b>Please note:</b>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled yet.
+The Resistance <i>R</i> is allowed to be positive, zero, or negative.
 </P>
-
 </HTML>
-", revisions="<html>
+",
+ revisions="<html>
 <ul>
+<li><i> August 07, 2009   </i>
+       by Anton Haumer<br> temperature dependency of resistance added<br>
+       </li>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
@@ -114,10 +121,10 @@ behavior is <b> not </b> modelled yet.
        </li>
 </ul>
 </html>"),
-      Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+    Icon(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={2,2}), graphics={
           Rectangle(
             extent={{-70,30},{70,-30}},
             lineColor={0,0,255},
@@ -139,30 +146,34 @@ behavior is <b> not </b> modelled yet.
             extent={{-152,87},{148,47}},
             textString="%name",
             lineColor={0,0,255})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+    Diagram(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={2,2}), graphics={
           Rectangle(extent={{-70,30},{70,-30}}, lineColor={0,0,255}),
           Line(points={{-96,0},{-70,0}}, color={0,0,255}),
           Line(points={{70,0},{96,0}}, color={0,0,255})}));
-  equation
-    R*i = v;
-    LossPower = v*i;
-  end Resistor;
+equation
+  assert((1 + alpha*(T_heatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
+  R_actual = R*(1 + alpha*(T_heatPort - T_ref));
+  v = R_actual*i;
+  LossPower = v*i;
+end Resistor;
 
-    model HeatingResistor "Temperature dependent electrical resistor"
-      extends Modelica.Electrical.Analog.Interfaces.OnePort;
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T = T_ref, useHeatPort=true);
-      parameter SI.Resistance R_ref(start=1) "Resistance at temperature T_ref";
-      parameter SI.Temperature T_ref(start=300.15) "Reference temperature";
-      parameter SI.LinearTemperatureCoefficient alpha(start=0)
+  model HeatingResistor "Temperature dependent electrical resistor"
+    extends Modelica.Electrical.Analog.Interfaces.OnePort;
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref, useHeatPort=true);
+    parameter Modelica.SIunits.Resistance R_ref(start=1)
+      "Resistance at temperature T_ref";
+    parameter Modelica.SIunits.Temperature T_ref(start=300.15)
+      "Reference temperature";
+    parameter Modelica.SIunits.LinearTemperatureCoefficient alpha(start=0)
       "Temperature coefficient of resistance (R = R_ref*(1 + alpha*(heatPort.T - T_ref))";
-      SI.Resistance R
-      "Resistance = R_ref*(1 + alpha*(intenalHeatPort.T - T_ref));";
-      annotation (__Dymola_structurallyIncomplete=true,
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics={
+    Modelica.SIunits.Resistance R
+      "Resistance = R_ref*(1 + alpha*(intenalHeatPort.T - T_ref))";
+    annotation (__Dymola_structurallyIncomplete=true,
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+              100,100}}), graphics={
           Line(points={{-110,20},{-85,20}}, color={160,160,164}),
           Polygon(
             points={{-95,23},{-85,20},{-95,17},{-95,23}},
@@ -186,8 +197,8 @@ behavior is <b> not </b> modelled yet.
             extent={{90,45},{110,25}},
             lineColor={160,160,164},
             textString="i")}),
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+              100}}), graphics={
           Line(points={{-90,0},{-70,0}}, color={0,0,255}),
           Line(points={{70,0},{90,0}}, color={0,0,255}),
           Rectangle(
@@ -211,7 +222,7 @@ behavior is <b> not </b> modelled yet.
             extent={{-156,109},{144,69}},
             textString="%name",
             lineColor={0,0,255})}),
-        Documentation(info="<HTML>
+      Documentation(info="<HTML>
 <p>This is a model for an electrical resistor where the generated heat
 is dissipated to the environment via connector <b>heatPort</b> and where
 the resistance R is temperature dependent according to the following
@@ -223,17 +234,20 @@ is often abbreviated as <b>TCR</b>. In resistor catalogues, it is usually
 defined as <b>X [ppm/K]</b> (parts per million, similarly to per centage)
 meaning <b>X*1.e-6 [1/K]</b>. Resistors are available for 1 .. 7000 ppm/K,
 i.e., alpha = 1e-6 .. 7e-3 1/K;</p>
-
+ 
 <p>
 Via parameter <b>useHeatPort</b> the heatPort connector can be enabled and disabled
 (default = enabled). If it is disabled, the generated heat is transported implicitly
 to an internal temperature source with a fixed temperature of T_ref.<br>
 If the heatPort connector is enabled, it must be connected.
 </p>
-
+ 
 </HTML>
-",     revisions="<html>
+",   revisions="<html>
 <ul>
+<li><i> August 07, 2009   </i>
+       by Anton Haumer<br> temperature dependency of resistance added<br>
+       </li>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
@@ -242,30 +256,38 @@ If the heatPort connector is enabled, it must be connected.
        </li>
 </ul>
 </html>"));
-    equation
-      R = R_ref*(1 + alpha*(T_heatPort - T_ref));
-      v = R*i;
-      LossPower = v*i;
-    end HeatingResistor;
+  equation
+    assert((1 + alpha*(T_heatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
+    R = R_ref*(1 + alpha*(T_heatPort - T_ref));
+    v = R*i;
+    LossPower = v*i;
+  end HeatingResistor;
 
-  model Conductor "Ideal linear electrical conductor"
-    extends Interfaces.OnePort;
-    parameter SI.Conductance G(start=1) "Conductance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort);
-    annotation (
-      Documentation(info="<HTML>
+model Conductor "Ideal linear electrical conductor"
+  extends Modelica.Electrical.Analog.Interfaces.OnePort;
+  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
+  parameter Modelica.SIunits.Conductance G(start=1)
+      "Conductance G_ref at temperature T_ref";
+  parameter Modelica.SIunits.Temperature T_ref(start=300.15)
+      "Reference temperature";
+  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha(start=0)
+      "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(heatPort.T - T_ref))";
+  Modelica.SIunits.Conductance G_actual
+      "Conductance = G_ref/(1 + alpha*(intenalHeatPort.T - T_ref))";
+  annotation (
+    Documentation(info="<HTML>
 <P>
 The linear conductor connects the branch voltage <i>v</i> with the
 branch current <i>i</i> by <i>i = v*G</i>.
 The Conductance <i>G</i> is allowed to be positive, zero, or negative.
-<br> <br>
-<b>Please note:</b>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled yet.
 </P>
 </HTML>
-", revisions="<html>
+",
+ revisions="<html>
 <ul>
+<li><i> August 07, 2009   </i>
+       by Anton Haumer<br> temperature dependency of conductance added<br>
+       </li>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
@@ -274,10 +296,10 @@ behavior is <b> not </b> modelled yet.
        </li>
 </ul>
 </html>"),
-      Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+    Icon(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={2,2}), graphics={
           Rectangle(
             extent={{-70,30},{70,-30}},
             fillColor={255,255,255},
@@ -298,20 +320,27 @@ behavior is <b> not </b> modelled yet.
             smooth=Smooth.None,
             pattern=LinePattern.Dot),
           Text(
-            extent={{-156,93},{144,53}},
+            extent={{-152,87},{148,47}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+            lineColor={0,0,255}),
+          Text(
+            extent={{-144,-40},{142,-72}},
+            lineColor={0,0,0},
+            textString="G=%G")}),
+    Diagram(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={2,2}), graphics={
           Line(points={{-96,0},{-70,0}}, color={0,0,255}),
           Line(points={{70,0},{96,0}}, color={0,0,255}),
           Rectangle(extent={{-70,30},{70,-30}}, lineColor={0,0,255})}));
-  equation
-    i = G*v;
-    LossPower = v*i;
-  end Conductor;
+equation
+  assert((1 + alpha*(T_heatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
+  G_actual = G/(1 + alpha*(T_heatPort - T_ref));
+  i = G_actual*v;
+  LossPower = v*i;
+end Conductor;
+
 
   model Capacitor "Ideal linear electrical capacitor"
     extends Interfaces.OnePort;
@@ -1970,17 +1999,24 @@ Now one of these models, the model \"amp(macro)\" was transferred into Modelica.
 
   end OpAmpDetailed;
 
-        model VariableResistor
+
+      model VariableResistor
     "Ideal linear electrical resistor with variable resistance"
-          extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.RealInput R 
-            annotation (Placement(transformation(
-          origin={0,110},
-          extent={{-20,-20},{20,20}},
-          rotation=270)));
-          extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
-          annotation (
-            Documentation(info="<HTML>
+        extends Modelica.Electrical.Analog.Interfaces.OnePort;
+        extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
+        parameter Modelica.SIunits.Temperature T_ref(start=300.15)
+      "Reference temperature";
+        parameter Modelica.SIunits.LinearTemperatureCoefficient alpha(start=0)
+      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
+        Modelica.SIunits.Resistance R_actual
+      "Resistance = R*(1 + alpha*(intenalHeatPort.T - T_ref))";
+        Modelica.Blocks.Interfaces.RealInput R 
+          annotation (Placement(transformation(
+        origin={0,110},
+        extent={{-20,-20},{20,20}},
+        rotation=270)));
+        annotation (
+          Documentation(info="<HTML>
 <P>
 The linear resistor connects the branch voltage <i>v</i> with the
 branch current <i>i</i> by <br><br>
@@ -1988,18 +2024,17 @@ branch current <i>i</i> by <br><br>
 </P>
 <P>
 The Resistance <i>R</i> is given as input signal.
-<br> <br>
-<b>Please note:</b>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled yet.
 <P>
 <b>Attention!!!</b><br>
   It is recommended that the R signal should not cross the zero value. Otherwise
   depending on the surrounding circuit the probability of singularities is high. <br>
 </P>
 </HTML>
-",         revisions="<html>
+",       revisions="<html>
 <ul>
+<li><i> August 07, 2009   </i>
+       by Anton Haumer<br> temperature dependency of resistance added<br>
+       </li>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
@@ -2010,10 +2045,10 @@ behavior is <b> not </b> modelled yet.
        by Anton Haumer<br>implemented.
        </li>
 </ul>
-</html>"),  Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+</html>"),Icon(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={2,2}), graphics={
           Line(points={{-90,0},{-70,0}}, color={0,0,255}),
           Rectangle(
             extent={{-70,30},{70,-30}},
@@ -2026,10 +2061,10 @@ behavior is <b> not </b> modelled yet.
             extent={{-148,-41},{152,-81}},
             textString="%name",
             lineColor={0,0,255})}),
-            Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          Diagram(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={2,2}), graphics={
           Rectangle(
             extent={{-70,30},{70,-30}},
             lineColor={0,0,255},
@@ -2038,22 +2073,30 @@ behavior is <b> not </b> modelled yet.
           Line(points={{-96,0},{-70,0}}, color={0,0,255}),
           Line(points={{0,90},{0,30}}, color={0,0,255}),
           Line(points={{70,0},{96,0}}, color={0,0,255})}));
-        equation
-          v = R*i;
-          LossPower = v*i;
-        end VariableResistor;
+      equation
+        assert((1 + alpha*(T_heatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
+        R_actual = R*(1 + alpha*(T_heatPort - T_ref));
+        v = R_actual*i;
+        LossPower = v*i;
+      end VariableResistor;
 
-        model VariableConductor
+      model VariableConductor
     "Ideal linear electrical conductor with variable conductance"
-          extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.RealInput G 
-            annotation (Placement(transformation(
-          origin={0,110},
-          extent={{-20,-20},{20,20}},
-          rotation=270)));
-          extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
-          annotation (
-            Documentation(info="<HTML>
+        extends Modelica.Electrical.Analog.Interfaces.OnePort;
+        extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
+        parameter Modelica.SIunits.Temperature T_ref(start=300.15)
+      "Reference temperature";
+        parameter Modelica.SIunits.LinearTemperatureCoefficient alpha(start=0)
+      "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(heatPort.T - T_ref))";
+        Modelica.SIunits.Conductance G_actual
+      "Conductance = G_ref/(1 + alpha*(intenalHeatPort.T - T_ref))";
+        Modelica.Blocks.Interfaces.RealInput G 
+          annotation (Placement(transformation(
+        origin={0,110},
+        extent={{-20,-20},{20,20}},
+        rotation=270)));
+        annotation (
+          Documentation(info="<HTML>
 <P>
 The linear conductor connects the branch voltage <i>v</i> with the
 branch current <i>i</i> by <br><br>
@@ -2061,10 +2104,6 @@ branch current <i>i</i> by <br><br>
 </P>
 <P>
 The Conductance <i>G</i> is given as input signal.
-<br> <br>
-<b>Please note:</b>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled yet.
 </P>
 <P>
 <b>Attention!!!</b><br>
@@ -2072,8 +2111,11 @@ behavior is <b> not </b> modelled yet.
   depending on the surrounding circuit the probability of singularities is high. <br>
 </P>
 </HTML>
-",         revisions="<html>
+",       revisions="<html>
 <ul>
+<li><i> August 07, 2009   </i>
+       by Anton Haumer<br> temperature dependency of conductance added<br>
+       </li>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
@@ -2081,10 +2123,10 @@ behavior is <b> not </b> modelled yet.
        by Christoph Clauss<br> implemented<br>
        </li>
 </ul>
-</html>"),  Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+</html>"),Icon(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={2,2}), graphics={
           Line(points={{-90,0},{-70,0}}, color={0,0,255}),
           Rectangle(
             extent={{-70,30},{70,-30}},
@@ -2094,13 +2136,13 @@ behavior is <b> not </b> modelled yet.
           Line(points={{70,0},{90,0}}, color={0,0,255}),
           Line(points={{0,90},{0,30}}, color={0,0,255}),
           Text(
-            extent={{-152,-41},{148,-81}},
+            extent={{-148,-41},{152,-81}},
             textString="%name",
             lineColor={0,0,255})}),
-            Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
+          Diagram(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={2,2}), graphics={
           Line(points={{0,90},{0,30}}, color={0,0,255}),
           Line(points={{-96,0},{-70,0}}, color={0,0,255}),
           Line(points={{70,0},{96,0}}, color={0,0,255}),
@@ -2109,10 +2151,12 @@ behavior is <b> not </b> modelled yet.
             lineColor={0,0,255},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid)}));
-        equation
-          i = G*v;
-          LossPower = v*i;
-        end VariableConductor;
+      equation
+        assert((1 + alpha*(T_heatPort - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
+        G_actual = G/(1 + alpha*(T_heatPort - T_ref));
+        i = G_actual*v;
+        LossPower = v*i;
+      end VariableConductor;
 
         model VariableCapacitor
     "Ideal linear electrical capacitor with variable capacitance"
