@@ -615,11 +615,11 @@ All other blocks convert exactly between two different units.
           origin={170,0}),  iconTransformation(extent={{180,-10},{160,10}})));
 
     annotation(__Dymola_structurallyIncomplete=true,
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-200,-100},{
-              200,100}}),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-200,-120},{
+              200,120}}),
               graphics),
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-200,-100},{200,
-              100}}), graphics={
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-200,-120},{200,
+              120}}), graphics={
           Line(
             points={{180,0},{200,0}},
             color={0,0,127},
@@ -628,10 +628,7 @@ All other blocks convert exactly between two different units.
             points={{-200,0},{-180,0}},
             color={0,0,127},
             smooth=Smooth.None),
-          Rectangle(
-            extent={{-190,110},{190,-110}},
-            lineColor={135,135,135},
-            lineThickness=0.5)}),
+          Rectangle(extent={{-190,120},{190,-120}}, lineColor={135,135,135})}),
       Documentation(info="<html>
 <p>
 Exchange input and ouput signals of a block, i.e., the previous
@@ -869,7 +866,7 @@ Example:
             lineColor={0,0,0},
             textString="-"),
           Text(
-            extent={{-100,110},{100,60}},
+            extent={{-150,94},{150,44}},
             textString="%name",
             lineColor={0,0,255})}),
           Diagram(coordinateSystem(
@@ -3183,6 +3180,5 @@ Integer input <b>u</b> changes:
   equation
     y = change(u);
   end IntegerChange;
-
 
 end Math;
