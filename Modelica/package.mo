@@ -3,7 +3,7 @@ package Modelica "Modelica Standard Library (Version 3.1)"
 extends Modelica.Icons.Library;
 
 
-package UsersGuide "User's Guide of Modelica library"
+package UsersGuide "User's Guide"
 
 annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
 <p>
