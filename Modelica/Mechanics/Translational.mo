@@ -4764,13 +4764,7 @@ connector is not connected).
 
 </HTML>
 "),     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}), graphics={Text(
-              extent={{-38,-98},{-6,-96}},
-              lineColor={95,95,95},
-              textString="(if useSupport)"), Text(
-              extent={{24,-97},{64,-98}},
-              lineColor={95,95,95},
-              textString="(if not useSupport)")}),
+                {100,100}}), graphics),
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
