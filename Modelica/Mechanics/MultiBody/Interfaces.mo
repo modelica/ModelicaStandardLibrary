@@ -19,7 +19,7 @@ that are only used to build other models) of the MultiBody library.
     Frames.Orientation R
       "Orientation object to rotate the world frame into the connector frame";
     flow SI.Force f[3] "Cut-force resolved in connector frame" annotation (
-        __Dymola_unassignedMessage="All Forces cannot be uniquely calculated. 
+        unassignedMessage="All Forces cannot be uniquely calculated. 
 The reason could be that the mechanism contains
 a planar loop or that joints constrain the
 same motion. For planar loops, use for one
