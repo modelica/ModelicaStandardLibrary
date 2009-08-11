@@ -169,8 +169,7 @@ definition of the colors used in the MultiBody library
             fillColor={0,127,255},
             fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-98,34},{-64,46},{0,30},{74,56},{50,32},{-10,12},{-98,34}}, 
-
+            points={{-98,34},{-64,46},{0,30},{74,56},{50,32},{-10,12},{-98,34}},
             lineColor={255,255,255},
             fillColor={160,160,164},
             fillPattern=FillPattern.Solid),
@@ -806,17 +805,16 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
 
   end SignalArrow;
 
-
    model Ground "Visualize ground (box in z=0)"
       parameter Boolean animation=true
-        "= true, if animation of ground shall be enabled";
+      "= true, if animation of ground shall be enabled";
       parameter Modelica.SIunits.Position length = 10
-        "Length and width of box (center is at x=y=0)"                annotation (Dialog(enable=animation));
+      "Length and width of box (center is at x=y=0)"                  annotation (Dialog(enable=animation));
       parameter Modelica.SIunits.Position height = 0.02
-        "Height of box (upper surface is at z=0, lower surface is at z=-height)"
+      "Height of box (upper surface is at z=0, lower surface is at z=-height)" 
                                                                         annotation (Dialog(enable=animation));
       parameter Modelica.Mechanics.MultiBody.Types.Color groundColor={0,255,0}
-        "Color of box"  annotation (Dialog(enable=animation));
+      "Color of box"    annotation (Dialog(enable=animation));
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
@@ -883,14 +881,15 @@ This shape visualizes the x-y plane by a box
         annotation (Placement(transformation(extent={{-20,0},{0,20}})));
       Modelica.Mechanics.MultiBody.Parts.Fixed fixed 
         annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
-    equation
+   equation
 
       connect(fixed.frame_b, ground.frame_a) annotation (Line(
           points={{-40,10},{-20,10}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
-    end Ground;
+   end Ground;
+
   package Advanced
     "Visualizers that require basic knowledge about Modelica in order to use them"
 

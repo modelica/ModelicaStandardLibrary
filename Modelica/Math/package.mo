@@ -8,7 +8,7 @@ extends Modelica.Icons.Library2;
 
 annotation (
   Invisible=true,
-  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), 
       graphics={Text(
         extent={{-59,-9},{42,-56}},
         lineColor={0,0,0},
@@ -410,8 +410,6 @@ package Matrices "Library of functions operating on matrices"
   extends Modelica.Icons.Library;
 
   annotation (
-    // illegal use of top-level annotation removed:
-    // version="0.8.1", versionDate="2004-08-21",
     Documentation(info="<HTML>
 <h4>Library content</h4>
 <p>
@@ -513,6 +511,8 @@ The details of this library are described in:
 
 </HTML>
 "));
+    // illegal use of top-level annotation removed:
+    // version="0.8.1", versionDate="2004-08-21",
 
   function isEqual "Compare whether two Real matrices are identical"
     extends Modelica.Icons.Function;
@@ -1010,7 +1010,7 @@ with function \"Matrices.equalityLeastSquares\" failed.");
     output Integer pivots[min(size(A, 1), size(A,2))]
       "pivot indices (used with LU_solve(..))";
     output Integer info "Information";
-    external "FORTRAN 77" dgetrf(size(A, 1), size(A, 2), LU, size(A, 1), pivots, info)
+    external "FORTRAN 77" dgetrf(size(A, 1), size(A, 2), LU, size(A, 1), pivots, info) 
       annotation (Library="Lapack");
 
     annotation ( Documentation(info="<HTML>
@@ -2231,7 +2231,7 @@ is discribed in
 "));
 
     external "Fortran 77" dgeev("N", "V", n, Awork, n, eigenReal, eigenImag,
-        eigenVectors, n, eigenVectors, n, work, size(work, 1), info)
+        eigenVectors, n, eigenVectors, n, work, size(work, 1), info) 
         annotation (Library="Lapack");
     end dgeev;
 
@@ -2338,7 +2338,7 @@ is discribed in
 */
     external "Fortran 77" dgeev("N", "N", size(A, 1), Awork, size(A, 1),
         EigenReal, EigenImag, EigenvectorsL, size(EigenvectorsL, 1),
-        EigenvectorsL, size(EigenvectorsL, 1), work, size(work, 1), info)
+        EigenvectorsL, size(EigenvectorsL, 1), work, size(work, 1), info) 
         annotation (Library="Lapack");
 
     end dgeev_eigenValues;
@@ -2508,7 +2508,7 @@ are computed, then only the diagonal blocks will be correct.
 [*] See DHGEQZ, DGEGS, or read the book \"Matrix Computations\",
 "));
       external "Fortran 77" dgegv("N", "N", n, Awork, n, Bwork, n, alphaReal, alphaImag, beta,
-                 dummy1, 1, dummy2, 1, work, size(work, 1), info)
+                 dummy1, 1, dummy2, 1, work, size(work, 1), info) 
             annotation (Library="Lapack");
     end dgegv;
 
@@ -2995,7 +2995,7 @@ For details of the arguments, see documentation of dgesv.
 "));
 
     external "FORTRAN 77" dgtsv(size(diag, 1), size(B, 2), subdiagwork,
-        diagwork, superdiagwork, X, size(B, 1), info)
+        diagwork, superdiagwork, X, size(B, 1), info) 
         annotation (Library="Lapack");
     end dgtsv;
 
@@ -3241,7 +3241,7 @@ elements of U because of fill-in resulting from the row interchanges."));
 "));
 
     external "Fortran 77" dgesvd("A", "A", size(A, 1), size(A, 2), Awork, size(
-        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info)
+        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info) 
         annotation (Library="Lapack");
     end dgesvd;
 
@@ -3356,7 +3356,7 @@ elements of U because of fill-in resulting from the row interchanges."));
 "));
 
     external "Fortran 77" dgesvd("N", "N", size(A, 1), size(A, 2), Awork, size(
-        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info)
+        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info) 
         annotation (Library="Lapack");
     end dgesvd_sigma;
 

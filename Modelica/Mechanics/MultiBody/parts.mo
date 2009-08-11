@@ -2482,43 +2482,43 @@ November 3-4, 2003, pp. 149-158</p>
   end BevelGear1D;
 
     model RollingWheel
-      "Ideal rolling wheel on flat surface z=0 (5 positional, 3 velocity degrees of freedom)"
+    "Ideal rolling wheel on flat surface z=0 (5 positional, 3 velocity degrees of freedom)"
       import SI = Modelica.SIunits;
 
       parameter Boolean animation=true
-        "= true, if animation of wheel shall be enabled";
+      "= true, if animation of wheel shall be enabled";
 
       parameter SI.Radius wheelRadius "Radius of wheel";
       parameter SI.Mass wheelMass "Mass of wheel";
       parameter SI.Inertia wheel_I_axis "Inertia along the wheel axis";
       parameter SI.Inertia wheel_I_long
-        "Inertia perpendicular to the wheel axis";
+      "Inertia perpendicular to the wheel axis";
       parameter StateSelect stateSelect=StateSelect.always
-        "Priority to use generalized coordinates as states" annotation(HideResult=true,Evaluate=true);
+      "Priority to use generalized coordinates as states"   annotation(HideResult=true,Evaluate=true);
 
       SI.Position x(start=0, fixed = true, stateSelect=stateSelect)
-        "x-coordinate of wheel axis";
+      "x-coordinate of wheel axis";
 
       SI.Position y(start=0, fixed = true, stateSelect=stateSelect)
-        "y-coordinate of wheel axis";
+      "y-coordinate of wheel axis";
 
       SI.Angle angles[3](start={0,0,0}, fixed = true, stateSelect=stateSelect)
-        "Angles to rotate world-frame in to frame_a around z-, y-, x-axis" 
+      "Angles to rotate world-frame in to frame_a around z-, y-, x-axis" 
         annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
 
       SI.AngularVelocity der_angles[3](start={0,0,0}, fixed = true, stateSelect=stateSelect)
-        "Derivative of angles" 
+      "Derivative of angles" 
         annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
 
       parameter SI.Distance width = 0.035 "Width of wheel" annotation (Dialog(
           tab="Animation",
           group="if animation = true", enable=animation));
       parameter Real hollowFraction = 0.8
-        "1.0: Completely hollow, 0.0: rigid cylinder"   annotation (Dialog(
+      "1.0: Completely hollow, 0.0: rigid cylinder"     annotation (Dialog(
           tab="Animation",
           group="if animation = true", enable=animation));
       parameter Modelica.Mechanics.MultiBody.Types.Color wheelColor={30,30,30}
-        "Color of wheel"  annotation (Dialog(
+      "Color of wheel"    annotation (Dialog(
           tab="Animation",
           group="if animation = true",
           enable=animation));
@@ -2536,7 +2536,7 @@ November 3-4, 2003, pp. 149-158</p>
         annotation (Placement(transformation(extent={{20,-10},{40,10}})));
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
-        "Frame fixed in wheel center point. y-axis: along wheel axis, z-Axis: upwards, "
+      "Frame fixed in wheel center point. y-axis: along wheel axis, z-Axis: upwards, "
         annotation (Placement(transformation(extent={{-16,-16},{16,16}})));
       Modelica.Mechanics.MultiBody.Joints.RollingWheel rollingWheel(wheelRadius=wheelRadius,
           stateSelect=StateSelect.avoid) 
@@ -2596,48 +2596,48 @@ November 3-4, 2003, pp. 149-158</p>
     end RollingWheel;
 
     model RollingWheelSet
-      "Ideal rolling wheel set consisting of two ideal rolling wheels connected together by an axis"
+    "Ideal rolling wheel set consisting of two ideal rolling wheels connected together by an axis"
       import SI = Modelica.SIunits;
      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frameMiddle
-        "Frame fixed in middle of axis connecting both wheels (y-axis: along wheel axis, z-Axis: upwards)"
+      "Frame fixed in middle of axis connecting both wheels (y-axis: along wheel axis, z-Axis: upwards)"
         annotation (Placement(transformation(extent={{-16,16},{16,-16}}),
             iconTransformation(extent={{-16,-16},{16,16}})));
 
       parameter Boolean animation=true
-        "= true, if animation of wheel set shall be enabled";
+      "= true, if animation of wheel set shall be enabled";
 
       parameter SI.Radius wheelRadius "Radius of one wheel";
       parameter SI.Mass wheelMass "Mass of one wheel";
       parameter SI.Inertia wheel_I_axis "Inertia along one wheel axis";
       parameter SI.Inertia wheel_I_long
-        "Inertia perpendicular to one wheel axis";
+      "Inertia perpendicular to one wheel axis";
       parameter SI.Distance wheelDistance "Distance between the two wheels";
        parameter StateSelect stateSelect = StateSelect.always
-        "Priority to use the generalized coordinates as states";
+      "Priority to use the generalized coordinates as states";
 
       Modelica.SIunits.Position x(start=0, fixed=true, stateSelect=stateSelect)
-        "x coordinate of center between wheels";
+      "x coordinate of center between wheels";
       Modelica.SIunits.Position y(start=0, fixed=true, stateSelect=stateSelect)
-        "y coordinate of center between wheels";
+      "y coordinate of center between wheels";
       Modelica.SIunits.Angle phi(start=0, fixed=true, stateSelect=stateSelect)
-        "Orientation angle of wheel axis along z-axis";
+      "Orientation angle of wheel axis along z-axis";
       Modelica.SIunits.Angle theta1(start=0, fixed=true, stateSelect=stateSelect)
-        "Angle of wheel 1";
+      "Angle of wheel 1";
       Modelica.SIunits.Angle theta2(start=0, fixed=true, stateSelect=stateSelect)
-        "Angle of wheel 2";
+      "Angle of wheel 2";
       Modelica.SIunits.AngularVelocity der_theta1(start=0, fixed=true, stateSelect=stateSelect)
-        "Derivative of theta 1";
+      "Derivative of theta 1";
       Modelica.SIunits.AngularVelocity der_theta2(start=0, fixed=true, stateSelect=stateSelect)
-        "Derivative of theta 2";
+      "Derivative of theta 2";
 
       parameter SI.Distance wheelWidth = 0.01 "Width of one wheel" annotation (Dialog( tab="Animation",
           group="if animation = true", enable=animation));
       parameter Real hollowFraction = 0.8
-        "1.0: Completely hollow, 0.0: rigid cylinder"   annotation (Dialog(
+      "1.0: Completely hollow, 0.0: rigid cylinder"     annotation (Dialog(
           tab="Animation",
           group="if animation = true", enable=animation));
       parameter Modelica.Mechanics.MultiBody.Types.Color wheelColor={30,30,30}
-        "Color of wheels"  annotation (Dialog(
+      "Color of wheels"    annotation (Dialog(
           tab="Animation",
           group="if animation = true",
           enable=animation));
@@ -2737,11 +2737,11 @@ frameMiddle is parallel to the world frame.
 </html>"));
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame1
-        "Frame fixed in center point of left wheel (y-axis: along wheel axis, z-Axis: upwards)"
+      "Frame fixed in center point of left wheel (y-axis: along wheel axis, z-Axis: upwards)"
         annotation (Placement(transformation(extent={{-96,16},{-64,-16}}),
             iconTransformation(extent={{-96,16},{-64,-16}})));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame2
-        "Frame fixed in center point of right wheel (y-axis: along wheel axis, z-Axis: upwards)"
+      "Frame fixed in center point of right wheel (y-axis: along wheel axis, z-Axis: upwards)"
         annotation (Placement(transformation(extent={{64,16},{96,-16}})));
       Modelica.Mechanics.MultiBody.Parts.Body body2(
         final r_CM={0,0,0},
@@ -2800,10 +2800,10 @@ frameMiddle is parallel to the world frame.
             rotation=-90,
             origin={-60,-40})));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis1
-        "1-dim. rotational flange that drives the left wheel" 
+      "1-dim. rotational flange that drives the left wheel" 
         annotation (Placement(transformation(extent={{-110,90},{-90,110}})));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis2
-        "1-dim. rotational flange that drives the right wheel" 
+      "1-dim. rotational flange that drives the right wheel" 
         annotation (Placement(transformation(extent={{90,90},{110,110}})));
       Modelica.Mechanics.MultiBody.Joints.RollingWheelSet wheelSetJoint(
         animation=false,
@@ -2819,7 +2819,7 @@ frameMiddle is parallel to the world frame.
         der_theta2(fixed=false)) 
         annotation (Placement(transformation(extent={{-10,-42},{10,-22}})));
       Modelica.Mechanics.Rotational.Interfaces.Flange_b support
-        "Support of 1D axes" annotation (Placement(transformation(extent={{-10,
+      "Support of 1D axes"   annotation (Placement(transformation(extent={{-10,
                 70},{10,90}}), iconTransformation(extent={{-10,72},{10,92}})));
     equation
       wheelSetJoint.x      = x;

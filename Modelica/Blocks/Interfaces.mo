@@ -1148,10 +1148,10 @@ with a 3D icon (e.g. used in Blocks.Logical library).
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Ellipse(
             extent={{-71,7},{-85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0}
-                 else {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0}
-                 else {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0} else 
+                      {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if u > 0.5 then {0,255,0} else 
+                      {235,235,235}),
             fillPattern=FillPattern.Solid)}),
                               Documentation(info="<html>
 <p>
@@ -1172,10 +1172,10 @@ with a 3D icon (e.g. used in Blocks.Logical library).
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Ellipse(
             extent={{71,7},{85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
-                 else {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
-                 else {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
+                      {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
+                      {235,235,235}),
             fillPattern=FillPattern.Solid)}),
                               Documentation(info="<html>
 <p>
@@ -1210,10 +1210,10 @@ with a 3D icon (e.g. used in Blocks.Logical library).
             fillPattern=FillPattern.Solid),
           Ellipse(
             extent={{71,7},{85,-7}},
-            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
-                 else {235,235,235}),
-            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0}
-                 else {235,235,235}),
+            lineColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
+                      {235,235,235}),
+            fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else 
+                      {235,235,235}),
             fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={

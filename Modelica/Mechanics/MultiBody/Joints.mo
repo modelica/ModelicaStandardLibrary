@@ -3101,9 +3101,8 @@ November 3-4, 2003, pp. 149-158</p>
         thickness=0.5));
   end GearConstraint;
 
-
     model RollingWheel
-      "Joint (no mass, no inertia) that describes an ideal rolling wheel (rolling on the plane z=0)"
+    "Joint (no mass, no inertia) that describes an ideal rolling wheel (rolling on the plane z=0)"
 
       import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody.Frames;
@@ -3127,65 +3126,65 @@ November 3-4, 2003, pp. 149-158</p>
               fillPattern=FillPattern.Solid)}));
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
-        "Frame fixed in wheel center point. x-Axis: upwards, y-axis: along wheel axis"
+      "Frame fixed in wheel center point. x-Axis: upwards, y-axis: along wheel axis"
         annotation (Placement(transformation(extent={{-16,-16},{16,16}})));
 
       parameter SI.Radius wheelRadius "Wheel radius";
       parameter StateSelect stateSelect=StateSelect.always
-        "Priority to use generalized coordinates as states" annotation(HideResult=true,Evaluate=true);
+      "Priority to use generalized coordinates as states"   annotation(HideResult=true,Evaluate=true);
 
       SI.Position x(start=0, stateSelect=stateSelect)
-        "x-coordinate of wheel axis";
+      "x-coordinate of wheel axis";
 
       SI.Position y(start=0, stateSelect=stateSelect)
-        "y-coordinate of wheel axis";
+      "y-coordinate of wheel axis";
       SI.Position z;
 
       SI.Angle angles[3](start={0,0,0}, stateSelect=stateSelect)
-        "Angles to rotate world-frame in to frame_a around z-, y-, x-axis" 
+      "Angles to rotate world-frame in to frame_a around z-, y-, x-axis" 
         annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
 
       SI.AngularVelocity der_angles[3](start={0,0,0}, stateSelect=stateSelect)
-        "Derivative of angles" 
+      "Derivative of angles" 
         annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
 
        SI.Position r_road_0[3]
-        "Position vector from world frame to contact point on road, resolved in world frame";
+      "Position vector from world frame to contact point on road, resolved in world frame";
 
       // Contact force
       SI.Force f_wheel_0[3]
-        "Contact force acting on wheel, resolved in world frame";
+      "Contact force acting on wheel, resolved in world frame";
       SI.Force f_n "Contact force acting on wheel in normal direction";
       SI.Force f_lat "Contact force acting on wheel in lateral direction";
       SI.Force f_long "Contact force acting on wheel in longitudinal direction";
       SI.Position err
-        "|r_road_0 - frame_a.r_0| - wheelRadius (must be zero; used for checking)";
-    protected
+      "|r_road_0 - frame_a.r_0| - wheelRadius (must be zero; used for checking)";
+  protected
        Real e_axis_0[3] "Unit vector along wheel axis, resolved in world frame";
        SI.Position delta_0[3](start={0,0,-wheelRadius})
-        "Distance vector from wheel center to contact point";
+      "Distance vector from wheel center to contact point";
 
        // Coordinate system at contact point
        Real e_n_0[3]
-        "Unit vector in normal direction of road at contact point, resolved in world frame";
+      "Unit vector in normal direction of road at contact point, resolved in world frame";
        Real e_lat_0[3]
-        "Unit vector in lateral direction of wheel at contact point, resolved in world frame";
+      "Unit vector in lateral direction of wheel at contact point, resolved in world frame";
        Real e_long_0[3]
-        "Unit vector in longitudinal direction of wheel at contact point, resolved in world frame";
+      "Unit vector in longitudinal direction of wheel at contact point, resolved in world frame";
 
        // Road description
        SI.Position s "Road surface parameter 1";
        SI.Position w "Road surface parameter 2";
        Real e_s_0[3]
-        "Road heading at (s,w), resolved in world frame (unit vector)";
+      "Road heading at (s,w), resolved in world frame (unit vector)";
 
        // Slip velocities
        SI.Velocity v_0[3] "Velocity of wheel center, resolved in world frame";
        SI.AngularVelocity w_0[3]
-        "Angular velocity of wheel, resolved in world frame";
+      "Angular velocity of wheel, resolved in world frame";
 
        SI.Velocity vContact_0[3]
-        "Velocity of wheel contact point, resolved in world frame";
+      "Velocity of wheel contact point, resolved in world frame";
 
        // Utility vectors
        Real aux[3];
@@ -3240,36 +3239,36 @@ November 3-4, 2003, pp. 149-158</p>
     end RollingWheel;
 
     model RollingWheelSet
-      "Joint (no mass, no inertia) that describes an ideal rolling wheel set (two ideal rolling wheels connected together by an axis)"
+    "Joint (no mass, no inertia) that describes an ideal rolling wheel set (two ideal rolling wheels connected together by an axis)"
       import SI = Modelica.SIunits;
      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frameMiddle
-        "Frame fixed in middle of axis connecting both wheels (y-axis: along wheel axis, z-Axis: upwards)"
+      "Frame fixed in middle of axis connecting both wheels (y-axis: along wheel axis, z-Axis: upwards)"
         annotation (Placement(transformation(extent={{-16,16},{16,-16}}),
             iconTransformation(extent={{-16,-16},{16,16}})));
 
       parameter Boolean animation=true
-        "= true, if animation of wheel set shall be enabled";
+      "= true, if animation of wheel set shall be enabled";
 
       parameter SI.Radius wheelRadius "Radius of one wheel";
       parameter SI.Distance wheelDistance "Distance between the two wheels";
 
       parameter StateSelect stateSelect = StateSelect.default
-        "Priority to use the generalized coordinates as states";
+      "Priority to use the generalized coordinates as states";
 
       Modelica.SIunits.Position x(start=0, stateSelect=stateSelect)
-        "x coordinate for center between wheels";
+      "x coordinate for center between wheels";
       Modelica.SIunits.Position y(start=0, stateSelect=stateSelect)
-        "y coordinate for center between wheels";
+      "y coordinate for center between wheels";
       Modelica.SIunits.Angle phi(start=0, stateSelect=stateSelect)
-        "Orientation angle of wheel axis along z-axis";
+      "Orientation angle of wheel axis along z-axis";
       Modelica.SIunits.Angle theta1(start=0, stateSelect=stateSelect)
-        "Angle of wheel 1";
+      "Angle of wheel 1";
       Modelica.SIunits.Angle theta2(start=0, stateSelect=stateSelect)
-        "Angle of wheel 2";
+      "Angle of wheel 2";
       Modelica.SIunits.AngularVelocity der_theta1(start=0, stateSelect=stateSelect)
-        "Derivative of theta 1";
+      "Derivative of theta 1";
       Modelica.SIunits.AngularVelocity der_theta2(start=0, stateSelect=stateSelect)
-        "Derivative of theta 2";
+      "Derivative of theta 2";
 
       annotation (defaultComponentName="wheelSet",Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
@@ -3357,11 +3356,11 @@ November 3-4, 2003, pp. 149-158</p>
               textString="y")}));
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame1
-        "Frame fixed in center point of left wheel (y-axis: along wheel axis, z-Axis: upwards)"
+      "Frame fixed in center point of left wheel (y-axis: along wheel axis, z-Axis: upwards)"
         annotation (Placement(transformation(extent={{-96,16},{-64,-16}}),
             iconTransformation(extent={{-96,16},{-64,-16}})));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame2
-        "Frame fixed in center point of right wheel (y-axis: along wheel axis, z-Axis: upwards)"
+      "Frame fixed in center point of right wheel (y-axis: along wheel axis, z-Axis: upwards)"
         annotation (Placement(transformation(extent={{64,16},{96,-16}})));
       Modelica.Mechanics.MultiBody.Parts.Fixed fixed(                 r={0,0,
             wheelRadius}, animation=animation) 
@@ -3400,23 +3399,23 @@ November 3-4, 2003, pp. 149-158</p>
         useAxisFlange=true,
         animation=animation) 
         annotation (Placement(transformation(extent={{40,-10},{60,10}})));
-      Modelica.Mechanics.MultiBody.Joints.Internal.RollingConstraintVerticalWheel rolling1(
-                                            radius=wheelRadius) 
+      Modelica.Mechanics.MultiBody.Joints.Internal.RollingConstraintVerticalWheel
+      rolling1(                             radius=wheelRadius) 
         annotation (Placement(transformation(extent={{-70,-60},{-50,-40}})));
-      Modelica.Mechanics.MultiBody.Joints.Internal.RollingConstraintVerticalWheel rolling2(
-                                            radius=wheelRadius,
+      Modelica.Mechanics.MultiBody.Joints.Internal.RollingConstraintVerticalWheel
+      rolling2(                             radius=wheelRadius,
           lateralSlidingConstraint=false) 
         annotation (Placement(transformation(extent={{54,-60},{74,-40}})));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis1
-        "1-dim. rotational flange that drives the joint" 
+      "1-dim. rotational flange that drives the joint" 
         annotation (Placement(transformation(extent={{-110,90},{-90,110}})));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis2
-        "1-dim. rotational flange that drives the joint" 
+      "1-dim. rotational flange that drives the joint" 
         annotation (Placement(transformation(extent={{90,90},{110,110}})));
-      Modelica.Mechanics.MultiBody.Parts.Mounting1D mounting1D
+      Modelica.Mechanics.MultiBody.Parts.Mounting1D mounting1D 
         annotation (Placement(transformation(extent={{-10,38},{10,58}})));
       Modelica.Mechanics.Rotational.Interfaces.Flange_b support
-        "Support of 1D axes" annotation (Placement(transformation(extent={{-10,
+      "Support of 1D axes"   annotation (Placement(transformation(extent={{-10,
                 70},{10,90}}), iconTransformation(extent={{-10,70},{10,90}})));
     equation
       prismatic1.s  = x;
@@ -7638,7 +7637,7 @@ Don't use the models of this package.
 </HTML>"));
 
      model RollingConstraintVerticalWheel
-        "Rolling constraint for wheel that is always perpendicular to x-y plane"
+      "Rolling constraint for wheel that is always perpendicular to x-y plane"
         import SI = Modelica.SIunits;
         import Modelica.Mechanics.MultiBody.Frames;
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -7674,48 +7673,48 @@ Don't use the models of this package.
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics));
 
         Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
-          "Frame fixed in wheel center point. x-Axis: upwards, y-axis: along wheel axis"
+        "Frame fixed in wheel center point. x-Axis: upwards, y-axis: along wheel axis"
           annotation (Placement(transformation(extent={{-16,4},{16,36}}),
               iconTransformation(extent={{-16,4},{16,36}})));
 
         parameter SI.Radius radius "Wheel radius";
 
         parameter Boolean lateralSlidingConstraint = true
-          "= true, if lateral sliding constraint taken into account, = false if lateral force = 0 (needed to avoid overconstraining if two ideal rolling wheels are connect on one axis)"
-                                                                                                              annotation(choices(__Dymola_checkBox=true),HideResult=true,Evaluate=true);
+        "= true, if lateral sliding constraint taken into account, = false if lateral force = 0 (needed to avoid overconstraining if two ideal rolling wheels are connect on one axis)"
+                                                                                                            annotation(choices(__Dymola_checkBox=true),HideResult=true,Evaluate=true);
 
         // Contact force
         SI.Force f_wheel_0[3]
-          "Contact force acting on wheel, resolved in world frame";
+        "Contact force acting on wheel, resolved in world frame";
         SI.Force f_lat "Contact force acting on wheel in lateral direction";
         SI.Force f_long
-          "Contact force acting on wheel in longitudinal direction";
-      protected
+        "Contact force acting on wheel in longitudinal direction";
+    protected
          Real e_axis_0[3]
-          "Unit vector along wheel axis, resolved in world frame";
+        "Unit vector along wheel axis, resolved in world frame";
          SI.Position rContact_0[3]
-          "Distance vector from wheel center to contact point, resolved in world frame";
+        "Distance vector from wheel center to contact point, resolved in world frame";
 
          // Coordinate system at contact point
          Real e_n_0[3]
-          "Unit vector in normal direction of road at contact point, resolved in world frame";
+        "Unit vector in normal direction of road at contact point, resolved in world frame";
          Real e_lat_0[3]
-          "Unit vector in lateral direction of wheel at contact point, resolved in world frame";
+        "Unit vector in lateral direction of wheel at contact point, resolved in world frame";
          Real e_long_0[3]
-          "Unit vector in longitudinal direction of wheel at contact point, resolved in world frame";
+        "Unit vector in longitudinal direction of wheel at contact point, resolved in world frame";
 
          // Slip velocities
          SI.Velocity v_0[3] "Velocity of wheel center, resolved in world frame";
          SI.AngularVelocity w_0[3]
-          "Angular velocity of wheel, resolved in world frame";
+        "Angular velocity of wheel, resolved in world frame";
 
          SI.Velocity vContact_0[3]
-          "Velocity of wheel contact point, resolved in world frame";
+        "Velocity of wheel contact point, resolved in world frame";
 
          // Utility vectors
          Real aux[3];
 
-      equation
+     equation
          // Coordinate system at contact point (e_long_0, e_lat_0, e_n_0)
          e_n_0    = {0,0,1};
          e_axis_0 = Frames.resolve1(frame_a.R, {0,1,0});
@@ -7742,7 +7741,7 @@ Don't use the models of this package.
          // Force and torque balance at the wheel center
          zeros(3) = frame_a.f + Frames.resolve2(frame_a.R, f_wheel_0);
          zeros(3) = frame_a.t + Frames.resolve2(frame_a.R, cross(rContact_0, f_wheel_0));
-      end RollingConstraintVerticalWheel;
+     end RollingConstraintVerticalWheel;
 
   end Internal;
 

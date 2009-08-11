@@ -4,8 +4,6 @@ package Utilities "Library of utility functions dedicated to scripting (operatin
 
 
     annotation (
-    // illegal use of top-level annotation removed:
-    //  version="1.0", versionDate="2004-10-01",
 Documentation(info="<html>
 <p>
 This package contains Modelica <b>functions</b> that are
@@ -51,6 +49,8 @@ and the accompanying <b>disclaimer</b>
 </p><br>
 </html>
 "));
+    // illegal use of top-level annotation removed:
+    //  version="1.0", versionDate="2004-10-01",
 
 
 package UsersGuide "User's Guide of Utilities Library"

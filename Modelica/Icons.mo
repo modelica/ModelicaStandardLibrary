@@ -246,8 +246,6 @@ specific graphic is additionally included in the icon.
 </html>"));
   end Library2;
 
-
-
   partial model Example "Icon for an example model"
 
     annotation (             Icon(coordinateSystem(

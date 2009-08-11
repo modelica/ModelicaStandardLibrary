@@ -87,7 +87,6 @@ at least one ground object.
     p.v = 0;
   end Ground;
 
-
 model Resistor "Ideal linear electrical resistor"
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
@@ -340,7 +339,6 @@ equation
   i = G_actual*v;
   LossPower = v*i;
 end Conductor;
-
 
   model Capacitor "Ideal linear electrical capacitor"
     extends Interfaces.OnePort;
@@ -696,8 +694,7 @@ equation
   v =Lm*der(i);
 
   annotation (Icon(
-      coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
-
+      coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
         graphics={
           Ellipse(extent={{-36,24},{-18,42}}),
           Ellipse(extent={{18,24},{36,42}}),
@@ -1480,8 +1477,7 @@ The left port voltage is zero. Any transResistance can be chosen.
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-90,50},{-20,50},{-20,-50},{-90,-50}}, color={0,0,255}), 
-
+          Line(points={{-90,50},{-20,50},{-20,-50},{-90,-50}}, color={0,0,255}),
           Text(
             extent={{-140,-82},{160,-122}},
             textString="%name",
@@ -1539,8 +1535,7 @@ The left port voltage is zero. Any current gain can be chosen.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-100,50},{-30,50},{-30,-50},{-100,-50}}, color={0,0,255}), 
-
+          Line(points={{-100,50},{-30,50},{-30,-50},{-100,-50}}, color={0,0,255}),
           Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
           Line(points={{-20,60},{20,60}}, color={0,0,255}),
           Polygon(
@@ -1998,7 +1993,6 @@ Now one of these models, the model \"amp(macro)\" was transferred into Modelica.
     m_supply.i = 0;
 
   end OpAmpDetailed;
-
 
       model VariableResistor
     "Ideal linear electrical resistor with variable resistance"

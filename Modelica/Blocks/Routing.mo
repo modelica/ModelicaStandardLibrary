@@ -72,8 +72,7 @@ block ExtractSignal "Extract signals from an input signal vector"
           Line(points={{-72,-2},{-60.0698,-12.907},{-49.0698,-12.907}}, color={
                 0,0,127}),
           Polygon(
-            points={{-48.8808,-11},{-48.8808,-15},{-44.8808,-13},{-48.8808,-11}}, 
-
+            points={{-48.8808,-11},{-48.8808,-15},{-44.8808,-13},{-48.8808,-11}},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,127}),
@@ -281,8 +280,7 @@ block Extractor
           Line(points={{-62,-2},{-50.0698,-12.907},{-39.0698,-12.907}}, color={
                 0,0,127}),
           Polygon(
-            points={{-38.8808,-11},{-38.8808,-15},{-34.8808,-13},{-38.8808,-11}}, 
-
+            points={{-38.8808,-11},{-38.8808,-15},{-34.8808,-13},{-38.8808,-11}},
             lineColor={0,0,127},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),

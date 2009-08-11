@@ -809,7 +809,6 @@ It has been developed by Hubertus Tummescheit.
     redeclare record extends ThermodynamicState "thermodynamic state variables"
     end ThermodynamicState;
 
-
   redeclare record extends FluidConstants "fluid constants"
   end FluidConstants;
 

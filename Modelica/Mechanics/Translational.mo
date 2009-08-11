@@ -4,8 +4,6 @@ package Translational
   extends Modelica.Icons.Library2;
   import SI = Modelica.SIunits;
   annotation (
-  // illegal use of top-level annotation removed:
-  // version="1.2.0", versionDate="2009-07-15",
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
         Line(points={{-84,-73},{66,-73}}, color={0,0,0}),
@@ -152,6 +150,8 @@ and the accompanying <b>disclaimer</b>
 </li>
 </ul>
 </html>"));
+  // illegal use of top-level annotation removed:
+  // version="1.2.0", versionDate="2009-07-15",
 
   package Examples "Demonstration examples of the components of this package"
 
@@ -217,10 +217,10 @@ the two other examples).
         v(fixed=true),
         m=1)                                      annotation (Placement(
             transformation(extent={{40,60},{60,80}}, rotation=0)));
-      Translational.Sources.Force force1
+      Translational.Sources.Force force1 
                                  annotation (Placement(transformation(extent={{
                 -4,60},{16,80}}, rotation=0)));
-      Modelica.Blocks.Sources.Constant constant1(k=1)
+      Modelica.Blocks.Sources.Constant constant1(k=1) 
                                  annotation (Placement(transformation(extent={{
                 -44,60},{-24,80}}, rotation=0)));
       Translational.Components.Mass mass2(L=1,
@@ -228,10 +228,10 @@ the two other examples).
         v(fixed=true),
         m=1)                                      annotation (Placement(
             transformation(extent={{40,0},{60,20}}, rotation=0)));
-      Translational.Sources.Force force2
+      Translational.Sources.Force force2 
                                  annotation (Placement(transformation(extent={{
                 -4,20},{16,40}}, rotation=0)));
-      Modelica.Blocks.Sources.Constant constant2(k=1)
+      Modelica.Blocks.Sources.Constant constant2(k=1) 
                                  annotation (Placement(transformation(extent={{
                 -44,20},{-24,40}}, rotation=0)));
       Translational.Components.Mass mass3(L=1,
@@ -239,13 +239,13 @@ the two other examples).
         v(fixed=true),
         m=1)                                      annotation (Placement(
             transformation(extent={{-40,-40},{-20,-20}}, rotation=0)));
-      Translational.Sources.Force force3(useSupport=true)
+      Translational.Sources.Force force3(useSupport=true) 
                                  annotation (Placement(transformation(extent={{
                 20,-40},{0,-20}}, rotation=0)));
-      Modelica.Blocks.Sources.Constant constant3(k=1)
+      Modelica.Blocks.Sources.Constant constant3(k=1) 
                                  annotation (Placement(transformation(extent={{
                 60,-40},{40,-20}}, rotation=0)));
-      Translational.Components.Fixed fixed
+      Translational.Components.Fixed fixed 
                   annotation (Placement(transformation(extent={{0,-60},{20,-40}})));
     equation
       connect(constant1.y,force1. f) annotation (Line(points={{-23,70},{-6,70}},
@@ -318,10 +318,10 @@ combination). In this case the system is not at rest.
                 {100,100}}),
                         graphics));
 
-      Translational.Components.Fixed fixed2(        s0=1)
+      Translational.Components.Fixed fixed2(        s0=1) 
                                        annotation (Placement(transformation(
               extent={{-100,60},{-80,80}}, rotation=0)));
-      Translational.Components.Spring s2(        s_rel0=2, c=1e3)
+      Translational.Components.Spring s2(        s_rel0=2, c=1e3) 
                                                annotation (Placement(
             transformation(extent={{-60,60},{-40,80}}, rotation=0)));
       Translational.Components.Mass m3(           L=3, s(start=4.5, fixed=true),
@@ -336,13 +336,13 @@ combination). In this case the system is not at rest.
         m=1)                                           annotation (Placement(
             transformation(extent={{60,60},{80,80}}, rotation=0)));
 
-      Translational.Components.Fixed fixed1(        s0=-1)
+      Translational.Components.Fixed fixed1(        s0=-1) 
                                         annotation (Placement(transformation(
               extent={{-100,-20},{-80,0}}, rotation=0)));
       Translational.Components.Spring s1(
         s_rel0=1,
         c=1e3,
-        s_rel(start=1, fixed=true))
+        s_rel(start=1, fixed=true)) 
                         annotation (Placement(transformation(extent={{-58,-20},
                 {-38,0}}, rotation=0)));
       Translational.Components.Mass m1(           L=1, v(fixed=true),
@@ -355,7 +355,7 @@ combination). In this case the system is not at rest.
         v_rel(fixed=true),
         d=1)            annotation (Placement(transformation(extent={{20,-20},{
                 40,0}}, rotation=0)));
-      Translational.Components.Mass m2(           L=2, m=1)
+      Translational.Components.Mass m2(           L=2, m=1) 
                                         annotation (Placement(transformation(
               extent={{60,-20},{80,0}}, rotation=0)));
     equation
@@ -435,16 +435,16 @@ problems.
               color={0,0,255})}),
         experiment(StopTime=1));
 
-      Translational.Components.Fixed fixed
+      Translational.Components.Fixed fixed 
                                  annotation (Placement(transformation(extent={{
                 -20,20},{0,40}}, rotation=0)));
-      Translational.Components.Rod rod1(        L=1)
+      Translational.Components.Rod rod1(        L=1) 
                                   annotation (Placement(transformation(extent={
                 {-48,20},{-28,40}}, rotation=0)));
-      Translational.Components.Rod rod2(        L=1)
+      Translational.Components.Rod rod2(        L=1) 
                                   annotation (Placement(transformation(extent={
                 {20,20},{40,40}}, rotation=0)));
-      Translational.Components.Rod rod3(        L=1)
+      Translational.Components.Rod rod3(        L=1) 
                                   annotation (Placement(transformation(extent={
                 {-30,58},{-50,78}}, rotation=0)));
       Translational.Sensors.PositionSensor positionSensor2 annotation (Placement(
@@ -453,10 +453,10 @@ problems.
             transformation(extent={{-60,20},{-80,40}}, rotation=0)));
       Translational.Sensors.PositionSensor positionSensor3 annotation (Placement(
             transformation(extent={{-60,58},{-80,78}}, rotation=0)));
-      Translational.Components.Fixed fixed1(        s0=-1.9)
+      Translational.Components.Fixed fixed1(        s0=-1.9) 
                                           annotation (Placement(transformation(
               extent={{-100,-60},{-80,-40}}, rotation=0)));
-      Translational.Components.Spring spring1(        s_rel0=2, c=11)
+      Translational.Components.Spring spring1(        s_rel0=2, c=11) 
                                                    annotation (Placement(
             transformation(extent={{-80,-60},{-60,-40}}, rotation=0)));
       Translational.Components.Mass mass1(
@@ -465,10 +465,10 @@ problems.
         v(fixed=true),
         m=1)                                      annotation (Placement(
             transformation(extent={{-50,-60},{-30,-40}}, rotation=0)));
-      Translational.Components.Fixed fixed2(        s0=-1.9)
+      Translational.Components.Fixed fixed2(        s0=-1.9) 
                                           annotation (Placement(transformation(
               extent={{0,-60},{20,-40}}, rotation=0)));
-      Translational.Components.Spring spring2(        s_rel0=2, c=11)
+      Translational.Components.Spring spring2(        s_rel0=2, c=11) 
                                                    annotation (Placement(
             transformation(extent={{30,-60},{50,-40}}, rotation=0)));
       Translational.Components.Mass inertia2(           L=2,
@@ -518,13 +518,13 @@ problems.
     model Accelerate "Use of model accelerate."
 
       extends Modelica.Icons.Example;
-      Translational.Sources.Accelerate accelerate
+      Translational.Sources.Accelerate accelerate 
                                            annotation (Placement(transformation(
               extent={{-40,20},{-20,40}}, rotation=0)));
-      Translational.Components.Mass mass(L=1, m=1)
+      Translational.Components.Mass mass(L=1, m=1) 
                                                   annotation (Placement(
             transformation(extent={{0,20},{20,40}},  rotation=0)));
-      Modelica.Blocks.Sources.Constant constantAcc(k=1)
+      Modelica.Blocks.Sources.Constant constantAcc(k=1) 
                                                  annotation (Placement(transformation(extent={{-80,20},
                 {-60,40}},          rotation=0)));
       annotation (Documentation(info="<html>
@@ -565,10 +565,10 @@ Demonstrate usage of damper components in different variants.
         v(start=10, fixed=true),
         m=1)        annotation (Placement(transformation(extent={{-80,60},{-60,
                 80}}, rotation=0)));
-      Translational.Components.Damper damper1(        d=25)
+      Translational.Components.Damper damper1(        d=25) 
                                          annotation (Placement(transformation(
               extent={{-20,60},{0,80}}, rotation=0)));
-      Translational.Components.Fixed fixed1(        s0=4.5)
+      Translational.Components.Fixed fixed1(        s0=4.5) 
                                          annotation (Placement(transformation(
               extent={{22,60},{42,80}}, rotation=0)));
       Translational.Components.Mass mass2(
@@ -577,10 +577,10 @@ Demonstrate usage of damper components in different variants.
         v(start=10, fixed=true),
         m=1)        annotation (Placement(transformation(extent={{-80,0},{-60,
                 20}}, rotation=0)));
-      Translational.Components.Damper damper2(        d=25)
+      Translational.Components.Damper damper2(        d=25) 
                                          annotation (Placement(transformation(
               extent={{-20,0},{0,20}}, rotation=0)));
-      Translational.Components.Fixed fixed2(        s0=4.5)
+      Translational.Components.Fixed fixed2(        s0=4.5) 
                                          annotation (Placement(transformation(
               extent={{20,0},{40,20}}, rotation=0)));
       Translational.Components.Mass mass3(
@@ -589,10 +589,10 @@ Demonstrate usage of damper components in different variants.
         v(start=10, fixed=true),
         m=1)        annotation (Placement(transformation(extent={{-80,-60},{-60,
                 -40}}, rotation=0)));
-      Translational.Components.Fixed fixed3(        s0=4.5)
+      Translational.Components.Fixed fixed3(        s0=4.5) 
                                          annotation (Placement(transformation(
               extent={{20,-60},{40,-40}}, rotation=0)));
-      Translational.Components.Spring spring2(        s_rel0=1, c=1)
+      Translational.Components.Spring spring2(        s_rel0=1, c=1) 
                                              annotation (Placement(
             transformation(extent={{-20,-20},{0,0}}, rotation=0)));
       Translational.Components.SpringDamper springDamper3(        s_rel0=1, d=25,
@@ -662,13 +662,13 @@ If damping is added the amplitudes are bounded.
         v(start=0, fixed=true),
         m=1)          annotation (Placement(transformation(extent={{-20,40},{0,
                 60}}, rotation=0)));
-      Translational.Components.Spring spring1(        s_rel0=1, c=10000)
+      Translational.Components.Spring spring1(        s_rel0=1, c=10000) 
                                                       annotation (Placement(
             transformation(extent={{20,40},{40,60}}, rotation=0)));
-      Translational.Components.Fixed fixed1(        s0=1)
+      Translational.Components.Fixed fixed1(        s0=1) 
                                          annotation (Placement(transformation(
               extent={{60,40},{80,60}}, rotation=0)));
-      Translational.Sources.Force force1
+      Translational.Sources.Force force1 
                                  annotation (Placement(transformation(extent={{
                 -60,40},{-40,60}}, rotation=0)));
       Modelica.Blocks.Sources.Sine sine1(freqHz=15.9155) annotation (Placement(transformation(
@@ -679,18 +679,18 @@ If damping is added the amplitudes are bounded.
         v(start=0, fixed=true),
         m=1)          annotation (Placement(transformation(extent={{-20,-60},{0,
                 -40}}, rotation=0)));
-      Translational.Components.Spring spring2(        s_rel0=1, c=10000)
+      Translational.Components.Spring spring2(        s_rel0=1, c=10000) 
                                                       annotation (Placement(
             transformation(extent={{20,-60},{40,-40}}, rotation=0)));
-      Translational.Components.Fixed fixed2(        s0=1)
+      Translational.Components.Fixed fixed2(        s0=1) 
                                          annotation (Placement(transformation(
               extent={{60,-60},{80,-40}}, rotation=0)));
-      Translational.Sources.Force force2
+      Translational.Sources.Force force2 
                                  annotation (Placement(transformation(extent={{
                 -60,-60},{-40,-40}}, rotation=0)));
       Modelica.Blocks.Sources.Sine sine2(freqHz=15.9155) annotation (Placement(transformation(
               extent={{-100,-60},{-80,-40}}, rotation=0)));
-      Translational.Components.Damper damper1(        d=10)
+      Translational.Components.Damper damper1(        d=10) 
                                          annotation (Placement(transformation(
               extent={{20,-36},{40,-16}}, rotation=0)));
     equation
@@ -769,10 +769,10 @@ to see the difference.
         v(fixed=true),
         m=1)                                      annotation (Placement(
             transformation(extent={{20,40},{40,60}}, rotation=0)));
-      Translational.Sources.Force force
+      Translational.Sources.Force force 
                                  annotation (Placement(transformation(extent={{
                 -60,40},{-40,60}}, rotation=0)));
-      Modelica.Blocks.Sources.Sine sineForce(amplitude=10, freqHz=4)
+      Modelica.Blocks.Sources.Sine sineForce(amplitude=10, freqHz=4) 
                                                                  annotation (Placement(
             transformation(extent={{-100,40},{-80,60}}, rotation=0)));
       Translational.Sensors.PositionSensor positionSensor2 annotation (Placement(
@@ -780,7 +780,7 @@ to see the difference.
     equation
       connect(forceSensor.flange_b, mass.flange_a)          annotation (Line(
             points={{0,50},{20,50}}, color={0,191,0}));
-      connect(sineForce.y, force.f)
+      connect(sineForce.y, force.f) 
                                  annotation (Line(points={{-79,50},{-62,50}},
             color={0,0,127}));
       connect(forceSensor.flange_a, force.flange)   annotation (Line(
@@ -853,10 +853,10 @@ to see the difference.
         F_Stribeck=10,
         fexp=2)                     annotation (Placement(transformation(extent={{20,60},
                 {40,80}},         rotation=0)));
-      Translational.Sources.Force force
+      Translational.Sources.Force force 
                                  annotation (Placement(transformation(extent={{-20,60},
                 {0,80}},         rotation=0)));
-      Modelica.Blocks.Sources.Sine sineForce(amplitude=25, freqHz=0.25)
+      Modelica.Blocks.Sources.Sine sineForce(amplitude=25, freqHz=0.25) 
                                                                     annotation (Placement(
             transformation(extent={{-60,60},{-40,80}},
                                                      rotation=0)));
@@ -871,26 +871,26 @@ to see the difference.
         m=1,
         F_prop=1,
         fexp=2,
-        v(start=-5, fixed=true))
+        v(start=-5, fixed=true)) 
                      annotation (Placement(transformation(extent={{42,-60},{62,
                 -40}},
               rotation=0)));
-      Translational.Components.Spring spring(s_rel0=1, c=500)
+      Translational.Components.Spring spring(s_rel0=1, c=500) 
                                                     annotation (Placement(
             transformation(extent={{2,-60},{22,-40}},
                                                     rotation=0)));
-      Translational.Components.Fixed fixed2(s0=-1.75)
+      Translational.Components.Fixed fixed2(s0=-1.75) 
                                            annotation (Placement(transformation(
               extent={{-40,-60},{-20,-40}},
                                         rotation=0)));
-      Translational.Sources.Force force2
+      Translational.Sources.Force force2 
                                  annotation (Placement(transformation(extent={{-22,0},
                 {-2,20}},        rotation=0)));
       Components.Mass mass(
         m=1,
         L=1,
         s(fixed=true),
-        v(fixed=true))
+        v(fixed=true)) 
         annotation (Placement(transformation(extent={{10,0},{30,20}})));
       Components.SupportFriction supportFriction(f_pos=
             Examples.Utilities.GenerateStribeckFrictionTable(
@@ -899,12 +899,12 @@ to see the difference.
                 F_Stribeck=10,
                 fexp=2,
                 v_max=12,
-                nTable=50))
+                nTable=50)) 
         annotation (Placement(transformation(extent={{40,0},{60,20}})));
     equation
       connect(spring.flange_b, stop2.flange_a)  annotation (Line(points={{22,-50},
               {42,-50}},color={0,191,0}));
-      connect(sineForce.y, force.f)
+      connect(sineForce.y, force.f) 
         annotation (Line(points={{-39,70},{-22,70}},
                                                   color={0,0,127}));
       connect(spring.flange_a, fixed2.flange) annotation (Line(
@@ -988,13 +988,13 @@ Spool position s as a function of working force f.
       Translational.Components.ElastoGap innerContactA(
         c=1000e3,
         d=250,
-        s_rel0=0.001)
+        s_rel0=0.001) 
                annotation (Placement(transformation(extent={{-70,20},{-50,40}},
               rotation=0)));
       Translational.Components.ElastoGap innerContactB(
         c=1000e3,
         d=250,
-        s_rel0=0.001)
+        s_rel0=0.001) 
                annotation (                                          Placement(
             transformation(extent={{50,20},{70,40}}, rotation=0)));
       Translational.Components.Mass spool(
@@ -1003,7 +1003,7 @@ Spool position s as a function of working force f.
         s(start=0.01475, fixed=true),
         v(fixed=true))     annotation (Placement(transformation(extent={{0,-40},
                 {40,0}},  rotation=0)));
-      Translational.Components.Fixed fixedLe(        s0=-0.0955)
+      Translational.Components.Fixed fixedLe(        s0=-0.0955) 
                                                annotation (Placement(
             transformation(extent={{-10,-10},{10,10}}, rotation=270,
             origin={-80,90})));
@@ -1019,13 +1019,13 @@ Spool position s as a function of working force f.
         L=0.002,
         v(fixed=true))      annotation (
           Placement(transformation(extent={{20,60},{40,80}}, rotation=0)));
-      Translational.Components.Spring spring(        c=20e3, s_rel0=0.025)
+      Translational.Components.Spring spring(        c=20e3, s_rel0=0.025) 
         annotation (Placement(transformation(extent={{-10,60},{10,80}},rotation=
                0)));
       Translational.Components.ElastoGap outerContactA(
         c=1000e3,
         d=250,
-        s_rel0=0.0015)
+        s_rel0=0.0015) 
                annotation (Placement(transformation(extent={{-70,60},{-50,80}},
               rotation=0)));
       Translational.Components.ElastoGap outerContactB(
@@ -1033,32 +1033,32 @@ Spool position s as a function of working force f.
         d=250,
         s_rel0=0.0015) annotation (Placement(transformation(extent={{50,60},{70,
                 80}}, rotation=0)));
-      Translational.Components.Rod rod1(        L=0.007)
+      Translational.Components.Rod rod1(        L=0.007) 
                                      annotation (Placement(transformation(
               extent={{-40,30},{-20,50}}, rotation=0)));
-      Translational.Components.Damper friction(        d=2500)
+      Translational.Components.Damper friction(        d=2500) 
                                             annotation (Placement(
             transformation(
             origin={-80,50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Translational.Sources.Force force
+      Translational.Sources.Force force 
                                  annotation (Placement(transformation(extent={{-38,-30},
                 {-18,-10}},          rotation=0)));
-      Translational.Components.Rod housing(        L=0.0305)
+      Translational.Components.Rod housing(        L=0.0305) 
                                            annotation (Placement(transformation(
               extent={{-10,80},{10,100}},
                                         rotation=0)));
-      Translational.Components.Rod rod3(        L=0.00575)
+      Translational.Components.Rod rod3(        L=0.00575) 
                                         annotation (Placement(transformation(
               extent={{-40,-2},{-20,18}}, rotation=0)));
-      Translational.Components.Rod rod4(        L=0.00575)
+      Translational.Components.Rod rod4(        L=0.00575) 
                                         annotation (Placement(transformation(
               extent={{20,-2},{40,18}}, rotation=0)));
-      Translational.Components.Rod rod2(        L=0.007)
+      Translational.Components.Rod rod2(        L=0.007) 
                                      annotation (Placement(transformation(
               extent={{20,30},{40,50}}, rotation=0)));
-      Modelica.Blocks.Sources.Sine sineForce(amplitude=150, freqHz=0.01)
+      Modelica.Blocks.Sources.Sine sineForce(amplitude=150, freqHz=0.01) 
         annotation (Placement(transformation(extent={{-78,-30},{-58,-10}},
               rotation=0)));
     equation
@@ -1091,7 +1091,7 @@ Spool position s as a function of working force f.
               {40,52},{20,52},{20,70}},        color={0,191,0}));
       connect(spool.flange_a,rod4. flange_a) annotation (Line(points={{0,-20},{
               0,8},{20,8}}, color={0,191,0}));
-      connect(sineForce.y, force.f)
+      connect(sineForce.y, force.f) 
                                  annotation (Line(points={{-57,-20},{-46,-20},{
               -40,-20}},
             color={0,0,127}));
@@ -1128,47 +1128,47 @@ mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics),
         experiment(StopTime=10));
-      Components.Fixed fixed
+      Components.Fixed fixed 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-      Components.Rod rod1(L=2)
+      Components.Rod rod1(L=2) 
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
-      Components.Rod rod2(L=2)
+      Components.Rod rod2(L=2) 
         annotation (Placement(transformation(extent={{20,-10},{40,10}})));
       Components.SpringDamper springDamper1(
         c=10,
         s_rel0=1,
         s_rel(fixed=false, start=1),
-        d=1.5)
+        d=1.5) 
         annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
       Components.SpringDamper springDamper2(
         c=10,
         s_rel0=1,
         s_rel(fixed=false, start=1),
-        d=1.5)
+        d=1.5) 
         annotation (Placement(transformation(extent={{20,20},{40,40}})));
       Components.Mass mass1(
         s(fixed=true, start=2),
         L=0,
         m=1,
-        v(fixed=true))
+        v(fixed=true)) 
              annotation (Placement(transformation(extent={{-10,20},{10,40}})));
       Components.ElastoGap elastoGap1(
         c=10,
         s_rel(fixed=false, start=1.5),
         s_rel0=1.5,
-        d=1.5)
+        d=1.5) 
         annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
       Components.ElastoGap elastoGap2(
         c=10,
         s_rel(fixed=false, start=1.5),
         s_rel0=1.5,
-        d=1.5)
+        d=1.5) 
         annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
       Components.Mass mass2(
         s(fixed=true, start=2),
         L=0,
         m=1,
-        v(fixed=true))
+        v(fixed=true)) 
              annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
       parameter SI.TranslationalDampingConstant d=1.5 "damping constant";
     equation
@@ -1231,28 +1231,28 @@ one where the brake is implicitly grounded and one where it is explicitly ground
 
 </html>"));
       Modelica.Mechanics.Translational.Components.Brake brake(fn_max=1, useSupport=
-            false)
+            false) 
         annotation (Placement(transformation(extent={{6,40},{26,20}})));
       Modelica.Mechanics.Translational.Components.Mass mass1(m=1,
         s(fixed=true),
-        v(start=1, fixed=true))
+        v(start=1, fixed=true)) 
         annotation (Placement(transformation(extent={{-34,20},{-14,40}})));
-      Modelica.Blocks.Sources.Step step(startTime=0.1, height=2)
+      Modelica.Blocks.Sources.Step step(startTime=0.1, height=2) 
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=0,
             origin={-24,-10})));
       Modelica.Mechanics.Translational.Components.Brake brake1(
                                                               fn_max=1, useSupport=
-            true)
+            true) 
         annotation (Placement(transformation(extent={{6,-60},{26,-40}})));
       Modelica.Mechanics.Translational.Components.Mass mass2(m=1,
         s(fixed=true),
-        v(start=1, fixed=true))
+        v(start=1, fixed=true)) 
         annotation (Placement(transformation(extent={{-34,-60},{-14,-40}})));
-      Modelica.Mechanics.Translational.Components.Fixed fixed
+      Modelica.Mechanics.Translational.Components.Fixed fixed 
         annotation (Placement(transformation(extent={{6,-80},{26,-60}})));
     equation
-      connect(mass1.flange_b, brake.flange_a)
+      connect(mass1.flange_b, brake.flange_a) 
                                              annotation (Line(
           points={{-14,30},{6,30}},
           color={0,127,0},
@@ -1261,7 +1261,7 @@ one where the brake is implicitly grounded and one where it is explicitly ground
           points={{-13,-10},{16,-10},{16,19}},
           color={0,0,127},
           smooth=Smooth.None));
-      connect(mass2.flange_b, brake1.flange_a)
+      connect(mass2.flange_b, brake1.flange_a) 
                                              annotation (Line(
           points={{-14,-50},{6,-50}},
           color={0,127,0},
@@ -1747,80 +1747,102 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
     end SpringDamper;
 
     model ElastoGap "1D translational spring damper combination with gap"
-      extends Translational.Interfaces.PartialCompliantWithRelativeStates;
-      parameter SI.TranslationalSpringConstant c(final min=0, start = 1)
+      extends Modelica.Mechanics.Translational.Interfaces.PartialCompliant;
+      parameter Real c(final unit="N/m", final min=0, start=1)
         "Spring constant";
-      parameter SI.TranslationalDampingConstant d(final min=0, start = 1)
+      parameter Real d(final unit="N/ (m/s)", final min=0, start=1)
         "Damping constant";
-      parameter SI.Position s_rel0=0 "Unstretched spring length";
-      parameter Real n(final min=0) = 0 "power for nonlinear force"
-        annotation(Evaluate=true);
-      parameter SI.Length s_ref = 1 "reference length for nonlinear force"
-        annotation(Dialog(enable=n>0));
+      parameter Modelica.SIunits.Position s_rel0=0 "Unstretched spring length";
+      parameter Real n(final min=1) = 1
+        "Exponent of spring force ( f_c = -c*|s_rel-s_rel0|^n )";
 
       annotation (
-        Documentation(info="<html>
+        Window(
+          x=0.23,
+          y=0.04,
+          width=0.62,
+          height=0.69),
+         Documentation(info="<html>
 <p>
 A linear spring damper combination that can lift off.
-The component can be connected between a sliding mass and the housing (model
-<a href=\"Modelica://Modelica.Mechanics.Translational.Components.Fixed\">Fixed</a>),
+The component can be connected between a sliding mass and the housing (model 
+<a href=\"Modelica://Modelica.Mechanics.Translational.Components.Fixed\">Fixed</a>), 
 to describe the contact of a sliding mass with the housing.
 </p>
-
+ 
 <p>
 As long as s_rel &gt; s_rel0, no force is exerted (s_rel = flange_b.s - flange_a.s).
 If s_rel &le; s_rel0, the contact force is basically computed with a linear
-spring/damper characteristic; with parameter n>0, a nonlinear force can be modeled
-(for n=0 the behaviour is backwards compatible):
-</p
-
+spring/damper characteristic. With parameter n&ge;1 (exponent of spring force),
+a nonlinear spring force can be modeled:
+</p>
+ 
 <pre>
-   desiredContactForce = (c*(s_rel - s_rel0) + d*<b>der</b>(s_rel)) * (abs(s_rel - s_rel0)/s_ref)^n
+   desiredContactForce = c*|s_rel - s_rel0|^n + d*<b>der</b>(s_rel)
 </pre>
+ 
+<p>
+Note, Hertzian contact is described by:
+</p>
+<ul>
+<li> Contact between two metallic spheres: n=1.5</li>
+<li> Contact between two metallic plates: n=1</li>
+</ul>
 
 <p>
-This force law leads to the following difficulties:
+The above force law leads to the following difficulties:
 </p>
-
+ 
 <ol>
 <li> If the damper force becomes larger as the spring force and with opposite sign,
      the contact force would be \"pulling/sticking\" which is unphysical, since during
      contact only pushing forces can occur.</li>
-
-<li> When contact occurs with a non-zero relative speed (which is the usual
+ 
+<li> When contact occurs with a non-zero relative speed (which is the usual 
      situation), the damping force has a non-zero value and therefore the contact
      force changes discontinuously at s_rel = s_rel0. Again, this is not physical
      because the force can only change continuously. (Note, this component is not an
      idealized model where a steep characteristic is approximated by a discontinuity,
      but it shall model the steep characteristic.)</li>
 </ol>
-
+ 
 <p>
-In the literature there are several proposals to fix problem (2). However, there
-seems to be no proposal to avoid sticking. For this reason, the most simple
-approach is used in the ElastoGap model, to fix both problems by slight changes
-to the linear spring/damper characteristic:
+In the literature there are several proposals to fix problem (2). Especially, often
+the following model is used (see, e.g.,
+Lankarani, Nikravesh: Continuous Contact Force Models for Impact
+Analysis in Multibody Systems, Nonlinear Dynamics 5, pp. 193-207, 1994,
+<a href=\"http://www.springerlink.com/content/h50x61270q06p65n/fulltext.pdf\">pdf-download</a>):
 </p>
 
 <pre>
-    <b>if</b> s_rel &gt; s_rel0 <b>then</b>
-       f_c = 0;          // spring force
-       f_d = 0;          // damper force
-       flange_b.f = 0;
-    <b>else</b>
-       f_c = c*(s_rel - s_rel0);    // spring force
-       f_d = d*<b>der</b>(s_rel);          // damper force
-       flange_b.f = <b>if</b> f_c + f_d &ge; 0 <b>then</b> 0 <b>else</b> f_c + <b>max</b>( f_c, f_d );
-    <b>end if</b>;
+   f = c*s_rel^n + (d*s_rel^n)*<b>der</b>(s_rel)
 </pre>
 
 <p>
-Note, when sticking would occur (f_c + f_d &ge; 0), then the contact force
-is explicitly set to zero. The \"max(f_c, f_d)\" part in the if-expression,
-limits the damping force when it is pushing. This means that at the start of
-the contact (s_rel = s_rel0), the damping force is zero and is continuous.
-The effect of both modifications is that the absolute value of the damping force
-is always limited by the absolute value of the spring force: |f_d| &le; |f_c|.
+However, this and other models proposed in literature violate
+issue (1), i.e., unphysical pulling forces can occur (if d*<b>der</b>(s_rel)
+becomes large enough). Note, if the force law is of the form \"f = f_c + f_d\", then a
+necessary condition is that |f_d| &le; |f_c|, otherwise (1) and (2) are violated. 
+For this reason, the most simplest approach is used in the ElastoGap model
+to fix both problems by using this necessary condition in the force law directly.
+If s_rel0 = 0, the equations are:
+</p>
+     
+<pre>
+    <b>if</b> s_rel &ge; 0 <b>then</b>
+       f = 0;    // contact force
+    <b>else</b>
+       f_c  = -c*|s_rel|^n;          // contact spring force (Hertzian contact force)
+       f_d2 = d*<b>der</b>(s_rel);         // linear contact damper force
+       f_d  = <b>if</b> f_d2 &lt;  f_c <b>then</b>  f_c <b>else</b> 
+              <b>if</b> f_d2 &gt; -f_c <b>then</b> -f_c <b>else</b> f_d2;  // bounded damper force
+       f    = f_c + f_d;            // contact force
+    <b>end if</b>;
+</pre>
+ 
+<p>
+Note, since |f_d| &le; |f_c|, pulling forces cannot occur and the contact force
+is always continuous, especially around the start of the penetration at s_rel = s_rel0.
 </p>
 
 <p>
@@ -1842,12 +1864,10 @@ where the different effects are visualized:
 <p align=\"center\">
 <img src=\"../Images/Translational/ElastoGap1.png\">
 </p>
-
-</html>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+</html>"),        Diagram(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}},
+          grid={2,2}), graphics={
             Line(points={{-100,0},{-50,0}}, color={0,127,0}),
             Line(
               points={{-48,34},{-48,-46}},
@@ -1862,7 +1882,7 @@ where the different effects are visualized:
               thickness=1),
             Line(points={{-12,22},{8,22}}, color={0,0,0}),
             Line(points={{-12,-38},{-2,-38}}, color={0,0,0}),
-            Line(points={{72,0},{90,0}}, color={0,127,0}),
+            Line(points={{72,0},{100,0}}, color={0,127,0}),
             Line(points={{72,22},{72,-42}}, color={0,0,0}),
             Line(points={{-2,-38},{10,-28},{22,-48},{38,-28},{50,-48},{64,-28},
                   {72,-40}}, color={0,0,0}),
@@ -1889,9 +1909,9 @@ where the different effects are visualized:
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
         Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}},
+          grid={2,2}), graphics={
             Line(points={{-98,0},{-48,0}}, color={0,127,0}),
             Line(
               points={{-48,34},{-48,-46}},
@@ -1924,29 +1944,31 @@ where the different effects are visualized:
             Text(
               extent={{0,120},{0,60}},
               textString="%name",
-              lineColor={0,0,255})}));
+              lineColor={0,0,255})}),
+        uses(Modelica(version="2.2.2")));
 
     /*
 Please note that initialization might fail due to the nonlinear spring characteristic
-(spring force is zero for s_rel > s_rel0)
+(spring force is zero for s_rel > s_rel0) 
 if a positive force is acting on the element and no other force balances this force
 (e.g. when setting both initial velocity and acceleration to 0)
 */
+      Boolean contact "=true, if contact, otherwise no contact";
     protected
-      SI.Force f_c "Spring force";
-      SI.Force f_d "Unmodified damping force";
+      Modelica.SIunits.Force f_c "Spring force";
+      Modelica.SIunits.Force f_d2 "Linear damping force";
+      Modelica.SIunits.Force f_d
+        "Linear damping force which is limited by spring force (|f_d| <= |f_c|)";
+      Modelica.SIunits.Velocity v_rel = der(s_rel) "Penetration velocity";
     equation
       // Modify contact force, so that it is only "pushing" and not
-      // "pulling/sticking" and that it is continous near lift off
-      if s_rel > s_rel0 then
-         f_c = 0;
-         f_d = 0;
-         f   = 0;
-      else
-         f_c = c*(s_rel - s_rel0);
-         f_d = d*v_rel;
-         f   = smooth(0, noEvent(if (f_c + f_d) >= 0 then 0 else (f_c + max(f_c, f_d))*(if n>0 then (abs(s_rel - s_rel0)/s_ref)^n else 1)));
-      end if;
+      // "pulling/sticking" and that it is continous
+      contact = s_rel < s_rel0;
+      f_c  = smooth(1, noEvent( if contact then -c*abs(s_rel - s_rel0)^n else 0));
+      f_d2 = if contact then d*v_rel else 0;
+      f_d  = smooth(0, noEvent( if contact then (if f_d2 <  f_c then  f_c else 
+                                                 if f_d2 > -f_c then -f_c else f_d2) else 0));
+      f = f_c + f_d;
     end ElastoGap;
 
     model SupportFriction "Coulomb friction in support"
@@ -2132,10 +2154,10 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       flange_a.f + flange_b.f - f = 0;
 
     // Friction force
-      f = if locked then sa*unitForce else
-         (if startForward then          Modelica.Math.tempInterpol1( v, f_pos, 2) else
-          if startBackward then        -Modelica.Math.tempInterpol1(-v, f_pos, 2) else
-          if pre(mode) == Forward then  Modelica.Math.tempInterpol1( v, f_pos, 2) else
+      f = if locked then sa*unitForce else 
+         (if startForward then          Modelica.Math.tempInterpol1( v, f_pos, 2) else 
+          if startBackward then        -Modelica.Math.tempInterpol1(-v, f_pos, 2) else 
+          if pre(mode) == Forward then  Modelica.Math.tempInterpol1( v, f_pos, 2) else 
                                        -Modelica.Math.tempInterpol1(-v, f_pos, 2));
     end SupportFriction;
 
@@ -2323,11 +2345,11 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       free = fn <= 0;
 
       // friction force
-      f = if locked then sa*unitForce else
-          if free then   0 else
-          cgeo*fn*(if startForward then          Modelica.Math.tempInterpol1( v, mue_pos, 2) else
-                   if startBackward then        -Modelica.Math.tempInterpol1(-v, mue_pos, 2) else
-                   if pre(mode) == Forward then  Modelica.Math.tempInterpol1( v, mue_pos, 2) else
+      f = if locked then sa*unitForce else 
+          if free then   0 else 
+          cgeo*fn*(if startForward then          Modelica.Math.tempInterpol1( v, mue_pos, 2) else 
+                   if startBackward then        -Modelica.Math.tempInterpol1(-v, mue_pos, 2) else 
+                   if pre(mode) == Forward then  Modelica.Math.tempInterpol1( v, mue_pos, 2) else 
                                                 -Modelica.Math.tempInterpol1(-v, mue_pos, 2));
     end Brake;
 
@@ -2359,15 +2381,15 @@ following references, especially (Armstrong and Canudas de Witt 1996):
         "Priority to use flange angle and speed as states";
 
       Modelica.Blocks.Interfaces.RealInput s_start if use_s_start
-        "Initial position of flange"
+        "Initial position of flange" 
         annotation (Placement(transformation(extent={{-140,40},{-100,80}},
               rotation=0)));
       Modelica.Blocks.Interfaces.RealInput v_start if use_v_start
-        "Initial speed of flange"
+        "Initial speed of flange" 
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
       Modelica.Blocks.Interfaces.RealInput a_start if use_a_start
-        "Initial angular acceleration of flange"
+        "Initial angular acceleration of flange" 
         annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
               rotation=0)));
       Interfaces.Flange_b flange "Flange that is initialized" annotation (Placement(
@@ -2427,12 +2449,12 @@ provided via a signal bus.
       encapsulated model Set_s_start "Set s_start"
         import Modelica;
         extends Modelica.Blocks.Interfaces.BlockIcon;
-        Modelica.Blocks.Interfaces.RealInput s_start "Start position"
+        Modelica.Blocks.Interfaces.RealInput s_start "Start position" 
         annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{
                 -100,20}}, rotation=0)));
 
       annotation (Diagram(graphics));
-        Modelica.Mechanics.Translational.Interfaces.Flange_b flange
+        Modelica.Mechanics.Translational.Interfaces.Flange_b flange 
                                                                annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
       initial equation
@@ -2444,12 +2466,12 @@ provided via a signal bus.
       encapsulated model Set_v_start "Set v_start"
         import Modelica;
         extends Modelica.Blocks.Interfaces.BlockIcon;
-        Modelica.Blocks.Interfaces.RealInput v_start "Start velocity"
+        Modelica.Blocks.Interfaces.RealInput v_start "Start velocity" 
         annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{
                 -100,20}}, rotation=0)));
 
       annotation (Diagram(graphics));
-        Modelica.Mechanics.Translational.Interfaces.Flange_b flange
+        Modelica.Mechanics.Translational.Interfaces.Flange_b flange 
                                                                annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
       initial equation
@@ -2461,12 +2483,12 @@ provided via a signal bus.
       encapsulated model Set_a_start "Set a_start"
         import Modelica;
         extends Modelica.Blocks.Interfaces.BlockIcon;
-        Modelica.Blocks.Interfaces.RealInput a_start "Start acceleration"
+        Modelica.Blocks.Interfaces.RealInput a_start "Start acceleration" 
         annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{
                 -100,20}}, rotation=0)));
 
       annotation (Diagram(graphics));
-        Modelica.Mechanics.Translational.Interfaces.Flange_b flange(s(stateSelect=StateSelect.avoid))
+        Modelica.Mechanics.Translational.Interfaces.Flange_b flange(s(stateSelect=StateSelect.avoid)) 
             annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
         Modelica.SIunits.Velocity v = der(flange.s)        annotation(HideResult=true);
@@ -2479,7 +2501,7 @@ provided via a signal bus.
       encapsulated model Set_flange_f "Set flange_f to zero"
         import Modelica;
         extends Modelica.Blocks.Interfaces.BlockIcon;
-        Modelica.Mechanics.Translational.Interfaces.Flange_b flange
+        Modelica.Mechanics.Translational.Interfaces.Flange_b flange 
             annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
       equation
@@ -2488,10 +2510,10 @@ provided via a signal bus.
     protected
       Set_s_start set_s_start if use_s_start annotation (Placement(
             transformation(extent={{-20,50},{0,70}}, rotation=0)));
-      Set_v_start set_v_start if use_v_start
+      Set_v_start set_v_start if use_v_start 
                               annotation (Placement(transformation(extent={{-20,
                 -10},{0,10}}, rotation=0)));
-      Set_a_start set_a_start if use_a_start
+      Set_a_start set_a_start if use_a_start 
                               annotation (Placement(transformation(extent={{-20,
                 -70},{0,-50}}, rotation=0)));
       Set_flange_f set_flange_f annotation (Placement(transformation(extent={
@@ -2787,7 +2809,7 @@ Additionally, a left and right stop are handled.
       parameter SI.Position smin(start=-25)
           "Left stop for (left end of) sliding mass";
       parameter SI.Velocity v_small=1e-3
-          "Relative velocity near to zero (see model info text)"
+          "Relative velocity near to zero (see model info text)" 
          annotation(Dialog(tab="Advanced"));
     // Equations to define the following variables have to be defined in subclasses
       SI.Velocity v_relfric "Relative velocity between frictional surfaces";
@@ -2826,20 +2848,20 @@ Additionally, a left and right stop are handled.
    the different structural configurations,
    if for each configuration special code shall be generated)
 */
-      startForward = pre(mode) == Stuck and (sa > f0_max/unitForce and s < (smax - L/2) or
+      startForward = pre(mode) == Stuck and (sa > f0_max/unitForce and s < (smax - L/2) or 
             pre(startForward) and sa > f0/unitForce and s < (smax - L/2)) or pre(mode)
          == Backward and v_relfric > v_small or initial() and (v_relfric > 0);
-      startBackward = pre(mode) == Stuck and (sa < -f0_max/unitForce and s > (smin + L/2) or
+      startBackward = pre(mode) == Stuck and (sa < -f0_max/unitForce and s > (smin + L/2) or 
             pre(startBackward) and sa < -f0/unitForce and s > (smin + L/2)) or pre(mode)
          == Forward and v_relfric < -v_small or initial() and (v_relfric < 0);
-      locked = not free and
+      locked = not free and 
         not (pre(mode) == Forward or startForward or pre(mode) == Backward or startBackward);
 
-      a_relfric/unitAcceleration = if locked then               0 else
-                                   if free then                 sa else
-                                   if startForward then         sa - f0_max/unitForce else
-                                   if startBackward then        sa + f0_max/unitForce else
-                                   if pre(mode) == Forward then sa - f0_max/unitForce else
+      a_relfric/unitAcceleration = if locked then               0 else 
+                                   if free then                 sa else 
+                                   if startForward then         sa - f0_max/unitForce else 
+                                   if startBackward then        sa + f0_max/unitForce else 
+                                   if pre(mode) == Forward then sa - f0_max/unitForce else 
                                                                 sa + f0_max/unitForce;
 
     /* Friction torque has to be defined in a subclass. Example for a clutch:
@@ -2851,11 +2873,11 @@ Additionally, a left and right stop are handled.
                                              -Math.tempInterpol1(-v_relfric, mue_pos, 2));
 */
     // finite state machine to determine configuration
-      mode = if free then Free else
-        (if (pre(mode) == Forward  or pre(mode) == Free or startForward)  and v_relfric > 0 and s < (smax - L/2) then
-           Forward else
-         if (pre(mode) == Backward or pre(mode) == Free or startBackward) and v_relfric < 0 and s > (smin + L/2) then
-           Backward else
+      mode = if free then Free else 
+        (if (pre(mode) == Forward  or pre(mode) == Free or startForward)  and v_relfric > 0 and s < (smax - L/2) then 
+           Forward else 
+         if (pre(mode) == Backward or pre(mode) == Free or startBackward) and v_relfric < 0 and s > (smin + L/2) then 
+           Backward else 
            Stuck);
     end PartialFrictionWithStop;
     equation
@@ -2871,11 +2893,11 @@ Additionally, a left and right stop are handled.
     // Equilibrium of forces
       0 = flange_a.f + flange_b.f - f - m*der(v);
     // Friction force
-      f = if locked then sa*unitForce else
-          if free then   0 else
-                        (if startForward then         F_prop*v + F_Coulomb + F_Stribeck else
-                         if startBackward then        F_prop*v - F_Coulomb - F_Stribeck else
-                         if pre(mode) == Forward then F_prop*v + F_Coulomb + F_Stribeck*exp(-fexp*abs(v)) else
+      f = if locked then sa*unitForce else 
+          if free then   0 else 
+                        (if startForward then         F_prop*v + F_Coulomb + F_Stribeck else 
+                         if startBackward then        F_prop*v - F_Coulomb - F_Stribeck else 
+                         if pre(mode) == Forward then F_prop*v + F_Coulomb + F_Stribeck*exp(-fexp*abs(v)) else 
                                                       F_prop*v - F_Coulomb - F_Stribeck*exp(-fexp*abs(v)));
     // Define events for hard stops and reinitiliaze the state variables velocity v and position s
     algorithm
@@ -3262,7 +3284,7 @@ blocks of the block library Modelica.Blocks.Sources.
       SI.Acceleration a "Absolute acceleration of flange_b";
 
       Modelica.Blocks.Interfaces.RealInput a_ref
-        "absolute acceleration of flange as input signal"
+        "absolute acceleration of flange as input signal" 
          annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
       annotation (
@@ -3324,7 +3346,7 @@ blocks of the block library Modelica.Blocks.Source.
        extends
         Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2;
       Modelica.Blocks.Interfaces.RealInput u[3]
-        "position, velocity and acceleration of flange as input signals"
+        "position, velocity and acceleration of flange as input signals" 
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
       annotation (
@@ -3430,7 +3452,7 @@ blocks of the block library Modelica.Blocks.Sources.
       "External force acting on a drive train element as input signal"
       extends
         Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2;
-      Modelica.Blocks.Interfaces.RealInput f "driving force as input signal"
+      Modelica.Blocks.Interfaces.RealInput f "driving force as input signal" 
                                         annotation (Placement(transformation(
               extent={{-140,-20},{-100,20}}, rotation=0)));
       annotation (
@@ -3487,7 +3509,7 @@ blocks of Modelica.Blocks.Source.
 
     model Force2 "Input signal acting as torque on two flanges"
       extends Translational.Interfaces.PartialTwoFlanges;
-      Modelica.Blocks.Interfaces.RealInput f "driving force as input signal"
+      Modelica.Blocks.Interfaces.RealInput f "driving force as input signal" 
                                         annotation (Placement(transformation(
               extent={{-20,-20},{20,20}},    rotation=270,
             origin={0,60}), iconTransformation(
@@ -3697,7 +3719,7 @@ Modelica.Blocks library.
 
     model PositionSensor "Ideal sensor to measure the absolute position"
       extends Translational.Interfaces.PartialAbsoluteSensor;
-      Modelica.Blocks.Interfaces.RealOutput s "Absolute position of flange"
+      Modelica.Blocks.Interfaces.RealOutput s "Absolute position of flange" 
                                     annotation (Placement(transformation(extent={{100,-11},
                 {120,9}},            rotation=0), iconTransformation(extent={{100,
                 -10},{120,10}})));
@@ -3730,7 +3752,7 @@ Modelica.Blocks library).
     model SpeedSensor "Ideal sensor to measure the absolute velocity"
       extends Translational.Interfaces.PartialAbsoluteSensor;
       Modelica.Blocks.Interfaces.RealOutput v
-        "Absolute velocity of flange as output signal"
+        "Absolute velocity of flange as output signal" 
            annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
       annotation (
@@ -3763,7 +3785,7 @@ Modelica.Blocks library).
       extends Translational.Interfaces.PartialAbsoluteSensor;
       SI.Velocity v "Absolute velocity of flange";
       Modelica.Blocks.Interfaces.RealOutput a
-        "Absolute acceleration of flange as output signal"
+        "Absolute acceleration of flange as output signal" 
            annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
       annotation (
@@ -3797,7 +3819,7 @@ Modelica.Blocks library).
     model RelPositionSensor "Ideal sensor to measure the relative position"
       extends Translational.Interfaces.PartialRelativeSensor;
       Modelica.Blocks.Interfaces.RealOutput s_rel
-        "Distance between two flanges (= flange_b.s - flange_a.s)"
+        "Distance between two flanges (= flange_b.s - flange_a.s)" 
                                     annotation (Placement(transformation(extent={{-10,-10},
                 {10,10}},            rotation=270,
             origin={0,-110})));
@@ -3885,7 +3907,7 @@ Modelica.Blocks library).
       SI.Velocity v_rel
         "relative velocity between the two flanges (der(flange_b.s) - der(flange_a.s))";
       Modelica.Blocks.Interfaces.RealOutput a_rel
-        "Relative acceleration between two flanges (= der(v_rel))"
+        "Relative acceleration between two flanges (= der(v_rel))" 
                                     annotation (Placement(transformation(extent={{-10,-10},
                 {10,10}},            rotation=270,
             origin={0,-110})));
@@ -3924,7 +3946,7 @@ Modelica.Blocks library).
     model ForceSensor "Ideal sensor to measure the force between two flanges"
       extends Translational.Interfaces.PartialRelativeSensor;
       Modelica.Blocks.Interfaces.RealOutput f
-        "force in flange_a and flange_b (f = flange_a.f = -flange_b.f)"
+        "force in flange_a and flange_b (f = flange_a.f = -flange_b.f)" 
          annotation (Placement(transformation(
             origin={-80,-110},
             extent={{10,-10},{-10,10}},
@@ -3961,7 +3983,7 @@ with blocks of the Modelica.Blocks library).
     model PowerSensor
       "Ideal sensor to measure the power between two flanges (= flange_a.f*der(flange_a.s))"
       extends Translational.Interfaces.PartialRelativeSensor;
-      Modelica.Blocks.Interfaces.RealOutput power "Power in flange flange_a"
+      Modelica.Blocks.Interfaces.RealOutput power "Power in flange flange_a" 
          annotation (Placement(transformation(
             origin={-80,-110},
             extent={{10,-10},{-10,10}},
@@ -4195,7 +4217,7 @@ the support force can always be accessed as internalSupport.f.
          annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
       Flange_b flange_b
-        "(right) driven flange (flange axis directed out of cut plane)"
+        "(right) driven flange (flange axis directed out of cut plane)" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
       annotation (
@@ -4216,11 +4238,11 @@ of several base components.
     partial model PartialOneFlangeAndSupport
       "Partial model for a component with one translational 1-dim. shaft flange and a support used for graphical modeling, i.e., the model is build up by drag-and-drop from elementary components"
       parameter Boolean useSupport=false
-        "= true, if support flange enabled, otherwise implicitly grounded"
+        "= true, if support flange enabled, otherwise implicitly grounded" 
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-      Flange_b flange "Flange of component"
+      Flange_b flange "Flange of component" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      Support support if useSupport "Support/housing of component"
+      Support support if useSupport "Support/housing of component" 
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
       annotation (
         Documentation(info="<html>
@@ -4275,7 +4297,7 @@ and instead the component is internally fixed to ground.
         "Internal support/housing of component (either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
         annotation (Placement(transformation(extent={{-3,-83},{3,-77}})));
       Components.Fixed fixed if not useSupport
-        "Fixed support/housing, if not useSupport"
+        "Fixed support/housing, if not useSupport" 
         annotation (Placement(transformation(extent={{10,-94},{30,-74}})));
     equation
       connect(fixed.flange, internalSupport) annotation (Line(
@@ -4291,13 +4313,13 @@ and instead the component is internally fixed to ground.
     partial model PartialTwoFlangesAndSupport
       "Partial model for a component with two translational 1-dim. shaft flanges and a support used for graphical modeling, i.e., the model is build up by drag-and-drop from elementary components"
       parameter Boolean useSupport=false
-        "= true, if support flange enabled, otherwise implicitly grounded"
+        "= true, if support flange enabled, otherwise implicitly grounded" 
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-      Flange_a flange_a "Flange of left end"
+      Flange_a flange_a "Flange of left end" 
         annotation (Placement(transformation(extent={{-110,-10}, {-90,10}}, rotation=0)));
-      Flange_b flange_b "Flange of right end"
+      Flange_b flange_b "Flange of right end" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      Support support if useSupport "Support/housing of component"
+      Support support if useSupport "Support/housing of component" 
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
       annotation (
         Documentation(info="<html>
@@ -4352,7 +4374,7 @@ and instead the component is internally fixed to ground.
         "Internal support/housing of component (either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
         annotation (Placement(transformation(extent={{-3,-83},{3,-77}})));
       Components.Fixed fixed if not useSupport
-        "Fixed support/housing, if not useSupport"
+        "Fixed support/housing, if not useSupport" 
         annotation (Placement(transformation(extent={{10,-97},{30,-77}})));
     equation
       connect(fixed.flange, internalSupport) annotation (Line(
@@ -4371,10 +4393,10 @@ and instead the component is internally fixed to ground.
         "Absolute position of center of component (s = flange_a.s + L/2 = flange_b.s - L/2)";
       parameter SI.Length L(start=0)
         "Length of component, from left flange to right flange (= flange_b.s - flange_a.s)";
-      Flange_a flange_a "Left flange of translational component"
+      Flange_a flange_a "Left flange of translational component" 
          annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
-      Flange_b flange_b "Right flange of translational component"
+      Flange_b flange_b "Right flange of translational component" 
          annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
       annotation (
@@ -4399,11 +4421,11 @@ It is used e.g. to built up sliding masses.
       "Compliant connection of two translational 1D flanges"
 
       Flange_a flange_a
-        "Left flange of compliant 1-dim. translational component"
+        "Left flange of compliant 1-dim. translational component" 
          annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
       Flange_b flange_b
-        "Right flange of compliant 1-dim. translational component"
+        "Right flange of compliant 1-dim. translational component" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
       SI.Distance s_rel(start=0)
@@ -4440,7 +4462,7 @@ flange is the same. It is used to built up springs, dampers etc.
       "Base model for the compliant connection of two translational 1-dim. shaft flanges where the relative position and relative velocities are used as states"
 
       parameter StateSelect stateSelect=StateSelect.prefer
-        "Priority to use phi_rel and w_rel as states"
+        "Priority to use phi_rel and w_rel as states" 
       annotation(HideResult=true, Dialog(tab="Advanced"));
       parameter SI.Distance s_nominal=1e-4
         "Nominal value of s_rel (used for scaling)"   annotation(Dialog(tab="Advanced"));
@@ -4452,11 +4474,11 @@ flange is the same. It is used to built up springs, dampers etc.
 
       SI.Force f "Forces between flanges (= flange_b.f)";
       Translational.Interfaces.Flange_a flange_a
-        "Left flange of compliant 1-dim. translational component"
+        "Left flange of compliant 1-dim. translational component" 
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
       Translational.Interfaces.Flange_b flange_b
-        "Right flange of compliant 1-dim. transational component"
+        "Right flange of compliant 1-dim. transational component" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
       annotation (
@@ -4508,11 +4530,11 @@ and c have more meaningful values for the user.
       extends Modelica.Icons.ObsoleteModel;
 
       parameter Boolean useSupport=false
-        "= true, if support flange enabled, otherwise implicitly grounded"
+        "= true, if support flange enabled, otherwise implicitly grounded" 
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
       Modelica.SIunits.Length s = flange.s - internalSupport.s
         "distance between flange and support (= flange.s - support.s)";
-      Flange_b flange "Flange of component"
+      Flange_b flange "Flange of component" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
       annotation (
@@ -4569,10 +4591,10 @@ and instead the component is internally fixed to ground.
         "Internal support/housing of component as a model with connector flange (flange is either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
         annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
       Components.Fixed fixed if not useSupport
-        "Fixed support/housing, if not useSupport"
+        "Fixed support/housing, if not useSupport" 
         annotation (Placement(transformation(extent={{10,-97},{30,-77}})));
     public
-      Support support if useSupport "Support/housing of component"
+      Support support if useSupport "Support/housing of component" 
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
     equation
       connect(internalSupport.flange, support) annotation (Line(
@@ -4588,15 +4610,15 @@ and instead the component is internally fixed to ground.
     partial model PartialElementaryOneFlangeAndSupport2
       "Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models"
       parameter Boolean useSupport=false
-        "= true, if support flange enabled, otherwise implicitly grounded"
+        "= true, if support flange enabled, otherwise implicitly grounded" 
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
       Modelica.SIunits.Length s = flange.s - s_support
         "distance between flange and support (= flange.s - support.s)";
-      Flange_b flange "Flange of component"
+      Flange_b flange "Flange of component" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
       Support support(s=s_support, f=-flange.f) if useSupport
-        "Support/housing of component"
+        "Support/housing of component" 
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
     protected
       Modelica.SIunits.Length s_support "Absolute position of support flange";
@@ -4653,11 +4675,11 @@ and instead the component is internally fixed to ground.
       "Obsolete partial model. Use PartialElementaryTwoFlangesAndSupport2."
       extends Modelica.Icons.ObsoleteModel;
       parameter Boolean useSupport=false
-        "= true, if support flange enabled, otherwise implicitly grounded"
+        "= true, if support flange enabled, otherwise implicitly grounded" 
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-      Flange_a flange_a "Flange of left shaft"
+      Flange_a flange_a "Flange of left shaft" 
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
-      Flange_b flange_b "Flange of right shaft"
+      Flange_b flange_b "Flange of right shaft" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Modelica.SIunits.Length s_a = flange_a.s - internalSupport.s
         "Distance between left flange and support";
@@ -4711,10 +4733,10 @@ connector is not connected).
         "Internal support/housing of component as a model with connector flange (flange is either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
         annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
       Components.Fixed fixed if not useSupport
-        "Fixed support/housing, if not useSupport"
+        "Fixed support/housing, if not useSupport" 
         annotation (Placement(transformation(extent={{10,-97},{30,-77}})));
     public
-      Support support if useSupport "Support/housing of component"
+      Support support if useSupport "Support/housing of component" 
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
     equation
       connect(internalSupport.flange, support) annotation (Line(
@@ -4730,14 +4752,14 @@ connector is not connected).
     partial model PartialElementaryTwoFlangesAndSupport2
       "Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models"
       parameter Boolean useSupport=false
-        "= true, if support flange enabled, otherwise implicitly grounded"
+        "= true, if support flange enabled, otherwise implicitly grounded" 
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-      Flange_a flange_a "Flange of left shaft"
+      Flange_a flange_a "Flange of left shaft" 
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
-      Flange_b flange_b "Flange of right shaft"
+      Flange_b flange_b "Flange of right shaft" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Support support(s=s_support, f = -flange_a.f - flange_b.f) if useSupport
-        "Support/housing of component"
+        "Support/housing of component" 
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
       Modelica.SIunits.Length s_a = flange_a.s - s_support
         "Distance between left flange and support";
@@ -4914,7 +4936,7 @@ with the Modelica.Blocks blocks.
          annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
       Interfaces.Flange_b flange_b
-        "(right) driven flange (flange axis directed out of cut plane)"
+        "(right) driven flange (flange axis directed out of cut plane)" 
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
       annotation (
@@ -4962,7 +4984,7 @@ Basic model for Coulomb friction that models the stuck phase in a reliable way.
 "));
     //extends Translational.Interfaces.PartialRigid;
       parameter SI.Velocity v_small=1e-3
-        "Relative velocity near to zero (see model info text)"
+        "Relative velocity near to zero (see model info text)" 
          annotation(Dialog(tab="Advanced"));
     // Equations to define the following variables have to be defined in subclasses
       SI.Velocity v_relfric "Relative velocity between frictional surfaces";
@@ -5000,7 +5022,7 @@ Basic model for Coulomb friction that models the stuck phase in a reliable way.
    if for each configuration special code shall be generated)
 */
       startForward = pre(mode) == Stuck and (sa > f0_max/unitForce or pre(startForward)
-         and sa > f0/unitForce) or pre(mode) == Backward and v_relfric > v_small or
+         and sa > f0/unitForce) or pre(mode) == Backward and v_relfric > v_small or 
         initial() and (v_relfric > 0);
       startBackward = pre(mode) == Stuck and (sa < -f0_max/unitForce or pre(
         startBackward) and sa < -f0/unitForce) or pre(mode) == Forward and v_relfric <
@@ -5008,11 +5030,11 @@ Basic model for Coulomb friction that models the stuck phase in a reliable way.
       locked = not free and not (pre(mode) == Forward or startForward or pre(
         mode) == Backward or startBackward);
 
-      a_relfric/unitAcceleration = if locked then               0 else
-                                   if free then                 sa else
-                                   if startForward then         sa - f0_max/unitForce else
-                                   if startBackward then        sa + f0_max/unitForce else
-                                   if pre(mode) == Forward then sa - f0_max/unitForce else
+      a_relfric/unitAcceleration = if locked then               0 else 
+                                   if free then                 sa else 
+                                   if startForward then         sa - f0_max/unitForce else 
+                                   if startBackward then        sa + f0_max/unitForce else 
+                                   if pre(mode) == Forward then sa - f0_max/unitForce else 
                                                                 sa + f0_max/unitForce;
 
     /* Friction torque has to be defined in a subclass. Example for a clutch:
@@ -5024,11 +5046,11 @@ Basic model for Coulomb friction that models the stuck phase in a reliable way.
                                              -Math.tempInterpol1(-v_relfric, mue_pos, 2));
 */
     // finite state machine to determine configuration
-      mode = if free then Free else
-        (if (pre(mode) == Forward  or pre(mode) == Free or startForward)  and v_relfric > 0 then
-           Forward else
-         if (pre(mode) == Backward or pre(mode) == Free or startBackward) and v_relfric < 0 then
-           Backward else
+      mode = if free then Free else 
+        (if (pre(mode) == Forward  or pre(mode) == Free or startForward)  and v_relfric > 0 then 
+           Forward else 
+         if (pre(mode) == Backward or pre(mode) == Free or startBackward) and v_relfric < 0 then 
+           Backward else 
            Stuck);
     end PartialFriction;
 

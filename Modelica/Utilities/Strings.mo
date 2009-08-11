@@ -1,7 +1,7 @@
 within Modelica.Utilities;
 package Strings "Operations on strings"
   function length "Returns length of string"
-    extends  Modelica.Icons.Function;
+    extends Modelica.Icons.Function;
     input String string;
     output Integer result "Number of characters of string";
   external "C" result=  ModelicaStrings_length(string);
@@ -26,7 +26,7 @@ Returns the number of characters of \"string\".
     input Integer endIndex(min=1) "Character position of substring end";
     output String result
       "String containing substring string[startIndex:endIndex]";
-  external "C" result =
+  external "C" result = 
                       ModelicaStrings_substring(string,startIndex,endIndex);
     annotation (Library="ModelicaExternalC",
   Documentation(info="<html>
@@ -137,8 +137,6 @@ optionally ignoring case.
   extends Modelica.Icons.Library;
 
   annotation (
-  // illegal use of top-level annotation removed:
-  // version="1.0", versionDate="2004-10-01",
     Documentation(info="<HTML>
 <h4>Library content</h4>
 <p>
@@ -204,6 +202,8 @@ If <b>false</b>, the operation is carried out without taking
 into account whether a character is upper or lower case.
 </p>
 </HTML>"));
+  // illegal use of top-level annotation removed:
+  // version="1.0", versionDate="2004-10-01",
 
   function count "Count the number of non-overlapping occurrences of a string"
     extends Modelica.Icons.Function;
@@ -394,8 +394,8 @@ performed replacements.
     while i > 0 loop
        i_found := find(string, searchString, i, caseSensitive);
        if i_found > 0 then
-          result := if i_found == 1 then
-                       replaceString else
+          result := if i_found == 1 then 
+                       replaceString else 
                        result + (if i_found-1<i then "" else substring(string, i, i_found-1)) + replaceString;
           i := i_found + lenSearchString;
           if i > lenString then

@@ -1,4 +1,3 @@
-AmplifierWithOpAmpMacro
 CauerLowPassAnalog
 CauerLowPassOPV
 CauerLowPassSC
@@ -18,3 +17,6 @@ ShowVariableResistor
 SwitchWithArc
 ThyristorBehaviourTest
 Utilities
+AmplifierWithOpAmpDetailed
+CompareTransformers
+ControlledSwitchWithArc
