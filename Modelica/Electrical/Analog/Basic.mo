@@ -88,14 +88,14 @@ at least one ground object.
   end Ground;
 
 model Resistor "Ideal linear electrical resistor"
-  extends Modelica.Electrical.Analog.Interfaces.OnePort;
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
   parameter Modelica.SIunits.Resistance R(start=1)
       "Resistance R_ref at temperature T_ref";
-  parameter Modelica.SIunits.Temperature T_ref(start=300.15)
-      "Reference temperature";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha(start=0)
+  parameter Modelica.SIunits.Temperature T_ref=300.15 "Reference temperature";
+  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha*(heatPort.T - T_ref))";
+
+  extends Modelica.Electrical.Analog.Interfaces.OnePort;
+  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
   Modelica.SIunits.Resistance R_actual
       "Resistance = R_ref*(1 + alpha*(intenalHeatPort.T - T_ref))";
   annotation (
@@ -160,14 +160,13 @@ equation
 end Resistor;
 
   model HeatingResistor "Temperature dependent electrical resistor"
-    extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref, useHeatPort=true);
     parameter Modelica.SIunits.Resistance R_ref(start=1)
       "Resistance at temperature T_ref";
-    parameter Modelica.SIunits.Temperature T_ref(start=300.15)
-      "Reference temperature";
-    parameter Modelica.SIunits.LinearTemperatureCoefficient alpha(start=0)
+    parameter Modelica.SIunits.Temperature T_ref=300.15 "Reference temperature";
+    parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R = R_ref*(1 + alpha*(heatPort.T - T_ref))";
+    extends Modelica.Electrical.Analog.Interfaces.OnePort;
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref, useHeatPort=true);
     Modelica.SIunits.Resistance R
       "Resistance = R_ref*(1 + alpha*(intenalHeatPort.T - T_ref))";
     annotation (__Dymola_structurallyIncomplete=true,
@@ -263,14 +262,13 @@ If the heatPort connector is enabled, it must be connected.
   end HeatingResistor;
 
 model Conductor "Ideal linear electrical conductor"
-  extends Modelica.Electrical.Analog.Interfaces.OnePort;
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
   parameter Modelica.SIunits.Conductance G(start=1)
       "Conductance G_ref at temperature T_ref";
-  parameter Modelica.SIunits.Temperature T_ref(start=300.15)
-      "Reference temperature";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha(start=0)
+  parameter Modelica.SIunits.Temperature T_ref=300.15 "Reference temperature";
+  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(heatPort.T - T_ref))";
+  extends Modelica.Electrical.Analog.Interfaces.OnePort;
+  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
   Modelica.SIunits.Conductance G_actual
       "Conductance = G_ref/(1 + alpha*(intenalHeatPort.T - T_ref))";
   annotation (
@@ -694,7 +692,8 @@ equation
   v =Lm*der(i);
 
   annotation (Icon(
-      coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+      coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), 
+
         graphics={
           Ellipse(extent={{-36,24},{-18,42}}),
           Ellipse(extent={{18,24},{36,42}}),
@@ -1477,7 +1476,8 @@ The left port voltage is zero. Any transResistance can be chosen.
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-90,50},{-20,50},{-20,-50},{-90,-50}}, color={0,0,255}),
+          Line(points={{-90,50},{-20,50},{-20,-50},{-90,-50}}, color={0,0,255}), 
+
           Text(
             extent={{-140,-82},{160,-122}},
             textString="%name",
@@ -1535,7 +1535,8 @@ The left port voltage is zero. Any current gain can be chosen.
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-100,50},{-30,50},{-30,-50},{-100,-50}}, color={0,0,255}),
+          Line(points={{-100,50},{-30,50},{-30,-50},{-100,-50}}, color={0,0,255}), 
+
           Ellipse(extent={{10,20},{50,-20}}, lineColor={0,0,255}),
           Line(points={{-20,60},{20,60}}, color={0,0,255}),
           Polygon(
@@ -1996,12 +1997,12 @@ Now one of these models, the model \"amp(macro)\" was transferred into Modelica.
 
       model VariableResistor
     "Ideal linear electrical resistor with variable resistance"
+        parameter Modelica.SIunits.Temperature T_ref=300.15
+      "Reference temperature";
+        parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
+      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
         extends Modelica.Electrical.Analog.Interfaces.OnePort;
         extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
-        parameter Modelica.SIunits.Temperature T_ref(start=300.15)
-      "Reference temperature";
-        parameter Modelica.SIunits.LinearTemperatureCoefficient alpha(start=0)
-      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(heatPort.T - T_ref))";
         Modelica.SIunits.Resistance R_actual
       "Resistance = R*(1 + alpha*(intenalHeatPort.T - T_ref))";
         Modelica.Blocks.Interfaces.RealInput R 
@@ -2076,12 +2077,12 @@ The Resistance <i>R</i> is given as input signal.
 
       model VariableConductor
     "Ideal linear electrical conductor with variable conductance"
+        parameter Modelica.SIunits.Temperature T_ref=300.15
+      "Reference temperature";
+        parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
+      "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(heatPort.T - T_ref))";
         extends Modelica.Electrical.Analog.Interfaces.OnePort;
         extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
-        parameter Modelica.SIunits.Temperature T_ref(start=300.15)
-      "Reference temperature";
-        parameter Modelica.SIunits.LinearTemperatureCoefficient alpha(start=0)
-      "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(heatPort.T - T_ref))";
         Modelica.SIunits.Conductance G_actual
       "Conductance = G_ref/(1 + alpha*(intenalHeatPort.T - T_ref))";
         Modelica.Blocks.Interfaces.RealInput G 
