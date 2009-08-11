@@ -827,8 +827,6 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
             Text(
               extent={{2,82},{44,54}},
               lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="z"),
             Polygon(
               points={{100,8},{100,-4},{20,-104},{20,-92},{100,8}},

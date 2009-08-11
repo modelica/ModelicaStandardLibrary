@@ -485,8 +485,6 @@ Base class for vessel heat transfer models.
                 fillColor={232,0,0}), Text(
                 extent={{-38,26},{40,-14}},
                 lineColor={0,0,0},
-                fillPattern=FillPattern.Sphere,
-                fillColor={232,0,0},
                 textString="%name")}));
     end PartialVesselHeatTransfer;
 
@@ -670,9 +668,7 @@ For larger port diameters, relative to the area of the vessel, the inlet pressur
             Text(extent={{-75,130},{75,100}}, textString="%name"),
             Rectangle(
               extent={{-25,100},{25,-100}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
+              lineColor={0,0,0}),
             Ellipse(
               extent={{-22,100},{-10,-100}},
               lineColor={0,0,0},
@@ -727,9 +723,7 @@ For larger port diameters, relative to the area of the vessel, the inlet pressur
             Text(extent={{-75,130},{75,100}}, textString="%name"),
             Rectangle(
               extent={{-25,100},{25,-100}},
-              lineColor={0,0,0},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
+              lineColor={0,0,0}),
             Ellipse(
               extent={{-22,100},{-10,-100}},
               lineColor={0,0,0},

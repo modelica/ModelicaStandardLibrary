@@ -3116,8 +3116,6 @@ November 3-4, 2003, pp. 149-158</p>
             Text(
               extent={{-154,124},{146,84}},
               lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="%name"),
             Ellipse(
               extent={{-80,80},{80,-80}},
@@ -3335,8 +3333,6 @@ November 3-4, 2003, pp. 149-158</p>
             Text(
               extent={{-56,62},{-38,50}},
               lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="x"),
             Line(
               points={{-62,30},{-94,30}},
@@ -3351,8 +3347,6 @@ November 3-4, 2003, pp. 149-158</p>
             Text(
               extent={{-114,50},{-96,38}},
               lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="y")}));
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame1
@@ -7650,8 +7644,6 @@ Don't use the models of this package.
               Text(
                 extent={{-148,-86},{152,-126}},
                 lineColor={0,0,255},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="%name"),
               Line(
                 points={{0,-60},{0,4}},

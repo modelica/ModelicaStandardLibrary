@@ -770,8 +770,7 @@ This also allows for taking into account friction losses with respect to the act
               pattern=LinePattern.Dot),
             Text(
               extent={{-99,36},{-69,30}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255},
               textString="crossAreas[1]",
               pattern=LinePattern.None),
             Line(
@@ -781,8 +780,7 @@ This also allows for taking into account friction losses with respect to the act
               pattern=LinePattern.Dot),
             Text(
               extent={{0,36},{40,30}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255},
               textString="crossAreas[2:n-1]",
               pattern=LinePattern.None),
             Line(
@@ -792,8 +790,7 @@ This also allows for taking into account friction losses with respect to the act
               pattern=LinePattern.Dot),
             Text(
               extent={{100.5,36},{130.5,30}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255},
               textString="crossAreas[n]",
               pattern=LinePattern.None),
             Line(
@@ -818,8 +815,7 @@ This also allows for taking into account friction losses with respect to the act
               pattern=LinePattern.Dot),
             Text(
               extent={{-30,77},{30,71}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255},
               textString="lengths[2:n-1]",
               pattern=LinePattern.None),
             Line(
@@ -828,8 +824,7 @@ This also allows for taking into account friction losses with respect to the act
               color={0,0,0}),
             Text(
               extent={{-80,-63},{-20,-69}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255},
               pattern=LinePattern.None,
               textString="flowModel.dps_fg[1]"),
             Line(
@@ -838,8 +833,7 @@ This also allows for taking into account friction losses with respect to the act
               color={0,0,0}),
             Text(
               extent={{20.5,-63},{80,-69}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255},
               pattern=LinePattern.None,
               textString="flowModel.dps_fg[2:n-1]"),
             Line(
@@ -848,8 +842,7 @@ This also allows for taking into account friction losses with respect to the act
               color={0,0,0}),
             Text(
               extent={{-49,7},{-19,1}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255},
               pattern=LinePattern.None,
               textString="m_flows[2]"),
             Line(
@@ -858,8 +851,7 @@ This also allows for taking into account friction losses with respect to the act
               color={0,0,0}),
             Text(
               extent={{17,7},{47,1}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255},
               pattern=LinePattern.None,
               textString="m_flows[3:n]"),
             Line(
@@ -872,20 +864,17 @@ This also allows for taking into account friction losses with respect to the act
               color={0,0,0}),
             Text(
               extent={{-140,7},{-110,1}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255},
               textString="m_flows[1]",
               pattern=LinePattern.None),
             Text(
               extent={{111,7},{141,1}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255},
               textString="m_flows[n+1]",
               pattern=LinePattern.None),
             Text(
               extent={{35,-92},{100,-98}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255},
               pattern=LinePattern.None,
               textString="(ModelStructure av_vb, n=3)"),
             Line(
@@ -911,8 +900,7 @@ This also allows for taking into account friction losses with respect to the act
               fillPattern=FillPattern.Solid),
             Text(
               extent={{3,-4},{33,-10}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255},
               pattern=LinePattern.None,
               textString="states[2:n-1]"),
             Ellipse(
@@ -923,8 +911,7 @@ This also allows for taking into account friction losses with respect to the act
               fillPattern=FillPattern.Solid),
             Text(
               extent={{104,-4},{124,-10}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255},
               pattern=LinePattern.None,
               textString="states[n]"),
             Ellipse(
@@ -935,26 +922,22 @@ This also allows for taking into account friction losses with respect to the act
               fillPattern=FillPattern.Solid),
             Text(
               extent={{-96,-4},{-76,-10}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255},
               pattern=LinePattern.None,
               textString="states[1]"),
             Text(
               extent={{-99.5,30},{-69.5,24}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255},
               pattern=LinePattern.None,
               textString="dimensions[1]"),
             Text(
               extent={{-0.5,30},{40,24}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255},
               pattern=LinePattern.None,
               textString="dimensions[2:n-1]"),
             Text(
               extent={{100.5,30},{130.5,24}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255},
               pattern=LinePattern.None,
               textString="dimensions[n]"),
             Line(
@@ -998,14 +981,12 @@ This also allows for taking into account friction losses with respect to the act
               color={0,0,0}),
             Text(
               extent={{5,18},{25,12}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255},
               pattern=LinePattern.None,
               textString="vs[2:n-1]"),
             Text(
               extent={{-80,18},{-70,12}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255},
               pattern=LinePattern.None,
               textString="vs[1]"),
             Line(
@@ -1014,8 +995,7 @@ This also allows for taking into account friction losses with respect to the act
               color={0,0,0}),
             Text(
               extent={{70,18},{80,12}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255},
               pattern=LinePattern.None,
               textString="vs[n]"),
             Line(
@@ -1024,8 +1004,7 @@ This also allows for taking into account friction losses with respect to the act
               color={0,0,0}),
             Text(
               extent={{-80,-75},{-20,-81}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255},
               pattern=LinePattern.None,
               textString="flowModel.pathLengths[1]"),
             Line(
@@ -1038,20 +1017,17 @@ This also allows for taking into account friction losses with respect to the act
               color={0,0,0}),
             Text(
               extent={{15,-75},{85,-81}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255},
               pattern=LinePattern.None,
               textString="flowModel.pathLengths[2:n-1]"),
             Text(
               extent={{-100,77},{-50,71}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255},
               pattern=LinePattern.None,
               textString="lengths[1]"),
             Text(
               extent={{50,77},{100,71}},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255},
               pattern=LinePattern.None,
               textString="lengths[n]")}));
 
@@ -1238,8 +1214,6 @@ e.g. with numerical smoothing or by raising events as appropriate.
                 thickness=1), Text(
                 extent={{-40,-50},{40,-90}},
                 lineColor={0,0,0},
-                fillPattern=FillPattern.Sphere,
-                fillColor={232,0,0},
                 textString="%name")}));
 
           end PartialStaggeredFlowModel;
@@ -1432,8 +1406,6 @@ simulation and/or might give a more robust simulation.
               Text(
                 extent={{-50,16},{6,-10}},
                 lineColor={0,0,255},
-                fillColor={0,0,255},
-                fillPattern=FillPattern.Solid,
                 textString="diameters"),
               Line(
                 points={{-100,74},{100,74}},
@@ -1442,8 +1414,6 @@ simulation and/or might give a more robust simulation.
               Text(
                 extent={{-32,93},{32,74}},
                 lineColor={0,0,255},
-                fillColor={0,0,255},
-                fillPattern=FillPattern.Solid,
                 textString="pathLengths")}));
           end PartialGenericPipeFlow;
 
@@ -1609,8 +1579,6 @@ b has the same sign of the change of density.</p>
               Text(
                 extent={{-50,16},{6,-10}},
                 lineColor={0,0,255},
-                fillColor={0,0,255},
-                fillPattern=FillPattern.Solid,
                 textString="diameters"),
               Line(
                 points={{-100,74},{100,74}},
@@ -1655,8 +1623,6 @@ for examplary definitions.
                 fillPattern=FillPattern.HorizontalCylinder), Text(
                 extent={{-40,22},{38,-18}},
                 lineColor={0,0,0},
-                fillPattern=FillPattern.Sphere,
-                fillColor={232,0,0},
                 textString="%name")}));
     end PartialFlowHeatTransfer;
 
@@ -3564,8 +3530,6 @@ b has the same sign of the change of density.</p>
               Text(
                 extent={{-150,80},{150,120}},
                 lineColor={0,0,255},
-                fillPattern=FillPattern.HorizontalCylinder,
-                fillColor={0,127,255},
                 textString="%name")}),           Documentation(info="<html>
 <p>
 This model describes pressure losses due to <b>wall friction</b> in a pipe
@@ -3619,8 +3583,6 @@ simulation and/or might give a more robust simulation.
               Text(
                 extent={{-50,16},{6,-10}},
                 lineColor={0,0,255},
-                fillColor={0,0,255},
-                fillPattern=FillPattern.Solid,
                 textString="diameter"),
               Line(
                 points={{-100,74},{100,74}},
@@ -3629,8 +3591,6 @@ simulation and/or might give a more robust simulation.
               Text(
                 extent={{-34,92},{34,74}},
                 lineColor={0,0,255},
-                fillColor={0,0,255},
-                fillPattern=FillPattern.Solid,
                 textString="length")}));
       end TestWallFrictionAndGravity;
     end WallFriction;

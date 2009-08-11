@@ -333,50 +333,34 @@ This example is based on
             Text(
               extent={{-100,68},{-12,54}},
               lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid,
               textString="start"),
             Text(
               extent={{-99,6},{-14,-9}},
               lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid,
               textString="stop"),
             Text(
               extent={{-99,-54},{-14,-69}},
               lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid,
               textString="shut"),
             Text(
               extent={{-94,-82},{-9,-96}},
               lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid,
               textString="level1"),
             Text(
               extent={{11,-83},{96,-98}},
               lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid,
               textString="level2"),
             Text(
               extent={{10,68},{99,54}},
               lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid,
               textString="valve1"),
             Text(
               extent={{7,10},{101,-5}},
               lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid,
               textString="valve2"),
             Text(
               extent={{2,-51},{102,-67}},
               lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid,
               textString="valve3")}));
       connect(s1.outPort[1], T1.inPort) 
                                      annotation (Line(points={{-51.5,40},{-44,

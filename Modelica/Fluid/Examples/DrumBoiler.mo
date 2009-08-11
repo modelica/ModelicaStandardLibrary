@@ -35,20 +35,14 @@ package DrumBoiler
           Text(
             extent={{-151,165},{138,102}},
             lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="%name"),
           Text(
             extent={{-79,67},{67,21}},
             lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="drum"),
           Text(
             extent={{-90,-14},{88,-64}},
             lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="boiler")}),
       experiment(StopTime=5400),
       __Dymola_experimentSetupOutput,
@@ -399,8 +393,6 @@ package DrumBoiler
             Text(
               extent={{-150,70},{150,110}},
               lineColor={0,0,255},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={0,127,255},
               textString="%name"),
             Line(points={{0,-64},{0,-100}}, color={191,0,0}),
             Line(points={{100,100},{100,60}}, color={0,0,127}),

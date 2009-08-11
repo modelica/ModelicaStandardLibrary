@@ -1217,8 +1217,6 @@ where the constants <i>G1</i>, <i>G2</i> are called the gyration conductance.
           Text(
             extent={{-40,110},{-30,90}},
             lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
             textString="i"),
           Line(points={{9,75},{19,75}}, color={192,192,192}),
           Line(points={{-20,-110},{-20,-85}}, color={160,160,164}),

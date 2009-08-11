@@ -198,8 +198,6 @@ model SharpEdgedOrifice
           Text(
             extent={{-78,16},{-44,-8}},
             lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
             textString="diameter"),
           Line(
             points={{-30,-10},{-30,12}},
@@ -208,14 +206,10 @@ model SharpEdgedOrifice
           Text(
             extent={{-24,14},{8,-10}},
             lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
             textString="leastDiameter"),
           Text(
             extent={{-20,84},{18,70}},
             lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
             textString="length"),
           Line(
             points={{30,68},{-30,68}},
@@ -228,8 +222,6 @@ model SharpEdgedOrifice
           Text(
             extent={{38,8},{92,-6}},
             lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Backward,
             textString="alpha")}));
 
 end SharpEdgedOrifice;
@@ -267,8 +259,6 @@ model AbruptAdaptor
           Text(
             extent={{-50,16},{-26,-10}},
             lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
             textString="diameter_a"),
           Line(
             points={{34,-100},{34,100}},
@@ -277,8 +267,6 @@ model AbruptAdaptor
           Text(
             extent={{54,16},{78,-10}},
             lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
             textString="diameter_b")}),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}},
@@ -761,8 +749,6 @@ The used sufficient criteria for monotonicity follows from:
                 Text(
                   extent={{-50,16},{6,-10}},
                   lineColor={0,0,255},
-                  fillColor={0,0,255},
-                  fillPattern=FillPattern.Solid,
                   textString="diameter"),
                 Line(
                   points={{-100,74},{100,74}},
@@ -771,8 +757,6 @@ The used sufficient criteria for monotonicity follows from:
                 Text(
                   extent={{-34,92},{34,74}},
                   lineColor={0,0,255},
-                  fillColor={0,0,255},
-                  fillPattern=FillPattern.Solid,
                   textString="length")}),
            Documentation(info="<html>
 <p>
@@ -910,8 +894,6 @@ As a short summary:
                 Text(
                   extent={{-50,16},{-26,-10}},
                   lineColor={0,0,255},
-                  fillColor={0,0,255},
-                  fillPattern=FillPattern.Solid,
                   textString="diameter_a"),
                 Line(
                   points={{34,-100},{34,100}},
@@ -920,8 +902,6 @@ As a short summary:
                 Text(
                   extent={{54,16},{78,-10}},
                   lineColor={0,0,255},
-                  fillColor={0,0,255},
-                  fillPattern=FillPattern.Solid,
                   textString="diameter_b")}),
            Documentation(info="<html>
 <p>
@@ -1025,8 +1005,6 @@ port_a to port_b as:
                 Text(
                   extent={{-78,16},{-44,-8}},
                   lineColor={0,0,255},
-                  fillColor={0,0,255},
-                  fillPattern=FillPattern.Solid,
                   textString="diameter"),
                 Line(
                   points={{-30,-10},{-30,12}},
@@ -1035,14 +1013,10 @@ port_a to port_b as:
                 Text(
                   extent={{-24,14},{8,-10}},
                   lineColor={0,0,255},
-                  fillColor={0,0,255},
-                  fillPattern=FillPattern.Solid,
                   textString="leastDiameter"),
                 Text(
                   extent={{-20,84},{18,70}},
                   lineColor={0,0,255},
-                  fillColor={0,0,255},
-                  fillPattern=FillPattern.Solid,
                   textString="length"),
                 Line(
                   points={{30,68},{-30,68}},
@@ -1055,8 +1029,6 @@ port_a to port_b as:
                 Text(
                   extent={{38,8},{92,-6}},
                   lineColor={0,0,255},
-                  fillColor={0,0,255},
-                  fillPattern=FillPattern.Backward,
                   textString="alpha")}),
             Documentation(info="<html>
 <p>
@@ -1616,8 +1588,6 @@ The used sufficient criteria for monotonicity follows from:
               Text(
                 extent={{-150,80},{150,120}},
                 lineColor={0,0,0},
-                fillPattern=FillPattern.HorizontalCylinder,
-                fillColor={0,127,255},
                 textString="%name"),
               Rectangle(
                 extent={{-100,60},{100,-60}},

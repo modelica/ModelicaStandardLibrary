@@ -2707,8 +2707,6 @@ November 3-4, 2003, pp. 149-158</p>
             Text(
               extent={{12,-68},{30,-80}},
               lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="x"),
             Line(
               points={{6,-100},{-26,-100}},
@@ -2723,8 +2721,6 @@ November 3-4, 2003, pp. 149-158</p>
             Text(
               extent={{-46,-80},{-28,-92}},
               lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="y")}),
         Documentation(info="<html>
 <p>

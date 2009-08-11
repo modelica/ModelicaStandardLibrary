@@ -127,9 +127,7 @@ package Interfaces
           Text(extent={{-75,130},{75,100}}, textString="%name"),
           Rectangle(
             extent={{25,-100},{-25,100}},
-            lineColor={0,127,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
+            lineColor={0,127,255}),
           Ellipse(
             extent={{-25,90},{25,40}},
             lineColor={0,0,0},
@@ -184,9 +182,7 @@ package Interfaces
           Text(extent={{-75,130},{75,100}}, textString="%name"),
           Rectangle(
             extent={{-25,100},{25,-100}},
-            lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
+            lineColor={0,0,0}),
           Ellipse(
             extent={{-25,90},{25,40}},
             lineColor={0,0,0},
@@ -335,8 +331,6 @@ This will be visualized at the port icons, in order to improve the understanding
           Text(
             extent={{-149,-114},{151,-154}},
             lineColor={0,0,255},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={0,127,255},
             textString="%name"),
           Ellipse(
             extent={{-110,26},{-90,-24}},

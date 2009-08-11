@@ -182,29 +182,21 @@ to define fixed or prescribed ambient conditions.
             visible=use_p_in,
             extent={{-152,134},{-68,94}},
             lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="p"),
           Text(
             visible=use_X_in,
             extent={{-164,4},{-62,-36}},
             lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="X"),
           Text(
             visible=use_C_in,
             extent={{-164,-90},{-62,-130}},
             lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="C"),
           Text(
             visible=use_T_in,
             extent={{-162,34},{-60,-6}},
             lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="T")}),
       Documentation(info="<html>
 <p>
@@ -339,29 +331,21 @@ with exception of boundary pressure, do not have an effect.
             visible=use_p_in,
             extent={{-150,134},{-72,94}},
             lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="p"),
           Text(
             visible=use_h_in,
             extent={{-166,34},{-64,-6}},
             lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="h"),
           Text(
             visible=use_X_in,
             extent={{-164,4},{-62,-36}},
             lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="X"),
           Text(
             visible=use_C_in,
             extent={{-164,-90},{-62,-130}},
             lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="C")}),
       Documentation(info="<html>
 <p>
@@ -499,8 +483,6 @@ with exception of boundary pressure, do not have an effect.
           Text(
             extent={{-54,32},{16,-30}},
             lineColor={255,0,0},
-            fillColor={255,0,0},
-            fillPattern=FillPattern.Solid,
             textString="m"),
           Text(
             extent={{-150,130},{150,170}},
@@ -515,29 +497,21 @@ with exception of boundary pressure, do not have an effect.
             visible=use_m_flow_in,
             extent={{-185,132},{-45,100}},
             lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="m_flow"),
           Text(
             visible=use_T_in,
             extent={{-111,71},{-71,37}},
             lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="T"),
           Text(
             visible=use_X_in,
             extent={{-153,-44},{-33,-72}},
             lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="X"),
           Text(
             visible=use_C_in,
             extent={{-155,-98},{-35,-126}},
             lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="C")}),
       Window(
         x=0.45,
@@ -675,8 +649,6 @@ with exception of boundary flow rate, do not have an effect.
           Text(
             extent={{-54,32},{16,-30}},
             lineColor={255,0,0},
-            fillColor={255,0,0},
-            fillPattern=FillPattern.Solid,
             textString="m"),
           Ellipse(
             extent={{-26,30},{-18,22}},
@@ -687,29 +659,21 @@ with exception of boundary flow rate, do not have an effect.
             visible=use_m_flow_in,
             extent={{-185,132},{-45,100}},
             lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="m_flow"),
           Text(
             visible=use_h_in,
             extent={{-113,72},{-73,38}},
             lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="h"),
           Text(
             visible=use_X_in,
             extent={{-153,-44},{-33,-72}},
             lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="X"),
           Text(
             visible=use_X_in,
             extent={{-155,-98},{-35,-126}},
             lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="C"),
           Text(
             extent={{-150,110},{150,150}},

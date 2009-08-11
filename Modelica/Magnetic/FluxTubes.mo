@@ -2840,14 +2840,10 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
           Text(
             extent={{128,-56},{144,-41}},
             lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
             textString="Phi"),
           Text(
             extent={{128,64},{145,79}},
             lineColor={0,0,0},
-            fillPattern=FillPattern.HorizontalCylinder,
-            fillColor={160,160,164},
             textString="Phi"),
           Line(points={{-150,-59},{-125,-59}}, color={160,160,164}),
           Polygon(
@@ -2858,14 +2854,10 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
           Text(
             extent={{-141,-56},{-124,-41}},
             lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
             textString="i"),
           Text(
             extent={{-150,63},{-133,78}},
             lineColor={160,160,164},
-            fillColor={160,160,164},
-            fillPattern=FillPattern.Solid,
             textString="i"),
           Line(points={{124,61},{149,61}}, color={160,160,164}),
           Polygon(
@@ -4846,8 +4838,6 @@ This source of a magnetic flux is intended for test purposes, e.g. for simulatio
           Text(
             extent={{-52,1},{48,-57}},
             lineColor={0,0,0},
-            fillColor={0,0,0},
-            fillPattern=FillPattern.Solid,
             textString="V_m"),
           Line(points={{-70,0},{-90,0}}, color={0,0,0}),
           Line(points={{70,0},{90,0}}, color={0,0,0}),

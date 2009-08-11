@@ -467,8 +467,6 @@ The design flow direction with positive m_flow variables is counterflow.
               fillPattern=FillPattern.Forward), Text(
               extent={{-82,18},{76,-18}},
               lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Forward,
               textString="%name")}),
                                 Documentation(revisions="<html>
 <ul>

@@ -90,8 +90,6 @@ is used for the current simulation.
         Text(
           extent={{16,20},{60,-18}},
           lineColor={0,0,0},
-          fillColor={0,0,0},
-          fillPattern=FillPattern.Solid,
           textString="g"),
         Text(
           extent={{-90,82},{74,50}},

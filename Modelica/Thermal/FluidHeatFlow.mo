@@ -1513,9 +1513,7 @@ temperature rise defined by storing heat in medium's mass.
             Text(extent={{-150,100},{150,40}}, textString="%name"),
             Polygon(
               points={{-10,-90},{-10,-40},{0,-20},{10,-40},{10,-90},{-10,-90}},
-              lineColor={255,0,0},
-              fillColor={255,0,0},
-              fillPattern=FillPattern.Solid)}),
+              lineColor={255,0,0})}),
                                 Diagram(coordinateSystem(preserveAspectRatio=
                 false, extent={{-100,-100},{100,100}}),
                                         graphics));

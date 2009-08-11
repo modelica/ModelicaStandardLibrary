@@ -775,14 +775,10 @@ present that are regulated by a central control system.
             Text(
               extent={{-42,48},{-42,38}},
               lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid,
               textString="rising"),
             Text(
               extent={{24,-10},{24,-20}},
               lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid,
               textString="falling"),
             Polygon(
               points={{-58,40},{-54,42},{-54,38},{-58,40}},
@@ -832,8 +828,6 @@ present that are regulated by a central control system.
             Text(
               extent={{-20,6},{-20,-4}},
               lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid,
               textString="amplitude"),
             Rectangle(
               extent={{-40,-48},{0,-58}},
@@ -843,8 +837,6 @@ present that are regulated by a central control system.
             Text(
               extent={{-20,-48},{-20,-58}},
               lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid,
               textString="offset"),
             Text(
               extent={{60,-82},{94,-92}},
@@ -872,8 +864,6 @@ present that are regulated by a central control system.
             Text(
               extent={{-16,72},{-16,62}},
               lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid,
               textString="y_high")}),
         Documentation(info="<HTML>
 <p>The block TriggeredTrapezoid has a boolean input and a real
@@ -950,8 +940,6 @@ handled properly.</p>
             Text(
               extent={{-96,15},{96,-15}},
               lineColor={0,0,0},
-              fillColor={0,255,0},
-              fillPattern=FillPattern.Solid,
               textString="%u"),
             Text(extent={{-150,90},{140,50}}, textString="%name")}),
         Diagram(coordinateSystem(
@@ -1268,8 +1256,6 @@ handled properly.</p>
             Text(
               extent={{-200,84},{0,48}},
               lineColor={0,0,255},
-              fillColor={0,127,255},
-              fillPattern=FillPattern.Solid,
               textString="%name"),
             Polygon(
               points={{0,100},{200,70},{200,50},{200,50},{0,80},{0,100}},
