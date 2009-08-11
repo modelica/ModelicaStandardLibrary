@@ -1,6 +1,6 @@
 within ModelicaTest.Fluid;
 package BaseClasses "Specific models used for testing"
-  extends Modelica.Icons.BaseClassLibrary;
+  extends Modelica.Fluid.Icons.BaseClassLibrary;
 
   model GenericStaticHead "Models two ports at different heights"
 
